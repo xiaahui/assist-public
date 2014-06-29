@@ -1,5 +1,5 @@
 package ch.hilbri.assist
 
-class model {
+class AssistModel {
 	
 }
