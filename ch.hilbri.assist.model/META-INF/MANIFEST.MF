@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ch.hilbri.assist.model
+Bundle-SymbolicName: ch.hilbri.assist.model; singleton:=true
+Bundle-Version: 0.1
+Require-Bundle: org.eclipse.emf.ecore
+Bundle-Vendor: Robert Hilbrich
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
