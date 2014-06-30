@@ -11,7 +11,7 @@
       <package
             uri="ch.hilbri.assist"
             class="ch.hilbri.assist.AssistPackage"
-            genModel="model/ASSIST.xcore"/>
+            genModel="model/assist.xcore"/>
    </extension>
 
 
