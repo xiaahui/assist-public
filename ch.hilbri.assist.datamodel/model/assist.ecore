@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="assist" nsURI="ch.hilbri.assist" nsPrefix="assist">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="basePackage" value="ch.hilbri"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="AssistModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemName" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hardwareContainer" upperBound="-1"
+        eType="#//HardwareElementContainer" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="networks" upperBound="-1"
+        eType="#//Network" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applications" lowerBound="1"
+        upperBound="-1" eType="#//Application" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applicationGroups" upperBound="-1"
+        eType="#//ApplicationGroup" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dissimilarityRelations"
+        upperBound="-1" eType="#//DissimilarityRelation" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dislocalityRelations" upperBound="-1"
+        eType="#//DislocalityRelation" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proximityRelations" upperBound="-1"
+        eType="#//ProximityRelation" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="communicationRelations"
+        upperBound="-1" eType="#//CommunicationRelation" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="HardwareArchitectureLevelType">
+    <eLiterals name="CORE" literal="Core"/>
+    <eLiterals name="PROCESSOR" literal="Processor"/>
+    <eLiterals name="BOARD" literal="Board"/>
+    <eLiterals name="BOX" literal="Box"/>
+    <eLiterals name="COMPARTMENT" literal="Compartment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="IOAdapterProtectionLevelType">
+    <eLiterals name="NONE" literal="None"/>
+    <eLiterals name="LEVEL_1" literal="Level 1"/>
+    <eLiterals name="LEVEL_2" literal="Level 2"/>
+    <eLiterals name="LEVEL_3" literal="Level 3"/>
+    <eLiterals name="LEVEL_4" literal="Level 4"/>
+    <eLiterals name="LEVEL_5" literal="Level 5"/>
+    <eLiterals name="LEVEL_6" literal="Level 6"/>
+    <eLiterals name="LEVEL_7" literal="Level 7"/>
+    <eLiterals name="LEVEL_8" literal="Level 8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DesignAssuranceLevelType">
+    <eLiterals name="NONE" literal="None"/>
+    <eLiterals name="QS" literal="QS"/>
+    <eLiterals name="D" literal="D"/>
+    <eLiterals name="C" literal="C"/>
+    <eLiterals name="B" literal="B"/>
+    <eLiterals name="A" literal="A"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HardwareElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" unique="false" eType="#//HardwareArchitectureLevelType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HardwareElementContainer" eSuperTypes="#//HardwareElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Compartment" eSuperTypes="#//HardwareElementContainer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="manufacturer" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerSupply" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="side" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zone" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boxes" lowerBound="1" upperBound="-1"
+        eType="#//Box" containment="true" resolveProxies="false" eOpposite="#//Box/compartment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metricParameters" upperBound="-1"
+        eType="#//MetricParameters" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Box" eSuperTypes="#//HardwareElementContainer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="manufacturer" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compartment" eType="#//Compartment"
+        eOpposite="#//Compartment/boxes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boards" lowerBound="1"
+        upperBound="-1" eType="#//Board" containment="true" resolveProxies="false"
+        eOpposite="#//Board/box"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metricParameters" upperBound="-1"
+        eType="#//MetricParameters" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Board" eSuperTypes="#//HardwareElementContainer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="manufacturer" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="boardType" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerSupply" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="assuranceLevel" unique="false"
+        eType="#//DesignAssuranceLevelType" defaultValueLiteral="None"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ramCapacity" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="romCapacity" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="box" eType="#//Box" eOpposite="#//Box/boards"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processors" lowerBound="1"
+        upperBound="-1" eType="#//Processor" containment="true" resolveProxies="false"
+        eOpposite="#//Processor/board"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ioAdapters" upperBound="-1"
+        eType="#//IOAdapter" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metricParameters" upperBound="-1"
+        eType="#//MetricParameters" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Processor" eSuperTypes="#//HardwareElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="manufacturer" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="processorType" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="board" eType="#//Board"
+        eOpposite="#//Board/processors"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cores" lowerBound="1" upperBound="-1"
+        eType="#//Core" containment="true" resolveProxies="false" eOpposite="#//Core/processor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metricParameters" upperBound="-1"
+        eType="#//MetricParameters" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Core" eSuperTypes="#//HardwareElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="architecture" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processor" eType="#//Processor"
+        eOpposite="#//Processor/cores"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metricParameters" upperBound="-1"
+        eType="#//MetricParameters" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="IOAdapterType">
+    <eLiterals name="CAN" literal="Can"/>
+    <eLiterals name="ELB" literal="Enhanced Local Bus"/>
+    <eLiterals name="ETH" literal="Ethernet"/>
+    <eLiterals name="ANALOG" literal="Analog"/>
+    <eLiterals name="DIGITAL" literal="Digital"/>
+    <eLiterals name="SERIAL" literal="Serial"/>
+    <eLiterals name="CUSTOM0" literal="Custom Type 0"/>
+    <eLiterals name="CUSTOM1" literal="Custom Type 1"/>
+    <eLiterals name="CUSTOM2" literal="Custom Type 2"/>
+    <eLiterals name="CUSTOM3" literal="Custom Type 3"/>
+    <eLiterals name="CUSTOM4" literal="Custom Type 4"/>
+    <eLiterals name="CUSTOM5" literal="Custom Type 5"/>
+    <eLiterals name="CUSTOM6" literal="Custom Type 6"/>
+    <eLiterals name="CUSTOM7" literal="Custom Type 7"/>
+    <eLiterals name="CUSTOM8" literal="Custom Type 8"/>
+    <eLiterals name="CUSTOM9" literal="Custom Type 9"/>
+    <eLiterals name="CUSTOM10" literal="Custom Type 10"/>
+    <eLiterals name="CUSTOM11" literal="Custom Type 11"/>
+    <eLiterals name="CUSTOM12" literal="Custom Type 12"/>
+    <eLiterals name="CUSTOM13" literal="Custom Type 13"/>
+    <eLiterals name="CUSTOM14" literal="Custom Type 14"/>
+    <eLiterals name="CUSTOM15" literal="Custom Type 15"/>
+    <eLiterals name="CUSTOM16" literal="Custom Type 16"/>
+    <eLiterals name="CUSTOM17" literal="Custom Type 17"/>
+    <eLiterals name="CUSTOM18" literal="Custom Type 18"/>
+    <eLiterals name="CUSTOM19" literal="Custom Type 19"/>
+    <eLiterals name="CUSTOM20" literal="Custom Type 20"/>
+    <eLiterals name="CUSTOM21" literal="Custom Type 21"/>
+    <eLiterals name="CUSTOM22" literal="Custom Type 22"/>
+    <eLiterals name="CUSTOM23" literal="Custom Type 23"/>
+    <eLiterals name="CUSTOM24" literal="Custom Type 24"/>
+    <eLiterals name="CUSTOM25" literal="Custom Type 25"/>
+    <eLiterals name="CUSTOM26" literal="Custom Type 26"/>
+    <eLiterals name="CUSTOM27" literal="Custom Type 27"/>
+    <eLiterals name="CUSTOM28" literal="Custom Type 28"/>
+    <eLiterals name="CUSTOM29" literal="Custom Type 29"/>
+    <eLiterals name="CUSTOM30" literal="Custom Type 30"/>
+    <eLiterals name="CUSTOM31" literal="Custom Type 31"/>
+    <eLiterals name="CUSTOM32" literal="Custom Type 32"/>
+    <eLiterals name="CUSTOM33" literal="Custom Type 33"/>
+    <eLiterals name="CUSTOM34" literal="Custom Type 34"/>
+    <eLiterals name="CUSTOM35" literal="Custom Type 35"/>
+    <eLiterals name="CUSTOM36" literal="Custom Type 36"/>
+    <eLiterals name="CUSTOM37" literal="Custom Type 37"/>
+    <eLiterals name="CUSTOM38" literal="Custom Type 38"/>
+    <eLiterals name="CUSTOM39" literal="Custom Type 39"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IOAdapter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalUnitCount" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adapterType" unique="false"
+        eType="#//IOAdapterType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="protectionLevel" unique="false"
+        eType="#//IOAdapterProtectionLevelType" defaultValueLiteral="None"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Network">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bandwidthCapacity" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boards" lowerBound="2"
+        upperBound="-1" eType="#//Board"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metricParameters" upperBound="-1"
+        eType="#//MetricParameters" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationOrApplicationGroup"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationGroup" eSuperTypes="#//ApplicationOrApplicationGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applications" lowerBound="2"
+        upperBound="-1" eType="#//Application"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Application" eSuperTypes="#//ApplicationOrApplicationGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="coreUtilization" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ramUtilization" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="romUtilization" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="criticalityLevel" unique="false"
+        eType="#//DesignAssuranceLevelType" defaultValueLiteral="None"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ioAdapterProtectionLevel"
+        unique="false" eType="#//IOAdapterProtectionLevelType" defaultValueLiteral="None"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parallelThreads" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="developedBy" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ioAdapterRequirements"
+        upperBound="-1" eType="#//IOAdapterRequirement" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="restrictMappingToHardwareElements"
+        upperBound="-1" eType="#//HardwareElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metricParameters" upperBound="-1"
+        eType="#//MetricParameters" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IOAdapterRequirement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adapterType" unique="false"
+        eType="#//IOAdapterType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredUnits" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSharedAllowed" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isExclusiveOnly" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DissimilarityRelation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="** RELATIONS  ***"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applicationsOrGroups" lowerBound="1"
+        upperBound="-1" eType="#//ApplicationOrApplicationGroup"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dissimilarityClause" lowerBound="1"
+        eType="#//DissimilarityClause" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DissimilarityClause"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DissimilarityDisjunction" eSuperTypes="#//DissimilarityClause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dissimilarityClauses" lowerBound="2"
+        upperBound="-1" eType="#//DissimilarityClause" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DissimilarityConjunction" eSuperTypes="#//DissimilarityClause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dissimilarityClauses" lowerBound="2"
+        upperBound="-1" eType="#//DissimilarityClause" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DissimilarityEntry" eSuperTypes="#//DissimilarityClause">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" unique="false" eType="#//HardwareArchitectureLevelType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="compartmentAttribute" unique="false"
+        eType="#//CompartmentAttributes" defaultValueLiteral="None"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="boxAttribute" unique="false"
+        eType="#//BoxAttributes" defaultValueLiteral="None"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="boardAttribute" unique="false"
+        eType="#//BoardAttributes" defaultValueLiteral="None"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="processorAttribute" unique="false"
+        eType="#//ProcessorAttributes" defaultValueLiteral="None"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CompartmentAttributes">
+    <eLiterals name="NONE" literal="None"/>
+    <eLiterals name="MANUFACTURER" literal="Manufacturer"/>
+    <eLiterals name="POWERSUPPLY" literal="PowerSupply"/>
+    <eLiterals name="SIDE" literal="Side"/>
+    <eLiterals name="ZONE" literal="Zone"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BoxAttributes">
+    <eLiterals name="NONE" literal="None"/>
+    <eLiterals name="MANUFACTURER" literal="Manufacturer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BoardAttributes">
+    <eLiterals name="NONE" literal="None"/>
+    <eLiterals name="MANUFACTURER" literal="Manufacturer"/>
+    <eLiterals name="POWERSUPPLY" literal="PowerSupply"/>
+    <eLiterals name="ASSURANCELEVEL" literal="AssuranceLevel"/>
+    <eLiterals name="BOARDTYPE" literal="BoardType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ProcessorAttributes">
+    <eLiterals name="NONE" literal="None"/>
+    <eLiterals name="MANUFACTURER" literal="Manufacturer"/>
+    <eLiterals name="PROCESSORTYPE" literal="ProcessorType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DislocalityRelation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProximityRelation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CommunicationRelation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MetricParameters">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

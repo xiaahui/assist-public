@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ch.hilbri.assist.datamodel/src" modelPluginID="ch.hilbri.assist.datamodel"
+    runtimeJar="true" modelName="ASSIST" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="" booleanFlagsField="eFlags" booleanFlagsReservedBits="8" importerID="org.eclipse.emf.ecore.xcore.importer"
+    containmentProxies="true" complianceLevel="7.0" language="en" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    operationReflection="true" importOrganizing="true" decoration="Live" oSGiCompatible="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="Ecore.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter.xmi">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="EcoreXMI.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <foreignModel>ASSIST.xcore</foreignModel>
+  <modelPluginVariables>org.eclipse.xtext.xbase.lib</modelPluginVariables>
+  <modelPluginVariables>org.eclipse.emf.ecore.xcore.lib</modelPluginVariables>
+  <genPackages prefix="Assist" basePackage="ch.hilbri" disposableProviderFactory="true"
+      ecorePackage="assist.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="assist.ecore#//HardwareArchitectureLevelType">
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//HardwareArchitectureLevelType/CORE"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//HardwareArchitectureLevelType/PROCESSOR"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//HardwareArchitectureLevelType/BOARD"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//HardwareArchitectureLevelType/BOX"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//HardwareArchitectureLevelType/COMPARTMENT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="assist.ecore#//IOAdapterProtectionLevelType">
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterProtectionLevelType/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterProtectionLevelType/LEVEL_1"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterProtectionLevelType/LEVEL_2"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterProtectionLevelType/LEVEL_3"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterProtectionLevelType/LEVEL_4"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterProtectionLevelType/LEVEL_5"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterProtectionLevelType/LEVEL_6"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterProtectionLevelType/LEVEL_7"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterProtectionLevelType/LEVEL_8"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="assist.ecore#//DesignAssuranceLevelType">
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//DesignAssuranceLevelType/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//DesignAssuranceLevelType/QS"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//DesignAssuranceLevelType/D"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//DesignAssuranceLevelType/C"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//DesignAssuranceLevelType/B"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//DesignAssuranceLevelType/A"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="assist.ecore#//IOAdapterType">
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CAN"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/ELB"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/ETH"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/ANALOG"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/DIGITAL"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/SERIAL"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM0"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM1"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM2"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM3"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM4"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM5"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM6"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM7"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM8"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM9"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM10"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM11"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM12"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM13"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM14"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM15"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM16"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM17"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM18"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM19"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM20"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM21"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM22"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM23"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM24"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM25"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM26"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM27"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM28"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM29"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM30"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM31"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM32"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM33"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM34"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM35"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM36"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM37"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM38"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//IOAdapterType/CUSTOM39"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="assist.ecore#//CompartmentAttributes">
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//CompartmentAttributes/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//CompartmentAttributes/MANUFACTURER"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//CompartmentAttributes/POWERSUPPLY"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//CompartmentAttributes/SIDE"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//CompartmentAttributes/ZONE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="assist.ecore#//BoxAttributes">
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//BoxAttributes/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//BoxAttributes/MANUFACTURER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="assist.ecore#//BoardAttributes">
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//BoardAttributes/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//BoardAttributes/MANUFACTURER"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//BoardAttributes/POWERSUPPLY"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//BoardAttributes/ASSURANCELEVEL"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//BoardAttributes/BOARDTYPE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="assist.ecore#//ProcessorAttributes">
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//ProcessorAttributes/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//ProcessorAttributes/MANUFACTURER"/>
+      <genEnumLiterals ecoreEnumLiteral="assist.ecore#//ProcessorAttributes/PROCESSORTYPE"/>
+    </genEnums>
+    <genClasses ecoreClass="assist.ecore#//AssistModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//AssistModel/systemName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//AssistModel/hardwareContainer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//AssistModel/networks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//AssistModel/applications"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//AssistModel/applicationGroups"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//AssistModel/dissimilarityRelations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//AssistModel/dislocalityRelations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//AssistModel/proximityRelations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//AssistModel/communicationRelations"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//HardwareElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//HardwareElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//HardwareElement/level"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//HardwareElementContainer"/>
+    <genClasses ecoreClass="assist.ecore#//Compartment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Compartment/manufacturer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Compartment/powerSupply"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Compartment/side"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Compartment/zone"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//Compartment/boxes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//Compartment/metricParameters"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//Box">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Box/manufacturer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assist.ecore#//Box/compartment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//Box/boards"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//Box/metricParameters"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//Board">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Board/manufacturer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Board/boardType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Board/powerSupply"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Board/assuranceLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Board/ramCapacity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Board/romCapacity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assist.ecore#//Board/box"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//Board/processors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//Board/ioAdapters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//Board/metricParameters"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//Processor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Processor/manufacturer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Processor/processorType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assist.ecore#//Processor/board"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//Processor/cores"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//Processor/metricParameters"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//Core">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Core/architecture"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Core/capacity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assist.ecore#//Core/processor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//Core/metricParameters"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//IOAdapter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//IOAdapter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//IOAdapter/totalUnitCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//IOAdapter/adapterType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//IOAdapter/protectionLevel"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//Network">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Network/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Network/bandwidthCapacity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assist.ecore#//Network/boards"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//Network/metricParameters"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//ApplicationOrApplicationGroup"/>
+    <genClasses ecoreClass="assist.ecore#//ApplicationGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//ApplicationGroup/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assist.ecore#//ApplicationGroup/applications"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//Application">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Application/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Application/coreUtilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Application/ramUtilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Application/romUtilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Application/criticalityLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Application/ioAdapterProtectionLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Application/parallelThreads"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//Application/developedBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//Application/ioAdapterRequirements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assist.ecore#//Application/restrictMappingToHardwareElements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//Application/metricParameters"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//IOAdapterRequirement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//IOAdapterRequirement/adapterType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//IOAdapterRequirement/requiredUnits"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//IOAdapterRequirement/isSharedAllowed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//IOAdapterRequirement/isExclusiveOnly"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//DissimilarityRelation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assist.ecore#//DissimilarityRelation/applicationsOrGroups"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//DissimilarityRelation/dissimilarityClause"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//DissimilarityClause"/>
+    <genClasses ecoreClass="assist.ecore#//DissimilarityDisjunction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//DissimilarityDisjunction/dissimilarityClauses"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//DissimilarityConjunction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assist.ecore#//DissimilarityConjunction/dissimilarityClauses"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//DissimilarityEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//DissimilarityEntry/level"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//DissimilarityEntry/compartmentAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//DissimilarityEntry/boxAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//DissimilarityEntry/boardAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//DissimilarityEntry/processorAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="assist.ecore#//DislocalityRelation"/>
+    <genClasses ecoreClass="assist.ecore#//ProximityRelation"/>
+    <genClasses ecoreClass="assist.ecore#//CommunicationRelation"/>
+    <genClasses ecoreClass="assist.ecore#//MetricParameters">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//MetricParameters/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assist.ecore#//MetricParameters/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
