@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ch.hilbri.assist.Application#getDevelopedBy <em>Developed By</em>}</li>
  *   <li>{@link ch.hilbri.assist.Application#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.Application#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
+ *   <li>{@link ch.hilbri.assist.Application#getThreads <em>Threads</em>}</li>
  *   <li>{@link ch.hilbri.assist.Application#getMetricParameters <em>Metric Parameters</em>}</li>
  * </ul>
  * </p>
@@ -279,6 +280,24 @@ public interface Application extends ApplicationOrApplicationGroup {
 	 * @generated
 	 */
 	EList<HardwareElement> getRestrictMappingToHardwareElements();
+
+	/**
+	 * Returns the value of the '<em><b>Threads</b></em>' containment reference list.
+	 * The list contents are of type {@link ch.hilbri.assist.Thread}.
+	 * It is bidirectional and its opposite is '{@link ch.hilbri.assist.Thread#getApplication <em>Application</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Threads</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Threads</em>' containment reference list.
+	 * @see ch.hilbri.assist.AssistPackage#getApplication_Threads()
+	 * @see ch.hilbri.assist.Thread#getApplication
+	 * @model opposite="application" containment="true" required="true"
+	 * @generated
+	 */
+	EList<ch.hilbri.assist.Thread> getThreads();
 
 	/**
 	 * Returns the value of the '<em><b>Metric Parameters</b></em>' containment reference list.

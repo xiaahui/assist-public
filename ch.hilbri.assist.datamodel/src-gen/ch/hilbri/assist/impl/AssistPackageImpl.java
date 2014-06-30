@@ -148,6 +148,13 @@ public class AssistPackageImpl extends EPackageImpl implements AssistPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass threadEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass ioAdapterRequirementEClass = null;
 
 	/**
@@ -995,8 +1002,35 @@ public class AssistPackageImpl extends EPackageImpl implements AssistPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplication_MetricParameters() {
+	public EReference getApplication_Threads() {
 		return (EReference)applicationEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getApplication_MetricParameters() {
+		return (EReference)applicationEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getThread() {
+		return threadEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getThread_Application() {
+		return (EReference)threadEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1463,7 +1497,11 @@ public class AssistPackageImpl extends EPackageImpl implements AssistPackage {
 		createEAttribute(applicationEClass, APPLICATION__DEVELOPED_BY);
 		createEReference(applicationEClass, APPLICATION__IO_ADAPTER_REQUIREMENTS);
 		createEReference(applicationEClass, APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
+		createEReference(applicationEClass, APPLICATION__THREADS);
 		createEReference(applicationEClass, APPLICATION__METRIC_PARAMETERS);
+
+		threadEClass = createEClass(THREAD);
+		createEReference(threadEClass, THREAD__APPLICATION);
 
 		ioAdapterRequirementEClass = createEClass(IO_ADAPTER_REQUIREMENT);
 		createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__ADAPTER_TYPE);
@@ -1646,7 +1684,11 @@ public class AssistPackageImpl extends EPackageImpl implements AssistPackage {
 		initEAttribute(getApplication_DevelopedBy(), theEcorePackage.getEString(), "developedBy", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_IoAdapterRequirements(), this.getIOAdapterRequirement(), null, "ioAdapterRequirements", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_RestrictMappingToHardwareElements(), this.getHardwareElement(), null, "restrictMappingToHardwareElements", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplication_Threads(), this.getThread(), this.getThread_Application(), "threads", null, 1, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(threadEClass, ch.hilbri.assist.Thread.class, "Thread", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getThread_Application(), this.getApplication(), this.getApplication_Threads(), "application", null, 0, 1, ch.hilbri.assist.Thread.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ioAdapterRequirementEClass, IOAdapterRequirement.class, "IOAdapterRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIOAdapterRequirement_AdapterType(), this.getIOAdapterType(), "adapterType", null, 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

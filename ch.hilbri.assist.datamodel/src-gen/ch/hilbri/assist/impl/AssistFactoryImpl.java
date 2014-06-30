@@ -2,7 +2,39 @@
  */
 package ch.hilbri.assist.impl;
 
-import ch.hilbri.assist.*;
+import ch.hilbri.assist.Application;
+import ch.hilbri.assist.ApplicationGroup;
+import ch.hilbri.assist.ApplicationOrApplicationGroup;
+import ch.hilbri.assist.AssistFactory;
+import ch.hilbri.assist.AssistModel;
+import ch.hilbri.assist.AssistPackage;
+import ch.hilbri.assist.Board;
+import ch.hilbri.assist.BoardAttributes;
+import ch.hilbri.assist.Box;
+import ch.hilbri.assist.BoxAttributes;
+import ch.hilbri.assist.CommunicationRelation;
+import ch.hilbri.assist.Compartment;
+import ch.hilbri.assist.CompartmentAttributes;
+import ch.hilbri.assist.Core;
+import ch.hilbri.assist.DesignAssuranceLevelType;
+import ch.hilbri.assist.DislocalityRelation;
+import ch.hilbri.assist.DissimilarityClause;
+import ch.hilbri.assist.DissimilarityConjunction;
+import ch.hilbri.assist.DissimilarityDisjunction;
+import ch.hilbri.assist.DissimilarityEntry;
+import ch.hilbri.assist.DissimilarityRelation;
+import ch.hilbri.assist.HardwareArchitectureLevelType;
+import ch.hilbri.assist.HardwareElement;
+import ch.hilbri.assist.HardwareElementContainer;
+import ch.hilbri.assist.IOAdapter;
+import ch.hilbri.assist.IOAdapterProtectionLevelType;
+import ch.hilbri.assist.IOAdapterRequirement;
+import ch.hilbri.assist.IOAdapterType;
+import ch.hilbri.assist.MetricParameter;
+import ch.hilbri.assist.Network;
+import ch.hilbri.assist.Processor;
+import ch.hilbri.assist.ProcessorAttributes;
+import ch.hilbri.assist.ProximityRelation;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -70,6 +102,7 @@ public class AssistFactoryImpl extends EFactoryImpl implements AssistFactory {
 			case AssistPackage.APPLICATION_OR_APPLICATION_GROUP: return createApplicationOrApplicationGroup();
 			case AssistPackage.APPLICATION_GROUP: return createApplicationGroup();
 			case AssistPackage.APPLICATION: return createApplication();
+			case AssistPackage.THREAD: return createThread();
 			case AssistPackage.IO_ADAPTER_REQUIREMENT: return createIOAdapterRequirement();
 			case AssistPackage.DISSIMILARITY_RELATION: return createDissimilarityRelation();
 			case AssistPackage.DISSIMILARITY_CLAUSE: return createDissimilarityClause();
@@ -271,6 +304,16 @@ public class AssistFactoryImpl extends EFactoryImpl implements AssistFactory {
 	public Application createApplication() {
 		ApplicationImpl application = new ApplicationImpl();
 		return application;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ch.hilbri.assist.Thread createThread() {
+		ThreadImpl thread = new ThreadImpl();
+		return thread;
 	}
 
 	/**

@@ -174,7 +174,12 @@ class Application extends ApplicationOrApplicationGroup {
 	String developedBy
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
+	contains Thread[1..*] threads opposite application
 	contains MetricParameter[0..*] metricParameters
+}
+
+class Thread {
+	container Application application opposite threads
 }
 
 class IOAdapterRequirement {	

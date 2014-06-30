@@ -2,7 +2,30 @@
  */
 package ch.hilbri.assist.util;
 
-import ch.hilbri.assist.*;
+import ch.hilbri.assist.Application;
+import ch.hilbri.assist.ApplicationGroup;
+import ch.hilbri.assist.ApplicationOrApplicationGroup;
+import ch.hilbri.assist.AssistModel;
+import ch.hilbri.assist.AssistPackage;
+import ch.hilbri.assist.Board;
+import ch.hilbri.assist.Box;
+import ch.hilbri.assist.CommunicationRelation;
+import ch.hilbri.assist.Compartment;
+import ch.hilbri.assist.Core;
+import ch.hilbri.assist.DislocalityRelation;
+import ch.hilbri.assist.DissimilarityClause;
+import ch.hilbri.assist.DissimilarityConjunction;
+import ch.hilbri.assist.DissimilarityDisjunction;
+import ch.hilbri.assist.DissimilarityEntry;
+import ch.hilbri.assist.DissimilarityRelation;
+import ch.hilbri.assist.HardwareElement;
+import ch.hilbri.assist.HardwareElementContainer;
+import ch.hilbri.assist.IOAdapter;
+import ch.hilbri.assist.IOAdapterRequirement;
+import ch.hilbri.assist.MetricParameter;
+import ch.hilbri.assist.Network;
+import ch.hilbri.assist.Processor;
+import ch.hilbri.assist.ProximityRelation;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -152,6 +175,12 @@ public class AssistSwitch<T> extends Switch<T> {
 				Application application = (Application)theEObject;
 				T result = caseApplication(application);
 				if (result == null) result = caseApplicationOrApplicationGroup(application);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AssistPackage.THREAD: {
+				ch.hilbri.assist.Thread thread = (ch.hilbri.assist.Thread)theEObject;
+				T result = caseThread(thread);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -414,6 +443,21 @@ public class AssistSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseApplication(Application object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Thread</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Thread</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseThread(ch.hilbri.assist.Thread object) {
 		return null;
 	}
 

@@ -139,6 +139,15 @@ public interface AssistFactory extends EFactory {
 	Application createApplication();
 
 	/**
+	 * Returns a new object of class '<em>Thread</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Thread</em>'.
+	 * @generated
+	 */
+	Thread createThread();
+
+	/**
 	 * Returns a new object of class '<em>IO Adapter Requirement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

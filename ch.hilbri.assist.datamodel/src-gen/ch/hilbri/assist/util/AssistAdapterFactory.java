@@ -2,7 +2,30 @@
  */
 package ch.hilbri.assist.util;
 
-import ch.hilbri.assist.*;
+import ch.hilbri.assist.Application;
+import ch.hilbri.assist.ApplicationGroup;
+import ch.hilbri.assist.ApplicationOrApplicationGroup;
+import ch.hilbri.assist.AssistModel;
+import ch.hilbri.assist.AssistPackage;
+import ch.hilbri.assist.Board;
+import ch.hilbri.assist.Box;
+import ch.hilbri.assist.CommunicationRelation;
+import ch.hilbri.assist.Compartment;
+import ch.hilbri.assist.Core;
+import ch.hilbri.assist.DislocalityRelation;
+import ch.hilbri.assist.DissimilarityClause;
+import ch.hilbri.assist.DissimilarityConjunction;
+import ch.hilbri.assist.DissimilarityDisjunction;
+import ch.hilbri.assist.DissimilarityEntry;
+import ch.hilbri.assist.DissimilarityRelation;
+import ch.hilbri.assist.HardwareElement;
+import ch.hilbri.assist.HardwareElementContainer;
+import ch.hilbri.assist.IOAdapter;
+import ch.hilbri.assist.IOAdapterRequirement;
+import ch.hilbri.assist.MetricParameter;
+import ch.hilbri.assist.Network;
+import ch.hilbri.assist.Processor;
+import ch.hilbri.assist.ProximityRelation;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -118,6 +141,10 @@ public class AssistAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseApplication(Application object) {
 				return createApplicationAdapter();
+			}
+			@Override
+			public Adapter caseThread(ch.hilbri.assist.Thread object) {
+				return createThreadAdapter();
 			}
 			@Override
 			public Adapter caseIOAdapterRequirement(IOAdapterRequirement object) {
@@ -358,6 +385,20 @@ public class AssistAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApplicationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.Thread <em>Thread</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.Thread
+	 * @generated
+	 */
+	public Adapter createThreadAdapter() {
 		return null;
 	}
 

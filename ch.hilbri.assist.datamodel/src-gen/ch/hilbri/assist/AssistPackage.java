@@ -1053,13 +1053,22 @@ public interface AssistPackage extends EPackage {
 	int APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Threads</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__THREADS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 10;
+
+	/**
 	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__METRIC_PARAMETERS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 10;
+	int APPLICATION__METRIC_PARAMETERS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Application</em>' class.
@@ -1068,7 +1077,7 @@ public interface AssistPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 11;
+	int APPLICATION_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of operations of the '<em>Application</em>' class.
@@ -1080,6 +1089,43 @@ public interface AssistPackage extends EPackage {
 	int APPLICATION_OPERATION_COUNT = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.impl.ThreadImpl <em>Thread</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.impl.ThreadImpl
+	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getThread()
+	 * @generated
+	 */
+	int THREAD = 13;
+
+	/**
+	 * The feature id for the '<em><b>Application</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAD__APPLICATION = 0;
+
+	/**
+	 * The number of structural features of the '<em>Thread</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAD_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Thread</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAD_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.impl.IOAdapterRequirementImpl <em>IO Adapter Requirement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1087,7 +1133,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getIOAdapterRequirement()
 	 * @generated
 	 */
-	int IO_ADAPTER_REQUIREMENT = 13;
+	int IO_ADAPTER_REQUIREMENT = 14;
 
 	/**
 	 * The feature id for the '<em><b>Adapter Type</b></em>' attribute.
@@ -1151,7 +1197,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getDissimilarityRelation()
 	 * @generated
 	 */
-	int DISSIMILARITY_RELATION = 14;
+	int DISSIMILARITY_RELATION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
@@ -1197,7 +1243,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getDissimilarityClause()
 	 * @generated
 	 */
-	int DISSIMILARITY_CLAUSE = 15;
+	int DISSIMILARITY_CLAUSE = 16;
 
 	/**
 	 * The number of structural features of the '<em>Dissimilarity Clause</em>' class.
@@ -1225,7 +1271,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getDissimilarityDisjunction()
 	 * @generated
 	 */
-	int DISSIMILARITY_DISJUNCTION = 16;
+	int DISSIMILARITY_DISJUNCTION = 17;
 
 	/**
 	 * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
@@ -1262,7 +1308,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getDissimilarityConjunction()
 	 * @generated
 	 */
-	int DISSIMILARITY_CONJUNCTION = 17;
+	int DISSIMILARITY_CONJUNCTION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
@@ -1299,7 +1345,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getDissimilarityEntry()
 	 * @generated
 	 */
-	int DISSIMILARITY_ENTRY = 18;
+	int DISSIMILARITY_ENTRY = 19;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -1372,7 +1418,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getDislocalityRelation()
 	 * @generated
 	 */
-	int DISLOCALITY_RELATION = 19;
+	int DISLOCALITY_RELATION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
@@ -1418,7 +1464,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getProximityRelation()
 	 * @generated
 	 */
-	int PROXIMITY_RELATION = 20;
+	int PROXIMITY_RELATION = 21;
 
 	/**
 	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
@@ -1464,7 +1510,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getCommunicationRelation()
 	 * @generated
 	 */
-	int COMMUNICATION_RELATION = 21;
+	int COMMUNICATION_RELATION = 22;
 
 	/**
 	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
@@ -1510,7 +1556,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getMetricParameter()
 	 * @generated
 	 */
-	int METRIC_PARAMETER = 22;
+	int METRIC_PARAMETER = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1556,7 +1602,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getHardwareArchitectureLevelType()
 	 * @generated
 	 */
-	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 23;
+	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 24;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.IOAdapterProtectionLevelType <em>IO Adapter Protection Level Type</em>}' enum.
@@ -1566,7 +1612,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getIOAdapterProtectionLevelType()
 	 * @generated
 	 */
-	int IO_ADAPTER_PROTECTION_LEVEL_TYPE = 24;
+	int IO_ADAPTER_PROTECTION_LEVEL_TYPE = 25;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -1576,7 +1622,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getDesignAssuranceLevelType()
 	 * @generated
 	 */
-	int DESIGN_ASSURANCE_LEVEL_TYPE = 25;
+	int DESIGN_ASSURANCE_LEVEL_TYPE = 26;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.IOAdapterType <em>IO Adapter Type</em>}' enum.
@@ -1586,7 +1632,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getIOAdapterType()
 	 * @generated
 	 */
-	int IO_ADAPTER_TYPE = 26;
+	int IO_ADAPTER_TYPE = 27;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.CompartmentAttributes <em>Compartment Attributes</em>}' enum.
@@ -1596,7 +1642,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getCompartmentAttributes()
 	 * @generated
 	 */
-	int COMPARTMENT_ATTRIBUTES = 27;
+	int COMPARTMENT_ATTRIBUTES = 28;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.BoxAttributes <em>Box Attributes</em>}' enum.
@@ -1606,7 +1652,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getBoxAttributes()
 	 * @generated
 	 */
-	int BOX_ATTRIBUTES = 28;
+	int BOX_ATTRIBUTES = 29;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.BoardAttributes <em>Board Attributes</em>}' enum.
@@ -1616,7 +1662,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getBoardAttributes()
 	 * @generated
 	 */
-	int BOARD_ATTRIBUTES = 29;
+	int BOARD_ATTRIBUTES = 30;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.ProcessorAttributes <em>Processor Attributes</em>}' enum.
@@ -1626,7 +1672,7 @@ public interface AssistPackage extends EPackage {
 	 * @see ch.hilbri.assist.impl.AssistPackageImpl#getProcessorAttributes()
 	 * @generated
 	 */
-	int PROCESSOR_ATTRIBUTES = 30;
+	int PROCESSOR_ATTRIBUTES = 31;
 
 
 	/**
@@ -2420,6 +2466,17 @@ public interface AssistPackage extends EPackage {
 	EReference getApplication_RestrictMappingToHardwareElements();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.Application#getThreads <em>Threads</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Threads</em>'.
+	 * @see ch.hilbri.assist.Application#getThreads()
+	 * @see #getApplication()
+	 * @generated
+	 */
+	EReference getApplication_Threads();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.Application#getMetricParameters <em>Metric Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2429,6 +2486,27 @@ public interface AssistPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getApplication_MetricParameters();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.Thread <em>Thread</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Thread</em>'.
+	 * @see ch.hilbri.assist.Thread
+	 * @generated
+	 */
+	EClass getThread();
+
+	/**
+	 * Returns the meta object for the container reference '{@link ch.hilbri.assist.Thread#getApplication <em>Application</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Application</em>'.
+	 * @see ch.hilbri.assist.Thread#getApplication()
+	 * @see #getThread()
+	 * @generated
+	 */
+	EReference getThread_Application();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.IOAdapterRequirement <em>IO Adapter Requirement</em>}'.
@@ -3475,12 +3553,38 @@ public interface AssistPackage extends EPackage {
 		EReference APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = eINSTANCE.getApplication_RestrictMappingToHardwareElements();
 
 		/**
+		 * The meta object literal for the '<em><b>Threads</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPLICATION__THREADS = eINSTANCE.getApplication_Threads();
+
+		/**
 		 * The meta object literal for the '<em><b>Metric Parameters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference APPLICATION__METRIC_PARAMETERS = eINSTANCE.getApplication_MetricParameters();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.impl.ThreadImpl <em>Thread</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.impl.ThreadImpl
+		 * @see ch.hilbri.assist.impl.AssistPackageImpl#getThread()
+		 * @generated
+		 */
+		EClass THREAD = eINSTANCE.getThread();
+
+		/**
+		 * The meta object literal for the '<em><b>Application</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference THREAD__APPLICATION = eINSTANCE.getThread_Application();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.impl.IOAdapterRequirementImpl <em>IO Adapter Requirement</em>}' class.

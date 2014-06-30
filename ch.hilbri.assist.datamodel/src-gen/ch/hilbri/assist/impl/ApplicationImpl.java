@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -43,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.impl.ApplicationImpl#getDevelopedBy <em>Developed By</em>}</li>
  *   <li>{@link ch.hilbri.assist.impl.ApplicationImpl#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.impl.ApplicationImpl#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
+ *   <li>{@link ch.hilbri.assist.impl.ApplicationImpl#getThreads <em>Threads</em>}</li>
  *   <li>{@link ch.hilbri.assist.impl.ApplicationImpl#getMetricParameters <em>Metric Parameters</em>}</li>
  * </ul>
  * </p>
@@ -229,6 +231,16 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	 * @ordered
 	 */
 	protected EList<HardwareElement> restrictMappingToHardwareElements;
+
+	/**
+	 * The cached value of the '{@link #getThreads() <em>Threads</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getThreads()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ch.hilbri.assist.Thread> threads;
 
 	/**
 	 * The cached value of the '{@link #getMetricParameters() <em>Metric Parameters</em>}' containment reference list.
@@ -456,6 +468,18 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ch.hilbri.assist.Thread> getThreads() {
+		if (threads == null) {
+			threads = new EObjectContainmentWithInverseEList<ch.hilbri.assist.Thread>(ch.hilbri.assist.Thread.class, this, AssistPackage.APPLICATION__THREADS, AssistPackage.THREAD__APPLICATION);
+		}
+		return threads;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<MetricParameter> getMetricParameters() {
 		if (metricParameters == null) {
 			metricParameters = new EObjectContainmentEList<MetricParameter>(MetricParameter.class, this, AssistPackage.APPLICATION__METRIC_PARAMETERS);
@@ -468,11 +492,28 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AssistPackage.APPLICATION__THREADS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getThreads()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AssistPackage.APPLICATION__IO_ADAPTER_REQUIREMENTS:
 				return ((InternalEList<?>)getIoAdapterRequirements()).basicRemove(otherEnd, msgs);
+			case AssistPackage.APPLICATION__THREADS:
+				return ((InternalEList<?>)getThreads()).basicRemove(otherEnd, msgs);
 			case AssistPackage.APPLICATION__METRIC_PARAMETERS:
 				return ((InternalEList<?>)getMetricParameters()).basicRemove(otherEnd, msgs);
 		}
@@ -507,6 +548,8 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 				return getIoAdapterRequirements();
 			case AssistPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
 				return getRestrictMappingToHardwareElements();
+			case AssistPackage.APPLICATION__THREADS:
+				return getThreads();
 			case AssistPackage.APPLICATION__METRIC_PARAMETERS:
 				return getMetricParameters();
 		}
@@ -554,6 +597,10 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 				getRestrictMappingToHardwareElements().clear();
 				getRestrictMappingToHardwareElements().addAll((Collection<? extends HardwareElement>)newValue);
 				return;
+			case AssistPackage.APPLICATION__THREADS:
+				getThreads().clear();
+				getThreads().addAll((Collection<? extends ch.hilbri.assist.Thread>)newValue);
+				return;
 			case AssistPackage.APPLICATION__METRIC_PARAMETERS:
 				getMetricParameters().clear();
 				getMetricParameters().addAll((Collection<? extends MetricParameter>)newValue);
@@ -600,6 +647,9 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 			case AssistPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
 				getRestrictMappingToHardwareElements().clear();
 				return;
+			case AssistPackage.APPLICATION__THREADS:
+				getThreads().clear();
+				return;
 			case AssistPackage.APPLICATION__METRIC_PARAMETERS:
 				getMetricParameters().clear();
 				return;
@@ -635,6 +685,8 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 				return ioAdapterRequirements != null && !ioAdapterRequirements.isEmpty();
 			case AssistPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
 				return restrictMappingToHardwareElements != null && !restrictMappingToHardwareElements.isEmpty();
+			case AssistPackage.APPLICATION__THREADS:
+				return threads != null && !threads.isEmpty();
 			case AssistPackage.APPLICATION__METRIC_PARAMETERS:
 				return metricParameters != null && !metricParameters.isEmpty();
 		}
