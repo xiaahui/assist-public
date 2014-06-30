@@ -55,14 +55,14 @@ class Compartment extends HardwareElementContainer {
 	String side
 	String zone
 	contains Box[1..*] boxes opposite compartment
-	contains MetricParameters[0..*] metricParameters
+	contains MetricParameter[0..*] metricParameters
 }
 
 class Box extends HardwareElementContainer {
 	String manufacturer
 	container Compartment compartment opposite boxes
 	contains Board[1..*] boards opposite box
-	contains MetricParameters[0..*] metricParameters
+	contains MetricParameter[0..*] metricParameters
 }
 
 class Board extends HardwareElementContainer {
@@ -75,7 +75,7 @@ class Board extends HardwareElementContainer {
 	container Box box opposite boards
 	contains Processor[1..*] processors opposite board
 	contains IOAdapter[0..*] ioAdapters
-	contains MetricParameters[0..*] metricParameters
+	contains MetricParameter[0..*] metricParameters
 }
 
 class Processor extends HardwareElement {
@@ -83,14 +83,14 @@ class Processor extends HardwareElement {
 	String processorType
 	container Board board opposite processors
 	contains Core[1..*] cores opposite processor 
-	contains MetricParameters[0..*] metricParameters
+	contains MetricParameter[0..*] metricParameters
 }
 
 class Core extends HardwareElement {
 	String architecture
 	int capacity
 	container Processor processor opposite cores
-	contains MetricParameters[0..*] metricParameters
+	contains MetricParameter[0..*] metricParameters
 }
 
 enum IOAdapterType {
@@ -153,7 +153,7 @@ class Network {
 	String name
 	int bandwidthCapacity
 	refers Board[2..*] boards
-	contains MetricParameters[0..*] metricParameters
+	contains MetricParameter[0..*] metricParameters
 }
 
 class ApplicationOrApplicationGroup {}
@@ -174,7 +174,7 @@ class Application extends ApplicationOrApplicationGroup {
 	String developedBy
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
-	contains MetricParameters[0..*] metricParameters
+	contains MetricParameter[0..*] metricParameters
 }
 
 class IOAdapterRequirement {	
@@ -245,7 +245,7 @@ class ProximityRelation{}
 
 class CommunicationRelation{}
 
-class MetricParameters {
+class MetricParameter {
 	String name
 	String value
 }
