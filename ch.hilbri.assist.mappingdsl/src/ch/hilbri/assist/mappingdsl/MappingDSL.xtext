@@ -3,17 +3,29 @@ grammar ch.hilbri.assist.mappingdsl.MappingDSL with org.eclipse.xtext.common.Ter
 import "ch.hilbri.assist"
 
 AssistModel: 
-	'Global' 	'{' 'System name' '=' systemName=STRING ';' '}'
+	'Global' 	'{' 
+					'System name' '=' systemName=STRING ';' 
+	'}'
 	'Hardware' 	'{'	
 					(hardwareContainer+=HardwareElementContainer)+
 					(networks+=Network)* 
-				'}'
+	'}'
+
 	'Software' '{'
 					(applications+=Application)+ 
 					(applicationGroups+=ApplicationGroup)*
-				'}'
-;
+	'}'
 
+	'Relations' '{'
+					(dissimilarityRelations+=DissimilarityRelation)*
+					(dislocalityRelations+=DislocalityRelation)*
+					(proximityRelations+=ProximityRelation)*
+	'}'
+	
+	'Communication' '{'
+					(communicationRelations+=CommunicationRelation)*
+	'}'
+;
 
 HardwareElementContainer: 
 	Compartment | Box | Board
@@ -23,8 +35,8 @@ Compartment:
 	'Compartment' name=ID '{'
 		('Manufacturer' 			'=' manufacturer=STRING ';')?
 		('Power supply' 			'=' powerSupply=STRING ';')?
-		('Side' 					'='         side=STRING ';')?
-		('Zone' 					'='  	   zone=STRING ';')?
+		('Side' 					'=' side=STRING ';')?
+		('Zone' 					'=' zone=STRING ';')?
 		(boxes+=Box)+
 		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}'
@@ -107,22 +119,60 @@ IOAdapterRequirement:
 	'Requires' requiredUnits=INT adapterType=IOAdapterType 'adapter' '(' (isExclusiveOnly?='exclusive' | isSharedAllowed?='shared') 'access)' ';' 
 ;
 
+/* RELATIONEN */
 
+DislocalityRelation:
+	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'dislocal up to' hardwareLevel=HardwareArchitectureLevelType ';';
+	
+ProximityRelation:
+	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'on same' hardwareLevel=HardwareArchitectureLevelType ';'; 
 
+CommunicationRelation: 
+	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'require' bandwidthUtilization=INT 'bandwidth' ';';
+	
+DissimilarityRelation: 
+	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
+	'dissimilar based on'
+	dissimilarityClause=DissimilarityClause ';'
+;
 
+DissimilarityClause:  
+	DissimilarityEntry | ( '(' (=>DissimilarityDisjunction | DissimilarityConjunction) ')' ) // Der Pfeil ist wichtig!
+;
 
+DissimilarityDisjunction: 
+	dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ ;
 
+DissimilarityConjunction: 
+	dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ ;
 
+DissimilarityEntry: 
+	( 'Compartment.' compartmentAttribute= CompartmentAttributes ) |
+	( 'Box.' boxAttribute = BoxAttributes) |
+	( 'Board.' boardAttribute = BoardAttributes) |
+	( 'Processor.' processorAttribute = ProcessorAttributes)
+	// HardwareArchitectureLevel setzen!
+;
 
+enum CompartmentAttributes :
+	MANUFACTURER 	= 'Manufacturer' 	| 
+	POWERSUPPLY	 	= 'Power supply' 	| 
+	SIDE 		 	= 'Side' 			| 
+	ZONE		 	= 'Zone';
+	
+enum BoxAttributes :
+	MANUFACTURER 	= 'Manufacturer';
+	
+enum BoardAttributes:
+	MANUFACTURER 	= 'Manufacturer' 	|
+	POWERSUPPLY 	= 'PowerSupply'		|
+	ASSURANCELEVEL 	= 'AssuranceLevel' 	|
+	BOARDTYPE 		= 'BoardType'; 		
 
-
-
-
-
-
-
-
-
+enum ProcessorAttributes:
+	MANUFACTURER 	= 'Manufacturer' 	| 
+	PROCESSORTYPE	= 'ProcessorType' 
+;
 
 
 MetricParameter:  
@@ -135,11 +185,11 @@ QualifiedName:
 
 /* ENUMS */
 enum HardwareArchitectureLevelType:
-	CORE 		|
-	PROCESSOR 	|
-	BOARD		|
-	BOX			|
-	COMPARTMENT	
+	CORE 		= 'Core'		|
+	PROCESSOR 	= 'Processor'	|
+	BOARD		= 'Board'		|
+	BOX			= 'Box'			|
+	COMPARTMENT	= 'Compartment'
 ;
 
 enum DesignAssuranceLevelType: 
@@ -164,6 +214,51 @@ enum IOAdapterProtectionLevelType:
 ;
 
 enum IOAdapterType:
-	CAN = 'CAN' 
+	CAN 		= 'Can'					|
+	ELB			= 'Enhanced Local Bus'	|
+	ETH			= 'Ethernet'			|
+	ANALOG 		= 'Analog'				|
+	DIGITAL		= 'Digital'				|
+	SERIAL		= 'Serial'				|
+	CUSTOM0		= 'Custom Type 0'		|
+	CUSTOM1		= 'Custom Type 1'		|
+	CUSTOM2		= 'Custom Type 2'		|
+	CUSTOM3		= 'Custom Type 3'		|
+	CUSTOM4		= 'Custom Type 4'		|
+	CUSTOM5		= 'Custom Type 5'		|
+	CUSTOM6		= 'Custom Type 6'		|		
+	CUSTOM7		= 'Custom Type 7'		|
+	CUSTOM8		= 'Custom Type 8'		|
+	CUSTOM9		= 'Custom Type 9'		|
+	CUSTOM10	= 'Custom Type 10'		|
+	CUSTOM11	= 'Custom Type 11'		|
+	CUSTOM12	= 'Custom Type 12'		|
+	CUSTOM13	= 'Custom Type 13'		|
+	CUSTOM14	= 'Custom Type 14'		|
+	CUSTOM15	= 'Custom Type 15'		|
+	CUSTOM16	= 'Custom Type 16'		|
+	CUSTOM17	= 'Custom Type 17'		|
+	CUSTOM18	= 'Custom Type 18'		|
+	CUSTOM19	= 'Custom Type 19'		|
+	CUSTOM20	= 'Custom Type 20'		|
+	CUSTOM21	= 'Custom Type 21'		|
+	CUSTOM22	= 'Custom Type 22'		|
+	CUSTOM23	= 'Custom Type 23'		|
+	CUSTOM24	= 'Custom Type 24'		|
+	CUSTOM25	= 'Custom Type 25'		|
+	CUSTOM26	= 'Custom Type 26'		|
+	CUSTOM27	= 'Custom Type 27'		|
+	CUSTOM28	= 'Custom Type 28'		|
+	CUSTOM29	= 'Custom Type 29'		|
+	CUSTOM30	= 'Custom Type 30'		|
+	CUSTOM31	= 'Custom Type 31'		|
+	CUSTOM32	= 'Custom Type 32'		|
+	CUSTOM33	= 'Custom Type 33'		|
+	CUSTOM34	= 'Custom Type 34'		|
+	CUSTOM35	= 'Custom Type 35'		|
+	CUSTOM36	= 'Custom Type 36'		|
+	CUSTOM37	= 'Custom Type 37'		|
+	CUSTOM38	= 'Custom Type 38'		|
+	CUSTOM39	= 'Custom Type 39'
 ;
 

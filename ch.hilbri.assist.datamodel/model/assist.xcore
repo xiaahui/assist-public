@@ -239,11 +239,20 @@ enum ProcessorAttributes{
 }
 
 
-class DislocalityRelation{}
+class DislocalityRelation{
+	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
+	HardwareArchitectureLevelType hardwareLevel
+}
 
-class ProximityRelation{}
+class ProximityRelation{
+	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
+	HardwareArchitectureLevelType hardwareLevel
+}
 
-class CommunicationRelation{}
+class CommunicationRelation{
+	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
+	int bandwidthUtilization
+}
 
 class MetricParameter {
 	String name
