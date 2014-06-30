@@ -247,6 +247,6 @@ class CommunicationRelation{}
 
 class MetricParameter {
 	String name
-	String value
+	int value
 }
 

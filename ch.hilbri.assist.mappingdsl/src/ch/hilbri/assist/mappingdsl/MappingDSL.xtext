@@ -3,6 +3,167 @@ grammar ch.hilbri.assist.mappingdsl.MappingDSL with org.eclipse.xtext.common.Ter
 import "ch.hilbri.assist"
 
 AssistModel: 
-	systemName=STRING
+	'Global' 	'{' 'System name' '=' systemName=STRING ';' '}'
+	'Hardware' 	'{'	
+					(hardwareContainer+=HardwareElementContainer)+
+					(networks+=Network)* 
+				'}'
+	'Software' '{'
+					(applications+=Application)+ 
+					(applicationGroups+=ApplicationGroup)*
+				'}'
+;
+
+
+HardwareElementContainer: 
+	Compartment | Box | Board
+;
+
+Compartment: 
+	'Compartment' name=ID '{'
+		('Manufacturer' 			'=' manufacturer=STRING ';')?
+		('Power supply' 			'=' powerSupply=STRING ';')?
+		('Side' 					'='         side=STRING ';')?
+		('Zone' 					'='  	   zone=STRING ';')?
+		(boxes+=Box)+
+		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+	'}'
+;
+
+
+Box:
+	'Box' name=ID '{'
+		('Manufacturer' 			'=' manufacturer=STRING ';')?
+		(boards+=Board)+
+		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+	'}'
+;
+	
+Board:
+	'Board' name=ID '{'
+		('Manufacturer' 			'=' manufacturer=STRING ';')?
+		('Type' 					'=' boardType=STRING ';')?
+		('Power supply' 			'=' powerSupply=STRING ';')?
+	    ('Design assurance level' 	'=' assuranceLevel=DesignAssuranceLevelType';')?
+		(processors+=Processor)+
+		('RAM capacity'  			'=' ramCapacity=INT ';')?
+		('ROM capacity'  			'=' romCapacity=INT ';')?
+		(ioAdapters+=IOAdapter)*
+		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+	'}'
+;
+
+Processor:
+	'Processor' name=ID '{'
+	    ('Manufacturer' 			'=' manufacturer=STRING ';')?
+	    ('Type'         			'=' processorType=STRING ';')?
+		(cores+=Core)+
+		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+	'}';
+
+Core:
+	'Core' name=ID '{' 
+		'Capacity' 					'=' capacity=INT ';'
+		('Architecture' 			'=' architecture=STRING ';')?
+		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+	'}';
+
+IOAdapter:
+	'I/O Adapter' name=ID '{'
+		'Type' 						'=' adapterType=IOAdapterType ';'
+		('IO Protection' 			'=' protectionLevel=IOAdapterProtectionLevelType ';')?
+		'Total units' 				'=' totalUnitCount=INT ';'
+	'}'
+;
+
+Network:
+	'Network' name=ID '{'
+		'Bandwidth' 				'=' bandwidthCapacity=INT ';'
+		'Connects' boards+=[Board|QualifiedName] ',' boards+=[Board|QualifiedName] (',' boards+=[Board|QualifiedName])* ';'
+		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+	'}';
+
+/* SOFTWARE */
+
+ApplicationGroup: 
+	'Group' name=ID '{' applications+=[Application] ',' applications+=[Application] (',' applications+=[Application])* '}'
+;
+
+Application:
+	'Application' name=ID '{'
+		'Core-utilization' 				'=' coreUtilization=INT ';' 
+ 		('Required RAM capacity' 		'=' ramUtilization=INT ';')? 
+		('Required ROM capacity' 		'=' romUtilization=INT ';')? 
+	    ('Criticality level' 			'=' criticalityLevel=DesignAssuranceLevelType ';')?
+	    ('Required IO protection' 		'=' ioAdapterProtectionLevel=IOAdapterProtectionLevelType ';')?
+		('Identical parallel threads' 	'=' parallelThreads=INT ';')?
+		('Developed by' 				'=' developedBy=STRING ';')?
+		(ioAdapterRequirements+=IOAdapterRequirement)*
+		('Restrict deployment to' 		'{' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* '}' ';')? 
+		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+	'}';
+
+IOAdapterRequirement: 
+	'Requires' requiredUnits=INT adapterType=IOAdapterType 'adapter' '(' (isExclusiveOnly?='exclusive' | isSharedAllowed?='shared') 'access)' ';' 
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MetricParameter:  
+	name=STRING '=' value=INT ';'
+;
+
+QualifiedName:
+	ID ('.' ID)*
+;
+
+/* ENUMS */
+enum HardwareArchitectureLevelType:
+	CORE 		|
+	PROCESSOR 	|
+	BOARD		|
+	BOX			|
+	COMPARTMENT	
+;
+
+enum DesignAssuranceLevelType: 
+	NONE= 'None' 	|
+	QS	= 'QS'	 	|
+	D	= 'D'		|
+	C	= 'C'		|
+	B	= 'B'		|
+	A 	= 'A'  
+;
+
+enum IOAdapterProtectionLevelType:
+	NONE 		= 'None' 		|
+	LEVEL_1 	= 'L1'		|
+	LEVEL_2 	= 'L2'		|
+	LEVEL_3 	= 'L3'		|
+	LEVEL_4 	= 'L4'		|
+	LEVEL_5 	= 'L5'		|
+	LEVEL_6 	= 'L6'		|
+	LEVEL_7 	= 'L7'		|
+	LEVEL_8 	= 'L8'		
+;
+
+enum IOAdapterType:
+	CAN = 'CAN' 
 ;
 
