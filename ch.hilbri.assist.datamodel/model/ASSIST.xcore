@@ -2,7 +2,7 @@ package ch.hilbri.assist
 
 class AssistModel {
 	String 									systemName
-	contains HardwareElementContainer[0..*] hardwareContainer
+	contains HardwareElementContainer[1..*] hardwareContainer
 	contains Network[0..*] 					networks
 	contains Application[1..*] 				applications
 	contains ApplicationGroup[0..*] 		applicationGroups
@@ -10,6 +10,15 @@ class AssistModel {
 	contains DislocalityRelation[0..*] 		dislocalityRelations
 	contains ProximityRelation[0..*] 		proximityRelations
 	contains CommunicationRelation[0..*] 	communicationRelations
+
+	/**
+	 * Should be called before the mapping to make the model proper 
+	 */
+	op boolean postProcessingForMapping() {
+		
+		
+		return true
+	}
 }
 
 
@@ -174,7 +183,7 @@ class Application extends ApplicationOrApplicationGroup {
 	String developedBy
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
-	contains Thread[1..*] threads opposite application
+	contains Thread[0..*] threads opposite application
 	contains MetricParameter[0..*] metricParameters
 }
 

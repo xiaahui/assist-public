@@ -5,6 +5,7 @@ package ch.hilbri.assist;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -159,13 +160,22 @@ public interface AssistPackage extends EPackage {
 	int ASSIST_MODEL_FEATURE_COUNT = 9;
 
 	/**
+	 * The operation id for the '<em>Post Processing For Mapping</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___POST_PROCESSING_FOR_MAPPING = 0;
+
+	/**
 	 * The number of operations of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_OPERATION_COUNT = 0;
+	int ASSIST_MODEL_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -1785,6 +1795,16 @@ public interface AssistPackage extends EPackage {
 	EReference getAssistModel_CommunicationRelations();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.AssistModel#postProcessingForMapping() <em>Post Processing For Mapping</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Post Processing For Mapping</em>' operation.
+	 * @see ch.hilbri.assist.AssistModel#postProcessingForMapping()
+	 * @generated
+	 */
+	EOperation getAssistModel__PostProcessingForMapping();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.HardwareElement <em>Hardware Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3023,6 +3043,14 @@ public interface AssistPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ASSIST_MODEL__COMMUNICATION_RELATIONS = eINSTANCE.getAssistModel_CommunicationRelations();
+
+		/**
+		 * The meta object literal for the '<em><b>Post Processing For Mapping</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___POST_PROCESSING_FOR_MAPPING = eINSTANCE.getAssistModel__PostProcessingForMapping();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.impl.HardwareElementImpl <em>Hardware Element</em>}' class.

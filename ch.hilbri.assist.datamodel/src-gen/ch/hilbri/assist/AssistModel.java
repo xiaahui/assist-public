@@ -68,7 +68,7 @@ public interface AssistModel extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Hardware Container</em>' containment reference list.
 	 * @see ch.hilbri.assist.AssistPackage#getAssistModel_HardwareContainer()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<HardwareElementContainer> getHardwareContainer();
@@ -184,5 +184,18 @@ public interface AssistModel extends EObject {
 	 * @generated
 	 */
 	EList<CommunicationRelation> getCommunicationRelations();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * Should be called before the mapping to make the model proper
+	 * <!-- end-model-doc -->
+	 * @model unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return true;'"
+	 * @generated
+	 */
+	boolean postProcessingForMapping();
 
 } // AssistModel

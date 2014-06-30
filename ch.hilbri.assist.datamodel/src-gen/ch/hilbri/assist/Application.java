@@ -294,7 +294,7 @@ public interface Application extends ApplicationOrApplicationGroup {
 	 * @return the value of the '<em>Threads</em>' containment reference list.
 	 * @see ch.hilbri.assist.AssistPackage#getApplication_Threads()
 	 * @see ch.hilbri.assist.Thread#getApplication
-	 * @model opposite="application" containment="true" required="true"
+	 * @model opposite="application" containment="true"
 	 * @generated
 	 */
 	EList<ch.hilbri.assist.Thread> getThreads();

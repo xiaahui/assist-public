@@ -216,18 +216,18 @@ ruleAssistModel returns [EObject current=null]
     {
     	newLeafNode(otherlv_16, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_16());
     }
-	otherlv_17='Relations' 
+(	otherlv_17='Relations' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getAssistModelAccess().getRelationsKeyword_17());
+    	newLeafNode(otherlv_17, grammarAccess.getAssistModelAccess().getRelationsKeyword_17_0());
     }
 	otherlv_18='{' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_18());
+    	newLeafNode(otherlv_18, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_17_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAssistModelAccess().getDissimilarityRelationsDissimilarityRelationParserRuleCall_19_0()); 
+	        newCompositeNode(grammarAccess.getAssistModelAccess().getDissimilarityRelationsDissimilarityRelationParserRuleCall_17_2_0()); 
 	    }
 		lv_dissimilarityRelations_19_0=ruleDissimilarityRelation		{
 	        if ($current==null) {
@@ -245,7 +245,7 @@ ruleAssistModel returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAssistModelAccess().getDislocalityRelationsDislocalityRelationParserRuleCall_20_0()); 
+	        newCompositeNode(grammarAccess.getAssistModelAccess().getDislocalityRelationsDislocalityRelationParserRuleCall_17_3_0()); 
 	    }
 		lv_dislocalityRelations_20_0=ruleDislocalityRelation		{
 	        if ($current==null) {
@@ -263,7 +263,7 @@ ruleAssistModel returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAssistModelAccess().getProximityRelationsProximityRelationParserRuleCall_21_0()); 
+	        newCompositeNode(grammarAccess.getAssistModelAccess().getProximityRelationsProximityRelationParserRuleCall_17_4_0()); 
 	    }
 		lv_proximityRelations_21_0=ruleProximityRelation		{
 	        if ($current==null) {
@@ -280,20 +280,20 @@ ruleAssistModel returns [EObject current=null]
 )
 )*	otherlv_22='}' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_22());
+    	newLeafNode(otherlv_22, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_17_5());
     }
-	otherlv_23='Communication' 
+)?(	otherlv_23='Communication' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getAssistModelAccess().getCommunicationKeyword_23());
+    	newLeafNode(otherlv_23, grammarAccess.getAssistModelAccess().getCommunicationKeyword_18_0());
     }
 	otherlv_24='{' 
     {
-    	newLeafNode(otherlv_24, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_24());
+    	newLeafNode(otherlv_24, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_18_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAssistModelAccess().getCommunicationRelationsCommunicationRelationParserRuleCall_25_0()); 
+	        newCompositeNode(grammarAccess.getAssistModelAccess().getCommunicationRelationsCommunicationRelationParserRuleCall_18_2_0()); 
 	    }
 		lv_communicationRelations_25_0=ruleCommunicationRelation		{
 	        if ($current==null) {
@@ -310,9 +310,9 @@ ruleAssistModel returns [EObject current=null]
 )
 )*	otherlv_26='}' 
     {
-    	newLeafNode(otherlv_26, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_26());
+    	newLeafNode(otherlv_26, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_18_3());
     }
-)
+)?)
 ;
 
 

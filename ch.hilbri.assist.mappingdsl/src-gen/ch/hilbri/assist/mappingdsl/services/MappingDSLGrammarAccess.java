@@ -43,32 +43,35 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cApplicationGroupsAssignment_15 = (Assignment)cGroup.eContents().get(15);
 		private final RuleCall cApplicationGroupsApplicationGroupParserRuleCall_15_0 = (RuleCall)cApplicationGroupsAssignment_15.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_16 = (Keyword)cGroup.eContents().get(16);
-		private final Keyword cRelationsKeyword_17 = (Keyword)cGroup.eContents().get(17);
-		private final Keyword cLeftCurlyBracketKeyword_18 = (Keyword)cGroup.eContents().get(18);
-		private final Assignment cDissimilarityRelationsAssignment_19 = (Assignment)cGroup.eContents().get(19);
-		private final RuleCall cDissimilarityRelationsDissimilarityRelationParserRuleCall_19_0 = (RuleCall)cDissimilarityRelationsAssignment_19.eContents().get(0);
-		private final Assignment cDislocalityRelationsAssignment_20 = (Assignment)cGroup.eContents().get(20);
-		private final RuleCall cDislocalityRelationsDislocalityRelationParserRuleCall_20_0 = (RuleCall)cDislocalityRelationsAssignment_20.eContents().get(0);
-		private final Assignment cProximityRelationsAssignment_21 = (Assignment)cGroup.eContents().get(21);
-		private final RuleCall cProximityRelationsProximityRelationParserRuleCall_21_0 = (RuleCall)cProximityRelationsAssignment_21.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_22 = (Keyword)cGroup.eContents().get(22);
-		private final Keyword cCommunicationKeyword_23 = (Keyword)cGroup.eContents().get(23);
-		private final Keyword cLeftCurlyBracketKeyword_24 = (Keyword)cGroup.eContents().get(24);
-		private final Assignment cCommunicationRelationsAssignment_25 = (Assignment)cGroup.eContents().get(25);
-		private final RuleCall cCommunicationRelationsCommunicationRelationParserRuleCall_25_0 = (RuleCall)cCommunicationRelationsAssignment_25.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_26 = (Keyword)cGroup.eContents().get(26);
+		private final Group cGroup_17 = (Group)cGroup.eContents().get(17);
+		private final Keyword cRelationsKeyword_17_0 = (Keyword)cGroup_17.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_17_1 = (Keyword)cGroup_17.eContents().get(1);
+		private final Assignment cDissimilarityRelationsAssignment_17_2 = (Assignment)cGroup_17.eContents().get(2);
+		private final RuleCall cDissimilarityRelationsDissimilarityRelationParserRuleCall_17_2_0 = (RuleCall)cDissimilarityRelationsAssignment_17_2.eContents().get(0);
+		private final Assignment cDislocalityRelationsAssignment_17_3 = (Assignment)cGroup_17.eContents().get(3);
+		private final RuleCall cDislocalityRelationsDislocalityRelationParserRuleCall_17_3_0 = (RuleCall)cDislocalityRelationsAssignment_17_3.eContents().get(0);
+		private final Assignment cProximityRelationsAssignment_17_4 = (Assignment)cGroup_17.eContents().get(4);
+		private final RuleCall cProximityRelationsProximityRelationParserRuleCall_17_4_0 = (RuleCall)cProximityRelationsAssignment_17_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_17_5 = (Keyword)cGroup_17.eContents().get(5);
+		private final Group cGroup_18 = (Group)cGroup.eContents().get(18);
+		private final Keyword cCommunicationKeyword_18_0 = (Keyword)cGroup_18.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_18_1 = (Keyword)cGroup_18.eContents().get(1);
+		private final Assignment cCommunicationRelationsAssignment_18_2 = (Assignment)cGroup_18.eContents().get(2);
+		private final RuleCall cCommunicationRelationsCommunicationRelationParserRuleCall_18_2_0 = (RuleCall)cCommunicationRelationsAssignment_18_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_18_3 = (Keyword)cGroup_18.eContents().get(3);
 		
 		//AssistModel:
 		//	"Global" "{" "System name" "=" systemName=STRING ";" "}" "Hardware" "{" hardwareContainer+=HardwareElementContainer+
-		//	networks+=Network* "}" "Software" "{" applications+=Application+ applicationGroups+=ApplicationGroup* "}" "Relations"
+		//	networks+=Network* "}" "Software" "{" applications+=Application+ applicationGroups+=ApplicationGroup* "}" ("Relations"
 		//	"{" dissimilarityRelations+=DissimilarityRelation* dislocalityRelations+=DislocalityRelation*
-		//	proximityRelations+=ProximityRelation* "}" "Communication" "{" communicationRelations+=CommunicationRelation* "}";
+		//	proximityRelations+=ProximityRelation* "}")? ("Communication" "{" communicationRelations+=CommunicationRelation*
+		//	"}")?;
 		public ParserRule getRule() { return rule; }
 
 		//"Global" "{" "System name" "=" systemName=STRING ";" "}" "Hardware" "{" hardwareContainer+=HardwareElementContainer+
-		//networks+=Network* "}" "Software" "{" applications+=Application+ applicationGroups+=ApplicationGroup* "}" "Relations"
+		//networks+=Network* "}" "Software" "{" applications+=Application+ applicationGroups+=ApplicationGroup* "}" ("Relations"
 		//"{" dissimilarityRelations+=DissimilarityRelation* dislocalityRelations+=DislocalityRelation*
-		//proximityRelations+=ProximityRelation* "}" "Communication" "{" communicationRelations+=CommunicationRelation* "}"
+		//proximityRelations+=ProximityRelation* "}")? ("Communication" "{" communicationRelations+=CommunicationRelation* "}")?
 		public Group getGroup() { return cGroup; }
 
 		//"Global"
@@ -137,47 +140,54 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_16() { return cRightCurlyBracketKeyword_16; }
 
+		//("Relations" "{" dissimilarityRelations+=DissimilarityRelation* dislocalityRelations+=DislocalityRelation*
+		//proximityRelations+=ProximityRelation* "}")?
+		public Group getGroup_17() { return cGroup_17; }
+
 		//"Relations"
-		public Keyword getRelationsKeyword_17() { return cRelationsKeyword_17; }
+		public Keyword getRelationsKeyword_17_0() { return cRelationsKeyword_17_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_18() { return cLeftCurlyBracketKeyword_18; }
+		public Keyword getLeftCurlyBracketKeyword_17_1() { return cLeftCurlyBracketKeyword_17_1; }
 
 		//dissimilarityRelations+=DissimilarityRelation*
-		public Assignment getDissimilarityRelationsAssignment_19() { return cDissimilarityRelationsAssignment_19; }
+		public Assignment getDissimilarityRelationsAssignment_17_2() { return cDissimilarityRelationsAssignment_17_2; }
 
 		//DissimilarityRelation
-		public RuleCall getDissimilarityRelationsDissimilarityRelationParserRuleCall_19_0() { return cDissimilarityRelationsDissimilarityRelationParserRuleCall_19_0; }
+		public RuleCall getDissimilarityRelationsDissimilarityRelationParserRuleCall_17_2_0() { return cDissimilarityRelationsDissimilarityRelationParserRuleCall_17_2_0; }
 
 		//dislocalityRelations+=DislocalityRelation*
-		public Assignment getDislocalityRelationsAssignment_20() { return cDislocalityRelationsAssignment_20; }
+		public Assignment getDislocalityRelationsAssignment_17_3() { return cDislocalityRelationsAssignment_17_3; }
 
 		//DislocalityRelation
-		public RuleCall getDislocalityRelationsDislocalityRelationParserRuleCall_20_0() { return cDislocalityRelationsDislocalityRelationParserRuleCall_20_0; }
+		public RuleCall getDislocalityRelationsDislocalityRelationParserRuleCall_17_3_0() { return cDislocalityRelationsDislocalityRelationParserRuleCall_17_3_0; }
 
 		//proximityRelations+=ProximityRelation*
-		public Assignment getProximityRelationsAssignment_21() { return cProximityRelationsAssignment_21; }
+		public Assignment getProximityRelationsAssignment_17_4() { return cProximityRelationsAssignment_17_4; }
 
 		//ProximityRelation
-		public RuleCall getProximityRelationsProximityRelationParserRuleCall_21_0() { return cProximityRelationsProximityRelationParserRuleCall_21_0; }
+		public RuleCall getProximityRelationsProximityRelationParserRuleCall_17_4_0() { return cProximityRelationsProximityRelationParserRuleCall_17_4_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_22() { return cRightCurlyBracketKeyword_22; }
+		public Keyword getRightCurlyBracketKeyword_17_5() { return cRightCurlyBracketKeyword_17_5; }
+
+		//("Communication" "{" communicationRelations+=CommunicationRelation* "}")?
+		public Group getGroup_18() { return cGroup_18; }
 
 		//"Communication"
-		public Keyword getCommunicationKeyword_23() { return cCommunicationKeyword_23; }
+		public Keyword getCommunicationKeyword_18_0() { return cCommunicationKeyword_18_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_24() { return cLeftCurlyBracketKeyword_24; }
+		public Keyword getLeftCurlyBracketKeyword_18_1() { return cLeftCurlyBracketKeyword_18_1; }
 
 		//communicationRelations+=CommunicationRelation*
-		public Assignment getCommunicationRelationsAssignment_25() { return cCommunicationRelationsAssignment_25; }
+		public Assignment getCommunicationRelationsAssignment_18_2() { return cCommunicationRelationsAssignment_18_2; }
 
 		//CommunicationRelation
-		public RuleCall getCommunicationRelationsCommunicationRelationParserRuleCall_25_0() { return cCommunicationRelationsCommunicationRelationParserRuleCall_25_0; }
+		public RuleCall getCommunicationRelationsCommunicationRelationParserRuleCall_18_2_0() { return cCommunicationRelationsCommunicationRelationParserRuleCall_18_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_26() { return cRightCurlyBracketKeyword_26; }
+		public Keyword getRightCurlyBracketKeyword_18_3() { return cRightCurlyBracketKeyword_18_3; }
 	}
 
 	public class HardwareElementContainerElements extends AbstractParserRuleElementFinder {
@@ -821,8 +831,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Core:
-		//	"Core" name=ID "{" "Capacity" "=" capacity=INT ";" ("Architecture" "=" architecture=STRING ";")?
-		//	("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}";
+		//	"Core" name=ID "{" "Capacity" "=" capacity=INT ";" ("Architecture" "=" architecture=STRING ";")? ("Generic properties"
+		//	"{" metricParameters+=MetricParameter* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"Core" name=ID "{" "Capacity" "=" capacity=INT ";" ("Architecture" "=" architecture=STRING ";")? ("Generic properties"
@@ -1296,9 +1306,9 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Application" name=ID "{" "Core-utilization" "=" coreUtilization=INT ";" ("Required RAM capacity" "=" ramUtilization=INT
 		//";")? ("Required ROM capacity" "=" romUtilization=INT ";")? ("Criticality level" "="
 		//criticalityLevel=DesignAssuranceLevelType ";")? ("Required IO protection" "="
-		//ioAdapterProtectionLevel=IOAdapterProtectionLevelType ";")? ("Identical parallel threads" "=" parallelThreads=INT
-		//";")? ("Developed by" "=" developedBy=STRING ";")? ioAdapterRequirements+=IOAdapterRequirement*
-		//("Restrict deployment to" "{" restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (","
+		//ioAdapterProtectionLevel=IOAdapterProtectionLevelType ";")? ("Identical parallel threads" "=" parallelThreads=INT ";")?
+		//("Developed by" "=" developedBy=STRING ";")? ioAdapterRequirements+=IOAdapterRequirement* ("Restrict deployment to" "{"
+		//restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (","
 		//restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* "}" ";")? ("Generic properties" "{"
 		//metricParameters+=MetricParameter* "}")? "}"
 		public Group getGroup() { return cGroup; }
@@ -1962,7 +1972,6 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cProcessorAttributeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cProcessorAttributeProcessorAttributesEnumRuleCall_3_1_0 = (RuleCall)cProcessorAttributeAssignment_3_1.eContents().get(0);
 		
-		//// HardwareArchitectureLevel setzen!
 		//DissimilarityEntry:
 		//	"Compartment." compartmentAttribute=CompartmentAttributes | "Box." boxAttribute=BoxAttributes | "Board."
 		//	boardAttribute=BoardAttributes | "Processor." processorAttribute=ProcessorAttributes;
@@ -2353,8 +2362,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLEVEL_8L8Keyword_8_0 = (Keyword)cLEVEL_8EnumLiteralDeclaration_8.eContents().get(0);
 		
 		//enum IOAdapterProtectionLevelType:
-		//	NONE="None" | LEVEL_1="L1" | LEVEL_2="L2" | LEVEL_3="L3" | LEVEL_4="L4" | LEVEL_5="L5" | LEVEL_6="L6" | LEVEL_7="L7"
-		//	| LEVEL_8="L8";
+		//	NONE="None" | LEVEL_1="L1" | LEVEL_2="L2" | LEVEL_3="L3" | LEVEL_4="L4" | LEVEL_5="L5" | LEVEL_6="L6" | LEVEL_7="L7" |
+		//	LEVEL_8="L8";
 		public EnumRule getRule() { return rule; }
 
 		//NONE="None" | LEVEL_1="L1" | LEVEL_2="L2" | LEVEL_3="L3" | LEVEL_4="L4" | LEVEL_5="L5" | LEVEL_6="L6" | LEVEL_7="L7" |
@@ -2887,9 +2896,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//AssistModel:
 	//	"Global" "{" "System name" "=" systemName=STRING ";" "}" "Hardware" "{" hardwareContainer+=HardwareElementContainer+
-	//	networks+=Network* "}" "Software" "{" applications+=Application+ applicationGroups+=ApplicationGroup* "}" "Relations"
+	//	networks+=Network* "}" "Software" "{" applications+=Application+ applicationGroups+=ApplicationGroup* "}" ("Relations"
 	//	"{" dissimilarityRelations+=DissimilarityRelation* dislocalityRelations+=DislocalityRelation*
-	//	proximityRelations+=ProximityRelation* "}" "Communication" "{" communicationRelations+=CommunicationRelation* "}";
+	//	proximityRelations+=ProximityRelation* "}")? ("Communication" "{" communicationRelations+=CommunicationRelation*
+	//	"}")?;
 	public AssistModelElements getAssistModelAccess() {
 		return (pAssistModel != null) ? pAssistModel : (pAssistModel = new AssistModelElements());
 	}
@@ -2956,8 +2966,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Core:
-	//	"Core" name=ID "{" "Capacity" "=" capacity=INT ";" ("Architecture" "=" architecture=STRING ";")?
-	//	("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}";
+	//	"Core" name=ID "{" "Capacity" "=" capacity=INT ";" ("Architecture" "=" architecture=STRING ";")? ("Generic properties"
+	//	"{" metricParameters+=MetricParameter* "}")? "}";
 	public CoreElements getCoreAccess() {
 		return (pCore != null) ? pCore : (pCore = new CoreElements());
 	}
@@ -3103,7 +3113,6 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getDissimilarityConjunctionAccess().getRule();
 	}
 
-	//// HardwareArchitectureLevel setzen!
 	//DissimilarityEntry:
 	//	"Compartment." compartmentAttribute=CompartmentAttributes | "Box." boxAttribute=BoxAttributes | "Board."
 	//	boardAttribute=BoardAttributes | "Processor." processorAttribute=ProcessorAttributes;
@@ -3196,8 +3205,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum IOAdapterProtectionLevelType:
-	//	NONE="None" | LEVEL_1="L1" | LEVEL_2="L2" | LEVEL_3="L3" | LEVEL_4="L4" | LEVEL_5="L5" | LEVEL_6="L6" | LEVEL_7="L7"
-	//	| LEVEL_8="L8";
+	//	NONE="None" | LEVEL_1="L1" | LEVEL_2="L2" | LEVEL_3="L3" | LEVEL_4="L4" | LEVEL_5="L5" | LEVEL_6="L6" | LEVEL_7="L7" |
+	//	LEVEL_8="L8";
 	public IOAdapterProtectionLevelTypeElements getIOAdapterProtectionLevelTypeAccess() {
 		return (unknownRuleIOAdapterProtectionLevelType != null) ? unknownRuleIOAdapterProtectionLevelType : (unknownRuleIOAdapterProtectionLevelType = new IOAdapterProtectionLevelTypeElements());
 	}

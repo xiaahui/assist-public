@@ -13,6 +13,8 @@ import ch.hilbri.assist.HardwareElementContainer;
 import ch.hilbri.assist.Network;
 import ch.hilbri.assist.ProximityRelation;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -292,6 +294,15 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean postProcessingForMapping() {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -460,6 +471,20 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return communicationRelations != null && !communicationRelations.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case AssistPackage.ASSIST_MODEL___POST_PROCESSING_FOR_MAPPING:
+				return postProcessingForMapping();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

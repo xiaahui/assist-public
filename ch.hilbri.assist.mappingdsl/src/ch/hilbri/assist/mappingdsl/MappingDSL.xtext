@@ -16,15 +16,19 @@ AssistModel:
 					(applicationGroups+=ApplicationGroup)*
 	'}'
 
+	(
 	'Relations' '{'
 					(dissimilarityRelations+=DissimilarityRelation)*
 					(dislocalityRelations+=DislocalityRelation)*
 					(proximityRelations+=ProximityRelation)*
 	'}'
+	)?
 	
+	(
 	'Communication' '{'
 					(communicationRelations+=CommunicationRelation)*
 	'}'
+	)?
 ;
 
 HardwareElementContainer: 

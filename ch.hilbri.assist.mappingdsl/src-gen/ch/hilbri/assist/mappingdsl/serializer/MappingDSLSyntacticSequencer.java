@@ -19,6 +19,8 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MappingDSLGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Application___GenericPropertiesKeyword_15_0_LeftCurlyBracketKeyword_15_1_RightCurlyBracketKeyword_15_3__q;
+	protected AbstractElementAlias match_AssistModel___CommunicationKeyword_18_0_LeftCurlyBracketKeyword_18_1_RightCurlyBracketKeyword_18_3__q;
+	protected AbstractElementAlias match_AssistModel___RelationsKeyword_17_0_LeftCurlyBracketKeyword_17_1_RightCurlyBracketKeyword_17_5__q;
 	protected AbstractElementAlias match_Board___GenericPropertiesKeyword_11_0_LeftCurlyBracketKeyword_11_1_RightCurlyBracketKeyword_11_3__q;
 	protected AbstractElementAlias match_Box___GenericPropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q;
 	protected AbstractElementAlias match_Compartment___GenericPropertiesKeyword_8_0_LeftCurlyBracketKeyword_8_1_RightCurlyBracketKeyword_8_3__q;
@@ -30,6 +32,8 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MappingDSLGrammarAccess) access;
 		match_Application___GenericPropertiesKeyword_15_0_LeftCurlyBracketKeyword_15_1_RightCurlyBracketKeyword_15_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getApplicationAccess().getGenericPropertiesKeyword_15_0()), new TokenAlias(false, false, grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_15_1()), new TokenAlias(false, false, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_15_3()));
+		match_AssistModel___CommunicationKeyword_18_0_LeftCurlyBracketKeyword_18_1_RightCurlyBracketKeyword_18_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getCommunicationKeyword_18_0()), new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_18_1()), new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_18_3()));
+		match_AssistModel___RelationsKeyword_17_0_LeftCurlyBracketKeyword_17_1_RightCurlyBracketKeyword_17_5__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getRelationsKeyword_17_0()), new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_17_1()), new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_17_5()));
 		match_Board___GenericPropertiesKeyword_11_0_LeftCurlyBracketKeyword_11_1_RightCurlyBracketKeyword_11_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getBoardAccess().getGenericPropertiesKeyword_11_0()), new TokenAlias(false, false, grammarAccess.getBoardAccess().getLeftCurlyBracketKeyword_11_1()), new TokenAlias(false, false, grammarAccess.getBoardAccess().getRightCurlyBracketKeyword_11_3()));
 		match_Box___GenericPropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getBoxAccess().getGenericPropertiesKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getBoxAccess().getLeftCurlyBracketKeyword_5_1()), new TokenAlias(false, false, grammarAccess.getBoxAccess().getRightCurlyBracketKeyword_5_3()));
 		match_Compartment___GenericPropertiesKeyword_8_0_LeftCurlyBracketKeyword_8_1_RightCurlyBracketKeyword_8_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getCompartmentAccess().getGenericPropertiesKeyword_8_0()), new TokenAlias(false, false, grammarAccess.getCompartmentAccess().getLeftCurlyBracketKeyword_8_1()), new TokenAlias(false, false, grammarAccess.getCompartmentAccess().getRightCurlyBracketKeyword_8_3()));
@@ -52,6 +56,10 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if(match_Application___GenericPropertiesKeyword_15_0_LeftCurlyBracketKeyword_15_1_RightCurlyBracketKeyword_15_3__q.equals(syntax))
 				emit_Application___GenericPropertiesKeyword_15_0_LeftCurlyBracketKeyword_15_1_RightCurlyBracketKeyword_15_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_AssistModel___CommunicationKeyword_18_0_LeftCurlyBracketKeyword_18_1_RightCurlyBracketKeyword_18_3__q.equals(syntax))
+				emit_AssistModel___CommunicationKeyword_18_0_LeftCurlyBracketKeyword_18_1_RightCurlyBracketKeyword_18_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_AssistModel___RelationsKeyword_17_0_LeftCurlyBracketKeyword_17_1_RightCurlyBracketKeyword_17_5__q.equals(syntax))
+				emit_AssistModel___RelationsKeyword_17_0_LeftCurlyBracketKeyword_17_1_RightCurlyBracketKeyword_17_5__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Board___GenericPropertiesKeyword_11_0_LeftCurlyBracketKeyword_11_1_RightCurlyBracketKeyword_11_3__q.equals(syntax))
 				emit_Board___GenericPropertiesKeyword_11_0_LeftCurlyBracketKeyword_11_1_RightCurlyBracketKeyword_11_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Box___GenericPropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q.equals(syntax))
@@ -73,6 +81,22 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('Generic properties' '{' '}')?
 	 */
 	protected void emit_Application___GenericPropertiesKeyword_15_0_LeftCurlyBracketKeyword_15_1_RightCurlyBracketKeyword_15_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ('Communication' '{' '}')?
+	 */
+	protected void emit_AssistModel___CommunicationKeyword_18_0_LeftCurlyBracketKeyword_18_1_RightCurlyBracketKeyword_18_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ('Relations' '{' '}')?
+	 */
+	protected void emit_AssistModel___RelationsKeyword_17_0_LeftCurlyBracketKeyword_17_1_RightCurlyBracketKeyword_17_5__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
