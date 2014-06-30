@@ -147,11 +147,10 @@ DissimilarityConjunction:
 	dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ ;
 
 DissimilarityEntry: 
-	( 'Compartment.' compartmentAttribute= CompartmentAttributes ) |
-	( 'Box.' boxAttribute = BoxAttributes) |
-	( 'Board.' boardAttribute = BoardAttributes) |
+	( 'Compartment.' compartmentAttribute= CompartmentAttributes ) 	|
+	( 'Box.' boxAttribute = BoxAttributes) 							|
+	( 'Board.' boardAttribute = BoardAttributes)					|
 	( 'Processor.' processorAttribute = ProcessorAttributes)
-	// HardwareArchitectureLevel setzen!
 ;
 
 enum CompartmentAttributes :
