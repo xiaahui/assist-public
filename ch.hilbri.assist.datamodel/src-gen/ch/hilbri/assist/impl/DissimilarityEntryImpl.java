@@ -186,11 +186,11 @@ public class DissimilarityEntryImpl extends DissimilarityClauseImpl implements D
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	public void setCompartmentAttribute(CompartmentAttributes newCompartmentAttribute) {
 		CompartmentAttributes oldCompartmentAttribute = compartmentAttribute;
 		compartmentAttribute = newCompartmentAttribute == null ? COMPARTMENT_ATTRIBUTE_EDEFAULT : newCompartmentAttribute;
-		setLevel(HardwareArchitectureLevelType.COMPARTMENT);
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AssistPackage.DISSIMILARITY_ENTRY__COMPARTMENT_ATTRIBUTE, oldCompartmentAttribute, compartmentAttribute));
 	}
@@ -207,11 +207,11 @@ public class DissimilarityEntryImpl extends DissimilarityClauseImpl implements D
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	public void setBoxAttribute(BoxAttributes newBoxAttribute) {
 		BoxAttributes oldBoxAttribute = boxAttribute;
 		boxAttribute = newBoxAttribute == null ? BOX_ATTRIBUTE_EDEFAULT : newBoxAttribute;
-		setLevel(HardwareArchitectureLevelType.BOX);
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AssistPackage.DISSIMILARITY_ENTRY__BOX_ATTRIBUTE, oldBoxAttribute, boxAttribute));
 	}
@@ -228,11 +228,11 @@ public class DissimilarityEntryImpl extends DissimilarityClauseImpl implements D
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	public void setBoardAttribute(BoardAttributes newBoardAttribute) {
 		BoardAttributes oldBoardAttribute = boardAttribute;
 		boardAttribute = newBoardAttribute == null ? BOARD_ATTRIBUTE_EDEFAULT : newBoardAttribute;
-		setLevel(HardwareArchitectureLevelType.BOARD);
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AssistPackage.DISSIMILARITY_ENTRY__BOARD_ATTRIBUTE, oldBoardAttribute, boardAttribute));
 	}
@@ -249,11 +249,11 @@ public class DissimilarityEntryImpl extends DissimilarityClauseImpl implements D
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	public void setProcessorAttribute(ProcessorAttributes newProcessorAttribute) {
 		ProcessorAttributes oldProcessorAttribute = processorAttribute;
 		processorAttribute = newProcessorAttribute == null ? PROCESSOR_ATTRIBUTE_EDEFAULT : newProcessorAttribute;
-		setLevel(HardwareArchitectureLevelType.PROCESSOR);
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AssistPackage.DISSIMILARITY_ENTRY__PROCESSOR_ATTRIBUTE, oldProcessorAttribute, processorAttribute));
 	}

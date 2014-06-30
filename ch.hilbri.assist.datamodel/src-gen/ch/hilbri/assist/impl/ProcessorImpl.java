@@ -5,7 +5,6 @@ package ch.hilbri.assist.impl;
 import ch.hilbri.assist.AssistPackage;
 import ch.hilbri.assist.Board;
 import ch.hilbri.assist.Core;
-import ch.hilbri.assist.HardwareArchitectureLevelType;
 import ch.hilbri.assist.MetricParameter;
 import ch.hilbri.assist.Processor;
 
@@ -13,10 +12,14 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -103,10 +106,10 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	protected ProcessorImpl() {
 		super();
-		this.level = HardwareArchitectureLevelType.PROCESSOR;
 	}
 
 	/**

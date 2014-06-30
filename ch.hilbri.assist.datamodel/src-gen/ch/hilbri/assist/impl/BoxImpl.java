@@ -6,17 +6,20 @@ import ch.hilbri.assist.AssistPackage;
 import ch.hilbri.assist.Board;
 import ch.hilbri.assist.Box;
 import ch.hilbri.assist.Compartment;
-import ch.hilbri.assist.HardwareArchitectureLevelType;
 import ch.hilbri.assist.MetricParameter;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -82,10 +85,10 @@ public class BoxImpl extends HardwareElementContainerImpl implements Box {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	protected BoxImpl() {
 		super();
-		this.level = HardwareArchitectureLevelType.BOX;
 	}
 
 	/**

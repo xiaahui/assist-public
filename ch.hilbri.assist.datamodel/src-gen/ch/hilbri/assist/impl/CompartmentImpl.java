@@ -5,17 +5,20 @@ package ch.hilbri.assist.impl;
 import ch.hilbri.assist.AssistPackage;
 import ch.hilbri.assist.Box;
 import ch.hilbri.assist.Compartment;
-import ch.hilbri.assist.HardwareArchitectureLevelType;
 import ch.hilbri.assist.MetricParameter;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -142,10 +145,10 @@ public class CompartmentImpl extends HardwareElementContainerImpl implements Com
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	protected CompartmentImpl() {
 		super();
-		this.level = HardwareArchitectureLevelType.COMPARTMENT;
 	}
 
 	/**

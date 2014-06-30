@@ -6,7 +6,6 @@ import ch.hilbri.assist.AssistPackage;
 import ch.hilbri.assist.Board;
 import ch.hilbri.assist.Box;
 import ch.hilbri.assist.DesignAssuranceLevelType;
-import ch.hilbri.assist.HardwareArchitectureLevelType;
 import ch.hilbri.assist.IOAdapter;
 import ch.hilbri.assist.MetricParameter;
 import ch.hilbri.assist.Processor;
@@ -15,10 +14,14 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -200,10 +203,10 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	protected BoardImpl() {
 		super();
-		this.level = HardwareArchitectureLevelType.BOARD;
 	}
 
 	/**
