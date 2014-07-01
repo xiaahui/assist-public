@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/cc/sq/precisionpro/!svn/ver/1268/application/generic/de.fraunhofer.fokus.precisionpro.application/trunk/cheatsheets
+END
+main.xml
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/cc/sq/precisionpro/!svn/ver/1268/application/generic/de.fraunhofer.fokus.precisionpro.application/trunk/cheatsheets/main.xml
+END
+mapping-hardware-resource-specification.xml
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/cc/sq/precisionpro/!svn/ver/1251/application/generic/de.fraunhofer.fokus.precisionpro.application/trunk/cheatsheets/mapping-hardware-resource-specification.xml
+END
+mapping-software-component-specification.xml
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/cc/sq/precisionpro/!svn/ver/1251/application/generic/de.fraunhofer.fokus.precisionpro.application/trunk/cheatsheets/mapping-software-component-specification.xml
+END
+mapping-safety-relation-specification.xml
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/cc/sq/precisionpro/!svn/ver/1251/application/generic/de.fraunhofer.fokus.precisionpro.application/trunk/cheatsheets/mapping-safety-relation-specification.xml
+END
+mapping-global-properties-specification.xml
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/cc/sq/precisionpro/!svn/ver/1268/application/generic/de.fraunhofer.fokus.precisionpro.application/trunk/cheatsheets/mapping-global-properties-specification.xml
+END

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_ADmRwErREeOdX57Z--P1Iw">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_oN4u8ErSEeOdX57Z--P1Iw" featurename="commands" parentElementId="de.fraunhofer.fokus.precisionpro.application">
+    <elements xsi:type="commands:Command" xmi:id="_pFRp8ErSEeOdX57Z--P1Iw" elementId="de.fraunhofer.fokus.precisionpro.application.command.help" commandName="Help"/>
+    <elements xsi:type="commands:Command" xmi:id="_sEemAErSEeOdX57Z--P1Iw" elementId="de.fraunhofer.fokus.precisionpro.application.command.about" commandName="About"/>
+    <elements xsi:type="commands:Command" xmi:id="_LrOFAJAFEeOQo6tDvRavuA" elementId="de.fraunhofer.fokus.precisionpro.application.command.showCheatSheet" commandName="Show Usage Cheat Sheet"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_2jgwsErSEeOdX57Z--P1Iw" featurename="handlers" parentElementId="de.fraunhofer.fokus.precisionpro.application">
+    <elements xsi:type="commands:Handler" xmi:id="_3qeYwErSEeOdX57Z--P1Iw" elementId="de.fraunhofer.fokus.precisionpro.application.handler.help" contributionURI="bundleclass://de.fraunhofer.fokus.precisionpro.application/de.fraunhofer.fokus.precisionpro.application.handlers.HelpHandler" command="_pFRp8ErSEeOdX57Z--P1Iw"/>
+    <elements xsi:type="commands:Handler" xmi:id="_yoys4JAFEeOQo6tDvRavuA" elementId="de.fraunhofer.fokus.precisionpro.application.handler.0" contributionURI="bundleclass://de.fraunhofer.fokus.precisionpro.application/de.fraunhofer.fokus.precisionpro.application.handlers.ShowUsageCheatSheetHandler" command="_LrOFAJAFEeOQo6tDvRavuA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_5syOwErSEeOdX57Z--P1Iw" elementId="de.fraunhofer.fokus.precisionpro.application.handler.about" contributionURI="bundleclass://de.fraunhofer.fokus.precisionpro.application/de.fraunhofer.fokus.precisionpro.application.handlers.AboutHandler" command="_sEemAErSEeOdX57Z--P1Iw"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ApGykErREeOdX57Z--P1Iw" featurename="children" parentElementId="de.fraunhofer.fokus.precisionpro.application.main.menu" positionInList="">
+    <elements xsi:type="menu:Menu" xmi:id="_Mnvu0ErREeOdX57Z--P1Iw" elementId="de.fraunhofer.fokus.precisionpro.application.menu.help" label="Help">
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_R9x_YErREeOdX57Z--P1Iw" elementId="de.fraunhofer.fokus.precisionpro.application.handledmenuitem.help" label="Help" iconURI="platform:/plugin/de.fraunhofer.fokus.precisionpro.application/icons/help.gif" command="_pFRp8ErSEeOdX57Z--P1Iw"/>
+      <children xsi:type="menu:MenuSeparator" xmi:id="_wDJQcErREeOdX57Z--P1Iw" elementId="de.fraunhofer.fokus.precisionpro.application.menuseparator.0"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_c88rgJAFEeOQo6tDvRavuA" elementId="de.fraunhofer.fokus.precisionpro.application.handledmenuitem.showUsageCheatSheet" label="Show Usage Cheat Sheet" command="_LrOFAJAFEeOQo6tDvRavuA"/>
+      <children xsi:type="menu:MenuSeparator" xmi:id="_bsw2AJAFEeOQo6tDvRavuA" elementId="de.fraunhofer.fokus.precisionpro.application.menuseparator.1"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_waRXAErREeOdX57Z--P1Iw" elementId="de.fraunhofer.fokus.precisionpro.application.handledmenuitem.about" label="About PRECISION PRO" command="_sEemAErSEeOdX57Z--P1Iw"/>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

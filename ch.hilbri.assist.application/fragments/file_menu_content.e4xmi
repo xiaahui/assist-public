@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_GzwU0AEZEeSTlPOe0qW7tA">
+  <imports xsi:type="commands:Command" xmi:id="_lt_YYAEZEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.command.opencommand"/>
+  <imports xsi:type="commands:Command" xmi:id="_oZYnoAEZEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.command.exit"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_PprXMAEaEeSTlPOe0qW7tA" featurename="children" parentElementId="file">
+    <elements xsi:type="menu:Menu" xmi:id="_Sm6kYAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.new" label="&amp;New">
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_lbUekAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.new.project" label="Project ..." iconURI="" command="_uRMvkAEZEeSTlPOe0qW7tA"/>
+      <children xsi:type="menu:MenuSeparator" xmi:id="_r9hAQAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.menuseparator.1"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_s7230AEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.new.file" label="File" iconURI="" command="_xPeekAEZEeSTlPOe0qW7tA"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_yEWboAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.new.folder" label="Folder" iconURI="" command="_zOPRUAEZEeSTlPOe0qW7tA"/>
+      <children xsi:type="menu:MenuSeparator" xmi:id="_18DtAAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.menuseparator.2"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_2dPugAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.new.other" label="Other ..." command="_2TEUQAEZEeSTlPOe0qW7tA"/>
+    </elements>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_UIz08AEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.open" label="&amp;Open File ..." command="_lt_YYAEZEeSTlPOe0qW7tA"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_W6JUIAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.menuseparator.0"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_YIZ3AAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.quit" label="&amp;Exit" command="_oZYnoAEZEeSTlPOe0qW7tA"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_5FuCEAEZEeSTlPOe0qW7tA" featurename="handlers" parentElementId="ch.hilbri.assist.application">
+    <elements xsi:type="commands:Handler" xmi:id="_6l-T4AEZEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handler.newFile" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.NewTextFileDialogHandler" command="_xPeekAEZEeSTlPOe0qW7tA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_BgXTIAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handler.newProject" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.NewProjectDialogHandler" command="_uRMvkAEZEeSTlPOe0qW7tA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_GSiosAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handler.newFolder" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.NewFolderDialogHandler" command="_zOPRUAEZEeSTlPOe0qW7tA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_LYEYEAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handler.newOther" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.NewOtherDialogHandler" command="_2TEUQAEZEeSTlPOe0qW7tA"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_tGgeEAEZEeSTlPOe0qW7tA" featurename="commands" parentElementId="ch.hilbri.assist.application">
+    <elements xsi:type="commands:Command" xmi:id="_uRMvkAEZEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.command.newProject" commandName="New Project Command"/>
+    <elements xsi:type="commands:Command" xmi:id="_xPeekAEZEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.command.newFile" commandName="New File Command"/>
+    <elements xsi:type="commands:Command" xmi:id="_zOPRUAEZEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.command.newFolder" commandName="New Folder Command"/>
+    <elements xsi:type="commands:Command" xmi:id="_2TEUQAEZEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.command.newOther" commandName="New Other Command"/>
+  </fragments>
+</fragment:ModelFragments>

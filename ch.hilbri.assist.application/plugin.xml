@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension id="assist_product" point="org.eclipse.core.runtime.products">
+		<product application="ch.hilbri.assist.application.application" name="ASSIST">
+			<property name="appName" value="ASSIST"> </property>
+		    <property name="applicationXMI" value="ch.hilbri.assist.application/Application.e4xmi"> </property>
+			<property name="cssTheme" value="ch.hilbri.assist.theme.default"> </property>
+			<property name="applicationCSSResources" value="platform:/plugin/org.eclipse.platform/images/"> </property>
+     		<property name="preferenceCustomization" value="plugin_customization.ini"> </property>
+		    <property name="version" value="0.1"></property>
+		</product>
+	</extension>
+ 
+ 	<extension id="ch.hilbri.assist.application.application" point="org.eclipse.core.runtime.applications">
+    	<application icon="icons/PP_icon_transp_small_16x16.png" cardinality="singleton-global" thread="main" visible="true">
+       		<run class="ch.hilbri.assist.application.Activator"> </run>
+    	</application>
+ 	</extension>
+ 
+	
+	<extension id="id1" point="org.eclipse.e4.workbench.model">
+    <processor
+          apply="always"
+          beforefragment="true"
+          class="ch.hilbri.assist.application.processors.MainMenuProcessor">
+    </processor>
+    <fragment
+          apply="always"
+          uri="fragments/file_menu_content.e4xmi">
+    </fragment>
+       <processor
+             apply="always"
+             beforefragment="true"
+             class="ch.hilbri.assist.application.processors.KeybindingProcessor">
+       </processor>
+   	</extension>
+   
+   	<extension point="org.eclipse.e4.ui.css.swt.theme">
+   		<theme basestylesheeturi="css/e4_default_win7.css" id="ch.hilbri.assist.theme.default" label="Default theme" os="win32" os_version="6.1"></theme>
+	</extension>
+
+ 	<extension point="org.eclipse.ui.activities"> <!-- This is used to disable unwanted wizards and perspectives -->
+		<activity id="ch.hilbri.assist.application.activity.disable" name="disable">
+			<enabledWhen><with variable="true"><equals value="false"></equals></with></enabledWhen>
+		</activity>
+	
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.emf.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.pde.ui.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.debug.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.jdt.debug.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.jdt.junit.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.ant.*"></activityPatternBinding>
+ 	</extension>
+ 
+ 	<extension point="org.eclipse.ui.cheatsheets.cheatSheetContent">
+    	<category id="ch.hilbri.assist.application.category1000716887" name="ASSIST"></category>
+    	<cheatsheet category="ch.hilbri.assist.application.category1000716887" composite="true" contentFile="$nl$/cheatsheets/main.xml" id="ch.hilbri.assist.application.cheatsheet42421446" name="ASSIST - Information"></cheatsheet>
+    	<cheatsheet category="ch.hilbri.assist.application.category1000716887" composite="false" contentFile="$nl$/cheatsheets/mapping-hardware-resource-specification.xml" id="ch.hilbri.assist.application.cheatsheet583307111" name="Specification of Hardware Resources"></cheatsheet>
+    	<cheatsheet category="ch.hilbri.assist.application.category1000716887" composite="false" contentFile="$nl$/cheatsheets/mapping-safety-relation-specification.xml" id="ch.hilbri.assist.application.cheatsheet1958237773" name="Specification of Safety Relations"></cheatsheet>
+    	<cheatsheet category="ch.hilbri.assist.application.category1000716887" composite="false" contentFile="$nl$/cheatsheets/mapping-software-component-specification.xml" id="ch.hilbri.assist.application.cheatsheet553270619" name="Title"></cheatsheet>
+    	<cheatsheet category="ch.hilbri.assist.application.category1000716887" composite="false" contentFile="$nl$/cheatsheets/mapping-global-properties-specification.xml" id="ch.hilbri.assist.application.cheatsheet388828927" name="Global Properties"></cheatsheet>
+ 	</extension>
+ 
+ 	<extension point="org.eclipse.ui.splashHandlers">
+    	<splashHandler class="ch.hilbri.assist.application.splashHandlers.SplashHandler" id="ch.hilbri.assist.application.splashHandler"></splashHandler>
+    	<splashHandlerProductBinding productId="ch.hilbri.assist.application.assist_product" splashId="ch.hilbri.assist.application.splashHandler"></splashHandlerProductBinding>
+ 	</extension>
+</plugin>

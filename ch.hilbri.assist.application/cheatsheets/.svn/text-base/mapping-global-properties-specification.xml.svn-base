@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet
+      title="Global Properties">
+   <intro>
+      <description>
+		The global properties block contains specifications which are used to describe the entire system. The block starts with the keyword <b>"Global"</b> followed by a list of specifications enclosed in braces <b>{</b> and <b>}</b>. Each specification has to end with a semicolon (<b>;</b>).<br/>
+		<br/><br/><b>Example:</b>
+		<br/>Global {
+		<br/>System name = "Flight Control System";
+		<br/>}
+		<br/><br/>The following specifications can be made within this block:
+      </description>
+   </intro>
+   <item
+         skip="false"
+         title="Setting the name of the system">
+      	<description>
+          Set the name of the system. It is used in the visualization of the results and the export functionality.<br/><br/>
+          <b>General format:</b>  System name = "[String]";<br/><br/>
+          <b>Example:</b> System name = "Flight Control System"; 
+		</description>
+   </item>
+</cheatsheet>

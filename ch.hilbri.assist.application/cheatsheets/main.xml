@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compositeCheatsheet name="ASSIST - Information">
+   <taskGroup kind="choice" name="Spatial Allocation (Mapping)" skip="true">
+      <intro>
+         This set of tasks provide guidance for the specifying a deployment problem in PRECISION PRO.
+<br/><br/>The <b>spatial allocation</b> describes the mapping of <b>software components</b> to <b>hardware resources</b>. Additional constraints may be defined based on the resource capacities or safety requirements, such as <b>dissimilarity</b> and <b>dislocality</b>. This allocation may not be schedulable.
+      </intro>
+      <task kind="cheatsheet" name="Specification of Global Properties" skip="false">
+         <intro>
+            The global properties block contains specifications which are used to describe the entire system. This task guides through the specifications which are available the <b>global properties block</b>.
+         </intro>
+         <param name="path" value="mapping-global-properties-specification.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Specification of Software Components" skip="true">
+         <intro>
+            Learn how software components and their resource requirements are specified in PRECISION PRO
+         </intro>
+         <param name="path" value="mapping-software-component-specification.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Specification of Hardware Resources" skip="true">
+         <intro>
+            Learn how the resource capacities and the topology of the hardware architecture is specified.
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="mapping-hardware-resource-specification.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Specifcation of Safety Relations" skip="true">
+         <intro>
+            Learn how safety relations between software components are specified within PRECISION PRO.
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="mapping-safety-relation-specification.xml">
+         </param>
+      </task>
+   </taskGroup>
+</compositeCheatsheet>
