@@ -28,49 +28,23 @@ public class MainMenuProcessor{
 				fileMenu.setElementId("file");
 				fileMenu.setLabel("&File");
 				
-//				//Seperator Additions
-//				MMenuSeparator additions = MMenuFactory.INSTANCE.createMenuSeparator();
-//				additions.setElementId("additions");
-//				fileMenu.getChildren().add(additions)
-//;				
-//				//Quit Menu Item
-//				MHandledMenuItem item = MMenuFactory.INSTANCE.createHandledMenuItem();
-//				List<MCommand> commands = app.getCommands();
-//				MCommand command = null;
-//				for(MCommand tmp: commands) {
-//					if (tmp.getElementId().equals("de.fraunhofer.fokus.precisionpro.application.command.exit")) {
-//						command = tmp;
-//						break;
-//					}
-//				}
-//				if (command != null) {
-//					item.setEnabled(true);
-//					item.setToBeRendered(true);
-//					item.setVisible(true);
-//					item.setCommand(command);
-//					item.setLabel("&Exit");
-//					item.setElementId("de.fraunhofer.fokus.precisionpro.application.handledmenuitem.quit");
-//					fileMenu.getChildren().add(item);
-//				}
-				
 				menu.getChildren().add(fileMenu);
 				
 				
 				//Submenu 'Edit'
-//				MMenu editMenu = MMenuFactory.INSTANCE.createMenu();
-//				editMenu.setElementId("edit");
-				//editMenu.setElementId("edit");
-//				editMenu.setLabel("&Edit");
+				MMenu editMenu = MMenuFactory.INSTANCE.createMenu();
+				editMenu.setElementId("edit");
+				editMenu.setLabel("&Edit");
 				
-//				menu.getChildren().add(editMenu);
-//				
-//				//Submenu 'Window'
-//				MMenu windowMenu = MMenuFactory.INSTANCE.createMenu();
-//				windowMenu.setElementId(PathProvider.APP_MAIN_MENU_WINDOW);
-//				windowMenu.setLabel("&Window");
-//				
-//				menu.getChildren().add(windowMenu);
-//				
+				menu.getChildren().add(editMenu);
+				
+				//Submenu 'Help'
+				MMenu helpMenu = MMenuFactory.INSTANCE.createMenu();
+				helpMenu.setElementId("help");
+				helpMenu.setLabel("&Help");
+				
+				menu.getChildren().add(helpMenu);
+				
 				
 				//Declare menu as main menu
 				app.getChildren().get(0).setMainMenu(menu);

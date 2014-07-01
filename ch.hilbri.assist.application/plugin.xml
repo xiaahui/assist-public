@@ -29,6 +29,14 @@
           apply="always"
           uri="fragments/file_menu_content.e4xmi">
     </fragment>
+    <fragment
+          apply="always"
+          uri="fragments/edit_menu_content.e4xmi">
+    </fragment>
+    <fragment
+          apply="always"
+          uri="fragments/help_menu_content.e4xmi">
+    </fragment>
        <processor
              apply="always"
              beforefragment="true"
