@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ch.hilbri.assist.mapping
+Bundle-SymbolicName: ch.hilbri.assist.mapping;singleton:=true
+Bundle-Version: 0.1
+Bundle-Vendor: Robert Hilbrich
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: ch.hilbri.assist.datamodel;bundle-version="0.1.0",
+ ch.hilbri.assist.mappingdsl;bundle-version="0.1.0",
+ ch.hilbri.assist.mappingdsl.tests;bundle-version="0.1.0",
+ ch.hilbri.assist.mappingdsl.ui;bundle-version="0.1.0",
+ org.eclipse.e4.core.di,
+ org.eclipse.e4.ui.model.workbench,
+ org.eclipse.e4.ui.workbench,
+ ch.hilbri.assist.application,
+ org.eclipse.ui.workbench,
+ org.eclipse.equinox.registry,
+ org.eclipse.core.resources

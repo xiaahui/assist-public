@@ -3,7 +3,6 @@
 
 <product name="ASSIST" id="ch.hilbri.assist.application.assist_product" application="ch.hilbri.assist.application.application" version="0.1" useFeatures="false" includeLaunchers="true">
 
-
    <configIni use="default">
    </configIni>
 
@@ -23,23 +22,33 @@
       </win>
    </launcher>
 
-
    <vm>
       <windows include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</windows>
    </vm>
 
-
    <plugins>
       <plugin id="ch.hilbri.assist.application"/>
+      <plugin id="ch.hilbri.assist.datamodel"/>
+      <plugin id="ch.hilbri.assist.mapping"/>
+      <plugin id="ch.hilbri.assist.mappingdsl"/>
+      <plugin id="ch.hilbri.assist.mappingdsl.tests"/>
+      <plugin id="ch.hilbri.assist.mappingdsl.ui"/>
+      <plugin id="com.google.guava"/>
+      <plugin id="com.google.inject"/>
       <plugin id="com.ibm.icu"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>
       <plugin id="javax.servlet"/>
       <plugin id="javax.xml"/>
+      <plugin id="org.antlr.runtime"/>
       <plugin id="org.apache.ant"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.batik.util.gui"/>
+      <plugin id="org.apache.commons.cli"/>
+      <plugin id="org.apache.commons.lang"/>
+      <plugin id="org.apache.commons.logging"/>
+      <plugin id="org.apache.log4j"/>
       <plugin id="org.apache.lucene.analysis"/>
       <plugin id="org.apache.lucene.core"/>
       <plugin id="org.eclipse.ant.core"/>
@@ -88,10 +97,26 @@
       <plugin id="org.eclipse.e4.ui.workbench.swt"/>
       <plugin id="org.eclipse.e4.ui.workbench3"/>
       <plugin id="org.eclipse.emf.cdo.ecore.retrofit" fragment="true"/>
+      <plugin id="org.eclipse.emf.codegen"/>
+      <plugin id="org.eclipse.emf.codegen.ecore"/>
+      <plugin id="org.eclipse.emf.codegen.ecore.xtext"/>
       <plugin id="org.eclipse.emf.common"/>
+      <plugin id="org.eclipse.emf.common.ui"/>
       <plugin id="org.eclipse.emf.ecore"/>
       <plugin id="org.eclipse.emf.ecore.change"/>
+      <plugin id="org.eclipse.emf.ecore.edit"/>
+      <plugin id="org.eclipse.emf.ecore.editor"/>
+      <plugin id="org.eclipse.emf.ecore.xcore"/>
+      <plugin id="org.eclipse.emf.ecore.xcore.lib"/>
       <plugin id="org.eclipse.emf.ecore.xmi"/>
+      <plugin id="org.eclipse.emf.edit"/>
+      <plugin id="org.eclipse.emf.edit.ui"/>
+      <plugin id="org.eclipse.emf.mwe.core"/>
+      <plugin id="org.eclipse.emf.mwe.utils"/>
+      <plugin id="org.eclipse.emf.mwe2.language"/>
+      <plugin id="org.eclipse.emf.mwe2.launch"/>
+      <plugin id="org.eclipse.emf.mwe2.lib"/>
+      <plugin id="org.eclipse.emf.mwe2.runtime"/>
       <plugin id="org.eclipse.equinox.app"/>
       <plugin id="org.eclipse.equinox.bidi"/>
       <plugin id="org.eclipse.equinox.common"/>
@@ -184,8 +209,30 @@
       <plugin id="org.eclipse.ui.workbench"/>
       <plugin id="org.eclipse.ui.workbench.texteditor"/>
       <plugin id="org.eclipse.update.configurator"/>
+      <plugin id="org.eclipse.xpand"/>
+      <plugin id="org.eclipse.xtend"/>
+      <plugin id="org.eclipse.xtend.lib"/>
+      <plugin id="org.eclipse.xtend.typesystem.emf"/>
+      <plugin id="org.eclipse.xtext"/>
+      <plugin id="org.eclipse.xtext.builder"/>
+      <plugin id="org.eclipse.xtext.common.types"/>
+      <plugin id="org.eclipse.xtext.common.types.edit"/>
+      <plugin id="org.eclipse.xtext.common.types.ui"/>
+      <plugin id="org.eclipse.xtext.ecore"/>
+      <plugin id="org.eclipse.xtext.generator"/>
+      <plugin id="org.eclipse.xtext.junit4"/>
+      <plugin id="org.eclipse.xtext.logging" fragment="true"/>
+      <plugin id="org.eclipse.xtext.smap"/>
+      <plugin id="org.eclipse.xtext.ui"/>
+      <plugin id="org.eclipse.xtext.ui.codetemplates"/>
+      <plugin id="org.eclipse.xtext.ui.codetemplates.ui"/>
+      <plugin id="org.eclipse.xtext.ui.shared"/>
+      <plugin id="org.eclipse.xtext.util"/>
+      <plugin id="org.eclipse.xtext.xbase"/>
+      <plugin id="org.eclipse.xtext.xbase.lib"/>
       <plugin id="org.hamcrest.core"/>
       <plugin id="org.junit"/>
+      <plugin id="org.objectweb.asm"/>
       <plugin id="org.sat4j.core"/>
       <plugin id="org.sat4j.pb"/>
       <plugin id="org.w3c.css.sac"/>

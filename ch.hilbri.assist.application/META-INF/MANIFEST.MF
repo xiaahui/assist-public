@@ -36,3 +36,4 @@ Require-Bundle: org.eclipse.equinox.app,
  org.eclipse.ui.workbench.texteditor,
  org.eclipse.text
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: ch.hilbri.assist.application.helpers
