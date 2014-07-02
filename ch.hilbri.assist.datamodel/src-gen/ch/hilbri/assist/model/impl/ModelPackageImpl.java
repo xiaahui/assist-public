@@ -904,7 +904,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationGroup_Applications() {
+	public EReference getApplicationGroup_ApplicationsOrGroups() {
 		return (EReference)applicationGroupEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1495,7 +1495,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		applicationGroupEClass = createEClass(APPLICATION_GROUP);
 		createEAttribute(applicationGroupEClass, APPLICATION_GROUP__NAME);
-		createEReference(applicationGroupEClass, APPLICATION_GROUP__APPLICATIONS);
+		createEReference(applicationGroupEClass, APPLICATION_GROUP__APPLICATIONS_OR_GROUPS);
 
 		applicationEClass = createEClass(APPLICATION);
 		createEAttribute(applicationEClass, APPLICATION__NAME);
@@ -1684,7 +1684,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(applicationGroupEClass, ApplicationGroup.class, "ApplicationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApplicationGroup_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getApplicationGroup_Applications(), this.getApplication(), null, "applications", null, 2, -1, ApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplicationGroup_ApplicationsOrGroups(), this.getApplicationOrApplicationGroup(), null, "applicationsOrGroups", null, 1, -1, ApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApplication_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -1676,13 +1676,13 @@ ruleApplicationGroup returns [EObject current=null]
         }
 	otherlv_3=RULE_ID
 	{
-		newLeafNode(otherlv_3, grammarAccess.getApplicationGroupAccess().getApplicationsApplicationCrossReference_3_0()); 
+		newLeafNode(otherlv_3, grammarAccess.getApplicationGroupAccess().getApplicationsOrGroupsApplicationOrApplicationGroupCrossReference_3_0()); 
 	}
 
 )
-)	otherlv_4=',' 
+)(	otherlv_4=',' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getApplicationGroupAccess().getCommaKeyword_4());
+    	newLeafNode(otherlv_4, grammarAccess.getApplicationGroupAccess().getCommaKeyword_4_0());
     }
 (
 (
@@ -1693,30 +1693,13 @@ ruleApplicationGroup returns [EObject current=null]
         }
 	otherlv_5=RULE_ID
 	{
-		newLeafNode(otherlv_5, grammarAccess.getApplicationGroupAccess().getApplicationsApplicationCrossReference_5_0()); 
+		newLeafNode(otherlv_5, grammarAccess.getApplicationGroupAccess().getApplicationsOrGroupsApplicationOrApplicationGroupCrossReference_4_1_0()); 
 	}
 
 )
-)(	otherlv_6=',' 
+))+	otherlv_6='}' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getApplicationGroupAccess().getCommaKeyword_6_0());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getApplicationGroupRule());
-	        }
-        }
-	otherlv_7=RULE_ID
-	{
-		newLeafNode(otherlv_7, grammarAccess.getApplicationGroupAccess().getApplicationsApplicationCrossReference_6_1_0()); 
-	}
-
-)
-))*	otherlv_8='}' 
-    {
-    	newLeafNode(otherlv_8, grammarAccess.getApplicationGroupAccess().getRightCurlyBracketKeyword_7());
+    	newLeafNode(otherlv_6, grammarAccess.getApplicationGroupAccess().getRightCurlyBracketKeyword_5());
     }
 )
 ;

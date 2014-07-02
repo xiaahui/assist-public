@@ -102,7 +102,7 @@ Network:
 /* SOFTWARE */
 
 ApplicationGroup: 
-	'Group' name=ID '{' applications+=[Application] ',' applications+=[Application] (',' applications+=[Application])* '}'
+	'Group' name=ID '{' applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+ '}'
 ;
 
 Application:

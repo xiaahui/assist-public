@@ -3,11 +3,18 @@
 */
 package ch.hilbri.assist.mappingdsl.ui.outline
 
+import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
+
 /**
  * Customization of the default outline structure.
  *
  * see http://www.eclipse.org/Xtext/documentation.html#outline
  */
-class MappingDSLOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider {
+class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
+	
+
 	
 }
+
+
+

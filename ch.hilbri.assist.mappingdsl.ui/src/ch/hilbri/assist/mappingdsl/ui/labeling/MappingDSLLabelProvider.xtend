@@ -3,27 +3,47 @@
 */
 package ch.hilbri.assist.mappingdsl.ui.labeling
 
+import ch.hilbri.assist.model.Application
+import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.Board
+import ch.hilbri.assist.model.Box
+import ch.hilbri.assist.model.Compartment
+import ch.hilbri.assist.model.Core
+import ch.hilbri.assist.model.Processor
 import com.google.inject.Inject
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
+import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
 /**
  * Provides labels for a EObjects.
  * 
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
-class MappingDSLLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider {
+class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 
 	@Inject
-	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
+	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
 
-	// Labels and icons can be computed like this:
+	def text(AssistModel model) 	{ 'System ' + model.systemName 		 	}
+	def image(AssistModel model)	{ 'outline_view_system_16x16.png'		}
+
+	def text(Compartment comp)		{ 'Compartment ' + comp.name  	}
+	def image(Compartment comp)		{ 'outline_view_compartment_16x16.png'	}			
+
+	def text(Box box)				{ 'Box ' + box.name }
+	def image(Box box)				{ 'outline_view_box_16x16.png'	}
 	
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
-//
-//	def image(Greeting ele) {
-//		'Greeting.gif'
-//	}
+	def text(Board b)				{ 'Board ' + b.name }
+	def image(Board b)				{ 'outline_view_board_16x16.png'	}
+	
+	def text(Processor p)			{ 'Processor ' + p.name }
+	def image(Processor p)			{ 'outline_view_processor_16x16.png'	}
+	
+	def text(Core c)				{ 'Core ' + c.name }
+	def image(Core c)				{ 'outline_view_core_16x16.png'	}
+
+	def text(Application a)			{ 'Application ' + a.name }
+	def image(Application a)		{ 'outline_view_application2_16x16.png'	}
 }

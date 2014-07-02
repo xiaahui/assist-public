@@ -936,13 +936,13 @@ public interface ModelPackage extends EPackage {
 	int APPLICATION_GROUP__NAME = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Applications</b></em>' reference list.
+	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_GROUP__APPLICATIONS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 1;
+	int APPLICATION_GROUP__APPLICATIONS_OR_GROUPS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Application Group</em>' class.
@@ -2355,15 +2355,15 @@ public interface ModelPackage extends EPackage {
 	EAttribute getApplicationGroup_Name();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.model.ApplicationGroup#getApplications <em>Applications</em>}'.
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.model.ApplicationGroup#getApplicationsOrGroups <em>Applications Or Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Applications</em>'.
-	 * @see ch.hilbri.assist.model.ApplicationGroup#getApplications()
+	 * @return the meta object for the reference list '<em>Applications Or Groups</em>'.
+	 * @see ch.hilbri.assist.model.ApplicationGroup#getApplicationsOrGroups()
 	 * @see #getApplicationGroup()
 	 * @generated
 	 */
-	EReference getApplicationGroup_Applications();
+	EReference getApplicationGroup_ApplicationsOrGroups();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.Application <em>Application</em>}'.
@@ -3483,12 +3483,12 @@ public interface ModelPackage extends EPackage {
 		EAttribute APPLICATION_GROUP__NAME = eINSTANCE.getApplicationGroup_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Applications</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Applications Or Groups</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference APPLICATION_GROUP__APPLICATIONS = eINSTANCE.getApplicationGroup_Applications();
+		EReference APPLICATION_GROUP__APPLICATIONS_OR_GROUPS = eINSTANCE.getApplicationGroup_ApplicationsOrGroups();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ApplicationImpl <em>Application</em>}' class.

@@ -169,7 +169,7 @@ class ApplicationOrApplicationGroup {}
 
 class ApplicationGroup extends ApplicationOrApplicationGroup {
 	String name
-	refers Application[2..*] applications
+	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
 }
 
 class Application extends ApplicationOrApplicationGroup {

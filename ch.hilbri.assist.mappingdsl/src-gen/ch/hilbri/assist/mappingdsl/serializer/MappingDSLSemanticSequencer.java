@@ -169,7 +169,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID applications+=[Application|ID] applications+=[Application|ID] applications+=[Application|ID]*)
+	 *     (name=ID applicationsOrGroups+=[ApplicationOrApplicationGroup|ID] applicationsOrGroups+=[ApplicationOrApplicationGroup|ID]+)
 	 */
 	protected void sequence_ApplicationGroup(EObject context, ApplicationGroup semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
