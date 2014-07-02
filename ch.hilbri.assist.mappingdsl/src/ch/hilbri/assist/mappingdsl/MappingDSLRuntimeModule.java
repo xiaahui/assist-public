@@ -21,4 +21,6 @@ public class MappingDSLRuntimeModule extends ch.hilbri.assist.mappingdsl.Abstrac
 	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
 	    return NullGlobalScopeProvider.class;
 	}
+	
+
 }
