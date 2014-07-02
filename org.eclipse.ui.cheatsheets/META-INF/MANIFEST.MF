@@ -1,0 +1,840 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.4
+Built-By: e4Build
+Bundle-SymbolicName: org.eclipse.ui.cheatsheets; singleton:=true
+Eclipse-LazyStart: true
+Eclipse-SourceReferences: scm:git:git://git.eclipse.org/gitroot/platfo
+ rm/eclipse.platform.ua.git;path="org.eclipse.ui.cheatsheets";tag="I20
+ 130402-0800";commitId=4069ea9718102db6d035e7939ac9586e73fbbcef
+Bundle-Activator: org.eclipse.ui.internal.cheatsheets.CheatSheetPlugin
+Require-Bundle: org.eclipse.ui;bundle-version="[3.6.0,4.0.0)",org.ecli
+ pse.ui.forms;bundle-version="[3.5.0,4.0.0)",org.eclipse.help;bundle-v
+ ersion="[3.5.0,4.0.0)",org.eclipse.core.runtime;bundle-version="[3.6.
+ 0,4.0.0)",org.eclipse.help.base;bundle-version="[4.0.0,5.0.0)";resolu
+ tion:=optional,org.eclipse.help.ui;bundle-version="[4.0.0,5.0.0)";res
+ olution:=optional,org.eclipse.core.expressions;bundle-version="3.4.20
+ 0"
+Bundle-Version: 3.999
+Export-Package: org.eclipse.ui.cheatsheets,org.eclipse.ui.internal.che
+ atsheets;x-friends:="org.eclipse.ua.tests",org.eclipse.ui.internal.ch
+ eatsheets.actions;x-friends:="org.eclipse.ua.tests",org.eclipse.ui.in
+ ternal.cheatsheets.composite.explorer;x-friends:="org.eclipse.ua.test
+ s",org.eclipse.ui.internal.cheatsheets.composite.model;x-friends:="or
+ g.eclipse.ua.tests",org.eclipse.ui.internal.cheatsheets.composite.par
+ ser;x-friends:="org.eclipse.ua.tests",org.eclipse.ui.internal.cheatsh
+ eets.composite.views;x-friends:="org.eclipse.ua.tests",org.eclipse.ui
+ .internal.cheatsheets.data;x-friends:="org.eclipse.ua.tests",org.ecli
+ pse.ui.internal.cheatsheets.dialogs;x-friends:="org.eclipse.ua.tests"
+ ,org.eclipse.ui.internal.cheatsheets.handlers;x-friends:="org.eclipse
+ .ua.tests",org.eclipse.ui.internal.cheatsheets.registry;x-friends:="o
+ rg.eclipse.ua.tests",org.eclipse.ui.internal.cheatsheets.state;x-frie
+ nds:="org.eclipse.ua.tests",org.eclipse.ui.internal.cheatsheets.views
+ ;x-friends:="org.eclipse.ua.tests",org.eclipse.ui.internal.provisiona
+ l.cheatsheets;x-friends:="org.eclipse.ua.tests"
+Build-Jdk: 1.7.0_11
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %PROVIDER_NAME
+Bundle-Name: %PLUGIN_NAME
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Import-Package: com.ibm.icu.text,javax.xml.parsers,org.w3c.dom,org.xml
+ .sax
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/model/CompositeChe
+ atSheetModel.class
+SHA1-Digest: ikSHCoD+z6s09u0whAa5SaQ1sOI=
+
+Name: org/eclipse/ui/internal/cheatsheets/dialogs/CheatSheetCategoryBa
+ sedSelectionDialog$CheatsheetLabelProvider.class
+SHA1-Digest: 8DwqQBG1O4rebW/BwXnKmTcdqz0=
+
+Name: org/eclipse/ui/internal/cheatsheets/handlers/OpenInputDialogHand
+ ler.class
+SHA1-Digest: rvZhEisNYem2YnxnQTimxzGPmmc=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CheatSheetEvent.class
+SHA1-Digest: b0oqKEZd0N8Ssp1WhpousWCklwo=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/model/SuccesorTask
+ Finder.class
+SHA1-Digest: cEbz9ZLVii1aY4jr4SCDBGXuZqg=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/TreeExplo
+ rerMenu$1.class
+SHA1-Digest: 4MYoGP1layBhbzCJaR29tX9PE58=
+
+Name: org/eclipse/ui/internal/cheatsheets/registry/CheatSheetParameter
+ Values.class
+SHA1-Digest: bCTNNlr88e8QTUYMKr7Otb0w9lo=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/model/TaskDependen
+ cies$Dependency.class
+SHA1-Digest: 4knjps06cuBcQqMXCoL/nr/vhUk=
+
+Name: org/eclipse/ui/internal/cheatsheets/state/ICheatSheetStateManage
+ r.class
+SHA1-Digest: wnRkk16KXQL4LA23Y2MQiTroHWY=
+
+Name: org/eclipse/ui/internal/cheatsheets/state/TrayStateManager.class
+SHA1-Digest: yC3dcDO9YsfcWiCCF3hAtBaTuwM=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/ICheatSheet.class
+SHA1-Digest: zZHNg71OWWl1uWDwpqc8KolfmYk=
+
+Name: org/eclipse/ui/cheatsheets/AbstractItemExtensionElement.class
+SHA1-Digest: FkGIGZ5So/pLZRkZJgt9UNpbvRE=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/ErrorPage.class
+SHA1-Digest: O1BP9TGP0GmH45rZPXqVzQ15Zmo=
+
+Name: org/eclipse/ui/internal/cheatsheets/actions/CheatSheetMenuAction
+ .class
+SHA1-Digest: d4XlXq+ga856JFbzV6a8/8PcOE4=
+
+Name: org/eclipse/ui/cheatsheets/OpenCheatSheetFromHelpAction.class
+SHA1-Digest: e5Ir0ZScPFrHtXBzhIQZSQrymX8=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/ConfirmRe
+ startDialog$TaskContentProvider.class
+SHA1-Digest: DL2HZVkL+a5mBOYeBv3riSy5JQU=
+
+Name: org/eclipse/ui/internal/cheatsheets/dialogs/CheatSheetCategoryBa
+ sedSelectionDialog$1.class
+SHA1-Digest: f/amODY9KNNCFVZhX0bdcwVjBYs=
+
+Name: org/eclipse/ui/internal/cheatsheets/registry/CheatSheetElement.c
+ lass
+SHA1-Digest: 9VVS8Fhhcs2MR1wL965qA73RJhs=
+
+Name: icons/obj16/information.gif
+SHA1-Digest: mUtH6JOLdcPH0zYHzxxaDo/tNgE=
+
+Name: org/eclipse/ui/internal/cheatsheets/handlers/DialogIntegerValueC
+ onverter.class
+SHA1-Digest: 93Y/rPLSbzUVmM9zaH7Xl/j4slk=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/model/BlockedTaskF
+ inder.class
+SHA1-Digest: u8PPiirC2STg7YUbMHUHyCJ3gcg=
+
+Name: org/eclipse/ui/internal/cheatsheets/registry/CheatSheetRegistryR
+ eader$CategoryNode.class
+SHA1-Digest: 5Ei2eG6DHxwMviZh3IrG3bDewYw=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/parser/CompositeCh
+ eatSheetParser.class
+SHA1-Digest: pWzrsVpd8vwxQbQ4uwpczvELlJs=
+
+Name: icons/dlcl16/restart_task.gif
+SHA1-Digest: wiy/v1BNzte1pxaRSQCm+7+XKFs=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/PerformWhen.class
+SHA1-Digest: c5t+Reboc1CPYxJermKvTOEj4Fo=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/ParserStatusUtility.cla
+ ss
+SHA1-Digest: T8ZYLH5qb17PJuhk3vvIGM/V9MM=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/CheatSheetSaveHelper.cl
+ ass
+SHA1-Digest: Sn5gC9Ry2XMyaY39fMd+ADzgLhc=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/model/TaskSetCompl
+ etionStrategy.class
+SHA1-Digest: X7uPNTr8nmuqmiLFx7ae6c6lQS8=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/parser/ITaskParseS
+ trategy.class
+SHA1-Digest: d/5SqKrEg2lMR2/UWAmUJPzjDWk=
+
+Name: icons/dlcl16/start_task.gif
+SHA1-Digest: HeiBycBJf0pMbI+HoEslckRwR8o=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/ViewUtilities.class
+SHA1-Digest: 7G7skim7zdj9Mr0Cr8uynV/TRSs=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/views/CompositeChe
+ atSheetPage$3.class
+SHA1-Digest: COhmcU7dj2h211XKIFTlRyYBhdw=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CoreItem$5.class
+SHA1-Digest: lTcFGv6WQBscRGV5Vlif/0Ue150=
+
+Name: icons/ovr16/task_skipped.gif
+SHA1-Digest: OGbJpdDHsS7QM3h7DfNh8KdGvGM=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/AbstractExecutable.clas
+ s
+SHA1-Digest: lYxzom5SOI4ycfmwWVNW6LYgIgk=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/views/TaskEditorMa
+ nager.class
+SHA1-Digest: JkJEhhNQrBitUZ/V7pP9pB//HzA=
+
+Name: icons/dlcl16/task_choice.gif
+SHA1-Digest: 6EWHopNcXCRCHvYrJUG5pKZ9nzk=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/views/DescriptionP
+ anel.class
+SHA1-Digest: UMi9J/yns98wwMuC3ABRFYnzSMg=
+
+Name: org/eclipse/ui/internal/cheatsheets/handlers/OpenCheatSheetURLHa
+ ndler.class
+SHA1-Digest: sKLsXXIrUOtUoGYFVjxoaLG4zqY=
+
+Name: org/eclipse/ui/cheatsheets/CheatSheetExtensionFactory.class
+SHA1-Digest: aI5hvr+zuFO11qmYsYMMGrZ2Yls=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/ConfirmRe
+ startDialog$TaskLabelProvider.class
+SHA1-Digest: kCiMCgR2s0avWydjqSnOSAJYs90=
+
+Name: org/eclipse/ui/internal/provisional/cheatsheets/ICompositeCheatS
+ heet.class
+SHA1-Digest: phg9ythokKvCRfSD/YC43ck4c6k=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CheatSheetPage.class
+SHA1-Digest: wxdOUTuG42IADBDm0lsHDeIxO7M=
+
+Name: icons/obj16/cheatsheet_obj.gif
+SHA1-Digest: fy/9wim+IuiDDy48w4ElFWsgces=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/TreeLabel
+ Provider$ImageSet.class
+SHA1-Digest: VPHoQzhzWyeqlIUvEtZq2qhm9L0=
+
+Name: icons/obj16/cheatsheet_task.gif
+SHA1-Digest: fy/9wim+IuiDDy48w4ElFWsgces=
+
+Name: org/eclipse/ui/cheatsheets/OpenCheatSheetAction.class
+SHA1-Digest: ttiAO9rLJSmRtIeDpSQx1ujbuWs=
+
+Name: icons/obj16/task_set.gif
+SHA1-Digest: iC2n/WgRiQORVPIjj9lNOt7OZIQ=
+
+Name: org/eclipse/ui/internal/cheatsheets/CheatSheetStopWatch$Entry.cl
+ ass
+SHA1-Digest: IwHNTuCwSQv+yyYv1JMuVN8vh+o=
+
+Name: org/eclipse/ui/internal/cheatsheets/actions/CheatSheetCategoryBa
+ sedSelectionAction.class
+SHA1-Digest: KyBrSAmvRv1EfPZdf9qLDD+SYMs=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CheatSheetViewer$1.cla
+ ss
+SHA1-Digest: hq8UupP5F7ZmbjBqEWghz38N0t4=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/IActionItem.class
+SHA1-Digest: n/9/hPX4tvXNu519NQHV1LQ0HwQ=
+
+Name: org/eclipse/ui/internal/cheatsheets/registry/RegistryReader.clas
+ s
+SHA1-Digest: MP+fHef9Ch+XgFSX/JRgbwrBjW8=
+
+Name: org/eclipse/ui/internal/cheatsheets/handlers/OpenCheatSheetHandl
+ er.class
+SHA1-Digest: wu3inyeh5Fhf5cHy6XNbAxMi0FQ=
+
+Name: org/eclipse/ui/cheatsheets/CheatSheetListener.class
+SHA1-Digest: A5BlS35tDaNCYHUQMDhmVoejBUo=
+
+Name: icons/dlcl16/complete_task.gif
+SHA1-Digest: Poq31ysOXvyzBHxNF6OX1h9V0Rc=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CoreItem$2.class
+SHA1-Digest: vYKNicDaJe2vDrSPMd1gX8xCqDc=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/IExecutableItem.class
+SHA1-Digest: fHdHknz69wj529SldiJy3y2nezI=
+
+Name: icons/elcl16/skip_ccs_task.gif
+SHA1-Digest: yhP5GLxHo3e7Jg6EdTuQW7jre78=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/IPerformWhenItem.class
+SHA1-Digest: fXKoxU7QGa0/V3sQUoOXQEWVDj4=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/ViewItem$2.class
+SHA1-Digest: PJlL69YRwY6ETcrc81zLnB2n0JQ=
+
+Name: org/eclipse/ui/internal/cheatsheets/dialogs/CheatSheetCategoryBa
+ sedSelectionDialog$ActivityViewerFilter.class
+SHA1-Digest: ES/U/9VvYj+DFislQ5gPfYtJcU4=
+
+Name: org/eclipse/ui/internal/cheatsheets/actions/CheatSheetMenu$1.cla
+ ss
+SHA1-Digest: Xdul1gw8YD3CxrxEvBudrx2WCQw=
+
+Name: org/eclipse/ui/internal/cheatsheets/registry/CheatSheetRegistryR
+ eader$TaskExplorerNode.class
+SHA1-Digest: I2T3+NwsukLdEk7qdS6b7qvPgzI=
+
+Name: icons/elcl16/review_ccs_task.gif
+SHA1-Digest: x207zTncZlaPgDpOvNbdEPJYHjM=
+
+Name: icons/obj16/warning.gif
+SHA1-Digest: BqcEZx5MRvJkJ3g7N6EcRrVEmXg=
+
+Name: icons/ovr16/task_complete.gif
+SHA1-Digest: Qa6kYO4neVzBTUr4Qpi5m+lOCvU=
+
+Name: icons/dlcl16/restart_cheatsheet.gif
+SHA1-Digest: 295w4zoz6ucBEo1JBiWqVaYwBiA=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/CheatSheetCommand.class
+SHA1-Digest: K6T73d3/o8OrwBL4J3P6TRxaqRU=
+
+Name: icons/ovr16/task_in_progress.gif
+SHA1-Digest: 97ACl+n90fXIe2GnDV2pA+S1usA=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/model/TaskDependen
+ cies.class
+SHA1-Digest: 73I0fLHpHr7vfxl6I9gr9g/+Cx8=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CheatSheetManager.clas
+ s
+SHA1-Digest: qpg+aYhPlEYWhnPWBKza3NgHRmI=
+
+Name: org/eclipse/ui/internal/cheatsheets/dialogs/CheatSheetCategoryBa
+ sedSelectionDialog$3.class
+SHA1-Digest: 8omU/pRZtl3Tfjj0yV4K4U0unx4=
+
+Name: icons/elcl16/linkto_help.gif
+SHA1-Digest: rPmovBGARoDY4DIO6eJwtboVz8Y=
+
+Name: icons/elcl16/return_to_start.gif
+SHA1-Digest: WQ5LawdQ7USfhH5vA4rNXArOV9w=
+
+Name: icons/obj16/skip_status.gif
+SHA1-Digest: i2DUQqPiZv4UaZMnUBRL807q1Hw=
+
+Name: org/eclipse/ui/internal/cheatsheets/registry/CheatSheetRegistryR
+ eader$1.class
+SHA1-Digest: VuLSxR4xOewj59xTdqrsWsUO24k=
+
+Name: org/eclipse/ui/cheatsheets/ICheatSheetAction.class
+SHA1-Digest: Qdalk5o5doEi//+OIN/3nC9KPjw=
+
+Name: icons/obj16/complete_status.gif
+SHA1-Digest: V7A9oJ89jlByaKf8ktVzvXX7sG8=
+
+Name: icons/obj16/task_sequence.gif
+SHA1-Digest: mqQcSCxLf+FQP/wa6ZscxqXN0Nw=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/Page.class
+SHA1-Digest: oYFqfW75agtwJCsozr9KlglU6lA=
+
+Name: icons/obj16/composite_obj.gif
+SHA1-Digest: hLdGAP46cAj+exZwu9RrY9jMlYU=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/views/CompositeChe
+ atSheetPage.class
+SHA1-Digest: QSGS1losIG2M3jOqE4Hrfu1ys+A=
+
+Name: org/eclipse/ui/internal/cheatsheets/dialogs/CheatSheetCategoryBa
+ sedSelectionDialog$FileAndUrlListener.class
+SHA1-Digest: RQn48oCKES+UXoXY95jkevK8Snw=
+
+Name: org/eclipse/ui/internal/cheatsheets/actions/OpenPerspective.clas
+ s
+SHA1-Digest: 6NjHtDHwQeFgFeUpxPQXwiLzya4=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/views/TaskExplorer
+ Manager.class
+SHA1-Digest: iDUOF1OOlLwjZvJcfrHlQ1R/uOs=
+
+Name: org/eclipse/ui/internal/provisional/cheatsheets/ICompositeCheatS
+ heetTask.class
+SHA1-Digest: jnFZ2OM1bxW+5zyRYO70+B0xwi0=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/ISubItemItem.class
+SHA1-Digest: uvNK1Av0aCVeYLG963OGmaKjw04=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/AbstractO
+ verlayIcon.class
+SHA1-Digest: 4EB7YbcKuzxkCc1ZcAgb0mqalDs=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/OverlayIc
+ on.class
+SHA1-Digest: Rj5FImARPc2EOdXvO3iPikc9YuE=
+
+Name: org/eclipse/ui/internal/cheatsheets/registry/CheatSheetCollectio
+ nSorter.class
+SHA1-Digest: +4+/qwaie2ii1WflFd2ZV2q7thI=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CoreItem$7.class
+SHA1-Digest: Jc9iVHC6G9jx+jQXqJPd1z8BZxk=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/IntroItem$1.class
+SHA1-Digest: Fm6Ii5mZTijjSu22FGkG6aQXPg4=
+
+Name: org/eclipse/ui/internal/cheatsheets/Messages.properties
+SHA1-Digest: b4W/zpzNsPfrptnQvCyGhl6DgCU=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/model/TaskGroup.cl
+ ass
+SHA1-Digest: cWQbzA5kx/i4oM0iaZE6knpavY0=
+
+Name: org/eclipse/ui/internal/cheatsheets/CheatSheetPlugin$2.class
+SHA1-Digest: d5hucc5tp/Frg8lKcU+cTReGlmU=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/views/CheatsheetTa
+ skEditor$TaskListener.class
+SHA1-Digest: i0N7x3rzGq5x4uFyZS3G9J6gDYU=
+
+Name: plugin.properties
+SHA1-Digest: jkf7TcNCnyfiLeD65nFt4nKbqpw=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/views/CompositeChe
+ atSheetPage$EndReviewListener.class
+SHA1-Digest: iq0GKx6AaP+3htISXqp4H8EUqkY=
+
+Name: org/eclipse/ui/internal/cheatsheets/registry/CheatSheetRegistryR
+ eader.class
+SHA1-Digest: w7vKw2F1wPxOr9MHfoMVETJI9+g=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/ConfirmRe
+ startDialog.class
+SHA1-Digest: HdDF/Cze82u25fzwPpbuxppe1W4=
+
+Name: icons/elcl16/expandall.gif
+SHA1-Digest: s8M27dkBqoZwlsuYC/q9kXcbvTA=
+
+Name: org/eclipse/ui/internal/provisional/cheatsheets/ITaskGroup.class
+SHA1-Digest: p/BuToM7QIvM3l+i/0eDannZnAM=
+
+Name: plugin.xml
+SHA1-Digest: jgMa0+L+VDVEYwDF12UGRJ5W4sY=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/ResetTask
+ Action.class
+SHA1-Digest: IvlxO9ToZKem29KmIiwaXYdsTSc=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/ParserInput.class
+SHA1-Digest: 5dLmdu1w67qR1uJ2uxUZT9jd+Mw=
+
+Name: icons/dlcl16/start_cheatsheet.gif
+SHA1-Digest: OWVlg+YVTjCo1VojYqwbbOABQ00=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CheatSheetViewer$3.cla
+ ss
+SHA1-Digest: cPTbglV/+MHF9a7HTFNvw7v0Nck=
+
+Name: icons/dlcl16/task_sequence.gif
+SHA1-Digest: kS8zO1sxD5Mh2xG8+cBsC7CUyps=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/IntroItem.class
+SHA1-Digest: QG/XFkvTP0pmKPkD2cmefo5suK0=
+
+Name: icons/obj16/error.gif
+SHA1-Digest: J8GwoP/Od825KxLSOi9D+JtwICc=
+
+Name: icons/dlcl16/skip_task.gif
+SHA1-Digest: /mcGb5jXlvBGgdDVd2h+Y4rVbmE=
+
+Name: org/eclipse/ui/internal/cheatsheets/CheatSheetPlugin.class
+SHA1-Digest: GacyPmphJq1g4/mlA/U29D/r2PQ=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/views/CompositeChe
+ atSheetPage$2.class
+SHA1-Digest: xT34FdKhSEOovw8gR40Ueu51zpI=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CoreItem$4.class
+SHA1-Digest: 2iw1UiRe+vA93D3drek1SwN69Vw=
+
+Name: org/eclipse/ui/internal/cheatsheets/actions/IMenuContributor.cla
+ ss
+SHA1-Digest: vy/Z8Y5iOGVBvdLBotpnbG0r4x8=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/ViewItem$4.class
+SHA1-Digest: G6TJOlkLoi/Fduza0ednXsFS6nU=
+
+Name: icons/dlcl16/collapseall.gif
+SHA1-Digest: EN6RuFqPlyvDFFYtWeaHigGxVBI=
+
+Name: org/eclipse/ui/internal/cheatsheets/actions/CheatSheetMenu$3.cla
+ ss
+SHA1-Digest: 4FMCMbfO5lM7T4CzBb+4gImOfOA=
+
+Name: icons/obj16/task_choice.gif
+SHA1-Digest: H6I1JErAyz+EbDL4MePqEpz1prM=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/model/EditableTask
+ .class
+SHA1-Digest: LMIP4Odo/mHq3OMBHTJ1MbEnxSI=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/SkipActio
+ n.class
+SHA1-Digest: G74XUqzvhJFUQiaRNBm5RC6l69M=
+
+Name: icons/elcl16/restart_cheatsheet.gif
+SHA1-Digest: WQ5LawdQ7USfhH5vA4rNXArOV9w=
+
+Name: org/eclipse/ui/internal/cheatsheets/registry/CheatSheetCollectio
+ nElement.class
+SHA1-Digest: pPI9olpEauAHWdIEk8lwMQ0OfNg=
+
+Name: icons/elcl16/goto_ccs_task.gif
+SHA1-Digest: fzhidaS6tRkJ0LNO+4tZWbX2qog=
+
+Name: org/eclipse/ui/cheatsheets/OpenCheatSheetFromHelpAction$1.class
+SHA1-Digest: LyTCdBaRg8zrlx7zligrO7NlDoU=
+
+Name: icons/elcl16/collapse_expand_all.gif
+SHA1-Digest: 3LqthiUWshXFnQPJJ5nY0CILkOg=
+
+Name: org/eclipse/ui/internal/cheatsheets/ActionRunner.class
+SHA1-Digest: 81Xt+p0DqeYLIjzUOFoyjXPthHk=
+
+Name: icons/dlcl16/restart_all.gif
+SHA1-Digest: ek1VivxJ1G6Rpb5+gSzxzl8jiYI=
+
+Name: org/eclipse/ui/internal/cheatsheets/handlers/OpenMessageDialogHa
+ ndler.class
+SHA1-Digest: PyrF7ygYlqFUkAbuD0FuKAX5tYE=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/ViewItem.class
+SHA1-Digest: wLzWhiPjlwx0DPXMRep3ln1X2Us=
+
+Name: org/eclipse/ui/internal/cheatsheets/registry/RegistryReader$1.cl
+ ass
+SHA1-Digest: oz1SHfiUpCYfDjL6Uufo60q4Aaw=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CoreItem$1.class
+SHA1-Digest: PYVHF+UWw6v8r5c5Py4vSPlQTuk=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/ViewItem$1.class
+SHA1-Digest: HBPFRisVbifeVL7pFnPe+WjxsAI=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/CheatSheetParser.class
+SHA1-Digest: HHN377shpoW00aI6Rod3X2knfiM=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/parser/TaskGroupPa
+ rseStrategy.class
+SHA1-Digest: waV1aGnnKytZRKS279k1ddQEWOM=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/Item.class
+SHA1-Digest: R0v2T/c/VsPUTIBgL9eGmbyCFMk=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/model/AbstractTask
+ .class
+SHA1-Digest: v7l9S00FtH0qqGxnKUVtO8OfhP4=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/NoopAction.class
+SHA1-Digest: kf9gZak9KizIhjMK60uWWnh6GrI=
+
+Name: icons/elcl16/skip_task.gif
+SHA1-Digest: FXo9ZV27FIxMBRg75oZmMIhLEkA=
+
+Name: org/eclipse/ui/internal/cheatsheets/CheatsheetSearchParticipant.
+ class
+SHA1-Digest: i3ZdMaRo/3f+D22Efpil+Via6lM=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/views/CompositeChe
+ atSheetPage$DescriptionLinkListener.class
+SHA1-Digest: JANqN77KMp038nYlHHfIes3qBT8=
+
+Name: org/eclipse/ui/internal/cheatsheets/dialogs/CheatSheetCategoryBa
+ sedSelectionDialog$2.class
+SHA1-Digest: AR/ASLIh0aRx12HOpj0qyFAQVJE=
+
+Name: icons/elcl16/complete_task.gif
+SHA1-Digest: pp7DVQi4VPxE8WljjkuHegNo9Vk=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CheatSheetHelpPart.cla
+ ss
+SHA1-Digest: 7QNjWtIUPHndJZmPQLLQRsZKyPQ=
+
+Name: org/eclipse/ui/internal/cheatsheets/CheatSheetHistory.class
+SHA1-Digest: NwjpXFKMXnPyQLtPlJ9OEiaUCcc=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/Intro.class
+SHA1-Digest: K9jf/xAl/njx9vFG7CnRFIe4SOw=
+
+Name: org/eclipse/ui/internal/cheatsheets/registry/CheatSheetItemExten
+ sionElement.class
+SHA1-Digest: vQwyhxFTe4MuWIKRWkBrDbazDoY=
+
+Name: org/eclipse/ui/cheatsheets/CheatSheetViewerFactory.class
+SHA1-Digest: tU2f1BY2gwN2oipapSiEgEVa76Y=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/ErrorPage$StatusSorter
+ .class
+SHA1-Digest: rjCWN3XaJ7GalCVtPDw6/S/jkRQ=
+
+Name: .api_description
+SHA1-Digest: hOTUpyU71r1qqxJ+2eKck2fjIOU=
+
+Name: icons/elcl16/start_ccs_task.gif
+SHA1-Digest: 21fSBmkVrVC+vhAqKtcd7EJM9pU=
+
+Name: about.html
+SHA1-Digest: ejOZra0kypGLQQ2bJtGTX+LI8tU=
+
+Name: icons/elcl16/restart_task.gif
+SHA1-Digest: 8Uo7R5bmBqXJaly6GwVqUQ88j3c=
+
+Name: org/eclipse/ui/internal/cheatsheets/actions/CheatSheetHelpMenuAc
+ tion.class
+SHA1-Digest: hkX7//NNn+zFjoIe03v/25WCDvg=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/parser/EditableTas
+ kParseStrategy.class
+SHA1-Digest: D1dcAcDIbLDr0pHJODKGXILE0mM=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/Action.class
+SHA1-Digest: fWvJKTFq6CdKMlnT3nR3erAHaRg=
+
+Name: org/eclipse/ui/internal/cheatsheets/registry/CheatSheetRegistryR
+ eader$TaskEditorNode.class
+SHA1-Digest: Xq0gJSlo5AyjriltIutXtn3yveg=
+
+Name: org/eclipse/ui/internal/cheatsheets/CheatSheetStopWatch.class
+SHA1-Digest: 13qkhyxT+fFeOPTgHXrzUPFRKRY=
+
+Name: org/eclipse/ui/internal/cheatsheets/actions/CheatSheetMenu.class
+SHA1-Digest: dmhJYUS4sabivwH18c4d++vfu3w=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/CheatSheetParserExcepti
+ on.class
+SHA1-Digest: 2kJ1Emtu2mklMBcbn5+ITJAylkY=
+
+Name: icons/view16/cheatsheet_view.gif
+SHA1-Digest: SlGWHnxdOFbVIZ7yceBcZDZcfL4=
+
+Name: icons/dlcl16/collapse_expand_all.gif
+SHA1-Digest: UEN4y0DwJfo/h8aOcTNYHZcStxM=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/views/CompositeChe
+ atSheetPage$4.class
+SHA1-Digest: cVyjek4NmGDaeMOQmD5/8rTKqcE=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CoreItem$6.class
+SHA1-Digest: uKu49Kq8H//ZHNTC31Y1HpsWQDs=
+
+Name: org/eclipse/ui/cheatsheets/ICheatSheetViewer.class
+SHA1-Digest: CXdTifDs1h2aRaZOtU8V1CGEUrs=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/model/TaskGroup$Co
+ mpletionStrategy.class
+SHA1-Digest: AjqJUglMDhWAeLS3M7cAaI/mjSo=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/parser/ICompositeC
+ heatsheetTags.class
+SHA1-Digest: oii/QuHHEd4UOH3d4AqdWaw9c6Y=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/parser/MarkupParse
+ r.class
+SHA1-Digest: jXROUmHZt2x+l+bgetguWL4BgSU=
+
+Name: org/eclipse/ui/internal/cheatsheets/registry/Category.class
+SHA1-Digest: wOovZK1e/Vnm9t8zKfcOySX0ITM=
+
+Name: org/eclipse/ui/internal/cheatsheets/CheatSheetPlugin$1.class
+SHA1-Digest: kAwO8qFeutmcfULWEHlBmZ3SIzo=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/CheatSheet.class
+SHA1-Digest: cdfUCObYZjv55CtYcqn0ujZ5lcM=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/ConditionalSubItem.clas
+ s
+SHA1-Digest: 2QPHdRcAozIn3lNJ3Q/qMgs0znw=
+
+Name: org/eclipse/ui/internal/cheatsheets/dialogs/CheatSheetCategoryBa
+ sedSelectionDialog.class
+SHA1-Digest: ghy+6Ueu9C+EHNStaFb1DnnGrFg=
+
+Name: org/eclipse/ui/internal/cheatsheets/dialogs/CheatSheetCategoryBa
+ sedSelectionDialog$BrowseListener.class
+SHA1-Digest: zoIs12F+BexPgUwsO3MB/i0IetE=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/CheatSheetParser$Normal
+ izeHandler.class
+SHA1-Digest: Tj8svd6lZY+fDLSMeVWad+t9gyA=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/RepeatedSubItem.class
+SHA1-Digest: gCfHMgFmDx24IJASF+9p84H7UXg=
+
+Name: org/eclipse/ui/internal/cheatsheets/dialogs/CheatSheetCategoryBa
+ sedSelectionDialog$RadioSelectionListener.class
+SHA1-Digest: yyY1sh03ofFKuF5vhGfOVUi9UWo=
+
+Name: org/eclipse/ui/internal/cheatsheets/registry/Sorter.class
+SHA1-Digest: PPIva3SmdfgGzXfg0V02teZThlQ=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CheatSheetExpandRestor
+ eAction.class
+SHA1-Digest: e/tjjnnrGss60OFw4rILRJsWawQ=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/IParserTags.class
+SHA1-Digest: p0DXVIIF7NP9KUq53QLUOwJPJrA=
+
+Name: org/eclipse/ui/internal/cheatsheets/actions/CheatSheetMenuAction
+ $1.class
+SHA1-Digest: uLOdcCXrsK1a1xbOajX2waHtE1o=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/model/TaskChoiceCo
+ mpletionStrategy.class
+SHA1-Digest: k9aAHzrBe8RhZI5jOAqgkHVDGeQ=
+
+Name: org/eclipse/ui/cheatsheets/ICheatSheetEvent.class
+SHA1-Digest: CuoV7lEaDKD181XC3LxN2aANFsc=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/TreeConte
+ ntProvider.class
+SHA1-Digest: xlOgdSjLgnRX4L1cje3ApGD9ECA=
+
+Name: icons/dlcl16/task_set.gif
+SHA1-Digest: PSwAiivj1K9SMRHPTMQgEl3TtfQ=
+
+Name: icons/elcl16/start_cheatsheet.gif
+SHA1-Digest: /790x6rOv/IZAu0M9OinkHDgGZE=
+
+Name: icons/elcl16/collapseall.gif
+SHA1-Digest: X2SYkCGSP2jr+iOlYBLU19jEd4Y=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CheatSheetPage$1.class
+SHA1-Digest: xPvSwVoa545WQEX8YnOX36pGnq0=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/RestartAl
+ lAction.class
+SHA1-Digest: v3BJTgdzq6vIVrRbyWs1uuyxloI=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/model/TaskStateUti
+ lities.class
+SHA1-Digest: i1xTDqBX/0kKxj6REgmLA2MYZPo=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CheatSheetViewer$2.cla
+ ss
+SHA1-Digest: r+788aJ84eSWzTD94mAKY6YEVKw=
+
+Name: icons/dlcl16/cheatsheet_task.gif
+SHA1-Digest: tKP3FeEWufUFbc1XNHMHBiSWtiA=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/StringDelimitedTokeniz
+ er.class
+SHA1-Digest: v8deyawYuAsR7oYXXqVK4YeqkBs=
+
+Name: org/eclipse/ui/internal/provisional/cheatsheets/TaskExplorer.cla
+ ss
+SHA1-Digest: D+7UHcedQoY/Fcbrt4jCO+w5+bY=
+
+Name: org/eclipse/ui/internal/cheatsheets/state/MementoStateManager.cl
+ ass
+SHA1-Digest: /Z1aXDjDbH8YZgSn0cq0Y87Rc0I=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CoreItem.class
+SHA1-Digest: /y133JZdE5Qze80YcuQTwX0+VfM=
+
+Name: org/eclipse/ui/cheatsheets/ICheatSheetManager.class
+SHA1-Digest: RHAIqJ7+HeslatUyCAa5iRxgGFA=
+
+Name: org/eclipse/ui/internal/cheatsheets/state/NoSaveStateManager.cla
+ ss
+SHA1-Digest: 0CQT19MqZdJcraGGtxgkt72vp2o=
+
+Name: org/eclipse/ui/internal/cheatsheets/state/DefaultStateManager.cl
+ ass
+SHA1-Digest: SWZLMCgiLj7VZ18xanuzTehUR4M=
+
+Name: org/eclipse/ui/internal/cheatsheets/ICheatSheetResource.class
+SHA1-Digest: 7XE3Ji1lk6E1e6OlAuJaJnToN7E=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CheatSheetView$1.class
+SHA1-Digest: iKqVWoNzMQt/WnIWRGr9/BkA+Pc=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/TreeExplo
+ rerMenu.class
+SHA1-Digest: i+A/a13MkRBz/X8m6LcxqNcc8Zo=
+
+Name: icons/elcl16/start_task.gif
+SHA1-Digest: NZb8x461Syb0SMIREg271vqJd4E=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/SubItemCompositeHolder
+ .class
+SHA1-Digest: ZcwwqwBdDAV/RIEXZntj9lGOlWo=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/views/CompositeChe
+ atSheetPage$1.class
+SHA1-Digest: eaTmInrSyj+zhpy6+HZEQ7trPAg=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CoreItem$3.class
+SHA1-Digest: FRq0xq8YAC3P776tyKJsZE/zBKI=
+
+Name: icons/elcl16/restart_all.gif
+SHA1-Digest: F4oG0sP1paaesKIbwq+QJKLMB7Y=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/views/CheatsheetTa
+ skEditor.class
+SHA1-Digest: ZQ0TUVBc29rj9x0erBxqRK2wDcQ=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/ViewItem$3.class
+SHA1-Digest: ZxPa1ulqIympiXPKpW4pwc5Rg6U=
+
+Name: org/eclipse/ui/internal/cheatsheets/actions/CheatSheetMenu$2.cla
+ ss
+SHA1-Digest: F1I835K0dNUdKCy7pq5cN5Vn9Ak=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/StartActi
+ on.class
+SHA1-Digest: SbVUkKQNl+CgE7HCPS6a+Q8Y5JE=
+
+Name: icons/elcl16/tree_explorer.gif
+SHA1-Digest: 5qLEYHbs6qHS1w1TyudOgAEkgoM=
+
+Name: org/eclipse/ui/internal/cheatsheets/CommandRunner.class
+SHA1-Digest: gQOLxbSDqA/WkbN3JT91ttE9eNM=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/TreeLabel
+ Provider.class
+SHA1-Digest: gjA0JTiMjEvDUTBC9N9PeuDAvUg=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CheatSheetViewer.class
+SHA1-Digest: 3lOrEuQYuopfY8IHqwuf1FCsayA=
+
+Name: org/eclipse/ui/internal/provisional/cheatsheets/TaskEditor.class
+SHA1-Digest: 1sRPoPA3X0VlLIIVMaY0U4NA69A=
+
+Name: org/eclipse/ui/internal/cheatsheets/CheatSheetEvaluationContext.
+ class
+SHA1-Digest: qd2lNf5cpvFeVZmQdXuawGFbctw=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/explorer/TreeTaskE
+ xplorer.class
+SHA1-Digest: MkbeLkQh5tUaHC+PEocMn2X0qlo=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/parser/IStatusCont
+ ainer.class
+SHA1-Digest: ZDKH3SMABcfixHBzN6ifkFKv4pM=
+
+Name: org/eclipse/ui/internal/cheatsheets/composite/model/CompositeChe
+ atSheetSaveHelper.class
+SHA1-Digest: G+eNfGFtgaPAOaXxwez3vfcxA3o=
+
+Name: org/eclipse/ui/internal/cheatsheets/Messages.class
+SHA1-Digest: znlyWzmMzaecb1tKEsEIHuAqVDk=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/AbstractSubItem.class
+SHA1-Digest: LMN9OHwoyYBZb8uK3hFT1Yekhcc=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/IncompatibleSiblingChec
+ ker.class
+SHA1-Digest: lI0DvFDyHIlFAOMBk8WriLbzhns=
+
+Name: org/eclipse/ui/internal/cheatsheets/data/SubItem.class
+SHA1-Digest: 0fjiG/yH4MNGwIicPrD64yyKrKY=
+
+Name: org/eclipse/ui/internal/cheatsheets/views/CheatSheetView.class
+SHA1-Digest: kFlJPSMo33CwwhgesvKiKf147yQ=
+
+Name: org/eclipse/ui/internal/cheatsheets/ActionRunner$1.class
+SHA1-Digest: RutEu+E3qCk9AXQvykQ4kXJfM8M=
+
+Name: org/eclipse/ui/internal/provisional/cheatsheets/IEditableTask.cl
+ ass
+SHA1-Digest: ut4YZMAY7OP3r8Dt0gOjRTsdEUM=
+
+Name: icons/dlcl16/linkto_help.gif
+SHA1-Digest: J1gi/9sFtYdw4sjC0qw+Ynlrhp4=
+

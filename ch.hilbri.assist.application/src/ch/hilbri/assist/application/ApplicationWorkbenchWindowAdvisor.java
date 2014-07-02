@@ -5,8 +5,10 @@ import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
+import org.eclipse.ui.cheatsheets.OpenCheatSheetAction;
 
 import ch.hilbri.assist.application.helpers.Helpers;
+import ch.hilbri.assist.application.helpers.PathProvider;
 
 public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 
@@ -23,11 +25,10 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		configurer.setInitialSize(new Point(1280, 720));
 		configurer.setShowCoolBar(false);
 		configurer.setShowStatusLine(false);
-		configurer.setTitle("ASSIST"); //$NON-NLS-1$
 	}
 
 	public void postWindowCreate() {
-		// new OpenCheatSheetAction(PathProvider.APP_CHEAT_SHEET_ID).run();
+		new OpenCheatSheetAction(PathProvider.APP_CHEAT_SHEET_ID).run();
 	}
 
 	@Override
