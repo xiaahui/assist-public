@@ -1,4 +1,4 @@
-package ch.hilbri.assist
+package ch.hilbri.assist.model
 
 class AssistModel {
 	String 									systemName

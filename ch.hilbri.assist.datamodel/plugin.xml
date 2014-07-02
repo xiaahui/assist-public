@@ -9,13 +9,9 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated ASSIST -->
       <package
-            uri="ch.hilbri.assist"
-            class="ch.hilbri.assist.AssistPackage"
-            genModel="model/ASSIST.xcore"/>
+            uri="ch.hilbri.assist.model"
+            class="ch.hilbri.assist.model.ModelPackage"
+            genModel="model/ASSIST-Model.xcore"/>
    </extension>
-
-
-
-
 
 </plugin>
