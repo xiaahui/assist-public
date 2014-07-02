@@ -62,8 +62,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//AssistModel:
 		//	"Global" "{" "System name" "=" systemName=STRING ";" "}" "Hardware" "{" hardwareContainer+=HardwareElementContainer+
-		//	networks+=Network* "}" "Software" "{" applications+=Application+ applicationGroups+=ApplicationGroup* "}" ("Relations"
-		//	"{" dissimilarityRelations+=DissimilarityRelation* dislocalityRelations+=DislocalityRelation*
+		//	networks+=Network* "}" "Software" "{" applications+=Application+ applicationGroups+=ApplicationGroup* "}"
+		//	("Relations" "{" dissimilarityRelations+=DissimilarityRelation* dislocalityRelations+=DislocalityRelation*
 		//	proximityRelations+=ProximityRelation* "}")? ("Communication" "{" communicationRelations+=CommunicationRelation*
 		//	"}")?;
 		public ParserRule getRule() { return rule; }
@@ -831,8 +831,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Core:
-		//	"Core" name=ID "{" "Capacity" "=" capacity=INT ";" ("Architecture" "=" architecture=STRING ";")? ("Generic properties"
-		//	"{" metricParameters+=MetricParameter* "}")? "}";
+		//	"Core" name=ID "{" "Capacity" "=" capacity=INT ";" ("Architecture" "=" architecture=STRING ";")?
+		//	("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"Core" name=ID "{" "Capacity" "=" capacity=INT ";" ("Architecture" "=" architecture=STRING ";")? ("Generic properties"
@@ -1306,9 +1306,9 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Application" name=ID "{" "Core-utilization" "=" coreUtilization=INT ";" ("Required RAM capacity" "=" ramUtilization=INT
 		//";")? ("Required ROM capacity" "=" romUtilization=INT ";")? ("Criticality level" "="
 		//criticalityLevel=DesignAssuranceLevelType ";")? ("Required IO protection" "="
-		//ioAdapterProtectionLevel=IOAdapterProtectionLevelType ";")? ("Identical parallel threads" "=" parallelThreads=INT ";")?
-		//("Developed by" "=" developedBy=STRING ";")? ioAdapterRequirements+=IOAdapterRequirement* ("Restrict deployment to" "{"
-		//restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (","
+		//ioAdapterProtectionLevel=IOAdapterProtectionLevelType ";")? ("Identical parallel threads" "=" parallelThreads=INT
+		//";")? ("Developed by" "=" developedBy=STRING ";")? ioAdapterRequirements+=IOAdapterRequirement*
+		//("Restrict deployment to" "{" restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (","
 		//restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* "}" ";")? ("Generic properties" "{"
 		//metricParameters+=MetricParameter* "}")? "}"
 		public Group getGroup() { return cGroup; }
@@ -2362,8 +2362,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLEVEL_8L8Keyword_8_0 = (Keyword)cLEVEL_8EnumLiteralDeclaration_8.eContents().get(0);
 		
 		//enum IOAdapterProtectionLevelType:
-		//	NONE="None" | LEVEL_1="L1" | LEVEL_2="L2" | LEVEL_3="L3" | LEVEL_4="L4" | LEVEL_5="L5" | LEVEL_6="L6" | LEVEL_7="L7" |
-		//	LEVEL_8="L8";
+		//	NONE="None" | LEVEL_1="L1" | LEVEL_2="L2" | LEVEL_3="L3" | LEVEL_4="L4" | LEVEL_5="L5" | LEVEL_6="L6" | LEVEL_7="L7"
+		//	| LEVEL_8="L8";
 		public EnumRule getRule() { return rule; }
 
 		//NONE="None" | LEVEL_1="L1" | LEVEL_2="L2" | LEVEL_3="L3" | LEVEL_4="L4" | LEVEL_5="L5" | LEVEL_6="L6" | LEVEL_7="L7" |
@@ -2896,8 +2896,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//AssistModel:
 	//	"Global" "{" "System name" "=" systemName=STRING ";" "}" "Hardware" "{" hardwareContainer+=HardwareElementContainer+
-	//	networks+=Network* "}" "Software" "{" applications+=Application+ applicationGroups+=ApplicationGroup* "}" ("Relations"
-	//	"{" dissimilarityRelations+=DissimilarityRelation* dislocalityRelations+=DislocalityRelation*
+	//	networks+=Network* "}" "Software" "{" applications+=Application+ applicationGroups+=ApplicationGroup* "}"
+	//	("Relations" "{" dissimilarityRelations+=DissimilarityRelation* dislocalityRelations+=DislocalityRelation*
 	//	proximityRelations+=ProximityRelation* "}")? ("Communication" "{" communicationRelations+=CommunicationRelation*
 	//	"}")?;
 	public AssistModelElements getAssistModelAccess() {
@@ -2966,8 +2966,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Core:
-	//	"Core" name=ID "{" "Capacity" "=" capacity=INT ";" ("Architecture" "=" architecture=STRING ";")? ("Generic properties"
-	//	"{" metricParameters+=MetricParameter* "}")? "}";
+	//	"Core" name=ID "{" "Capacity" "=" capacity=INT ";" ("Architecture" "=" architecture=STRING ";")?
+	//	("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}";
 	public CoreElements getCoreAccess() {
 		return (pCore != null) ? pCore : (pCore = new CoreElements());
 	}
@@ -3205,8 +3205,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum IOAdapterProtectionLevelType:
-	//	NONE="None" | LEVEL_1="L1" | LEVEL_2="L2" | LEVEL_3="L3" | LEVEL_4="L4" | LEVEL_5="L5" | LEVEL_6="L6" | LEVEL_7="L7" |
-	//	LEVEL_8="L8";
+	//	NONE="None" | LEVEL_1="L1" | LEVEL_2="L2" | LEVEL_3="L3" | LEVEL_4="L4" | LEVEL_5="L5" | LEVEL_6="L6" | LEVEL_7="L7"
+	//	| LEVEL_8="L8";
 	public IOAdapterProtectionLevelTypeElements getIOAdapterProtectionLevelTypeAccess() {
 		return (unknownRuleIOAdapterProtectionLevelType != null) ? unknownRuleIOAdapterProtectionLevelType : (unknownRuleIOAdapterProtectionLevelType = new IOAdapterProtectionLevelTypeElements());
 	}

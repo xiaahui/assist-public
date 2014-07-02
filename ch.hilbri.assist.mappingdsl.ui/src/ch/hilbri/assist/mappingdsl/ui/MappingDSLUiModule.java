@@ -4,6 +4,7 @@
 package ch.hilbri.assist.mappingdsl.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -11,5 +12,10 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 public class MappingDSLUiModule extends ch.hilbri.assist.mappingdsl.ui.AbstractMappingDSLUiModule {
 	public MappingDSLUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
+	}
+	
+	/* RPH: Helps to prevent the unnerving question: "Do you want to add the XText Nature to the project" */
+	public Class<? extends IXtextEditorCallback> bindIXtextEditorCallback() {
+	    return NatureAddingEditorCallback.class;
 	}
 }

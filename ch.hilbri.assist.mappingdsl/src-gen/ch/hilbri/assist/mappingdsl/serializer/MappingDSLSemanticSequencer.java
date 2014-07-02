@@ -1,26 +1,26 @@
 package ch.hilbri.assist.mappingdsl.serializer;
 
-import ch.hilbri.assist.Application;
-import ch.hilbri.assist.ApplicationGroup;
-import ch.hilbri.assist.AssistModel;
-import ch.hilbri.assist.AssistPackage;
-import ch.hilbri.assist.Board;
-import ch.hilbri.assist.Box;
-import ch.hilbri.assist.CommunicationRelation;
-import ch.hilbri.assist.Compartment;
-import ch.hilbri.assist.Core;
-import ch.hilbri.assist.DislocalityRelation;
-import ch.hilbri.assist.DissimilarityConjunction;
-import ch.hilbri.assist.DissimilarityDisjunction;
-import ch.hilbri.assist.DissimilarityEntry;
-import ch.hilbri.assist.DissimilarityRelation;
-import ch.hilbri.assist.IOAdapter;
-import ch.hilbri.assist.IOAdapterRequirement;
-import ch.hilbri.assist.MetricParameter;
-import ch.hilbri.assist.Network;
-import ch.hilbri.assist.Processor;
-import ch.hilbri.assist.ProximityRelation;
 import ch.hilbri.assist.mappingdsl.services.MappingDSLGrammarAccess;
+import ch.hilbri.assist.model.Application;
+import ch.hilbri.assist.model.ApplicationGroup;
+import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.Board;
+import ch.hilbri.assist.model.Box;
+import ch.hilbri.assist.model.CommunicationRelation;
+import ch.hilbri.assist.model.Compartment;
+import ch.hilbri.assist.model.Core;
+import ch.hilbri.assist.model.DislocalityRelation;
+import ch.hilbri.assist.model.DissimilarityConjunction;
+import ch.hilbri.assist.model.DissimilarityDisjunction;
+import ch.hilbri.assist.model.DissimilarityEntry;
+import ch.hilbri.assist.model.DissimilarityRelation;
+import ch.hilbri.assist.model.IOAdapter;
+import ch.hilbri.assist.model.IOAdapterRequirement;
+import ch.hilbri.assist.model.MetricParameter;
+import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.Network;
+import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.ProximityRelation;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import org.eclipse.emf.ecore.EObject;
@@ -42,122 +42,122 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	private MappingDSLGrammarAccess grammarAccess;
 	
 	public void createSequence(EObject context, EObject semanticObject) {
-		if(semanticObject.eClass().getEPackage() == AssistPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case AssistPackage.APPLICATION:
+		if(semanticObject.eClass().getEPackage() == ModelPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case ModelPackage.APPLICATION:
 				if(context == grammarAccess.getApplicationRule()) {
 					sequence_Application(context, (Application) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.APPLICATION_GROUP:
+			case ModelPackage.APPLICATION_GROUP:
 				if(context == grammarAccess.getApplicationGroupRule()) {
 					sequence_ApplicationGroup(context, (ApplicationGroup) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.ASSIST_MODEL:
+			case ModelPackage.ASSIST_MODEL:
 				if(context == grammarAccess.getAssistModelRule()) {
 					sequence_AssistModel(context, (AssistModel) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.BOARD:
+			case ModelPackage.BOARD:
 				if(context == grammarAccess.getBoardRule() ||
 				   context == grammarAccess.getHardwareElementContainerRule()) {
 					sequence_Board(context, (Board) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.BOX:
+			case ModelPackage.BOX:
 				if(context == grammarAccess.getBoxRule() ||
 				   context == grammarAccess.getHardwareElementContainerRule()) {
 					sequence_Box(context, (Box) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.COMMUNICATION_RELATION:
+			case ModelPackage.COMMUNICATION_RELATION:
 				if(context == grammarAccess.getCommunicationRelationRule()) {
 					sequence_CommunicationRelation(context, (CommunicationRelation) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.COMPARTMENT:
+			case ModelPackage.COMPARTMENT:
 				if(context == grammarAccess.getCompartmentRule() ||
 				   context == grammarAccess.getHardwareElementContainerRule()) {
 					sequence_Compartment(context, (Compartment) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.CORE:
+			case ModelPackage.CORE:
 				if(context == grammarAccess.getCoreRule()) {
 					sequence_Core(context, (Core) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.DISLOCALITY_RELATION:
+			case ModelPackage.DISLOCALITY_RELATION:
 				if(context == grammarAccess.getDislocalityRelationRule()) {
 					sequence_DislocalityRelation(context, (DislocalityRelation) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.DISSIMILARITY_CONJUNCTION:
+			case ModelPackage.DISSIMILARITY_CONJUNCTION:
 				if(context == grammarAccess.getDissimilarityClauseRule() ||
 				   context == grammarAccess.getDissimilarityConjunctionRule()) {
 					sequence_DissimilarityConjunction(context, (DissimilarityConjunction) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.DISSIMILARITY_DISJUNCTION:
+			case ModelPackage.DISSIMILARITY_DISJUNCTION:
 				if(context == grammarAccess.getDissimilarityClauseRule() ||
 				   context == grammarAccess.getDissimilarityDisjunctionRule()) {
 					sequence_DissimilarityDisjunction(context, (DissimilarityDisjunction) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.DISSIMILARITY_ENTRY:
+			case ModelPackage.DISSIMILARITY_ENTRY:
 				if(context == grammarAccess.getDissimilarityClauseRule() ||
 				   context == grammarAccess.getDissimilarityEntryRule()) {
 					sequence_DissimilarityEntry(context, (DissimilarityEntry) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.DISSIMILARITY_RELATION:
+			case ModelPackage.DISSIMILARITY_RELATION:
 				if(context == grammarAccess.getDissimilarityRelationRule()) {
 					sequence_DissimilarityRelation(context, (DissimilarityRelation) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.IO_ADAPTER:
+			case ModelPackage.IO_ADAPTER:
 				if(context == grammarAccess.getIOAdapterRule()) {
 					sequence_IOAdapter(context, (IOAdapter) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.IO_ADAPTER_REQUIREMENT:
+			case ModelPackage.IO_ADAPTER_REQUIREMENT:
 				if(context == grammarAccess.getIOAdapterRequirementRule()) {
 					sequence_IOAdapterRequirement(context, (IOAdapterRequirement) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.METRIC_PARAMETER:
+			case ModelPackage.METRIC_PARAMETER:
 				if(context == grammarAccess.getMetricParameterRule()) {
 					sequence_MetricParameter(context, (MetricParameter) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.NETWORK:
+			case ModelPackage.NETWORK:
 				if(context == grammarAccess.getNetworkRule()) {
 					sequence_Network(context, (Network) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.PROCESSOR:
+			case ModelPackage.PROCESSOR:
 				if(context == grammarAccess.getProcessorRule()) {
 					sequence_Processor(context, (Processor) semanticObject); 
 					return; 
 				}
 				else break;
-			case AssistPackage.PROXIMITY_RELATION:
+			case ModelPackage.PROXIMITY_RELATION:
 				if(context == grammarAccess.getProximityRelationRule()) {
 					sequence_ProximityRelation(context, (ProximityRelation) semanticObject); 
 					return; 
@@ -355,10 +355,10 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_MetricParameter(EObject context, MetricParameter semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AssistPackage.Literals.METRIC_PARAMETER__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AssistPackage.Literals.METRIC_PARAMETER__NAME));
-			if(transientValues.isValueTransient(semanticObject, AssistPackage.Literals.METRIC_PARAMETER__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AssistPackage.Literals.METRIC_PARAMETER__VALUE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.METRIC_PARAMETER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.METRIC_PARAMETER__NAME));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.METRIC_PARAMETER__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.METRIC_PARAMETER__VALUE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
