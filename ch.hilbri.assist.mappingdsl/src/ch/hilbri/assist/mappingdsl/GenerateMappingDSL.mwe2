@@ -46,7 +46,7 @@ Workflow {
     	encoding = encoding
     	language = auto-inject {
     		
-    		loadedResource = "platform:/resource/ch.hilbri.assist.datamodel/model/assist.xcore"	
+    		loadedResource = "platform:/resource/ch.hilbri.assist.datamodel/model/ASSIST-Model.xcore"	
     		
     		uri = grammarURI
     

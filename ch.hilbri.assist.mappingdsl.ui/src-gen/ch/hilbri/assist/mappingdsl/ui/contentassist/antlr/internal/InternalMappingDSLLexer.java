@@ -4394,14 +4394,14 @@ public class InternalMappingDSLLexer extends Lexer {
             "\1\62",
             "\12\53\7\uffff\15\53\1\67\14\53\4\uffff\1\53\1\uffff\15\53"+
             "\1\64\1\53\1\66\1\53\1\65\1\63\7\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\1\72\15\53\1\71\13"+
-            "\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\1\75\15\53\1\74\2"+
-            "\53\1\77\2\53\1\76\5\53",
+            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\1\72\15\53\1\71"+
+            "\13\53",
+            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\1\75\15\53\1\74"+
+            "\2\53\1\77\2\53\1\76\5\53",
             "\1\102\11\uffff\1\101",
             "\1\103",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\4\53\1\105\3\53\1"+
-            "\104\21\53",
+            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\4\53\1\105\3\53"+
+            "\1\104\21\53",
             "\1\107\1\110\1\111\1\112\1\113\1\114\1\115\1\116",
             "\1\117\5\uffff\1\120",
             "\1\122\6\uffff\1\121\5\uffff\1\123",
@@ -4520,8 +4520,8 @@ public class InternalMappingDSLLexer extends Lexer {
             "\1\u00bb",
             "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
             "\1\u00bd",
-            "\1\u00be\1\uffff\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32"+
-            "\53",
+            "\1\u00be\1\uffff\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff"+
+            "\32\53",
             "\1\u00c0",
             "\1\u00c1",
             "\1\u00c3\2\uffff\1\u00c2",
@@ -4585,8 +4585,8 @@ public class InternalMappingDSLLexer extends Lexer {
             "",
             "",
             "\1\u00f1",
-            "\1\u00f2\2\uffff\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32"+
-            "\53",
+            "\1\u00f2\2\uffff\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff"+
+            "\32\53",
             "\1\u00f4",
             "\1\u00f5",
             "\1\u00f6",
@@ -4633,8 +4633,8 @@ public class InternalMappingDSLLexer extends Lexer {
             "\1\u011b",
             "\1\u011c",
             "\1\u011d",
-            "\1\u011f\1\uffff\12\53\7\uffff\23\53\1\u011e\6\53\4\uffff\1"+
-            "\53\1\uffff\32\53",
+            "\1\u011f\1\uffff\12\53\7\uffff\23\53\1\u011e\6\53\4\uffff"+
+            "\1\53\1\uffff\32\53",
             "\1\u0121",
             "",
             "",
@@ -4787,8 +4787,8 @@ public class InternalMappingDSLLexer extends Lexer {
             "\1\u01a2",
             "\1\u01a3",
             "\1\u01a4",
-            "\1\u01a6\1\uffff\12\53\7\uffff\23\53\1\u01a5\6\53\4\uffff\1"+
-            "\53\1\uffff\32\53",
+            "\1\u01a6\1\uffff\12\53\7\uffff\23\53\1\u01a5\6\53\4\uffff"+
+            "\1\53\1\uffff\32\53",
             "",
             "\1\u01a8",
             "\1\u01a9",
@@ -4842,8 +4842,8 @@ public class InternalMappingDSLLexer extends Lexer {
             "\1\u01c9",
             "\1\u01ca",
             "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\1\u01cc\1\uffff\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32"+
-            "\53",
+            "\1\u01cc\1\uffff\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff"+
+            "\32\53",
             "\1\u01ce",
             "\1\u01cf",
             "\1\u01d0",
