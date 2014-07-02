@@ -21,7 +21,7 @@ import org.eclipse.ui.internal.ide.IIDEHelpContextIds;
  * 
  *
  */
-@SuppressWarnings({ "restriction" })
+@SuppressWarnings({ })
 public class NewProjectDialogHandler {
 
 	private static final int SIZING_WIZARD_WIDTH_2 = 500;

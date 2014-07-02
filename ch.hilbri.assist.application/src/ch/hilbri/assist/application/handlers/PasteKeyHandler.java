@@ -34,7 +34,6 @@ import ch.hilbri.assist.application.helpers.PathProvider;
  * project explorer with e4.
  *
  */
-@SuppressWarnings("restriction")
 public class PasteKeyHandler {
 
 	@Execute

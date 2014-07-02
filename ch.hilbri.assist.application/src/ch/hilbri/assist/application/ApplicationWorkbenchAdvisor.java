@@ -19,7 +19,6 @@ import org.osgi.framework.Bundle;
 
 import ch.hilbri.assist.application.helpers.PathProvider;
 
-@SuppressWarnings("restriction")
 public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 
     public WorkbenchWindowAdvisor createWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {

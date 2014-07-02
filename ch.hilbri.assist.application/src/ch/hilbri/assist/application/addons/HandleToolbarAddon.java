@@ -20,7 +20,6 @@ import ch.hilbri.assist.application.helpers.PathProvider;
  *  *
  */
 
-@SuppressWarnings("restriction")
 public class HandleToolbarAddon{
 	 
 	
