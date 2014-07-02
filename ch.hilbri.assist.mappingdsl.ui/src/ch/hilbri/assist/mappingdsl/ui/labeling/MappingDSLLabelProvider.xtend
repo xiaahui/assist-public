@@ -46,6 +46,4 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 
 	def text(Application a)			{ 'Application ' + a.name }
 	def image(Application a)		{ 'outline_view_application2_16x16.png'	}
-				
-
 }
