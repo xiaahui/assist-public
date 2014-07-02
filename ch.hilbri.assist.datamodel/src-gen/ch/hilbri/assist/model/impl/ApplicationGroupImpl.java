@@ -2,8 +2,8 @@
  */
 package ch.hilbri.assist.model.impl;
 
-import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationGroup;
+import ch.hilbri.assist.model.ApplicationOrApplicationGroup;
 import ch.hilbri.assist.model.ModelPackage;
 
 import java.util.Collection;
@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationGroupImpl#getName <em>Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.ApplicationGroupImpl#getApplications <em>Applications</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.ApplicationGroupImpl#getApplicationsOrGroups <em>Applications Or Groups</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,14 +54,14 @@ public class ApplicationGroupImpl extends ApplicationOrApplicationGroupImpl impl
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getApplications() <em>Applications</em>}' reference list.
+	 * The cached value of the '{@link #getApplicationsOrGroups() <em>Applications Or Groups</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getApplications()
+	 * @see #getApplicationsOrGroups()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Application> applications;
+	protected EList<ApplicationOrApplicationGroup> applicationsOrGroups;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,11 +108,11 @@ public class ApplicationGroupImpl extends ApplicationOrApplicationGroupImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Application> getApplications() {
-		if (applications == null) {
-			applications = new EObjectResolvingEList<Application>(Application.class, this, ModelPackage.APPLICATION_GROUP__APPLICATIONS);
+	public EList<ApplicationOrApplicationGroup> getApplicationsOrGroups() {
+		if (applicationsOrGroups == null) {
+			applicationsOrGroups = new EObjectResolvingEList<ApplicationOrApplicationGroup>(ApplicationOrApplicationGroup.class, this, ModelPackage.APPLICATION_GROUP__APPLICATIONS_OR_GROUPS);
 		}
-		return applications;
+		return applicationsOrGroups;
 	}
 
 	/**
@@ -125,8 +125,8 @@ public class ApplicationGroupImpl extends ApplicationOrApplicationGroupImpl impl
 		switch (featureID) {
 			case ModelPackage.APPLICATION_GROUP__NAME:
 				return getName();
-			case ModelPackage.APPLICATION_GROUP__APPLICATIONS:
-				return getApplications();
+			case ModelPackage.APPLICATION_GROUP__APPLICATIONS_OR_GROUPS:
+				return getApplicationsOrGroups();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -143,9 +143,9 @@ public class ApplicationGroupImpl extends ApplicationOrApplicationGroupImpl impl
 			case ModelPackage.APPLICATION_GROUP__NAME:
 				setName((String)newValue);
 				return;
-			case ModelPackage.APPLICATION_GROUP__APPLICATIONS:
-				getApplications().clear();
-				getApplications().addAll((Collection<? extends Application>)newValue);
+			case ModelPackage.APPLICATION_GROUP__APPLICATIONS_OR_GROUPS:
+				getApplicationsOrGroups().clear();
+				getApplicationsOrGroups().addAll((Collection<? extends ApplicationOrApplicationGroup>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -162,8 +162,8 @@ public class ApplicationGroupImpl extends ApplicationOrApplicationGroupImpl impl
 			case ModelPackage.APPLICATION_GROUP__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ModelPackage.APPLICATION_GROUP__APPLICATIONS:
-				getApplications().clear();
+			case ModelPackage.APPLICATION_GROUP__APPLICATIONS_OR_GROUPS:
+				getApplicationsOrGroups().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -179,8 +179,8 @@ public class ApplicationGroupImpl extends ApplicationOrApplicationGroupImpl impl
 		switch (featureID) {
 			case ModelPackage.APPLICATION_GROUP__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ModelPackage.APPLICATION_GROUP__APPLICATIONS:
-				return applications != null && !applications.isEmpty();
+			case ModelPackage.APPLICATION_GROUP__APPLICATIONS_OR_GROUPS:
+				return applicationsOrGroups != null && !applicationsOrGroups.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
