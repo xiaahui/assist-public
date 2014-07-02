@@ -2,7 +2,7 @@
 <compositeCheatsheet name="ASSIST - Information">
    <taskGroup kind="choice" name="Spatial Allocation (Mapping)" skip="true">
       <intro>
-         This set of tasks provide guidance for the specifying a deployment problem in PRECISION PRO.
+         This set of tasks provide guidance for the specifying a deployment problem in ASSIST.
 <br/><br/>The <b>spatial allocation</b> describes the mapping of <b>software components</b> to <b>hardware resources</b>. Additional constraints may be defined based on the resource capacities or safety requirements, such as <b>dissimilarity</b> and <b>dislocality</b>. This allocation may not be schedulable.
       </intro>
       <task kind="cheatsheet" name="Specification of Global Properties" skip="false">
@@ -14,7 +14,7 @@
       </task>
       <task kind="cheatsheet" name="Specification of Software Components" skip="true">
          <intro>
-            Learn how software components and their resource requirements are specified in PRECISION PRO
+            Learn how software components and their resource requirements are specified in ASSIST
          </intro>
          <param name="path" value="mapping-software-component-specification.xml">
          </param>
@@ -31,7 +31,7 @@
       </task>
       <task kind="cheatsheet" name="Specifcation of Safety Relations" skip="true">
          <intro>
-            Learn how safety relations between software components are specified within PRECISION PRO.
+            Learn how safety relations between software components are specified within ASSIST.
          </intro>
          <onCompletion>
             <b>Conclusion</b>
