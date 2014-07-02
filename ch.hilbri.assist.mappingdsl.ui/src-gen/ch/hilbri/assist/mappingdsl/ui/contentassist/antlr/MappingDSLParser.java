@@ -82,7 +82,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNetworkAccess().getGroup_11(), "rule__Network__Group_11__0");
 					put(grammarAccess.getNetworkAccess().getGroup_13(), "rule__Network__Group_13__0");
 					put(grammarAccess.getApplicationGroupAccess().getGroup(), "rule__ApplicationGroup__Group__0");
-					put(grammarAccess.getApplicationGroupAccess().getGroup_6(), "rule__ApplicationGroup__Group_6__0");
+					put(grammarAccess.getApplicationGroupAccess().getGroup_4(), "rule__ApplicationGroup__Group_4__0");
 					put(grammarAccess.getApplicationAccess().getGroup(), "rule__Application__Group__0");
 					put(grammarAccess.getApplicationAccess().getGroup_7(), "rule__Application__Group_7__0");
 					put(grammarAccess.getApplicationAccess().getGroup_8(), "rule__Application__Group_8__0");
@@ -164,9 +164,8 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNetworkAccess().getBoardsAssignment_11_1(), "rule__Network__BoardsAssignment_11_1");
 					put(grammarAccess.getNetworkAccess().getMetricParametersAssignment_13_2(), "rule__Network__MetricParametersAssignment_13_2");
 					put(grammarAccess.getApplicationGroupAccess().getNameAssignment_1(), "rule__ApplicationGroup__NameAssignment_1");
-					put(grammarAccess.getApplicationGroupAccess().getApplicationsAssignment_3(), "rule__ApplicationGroup__ApplicationsAssignment_3");
-					put(grammarAccess.getApplicationGroupAccess().getApplicationsAssignment_5(), "rule__ApplicationGroup__ApplicationsAssignment_5");
-					put(grammarAccess.getApplicationGroupAccess().getApplicationsAssignment_6_1(), "rule__ApplicationGroup__ApplicationsAssignment_6_1");
+					put(grammarAccess.getApplicationGroupAccess().getApplicationsOrGroupsAssignment_3(), "rule__ApplicationGroup__ApplicationsOrGroupsAssignment_3");
+					put(grammarAccess.getApplicationGroupAccess().getApplicationsOrGroupsAssignment_4_1(), "rule__ApplicationGroup__ApplicationsOrGroupsAssignment_4_1");
 					put(grammarAccess.getApplicationAccess().getNameAssignment_1(), "rule__Application__NameAssignment_1");
 					put(grammarAccess.getApplicationAccess().getCoreUtilizationAssignment_5(), "rule__Application__CoreUtilizationAssignment_5");
 					put(grammarAccess.getApplicationAccess().getRamUtilizationAssignment_7_2(), "rule__Application__RamUtilizationAssignment_7_2");

@@ -1147,26 +1147,23 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cApplicationsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cApplicationsApplicationCrossReference_3_0 = (CrossReference)cApplicationsAssignment_3.eContents().get(0);
-		private final RuleCall cApplicationsApplicationIDTerminalRuleCall_3_0_1 = (RuleCall)cApplicationsApplicationCrossReference_3_0.eContents().get(1);
-		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cApplicationsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cApplicationsApplicationCrossReference_5_0 = (CrossReference)cApplicationsAssignment_5.eContents().get(0);
-		private final RuleCall cApplicationsApplicationIDTerminalRuleCall_5_0_1 = (RuleCall)cApplicationsApplicationCrossReference_5_0.eContents().get(1);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cApplicationsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final CrossReference cApplicationsApplicationCrossReference_6_1_0 = (CrossReference)cApplicationsAssignment_6_1.eContents().get(0);
-		private final RuleCall cApplicationsApplicationIDTerminalRuleCall_6_1_0_1 = (RuleCall)cApplicationsApplicationCrossReference_6_1_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cApplicationsOrGroupsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cApplicationsOrGroupsApplicationOrApplicationGroupCrossReference_3_0 = (CrossReference)cApplicationsOrGroupsAssignment_3.eContents().get(0);
+		private final RuleCall cApplicationsOrGroupsApplicationOrApplicationGroupIDTerminalRuleCall_3_0_1 = (RuleCall)cApplicationsOrGroupsApplicationOrApplicationGroupCrossReference_3_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cApplicationsOrGroupsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cApplicationsOrGroupsApplicationOrApplicationGroupCrossReference_4_1_0 = (CrossReference)cApplicationsOrGroupsAssignment_4_1.eContents().get(0);
+		private final RuleCall cApplicationsOrGroupsApplicationOrApplicationGroupIDTerminalRuleCall_4_1_0_1 = (RuleCall)cApplicationsOrGroupsApplicationOrApplicationGroupCrossReference_4_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		/// * SOFTWARE * / ApplicationGroup:
-		//	"Group" name=ID "{" applications+=[Application] "," applications+=[Application] ("," applications+=[Application])*
-		//	"}";
+		//	"Group" name=ID "{" applicationsOrGroups+=[ApplicationOrApplicationGroup] (","
+		//	applicationsOrGroups+=[ApplicationOrApplicationGroup])+ "}";
 		public ParserRule getRule() { return rule; }
 
-		//"Group" name=ID "{" applications+=[Application] "," applications+=[Application] ("," applications+=[Application])* "}"
+		//"Group" name=ID "{" applicationsOrGroups+=[ApplicationOrApplicationGroup] (","
+		//applicationsOrGroups+=[ApplicationOrApplicationGroup])+ "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Group"
@@ -1181,44 +1178,32 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//applications+=[Application]
-		public Assignment getApplicationsAssignment_3() { return cApplicationsAssignment_3; }
+		//applicationsOrGroups+=[ApplicationOrApplicationGroup]
+		public Assignment getApplicationsOrGroupsAssignment_3() { return cApplicationsOrGroupsAssignment_3; }
 
-		//[Application]
-		public CrossReference getApplicationsApplicationCrossReference_3_0() { return cApplicationsApplicationCrossReference_3_0; }
+		//[ApplicationOrApplicationGroup]
+		public CrossReference getApplicationsOrGroupsApplicationOrApplicationGroupCrossReference_3_0() { return cApplicationsOrGroupsApplicationOrApplicationGroupCrossReference_3_0; }
 
 		//ID
-		public RuleCall getApplicationsApplicationIDTerminalRuleCall_3_0_1() { return cApplicationsApplicationIDTerminalRuleCall_3_0_1; }
+		public RuleCall getApplicationsOrGroupsApplicationOrApplicationGroupIDTerminalRuleCall_3_0_1() { return cApplicationsOrGroupsApplicationOrApplicationGroupIDTerminalRuleCall_3_0_1; }
+
+		//("," applicationsOrGroups+=[ApplicationOrApplicationGroup])+
+		public Group getGroup_4() { return cGroup_4; }
 
 		//","
-		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
+		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
 
-		//applications+=[Application]
-		public Assignment getApplicationsAssignment_5() { return cApplicationsAssignment_5; }
+		//applicationsOrGroups+=[ApplicationOrApplicationGroup]
+		public Assignment getApplicationsOrGroupsAssignment_4_1() { return cApplicationsOrGroupsAssignment_4_1; }
 
-		//[Application]
-		public CrossReference getApplicationsApplicationCrossReference_5_0() { return cApplicationsApplicationCrossReference_5_0; }
-
-		//ID
-		public RuleCall getApplicationsApplicationIDTerminalRuleCall_5_0_1() { return cApplicationsApplicationIDTerminalRuleCall_5_0_1; }
-
-		//("," applications+=[Application])*
-		public Group getGroup_6() { return cGroup_6; }
-
-		//","
-		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
-
-		//applications+=[Application]
-		public Assignment getApplicationsAssignment_6_1() { return cApplicationsAssignment_6_1; }
-
-		//[Application]
-		public CrossReference getApplicationsApplicationCrossReference_6_1_0() { return cApplicationsApplicationCrossReference_6_1_0; }
+		//[ApplicationOrApplicationGroup]
+		public CrossReference getApplicationsOrGroupsApplicationOrApplicationGroupCrossReference_4_1_0() { return cApplicationsOrGroupsApplicationOrApplicationGroupCrossReference_4_1_0; }
 
 		//ID
-		public RuleCall getApplicationsApplicationIDTerminalRuleCall_6_1_0_1() { return cApplicationsApplicationIDTerminalRuleCall_6_1_0_1; }
+		public RuleCall getApplicationsOrGroupsApplicationOrApplicationGroupIDTerminalRuleCall_4_1_0_1() { return cApplicationsOrGroupsApplicationOrApplicationGroupIDTerminalRuleCall_4_1_0_1; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class ApplicationElements extends AbstractParserRuleElementFinder {
@@ -3000,8 +2985,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// * SOFTWARE * / ApplicationGroup:
-	//	"Group" name=ID "{" applications+=[Application] "," applications+=[Application] ("," applications+=[Application])*
-	//	"}";
+	//	"Group" name=ID "{" applicationsOrGroups+=[ApplicationOrApplicationGroup] (","
+	//	applicationsOrGroups+=[ApplicationOrApplicationGroup])+ "}";
 	public ApplicationGroupElements getApplicationGroupAccess() {
 		return (pApplicationGroup != null) ? pApplicationGroup : (pApplicationGroup = new ApplicationGroupElements());
 	}
