@@ -20,17 +20,17 @@ public class SplashHandler extends BasicSplashHandler {
 
 	private final static int MESSAGE_Y = 250;
 
-	private final static int MESSAGE_WIDTH = 300;
+	private final static int MESSAGE_WIDTH = 100;
 
-	private final static int MESSAGE_HEIGHT = 20;
+	private final static int MESSAGE_HEIGHT = 15;
 
-	private final static int VERSION_X = 20;
+	private final static int VERSION_X = 123;
 
-	private final static int VERSION_Y = 20;
+	private final static int VERSION_Y = 281;
 
-	private final static int VERSION_R = 255;
-	private final static int VERSION_G = 255;
-	private final static int VERSION_B = 255;
+	private final static int VERSION_R = 0;
+	private final static int VERSION_G = 0;
+	private final static int VERSION_B = 0;
 
 	public SplashHandler() {
 		super();
