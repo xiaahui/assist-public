@@ -94,9 +94,6 @@
   <handlers xmi:id="_GPdpMEYSEeOCaISXEHfaZg" elementId="ch.hilbri.assist.application.handler.copy" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.CopyKeyHandler" command="_He-wUEYSEeOCaISXEHfaZg"/>
   <handlers xmi:id="_rXptsEYbEeOvRppVehKwmg" elementId="ch.hilbri.assist.application.handler.paste" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.PasteKeyHandler" command="_sJQJwEYbEeOvRppVehKwmg"/>
   <bindingTables xmi:id="_9DrGUHMtEeCJHNm5zvSRcQ" elementId="ch.hilbri.assist.application.windowsdialogs" bindingContext="_9Dp4M3MtEeCJHNm5zvSRcQ">
-    <bindings xmi:id="_BfFnQEYOEeOCaISXEHfaZg" elementId="ch.hilbri.assist.application.keybinding.delete" keySequence="DEL" command="_7DHYcEYEEeOCaISXEHfaZg">
-      <tags>type:user</tags>
-    </bindings>
     <bindings xmi:id="_svzo4EYaEeOvRppVehKwmg" elementId="ch.hilbri.assist.application.keybinding.copy" keySequence="CTRL+C" command="_He-wUEYSEeOCaISXEHfaZg">
       <tags>type:user</tags>
     </bindings>
