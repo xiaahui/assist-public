@@ -37,11 +37,6 @@
           apply="always"
           uri="fragments/help_menu_content.e4xmi">
     </fragment>
-       <processor
-             apply="always"
-             beforefragment="true"
-             class="ch.hilbri.assist.application.processors.KeybindingProcessor">
-       </processor>
    	</extension>
    
    	<extension point="org.eclipse.e4.ui.css.swt.theme">

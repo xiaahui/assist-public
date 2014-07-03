@@ -90,17 +90,6 @@
   </children>
   <handlers xmi:id="_OabXcOMVEeKAx6f8J9iUKA" elementId="ch.hilbri.assist.application.handler.openhandler" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.OpenHandler" command="_5MiO4N2ZEeKSVtbcGi64NA"/>
   <handlers xmi:id="_Br2_0N5DEeKSVtbcGi64NA" elementId="ch.hilbri.assist.application.handler.exit" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.QuitHandler" command="__57IIN5CEeKSVtbcGi64NA"/>
-  <handlers xmi:id="_9Ey8UEYEEeOCaISXEHfaZg" elementId="ch.hilbri.assist.application.handler.delete" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.DeleteKeyHandler" command="_7DHYcEYEEeOCaISXEHfaZg"/>
-  <handlers xmi:id="_GPdpMEYSEeOCaISXEHfaZg" elementId="ch.hilbri.assist.application.handler.copy" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.CopyKeyHandler" command="_He-wUEYSEeOCaISXEHfaZg"/>
-  <handlers xmi:id="_rXptsEYbEeOvRppVehKwmg" elementId="ch.hilbri.assist.application.handler.paste" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.PasteKeyHandler" command="_sJQJwEYbEeOvRppVehKwmg"/>
-  <bindingTables xmi:id="_9DrGUHMtEeCJHNm5zvSRcQ" elementId="ch.hilbri.assist.application.windowsdialogs" bindingContext="_9Dp4M3MtEeCJHNm5zvSRcQ">
-    <bindings xmi:id="_svzo4EYaEeOvRppVehKwmg" elementId="ch.hilbri.assist.application.keybinding.copy" keySequence="CTRL+C" command="_He-wUEYSEeOCaISXEHfaZg">
-      <tags>type:user</tags>
-    </bindings>
-    <bindings xmi:id="_qJwXMEYbEeOvRppVehKwmg" elementId="ch.hilbri.assist.application.keybinding.paste" keySequence="CTRL+V" command="_sJQJwEYbEeOvRppVehKwmg">
-      <tags>type:user</tags>
-    </bindings>
-  </bindingTables>
   <rootContext xmi:id="_9Dp4MnMtEeCJHNm5zvSRcQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_9Dp4M3MtEeCJHNm5zvSRcQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_9Dp4NHMtEeCJHNm5zvSRcQ" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
@@ -124,9 +113,6 @@
   <descriptors xmi:id="_Z9TsAOSaEeKAx6f8J9iUKA" elementId="org.eclipse.ui.views.ContentOutline" label="Outline" iconURI="platform:/plugin/org.eclipse.ui.views/icons/full/eview16/outline_co.gif" category="org.eclipse.e4.secondaryNavigationStack" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView"/>
   <commands xmi:id="_5MiO4N2ZEeKSVtbcGi64NA" elementId="ch.hilbri.assist.application.command.opencommand" commandName="Open File"/>
   <commands xmi:id="__57IIN5CEeKSVtbcGi64NA" elementId="ch.hilbri.assist.application.command.exit" commandName="Quit programm"/>
-  <commands xmi:id="_7DHYcEYEEeOCaISXEHfaZg" elementId="ch.hilbri.assist.application.command.delete" commandName="Delete" description="Delete the selection" category="_LDVn4EYSEeOCaISXEHfaZg"/>
-  <commands xmi:id="_He-wUEYSEeOCaISXEHfaZg" elementId="ch.hilbri.assist.application.command.copy" commandName="Copy" description="Copy this selection" category="_LDVn4EYSEeOCaISXEHfaZg"/>
-  <commands xmi:id="_sJQJwEYbEeOvRppVehKwmg" elementId="ch.hilbri.assist.application.command.paste" commandName="Paste" description="Past copied selection" category="_LDVn4EYSEeOCaISXEHfaZg"/>
   <addons xmi:id="_VnmadNSzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_VnmaddSzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_VnmadtSzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -138,5 +124,5 @@
   <addons xmi:id="_rssBMOSBEeKAx6f8J9iUKA" elementId="DnD Addon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.dndaddon.DnDAddon"/>
   <addons xmi:id="_r54vsOSBEeKAx6f8J9iUKA" elementId="MinMax Addon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_Kdy0MB7pEeOET5SxUf1zCg" elementId="ch.hilbri.assist.application.addon.0" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.addons.HandleToolbarAddon"/>
-  <categories xmi:id="_LDVn4EYSEeOCaISXEHfaZg" elementId="ch.hilbri.assist.application.category.keys" name="Key Category" description="Contains all keys"/>
+  <categories xmi:id="_LDVn4EYSEeOCaISXEHfaZg" elementId="ch.hilbri.assist.application.category.keys" name="ASSIST Keys" description="Contains all keys for ASSIST"/>
 </application:Application>
