@@ -10,6 +10,8 @@ import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.ProcessorAttributes;
 
+import com.google.common.base.Objects;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -43,16 +45,6 @@ public class DissimilarityEntryImpl extends DissimilarityClauseImpl implements D
 	 * @ordered
 	 */
 	protected static final HardwareArchitectureLevelType LEVEL_EDEFAULT = HardwareArchitectureLevelType.CORE;
-
-	/**
-	 * The cached value of the '{@link #getLevel() <em>Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected HardwareArchitectureLevelType level = LEVEL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCompartmentAttribute() <em>Compartment Attribute</em>}' attribute.
@@ -159,19 +151,43 @@ public class DissimilarityEntryImpl extends DissimilarityClauseImpl implements D
 	 * @generated
 	 */
 	public HardwareArchitectureLevelType getLevel() {
-		return level;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLevel(HardwareArchitectureLevelType newLevel) {
-		HardwareArchitectureLevelType oldLevel = level;
-		level = newLevel == null ? LEVEL_EDEFAULT : newLevel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.DISSIMILARITY_ENTRY__LEVEL, oldLevel, level));
+		HardwareArchitectureLevelType _xifexpression = null;
+		CompartmentAttributes _compartmentAttribute = this.getCompartmentAttribute();
+		boolean _notEquals = (!Objects.equal(_compartmentAttribute, CompartmentAttributes.NONE));
+		if (_notEquals) {
+			_xifexpression = HardwareArchitectureLevelType.COMPARTMENT;
+		}
+		else {
+			HardwareArchitectureLevelType _xifexpression_1 = null;
+			BoxAttributes _boxAttribute = this.getBoxAttribute();
+			boolean _notEquals_1 = (!Objects.equal(_boxAttribute, BoxAttributes.NONE));
+			if (_notEquals_1) {
+				_xifexpression_1 = HardwareArchitectureLevelType.BOX;
+			}
+			else {
+				HardwareArchitectureLevelType _xifexpression_2 = null;
+				BoardAttributes _boardAttribute = this.getBoardAttribute();
+				boolean _notEquals_2 = (!Objects.equal(_boardAttribute, BoardAttributes.NONE));
+				if (_notEquals_2) {
+					_xifexpression_2 = HardwareArchitectureLevelType.BOARD;
+				}
+				else {
+					HardwareArchitectureLevelType _xifexpression_3 = null;
+					ProcessorAttributes _processorAttribute = this.getProcessorAttribute();
+					boolean _notEquals_3 = (!Objects.equal(_processorAttribute, ProcessorAttributes.NONE));
+					if (_notEquals_3) {
+						_xifexpression_3 = HardwareArchitectureLevelType.PROCESSOR;
+					}
+					else {
+						_xifexpression_3 = null;
+					}
+					_xifexpression_2 = _xifexpression_3;
+				}
+				_xifexpression_1 = _xifexpression_2;
+			}
+			_xifexpression = _xifexpression_1;
+		}
+		return _xifexpression;
 	}
 
 	/**
@@ -288,9 +304,6 @@ public class DissimilarityEntryImpl extends DissimilarityClauseImpl implements D
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.DISSIMILARITY_ENTRY__LEVEL:
-				setLevel((HardwareArchitectureLevelType)newValue);
-				return;
 			case ModelPackage.DISSIMILARITY_ENTRY__COMPARTMENT_ATTRIBUTE:
 				setCompartmentAttribute((CompartmentAttributes)newValue);
 				return;
@@ -315,9 +328,6 @@ public class DissimilarityEntryImpl extends DissimilarityClauseImpl implements D
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.DISSIMILARITY_ENTRY__LEVEL:
-				setLevel(LEVEL_EDEFAULT);
-				return;
 			case ModelPackage.DISSIMILARITY_ENTRY__COMPARTMENT_ATTRIBUTE:
 				setCompartmentAttribute(COMPARTMENT_ATTRIBUTE_EDEFAULT);
 				return;
@@ -343,7 +353,7 @@ public class DissimilarityEntryImpl extends DissimilarityClauseImpl implements D
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModelPackage.DISSIMILARITY_ENTRY__LEVEL:
-				return level != LEVEL_EDEFAULT;
+				return getLevel() != LEVEL_EDEFAULT;
 			case ModelPackage.DISSIMILARITY_ENTRY__COMPARTMENT_ATTRIBUTE:
 				return compartmentAttribute != COMPARTMENT_ATTRIBUTE_EDEFAULT;
 			case ModelPackage.DISSIMILARITY_ENTRY__BOX_ATTRIBUTE:
@@ -366,9 +376,7 @@ public class DissimilarityEntryImpl extends DissimilarityClauseImpl implements D
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (level: ");
-		result.append(level);
-		result.append(", compartmentAttribute: ");
+		result.append(" (compartmentAttribute: ");
 		result.append(compartmentAttribute);
 		result.append(", boxAttribute: ");
 		result.append(boxAttribute);

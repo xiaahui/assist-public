@@ -1,5 +1,7 @@
 package ch.hilbri.assist.model
 
+import org.eclipse.emf.common.util.BasicEList
+
 class AssistModel {
 	String 									systemName
 	contains HardwareElementContainer[1..*] hardwareContainer
@@ -170,6 +172,16 @@ class ApplicationOrApplicationGroup {}
 class ApplicationGroup extends ApplicationOrApplicationGroup {
 	String name
 	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
+	
+	op Application[] getAllApplications() {
+		var list = new BasicEList<Application>
+		
+		for (aog : this.applicationsOrGroups) 
+			if (aog instanceof Application) 			list.add(aog)
+			else if (aog instanceof ApplicationGroup)	list.addAll(aog.allApplications)
+		
+		return list
+	}
 }
 
 class Application extends ApplicationOrApplicationGroup {
@@ -218,7 +230,13 @@ class DissimilarityConjunction extends DissimilarityClause  {
 }
 
 class DissimilarityEntry extends DissimilarityClause {
-	HardwareArchitectureLevelType level
+	derived HardwareArchitectureLevelType level get {
+		if (compartmentAttribute != CompartmentAttributes.NONE) HardwareArchitectureLevelType.COMPARTMENT
+		else if (boxAttribute != BoxAttributes.NONE) HardwareArchitectureLevelType.BOX
+		else if (boardAttribute != BoardAttributes.NONE) HardwareArchitectureLevelType.BOARD
+		else if (processorAttribute != ProcessorAttributes.NONE) HardwareArchitectureLevelType.PROCESSOR
+		else null
+	}
 	CompartmentAttributes compartmentAttribute 	= "None"
 	BoxAttributes boxAttribute				  	= "None"
 	BoardAttributes boardAttribute				= "None"

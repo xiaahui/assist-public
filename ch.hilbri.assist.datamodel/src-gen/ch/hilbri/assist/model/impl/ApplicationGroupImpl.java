@@ -2,14 +2,18 @@
  */
 package ch.hilbri.assist.model.impl;
 
+import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationGroup;
 import ch.hilbri.assist.model.ApplicationOrApplicationGroup;
 import ch.hilbri.assist.model.ModelPackage;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -120,6 +124,28 @@ public class ApplicationGroupImpl extends ApplicationOrApplicationGroupImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Application> getAllApplications() {
+		BasicEList<Application> list = new BasicEList<Application>();
+		EList<ApplicationOrApplicationGroup> _applicationsOrGroups = this.getApplicationsOrGroups();
+		for (final ApplicationOrApplicationGroup aog : _applicationsOrGroups) {
+			if ((aog instanceof Application)) {
+				list.add(((Application)aog));
+			}
+			else {
+				if ((aog instanceof ApplicationGroup)) {
+					EList<Application> _allApplications = ((ApplicationGroup)aog).getAllApplications();
+					list.addAll(_allApplications);
+				}
+			}
+		}
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -183,6 +209,20 @@ public class ApplicationGroupImpl extends ApplicationOrApplicationGroupImpl impl
 				return applicationsOrGroups != null && !applicationsOrGroups.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ModelPackage.APPLICATION_GROUP___GET_ALL_APPLICATIONS:
+				return getAllApplications();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

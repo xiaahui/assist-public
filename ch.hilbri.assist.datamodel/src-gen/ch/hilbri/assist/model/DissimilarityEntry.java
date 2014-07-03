@@ -35,23 +35,12 @@ public interface DissimilarityEntry extends DissimilarityClause {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Level</em>' attribute.
 	 * @see ch.hilbri.assist.model.HardwareArchitectureLevelType
-	 * @see #setLevel(HardwareArchitectureLevelType)
 	 * @see ch.hilbri.assist.model.ModelPackage#getDissimilarityEntry_Level()
-	 * @model unique="false"
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%ch.hilbri.assist.model.HardwareArchitectureLevelType%> _xifexpression = null;\n<%ch.hilbri.assist.model.CompartmentAttributes%> _compartmentAttribute = this.getCompartmentAttribute();\nboolean _notEquals = (!<%com.google.common.base.Objects%>.equal(_compartmentAttribute, <%ch.hilbri.assist.model.CompartmentAttributes%>.NONE));\nif (_notEquals)\n{\n\t_xifexpression = <%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.COMPARTMENT;\n}\nelse\n{\n\t<%ch.hilbri.assist.model.HardwareArchitectureLevelType%> _xifexpression_1 = null;\n\t<%ch.hilbri.assist.model.BoxAttributes%> _boxAttribute = this.getBoxAttribute();\n\tboolean _notEquals_1 = (!<%com.google.common.base.Objects%>.equal(_boxAttribute, <%ch.hilbri.assist.model.BoxAttributes%>.NONE));\n\tif (_notEquals_1)\n\t{\n\t\t_xifexpression_1 = <%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.BOX;\n\t}\n\telse\n\t{\n\t\t<%ch.hilbri.assist.model.HardwareArchitectureLevelType%> _xifexpression_2 = null;\n\t\t<%ch.hilbri.assist.model.BoardAttributes%> _boardAttribute = this.getBoardAttribute();\n\t\tboolean _notEquals_2 = (!<%com.google.common.base.Objects%>.equal(_boardAttribute, <%ch.hilbri.assist.model.BoardAttributes%>.NONE));\n\t\tif (_notEquals_2)\n\t\t{\n\t\t\t_xifexpression_2 = <%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.BOARD;\n\t\t}\n\t\telse\n\t\t{\n\t\t\t<%ch.hilbri.assist.model.HardwareArchitectureLevelType%> _xifexpression_3 = null;\n\t\t\t<%ch.hilbri.assist.model.ProcessorAttributes%> _processorAttribute = this.getProcessorAttribute();\n\t\t\tboolean _notEquals_3 = (!<%com.google.common.base.Objects%>.equal(_processorAttribute, <%ch.hilbri.assist.model.ProcessorAttributes%>.NONE));\n\t\t\tif (_notEquals_3)\n\t\t\t{\n\t\t\t\t_xifexpression_3 = <%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.PROCESSOR;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\t_xifexpression_3 = null;\n\t\t\t}\n\t\t\t_xifexpression_2 = _xifexpression_3;\n\t\t}\n\t\t_xifexpression_1 = _xifexpression_2;\n\t}\n\t_xifexpression = _xifexpression_1;\n}\nreturn _xifexpression;'"
 	 * @generated
 	 */
 	HardwareArchitectureLevelType getLevel();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.model.DissimilarityEntry#getLevel <em>Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Level</em>' attribute.
-	 * @see ch.hilbri.assist.model.HardwareArchitectureLevelType
-	 * @see #getLevel()
-	 * @generated
-	 */
-	void setLevel(HardwareArchitectureLevelType value);
 
 	/**
 	 * Returns the value of the '<em><b>Compartment Attribute</b></em>' attribute.

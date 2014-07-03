@@ -954,13 +954,22 @@ public interface ModelPackage extends EPackage {
 	int APPLICATION_GROUP_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Get All Applications</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_GROUP___GET_ALL_APPLICATIONS = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Application Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_GROUP_OPERATION_COUNT = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 0;
+	int APPLICATION_GROUP_OPERATION_COUNT = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.ApplicationImpl <em>Application</em>}' class.
@@ -2366,6 +2375,16 @@ public interface ModelPackage extends EPackage {
 	EReference getApplicationGroup_ApplicationsOrGroups();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.ApplicationGroup#getAllApplications() <em>Get All Applications</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Applications</em>' operation.
+	 * @see ch.hilbri.assist.model.ApplicationGroup#getAllApplications()
+	 * @generated
+	 */
+	EOperation getApplicationGroup__GetAllApplications();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.Application <em>Application</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3489,6 +3508,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference APPLICATION_GROUP__APPLICATIONS_OR_GROUPS = eINSTANCE.getApplicationGroup_ApplicationsOrGroups();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Applications</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation APPLICATION_GROUP___GET_ALL_APPLICATIONS = eINSTANCE.getApplicationGroup__GetAllApplications();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ApplicationImpl <em>Application</em>}' class.

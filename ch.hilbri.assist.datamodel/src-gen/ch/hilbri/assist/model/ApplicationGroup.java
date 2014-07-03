@@ -64,4 +64,13 @@ public interface ApplicationGroup extends ApplicationOrApplicationGroup {
 	 */
 	EList<ApplicationOrApplicationGroup> getApplicationsOrGroups();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.Application%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.Application%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.ApplicationOrApplicationGroup%>> _applicationsOrGroups = this.getApplicationsOrGroups();\nfor (final <%ch.hilbri.assist.model.ApplicationOrApplicationGroup%> aog : _applicationsOrGroups)\n{\n\tif ((aog instanceof <%ch.hilbri.assist.model.Application%>))\n\t{\n\t\tlist.add(((<%ch.hilbri.assist.model.Application%>)aog));\n\t}\n\telse\n\t{\n\t\tif ((aog instanceof <%ch.hilbri.assist.model.ApplicationGroup%>))\n\t\t{\n\t\t\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Application%>> _allApplications = ((<%ch.hilbri.assist.model.ApplicationGroup%>)aog).getAllApplications();\n\t\t\tlist.addAll(_allApplications);\n\t\t}\n\t}\n}\nreturn list;'"
+	 * @generated
+	 */
+	EList<Application> getAllApplications();
+
 } // ApplicationGroup
