@@ -3,6 +3,8 @@
 */
 package ch.hilbri.assist.mappingdsl.ui.outline
 
+import ch.hilbri.assist.model.AssistModel
+import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
 
 /**
@@ -12,9 +14,17 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
  */
 class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	
-
+	def _createChildren(IOutlineNode parentNode, AssistModel model) {
+		val hardwareNode = new VirtualOutlineNode(parentNode, null, "Hardware", false)
+		
+		for (hw : model.hardwareContainer)
+			createNode(hardwareNode, hw)
+			
+		val softwareNode = new VirtualOutlineNode(parentNode, null, "Software", false)
+		
+		for (sw : model.applications) 
+			createNode(softwareNode, sw)
+	}
 	
 }
-
-
 
