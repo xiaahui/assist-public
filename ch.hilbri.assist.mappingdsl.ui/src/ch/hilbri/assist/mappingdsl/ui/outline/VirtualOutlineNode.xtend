@@ -1,13 +1,13 @@
 package ch.hilbri.assist.mappingdsl.ui.outline
 
-import org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode
+import org.eclipse.jface.resource.ImageDescriptor
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
-import org.eclipse.swt.graphics.Image
+import org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode
 
 class VirtualOutlineNode extends AbstractOutlineNode {
 	
-	protected new(IOutlineNode parent, Image image, Object text, boolean isLeaf) {
-		super(parent, image, text, isLeaf)
+	protected new(IOutlineNode parent, ImageDescriptor imgDesc, Object text, boolean isLeaf) {
+		super(parent, imgDesc, text, isLeaf)
 	}
 	
 }
