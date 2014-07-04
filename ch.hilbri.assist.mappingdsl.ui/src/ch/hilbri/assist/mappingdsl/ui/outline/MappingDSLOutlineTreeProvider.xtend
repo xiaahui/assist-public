@@ -4,11 +4,13 @@
 package ch.hilbri.assist.mappingdsl.ui.outline
 
 import ch.hilbri.assist.model.AssistModel
+import com.google.inject.Inject
 import org.eclipse.core.runtime.Platform
 import org.eclipse.jface.resource.ImageDescriptor
 import org.eclipse.ui.internal.util.BundleUtility
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
+import org.eclipse.xtext.ui.editor.outline.impl.OutlinePage
 
 /**
  * Customization of the default outline structure.
@@ -16,6 +18,9 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
  * see http://www.eclipse.org/Xtext/documentation.html#outline
  */
 class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
+	
+	@Inject
+	private OutlinePage outlinePage;
 	
 	def _createChildren(IOutlineNode parentNode, AssistModel model) {
 		
@@ -73,6 +78,10 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 			val proximityRelationNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Proximity Constraints", false)
 			for (r : model.proximityRelations) createNode(proximityRelationNode, r)
 		}
+		
+		this.outlinePage.treeViewer.expandToLevel(3)
+		
+		
 	}
 	
 }

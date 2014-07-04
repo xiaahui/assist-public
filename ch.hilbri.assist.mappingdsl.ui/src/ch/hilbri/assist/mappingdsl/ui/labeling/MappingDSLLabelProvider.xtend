@@ -17,6 +17,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 import ch.hilbri.assist.model.ProximityRelation
 import ch.hilbri.assist.model.CommunicationRelation
+import ch.hilbri.assist.model.ApplicationGroup
 
 /**
  * Provides labels for a EObjects.
@@ -116,5 +117,13 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 
 	def image(CommunicationRelation r) {
 		'outline_view_communication_16x16.png'
+	}
+	
+	def text(ApplicationGroup g) {
+		g.name + " " + g.applicationsOrGroups
+	}
+	
+	def image(ApplicationGroup g) {
+		'outline_view_application_group_16x16.png'
 	}
 }
