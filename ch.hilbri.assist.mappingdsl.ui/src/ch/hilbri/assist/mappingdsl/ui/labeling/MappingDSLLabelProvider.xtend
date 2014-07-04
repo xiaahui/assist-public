@@ -9,10 +9,14 @@ import ch.hilbri.assist.model.Board
 import ch.hilbri.assist.model.Box
 import ch.hilbri.assist.model.Compartment
 import ch.hilbri.assist.model.Core
+import ch.hilbri.assist.model.DislocalityRelation
+import ch.hilbri.assist.model.DissimilarityRelation
 import ch.hilbri.assist.model.Processor
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import ch.hilbri.assist.model.ProximityRelation
+import ch.hilbri.assist.model.CommunicationRelation
 
 /**
  * Provides labels for a EObjects.
@@ -26,24 +30,91 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		super(delegate);
 	}
 
-	def text(AssistModel model) 	{ 'System ' + model.systemName 		 	}
-	def image(AssistModel model)	{ 'outline_view_system_16x16.png'		}
+	def text(AssistModel model) {
+		'System ' + model.systemName
+	}
 
-	def text(Compartment comp)		{ 'Compartment ' + comp.name  	}
-	def image(Compartment comp)		{ 'outline_view_compartment_16x16.png'	}			
+	def image(AssistModel model) {
+		'outline_view_system_16x16.png'
+	}
 
-	def text(Box box)				{ 'Box ' + box.name }
-	def image(Box box)				{ 'outline_view_box_16x16.png'	}
-	
-	def text(Board b)				{ 'Board ' + b.name }
-	def image(Board b)				{ 'outline_view_board_16x16.png'	}
-	
-	def text(Processor p)			{ 'Processor ' + p.name }
-	def image(Processor p)			{ 'outline_view_processor_16x16.png'	}
-	
-	def text(Core c)				{ 'Core ' + c.name }
-	def image(Core c)				{ 'outline_view_core_16x16.png'	}
+	def text(Compartment comp) {
+		'Compartment ' + comp.name
+	}
 
-	def text(Application a)			{ 'Application ' + a.name }
-	def image(Application a)		{ 'outline_view_application2_16x16.png'	}
+	def image(Compartment comp) {
+		'outline_view_compartment_16x16.png'
+	}
+
+	def text(Box box) {
+		'Box ' + box.name
+	}
+
+	def image(Box box) {
+		'outline_view_box_16x16.png'
+	}
+
+	def text(Board b) {
+		'Board ' + b.name
+	}
+
+	def image(Board b) {
+		'outline_view_board_16x16.png'
+	}
+
+	def text(Processor p) {
+		'Processor ' + p.name
+	}
+
+	def image(Processor p) {
+		'outline_view_processor_16x16.png'
+	}
+
+	def text(Core c) {
+		'Core ' + c.name
+	}
+
+	def image(Core c) {
+		'outline_view_core_16x16.png'
+	}
+
+	def text(Application a) {
+		'Application ' + a.name
+	}
+
+	def image(Application a) {
+		'outline_view_application2_16x16.png'
+	}
+
+	def text(DislocalityRelation r) {
+		r.applicationsOrGroups + " dislocal up to " + r.hardwareLevel
+	}
+
+	def image(DislocalityRelation r) {
+		'outline_view_relation_16x16.png'
+	}
+
+	def text(DissimilarityRelation r) {
+		r.applicationsOrGroups + " dissimilar"
+	}
+
+	def image(DissimilarityRelation r) {
+		'outline_view_relation_16x16.png'
+	}
+
+	def text(ProximityRelation r) {
+		r.applicationsOrGroups + " on same " + r.hardwareLevel
+	}
+
+	def image(ProximityRelation r) {
+		'outline_view_relation_16x16.png'
+	}
+
+	def text(CommunicationRelation r) {
+		r.applicationsOrGroups + " with bandwidth " + r.bandwidthUtilization
+	}
+
+	def image(CommunicationRelation r) {
+		'outline_view_communication_16x16.png'
+	}
 }

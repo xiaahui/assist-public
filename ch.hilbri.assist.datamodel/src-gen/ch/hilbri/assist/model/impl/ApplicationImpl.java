@@ -10,6 +10,8 @@ import ch.hilbri.assist.model.IOAdapterRequirement;
 import ch.hilbri.assist.model.MetricParameter;
 import ch.hilbri.assist.model.ModelPackage;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -492,6 +494,15 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String toString() {
+		return this.getName();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -699,28 +710,12 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	 * @generated
 	 */
 	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", coreUtilization: ");
-		result.append(coreUtilization);
-		result.append(", ramUtilization: ");
-		result.append(ramUtilization);
-		result.append(", romUtilization: ");
-		result.append(romUtilization);
-		result.append(", criticalityLevel: ");
-		result.append(criticalityLevel);
-		result.append(", ioAdapterProtectionLevel: ");
-		result.append(ioAdapterProtectionLevel);
-		result.append(", parallelThreads: ");
-		result.append(parallelThreads);
-		result.append(", developedBy: ");
-		result.append(developedBy);
-		result.append(')');
-		return result.toString();
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ModelPackage.APPLICATION___TO_STRING:
+				return toString();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ApplicationImpl

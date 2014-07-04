@@ -197,6 +197,10 @@ class Application extends ApplicationOrApplicationGroup {
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
 	contains Thread[0..*] threads opposite application
 	contains MetricParameter[0..*] metricParameters
+	
+	op String toString() {
+		name
+	}
 }
 
 class Thread {

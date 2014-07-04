@@ -1099,13 +1099,22 @@ public interface ModelPackage extends EPackage {
 	int APPLICATION_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 12;
 
 	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION___TO_STRING = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_OPERATION_COUNT = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 0;
+	int APPLICATION_OPERATION_COUNT = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.ThreadImpl <em>Thread</em>}' class.
@@ -2527,6 +2536,16 @@ public interface ModelPackage extends EPackage {
 	EReference getApplication_MetricParameters();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Application#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see ch.hilbri.assist.model.Application#toString()
+	 * @generated
+	 */
+	EOperation getApplication__ToString();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.Thread <em>Thread</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3622,6 +3641,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference APPLICATION__METRIC_PARAMETERS = eINSTANCE.getApplication_MetricParameters();
+
+		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation APPLICATION___TO_STRING = eINSTANCE.getApplication__ToString();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ThreadImpl <em>Thread</em>}' class.
