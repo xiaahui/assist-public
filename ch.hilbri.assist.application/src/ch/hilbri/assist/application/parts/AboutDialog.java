@@ -1,9 +1,5 @@
 package ch.hilbri.assist.application.parts;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -11,7 +7,6 @@ import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -32,35 +27,28 @@ public class AboutDialog extends TitleAreaDialog {
 	public AboutDialog(
 		@Named(IServiceConstants.ACTIVE_SHELL) Shell parentShell) {
 		super(parentShell);
+		setShellStyle(SWT.CLOSE);
 	}
 	
 	@Override
 	protected Control createDialogArea(Composite parent) {
+		setMessage("Architecture Synthesis for Safety-Critical Systems");
+		setTitle("About ASSIST");
 
 		Composite area = (Composite) super.createDialogArea(parent);
 		
-		Image ppImage;
-		URL url;
-		InputStream in = null;
-		url = getClass().getResource("/icons/PP_logo.png");
-		try {
-			in = url.openStream();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-			return null;
-		}
-		ppImage = new Image(getShell().getDisplay(), in);
-		
-		setTitleImage(ppImage);
-		
+	
 		Composite container = new Composite(area, SWT.NONE);
 	    GridLayout layout = new GridLayout(1, false);
 	    container.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 	    container.setLayout(layout);
 	    
+	    Label lblAutomaticallySynthesizeYour = new Label(container, SWT.NONE);
+	    lblAutomaticallySynthesizeYour.setText("Automatically synthesize your system architecture based on explicit specifications with a constraint solver.");
+	    
 	    
 	    Label lbtVersion = new Label(container, SWT.NONE);
-	    lbtVersion.setText("Version: " + versionNumber);
+	    lbtVersion.setText("Version: 0.1");
 
 	    Label lbtCpr = new Label(container, SWT.NONE);
 	    lbtCpr.setText("(c) Copyright by Robert Hilbrich. All rights reserved.");

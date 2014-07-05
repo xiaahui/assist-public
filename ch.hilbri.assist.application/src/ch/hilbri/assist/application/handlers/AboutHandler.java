@@ -7,12 +7,6 @@ import org.eclipse.e4.ui.workbench.IWorkbench;
 
 import ch.hilbri.assist.application.parts.AboutDialog;
 
-/**
- * Handler for the About Dialog
- * 
- * @author Mirko Liebender
- *
- */
 public class AboutHandler {
 	
 	@Execute

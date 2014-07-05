@@ -3,6 +3,7 @@
 
 <product name="ASSIST" id="ch.hilbri.assist.application.assist_product" application="ch.hilbri.assist.application.application" version="0.1" useFeatures="false" includeLaunchers="true">
 
+
    <configIni use="default">
    </configIni>
 
@@ -11,20 +12,26 @@
       </vmArgsMac>
    </launcherArgs>
 
-   <windowImages/>
+   <windowImages i16="/ch.hilbri.assist.application/icons/ASSIST-icon-16x16.png" i32="/ch.hilbri.assist.application/icons/ASSIST-icon-32x32.png" i48="/ch.hilbri.assist.application/icons/ASSIST-icon-48x48.png" i64="/ch.hilbri.assist.application/icons/ASSIST-icon-64x64.png" i128="/ch.hilbri.assist.application/icons/ASSIST-icon-128x128.png" i256="/ch.hilbri.assist.application/icons/ASSIST-icon-256x256.png"/>
 
    <splash
       location="ch.hilbri.assist.application" />
    <launcher name="ASSIST">
       <solaris/>
       <win useIco="false">
-         <bmp/>
+         <bmp
+            winSmallHigh="/ch.hilbri.assist.application/icons/ASSIST-launcher-icon-16x16-32bit.bmp"
+            winMediumHigh="/ch.hilbri.assist.application/icons/ASSIST-launcher-icon-32x32-32bit.bmp"
+            winLargeHigh="/ch.hilbri.assist.application/icons/ASSIST-launcher-icon-48x48-32bit.bmp"
+            winExtraLargeHigh="/ch.hilbri.assist.application/icons/ASSIST-launcher-icon-256x256-32bit.bmp"/>
       </win>
    </launcher>
+
 
    <vm>
       <windows include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</windows>
    </vm>
+
 
    <plugins>
       <plugin id="ch.hilbri.assist.application"/>

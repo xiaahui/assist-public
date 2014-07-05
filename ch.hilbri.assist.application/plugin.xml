@@ -13,7 +13,7 @@
 	</extension>
  
  	<extension id="ch.hilbri.assist.application.application" point="org.eclipse.core.runtime.applications">
-    	<application icon="icons/PP_icon_transp_small_16x16.png" cardinality="singleton-global" thread="main" visible="true">
+    	<application icon="icons/ASSIST-icon-64x64.png" cardinality="singleton-global" thread="main" visible="true">
        		<run class="ch.hilbri.assist.application.Activator"> </run>
     	</application>
  	</extension>
