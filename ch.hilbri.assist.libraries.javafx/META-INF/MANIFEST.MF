@@ -180,3 +180,6 @@ Export-Package: com.sun.browser.plugin,
  netscape.javascript
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: Oracle
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.10.0",
+ javax.xml;bundle-version="1.3.4",
+ org.eclipse.draw2d;bundle-version="3.9.100"
