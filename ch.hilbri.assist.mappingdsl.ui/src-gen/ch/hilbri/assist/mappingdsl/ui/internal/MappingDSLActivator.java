@@ -23,7 +23,7 @@ import com.google.inject.Module;
  */
 public class MappingDSLActivator extends AbstractUIPlugin {
 	
-	public static final String CH_HILBRI_ASSIST_MAPPINGDSL_MAPPINGDSL = "ch.hilbri.assist.mappingdsl.MappingDSL";
+	public static final String CH_HILBRI_ASSIST_MAPPINGDSL_MAPPINGDSL = "ch.hilbri.assist.mapping.mappingdsl.MappingDsl";
 	
 	private static final Logger logger = Logger.getLogger(MappingDSLActivator.class);
 	

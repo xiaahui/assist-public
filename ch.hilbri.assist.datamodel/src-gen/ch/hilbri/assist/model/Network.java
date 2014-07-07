@@ -82,6 +82,7 @@ public interface Network extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Boards</b></em>' reference list.
 	 * The list contents are of type {@link ch.hilbri.assist.model.Board}.
+	 * It is bidirectional and its opposite is '{@link ch.hilbri.assist.model.Board#getNetworks <em>Networks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Boards</em>' reference list isn't clear,
@@ -90,7 +91,8 @@ public interface Network extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Boards</em>' reference list.
 	 * @see ch.hilbri.assist.model.ModelPackage#getNetwork_Boards()
-	 * @model lower="2"
+	 * @see ch.hilbri.assist.model.Board#getNetworks
+	 * @model opposite="networks" lower="2"
 	 * @generated
 	 */
 	EList<Board> getBoards();

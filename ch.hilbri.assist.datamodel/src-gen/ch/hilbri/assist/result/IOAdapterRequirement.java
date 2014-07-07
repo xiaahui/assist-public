@@ -3,6 +3,8 @@
  */
 package ch.hilbri.assist.result;
 
+import ch.hilbri.assist.model.IOAdapterType;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -27,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface IOAdapterRequirement extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Adapter Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link ch.hilbri.assist.result.IOAdapterType}.
+	 * The literals are from the enumeration {@link ch.hilbri.assist.model.IOAdapterType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Adapter Type</em>' attribute isn't clear,
@@ -35,7 +37,7 @@ public interface IOAdapterRequirement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Adapter Type</em>' attribute.
-	 * @see ch.hilbri.assist.result.IOAdapterType
+	 * @see ch.hilbri.assist.model.IOAdapterType
 	 * @see #setAdapterType(IOAdapterType)
 	 * @see ch.hilbri.assist.result.ResultPackage#getIOAdapterRequirement_AdapterType()
 	 * @model unique="false"
@@ -48,7 +50,7 @@ public interface IOAdapterRequirement extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Adapter Type</em>' attribute.
-	 * @see ch.hilbri.assist.result.IOAdapterType
+	 * @see ch.hilbri.assist.model.IOAdapterType
 	 * @see #getAdapterType()
 	 * @generated
 	 */

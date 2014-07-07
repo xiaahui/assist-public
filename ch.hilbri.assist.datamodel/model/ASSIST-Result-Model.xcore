@@ -3,8 +3,14 @@
 package ch.hilbri.assist.result
 
 import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.DesignAssuranceLevelType
+import ch.hilbri.assist.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.model.IOAdapterProtectionLevelType
+import ch.hilbri.assist.model.IOAdapterType
 
-class Result {
+interface Comparable wraps Comparable<Result>{}
+
+class Result extends Comparable {
 	
 	@GenModel(documentation="Name of this result") 
 	String							name
@@ -56,36 +62,16 @@ class Result {
 	
 	@GenModel(documentation="Refers to the original input specification")
 	refers AssistModel[0..1]				assistModel
+	
+	@GenModel(documentation="Refers to the original input specification")
+	op int compareTo(Result o) {
+		val double diff = this ?. evaluation.totalScore - o ?. evaluation.totalScore;
+		if (diff < 0.0)	return 1;
+		if (diff > 0.0)	return -1;
+		return 0;
+	}
 }
 
-enum HardwareArchitectureLevelType {
-	CORE 		as "Core"
-	PROCESSOR 	as "Processor"
-	BOARD		as "Board"
-	BOX			as "Box"
-	COMPARTMENT	as "Compartment"
-}
-
-enum IOAdapterProtectionLevelType {
-	NONE		as "None"
-	LEVEL_1		as "Level 1"
-	LEVEL_2		as "Level 2"
-	LEVEL_3		as "Level 3"
-	LEVEL_4		as "Level 4"
-	LEVEL_5		as "Level 5"
-	LEVEL_6		as "Level 6"
-	LEVEL_7		as "Level 7"
-	LEVEL_8		as "Level 8"
-}
-
-enum DesignAssuranceLevelType {
-	NONE 		as "None"
-	QS 			as "QS"
-	D 			as "D"
-	C 			as "C"
-	B 			as "B"
-	A 			as "A"
-}
 
 class HardwareElement {
 	String name
@@ -106,15 +92,18 @@ class Box extends HardwareElement {
 }
 
 class Board extends HardwareElement {
-	String manufacturer
-	String boardType
-	String powerSupply
-	DesignAssuranceLevelType assuranceLevel = "None"
-	int ramCapacity
-	int romCapacity
-	container Box box opposite boards
-	contains Processor[1..*] processors opposite board
-	contains IOAdapter[0..*] ioAdapters
+	String 						manufacturer
+	String 						boardType
+	String 						powerSupply
+	DesignAssuranceLevelType 	assuranceLevel = "None"
+	int 						ramCapacity
+	double						ramUtilization
+	int 						romCapacity
+	double						romUtilization
+	container Box 				box opposite boards
+	contains Processor[1..*] 	processors opposite board
+	contains IOAdapter[0..*] 	ioAdapters
+	refers Network[0..*] 		networks opposite boards
 }
 
 class Processor extends HardwareElement {
@@ -125,58 +114,11 @@ class Processor extends HardwareElement {
 }
 
 class Core extends HardwareElement {
-	String architecture
-	int capacity
-	container Processor processor opposite cores
-}
-
-enum IOAdapterType {
-	CAN 		as "Can"
-	ELB			as "Enhanced Local Bus"
-	ETH			as "Ethernet"
-	ANALOG 		as "Analog"
-	DIGITAL		as "Digital"
-	SERIAL		as "Serial"
-	CUSTOM0		as "Custom Type 0"	
-	CUSTOM1		as "Custom Type 1"
-	CUSTOM2		as "Custom Type 2"
-	CUSTOM3		as "Custom Type 3"
-	CUSTOM4		as "Custom Type 4"
-	CUSTOM5		as "Custom Type 5"	
-	CUSTOM6		as "Custom Type 6"
-	CUSTOM7		as "Custom Type 7"
-	CUSTOM8		as "Custom Type 8"
-	CUSTOM9		as "Custom Type 9"
-	CUSTOM10	as "Custom Type 10"	
-	CUSTOM11	as "Custom Type 11"
-	CUSTOM12	as "Custom Type 12"
-	CUSTOM13	as "Custom Type 13"
-	CUSTOM14	as "Custom Type 14"
-	CUSTOM15	as "Custom Type 15"	
-	CUSTOM16	as "Custom Type 16"
-	CUSTOM17	as "Custom Type 17"
-	CUSTOM18	as "Custom Type 18"
-	CUSTOM19	as "Custom Type 19"
-	CUSTOM20	as "Custom Type 20"	
-	CUSTOM21	as "Custom Type 21"
-	CUSTOM22	as "Custom Type 22"
-	CUSTOM23	as "Custom Type 23"
-	CUSTOM24	as "Custom Type 24"
-	CUSTOM25	as "Custom Type 25"	
-	CUSTOM26	as "Custom Type 26"
-	CUSTOM27	as "Custom Type 27"
-	CUSTOM28	as "Custom Type 28"
-	CUSTOM29	as "Custom Type 29"
-	CUSTOM30	as "Custom Type 30"	
-	CUSTOM31	as "Custom Type 31"
-	CUSTOM32	as "Custom Type 32"
-	CUSTOM33	as "Custom Type 33"
-	CUSTOM34	as "Custom Type 34"
-	CUSTOM35	as "Custom Type 35"	
-	CUSTOM36	as "Custom Type 36"
-	CUSTOM37	as "Custom Type 37"
-	CUSTOM38	as "Custom Type 38"
-	CUSTOM39	as "Custom Type 39"
+	String 						architecture
+	int 						capacity
+	double						utilization
+	container Processor 		processor opposite cores
+	refers Thread[0..*] 		threads
 }
 
 class IOAdapter {
@@ -189,7 +131,8 @@ class IOAdapter {
 class Network {
 	String name
 	int bandwidthCapacity
-	refers Board[2..*] boards
+	derived boolean isBoardLocalNetwork get { boards.size <= 1 }
+	refers Board[2..*] boards opposite networks
 }
 
 class ApplicationGroup {
@@ -198,28 +141,29 @@ class ApplicationGroup {
 }
 
 class Application {
-	String name
-	int coreUtilization
-	int ramUtilization
-	int romUtilization
-	DesignAssuranceLevelType criticalityLevel = "None"
-	IOAdapterProtectionLevelType ioAdapterProtectionLevel = "None"
-	int parallelThreads = "1"
-	String developedBy
-	contains IOAdapterRequirement[0..*] ioAdapterRequirements
-	refers HardwareElement[0..*] restrictMappingToHardwareElements
-	contains Thread[0..*] threads opposite application
+	String 									name
+	int 									coreUtilization
+	int 									ramUtilization
+	int 									romUtilization
+	DesignAssuranceLevelType 				criticalityLevel 					= "None"
+	IOAdapterProtectionLevelType 			ioAdapterProtectionLevel 			= "None"
+	int 									parallelThreads 					= "1"
+	String 									developedBy
+	contains IOAdapterRequirement[0..*] 	ioAdapterRequirements
+	refers HardwareElement[0..*] 			restrictMappingToHardwareElements
+	contains Thread[0..*] 					threads opposite application
 }
 
 class Thread {
-	container Application application opposite threads
+	container Application 	application opposite threads
+	derived String			name get { application.name + '_' + application.threads.indexOf(this) }
 }
 
 class IOAdapterRequirement {	
-	IOAdapterType adapterType
-	int requiredUnits = "0"
-	boolean isSharedAllowed = "false"
-	boolean isExclusiveOnly = "false"
+	IOAdapterType 	adapterType
+	int 			requiredUnits 		= "0"
+	boolean 		isSharedAllowed 	= "false"
+	boolean 		isExclusiveOnly 	= "false"
 }
 
 class CommunicationRelation{
@@ -227,6 +171,18 @@ class CommunicationRelation{
 	int bandwidthUtilization
 }
 
+abstract class AbstractMetric  {
+	String 			name
+	int				weight
+	boolean 		higherScoreIsBetter
+	boolean 		builtIn = "true"
+	op double 		computeScore(Result result)
+}
+
 class Evaluation {
+	double 							totalScore
+	double[0..*]					individualScores
+	contains AbstractMetric[0..*] 	metricsUsed
+	
 	
 }

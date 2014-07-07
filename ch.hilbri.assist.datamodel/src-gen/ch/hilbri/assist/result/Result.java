@@ -4,6 +4,9 @@
 package ch.hilbri.assist.result;
 
 import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
+
+import java.lang.Comparable;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -34,10 +37,10 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see ch.hilbri.assist.result.ResultPackage#getResult()
- * @model
+ * @model superTypes="ch.hilbri.assist.result.Comparable"
  * @generated
  */
-public interface Result extends EObject {
+public interface Result extends EObject, Comparable<Result> {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -105,34 +108,34 @@ public interface Result extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Top Hardware Level</b></em>' attribute.
-	 * The literals are from the enumeration {@link ch.hilbri.assist.result.HardwareArchitectureLevelType}.
+	 * The literals are from the enumeration {@link ch.hilbri.assist.model.HardwareArchitectureLevelType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Returns the top hardware level for this result
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Top Hardware Level</em>' attribute.
-	 * @see ch.hilbri.assist.result.HardwareArchitectureLevelType
+	 * @see ch.hilbri.assist.model.HardwareArchitectureLevelType
 	 * @see ch.hilbri.assist.result.ResultPackage#getResult_TopHardwareLevel()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%ch.hilbri.assist.result.HardwareArchitectureLevelType%> _xifexpression = null;\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.HardwareElement%>> _rootHardwareElements = this.getRootHardwareElements();\nboolean _isEmpty = _rootHardwareElements.isEmpty();\nboolean _not = (!_isEmpty);\nif (_not)\n{\n\t<%ch.hilbri.assist.result.HardwareArchitectureLevelType%> _switchResult = null;\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.HardwareElement%>> _rootHardwareElements_1 = this.getRootHardwareElements();\n\t<%ch.hilbri.assist.result.HardwareElement%> _get = _rootHardwareElements_1.get(0);\n\tboolean _matched = false;\n\tif (!_matched)\n\t{\n\t\tif (_get instanceof <%ch.hilbri.assist.result.Compartment%>)\n\t\t{\n\t\t\t_matched=true;\n\t\t\t_switchResult = <%ch.hilbri.assist.result.HardwareArchitectureLevelType%>.COMPARTMENT;\n\t\t}\n\t}\n\tif (!_matched)\n\t{\n\t\tif (_get instanceof <%ch.hilbri.assist.result.Box%>)\n\t\t{\n\t\t\t_matched=true;\n\t\t\t_switchResult = <%ch.hilbri.assist.result.HardwareArchitectureLevelType%>.BOX;\n\t\t}\n\t}\n\tif (!_matched)\n\t{\n\t\tif (_get instanceof <%ch.hilbri.assist.result.Board%>)\n\t\t{\n\t\t\t_matched=true;\n\t\t\t_switchResult = <%ch.hilbri.assist.result.HardwareArchitectureLevelType%>.BOARD;\n\t\t}\n\t}\n\tif (!_matched)\n\t{\n\t\tif (_get instanceof <%ch.hilbri.assist.result.Processor%>)\n\t\t{\n\t\t\t_matched=true;\n\t\t\t_switchResult = <%ch.hilbri.assist.result.HardwareArchitectureLevelType%>.PROCESSOR;\n\t\t}\n\t}\n\tif (!_matched)\n\t{\n\t\tif (_get instanceof <%ch.hilbri.assist.result.Core%>)\n\t\t{\n\t\t\t_matched=true;\n\t\t\t_switchResult = <%ch.hilbri.assist.result.HardwareArchitectureLevelType%>.CORE;\n\t\t}\n\t}\n\t_xifexpression = _switchResult;\n}\nreturn _xifexpression;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%ch.hilbri.assist.model.HardwareArchitectureLevelType%> _xifexpression = null;\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.HardwareElement%>> _rootHardwareElements = this.getRootHardwareElements();\nboolean _isEmpty = _rootHardwareElements.isEmpty();\nboolean _not = (!_isEmpty);\nif (_not)\n{\n\t<%ch.hilbri.assist.model.HardwareArchitectureLevelType%> _switchResult = null;\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.HardwareElement%>> _rootHardwareElements_1 = this.getRootHardwareElements();\n\t<%ch.hilbri.assist.result.HardwareElement%> _get = _rootHardwareElements_1.get(0);\n\tboolean _matched = false;\n\tif (!_matched)\n\t{\n\t\tif (_get instanceof <%ch.hilbri.assist.result.Compartment%>)\n\t\t{\n\t\t\t_matched=true;\n\t\t\t_switchResult = <%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.COMPARTMENT;\n\t\t}\n\t}\n\tif (!_matched)\n\t{\n\t\tif (_get instanceof <%ch.hilbri.assist.result.Box%>)\n\t\t{\n\t\t\t_matched=true;\n\t\t\t_switchResult = <%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.BOX;\n\t\t}\n\t}\n\tif (!_matched)\n\t{\n\t\tif (_get instanceof <%ch.hilbri.assist.result.Board%>)\n\t\t{\n\t\t\t_matched=true;\n\t\t\t_switchResult = <%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.BOARD;\n\t\t}\n\t}\n\tif (!_matched)\n\t{\n\t\tif (_get instanceof <%ch.hilbri.assist.result.Processor%>)\n\t\t{\n\t\t\t_matched=true;\n\t\t\t_switchResult = <%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.PROCESSOR;\n\t\t}\n\t}\n\tif (!_matched)\n\t{\n\t\tif (_get instanceof <%ch.hilbri.assist.result.Core%>)\n\t\t{\n\t\t\t_matched=true;\n\t\t\t_switchResult = <%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.CORE;\n\t\t}\n\t}\n\t_xifexpression = _switchResult;\n}\nreturn _xifexpression;'"
 	 * @generated
 	 */
 	HardwareArchitectureLevelType getTopHardwareLevel();
 
 	/**
 	 * Returns the value of the '<em><b>Bottom Hardware Level</b></em>' attribute.
-	 * The literals are from the enumeration {@link ch.hilbri.assist.result.HardwareArchitectureLevelType}.
+	 * The literals are from the enumeration {@link ch.hilbri.assist.model.HardwareArchitectureLevelType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Returns the bottom hardware level for this result
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Bottom Hardware Level</em>' attribute.
-	 * @see ch.hilbri.assist.result.HardwareArchitectureLevelType
+	 * @see ch.hilbri.assist.model.HardwareArchitectureLevelType
 	 * @see ch.hilbri.assist.result.ResultPackage#getResult_BottomHardwareLevel()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='return <%ch.hilbri.assist.result.HardwareArchitectureLevelType%>.CORE;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='return <%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.CORE;'"
 	 * @generated
 	 */
 	HardwareArchitectureLevelType getBottomHardwareLevel();
@@ -276,5 +279,17 @@ public interface Result extends EObject {
 	 * @generated
 	 */
 	void setAssistModel(AssistModel value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Refers to the original input specification
+	 * <!-- end-model-doc -->
+	 * @model unique="false" oUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.result.Evaluation%> _evaluation = null;\nif (this!=null)\n{\n\t_evaluation=this.getEvaluation();\n}\ndouble _totalScore = _evaluation.getTotalScore();\n<%ch.hilbri.assist.result.Evaluation%> _evaluation_1 = null;\nif (o!=null)\n{\n\t_evaluation_1=o.getEvaluation();\n}\ndouble _totalScore_1 = _evaluation_1.getTotalScore();\nfinal double diff = (_totalScore - _totalScore_1);\nif ((diff < 0.0))\n{\n\treturn 1;\n}\nif ((diff > 0.0))\n{\n\treturn (-1);\n}\nreturn 0;'"
+	 * @generated
+	 */
+	int compareTo(Result o);
 
 } // Result

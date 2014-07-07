@@ -5,7 +5,7 @@ package ch.hilbri.assist.result;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -60,6 +60,34 @@ public interface ResultPackage extends EPackage {
 	ResultPackage eINSTANCE = ch.hilbri.assist.result.impl.ResultPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link java.lang.Comparable<ch.hilbri.assist.result.Result> <em>Comparable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.Comparable<ch.hilbri.assist.result.Result>
+	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getComparable()
+	 * @generated
+	 */
+	int COMPARABLE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Comparable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Comparable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.impl.ResultImpl <em>Result</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,7 +95,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getResult()
 	 * @generated
 	 */
-	int RESULT = 0;
+	int RESULT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -76,7 +104,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__NAME = 0;
+	int RESULT__NAME = COMPARABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>System Name</b></em>' attribute.
@@ -85,7 +113,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__SYSTEM_NAME = 1;
+	int RESULT__SYSTEM_NAME = COMPARABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Root Hardware Elements</b></em>' containment reference list.
@@ -94,7 +122,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__ROOT_HARDWARE_ELEMENTS = 2;
+	int RESULT__ROOT_HARDWARE_ELEMENTS = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Top Hardware Level</b></em>' attribute.
@@ -103,7 +131,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__TOP_HARDWARE_LEVEL = 3;
+	int RESULT__TOP_HARDWARE_LEVEL = COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Bottom Hardware Level</b></em>' attribute.
@@ -112,7 +140,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__BOTTOM_HARDWARE_LEVEL = 4;
+	int RESULT__BOTTOM_HARDWARE_LEVEL = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Io Adapters</b></em>' containment reference list.
@@ -121,7 +149,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__IO_ADAPTERS = 5;
+	int RESULT__IO_ADAPTERS = COMPARABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Application Groups</b></em>' containment reference list.
@@ -130,7 +158,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__APPLICATION_GROUPS = 6;
+	int RESULT__APPLICATION_GROUPS = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Applications</b></em>' containment reference list.
@@ -139,7 +167,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__APPLICATIONS = 7;
+	int RESULT__APPLICATIONS = COMPARABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Threads</b></em>' containment reference list.
@@ -148,7 +176,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__THREADS = 8;
+	int RESULT__THREADS = COMPARABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Networks</b></em>' containment reference list.
@@ -157,7 +185,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__NETWORKS = 9;
+	int RESULT__NETWORKS = COMPARABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Communications</b></em>' containment reference list.
@@ -166,7 +194,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__COMMUNICATIONS = 10;
+	int RESULT__COMMUNICATIONS = COMPARABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Evaluation</b></em>' containment reference.
@@ -175,7 +203,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__EVALUATION = 11;
+	int RESULT__EVALUATION = COMPARABLE_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Assist Model</b></em>' reference.
@@ -184,7 +212,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__ASSIST_MODEL = 12;
+	int RESULT__ASSIST_MODEL = COMPARABLE_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of structural features of the '<em>Result</em>' class.
@@ -193,7 +221,16 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_FEATURE_COUNT = 13;
+	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 13;
+
+	/**
+	 * The operation id for the '<em>Compare To</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___COMPARE_TO__RESULT = COMPARABLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Result</em>' class.
@@ -202,7 +239,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_OPERATION_COUNT = 0;
+	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -212,7 +249,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getHardwareElement()
 	 * @generated
 	 */
-	int HARDWARE_ELEMENT = 1;
+	int HARDWARE_ELEMENT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -249,7 +286,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getCompartment()
 	 * @generated
 	 */
-	int COMPARTMENT = 2;
+	int COMPARTMENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -331,7 +368,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getBox()
 	 * @generated
 	 */
-	int BOX = 3;
+	int BOX = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -395,7 +432,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getBoard()
 	 * @generated
 	 */
-	int BOARD = 4;
+	int BOARD = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -452,13 +489,31 @@ public interface ResultPackage extends EPackage {
 	int BOARD__RAM_CAPACITY = HARDWARE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Ram Utilization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD__RAM_UTILIZATION = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Rom Capacity</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD__ROM_CAPACITY = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
+	int BOARD__ROM_CAPACITY = HARDWARE_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Rom Utilization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD__ROM_UTILIZATION = HARDWARE_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Box</b></em>' container reference.
@@ -467,7 +522,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD__BOX = HARDWARE_ELEMENT_FEATURE_COUNT + 6;
+	int BOARD__BOX = HARDWARE_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Processors</b></em>' containment reference list.
@@ -476,7 +531,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD__PROCESSORS = HARDWARE_ELEMENT_FEATURE_COUNT + 7;
+	int BOARD__PROCESSORS = HARDWARE_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Io Adapters</b></em>' containment reference list.
@@ -485,7 +540,16 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD__IO_ADAPTERS = HARDWARE_ELEMENT_FEATURE_COUNT + 8;
+	int BOARD__IO_ADAPTERS = HARDWARE_ELEMENT_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Networks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD__NETWORKS = HARDWARE_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Board</em>' class.
@@ -494,7 +558,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 9;
+	int BOARD_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of operations of the '<em>Board</em>' class.
@@ -513,7 +577,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getProcessor()
 	 * @generated
 	 */
-	int PROCESSOR = 5;
+	int PROCESSOR = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -586,7 +650,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getCore()
 	 * @generated
 	 */
-	int CORE = 6;
+	int CORE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -616,13 +680,31 @@ public interface ResultPackage extends EPackage {
 	int CORE__CAPACITY = HARDWARE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Utilization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORE__UTILIZATION = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Processor</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CORE__PROCESSOR = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
+	int CORE__PROCESSOR = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Threads</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORE__THREADS = HARDWARE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Core</em>' class.
@@ -631,7 +713,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CORE_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
+	int CORE_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Core</em>' class.
@@ -650,7 +732,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getIOAdapter()
 	 * @generated
 	 */
-	int IO_ADAPTER = 7;
+	int IO_ADAPTER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -714,7 +796,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getNetwork()
 	 * @generated
 	 */
-	int NETWORK = 8;
+	int NETWORK = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -735,13 +817,22 @@ public interface ResultPackage extends EPackage {
 	int NETWORK__BANDWIDTH_CAPACITY = 1;
 
 	/**
+	 * The feature id for the '<em><b>Is Board Local Network</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK__IS_BOARD_LOCAL_NETWORK = 2;
+
+	/**
 	 * The feature id for the '<em><b>Boards</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NETWORK__BOARDS = 2;
+	int NETWORK__BOARDS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Network</em>' class.
@@ -750,7 +841,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NETWORK_FEATURE_COUNT = 3;
+	int NETWORK_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Network</em>' class.
@@ -769,7 +860,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getApplicationGroup()
 	 * @generated
 	 */
-	int APPLICATION_GROUP = 9;
+	int APPLICATION_GROUP = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -815,7 +906,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getApplication()
 	 * @generated
 	 */
-	int APPLICATION = 10;
+	int APPLICATION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -942,7 +1033,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getThread()
 	 * @generated
 	 */
-	int THREAD = 11;
+	int THREAD = 12;
 
 	/**
 	 * The feature id for the '<em><b>Application</b></em>' container reference.
@@ -954,13 +1045,22 @@ public interface ResultPackage extends EPackage {
 	int THREAD__APPLICATION = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAD__NAME = 1;
+
+	/**
 	 * The number of structural features of the '<em>Thread</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THREAD_FEATURE_COUNT = 1;
+	int THREAD_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Thread</em>' class.
@@ -979,7 +1079,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getIOAdapterRequirement()
 	 * @generated
 	 */
-	int IO_ADAPTER_REQUIREMENT = 12;
+	int IO_ADAPTER_REQUIREMENT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Adapter Type</b></em>' attribute.
@@ -1043,7 +1143,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getCommunicationRelation()
 	 * @generated
 	 */
-	int COMMUNICATION_RELATION = 13;
+	int COMMUNICATION_RELATION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
@@ -1082,6 +1182,79 @@ public interface ResultPackage extends EPackage {
 	int COMMUNICATION_RELATION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.result.impl.AbstractMetricImpl <em>Abstract Metric</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.result.impl.AbstractMetricImpl
+	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getAbstractMetric()
+	 * @generated
+	 */
+	int ABSTRACT_METRIC = 15;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Weight</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC__WEIGHT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Higher Score Is Better</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Built In</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC__BUILT_IN = 3;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Metric</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC_FEATURE_COUNT = 4;
+
+	/**
+	 * The operation id for the '<em>Compute Score</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC___COMPUTE_SCORE__RESULT = 0;
+
+	/**
+	 * The number of operations of the '<em>Abstract Metric</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC_OPERATION_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.impl.EvaluationImpl <em>Evaluation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1089,7 +1262,34 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getEvaluation()
 	 * @generated
 	 */
-	int EVALUATION = 14;
+	int EVALUATION = 16;
+
+	/**
+	 * The feature id for the '<em><b>Total Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION__TOTAL_SCORE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Individual Scores</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION__INDIVIDUAL_SCORES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Metrics Used</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION__METRICS_USED = 2;
 
 	/**
 	 * The number of structural features of the '<em>Evaluation</em>' class.
@@ -1098,7 +1298,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVALUATION_FEATURE_COUNT = 0;
+	int EVALUATION_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Evaluation</em>' class.
@@ -1109,46 +1309,17 @@ public interface ResultPackage extends EPackage {
 	 */
 	int EVALUATION_OPERATION_COUNT = 0;
 
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.result.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.result.HardwareArchitectureLevelType
-	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getHardwareArchitectureLevelType()
-	 * @generated
-	 */
-	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 15;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.result.IOAdapterProtectionLevelType <em>IO Adapter Protection Level Type</em>}' enum.
+	 * Returns the meta object for class '{@link java.lang.Comparable<ch.hilbri.assist.result.Result> <em>Comparable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.result.IOAdapterProtectionLevelType
-	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getIOAdapterProtectionLevelType()
+	 * @return the meta object for class '<em>Comparable</em>'.
+	 * @see java.lang.Comparable<ch.hilbri.assist.result.Result>
+	 * @model instanceClass="java.lang.Comparable<ch.hilbri.assist.result.Result>"
 	 * @generated
 	 */
-	int IO_ADAPTER_PROTECTION_LEVEL_TYPE = 16;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.result.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.result.DesignAssuranceLevelType
-	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getDesignAssuranceLevelType()
-	 * @generated
-	 */
-	int DESIGN_ASSURANCE_LEVEL_TYPE = 17;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.result.IOAdapterType <em>IO Adapter Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.result.IOAdapterType
-	 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getIOAdapterType()
-	 * @generated
-	 */
-	int IO_ADAPTER_TYPE = 18;
-
+	EClass getComparable();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.Result <em>Result</em>}'.
@@ -1302,6 +1473,16 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResult_AssistModel();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.Result#compareTo(ch.hilbri.assist.result.Result) <em>Compare To</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compare To</em>' operation.
+	 * @see ch.hilbri.assist.result.Result#compareTo(ch.hilbri.assist.result.Result)
+	 * @generated
+	 */
+	EOperation getResult__CompareTo__Result();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.HardwareElement <em>Hardware Element</em>}'.
@@ -1498,6 +1679,17 @@ public interface ResultPackage extends EPackage {
 	EAttribute getBoard_RamCapacity();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.Board#getRamUtilization <em>Ram Utilization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ram Utilization</em>'.
+	 * @see ch.hilbri.assist.result.Board#getRamUtilization()
+	 * @see #getBoard()
+	 * @generated
+	 */
+	EAttribute getBoard_RamUtilization();
+
+	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.Board#getRomCapacity <em>Rom Capacity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1507,6 +1699,17 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBoard_RomCapacity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.Board#getRomUtilization <em>Rom Utilization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rom Utilization</em>'.
+	 * @see ch.hilbri.assist.result.Board#getRomUtilization()
+	 * @see #getBoard()
+	 * @generated
+	 */
+	EAttribute getBoard_RomUtilization();
 
 	/**
 	 * Returns the meta object for the container reference '{@link ch.hilbri.assist.result.Board#getBox <em>Box</em>}'.
@@ -1540,6 +1743,17 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBoard_IoAdapters();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.result.Board#getNetworks <em>Networks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Networks</em>'.
+	 * @see ch.hilbri.assist.result.Board#getNetworks()
+	 * @see #getBoard()
+	 * @generated
+	 */
+	EReference getBoard_Networks();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.Processor <em>Processor</em>}'.
@@ -1628,6 +1842,17 @@ public interface ResultPackage extends EPackage {
 	EAttribute getCore_Capacity();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.Core#getUtilization <em>Utilization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Utilization</em>'.
+	 * @see ch.hilbri.assist.result.Core#getUtilization()
+	 * @see #getCore()
+	 * @generated
+	 */
+	EAttribute getCore_Utilization();
+
+	/**
 	 * Returns the meta object for the container reference '{@link ch.hilbri.assist.result.Core#getProcessor <em>Processor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1637,6 +1862,17 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCore_Processor();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.result.Core#getThreads <em>Threads</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Threads</em>'.
+	 * @see ch.hilbri.assist.result.Core#getThreads()
+	 * @see #getCore()
+	 * @generated
+	 */
+	EReference getCore_Threads();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.IOAdapter <em>IO Adapter</em>}'.
@@ -1723,6 +1959,17 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNetwork_BandwidthCapacity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.Network#isIsBoardLocalNetwork <em>Is Board Local Network</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Board Local Network</em>'.
+	 * @see ch.hilbri.assist.result.Network#isIsBoardLocalNetwork()
+	 * @see #getNetwork()
+	 * @generated
+	 */
+	EAttribute getNetwork_IsBoardLocalNetwork();
 
 	/**
 	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.result.Network#getBoards <em>Boards</em>}'.
@@ -1920,6 +2167,17 @@ public interface ResultPackage extends EPackage {
 	EReference getThread_Application();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.Thread#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.result.Thread#getName()
+	 * @see #getThread()
+	 * @generated
+	 */
+	EAttribute getThread_Name();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.IOAdapterRequirement <em>IO Adapter Requirement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2006,6 +2264,70 @@ public interface ResultPackage extends EPackage {
 	EAttribute getCommunicationRelation_BandwidthUtilization();
 
 	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.result.AbstractMetric <em>Abstract Metric</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Metric</em>'.
+	 * @see ch.hilbri.assist.result.AbstractMetric
+	 * @generated
+	 */
+	EClass getAbstractMetric();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.AbstractMetric#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.result.AbstractMetric#getName()
+	 * @see #getAbstractMetric()
+	 * @generated
+	 */
+	EAttribute getAbstractMetric_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.AbstractMetric#getWeight <em>Weight</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Weight</em>'.
+	 * @see ch.hilbri.assist.result.AbstractMetric#getWeight()
+	 * @see #getAbstractMetric()
+	 * @generated
+	 */
+	EAttribute getAbstractMetric_Weight();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.AbstractMetric#isHigherScoreIsBetter <em>Higher Score Is Better</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Higher Score Is Better</em>'.
+	 * @see ch.hilbri.assist.result.AbstractMetric#isHigherScoreIsBetter()
+	 * @see #getAbstractMetric()
+	 * @generated
+	 */
+	EAttribute getAbstractMetric_HigherScoreIsBetter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.AbstractMetric#isBuiltIn <em>Built In</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Built In</em>'.
+	 * @see ch.hilbri.assist.result.AbstractMetric#isBuiltIn()
+	 * @see #getAbstractMetric()
+	 * @generated
+	 */
+	EAttribute getAbstractMetric_BuiltIn();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.AbstractMetric#computeScore(ch.hilbri.assist.result.Result) <em>Compute Score</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Score</em>' operation.
+	 * @see ch.hilbri.assist.result.AbstractMetric#computeScore(ch.hilbri.assist.result.Result)
+	 * @generated
+	 */
+	EOperation getAbstractMetric__ComputeScore__Result();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.Evaluation <em>Evaluation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2016,44 +2338,37 @@ public interface ResultPackage extends EPackage {
 	EClass getEvaluation();
 
 	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.result.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}'.
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.Evaluation#getTotalScore <em>Total Score</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Hardware Architecture Level Type</em>'.
-	 * @see ch.hilbri.assist.result.HardwareArchitectureLevelType
+	 * @return the meta object for the attribute '<em>Total Score</em>'.
+	 * @see ch.hilbri.assist.result.Evaluation#getTotalScore()
+	 * @see #getEvaluation()
 	 * @generated
 	 */
-	EEnum getHardwareArchitectureLevelType();
+	EAttribute getEvaluation_TotalScore();
 
 	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.result.IOAdapterProtectionLevelType <em>IO Adapter Protection Level Type</em>}'.
+	 * Returns the meta object for the attribute list '{@link ch.hilbri.assist.result.Evaluation#getIndividualScores <em>Individual Scores</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>IO Adapter Protection Level Type</em>'.
-	 * @see ch.hilbri.assist.result.IOAdapterProtectionLevelType
+	 * @return the meta object for the attribute list '<em>Individual Scores</em>'.
+	 * @see ch.hilbri.assist.result.Evaluation#getIndividualScores()
+	 * @see #getEvaluation()
 	 * @generated
 	 */
-	EEnum getIOAdapterProtectionLevelType();
+	EAttribute getEvaluation_IndividualScores();
 
 	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.result.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.result.Evaluation#getMetricsUsed <em>Metrics Used</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Design Assurance Level Type</em>'.
-	 * @see ch.hilbri.assist.result.DesignAssuranceLevelType
+	 * @return the meta object for the containment reference list '<em>Metrics Used</em>'.
+	 * @see ch.hilbri.assist.result.Evaluation#getMetricsUsed()
+	 * @see #getEvaluation()
 	 * @generated
 	 */
-	EEnum getDesignAssuranceLevelType();
-
-	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.result.IOAdapterType <em>IO Adapter Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>IO Adapter Type</em>'.
-	 * @see ch.hilbri.assist.result.IOAdapterType
-	 * @generated
-	 */
-	EEnum getIOAdapterType();
+	EReference getEvaluation_MetricsUsed();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2078,6 +2393,16 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link java.lang.Comparable<ch.hilbri.assist.result.Result> <em>Comparable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.Comparable<ch.hilbri.assist.result.Result>
+		 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getComparable()
+		 * @generated
+		 */
+		EClass COMPARABLE = eINSTANCE.getComparable();
+
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.impl.ResultImpl <em>Result</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -2191,6 +2516,14 @@ public interface ResultPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESULT__ASSIST_MODEL = eINSTANCE.getResult_AssistModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Compare To</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___COMPARE_TO__RESULT = eINSTANCE.getResult__CompareTo__Result();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -2345,12 +2678,28 @@ public interface ResultPackage extends EPackage {
 		EAttribute BOARD__RAM_CAPACITY = eINSTANCE.getBoard_RamCapacity();
 
 		/**
+		 * The meta object literal for the '<em><b>Ram Utilization</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOARD__RAM_UTILIZATION = eINSTANCE.getBoard_RamUtilization();
+
+		/**
 		 * The meta object literal for the '<em><b>Rom Capacity</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute BOARD__ROM_CAPACITY = eINSTANCE.getBoard_RomCapacity();
+
+		/**
+		 * The meta object literal for the '<em><b>Rom Utilization</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOARD__ROM_UTILIZATION = eINSTANCE.getBoard_RomUtilization();
 
 		/**
 		 * The meta object literal for the '<em><b>Box</b></em>' container reference feature.
@@ -2375,6 +2724,14 @@ public interface ResultPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOARD__IO_ADAPTERS = eINSTANCE.getBoard_IoAdapters();
+
+		/**
+		 * The meta object literal for the '<em><b>Networks</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOARD__NETWORKS = eINSTANCE.getBoard_Networks();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.impl.ProcessorImpl <em>Processor</em>}' class.
@@ -2445,12 +2802,28 @@ public interface ResultPackage extends EPackage {
 		EAttribute CORE__CAPACITY = eINSTANCE.getCore_Capacity();
 
 		/**
+		 * The meta object literal for the '<em><b>Utilization</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CORE__UTILIZATION = eINSTANCE.getCore_Utilization();
+
+		/**
 		 * The meta object literal for the '<em><b>Processor</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference CORE__PROCESSOR = eINSTANCE.getCore_Processor();
+
+		/**
+		 * The meta object literal for the '<em><b>Threads</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CORE__THREADS = eINSTANCE.getCore_Threads();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.impl.IOAdapterImpl <em>IO Adapter</em>}' class.
@@ -2519,6 +2892,14 @@ public interface ResultPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NETWORK__BANDWIDTH_CAPACITY = eINSTANCE.getNetwork_BandwidthCapacity();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Board Local Network</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NETWORK__IS_BOARD_LOCAL_NETWORK = eINSTANCE.getNetwork_IsBoardLocalNetwork();
 
 		/**
 		 * The meta object literal for the '<em><b>Boards</b></em>' reference list feature.
@@ -2671,6 +3052,14 @@ public interface ResultPackage extends EPackage {
 		EReference THREAD__APPLICATION = eINSTANCE.getThread_Application();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THREAD__NAME = eINSTANCE.getThread_Name();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.impl.IOAdapterRequirementImpl <em>IO Adapter Requirement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2739,6 +3128,56 @@ public interface ResultPackage extends EPackage {
 		EAttribute COMMUNICATION_RELATION__BANDWIDTH_UTILIZATION = eINSTANCE.getCommunicationRelation_BandwidthUtilization();
 
 		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.result.impl.AbstractMetricImpl <em>Abstract Metric</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.result.impl.AbstractMetricImpl
+		 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getAbstractMetric()
+		 * @generated
+		 */
+		EClass ABSTRACT_METRIC = eINSTANCE.getAbstractMetric();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_METRIC__NAME = eINSTANCE.getAbstractMetric_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_METRIC__WEIGHT = eINSTANCE.getAbstractMetric_Weight();
+
+		/**
+		 * The meta object literal for the '<em><b>Higher Score Is Better</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER = eINSTANCE.getAbstractMetric_HigherScoreIsBetter();
+
+		/**
+		 * The meta object literal for the '<em><b>Built In</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_METRIC__BUILT_IN = eINSTANCE.getAbstractMetric_BuiltIn();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Score</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ABSTRACT_METRIC___COMPUTE_SCORE__RESULT = eINSTANCE.getAbstractMetric__ComputeScore__Result();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.impl.EvaluationImpl <em>Evaluation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2749,44 +3188,28 @@ public interface ResultPackage extends EPackage {
 		EClass EVALUATION = eINSTANCE.getEvaluation();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.result.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
+		 * The meta object literal for the '<em><b>Total Score</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.result.HardwareArchitectureLevelType
-		 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getHardwareArchitectureLevelType()
 		 * @generated
 		 */
-		EEnum HARDWARE_ARCHITECTURE_LEVEL_TYPE = eINSTANCE.getHardwareArchitectureLevelType();
+		EAttribute EVALUATION__TOTAL_SCORE = eINSTANCE.getEvaluation_TotalScore();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.result.IOAdapterProtectionLevelType <em>IO Adapter Protection Level Type</em>}' enum.
+		 * The meta object literal for the '<em><b>Individual Scores</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.result.IOAdapterProtectionLevelType
-		 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getIOAdapterProtectionLevelType()
 		 * @generated
 		 */
-		EEnum IO_ADAPTER_PROTECTION_LEVEL_TYPE = eINSTANCE.getIOAdapterProtectionLevelType();
+		EAttribute EVALUATION__INDIVIDUAL_SCORES = eINSTANCE.getEvaluation_IndividualScores();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.result.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
+		 * The meta object literal for the '<em><b>Metrics Used</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.result.DesignAssuranceLevelType
-		 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getDesignAssuranceLevelType()
 		 * @generated
 		 */
-		EEnum DESIGN_ASSURANCE_LEVEL_TYPE = eINSTANCE.getDesignAssuranceLevelType();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.result.IOAdapterType <em>IO Adapter Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.result.IOAdapterType
-		 * @see ch.hilbri.assist.result.impl.ResultPackageImpl#getIOAdapterType()
-		 * @generated
-		 */
-		EEnum IO_ADAPTER_TYPE = eINSTANCE.getIOAdapterType();
+		EReference EVALUATION__METRICS_USED = eINSTANCE.getEvaluation_MetricsUsed();
 
 	}
 

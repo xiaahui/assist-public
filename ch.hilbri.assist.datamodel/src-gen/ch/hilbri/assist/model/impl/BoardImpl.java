@@ -9,6 +9,7 @@ import ch.hilbri.assist.model.DesignAssuranceLevelType;
 import ch.hilbri.assist.model.IOAdapter;
 import ch.hilbri.assist.model.MetricParameter;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.Network;
 import ch.hilbri.assist.model.Processor;
 
 import java.util.Collection;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -44,6 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getBox <em>Box</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getProcessors <em>Processors</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getIoAdapters <em>Io Adapters</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getNetworks <em>Networks</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.BoardImpl#getMetricParameters <em>Metric Parameters</em>}</li>
  * </ul>
  * </p>
@@ -190,6 +193,16 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 	 * @ordered
 	 */
 	protected EList<IOAdapter> ioAdapters;
+
+	/**
+	 * The cached value of the '{@link #getNetworks() <em>Networks</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNetworks()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Network> networks;
 
 	/**
 	 * The cached value of the '{@link #getMetricParameters() <em>Metric Parameters</em>}' containment reference list.
@@ -426,6 +439,18 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Network> getNetworks() {
+		if (networks == null) {
+			networks = new EObjectWithInverseResolvingEList.ManyInverse<Network>(Network.class, this, ModelPackage.BOARD__NETWORKS, ModelPackage.NETWORK__BOARDS);
+		}
+		return networks;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<MetricParameter> getMetricParameters() {
 		if (metricParameters == null) {
 			metricParameters = new EObjectContainmentEList<MetricParameter>(MetricParameter.class, this, ModelPackage.BOARD__METRIC_PARAMETERS);
@@ -448,6 +473,8 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 				return basicSetBox((Box)otherEnd, msgs);
 			case ModelPackage.BOARD__PROCESSORS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProcessors()).basicAdd(otherEnd, msgs);
+			case ModelPackage.BOARD__NETWORKS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNetworks()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -466,6 +493,8 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 				return ((InternalEList<?>)getProcessors()).basicRemove(otherEnd, msgs);
 			case ModelPackage.BOARD__IO_ADAPTERS:
 				return ((InternalEList<?>)getIoAdapters()).basicRemove(otherEnd, msgs);
+			case ModelPackage.BOARD__NETWORKS:
+				return ((InternalEList<?>)getNetworks()).basicRemove(otherEnd, msgs);
 			case ModelPackage.BOARD__METRIC_PARAMETERS:
 				return ((InternalEList<?>)getMetricParameters()).basicRemove(otherEnd, msgs);
 		}
@@ -513,6 +542,8 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 				return getProcessors();
 			case ModelPackage.BOARD__IO_ADAPTERS:
 				return getIoAdapters();
+			case ModelPackage.BOARD__NETWORKS:
+				return getNetworks();
 			case ModelPackage.BOARD__METRIC_PARAMETERS:
 				return getMetricParameters();
 		}
@@ -557,6 +588,10 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 				getIoAdapters().clear();
 				getIoAdapters().addAll((Collection<? extends IOAdapter>)newValue);
 				return;
+			case ModelPackage.BOARD__NETWORKS:
+				getNetworks().clear();
+				getNetworks().addAll((Collection<? extends Network>)newValue);
+				return;
 			case ModelPackage.BOARD__METRIC_PARAMETERS:
 				getMetricParameters().clear();
 				getMetricParameters().addAll((Collection<? extends MetricParameter>)newValue);
@@ -600,6 +635,9 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 			case ModelPackage.BOARD__IO_ADAPTERS:
 				getIoAdapters().clear();
 				return;
+			case ModelPackage.BOARD__NETWORKS:
+				getNetworks().clear();
+				return;
 			case ModelPackage.BOARD__METRIC_PARAMETERS:
 				getMetricParameters().clear();
 				return;
@@ -633,6 +671,8 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 				return processors != null && !processors.isEmpty();
 			case ModelPackage.BOARD__IO_ADAPTERS:
 				return ioAdapters != null && !ioAdapters.isEmpty();
+			case ModelPackage.BOARD__NETWORKS:
+				return networks != null && !networks.isEmpty();
 			case ModelPackage.BOARD__METRIC_PARAMETERS:
 				return metricParameters != null && !metricParameters.isEmpty();
 		}

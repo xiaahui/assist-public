@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ch.hilbri.assist.result.Network#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.Network#getBandwidthCapacity <em>Bandwidth Capacity</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.Network#isIsBoardLocalNetwork <em>Is Board Local Network</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.Network#getBoards <em>Boards</em>}</li>
  * </ul>
  * </p>
@@ -79,8 +80,25 @@ public interface Network extends EObject {
 	void setBandwidthCapacity(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Is Board Local Network</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Board Local Network</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Board Local Network</em>' attribute.
+	 * @see ch.hilbri.assist.result.ResultPackage#getNetwork_IsBoardLocalNetwork()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.Board%>> _boards = this.getBoards();\nint _size = _boards.size();\nreturn (_size <= 1);'"
+	 * @generated
+	 */
+	boolean isIsBoardLocalNetwork();
+
+	/**
 	 * Returns the value of the '<em><b>Boards</b></em>' reference list.
 	 * The list contents are of type {@link ch.hilbri.assist.result.Board}.
+	 * It is bidirectional and its opposite is '{@link ch.hilbri.assist.result.Board#getNetworks <em>Networks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Boards</em>' reference list isn't clear,
@@ -89,7 +107,8 @@ public interface Network extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Boards</em>' reference list.
 	 * @see ch.hilbri.assist.result.ResultPackage#getNetwork_Boards()
-	 * @model lower="2"
+	 * @see ch.hilbri.assist.result.Board#getNetworks
+	 * @model opposite="networks" lower="2"
 	 * @generated
 	 */
 	EList<Board> getBoards();

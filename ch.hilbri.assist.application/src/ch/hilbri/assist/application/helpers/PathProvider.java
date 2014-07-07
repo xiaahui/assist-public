@@ -56,7 +56,7 @@ public final class PathProvider {
 	
 //------------------------------------------------------------------------------------------
 //External Paths
-//	public static final String EXT_JAR_MAPPING = "./plugins/ch.hilbri.assist.mapping.metric.jar"; //$NON-NLS-1$
+	public static final String EXT_JAR_MAPPING = "./plugins/ch.hilbri.assist.mapping.metric.jar"; //$NON-NLS-1$
 	
 //	public static final String EXT_URL_PP_LOGO_WITH_BORDER_1_0 = "platform:/plugin/ch.hilbri.assist.application/icons/PP_logo_with_border_1.0.png"; //$NON-NLS-1$
 	

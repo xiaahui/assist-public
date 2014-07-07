@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -170,7 +170,7 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	 */
 	public EList<Board> getBoards() {
 		if (boards == null) {
-			boards = new EObjectResolvingEList<Board>(Board.class, this, ModelPackage.NETWORK__BOARDS);
+			boards = new EObjectWithInverseResolvingEList.ManyInverse<Board>(Board.class, this, ModelPackage.NETWORK__BOARDS, ModelPackage.BOARD__NETWORKS);
 		}
 		return boards;
 	}
@@ -192,9 +192,26 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ModelPackage.NETWORK__BOARDS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBoards()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ModelPackage.NETWORK__BOARDS:
+				return ((InternalEList<?>)getBoards()).basicRemove(otherEnd, msgs);
 			case ModelPackage.NETWORK__METRIC_PARAMETERS:
 				return ((InternalEList<?>)getMetricParameters()).basicRemove(otherEnd, msgs);
 		}

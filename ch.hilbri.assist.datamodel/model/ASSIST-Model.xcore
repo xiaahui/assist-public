@@ -81,16 +81,17 @@ class Box extends HardwareElementContainer {
 }
 
 class Board extends HardwareElementContainer {
-	String manufacturer
-	String boardType
-	String powerSupply
-	DesignAssuranceLevelType assuranceLevel = "None"
-	int ramCapacity
-	int romCapacity
-	container Box box opposite boards
-	contains Processor[1..*] processors opposite board
-	contains IOAdapter[0..*] ioAdapters
-	contains MetricParameter[0..*] metricParameters
+	String 							manufacturer
+	String 							boardType
+	String 							powerSupply
+	DesignAssuranceLevelType 		assuranceLevel = "None"
+	int 							ramCapacity
+	int 							romCapacity
+	container Box 					box opposite boards
+	contains Processor[1..*] 		processors opposite board
+	contains IOAdapter[0..*] 		ioAdapters
+	refers Network[0..*] 			networks opposite boards
+	contains MetricParameter[0..*] 	metricParameters
 }
 
 class Processor extends HardwareElement {
@@ -167,7 +168,7 @@ class IOAdapter {
 class Network {
 	String name
 	int bandwidthCapacity
-	refers Board[2..*] boards
+	refers Board[2..*] boards opposite networks
 	contains MetricParameter[0..*] metricParameters
 }
 

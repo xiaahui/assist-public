@@ -3,6 +3,7 @@
  */
 package ch.hilbri.assist.result;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +15,9 @@ package ch.hilbri.assist.result;
  * <ul>
  *   <li>{@link ch.hilbri.assist.result.Core#getArchitecture <em>Architecture</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.Core#getCapacity <em>Capacity</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.Core#getUtilization <em>Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.Core#getProcessor <em>Processor</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.Core#getThreads <em>Threads</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,6 +79,32 @@ public interface Core extends HardwareElement {
 	void setCapacity(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Utilization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Utilization</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Utilization</em>' attribute.
+	 * @see #setUtilization(double)
+	 * @see ch.hilbri.assist.result.ResultPackage#getCore_Utilization()
+	 * @model unique="false"
+	 * @generated
+	 */
+	double getUtilization();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.result.Core#getUtilization <em>Utilization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Utilization</em>' attribute.
+	 * @see #getUtilization()
+	 * @generated
+	 */
+	void setUtilization(double value);
+
+	/**
 	 * Returns the value of the '<em><b>Processor</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link ch.hilbri.assist.result.Processor#getCores <em>Cores</em>}'.
 	 * <!-- begin-user-doc -->
@@ -102,5 +131,21 @@ public interface Core extends HardwareElement {
 	 * @generated
 	 */
 	void setProcessor(Processor value);
+
+	/**
+	 * Returns the value of the '<em><b>Threads</b></em>' reference list.
+	 * The list contents are of type {@link ch.hilbri.assist.result.Thread}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Threads</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Threads</em>' reference list.
+	 * @see ch.hilbri.assist.result.ResultPackage#getCore_Threads()
+	 * @model
+	 * @generated
+	 */
+	EList<ch.hilbri.assist.result.Thread> getThreads();
 
 } // Core

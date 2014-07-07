@@ -10,14 +10,10 @@ import ch.hilbri.assist.result.Box;
 import ch.hilbri.assist.result.CommunicationRelation;
 import ch.hilbri.assist.result.Compartment;
 import ch.hilbri.assist.result.Core;
-import ch.hilbri.assist.result.DesignAssuranceLevelType;
 import ch.hilbri.assist.result.Evaluation;
-import ch.hilbri.assist.result.HardwareArchitectureLevelType;
 import ch.hilbri.assist.result.HardwareElement;
 import ch.hilbri.assist.result.IOAdapter;
-import ch.hilbri.assist.result.IOAdapterProtectionLevelType;
 import ch.hilbri.assist.result.IOAdapterRequirement;
-import ch.hilbri.assist.result.IOAdapterType;
 import ch.hilbri.assist.result.Network;
 import ch.hilbri.assist.result.Processor;
 import ch.hilbri.assist.result.Result;
@@ -25,7 +21,6 @@ import ch.hilbri.assist.result.ResultFactory;
 import ch.hilbri.assist.result.ResultPackage;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -94,48 +89,6 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 			case ResultPackage.EVALUATION: return createEvaluation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case ResultPackage.HARDWARE_ARCHITECTURE_LEVEL_TYPE:
-				return createHardwareArchitectureLevelTypeFromString(eDataType, initialValue);
-			case ResultPackage.IO_ADAPTER_PROTECTION_LEVEL_TYPE:
-				return createIOAdapterProtectionLevelTypeFromString(eDataType, initialValue);
-			case ResultPackage.DESIGN_ASSURANCE_LEVEL_TYPE:
-				return createDesignAssuranceLevelTypeFromString(eDataType, initialValue);
-			case ResultPackage.IO_ADAPTER_TYPE:
-				return createIOAdapterTypeFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case ResultPackage.HARDWARE_ARCHITECTURE_LEVEL_TYPE:
-				return convertHardwareArchitectureLevelTypeToString(eDataType, instanceValue);
-			case ResultPackage.IO_ADAPTER_PROTECTION_LEVEL_TYPE:
-				return convertIOAdapterProtectionLevelTypeToString(eDataType, instanceValue);
-			case ResultPackage.DESIGN_ASSURANCE_LEVEL_TYPE:
-				return convertDesignAssuranceLevelTypeToString(eDataType, instanceValue);
-			case ResultPackage.IO_ADAPTER_TYPE:
-				return convertIOAdapterTypeToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -287,86 +240,6 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 	public Evaluation createEvaluation() {
 		EvaluationImpl evaluation = new EvaluationImpl();
 		return evaluation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HardwareArchitectureLevelType createHardwareArchitectureLevelTypeFromString(EDataType eDataType, String initialValue) {
-		HardwareArchitectureLevelType result = HardwareArchitectureLevelType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertHardwareArchitectureLevelTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IOAdapterProtectionLevelType createIOAdapterProtectionLevelTypeFromString(EDataType eDataType, String initialValue) {
-		IOAdapterProtectionLevelType result = IOAdapterProtectionLevelType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIOAdapterProtectionLevelTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DesignAssuranceLevelType createDesignAssuranceLevelTypeFromString(EDataType eDataType, String initialValue) {
-		DesignAssuranceLevelType result = DesignAssuranceLevelType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDesignAssuranceLevelTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IOAdapterType createIOAdapterTypeFromString(EDataType eDataType, String initialValue) {
-		IOAdapterType result = IOAdapterType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIOAdapterTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

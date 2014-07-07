@@ -56,6 +56,7 @@ public class BoardItemProvider extends HardwareElementContainerItemProvider {
 			addRamCapacityPropertyDescriptor(object);
 			addRomCapacityPropertyDescriptor(object);
 			addBoxPropertyDescriptor(object);
+			addNetworksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -206,6 +207,28 @@ public class BoardItemProvider extends HardwareElementContainerItemProvider {
 				 getString("_UI_Board_box_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Board_box_feature", "_UI_Board_type"),
 				 ModelPackage.Literals.BOARD__BOX,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Networks feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNetworksPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Board_networks_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Board_networks_feature", "_UI_Board_type"),
+				 ModelPackage.Literals.BOARD__NETWORKS,
 				 true,
 				 false,
 				 true,

@@ -3,6 +3,7 @@
  */
 package ch.hilbri.assist.result.util;
 
+import ch.hilbri.assist.result.AbstractMetric;
 import ch.hilbri.assist.result.Application;
 import ch.hilbri.assist.result.ApplicationGroup;
 import ch.hilbri.assist.result.Board;
@@ -83,6 +84,10 @@ public class ResultAdapterFactory extends AdapterFactoryImpl {
 	protected ResultSwitch<Adapter> modelSwitch =
 		new ResultSwitch<Adapter>() {
 			@Override
+			public Adapter caseComparable(Comparable<Result> object) {
+				return createComparableAdapter();
+			}
+			@Override
 			public Adapter caseResult(Result object) {
 				return createResultAdapter();
 			}
@@ -139,6 +144,10 @@ public class ResultAdapterFactory extends AdapterFactoryImpl {
 				return createCommunicationRelationAdapter();
 			}
 			@Override
+			public Adapter caseAbstractMetric(AbstractMetric object) {
+				return createAbstractMetricAdapter();
+			}
+			@Override
 			public Adapter caseEvaluation(Evaluation object) {
 				return createEvaluationAdapter();
 			}
@@ -161,6 +170,20 @@ public class ResultAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.lang.Comparable<ch.hilbri.assist.result.Result> <em>Comparable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.lang.Comparable<ch.hilbri.assist.result.Result>
+	 * @generated
+	 */
+	public Adapter createComparableAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.result.Result <em>Result</em>}'.
@@ -355,6 +378,20 @@ public class ResultAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCommunicationRelationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.result.AbstractMetric <em>Abstract Metric</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.result.AbstractMetric
+	 * @generated
+	 */
+	public Adapter createAbstractMetricAdapter() {
 		return null;
 	}
 

@@ -10,15 +10,18 @@ import ch.hilbri.assist.result.ResultPackage;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +32,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link ch.hilbri.assist.result.impl.NetworkImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.impl.NetworkImpl#getBandwidthCapacity <em>Bandwidth Capacity</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.impl.NetworkImpl#isIsBoardLocalNetwork <em>Is Board Local Network</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.impl.NetworkImpl#getBoards <em>Boards</em>}</li>
  * </ul>
  * </p>
@@ -75,6 +79,16 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	 * @ordered
 	 */
 	protected int bandwidthCapacity = BANDWIDTH_CAPACITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isIsBoardLocalNetwork() <em>Is Board Local Network</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsBoardLocalNetwork()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_BOARD_LOCAL_NETWORK_EDEFAULT = false;
 
 	/**
 	 * The cached value of the '{@link #getBoards() <em>Boards</em>}' reference list.
@@ -152,11 +166,51 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isIsBoardLocalNetwork() {
+		EList<Board> _boards = this.getBoards();
+		int _size = _boards.size();
+		return (_size <= 1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Board> getBoards() {
 		if (boards == null) {
-			boards = new EObjectResolvingEList<Board>(Board.class, this, ResultPackage.NETWORK__BOARDS);
+			boards = new EObjectWithInverseResolvingEList.ManyInverse<Board>(Board.class, this, ResultPackage.NETWORK__BOARDS, ResultPackage.BOARD__NETWORKS);
 		}
 		return boards;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ResultPackage.NETWORK__BOARDS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBoards()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ResultPackage.NETWORK__BOARDS:
+				return ((InternalEList<?>)getBoards()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -171,6 +225,8 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 				return getName();
 			case ResultPackage.NETWORK__BANDWIDTH_CAPACITY:
 				return getBandwidthCapacity();
+			case ResultPackage.NETWORK__IS_BOARD_LOCAL_NETWORK:
+				return isIsBoardLocalNetwork();
 			case ResultPackage.NETWORK__BOARDS:
 				return getBoards();
 		}
@@ -233,6 +289,8 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ResultPackage.NETWORK__BANDWIDTH_CAPACITY:
 				return bandwidthCapacity != BANDWIDTH_CAPACITY_EDEFAULT;
+			case ResultPackage.NETWORK__IS_BOARD_LOCAL_NETWORK:
+				return isIsBoardLocalNetwork() != IS_BOARD_LOCAL_NETWORK_EDEFAULT;
 			case ResultPackage.NETWORK__BOARDS:
 				return boards != null && !boards.isEmpty();
 		}

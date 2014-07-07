@@ -3,10 +3,12 @@
  */
 package ch.hilbri.assist.result.impl;
 
+import ch.hilbri.assist.model.DesignAssuranceLevelType;
+
 import ch.hilbri.assist.result.Board;
 import ch.hilbri.assist.result.Box;
-import ch.hilbri.assist.result.DesignAssuranceLevelType;
 import ch.hilbri.assist.result.IOAdapter;
+import ch.hilbri.assist.result.Network;
 import ch.hilbri.assist.result.Processor;
 import ch.hilbri.assist.result.ResultPackage;
 
@@ -24,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -39,10 +42,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.result.impl.BoardImpl#getPowerSupply <em>Power Supply</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.impl.BoardImpl#getAssuranceLevel <em>Assurance Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.impl.BoardImpl#getRamCapacity <em>Ram Capacity</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.impl.BoardImpl#getRamUtilization <em>Ram Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.impl.BoardImpl#getRomCapacity <em>Rom Capacity</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.impl.BoardImpl#getRomUtilization <em>Rom Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.impl.BoardImpl#getBox <em>Box</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.impl.BoardImpl#getProcessors <em>Processors</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.impl.BoardImpl#getIoAdapters <em>Io Adapters</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.impl.BoardImpl#getNetworks <em>Networks</em>}</li>
  * </ul>
  * </p>
  *
@@ -150,6 +156,26 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	protected int ramCapacity = RAM_CAPACITY_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getRamUtilization() <em>Ram Utilization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRamUtilization()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double RAM_UTILIZATION_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getRamUtilization() <em>Ram Utilization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRamUtilization()
+	 * @generated
+	 * @ordered
+	 */
+	protected double ramUtilization = RAM_UTILIZATION_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getRomCapacity() <em>Rom Capacity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,6 +196,26 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	protected int romCapacity = ROM_CAPACITY_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getRomUtilization() <em>Rom Utilization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRomUtilization()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double ROM_UTILIZATION_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getRomUtilization() <em>Rom Utilization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRomUtilization()
+	 * @generated
+	 * @ordered
+	 */
+	protected double romUtilization = ROM_UTILIZATION_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getProcessors() <em>Processors</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -188,6 +234,16 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * @ordered
 	 */
 	protected EList<IOAdapter> ioAdapters;
+
+	/**
+	 * The cached value of the '{@link #getNetworks() <em>Networks</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNetworks()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Network> networks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -318,6 +374,27 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getRamUtilization() {
+		return ramUtilization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRamUtilization(double newRamUtilization) {
+		double oldRamUtilization = ramUtilization;
+		ramUtilization = newRamUtilization;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.BOARD__RAM_UTILIZATION, oldRamUtilization, ramUtilization));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int getRomCapacity() {
 		return romCapacity;
 	}
@@ -332,6 +409,27 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 		romCapacity = newRomCapacity;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.BOARD__ROM_CAPACITY, oldRomCapacity, romCapacity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getRomUtilization() {
+		return romUtilization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRomUtilization(double newRomUtilization) {
+		double oldRomUtilization = romUtilization;
+		romUtilization = newRomUtilization;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.BOARD__ROM_UTILIZATION, oldRomUtilization, romUtilization));
 	}
 
 	/**
@@ -414,6 +512,18 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Network> getNetworks() {
+		if (networks == null) {
+			networks = new EObjectWithInverseResolvingEList.ManyInverse<Network>(Network.class, this, ResultPackage.BOARD__NETWORKS, ResultPackage.NETWORK__BOARDS);
+		}
+		return networks;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -424,6 +534,8 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 				return basicSetBox((Box)otherEnd, msgs);
 			case ResultPackage.BOARD__PROCESSORS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProcessors()).basicAdd(otherEnd, msgs);
+			case ResultPackage.BOARD__NETWORKS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNetworks()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -442,6 +554,8 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 				return ((InternalEList<?>)getProcessors()).basicRemove(otherEnd, msgs);
 			case ResultPackage.BOARD__IO_ADAPTERS:
 				return ((InternalEList<?>)getIoAdapters()).basicRemove(otherEnd, msgs);
+			case ResultPackage.BOARD__NETWORKS:
+				return ((InternalEList<?>)getNetworks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -478,8 +592,12 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 				return getAssuranceLevel();
 			case ResultPackage.BOARD__RAM_CAPACITY:
 				return getRamCapacity();
+			case ResultPackage.BOARD__RAM_UTILIZATION:
+				return getRamUtilization();
 			case ResultPackage.BOARD__ROM_CAPACITY:
 				return getRomCapacity();
+			case ResultPackage.BOARD__ROM_UTILIZATION:
+				return getRomUtilization();
 			case ResultPackage.BOARD__BOX:
 				if (resolve) return getBox();
 				return basicGetBox();
@@ -487,6 +605,8 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 				return getProcessors();
 			case ResultPackage.BOARD__IO_ADAPTERS:
 				return getIoAdapters();
+			case ResultPackage.BOARD__NETWORKS:
+				return getNetworks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -515,8 +635,14 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 			case ResultPackage.BOARD__RAM_CAPACITY:
 				setRamCapacity((Integer)newValue);
 				return;
+			case ResultPackage.BOARD__RAM_UTILIZATION:
+				setRamUtilization((Double)newValue);
+				return;
 			case ResultPackage.BOARD__ROM_CAPACITY:
 				setRomCapacity((Integer)newValue);
+				return;
+			case ResultPackage.BOARD__ROM_UTILIZATION:
+				setRomUtilization((Double)newValue);
 				return;
 			case ResultPackage.BOARD__BOX:
 				setBox((Box)newValue);
@@ -528,6 +654,10 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 			case ResultPackage.BOARD__IO_ADAPTERS:
 				getIoAdapters().clear();
 				getIoAdapters().addAll((Collection<? extends IOAdapter>)newValue);
+				return;
+			case ResultPackage.BOARD__NETWORKS:
+				getNetworks().clear();
+				getNetworks().addAll((Collection<? extends Network>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -556,8 +686,14 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 			case ResultPackage.BOARD__RAM_CAPACITY:
 				setRamCapacity(RAM_CAPACITY_EDEFAULT);
 				return;
+			case ResultPackage.BOARD__RAM_UTILIZATION:
+				setRamUtilization(RAM_UTILIZATION_EDEFAULT);
+				return;
 			case ResultPackage.BOARD__ROM_CAPACITY:
 				setRomCapacity(ROM_CAPACITY_EDEFAULT);
+				return;
+			case ResultPackage.BOARD__ROM_UTILIZATION:
+				setRomUtilization(ROM_UTILIZATION_EDEFAULT);
 				return;
 			case ResultPackage.BOARD__BOX:
 				setBox((Box)null);
@@ -567,6 +703,9 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 				return;
 			case ResultPackage.BOARD__IO_ADAPTERS:
 				getIoAdapters().clear();
+				return;
+			case ResultPackage.BOARD__NETWORKS:
+				getNetworks().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -590,14 +729,20 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 				return assuranceLevel != ASSURANCE_LEVEL_EDEFAULT;
 			case ResultPackage.BOARD__RAM_CAPACITY:
 				return ramCapacity != RAM_CAPACITY_EDEFAULT;
+			case ResultPackage.BOARD__RAM_UTILIZATION:
+				return ramUtilization != RAM_UTILIZATION_EDEFAULT;
 			case ResultPackage.BOARD__ROM_CAPACITY:
 				return romCapacity != ROM_CAPACITY_EDEFAULT;
+			case ResultPackage.BOARD__ROM_UTILIZATION:
+				return romUtilization != ROM_UTILIZATION_EDEFAULT;
 			case ResultPackage.BOARD__BOX:
 				return basicGetBox() != null;
 			case ResultPackage.BOARD__PROCESSORS:
 				return processors != null && !processors.isEmpty();
 			case ResultPackage.BOARD__IO_ADAPTERS:
 				return ioAdapters != null && !ioAdapters.isEmpty();
+			case ResultPackage.BOARD__NETWORKS:
+				return networks != null && !networks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -622,8 +767,12 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 		result.append(assuranceLevel);
 		result.append(", ramCapacity: ");
 		result.append(ramCapacity);
+		result.append(", ramUtilization: ");
+		result.append(ramUtilization);
 		result.append(", romCapacity: ");
 		result.append(romCapacity);
+		result.append(", romUtilization: ");
+		result.append(romUtilization);
 		result.append(')');
 		return result.toString();
 	}

@@ -7,14 +7,19 @@ import ch.hilbri.assist.result.Core;
 import ch.hilbri.assist.result.Processor;
 import ch.hilbri.assist.result.ResultPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -26,7 +31,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link ch.hilbri.assist.result.impl.CoreImpl#getArchitecture <em>Architecture</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.impl.CoreImpl#getCapacity <em>Capacity</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.impl.CoreImpl#getUtilization <em>Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.impl.CoreImpl#getProcessor <em>Processor</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.impl.CoreImpl#getThreads <em>Threads</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,6 +79,36 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * @ordered
 	 */
 	protected int capacity = CAPACITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUtilization() <em>Utilization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUtilization()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double UTILIZATION_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getUtilization() <em>Utilization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUtilization()
+	 * @generated
+	 * @ordered
+	 */
+	protected double utilization = UTILIZATION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getThreads() <em>Threads</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getThreads()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ch.hilbri.assist.result.Thread> threads;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -139,6 +176,27 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getUtilization() {
+		return utilization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUtilization(double newUtilization) {
+		double oldUtilization = utilization;
+		utilization = newUtilization;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.CORE__UTILIZATION, oldUtilization, utilization));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Processor getProcessor() {
 		if (eContainerFeatureID() != ResultPackage.CORE__PROCESSOR) return null;
 		return (Processor)eContainer();
@@ -183,6 +241,18 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.CORE__PROCESSOR, newProcessor, newProcessor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ch.hilbri.assist.result.Thread> getThreads() {
+		if (threads == null) {
+			threads = new EObjectResolvingEList<ch.hilbri.assist.result.Thread>(ch.hilbri.assist.result.Thread.class, this, ResultPackage.CORE__THREADS);
+		}
+		return threads;
 	}
 
 	/**
@@ -241,9 +311,13 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 				return getArchitecture();
 			case ResultPackage.CORE__CAPACITY:
 				return getCapacity();
+			case ResultPackage.CORE__UTILIZATION:
+				return getUtilization();
 			case ResultPackage.CORE__PROCESSOR:
 				if (resolve) return getProcessor();
 				return basicGetProcessor();
+			case ResultPackage.CORE__THREADS:
+				return getThreads();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -253,6 +327,7 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -262,8 +337,15 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 			case ResultPackage.CORE__CAPACITY:
 				setCapacity((Integer)newValue);
 				return;
+			case ResultPackage.CORE__UTILIZATION:
+				setUtilization((Double)newValue);
+				return;
 			case ResultPackage.CORE__PROCESSOR:
 				setProcessor((Processor)newValue);
+				return;
+			case ResultPackage.CORE__THREADS:
+				getThreads().clear();
+				getThreads().addAll((Collection<? extends ch.hilbri.assist.result.Thread>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -283,8 +365,14 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 			case ResultPackage.CORE__CAPACITY:
 				setCapacity(CAPACITY_EDEFAULT);
 				return;
+			case ResultPackage.CORE__UTILIZATION:
+				setUtilization(UTILIZATION_EDEFAULT);
+				return;
 			case ResultPackage.CORE__PROCESSOR:
 				setProcessor((Processor)null);
+				return;
+			case ResultPackage.CORE__THREADS:
+				getThreads().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -302,8 +390,12 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 				return ARCHITECTURE_EDEFAULT == null ? architecture != null : !ARCHITECTURE_EDEFAULT.equals(architecture);
 			case ResultPackage.CORE__CAPACITY:
 				return capacity != CAPACITY_EDEFAULT;
+			case ResultPackage.CORE__UTILIZATION:
+				return utilization != UTILIZATION_EDEFAULT;
 			case ResultPackage.CORE__PROCESSOR:
 				return basicGetProcessor() != null;
+			case ResultPackage.CORE__THREADS:
+				return threads != null && !threads.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -322,6 +414,8 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 		result.append(architecture);
 		result.append(", capacity: ");
 		result.append(capacity);
+		result.append(", utilization: ");
+		result.append(utilization);
 		result.append(')');
 		return result.toString();
 	}

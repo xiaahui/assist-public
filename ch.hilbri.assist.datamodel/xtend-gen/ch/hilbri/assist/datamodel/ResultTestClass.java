@@ -1,7 +1,7 @@
 package ch.hilbri.assist.datamodel;
 
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.result.Board;
-import ch.hilbri.assist.result.HardwareArchitectureLevelType;
 import ch.hilbri.assist.result.HardwareElement;
 import ch.hilbri.assist.result.Result;
 import ch.hilbri.assist.result.ResultFactory;

@@ -5,14 +5,14 @@
 
     <extension
             point="org.eclipse.ui.editors">
-        <editor
+        <!-- <editor
             class="ch.hilbri.assist.mappingdsl.ui.MappingDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
             extensions="mdsl"
             id="ch.hilbri.assist.mappingdsl.MappingDSL"
             name="MappingDSL Editor">
-        </editor>
+        </editor> -->
     </extension>
     <extension
         point="org.eclipse.ui.handlers">

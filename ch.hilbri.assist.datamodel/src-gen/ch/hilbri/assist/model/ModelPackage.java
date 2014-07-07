@@ -517,13 +517,22 @@ public interface ModelPackage extends EPackage {
 	int BOARD__IO_ADAPTERS = HARDWARE_ELEMENT_CONTAINER_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Networks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD__NETWORKS = HARDWARE_ELEMENT_CONTAINER_FEATURE_COUNT + 9;
+
+	/**
 	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD__METRIC_PARAMETERS = HARDWARE_ELEMENT_CONTAINER_FEATURE_COUNT + 9;
+	int BOARD__METRIC_PARAMETERS = HARDWARE_ELEMENT_CONTAINER_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Board</em>' class.
@@ -532,7 +541,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_FEATURE_COUNT = HARDWARE_ELEMENT_CONTAINER_FEATURE_COUNT + 10;
+	int BOARD_FEATURE_COUNT = HARDWARE_ELEMENT_CONTAINER_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of operations of the '<em>Board</em>' class.
@@ -2031,6 +2040,17 @@ public interface ModelPackage extends EPackage {
 	EReference getBoard_IoAdapters();
 
 	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.model.Board#getNetworks <em>Networks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Networks</em>'.
+	 * @see ch.hilbri.assist.model.Board#getNetworks()
+	 * @see #getBoard()
+	 * @generated
+	 */
+	EReference getBoard_Networks();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.model.Board#getMetricParameters <em>Metric Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3226,6 +3246,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOARD__IO_ADAPTERS = eINSTANCE.getBoard_IoAdapters();
+
+		/**
+		 * The meta object literal for the '<em><b>Networks</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOARD__NETWORKS = eINSTANCE.getBoard_Networks();
 
 		/**
 		 * The meta object literal for the '<em><b>Metric Parameters</b></em>' containment reference list feature.

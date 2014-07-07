@@ -3,6 +3,8 @@
  */
 package ch.hilbri.assist.result;
 
+import ch.hilbri.assist.model.DesignAssuranceLevelType;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -18,10 +20,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ch.hilbri.assist.result.Board#getPowerSupply <em>Power Supply</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.Board#getAssuranceLevel <em>Assurance Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.Board#getRamCapacity <em>Ram Capacity</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.Board#getRamUtilization <em>Ram Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.Board#getRomCapacity <em>Rom Capacity</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.Board#getRomUtilization <em>Rom Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.Board#getBox <em>Box</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.Board#getProcessors <em>Processors</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.Board#getIoAdapters <em>Io Adapters</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.Board#getNetworks <em>Networks</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,7 +116,7 @@ public interface Board extends HardwareElement {
 	/**
 	 * Returns the value of the '<em><b>Assurance Level</b></em>' attribute.
 	 * The default value is <code>"None"</code>.
-	 * The literals are from the enumeration {@link ch.hilbri.assist.result.DesignAssuranceLevelType}.
+	 * The literals are from the enumeration {@link ch.hilbri.assist.model.DesignAssuranceLevelType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Assurance Level</em>' attribute isn't clear,
@@ -119,7 +124,7 @@ public interface Board extends HardwareElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Assurance Level</em>' attribute.
-	 * @see ch.hilbri.assist.result.DesignAssuranceLevelType
+	 * @see ch.hilbri.assist.model.DesignAssuranceLevelType
 	 * @see #setAssuranceLevel(DesignAssuranceLevelType)
 	 * @see ch.hilbri.assist.result.ResultPackage#getBoard_AssuranceLevel()
 	 * @model default="None" unique="false"
@@ -132,7 +137,7 @@ public interface Board extends HardwareElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Assurance Level</em>' attribute.
-	 * @see ch.hilbri.assist.result.DesignAssuranceLevelType
+	 * @see ch.hilbri.assist.model.DesignAssuranceLevelType
 	 * @see #getAssuranceLevel()
 	 * @generated
 	 */
@@ -165,6 +170,32 @@ public interface Board extends HardwareElement {
 	void setRamCapacity(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Ram Utilization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ram Utilization</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ram Utilization</em>' attribute.
+	 * @see #setRamUtilization(double)
+	 * @see ch.hilbri.assist.result.ResultPackage#getBoard_RamUtilization()
+	 * @model unique="false"
+	 * @generated
+	 */
+	double getRamUtilization();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.result.Board#getRamUtilization <em>Ram Utilization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ram Utilization</em>' attribute.
+	 * @see #getRamUtilization()
+	 * @generated
+	 */
+	void setRamUtilization(double value);
+
+	/**
 	 * Returns the value of the '<em><b>Rom Capacity</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -189,6 +220,32 @@ public interface Board extends HardwareElement {
 	 * @generated
 	 */
 	void setRomCapacity(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Rom Utilization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rom Utilization</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rom Utilization</em>' attribute.
+	 * @see #setRomUtilization(double)
+	 * @see ch.hilbri.assist.result.ResultPackage#getBoard_RomUtilization()
+	 * @model unique="false"
+	 * @generated
+	 */
+	double getRomUtilization();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.result.Board#getRomUtilization <em>Rom Utilization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rom Utilization</em>' attribute.
+	 * @see #getRomUtilization()
+	 * @generated
+	 */
+	void setRomUtilization(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Box</b></em>' container reference.
@@ -251,5 +308,23 @@ public interface Board extends HardwareElement {
 	 * @generated
 	 */
 	EList<IOAdapter> getIoAdapters();
+
+	/**
+	 * Returns the value of the '<em><b>Networks</b></em>' reference list.
+	 * The list contents are of type {@link ch.hilbri.assist.result.Network}.
+	 * It is bidirectional and its opposite is '{@link ch.hilbri.assist.result.Network#getBoards <em>Boards</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Networks</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Networks</em>' reference list.
+	 * @see ch.hilbri.assist.result.ResultPackage#getBoard_Networks()
+	 * @see ch.hilbri.assist.result.Network#getBoards
+	 * @model opposite="boards"
+	 * @generated
+	 */
+	EList<Network> getNetworks();
 
 } // Board

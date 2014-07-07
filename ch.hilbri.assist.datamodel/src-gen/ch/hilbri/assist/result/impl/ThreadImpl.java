@@ -9,6 +9,8 @@ import ch.hilbri.assist.result.ResultPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -25,12 +27,23 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ch.hilbri.assist.result.impl.ThreadImpl#getApplication <em>Application</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.impl.ThreadImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbri.assist.result.Thread {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,6 +119,21 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		Application _application = this.getApplication();
+		String _name = _application.getName();
+		String _plus = (_name + "_");
+		Application _application_1 = this.getApplication();
+		EList<ch.hilbri.assist.result.Thread> _threads = _application_1.getThreads();
+		int _indexOf = _threads.indexOf(this);
+		return (_plus + Integer.valueOf(_indexOf));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -156,6 +184,8 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 			case ResultPackage.THREAD__APPLICATION:
 				if (resolve) return getApplication();
 				return basicGetApplication();
+			case ResultPackage.THREAD__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -200,6 +230,8 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 		switch (featureID) {
 			case ResultPackage.THREAD__APPLICATION:
 				return basicGetApplication() != null;
+			case ResultPackage.THREAD__NAME:
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		}
 		return super.eIsSet(featureID);
 	}

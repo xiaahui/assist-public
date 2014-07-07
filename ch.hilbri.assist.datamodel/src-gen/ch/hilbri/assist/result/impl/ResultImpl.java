@@ -4,6 +4,7 @@
 package ch.hilbri.assist.result.impl;
 
 import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 
 import ch.hilbri.assist.result.Application;
 import ch.hilbri.assist.result.ApplicationGroup;
@@ -13,13 +14,14 @@ import ch.hilbri.assist.result.CommunicationRelation;
 import ch.hilbri.assist.result.Compartment;
 import ch.hilbri.assist.result.Core;
 import ch.hilbri.assist.result.Evaluation;
-import ch.hilbri.assist.result.HardwareArchitectureLevelType;
 import ch.hilbri.assist.result.HardwareElement;
 import ch.hilbri.assist.result.IOAdapter;
 import ch.hilbri.assist.result.Network;
 import ch.hilbri.assist.result.Processor;
 import ch.hilbri.assist.result.Result;
 import ch.hilbri.assist.result.ResultPackage;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
@@ -503,6 +505,32 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int compareTo(final Result o) {
+		Evaluation _evaluation = null;
+		if (this!=null) {
+			_evaluation=this.getEvaluation();
+		}
+		double _totalScore = _evaluation.getTotalScore();
+		Evaluation _evaluation_1 = null;
+		if (o!=null) {
+			_evaluation_1=o.getEvaluation();
+		}
+		double _totalScore_1 = _evaluation_1.getTotalScore();
+		final double diff = (_totalScore - _totalScore_1);
+		if ((diff < 0.0)) {
+			return 1;
+		}
+		if ((diff > 0.0)) {
+			return (-1);
+		}
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -699,6 +727,20 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return assistModel != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ResultPackage.RESULT___COMPARE_TO__RESULT:
+				return compareTo((Result)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

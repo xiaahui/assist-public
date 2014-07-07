@@ -3,8 +3,9 @@
  */
 package ch.hilbri.assist.result.impl;
 
+import ch.hilbri.assist.model.IOAdapterType;
+
 import ch.hilbri.assist.result.IOAdapterRequirement;
-import ch.hilbri.assist.result.IOAdapterType;
 import ch.hilbri.assist.result.ResultPackage;
 
 import org.eclipse.emf.common.notify.Notification;

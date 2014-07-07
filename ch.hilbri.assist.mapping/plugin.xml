@@ -9,5 +9,16 @@
             uri="fragment.e4xmi">
       </fragment>
    </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor"
+            contributorClass="ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditorContributor"
+            default="false"
+            extensions="mdsl"
+            id="ch.hilbri.assist.mapping.editors.mappingeditor"
+            name="Mapping Specification">
+      </editor>
+   </extension>
 
 </plugin>

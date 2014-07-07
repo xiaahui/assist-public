@@ -3,10 +3,11 @@
  */
 package ch.hilbri.assist.result.impl;
 
+import ch.hilbri.assist.model.DesignAssuranceLevelType;
+import ch.hilbri.assist.model.IOAdapterProtectionLevelType;
+
 import ch.hilbri.assist.result.Application;
-import ch.hilbri.assist.result.DesignAssuranceLevelType;
 import ch.hilbri.assist.result.HardwareElement;
-import ch.hilbri.assist.result.IOAdapterProtectionLevelType;
 import ch.hilbri.assist.result.IOAdapterRequirement;
 import ch.hilbri.assist.result.ResultPackage;
 

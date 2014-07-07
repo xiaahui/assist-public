@@ -3,6 +3,9 @@
  */
 package ch.hilbri.assist.result;
 
+import ch.hilbri.assist.model.IOAdapterProtectionLevelType;
+import ch.hilbri.assist.model.IOAdapterType;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -79,7 +82,7 @@ public interface IOAdapter extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Adapter Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link ch.hilbri.assist.result.IOAdapterType}.
+	 * The literals are from the enumeration {@link ch.hilbri.assist.model.IOAdapterType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Adapter Type</em>' attribute isn't clear,
@@ -87,7 +90,7 @@ public interface IOAdapter extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Adapter Type</em>' attribute.
-	 * @see ch.hilbri.assist.result.IOAdapterType
+	 * @see ch.hilbri.assist.model.IOAdapterType
 	 * @see #setAdapterType(IOAdapterType)
 	 * @see ch.hilbri.assist.result.ResultPackage#getIOAdapter_AdapterType()
 	 * @model unique="false"
@@ -100,7 +103,7 @@ public interface IOAdapter extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Adapter Type</em>' attribute.
-	 * @see ch.hilbri.assist.result.IOAdapterType
+	 * @see ch.hilbri.assist.model.IOAdapterType
 	 * @see #getAdapterType()
 	 * @generated
 	 */
@@ -109,7 +112,7 @@ public interface IOAdapter extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Protection Level</b></em>' attribute.
 	 * The default value is <code>"None"</code>.
-	 * The literals are from the enumeration {@link ch.hilbri.assist.result.IOAdapterProtectionLevelType}.
+	 * The literals are from the enumeration {@link ch.hilbri.assist.model.IOAdapterProtectionLevelType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Protection Level</em>' attribute isn't clear,
@@ -117,7 +120,7 @@ public interface IOAdapter extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Protection Level</em>' attribute.
-	 * @see ch.hilbri.assist.result.IOAdapterProtectionLevelType
+	 * @see ch.hilbri.assist.model.IOAdapterProtectionLevelType
 	 * @see #setProtectionLevel(IOAdapterProtectionLevelType)
 	 * @see ch.hilbri.assist.result.ResultPackage#getIOAdapter_ProtectionLevel()
 	 * @model default="None" unique="false"
@@ -130,7 +133,7 @@ public interface IOAdapter extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Protection Level</em>' attribute.
-	 * @see ch.hilbri.assist.result.IOAdapterProtectionLevelType
+	 * @see ch.hilbri.assist.model.IOAdapterProtectionLevelType
 	 * @see #getProtectionLevel()
 	 * @generated
 	 */

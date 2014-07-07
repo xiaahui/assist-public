@@ -3,6 +3,7 @@
  */
 package ch.hilbri.assist.result.util;
 
+import ch.hilbri.assist.result.AbstractMetric;
 import ch.hilbri.assist.result.Application;
 import ch.hilbri.assist.result.ApplicationGroup;
 import ch.hilbri.assist.result.Board;
@@ -81,9 +82,16 @@ public class ResultSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case ResultPackage.COMPARABLE: {
+				@SuppressWarnings("unchecked") Comparable<Result> comparable = (Comparable<Result>)theEObject;
+				T result = caseComparable(comparable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ResultPackage.RESULT: {
 				Result result = (Result)theEObject;
 				T theResult = caseResult(result);
+				if (theResult == null) theResult = caseComparable(result);
 				if (theResult == null) theResult = defaultCase(theEObject);
 				return theResult;
 			}
@@ -170,6 +178,12 @@ public class ResultSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ResultPackage.ABSTRACT_METRIC: {
+				AbstractMetric abstractMetric = (AbstractMetric)theEObject;
+				T result = caseAbstractMetric(abstractMetric);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ResultPackage.EVALUATION: {
 				Evaluation evaluation = (Evaluation)theEObject;
 				T result = caseEvaluation(evaluation);
@@ -178,6 +192,21 @@ public class ResultSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Comparable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Comparable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComparable(Comparable<Result> object) {
+		return null;
 	}
 
 	/**
@@ -387,6 +416,21 @@ public class ResultSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCommunicationRelation(CommunicationRelation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Metric</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Metric</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractMetric(AbstractMetric object) {
 		return null;
 	}
 
