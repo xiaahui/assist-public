@@ -689,6 +689,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getBoard__ToString() {
+		return boardEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProcessor() {
 		return processorEClass;
 	}
@@ -1484,6 +1493,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(boardEClass, BOARD__IO_ADAPTERS);
 		createEReference(boardEClass, BOARD__NETWORKS);
 		createEReference(boardEClass, BOARD__METRIC_PARAMETERS);
+		createEOperation(boardEClass, BOARD___TO_STRING);
 
 		processorEClass = createEClass(PROCESSOR);
 		createEAttribute(processorEClass, PROCESSOR__MANUFACTURER);
@@ -1675,6 +1685,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getBoard_IoAdapters(), this.getIOAdapter(), null, "ioAdapters", null, 0, -1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBoard_Networks(), this.getNetwork(), this.getNetwork_Boards(), "networks", null, 0, -1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBoard_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getBoard__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(processorEClass, Processor.class, "Processor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProcessor_Manufacturer(), theEcorePackage.getEString(), "manufacturer", null, 0, 1, Processor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

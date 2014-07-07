@@ -12,6 +12,8 @@ import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Network;
 import ch.hilbri.assist.model.Processor;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -463,6 +465,15 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String toString() {
+		return this.getName();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -685,24 +696,12 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 	 * @generated
 	 */
 	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (manufacturer: ");
-		result.append(manufacturer);
-		result.append(", boardType: ");
-		result.append(boardType);
-		result.append(", powerSupply: ");
-		result.append(powerSupply);
-		result.append(", assuranceLevel: ");
-		result.append(assuranceLevel);
-		result.append(", ramCapacity: ");
-		result.append(ramCapacity);
-		result.append(", romCapacity: ");
-		result.append(romCapacity);
-		result.append(')');
-		return result.toString();
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ModelPackage.BOARD___TO_STRING:
+				return toString();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //BoardImpl

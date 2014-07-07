@@ -92,6 +92,7 @@ class Board extends HardwareElementContainer {
 	contains IOAdapter[0..*] 		ioAdapters
 	refers Network[0..*] 			networks opposite boards
 	contains MetricParameter[0..*] 	metricParameters
+	op String toString() 			{ name }
 }
 
 class Processor extends HardwareElement {

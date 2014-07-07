@@ -33,6 +33,7 @@ public class ModelTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new ModelTests("model Tests");
 		suite.addTestSuite(AssistModelTest.class);
+		suite.addTestSuite(BoardTest.class);
 		suite.addTestSuite(ApplicationGroupTest.class);
 		suite.addTestSuite(ApplicationTest.class);
 		suite.addTestSuite(DissimilarityEntryTest.class);

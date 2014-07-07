@@ -544,13 +544,22 @@ public interface ModelPackage extends EPackage {
 	int BOARD_FEATURE_COUNT = HARDWARE_ELEMENT_CONTAINER_FEATURE_COUNT + 11;
 
 	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD___TO_STRING = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Board</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_OPERATION_COUNT = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 0;
+	int BOARD_OPERATION_COUNT = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.ProcessorImpl <em>Processor</em>}' class.
@@ -2062,6 +2071,16 @@ public interface ModelPackage extends EPackage {
 	EReference getBoard_MetricParameters();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Board#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see ch.hilbri.assist.model.Board#toString()
+	 * @generated
+	 */
+	EOperation getBoard__ToString();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.Processor <em>Processor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3262,6 +3281,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOARD__METRIC_PARAMETERS = eINSTANCE.getBoard_MetricParameters();
+
+		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOARD___TO_STRING = eINSTANCE.getBoard__ToString();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ProcessorImpl <em>Processor</em>}' class.

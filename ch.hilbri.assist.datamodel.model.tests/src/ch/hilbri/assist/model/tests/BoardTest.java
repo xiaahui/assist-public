@@ -12,6 +12,12 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Board</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link ch.hilbri.assist.model.Board#toString() <em>To String</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class BoardTest extends HardwareElementContainerTest {
@@ -66,6 +72,19 @@ public class BoardTest extends HardwareElementContainerTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link ch.hilbri.assist.model.Board#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.Board#toString()
+	 * @generated
+	 */
+	public void testToString() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //BoardTest

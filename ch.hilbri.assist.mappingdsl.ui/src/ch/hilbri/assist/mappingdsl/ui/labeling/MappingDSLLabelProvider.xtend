@@ -4,20 +4,22 @@
 package ch.hilbri.assist.mappingdsl.ui.labeling
 
 import ch.hilbri.assist.model.Application
+import ch.hilbri.assist.model.ApplicationGroup
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.Board
 import ch.hilbri.assist.model.Box
+import ch.hilbri.assist.model.CommunicationRelation
 import ch.hilbri.assist.model.Compartment
 import ch.hilbri.assist.model.Core
 import ch.hilbri.assist.model.DislocalityRelation
 import ch.hilbri.assist.model.DissimilarityRelation
 import ch.hilbri.assist.model.Processor
+import ch.hilbri.assist.model.ProximityRelation
+import ch.hilbri.assist.model.Network
+
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
-import ch.hilbri.assist.model.ProximityRelation
-import ch.hilbri.assist.model.CommunicationRelation
-import ch.hilbri.assist.model.ApplicationGroup
 
 /**
  * Provides labels for a EObjects.
@@ -119,8 +121,16 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		'outline_view_communication_16x16.png'
 	}
 	
+	def text(Network n) {
+		n.name + " connects " + n.boards 
+	}
+	
+	def image(Network n) {
+		'outline_view_network_16x16.png'
+	}
+	
 	def text(ApplicationGroup g) {
-		g.name + " " + g.applicationsOrGroups
+		g.name + " contains " + g.applicationsOrGroups
 	}
 	
 	def image(ApplicationGroup g) {
