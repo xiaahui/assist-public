@@ -60,7 +60,6 @@ enum DesignAssuranceLevelType {
 
 class HardwareElement {
 	String name
-	HardwareArchitectureLevelType level
 }
 
 class HardwareElementContainer extends HardwareElement {}

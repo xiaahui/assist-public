@@ -464,15 +464,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getHardwareElement_Level() {
-		return (EAttribute)hardwareElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getHardwareElementContainer() {
 		return hardwareElementContainerEClass;
 	}
@@ -1455,7 +1446,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
 		createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
-		createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__LEVEL);
 
 		hardwareElementContainerEClass = createEClass(HARDWARE_ELEMENT_CONTAINER);
 
@@ -1646,7 +1636,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHardwareElement_Name(), theEcorePackage.getEString(), "name", null, 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getHardwareElement_Level(), this.getHardwareArchitectureLevelType(), "level", null, 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(hardwareElementContainerEClass, HardwareElementContainer.class, "HardwareElementContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

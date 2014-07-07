@@ -1,14 +1,36 @@
 /**
+ * Copyright 2014 - Robert Hilbrich
  */
 package ch.hilbri.assist.result.impl;
 
+import ch.hilbri.assist.model.ModelPackage;
+
+import ch.hilbri.assist.result.Application;
+import ch.hilbri.assist.result.ApplicationGroup;
+import ch.hilbri.assist.result.Board;
+import ch.hilbri.assist.result.Box;
+import ch.hilbri.assist.result.CommunicationRelation;
+import ch.hilbri.assist.result.Compartment;
+import ch.hilbri.assist.result.Core;
+import ch.hilbri.assist.result.DesignAssuranceLevelType;
+import ch.hilbri.assist.result.Evaluation;
+import ch.hilbri.assist.result.HardwareArchitectureLevelType;
+import ch.hilbri.assist.result.HardwareElement;
+import ch.hilbri.assist.result.IOAdapter;
+import ch.hilbri.assist.result.IOAdapterProtectionLevelType;
+import ch.hilbri.assist.result.IOAdapterRequirement;
+import ch.hilbri.assist.result.IOAdapterType;
+import ch.hilbri.assist.result.Network;
+import ch.hilbri.assist.result.Processor;
 import ch.hilbri.assist.result.Result;
 import ch.hilbri.assist.result.ResultFactory;
 import ch.hilbri.assist.result.ResultPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -26,6 +48,132 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * @generated
 	 */
 	private EClass resultEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass hardwareElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass compartmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass boxEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass boardEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass processorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass coreEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ioAdapterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass networkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass applicationGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass applicationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass threadEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ioAdapterRequirementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass communicationRelationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass evaluationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum hardwareArchitectureLevelTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum ioAdapterProtectionLevelTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum designAssuranceLevelTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum ioAdapterTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -74,7 +222,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
-		EcorePackage.eINSTANCE.eClass();
+		ModelPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theResultPackage.createPackageContents();
@@ -123,6 +271,735 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getResult_RootHardwareElements() {
+		return (EReference)resultEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getResult_TopHardwareLevel() {
+		return (EAttribute)resultEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getResult_BottomHardwareLevel() {
+		return (EAttribute)resultEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResult_IoAdapters() {
+		return (EReference)resultEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResult_ApplicationGroups() {
+		return (EReference)resultEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResult_Applications() {
+		return (EReference)resultEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResult_Threads() {
+		return (EReference)resultEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResult_Networks() {
+		return (EReference)resultEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResult_Communications() {
+		return (EReference)resultEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResult_Evaluation() {
+		return (EReference)resultEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResult_AssistModel() {
+		return (EReference)resultEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getHardwareElement() {
+		return hardwareElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHardwareElement_Name() {
+		return (EAttribute)hardwareElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCompartment() {
+		return compartmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCompartment_Manufacturer() {
+		return (EAttribute)compartmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCompartment_PowerSupply() {
+		return (EAttribute)compartmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCompartment_Side() {
+		return (EAttribute)compartmentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCompartment_Zone() {
+		return (EAttribute)compartmentEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCompartment_Boxes() {
+		return (EReference)compartmentEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBox() {
+		return boxEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBox_Manufacturer() {
+		return (EAttribute)boxEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBox_Compartment() {
+		return (EReference)boxEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBox_Boards() {
+		return (EReference)boxEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBoard() {
+		return boardEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBoard_Manufacturer() {
+		return (EAttribute)boardEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBoard_BoardType() {
+		return (EAttribute)boardEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBoard_PowerSupply() {
+		return (EAttribute)boardEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBoard_AssuranceLevel() {
+		return (EAttribute)boardEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBoard_RamCapacity() {
+		return (EAttribute)boardEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBoard_RomCapacity() {
+		return (EAttribute)boardEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBoard_Box() {
+		return (EReference)boardEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBoard_Processors() {
+		return (EReference)boardEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBoard_IoAdapters() {
+		return (EReference)boardEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProcessor() {
+		return processorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProcessor_Manufacturer() {
+		return (EAttribute)processorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProcessor_ProcessorType() {
+		return (EAttribute)processorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProcessor_Board() {
+		return (EReference)processorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProcessor_Cores() {
+		return (EReference)processorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCore() {
+		return coreEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCore_Architecture() {
+		return (EAttribute)coreEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCore_Capacity() {
+		return (EAttribute)coreEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCore_Processor() {
+		return (EReference)coreEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIOAdapter() {
+		return ioAdapterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIOAdapter_Name() {
+		return (EAttribute)ioAdapterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIOAdapter_TotalUnitCount() {
+		return (EAttribute)ioAdapterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIOAdapter_AdapterType() {
+		return (EAttribute)ioAdapterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIOAdapter_ProtectionLevel() {
+		return (EAttribute)ioAdapterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNetwork() {
+		return networkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNetwork_Name() {
+		return (EAttribute)networkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNetwork_BandwidthCapacity() {
+		return (EAttribute)networkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNetwork_Boards() {
+		return (EReference)networkEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getApplicationGroup() {
+		return applicationGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApplicationGroup_Name() {
+		return (EAttribute)applicationGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getApplicationGroup_Applications() {
+		return (EReference)applicationGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getApplication() {
+		return applicationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApplication_Name() {
+		return (EAttribute)applicationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApplication_CoreUtilization() {
+		return (EAttribute)applicationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApplication_RamUtilization() {
+		return (EAttribute)applicationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApplication_RomUtilization() {
+		return (EAttribute)applicationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApplication_CriticalityLevel() {
+		return (EAttribute)applicationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApplication_IoAdapterProtectionLevel() {
+		return (EAttribute)applicationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApplication_ParallelThreads() {
+		return (EAttribute)applicationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApplication_DevelopedBy() {
+		return (EAttribute)applicationEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getApplication_IoAdapterRequirements() {
+		return (EReference)applicationEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getApplication_RestrictMappingToHardwareElements() {
+		return (EReference)applicationEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getApplication_Threads() {
+		return (EReference)applicationEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getThread() {
+		return threadEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getThread_Application() {
+		return (EReference)threadEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIOAdapterRequirement() {
+		return ioAdapterRequirementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIOAdapterRequirement_AdapterType() {
+		return (EAttribute)ioAdapterRequirementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIOAdapterRequirement_RequiredUnits() {
+		return (EAttribute)ioAdapterRequirementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIOAdapterRequirement_IsSharedAllowed() {
+		return (EAttribute)ioAdapterRequirementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIOAdapterRequirement_IsExclusiveOnly() {
+		return (EAttribute)ioAdapterRequirementEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCommunicationRelation() {
+		return communicationRelationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCommunicationRelation_ApplicationsOrGroups() {
+		return (EReference)communicationRelationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommunicationRelation_BandwidthUtilization() {
+		return (EAttribute)communicationRelationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEvaluation() {
+		return evaluationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getHardwareArchitectureLevelType() {
+		return hardwareArchitectureLevelTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getIOAdapterProtectionLevelType() {
+		return ioAdapterProtectionLevelTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDesignAssuranceLevelType() {
+		return designAssuranceLevelTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getIOAdapterType() {
+		return ioAdapterTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ResultFactory getResultFactory() {
 		return (ResultFactory)getEFactoryInstance();
 	}
@@ -149,6 +1026,103 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		resultEClass = createEClass(RESULT);
 		createEAttribute(resultEClass, RESULT__NAME);
 		createEAttribute(resultEClass, RESULT__SYSTEM_NAME);
+		createEReference(resultEClass, RESULT__ROOT_HARDWARE_ELEMENTS);
+		createEAttribute(resultEClass, RESULT__TOP_HARDWARE_LEVEL);
+		createEAttribute(resultEClass, RESULT__BOTTOM_HARDWARE_LEVEL);
+		createEReference(resultEClass, RESULT__IO_ADAPTERS);
+		createEReference(resultEClass, RESULT__APPLICATION_GROUPS);
+		createEReference(resultEClass, RESULT__APPLICATIONS);
+		createEReference(resultEClass, RESULT__THREADS);
+		createEReference(resultEClass, RESULT__NETWORKS);
+		createEReference(resultEClass, RESULT__COMMUNICATIONS);
+		createEReference(resultEClass, RESULT__EVALUATION);
+		createEReference(resultEClass, RESULT__ASSIST_MODEL);
+
+		hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
+		createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
+
+		compartmentEClass = createEClass(COMPARTMENT);
+		createEAttribute(compartmentEClass, COMPARTMENT__MANUFACTURER);
+		createEAttribute(compartmentEClass, COMPARTMENT__POWER_SUPPLY);
+		createEAttribute(compartmentEClass, COMPARTMENT__SIDE);
+		createEAttribute(compartmentEClass, COMPARTMENT__ZONE);
+		createEReference(compartmentEClass, COMPARTMENT__BOXES);
+
+		boxEClass = createEClass(BOX);
+		createEAttribute(boxEClass, BOX__MANUFACTURER);
+		createEReference(boxEClass, BOX__COMPARTMENT);
+		createEReference(boxEClass, BOX__BOARDS);
+
+		boardEClass = createEClass(BOARD);
+		createEAttribute(boardEClass, BOARD__MANUFACTURER);
+		createEAttribute(boardEClass, BOARD__BOARD_TYPE);
+		createEAttribute(boardEClass, BOARD__POWER_SUPPLY);
+		createEAttribute(boardEClass, BOARD__ASSURANCE_LEVEL);
+		createEAttribute(boardEClass, BOARD__RAM_CAPACITY);
+		createEAttribute(boardEClass, BOARD__ROM_CAPACITY);
+		createEReference(boardEClass, BOARD__BOX);
+		createEReference(boardEClass, BOARD__PROCESSORS);
+		createEReference(boardEClass, BOARD__IO_ADAPTERS);
+
+		processorEClass = createEClass(PROCESSOR);
+		createEAttribute(processorEClass, PROCESSOR__MANUFACTURER);
+		createEAttribute(processorEClass, PROCESSOR__PROCESSOR_TYPE);
+		createEReference(processorEClass, PROCESSOR__BOARD);
+		createEReference(processorEClass, PROCESSOR__CORES);
+
+		coreEClass = createEClass(CORE);
+		createEAttribute(coreEClass, CORE__ARCHITECTURE);
+		createEAttribute(coreEClass, CORE__CAPACITY);
+		createEReference(coreEClass, CORE__PROCESSOR);
+
+		ioAdapterEClass = createEClass(IO_ADAPTER);
+		createEAttribute(ioAdapterEClass, IO_ADAPTER__NAME);
+		createEAttribute(ioAdapterEClass, IO_ADAPTER__TOTAL_UNIT_COUNT);
+		createEAttribute(ioAdapterEClass, IO_ADAPTER__ADAPTER_TYPE);
+		createEAttribute(ioAdapterEClass, IO_ADAPTER__PROTECTION_LEVEL);
+
+		networkEClass = createEClass(NETWORK);
+		createEAttribute(networkEClass, NETWORK__NAME);
+		createEAttribute(networkEClass, NETWORK__BANDWIDTH_CAPACITY);
+		createEReference(networkEClass, NETWORK__BOARDS);
+
+		applicationGroupEClass = createEClass(APPLICATION_GROUP);
+		createEAttribute(applicationGroupEClass, APPLICATION_GROUP__NAME);
+		createEReference(applicationGroupEClass, APPLICATION_GROUP__APPLICATIONS);
+
+		applicationEClass = createEClass(APPLICATION);
+		createEAttribute(applicationEClass, APPLICATION__NAME);
+		createEAttribute(applicationEClass, APPLICATION__CORE_UTILIZATION);
+		createEAttribute(applicationEClass, APPLICATION__RAM_UTILIZATION);
+		createEAttribute(applicationEClass, APPLICATION__ROM_UTILIZATION);
+		createEAttribute(applicationEClass, APPLICATION__CRITICALITY_LEVEL);
+		createEAttribute(applicationEClass, APPLICATION__IO_ADAPTER_PROTECTION_LEVEL);
+		createEAttribute(applicationEClass, APPLICATION__PARALLEL_THREADS);
+		createEAttribute(applicationEClass, APPLICATION__DEVELOPED_BY);
+		createEReference(applicationEClass, APPLICATION__IO_ADAPTER_REQUIREMENTS);
+		createEReference(applicationEClass, APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
+		createEReference(applicationEClass, APPLICATION__THREADS);
+
+		threadEClass = createEClass(THREAD);
+		createEReference(threadEClass, THREAD__APPLICATION);
+
+		ioAdapterRequirementEClass = createEClass(IO_ADAPTER_REQUIREMENT);
+		createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__ADAPTER_TYPE);
+		createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__REQUIRED_UNITS);
+		createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__IS_SHARED_ALLOWED);
+		createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__IS_EXCLUSIVE_ONLY);
+
+		communicationRelationEClass = createEClass(COMMUNICATION_RELATION);
+		createEReference(communicationRelationEClass, COMMUNICATION_RELATION__APPLICATIONS_OR_GROUPS);
+		createEAttribute(communicationRelationEClass, COMMUNICATION_RELATION__BANDWIDTH_UTILIZATION);
+
+		evaluationEClass = createEClass(EVALUATION);
+
+		// Create enums
+		hardwareArchitectureLevelTypeEEnum = createEEnum(HARDWARE_ARCHITECTURE_LEVEL_TYPE);
+		ioAdapterProtectionLevelTypeEEnum = createEEnum(IO_ADAPTER_PROTECTION_LEVEL_TYPE);
+		designAssuranceLevelTypeEEnum = createEEnum(DESIGN_ASSURANCE_LEVEL_TYPE);
+		ioAdapterTypeEEnum = createEEnum(IO_ADAPTER_TYPE);
 	}
 
 	/**
@@ -176,17 +1150,189 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 
 		// Obtain other dependent packages
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		ModelPackage theModelPackage = (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		compartmentEClass.getESuperTypes().add(this.getHardwareElement());
+		boxEClass.getESuperTypes().add(this.getHardwareElement());
+		boardEClass.getESuperTypes().add(this.getHardwareElement());
+		processorEClass.getESuperTypes().add(this.getHardwareElement());
+		coreEClass.getESuperTypes().add(this.getHardwareElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(resultEClass, Result.class, "Result", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResult_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_SystemName(), theEcorePackage.getEString(), "systemName", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResult_RootHardwareElements(), this.getHardwareElement(), null, "rootHardwareElements", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResult_TopHardwareLevel(), this.getHardwareArchitectureLevelType(), "topHardwareLevel", null, 0, 1, Result.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResult_BottomHardwareLevel(), this.getHardwareArchitectureLevelType(), "bottomHardwareLevel", null, 0, 1, Result.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getResult_IoAdapters(), this.getIOAdapter(), null, "ioAdapters", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResult_ApplicationGroups(), this.getApplicationGroup(), null, "applicationGroups", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResult_Applications(), this.getApplication(), null, "applications", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResult_Threads(), this.getThread(), null, "threads", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResult_Networks(), this.getNetwork(), null, "networks", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResult_Communications(), this.getCommunicationRelation(), null, "communications", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResult_Evaluation(), this.getEvaluation(), null, "evaluation", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResult_AssistModel(), theModelPackage.getAssistModel(), null, "assistModel", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHardwareElement_Name(), theEcorePackage.getEString(), "name", null, 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(compartmentEClass, Compartment.class, "Compartment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCompartment_Manufacturer(), theEcorePackage.getEString(), "manufacturer", null, 0, 1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompartment_PowerSupply(), theEcorePackage.getEString(), "powerSupply", null, 0, 1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompartment_Side(), theEcorePackage.getEString(), "side", null, 0, 1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompartment_Zone(), theEcorePackage.getEString(), "zone", null, 0, 1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompartment_Boxes(), this.getBox(), this.getBox_Compartment(), "boxes", null, 1, -1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(boxEClass, Box.class, "Box", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBox_Manufacturer(), theEcorePackage.getEString(), "manufacturer", null, 0, 1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBox_Compartment(), this.getCompartment(), this.getCompartment_Boxes(), "compartment", null, 0, 1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBox_Boards(), this.getBoard(), this.getBoard_Box(), "boards", null, 1, -1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(boardEClass, Board.class, "Board", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBoard_Manufacturer(), theEcorePackage.getEString(), "manufacturer", null, 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBoard_BoardType(), theEcorePackage.getEString(), "boardType", null, 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBoard_PowerSupply(), theEcorePackage.getEString(), "powerSupply", null, 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBoard_AssuranceLevel(), this.getDesignAssuranceLevelType(), "assuranceLevel", "None", 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBoard_RamCapacity(), theEcorePackage.getEInt(), "ramCapacity", null, 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBoard_RomCapacity(), theEcorePackage.getEInt(), "romCapacity", null, 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBoard_Box(), this.getBox(), this.getBox_Boards(), "box", null, 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBoard_Processors(), this.getProcessor(), this.getProcessor_Board(), "processors", null, 1, -1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBoard_IoAdapters(), this.getIOAdapter(), null, "ioAdapters", null, 0, -1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(processorEClass, Processor.class, "Processor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProcessor_Manufacturer(), theEcorePackage.getEString(), "manufacturer", null, 0, 1, Processor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProcessor_ProcessorType(), theEcorePackage.getEString(), "processorType", null, 0, 1, Processor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProcessor_Board(), this.getBoard(), this.getBoard_Processors(), "board", null, 0, 1, Processor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProcessor_Cores(), this.getCore(), this.getCore_Processor(), "cores", null, 1, -1, Processor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(coreEClass, Core.class, "Core", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCore_Architecture(), theEcorePackage.getEString(), "architecture", null, 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCore_Capacity(), theEcorePackage.getEInt(), "capacity", null, 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCore_Processor(), this.getProcessor(), this.getProcessor_Cores(), "processor", null, 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(ioAdapterEClass, IOAdapter.class, "IOAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIOAdapter_Name(), theEcorePackage.getEString(), "name", null, 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIOAdapter_TotalUnitCount(), theEcorePackage.getEInt(), "totalUnitCount", null, 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIOAdapter_AdapterType(), this.getIOAdapterType(), "adapterType", null, 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIOAdapter_ProtectionLevel(), this.getIOAdapterProtectionLevelType(), "protectionLevel", "None", 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(networkEClass, Network.class, "Network", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNetwork_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNetwork_BandwidthCapacity(), theEcorePackage.getEInt(), "bandwidthCapacity", null, 0, 1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNetwork_Boards(), this.getBoard(), null, "boards", null, 2, -1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(applicationGroupEClass, ApplicationGroup.class, "ApplicationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getApplicationGroup_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplicationGroup_Applications(), this.getApplication(), null, "applications", null, 1, -1, ApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getApplication_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApplication_CoreUtilization(), theEcorePackage.getEInt(), "coreUtilization", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApplication_RamUtilization(), theEcorePackage.getEInt(), "ramUtilization", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApplication_RomUtilization(), theEcorePackage.getEInt(), "romUtilization", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApplication_CriticalityLevel(), this.getDesignAssuranceLevelType(), "criticalityLevel", "None", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApplication_IoAdapterProtectionLevel(), this.getIOAdapterProtectionLevelType(), "ioAdapterProtectionLevel", "None", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApplication_ParallelThreads(), theEcorePackage.getEInt(), "parallelThreads", "1", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApplication_DevelopedBy(), theEcorePackage.getEString(), "developedBy", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplication_IoAdapterRequirements(), this.getIOAdapterRequirement(), null, "ioAdapterRequirements", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplication_RestrictMappingToHardwareElements(), this.getHardwareElement(), null, "restrictMappingToHardwareElements", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplication_Threads(), this.getThread(), this.getThread_Application(), "threads", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(threadEClass, ch.hilbri.assist.result.Thread.class, "Thread", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getThread_Application(), this.getApplication(), this.getApplication_Threads(), "application", null, 0, 1, ch.hilbri.assist.result.Thread.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(ioAdapterRequirementEClass, IOAdapterRequirement.class, "IOAdapterRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIOAdapterRequirement_AdapterType(), this.getIOAdapterType(), "adapterType", null, 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIOAdapterRequirement_RequiredUnits(), theEcorePackage.getEInt(), "requiredUnits", "0", 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIOAdapterRequirement_IsSharedAllowed(), theEcorePackage.getEBoolean(), "isSharedAllowed", "false", 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIOAdapterRequirement_IsExclusiveOnly(), theEcorePackage.getEBoolean(), "isExclusiveOnly", "false", 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(communicationRelationEClass, CommunicationRelation.class, "CommunicationRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCommunicationRelation_ApplicationsOrGroups(), this.getApplication(), null, "applicationsOrGroups", null, 1, -1, CommunicationRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommunicationRelation_BandwidthUtilization(), theEcorePackage.getEInt(), "bandwidthUtilization", null, 0, 1, CommunicationRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(evaluationEClass, Evaluation.class, "Evaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		// Initialize enums and add enum literals
+		initEEnum(hardwareArchitectureLevelTypeEEnum, HardwareArchitectureLevelType.class, "HardwareArchitectureLevelType");
+		addEEnumLiteral(hardwareArchitectureLevelTypeEEnum, HardwareArchitectureLevelType.CORE);
+		addEEnumLiteral(hardwareArchitectureLevelTypeEEnum, HardwareArchitectureLevelType.PROCESSOR);
+		addEEnumLiteral(hardwareArchitectureLevelTypeEEnum, HardwareArchitectureLevelType.BOARD);
+		addEEnumLiteral(hardwareArchitectureLevelTypeEEnum, HardwareArchitectureLevelType.BOX);
+		addEEnumLiteral(hardwareArchitectureLevelTypeEEnum, HardwareArchitectureLevelType.COMPARTMENT);
+
+		initEEnum(ioAdapterProtectionLevelTypeEEnum, IOAdapterProtectionLevelType.class, "IOAdapterProtectionLevelType");
+		addEEnumLiteral(ioAdapterProtectionLevelTypeEEnum, IOAdapterProtectionLevelType.NONE);
+		addEEnumLiteral(ioAdapterProtectionLevelTypeEEnum, IOAdapterProtectionLevelType.LEVEL_1);
+		addEEnumLiteral(ioAdapterProtectionLevelTypeEEnum, IOAdapterProtectionLevelType.LEVEL_2);
+		addEEnumLiteral(ioAdapterProtectionLevelTypeEEnum, IOAdapterProtectionLevelType.LEVEL_3);
+		addEEnumLiteral(ioAdapterProtectionLevelTypeEEnum, IOAdapterProtectionLevelType.LEVEL_4);
+		addEEnumLiteral(ioAdapterProtectionLevelTypeEEnum, IOAdapterProtectionLevelType.LEVEL_5);
+		addEEnumLiteral(ioAdapterProtectionLevelTypeEEnum, IOAdapterProtectionLevelType.LEVEL_6);
+		addEEnumLiteral(ioAdapterProtectionLevelTypeEEnum, IOAdapterProtectionLevelType.LEVEL_7);
+		addEEnumLiteral(ioAdapterProtectionLevelTypeEEnum, IOAdapterProtectionLevelType.LEVEL_8);
+
+		initEEnum(designAssuranceLevelTypeEEnum, DesignAssuranceLevelType.class, "DesignAssuranceLevelType");
+		addEEnumLiteral(designAssuranceLevelTypeEEnum, DesignAssuranceLevelType.NONE);
+		addEEnumLiteral(designAssuranceLevelTypeEEnum, DesignAssuranceLevelType.QS);
+		addEEnumLiteral(designAssuranceLevelTypeEEnum, DesignAssuranceLevelType.D);
+		addEEnumLiteral(designAssuranceLevelTypeEEnum, DesignAssuranceLevelType.C);
+		addEEnumLiteral(designAssuranceLevelTypeEEnum, DesignAssuranceLevelType.B);
+		addEEnumLiteral(designAssuranceLevelTypeEEnum, DesignAssuranceLevelType.A);
+
+		initEEnum(ioAdapterTypeEEnum, IOAdapterType.class, "IOAdapterType");
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CAN);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.ELB);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.ETH);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.ANALOG);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.DIGITAL);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.SERIAL);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM0);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM1);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM2);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM3);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM4);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM5);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM6);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM7);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM8);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM9);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM10);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM11);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM12);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM13);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM14);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM15);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM16);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM17);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM18);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM19);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM20);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM21);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM22);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM23);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM24);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM25);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM26);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM27);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM28);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM29);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM30);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM31);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM32);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM33);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM34);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM35);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM36);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM37);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM38);
+		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.CUSTOM39);
 
 		// Create resource
 		createResource(eNS_URI);

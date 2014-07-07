@@ -198,22 +198,13 @@ public interface ModelPackage extends EPackage {
 	int HARDWARE_ELEMENT__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HARDWARE_ELEMENT__LEVEL = 1;
-
-	/**
 	 * The number of structural features of the '<em>Hardware Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HARDWARE_ELEMENT_FEATURE_COUNT = 2;
+	int HARDWARE_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Hardware Element</em>' class.
@@ -242,15 +233,6 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int HARDWARE_ELEMENT_CONTAINER__NAME = HARDWARE_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HARDWARE_ELEMENT_CONTAINER__LEVEL = HARDWARE_ELEMENT__LEVEL;
 
 	/**
 	 * The number of structural features of the '<em>Hardware Element Container</em>' class.
@@ -288,15 +270,6 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARTMENT__NAME = HARDWARE_ELEMENT_CONTAINER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARTMENT__LEVEL = HARDWARE_ELEMENT_CONTAINER__LEVEL;
 
 	/**
 	 * The feature id for the '<em><b>Manufacturer</b></em>' attribute.
@@ -390,15 +363,6 @@ public interface ModelPackage extends EPackage {
 	int BOX__NAME = HARDWARE_ELEMENT_CONTAINER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOX__LEVEL = HARDWARE_ELEMENT_CONTAINER__LEVEL;
-
-	/**
 	 * The feature id for the '<em><b>Manufacturer</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -470,15 +434,6 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOARD__NAME = HARDWARE_ELEMENT_CONTAINER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD__LEVEL = HARDWARE_ELEMENT_CONTAINER__LEVEL;
 
 	/**
 	 * The feature id for the '<em><b>Manufacturer</b></em>' attribute.
@@ -608,15 +563,6 @@ public interface ModelPackage extends EPackage {
 	int PROCESSOR__NAME = HARDWARE_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSOR__LEVEL = HARDWARE_ELEMENT__LEVEL;
-
-	/**
 	 * The feature id for the '<em><b>Manufacturer</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -697,15 +643,6 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int CORE__NAME = HARDWARE_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CORE__LEVEL = HARDWARE_ELEMENT__LEVEL;
 
 	/**
 	 * The feature id for the '<em><b>Architecture</b></em>' attribute.
@@ -1843,17 +1780,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getHardwareElement_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.HardwareElement#getLevel <em>Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Level</em>'.
-	 * @see ch.hilbri.assist.model.HardwareElement#getLevel()
-	 * @see #getHardwareElement()
-	 * @generated
-	 */
-	EAttribute getHardwareElement_Level();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.HardwareElementContainer <em>Hardware Element Container</em>}'.
@@ -3108,14 +3034,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute HARDWARE_ELEMENT__NAME = eINSTANCE.getHardwareElement_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HARDWARE_ELEMENT__LEVEL = eINSTANCE.getHardwareElement_Level();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.HardwareElementContainerImpl <em>Hardware Element Container</em>}' class.

@@ -3,7 +3,6 @@
  */
 package ch.hilbri.assist.model.impl;
 
-import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.ModelPackage;
 
@@ -22,7 +21,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getName <em>Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.HardwareElementImpl#getLevel <em>Level</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,26 +46,6 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getLevel() <em>Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final HardwareArchitectureLevelType LEVEL_EDEFAULT = HardwareArchitectureLevelType.CORE;
-
-	/**
-	 * The cached value of the '{@link #getLevel() <em>Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected HardwareArchitectureLevelType level = LEVEL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,34 +92,11 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HardwareArchitectureLevelType getLevel() {
-		return level;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLevel(HardwareArchitectureLevelType newLevel) {
-		HardwareArchitectureLevelType oldLevel = level;
-		level = newLevel == null ? LEVEL_EDEFAULT : newLevel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.HARDWARE_ELEMENT__LEVEL, oldLevel, level));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModelPackage.HARDWARE_ELEMENT__NAME:
 				return getName();
-			case ModelPackage.HARDWARE_ELEMENT__LEVEL:
-				return getLevel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,9 +111,6 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case ModelPackage.HARDWARE_ELEMENT__NAME:
 				setName((String)newValue);
-				return;
-			case ModelPackage.HARDWARE_ELEMENT__LEVEL:
-				setLevel((HardwareArchitectureLevelType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -175,9 +127,6 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 			case ModelPackage.HARDWARE_ELEMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ModelPackage.HARDWARE_ELEMENT__LEVEL:
-				setLevel(LEVEL_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,8 +141,6 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case ModelPackage.HARDWARE_ELEMENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ModelPackage.HARDWARE_ELEMENT__LEVEL:
-				return level != LEVEL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,8 +157,6 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", level: ");
-		result.append(level);
 		result.append(')');
 		return result.toString();
 	}

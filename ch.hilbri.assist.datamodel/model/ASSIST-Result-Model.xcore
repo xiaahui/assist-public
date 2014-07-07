@@ -1,6 +1,232 @@
+@GenModel(copyrightText="Copyright 2014 - Robert Hilbrich")
+
 package ch.hilbri.assist.result
 
+import ch.hilbri.assist.model.AssistModel
+
 class Result {
-	String	name
-	String 	systemName
+	
+	@GenModel(documentation="Name of this result") 
+	String							name
+	
+	@GenModel(documentation="Name of the system")
+	String							systemName
+	
+	@GenModel(documentation="List of all hardware elements in the top hierarchy level")
+	contains HardwareElement[0..*]	rootHardwareElements
+	
+	@GenModel(documentation="Returns the top hardware level for this result")
+	derived HardwareArchitectureLevelType topHardwareLevel get {
+		if (!rootHardwareElements.empty) {
+			switch rootHardwareElements.get(0)  {
+				Compartment : 	HardwareArchitectureLevelType.COMPARTMENT
+				Box: 			HardwareArchitectureLevelType.BOX
+				Board: 			HardwareArchitectureLevelType.BOARD
+				Processor: 		HardwareArchitectureLevelType.PROCESSOR
+				Core: 			HardwareArchitectureLevelType.CORE
+			}
+		}
+	}
+	
+	@GenModel(documentation="Returns the bottom hardware level for this result")
+	derived HardwareArchitectureLevelType bottomHardwareLevel get {
+		HardwareArchitectureLevelType.CORE
+	}
+	
+	@GenModel(documentation="Contains a list of all io adapters")
+	contains IOAdapter[0..*]				ioAdapters
+	
+	@GenModel(documentation="Contains a list of all application groups")
+	contains ApplicationGroup[0..*]			applicationGroups
+	
+	@GenModel(documentation="Contains a list of all applications")
+	contains Application[0..*]				applications
+	
+	@GenModel(documentation="Contains a list of all threads")
+	contains Thread[0..*]					threads
+	
+	@GenModel(documentation="Contains a list of all networks")
+	contains Network[0..*] 					networks
+
+	@GenModel(documentation="Contains a list of all communication relations between applications")
+	contains CommunicationRelation[0..*]	communications
+	
+	@GenModel(documentation="Contains the results of the evaluation for this result")
+	contains Evaluation[0..1] 				evaluation
+	
+	@GenModel(documentation="Refers to the original input specification")
+	refers AssistModel[0..1]				assistModel
+}
+
+enum HardwareArchitectureLevelType {
+	CORE 		as "Core"
+	PROCESSOR 	as "Processor"
+	BOARD		as "Board"
+	BOX			as "Box"
+	COMPARTMENT	as "Compartment"
+}
+
+enum IOAdapterProtectionLevelType {
+	NONE		as "None"
+	LEVEL_1		as "Level 1"
+	LEVEL_2		as "Level 2"
+	LEVEL_3		as "Level 3"
+	LEVEL_4		as "Level 4"
+	LEVEL_5		as "Level 5"
+	LEVEL_6		as "Level 6"
+	LEVEL_7		as "Level 7"
+	LEVEL_8		as "Level 8"
+}
+
+enum DesignAssuranceLevelType {
+	NONE 		as "None"
+	QS 			as "QS"
+	D 			as "D"
+	C 			as "C"
+	B 			as "B"
+	A 			as "A"
+}
+
+class HardwareElement {
+	String name
+}
+
+class Compartment extends HardwareElement {
+	String manufacturer
+	String powerSupply
+	String side
+	String zone
+	contains Box[1..*] boxes opposite compartment
+}
+
+class Box extends HardwareElement {
+	String manufacturer
+	container Compartment compartment opposite boxes
+	contains Board[1..*] boards opposite box
+}
+
+class Board extends HardwareElement {
+	String manufacturer
+	String boardType
+	String powerSupply
+	DesignAssuranceLevelType assuranceLevel = "None"
+	int ramCapacity
+	int romCapacity
+	container Box box opposite boards
+	contains Processor[1..*] processors opposite board
+	contains IOAdapter[0..*] ioAdapters
+}
+
+class Processor extends HardwareElement {
+	String manufacturer
+	String processorType
+	container Board board opposite processors
+	contains Core[1..*] cores opposite processor 
+}
+
+class Core extends HardwareElement {
+	String architecture
+	int capacity
+	container Processor processor opposite cores
+}
+
+enum IOAdapterType {
+	CAN 		as "Can"
+	ELB			as "Enhanced Local Bus"
+	ETH			as "Ethernet"
+	ANALOG 		as "Analog"
+	DIGITAL		as "Digital"
+	SERIAL		as "Serial"
+	CUSTOM0		as "Custom Type 0"	
+	CUSTOM1		as "Custom Type 1"
+	CUSTOM2		as "Custom Type 2"
+	CUSTOM3		as "Custom Type 3"
+	CUSTOM4		as "Custom Type 4"
+	CUSTOM5		as "Custom Type 5"	
+	CUSTOM6		as "Custom Type 6"
+	CUSTOM7		as "Custom Type 7"
+	CUSTOM8		as "Custom Type 8"
+	CUSTOM9		as "Custom Type 9"
+	CUSTOM10	as "Custom Type 10"	
+	CUSTOM11	as "Custom Type 11"
+	CUSTOM12	as "Custom Type 12"
+	CUSTOM13	as "Custom Type 13"
+	CUSTOM14	as "Custom Type 14"
+	CUSTOM15	as "Custom Type 15"	
+	CUSTOM16	as "Custom Type 16"
+	CUSTOM17	as "Custom Type 17"
+	CUSTOM18	as "Custom Type 18"
+	CUSTOM19	as "Custom Type 19"
+	CUSTOM20	as "Custom Type 20"	
+	CUSTOM21	as "Custom Type 21"
+	CUSTOM22	as "Custom Type 22"
+	CUSTOM23	as "Custom Type 23"
+	CUSTOM24	as "Custom Type 24"
+	CUSTOM25	as "Custom Type 25"	
+	CUSTOM26	as "Custom Type 26"
+	CUSTOM27	as "Custom Type 27"
+	CUSTOM28	as "Custom Type 28"
+	CUSTOM29	as "Custom Type 29"
+	CUSTOM30	as "Custom Type 30"	
+	CUSTOM31	as "Custom Type 31"
+	CUSTOM32	as "Custom Type 32"
+	CUSTOM33	as "Custom Type 33"
+	CUSTOM34	as "Custom Type 34"
+	CUSTOM35	as "Custom Type 35"	
+	CUSTOM36	as "Custom Type 36"
+	CUSTOM37	as "Custom Type 37"
+	CUSTOM38	as "Custom Type 38"
+	CUSTOM39	as "Custom Type 39"
+}
+
+class IOAdapter {
+	String name
+	int totalUnitCount
+	IOAdapterType adapterType
+	IOAdapterProtectionLevelType protectionLevel = "None"
+}
+
+class Network {
+	String name
+	int bandwidthCapacity
+	refers Board[2..*] boards
+}
+
+class ApplicationGroup {
+	String name
+	refers Application[1..*] applications
+}
+
+class Application {
+	String name
+	int coreUtilization
+	int ramUtilization
+	int romUtilization
+	DesignAssuranceLevelType criticalityLevel = "None"
+	IOAdapterProtectionLevelType ioAdapterProtectionLevel = "None"
+	int parallelThreads = "1"
+	String developedBy
+	contains IOAdapterRequirement[0..*] ioAdapterRequirements
+	refers HardwareElement[0..*] restrictMappingToHardwareElements
+	contains Thread[0..*] threads opposite application
+}
+
+class Thread {
+	container Application application opposite threads
+}
+
+class IOAdapterRequirement {	
+	IOAdapterType adapterType
+	int requiredUnits = "0"
+	boolean isSharedAllowed = "false"
+	boolean isExclusiveOnly = "false"
+}
+
+class CommunicationRelation{
+	refers Application[1..*] applicationsOrGroups
+	int bandwidthUtilization
+}
+
+class Evaluation {
+	
 }
