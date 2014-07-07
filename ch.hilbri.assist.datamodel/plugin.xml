@@ -14,4 +14,12 @@
             genModel="model/ASSIST-Model.xcore"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ASSIST-Result-Model -->
+      <package
+            uri="ch.hilbri.assist.result"
+            class="ch.hilbri.assist.result.ResultPackage"
+            genModel="model/ASSIST-Result-Model.xcore"/>
+   </extension>
+
 </plugin>

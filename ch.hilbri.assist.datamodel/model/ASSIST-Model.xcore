@@ -1,3 +1,10 @@
+@GenModel(
+	copyrightText="Copyright 2014 - Robert Hilbrich", 
+	editDirectory="/ch.hilbri.assist.datamodel.model.edit/src", 
+	editorDirectory="/ch.hilbri.assist.datamodel.model.editor/src", 
+	testsDirectory="/ch.hilbri.assist.datamodel.model.tests/src"
+)
+
 package ch.hilbri.assist.model
 
 import org.eclipse.emf.common.util.BasicEList
@@ -17,8 +24,6 @@ class AssistModel {
 	 * Should be called before the mapping to make the model proper 
 	 */
 	op boolean postProcessingForMapping() {
-		
-		
 		return true
 	}
 }

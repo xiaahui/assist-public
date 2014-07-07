@@ -1,0 +1,6 @@
+package ch.hilbri.assist.result
+
+class Result {
+	String	name
+	String 	systemName
+}

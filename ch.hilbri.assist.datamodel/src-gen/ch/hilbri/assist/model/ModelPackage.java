@@ -1,4 +1,5 @@
 /**
+ * Copyright 2014 - Robert Hilbrich
  */
 package ch.hilbri.assist.model;
 
@@ -23,7 +24,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see ch.hilbri.assist.model.ModelFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel basePackage='ch.hilbri.assist'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel copyrightText='Copyright 2014 - Robert Hilbrich' editDirectory='/ch.hilbri.assist.datamodel.model.edit/src' editorDirectory='/ch.hilbri.assist.datamodel.model.editor/src' testsDirectory='/ch.hilbri.assist.datamodel.model.tests/src' basePackage='ch.hilbri.assist'"
  * @generated
  */
 public interface ModelPackage extends EPackage {

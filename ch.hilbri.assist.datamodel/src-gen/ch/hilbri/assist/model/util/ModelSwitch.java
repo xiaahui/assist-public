@@ -1,4 +1,5 @@
 /**
+ * Copyright 2014 - Robert Hilbrich
  */
 package ch.hilbri.assist.model.util;
 
