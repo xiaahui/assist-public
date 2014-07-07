@@ -366,8 +366,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 	 */
 	private void sendMetricContentProvider(Object service) {
 		if (service instanceof IEventBroker) {
-			((IEventBroker) service).send(
-					MetricTableView.SET_METRIC_CONTENT_PROVIDER, this);
+			((IEventBroker) service).send(MetricTableView.SET_METRIC_CONTENT_PROVIDER, this);
 		}
 	}
 
