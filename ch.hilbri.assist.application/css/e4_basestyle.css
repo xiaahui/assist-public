@@ -3,7 +3,7 @@
     margin-bottom: 2px;
     margin-left: 2px;
     margin-right: 2px;
-}
+} 
 
 .MPartStack {
     swt-tab-renderer: url('bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.CTabRendering');

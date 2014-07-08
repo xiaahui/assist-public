@@ -9,6 +9,8 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IWorkbenchPreferenceConstants;
+import org.eclipse.ui.internal.util.PrefUtil;
 import org.eclipse.ui.splash.BasicSplashHandler;
 
 /**
@@ -20,11 +22,11 @@ public class SplashHandler extends BasicSplashHandler {
 
 	private final static int MESSAGE_X = 25;
 
-	private final static int MESSAGE_Y = 250;
+	private final static int MESSAGE_Y = 25;
 
-	private final static int MESSAGE_WIDTH = 100;
+	private final static int MESSAGE_WIDTH = 200;
 
-	private final static int MESSAGE_HEIGHT = 15;
+	private final static int MESSAGE_HEIGHT = 25;
 
 	private final static int VERSION_X = 5;
 
@@ -41,11 +43,13 @@ public class SplashHandler extends BasicSplashHandler {
 	@Override
 	public void init(Shell splash) {
 		super.init(splash);
-
+		PrefUtil.getAPIPreferenceStore().setValue(IWorkbenchPreferenceConstants.SHOW_PROGRESS_ON_STARTUP, false);
+		
 		Rectangle progressRect = new Rectangle(MESSAGE_X, MESSAGE_Y, MESSAGE_WIDTH, MESSAGE_HEIGHT);
 		setMessageRect(progressRect);
 
 		IProduct product = Platform.getProduct();
+		
 		final String version = product.getProperty("version");
 
 		if (version != null) {
