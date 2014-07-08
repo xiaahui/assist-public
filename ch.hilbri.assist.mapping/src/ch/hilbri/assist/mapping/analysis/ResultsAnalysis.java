@@ -2,8 +2,8 @@ package ch.hilbri.assist.mapping.analysis;
 
 import java.util.ArrayList;
 
-import ch.hilbri.assist.result.AbstractMetric;
-import ch.hilbri.assist.result.Result;
+import ch.hilbri.assist.result.mapping.AbstractMetric;
+import ch.hilbri.assist.result.mapping.Result;
 
 public class ResultsAnalysis extends ArrayList<AbstractMetric> {
 

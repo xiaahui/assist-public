@@ -32,14 +32,14 @@ import org.eclipse.zest.layouts.LayoutStyles;
 import org.eclipse.zest.layouts.algorithms.TreeLayoutAlgorithm;
 
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
-import ch.hilbri.assist.result.Board;
-import ch.hilbri.assist.result.Box;
-import ch.hilbri.assist.result.Compartment;
-import ch.hilbri.assist.result.Core;
-import ch.hilbri.assist.result.HardwareElement;
-import ch.hilbri.assist.result.Processor;
-import ch.hilbri.assist.result.Result;
-import ch.hilbri.assist.result.Thread;
+import ch.hilbri.assist.result.mapping.Board;
+import ch.hilbri.assist.result.mapping.Box;
+import ch.hilbri.assist.result.mapping.Compartment;
+import ch.hilbri.assist.result.mapping.Core;
+import ch.hilbri.assist.result.mapping.HardwareElement;
+import ch.hilbri.assist.result.mapping.Processor;
+import ch.hilbri.assist.result.mapping.Result;
+import ch.hilbri.assist.result.mapping.Thread;
 
 
 

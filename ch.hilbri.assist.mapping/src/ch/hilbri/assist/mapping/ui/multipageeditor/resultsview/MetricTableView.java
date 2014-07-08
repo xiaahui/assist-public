@@ -64,8 +64,8 @@ import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
 import ch.hilbri.assist.mapping.analysis.metrics.MetricLoader;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
-import ch.hilbri.assist.result.AbstractMetric;
-import ch.hilbri.assist.result.Result;
+import ch.hilbri.assist.result.mapping.AbstractMetric;
+import ch.hilbri.assist.result.mapping.Result;
 
 
 public class MetricTableView {

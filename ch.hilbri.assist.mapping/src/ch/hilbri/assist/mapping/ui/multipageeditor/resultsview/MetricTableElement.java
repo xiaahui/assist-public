@@ -1,7 +1,7 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview;
 
 import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
-import ch.hilbri.assist.result.AbstractMetric;
+import ch.hilbri.assist.result.mapping.AbstractMetric;
 
 public class MetricTableElement {
 

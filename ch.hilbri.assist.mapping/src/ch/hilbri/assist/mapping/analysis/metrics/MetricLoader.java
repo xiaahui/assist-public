@@ -62,7 +62,7 @@ import ch.hilbri.assist.application.helpers.Helpers;
 import ch.hilbri.assist.application.helpers.PathProvider;
 import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
-import ch.hilbri.assist.result.AbstractMetric;
+import ch.hilbri.assist.result.mapping.AbstractMetric;
 
 /**
  * Static class to handle all loading requests of all metrics in the current

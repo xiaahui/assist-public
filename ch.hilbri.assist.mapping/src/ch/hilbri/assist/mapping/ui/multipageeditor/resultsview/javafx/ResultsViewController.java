@@ -48,11 +48,11 @@ import org.eclipse.emf.ecore.EObject;
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.GotoSolutionDialog;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
-import ch.hilbri.assist.result.AbstractMetric;
-import ch.hilbri.assist.result.Core;
-import ch.hilbri.assist.result.HardwareElement;
-import ch.hilbri.assist.result.Result;
-import ch.hilbri.assist.result.Thread;
+import ch.hilbri.assist.result.mapping.AbstractMetric;
+import ch.hilbri.assist.result.mapping.Core;
+import ch.hilbri.assist.result.mapping.HardwareElement;
+import ch.hilbri.assist.result.mapping.Result;
+import ch.hilbri.assist.result.mapping.Thread;
 
 /**
  * Handles the DetailedResultView View

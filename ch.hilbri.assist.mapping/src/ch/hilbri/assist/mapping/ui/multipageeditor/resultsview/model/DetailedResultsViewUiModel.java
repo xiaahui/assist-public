@@ -14,7 +14,7 @@ import org.eclipse.ui.part.EditorPart;
 
 import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
-import ch.hilbri.assist.result.Result;
+import ch.hilbri.assist.result.mapping.Result;
 
 public class DetailedResultsViewUiModel {
 
