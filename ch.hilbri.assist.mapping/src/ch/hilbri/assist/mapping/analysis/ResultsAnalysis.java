@@ -17,6 +17,7 @@ public class ResultsAnalysis extends ArrayList<AbstractMetric> {
 		for (int i = 0; i < totalScoreAccumulator.length; i++)
 			totalScoreAccumulator[i] = 0.0;
 
+		
 		/*
 		 * initialize resultsEvaluation-Score-List to capture a score for each
 		 * metric in each result
