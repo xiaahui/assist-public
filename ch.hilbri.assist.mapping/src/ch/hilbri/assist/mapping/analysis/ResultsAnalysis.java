@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import ch.hilbri.assist.result.mapping.AbstractMetric;
 import ch.hilbri.assist.result.mapping.Result;
-
+// FIXME - implement me
 public class ResultsAnalysis extends ArrayList<AbstractMetric> {
 
 	private static final long serialVersionUID = 297850382896284886L;

@@ -32,4 +32,8 @@ Require-Bundle: ch.hilbri.assist.application,
  org.eclipse.zest.layouts;bundle-version="1.1.100",
  org.eclipse.wb.swt;bundle-version="1.7.0",
  org.eclipse.wb.swt.widgets.baseline;bundle-version="1.7.0",
- org.eclipse.xtext.ui
+ org.eclipse.xtext.ui,
+ org.eclipse.core.databinding;bundle-version="1.4.1",
+ org.eclipse.core.databinding.beans;bundle-version="1.2.200",
+ org.eclipse.core.databinding.observable;bundle-version="1.4.1",
+ org.eclipse.core.databinding.property;bundle-version="1.4.200"
