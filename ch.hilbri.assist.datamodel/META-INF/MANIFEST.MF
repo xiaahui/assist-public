@@ -17,6 +17,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: ch.hilbri.assist.model,
  ch.hilbri.assist.model.impl,
  ch.hilbri.assist.model.util,
- ch.hilbri.assist.result,
- ch.hilbri.assist.result.impl,
- ch.hilbri.assist.result.util
+ ch.hilbri.assist.result.mapping,
+ ch.hilbri.assist.result.mapping.impl,
+ ch.hilbri.assist.result.mapping.util

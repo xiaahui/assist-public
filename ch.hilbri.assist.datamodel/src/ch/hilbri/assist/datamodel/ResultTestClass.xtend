@@ -1,12 +1,11 @@
 package ch.hilbri.assist.datamodel
 
-import ch.hilbri.assist.result.ResultFactory
 
 class ResultTestClass {
 	
 	 def static void main(String[] args) {
 	
-		val f = ResultFactory.eINSTANCE
+	/* 	val f = ResultFactory.eINSTANCE
 	
 		val resultModel = f.createResult
 	
@@ -14,7 +13,7 @@ class ResultTestClass {
 		
 		resultModel.rootHardwareElements.add(c)
 		
-		System.out.println(resultModel.topHardwareLevel)
+		System.out.println(resultModel.topHardwareLevel) */
 	
 	}
 }
