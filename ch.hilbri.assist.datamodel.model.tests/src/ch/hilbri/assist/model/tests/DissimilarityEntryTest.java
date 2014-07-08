@@ -82,7 +82,7 @@ public class DissimilarityEntryTest extends DissimilarityClauseTest {
 	 * @generated
 	 */
 	public void testGetLevel() {
-		// TODO: implement this feature getter test method
+		// implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}

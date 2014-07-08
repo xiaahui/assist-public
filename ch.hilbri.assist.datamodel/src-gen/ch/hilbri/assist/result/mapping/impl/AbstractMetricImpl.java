@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container implements AbstractMetric {
+public class AbstractMetricImpl extends MinimalEObjectImpl.Container implements AbstractMetric {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -223,10 +223,8 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double computeScore(Result result) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public double computeScore(final Result result) {
+		return 0;
 	}
 
 	/**

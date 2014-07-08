@@ -59,7 +59,7 @@ public class Category implements IWorkbenchAdapter, IPluginContribution,
 	public Category() {
 		this.id = MISC_ID;
 		this.name = MISC_NAME;
-		this.pluginId = MISC_ID; // TODO: remove hack for bug 55172
+		this.pluginId = MISC_ID; // remove hack for bug 55172
 	}
 
 	/**

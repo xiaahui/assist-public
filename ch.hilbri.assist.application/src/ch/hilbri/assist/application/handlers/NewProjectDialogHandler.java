@@ -17,7 +17,7 @@ import org.eclipse.ui.internal.help.WorkbenchHelpSystem;
 import org.eclipse.ui.internal.ide.IIDEHelpContextIds;
 
 /**
- * This opens a Dialog to create a new project. TODO: If possible, do as in the other "New.." handlers.
+ * This opens a Dialog to create a new project.  If possible, do as in the other "New.." handlers.
  * 
  *
  */

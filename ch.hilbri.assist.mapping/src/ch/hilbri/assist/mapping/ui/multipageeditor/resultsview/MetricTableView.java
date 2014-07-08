@@ -61,7 +61,7 @@ import org.eclipse.ui.PlatformUI;
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.application.helpers.Helpers;
 import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
-import ch.hilbri.assist.mapping.analysis.metrics.MetricLoader;
+import ch.hilbri.assist.mapping.analysis.metrics.custom.MetricLoader;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import ch.hilbri.assist.result.mapping.AbstractMetric;

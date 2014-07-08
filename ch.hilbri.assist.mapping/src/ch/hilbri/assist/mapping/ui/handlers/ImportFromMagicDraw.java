@@ -70,7 +70,7 @@ public class ImportFromMagicDraw {
 //					try {
 //						file.setContents(source, IResource.NONE, null);
 //					} catch (CoreException e) {
-//						// TODO Auto-generated catch block
+//						//  Auto-generated catch block
 //						e.printStackTrace();
 //					}
 //				}

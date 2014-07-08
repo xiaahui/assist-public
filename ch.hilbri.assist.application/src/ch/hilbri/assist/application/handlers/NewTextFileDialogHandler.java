@@ -100,14 +100,14 @@ public class NewTextFileDialogHandler {
 //			try {
 //				file.create(out, true, monitor);
 //			} catch (CoreException e) {
-//				// TODO Auto-generated catch block
+//				//  Auto-generated catch block
 //				e.printStackTrace();
 //			}
 //			
 //			try {
 //				out.close(); 
 //			} catch (IOException e) {
-//				// TODO Auto-generated catch block
+//				//  Auto-generated catch block
 //				e.printStackTrace();
 //			}
 //		}

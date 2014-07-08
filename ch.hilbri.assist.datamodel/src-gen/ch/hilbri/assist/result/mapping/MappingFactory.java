@@ -149,6 +149,15 @@ public interface MappingFactory extends EFactory {
 	CommunicationRelation createCommunicationRelation();
 
 	/**
+	 * Returns a new object of class '<em>Abstract Metric</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Abstract Metric</em>'.
+	 * @generated
+	 */
+	AbstractMetric createAbstractMetric();
+
+	/**
 	 * Returns a new object of class '<em>Evaluation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -82,7 +82,7 @@ public class ApplicationGroupTest extends ApplicationOrApplicationGroupTest {
 	 * @generated
 	 */
 	public void testGetAllApplications() {
-		// TODO: implement this operation test method
+		//  implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}

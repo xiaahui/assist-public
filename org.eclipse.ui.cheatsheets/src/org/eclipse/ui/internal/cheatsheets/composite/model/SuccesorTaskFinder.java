@@ -42,7 +42,7 @@ public class SuccesorTaskFinder {
 	 */
     public ICompositeCheatSheetTask[] getRecommendedSuccessors() 
     {	
-    	// TODO this code could be moved to TaskGroup
+    	//  this code could be moved to TaskGroup
     	if (ITaskGroup.CHOICE.equals(currentTask.getKind())) {
     		// For a choice if more than one child is runnable return it
     		List runnableChoices = findRunnableChoices();

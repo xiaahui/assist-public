@@ -171,7 +171,7 @@ public class DescriptionPanel {
 			addHyperlink(buf, CompositeCheatSheetPage.REVIEW_TAG, REVIEW_IMAGE, Messages.COMPOSITE_PAGE_REVIEW_TASK);
 		}		
 		
-		//-- Customized to get rid of skip messages -- TODO
+		//-- Customized to get rid of skip messages -- 
 //		if (isSkippable) {
 //			String skipMessage;
 //			if (task instanceof ITaskGroup) {

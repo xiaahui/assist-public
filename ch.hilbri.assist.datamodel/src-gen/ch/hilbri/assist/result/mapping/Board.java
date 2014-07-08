@@ -27,6 +27,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ch.hilbri.assist.result.mapping.Board#getProcessors <em>Processors</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Board#getIoAdapters <em>Io Adapters</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Board#getNetworks <em>Networks</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.Board#isNotUsed <em>Not Used</em>}</li>
  * </ul>
  * </p>
  *
@@ -326,5 +327,32 @@ public interface Board extends HardwareElement {
 	 * @generated
 	 */
 	EList<Network> getNetworks();
+
+	/**
+	 * Returns the value of the '<em><b>Not Used</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Is this processor used? Does it contain any mapped threads?
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Not Used</em>' attribute.
+	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getBoard_NotUsed()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='boolean result = false;\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.mapping.Processor%>> _processors = this.getProcessors();\nfor (final <%ch.hilbri.assist.result.mapping.Processor%> p : _processors)\n{\n\tboolean _or = false;\n\tif (result)\n\t{\n\t\t_or = true;\n\t} else\n\t{\n\t\tboolean _isNotUsed = p.isNotUsed();\n\t\t_or = _isNotUsed;\n\t}\n\tresult = _or;\n}\nreturn result;'"
+	 * @generated
+	 */
+	boolean isNotUsed();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Creates a list of all applications being mapped to this board
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.result.mapping.Application%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.result.mapping.Application%>>();\nreturn list;'"
+	 * @generated
+	 */
+	EList<Application> getAllApplications();
 
 } // Board

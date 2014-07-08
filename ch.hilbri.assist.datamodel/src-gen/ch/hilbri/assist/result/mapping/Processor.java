@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ch.hilbri.assist.result.mapping.Processor#getProcessorType <em>Processor Type</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Processor#getBoard <em>Board</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Processor#getCores <em>Cores</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.Processor#isNotUsed <em>Not Used</em>}</li>
  * </ul>
  * </p>
  *
@@ -122,5 +123,20 @@ public interface Processor extends HardwareElement {
 	 * @generated
 	 */
 	EList<Core> getCores();
+
+	/**
+	 * Returns the value of the '<em><b>Not Used</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Is this processor used? Does it contain any mapped threads?
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Not Used</em>' attribute.
+	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getProcessor_NotUsed()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='boolean result = false;\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.mapping.Core%>> _cores = this.getCores();\nfor (final <%ch.hilbri.assist.result.mapping.Core%> c : _cores)\n{\n\tboolean _or = false;\n\tif (result)\n\t{\n\t\t_or = true;\n\t} else\n\t{\n\t\tboolean _isNotUsed = c.isNotUsed();\n\t\t_or = _isNotUsed;\n\t}\n\tresult = _or;\n}\nreturn result;'"
+	 * @generated
+	 */
+	boolean isNotUsed();
 
 } // Processor

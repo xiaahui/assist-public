@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.analysis.metrics;
+package ch.hilbri.assist.mapping.analysis.metrics.custom;
 
 import java.io.BufferedReader;
 import java.io.File;

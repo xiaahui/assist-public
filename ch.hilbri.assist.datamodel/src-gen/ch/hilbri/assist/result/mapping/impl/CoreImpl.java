@@ -32,8 +32,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.CoreImpl#getArchitecture <em>Architecture</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.CoreImpl#getCapacity <em>Capacity</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.CoreImpl#getUtilization <em>Utilization</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.CoreImpl#getRelativeUtilization <em>Relative Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.CoreImpl#getProcessor <em>Processor</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.CoreImpl#getThreads <em>Threads</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.CoreImpl#isNotUsed <em>Not Used</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.CoreImpl#getRemainingAbsoluteCapacity <em>Remaining Absolute Capacity</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.CoreImpl#getRemainingRelativeCapacity <em>Remaining Relative Capacity</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,7 +92,7 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double UTILIZATION_EDEFAULT = 0.0;
+	protected static final int UTILIZATION_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getUtilization() <em>Utilization</em>}' attribute.
@@ -98,7 +102,17 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * @generated
 	 * @ordered
 	 */
-	protected double utilization = UTILIZATION_EDEFAULT;
+	protected int utilization = UTILIZATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRelativeUtilization() <em>Relative Utilization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelativeUtilization()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double RELATIVE_UTILIZATION_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getThreads() <em>Threads</em>}' reference list.
@@ -109,6 +123,36 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * @ordered
 	 */
 	protected EList<ch.hilbri.assist.result.mapping.Thread> threads;
+
+	/**
+	 * The default value of the '{@link #isNotUsed() <em>Not Used</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNotUsed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NOT_USED_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getRemainingAbsoluteCapacity() <em>Remaining Absolute Capacity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRemainingAbsoluteCapacity()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int REMAINING_ABSOLUTE_CAPACITY_EDEFAULT = 0;
+
+	/**
+	 * The default value of the '{@link #getRemainingRelativeCapacity() <em>Remaining Relative Capacity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRemainingRelativeCapacity()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double REMAINING_RELATIVE_CAPACITY_EDEFAULT = 0.0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,7 +220,7 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getUtilization() {
+	public int getUtilization() {
 		return utilization;
 	}
 
@@ -185,11 +229,21 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUtilization(double newUtilization) {
-		double oldUtilization = utilization;
+	public void setUtilization(int newUtilization) {
+		int oldUtilization = utilization;
 		utilization = newUtilization;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.CORE__UTILIZATION, oldUtilization, utilization));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getRelativeUtilization() {
+		int _capacity = this.getCapacity();
+		return ((((double) this.getUtilization()) * 100.0) / ((double) _capacity));
 	}
 
 	/**
@@ -260,6 +314,38 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isNotUsed() {
+		EList<ch.hilbri.assist.result.mapping.Thread> _threads = this.getThreads();
+		return _threads.isEmpty();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getRemainingAbsoluteCapacity() {
+		int _capacity = this.getCapacity();
+		int _utilization = this.getUtilization();
+		return (_capacity - _utilization);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getRemainingRelativeCapacity() {
+		int _remainingAbsoluteCapacity = this.getRemainingAbsoluteCapacity();
+		int _capacity = this.getCapacity();
+		return (((double) _remainingAbsoluteCapacity) / ((double) _capacity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -313,11 +399,19 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 				return getCapacity();
 			case MappingPackage.CORE__UTILIZATION:
 				return getUtilization();
+			case MappingPackage.CORE__RELATIVE_UTILIZATION:
+				return getRelativeUtilization();
 			case MappingPackage.CORE__PROCESSOR:
 				if (resolve) return getProcessor();
 				return basicGetProcessor();
 			case MappingPackage.CORE__THREADS:
 				return getThreads();
+			case MappingPackage.CORE__NOT_USED:
+				return isNotUsed();
+			case MappingPackage.CORE__REMAINING_ABSOLUTE_CAPACITY:
+				return getRemainingAbsoluteCapacity();
+			case MappingPackage.CORE__REMAINING_RELATIVE_CAPACITY:
+				return getRemainingRelativeCapacity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -338,7 +432,7 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 				setCapacity((Integer)newValue);
 				return;
 			case MappingPackage.CORE__UTILIZATION:
-				setUtilization((Double)newValue);
+				setUtilization((Integer)newValue);
 				return;
 			case MappingPackage.CORE__PROCESSOR:
 				setProcessor((Processor)newValue);
@@ -392,10 +486,18 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 				return capacity != CAPACITY_EDEFAULT;
 			case MappingPackage.CORE__UTILIZATION:
 				return utilization != UTILIZATION_EDEFAULT;
+			case MappingPackage.CORE__RELATIVE_UTILIZATION:
+				return getRelativeUtilization() != RELATIVE_UTILIZATION_EDEFAULT;
 			case MappingPackage.CORE__PROCESSOR:
 				return basicGetProcessor() != null;
 			case MappingPackage.CORE__THREADS:
 				return threads != null && !threads.isEmpty();
+			case MappingPackage.CORE__NOT_USED:
+				return isNotUsed() != NOT_USED_EDEFAULT;
+			case MappingPackage.CORE__REMAINING_ABSOLUTE_CAPACITY:
+				return getRemainingAbsoluteCapacity() != REMAINING_ABSOLUTE_CAPACITY_EDEFAULT;
+			case MappingPackage.CORE__REMAINING_RELATIVE_CAPACITY:
+				return getRemainingRelativeCapacity() != REMAINING_RELATIVE_CAPACITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

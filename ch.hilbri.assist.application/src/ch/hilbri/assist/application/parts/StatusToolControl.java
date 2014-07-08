@@ -54,25 +54,25 @@ public class StatusToolControl implements IProgressMonitor {
 
 	@Override
 	public void internalWorked(double work) {
-		// TODO Auto-generated method stub
+		//  Auto-generated method stub
 
 	}
 
 	@Override
 	public boolean isCanceled() {
-		// TODO Auto-generated method stub
+		//  Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void setCanceled(boolean value) {
-		// TODO Auto-generated method stub
+		//  Auto-generated method stub
 
 	}
 
 	@Override
 	public void setTaskName(String name) {
-		// TODO Auto-generated method stub
+		//  Auto-generated method stub
 
 	}
 

@@ -3,6 +3,7 @@
  */
 package ch.hilbri.assist.result.mapping.impl;
 
+import ch.hilbri.assist.result.mapping.AbstractMetric;
 import ch.hilbri.assist.result.mapping.Application;
 import ch.hilbri.assist.result.mapping.ApplicationGroup;
 import ch.hilbri.assist.result.mapping.Board;
@@ -86,6 +87,7 @@ public class MappingFactoryImpl extends EFactoryImpl implements MappingFactory {
 			case MappingPackage.THREAD: return createThread();
 			case MappingPackage.IO_ADAPTER_REQUIREMENT: return createIOAdapterRequirement();
 			case MappingPackage.COMMUNICATION_RELATION: return createCommunicationRelation();
+			case MappingPackage.ABSTRACT_METRIC: return createAbstractMetric();
 			case MappingPackage.EVALUATION: return createEvaluation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -230,6 +232,16 @@ public class MappingFactoryImpl extends EFactoryImpl implements MappingFactory {
 	public CommunicationRelation createCommunicationRelation() {
 		CommunicationRelationImpl communicationRelation = new CommunicationRelationImpl();
 		return communicationRelation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractMetric createAbstractMetric() {
+		AbstractMetricImpl abstractMetric = new AbstractMetricImpl();
+		return abstractMetric;
 	}
 
 	/**

@@ -172,7 +172,7 @@ public class TreeLabelProvider extends LabelProvider {
 //	private void createDisabledImage(String kind, int state, ImageSet images, Image baseImage) {
 //		// The four images for task_set, task_sequence, task_choice and cheatsheet_task can be found
 //		// in icons/dlcl16. 
-//		// TODO extend the extension point to allow disabled images to be specified.
+//		//  extend the extension point to allow disabled images to be specified.
 //		//if 
 //
 //		ImageDescriptor desc = getPredefinedImageDescriptor(kind, false);

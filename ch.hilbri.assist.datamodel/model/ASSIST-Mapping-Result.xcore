@@ -8,6 +8,8 @@ import ch.hilbri.assist.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.model.IOAdapterProtectionLevelType
 import ch.hilbri.assist.model.IOAdapterType
 
+import org.eclipse.emf.common.util.BasicEList
+
 interface Comparable wraps Comparable<Result>{}
 
 class Result extends Comparable {
@@ -39,6 +41,8 @@ class Result extends Comparable {
 		HardwareArchitectureLevelType.CORE
 	}
 	
+	
+	
 	@GenModel(documentation="Contains a list of all io adapters")
 	contains IOAdapter[0..*]				ioAdapters
 	
@@ -69,6 +73,24 @@ class Result extends Comparable {
 		if (diff < 0.0)	return 1;
 		if (diff > 0.0)	return -1;
 		return 0;
+	}
+	
+	@GenModel(documentation="Creates a list of all cores")
+	op Core[] getAllCores() {
+		val list = new BasicEList<Core> // FIXME: Implement me!
+		return list
+	}
+	
+	@GenModel(documentation="Creates a list of all processors")
+	op Processor[] getAllProcessors() {
+		val list = new BasicEList<Processor> // FIXME: Implement me!
+		return list
+	}
+	
+	@GenModel(documentation="Creates a list of all boards")
+	op Board[] getAllBoards() {
+		val list = new BasicEList<Board> // FIXME: Implement me!
+		return list
 	}
 }
 
@@ -104,21 +126,54 @@ class Board extends HardwareElement {
 	contains Processor[1..*] 	processors opposite board
 	contains IOAdapter[0..*] 	ioAdapters
 	refers Network[0..*] 		networks opposite boards
+	
+	@GenModel(documentation="Is this processor used? Does it contain any mapped threads?")
+	derived boolean 	notUsed	get { 
+		var result = false
+		for (p : processors) 
+			result = result || p.notUsed
+		return result 
+	} 
+	
+	@GenModel(documentation="Creates a list of all applications being mapped to this board")
+	op Application[] getAllApplications() {
+		val list = new BasicEList<Application> // FIXME: Implement me!
+		return list
+	}
 }
 
 class Processor extends HardwareElement {
 	String manufacturer
 	String processorType
 	container Board board opposite processors
-	contains Core[1..*] cores opposite processor 
+	contains Core[1..*] cores opposite processor
+	
+	@GenModel(documentation="Is this processor used? Does it contain any mapped threads?")
+	derived boolean 	notUsed	get { 
+		var result = false
+		for (c : cores) 
+			result = result || c.notUsed
+		return result 
+	} 
 }
 
 class Core extends HardwareElement {
 	String 						architecture
 	int 						capacity
-	double						utilization
+	int							utilization
+	derived double				relativeUtilization get { utilization as double  * 100.0 / capacity as double}
 	container Processor 		processor opposite cores
 	refers Thread[0..*] 		threads
+	
+	@GenModel(documentation="Is this core used? Does it contain any mapped threads?")
+	derived boolean notUsed		get { threads.empty }
+	
+	@GenModel(documentation="How much absolute capacity of this core is left unused?")
+	derived int remainingAbsoluteCapacity get { capacity - utilization	}
+	
+	@GenModel(documentation="How much relative capacity of this core is left unused?")
+	derived double remainingRelativeCapacity get { remainingAbsoluteCapacity as double / capacity as double	}
+	
 }
 
 class IOAdapter {
@@ -171,12 +226,12 @@ class CommunicationRelation{
 	int bandwidthUtilization
 }
 
-abstract class AbstractMetric  {
+class AbstractMetric  {
 	String 			name
 	int				weight
 	boolean 		higherScoreIsBetter
 	boolean 		builtIn = "true"
-	op double 		computeScore(Result result)
+	op double 		computeScore(Result result) { 0 }
 }
 
 class Evaluation {

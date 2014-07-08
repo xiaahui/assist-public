@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see ch.hilbri.assist.result.mapping.MappingPackage#getAbstractMetric()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface AbstractMetric extends EObject {
@@ -134,6 +134,7 @@ public interface AbstractMetric extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model unique="false" resultUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return 0;'"
 	 * @generated
 	 */
 	double computeScore(Result result);

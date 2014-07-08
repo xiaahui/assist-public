@@ -19,7 +19,7 @@ import org.eclipse.ui.internal.cheatsheets.Messages;
 
 public class ParserStatusUtility {
 	
-	public final static int PARSER_ERROR = 1001; // TODO is there another number that would be more meaningful
+	public final static int PARSER_ERROR = 1001; //  is there another number that would be more meaningful
 	
 	/**
 	 * Modify an existing IStatus to add information about a new error/warning.

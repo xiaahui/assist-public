@@ -13,6 +13,10 @@ import javafx.scene.control.TreeItem;
 import org.eclipse.ui.part.EditorPart;
 
 import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxFreeCoreCapacity;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxOrgUnitsPerBoard;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.UniformCoreLoadDistribution;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
 import ch.hilbri.assist.result.mapping.Result;
 
@@ -47,12 +51,12 @@ public class DetailedResultsViewUiModel {
 	 */
 	private void initialiseMetrics() {
 		metricsList = new ResultsAnalysis();
-//		metricsList.add(new RandomScore(1));
-//		metricsList.add(new UniformCoreLoadDistribution(1));
-//		metricsList.add(new MaxFreeCoreCapacity(1));
-//		metricsList.add(new MaxOrgUnitsPerBoard(1));
+		metricsList.add(new RandomScore(1));
+		metricsList.add(new UniformCoreLoadDistribution(1));
+		metricsList.add(new MaxFreeCoreCapacity(1));
+		metricsList.add(new MaxOrgUnitsPerBoard(1));
 		
-//		usedMetricsList = new ResultsAnalysis();
+		usedMetricsList = new ResultsAnalysis();
 
 		
 	}

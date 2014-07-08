@@ -70,7 +70,7 @@ public class IntroItem extends ViewItem {
 		filldata.widthHint = 16;
 		filllabel.setLayoutData(filldata);
 
-		//-- Customized to hide start Button and therefore disable the task system to make the CheatSheet an info sheet-- TODO
+		//-- Customized to hide start Button and therefore disable the task system to make the CheatSheet an info sheet-- 
 //		startButton = createButtonWithText(buttonComposite, CheatSheetPlugin.getPlugin().getImage(ICheatSheetResource.COMPOSITE_TASK_START), this, itemColor, Messages.START_CHEATSHEET_TOOLTIP);
 //		startButton.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
 //		startButton.addHyperlinkListener(new HyperlinkAdapter() {

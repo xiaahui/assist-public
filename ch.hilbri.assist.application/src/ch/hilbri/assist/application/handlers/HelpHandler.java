@@ -11,7 +11,7 @@ public class HelpHandler {
 
 	@Execute
 	public void execute(Shell shell) {
-		MessageDialog.openInformation(shell, "Help", "This is the help handler. It has yet to be implemented!"); // TODO write
+		MessageDialog.openInformation(shell, "Help", "This is the help handler. It has yet to be implemented!"); //  write
 																													// help
 																													// stuff
 	}

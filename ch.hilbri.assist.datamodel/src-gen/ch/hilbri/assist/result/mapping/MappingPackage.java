@@ -233,13 +233,40 @@ public interface MappingPackage extends EPackage {
 	int RESULT___COMPARE_TO__RESULT = COMPARABLE_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get All Cores</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_ALL_CORES = COMPARABLE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get All Processors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_ALL_PROCESSORS = COMPARABLE_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get All Boards</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_ALL_BOARDS = COMPARABLE_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 1;
+	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -552,13 +579,31 @@ public interface MappingPackage extends EPackage {
 	int BOARD__NETWORKS = HARDWARE_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Not Used</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD__NOT_USED = HARDWARE_ELEMENT_FEATURE_COUNT + 12;
+
+	/**
 	 * The number of structural features of the '<em>Board</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 12;
+	int BOARD_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 13;
+
+	/**
+	 * The operation id for the '<em>Get All Applications</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD___GET_ALL_APPLICATIONS = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Board</em>' class.
@@ -567,7 +612,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+	int BOARD_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.ProcessorImpl <em>Processor</em>}' class.
@@ -625,13 +670,22 @@ public interface MappingPackage extends EPackage {
 	int PROCESSOR__CORES = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Not Used</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSOR__NOT_USED = HARDWARE_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Processor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSOR_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 4;
+	int PROCESSOR_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Processor</em>' class.
@@ -689,13 +743,22 @@ public interface MappingPackage extends EPackage {
 	int CORE__UTILIZATION = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Relative Utilization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORE__RELATIVE_UTILIZATION = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Processor</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CORE__PROCESSOR = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
+	int CORE__PROCESSOR = HARDWARE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Threads</b></em>' reference list.
@@ -704,7 +767,34 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CORE__THREADS = HARDWARE_ELEMENT_FEATURE_COUNT + 4;
+	int CORE__THREADS = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Not Used</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORE__NOT_USED = HARDWARE_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Remaining Absolute Capacity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORE__REMAINING_ABSOLUTE_CAPACITY = HARDWARE_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Remaining Relative Capacity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORE__REMAINING_RELATIVE_CAPACITY = HARDWARE_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Core</em>' class.
@@ -713,7 +803,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CORE_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
+	int CORE_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Core</em>' class.
@@ -1485,6 +1575,36 @@ public interface MappingPackage extends EPackage {
 	EOperation getResult__CompareTo__Result();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllCores() <em>Get All Cores</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Cores</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#getAllCores()
+	 * @generated
+	 */
+	EOperation getResult__GetAllCores();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllProcessors() <em>Get All Processors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Processors</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#getAllProcessors()
+	 * @generated
+	 */
+	EOperation getResult__GetAllProcessors();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllBoards() <em>Get All Boards</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Boards</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#getAllBoards()
+	 * @generated
+	 */
+	EOperation getResult__GetAllBoards();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.HardwareElement <em>Hardware Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1756,6 +1876,27 @@ public interface MappingPackage extends EPackage {
 	EReference getBoard_Networks();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.mapping.Board#isNotUsed <em>Not Used</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Not Used</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Board#isNotUsed()
+	 * @see #getBoard()
+	 * @generated
+	 */
+	EAttribute getBoard_NotUsed();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Board#getAllApplications() <em>Get All Applications</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Applications</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Board#getAllApplications()
+	 * @generated
+	 */
+	EOperation getBoard__GetAllApplications();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Processor <em>Processor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1810,6 +1951,17 @@ public interface MappingPackage extends EPackage {
 	EReference getProcessor_Cores();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.mapping.Processor#isNotUsed <em>Not Used</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Not Used</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Processor#isNotUsed()
+	 * @see #getProcessor()
+	 * @generated
+	 */
+	EAttribute getProcessor_NotUsed();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Core <em>Core</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1853,6 +2005,17 @@ public interface MappingPackage extends EPackage {
 	EAttribute getCore_Utilization();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.mapping.Core#getRelativeUtilization <em>Relative Utilization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Relative Utilization</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Core#getRelativeUtilization()
+	 * @see #getCore()
+	 * @generated
+	 */
+	EAttribute getCore_RelativeUtilization();
+
+	/**
 	 * Returns the meta object for the container reference '{@link ch.hilbri.assist.result.mapping.Core#getProcessor <em>Processor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1873,6 +2036,39 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCore_Threads();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.mapping.Core#isNotUsed <em>Not Used</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Not Used</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Core#isNotUsed()
+	 * @see #getCore()
+	 * @generated
+	 */
+	EAttribute getCore_NotUsed();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.mapping.Core#getRemainingAbsoluteCapacity <em>Remaining Absolute Capacity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Remaining Absolute Capacity</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Core#getRemainingAbsoluteCapacity()
+	 * @see #getCore()
+	 * @generated
+	 */
+	EAttribute getCore_RemainingAbsoluteCapacity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.mapping.Core#getRemainingRelativeCapacity <em>Remaining Relative Capacity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Remaining Relative Capacity</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Core#getRemainingRelativeCapacity()
+	 * @see #getCore()
+	 * @generated
+	 */
+	EAttribute getCore_RemainingRelativeCapacity();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.IOAdapter <em>IO Adapter</em>}'.
@@ -2526,6 +2722,30 @@ public interface MappingPackage extends EPackage {
 		EOperation RESULT___COMPARE_TO__RESULT = eINSTANCE.getResult__CompareTo__Result();
 
 		/**
+		 * The meta object literal for the '<em><b>Get All Cores</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_ALL_CORES = eINSTANCE.getResult__GetAllCores();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Processors</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_ALL_PROCESSORS = eINSTANCE.getResult__GetAllProcessors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Boards</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_ALL_BOARDS = eINSTANCE.getResult__GetAllBoards();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2734,6 +2954,22 @@ public interface MappingPackage extends EPackage {
 		EReference BOARD__NETWORKS = eINSTANCE.getBoard_Networks();
 
 		/**
+		 * The meta object literal for the '<em><b>Not Used</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOARD__NOT_USED = eINSTANCE.getBoard_NotUsed();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Applications</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOARD___GET_ALL_APPLICATIONS = eINSTANCE.getBoard__GetAllApplications();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.ProcessorImpl <em>Processor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2776,6 +3012,14 @@ public interface MappingPackage extends EPackage {
 		EReference PROCESSOR__CORES = eINSTANCE.getProcessor_Cores();
 
 		/**
+		 * The meta object literal for the '<em><b>Not Used</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROCESSOR__NOT_USED = eINSTANCE.getProcessor_NotUsed();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.CoreImpl <em>Core</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2810,6 +3054,14 @@ public interface MappingPackage extends EPackage {
 		EAttribute CORE__UTILIZATION = eINSTANCE.getCore_Utilization();
 
 		/**
+		 * The meta object literal for the '<em><b>Relative Utilization</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CORE__RELATIVE_UTILIZATION = eINSTANCE.getCore_RelativeUtilization();
+
+		/**
 		 * The meta object literal for the '<em><b>Processor</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2824,6 +3076,30 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CORE__THREADS = eINSTANCE.getCore_Threads();
+
+		/**
+		 * The meta object literal for the '<em><b>Not Used</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CORE__NOT_USED = eINSTANCE.getCore_NotUsed();
+
+		/**
+		 * The meta object literal for the '<em><b>Remaining Absolute Capacity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CORE__REMAINING_ABSOLUTE_CAPACITY = eINSTANCE.getCore_RemainingAbsoluteCapacity();
+
+		/**
+		 * The meta object literal for the '<em><b>Remaining Relative Capacity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CORE__REMAINING_RELATIVE_CAPACITY = eINSTANCE.getCore_RemainingRelativeCapacity();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.IOAdapterImpl <em>IO Adapter</em>}' class.

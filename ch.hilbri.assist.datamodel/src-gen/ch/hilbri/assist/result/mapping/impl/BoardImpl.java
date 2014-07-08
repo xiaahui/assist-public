@@ -5,6 +5,7 @@ package ch.hilbri.assist.result.mapping.impl;
 
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
 
+import ch.hilbri.assist.result.mapping.Application;
 import ch.hilbri.assist.result.mapping.Board;
 import ch.hilbri.assist.result.mapping.Box;
 import ch.hilbri.assist.result.mapping.IOAdapter;
@@ -12,11 +13,14 @@ import ch.hilbri.assist.result.mapping.MappingPackage;
 import ch.hilbri.assist.result.mapping.Network;
 import ch.hilbri.assist.result.mapping.Processor;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -49,6 +53,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.BoardImpl#getProcessors <em>Processors</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.BoardImpl#getIoAdapters <em>Io Adapters</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.BoardImpl#getNetworks <em>Networks</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.BoardImpl#isNotUsed <em>Not Used</em>}</li>
  * </ul>
  * </p>
  *
@@ -244,6 +249,16 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * @ordered
 	 */
 	protected EList<Network> networks;
+
+	/**
+	 * The default value of the '{@link #isNotUsed() <em>Not Used</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNotUsed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NOT_USED_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -524,6 +539,37 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isNotUsed() {
+		boolean result = false;
+		EList<Processor> _processors = this.getProcessors();
+		for (final Processor p : _processors) {
+			boolean _or = false;
+			if (result) {
+				_or = true;
+			} else {
+				boolean _isNotUsed = p.isNotUsed();
+				_or = _isNotUsed;
+			}
+			result = _or;
+		}
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Application> getAllApplications() {
+		final BasicEList<Application> list = new BasicEList<Application>();
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -607,6 +653,8 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 				return getIoAdapters();
 			case MappingPackage.BOARD__NETWORKS:
 				return getNetworks();
+			case MappingPackage.BOARD__NOT_USED:
+				return isNotUsed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -743,8 +791,24 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 				return ioAdapters != null && !ioAdapters.isEmpty();
 			case MappingPackage.BOARD__NETWORKS:
 				return networks != null && !networks.isEmpty();
+			case MappingPackage.BOARD__NOT_USED:
+				return isNotUsed() != NOT_USED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case MappingPackage.BOARD___GET_ALL_APPLICATIONS:
+				return getAllApplications();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

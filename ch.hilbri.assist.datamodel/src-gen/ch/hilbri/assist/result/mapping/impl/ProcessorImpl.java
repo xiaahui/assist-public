@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ProcessorImpl#getProcessorType <em>Processor Type</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ProcessorImpl#getBoard <em>Board</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ProcessorImpl#getCores <em>Cores</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.ProcessorImpl#isNotUsed <em>Not Used</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,6 +91,16 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 	 * @ordered
 	 */
 	protected EList<Core> cores;
+
+	/**
+	 * The default value of the '{@link #isNotUsed() <em>Not Used</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNotUsed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NOT_USED_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -220,6 +231,27 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isNotUsed() {
+		boolean result = false;
+		EList<Core> _cores = this.getCores();
+		for (final Core c : _cores) {
+			boolean _or = false;
+			if (result) {
+				_or = true;
+			} else {
+				boolean _isNotUsed = c.isNotUsed();
+				_or = _isNotUsed;
+			}
+			result = _or;
+		}
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -281,6 +313,8 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 				return basicGetBoard();
 			case MappingPackage.PROCESSOR__CORES:
 				return getCores();
+			case MappingPackage.PROCESSOR__NOT_USED:
+				return isNotUsed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -351,6 +385,8 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 				return basicGetBoard() != null;
 			case MappingPackage.PROCESSOR__CORES:
 				return cores != null && !cores.isEmpty();
+			case MappingPackage.PROCESSOR__NOT_USED:
+				return isNotUsed() != NOT_USED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -28,6 +28,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -531,6 +532,36 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Core> getAllCores() {
+		final BasicEList<Core> list = new BasicEList<Core>();
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Processor> getAllProcessors() {
+		final BasicEList<Processor> list = new BasicEList<Processor>();
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Board> getAllBoards() {
+		final BasicEList<Board> list = new BasicEList<Board>();
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -739,6 +770,12 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		switch (operationID) {
 			case MappingPackage.RESULT___COMPARE_TO__RESULT:
 				return compareTo((Result)arguments.get(0));
+			case MappingPackage.RESULT___GET_ALL_CORES:
+				return getAllCores();
+			case MappingPackage.RESULT___GET_ALL_PROCESSORS:
+				return getAllProcessors();
+			case MappingPackage.RESULT___GET_ALL_BOARDS:
+				return getAllBoards();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -49,7 +49,7 @@ public class Generate {
 //					
 //					/* Searching for errors inside the document? */
 //					if (resource.getErrors().size() > 0) {	
-//						ConsoleCommands.writeLineToConsole("Eingabe fehlerhaft!"); //TODO ordentliche ausgabe
+//						ConsoleCommands.writeLineToConsole("Eingabe fehlerhaft!"); // ordentliche ausgabe
 //						return null; 
 //					}
 //					
