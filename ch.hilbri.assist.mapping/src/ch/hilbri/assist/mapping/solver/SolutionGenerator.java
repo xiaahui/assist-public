@@ -162,7 +162,7 @@ public class SolutionGenerator {
 //				} catch (InterruptedException e) { e.printStackTrace(); } 
 //				/* wurde immernoch nicht beendet, dann killen */
 //				if (findSolutionThread.getState() == java.lang.Thread.State.RUNNABLE)
-//					findSolutionThread.stop(); // TODO: warum klappt hier interrupt() nicht?
+//					findSolutionThread.stop(); 
 //				// TODO: Nachricht, dass Zeit abgelaufen ist
 //				break;
 //			}
