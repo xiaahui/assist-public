@@ -26,6 +26,6 @@
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="__-kKgEiQEeOdX57Z--P1Iw" featurename="children" parentElementId="org.eclipse.ui.workbench.file" positionInList="first">
-    <elements xsi:type="menu:HandledToolItem" xmi:id="_CweRcEiREeOdX57Z--P1Iw" elementId="ch.hilbri.assist.mapping.handledtoolitem.generate" label="Generate mappings" iconURI="platform:/plugin/ch.hilbri.assist.mapping/icons/mapping_icon_transp_small.png" tooltip="Generate mappings for the current specification" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
+    <elements xsi:type="menu:HandledToolItem" xmi:id="_CweRcEiREeOdX57Z--P1Iw" elementId="ch.hilbri.assist.mapping.handledtoolitem.generate" label="Generate mappings" iconURI="platform:/plugin/ch.hilbri.assist.mapping/icons/metricTable/toolbar_evaluate.gif" tooltip="Generate mappings for the current specification" enabled="false" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
   </fragments>
 </fragment:ModelFragments>
