@@ -19,8 +19,8 @@
 }
 
 .MToolControl.TrimStack {
-	frame-image:  url(./macTSFrame.png);
-	handle-image:  url(./macHandle.png);
+	frame-image:  url("./macTSFrame.png");
+	handle-image:  url("./macHandle.png");
 }
 
 .MPartStack.active {

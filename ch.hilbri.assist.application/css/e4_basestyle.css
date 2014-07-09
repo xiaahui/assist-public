@@ -27,17 +27,17 @@
 }
 
 .MToolControl.TrimStack {
-	frame-image:  url(./winXPTSFrame.png);
-	handle-image:  url(./winXPHandle.png);
+	frame-image:  url("./winXPTSFrame.png");
+	handle-image:  url("./winXPHandle.png");
 	frame-cuts: 5px 1px 5px 16px;
 }
 
 .MToolBar.Draggable {
-	handle-image:  url(./dragHandle.png);
+	handle-image:  url("./dragHandle.png");
 }
 
 .MToolControl.Draggable {
-	handle-image:  url(./dragHandle.png);
+	handle-image:  url("./dragHandle.png");
 }
 
 .DragFeedback {
