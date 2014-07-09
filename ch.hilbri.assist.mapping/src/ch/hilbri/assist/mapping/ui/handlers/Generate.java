@@ -67,7 +67,7 @@ public class Generate {
 					
 					/* Searching for errors inside the document? */
 					if (resource.getErrors().size() > 0) {	
-						ConsoleCommands.writeLineToConsole("Input contains errors!"); // ordentliche ausgabe
+						ConsoleCommands.writeLineToConsole("Input contains errors - it will not be processed."); // ordentliche ausgabe
 						return null; 
 					}
 					
@@ -87,7 +87,7 @@ public class Generate {
 						if (soamd.open() == org.eclipse.jface.window.Window.OK) {
 							// User hat OK geklickt
 							/* Create a new background Job for finding all solutions */
-							SolverJob findSolutionsJob = new SolverJob("Find all solutions", inputModel, (MultiPageEditor)editor);
+							SolverJob findSolutionsJob = new SolverJob("Find all mappings", inputModel, (MultiPageEditor)editor);
 							findSolutionsJob.setUser(true);
 							switch (soamd.getMode()) {
 							case CONSECUTIVE:
@@ -104,16 +104,8 @@ public class Generate {
 								return null;
 							}
 							findSolutionsJob.schedule();
-						} else {
-							// User hat auf Cancel geklickt oder anders beendet
-							
-						}
-						
-						
-						
-					} else {
-//						ConsoleCommands.writeLineToConsole("Something went wrong. Couldn't interact with Result View.");
-					}
+						} 						
+					} 
 				}
 			}
 		}

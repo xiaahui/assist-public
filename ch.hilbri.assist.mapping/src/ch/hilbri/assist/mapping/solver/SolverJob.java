@@ -4,8 +4,19 @@ import java.util.ArrayList;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.jacop.constraints.XeqY;
+import org.jacop.constraints.XneqY;
+import org.jacop.core.IntVar;
+import org.jacop.core.Store;
+import org.jacop.search.DepthFirstSearch;
+import org.jacop.search.IndomainMin;
+import org.jacop.search.InputOrderSelect;
+import org.jacop.search.Search;
+import org.jacop.search.SelectChoicePoint;
 
+import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.mapping.solver.SolutionGenerator.KindOfSolutions;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
@@ -15,6 +26,11 @@ import ch.hilbri.assist.result.mapping.Result;
 public class SolverJob extends Job {
 
 	private AssistModel model;
+	
+	private Store constraintStore;
+	
+	private ArrayList<IntVar> solutionVariablesList;
+	
 //
 //	private CS constraintSystem;
 //	
@@ -43,8 +59,8 @@ public class SolverJob extends Job {
 	
 	 /*
 	 * Dieser Wert definiert eine maximale Anzahl an Deployments, die
-	 * gesucht werden. Falls die Grenze ï¿½berschritten wird, wird die
-	 * Suche abgebrochen. Dann kann es sein, dass noch weitere Lï¿½sungen
+	 * gesucht werden. Falls die Grenze ue½berschritten wird, wird die
+	 * Suche abgebrochen. Dann kann es sein, dass noch weitere Loesungen
 	 * vorhanden sind, aber nicht gefunden worden sind.
 	 */
 	private int maxSolutions;
@@ -52,29 +68,21 @@ public class SolverJob extends Job {
 
 	/*
 	 * Gibt an, welche Art der Suche verwendet werden soll:
-	 * RANDOM: 		sucht zufï¿½llig im gesamten Lï¿½sungsraum
-	 * 		   		(Vorteil: Lï¿½sungen stammen aus allen Teilen des Lï¿½sungsraums)
-	 * CONSECUTIVE: sucht "hintereiander" liegende Lï¿½sungen
-	 * 				(Vorteil: Es kann eindeutig bestimmt werden, ob alle mï¿½glichen Lï¿½sungen gefunden wurden)
+	 * RANDOM: 		sucht zufaellig im gesamten Loesungsraum
+	 * 		   		(Vorteil: Loesungen stammen aus allen Teilen des Loesungsraums)
+	 * CONSECUTIVE: sucht "hintereiander" liegende Loesungen
+	 * 				(Vorteil: Es kann eindeutig bestimmt werden, ob alle moeglichen Loesungen gefunden wurden)
 	 */
 	private KindOfSolutions kindOfSolutions;
 
 	/*
 	 * Im Advances Mode gibt dies die maximale Suchzeit an, da nicht
-	 * festgestellt werden kann, ob alle existierenden Lï¿½sungen gefunden wurden.
+	 * festgestellt werden kann, ob alle existierenden Loesungen gefunden wurden.
 	 */
 	private long maxTimeOfCalculationInmsec;  // in msec
 	
 	
-	/** neues Result, soll zukï¿½nftig mappingResults ersetzen */
-	private ArrayList<Result> newMappingResults;
-
-	/**
-	 * @return the newMappingResults
-	 */
-	public ArrayList<Result> getNewMappingResults() {
-		return newMappingResults;
-	}
+	private ArrayList<Result> mappingResults;
 
 	/**
 	 * Constructor
@@ -94,25 +102,26 @@ public class SolverJob extends Job {
 		}
 		init();
 	}
-//
-//	public SolverJob(String name, MappingDataModel ppModel, DetailedResultsViewUiModel detailedResultsViewUiModel, PrecisionproMainEditor ppEditor) {
-//		super(name);
-//		this.model = ppModel;
-//		this.multiPageEditor = null;
-//		this.detailedResultsViewUiModel = detailedResultsViewUiModel;
-//		
-//		detailedResultsViewUiModel.setEditor(ppEditor);
-//		init();
-//	}
-//	
+
 	private void init() {
-//		
-//		/* Create a list for the results */ 
-//		this.newMappingResults = new ArrayList<Result>();  
-//		
-//		/* Create a new Constraint System (firstCS) */
-//		this.constraintSystem = new CS();
-//
+
+		/* Create a list for the results */ 
+		this.mappingResults = new ArrayList<Result>();  
+		
+		/* Create a new Constraint Store (JaCoP) */
+		this.constraintStore = new Store();
+		this.solutionVariablesList = new ArrayList<IntVar>();
+		
+		IntVar x = new IntVar(constraintStore, "X", 1,3);
+		solutionVariablesList.add(x);
+		
+		IntVar y = new IntVar(constraintStore, "Y", 2,5);
+		solutionVariablesList.add(y);
+		
+		constraintStore.impose(new XeqY(x,y));
+		
+		ConsoleCommands.writeLineToConsole("Mapping specification consistency: " + constraintStore.consistency());
+
 //		/* Create the set of Variables needed for a Thread */
 //		this.threadVariablesList = new ThreadVariablesList(model, constraintSystem);
 //		
@@ -182,14 +191,14 @@ public class SolverJob extends Job {
 //
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
-//		return execute(monitor, true);
-		return null;
+		return execute(monitor, true);
 	}
-//	
-//	/* Die Funktionalitï¿½t der RUN-Methode wurde ausgelagert, um den Zugang fï¿½r einen Test zu ermï¿½glichen */
-//	public IStatus execute(IProgressMonitor monitor, boolean presentResults) {
-//
-//		monitor.beginTask("Find all mappings (firstCS)", mappingConstraintsList.size() + 2);
+	
+	/* Die Funktionalitaet der RUN-Methode wurde ausgelagert, um den Zugang fuer einen Test zu ermoeglichen */
+	public IStatus execute(IProgressMonitor monitor, boolean presentResults) 
+	{
+
+		monitor.beginTask("Generating all mappings", 1);
 //
 //		for (AbstractMappingConstraint constraint : mappingConstraintsList) {
 //
@@ -203,21 +212,52 @@ public class SolverJob extends Job {
 //			monitor.worked(1);
 //		}
 //
-//		 monitor.subTask("Searching for solutions");
-//		 if (runSearchForSolutions(monitor) != Status.OK_STATUS) return Status.CANCEL_STATUS;
-//		 monitor.worked(1);
+		 monitor.subTask("Searching for solutions");
+		 if (runSearchForSolutions(monitor) != Status.OK_STATUS) return Status.CANCEL_STATUS;
+		 monitor.worked(1);
 //
 //	
 //		 monitor.subTask("Showing results");
 //		 if (presentResults == true) { showResults(newMappingResults); }
 //		 monitor.worked(1);
 //
-//		 return Status.OK_STATUS;
-//	}
+		 return Status.OK_STATUS;
+	}
 //
-//	private IStatus runSearchForSolutions(IProgressMonitor monitor) {
-//		
-//		
+	private IStatus runSearchForSolutions(IProgressMonitor monitor) {
+		
+		IntVar[] solVariables = new IntVar[solutionVariablesList.size()];
+		int vCtr = 0;
+		for (IntVar v : solutionVariablesList) solVariables[vCtr++] = v;
+			
+		
+		Search<IntVar> search = new DepthFirstSearch<IntVar>();
+		search.getSolutionListener().searchAll(true);
+		search.getSolutionListener().setSolutionLimit(5);
+		search.getSolutionListener().recordSolutions(true);
+		
+		SelectChoicePoint<IntVar> select = new InputOrderSelect<IntVar>(constraintStore, solVariables, new IndomainMin<IntVar>());
+		 
+		boolean result = search.labeling(constraintStore, select); 
+		
+		if (result) {
+			ConsoleCommands.writeLineToConsole("Solutions found: " + search.getSolutionListener().solutionsNo() + " - Limit reached: " + search.getSolutionListener().solutionLimitReached());
+
+			search.printAllSolutions();
+			
+			  for (int i=1; i<=search.getSolutionListener().solutionsNo(); i++){ 
+				      ConsoleCommands.writeToConsole("Solution " + i + ": "); 
+				      for (int j=0; j<search.getSolution(i).length; j++) 
+				    	  ConsoleCommands.writeToConsole("" + search.getSolution(i)[j]); 
+				      ConsoleCommands.writeLineToConsole(""); 
+				   }
+			
+		}
+		else
+			ConsoleCommands.writeErrorLineToConsole("Nothing found");
+		
+		return Status.OK_STATUS;
+		
 //		/*
 //		 * Sort the threadVariableList with respect to e.g. 'criticality', 'core utilization'
 //		 * with highest value first. For multiple criteria begin sorting with most important
@@ -262,7 +302,7 @@ public class SolverJob extends Job {
 //			System.err.println("FATAL ERROR: SolutionGenerator didn't set the variables to unique values!");
 //			return Status.CANCEL_STATUS;
 //		}
-//	}
+	}
 //	
 //	
 //	/**
@@ -309,6 +349,13 @@ public class SolverJob extends Job {
 	 */
 	public void setMaxTimeOfCalculationInmsec(long maxTimeOfCalculationInmsec) {
 		this.maxTimeOfCalculationInmsec = maxTimeOfCalculationInmsec;
+	}
+
+	/**
+	 * @return the newMappingResults
+	 */
+	public ArrayList<Result> getNewMappingResults() {
+		return mappingResults;
 	}
 	
 }

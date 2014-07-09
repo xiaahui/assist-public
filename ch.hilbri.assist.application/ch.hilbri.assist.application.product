@@ -3,7 +3,6 @@
 
 <product name="ASSIST" id="ch.hilbri.assist.application.assist_product" application="ch.hilbri.assist.application.application" version="0.1" useFeatures="false" includeLaunchers="true">
 
-
    <configIni use="default">
    </configIni>
 
@@ -27,15 +26,17 @@
       </win>
    </launcher>
 
-
    <vm>
       <windows include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</windows>
    </vm>
 
-
    <plugins>
       <plugin id="ch.hilbri.assist.application"/>
       <plugin id="ch.hilbri.assist.datamodel"/>
+      <plugin id="ch.hilbri.assist.datamodel.edit"/>
+      <plugin id="ch.hilbri.assist.datamodel.editor"/>
+      <plugin id="ch.hilbri.assist.libraries.javafx"/>
+      <plugin id="ch.hilbri.assist.libraries.math"/>
       <plugin id="ch.hilbri.assist.mapping"/>
       <plugin id="ch.hilbri.assist.mappingdsl"/>
       <plugin id="ch.hilbri.assist.mappingdsl.tests"/>
@@ -66,6 +67,7 @@
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.databinding"/>
+      <plugin id="org.eclipse.core.databinding.beans"/>
       <plugin id="org.eclipse.core.databinding.observable"/>
       <plugin id="org.eclipse.core.databinding.property"/>
       <plugin id="org.eclipse.core.expressions"/>
@@ -86,6 +88,7 @@
       <plugin id="org.eclipse.core.variables"/>
       <plugin id="org.eclipse.debug.core"/>
       <plugin id="org.eclipse.debug.ui"/>
+      <plugin id="org.eclipse.draw2d"/>
       <plugin id="org.eclipse.e4.core.commands"/>
       <plugin id="org.eclipse.e4.core.contexts"/>
       <plugin id="org.eclipse.e4.core.di"/>
@@ -221,6 +224,14 @@
       <plugin id="org.eclipse.ui.workbench"/>
       <plugin id="org.eclipse.ui.workbench.texteditor"/>
       <plugin id="org.eclipse.update.configurator"/>
+      <plugin id="org.eclipse.wb.core"/>
+      <plugin id="org.eclipse.wb.core.java"/>
+      <plugin id="org.eclipse.wb.core.lib"/>
+      <plugin id="org.eclipse.wb.os"/>
+      <plugin id="org.eclipse.wb.runtime"/>
+      <plugin id="org.eclipse.wb.runtime.lib"/>
+      <plugin id="org.eclipse.wb.swt"/>
+      <plugin id="org.eclipse.wb.swt.widgets.baseline"/>
       <plugin id="org.eclipse.xpand"/>
       <plugin id="org.eclipse.xtend"/>
       <plugin id="org.eclipse.xtend.lib"/>
@@ -242,7 +253,10 @@
       <plugin id="org.eclipse.xtext.util"/>
       <plugin id="org.eclipse.xtext.xbase"/>
       <plugin id="org.eclipse.xtext.xbase.lib"/>
+      <plugin id="org.eclipse.zest.core"/>
+      <plugin id="org.eclipse.zest.layouts"/>
       <plugin id="org.hamcrest.core"/>
+      <plugin id="org.jacop"/>
       <plugin id="org.junit"/>
       <plugin id="org.objectweb.asm"/>
       <plugin id="org.sat4j.core"/>
