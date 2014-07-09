@@ -101,7 +101,7 @@ public class AssistModelTest extends TestCase {
 	 * @generated
 	 */
 	public void testPostProcessingForMapping() {
-		// implement this operation test method
+		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}

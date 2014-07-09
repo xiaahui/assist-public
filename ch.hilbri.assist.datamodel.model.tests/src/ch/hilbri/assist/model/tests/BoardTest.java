@@ -82,7 +82,7 @@ public class BoardTest extends HardwareElementContainerTest {
 	 * @generated
 	 */
 	public void testToString() {
-		//  implement this operation test method
+		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
