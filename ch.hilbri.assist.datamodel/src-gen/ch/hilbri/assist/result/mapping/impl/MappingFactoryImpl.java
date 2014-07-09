@@ -21,7 +21,10 @@ import ch.hilbri.assist.result.mapping.Network;
 import ch.hilbri.assist.result.mapping.Processor;
 import ch.hilbri.assist.result.mapping.Result;
 
+import java.util.HashMap;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -91,6 +94,36 @@ public class MappingFactoryImpl extends EFactoryImpl implements MappingFactory {
 			case MappingPackage.EVALUATION: return createEvaluation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case MappingPackage.METRIC_SCORE_MAP:
+				return createMetricScoreMapFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case MappingPackage.METRIC_SCORE_MAP:
+				return convertMetricScoreMapToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -252,6 +285,25 @@ public class MappingFactoryImpl extends EFactoryImpl implements MappingFactory {
 	public Evaluation createEvaluation() {
 		EvaluationImpl evaluation = new EvaluationImpl();
 		return evaluation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public HashMap<AbstractMetric, Double> createMetricScoreMapFromString(EDataType eDataType, String initialValue) {
+		return (HashMap<AbstractMetric, Double>)super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertMetricScoreMapToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
 	}
 
 	/**

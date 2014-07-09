@@ -5,6 +5,7 @@ package ch.hilbri.assist.result.mapping;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -1327,13 +1328,13 @@ public interface MappingPackage extends EPackage {
 	int ABSTRACT_METRIC_FEATURE_COUNT = 4;
 
 	/**
-	 * The operation id for the '<em>Compute Score</em>' operation.
+	 * The operation id for the '<em>Compute Absolute Score</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_METRIC___COMPUTE_SCORE__RESULT = 0;
+	int ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__RESULT = 0;
 
 	/**
 	 * The number of operations of the '<em>Abstract Metric</em>' class.
@@ -1355,22 +1356,31 @@ public interface MappingPackage extends EPackage {
 	int EVALUATION = 16;
 
 	/**
-	 * The feature id for the '<em><b>Total Score</b></em>' attribute.
+	 * The feature id for the '<em><b>Absolute Scores</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVALUATION__TOTAL_SCORE = 0;
+	int EVALUATION__ABSOLUTE_SCORES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Individual Scores</b></em>' attribute list.
+	 * The feature id for the '<em><b>Scaled Scores</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVALUATION__INDIVIDUAL_SCORES = 1;
+	int EVALUATION__SCALED_SCORES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Total Scaled Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION__TOTAL_SCALED_SCORE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Metrics Used</b></em>' containment reference list.
@@ -1379,7 +1389,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVALUATION__METRICS_USED = 2;
+	int EVALUATION__METRICS_USED = 3;
 
 	/**
 	 * The number of structural features of the '<em>Evaluation</em>' class.
@@ -1388,7 +1398,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVALUATION_FEATURE_COUNT = 3;
+	int EVALUATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Evaluation</em>' class.
@@ -1398,6 +1408,16 @@ public interface MappingPackage extends EPackage {
 	 * @ordered
 	 */
 	int EVALUATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '<em>Metric Score Map</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.HashMap
+	 * @see ch.hilbri.assist.result.mapping.impl.MappingPackageImpl#getMetricScoreMap()
+	 * @generated
+	 */
+	int METRIC_SCORE_MAP = 17;
 
 
 	/**
@@ -2514,14 +2534,14 @@ public interface MappingPackage extends EPackage {
 	EAttribute getAbstractMetric_BuiltIn();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.AbstractMetric#computeScore(ch.hilbri.assist.result.mapping.Result) <em>Compute Score</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.AbstractMetric#computeAbsoluteScore(ch.hilbri.assist.result.mapping.Result) <em>Compute Absolute Score</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Compute Score</em>' operation.
-	 * @see ch.hilbri.assist.result.mapping.AbstractMetric#computeScore(ch.hilbri.assist.result.mapping.Result)
+	 * @return the meta object for the '<em>Compute Absolute Score</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.AbstractMetric#computeAbsoluteScore(ch.hilbri.assist.result.mapping.Result)
 	 * @generated
 	 */
-	EOperation getAbstractMetric__ComputeScore__Result();
+	EOperation getAbstractMetric__ComputeAbsoluteScore__Result();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Evaluation <em>Evaluation</em>}'.
@@ -2534,26 +2554,37 @@ public interface MappingPackage extends EPackage {
 	EClass getEvaluation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.mapping.Evaluation#getTotalScore <em>Total Score</em>}'.
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.mapping.Evaluation#getAbsoluteScores <em>Absolute Scores</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Total Score</em>'.
-	 * @see ch.hilbri.assist.result.mapping.Evaluation#getTotalScore()
+	 * @return the meta object for the attribute '<em>Absolute Scores</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Evaluation#getAbsoluteScores()
 	 * @see #getEvaluation()
 	 * @generated
 	 */
-	EAttribute getEvaluation_TotalScore();
+	EAttribute getEvaluation_AbsoluteScores();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link ch.hilbri.assist.result.mapping.Evaluation#getIndividualScores <em>Individual Scores</em>}'.
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.mapping.Evaluation#getScaledScores <em>Scaled Scores</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Individual Scores</em>'.
-	 * @see ch.hilbri.assist.result.mapping.Evaluation#getIndividualScores()
+	 * @return the meta object for the attribute '<em>Scaled Scores</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Evaluation#getScaledScores()
 	 * @see #getEvaluation()
 	 * @generated
 	 */
-	EAttribute getEvaluation_IndividualScores();
+	EAttribute getEvaluation_ScaledScores();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.mapping.Evaluation#getTotalScaledScore <em>Total Scaled Score</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Total Scaled Score</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Evaluation#getTotalScaledScore()
+	 * @see #getEvaluation()
+	 * @generated
+	 */
+	EAttribute getEvaluation_TotalScaledScore();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.result.mapping.Evaluation#getMetricsUsed <em>Metrics Used</em>}'.
@@ -2565,6 +2596,17 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEvaluation_MetricsUsed();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.HashMap <em>Metric Score Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Metric Score Map</em>'.
+	 * @see java.util.HashMap
+	 * @model instanceClass="java.util.HashMap<ch.hilbri.assist.result.mapping.AbstractMetric, java.lang.Double>"
+	 * @generated
+	 */
+	EDataType getMetricScoreMap();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3446,12 +3488,12 @@ public interface MappingPackage extends EPackage {
 		EAttribute ABSTRACT_METRIC__BUILT_IN = eINSTANCE.getAbstractMetric_BuiltIn();
 
 		/**
-		 * The meta object literal for the '<em><b>Compute Score</b></em>' operation.
+		 * The meta object literal for the '<em><b>Compute Absolute Score</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ABSTRACT_METRIC___COMPUTE_SCORE__RESULT = eINSTANCE.getAbstractMetric__ComputeScore__Result();
+		EOperation ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__RESULT = eINSTANCE.getAbstractMetric__ComputeAbsoluteScore__Result();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.EvaluationImpl <em>Evaluation</em>}' class.
@@ -3464,20 +3506,28 @@ public interface MappingPackage extends EPackage {
 		EClass EVALUATION = eINSTANCE.getEvaluation();
 
 		/**
-		 * The meta object literal for the '<em><b>Total Score</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Absolute Scores</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EVALUATION__TOTAL_SCORE = eINSTANCE.getEvaluation_TotalScore();
+		EAttribute EVALUATION__ABSOLUTE_SCORES = eINSTANCE.getEvaluation_AbsoluteScores();
 
 		/**
-		 * The meta object literal for the '<em><b>Individual Scores</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Scaled Scores</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EVALUATION__INDIVIDUAL_SCORES = eINSTANCE.getEvaluation_IndividualScores();
+		EAttribute EVALUATION__SCALED_SCORES = eINSTANCE.getEvaluation_ScaledScores();
+
+		/**
+		 * The meta object literal for the '<em><b>Total Scaled Score</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVALUATION__TOTAL_SCALED_SCORE = eINSTANCE.getEvaluation_TotalScaledScore();
 
 		/**
 		 * The meta object literal for the '<em><b>Metrics Used</b></em>' containment reference list feature.
@@ -3486,6 +3536,16 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EVALUATION__METRICS_USED = eINSTANCE.getEvaluation_MetricsUsed();
+
+		/**
+		 * The meta object literal for the '<em>Metric Score Map</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.HashMap
+		 * @see ch.hilbri.assist.result.mapping.impl.MappingPackageImpl#getMetricScoreMap()
+		 * @generated
+		 */
+		EDataType METRIC_SCORE_MAP = eINSTANCE.getMetricScoreMap();
 
 	}
 

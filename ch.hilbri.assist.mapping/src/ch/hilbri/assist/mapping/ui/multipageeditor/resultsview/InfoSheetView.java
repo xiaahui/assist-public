@@ -383,7 +383,7 @@ public class InfoSheetView {
 		} else {
 			Result r = model.getObservableResultsList().get(index);
 			DecimalFormat f = new DecimalFormat("#0.00"); 
-			lblScore.setText(f.format(r.getEvaluation().getTotalScore()));
+			lblScore.setText(f.format(r.getEvaluation().getTotalScaledScore()));
 			lblSolution.setText((index + 1) + " of " + model.getObservableResultsList().size());
 		}
 	}
@@ -411,7 +411,13 @@ public class InfoSheetView {
 
 		Result r = model.getObservableResultsList().get(index);
 
-		Double[] scores = (Double[]) r.getEvaluation().getIndividualScores().toArray();
+		// Das Feld muss für jede verwendete Metrik den eigenen Score beinhalten
+		Double[] scores = new Double[r.getEvaluation().getScaledScores().keySet().size()];
+		int metricCounter = 0;
+		for (AbstractMetric key : r.getEvaluation().getScaledScores().keySet()) 
+			scores[metricCounter++] = r.getEvaluation().getScaledScores().get(key);
+		
+		
 		AbstractMetric[] metrics = (AbstractMetric[]) r.getEvaluation().getMetricsUsed().toArray();
 		
 		DoubleProperty maxScore = new SimpleDoubleProperty(0);

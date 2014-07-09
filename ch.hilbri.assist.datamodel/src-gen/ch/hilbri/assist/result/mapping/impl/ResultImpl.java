@@ -511,13 +511,13 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		if (this!=null) {
 			_evaluation=this.getEvaluation();
 		}
-		double _totalScore = _evaluation.getTotalScore();
+		double _totalScaledScore = _evaluation.getTotalScaledScore();
 		Evaluation _evaluation_1 = null;
 		if (o!=null) {
 			_evaluation_1=o.getEvaluation();
 		}
-		double _totalScore_1 = _evaluation_1.getTotalScore();
-		final double diff = (_totalScore - _totalScore_1);
+		double _totalScaledScore_1 = _evaluation_1.getTotalScaledScore();
+		final double diff = (_totalScaledScore - _totalScaledScore_1);
 		if ((diff < 0.0)) {
 			return 1;
 		}

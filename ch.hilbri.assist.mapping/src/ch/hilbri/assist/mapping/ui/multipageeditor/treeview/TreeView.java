@@ -133,7 +133,7 @@ public class TreeView extends ViewPart {
 							/* Zeige das Resultat in einer View */
 							drawGraph(arg2.intValue());
 							currentSolutionText.setText(arg2.intValue()+1 + " / " + slider.getMaximum());
-							currentSolutionScore.setText("" + detailedResultsViewUiModel.getObservableResultsList().get(arg2.intValue()).getEvaluation().getTotalScore());
+							currentSolutionScore.setText("" + detailedResultsViewUiModel.getObservableResultsList().get(arg2.intValue()).getEvaluation().getTotalScaledScore());
 							slider.setSelection(arg2.intValue());
 						}
 					});
@@ -158,7 +158,7 @@ public class TreeView extends ViewPart {
 							slider.setSelection(index);
 							drawGraph(index);
 							currentSolutionText.setText(index+1 + " / " + slider.getMaximum());
-							currentSolutionScore.setText("" + detailedResultsViewUiModel.getObservableResultsList().get(index).getEvaluation().getTotalScore());
+							currentSolutionScore.setText("" + detailedResultsViewUiModel.getObservableResultsList().get(index).getEvaluation().getTotalScaledScore());
 						}
 					});
 				}				

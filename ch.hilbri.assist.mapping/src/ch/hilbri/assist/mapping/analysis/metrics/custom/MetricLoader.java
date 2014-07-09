@@ -60,7 +60,6 @@ import org.osgi.framework.Bundle;
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.application.helpers.Helpers;
 import ch.hilbri.assist.application.helpers.PathProvider;
-import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import ch.hilbri.assist.result.mapping.AbstractMetric;
 
@@ -75,8 +74,7 @@ public class MetricLoader {
 
 	private static int DEFAULT_WEIGHT = 1;
 
-	public static List<AbstractMetric> loadMetric(ResultsAnalysis metricsList,
-			DetailedResultsViewUiModel model) {
+	public static List<AbstractMetric> loadMetric(ArrayList<AbstractMetric> metricsList, DetailedResultsViewUiModel model) {
 
 		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 				.getShell();

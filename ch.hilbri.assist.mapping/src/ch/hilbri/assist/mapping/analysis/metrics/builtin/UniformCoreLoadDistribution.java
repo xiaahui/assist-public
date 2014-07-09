@@ -18,7 +18,7 @@ public class UniformCoreLoadDistribution extends AbstractMetricImpl {
 	
 
 	@Override
-	public double computeScore(Result result) {
+	public double computeAbsoluteScore(Result result) {
 		/* Der Score ist die Varianz der Auslastung aller Kerne */
 		DescriptiveStatistics statistics = new DescriptiveStatistics();
 		

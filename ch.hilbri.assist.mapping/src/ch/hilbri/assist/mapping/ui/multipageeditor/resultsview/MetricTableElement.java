@@ -1,6 +1,7 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview;
 
-import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
+import java.util.ArrayList;
+
 import ch.hilbri.assist.result.mapping.AbstractMetric;
 
 public class MetricTableElement {
@@ -8,10 +9,10 @@ public class MetricTableElement {
 	AbstractMetric metric;
 	int weight = 1;
 	int position = 0;
-	private ResultsAnalysis metricsList;
+	private ArrayList<AbstractMetric> metricsList;
 	boolean builtin;
 
-	public MetricTableElement(AbstractMetric metric, int position, ResultsAnalysis metricsList) {
+	public MetricTableElement(AbstractMetric metric, int position, ArrayList<AbstractMetric> metricsList) {
 		this.metric = metric;
 		this.position = position;
 		this.weight = metric.getWeight();

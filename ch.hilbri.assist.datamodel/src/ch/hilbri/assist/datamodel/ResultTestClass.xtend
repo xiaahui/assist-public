@@ -14,6 +14,7 @@ class ResultTestClass {
 		resultModel.rootHardwareElements.add(c)
 		
 		System.out.println(resultModel.topHardwareLevel) */
-	
+		
+		System.out.println({1..5}.reduce[i1, i2 | i1 + i2]) 
 	}
 }

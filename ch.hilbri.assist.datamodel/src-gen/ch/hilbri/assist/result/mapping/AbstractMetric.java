@@ -137,6 +137,6 @@ public interface AbstractMetric extends EObject {
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return 0;'"
 	 * @generated
 	 */
-	double computeScore(Result result);
+	double computeAbsoluteScore(Result result);
 
 } // AbstractMetric

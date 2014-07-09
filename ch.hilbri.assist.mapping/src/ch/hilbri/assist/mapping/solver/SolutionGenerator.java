@@ -1,16 +1,5 @@
 package ch.hilbri.assist.mapping.solver;
 
-import java.util.ArrayList;
-
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.PlatformUI;
-
-import ch.hilbri.assist.result.mapping.Result;
 
 public class SolutionGenerator {
 	

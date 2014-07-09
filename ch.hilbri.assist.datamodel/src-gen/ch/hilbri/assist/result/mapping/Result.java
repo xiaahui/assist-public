@@ -287,7 +287,7 @@ public interface Result extends EObject, Comparable<Result> {
 	 * Refers to the original input specification
 	 * <!-- end-model-doc -->
 	 * @model unique="false" oUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.result.mapping.Evaluation%> _evaluation = null;\nif (this!=null)\n{\n\t_evaluation=this.getEvaluation();\n}\ndouble _totalScore = _evaluation.getTotalScore();\n<%ch.hilbri.assist.result.mapping.Evaluation%> _evaluation_1 = null;\nif (o!=null)\n{\n\t_evaluation_1=o.getEvaluation();\n}\ndouble _totalScore_1 = _evaluation_1.getTotalScore();\nfinal double diff = (_totalScore - _totalScore_1);\nif ((diff < 0.0))\n{\n\treturn 1;\n}\nif ((diff > 0.0))\n{\n\treturn (-1);\n}\nreturn 0;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.result.mapping.Evaluation%> _evaluation = null;\nif (this!=null)\n{\n\t_evaluation=this.getEvaluation();\n}\ndouble _totalScaledScore = _evaluation.getTotalScaledScore();\n<%ch.hilbri.assist.result.mapping.Evaluation%> _evaluation_1 = null;\nif (o!=null)\n{\n\t_evaluation_1=o.getEvaluation();\n}\ndouble _totalScaledScore_1 = _evaluation_1.getTotalScaledScore();\nfinal double diff = (_totalScaledScore - _totalScaledScore_1);\nif ((diff < 0.0))\n{\n\treturn 1;\n}\nif ((diff > 0.0))\n{\n\treturn (-1);\n}\nreturn 0;'"
 	 * @generated
 	 */
 	int compareTo(Result o);

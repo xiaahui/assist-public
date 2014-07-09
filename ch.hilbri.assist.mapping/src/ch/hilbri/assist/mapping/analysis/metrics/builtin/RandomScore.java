@@ -15,7 +15,7 @@ public class RandomScore extends AbstractMetricImpl {
 
 	/* Computes a random score between 1 and 10 */
 	@Override
-	public double computeScore(Result result) {
+	public double computeAbsoluteScore(Result result) {
 		Random random = new Random();
 		
 		int score = random.nextInt(10)+1;

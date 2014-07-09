@@ -16,7 +16,7 @@ public class MaxFreeCoreCapacity extends AbstractMetricImpl {
 	}
 
 	@Override
-	public double computeScore(Result result) {
+	public double computeAbsoluteScore(Result result) {
 
 		double unusedCores = 0;
 		double maxRemainingCoreCapacity = 0;

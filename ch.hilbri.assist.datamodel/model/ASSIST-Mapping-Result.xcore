@@ -9,8 +9,12 @@ import ch.hilbri.assist.model.IOAdapterProtectionLevelType
 import ch.hilbri.assist.model.IOAdapterType
 
 import org.eclipse.emf.common.util.BasicEList
+import java.util.HashMap
+
+
 
 interface Comparable wraps Comparable<Result>{}
+
 
 class Result extends Comparable {
 	
@@ -41,8 +45,6 @@ class Result extends Comparable {
 		HardwareArchitectureLevelType.CORE
 	}
 	
-	
-	
 	@GenModel(documentation="Contains a list of all io adapters")
 	contains IOAdapter[0..*]				ioAdapters
 	
@@ -69,7 +71,7 @@ class Result extends Comparable {
 	
 	@GenModel(documentation="Refers to the original input specification")
 	op int compareTo(Result o) {
-		val double diff = this ?. evaluation.totalScore - o ?. evaluation.totalScore;
+		val double diff = this ?. evaluation.totalScaledScore - o ?. evaluation.totalScaledScore;
 		if (diff < 0.0)	return 1;
 		if (diff > 0.0)	return -1;
 		return 0;
@@ -231,13 +233,16 @@ class AbstractMetric  {
 	int				weight
 	boolean 		higherScoreIsBetter
 	boolean 		builtIn = "true"
-	op double 		computeScore(Result result) { 0 }
+	op double 		computeAbsoluteScore(Result result) { 0 }
 }
 
+type MetricScoreMap wraps HashMap<AbstractMetric, Double>
+
 class Evaluation {
-	double 							totalScore
-	double[0..*]					individualScores
+
+	MetricScoreMap					absoluteScores
+	MetricScoreMap					scaledScores
+	
+	derived double					totalScaledScore get { scaledScores.values.reduce[i1, i2 | i1 + i2] }
 	contains AbstractMetric[0..*] 	metricsUsed
-	
-	
 }

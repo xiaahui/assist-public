@@ -12,12 +12,12 @@ import javafx.scene.control.TreeItem;
 
 import org.eclipse.ui.part.EditorPart;
 
-import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxFreeCoreCapacity;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxOrgUnitsPerBoard;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.UniformCoreLoadDistribution;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
+import ch.hilbri.assist.result.mapping.AbstractMetric;
 import ch.hilbri.assist.result.mapping.Result;
 
 public class DetailedResultsViewUiModel {
@@ -30,12 +30,12 @@ public class DetailedResultsViewUiModel {
 	/**
 	 * All metrics available for this instance
 	 */
-	private ResultsAnalysis metricsList; 
+	private ArrayList<AbstractMetric> metricsList; 
 
 	/**
 	 * All metrics that are to be used for evaluation (the one added in the metrics table)
 	 */
-	private ResultsAnalysis usedMetricsList;
+	private ArrayList<AbstractMetric> usedMetricsList;
 	
 	private EditorPart editor;
 	
@@ -50,13 +50,13 @@ public class DetailedResultsViewUiModel {
 	 * Initialises a list with the standard metrics
 	 */
 	private void initialiseMetrics() {
-		metricsList = new ResultsAnalysis();
+		metricsList = new ArrayList<AbstractMetric>();
 		metricsList.add(new RandomScore(1));
 		metricsList.add(new UniformCoreLoadDistribution(1));
 		metricsList.add(new MaxFreeCoreCapacity(1));
 		metricsList.add(new MaxOrgUnitsPerBoard(1));
 		
-		usedMetricsList = new ResultsAnalysis();
+		usedMetricsList = new ArrayList<AbstractMetric>();
 
 		
 	}
@@ -72,15 +72,15 @@ public class DetailedResultsViewUiModel {
 		return observableResultList;
 	}
 	
-	public ResultsAnalysis getMetricList() {
+	public ArrayList<AbstractMetric> getMetricList() {
 		return metricsList;
 	}
 	
-	public ResultsAnalysis getUsedMetricList() {
+	public ArrayList<AbstractMetric> getUsedMetricList() {
 		return usedMetricsList;
 	}
 	
-	public void setUsedMetricList(ResultsAnalysis usedMetrics) {
+	public void setUsedMetricList(ArrayList<AbstractMetric> usedMetrics) {
 		this.usedMetricsList = usedMetrics;
 	}
 	

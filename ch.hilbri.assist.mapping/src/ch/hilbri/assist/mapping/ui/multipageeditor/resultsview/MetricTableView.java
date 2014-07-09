@@ -65,7 +65,6 @@ import ch.hilbri.assist.mapping.analysis.metrics.custom.MetricLoader;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import ch.hilbri.assist.result.mapping.AbstractMetric;
-import ch.hilbri.assist.result.mapping.Result;
 
 
 public class MetricTableView {
@@ -75,7 +74,7 @@ public class MetricTableView {
 
 	private ArrayList<MetricTableElement>	elementlist;
 
-	private ResultsAnalysis					metricsList;
+	private ArrayList<AbstractMetric>		metricsList;
 
 	private DetailedResultsViewUiModel		model						= null;
 
@@ -228,7 +227,7 @@ public class MetricTableView {
 
 			@Override
 			public void widgetSelected(SelectionEvent es) {
-				final ResultsAnalysis analysis = new ResultsAnalysis();
+				final ArrayList<AbstractMetric> analysis = new ArrayList<AbstractMetric>();
 				for (MetricTableElement tmp : elementlist) {
 					analysis.add(tmp.getMetric());
 				}
@@ -366,9 +365,9 @@ public class MetricTableView {
 	 */
 	private void saveMetricList() {
 		if (model == null) return;
-		ResultsAnalysis usedMetrics = model.getUsedMetricList();
+		ArrayList<AbstractMetric> usedMetrics = model.getUsedMetricList();
 		if (usedMetrics == null) {
-			usedMetrics = new ResultsAnalysis();
+			usedMetrics = new ArrayList<AbstractMetric>();
 			model.setUsedMetricList(usedMetrics);
 		} else {
 			usedMetrics.clear();
@@ -434,7 +433,7 @@ public class MetricTableView {
 	}
 
 	private void initialiseTable() {
-		ResultsAnalysis usedMetrics = model.getUsedMetricList();
+		ArrayList<AbstractMetric> usedMetrics = model.getUsedMetricList();
 		if (usedMetrics != null) {
 			for (AbstractMetric tmp : usedMetrics) {
 				for (int i = 0; i < metricsList.size(); i++) {
@@ -730,18 +729,18 @@ public class MetricTableView {
 
 	private class EvaluateJob implements IRunnableWithProgress {
 
-		private ResultsAnalysis	analysis;
+		private ArrayList<AbstractMetric>	analysis;
 
-		public EvaluateJob(ResultsAnalysis analysis) {
+		public EvaluateJob(ArrayList<AbstractMetric> analysis) {
 			this.analysis = analysis;
 		}
 
 		@Override
 		public void run(IProgressMonitor monitor) {
 			monitor.beginTask("Evaluating results...", IProgressMonitor.UNKNOWN);
-			ArrayList<Result> analyzedResults = analysis.evaluate(model.getResults());
-			Collections.sort(analyzedResults);
-			model.setResultsList(analyzedResults);
+			ResultsAnalysis.evaluate(model.getResults(), analysis);
+			Collections.sort(model.getResults());
+			model.setResultsList(model.getResults());
 			monitor.done();
 		}
 	}

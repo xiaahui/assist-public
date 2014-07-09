@@ -363,7 +363,7 @@ public class ResultsViewController extends AnchorPane{
 		
 		for (int i = 0; i < detailedResultsViewUiModel.getObservableResultsList().size(); i++) {
 			Result r = detailedResultsViewUiModel.getObservableResultsList().get(i);
-			double score = r.getEvaluation().getTotalScore();
+			double score = r.getEvaluation().getTotalScaledScore();
 			XYChart.Data<Integer,Number> tmp = new XYChart.Data<Integer,Number>(i, score);
 			Circle circle1 = new Circle(0,0,3, Color.RED);
 	        tmp.setNode(circle1);
@@ -473,7 +473,7 @@ public class ResultsViewController extends AnchorPane{
 	 * The Node is associated with the chosen data in the TreeView
 	 */
 	private void findCurrentProbabilityNode() {
-		double score = detailedResultsViewUiModel.getObservableResultsList().get(detailedResultsViewUiModel.indexToDrawProperty().get()).getEvaluation().getTotalScore();
+		double score = detailedResultsViewUiModel.getObservableResultsList().get(detailedResultsViewUiModel.indexToDrawProperty().get()).getEvaluation().getTotalScaledScore();
 		XYChart.Series<Number,Integer> series = scoreProbabiltyChart.getData().get(0);
 		for (XYChart.Data<Number,Integer> tmp: series.getData()) {
 			if (tmp.getXValue().doubleValue() == score) {

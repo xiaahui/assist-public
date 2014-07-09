@@ -223,7 +223,7 @@ public class AbstractMetricImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double computeScore(final Result result) {
+	public double computeAbsoluteScore(final Result result) {
 		return 0;
 	}
 
@@ -323,8 +323,8 @@ public class AbstractMetricImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case MappingPackage.ABSTRACT_METRIC___COMPUTE_SCORE__RESULT:
-				return computeScore((Result)arguments.get(0));
+			case MappingPackage.ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__RESULT:
+				return computeAbsoluteScore((Result)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

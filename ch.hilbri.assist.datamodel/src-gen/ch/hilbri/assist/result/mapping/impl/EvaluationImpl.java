@@ -8,6 +8,7 @@ import ch.hilbri.assist.result.mapping.Evaluation;
 import ch.hilbri.assist.result.mapping.MappingPackage;
 
 import java.util.Collection;
+import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -20,9 +21,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.xtext.xbase.lib.DoubleExtensions;
+
+import org.eclipse.xtext.xbase.lib.Functions.Function2;
+
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,8 +37,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ch.hilbri.assist.result.mapping.impl.EvaluationImpl#getTotalScore <em>Total Score</em>}</li>
- *   <li>{@link ch.hilbri.assist.result.mapping.impl.EvaluationImpl#getIndividualScores <em>Individual Scores</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.EvaluationImpl#getAbsoluteScores <em>Absolute Scores</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.EvaluationImpl#getScaledScores <em>Scaled Scores</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.EvaluationImpl#getTotalScaledScore <em>Total Scaled Score</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.EvaluationImpl#getMetricsUsed <em>Metrics Used</em>}</li>
  * </ul>
  * </p>
@@ -41,34 +48,34 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class EvaluationImpl extends MinimalEObjectImpl.Container implements Evaluation {
 	/**
-	 * The default value of the '{@link #getTotalScore() <em>Total Score</em>}' attribute.
+	 * The cached value of the '{@link #getAbsoluteScores() <em>Absolute Scores</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTotalScore()
+	 * @see #getAbsoluteScores()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double TOTAL_SCORE_EDEFAULT = 0.0;
+	protected HashMap<AbstractMetric, Double> absoluteScores;
 
 	/**
-	 * The cached value of the '{@link #getTotalScore() <em>Total Score</em>}' attribute.
+	 * The cached value of the '{@link #getScaledScores() <em>Scaled Scores</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTotalScore()
+	 * @see #getScaledScores()
 	 * @generated
 	 * @ordered
 	 */
-	protected double totalScore = TOTAL_SCORE_EDEFAULT;
+	protected HashMap<AbstractMetric, Double> scaledScores;
 
 	/**
-	 * The cached value of the '{@link #getIndividualScores() <em>Individual Scores</em>}' attribute list.
+	 * The default value of the '{@link #getTotalScaledScore() <em>Total Scaled Score</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIndividualScores()
+	 * @see #getTotalScaledScore()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Double> individualScores;
+	protected static final double TOTAL_SCALED_SCORE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getMetricsUsed() <em>Metrics Used</em>}' containment reference list.
@@ -104,8 +111,8 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getTotalScore() {
-		return totalScore;
+	public HashMap<AbstractMetric, Double> getAbsoluteScores() {
+		return absoluteScores;
 	}
 
 	/**
@@ -113,11 +120,11 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTotalScore(double newTotalScore) {
-		double oldTotalScore = totalScore;
-		totalScore = newTotalScore;
+	public void setAbsoluteScores(HashMap<AbstractMetric, Double> newAbsoluteScores) {
+		HashMap<AbstractMetric, Double> oldAbsoluteScores = absoluteScores;
+		absoluteScores = newAbsoluteScores;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.EVALUATION__TOTAL_SCORE, oldTotalScore, totalScore));
+			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.EVALUATION__ABSOLUTE_SCORES, oldAbsoluteScores, absoluteScores));
 	}
 
 	/**
@@ -125,11 +132,36 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Double> getIndividualScores() {
-		if (individualScores == null) {
-			individualScores = new EDataTypeEList<Double>(Double.class, this, MappingPackage.EVALUATION__INDIVIDUAL_SCORES);
-		}
-		return individualScores;
+	public HashMap<AbstractMetric, Double> getScaledScores() {
+		return scaledScores;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setScaledScores(HashMap<AbstractMetric, Double> newScaledScores) {
+		HashMap<AbstractMetric, Double> oldScaledScores = scaledScores;
+		scaledScores = newScaledScores;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.EVALUATION__SCALED_SCORES, oldScaledScores, scaledScores));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getTotalScaledScore() {
+		HashMap<AbstractMetric, Double> _scaledScores = this.getScaledScores();
+		Collection<Double> _values = _scaledScores.values();
+		final Function2<Double, Double, Double> _function = new Function2<Double, Double, Double>() {
+			public Double apply(final Double i1, final Double i2) {
+				return Double.valueOf(DoubleExtensions.operator_plus(i1, i2));
+			}
+		};
+		return (double) IterableExtensions.<Double>reduce(_values, _function);
 	}
 
 	/**
@@ -166,10 +198,12 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MappingPackage.EVALUATION__TOTAL_SCORE:
-				return getTotalScore();
-			case MappingPackage.EVALUATION__INDIVIDUAL_SCORES:
-				return getIndividualScores();
+			case MappingPackage.EVALUATION__ABSOLUTE_SCORES:
+				return getAbsoluteScores();
+			case MappingPackage.EVALUATION__SCALED_SCORES:
+				return getScaledScores();
+			case MappingPackage.EVALUATION__TOTAL_SCALED_SCORE:
+				return getTotalScaledScore();
 			case MappingPackage.EVALUATION__METRICS_USED:
 				return getMetricsUsed();
 		}
@@ -185,12 +219,11 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MappingPackage.EVALUATION__TOTAL_SCORE:
-				setTotalScore((Double)newValue);
+			case MappingPackage.EVALUATION__ABSOLUTE_SCORES:
+				setAbsoluteScores((HashMap<AbstractMetric, Double>)newValue);
 				return;
-			case MappingPackage.EVALUATION__INDIVIDUAL_SCORES:
-				getIndividualScores().clear();
-				getIndividualScores().addAll((Collection<? extends Double>)newValue);
+			case MappingPackage.EVALUATION__SCALED_SCORES:
+				setScaledScores((HashMap<AbstractMetric, Double>)newValue);
 				return;
 			case MappingPackage.EVALUATION__METRICS_USED:
 				getMetricsUsed().clear();
@@ -208,11 +241,11 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MappingPackage.EVALUATION__TOTAL_SCORE:
-				setTotalScore(TOTAL_SCORE_EDEFAULT);
+			case MappingPackage.EVALUATION__ABSOLUTE_SCORES:
+				setAbsoluteScores((HashMap<AbstractMetric, Double>)null);
 				return;
-			case MappingPackage.EVALUATION__INDIVIDUAL_SCORES:
-				getIndividualScores().clear();
+			case MappingPackage.EVALUATION__SCALED_SCORES:
+				setScaledScores((HashMap<AbstractMetric, Double>)null);
 				return;
 			case MappingPackage.EVALUATION__METRICS_USED:
 				getMetricsUsed().clear();
@@ -229,10 +262,12 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MappingPackage.EVALUATION__TOTAL_SCORE:
-				return totalScore != TOTAL_SCORE_EDEFAULT;
-			case MappingPackage.EVALUATION__INDIVIDUAL_SCORES:
-				return individualScores != null && !individualScores.isEmpty();
+			case MappingPackage.EVALUATION__ABSOLUTE_SCORES:
+				return absoluteScores != null;
+			case MappingPackage.EVALUATION__SCALED_SCORES:
+				return scaledScores != null;
+			case MappingPackage.EVALUATION__TOTAL_SCALED_SCORE:
+				return getTotalScaledScore() != TOTAL_SCALED_SCORE_EDEFAULT;
 			case MappingPackage.EVALUATION__METRICS_USED:
 				return metricsUsed != null && !metricsUsed.isEmpty();
 		}
@@ -249,10 +284,10 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (totalScore: ");
-		result.append(totalScore);
-		result.append(", individualScores: ");
-		result.append(individualScores);
+		result.append(" (absoluteScores: ");
+		result.append(absoluteScores);
+		result.append(", scaledScores: ");
+		result.append(scaledScores);
 		result.append(')');
 		return result.toString();
 	}

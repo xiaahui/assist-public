@@ -29,7 +29,7 @@ public class MaxOrgUnitsPerBoard extends AbstractMetricImpl {
  	}
 
 	@Override
-	public double computeScore(Result result) {
+	public double computeAbsoluteScore(Result result) {
 		
 		double maxOrgCount = 0;
 		

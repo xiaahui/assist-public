@@ -25,8 +25,11 @@ import ch.hilbri.assist.result.mapping.Result;
 
 import java.lang.Comparable;
 
+import java.util.HashMap;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -159,6 +162,13 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * @generated
 	 */
 	private EClass evaluationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType metricScoreMapEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1156,7 +1166,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAbstractMetric__ComputeScore__Result() {
+	public EOperation getAbstractMetric__ComputeAbsoluteScore__Result() {
 		return abstractMetricEClass.getEOperations().get(0);
 	}
 
@@ -1174,7 +1184,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvaluation_TotalScore() {
+	public EAttribute getEvaluation_AbsoluteScores() {
 		return (EAttribute)evaluationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1183,7 +1193,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvaluation_IndividualScores() {
+	public EAttribute getEvaluation_ScaledScores() {
 		return (EAttribute)evaluationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1192,8 +1202,26 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEvaluation_TotalScaledScore() {
+		return (EAttribute)evaluationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getEvaluation_MetricsUsed() {
-		return (EReference)evaluationEClass.getEStructuralFeatures().get(2);
+		return (EReference)evaluationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getMetricScoreMap() {
+		return metricScoreMapEDataType;
 	}
 
 	/**
@@ -1342,12 +1370,16 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__WEIGHT);
 		createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER);
 		createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__BUILT_IN);
-		createEOperation(abstractMetricEClass, ABSTRACT_METRIC___COMPUTE_SCORE__RESULT);
+		createEOperation(abstractMetricEClass, ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__RESULT);
 
 		evaluationEClass = createEClass(EVALUATION);
-		createEAttribute(evaluationEClass, EVALUATION__TOTAL_SCORE);
-		createEAttribute(evaluationEClass, EVALUATION__INDIVIDUAL_SCORES);
+		createEAttribute(evaluationEClass, EVALUATION__ABSOLUTE_SCORES);
+		createEAttribute(evaluationEClass, EVALUATION__SCALED_SCORES);
+		createEAttribute(evaluationEClass, EVALUATION__TOTAL_SCALED_SCORE);
 		createEReference(evaluationEClass, EVALUATION__METRICS_USED);
+
+		// Create data types
+		metricScoreMapEDataType = createEDataType(METRIC_SCORE_MAP);
 	}
 
 	/**
@@ -1515,13 +1547,17 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEAttribute(getAbstractMetric_HigherScoreIsBetter(), theEcorePackage.getEBoolean(), "higherScoreIsBetter", null, 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractMetric_BuiltIn(), theEcorePackage.getEBoolean(), "builtIn", "true", 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getAbstractMetric__ComputeScore__Result(), theEcorePackage.getEDouble(), "computeScore", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getAbstractMetric__ComputeAbsoluteScore__Result(), theEcorePackage.getEDouble(), "computeAbsoluteScore", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getResult(), "result", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(evaluationEClass, Evaluation.class, "Evaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEvaluation_TotalScore(), theEcorePackage.getEDouble(), "totalScore", null, 0, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEvaluation_IndividualScores(), theEcorePackage.getEDouble(), "individualScores", null, 0, -1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvaluation_AbsoluteScores(), this.getMetricScoreMap(), "absoluteScores", null, 0, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvaluation_ScaledScores(), this.getMetricScoreMap(), "scaledScores", null, 0, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvaluation_TotalScaledScore(), theEcorePackage.getEDouble(), "totalScaledScore", null, 0, 1, Evaluation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getEvaluation_MetricsUsed(), this.getAbstractMetric(), null, "metricsUsed", null, 0, -1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize data types
+		initEDataType(metricScoreMapEDataType, HashMap.class, "MetricScoreMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.HashMap<ch.hilbri.assist.result.mapping.AbstractMetric, java.lang.Double>");
 
 		// Create resource
 		createResource(eNS_URI);
