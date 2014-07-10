@@ -25,7 +25,7 @@
       <children xsi:type="menu:HandledMenuItem" xmi:id="_zQR8UFNMEeOLk9AINn96_w" elementId="ch.hilbri.assist.mapping.menu.handledmenuitem.3" label="Export Mapping to Scheduling" command="_wYnBEFNLEeOLk9AINn96_w"/>
     </elements>
   </fragments>
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="__-kKgEiQEeOdX57Z--P1Iw" featurename="children" parentElementId="org.eclipse.ui.workbench.file" positionInList="first">
-    <elements xsi:type="menu:HandledToolItem" xmi:id="_CweRcEiREeOdX57Z--P1Iw" elementId="ch.hilbri.assist.mapping.handledtoolitem.generate" label="Generate mappings" iconURI="platform:/plugin/ch.hilbri.assist.mapping/icons/metricTable/toolbar_evaluate.gif" tooltip="Generate mappings for the current specification" enabled="false" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="__-kKgEiQEeOdX57Z--P1Iw" featurename="children" parentElementId="ch.hilbri.assist.toolbar.mapping" positionInList="first">
+    <elements xsi:type="menu:HandledToolItem" xmi:id="_CweRcEiREeOdX57Z--P1Iw" elementId="ch.hilbri.assist.toolbar.mapping.handledtoolitem.generate" label="Generate mappings" iconURI="platform:/plugin/ch.hilbri.assist.mapping/icons/toolbar/toolbar-mapping-generate-16x16.png" tooltip="Generate mappings for the current specification" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
   </fragments>
 </fragment:ModelFragments>

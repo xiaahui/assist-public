@@ -74,17 +74,13 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_EIla0I_VEeOw76RO1YIBAw" elementId="org.eclipse.ui.cheatsheets.views.CheatSheetView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="CheatSheet" closeable="true">
       <toolbar xmi:id="_J9KEsI_ZEeOw76RO1YIBAw" elementId="ch.hilbri.assist.application.toolbar.0"/>
     </sharedElements>
-    <trimBars xmi:id="_E3dk4N5eEeK2jPrjnpIr-w" elementId="org.eclipse.ui.main.toolbar">
+    <trimBars xmi:id="_E3dk4N5eEeK2jPrjnpIr-w" elementId="ch.hilbri.assist.toolbar.main">
       <tags>View</tags>
       <children xsi:type="menu:ToolBar" xmi:id="_keeZcN5fEeK2jPrjnpIr-w" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_A3wcIEhsEeOvRppVehKwmg" elementId="org.eclipse.ui.edit.text.actionSet.presentation"/>
-      <children xsi:type="menu:ToolBar" xmi:id="_BjjTsEiDEeOvRppVehKwmg" elementId="ch.hilbri.assist.mapping.editors.MappingEditor"/>
-      <children xsi:type="menu:ToolBar" xmi:id="_AHryoEiDEeOvRppVehKwmg" elementId="ch.hilbri.assist.scheduling.ui.SchedulingEditor"/>
-      <children xsi:type="menu:ToolControl" xmi:id="_E8yccPnLEeKt3dKvlQKq2g" elementId="PerspectiveSpacer" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
-        <tags>stretch</tags>
-      </children>
+      <children xsi:type="menu:ToolBar" xmi:id="_BjjTsEiDEeOvRppVehKwmg" elementId="ch.hilbri.assist.toolbar.mapping"/>
+      <children xsi:type="menu:ToolBar" xmi:id="_AHryoEiDEeOvRppVehKwmg" elementId="ch.hilbri.assist.toolbar.scheduling"/>
     </trimBars>
     <trimBars xmi:id="_SNMTMB7FEeOET5SxUf1zCg" elementId="org.eclipse.ui.trim.status" side="Bottom"/>
   </children>
