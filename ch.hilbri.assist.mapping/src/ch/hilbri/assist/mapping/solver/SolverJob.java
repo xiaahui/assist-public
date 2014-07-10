@@ -7,7 +7,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.jacop.constraints.XeqY;
-import org.jacop.constraints.XneqY;
 import org.jacop.core.IntVar;
 import org.jacop.core.Store;
 import org.jacop.search.DepthFirstSearch;
@@ -18,6 +17,7 @@ import org.jacop.search.SelectChoicePoint;
 
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.mapping.solver.SolutionGenerator.KindOfSolutions;
+import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import ch.hilbri.assist.model.AssistModel;
@@ -29,37 +29,18 @@ public class SolverJob extends Job {
 	
 	private Store constraintStore;
 	
-	private ArrayList<IntVar> solutionVariablesList;
+	private SolverVariablesContainer solverVariables;
 	
-//
-//	private CS constraintSystem;
-//	
-//	private ThreadVariablesList threadVariablesList;
-//	
-//	private CoreVariablesList coreVariablesList;
-//	
-//	private ExclusiveAdapterRequirementVariablesList exclusiveAdapterVariablesList;
-//	
-//	private SharedAdapterRequirementVariablesList sharedAdapterVariablesList;
-//	
-//	private CommunicationVariablesList communicationVariablesList;
-//	
-//	private IOAdapterVariablesList ioAdapterVariablesList;
-//	
-//	private SolutionVariablesList solutionVariablesList;
-//	
 //	private MappingConstraintsList mappingConstraintsList;
 	
-
 
 	private DetailedResultsViewUiModel detailedResultsViewUiModel;
 		
 	private MultiPageEditor multiPageEditor;
 	
-	
 	 /*
 	 * Dieser Wert definiert eine maximale Anzahl an Deployments, die
-	 * gesucht werden. Falls die Grenze ue½berschritten wird, wird die
+	 * gesucht werden. Falls die Grenze ueberschritten wird, wird die
 	 * Suche abgebrochen. Dann kann es sein, dass noch weitere Loesungen
 	 * vorhanden sind, aber nicht gefunden worden sind.
 	 */
@@ -100,28 +81,16 @@ public class SolverJob extends Job {
 			this.detailedResultsViewUiModel = editor.getDetailedResultViewUiModel();
 			detailedResultsViewUiModel.setEditor(editor);
 		}
-		init();
-	}
-
-	private void init() {
+		
 
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>();  
 		
 		/* Create a new Constraint Store (JaCoP) */
 		this.constraintStore = new Store();
-		this.solutionVariablesList = new ArrayList<IntVar>();
+		this.solverVariables = new SolverVariablesContainer();
 		
-		IntVar x = new IntVar(constraintStore, "X", 1,3);
-		solutionVariablesList.add(x);
 		
-		IntVar y = new IntVar(constraintStore, "Y", 2,5);
-		solutionVariablesList.add(y);
-		
-		constraintStore.impose(new XeqY(x,y));
-		
-		ConsoleCommands.writeLineToConsole("Mapping specification consistency: " + constraintStore.consistency());
-
 //		/* Create the set of Variables needed for a Thread */
 //		this.threadVariablesList = new ThreadVariablesList(model, constraintSystem);
 //		
@@ -199,7 +168,18 @@ public class SolverJob extends Job {
 	{
 
 		monitor.beginTask("Generating all mappings", 1);
-//
+
+		
+		IntVar x = new IntVar(constraintStore, "X", 1,3);
+		solverVariables.getSolutionVariablesList().add(x);
+		
+		IntVar y = new IntVar(constraintStore, "Y", 2,5);
+		solverVariables.getSolutionVariablesList().add(y);
+		
+		constraintStore.impose(new XeqY(x,y));
+		
+		ConsoleCommands.writeLineToConsole("Mapping specification consistency: " + constraintStore.consistency());
+
 //		for (AbstractMappingConstraint constraint : mappingConstraintsList) {
 //
 //			if (monitor.isCanceled())	return Status.CANCEL_STATUS;
@@ -215,33 +195,30 @@ public class SolverJob extends Job {
 		 monitor.subTask("Searching for solutions");
 		 if (runSearchForSolutions(monitor) != Status.OK_STATUS) return Status.CANCEL_STATUS;
 		 monitor.worked(1);
-//
-//	
-//		 monitor.subTask("Showing results");
+
+	
+		 monitor.subTask("Showing results");
 //		 if (presentResults == true) { showResults(newMappingResults); }
-//		 monitor.worked(1);
-//
+		 monitor.worked(1);
+
 		 return Status.OK_STATUS;
 	}
 //
 	private IStatus runSearchForSolutions(IProgressMonitor monitor) {
 		
-		IntVar[] solVariables = new IntVar[solutionVariablesList.size()];
-		int vCtr = 0;
-		for (IntVar v : solutionVariablesList) solVariables[vCtr++] = v;
-			
+	
 		
 		Search<IntVar> search = new DepthFirstSearch<IntVar>();
 		search.getSolutionListener().searchAll(true);
-		search.getSolutionListener().setSolutionLimit(5);
 		search.getSolutionListener().recordSolutions(true);
-		
-		SelectChoicePoint<IntVar> select = new InputOrderSelect<IntVar>(constraintStore, solVariables, new IndomainMin<IntVar>());
+		search.getSolutionListener().setSolutionLimit(this.maxSolutions);
+				
+		SelectChoicePoint<IntVar> select = new InputOrderSelect<IntVar>(constraintStore, solverVariables.getSolutionVariablesAsArray(), new IndomainMin<IntVar>());
 		 
 		boolean result = search.labeling(constraintStore, select); 
 		
 		if (result) {
-			ConsoleCommands.writeLineToConsole("Solutions found: " + search.getSolutionListener().solutionsNo() + " - Limit reached: " + search.getSolutionListener().solutionLimitReached());
+			ConsoleCommands.writeLineToConsole("Solutions found: " + search.getSolutionListener().solutionsNo() + " - Limit was set to " + this.maxSolutions + " - was it reached? " + search.getSolutionListener().solutionLimitReached());
 
 			search.printAllSolutions();
 			
