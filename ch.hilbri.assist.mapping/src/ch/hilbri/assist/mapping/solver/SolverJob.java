@@ -39,7 +39,7 @@ public class SolverJob extends Job {
 
 	private DetailedResultsViewUiModel detailedResultsViewUiModel;
 		
-	private MultiPageEditor multiPageEditor;
+//	private MultiPageEditor multiPageEditor;
 	
 	 /*
 	 * Dieser Wert definiert eine maximale Anzahl an Deployments, die
@@ -80,7 +80,7 @@ public class SolverJob extends Job {
 		this.model = model;
 
 		if (editor != null) {
-			this.multiPageEditor = editor;
+//			this.multiPageEditor = editor;
 			this.detailedResultsViewUiModel = editor.getDetailedResultViewUiModel();
 			detailedResultsViewUiModel.setEditor(editor);
 		}
@@ -222,13 +222,24 @@ public class SolverJob extends Job {
 	}
 
 	private IStatus runSearchForSolutions(IProgressMonitor monitor) {
+		 
+		SelectChoicePoint<IntVar> select;
+		Search<IntVar> search;
 		
-		Search<IntVar> search = new DepthFirstSearch<IntVar>();
-		search.getSolutionListener().searchAll(true);
-		search.getSolutionListener().recordSolutions(true);
-		search.getSolutionListener().setSolutionLimit(this.maxSolutions);
+		if (this.kindOfSolutions == SearchType.CONSECUTIVE) {
+			search = new DepthFirstSearch<IntVar>();
+			search.getSolutionListener().searchAll(true);
+			search.getSolutionListener().recordSolutions(true);
+			search.getSolutionListener().setSolutionLimit(this.maxSolutions);
 				
-		SelectChoicePoint<IntVar> select = new InputOrderSelect<IntVar>(constraintStore, solverVariables.getSolutionVariables(), new IndomainMin<IntVar>());
+			select = new InputOrderSelect<IntVar>(constraintStore, solverVariables.getSolutionVariables(), new IndomainMin<IntVar>());
+		}
+		else {
+			search = new DepthFirstSearch<IntVar>();
+			search.setTimeOut(this.maxTimeOfCalculationInmsec);
+			ConsoleCommands.writeLineToConsole("Random search is not yet implemented.");
+			return null;
+		}
 		 
 		boolean result = search.labeling(constraintStore, select); 
 		
