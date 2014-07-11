@@ -1,8 +1,10 @@
 package ch.hilbri.assist.mappingdsl.validation
 
 import ch.hilbri.assist.model.ApplicationGroup
-import org.eclipse.xtext.validation.Check
+import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.ModelPackage
+import java.util.ArrayList
+import org.eclipse.xtext.validation.Check
 
 /**
  * Custom validation rules. 
@@ -14,7 +16,19 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 	@Check
 	def checkApplicationGroupDoesNotContainItself(ApplicationGroup group) {
 		for (member : group.applicationsOrGroups) {
-			if (member.equals(group)) error('Group ' + group.name + ' contains itself as a member. This is not allowed.', group, ModelPackage$Literals::APPLICATION_GROUP__APPLICATIONS_OR_GROUPS)
+			if (member.equals(group)) error('Group ' + group.name + ' contains itself as a member. This is not allowed.', group, ModelPackage.Literals::APPLICATION_GROUP__APPLICATIONS_OR_GROUPS)
+		}
+	}
+	
+	@Check
+	def checkUniqueNamesInTopLevelHardwareProvider(AssistModel model) {
+		val list = new ArrayList<String>
+		
+		for (hw : model.hardwareContainer) {
+			if (list.contains(hw.name)) 
+				error('A hardware component with the name ' + hw.name + ' is already present. Duplicate names are not allowed at the top level.', hw, ModelPackage.Literals::HARDWARE_ELEMENT__NAME) 
+			else 
+				list.add(hw.name)
 		}
 	}
 
