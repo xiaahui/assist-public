@@ -1048,6 +1048,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getApplicationOrApplicationGroup_Name() {
+		return (EAttribute)applicationOrApplicationGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getApplicationGroup() {
 		return applicationGroupEClass;
 	}
@@ -1057,17 +1066,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationGroup_Name() {
-		return (EAttribute)applicationGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getApplicationGroup_ApplicationsOrGroups() {
-		return (EReference)applicationGroupEClass.getEStructuralFeatures().get(1);
+		return (EReference)applicationGroupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1093,7 +1093,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_Name() {
+	public EAttribute getApplication_CoreUtilization() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1102,7 +1102,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_CoreUtilization() {
+	public EAttribute getApplication_RamUtilization() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1111,7 +1111,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_RamUtilization() {
+	public EAttribute getApplication_RomUtilization() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1120,7 +1120,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_RomUtilization() {
+	public EAttribute getApplication_CriticalityLevel() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1129,7 +1129,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_CriticalityLevel() {
+	public EAttribute getApplication_IoAdapterProtectionLevel() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1138,7 +1138,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_IoAdapterProtectionLevel() {
+	public EAttribute getApplication_ParallelThreads() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1147,7 +1147,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_ParallelThreads() {
+	public EAttribute getApplication_DevelopedBy() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1156,17 +1156,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_DevelopedBy() {
-		return (EAttribute)applicationEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getApplication_IoAdapterRequirements() {
-		return (EReference)applicationEClass.getEStructuralFeatures().get(8);
+		return (EReference)applicationEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1175,7 +1166,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EReference getApplication_RestrictMappingToHardwareElements() {
-		return (EReference)applicationEClass.getEStructuralFeatures().get(9);
+		return (EReference)applicationEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1184,7 +1175,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EReference getApplication_Threads() {
-		return (EReference)applicationEClass.getEStructuralFeatures().get(10);
+		return (EReference)applicationEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1193,7 +1184,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EReference getApplication_MetricParameters() {
-		return (EReference)applicationEClass.getEStructuralFeatures().get(11);
+		return (EReference)applicationEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1699,14 +1690,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(networkEClass, NETWORK__METRIC_PARAMETERS);
 
 		applicationOrApplicationGroupEClass = createEClass(APPLICATION_OR_APPLICATION_GROUP);
+		createEAttribute(applicationOrApplicationGroupEClass, APPLICATION_OR_APPLICATION_GROUP__NAME);
 
 		applicationGroupEClass = createEClass(APPLICATION_GROUP);
-		createEAttribute(applicationGroupEClass, APPLICATION_GROUP__NAME);
 		createEReference(applicationGroupEClass, APPLICATION_GROUP__APPLICATIONS_OR_GROUPS);
 		createEOperation(applicationGroupEClass, APPLICATION_GROUP___GET_ALL_APPLICATIONS);
 
 		applicationEClass = createEClass(APPLICATION);
-		createEAttribute(applicationEClass, APPLICATION__NAME);
 		createEAttribute(applicationEClass, APPLICATION__CORE_UTILIZATION);
 		createEAttribute(applicationEClass, APPLICATION__RAM_UTILIZATION);
 		createEAttribute(applicationEClass, APPLICATION__ROM_UTILIZATION);
@@ -1925,15 +1915,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getNetwork_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationOrApplicationGroupEClass, ApplicationOrApplicationGroup.class, "ApplicationOrApplicationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getApplicationOrApplicationGroup_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ApplicationOrApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationGroupEClass, ApplicationGroup.class, "ApplicationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getApplicationGroup_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplicationGroup_ApplicationsOrGroups(), this.getApplicationOrApplicationGroup(), null, "applicationsOrGroups", null, 1, -1, ApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getApplicationGroup__GetAllApplications(), this.getApplication(), "getAllApplications", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getApplication_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_CoreUtilization(), theEcorePackage.getEInt(), "coreUtilization", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_RamUtilization(), theEcorePackage.getEInt(), "ramUtilization", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_RomUtilization(), theEcorePackage.getEInt(), "romUtilization", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

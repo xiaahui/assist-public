@@ -12,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.Application#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getCoreUtilization <em>Core Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getRamUtilization <em>Ram Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Application#getRomUtilization <em>Rom Utilization</em>}</li>
@@ -32,32 +31,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Application extends ApplicationOrApplicationGroup {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see ch.hilbri.assist.model.ModelPackage#getApplication_Name()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.model.Application#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Core Utilization</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -1007,13 +1007,22 @@ public interface ModelPackage extends EPackage {
 	int APPLICATION_OR_APPLICATION_GROUP = 10;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_OR_APPLICATION_GROUP__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>Application Or Application Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT = 0;
+	int APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Application Or Application Group</em>' class.
@@ -1041,7 +1050,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_GROUP__NAME = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 0;
+	int APPLICATION_GROUP__NAME = APPLICATION_OR_APPLICATION_GROUP__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
@@ -1050,7 +1059,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_GROUP__APPLICATIONS_OR_GROUPS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 1;
+	int APPLICATION_GROUP__APPLICATIONS_OR_GROUPS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Application Group</em>' class.
@@ -1059,7 +1068,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_GROUP_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 2;
+	int APPLICATION_GROUP_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get All Applications</em>' operation.
@@ -1096,7 +1105,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__NAME = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 0;
+	int APPLICATION__NAME = APPLICATION_OR_APPLICATION_GROUP__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Core Utilization</b></em>' attribute.
@@ -1105,7 +1114,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__CORE_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 1;
+	int APPLICATION__CORE_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ram Utilization</b></em>' attribute.
@@ -1114,7 +1123,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__RAM_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 2;
+	int APPLICATION__RAM_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Rom Utilization</b></em>' attribute.
@@ -1123,7 +1132,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__ROM_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 3;
+	int APPLICATION__ROM_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Criticality Level</b></em>' attribute.
@@ -1132,7 +1141,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__CRITICALITY_LEVEL = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 4;
+	int APPLICATION__CRITICALITY_LEVEL = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Io Adapter Protection Level</b></em>' attribute.
@@ -1141,7 +1150,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__IO_ADAPTER_PROTECTION_LEVEL = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 5;
+	int APPLICATION__IO_ADAPTER_PROTECTION_LEVEL = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Parallel Threads</b></em>' attribute.
@@ -1150,7 +1159,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__PARALLEL_THREADS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 6;
+	int APPLICATION__PARALLEL_THREADS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Developed By</b></em>' attribute.
@@ -1159,7 +1168,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__DEVELOPED_BY = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 7;
+	int APPLICATION__DEVELOPED_BY = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
@@ -1168,7 +1177,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__IO_ADAPTER_REQUIREMENTS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 8;
+	int APPLICATION__IO_ADAPTER_REQUIREMENTS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
@@ -1177,7 +1186,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 9;
+	int APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Threads</b></em>' containment reference list.
@@ -1186,7 +1195,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__THREADS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 10;
+	int APPLICATION__THREADS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
@@ -1195,7 +1204,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__METRIC_PARAMETERS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 11;
+	int APPLICATION__METRIC_PARAMETERS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Application</em>' class.
@@ -1204,7 +1213,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 12;
+	int APPLICATION_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -2653,6 +2662,17 @@ public interface ModelPackage extends EPackage {
 	EClass getApplicationOrApplicationGroup();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.ApplicationOrApplicationGroup#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.model.ApplicationOrApplicationGroup#getName()
+	 * @see #getApplicationOrApplicationGroup()
+	 * @generated
+	 */
+	EAttribute getApplicationOrApplicationGroup_Name();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.ApplicationGroup <em>Application Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2661,17 +2681,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getApplicationGroup();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.ApplicationGroup#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ch.hilbri.assist.model.ApplicationGroup#getName()
-	 * @see #getApplicationGroup()
-	 * @generated
-	 */
-	EAttribute getApplicationGroup_Name();
 
 	/**
 	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.model.ApplicationGroup#getApplicationsOrGroups <em>Applications Or Groups</em>}'.
@@ -2703,17 +2712,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getApplication();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Application#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ch.hilbri.assist.model.Application#getName()
-	 * @see #getApplication()
-	 * @generated
-	 */
-	EAttribute getApplication_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Application#getCoreUtilization <em>Core Utilization</em>}'.
@@ -3959,6 +3957,14 @@ public interface ModelPackage extends EPackage {
 		EClass APPLICATION_OR_APPLICATION_GROUP = eINSTANCE.getApplicationOrApplicationGroup();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPLICATION_OR_APPLICATION_GROUP__NAME = eINSTANCE.getApplicationOrApplicationGroup_Name();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ApplicationGroupImpl <em>Application Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3967,14 +3973,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass APPLICATION_GROUP = eINSTANCE.getApplicationGroup();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute APPLICATION_GROUP__NAME = eINSTANCE.getApplicationGroup_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Applications Or Groups</b></em>' reference list feature.
@@ -4001,14 +3999,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass APPLICATION = eINSTANCE.getApplication();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute APPLICATION__NAME = eINSTANCE.getApplication_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Core Utilization</b></em>' attribute feature.

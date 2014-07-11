@@ -299,9 +299,6 @@ public interface Board extends HardwareElementContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Returns a list of all cores in this board
-	 * <!-- end-model-doc -->
 	 * @model kind="operation" unique="false"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.Core%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.Core%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Processor%>> _processors = this.getProcessors();\nfor (final <%ch.hilbri.assist.model.Processor%> p : _processors)\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Core%>> _cores = p.getCores();\n\tlist.addAll(_cores);\n}\nreturn list;'"
 	 * @generated

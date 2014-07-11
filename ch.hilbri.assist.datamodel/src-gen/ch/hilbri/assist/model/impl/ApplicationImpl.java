@@ -36,7 +36,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getCoreUtilization <em>Core Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getRamUtilization <em>Ram Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ApplicationImpl#getRomUtilization <em>Rom Utilization</em>}</li>
@@ -54,26 +53,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implements Application {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getCoreUtilization() <em>Core Utilization</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -271,27 +250,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	@Override
 	protected EClass eStaticClass() {
 		return ModelPackage.Literals.APPLICATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.APPLICATION__NAME, oldName, name));
 	}
 
 	/**
@@ -539,8 +497,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.APPLICATION__NAME:
-				return getName();
 			case ModelPackage.APPLICATION__CORE_UTILIZATION:
 				return getCoreUtilization();
 			case ModelPackage.APPLICATION__RAM_UTILIZATION:
@@ -576,9 +532,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.APPLICATION__NAME:
-				setName((String)newValue);
-				return;
 			case ModelPackage.APPLICATION__CORE_UTILIZATION:
 				setCoreUtilization((Integer)newValue);
 				return;
@@ -628,9 +581,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.APPLICATION__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case ModelPackage.APPLICATION__CORE_UTILIZATION:
 				setCoreUtilization(CORE_UTILIZATION_EDEFAULT);
 				return;
@@ -676,8 +626,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.APPLICATION__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ModelPackage.APPLICATION__CORE_UTILIZATION:
 				return coreUtilization != CORE_UTILIZATION_EDEFAULT;
 			case ModelPackage.APPLICATION__RAM_UTILIZATION:
