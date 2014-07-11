@@ -59,12 +59,10 @@ class AssistModel {
 	@GenModel(documentation="Returns the amount of hardware levels in this model")
 	derived int hardwareLevelCount get { allHardwareLevels.size }
 
-
-	/**
-	 * Should be called before the mapping to make the model proper 
-	 */
-	op boolean postProcessingForMapping() {
-		return true
+	op HardwareElement[] getAllHardwareElements(HardwareArchitectureLevelType level) {
+		val list = new BasicEList<HardwareElement>
+		
+		return list
 	}
 }
 
@@ -111,6 +109,27 @@ class Compartment extends HardwareElementContainer {
 	String zone
 	contains Box[1..*] boxes opposite compartment
 	contains MetricParameter[0..*] metricParameters
+	
+	@GenModel(documentation="Returns a list of all boards in this compartment")
+	op Board[] getAllBoards() {
+		val list = new BasicEList<Board>
+		for (b : boxes) list.addAll(b.boards)
+		return list
+	}
+	
+	@GenModel(documentation="Returns a list of all processors in this compartment")
+	op Processor[] getAllProcessors() {
+		val list = new BasicEList<Processor>
+		for (b : boxes) list.addAll(b.allProcessors)
+		return list
+	}
+	
+	@GenModel(documentation="Returns a list of all cores in this compartment")
+	op Core[] getAllCores() {
+		val list = new BasicEList<Core>
+		for (b : boxes) list.addAll(b.allCores)
+		return list
+	}
 }
 
 class Box extends HardwareElementContainer {
@@ -118,6 +137,20 @@ class Box extends HardwareElementContainer {
 	container Compartment compartment opposite boxes
 	contains Board[1..*] boards opposite box
 	contains MetricParameter[0..*] metricParameters
+	
+	@GenModel(documentation="Returns a list of all processors in this box")
+	op Processor[] getAllProcessors() {
+		val list = new BasicEList<Processor>
+		for (b: boards) list.addAll(b.processors)
+		return list
+	}
+	
+	@GenModel(documentation="Returns a list of all cores in this box")
+	op Core[] getAllCores() {
+		val list = new BasicEList<Core>
+		for (b: boards) list.addAll(b.allCores)
+		return list
+	}
 }
 
 class Board extends HardwareElementContainer {
@@ -133,6 +166,14 @@ class Board extends HardwareElementContainer {
 	refers Network[0..*] 			networks opposite boards
 	contains MetricParameter[0..*] 	metricParameters
 	op String toString() 			{ name }
+	
+	@GenModel(documentation="Returns a list of all cores in this board")
+	op Core[] getAllCores() {
+		val list = new BasicEList<Core>
+		for (p : processors) list.addAll(p.cores)
+		return list
+	}
+	
 }
 
 class Processor extends HardwareElement {
