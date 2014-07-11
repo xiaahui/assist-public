@@ -1,5 +1,4 @@
 /**
- * Copyright 2014 - Robert Hilbrich
  */
 package ch.hilbri.assist.model.impl;
 
@@ -473,8 +472,71 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__PostProcessingForMapping() {
+	public EOperation getAssistModel__GetAllCompartments() {
 		return assistModelEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllBoxes() {
+		return assistModelEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllBoards() {
+		return assistModelEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllProcessors() {
+		return assistModelEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllCores() {
+		return assistModelEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType() {
+		return assistModelEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllHardwareElements__int() {
+		return assistModelEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllThreads() {
+		return assistModelEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -572,6 +634,33 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getCompartment__GetAllBoards() {
+		return compartmentEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCompartment__GetAllProcessors() {
+		return compartmentEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCompartment__GetAllCores() {
+		return compartmentEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBox() {
 		return boxEClass;
 	}
@@ -610,6 +699,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EReference getBox_MetricParameters() {
 		return (EReference)boxEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBox__GetAllProcessors() {
+		return boxEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBox__GetAllCores() {
+		return boxEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -727,6 +834,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EOperation getBoard__ToString() {
 		return boardEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBoard__GetAllCores() {
+		return boardEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1103,8 +1219,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getThread_Name() {
+		return (EAttribute)threadEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getThread_Application() {
-		return (EReference)threadEClass.getEStructuralFeatures().get(0);
+		return (EReference)threadEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1500,7 +1625,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(assistModelEClass, ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL);
 		createEAttribute(assistModelEClass, ASSIST_MODEL__ALL_HARDWARE_LEVELS);
 		createEAttribute(assistModelEClass, ASSIST_MODEL__HARDWARE_LEVEL_COUNT);
-		createEOperation(assistModelEClass, ASSIST_MODEL___POST_PROCESSING_FOR_MAPPING);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_COMPARTMENTS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_BOXES);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_BOARDS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_PROCESSORS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_CORES);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_THREADS);
 
 		hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
 		createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
@@ -1514,12 +1646,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(compartmentEClass, COMPARTMENT__ZONE);
 		createEReference(compartmentEClass, COMPARTMENT__BOXES);
 		createEReference(compartmentEClass, COMPARTMENT__METRIC_PARAMETERS);
+		createEOperation(compartmentEClass, COMPARTMENT___GET_ALL_BOARDS);
+		createEOperation(compartmentEClass, COMPARTMENT___GET_ALL_PROCESSORS);
+		createEOperation(compartmentEClass, COMPARTMENT___GET_ALL_CORES);
 
 		boxEClass = createEClass(BOX);
 		createEAttribute(boxEClass, BOX__MANUFACTURER);
 		createEReference(boxEClass, BOX__COMPARTMENT);
 		createEReference(boxEClass, BOX__BOARDS);
 		createEReference(boxEClass, BOX__METRIC_PARAMETERS);
+		createEOperation(boxEClass, BOX___GET_ALL_PROCESSORS);
+		createEOperation(boxEClass, BOX___GET_ALL_CORES);
 
 		boardEClass = createEClass(BOARD);
 		createEAttribute(boardEClass, BOARD__MANUFACTURER);
@@ -1534,6 +1671,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(boardEClass, BOARD__NETWORKS);
 		createEReference(boardEClass, BOARD__METRIC_PARAMETERS);
 		createEOperation(boardEClass, BOARD___TO_STRING);
+		createEOperation(boardEClass, BOARD___GET_ALL_CORES);
 
 		processorEClass = createEClass(PROCESSOR);
 		createEAttribute(processorEClass, PROCESSOR__MANUFACTURER);
@@ -1583,6 +1721,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(applicationEClass, APPLICATION___TO_STRING);
 
 		threadEClass = createEClass(THREAD);
+		createEAttribute(threadEClass, THREAD__NAME);
 		createEReference(threadEClass, THREAD__APPLICATION);
 
 		ioAdapterRequirementEClass = createEClass(IO_ADAPTER_REQUIREMENT);
@@ -1696,7 +1835,23 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getAssistModel_AllHardwareLevels(), this.getHardwareArchitectureLevelType(), "allHardwareLevels", null, 0, -1, AssistModel.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAssistModel_HardwareLevelCount(), theEcorePackage.getEInt(), "hardwareLevelCount", null, 0, 1, AssistModel.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getAssistModel__PostProcessingForMapping(), theEcorePackage.getEBoolean(), "postProcessingForMapping", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getAssistModel__GetAllCompartments(), this.getCompartment(), "getAllCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetAllBoxes(), this.getBox(), "getAllBoxes", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetAllBoards(), this.getBoard(), "getAllBoards", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetAllProcessors(), this.getProcessor(), "getAllProcessors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		EOperation op = initEOperation(getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getHardwareArchitectureLevelType(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAssistModel__GetAllHardwareElements__int(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEInt(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetAllThreads(), this.getThread(), "getAllThreads", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHardwareElement_Name(), theEcorePackage.getEString(), "name", null, 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1711,11 +1866,21 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getCompartment_Boxes(), this.getBox(), this.getBox_Compartment(), "boxes", null, 1, -1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCompartment_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getCompartment__GetAllBoards(), this.getBoard(), "getAllBoards", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getCompartment__GetAllProcessors(), this.getProcessor(), "getAllProcessors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getCompartment__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
 		initEClass(boxEClass, Box.class, "Box", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBox_Manufacturer(), theEcorePackage.getEString(), "manufacturer", null, 0, 1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBox_Compartment(), this.getCompartment(), this.getCompartment_Boxes(), "compartment", null, 0, 1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBox_Boards(), this.getBoard(), this.getBoard_Box(), "boards", null, 1, -1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBox_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getBox__GetAllProcessors(), this.getProcessor(), "getAllProcessors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getBox__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(boardEClass, Board.class, "Board", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBoard_Manufacturer(), theEcorePackage.getEString(), "manufacturer", null, 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1731,6 +1896,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getBoard_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getBoard__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getBoard__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(processorEClass, Processor.class, "Processor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProcessor_Manufacturer(), theEcorePackage.getEString(), "manufacturer", null, 0, 1, Processor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1782,6 +1949,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEOperation(getApplication__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(threadEClass, ch.hilbri.assist.model.Thread.class, "Thread", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getThread_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ch.hilbri.assist.model.Thread.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getThread_Application(), this.getApplication(), this.getApplication_Threads(), "application", null, 0, 1, ch.hilbri.assist.model.Thread.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ioAdapterRequirementEClass, IOAdapterRequirement.class, "IOAdapterRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -1,5 +1,4 @@
 /**
- * Copyright 2014 - Robert Hilbrich
  */
 package ch.hilbri.assist.model;
 
@@ -112,5 +111,29 @@ public interface Box extends HardwareElementContainer {
 	 * @generated
 	 */
 	EList<MetricParameter> getMetricParameters();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns a list of all processors in this box
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.Processor%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.Processor%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Board%>> _boards = this.getBoards();\nfor (final <%ch.hilbri.assist.model.Board%> b : _boards)\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Processor%>> _processors = b.getProcessors();\n\tlist.addAll(_processors);\n}\nreturn list;'"
+	 * @generated
+	 */
+	EList<Processor> getAllProcessors();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns a list of all cores in this box
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.Core%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.Core%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Board%>> _boards = this.getBoards();\nfor (final <%ch.hilbri.assist.model.Board%> b : _boards)\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Core%>> _allCores = b.getAllCores();\n\tlist.addAll(_allCores);\n}\nreturn list;'"
+	 * @generated
+	 */
+	EList<Core> getAllCores();
 
 } // Box

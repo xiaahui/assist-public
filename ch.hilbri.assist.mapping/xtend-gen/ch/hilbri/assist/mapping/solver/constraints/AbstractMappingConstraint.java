@@ -9,22 +9,22 @@ public abstract class AbstractMappingConstraint {
   /**
    * A name for this constraint
    */
-  private String name;
+  protected String name;
   
   /**
    * A reference to the central data model
    */
-  private AssistModel model;
+  protected AssistModel model;
   
   /**
    * A reference to the store of the constraint solver
    */
-  private Store constraintStore;
+  protected Store constraintStore;
   
   /**
    * A reference to the container of all solver variables
    */
-  private SolverVariablesContainer solverVariables;
+  protected SolverVariablesContainer solverVariables;
   
   /**
    * Constructor

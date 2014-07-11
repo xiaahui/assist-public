@@ -20,6 +20,7 @@ import org.jacop.search.SelectChoicePoint;
 
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
@@ -93,7 +94,7 @@ public class SolverJob extends Job {
 		
 		/* Create a new Constraint Store (JaCoP) */
 		this.constraintStore = new Store();
-		this.solverVariables = new SolverVariablesContainer();
+		this.solverVariables = new SolverVariablesContainer(model, constraintStore);
 		
 		
 //		/* Create the set of Variables needed for a Thread */
@@ -108,11 +109,16 @@ public class SolverJob extends Job {
 //		this.communicationVariablesList = new CommunicationVariablesList(model, constraintSystem);
 //		
 //		this.ioAdapterVariablesList = new IOAdapterVariablesList(model, constraintSystem);
-//		
-//		
-//		/* Create a new Constraint to process the system hierarchy */
-//		this.mappingConstraintsList.add(new SystemHierarchyConstraint(this.constraintSystem, this.model, this.threadVariablesList));
-//		
+		
+		
+		
+		
+		
+		/* Create a new Constraint to process the system hierarchy */
+		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, constraintStore, solverVariables));
+
+
+		
 //		/* Create a new Constraint to process the I/O-adapter to board hierarchy */
 //		this.mappingConstraintsList.add(new IOAdapterHierarchyConstraint(this.constraintSystem, this.model, this.threadVariablesList,
 //				this.exclusiveAdapterVariablesList, this.sharedAdapterVariablesList, ioAdapterVariablesList));

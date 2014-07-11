@@ -18,6 +18,7 @@ import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor;
 
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.application.helpers.Helpers;
+import ch.hilbri.assist.mapping.datamodel.PostProcessor;
 import ch.hilbri.assist.mapping.solver.SearchType;
 import ch.hilbri.assist.mapping.solver.SolverJob;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
@@ -78,6 +79,9 @@ public class Generate {
 					/* Create a new model for the input */
 					
 					AssistModel inputModel = (AssistModel) resource.getContents().get(0);
+					
+					/* Fix the model */
+					PostProcessor.createMissingThreads(inputModel);
 					
 					if (editor instanceof MultiPageEditor) {
 						

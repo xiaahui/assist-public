@@ -16,6 +16,7 @@ import junit.textui.TestRunner;
  * The following operations are tested:
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.Board#toString() <em>To String</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.Board#getAllCores() <em>Get All Cores</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -82,6 +83,19 @@ public class BoardTest extends HardwareElementContainerTest {
 	 * @generated
 	 */
 	public void testToString() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link ch.hilbri.assist.model.Board#getAllCores() <em>Get All Cores</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.Board#getAllCores()
+	 * @generated
+	 */
+	public void testGetAllCores() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

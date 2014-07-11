@@ -3,6 +3,14 @@ package ch.hilbri.assist.mapping.solver.constraints;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.HardwareElement;
+import java.util.ArrayList;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.ExclusiveRange;
+import org.jacop.constraints.Element;
+import org.jacop.core.IntVar;
 import org.jacop.core.Store;
 
 /**
@@ -15,6 +23,35 @@ public class SystemHierarchyConstraint extends AbstractMappingConstraint {
   }
   
   public boolean generate() {
-    return true;
+    final ArrayList<ArrayList<Integer>> hardwareLevelLink = new ArrayList<ArrayList<Integer>>();
+    int _hardwareLevelCount = this.model.getHardwareLevelCount();
+    int _minus = (_hardwareLevelCount - 1);
+    ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _minus, true);
+    for (final Integer levelCtr : _doubleDotLessThan) {
+      {
+        final ArrayList<Integer> list = new ArrayList<Integer>();
+        EList<HardwareElement> _allHardwareElements = this.model.getAllHardwareElements((levelCtr).intValue());
+        for (final HardwareElement hw : _allHardwareElements) {
+          EObject _eContainer = hw.eContainer();
+          EObject _eContainer_1 = _eContainer.eContainer();
+          EList<EObject> _eContents = _eContainer_1.eContents();
+          EObject _eContainer_2 = hw.eContainer();
+          int _indexOf = _eContents.indexOf(_eContainer_2);
+          list.add(Integer.valueOf(_indexOf));
+        }
+        hardwareLevelLink.add(list);
+        EList<ch.hilbri.assist.model.Thread> _allThreads = this.model.getAllThreads();
+        for (final ch.hilbri.assist.model.Thread t : _allThreads) {
+          {
+            IntVar _threadLocationVariable = this.solverVariables.getThreadLocationVariable(t, ((levelCtr).intValue() + 1));
+            ArrayList<Integer> _get = hardwareLevelLink.get((levelCtr).intValue());
+            IntVar _threadLocationVariable_1 = this.solverVariables.getThreadLocationVariable(t, (levelCtr).intValue());
+            Element ctr = new Element(_threadLocationVariable, ((int[])Conversions.unwrapArray(_get, int.class)), _threadLocationVariable_1);
+            this.constraintStore.impose(ctr);
+          }
+        }
+      }
+    }
+    return false;
   }
 }

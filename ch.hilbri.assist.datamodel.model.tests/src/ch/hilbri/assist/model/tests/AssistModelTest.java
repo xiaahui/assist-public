@@ -26,7 +26,14 @@ import junit.textui.TestRunner;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.AssistModel#postProcessingForMapping() <em>Post Processing For Mapping</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getAllCompartments() <em>Get All Compartments</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getAllBoxes() <em>Get All Boxes</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getAllBoards() <em>Get All Boards</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getAllProcessors() <em>Get All Processors</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getAllCores() <em>Get All Cores</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements(ch.hilbri.assist.model.HardwareArchitectureLevelType) <em>Get All Hardware Elements</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements(int) <em>Get All Hardware Elements</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getAllThreads() <em>Get All Threads</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -155,13 +162,104 @@ public class AssistModelTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link ch.hilbri.assist.model.AssistModel#postProcessingForMapping() <em>Post Processing For Mapping</em>}' operation.
+	 * Tests the '{@link ch.hilbri.assist.model.AssistModel#getAllCompartments() <em>Get All Compartments</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.model.AssistModel#postProcessingForMapping()
+	 * @see ch.hilbri.assist.model.AssistModel#getAllCompartments()
 	 * @generated
 	 */
-	public void testPostProcessingForMapping() {
+	public void testGetAllCompartments() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link ch.hilbri.assist.model.AssistModel#getAllBoxes() <em>Get All Boxes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.AssistModel#getAllBoxes()
+	 * @generated
+	 */
+	public void testGetAllBoxes() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link ch.hilbri.assist.model.AssistModel#getAllBoards() <em>Get All Boards</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.AssistModel#getAllBoards()
+	 * @generated
+	 */
+	public void testGetAllBoards() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link ch.hilbri.assist.model.AssistModel#getAllProcessors() <em>Get All Processors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.AssistModel#getAllProcessors()
+	 * @generated
+	 */
+	public void testGetAllProcessors() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link ch.hilbri.assist.model.AssistModel#getAllCores() <em>Get All Cores</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.AssistModel#getAllCores()
+	 * @generated
+	 */
+	public void testGetAllCores() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements(ch.hilbri.assist.model.HardwareArchitectureLevelType) <em>Get All Hardware Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.AssistModel#getAllHardwareElements(ch.hilbri.assist.model.HardwareArchitectureLevelType)
+	 * @generated
+	 */
+	public void testGetAllHardwareElements__HardwareArchitectureLevelType() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements(int) <em>Get All Hardware Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.AssistModel#getAllHardwareElements(int)
+	 * @generated
+	 */
+	public void testGetAllHardwareElements__int() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link ch.hilbri.assist.model.AssistModel#getAllThreads() <em>Get All Threads</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.AssistModel#getAllThreads()
+	 * @generated
+	 */
+	public void testGetAllThreads() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

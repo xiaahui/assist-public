@@ -13,6 +13,12 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Thread</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link ch.hilbri.assist.model.Thread#getName() <em>Name</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class ThreadTest extends TestCase {
@@ -84,6 +90,19 @@ public class ThreadTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link ch.hilbri.assist.model.Thread#getName() <em>Name</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.Thread#getName()
+	 * @generated
+	 */
+	public void testGetName() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //ThreadTest

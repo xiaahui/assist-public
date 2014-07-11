@@ -1,5 +1,4 @@
 @GenModel(
-	copyrightText="Copyright 2014 - Robert Hilbrich", 
 	editDirectory="/ch.hilbri.assist.datamodel.model.edit/src", 
 	editorDirectory="/ch.hilbri.assist.datamodel.model.editor/src", 
 	testsDirectory="/ch.hilbri.assist.datamodel.model.tests/src"
@@ -19,7 +18,6 @@ class AssistModel {
 	contains DislocalityRelation[0..*] 		dislocalityRelations
 	contains ProximityRelation[0..*] 		proximityRelations
 	contains CommunicationRelation[0..*] 	communicationRelations
-
 
 	@GenModel(documentation="Returns the top hardware level for this model")
 	derived HardwareArchitectureLevelType topHardwareLevel get {
@@ -55,13 +53,92 @@ class AssistModel {
 		}
 		return list
 	}
-	
+		
 	@GenModel(documentation="Returns the amount of hardware levels in this model")
 	derived int hardwareLevelCount get { allHardwareLevels.size }
 
+	@GenModel(documentation="Returns the list of all compartments in this model")
+	op Compartment[] getAllCompartments() {
+		if (topHardwareLevel == HardwareArchitectureLevelType.COMPARTMENT) return hardwareContainer.map(elem | elem as Compartment)
+		else return new BasicEList<Compartment>
+	}
+	
+	@GenModel(documentation="Returns the list of all boxes in this model")
+	op Box[] getAllBoxes() {
+		val list = new BasicEList<Box>
+		switch topHardwareLevel {
+			case COMPARTMENT_VALUE 	:	for (c : hardwareContainer)	list.addAll((c as Compartment).boxes)
+			case BOX_VALUE 			: 	list.addAll(hardwareContainer.map(elem | elem as Box) )
+			default				  	: 	{} 		
+		}
+		return list
+	}
+	
+	@GenModel(documentation="Returns the list of all boards in this model")
+	op Board[] getAllBoards() {
+		val list = new BasicEList<Board>
+		switch topHardwareLevel {
+			case COMPARTMENT_VALUE	:	for (c : hardwareContainer) list.addAll((c as Compartment).allBoards)
+			case BOX_VALUE			:	for (b : hardwareContainer) list.addAll((b as Box).boards)
+			case BOARD_VALUE		:	list.addAll(hardwareContainer.map(elem | elem as Board))
+			default					: 	{}
+		}
+		return list
+	}
+	
+	@GenModel(documentation="Returns the list of all processors in this model")
+	op Processor[] getAllProcessors() {
+		val list = new BasicEList<Processor>
+		switch topHardwareLevel {
+			case COMPARTMENT_VALUE	: 	for (c : hardwareContainer) list.addAll((c as Compartment).allProcessors)
+			case BOX_VALUE			:	for (b : hardwareContainer) list.addAll((b as Box).allProcessors)
+			case BOARD_VALUE		: 	for (b : hardwareContainer) list.addAll((b as Board).processors)
+			default					:	{}
+		}
+		return list
+	}
+	
+	@GenModel(documentation="Returns the list of all cores in this model")
+	op Core[] getAllCores() {
+		val list = new BasicEList<Core>
+		switch topHardwareLevel {
+			case COMPARTMENT_VALUE	: 	for (c : hardwareContainer) list.addAll((c as Compartment).allCores)
+			case BOX_VALUE			:	for (b : hardwareContainer) list.addAll((b as Box).allCores)
+			case BOARD_VALUE		: 	for (b : hardwareContainer) list.addAll((b as Board).allCores)
+			default					:	{}
+		}
+		return list
+	}
+	
+	
+
+	@GenModel(documentation="Returns a list of all hardware elements in the specified hardware level")
 	op HardwareElement[] getAllHardwareElements(HardwareArchitectureLevelType level) {
-		val list = new BasicEList<HardwareElement>
-		
+		switch level {
+			case COMPARTMENT_VALUE	: 	return allCompartments.map(elem | elem as HardwareElement)
+			case BOX_VALUE			:	return allBoxes.map(elem | elem as HardwareElement)
+			case BOARD_VALUE		: 	return allBoards.map(elem | elem as HardwareElement)
+			case PROCESSOR_VALUE	: 	return allProcessors.map(elem | elem as HardwareElement)
+			case CORE_VALUE			: 	return allCores.map(elem | elem as HardwareElement)
+		}
+	}
+	
+	@GenModel(documentation="Returns a list of all hardware elements in the specified hardware level (Core level = 0)")
+	op HardwareElement[] getAllHardwareElements(int level) {
+		if (level < 0) 	return null
+		if (level >= hardwareLevelCount) return null
+		 
+		if (level == 0) return allCores.map(elem | elem as HardwareElement)
+		if (level == 1)	return allProcessors.map(elem | elem as HardwareElement)
+		if (level == 2)	return allBoards.map(elem | elem as HardwareElement)
+		if (level == 3)	return allBoxes.map(elem | elem as HardwareElement)
+		if (level == 4)	return allCompartments.map(elem | elem as HardwareElement)
+	}
+	
+	@GenModel(documentation="Returns a list of all threads in the model")
+	op Thread[] getAllThreads() {
+		val list = new BasicEList<Thread>
+		for (a : applications) list.addAll(a.threads)
 		return list
 	}
 }
@@ -291,7 +368,9 @@ class Application extends ApplicationOrApplicationGroup {
 }
 
 class Thread {
+	derived String name get { application.name + '_' + application.threads.indexOf(this) }
 	container Application application opposite threads
+		
 }
 
 class IOAdapterRequirement {	

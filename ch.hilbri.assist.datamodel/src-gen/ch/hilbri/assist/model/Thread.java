@@ -1,5 +1,4 @@
 /**
- * Copyright 2014 - Robert Hilbrich
  */
 package ch.hilbri.assist.model;
 
@@ -13,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link ch.hilbri.assist.model.Thread#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Thread#getApplication <em>Application</em>}</li>
  * </ul>
  * </p>
@@ -22,6 +22,22 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Thread extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see ch.hilbri.assist.model.ModelPackage#getThread_Name()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%ch.hilbri.assist.model.Application%> _application = this.getApplication();\n<%java.lang.String%> _name = _application.getName();\n<%java.lang.String%> _plus = (_name + \"_\");\n<%ch.hilbri.assist.model.Application%> _application_1 = this.getApplication();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Thread%>> _threads = _application_1.getThreads();\nint _indexOf = _threads.indexOf(this);\nreturn (_plus + <%java.lang.Integer%>.valueOf(_indexOf));'"
+	 * @generated
+	 */
+	String getName();
+
 	/**
 	 * Returns the value of the '<em><b>Application</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link ch.hilbri.assist.model.Application#getThreads <em>Threads</em>}'.

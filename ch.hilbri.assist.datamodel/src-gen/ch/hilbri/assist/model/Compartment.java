@@ -1,5 +1,4 @@
 /**
- * Copyright 2014 - Robert Hilbrich
  */
 package ch.hilbri.assist.model;
 
@@ -164,5 +163,41 @@ public interface Compartment extends HardwareElementContainer {
 	 * @generated
 	 */
 	EList<MetricParameter> getMetricParameters();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns a list of all boards in this compartment
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.Board%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.Board%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Box%>> _boxes = this.getBoxes();\nfor (final <%ch.hilbri.assist.model.Box%> b : _boxes)\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Board%>> _boards = b.getBoards();\n\tlist.addAll(_boards);\n}\nreturn list;'"
+	 * @generated
+	 */
+	EList<Board> getAllBoards();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns a list of all processors in this compartment
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.Processor%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.Processor%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Box%>> _boxes = this.getBoxes();\nfor (final <%ch.hilbri.assist.model.Box%> b : _boxes)\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Processor%>> _allProcessors = b.getAllProcessors();\n\tlist.addAll(_allProcessors);\n}\nreturn list;'"
+	 * @generated
+	 */
+	EList<Processor> getAllProcessors();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns a list of all cores in this compartment
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.Core%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.Core%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Box%>> _boxes = this.getBoxes();\nfor (final <%ch.hilbri.assist.model.Box%> b : _boxes)\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Core%>> _allCores = b.getAllCores();\n\tlist.addAll(_allCores);\n}\nreturn list;'"
+	 * @generated
+	 */
+	EList<Core> getAllCores();
 
 } // Compartment

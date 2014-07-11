@@ -7,16 +7,16 @@ import org.jacop.core.Store
 abstract class AbstractMappingConstraint {
 	
 	/** A name for this constraint */
-	String						name
+	protected String					name
 	
 	/** A reference to the central data model */
-	AssistModel 				model
+	protected AssistModel 				model
 	
 	/** A reference to the store of the constraint solver */
-	Store 						constraintStore
+	protected Store 					constraintStore
 	
 	/** A reference to the container of all solver variables */
-	SolverVariablesContainer 	solverVariables
+	protected SolverVariablesContainer 	solverVariables
 	
 	/**
 	 * Constructor

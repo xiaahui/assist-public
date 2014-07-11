@@ -1,5 +1,4 @@
 /**
- * Copyright 2014 - Robert Hilbrich
  */
 package ch.hilbri.assist.model;
 
@@ -24,7 +23,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see ch.hilbri.assist.model.ModelFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel copyrightText='Copyright 2014 - Robert Hilbrich' editDirectory='/ch.hilbri.assist.datamodel.model.edit/src' editorDirectory='/ch.hilbri.assist.datamodel.model.editor/src' testsDirectory='/ch.hilbri.assist.datamodel.model.tests/src' basePackage='ch.hilbri.assist'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel editDirectory='/ch.hilbri.assist.datamodel.model.edit/src' editorDirectory='/ch.hilbri.assist.datamodel.model.editor/src' testsDirectory='/ch.hilbri.assist.datamodel.model.tests/src' basePackage='ch.hilbri.assist'"
  * @generated
  */
 public interface ModelPackage extends EPackage {
@@ -197,13 +196,76 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL_FEATURE_COUNT = 13;
 
 	/**
-	 * The operation id for the '<em>Post Processing For Mapping</em>' operation.
+	 * The operation id for the '<em>Get All Compartments</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___POST_PROCESSING_FOR_MAPPING = 0;
+	int ASSIST_MODEL___GET_ALL_COMPARTMENTS = 0;
+
+	/**
+	 * The operation id for the '<em>Get All Boxes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_BOXES = 1;
+
+	/**
+	 * The operation id for the '<em>Get All Boards</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_BOARDS = 2;
+
+	/**
+	 * The operation id for the '<em>Get All Processors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_PROCESSORS = 3;
+
+	/**
+	 * The operation id for the '<em>Get All Cores</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_CORES = 4;
+
+	/**
+	 * The operation id for the '<em>Get All Hardware Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE = 5;
+
+	/**
+	 * The operation id for the '<em>Get All Hardware Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = 6;
+
+	/**
+	 * The operation id for the '<em>Get All Threads</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_THREADS = 7;
 
 	/**
 	 * The number of operations of the '<em>Assist Model</em>' class.
@@ -212,7 +274,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_OPERATION_COUNT = 1;
+	int ASSIST_MODEL_OPERATION_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -371,13 +433,40 @@ public interface ModelPackage extends EPackage {
 	int COMPARTMENT_FEATURE_COUNT = HARDWARE_ELEMENT_CONTAINER_FEATURE_COUNT + 6;
 
 	/**
+	 * The operation id for the '<em>Get All Boards</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARTMENT___GET_ALL_BOARDS = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get All Processors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARTMENT___GET_ALL_PROCESSORS = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get All Cores</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARTMENT___GET_ALL_CORES = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Compartment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARTMENT_OPERATION_COUNT = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 0;
+	int COMPARTMENT_OPERATION_COUNT = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.BoxImpl <em>Box</em>}' class.
@@ -444,13 +533,31 @@ public interface ModelPackage extends EPackage {
 	int BOX_FEATURE_COUNT = HARDWARE_ELEMENT_CONTAINER_FEATURE_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Get All Processors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX___GET_ALL_PROCESSORS = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get All Cores</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX___GET_ALL_CORES = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Box</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOX_OPERATION_COUNT = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 0;
+	int BOX_OPERATION_COUNT = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.BoardImpl <em>Board</em>}' class.
@@ -589,13 +696,22 @@ public interface ModelPackage extends EPackage {
 	int BOARD___TO_STRING = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get All Cores</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD___GET_ALL_CORES = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Board</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_OPERATION_COUNT = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 1;
+	int BOARD_OPERATION_COUNT = HARDWARE_ELEMENT_CONTAINER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.ProcessorImpl <em>Processor</em>}' class.
@@ -1119,13 +1235,22 @@ public interface ModelPackage extends EPackage {
 	int THREAD = 13;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAD__NAME = 0;
+
+	/**
 	 * The feature id for the '<em><b>Application</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THREAD__APPLICATION = 0;
+	int THREAD__APPLICATION = 1;
 
 	/**
 	 * The number of structural features of the '<em>Thread</em>' class.
@@ -1134,7 +1259,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THREAD_FEATURE_COUNT = 1;
+	int THREAD_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Thread</em>' class.
@@ -1849,14 +1974,84 @@ public interface ModelPackage extends EPackage {
 	EAttribute getAssistModel_HardwareLevelCount();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#postProcessingForMapping() <em>Post Processing For Mapping</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllCompartments() <em>Get All Compartments</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Post Processing For Mapping</em>' operation.
-	 * @see ch.hilbri.assist.model.AssistModel#postProcessingForMapping()
+	 * @return the meta object for the '<em>Get All Compartments</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllCompartments()
 	 * @generated
 	 */
-	EOperation getAssistModel__PostProcessingForMapping();
+	EOperation getAssistModel__GetAllCompartments();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllBoxes() <em>Get All Boxes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Boxes</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllBoxes()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllBoxes();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllBoards() <em>Get All Boards</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Boards</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllBoards()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllBoards();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllProcessors() <em>Get All Processors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Processors</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllProcessors()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllProcessors();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllCores() <em>Get All Cores</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Cores</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllCores()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllCores();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements(ch.hilbri.assist.model.HardwareArchitectureLevelType) <em>Get All Hardware Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Hardware Elements</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllHardwareElements(ch.hilbri.assist.model.HardwareArchitectureLevelType)
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements(int) <em>Get All Hardware Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Hardware Elements</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllHardwareElements(int)
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllHardwareElements__int();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllThreads() <em>Get All Threads</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Threads</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllThreads()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllThreads();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.HardwareElement <em>Hardware Element</em>}'.
@@ -1966,6 +2161,36 @@ public interface ModelPackage extends EPackage {
 	EReference getCompartment_MetricParameters();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Compartment#getAllBoards() <em>Get All Boards</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Boards</em>' operation.
+	 * @see ch.hilbri.assist.model.Compartment#getAllBoards()
+	 * @generated
+	 */
+	EOperation getCompartment__GetAllBoards();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Compartment#getAllProcessors() <em>Get All Processors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Processors</em>' operation.
+	 * @see ch.hilbri.assist.model.Compartment#getAllProcessors()
+	 * @generated
+	 */
+	EOperation getCompartment__GetAllProcessors();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Compartment#getAllCores() <em>Get All Cores</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Cores</em>' operation.
+	 * @see ch.hilbri.assist.model.Compartment#getAllCores()
+	 * @generated
+	 */
+	EOperation getCompartment__GetAllCores();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.Box <em>Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2018,6 +2243,26 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBox_MetricParameters();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Box#getAllProcessors() <em>Get All Processors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Processors</em>' operation.
+	 * @see ch.hilbri.assist.model.Box#getAllProcessors()
+	 * @generated
+	 */
+	EOperation getBox__GetAllProcessors();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Box#getAllCores() <em>Get All Cores</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Cores</em>' operation.
+	 * @see ch.hilbri.assist.model.Box#getAllCores()
+	 * @generated
+	 */
+	EOperation getBox__GetAllCores();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.Board <em>Board</em>}'.
@@ -2159,6 +2404,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getBoard__ToString();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.Board#getAllCores() <em>Get All Cores</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Cores</em>' operation.
+	 * @see ch.hilbri.assist.model.Board#getAllCores()
+	 * @generated
+	 */
+	EOperation getBoard__GetAllCores();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.Processor <em>Processor</em>}'.
@@ -2600,6 +2855,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getThread();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Thread#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.model.Thread#getName()
+	 * @see #getThread()
+	 * @generated
+	 */
+	EAttribute getThread_Name();
 
 	/**
 	 * Returns the meta object for the container reference '{@link ch.hilbri.assist.model.Thread#getApplication <em>Application</em>}'.
@@ -3161,12 +3427,68 @@ public interface ModelPackage extends EPackage {
 		EAttribute ASSIST_MODEL__HARDWARE_LEVEL_COUNT = eINSTANCE.getAssistModel_HardwareLevelCount();
 
 		/**
-		 * The meta object literal for the '<em><b>Post Processing For Mapping</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get All Compartments</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ASSIST_MODEL___POST_PROCESSING_FOR_MAPPING = eINSTANCE.getAssistModel__PostProcessingForMapping();
+		EOperation ASSIST_MODEL___GET_ALL_COMPARTMENTS = eINSTANCE.getAssistModel__GetAllCompartments();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Boxes</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_BOXES = eINSTANCE.getAssistModel__GetAllBoxes();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Boards</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_BOARDS = eINSTANCE.getAssistModel__GetAllBoards();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Processors</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_PROCESSORS = eINSTANCE.getAssistModel__GetAllProcessors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Cores</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_CORES = eINSTANCE.getAssistModel__GetAllCores();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE = eINSTANCE.getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = eINSTANCE.getAssistModel__GetAllHardwareElements__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Threads</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_THREADS = eINSTANCE.getAssistModel__GetAllThreads();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -3255,6 +3577,30 @@ public interface ModelPackage extends EPackage {
 		EReference COMPARTMENT__METRIC_PARAMETERS = eINSTANCE.getCompartment_MetricParameters();
 
 		/**
+		 * The meta object literal for the '<em><b>Get All Boards</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARTMENT___GET_ALL_BOARDS = eINSTANCE.getCompartment__GetAllBoards();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Processors</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARTMENT___GET_ALL_PROCESSORS = eINSTANCE.getCompartment__GetAllProcessors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Cores</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARTMENT___GET_ALL_CORES = eINSTANCE.getCompartment__GetAllCores();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.BoxImpl <em>Box</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3295,6 +3641,22 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOX__METRIC_PARAMETERS = eINSTANCE.getBox_MetricParameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Processors</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOX___GET_ALL_PROCESSORS = eINSTANCE.getBox__GetAllProcessors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Cores</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOX___GET_ALL_CORES = eINSTANCE.getBox__GetAllCores();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.BoardImpl <em>Board</em>}' class.
@@ -3401,6 +3763,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation BOARD___TO_STRING = eINSTANCE.getBoard__ToString();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Cores</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOARD___GET_ALL_CORES = eINSTANCE.getBoard__GetAllCores();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ProcessorImpl <em>Processor</em>}' class.
@@ -3745,6 +4115,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass THREAD = eINSTANCE.getThread();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THREAD__NAME = eINSTANCE.getThread_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Application</b></em>' container reference feature.
