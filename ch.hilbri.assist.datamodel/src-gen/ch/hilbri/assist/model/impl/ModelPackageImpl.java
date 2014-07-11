@@ -437,6 +437,42 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAssistModel_TopHardwareLevel() {
+		return (EAttribute)assistModelEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAssistModel_BottomHardwareLevel() {
+		return (EAttribute)assistModelEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAssistModel_AllHardwareLevels() {
+		return (EAttribute)assistModelEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAssistModel_HardwareLevelCount() {
+		return (EAttribute)assistModelEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getAssistModel__PostProcessingForMapping() {
 		return assistModelEClass.getEOperations().get(0);
 	}
@@ -1460,6 +1496,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(assistModelEClass, ASSIST_MODEL__DISLOCALITY_RELATIONS);
 		createEReference(assistModelEClass, ASSIST_MODEL__PROXIMITY_RELATIONS);
 		createEReference(assistModelEClass, ASSIST_MODEL__COMMUNICATION_RELATIONS);
+		createEAttribute(assistModelEClass, ASSIST_MODEL__TOP_HARDWARE_LEVEL);
+		createEAttribute(assistModelEClass, ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL);
+		createEAttribute(assistModelEClass, ASSIST_MODEL__ALL_HARDWARE_LEVELS);
+		createEAttribute(assistModelEClass, ASSIST_MODEL__HARDWARE_LEVEL_COUNT);
 		createEOperation(assistModelEClass, ASSIST_MODEL___POST_PROCESSING_FOR_MAPPING);
 
 		hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
@@ -1651,6 +1691,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getAssistModel_DislocalityRelations(), this.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_ProximityRelations(), this.getProximityRelation(), null, "proximityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_CommunicationRelations(), this.getCommunicationRelation(), null, "communicationRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssistModel_TopHardwareLevel(), this.getHardwareArchitectureLevelType(), "topHardwareLevel", null, 0, 1, AssistModel.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssistModel_BottomHardwareLevel(), this.getHardwareArchitectureLevelType(), "bottomHardwareLevel", null, 0, 1, AssistModel.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssistModel_AllHardwareLevels(), this.getHardwareArchitectureLevelType(), "allHardwareLevels", null, 0, -1, AssistModel.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssistModel_HardwareLevelCount(), theEcorePackage.getEInt(), "hardwareLevelCount", null, 0, 1, AssistModel.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAssistModel__PostProcessingForMapping(), theEcorePackage.getEBoolean(), "postProcessingForMapping", 0, 1, !IS_UNIQUE, IS_ORDERED);
 

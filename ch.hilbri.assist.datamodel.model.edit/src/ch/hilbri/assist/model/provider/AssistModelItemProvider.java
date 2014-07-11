@@ -65,6 +65,10 @@ public class AssistModelItemProvider
 			super.getPropertyDescriptors(object);
 
 			addSystemNamePropertyDescriptor(object);
+			addTopHardwareLevelPropertyDescriptor(object);
+			addBottomHardwareLevelPropertyDescriptor(object);
+			addAllHardwareLevelsPropertyDescriptor(object);
+			addHardwareLevelCountPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,6 +91,94 @@ public class AssistModelItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Top Hardware Level feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTopHardwareLevelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AssistModel_topHardwareLevel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_topHardwareLevel_feature", "_UI_AssistModel_type"),
+				 ModelPackage.Literals.ASSIST_MODEL__TOP_HARDWARE_LEVEL,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Bottom Hardware Level feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBottomHardwareLevelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AssistModel_bottomHardwareLevel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_bottomHardwareLevel_feature", "_UI_AssistModel_type"),
+				 ModelPackage.Literals.ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the All Hardware Levels feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAllHardwareLevelsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AssistModel_allHardwareLevels_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_allHardwareLevels_feature", "_UI_AssistModel_type"),
+				 ModelPackage.Literals.ASSIST_MODEL__ALL_HARDWARE_LEVELS,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Hardware Level Count feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHardwareLevelCountPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AssistModel_hardwareLevelCount_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_hardwareLevelCount_feature", "_UI_AssistModel_type"),
+				 ModelPackage.Literals.ASSIST_MODEL__HARDWARE_LEVEL_COUNT,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -167,6 +259,10 @@ public class AssistModelItemProvider
 
 		switch (notification.getFeatureID(AssistModel.class)) {
 			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
+			case ModelPackage.ASSIST_MODEL__TOP_HARDWARE_LEVEL:
+			case ModelPackage.ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL:
+			case ModelPackage.ASSIST_MODEL__ALL_HARDWARE_LEVELS:
+			case ModelPackage.ASSIST_MODEL__HARDWARE_LEVEL_COUNT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.ASSIST_MODEL__HARDWARE_CONTAINER:

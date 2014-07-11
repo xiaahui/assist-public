@@ -6,12 +6,18 @@ package ch.hilbri.assist.model.impl;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationGroup;
 import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.Board;
+import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.CommunicationRelation;
+import ch.hilbri.assist.model.Compartment;
+import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.DislocalityRelation;
 import ch.hilbri.assist.model.DissimilarityRelation;
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.model.HardwareElementContainer;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Network;
+import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.model.ProximityRelation;
 
 import java.lang.reflect.InvocationTargetException;
@@ -21,6 +27,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -48,6 +55,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getDislocalityRelations <em>Dislocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getProximityRelations <em>Proximity Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getCommunicationRelations <em>Communication Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getTopHardwareLevel <em>Top Hardware Level</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getBottomHardwareLevel <em>Bottom Hardware Level</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getAllHardwareLevels <em>All Hardware Levels</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getHardwareLevelCount <em>Hardware Level Count</em>}</li>
  * </ul>
  * </p>
  *
@@ -153,6 +164,36 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @ordered
 	 */
 	protected EList<CommunicationRelation> communicationRelations;
+
+	/**
+	 * The default value of the '{@link #getTopHardwareLevel() <em>Top Hardware Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTopHardwareLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final HardwareArchitectureLevelType TOP_HARDWARE_LEVEL_EDEFAULT = HardwareArchitectureLevelType.CORE;
+
+	/**
+	 * The default value of the '{@link #getBottomHardwareLevel() <em>Bottom Hardware Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBottomHardwareLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final HardwareArchitectureLevelType BOTTOM_HARDWARE_LEVEL_EDEFAULT = HardwareArchitectureLevelType.CORE;
+
+	/**
+	 * The default value of the '{@link #getHardwareLevelCount() <em>Hardware Level Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHardwareLevelCount()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int HARDWARE_LEVEL_COUNT_EDEFAULT = 0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -295,6 +336,118 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public HardwareArchitectureLevelType getTopHardwareLevel() {
+		HardwareArchitectureLevelType _xifexpression = null;
+		EList<HardwareElementContainer> _hardwareContainer = this.getHardwareContainer();
+		boolean _isEmpty = _hardwareContainer.isEmpty();
+		boolean _not = (!_isEmpty);
+		if (_not) {
+			HardwareArchitectureLevelType _switchResult = null;
+			EList<HardwareElementContainer> _hardwareContainer_1 = this.getHardwareContainer();
+			HardwareElementContainer _get = _hardwareContainer_1.get(0);
+			boolean _matched = false;
+			if (!_matched) {
+				if (_get instanceof Compartment) {
+					_matched=true;
+					_switchResult = HardwareArchitectureLevelType.COMPARTMENT;
+				}
+			}
+			if (!_matched) {
+				if (_get instanceof Box) {
+					_matched=true;
+					_switchResult = HardwareArchitectureLevelType.BOX;
+				}
+			}
+			if (!_matched) {
+				if (_get instanceof Board) {
+					_matched=true;
+					_switchResult = HardwareArchitectureLevelType.BOARD;
+				}
+			}
+			if (!_matched) {
+				if (_get instanceof Processor) {
+					_matched=true;
+					_switchResult = HardwareArchitectureLevelType.PROCESSOR;
+				}
+			}
+			if (!_matched) {
+				if (_get instanceof Core) {
+					_matched=true;
+					_switchResult = HardwareArchitectureLevelType.CORE;
+				}
+			}
+			_xifexpression = _switchResult;
+		}
+		return _xifexpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HardwareArchitectureLevelType getBottomHardwareLevel() {
+		return HardwareArchitectureLevelType.CORE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<HardwareArchitectureLevelType> getAllHardwareLevels() {
+		final BasicEList<HardwareArchitectureLevelType> list = new BasicEList<HardwareArchitectureLevelType>();
+		list.add(HardwareArchitectureLevelType.CORE);
+		list.add(HardwareArchitectureLevelType.PROCESSOR);
+		list.add(HardwareArchitectureLevelType.BOARD);
+		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
+		boolean _matched = false;
+		if (!_matched) {
+			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.CORE_VALUE)) {
+				_matched=true;
+			}
+		}
+		if (!_matched) {
+			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.PROCESSOR_VALUE)) {
+				_matched=true;
+			}
+		}
+		if (!_matched) {
+			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.BOARD_VALUE)) {
+				_matched=true;
+			}
+		}
+		if (!_matched) {
+			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.BOX_VALUE)) {
+				_matched=true;
+				list.add(HardwareArchitectureLevelType.BOX);
+			}
+		}
+		if (!_matched) {
+			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.COMPARTMENT_VALUE)) {
+				_matched=true;
+				list.add(HardwareArchitectureLevelType.BOX);
+				list.add(HardwareArchitectureLevelType.COMPARTMENT);
+			}
+		}
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getHardwareLevelCount() {
+		EList<HardwareArchitectureLevelType> _allHardwareLevels = this.getAllHardwareLevels();
+		return _allHardwareLevels.size();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean postProcessingForMapping() {
 		return true;
 	}
@@ -353,6 +506,14 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getProximityRelations();
 			case ModelPackage.ASSIST_MODEL__COMMUNICATION_RELATIONS:
 				return getCommunicationRelations();
+			case ModelPackage.ASSIST_MODEL__TOP_HARDWARE_LEVEL:
+				return getTopHardwareLevel();
+			case ModelPackage.ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL:
+				return getBottomHardwareLevel();
+			case ModelPackage.ASSIST_MODEL__ALL_HARDWARE_LEVELS:
+				return getAllHardwareLevels();
+			case ModelPackage.ASSIST_MODEL__HARDWARE_LEVEL_COUNT:
+				return getHardwareLevelCount();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -470,6 +631,14 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return proximityRelations != null && !proximityRelations.isEmpty();
 			case ModelPackage.ASSIST_MODEL__COMMUNICATION_RELATIONS:
 				return communicationRelations != null && !communicationRelations.isEmpty();
+			case ModelPackage.ASSIST_MODEL__TOP_HARDWARE_LEVEL:
+				return getTopHardwareLevel() != TOP_HARDWARE_LEVEL_EDEFAULT;
+			case ModelPackage.ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL:
+				return getBottomHardwareLevel() != BOTTOM_HARDWARE_LEVEL_EDEFAULT;
+			case ModelPackage.ASSIST_MODEL__ALL_HARDWARE_LEVELS:
+				return !getAllHardwareLevels().isEmpty();
+			case ModelPackage.ASSIST_MODEL__HARDWARE_LEVEL_COUNT:
+				return getHardwareLevelCount() != HARDWARE_LEVEL_COUNT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -20,6 +20,46 @@ class AssistModel {
 	contains ProximityRelation[0..*] 		proximityRelations
 	contains CommunicationRelation[0..*] 	communicationRelations
 
+
+	@GenModel(documentation="Returns the top hardware level for this model")
+	derived HardwareArchitectureLevelType topHardwareLevel get {
+		if (!hardwareContainer.empty) {
+			switch hardwareContainer.get(0)  {
+				Compartment : 	HardwareArchitectureLevelType.COMPARTMENT
+				Box: 			HardwareArchitectureLevelType.BOX
+				Board: 			HardwareArchitectureLevelType.BOARD
+				Processor: 		HardwareArchitectureLevelType.PROCESSOR
+				Core: 			HardwareArchitectureLevelType.CORE
+			}
+		}
+	}
+	
+	@GenModel(documentation="Returns the bottom hardware level for this model")
+	derived HardwareArchitectureLevelType bottomHardwareLevel get { HardwareArchitectureLevelType.CORE }
+	
+	@GenModel(documentation="Returns a list of all HardwareArchitectureLevels for this model - Core level is the first item in this list")
+	derived HardwareArchitectureLevelType[] allHardwareLevels get {
+		val list = new BasicEList<HardwareArchitectureLevelType>()
+		
+		list.add(HardwareArchitectureLevelType.CORE)
+		list.add(HardwareArchitectureLevelType.PROCESSOR)
+		list.add(HardwareArchitectureLevelType.BOARD)
+		
+		switch topHardwareLevel {
+			case CORE_VALUE:		{}
+			case PROCESSOR_VALUE: 	{}
+			case BOARD_VALUE:		{}
+			case BOX_VALUE:			{ list.add(HardwareArchitectureLevelType.BOX) }
+			case COMPARTMENT_VALUE: { list.add(HardwareArchitectureLevelType.BOX)
+							  	 	  list.add(HardwareArchitectureLevelType.COMPARTMENT) }
+		}
+		return list
+	}
+	
+	@GenModel(documentation="Returns the amount of hardware levels in this model")
+	derived int hardwareLevelCount get { allHardwareLevels.size }
+
+
 	/**
 	 * Should be called before the mapping to make the model proper 
 	 */
