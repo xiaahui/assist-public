@@ -9,8 +9,6 @@ import org.jacop.core.Store
 
 @Data class SolverVariablesContainer {
 	
-	ArrayList<IntVar> 							solutionVariablesList 		= new ArrayList
-	
 	HashMap<Thread, HashMap<Integer, IntVar>> 	threadLocationVariablesList	= new HashMap 
 	
 	/* CONSTRUCTOR */
@@ -19,19 +17,24 @@ import org.jacop.core.Store
 		/* Initialize the hash map for all location variables */
 		for (t : model.allThreads) {
 			val m = new HashMap<Integer, IntVar>
-			for (var i = 0; i < model.hardwareLevelCount; i++) {
+			for (var i = 1; i <= model.hardwareLevelCount; i++) {
 				/* Create a new location variable for each thread;
-				 * initialize its domain to 0 .. size of hardware elements in this level */
-				m.put(i, new IntVar(constraintStore, "LocVar-" + t.name, 0, model.getAllHardwareElements(i).size))
+				 * initialize its domain to 0 .. size of hardware elements -1 in this level */
+				m.put(i, new IntVar(constraintStore, "LocVar-" + t.name + "-level-" + i, 1, model.getAllHardwareElements(i).size))
 			}
 			threadLocationVariablesList.put(t, m)
 		}
 	}
 
-	
+	def IntVar[] getSolutionVariables() {
+		val list = new ArrayList<IntVar>
 
-	def IntVar[] getSolutionVariablesAsArray() { 
-		return solutionVariablesList.toArray().map[it as IntVar]
+		// Alle ThreadLocationVariables sind SolutionVariables
+		for (threadKey : threadLocationVariablesList.keySet)
+			for (levelKey : threadLocationVariablesList.get(threadKey).keySet)
+				list.add(threadLocationVariablesList.get(threadKey).get(levelKey))		
+		 
+		return list
 	}
 	
 	def IntVar getThreadLocationVariable(Thread t, int level) {

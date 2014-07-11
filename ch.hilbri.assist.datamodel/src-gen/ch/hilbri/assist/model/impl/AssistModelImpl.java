@@ -407,34 +407,27 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 		list.add(HardwareArchitectureLevelType.PROCESSOR);
 		list.add(HardwareArchitectureLevelType.BOARD);
 		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
-		boolean _matched = false;
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.CORE_VALUE)) {
-				_matched=true;
+		if (_topHardwareLevel != null) {
+			switch (_topHardwareLevel) {
+				case CORE:
+					break;
+				case PROCESSOR:
+					break;
+				case BOARD:
+					break;
+				case BOX:
+					list.add(HardwareArchitectureLevelType.BOX);
+					break;
+				case COMPARTMENT:
+					list.add(HardwareArchitectureLevelType.BOX);
+					list.add(HardwareArchitectureLevelType.COMPARTMENT);
+					break;
+				default:
+					return null;
 			}
 		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.PROCESSOR_VALUE)) {
-				_matched=true;
-			}
-		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.BOARD_VALUE)) {
-				_matched=true;
-			}
-		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.BOX_VALUE)) {
-				_matched=true;
-				list.add(HardwareArchitectureLevelType.BOX);
-			}
-		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.COMPARTMENT_VALUE)) {
-				_matched=true;
-				list.add(HardwareArchitectureLevelType.BOX);
-				list.add(HardwareArchitectureLevelType.COMPARTMENT);
-			}
+		else {
+			return null;
 		}
 		return list;
 	}
@@ -479,31 +472,30 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	public EList<Box> getAllBoxes() {
 		final BasicEList<Box> list = new BasicEList<Box>();
 		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
-		boolean _matched = false;
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.COMPARTMENT_VALUE)) {
-				_matched=true;
-				EList<HardwareElementContainer> _hardwareContainer = this.getHardwareContainer();
-				for (final HardwareElementContainer c : _hardwareContainer) {
-					EList<Box> _boxes = ((Compartment) c).getBoxes();
-					list.addAll(_boxes);
-				}
-			}
-		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.BOX_VALUE)) {
-				_matched=true;
-				EList<HardwareElementContainer> _hardwareContainer_1 = this.getHardwareContainer();
-				final Function1<HardwareElementContainer, Box> _function = new Function1<HardwareElementContainer, Box>() {
-					public Box apply(final HardwareElementContainer elem) {
-						return ((Box) elem);
+		if (_topHardwareLevel != null) {
+			switch (_topHardwareLevel) {
+				case COMPARTMENT:
+					EList<HardwareElementContainer> _hardwareContainer = this.getHardwareContainer();
+					for (final HardwareElementContainer c : _hardwareContainer) {
+						EList<Box> _boxes = ((Compartment) c).getBoxes();
+						list.addAll(_boxes);
 					}
-				};
-				EList<Box> _map = XcoreEListExtensions.<HardwareElementContainer, Box>map(_hardwareContainer_1, _function);
-				list.addAll(_map);
+					break;
+				case BOX:
+					EList<HardwareElementContainer> _hardwareContainer_1 = this.getHardwareContainer();
+					final Function1<HardwareElementContainer, Box> _function = new Function1<HardwareElementContainer, Box>() {
+						public Box apply(final HardwareElementContainer elem) {
+							return ((Box) elem);
+						}
+					};
+					EList<Box> _map = XcoreEListExtensions.<HardwareElementContainer, Box>map(_hardwareContainer_1, _function);
+					list.addAll(_map);
+					break;
+				default:
+					break;
 			}
 		}
-		if (!_matched) {
+		else {
 		}
 		return list;
 	}
@@ -516,41 +508,37 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	public EList<Board> getAllBoards() {
 		final BasicEList<Board> list = new BasicEList<Board>();
 		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
-		boolean _matched = false;
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.COMPARTMENT_VALUE)) {
-				_matched=true;
-				EList<HardwareElementContainer> _hardwareContainer = this.getHardwareContainer();
-				for (final HardwareElementContainer c : _hardwareContainer) {
-					EList<Board> _allBoards = ((Compartment) c).getAllBoards();
-					list.addAll(_allBoards);
-				}
-			}
-		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.BOX_VALUE)) {
-				_matched=true;
-				EList<HardwareElementContainer> _hardwareContainer_1 = this.getHardwareContainer();
-				for (final HardwareElementContainer b : _hardwareContainer_1) {
-					EList<Board> _boards = ((Box) b).getBoards();
-					list.addAll(_boards);
-				}
-			}
-		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.BOARD_VALUE)) {
-				_matched=true;
-				EList<HardwareElementContainer> _hardwareContainer_2 = this.getHardwareContainer();
-				final Function1<HardwareElementContainer, Board> _function = new Function1<HardwareElementContainer, Board>() {
-					public Board apply(final HardwareElementContainer elem) {
-						return ((Board) elem);
+		if (_topHardwareLevel != null) {
+			switch (_topHardwareLevel) {
+				case COMPARTMENT:
+					EList<HardwareElementContainer> _hardwareContainer = this.getHardwareContainer();
+					for (final HardwareElementContainer c : _hardwareContainer) {
+						EList<Board> _allBoards = ((Compartment) c).getAllBoards();
+						list.addAll(_allBoards);
 					}
-				};
-				EList<Board> _map = XcoreEListExtensions.<HardwareElementContainer, Board>map(_hardwareContainer_2, _function);
-				list.addAll(_map);
+					break;
+				case BOX:
+					EList<HardwareElementContainer> _hardwareContainer_1 = this.getHardwareContainer();
+					for (final HardwareElementContainer b : _hardwareContainer_1) {
+						EList<Board> _boards = ((Box) b).getBoards();
+						list.addAll(_boards);
+					}
+					break;
+				case BOARD:
+					EList<HardwareElementContainer> _hardwareContainer_2 = this.getHardwareContainer();
+					final Function1<HardwareElementContainer, Board> _function = new Function1<HardwareElementContainer, Board>() {
+						public Board apply(final HardwareElementContainer elem) {
+							return ((Board) elem);
+						}
+					};
+					EList<Board> _map = XcoreEListExtensions.<HardwareElementContainer, Board>map(_hardwareContainer_2, _function);
+					list.addAll(_map);
+					break;
+				default:
+					break;
 			}
 		}
-		if (!_matched) {
+		else {
 		}
 		return list;
 	}
@@ -563,38 +551,34 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	public EList<Processor> getAllProcessors() {
 		final BasicEList<Processor> list = new BasicEList<Processor>();
 		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
-		boolean _matched = false;
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.COMPARTMENT_VALUE)) {
-				_matched=true;
-				EList<HardwareElementContainer> _hardwareContainer = this.getHardwareContainer();
-				for (final HardwareElementContainer c : _hardwareContainer) {
-					EList<Processor> _allProcessors = ((Compartment) c).getAllProcessors();
-					list.addAll(_allProcessors);
-				}
+		if (_topHardwareLevel != null) {
+			switch (_topHardwareLevel) {
+				case COMPARTMENT:
+					EList<HardwareElementContainer> _hardwareContainer = this.getHardwareContainer();
+					for (final HardwareElementContainer c : _hardwareContainer) {
+						EList<Processor> _allProcessors = ((Compartment) c).getAllProcessors();
+						list.addAll(_allProcessors);
+					}
+					break;
+				case BOX:
+					EList<HardwareElementContainer> _hardwareContainer_1 = this.getHardwareContainer();
+					for (final HardwareElementContainer b : _hardwareContainer_1) {
+						EList<Processor> _allProcessors_1 = ((Box) b).getAllProcessors();
+						list.addAll(_allProcessors_1);
+					}
+					break;
+				case BOARD:
+					EList<HardwareElementContainer> _hardwareContainer_2 = this.getHardwareContainer();
+					for (final HardwareElementContainer b_1 : _hardwareContainer_2) {
+						EList<Processor> _processors = ((Board) b_1).getProcessors();
+						list.addAll(_processors);
+					}
+					break;
+				default:
+					break;
 			}
 		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.BOX_VALUE)) {
-				_matched=true;
-				EList<HardwareElementContainer> _hardwareContainer_1 = this.getHardwareContainer();
-				for (final HardwareElementContainer b : _hardwareContainer_1) {
-					EList<Processor> _allProcessors_1 = ((Box) b).getAllProcessors();
-					list.addAll(_allProcessors_1);
-				}
-			}
-		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.BOARD_VALUE)) {
-				_matched=true;
-				EList<HardwareElementContainer> _hardwareContainer_2 = this.getHardwareContainer();
-				for (final HardwareElementContainer b_1 : _hardwareContainer_2) {
-					EList<Processor> _processors = ((Board) b_1).getProcessors();
-					list.addAll(_processors);
-				}
-			}
-		}
-		if (!_matched) {
+		else {
 		}
 		return list;
 	}
@@ -607,38 +591,34 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	public EList<Core> getAllCores() {
 		final BasicEList<Core> list = new BasicEList<Core>();
 		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
-		boolean _matched = false;
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.COMPARTMENT_VALUE)) {
-				_matched=true;
-				EList<HardwareElementContainer> _hardwareContainer = this.getHardwareContainer();
-				for (final HardwareElementContainer c : _hardwareContainer) {
-					EList<Core> _allCores = ((Compartment) c).getAllCores();
-					list.addAll(_allCores);
-				}
+		if (_topHardwareLevel != null) {
+			switch (_topHardwareLevel) {
+				case COMPARTMENT:
+					EList<HardwareElementContainer> _hardwareContainer = this.getHardwareContainer();
+					for (final HardwareElementContainer c : _hardwareContainer) {
+						EList<Core> _allCores = ((Compartment) c).getAllCores();
+						list.addAll(_allCores);
+					}
+					break;
+				case BOX:
+					EList<HardwareElementContainer> _hardwareContainer_1 = this.getHardwareContainer();
+					for (final HardwareElementContainer b : _hardwareContainer_1) {
+						EList<Core> _allCores_1 = ((Box) b).getAllCores();
+						list.addAll(_allCores_1);
+					}
+					break;
+				case BOARD:
+					EList<HardwareElementContainer> _hardwareContainer_2 = this.getHardwareContainer();
+					for (final HardwareElementContainer b_1 : _hardwareContainer_2) {
+						EList<Core> _allCores_2 = ((Board) b_1).getAllCores();
+						list.addAll(_allCores_2);
+					}
+					break;
+				default:
+					break;
 			}
 		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.BOX_VALUE)) {
-				_matched=true;
-				EList<HardwareElementContainer> _hardwareContainer_1 = this.getHardwareContainer();
-				for (final HardwareElementContainer b : _hardwareContainer_1) {
-					EList<Core> _allCores_1 = ((Box) b).getAllCores();
-					list.addAll(_allCores_1);
-				}
-			}
-		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.BOARD_VALUE)) {
-				_matched=true;
-				EList<HardwareElementContainer> _hardwareContainer_2 = this.getHardwareContainer();
-				for (final HardwareElementContainer b_1 : _hardwareContainer_2) {
-					EList<Core> _allCores_2 = ((Board) b_1).getAllCores();
-					list.addAll(_allCores_2);
-				}
-			}
-		}
-		if (!_matched) {
+		else {
 		}
 		return list;
 	}
@@ -649,68 +629,55 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @generated
 	 */
 	public EList<HardwareElement> getAllHardwareElements(final HardwareArchitectureLevelType level) {
-		boolean _matched = false;
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(level, HardwareArchitectureLevelType.COMPARTMENT_VALUE)) {
-				_matched=true;
-				EList<Compartment> _allCompartments = this.getAllCompartments();
-				final Function1<Compartment, HardwareElement> _function = new Function1<Compartment, HardwareElement>() {
-					public HardwareElement apply(final Compartment elem) {
-						return ((HardwareElement) elem);
-					}
-				};
-				return XcoreEListExtensions.<Compartment, HardwareElement>map(_allCompartments, _function);
+		if (level != null) {
+			switch (level) {
+				case COMPARTMENT:
+					EList<Compartment> _allCompartments = this.getAllCompartments();
+					final Function1<Compartment, HardwareElement> _function = new Function1<Compartment, HardwareElement>() {
+						public HardwareElement apply(final Compartment elem) {
+							return ((HardwareElement) elem);
+						}
+					};
+					return XcoreEListExtensions.<Compartment, HardwareElement>map(_allCompartments, _function);
+				case BOX:
+					EList<Box> _allBoxes = this.getAllBoxes();
+					final Function1<Box, HardwareElement> _function_1 = new Function1<Box, HardwareElement>() {
+						public HardwareElement apply(final Box elem) {
+							return ((HardwareElement) elem);
+						}
+					};
+					return XcoreEListExtensions.<Box, HardwareElement>map(_allBoxes, _function_1);
+				case BOARD:
+					EList<Board> _allBoards = this.getAllBoards();
+					final Function1<Board, HardwareElement> _function_2 = new Function1<Board, HardwareElement>() {
+						public HardwareElement apply(final Board elem) {
+							return ((HardwareElement) elem);
+						}
+					};
+					return XcoreEListExtensions.<Board, HardwareElement>map(_allBoards, _function_2);
+				case PROCESSOR:
+					EList<Processor> _allProcessors = this.getAllProcessors();
+					final Function1<Processor, HardwareElement> _function_3 = new Function1<Processor, HardwareElement>() {
+						public HardwareElement apply(final Processor elem) {
+							return ((HardwareElement) elem);
+						}
+					};
+					return XcoreEListExtensions.<Processor, HardwareElement>map(_allProcessors, _function_3);
+				case CORE:
+					EList<Core> _allCores = this.getAllCores();
+					final Function1<Core, HardwareElement> _function_4 = new Function1<Core, HardwareElement>() {
+						public HardwareElement apply(final Core elem) {
+							return ((HardwareElement) elem);
+						}
+					};
+					return XcoreEListExtensions.<Core, HardwareElement>map(_allCores, _function_4);
+				default:
+					return null;
 			}
 		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(level, HardwareArchitectureLevelType.BOX_VALUE)) {
-				_matched=true;
-				EList<Box> _allBoxes = this.getAllBoxes();
-				final Function1<Box, HardwareElement> _function_1 = new Function1<Box, HardwareElement>() {
-					public HardwareElement apply(final Box elem) {
-						return ((HardwareElement) elem);
-					}
-				};
-				return XcoreEListExtensions.<Box, HardwareElement>map(_allBoxes, _function_1);
-			}
+		else {
+			return null;
 		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(level, HardwareArchitectureLevelType.BOARD_VALUE)) {
-				_matched=true;
-				EList<Board> _allBoards = this.getAllBoards();
-				final Function1<Board, HardwareElement> _function_2 = new Function1<Board, HardwareElement>() {
-					public HardwareElement apply(final Board elem) {
-						return ((HardwareElement) elem);
-					}
-				};
-				return XcoreEListExtensions.<Board, HardwareElement>map(_allBoards, _function_2);
-			}
-		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(level, HardwareArchitectureLevelType.PROCESSOR_VALUE)) {
-				_matched=true;
-				EList<Processor> _allProcessors = this.getAllProcessors();
-				final Function1<Processor, HardwareElement> _function_3 = new Function1<Processor, HardwareElement>() {
-					public HardwareElement apply(final Processor elem) {
-						return ((HardwareElement) elem);
-					}
-				};
-				return XcoreEListExtensions.<Processor, HardwareElement>map(_allProcessors, _function_3);
-			}
-		}
-		if (!_matched) {
-			if (com.google.common.base.Objects.equal(level, HardwareArchitectureLevelType.CORE_VALUE)) {
-				_matched=true;
-				EList<Core> _allCores = this.getAllCores();
-				final Function1<Core, HardwareElement> _function_4 = new Function1<Core, HardwareElement>() {
-					public HardwareElement apply(final Core elem) {
-						return ((HardwareElement) elem);
-					}
-				};
-				return XcoreEListExtensions.<Core, HardwareElement>map(_allCores, _function_4);
-			}
-		}
-		return null;
 	}
 
 	/**
@@ -719,15 +686,15 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @generated
 	 */
 	public EList<HardwareElement> getAllHardwareElements(final int level) {
-		if ((level < 0)) {
+		if ((level <= 0)) {
 			return null;
 		}
 		int _hardwareLevelCount = this.getHardwareLevelCount();
-		boolean _greaterEqualsThan = (level >= _hardwareLevelCount);
-		if (_greaterEqualsThan) {
+		boolean _greaterThan = (level > _hardwareLevelCount);
+		if (_greaterThan) {
 			return null;
 		}
-		if ((level == 0)) {
+		if ((level == 1)) {
 			EList<Core> _allCores = this.getAllCores();
 			final Function1<Core, HardwareElement> _function = new Function1<Core, HardwareElement>() {
 				public HardwareElement apply(final Core elem) {
@@ -736,7 +703,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			};
 			return XcoreEListExtensions.<Core, HardwareElement>map(_allCores, _function);
 		}
-		if ((level == 1)) {
+		if ((level == 2)) {
 			EList<Processor> _allProcessors = this.getAllProcessors();
 			final Function1<Processor, HardwareElement> _function_1 = new Function1<Processor, HardwareElement>() {
 				public HardwareElement apply(final Processor elem) {
@@ -745,7 +712,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			};
 			return XcoreEListExtensions.<Processor, HardwareElement>map(_allProcessors, _function_1);
 		}
-		if ((level == 2)) {
+		if ((level == 3)) {
 			EList<Board> _allBoards = this.getAllBoards();
 			final Function1<Board, HardwareElement> _function_2 = new Function1<Board, HardwareElement>() {
 				public HardwareElement apply(final Board elem) {
@@ -754,7 +721,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			};
 			return XcoreEListExtensions.<Board, HardwareElement>map(_allBoards, _function_2);
 		}
-		if ((level == 3)) {
+		if ((level == 4)) {
 			EList<Box> _allBoxes = this.getAllBoxes();
 			final Function1<Box, HardwareElement> _function_3 = new Function1<Box, HardwareElement>() {
 				public HardwareElement apply(final Box elem) {
@@ -763,7 +730,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			};
 			return XcoreEListExtensions.<Box, HardwareElement>map(_allBoxes, _function_3);
 		}
-		if ((level == 4)) {
+		if ((level == 5)) {
 			EList<Compartment> _allCompartments = this.getAllCompartments();
 			final Function1<Compartment, HardwareElement> _function_4 = new Function1<Compartment, HardwareElement>() {
 				public HardwareElement apply(final Compartment elem) {

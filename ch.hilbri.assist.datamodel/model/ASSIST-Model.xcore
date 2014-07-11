@@ -44,12 +44,13 @@ class AssistModel {
 		list.add(HardwareArchitectureLevelType.BOARD)
 		
 		switch topHardwareLevel {
-			case CORE_VALUE:		{}
-			case PROCESSOR_VALUE: 	{}
-			case BOARD_VALUE:		{}
-			case BOX_VALUE:			{ list.add(HardwareArchitectureLevelType.BOX) }
-			case COMPARTMENT_VALUE: { list.add(HardwareArchitectureLevelType.BOX)
-							  	 	  list.add(HardwareArchitectureLevelType.COMPARTMENT) }
+			case CORE			:	{}
+			case PROCESSOR		: 	{}
+			case BOARD			:	{}
+			case BOX			:	{ list.add(HardwareArchitectureLevelType.BOX) 			}
+			case COMPARTMENT	: 	{ list.add(HardwareArchitectureLevelType.BOX)
+							  	 	  list.add(HardwareArchitectureLevelType.COMPARTMENT) 	}
+			default				: 	{ return null }
 		}
 		return list
 	}
@@ -67,9 +68,9 @@ class AssistModel {
 	op Box[] getAllBoxes() {
 		val list = new BasicEList<Box>
 		switch topHardwareLevel {
-			case COMPARTMENT_VALUE 	:	for (c : hardwareContainer)	list.addAll((c as Compartment).boxes)
-			case BOX_VALUE 			: 	list.addAll(hardwareContainer.map(elem | elem as Box) )
-			default				  	: 	{} 		
+			case COMPARTMENT 	:	for (c : hardwareContainer)	list.addAll((c as Compartment).boxes)
+			case BOX 			: 	list.addAll(hardwareContainer.map(elem | elem as Box) )
+			default			  	: 	{} 		
 		}
 		return list
 	}
@@ -78,10 +79,10 @@ class AssistModel {
 	op Board[] getAllBoards() {
 		val list = new BasicEList<Board>
 		switch topHardwareLevel {
-			case COMPARTMENT_VALUE	:	for (c : hardwareContainer) list.addAll((c as Compartment).allBoards)
-			case BOX_VALUE			:	for (b : hardwareContainer) list.addAll((b as Box).boards)
-			case BOARD_VALUE		:	list.addAll(hardwareContainer.map(elem | elem as Board))
-			default					: 	{}
+			case COMPARTMENT	:	for (c : hardwareContainer) list.addAll((c as Compartment).allBoards)
+			case BOX			:	for (b : hardwareContainer) list.addAll((b as Box).boards)
+			case BOARD			:	list.addAll(hardwareContainer.map(elem | elem as Board))
+			default				: 	{}
 		}
 		return list
 	}
@@ -90,10 +91,10 @@ class AssistModel {
 	op Processor[] getAllProcessors() {
 		val list = new BasicEList<Processor>
 		switch topHardwareLevel {
-			case COMPARTMENT_VALUE	: 	for (c : hardwareContainer) list.addAll((c as Compartment).allProcessors)
-			case BOX_VALUE			:	for (b : hardwareContainer) list.addAll((b as Box).allProcessors)
-			case BOARD_VALUE		: 	for (b : hardwareContainer) list.addAll((b as Board).processors)
-			default					:	{}
+			case COMPARTMENT	: 	for (c : hardwareContainer) list.addAll((c as Compartment).allProcessors)
+			case BOX			:	for (b : hardwareContainer) list.addAll((b as Box).allProcessors)
+			case BOARD			: 	for (b : hardwareContainer) list.addAll((b as Board).processors)
+			default				:	{}
 		}
 		return list
 	}
@@ -102,10 +103,10 @@ class AssistModel {
 	op Core[] getAllCores() {
 		val list = new BasicEList<Core>
 		switch topHardwareLevel {
-			case COMPARTMENT_VALUE	: 	for (c : hardwareContainer) list.addAll((c as Compartment).allCores)
-			case BOX_VALUE			:	for (b : hardwareContainer) list.addAll((b as Box).allCores)
-			case BOARD_VALUE		: 	for (b : hardwareContainer) list.addAll((b as Board).allCores)
-			default					:	{}
+			case COMPARTMENT	: 	for (c : hardwareContainer) list.addAll((c as Compartment).allCores)
+			case BOX			:	for (b : hardwareContainer) list.addAll((b as Box).allCores)
+			case BOARD			: 	for (b : hardwareContainer) list.addAll((b as Board).allCores)
+			default				:	{}
 		}
 		return list
 	}
@@ -115,24 +116,25 @@ class AssistModel {
 	@GenModel(documentation="Returns a list of all hardware elements in the specified hardware level")
 	op HardwareElement[] getAllHardwareElements(HardwareArchitectureLevelType level) {
 		switch level {
-			case COMPARTMENT_VALUE	: 	return allCompartments.map(elem | elem as HardwareElement)
-			case BOX_VALUE			:	return allBoxes.map(elem | elem as HardwareElement)
-			case BOARD_VALUE		: 	return allBoards.map(elem | elem as HardwareElement)
-			case PROCESSOR_VALUE	: 	return allProcessors.map(elem | elem as HardwareElement)
-			case CORE_VALUE			: 	return allCores.map(elem | elem as HardwareElement)
+			case COMPARTMENT	: 	return allCompartments.map(elem | elem as HardwareElement)
+			case BOX			:	return allBoxes.map(elem | elem as HardwareElement)
+			case BOARD			: 	return allBoards.map(elem | elem as HardwareElement)
+			case PROCESSOR		: 	return allProcessors.map(elem | elem as HardwareElement)
+			case CORE			: 	return allCores.map(elem | elem as HardwareElement)
+			default				:	return null
 		}
 	}
 	
-	@GenModel(documentation="Returns a list of all hardware elements in the specified hardware level (Core level = 0)")
+	@GenModel(documentation="Returns a list of all hardware elements in the specified hardware level (Core level = 1)")
 	op HardwareElement[] getAllHardwareElements(int level) {
-		if (level < 0) 	return null
-		if (level >= hardwareLevelCount) return null
+		if (level <= 0)	return null
+		if (level > hardwareLevelCount) return null
 		 
-		if (level == 0) return allCores.map(elem | elem as HardwareElement)
-		if (level == 1)	return allProcessors.map(elem | elem as HardwareElement)
-		if (level == 2)	return allBoards.map(elem | elem as HardwareElement)
-		if (level == 3)	return allBoxes.map(elem | elem as HardwareElement)
-		if (level == 4)	return allCompartments.map(elem | elem as HardwareElement)
+		if (level == 1) return allCores.map(elem | elem as HardwareElement)
+		if (level == 2)	return allProcessors.map(elem | elem as HardwareElement)
+		if (level == 3)	return allBoards.map(elem | elem as HardwareElement)
+		if (level == 4)	return allBoxes.map(elem | elem as HardwareElement)
+		if (level == 5)	return allCompartments.map(elem | elem as HardwareElement)
 	}
 	
 	@GenModel(documentation="Returns a list of all threads in the model")
@@ -368,7 +370,7 @@ class Application extends ApplicationOrApplicationGroup {
 }
 
 class Thread {
-	derived String name get { application.name + '_' + application.threads.indexOf(this) }
+	derived String name get { application.name + '_' + (application.threads.indexOf(this)+1) }
 	container Application application opposite threads
 		
 }

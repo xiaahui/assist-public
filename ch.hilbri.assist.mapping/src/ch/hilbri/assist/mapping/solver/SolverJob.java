@@ -94,7 +94,7 @@ public class SolverJob extends Job {
 		
 		/* Create a new Constraint Store (JaCoP) */
 		this.constraintStore = new Store();
-		this.solverVariables = new SolverVariablesContainer(model, constraintStore);
+		this.solverVariables = new SolverVariablesContainer(this.model, constraintStore);
 		
 		
 //		/* Create the set of Variables needed for a Thread */
@@ -185,7 +185,7 @@ public class SolverJob extends Job {
 			constraint.generate();
 			
 			/* Check the store for consistency so far */
-			if (!constraintStore.consistency()) {
+			if (constraintStore.consistency() == false) {
 				final String constraintName = constraint.getName();
 				
 				Display.getDefault().asyncExec(new Runnable() {
@@ -209,7 +209,8 @@ public class SolverJob extends Job {
 		}
 
 		 monitor.subTask("Searching for solutions");
-		 if (runSearchForSolutions(monitor) != Status.OK_STATUS) return Status.CANCEL_STATUS;
+		 if (runSearchForSolutions(monitor) != Status.OK_STATUS) 
+			 return Status.CANCEL_STATUS;
 		 monitor.worked(1);
 
 	
@@ -227,7 +228,7 @@ public class SolverJob extends Job {
 		search.getSolutionListener().recordSolutions(true);
 		search.getSolutionListener().setSolutionLimit(this.maxSolutions);
 				
-		SelectChoicePoint<IntVar> select = new InputOrderSelect<IntVar>(constraintStore, solverVariables.getSolutionVariablesAsArray(), new IndomainMin<IntVar>());
+		SelectChoicePoint<IntVar> select = new InputOrderSelect<IntVar>(constraintStore, solverVariables.getSolutionVariables(), new IndomainMin<IntVar>());
 		 
 		boolean result = search.labeling(constraintStore, select); 
 		

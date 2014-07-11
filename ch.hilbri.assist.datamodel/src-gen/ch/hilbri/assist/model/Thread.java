@@ -33,7 +33,7 @@ public interface Thread extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see ch.hilbri.assist.model.ModelPackage#getThread_Name()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%ch.hilbri.assist.model.Application%> _application = this.getApplication();\n<%java.lang.String%> _name = _application.getName();\n<%java.lang.String%> _plus = (_name + \"_\");\n<%ch.hilbri.assist.model.Application%> _application_1 = this.getApplication();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Thread%>> _threads = _application_1.getThreads();\nint _indexOf = _threads.indexOf(this);\nreturn (_plus + <%java.lang.Integer%>.valueOf(_indexOf));'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%ch.hilbri.assist.model.Application%> _application = this.getApplication();\n<%java.lang.String%> _name = _application.getName();\n<%java.lang.String%> _plus = (_name + \"_\");\n<%ch.hilbri.assist.model.Application%> _application_1 = this.getApplication();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.Thread%>> _threads = _application_1.getThreads();\nint _indexOf = _threads.indexOf(this);\nint _plus_1 = (_indexOf + 1);\nreturn (_plus + <%java.lang.Integer%>.valueOf(_plus_1));'"
 	 * @generated
 	 */
 	String getName();

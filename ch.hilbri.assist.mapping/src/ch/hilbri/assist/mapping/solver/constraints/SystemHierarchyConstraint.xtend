@@ -40,25 +40,22 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 		 
 		val hardwareLevelLink = new ArrayList<ArrayList<Integer>>
 		
-		for (levelCtr : 0 ..< model.hardwareLevelCount-1 ) {
+		for (levelCtr : 1..model.hardwareLevelCount-1 ) {
 			
 			/* hardwareLevelLink[lowerLevel][Kind_Index] = Parent_Index */
 			val list = new ArrayList<Integer>
 			for (hw : model.getAllHardwareElements(levelCtr))
-				list.add(hw.eContainer.eContainer.eContents.indexOf(hw.eContainer))
+				list.add(hw.eContainer.eContainer.eContents.indexOf(hw.eContainer)+1)
 			hardwareLevelLink.add(list)
 
 			for (t : model.allThreads) {
-				var ctr = new Element(solverVariables.getThreadLocationVariable(t, levelCtr+1),
-										hardwareLevelLink.get(levelCtr),
-										solverVariables.getThreadLocationVariable(t, levelCtr))
-				
-				constraintStore.impose(ctr);
+				var index  = solverVariables.getThreadLocationVariable(t, levelCtr)
+				var values = solverVariables.getThreadLocationVariable(t, levelCtr + 1)
+				constraintStore.impose(new Element( index, hardwareLevelLink.get(levelCtr-1), values))
 			}			
-			
 		} 
 		
-		return false
+		return true
 	}
 	
 }

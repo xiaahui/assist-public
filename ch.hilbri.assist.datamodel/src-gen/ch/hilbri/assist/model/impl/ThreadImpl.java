@@ -74,7 +74,8 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 		Application _application_1 = this.getApplication();
 		EList<ch.hilbri.assist.model.Thread> _threads = _application_1.getThreads();
 		int _indexOf = _threads.indexOf(this);
-		return (_plus + Integer.valueOf(_indexOf));
+		int _plus_1 = (_indexOf + 1);
+		return (_plus + Integer.valueOf(_plus_1));
 	}
 
 	/**
