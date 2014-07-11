@@ -6,7 +6,10 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
-import org.jacop.constraints.XeqY;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 import org.jacop.core.IntVar;
 import org.jacop.core.Store;
 import org.jacop.search.DepthFirstSearch;
@@ -16,7 +19,7 @@ import org.jacop.search.Search;
 import org.jacop.search.SelectChoicePoint;
 
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
-import ch.hilbri.assist.mapping.solver.SolutionGenerator.KindOfSolutions;
+import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
@@ -31,8 +34,7 @@ public class SolverJob extends Job {
 	
 	private SolverVariablesContainer solverVariables;
 	
-//	private MappingConstraintsList mappingConstraintsList;
-	
+	private ArrayList<AbstractMappingConstraint> mappingConstraintsList;
 
 	private DetailedResultsViewUiModel detailedResultsViewUiModel;
 		
@@ -54,7 +56,7 @@ public class SolverJob extends Job {
 	 * CONSECUTIVE: sucht "hintereiander" liegende Loesungen
 	 * 				(Vorteil: Es kann eindeutig bestimmt werden, ob alle moeglichen Loesungen gefunden wurden)
 	 */
-	private KindOfSolutions kindOfSolutions;
+	private SearchType kindOfSolutions;
 
 	/*
 	 * Im Advances Mode gibt dies die maximale Suchzeit an, da nicht
@@ -85,6 +87,9 @@ public class SolverJob extends Job {
 
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>();  
+	
+		/* Create an empty set of constraints that will be used */
+		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>();
 		
 		/* Create a new Constraint Store (JaCoP) */
 		this.constraintStore = new Store();
@@ -103,10 +108,6 @@ public class SolverJob extends Job {
 //		this.communicationVariablesList = new CommunicationVariablesList(model, constraintSystem);
 //		
 //		this.ioAdapterVariablesList = new IOAdapterVariablesList(model, constraintSystem);
-//		
-//		/* Create an empty set of constraints that will be used */
-//		this.mappingConstraintsList = new MappingConstraintsList();
-//
 //		
 //		
 //		/* Create a new Constraint to process the system hierarchy */
@@ -166,32 +167,41 @@ public class SolverJob extends Job {
 	/* Die Funktionalitaet der RUN-Methode wurde ausgelagert, um den Zugang fuer einen Test zu ermoeglichen */
 	public IStatus execute(IProgressMonitor monitor, boolean presentResults) 
 	{
-
 		monitor.beginTask("Generating all mappings", 1);
 
-		
-		IntVar x = new IntVar(constraintStore, "X", 1,3);
-		solverVariables.getSolutionVariablesList().add(x);
-		
-		IntVar y = new IntVar(constraintStore, "Y", 2,5);
-		solverVariables.getSolutionVariablesList().add(y);
-		
-		constraintStore.impose(new XeqY(x,y));
-		
-		ConsoleCommands.writeLineToConsole("Mapping specification consistency: " + constraintStore.consistency());
+		for (AbstractMappingConstraint constraint : mappingConstraintsList) {
 
-//		for (AbstractMappingConstraint constraint : mappingConstraintsList) {
-//
-//			if (monitor.isCanceled())	return Status.CANCEL_STATUS;
-//
-//			monitor.subTask("Processing constraint: \""	+ constraint.getDescription() + "\"");
-//
-//			if (constraint.generate() != Status.OK_STATUS)	return Status.CANCEL_STATUS;
-//			if (constraint.propagate() != Status.OK_STATUS) return Status.CANCEL_STATUS;
-//
-//			monitor.worked(1);
-//		}
-//
+			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
+
+			monitor.subTask("Processing constraint: \""	+ constraint.getName() + "\"");
+			
+			/* Generate this constraint */
+			constraint.generate();
+			
+			/* Check the store for consistency so far */
+			if (!constraintStore.consistency()) {
+				final String constraintName = constraint.getName();
+				
+				Display.getDefault().asyncExec(new Runnable() {
+
+					public void run() {
+						Shell activeShell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+						MessageDialog.openError(activeShell,
+										"Specification inconsistencies",
+										"Your specifications have been inconsistent.\n"
+												+ "I was unable to generate a valid solution.\n\n"
+												+ "Here is the last set of constraints which failed to propagate:\n\n"
+												+ ">" + constraintName + "<");
+					}
+				});
+				
+				return Status.CANCEL_STATUS;
+			} 
+			
+			else 
+				monitor.worked(1);
+		}
+
 		 monitor.subTask("Searching for solutions");
 		 if (runSearchForSolutions(monitor) != Status.OK_STATUS) return Status.CANCEL_STATUS;
 		 monitor.worked(1);
@@ -203,10 +213,8 @@ public class SolverJob extends Job {
 
 		 return Status.OK_STATUS;
 	}
-//
+
 	private IStatus runSearchForSolutions(IProgressMonitor monitor) {
-		
-	
 		
 		Search<IntVar> search = new DepthFirstSearch<IntVar>();
 		search.getSolutionListener().searchAll(true);
@@ -316,7 +324,7 @@ public class SolverJob extends Job {
 	 * Sets the searching mode. See {@link SolutionGenerator.KindOfSolutions}
 	 * @param kindOfSolutions
 	 */
-	public void setKindOfSolutions(KindOfSolutions kindOfSolutions) {
+	public void setKindOfSolutions(SearchType kindOfSolutions) {
 		this.kindOfSolutions = kindOfSolutions;
 	}
 

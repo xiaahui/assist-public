@@ -2,21 +2,7 @@ package ch.hilbri.assist.mapping.solver;
 
 
 public class SolutionGenerator {
-	
 
-
-	public enum KindOfSolutions {
-		/**
-		 * sucht "hintereiander" liegende Loesungen
-		 * (Vorteil: Es kann eindeutig bestimmt werden, ob alle moeglichen Loesungen gefunden wurden)
-		 */
-		CONSECUTIVE,
-		/** 
-		 * sucht zufaellig im gesamten Loesungsraum
-		 * (Vorteil: Loesungen stammen aus allen Teilen des Loesungsraums)
-		 */
-		RANDOM;
-	}
 //	
 //	private static int maxSolutions;// = 1000;
 //	private static IProgressMonitor monitor;

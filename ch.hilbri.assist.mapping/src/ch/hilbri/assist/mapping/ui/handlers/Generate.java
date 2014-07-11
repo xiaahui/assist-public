@@ -18,7 +18,7 @@ import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor;
 
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.application.helpers.Helpers;
-import ch.hilbri.assist.mapping.solver.SolutionGenerator;
+import ch.hilbri.assist.mapping.solver.SearchType;
 import ch.hilbri.assist.mapping.solver.SolverJob;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.searchtypesdialog.SimpleOrAdvancedModeDialog;
@@ -91,12 +91,12 @@ public class Generate {
 							findSolutionsJob.setUser(true);
 							switch (soamd.getMode()) {
 							case CONSECUTIVE:
-								findSolutionsJob.setKindOfSolutions(SolutionGenerator.KindOfSolutions.CONSECUTIVE);
+								findSolutionsJob.setKindOfSolutions(SearchType.CONSECUTIVE);
 								findSolutionsJob.setMaxSolutions(soamd.getNumberOfSolutions());
 								findSolutionsJob.setMaxTimeOfCalculationInmsec(1); // wird sowieso nicht beachtet
 								break;
 							case RANDOM:
-								findSolutionsJob.setKindOfSolutions(SolutionGenerator.KindOfSolutions.RANDOM);
+								findSolutionsJob.setKindOfSolutions(SearchType.RANDOM);
 								findSolutionsJob.setMaxSolutions(soamd.getNumberOfSolutions());
 								findSolutionsJob.setMaxTimeOfCalculationInmsec(soamd.getSearchTime());
 								break;

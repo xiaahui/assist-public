@@ -19,8 +19,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-import ch.hilbri.assist.mapping.solver.SolutionGenerator;
-import ch.hilbri.assist.mapping.solver.SolutionGenerator.KindOfSolutions;
+import ch.hilbri.assist.mapping.solver.SearchType;
 
 public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 
@@ -38,7 +37,7 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 	private int searchTimeUnit = 0;
 	private String searchTimeItem = null;
 	private int maxSolutions = 1000;
-	private SolutionGenerator.KindOfSolutions selectedMode = KindOfSolutions.CONSECUTIVE;
+	private SearchType selectedMode = SearchType.CONSECUTIVE;
 
 	/**
 	 * Create the dialog.
@@ -94,7 +93,7 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				lblNewLabel.setText(infoSimpleModel); // Infotext anzeigen
-				selectedMode = KindOfSolutions.CONSECUTIVE;
+				selectedMode = SearchType.CONSECUTIVE;
 				maxSolutions = Integer.parseInt(solNrSimpleMode.getText());
 				solNrSimpleMode.setEditable(true);
 				solNrAdvancedMode.setEditable(false);
@@ -161,7 +160,7 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				lblNewLabel.setText(infoAdvancedModel); // Infotext anzeigen
-				selectedMode = KindOfSolutions.RANDOM;
+				selectedMode = SearchType.RANDOM;
 				maxSolutions = Integer.parseInt(solNrAdvancedMode.getText());
 				solNrSimpleMode.setEditable(false);
 				solNrAdvancedMode.setEditable(true);
@@ -211,7 +210,7 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 	 * 
 	 * @return mode of the search, returns null, if a not defined/no mode is marked.
 	 */
-	public SolutionGenerator.KindOfSolutions getMode() {
+	public SearchType getMode() {
 		return selectedMode;
 	}
 	
