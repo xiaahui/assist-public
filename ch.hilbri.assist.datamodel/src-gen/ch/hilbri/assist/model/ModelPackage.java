@@ -169,22 +169,13 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL = 10;
 
 	/**
-	 * The feature id for the '<em><b>All Hardware Levels</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL__ALL_HARDWARE_LEVELS = 11;
-
-	/**
 	 * The feature id for the '<em><b>Hardware Level Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__HARDWARE_LEVEL_COUNT = 12;
+	int ASSIST_MODEL__HARDWARE_LEVEL_COUNT = 11;
 
 	/**
 	 * The number of structural features of the '<em>Assist Model</em>' class.
@@ -193,7 +184,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_FEATURE_COUNT = 13;
+	int ASSIST_MODEL_FEATURE_COUNT = 12;
 
 	/**
 	 * The operation id for the '<em>Get All Compartments</em>' operation.
@@ -1961,17 +1952,6 @@ public interface ModelPackage extends EPackage {
 	EAttribute getAssistModel_BottomHardwareLevel();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareLevels <em>All Hardware Levels</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>All Hardware Levels</em>'.
-	 * @see ch.hilbri.assist.model.AssistModel#getAllHardwareLevels()
-	 * @see #getAssistModel()
-	 * @generated
-	 */
-	EAttribute getAssistModel_AllHardwareLevels();
-
-	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AssistModel#getHardwareLevelCount <em>Hardware Level Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3407,14 +3387,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL = eINSTANCE.getAssistModel_BottomHardwareLevel();
-
-		/**
-		 * The meta object literal for the '<em><b>All Hardware Levels</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ASSIST_MODEL__ALL_HARDWARE_LEVELS = eINSTANCE.getAssistModel_AllHardwareLevels();
 
 		/**
 		 * The meta object literal for the '<em><b>Hardware Level Count</b></em>' attribute feature.

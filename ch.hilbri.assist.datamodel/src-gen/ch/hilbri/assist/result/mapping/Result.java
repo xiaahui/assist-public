@@ -3,7 +3,6 @@
  */
 package ch.hilbri.assist.result.mapping;
 
-import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 
 import java.lang.Comparable;
@@ -25,14 +24,11 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.result.mapping.Result#getRootHardwareElements <em>Root Hardware Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Result#getTopHardwareLevel <em>Top Hardware Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Result#getBottomHardwareLevel <em>Bottom Hardware Level</em>}</li>
- *   <li>{@link ch.hilbri.assist.result.mapping.Result#getIoAdapters <em>Io Adapters</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Result#getApplicationGroups <em>Application Groups</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Result#getApplications <em>Applications</em>}</li>
- *   <li>{@link ch.hilbri.assist.result.mapping.Result#getThreads <em>Threads</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Result#getNetworks <em>Networks</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Result#getCommunications <em>Communications</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Result#getEvaluation <em>Evaluation</em>}</li>
- *   <li>{@link ch.hilbri.assist.result.mapping.Result#getAssistModel <em>Assist Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -141,21 +137,6 @@ public interface Result extends EObject, Comparable<Result> {
 	HardwareArchitectureLevelType getBottomHardwareLevel();
 
 	/**
-	 * Returns the value of the '<em><b>Io Adapters</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.result.mapping.IOAdapter}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Contains a list of all io adapters
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Io Adapters</em>' containment reference list.
-	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getResult_IoAdapters()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<IOAdapter> getIoAdapters();
-
-	/**
 	 * Returns the value of the '<em><b>Application Groups</b></em>' containment reference list.
 	 * The list contents are of type {@link ch.hilbri.assist.result.mapping.ApplicationGroup}.
 	 * <!-- begin-user-doc -->
@@ -184,21 +165,6 @@ public interface Result extends EObject, Comparable<Result> {
 	 * @generated
 	 */
 	EList<Application> getApplications();
-
-	/**
-	 * Returns the value of the '<em><b>Threads</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.result.mapping.Thread}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Contains a list of all threads
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Threads</em>' containment reference list.
-	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getResult_Threads()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ch.hilbri.assist.result.mapping.Thread> getThreads();
 
 	/**
 	 * Returns the value of the '<em><b>Networks</b></em>' containment reference list.
@@ -256,36 +222,8 @@ public interface Result extends EObject, Comparable<Result> {
 	void setEvaluation(Evaluation value);
 
 	/**
-	 * Returns the value of the '<em><b>Assist Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Refers to the original input specification
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Assist Model</em>' reference.
-	 * @see #setAssistModel(AssistModel)
-	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getResult_AssistModel()
-	 * @model
-	 * @generated
-	 */
-	AssistModel getAssistModel();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.result.mapping.Result#getAssistModel <em>Assist Model</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Assist Model</em>' reference.
-	 * @see #getAssistModel()
-	 * @generated
-	 */
-	void setAssistModel(AssistModel value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Refers to the original input specification
-	 * <!-- end-model-doc -->
 	 * @model unique="false" oUnique="false"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.result.mapping.Evaluation%> _evaluation = null;\nif (this!=null)\n{\n\t_evaluation=this.getEvaluation();\n}\ndouble _totalScaledScore = _evaluation.getTotalScaledScore();\n<%ch.hilbri.assist.result.mapping.Evaluation%> _evaluation_1 = null;\nif (o!=null)\n{\n\t_evaluation_1=o.getEvaluation();\n}\ndouble _totalScaledScore_1 = _evaluation_1.getTotalScaledScore();\nfinal double diff = (_totalScaledScore - _totalScaledScore_1);\nif ((diff < 0.0))\n{\n\treturn 1;\n}\nif ((diff > 0.0))\n{\n\treturn (-1);\n}\nreturn 0;'"
 	 * @generated

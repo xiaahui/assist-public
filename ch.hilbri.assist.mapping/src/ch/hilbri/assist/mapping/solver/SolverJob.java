@@ -19,6 +19,7 @@ import org.jacop.search.Search;
 import org.jacop.search.SelectChoicePoint;
 
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
+import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
@@ -245,16 +246,8 @@ public class SolverJob extends Job {
 		
 		if (result) {
 			ConsoleCommands.writeLineToConsole("Solutions found: " + search.getSolutionListener().solutionsNo() + " - Limit was set to " + this.maxSolutions + " - was it reached? " + search.getSolutionListener().solutionLimitReached());
-
-			search.printAllSolutions();
-			
-			  for (int i=1; i<=search.getSolutionListener().solutionsNo(); i++){ 
-				      ConsoleCommands.writeToConsole("Solution " + i + ": "); 
-				      for (int j=0; j<search.getSolution(i).length; j++) 
-				    	  ConsoleCommands.writeToConsole("" + search.getSolution(i)[j]); 
-				      ConsoleCommands.writeLineToConsole(""); 
-				   }
-			
+			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, search.getSolutionListener().getSolutions());
+						
 		}
 		else
 			ConsoleCommands.writeErrorLineToConsole("Nothing found");

@@ -32,27 +32,17 @@ class AssistModel {
 	}
 	
 	derived HardwareArchitectureLevelType bottomHardwareLevel get { HardwareArchitectureLevelType.CORE }
-	
-	derived HardwareArchitectureLevelType[] allHardwareLevels get {
-		val list = new BasicEList<HardwareArchitectureLevelType>()
 		
-		list.add(HardwareArchitectureLevelType.CORE)
-		list.add(HardwareArchitectureLevelType.PROCESSOR)
-		list.add(HardwareArchitectureLevelType.BOARD)
-		
+	derived int hardwareLevelCount get { 
 		switch topHardwareLevel {
-			case CORE			:	{}
-			case PROCESSOR		: 	{}
-			case BOARD			:	{}
-			case BOX			:	{ list.add(HardwareArchitectureLevelType.BOX) 			}
-			case COMPARTMENT	: 	{ list.add(HardwareArchitectureLevelType.BOX)
-							  	 	  list.add(HardwareArchitectureLevelType.COMPARTMENT) 	}
-			default				: 	{ return null }
+			case COMPARTMENT 	: 5
+			case BOX			: 4
+			case BOARD			: 3
+			case PROCESSOR		: 2
+			case CORE			: 1
+			default: 0			
 		}
-		return list
 	}
-		
-	derived int hardwareLevelCount get { allHardwareLevels.size }
 
 	op Compartment[] getAllCompartments() {
 		if (topHardwareLevel == HardwareArchitectureLevelType.COMPARTMENT) return hardwareContainer.map(elem | elem as Compartment)

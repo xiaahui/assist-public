@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getCommunicationRelations <em>Communication Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getTopHardwareLevel <em>Top Hardware Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getBottomHardwareLevel <em>Bottom Hardware Level</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.AssistModel#getAllHardwareLevels <em>All Hardware Levels</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getHardwareLevelCount <em>Hardware Level Count</em>}</li>
  * </ul>
  * </p>
@@ -226,25 +225,6 @@ public interface AssistModel extends EObject {
 	HardwareArchitectureLevelType getBottomHardwareLevel();
 
 	/**
-	 * Returns the value of the '<em><b>All Hardware Levels</b></em>' attribute list.
-	 * The list contents are of type {@link ch.hilbri.assist.model.HardwareArchitectureLevelType}.
-	 * The literals are from the enumeration {@link ch.hilbri.assist.model.HardwareArchitectureLevelType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>All Hardware Levels</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>All Hardware Levels</em>' attribute list.
-	 * @see ch.hilbri.assist.model.HardwareArchitectureLevelType
-	 * @see ch.hilbri.assist.model.ModelPackage#getAssistModel_AllHardwareLevels()
-	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.HardwareArchitectureLevelType%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.HardwareArchitectureLevelType%>>();\nlist.add(<%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.CORE);\nlist.add(<%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.PROCESSOR);\nlist.add(<%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.BOARD);\n<%ch.hilbri.assist.model.HardwareArchitectureLevelType%> _topHardwareLevel = this.getTopHardwareLevel();\nif (_topHardwareLevel != null)\n{\n\tswitch (_topHardwareLevel)\n\t{\n\t\tcase CORE:\n\t\t\tbreak;\n\t\tcase PROCESSOR:\n\t\t\tbreak;\n\t\tcase BOARD:\n\t\t\tbreak;\n\t\tcase BOX:\n\t\t\tlist.add(<%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.BOX);\n\t\t\tbreak;\n\t\tcase COMPARTMENT:\n\t\t\tlist.add(<%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.BOX);\n\t\t\tlist.add(<%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.COMPARTMENT);\n\t\t\tbreak;\n\t\tdefault:\n\t\t\treturn null;\n\t}\n}\nelse\n{\n\treturn null;\n}\nreturn list;'"
-	 * @generated
-	 */
-	EList<HardwareArchitectureLevelType> getAllHardwareLevels();
-
-	/**
 	 * Returns the value of the '<em><b>Hardware Level Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -255,7 +235,7 @@ public interface AssistModel extends EObject {
 	 * @return the value of the '<em>Hardware Level Count</em>' attribute.
 	 * @see ch.hilbri.assist.model.ModelPackage#getAssistModel_HardwareLevelCount()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.model.HardwareArchitectureLevelType%>> _allHardwareLevels = this.getAllHardwareLevels();\nreturn _allHardwareLevels.size();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='int _switchResult = (int) 0;\n<%ch.hilbri.assist.model.HardwareArchitectureLevelType%> _topHardwareLevel = this.getTopHardwareLevel();\nif (_topHardwareLevel != null)\n{\n\tswitch (_topHardwareLevel)\n\t{\n\t\tcase COMPARTMENT:\n\t\t\t_switchResult = 5;\n\t\t\tbreak;\n\t\tcase BOX:\n\t\t\t_switchResult = 4;\n\t\t\tbreak;\n\t\tcase BOARD:\n\t\t\t_switchResult = 3;\n\t\t\tbreak;\n\t\tcase PROCESSOR:\n\t\t\t_switchResult = 2;\n\t\t\tbreak;\n\t\tcase CORE:\n\t\t\t_switchResult = 1;\n\t\t\tbreak;\n\t\tdefault:\n\t\t\t_switchResult = 0;\n\t\t\tbreak;\n\t}\n}\nelse\n{\n\t_switchResult = 0;\n}\nreturn _switchResult;'"
 	 * @generated
 	 */
 	int getHardwareLevelCount();

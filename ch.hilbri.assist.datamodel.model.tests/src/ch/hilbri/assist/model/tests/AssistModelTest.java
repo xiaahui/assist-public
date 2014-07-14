@@ -19,7 +19,6 @@ import junit.textui.TestRunner;
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getTopHardwareLevel() <em>Top Hardware Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getBottomHardwareLevel() <em>Bottom Hardware Level</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.AssistModel#getAllHardwareLevels() <em>All Hardware Levels</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.AssistModel#getHardwareLevelCount() <em>Hardware Level Count</em>}</li>
  * </ul>
  * </p>
@@ -130,19 +129,6 @@ public class AssistModelTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetBottomHardwareLevel() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareLevels() <em>All Hardware Levels</em>}' feature getter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.model.AssistModel#getAllHardwareLevels()
-	 * @generated
-	 */
-	public void testGetAllHardwareLevels() {
 		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

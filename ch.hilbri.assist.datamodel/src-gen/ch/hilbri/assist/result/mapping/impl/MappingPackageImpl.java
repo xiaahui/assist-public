@@ -302,7 +302,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResult_IoAdapters() {
+	public EReference getResult_ApplicationGroups() {
 		return (EReference)resultEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -311,7 +311,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResult_ApplicationGroups() {
+	public EReference getResult_Applications() {
 		return (EReference)resultEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -320,7 +320,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResult_Applications() {
+	public EReference getResult_Networks() {
 		return (EReference)resultEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -329,7 +329,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResult_Threads() {
+	public EReference getResult_Communications() {
 		return (EReference)resultEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -338,35 +338,8 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResult_Networks() {
-		return (EReference)resultEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getResult_Communications() {
-		return (EReference)resultEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getResult_Evaluation() {
-		return (EReference)resultEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getResult_AssistModel() {
-		return (EReference)resultEClass.getEStructuralFeatures().get(12);
+		return (EReference)resultEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1260,14 +1233,11 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEReference(resultEClass, RESULT__ROOT_HARDWARE_ELEMENTS);
 		createEAttribute(resultEClass, RESULT__TOP_HARDWARE_LEVEL);
 		createEAttribute(resultEClass, RESULT__BOTTOM_HARDWARE_LEVEL);
-		createEReference(resultEClass, RESULT__IO_ADAPTERS);
 		createEReference(resultEClass, RESULT__APPLICATION_GROUPS);
 		createEReference(resultEClass, RESULT__APPLICATIONS);
-		createEReference(resultEClass, RESULT__THREADS);
 		createEReference(resultEClass, RESULT__NETWORKS);
 		createEReference(resultEClass, RESULT__COMMUNICATIONS);
 		createEReference(resultEClass, RESULT__EVALUATION);
-		createEReference(resultEClass, RESULT__ASSIST_MODEL);
 		createEOperation(resultEClass, RESULT___COMPARE_TO__RESULT);
 		createEOperation(resultEClass, RESULT___GET_ALL_CORES);
 		createEOperation(resultEClass, RESULT___GET_ALL_PROCESSORS);
@@ -1430,14 +1400,11 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEReference(getResult_RootHardwareElements(), this.getHardwareElement(), null, "rootHardwareElements", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_TopHardwareLevel(), theModelPackage.getHardwareArchitectureLevelType(), "topHardwareLevel", null, 0, 1, Result.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_BottomHardwareLevel(), theModelPackage.getHardwareArchitectureLevelType(), "bottomHardwareLevel", null, 0, 1, Result.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getResult_IoAdapters(), this.getIOAdapter(), null, "ioAdapters", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResult_ApplicationGroups(), this.getApplicationGroup(), null, "applicationGroups", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResult_Applications(), this.getApplication(), null, "applications", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResult_Threads(), this.getThread(), null, "threads", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResult_Networks(), this.getNetwork(), null, "networks", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResult_Communications(), this.getCommunicationRelation(), null, "communications", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResult_Evaluation(), this.getEvaluation(), null, "evaluation", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResult_AssistModel(), theModelPackage.getAssistModel(), null, "assistModel", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getResult__CompareTo__Result(), theEcorePackage.getEInt(), "compareTo", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getResult(), "o", 0, 1, !IS_UNIQUE, IS_ORDERED);

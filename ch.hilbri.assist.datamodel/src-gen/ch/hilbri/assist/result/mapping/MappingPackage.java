@@ -144,22 +144,13 @@ public interface MappingPackage extends EPackage {
 	int RESULT__BOTTOM_HARDWARE_LEVEL = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Io Adapters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT__IO_ADAPTERS = COMPARABLE_FEATURE_COUNT + 5;
-
-	/**
 	 * The feature id for the '<em><b>Application Groups</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__APPLICATION_GROUPS = COMPARABLE_FEATURE_COUNT + 6;
+	int RESULT__APPLICATION_GROUPS = COMPARABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Applications</b></em>' containment reference list.
@@ -168,16 +159,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__APPLICATIONS = COMPARABLE_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Threads</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT__THREADS = COMPARABLE_FEATURE_COUNT + 8;
+	int RESULT__APPLICATIONS = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Networks</b></em>' containment reference list.
@@ -186,7 +168,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__NETWORKS = COMPARABLE_FEATURE_COUNT + 9;
+	int RESULT__NETWORKS = COMPARABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Communications</b></em>' containment reference list.
@@ -195,7 +177,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__COMMUNICATIONS = COMPARABLE_FEATURE_COUNT + 10;
+	int RESULT__COMMUNICATIONS = COMPARABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Evaluation</b></em>' containment reference.
@@ -204,16 +186,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__EVALUATION = COMPARABLE_FEATURE_COUNT + 11;
-
-	/**
-	 * The feature id for the '<em><b>Assist Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT__ASSIST_MODEL = COMPARABLE_FEATURE_COUNT + 12;
+	int RESULT__EVALUATION = COMPARABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Result</em>' class.
@@ -222,7 +195,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 13;
+	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Compare To</em>' operation.
@@ -1497,17 +1470,6 @@ public interface MappingPackage extends EPackage {
 	EAttribute getResult_BottomHardwareLevel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.result.mapping.Result#getIoAdapters <em>Io Adapters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Io Adapters</em>'.
-	 * @see ch.hilbri.assist.result.mapping.Result#getIoAdapters()
-	 * @see #getResult()
-	 * @generated
-	 */
-	EReference getResult_IoAdapters();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.result.mapping.Result#getApplicationGroups <em>Application Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1528,17 +1490,6 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResult_Applications();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.result.mapping.Result#getThreads <em>Threads</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Threads</em>'.
-	 * @see ch.hilbri.assist.result.mapping.Result#getThreads()
-	 * @see #getResult()
-	 * @generated
-	 */
-	EReference getResult_Threads();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.result.mapping.Result#getNetworks <em>Networks</em>}'.
@@ -1572,17 +1523,6 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResult_Evaluation();
-
-	/**
-	 * Returns the meta object for the reference '{@link ch.hilbri.assist.result.mapping.Result#getAssistModel <em>Assist Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Assist Model</em>'.
-	 * @see ch.hilbri.assist.result.mapping.Result#getAssistModel()
-	 * @see #getResult()
-	 * @generated
-	 */
-	EReference getResult_AssistModel();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#compareTo(ch.hilbri.assist.result.mapping.Result) <em>Compare To</em>}' operation.
@@ -2692,14 +2632,6 @@ public interface MappingPackage extends EPackage {
 		EAttribute RESULT__BOTTOM_HARDWARE_LEVEL = eINSTANCE.getResult_BottomHardwareLevel();
 
 		/**
-		 * The meta object literal for the '<em><b>Io Adapters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESULT__IO_ADAPTERS = eINSTANCE.getResult_IoAdapters();
-
-		/**
 		 * The meta object literal for the '<em><b>Application Groups</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2714,14 +2646,6 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESULT__APPLICATIONS = eINSTANCE.getResult_Applications();
-
-		/**
-		 * The meta object literal for the '<em><b>Threads</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESULT__THREADS = eINSTANCE.getResult_Threads();
 
 		/**
 		 * The meta object literal for the '<em><b>Networks</b></em>' containment reference list feature.
@@ -2746,14 +2670,6 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESULT__EVALUATION = eINSTANCE.getResult_Evaluation();
-
-		/**
-		 * The meta object literal for the '<em><b>Assist Model</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESULT__ASSIST_MODEL = eINSTANCE.getResult_AssistModel();
 
 		/**
 		 * The meta object literal for the '<em><b>Compare To</b></em>' operation.

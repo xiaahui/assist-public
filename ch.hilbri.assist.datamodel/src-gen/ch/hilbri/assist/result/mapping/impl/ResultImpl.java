@@ -3,7 +3,6 @@
  */
 package ch.hilbri.assist.result.mapping.impl;
 
-import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 
 import ch.hilbri.assist.result.mapping.Application;
@@ -15,7 +14,6 @@ import ch.hilbri.assist.result.mapping.Compartment;
 import ch.hilbri.assist.result.mapping.Core;
 import ch.hilbri.assist.result.mapping.Evaluation;
 import ch.hilbri.assist.result.mapping.HardwareElement;
-import ch.hilbri.assist.result.mapping.IOAdapter;
 import ch.hilbri.assist.result.mapping.MappingPackage;
 import ch.hilbri.assist.result.mapping.Network;
 import ch.hilbri.assist.result.mapping.Processor;
@@ -52,14 +50,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ResultImpl#getRootHardwareElements <em>Root Hardware Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ResultImpl#getTopHardwareLevel <em>Top Hardware Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ResultImpl#getBottomHardwareLevel <em>Bottom Hardware Level</em>}</li>
- *   <li>{@link ch.hilbri.assist.result.mapping.impl.ResultImpl#getIoAdapters <em>Io Adapters</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ResultImpl#getApplicationGroups <em>Application Groups</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ResultImpl#getApplications <em>Applications</em>}</li>
- *   <li>{@link ch.hilbri.assist.result.mapping.impl.ResultImpl#getThreads <em>Threads</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ResultImpl#getNetworks <em>Networks</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ResultImpl#getCommunications <em>Communications</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ResultImpl#getEvaluation <em>Evaluation</em>}</li>
- *   <li>{@link ch.hilbri.assist.result.mapping.impl.ResultImpl#getAssistModel <em>Assist Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -137,16 +132,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	protected static final HardwareArchitectureLevelType BOTTOM_HARDWARE_LEVEL_EDEFAULT = HardwareArchitectureLevelType.CORE;
 
 	/**
-	 * The cached value of the '{@link #getIoAdapters() <em>Io Adapters</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIoAdapters()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<IOAdapter> ioAdapters;
-
-	/**
 	 * The cached value of the '{@link #getApplicationGroups() <em>Application Groups</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -165,16 +150,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @ordered
 	 */
 	protected EList<Application> applications;
-
-	/**
-	 * The cached value of the '{@link #getThreads() <em>Threads</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getThreads()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ch.hilbri.assist.result.mapping.Thread> threads;
 
 	/**
 	 * The cached value of the '{@link #getNetworks() <em>Networks</em>}' containment reference list.
@@ -205,16 +180,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @ordered
 	 */
 	protected Evaluation evaluation;
-
-	/**
-	 * The cached value of the '{@link #getAssistModel() <em>Assist Model</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAssistModel()
-	 * @generated
-	 * @ordered
-	 */
-	protected AssistModel assistModel;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -353,18 +318,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<IOAdapter> getIoAdapters() {
-		if (ioAdapters == null) {
-			ioAdapters = new EObjectContainmentEList<IOAdapter>(IOAdapter.class, this, MappingPackage.RESULT__IO_ADAPTERS);
-		}
-		return ioAdapters;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<ApplicationGroup> getApplicationGroups() {
 		if (applicationGroups == null) {
 			applicationGroups = new EObjectContainmentEList<ApplicationGroup>(ApplicationGroup.class, this, MappingPackage.RESULT__APPLICATION_GROUPS);
@@ -382,18 +335,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			applications = new EObjectContainmentEList<Application>(Application.class, this, MappingPackage.RESULT__APPLICATIONS);
 		}
 		return applications;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ch.hilbri.assist.result.mapping.Thread> getThreads() {
-		if (threads == null) {
-			threads = new EObjectContainmentEList<ch.hilbri.assist.result.mapping.Thread>(ch.hilbri.assist.result.mapping.Thread.class, this, MappingPackage.RESULT__THREADS);
-		}
-		return threads;
 	}
 
 	/**
@@ -468,44 +409,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssistModel getAssistModel() {
-		if (assistModel != null && assistModel.eIsProxy()) {
-			InternalEObject oldAssistModel = (InternalEObject)assistModel;
-			assistModel = (AssistModel)eResolveProxy(oldAssistModel);
-			if (assistModel != oldAssistModel) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MappingPackage.RESULT__ASSIST_MODEL, oldAssistModel, assistModel));
-			}
-		}
-		return assistModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AssistModel basicGetAssistModel() {
-		return assistModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAssistModel(AssistModel newAssistModel) {
-		AssistModel oldAssistModel = assistModel;
-		assistModel = newAssistModel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.RESULT__ASSIST_MODEL, oldAssistModel, assistModel));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public int compareTo(final Result o) {
 		Evaluation _evaluation = null;
 		if (this!=null) {
@@ -567,14 +470,10 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		switch (featureID) {
 			case MappingPackage.RESULT__ROOT_HARDWARE_ELEMENTS:
 				return ((InternalEList<?>)getRootHardwareElements()).basicRemove(otherEnd, msgs);
-			case MappingPackage.RESULT__IO_ADAPTERS:
-				return ((InternalEList<?>)getIoAdapters()).basicRemove(otherEnd, msgs);
 			case MappingPackage.RESULT__APPLICATION_GROUPS:
 				return ((InternalEList<?>)getApplicationGroups()).basicRemove(otherEnd, msgs);
 			case MappingPackage.RESULT__APPLICATIONS:
 				return ((InternalEList<?>)getApplications()).basicRemove(otherEnd, msgs);
-			case MappingPackage.RESULT__THREADS:
-				return ((InternalEList<?>)getThreads()).basicRemove(otherEnd, msgs);
 			case MappingPackage.RESULT__NETWORKS:
 				return ((InternalEList<?>)getNetworks()).basicRemove(otherEnd, msgs);
 			case MappingPackage.RESULT__COMMUNICATIONS:
@@ -603,23 +502,16 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return getTopHardwareLevel();
 			case MappingPackage.RESULT__BOTTOM_HARDWARE_LEVEL:
 				return getBottomHardwareLevel();
-			case MappingPackage.RESULT__IO_ADAPTERS:
-				return getIoAdapters();
 			case MappingPackage.RESULT__APPLICATION_GROUPS:
 				return getApplicationGroups();
 			case MappingPackage.RESULT__APPLICATIONS:
 				return getApplications();
-			case MappingPackage.RESULT__THREADS:
-				return getThreads();
 			case MappingPackage.RESULT__NETWORKS:
 				return getNetworks();
 			case MappingPackage.RESULT__COMMUNICATIONS:
 				return getCommunications();
 			case MappingPackage.RESULT__EVALUATION:
 				return getEvaluation();
-			case MappingPackage.RESULT__ASSIST_MODEL:
-				if (resolve) return getAssistModel();
-				return basicGetAssistModel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -643,10 +535,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				getRootHardwareElements().clear();
 				getRootHardwareElements().addAll((Collection<? extends HardwareElement>)newValue);
 				return;
-			case MappingPackage.RESULT__IO_ADAPTERS:
-				getIoAdapters().clear();
-				getIoAdapters().addAll((Collection<? extends IOAdapter>)newValue);
-				return;
 			case MappingPackage.RESULT__APPLICATION_GROUPS:
 				getApplicationGroups().clear();
 				getApplicationGroups().addAll((Collection<? extends ApplicationGroup>)newValue);
@@ -654,10 +542,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			case MappingPackage.RESULT__APPLICATIONS:
 				getApplications().clear();
 				getApplications().addAll((Collection<? extends Application>)newValue);
-				return;
-			case MappingPackage.RESULT__THREADS:
-				getThreads().clear();
-				getThreads().addAll((Collection<? extends ch.hilbri.assist.result.mapping.Thread>)newValue);
 				return;
 			case MappingPackage.RESULT__NETWORKS:
 				getNetworks().clear();
@@ -669,9 +553,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return;
 			case MappingPackage.RESULT__EVALUATION:
 				setEvaluation((Evaluation)newValue);
-				return;
-			case MappingPackage.RESULT__ASSIST_MODEL:
-				setAssistModel((AssistModel)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -694,17 +575,11 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			case MappingPackage.RESULT__ROOT_HARDWARE_ELEMENTS:
 				getRootHardwareElements().clear();
 				return;
-			case MappingPackage.RESULT__IO_ADAPTERS:
-				getIoAdapters().clear();
-				return;
 			case MappingPackage.RESULT__APPLICATION_GROUPS:
 				getApplicationGroups().clear();
 				return;
 			case MappingPackage.RESULT__APPLICATIONS:
 				getApplications().clear();
-				return;
-			case MappingPackage.RESULT__THREADS:
-				getThreads().clear();
 				return;
 			case MappingPackage.RESULT__NETWORKS:
 				getNetworks().clear();
@@ -714,9 +589,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return;
 			case MappingPackage.RESULT__EVALUATION:
 				setEvaluation((Evaluation)null);
-				return;
-			case MappingPackage.RESULT__ASSIST_MODEL:
-				setAssistModel((AssistModel)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -740,22 +612,16 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return getTopHardwareLevel() != TOP_HARDWARE_LEVEL_EDEFAULT;
 			case MappingPackage.RESULT__BOTTOM_HARDWARE_LEVEL:
 				return getBottomHardwareLevel() != BOTTOM_HARDWARE_LEVEL_EDEFAULT;
-			case MappingPackage.RESULT__IO_ADAPTERS:
-				return ioAdapters != null && !ioAdapters.isEmpty();
 			case MappingPackage.RESULT__APPLICATION_GROUPS:
 				return applicationGroups != null && !applicationGroups.isEmpty();
 			case MappingPackage.RESULT__APPLICATIONS:
 				return applications != null && !applications.isEmpty();
-			case MappingPackage.RESULT__THREADS:
-				return threads != null && !threads.isEmpty();
 			case MappingPackage.RESULT__NETWORKS:
 				return networks != null && !networks.isEmpty();
 			case MappingPackage.RESULT__COMMUNICATIONS:
 				return communications != null && !communications.isEmpty();
 			case MappingPackage.RESULT__EVALUATION:
 				return evaluation != null;
-			case MappingPackage.RESULT__ASSIST_MODEL:
-				return assistModel != null;
 		}
 		return super.eIsSet(featureID);
 	}

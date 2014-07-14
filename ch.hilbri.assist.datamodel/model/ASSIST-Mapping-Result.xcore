@@ -2,14 +2,12 @@
 
 package ch.hilbri.assist.result.mapping
 
-import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.DesignAssuranceLevelType
 import ch.hilbri.assist.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.model.IOAdapterProtectionLevelType
 import ch.hilbri.assist.model.IOAdapterType
-
-import org.eclipse.emf.common.util.BasicEList
 import java.util.HashMap
+import org.eclipse.emf.common.util.BasicEList
 
 
 
@@ -45,17 +43,14 @@ class Result extends Comparable {
 		HardwareArchitectureLevelType.CORE
 	}
 	
-	@GenModel(documentation="Contains a list of all io adapters")
-	contains IOAdapter[0..*]				ioAdapters
+//	@GenModel(documentation="Contains a list of all io adapters")
+//	contains IOAdapter[0..*]				ioAdapters
 	
 	@GenModel(documentation="Contains a list of all application groups")
 	contains ApplicationGroup[0..*]			applicationGroups
 	
 	@GenModel(documentation="Contains a list of all applications")
 	contains Application[0..*]				applications
-	
-	@GenModel(documentation="Contains a list of all threads")
-	contains Thread[0..*]					threads
 	
 	@GenModel(documentation="Contains a list of all networks")
 	contains Network[0..*] 					networks
@@ -66,10 +61,6 @@ class Result extends Comparable {
 	@GenModel(documentation="Contains the results of the evaluation for this result")
 	contains Evaluation[0..1] 				evaluation
 	
-	@GenModel(documentation="Refers to the original input specification")
-	refers AssistModel[0..1]				assistModel
-	
-	@GenModel(documentation="Refers to the original input specification")
 	op int compareTo(Result o) {
 		val double diff = this ?. evaluation.totalScaledScore - o ?. evaluation.totalScaledScore;
 		if (diff < 0.0)	return 1;

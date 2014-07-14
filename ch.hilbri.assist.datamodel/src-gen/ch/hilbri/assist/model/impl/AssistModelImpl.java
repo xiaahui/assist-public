@@ -63,7 +63,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getCommunicationRelations <em>Communication Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getTopHardwareLevel <em>Top Hardware Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getBottomHardwareLevel <em>Bottom Hardware Level</em>}</li>
- *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getAllHardwareLevels <em>All Hardware Levels</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.AssistModelImpl#getHardwareLevelCount <em>Hardware Level Count</em>}</li>
  * </ul>
  * </p>
@@ -401,45 +400,35 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<HardwareArchitectureLevelType> getAllHardwareLevels() {
-		final BasicEList<HardwareArchitectureLevelType> list = new BasicEList<HardwareArchitectureLevelType>();
-		list.add(HardwareArchitectureLevelType.CORE);
-		list.add(HardwareArchitectureLevelType.PROCESSOR);
-		list.add(HardwareArchitectureLevelType.BOARD);
+	public int getHardwareLevelCount() {
+		int _switchResult = (int) 0;
 		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
 		if (_topHardwareLevel != null) {
 			switch (_topHardwareLevel) {
-				case CORE:
-					break;
-				case PROCESSOR:
-					break;
-				case BOARD:
+				case COMPARTMENT:
+					_switchResult = 5;
 					break;
 				case BOX:
-					list.add(HardwareArchitectureLevelType.BOX);
+					_switchResult = 4;
 					break;
-				case COMPARTMENT:
-					list.add(HardwareArchitectureLevelType.BOX);
-					list.add(HardwareArchitectureLevelType.COMPARTMENT);
+				case BOARD:
+					_switchResult = 3;
+					break;
+				case PROCESSOR:
+					_switchResult = 2;
+					break;
+				case CORE:
+					_switchResult = 1;
 					break;
 				default:
-					return null;
+					_switchResult = 0;
+					break;
 			}
 		}
 		else {
-			return null;
+			_switchResult = 0;
 		}
-		return list;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getHardwareLevelCount() {
-		EList<HardwareArchitectureLevelType> _allHardwareLevels = this.getAllHardwareLevels();
-		return _allHardwareLevels.size();
+		return _switchResult;
 	}
 
 	/**
@@ -815,8 +804,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getTopHardwareLevel();
 			case ModelPackage.ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL:
 				return getBottomHardwareLevel();
-			case ModelPackage.ASSIST_MODEL__ALL_HARDWARE_LEVELS:
-				return getAllHardwareLevels();
 			case ModelPackage.ASSIST_MODEL__HARDWARE_LEVEL_COUNT:
 				return getHardwareLevelCount();
 		}
@@ -940,8 +927,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getTopHardwareLevel() != TOP_HARDWARE_LEVEL_EDEFAULT;
 			case ModelPackage.ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL:
 				return getBottomHardwareLevel() != BOTTOM_HARDWARE_LEVEL_EDEFAULT;
-			case ModelPackage.ASSIST_MODEL__ALL_HARDWARE_LEVELS:
-				return !getAllHardwareLevels().isEmpty();
 			case ModelPackage.ASSIST_MODEL__HARDWARE_LEVEL_COUNT:
 				return getHardwareLevelCount() != HARDWARE_LEVEL_COUNT_EDEFAULT;
 		}
