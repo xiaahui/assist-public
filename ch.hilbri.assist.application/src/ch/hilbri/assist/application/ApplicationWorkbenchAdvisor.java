@@ -4,6 +4,7 @@ import java.net.URL;
 
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -60,16 +61,13 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 	    IWorkspace workspace = ResourcesPlugin.getWorkspace();
 	    return workspace.getRoot();
 	}
+	
+	@Override
+	public boolean preShutdown() {
+		try { ResourcesPlugin.getWorkspace().save(true, null);
+		} catch (CoreException e) {	e.printStackTrace(); }  
+		return super.preShutdown();
+	}
 
-	
-	
-//	@Override
-//	public boolean preShutdown() {
-//		
-//		XMLMemento memento = XMLMemento.createWriteRoot( IWorkbenchConstants.TAG_WORKBENCH );
-//		saveState( memento );
-//		//saveMementoToFile( memento )
-//		return super.preShutdown();
-//	}	
 }
 
