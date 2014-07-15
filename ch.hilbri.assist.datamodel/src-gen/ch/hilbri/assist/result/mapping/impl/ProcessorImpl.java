@@ -3,10 +3,14 @@
  */
 package ch.hilbri.assist.result.mapping.impl;
 
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
+
 import ch.hilbri.assist.result.mapping.Board;
 import ch.hilbri.assist.result.mapping.Core;
 import ch.hilbri.assist.result.mapping.MappingPackage;
 import ch.hilbri.assist.result.mapping.Processor;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
@@ -252,6 +256,15 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public HardwareArchitectureLevelType getHardwareLevel() {
+		return HardwareArchitectureLevelType.PROCESSOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -389,6 +402,20 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 				return isNotUsed() != NOT_USED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case MappingPackage.PROCESSOR___GET_HARDWARE_LEVEL:
+				return getHardwareLevel();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

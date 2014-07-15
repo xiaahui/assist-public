@@ -271,13 +271,22 @@ public interface MappingPackage extends EPackage {
 	int HARDWARE_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
+	 * The operation id for the '<em>Get Hardware Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HARDWARE_ELEMENT___GET_HARDWARE_LEVEL = 0;
+
+	/**
 	 * The number of operations of the '<em>Hardware Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HARDWARE_ELEMENT_OPERATION_COUNT = 0;
+	int HARDWARE_ELEMENT_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.CompartmentImpl <em>Compartment</em>}' class.
@@ -353,13 +362,22 @@ public interface MappingPackage extends EPackage {
 	int COMPARTMENT_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Get Hardware Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARTMENT___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Compartment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARTMENT_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+	int COMPARTMENT_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.BoxImpl <em>Box</em>}' class.
@@ -417,13 +435,22 @@ public interface MappingPackage extends EPackage {
 	int BOX_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Hardware Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Box</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOX_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+	int BOX_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.BoardImpl <em>Board</em>}' class.
@@ -580,13 +607,22 @@ public interface MappingPackage extends EPackage {
 	int BOARD___GET_ALL_APPLICATIONS = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Hardware Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Board</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
+	int BOARD_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.ProcessorImpl <em>Processor</em>}' class.
@@ -662,13 +698,22 @@ public interface MappingPackage extends EPackage {
 	int PROCESSOR_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Get Hardware Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSOR___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Processor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSOR_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+	int PROCESSOR_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.CoreImpl <em>Core</em>}' class.
@@ -780,13 +825,22 @@ public interface MappingPackage extends EPackage {
 	int CORE_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>Get Hardware Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORE___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Core</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CORE_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+	int CORE_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.IOAdapterImpl <em>IO Adapter</em>}' class.
@@ -1586,6 +1640,16 @@ public interface MappingPackage extends EPackage {
 	EAttribute getHardwareElement_Name();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.HardwareElement#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Hardware Level</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.HardwareElement#getHardwareLevel()
+	 * @generated
+	 */
+	EOperation getHardwareElement__GetHardwareLevel();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Compartment <em>Compartment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1651,6 +1715,16 @@ public interface MappingPackage extends EPackage {
 	EReference getCompartment_Boxes();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Compartment#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Hardware Level</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Compartment#getHardwareLevel()
+	 * @generated
+	 */
+	EOperation getCompartment__GetHardwareLevel();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Box <em>Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1692,6 +1766,16 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBox_Boards();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Box#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Hardware Level</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Box#getHardwareLevel()
+	 * @generated
+	 */
+	EOperation getBox__GetHardwareLevel();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Board <em>Board</em>}'.
@@ -1857,6 +1941,16 @@ public interface MappingPackage extends EPackage {
 	EOperation getBoard__GetAllApplications();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Board#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Hardware Level</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Board#getHardwareLevel()
+	 * @generated
+	 */
+	EOperation getBoard__GetHardwareLevel();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Processor <em>Processor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1920,6 +2014,16 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProcessor_NotUsed();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Processor#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Hardware Level</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Processor#getHardwareLevel()
+	 * @generated
+	 */
+	EOperation getProcessor__GetHardwareLevel();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Core <em>Core</em>}'.
@@ -2029,6 +2133,16 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCore_RemainingRelativeCapacity();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Core#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Hardware Level</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Core#getHardwareLevel()
+	 * @generated
+	 */
+	EOperation getCore__GetHardwareLevel();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.IOAdapter <em>IO Adapter</em>}'.
@@ -2722,6 +2836,14 @@ public interface MappingPackage extends EPackage {
 		EAttribute HARDWARE_ELEMENT__NAME = eINSTANCE.getHardwareElement_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation HARDWARE_ELEMENT___GET_HARDWARE_LEVEL = eINSTANCE.getHardwareElement__GetHardwareLevel();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.CompartmentImpl <em>Compartment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2772,6 +2894,14 @@ public interface MappingPackage extends EPackage {
 		EReference COMPARTMENT__BOXES = eINSTANCE.getCompartment_Boxes();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARTMENT___GET_HARDWARE_LEVEL = eINSTANCE.getCompartment__GetHardwareLevel();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.BoxImpl <em>Box</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2804,6 +2934,14 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOX__BOARDS = eINSTANCE.getBox_Boards();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOX___GET_HARDWARE_LEVEL = eINSTANCE.getBox__GetHardwareLevel();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.BoardImpl <em>Board</em>}' class.
@@ -2928,6 +3066,14 @@ public interface MappingPackage extends EPackage {
 		EOperation BOARD___GET_ALL_APPLICATIONS = eINSTANCE.getBoard__GetAllApplications();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOARD___GET_HARDWARE_LEVEL = eINSTANCE.getBoard__GetHardwareLevel();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.ProcessorImpl <em>Processor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2976,6 +3122,14 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROCESSOR__NOT_USED = eINSTANCE.getProcessor_NotUsed();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROCESSOR___GET_HARDWARE_LEVEL = eINSTANCE.getProcessor__GetHardwareLevel();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.CoreImpl <em>Core</em>}' class.
@@ -3058,6 +3212,14 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CORE__REMAINING_RELATIVE_CAPACITY = eINSTANCE.getCore_RemainingRelativeCapacity();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CORE___GET_HARDWARE_LEVEL = eINSTANCE.getCore__GetHardwareLevel();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.IOAdapterImpl <em>IO Adapter</em>}' class.

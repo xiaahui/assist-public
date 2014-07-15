@@ -3,10 +3,16 @@
  */
 package ch.hilbri.assist.result.mapping.impl;
 
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
+
 import ch.hilbri.assist.result.mapping.HardwareElement;
 import ch.hilbri.assist.result.mapping.MappingPackage;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -92,6 +98,17 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public HardwareArchitectureLevelType getHardwareLevel() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -143,6 +160,20 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case MappingPackage.HARDWARE_ELEMENT___GET_HARDWARE_LEVEL:
+				return getHardwareLevel();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

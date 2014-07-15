@@ -14,6 +14,7 @@ import ch.hilbri.assist.result.mapping.Result
 import java.util.ArrayList
 import org.eclipse.emf.ecore.EObject
 import org.jacop.core.Domain
+import java.util.HashMap
 
 class ResultFactoryFromSolverSolutions {
 	
@@ -101,7 +102,7 @@ class ResultFactoryFromSolverSolutions {
 	
 	
 	static private def createBasicResult(AssistModel model, String resultName) {
-		f = MappingFactory.eINSTANCE
+		
 		
 		val result = f.createResult
 		result.name 		= resultName
@@ -116,11 +117,17 @@ class ResultFactoryFromSolverSolutions {
 		// applications
 		
 		// threads
+		val e = f.createEvaluation
+		e.setAbsoluteScores(new HashMap)
+		e.setScaledScores(new HashMap)
+		result.setEvaluation(e)
 		
 		return result
 	}
 	
+	
 	static def ArrayList<Result> create(AssistModel model, SolverVariablesContainer solverVariables, Domain[][] solverSolutions) {
+		f = MappingFactory.eINSTANCE
 		val results = new ArrayList<Result>
 		for (var i = 0; i < solverSolutions.length; i++) {
 			val result = createBasicResult(model, "Result-"+i)

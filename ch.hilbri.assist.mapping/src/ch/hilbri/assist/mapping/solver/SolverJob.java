@@ -40,7 +40,7 @@ public class SolverJob extends Job {
 
 	private DetailedResultsViewUiModel detailedResultsViewUiModel;
 		
-//	private MultiPageEditor multiPageEditor;
+	private MultiPageEditor multiPageEditor;
 	
 	 /*
 	 * Dieser Wert definiert eine maximale Anzahl an Deployments, die
@@ -81,9 +81,9 @@ public class SolverJob extends Job {
 		this.model = model;
 
 		if (editor != null) {
-//			this.multiPageEditor = editor;
-			this.detailedResultsViewUiModel = editor.getDetailedResultViewUiModel();
-			detailedResultsViewUiModel.setEditor(editor);
+			multiPageEditor = editor;
+			detailedResultsViewUiModel = multiPageEditor.getDetailedResultViewUiModel();
+			detailedResultsViewUiModel.setEditor(multiPageEditor);
 		}
 		
 
@@ -97,28 +97,8 @@ public class SolverJob extends Job {
 		this.constraintStore = new Store();
 		this.solverVariables = new SolverVariablesContainer(this.model, constraintStore);
 		
-		
-//		/* Create the set of Variables needed for a Thread */
-//		this.threadVariablesList = new ThreadVariablesList(model, constraintSystem);
-//		
-//		this.coreVariablesList = new CoreVariablesList(model);
-//		
-//		this.exclusiveAdapterVariablesList = new ExclusiveAdapterRequirementVariablesList(model, this.threadVariablesList);
-//		
-//		this.sharedAdapterVariablesList = new SharedAdapterRequirementVariablesList(model, this.threadVariablesList);
-//		
-//		this.communicationVariablesList = new CommunicationVariablesList(model, constraintSystem);
-//		
-//		this.ioAdapterVariablesList = new IOAdapterVariablesList(model, constraintSystem);
-		
-		
-		
-		
-		
 		/* Create a new Constraint to process the system hierarchy */
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, constraintStore, solverVariables));
-
-
 		
 //		/* Create a new Constraint to process the I/O-adapter to board hierarchy */
 //		this.mappingConstraintsList.add(new IOAdapterHierarchyConstraint(this.constraintSystem, this.model, this.threadVariablesList,
@@ -209,17 +189,17 @@ public class SolverJob extends Job {
 				monitor.worked(1);
 		}
 
-		 monitor.subTask("Searching for solutions");
-		 if (runSearchForSolutions(monitor) != Status.OK_STATUS) 
-			 return Status.CANCEL_STATUS;
-		 monitor.worked(1);
-
-	
-		 monitor.subTask("Showing results");
-//		 if (presentResults == true) { showResults(newMappingResults); }
-		 monitor.worked(1);
-
-		 return Status.OK_STATUS;
+		monitor.subTask("Searching for solutions");
+		if (runSearchForSolutions(monitor) != Status.OK_STATUS) return Status.CANCEL_STATUS;
+		monitor.worked(1);
+		 
+		if (presentResults == true) { 
+			 monitor.subTask("Showing results");
+			 showResults(mappingResults);
+			 monitor.worked(1);
+		}
+		 
+		return Status.OK_STATUS;
 	}
 
 	private IStatus runSearchForSolutions(IProgressMonitor monitor) {
@@ -247,7 +227,6 @@ public class SolverJob extends Job {
 		if (result) {
 			ConsoleCommands.writeLineToConsole("Solutions found: " + search.getSolutionListener().solutionsNo() + " - Limit was set to " + this.maxSolutions + " - was it reached? " + search.getSolutionListener().solutionLimitReached());
 			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, search.getSolutionListener().getSolutions());
-						
 		}
 		else
 			ConsoleCommands.writeErrorLineToConsole("Nothing found");
@@ -299,30 +278,32 @@ public class SolverJob extends Job {
 //			return Status.CANCEL_STATUS;
 //		}
 	}
-//	
-//	
-//	/**
-//	 * Zeigt die fertigen Resultate in der UI an.
-//	 * 
-//	 * @param allResults
-//	 *            die Resultate / L�sungen f�r das Mapping Problem
-//	 */
-//	private void showResults(final ArrayList<Result> allResults) {		
-//		// update the new UI
-//		
-//		detailedResultsViewUiModel.indexToDrawProperty().set(0);
-//		detailedResultsViewUiModel.setResultsList(allResults);
-//		
-//		if (multiPageEditor != null) {
-//			Display.getDefault().asyncExec(new Runnable() {
-//				@Override
-//				public void run() {	multiPageEditor.setActiveResultPage();	}
-//			});
-//		}
-//	}
-//	
-//
-//	
+	
+	/**
+	 * Zeigt die fertigen Resultate in der UI an.
+	 * 
+	 * @param allResults
+	 *            die Resultate / Loesungen fuer das Mapping Problem
+	 */
+	private void showResults(final ArrayList<Result> allResults) {		
+		
+		detailedResultsViewUiModel.setResultsList(allResults);
+		detailedResultsViewUiModel.indexToDrawProperty().set(0);
+		
+		
+		if (multiPageEditor != null) {
+			Display.getDefault().asyncExec(new Runnable() {
+				@Override
+				public void run() {	multiPageEditor.setActiveResultPage();	}
+			});
+		}
+	}
+
+	
+	
+	
+
+	
 	/**
 	 * Sets the maximum number of solution.
 	 * @param maxSolutions

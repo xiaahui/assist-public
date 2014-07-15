@@ -54,5 +54,19 @@ import org.jacop.core.Store
 //	private IOAdapterVariablesList ioAdapterVariablesList;
 //	
 //	private SolutionVariablesList solutionVariablesList;
-//	
+//
+//		/* Create the set of Variables needed for a Thread */
+//		this.threadVariablesList = new ThreadVariablesList(model, constraintSystem);
+//		
+//		this.coreVariablesList = new CoreVariablesList(model);
+//		
+//		this.exclusiveAdapterVariablesList = new ExclusiveAdapterRequirementVariablesList(model, this.threadVariablesList);
+//		
+//		this.sharedAdapterVariablesList = new SharedAdapterRequirementVariablesList(model, this.threadVariablesList);
+//		
+//		this.communicationVariablesList = new CommunicationVariablesList(model, constraintSystem);
+//		
+//		this.ioAdapterVariablesList = new IOAdapterVariablesList(model, constraintSystem);
+		
+	
 }

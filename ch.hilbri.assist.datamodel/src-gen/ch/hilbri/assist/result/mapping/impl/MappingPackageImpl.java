@@ -401,6 +401,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getHardwareElement__GetHardwareLevel() {
+		return hardwareElementEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCompartment() {
 		return compartmentEClass;
 	}
@@ -455,6 +464,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getCompartment__GetHardwareLevel() {
+		return compartmentEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBox() {
 		return boxEClass;
 	}
@@ -484,6 +502,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 */
 	public EReference getBox_Boards() {
 		return (EReference)boxEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBox__GetHardwareLevel() {
+		return boxEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -626,6 +653,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getBoard__GetHardwareLevel() {
+		return boardEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProcessor() {
 		return processorEClass;
 	}
@@ -673,6 +709,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 */
 	public EAttribute getProcessor_NotUsed() {
 		return (EAttribute)processorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getProcessor__GetHardwareLevel() {
+		return processorEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -763,6 +808,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 */
 	public EAttribute getCore_RemainingRelativeCapacity() {
 		return (EAttribute)coreEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCore__GetHardwareLevel() {
+		return coreEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1245,6 +1299,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 
 		hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
 		createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
+		createEOperation(hardwareElementEClass, HARDWARE_ELEMENT___GET_HARDWARE_LEVEL);
 
 		compartmentEClass = createEClass(COMPARTMENT);
 		createEAttribute(compartmentEClass, COMPARTMENT__MANUFACTURER);
@@ -1252,11 +1307,13 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEAttribute(compartmentEClass, COMPARTMENT__SIDE);
 		createEAttribute(compartmentEClass, COMPARTMENT__ZONE);
 		createEReference(compartmentEClass, COMPARTMENT__BOXES);
+		createEOperation(compartmentEClass, COMPARTMENT___GET_HARDWARE_LEVEL);
 
 		boxEClass = createEClass(BOX);
 		createEAttribute(boxEClass, BOX__MANUFACTURER);
 		createEReference(boxEClass, BOX__COMPARTMENT);
 		createEReference(boxEClass, BOX__BOARDS);
+		createEOperation(boxEClass, BOX___GET_HARDWARE_LEVEL);
 
 		boardEClass = createEClass(BOARD);
 		createEAttribute(boardEClass, BOARD__MANUFACTURER);
@@ -1273,6 +1330,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEReference(boardEClass, BOARD__NETWORKS);
 		createEAttribute(boardEClass, BOARD__NOT_USED);
 		createEOperation(boardEClass, BOARD___GET_ALL_APPLICATIONS);
+		createEOperation(boardEClass, BOARD___GET_HARDWARE_LEVEL);
 
 		processorEClass = createEClass(PROCESSOR);
 		createEAttribute(processorEClass, PROCESSOR__MANUFACTURER);
@@ -1280,6 +1338,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEReference(processorEClass, PROCESSOR__BOARD);
 		createEReference(processorEClass, PROCESSOR__CORES);
 		createEAttribute(processorEClass, PROCESSOR__NOT_USED);
+		createEOperation(processorEClass, PROCESSOR___GET_HARDWARE_LEVEL);
 
 		coreEClass = createEClass(CORE);
 		createEAttribute(coreEClass, CORE__ARCHITECTURE);
@@ -1291,6 +1350,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEAttribute(coreEClass, CORE__NOT_USED);
 		createEAttribute(coreEClass, CORE__REMAINING_ABSOLUTE_CAPACITY);
 		createEAttribute(coreEClass, CORE__REMAINING_RELATIVE_CAPACITY);
+		createEOperation(coreEClass, CORE___GET_HARDWARE_LEVEL);
 
 		ioAdapterEClass = createEClass(IO_ADAPTER);
 		createEAttribute(ioAdapterEClass, IO_ADAPTER__NAME);
@@ -1418,6 +1478,8 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHardwareElement_Name(), theEcorePackage.getEString(), "name", null, 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getHardwareElement__GetHardwareLevel(), theModelPackage.getHardwareArchitectureLevelType(), "getHardwareLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
 		initEClass(compartmentEClass, Compartment.class, "Compartment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCompartment_Manufacturer(), theEcorePackage.getEString(), "manufacturer", null, 0, 1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompartment_PowerSupply(), theEcorePackage.getEString(), "powerSupply", null, 0, 1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1425,10 +1487,14 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEAttribute(getCompartment_Zone(), theEcorePackage.getEString(), "zone", null, 0, 1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCompartment_Boxes(), this.getBox(), this.getBox_Compartment(), "boxes", null, 1, -1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getCompartment__GetHardwareLevel(), theModelPackage.getHardwareArchitectureLevelType(), "getHardwareLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
 		initEClass(boxEClass, Box.class, "Box", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBox_Manufacturer(), theEcorePackage.getEString(), "manufacturer", null, 0, 1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBox_Compartment(), this.getCompartment(), this.getCompartment_Boxes(), "compartment", null, 0, 1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBox_Boards(), this.getBoard(), this.getBoard_Box(), "boards", null, 1, -1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getBox__GetHardwareLevel(), theModelPackage.getHardwareArchitectureLevelType(), "getHardwareLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(boardEClass, Board.class, "Board", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBoard_Manufacturer(), theEcorePackage.getEString(), "manufacturer", null, 0, 1, Board.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1447,12 +1513,16 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 
 		initEOperation(getBoard__GetAllApplications(), this.getApplication(), "getAllApplications", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getBoard__GetHardwareLevel(), theModelPackage.getHardwareArchitectureLevelType(), "getHardwareLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
 		initEClass(processorEClass, Processor.class, "Processor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProcessor_Manufacturer(), theEcorePackage.getEString(), "manufacturer", null, 0, 1, Processor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProcessor_ProcessorType(), theEcorePackage.getEString(), "processorType", null, 0, 1, Processor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcessor_Board(), this.getBoard(), this.getBoard_Processors(), "board", null, 0, 1, Processor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcessor_Cores(), this.getCore(), this.getCore_Processor(), "cores", null, 1, -1, Processor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProcessor_NotUsed(), theEcorePackage.getEBoolean(), "notUsed", null, 0, 1, Processor.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getProcessor__GetHardwareLevel(), theModelPackage.getHardwareArchitectureLevelType(), "getHardwareLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(coreEClass, Core.class, "Core", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCore_Architecture(), theEcorePackage.getEString(), "architecture", null, 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1464,6 +1534,8 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEAttribute(getCore_NotUsed(), theEcorePackage.getEBoolean(), "notUsed", null, 0, 1, Core.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCore_RemainingAbsoluteCapacity(), theEcorePackage.getEInt(), "remainingAbsoluteCapacity", null, 0, 1, Core.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCore_RemainingRelativeCapacity(), theEcorePackage.getEDouble(), "remainingRelativeCapacity", null, 0, 1, Core.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getCore__GetHardwareLevel(), theModelPackage.getHardwareArchitectureLevelType(), "getHardwareLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(ioAdapterEClass, IOAdapter.class, "IOAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIOAdapter_Name(), theEcorePackage.getEString(), "name", null, 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -53,6 +53,7 @@ public class TreeView extends ViewPart {
 	private Text currentSolutionText;
 	private Text currentSolutionScore;
 	private GridData gridData_1;
+	
 	private DetailedResultsViewUiModel detailedResultsViewUiModel;
 
 	public TreeView(DetailedResultsViewUiModel detailedResultsViewUiModel) {
@@ -218,9 +219,10 @@ public class TreeView extends ViewPart {
 		GraphConnection nodeEdge = new GraphConnection(graph,  ZestStyles.CONNECTIONS_DOT,  parentNode, newNode);
 		nodeEdge.setLineWidth(3);
 		
-		if (obj instanceof Core) /* draw applications */
-			for (Thread thread : ((Core)obj).getThreads() ) 
-				drawSoftwareNodes(thread, newNode, result);
+		if (obj instanceof Core) /* draw applications */ {
+//			for (Thread thread : ((Core)obj).getThreads() ) 
+//				drawSoftwareNodes(thread, newNode, result);
+		}
 		else 	
 			/* draw lower level hardware architecture */
 			for (EObject child : obj.eContents()) 

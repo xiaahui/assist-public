@@ -12,10 +12,13 @@ import ch.hilbri.assist.model.IOAdapter;
 import ch.hilbri.assist.model.IOAdapterProtectionLevelType;
 import ch.hilbri.assist.model.IOAdapterType;
 import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.result.mapping.AbstractMetric;
+import ch.hilbri.assist.result.mapping.Evaluation;
 import ch.hilbri.assist.result.mapping.HardwareElement;
 import ch.hilbri.assist.result.mapping.MappingFactory;
 import ch.hilbri.assist.result.mapping.Result;
 import java.util.ArrayList;
+import java.util.HashMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.jacop.core.Domain;
@@ -150,7 +153,6 @@ public class ResultFactoryFromSolverSolutions {
   }
   
   private static Result createBasicResult(final AssistModel model, final String resultName) {
-    ResultFactoryFromSolverSolutions.f = MappingFactory.eINSTANCE;
     final Result result = ResultFactoryFromSolverSolutions.f.createResult();
     result.setName(resultName);
     String _systemName = model.getSystemName();
@@ -161,10 +163,17 @@ public class ResultFactoryFromSolverSolutions {
       EObject _createHardwareElements = ResultFactoryFromSolverSolutions.createHardwareElements(elem);
       _rootHardwareElements.add(((HardwareElement) _createHardwareElements));
     }
+    final Evaluation e = ResultFactoryFromSolverSolutions.f.createEvaluation();
+    HashMap<AbstractMetric, Double> _hashMap = new HashMap<AbstractMetric, Double>();
+    e.setAbsoluteScores(_hashMap);
+    HashMap<AbstractMetric, Double> _hashMap_1 = new HashMap<AbstractMetric, Double>();
+    e.setScaledScores(_hashMap_1);
+    result.setEvaluation(e);
     return result;
   }
   
   public static ArrayList<Result> create(final AssistModel model, final SolverVariablesContainer solverVariables, final Domain[][] solverSolutions) {
+    ResultFactoryFromSolverSolutions.f = MappingFactory.eINSTANCE;
     final ArrayList<Result> results = new ArrayList<Result>();
     for (int i = 0; (i < solverSolutions.length); i++) {
       {

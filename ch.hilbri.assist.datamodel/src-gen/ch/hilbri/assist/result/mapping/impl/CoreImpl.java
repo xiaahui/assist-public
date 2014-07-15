@@ -3,9 +3,13 @@
  */
 package ch.hilbri.assist.result.mapping.impl;
 
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
+
 import ch.hilbri.assist.result.mapping.Core;
 import ch.hilbri.assist.result.mapping.MappingPackage;
 import ch.hilbri.assist.result.mapping.Processor;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
@@ -346,6 +350,15 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public HardwareArchitectureLevelType getHardwareLevel() {
+		return HardwareArchitectureLevelType.CORE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -500,6 +513,20 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 				return getRemainingRelativeCapacity() != REMAINING_RELATIVE_CAPACITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case MappingPackage.CORE___GET_HARDWARE_LEVEL:
+				return getHardwareLevel();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

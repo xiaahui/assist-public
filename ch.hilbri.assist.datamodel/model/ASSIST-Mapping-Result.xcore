@@ -90,6 +90,7 @@ class Result extends Comparable {
 
 class HardwareElement {
 	String name
+	op HardwareArchitectureLevelType getHardwareLevel()
 }
 
 class Compartment extends HardwareElement {
@@ -98,12 +99,14 @@ class Compartment extends HardwareElement {
 	String side
 	String zone
 	contains Box[1..*] boxes opposite compartment
+	op HardwareArchitectureLevelType getHardwareLevel() { HardwareArchitectureLevelType.COMPARTMENT }
 }
 
 class Box extends HardwareElement {
 	String manufacturer
 	container Compartment compartment opposite boxes
 	contains Board[1..*] boards opposite box
+	op HardwareArchitectureLevelType getHardwareLevel() { HardwareArchitectureLevelType.BOX }
 }
 
 class Board extends HardwareElement {
@@ -133,6 +136,8 @@ class Board extends HardwareElement {
 		val list = new BasicEList<Application> // FIXME: Implement me!
 		return list
 	}
+	
+	op HardwareArchitectureLevelType getHardwareLevel() { HardwareArchitectureLevelType.BOARD }
 }
 
 class Processor extends HardwareElement {
@@ -148,6 +153,8 @@ class Processor extends HardwareElement {
 			result = result || c.notUsed
 		return result 
 	} 
+	
+	op HardwareArchitectureLevelType getHardwareLevel() { HardwareArchitectureLevelType.PROCESSOR }
 }
 
 class Core extends HardwareElement {
@@ -167,6 +174,7 @@ class Core extends HardwareElement {
 	@GenModel(documentation="How much relative capacity of this core is left unused?")
 	derived double remainingRelativeCapacity get { remainingAbsoluteCapacity as double / capacity as double	}
 	
+	op HardwareArchitectureLevelType getHardwareLevel() { HardwareArchitectureLevelType.CORE }
 }
 
 class IOAdapter {
@@ -234,6 +242,9 @@ class Evaluation {
 	MetricScoreMap					absoluteScores
 	MetricScoreMap					scaledScores
 	
-	derived double					totalScaledScore get { scaledScores.values.reduce[i1, i2 | i1 + i2] }
+	derived double					totalScaledScore get { 
+		if ((scaledScores == null) || (scaledScores.keySet.size == 0)) return 0.0
+		else scaledScores.values.reduce[i1, i2 | i1 + i2]
+	}
 	contains AbstractMetric[0..*] 	metricsUsed
 }

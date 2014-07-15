@@ -4,6 +4,7 @@
 package ch.hilbri.assist.result.mapping;
 
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -354,5 +355,14 @@ public interface Board extends HardwareElement {
 	 * @generated
 	 */
 	EList<Application> getAllApplications();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return <%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.BOARD;'"
+	 * @generated
+	 */
+	HardwareArchitectureLevelType getHardwareLevel();
 
 } // Board

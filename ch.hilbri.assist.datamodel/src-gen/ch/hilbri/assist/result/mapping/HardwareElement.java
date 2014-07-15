@@ -3,6 +3,8 @@
  */
 package ch.hilbri.assist.result.mapping;
 
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -47,5 +49,13 @@ public interface HardwareElement extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 * @generated
+	 */
+	HardwareArchitectureLevelType getHardwareLevel();
 
 } // HardwareElement
