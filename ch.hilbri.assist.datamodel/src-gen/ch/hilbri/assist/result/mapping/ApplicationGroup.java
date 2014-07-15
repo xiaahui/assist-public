@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ch.hilbri.assist.result.mapping.ApplicationGroup#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.ApplicationGroup#getApplications <em>Applications</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.ApplicationGroup#getApplicationGroups <em>Application Groups</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.ApplicationGroup#getReferenceObject <em>Reference Object</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,9 +64,51 @@ public interface ApplicationGroup extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Applications</em>' reference list.
 	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getApplicationGroup_Applications()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	EList<Application> getApplications();
+
+	/**
+	 * Returns the value of the '<em><b>Application Groups</b></em>' reference list.
+	 * The list contents are of type {@link ch.hilbri.assist.result.mapping.ApplicationGroup}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Application Groups</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Application Groups</em>' reference list.
+	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getApplicationGroup_ApplicationGroups()
+	 * @model
+	 * @generated
+	 */
+	EList<ApplicationGroup> getApplicationGroups();
+
+	/**
+	 * Returns the value of the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reference Object</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference Object</em>' reference.
+	 * @see #setReferenceObject(ch.hilbri.assist.model.ApplicationGroup)
+	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getApplicationGroup_ReferenceObject()
+	 * @model
+	 * @generated
+	 */
+	ch.hilbri.assist.model.ApplicationGroup getReferenceObject();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.result.mapping.ApplicationGroup#getReferenceObject <em>Reference Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reference Object</em>' reference.
+	 * @see #getReferenceObject()
+	 * @generated
+	 */
+	void setReferenceObject(ch.hilbri.assist.model.ApplicationGroup value);
 
 } // ApplicationGroup

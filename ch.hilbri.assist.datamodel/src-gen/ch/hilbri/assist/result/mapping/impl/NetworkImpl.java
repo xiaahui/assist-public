@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.NetworkImpl#getBandwidthCapacity <em>Bandwidth Capacity</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.NetworkImpl#isIsBoardLocalNetwork <em>Is Board Local Network</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.NetworkImpl#getBoards <em>Boards</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.NetworkImpl#getReferenceObject <em>Reference Object</em>}</li>
  * </ul>
  * </p>
  *
@@ -99,6 +100,16 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	 * @ordered
 	 */
 	protected EList<Board> boards;
+
+	/**
+	 * The cached value of the '{@link #getReferenceObject() <em>Reference Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceObject()
+	 * @generated
+	 * @ordered
+	 */
+	protected ch.hilbri.assist.model.Network referenceObject;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,6 +200,44 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ch.hilbri.assist.model.Network getReferenceObject() {
+		if (referenceObject != null && referenceObject.eIsProxy()) {
+			InternalEObject oldReferenceObject = (InternalEObject)referenceObject;
+			referenceObject = (ch.hilbri.assist.model.Network)eResolveProxy(oldReferenceObject);
+			if (referenceObject != oldReferenceObject) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MappingPackage.NETWORK__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
+			}
+		}
+		return referenceObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ch.hilbri.assist.model.Network basicGetReferenceObject() {
+		return referenceObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReferenceObject(ch.hilbri.assist.model.Network newReferenceObject) {
+		ch.hilbri.assist.model.Network oldReferenceObject = referenceObject;
+		referenceObject = newReferenceObject;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.NETWORK__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -229,6 +278,9 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 				return isIsBoardLocalNetwork();
 			case MappingPackage.NETWORK__BOARDS:
 				return getBoards();
+			case MappingPackage.NETWORK__REFERENCE_OBJECT:
+				if (resolve) return getReferenceObject();
+				return basicGetReferenceObject();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -252,6 +304,9 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 				getBoards().clear();
 				getBoards().addAll((Collection<? extends Board>)newValue);
 				return;
+			case MappingPackage.NETWORK__REFERENCE_OBJECT:
+				setReferenceObject((ch.hilbri.assist.model.Network)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -273,6 +328,9 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 			case MappingPackage.NETWORK__BOARDS:
 				getBoards().clear();
 				return;
+			case MappingPackage.NETWORK__REFERENCE_OBJECT:
+				setReferenceObject((ch.hilbri.assist.model.Network)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -293,6 +351,8 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 				return isIsBoardLocalNetwork() != IS_BOARD_LOCAL_NETWORK_EDEFAULT;
 			case MappingPackage.NETWORK__BOARDS:
 				return boards != null && !boards.isEmpty();
+			case MappingPackage.NETWORK__REFERENCE_OBJECT:
+				return referenceObject != null;
 		}
 		return super.eIsSet(featureID);
 	}

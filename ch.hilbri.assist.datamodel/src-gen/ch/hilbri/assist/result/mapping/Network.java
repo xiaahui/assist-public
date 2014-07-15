@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.result.mapping.Network#getBandwidthCapacity <em>Bandwidth Capacity</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Network#isIsBoardLocalNetwork <em>Is Board Local Network</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Network#getBoards <em>Boards</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.Network#getReferenceObject <em>Reference Object</em>}</li>
  * </ul>
  * </p>
  *
@@ -112,5 +113,31 @@ public interface Network extends EObject {
 	 * @generated
 	 */
 	EList<Board> getBoards();
+
+	/**
+	 * Returns the value of the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reference Object</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference Object</em>' reference.
+	 * @see #setReferenceObject(ch.hilbri.assist.model.Network)
+	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getNetwork_ReferenceObject()
+	 * @model
+	 * @generated
+	 */
+	ch.hilbri.assist.model.Network getReferenceObject();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.result.mapping.Network#getReferenceObject <em>Reference Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reference Object</em>' reference.
+	 * @see #getReferenceObject()
+	 * @generated
+	 */
+	void setReferenceObject(ch.hilbri.assist.model.Network value);
 
 } // Network

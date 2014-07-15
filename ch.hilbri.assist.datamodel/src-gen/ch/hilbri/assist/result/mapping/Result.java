@@ -266,4 +266,28 @@ public interface Result extends EObject, Comparable<Result> {
 	 */
 	EList<Board> getAllBoards();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Finds an application in the result model which represents a given Application in the input model
+	 * <!-- end-model-doc -->
+	 * @model unique="false" modelAppUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.mapping.Application%>> _applications = this.getApplications();\nfor (final <%ch.hilbri.assist.result.mapping.Application%> resultApp : _applications)\n{\n\t<%ch.hilbri.assist.model.Application%> _referenceObject = resultApp.getReferenceObject();\n\tboolean _equals = <%com.google.common.base.Objects%>.equal(_referenceObject, modelApp);\n\tif (_equals)\n\t{\n\t\treturn resultApp;\n\t}\n}\nreturn null;'"
+	 * @generated
+	 */
+	Application findResultApplication(ch.hilbri.assist.model.Application modelApp);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Finds an applicationgroup in the result model which represents a given ApplicationGroup in the input model
+	 * <!-- end-model-doc -->
+	 * @model unique="false" modelAppGroupUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.mapping.ApplicationGroup%>> _applicationGroups = this.getApplicationGroups();\nfor (final <%ch.hilbri.assist.result.mapping.ApplicationGroup%> resultAppGroup : _applicationGroups)\n{\n\t<%ch.hilbri.assist.model.ApplicationGroup%> _referenceObject = resultAppGroup.getReferenceObject();\n\tboolean _equals = <%com.google.common.base.Objects%>.equal(_referenceObject, modelAppGroup);\n\tif (_equals)\n\t{\n\t\treturn resultAppGroup;\n\t}\n}\nreturn null;'"
+	 * @generated
+	 */
+	ApplicationGroup findResultApplicationGroup(ch.hilbri.assist.model.ApplicationGroup modelAppGroup);
+
 } // Result

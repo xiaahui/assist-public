@@ -383,6 +383,24 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getResult__FindResultApplication__Application() {
+		return resultEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getResult__FindResultApplicationGroup__ApplicationGroup() {
+		return resultEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getHardwareElement() {
 		return hardwareElementEClass;
 	}
@@ -394,6 +412,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 */
 	public EAttribute getHardwareElement_Name() {
 		return (EAttribute)hardwareElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getHardwareElement_ReferenceObject() {
+		return (EReference)hardwareElementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -869,6 +896,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getIOAdapter_ReferenceObject() {
+		return (EReference)ioAdapterEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNetwork() {
 		return networkEClass;
 	}
@@ -914,6 +950,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getNetwork_ReferenceObject() {
+		return (EReference)networkEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getApplicationGroup() {
 		return applicationGroupEClass;
 	}
@@ -934,6 +979,24 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 */
 	public EReference getApplicationGroup_Applications() {
 		return (EReference)applicationGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getApplicationGroup_ApplicationGroups() {
+		return (EReference)applicationGroupEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getApplicationGroup_ReferenceObject() {
+		return (EReference)applicationGroupEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1049,6 +1112,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getApplication_ReferenceObject() {
+		return (EReference)applicationEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getThread() {
 		return threadEClass;
 	}
@@ -1069,6 +1141,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 */
 	public EAttribute getThread_Name() {
 		return (EAttribute)threadEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getThread_ReferenceObject() {
+		return (EReference)threadEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1121,6 +1202,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getIOAdapterRequirement_ReferenceObject() {
+		return (EReference)ioAdapterRequirementEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCommunicationRelation() {
 		return communicationRelationEClass;
 	}
@@ -1141,6 +1231,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 */
 	public EAttribute getCommunicationRelation_BandwidthUtilization() {
 		return (EAttribute)communicationRelationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCommunicationRelation_ReferenceObject() {
+		return (EReference)communicationRelationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1296,9 +1395,12 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEOperation(resultEClass, RESULT___GET_ALL_CORES);
 		createEOperation(resultEClass, RESULT___GET_ALL_PROCESSORS);
 		createEOperation(resultEClass, RESULT___GET_ALL_BOARDS);
+		createEOperation(resultEClass, RESULT___FIND_RESULT_APPLICATION__APPLICATION);
+		createEOperation(resultEClass, RESULT___FIND_RESULT_APPLICATION_GROUP__APPLICATIONGROUP);
 
 		hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
 		createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
+		createEReference(hardwareElementEClass, HARDWARE_ELEMENT__REFERENCE_OBJECT);
 		createEOperation(hardwareElementEClass, HARDWARE_ELEMENT___GET_HARDWARE_LEVEL);
 
 		compartmentEClass = createEClass(COMPARTMENT);
@@ -1357,16 +1459,20 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEAttribute(ioAdapterEClass, IO_ADAPTER__TOTAL_UNIT_COUNT);
 		createEAttribute(ioAdapterEClass, IO_ADAPTER__ADAPTER_TYPE);
 		createEAttribute(ioAdapterEClass, IO_ADAPTER__PROTECTION_LEVEL);
+		createEReference(ioAdapterEClass, IO_ADAPTER__REFERENCE_OBJECT);
 
 		networkEClass = createEClass(NETWORK);
 		createEAttribute(networkEClass, NETWORK__NAME);
 		createEAttribute(networkEClass, NETWORK__BANDWIDTH_CAPACITY);
 		createEAttribute(networkEClass, NETWORK__IS_BOARD_LOCAL_NETWORK);
 		createEReference(networkEClass, NETWORK__BOARDS);
+		createEReference(networkEClass, NETWORK__REFERENCE_OBJECT);
 
 		applicationGroupEClass = createEClass(APPLICATION_GROUP);
 		createEAttribute(applicationGroupEClass, APPLICATION_GROUP__NAME);
 		createEReference(applicationGroupEClass, APPLICATION_GROUP__APPLICATIONS);
+		createEReference(applicationGroupEClass, APPLICATION_GROUP__APPLICATION_GROUPS);
+		createEReference(applicationGroupEClass, APPLICATION_GROUP__REFERENCE_OBJECT);
 
 		applicationEClass = createEClass(APPLICATION);
 		createEAttribute(applicationEClass, APPLICATION__NAME);
@@ -1380,20 +1486,24 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEReference(applicationEClass, APPLICATION__IO_ADAPTER_REQUIREMENTS);
 		createEReference(applicationEClass, APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
 		createEReference(applicationEClass, APPLICATION__THREADS);
+		createEReference(applicationEClass, APPLICATION__REFERENCE_OBJECT);
 
 		threadEClass = createEClass(THREAD);
 		createEReference(threadEClass, THREAD__APPLICATION);
 		createEAttribute(threadEClass, THREAD__NAME);
+		createEReference(threadEClass, THREAD__REFERENCE_OBJECT);
 
 		ioAdapterRequirementEClass = createEClass(IO_ADAPTER_REQUIREMENT);
 		createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__ADAPTER_TYPE);
 		createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__REQUIRED_UNITS);
 		createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__IS_SHARED_ALLOWED);
 		createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__IS_EXCLUSIVE_ONLY);
+		createEReference(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__REFERENCE_OBJECT);
 
 		communicationRelationEClass = createEClass(COMMUNICATION_RELATION);
 		createEReference(communicationRelationEClass, COMMUNICATION_RELATION__APPLICATIONS_OR_GROUPS);
 		createEAttribute(communicationRelationEClass, COMMUNICATION_RELATION__BANDWIDTH_UTILIZATION);
+		createEReference(communicationRelationEClass, COMMUNICATION_RELATION__REFERENCE_OBJECT);
 
 		abstractMetricEClass = createEClass(ABSTRACT_METRIC);
 		createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__NAME);
@@ -1475,8 +1585,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 
 		initEOperation(getResult__GetAllBoards(), this.getBoard(), "getAllBoards", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getResult__FindResultApplication__Application(), this.getApplication(), "findResultApplication", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theModelPackage.getApplication(), "modelApp", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getResult__FindResultApplicationGroup__ApplicationGroup(), this.getApplicationGroup(), "findResultApplicationGroup", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theModelPackage.getApplicationGroup(), "modelAppGroup", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
 		initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHardwareElement_Name(), theEcorePackage.getEString(), "name", null, 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHardwareElement_ReferenceObject(), theModelPackage.getHardwareElement(), null, "referenceObject", null, 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getHardwareElement__GetHardwareLevel(), theModelPackage.getHardwareArchitectureLevelType(), "getHardwareLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
@@ -1542,16 +1659,20 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEAttribute(getIOAdapter_TotalUnitCount(), theEcorePackage.getEInt(), "totalUnitCount", null, 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIOAdapter_AdapterType(), theModelPackage.getIOAdapterType(), "adapterType", null, 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIOAdapter_ProtectionLevel(), theModelPackage.getIOAdapterProtectionLevelType(), "protectionLevel", "None", 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIOAdapter_ReferenceObject(), theModelPackage.getIOAdapter(), null, "referenceObject", null, 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(networkEClass, Network.class, "Network", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNetwork_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNetwork_BandwidthCapacity(), theEcorePackage.getEInt(), "bandwidthCapacity", null, 0, 1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNetwork_IsBoardLocalNetwork(), theEcorePackage.getEBoolean(), "isBoardLocalNetwork", null, 0, 1, Network.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getNetwork_Boards(), this.getBoard(), this.getBoard_Networks(), "boards", null, 2, -1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNetwork_ReferenceObject(), theModelPackage.getNetwork(), null, "referenceObject", null, 0, 1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationGroupEClass, ApplicationGroup.class, "ApplicationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApplicationGroup_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getApplicationGroup_Applications(), this.getApplication(), null, "applications", null, 1, -1, ApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplicationGroup_Applications(), this.getApplication(), null, "applications", null, 0, -1, ApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplicationGroup_ApplicationGroups(), this.getApplicationGroup(), null, "applicationGroups", null, 0, -1, ApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplicationGroup_ReferenceObject(), theModelPackage.getApplicationGroup(), null, "referenceObject", null, 0, 1, ApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApplication_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1565,20 +1686,24 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEReference(getApplication_IoAdapterRequirements(), this.getIOAdapterRequirement(), null, "ioAdapterRequirements", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_RestrictMappingToHardwareElements(), this.getHardwareElement(), null, "restrictMappingToHardwareElements", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_Threads(), this.getThread(), this.getThread_Application(), "threads", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplication_ReferenceObject(), theModelPackage.getApplication(), null, "referenceObject", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(threadEClass, ch.hilbri.assist.result.mapping.Thread.class, "Thread", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getThread_Application(), this.getApplication(), this.getApplication_Threads(), "application", null, 0, 1, ch.hilbri.assist.result.mapping.Thread.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getThread_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ch.hilbri.assist.result.mapping.Thread.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getThread_ReferenceObject(), theModelPackage.getThread(), null, "referenceObject", null, 0, 1, ch.hilbri.assist.result.mapping.Thread.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ioAdapterRequirementEClass, IOAdapterRequirement.class, "IOAdapterRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIOAdapterRequirement_AdapterType(), theModelPackage.getIOAdapterType(), "adapterType", null, 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIOAdapterRequirement_RequiredUnits(), theEcorePackage.getEInt(), "requiredUnits", "0", 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIOAdapterRequirement_IsSharedAllowed(), theEcorePackage.getEBoolean(), "isSharedAllowed", "false", 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIOAdapterRequirement_IsExclusiveOnly(), theEcorePackage.getEBoolean(), "isExclusiveOnly", "false", 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIOAdapterRequirement_ReferenceObject(), theModelPackage.getIOAdapterRequirement(), null, "referenceObject", null, 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(communicationRelationEClass, CommunicationRelation.class, "CommunicationRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCommunicationRelation_ApplicationsOrGroups(), this.getApplication(), null, "applicationsOrGroups", null, 1, -1, CommunicationRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCommunicationRelation_BandwidthUtilization(), theEcorePackage.getEInt(), "bandwidthUtilization", null, 0, 1, CommunicationRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommunicationRelation_ReferenceObject(), theModelPackage.getCommunicationRelation(), null, "referenceObject", null, 0, 1, CommunicationRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractMetricEClass, AbstractMetric.class, "AbstractMetric", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbstractMetric_Name(), theEcorePackage.getEString(), "name", null, 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

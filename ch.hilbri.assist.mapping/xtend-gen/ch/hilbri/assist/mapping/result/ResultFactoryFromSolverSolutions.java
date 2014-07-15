@@ -1,12 +1,16 @@
 package ch.hilbri.assist.mapping.result;
 
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
+import ch.hilbri.assist.model.Application;
+import ch.hilbri.assist.model.ApplicationGroup;
+import ch.hilbri.assist.model.ApplicationOrApplicationGroup;
 import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.Compartment;
 import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
+import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.HardwareElementContainer;
 import ch.hilbri.assist.model.IOAdapter;
 import ch.hilbri.assist.model.IOAdapterProtectionLevelType;
@@ -14,9 +18,9 @@ import ch.hilbri.assist.model.IOAdapterType;
 import ch.hilbri.assist.model.Processor;
 import ch.hilbri.assist.result.mapping.AbstractMetric;
 import ch.hilbri.assist.result.mapping.Evaluation;
-import ch.hilbri.assist.result.mapping.HardwareElement;
 import ch.hilbri.assist.result.mapping.MappingFactory;
 import ch.hilbri.assist.result.mapping.Result;
+import com.google.common.base.Objects;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.eclipse.emf.common.util.EList;
@@ -26,6 +30,74 @@ import org.jacop.core.Domain;
 @SuppressWarnings("all")
 public class ResultFactoryFromSolverSolutions {
   private static MappingFactory f;
+  
+  private static void fillApplicationGroupMembers(final ApplicationGroup modelAppGroup, final Result result) {
+    final ch.hilbri.assist.result.mapping.ApplicationGroup appGroup = result.findResultApplicationGroup(modelAppGroup);
+    boolean _equals = Objects.equal(appGroup, null);
+    if (_equals) {
+      return;
+    }
+    EList<ApplicationOrApplicationGroup> _applicationsOrGroups = modelAppGroup.getApplicationsOrGroups();
+    for (final ApplicationOrApplicationGroup aog : _applicationsOrGroups) {
+      boolean _matched = false;
+      if (!_matched) {
+        if (aog instanceof Application) {
+          _matched=true;
+          EList<ch.hilbri.assist.result.mapping.Application> _applications = appGroup.getApplications();
+          ch.hilbri.assist.result.mapping.Application _findResultApplication = result.findResultApplication(((Application)aog));
+          _applications.add(_findResultApplication);
+        }
+      }
+      if (!_matched) {
+        if (aog instanceof ApplicationGroup) {
+          _matched=true;
+          EList<ch.hilbri.assist.result.mapping.ApplicationGroup> _applicationGroups = appGroup.getApplicationGroups();
+          ch.hilbri.assist.result.mapping.ApplicationGroup _findResultApplicationGroup = result.findResultApplicationGroup(((ApplicationGroup)aog));
+          _applicationGroups.add(_findResultApplicationGroup);
+        }
+      }
+    }
+  }
+  
+  private static ch.hilbri.assist.result.mapping.ApplicationGroup createApplicationGroup(final ApplicationGroup modelAppGroup, final Result result) {
+    final ch.hilbri.assist.result.mapping.ApplicationGroup appGroup = ResultFactoryFromSolverSolutions.f.createApplicationGroup();
+    String _name = modelAppGroup.getName();
+    appGroup.setName(_name);
+    appGroup.setReferenceObject(modelAppGroup);
+    return appGroup;
+  }
+  
+  private static ch.hilbri.assist.result.mapping.Application createApplication(final Application modelApp) {
+    final ch.hilbri.assist.result.mapping.Application app = ResultFactoryFromSolverSolutions.f.createApplication();
+    String _name = modelApp.getName();
+    app.setName(_name);
+    int _coreUtilization = modelApp.getCoreUtilization();
+    app.setCoreUtilization(_coreUtilization);
+    int _ramUtilization = modelApp.getRamUtilization();
+    app.setRamUtilization(_ramUtilization);
+    int _romUtilization = modelApp.getRomUtilization();
+    app.setRomUtilization(_romUtilization);
+    DesignAssuranceLevelType _criticalityLevel = modelApp.getCriticalityLevel();
+    app.setCriticalityLevel(_criticalityLevel);
+    IOAdapterProtectionLevelType _ioAdapterProtectionLevel = modelApp.getIoAdapterProtectionLevel();
+    app.setIoAdapterProtectionLevel(_ioAdapterProtectionLevel);
+    int _parallelThreads = modelApp.getParallelThreads();
+    app.setParallelThreads(_parallelThreads);
+    String _developedBy = modelApp.getDevelopedBy();
+    app.setDevelopedBy(_developedBy);
+    app.setReferenceObject(modelApp);
+    EList<ch.hilbri.assist.model.Thread> _threads = modelApp.getThreads();
+    for (final ch.hilbri.assist.model.Thread modelThread : _threads) {
+      {
+        final ch.hilbri.assist.result.mapping.Thread t = ResultFactoryFromSolverSolutions.f.createThread();
+        t.setReferenceObject(modelThread);
+        t.setApplication(app);
+        EList<ch.hilbri.assist.result.mapping.Thread> _threads_1 = app.getThreads();
+        _threads_1.add(t);
+      }
+    }
+    return app;
+  }
   
   private static EObject createHardwareElements(final EObject modelElement) {
     boolean _matched = false;
@@ -49,6 +121,7 @@ public class ResultFactoryFromSolverSolutions {
           EObject _createHardwareElements = ResultFactoryFromSolverSolutions.createHardwareElements(box);
           _boxes_1.add(((ch.hilbri.assist.result.mapping.Box) _createHardwareElements));
         }
+        c.setReferenceObject(((HardwareElement)modelElement));
         return c;
       }
     }
@@ -66,6 +139,7 @@ public class ResultFactoryFromSolverSolutions {
           EObject _createHardwareElements = ResultFactoryFromSolverSolutions.createHardwareElements(board);
           _boards_1.add(((ch.hilbri.assist.result.mapping.Board) _createHardwareElements));
         }
+        b.setReferenceObject(((HardwareElement)modelElement));
         return b;
       }
     }
@@ -99,6 +173,7 @@ public class ResultFactoryFromSolverSolutions {
           EObject _createHardwareElements_1 = ResultFactoryFromSolverSolutions.createHardwareElements(io);
           _ioAdapters_1.add(((ch.hilbri.assist.result.mapping.IOAdapter) _createHardwareElements_1));
         }
+        b.setReferenceObject(((HardwareElement)modelElement));
         return b;
       }
     }
@@ -118,6 +193,7 @@ public class ResultFactoryFromSolverSolutions {
           EObject _createHardwareElements = ResultFactoryFromSolverSolutions.createHardwareElements(core);
           _cores_1.add(((ch.hilbri.assist.result.mapping.Core) _createHardwareElements));
         }
+        p.setReferenceObject(((HardwareElement)modelElement));
         return p;
       }
     }
@@ -131,6 +207,7 @@ public class ResultFactoryFromSolverSolutions {
         c.setArchitecture(_architecture);
         int _capacity = ((Core)modelElement).getCapacity();
         c.setCapacity(_capacity);
+        c.setReferenceObject(((HardwareElement)modelElement));
         return c;
       }
     }
@@ -146,6 +223,7 @@ public class ResultFactoryFromSolverSolutions {
         i.setAdapterType(_adapterType);
         IOAdapterProtectionLevelType _protectionLevel = ((IOAdapter)modelElement).getProtectionLevel();
         i.setProtectionLevel(_protectionLevel);
+        i.setReferenceObject(((IOAdapter)modelElement));
         return i;
       }
     }
@@ -159,9 +237,25 @@ public class ResultFactoryFromSolverSolutions {
     result.setSystemName(_systemName);
     EList<HardwareElementContainer> _hardwareContainer = model.getHardwareContainer();
     for (final HardwareElementContainer elem : _hardwareContainer) {
-      EList<HardwareElement> _rootHardwareElements = result.getRootHardwareElements();
+      EList<ch.hilbri.assist.result.mapping.HardwareElement> _rootHardwareElements = result.getRootHardwareElements();
       EObject _createHardwareElements = ResultFactoryFromSolverSolutions.createHardwareElements(elem);
-      _rootHardwareElements.add(((HardwareElement) _createHardwareElements));
+      _rootHardwareElements.add(((ch.hilbri.assist.result.mapping.HardwareElement) _createHardwareElements));
+    }
+    EList<Application> _applications = model.getApplications();
+    for (final Application modelApp : _applications) {
+      EList<ch.hilbri.assist.result.mapping.Application> _applications_1 = result.getApplications();
+      ch.hilbri.assist.result.mapping.Application _createApplication = ResultFactoryFromSolverSolutions.createApplication(modelApp);
+      _applications_1.add(_createApplication);
+    }
+    EList<ApplicationGroup> _applicationGroups = model.getApplicationGroups();
+    for (final ApplicationGroup modelAppGroup : _applicationGroups) {
+      EList<ch.hilbri.assist.result.mapping.ApplicationGroup> _applicationGroups_1 = result.getApplicationGroups();
+      ch.hilbri.assist.result.mapping.ApplicationGroup _createApplicationGroup = ResultFactoryFromSolverSolutions.createApplicationGroup(modelAppGroup, result);
+      _applicationGroups_1.add(_createApplicationGroup);
+    }
+    EList<ApplicationGroup> _applicationGroups_2 = model.getApplicationGroups();
+    for (final ApplicationGroup modelAppGroup_1 : _applicationGroups_2) {
+      ResultFactoryFromSolverSolutions.fillApplicationGroupMembers(modelAppGroup_1, result);
     }
     final Evaluation e = ResultFactoryFromSolverSolutions.f.createEvaluation();
     HashMap<AbstractMetric, Double> _hashMap = new HashMap<AbstractMetric, Double>();

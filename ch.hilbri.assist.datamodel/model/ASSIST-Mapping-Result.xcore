@@ -85,12 +85,28 @@ class Result extends Comparable {
 		val list = new BasicEList<Board> // FIXME: Implement me!
 		return list
 	}
+	
+	@GenModel(documentation="Finds an application in the result model which represents a given Application in the input model")
+	op Application findResultApplication(ch.hilbri.assist.model.Application modelApp) {
+		for (resultApp : applications) 
+			if (resultApp.referenceObject == modelApp) return resultApp
+		return null	
+	}
+	
+	@GenModel(documentation="Finds an applicationgroup in the result model which represents a given ApplicationGroup in the input model")
+	op ApplicationGroup findResultApplicationGroup(ch.hilbri.assist.model.ApplicationGroup modelAppGroup) {
+		for (resultAppGroup : applicationGroups) 
+			if (resultAppGroup.referenceObject == modelAppGroup) return resultAppGroup
+		return null	
+	}
 }
 
 
 class HardwareElement {
 	String name
+	refers ch.hilbri.assist.model.HardwareElement referenceObject
 	op HardwareArchitectureLevelType getHardwareLevel()
+	
 }
 
 class Compartment extends HardwareElement {
@@ -182,6 +198,7 @@ class IOAdapter {
 	int totalUnitCount
 	IOAdapterType adapterType
 	IOAdapterProtectionLevelType protectionLevel = "None"
+	refers ch.hilbri.assist.model.IOAdapter referenceObject
 }
 
 class Network {
@@ -189,11 +206,14 @@ class Network {
 	int bandwidthCapacity
 	derived boolean isBoardLocalNetwork get { boards.size <= 1 }
 	refers Board[2..*] boards opposite networks
+	refers ch.hilbri.assist.model.Network referenceObject
 }
 
 class ApplicationGroup {
 	String name
-	refers Application[1..*] applications
+	refers Application[0..*] applications
+	refers ApplicationGroup[0..*] applicationGroups
+	refers ch.hilbri.assist.model.ApplicationGroup referenceObject
 }
 
 class Application {
@@ -208,11 +228,13 @@ class Application {
 	contains IOAdapterRequirement[0..*] 	ioAdapterRequirements
 	refers HardwareElement[0..*] 			restrictMappingToHardwareElements
 	contains Thread[0..*] 					threads opposite application
+	refers ch.hilbri.assist.model.Application referenceObject
 }
 
 class Thread {
 	container Application 	application opposite threads
 	derived String			name get { application.name + '_' + application.threads.indexOf(this) }
+	refers ch.hilbri.assist.model.Thread referenceObject
 }
 
 class IOAdapterRequirement {	
@@ -220,11 +242,13 @@ class IOAdapterRequirement {
 	int 			requiredUnits 		= "0"
 	boolean 		isSharedAllowed 	= "false"
 	boolean 		isExclusiveOnly 	= "false"
+	refers ch.hilbri.assist.model.IOAdapterRequirement referenceObject
 }
 
 class CommunicationRelation{
 	refers Application[1..*] applicationsOrGroups
 	int bandwidthUtilization
+	refers ch.hilbri.assist.model.CommunicationRelation referenceObject
 }
 
 class AbstractMetric  {

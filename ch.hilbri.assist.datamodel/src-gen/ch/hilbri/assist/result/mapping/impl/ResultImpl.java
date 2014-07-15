@@ -19,6 +19,8 @@ import ch.hilbri.assist.result.mapping.Network;
 import ch.hilbri.assist.result.mapping.Processor;
 import ch.hilbri.assist.result.mapping.Result;
 
+import com.google.common.base.Objects;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -465,6 +467,40 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Application findResultApplication(final ch.hilbri.assist.model.Application modelApp) {
+		EList<Application> _applications = this.getApplications();
+		for (final Application resultApp : _applications) {
+			ch.hilbri.assist.model.Application _referenceObject = resultApp.getReferenceObject();
+			boolean _equals = Objects.equal(_referenceObject, modelApp);
+			if (_equals) {
+				return resultApp;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApplicationGroup findResultApplicationGroup(final ch.hilbri.assist.model.ApplicationGroup modelAppGroup) {
+		EList<ApplicationGroup> _applicationGroups = this.getApplicationGroups();
+		for (final ApplicationGroup resultAppGroup : _applicationGroups) {
+			ch.hilbri.assist.model.ApplicationGroup _referenceObject = resultAppGroup.getReferenceObject();
+			boolean _equals = Objects.equal(_referenceObject, modelAppGroup);
+			if (_equals) {
+				return resultAppGroup;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -642,6 +678,10 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return getAllProcessors();
 			case MappingPackage.RESULT___GET_ALL_BOARDS:
 				return getAllBoards();
+			case MappingPackage.RESULT___FIND_RESULT_APPLICATION__APPLICATION:
+				return findResultApplication((ch.hilbri.assist.model.Application)arguments.get(0));
+			case MappingPackage.RESULT___FIND_RESULT_APPLICATION_GROUP__APPLICATIONGROUP:
+				return findResultApplicationGroup((ch.hilbri.assist.model.ApplicationGroup)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

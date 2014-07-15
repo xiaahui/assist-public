@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.result.mapping.IOAdapterRequirement#getRequiredUnits <em>Required Units</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.IOAdapterRequirement#isIsSharedAllowed <em>Is Shared Allowed</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.IOAdapterRequirement#isIsExclusiveOnly <em>Is Exclusive Only</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.IOAdapterRequirement#getReferenceObject <em>Reference Object</em>}</li>
  * </ul>
  * </p>
  *
@@ -136,5 +137,31 @@ public interface IOAdapterRequirement extends EObject {
 	 * @generated
 	 */
 	void setIsExclusiveOnly(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reference Object</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference Object</em>' reference.
+	 * @see #setReferenceObject(ch.hilbri.assist.model.IOAdapterRequirement)
+	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getIOAdapterRequirement_ReferenceObject()
+	 * @model
+	 * @generated
+	 */
+	ch.hilbri.assist.model.IOAdapterRequirement getReferenceObject();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.result.mapping.IOAdapterRequirement#getReferenceObject <em>Reference Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reference Object</em>' reference.
+	 * @see #getReferenceObject()
+	 * @generated
+	 */
+	void setReferenceObject(ch.hilbri.assist.model.IOAdapterRequirement value);
 
 } // IOAdapterRequirement

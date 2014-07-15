@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ThreadImpl#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ThreadImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.ThreadImpl#getReferenceObject <em>Reference Object</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,6 +44,16 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getReferenceObject() <em>Reference Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceObject()
+	 * @generated
+	 * @ordered
+	 */
+	protected ch.hilbri.assist.model.Thread referenceObject;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,6 +145,44 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ch.hilbri.assist.model.Thread getReferenceObject() {
+		if (referenceObject != null && referenceObject.eIsProxy()) {
+			InternalEObject oldReferenceObject = (InternalEObject)referenceObject;
+			referenceObject = (ch.hilbri.assist.model.Thread)eResolveProxy(oldReferenceObject);
+			if (referenceObject != oldReferenceObject) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MappingPackage.THREAD__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
+			}
+		}
+		return referenceObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ch.hilbri.assist.model.Thread basicGetReferenceObject() {
+		return referenceObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReferenceObject(ch.hilbri.assist.model.Thread newReferenceObject) {
+		ch.hilbri.assist.model.Thread oldReferenceObject = referenceObject;
+		referenceObject = newReferenceObject;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.THREAD__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -186,6 +235,9 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 				return basicGetApplication();
 			case MappingPackage.THREAD__NAME:
 				return getName();
+			case MappingPackage.THREAD__REFERENCE_OBJECT:
+				if (resolve) return getReferenceObject();
+				return basicGetReferenceObject();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,6 +253,9 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 			case MappingPackage.THREAD__APPLICATION:
 				setApplication((Application)newValue);
 				return;
+			case MappingPackage.THREAD__REFERENCE_OBJECT:
+				setReferenceObject((ch.hilbri.assist.model.Thread)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -215,6 +270,9 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 		switch (featureID) {
 			case MappingPackage.THREAD__APPLICATION:
 				setApplication((Application)null);
+				return;
+			case MappingPackage.THREAD__REFERENCE_OBJECT:
+				setReferenceObject((ch.hilbri.assist.model.Thread)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -232,6 +290,8 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 				return basicGetApplication() != null;
 			case MappingPackage.THREAD__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case MappingPackage.THREAD__REFERENCE_OBJECT:
+				return referenceObject != null;
 		}
 		return super.eIsSet(featureID);
 	}

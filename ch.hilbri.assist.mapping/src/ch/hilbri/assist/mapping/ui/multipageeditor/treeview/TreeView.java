@@ -220,8 +220,8 @@ public class TreeView extends ViewPart {
 		nodeEdge.setLineWidth(3);
 		
 		if (obj instanceof Core) /* draw applications */ {
-//			for (Thread thread : ((Core)obj).getThreads() ) 
-//				drawSoftwareNodes(thread, newNode, result);
+			for (Thread thread : ((Core)obj).getThreads() ) 
+				drawSoftwareNodes(thread, newNode, result);
 		}
 		else 	
 			/* draw lower level hardware architecture */
