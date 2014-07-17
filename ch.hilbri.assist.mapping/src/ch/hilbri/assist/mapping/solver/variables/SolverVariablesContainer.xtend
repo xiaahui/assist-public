@@ -19,8 +19,8 @@ import org.jacop.core.Store
 			val m = new HashMap<Integer, IntVar>
 			for (var i = 1; i <= model.hardwareLevelCount; i++) {
 				/* Create a new location variable for each thread;
-				 * initialize its domain to 0 .. size of hardware elements -1 in this level */
-				m.put(i, new IntVar(constraintStore, "LocVar-" + t.name + "-level-" + i, 1, model.getAllHardwareElements(i).size))
+				 * initialize its domain to 1 .. size of hardware elements in this level */
+				m.put(i, new IntVar(constraintStore, "LocVar-" + t.name + "-Level-" + i, 1, model.getAllHardwareElements(i).size))
 			}
 			threadLocationVariablesList.put(t, m)
 		}
@@ -40,6 +40,8 @@ import org.jacop.core.Store
 	def IntVar getThreadLocationVariable(Thread t, int level) {
 		return threadLocationVariablesList.get(t).get(level)
 	}
+	
+	
 
 //	private ThreadVariablesList threadVariablesList;
 //	

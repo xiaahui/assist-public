@@ -70,26 +70,67 @@ class Result extends Comparable {
 	
 	@GenModel(documentation="Creates a list of all cores")
 	op Core[] getAllCores() {
-		val list = new BasicEList<Core> // FIXME: Implement me!
+		val list = new BasicEList<Core> 
+		if (topHardwareLevel == HardwareArchitectureLevelType.COMPARTMENT) 		for (c : rootHardwareElements as Compartment[]) for (b : c.boxes) for (board : b.boards) for (p : board.processors) list.addAll(p.cores)		
+		else if (topHardwareLevel == HardwareArchitectureLevelType.BOX) 		for (b : rootHardwareElements as Box[]) for (board : b.boards) for (p : board.processors) list.addAll(p.cores)		
+		else if (topHardwareLevel == HardwareArchitectureLevelType.BOARD) 		for (b : rootHardwareElements as Board[]) for (p : b.processors) list.addAll(p.cores)		
 		return list
 	}
 	
 	@GenModel(documentation="Creates a list of all processors")
 	op Processor[] getAllProcessors() {
-		val list = new BasicEList<Processor> // FIXME: Implement me!
+		val list = new BasicEList<Processor> 
+		if (topHardwareLevel == HardwareArchitectureLevelType.COMPARTMENT) 		for (c : rootHardwareElements as Compartment[]) for (b : c.boxes) for (board : b.boards) list.addAll(board.processors)		
+		else if (topHardwareLevel == HardwareArchitectureLevelType.BOX) 		for (b : rootHardwareElements as Box[]) for (board : b.boards) list.addAll(board.processors)	
+		else if (topHardwareLevel == HardwareArchitectureLevelType.BOARD) 		for (b : rootHardwareElements as Board[]) list.addAll(b.processors)
 		return list
 	}
 	
 	@GenModel(documentation="Creates a list of all boards")
 	op Board[] getAllBoards() {
-		val list = new BasicEList<Board> // FIXME: Implement me!
+		val list = new BasicEList<Board> 
+		if (topHardwareLevel == HardwareArchitectureLevelType.COMPARTMENT) 		for (c : rootHardwareElements as Compartment[]) for (b : c.boxes) list.addAll(b.boards)		
+		else if (topHardwareLevel == HardwareArchitectureLevelType.BOX) 		for (b : rootHardwareElements as Box[]) list.addAll(b.boards)	
+		else if (topHardwareLevel == HardwareArchitectureLevelType.BOARD) 		for (b : rootHardwareElements as Board[]) list.add(b)	
 		return list
+	}
+	
+	@GenModel(documentation="Creates a list of all boxes") 
+	op Box[] getAllBoxes() {
+		val list = new BasicEList<Box>
+		if (topHardwareLevel == HardwareArchitectureLevelType.BOX) list.addAll(rootHardwareElements as Box[])
+		else if (topHardwareLevel == HardwareArchitectureLevelType.COMPARTMENT) for (c : rootHardwareElements) list.addAll((c as Compartment).boxes)
+		return list
+	}
+	
+	@GenModel(documentation="Creates a list of all threads in the result")
+	op Thread[] getAllThreads() {
+		val list = new BasicEList<Thread>
+		for (a : applications) list.addAll(a.threads)
+		return list
+	}
+	
+	@GenModel(documentation="Finds a hardware element in the result model which represents a given hardware element in the input model")
+	op HardwareElement findResultHardwareElement(ch.hilbri.assist.model.HardwareElement modelHwElement) {
+		switch modelHwElement {
+			ch.hilbri.assist.model.Core 		: for (c : allCores) 		if (c.referenceObject == modelHwElement) return c
+			ch.hilbri.assist.model.Processor	: for (p : allProcessors)	if (p.referenceObject == modelHwElement) return p
+			ch.hilbri.assist.model.Board		: for (b : allBoards)		if (b.referenceObject == modelHwElement) return b
+		}
+		return null
 	}
 	
 	@GenModel(documentation="Finds an application in the result model which represents a given Application in the input model")
 	op Application findResultApplication(ch.hilbri.assist.model.Application modelApp) {
 		for (resultApp : applications) 
 			if (resultApp.referenceObject == modelApp) return resultApp
+		return null	
+	}
+	
+	@GenModel(documentation="Finds a thread in the result model which represents a given thread in the input model")
+	op Thread findResultThread(ch.hilbri.assist.model.Thread modelThread) {
+		for (resultThread : allThreads) 
+			if (resultThread.referenceObject == modelThread) return resultThread
 		return null	
 	}
 	
@@ -225,16 +266,17 @@ class Application {
 	IOAdapterProtectionLevelType 			ioAdapterProtectionLevel 			= "None"
 	int 									parallelThreads 					= "1"
 	String 									developedBy
-	contains IOAdapterRequirement[0..*] 	ioAdapterRequirements
+	refers IOAdapterRequirement[0..*] 		ioAdapterRequirements
 	refers HardwareElement[0..*] 			restrictMappingToHardwareElements
 	contains Thread[0..*] 					threads opposite application
 	refers ch.hilbri.assist.model.Application referenceObject
 }
 
 class Thread {
-	container Application 	application opposite threads
-	derived String			name get { application.name + '_' + application.threads.indexOf(this) }
+	container Application 	application opposite threads 
+	refers Core				core 
 	refers ch.hilbri.assist.model.Thread referenceObject
+	derived String			name get { application.name + '_' + application.threads.indexOf(this) }
 }
 
 class IOAdapterRequirement {	

@@ -234,13 +234,49 @@ public interface MappingPackage extends EPackage {
 	int RESULT___GET_ALL_BOARDS = COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get All Boxes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_ALL_BOXES = COMPARABLE_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get All Threads</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_ALL_THREADS = COMPARABLE_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Find Result Hardware Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___FIND_RESULT_HARDWARE_ELEMENT__HARDWAREELEMENT = COMPARABLE_OPERATION_COUNT + 6;
+
+	/**
 	 * The operation id for the '<em>Find Result Application</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___FIND_RESULT_APPLICATION__APPLICATION = COMPARABLE_OPERATION_COUNT + 4;
+	int RESULT___FIND_RESULT_APPLICATION__APPLICATION = COMPARABLE_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Find Result Thread</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___FIND_RESULT_THREAD__THREAD = COMPARABLE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Find Result Application Group</em>' operation.
@@ -249,7 +285,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___FIND_RESULT_APPLICATION_GROUP__APPLICATIONGROUP = COMPARABLE_OPERATION_COUNT + 5;
+	int RESULT___FIND_RESULT_APPLICATION_GROUP__APPLICATIONGROUP = COMPARABLE_OPERATION_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Result</em>' class.
@@ -258,7 +294,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 6;
+	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -1207,7 +1243,7 @@ public interface MappingPackage extends EPackage {
 	int APPLICATION__DEVELOPED_BY = 7;
 
 	/**
-	 * The feature id for the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Io Adapter Requirements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1280,13 +1316,13 @@ public interface MappingPackage extends EPackage {
 	int THREAD__APPLICATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Core</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THREAD__NAME = 1;
+	int THREAD__CORE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
@@ -1298,13 +1334,22 @@ public interface MappingPackage extends EPackage {
 	int THREAD__REFERENCE_OBJECT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAD__NAME = 3;
+
+	/**
 	 * The number of structural features of the '<em>Thread</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THREAD_FEATURE_COUNT = 3;
+	int THREAD_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Thread</em>' class.
@@ -1763,6 +1808,36 @@ public interface MappingPackage extends EPackage {
 	EOperation getResult__GetAllBoards();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllBoxes() <em>Get All Boxes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Boxes</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#getAllBoxes()
+	 * @generated
+	 */
+	EOperation getResult__GetAllBoxes();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllThreads() <em>Get All Threads</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Threads</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#getAllThreads()
+	 * @generated
+	 */
+	EOperation getResult__GetAllThreads();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#findResultHardwareElement(ch.hilbri.assist.model.HardwareElement) <em>Find Result Hardware Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Result Hardware Element</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#findResultHardwareElement(ch.hilbri.assist.model.HardwareElement)
+	 * @generated
+	 */
+	EOperation getResult__FindResultHardwareElement__HardwareElement();
+
+	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#findResultApplication(ch.hilbri.assist.model.Application) <em>Find Result Application</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1771,6 +1846,16 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getResult__FindResultApplication__Application();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#findResultThread(ch.hilbri.assist.model.Thread) <em>Find Result Thread</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Result Thread</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#findResultThread(ch.hilbri.assist.model.Thread)
+	 * @generated
+	 */
+	EOperation getResult__FindResultThread__Thread();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#findResultApplicationGroup(ch.hilbri.assist.model.ApplicationGroup) <em>Find Result Application Group</em>}' operation.
@@ -2602,10 +2687,10 @@ public interface MappingPackage extends EPackage {
 	EAttribute getApplication_DevelopedBy();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.result.mapping.Application#getIoAdapterRequirements <em>Io Adapter Requirements</em>}'.
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.result.mapping.Application#getIoAdapterRequirements <em>Io Adapter Requirements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Io Adapter Requirements</em>'.
+	 * @return the meta object for the reference list '<em>Io Adapter Requirements</em>'.
 	 * @see ch.hilbri.assist.result.mapping.Application#getIoAdapterRequirements()
 	 * @see #getApplication()
 	 * @generated
@@ -2667,15 +2752,15 @@ public interface MappingPackage extends EPackage {
 	EReference getThread_Application();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.mapping.Thread#getName <em>Name</em>}'.
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.result.mapping.Thread#getCore <em>Core</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ch.hilbri.assist.result.mapping.Thread#getName()
+	 * @return the meta object for the reference '<em>Core</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Thread#getCore()
 	 * @see #getThread()
 	 * @generated
 	 */
-	EAttribute getThread_Name();
+	EReference getThread_Core();
 
 	/**
 	 * Returns the meta object for the reference '{@link ch.hilbri.assist.result.mapping.Thread#getReferenceObject <em>Reference Object</em>}'.
@@ -2687,6 +2772,17 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getThread_ReferenceObject();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.mapping.Thread#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Thread#getName()
+	 * @see #getThread()
+	 * @generated
+	 */
+	EAttribute getThread_Name();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.IOAdapterRequirement <em>IO Adapter Requirement</em>}'.
@@ -3081,12 +3177,44 @@ public interface MappingPackage extends EPackage {
 		EOperation RESULT___GET_ALL_BOARDS = eINSTANCE.getResult__GetAllBoards();
 
 		/**
+		 * The meta object literal for the '<em><b>Get All Boxes</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_ALL_BOXES = eINSTANCE.getResult__GetAllBoxes();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Threads</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_ALL_THREADS = eINSTANCE.getResult__GetAllThreads();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Result Hardware Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___FIND_RESULT_HARDWARE_ELEMENT__HARDWAREELEMENT = eINSTANCE.getResult__FindResultHardwareElement__HardwareElement();
+
+		/**
 		 * The meta object literal for the '<em><b>Find Result Application</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation RESULT___FIND_RESULT_APPLICATION__APPLICATION = eINSTANCE.getResult__FindResultApplication__Application();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Result Thread</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___FIND_RESULT_THREAD__THREAD = eINSTANCE.getResult__FindResultThread__Thread();
 
 		/**
 		 * The meta object literal for the '<em><b>Find Result Application Group</b></em>' operation.
@@ -3725,7 +3853,7 @@ public interface MappingPackage extends EPackage {
 		EAttribute APPLICATION__DEVELOPED_BY = eINSTANCE.getApplication_DevelopedBy();
 
 		/**
-		 * The meta object literal for the '<em><b>Io Adapter Requirements</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Io Adapter Requirements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3775,12 +3903,12 @@ public interface MappingPackage extends EPackage {
 		EReference THREAD__APPLICATION = eINSTANCE.getThread_Application();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Core</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute THREAD__NAME = eINSTANCE.getThread_Name();
+		EReference THREAD__CORE = eINSTANCE.getThread_Core();
 
 		/**
 		 * The meta object literal for the '<em><b>Reference Object</b></em>' reference feature.
@@ -3789,6 +3917,14 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference THREAD__REFERENCE_OBJECT = eINSTANCE.getThread_ReferenceObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THREAD__NAME = eINSTANCE.getThread_Name();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.IOAdapterRequirementImpl <em>IO Adapter Requirement</em>}' class.

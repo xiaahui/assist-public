@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -215,7 +214,7 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	protected String developedBy = DEVELOPED_BY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getIoAdapterRequirements() <em>Io Adapter Requirements</em>}' containment reference list.
+	 * The cached value of the '{@link #getIoAdapterRequirements() <em>Io Adapter Requirements</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIoAdapterRequirements()
@@ -448,7 +447,7 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	 */
 	public EList<IOAdapterRequirement> getIoAdapterRequirements() {
 		if (ioAdapterRequirements == null) {
-			ioAdapterRequirements = new EObjectContainmentEList<IOAdapterRequirement>(IOAdapterRequirement.class, this, MappingPackage.APPLICATION__IO_ADAPTER_REQUIREMENTS);
+			ioAdapterRequirements = new EObjectResolvingEList<IOAdapterRequirement>(IOAdapterRequirement.class, this, MappingPackage.APPLICATION__IO_ADAPTER_REQUIREMENTS);
 		}
 		return ioAdapterRequirements;
 	}
@@ -538,8 +537,6 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MappingPackage.APPLICATION__IO_ADAPTER_REQUIREMENTS:
-				return ((InternalEList<?>)getIoAdapterRequirements()).basicRemove(otherEnd, msgs);
 			case MappingPackage.APPLICATION__THREADS:
 				return ((InternalEList<?>)getThreads()).basicRemove(otherEnd, msgs);
 		}

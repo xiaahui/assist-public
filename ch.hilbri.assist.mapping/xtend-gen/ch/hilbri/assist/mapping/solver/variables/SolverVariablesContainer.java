@@ -32,7 +32,7 @@ public class SolverVariablesContainer {
         for (int i = 1; (i <= model.getHardwareLevelCount()); i++) {
           String _name = t.getName();
           String _plus = ("LocVar-" + _name);
-          String _plus_1 = (_plus + "-level-");
+          String _plus_1 = (_plus + "-Level-");
           String _plus_2 = (_plus_1 + Integer.valueOf(i));
           EList<HardwareElement> _allHardwareElements = model.getAllHardwareElements(i);
           int _size = _allHardwareElements.size();

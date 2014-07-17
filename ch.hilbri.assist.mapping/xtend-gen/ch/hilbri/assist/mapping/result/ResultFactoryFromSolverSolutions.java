@@ -1,5 +1,6 @@
 package ch.hilbri.assist.mapping.result;
 
+import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.model.Application;
 import ch.hilbri.assist.model.ApplicationGroup;
@@ -26,6 +27,7 @@ import java.util.HashMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.jacop.core.Domain;
+import org.jacop.core.IntVar;
 
 @SuppressWarnings("all")
 public class ResultFactoryFromSolverSolutions {
@@ -266,12 +268,42 @@ public class ResultFactoryFromSolverSolutions {
     return result;
   }
   
+  public static void addMappingFromSolution(final Result result, final AssistModel model, final SolverVariablesContainer solverVariables, final Domain[] solverSolution) {
+    EList<ch.hilbri.assist.model.Thread> _allThreads = model.getAllThreads();
+    for (final ch.hilbri.assist.model.Thread thread : _allThreads) {
+      {
+        final ch.hilbri.assist.result.mapping.Thread resultThread = result.findResultThread(thread);
+        final IntVar locVar = solverVariables.getThreadLocationVariable(thread, 1);
+        final int coreNr = locVar.value();
+        EList<Core> _allCores = model.getAllCores();
+        Core _get = _allCores.get((coreNr - 1));
+        ch.hilbri.assist.result.mapping.HardwareElement _findResultHardwareElement = result.findResultHardwareElement(_get);
+        final ch.hilbri.assist.result.mapping.Core resultCore = ((ch.hilbri.assist.result.mapping.Core) _findResultHardwareElement);
+        boolean _equals = Objects.equal(resultCore, null);
+        if (_equals) {
+          EList<Core> _allCores_1 = model.getAllCores();
+          Core _get_1 = _allCores_1.get((coreNr - 1));
+          String _plus = ("Could not find the core " + _get_1);
+          String _plus_1 = (_plus + " from the model in the result.");
+          ConsoleCommands.writeErrorLineToConsole(_plus_1);
+          return;
+        } else {
+          EList<ch.hilbri.assist.result.mapping.Thread> _threads = resultCore.getThreads();
+          _threads.add(resultThread);
+          resultThread.setCore(resultCore);
+        }
+      }
+    }
+  }
+  
   public static ArrayList<Result> create(final AssistModel model, final SolverVariablesContainer solverVariables, final Domain[][] solverSolutions) {
     ResultFactoryFromSolverSolutions.f = MappingFactory.eINSTANCE;
     final ArrayList<Result> results = new ArrayList<Result>();
     for (int i = 0; (i < solverSolutions.length); i++) {
       {
         final Result result = ResultFactoryFromSolverSolutions.createBasicResult(model, ("Result-" + Integer.valueOf(i)));
+        Domain[] _get = solverSolutions[i];
+        ResultFactoryFromSolverSolutions.addMappingFromSolution(result, model, solverVariables, _get);
         results.add(result);
       }
     }

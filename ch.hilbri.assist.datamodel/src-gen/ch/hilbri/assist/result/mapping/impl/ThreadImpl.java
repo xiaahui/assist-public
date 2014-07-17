@@ -4,6 +4,7 @@
 package ch.hilbri.assist.result.mapping.impl;
 
 import ch.hilbri.assist.result.mapping.Application;
+import ch.hilbri.assist.result.mapping.Core;
 import ch.hilbri.assist.result.mapping.MappingPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,8 +28,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ThreadImpl#getApplication <em>Application</em>}</li>
- *   <li>{@link ch.hilbri.assist.result.mapping.impl.ThreadImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.ThreadImpl#getCore <em>Core</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ThreadImpl#getReferenceObject <em>Reference Object</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.ThreadImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,14 +38,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbri.assist.result.mapping.Thread {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getCore() <em>Core</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getCore()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected Core core;
 
 	/**
 	 * The cached value of the '{@link #getReferenceObject() <em>Reference Object</em>}' reference.
@@ -54,6 +56,16 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 	 * @ordered
 	 */
 	protected ch.hilbri.assist.model.Thread referenceObject;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,14 +142,37 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		Application _application = this.getApplication();
-		String _name = _application.getName();
-		String _plus = (_name + "_");
-		Application _application_1 = this.getApplication();
-		EList<ch.hilbri.assist.result.mapping.Thread> _threads = _application_1.getThreads();
-		int _indexOf = _threads.indexOf(this);
-		return (_plus + Integer.valueOf(_indexOf));
+	public Core getCore() {
+		if (core != null && core.eIsProxy()) {
+			InternalEObject oldCore = (InternalEObject)core;
+			core = (Core)eResolveProxy(oldCore);
+			if (core != oldCore) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MappingPackage.THREAD__CORE, oldCore, core));
+			}
+		}
+		return core;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Core basicGetCore() {
+		return core;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCore(Core newCore) {
+		Core oldCore = core;
+		core = newCore;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.THREAD__CORE, oldCore, core));
 	}
 
 	/**
@@ -176,6 +211,21 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 		referenceObject = newReferenceObject;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.THREAD__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		Application _application = this.getApplication();
+		String _name = _application.getName();
+		String _plus = (_name + "_");
+		Application _application_1 = this.getApplication();
+		EList<ch.hilbri.assist.result.mapping.Thread> _threads = _application_1.getThreads();
+		int _indexOf = _threads.indexOf(this);
+		return (_plus + Integer.valueOf(_indexOf));
 	}
 
 	/**
@@ -233,11 +283,14 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 			case MappingPackage.THREAD__APPLICATION:
 				if (resolve) return getApplication();
 				return basicGetApplication();
-			case MappingPackage.THREAD__NAME:
-				return getName();
+			case MappingPackage.THREAD__CORE:
+				if (resolve) return getCore();
+				return basicGetCore();
 			case MappingPackage.THREAD__REFERENCE_OBJECT:
 				if (resolve) return getReferenceObject();
 				return basicGetReferenceObject();
+			case MappingPackage.THREAD__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -252,6 +305,9 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 		switch (featureID) {
 			case MappingPackage.THREAD__APPLICATION:
 				setApplication((Application)newValue);
+				return;
+			case MappingPackage.THREAD__CORE:
+				setCore((Core)newValue);
 				return;
 			case MappingPackage.THREAD__REFERENCE_OBJECT:
 				setReferenceObject((ch.hilbri.assist.model.Thread)newValue);
@@ -271,6 +327,9 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 			case MappingPackage.THREAD__APPLICATION:
 				setApplication((Application)null);
 				return;
+			case MappingPackage.THREAD__CORE:
+				setCore((Core)null);
+				return;
 			case MappingPackage.THREAD__REFERENCE_OBJECT:
 				setReferenceObject((ch.hilbri.assist.model.Thread)null);
 				return;
@@ -288,10 +347,12 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 		switch (featureID) {
 			case MappingPackage.THREAD__APPLICATION:
 				return basicGetApplication() != null;
-			case MappingPackage.THREAD__NAME:
-				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case MappingPackage.THREAD__CORE:
+				return core != null;
 			case MappingPackage.THREAD__REFERENCE_OBJECT:
 				return referenceObject != null;
+			case MappingPackage.THREAD__NAME:
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		}
 		return super.eIsSet(featureID);
 	}

@@ -383,7 +383,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__FindResultApplication__Application() {
+	public EOperation getResult__GetAllBoxes() {
 		return resultEClass.getEOperations().get(4);
 	}
 
@@ -392,8 +392,44 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__FindResultApplicationGroup__ApplicationGroup() {
+	public EOperation getResult__GetAllThreads() {
 		return resultEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getResult__FindResultHardwareElement__HardwareElement() {
+		return resultEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getResult__FindResultApplication__Application() {
+		return resultEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getResult__FindResultThread__Thread() {
+		return resultEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getResult__FindResultApplicationGroup__ApplicationGroup() {
+		return resultEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -1139,8 +1175,8 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getThread_Name() {
-		return (EAttribute)threadEClass.getEStructuralFeatures().get(1);
+	public EReference getThread_Core() {
+		return (EReference)threadEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1150,6 +1186,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 */
 	public EReference getThread_ReferenceObject() {
 		return (EReference)threadEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getThread_Name() {
+		return (EAttribute)threadEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1395,7 +1440,11 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEOperation(resultEClass, RESULT___GET_ALL_CORES);
 		createEOperation(resultEClass, RESULT___GET_ALL_PROCESSORS);
 		createEOperation(resultEClass, RESULT___GET_ALL_BOARDS);
+		createEOperation(resultEClass, RESULT___GET_ALL_BOXES);
+		createEOperation(resultEClass, RESULT___GET_ALL_THREADS);
+		createEOperation(resultEClass, RESULT___FIND_RESULT_HARDWARE_ELEMENT__HARDWAREELEMENT);
 		createEOperation(resultEClass, RESULT___FIND_RESULT_APPLICATION__APPLICATION);
+		createEOperation(resultEClass, RESULT___FIND_RESULT_THREAD__THREAD);
 		createEOperation(resultEClass, RESULT___FIND_RESULT_APPLICATION_GROUP__APPLICATIONGROUP);
 
 		hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
@@ -1490,8 +1539,9 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 
 		threadEClass = createEClass(THREAD);
 		createEReference(threadEClass, THREAD__APPLICATION);
-		createEAttribute(threadEClass, THREAD__NAME);
+		createEReference(threadEClass, THREAD__CORE);
 		createEReference(threadEClass, THREAD__REFERENCE_OBJECT);
+		createEAttribute(threadEClass, THREAD__NAME);
 
 		ioAdapterRequirementEClass = createEClass(IO_ADAPTER_REQUIREMENT);
 		createEAttribute(ioAdapterRequirementEClass, IO_ADAPTER_REQUIREMENT__ADAPTER_TYPE);
@@ -1585,8 +1635,18 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 
 		initEOperation(getResult__GetAllBoards(), this.getBoard(), "getAllBoards", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getResult__GetAllBoxes(), this.getBox(), "getAllBoxes", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getResult__GetAllThreads(), this.getThread(), "getAllThreads", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getResult__FindResultHardwareElement__HardwareElement(), this.getHardwareElement(), "findResultHardwareElement", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theModelPackage.getHardwareElement(), "modelHwElement", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
 		op = initEOperation(getResult__FindResultApplication__Application(), this.getApplication(), "findResultApplication", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theModelPackage.getApplication(), "modelApp", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getResult__FindResultThread__Thread(), this.getThread(), "findResultThread", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theModelPackage.getThread(), "modelThread", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getResult__FindResultApplicationGroup__ApplicationGroup(), this.getApplicationGroup(), "findResultApplicationGroup", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theModelPackage.getApplicationGroup(), "modelAppGroup", 0, 1, !IS_UNIQUE, IS_ORDERED);
@@ -1683,15 +1743,16 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEAttribute(getApplication_IoAdapterProtectionLevel(), theModelPackage.getIOAdapterProtectionLevelType(), "ioAdapterProtectionLevel", "None", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_ParallelThreads(), theEcorePackage.getEInt(), "parallelThreads", "1", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_DevelopedBy(), theEcorePackage.getEString(), "developedBy", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getApplication_IoAdapterRequirements(), this.getIOAdapterRequirement(), null, "ioAdapterRequirements", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplication_IoAdapterRequirements(), this.getIOAdapterRequirement(), null, "ioAdapterRequirements", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_RestrictMappingToHardwareElements(), this.getHardwareElement(), null, "restrictMappingToHardwareElements", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_Threads(), this.getThread(), this.getThread_Application(), "threads", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_ReferenceObject(), theModelPackage.getApplication(), null, "referenceObject", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(threadEClass, ch.hilbri.assist.result.mapping.Thread.class, "Thread", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getThread_Application(), this.getApplication(), this.getApplication_Threads(), "application", null, 0, 1, ch.hilbri.assist.result.mapping.Thread.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getThread_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ch.hilbri.assist.result.mapping.Thread.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getThread_Core(), this.getCore(), null, "core", null, 0, 1, ch.hilbri.assist.result.mapping.Thread.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getThread_ReferenceObject(), theModelPackage.getThread(), null, "referenceObject", null, 0, 1, ch.hilbri.assist.result.mapping.Thread.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getThread_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ch.hilbri.assist.result.mapping.Thread.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(ioAdapterRequirementEClass, IOAdapterRequirement.class, "IOAdapterRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIOAdapterRequirement_AdapterType(), theModelPackage.getIOAdapterType(), "adapterType", null, 0, 1, IOAdapterRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

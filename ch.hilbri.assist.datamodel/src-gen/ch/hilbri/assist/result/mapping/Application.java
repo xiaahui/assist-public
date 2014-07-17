@@ -256,17 +256,17 @@ public interface Application extends EObject {
 	void setDevelopedBy(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Io Adapter Requirements</b></em>' reference list.
 	 * The list contents are of type {@link ch.hilbri.assist.result.mapping.IOAdapterRequirement}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Io Adapter Requirements</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Io Adapter Requirements</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Io Adapter Requirements</em>' containment reference list.
+	 * @return the value of the '<em>Io Adapter Requirements</em>' reference list.
 	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getApplication_IoAdapterRequirements()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<IOAdapterRequirement> getIoAdapterRequirements();

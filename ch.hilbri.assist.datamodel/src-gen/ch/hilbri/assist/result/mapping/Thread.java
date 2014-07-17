@@ -14,8 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link ch.hilbri.assist.result.mapping.Thread#getApplication <em>Application</em>}</li>
- *   <li>{@link ch.hilbri.assist.result.mapping.Thread#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.Thread#getCore <em>Core</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Thread#getReferenceObject <em>Reference Object</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.Thread#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,20 +54,30 @@ public interface Thread extends EObject {
 	void setApplication(Application value);
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Core</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Core</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getThread_Name()
-	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%ch.hilbri.assist.result.mapping.Application%> _application = this.getApplication();\n<%java.lang.String%> _name = _application.getName();\n<%java.lang.String%> _plus = (_name + \"_\");\n<%ch.hilbri.assist.result.mapping.Application%> _application_1 = this.getApplication();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.mapping.Thread%>> _threads = _application_1.getThreads();\nint _indexOf = _threads.indexOf(this);\nreturn (_plus + <%java.lang.Integer%>.valueOf(_indexOf));'"
+	 * @return the value of the '<em>Core</em>' reference.
+	 * @see #setCore(Core)
+	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getThread_Core()
+	 * @model
 	 * @generated
 	 */
-	String getName();
+	Core getCore();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.result.mapping.Thread#getCore <em>Core</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Core</em>' reference.
+	 * @see #getCore()
+	 * @generated
+	 */
+	void setCore(Core value);
 
 	/**
 	 * Returns the value of the '<em><b>Reference Object</b></em>' reference.
@@ -93,5 +104,21 @@ public interface Thread extends EObject {
 	 * @generated
 	 */
 	void setReferenceObject(ch.hilbri.assist.model.Thread value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getThread_Name()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%ch.hilbri.assist.result.mapping.Application%> _application = this.getApplication();\n<%java.lang.String%> _name = _application.getName();\n<%java.lang.String%> _plus = (_name + \"_\");\n<%ch.hilbri.assist.result.mapping.Application%> _application_1 = this.getApplication();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.mapping.Thread%>> _threads = _application_1.getThreads();\nint _indexOf = _threads.indexOf(this);\nreturn (_plus + <%java.lang.Integer%>.valueOf(_indexOf));'"
+	 * @generated
+	 */
+	String getName();
 
 } // Thread

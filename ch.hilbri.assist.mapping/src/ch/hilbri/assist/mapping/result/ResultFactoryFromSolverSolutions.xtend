@@ -1,5 +1,6 @@
 package ch.hilbri.assist.mapping.result
 
+import ch.hilbri.assist.application.helpers.ConsoleCommands
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.result.mapping.Application
@@ -56,8 +57,9 @@ class ResultFactoryFromSolverSolutions {
 		for (modelThread : modelApp.threads) {
 			val t 				= f.createThread
 			t.referenceObject 	= modelThread
-			t.application		= app
+			t.application 		= app
 			app.threads.add(t)
+			
 		}
 			
 		return app
@@ -188,15 +190,49 @@ class ResultFactoryFromSolverSolutions {
 		return result
 	}
 	
+	static def void addMappingFromSolution(Result result, AssistModel model, SolverVariablesContainer solverVariables, Domain[] solverSolution) {
+		for (thread : model.allThreads) {
+			/* Which thread in the result corresponds to this model thread? */
+			val resultThread = result.findResultThread(thread)
+			
+			/* Which is the location variable which represents the placement of this model thread on the core level? */
+			val locVar = solverVariables.getThreadLocationVariable(thread, 1)
+			
+			/* Which core is this thread being placed to? */
+			val coreNr = locVar.value
+			
+			/* To which core does this correspond in the result model? */
+			val resultCore = result.findResultHardwareElement(model.allCores.get(coreNr-1)) as Core
+			
+			if (resultCore == null) {
+				ConsoleCommands.writeErrorLineToConsole("Could not find the core " + model.allCores.get(coreNr-1) + " from the model in the result.");
+				return;
+			} else {
+				/* Place this thread to the core */
+				resultCore.threads.add(resultThread)
+				resultThread.core = resultCore
+			}
+		}
+	}
+	
 	
 	static def ArrayList<Result> create(AssistModel model, SolverVariablesContainer solverVariables, Domain[][] solverSolutions) {
 		f = MappingFactory.eINSTANCE
+		
+		/* The list of results which will be returned for display */
 		val results = new ArrayList<Result>
+		
 		for (var i = 0; i < solverSolutions.length; i++) {
+			/* Create the basic result (hardware architecture, software architecture, ...) */
 			val result = createBasicResult(model, "Result-"+i)
 			
+			/* Add the deployment information */
+			addMappingFromSolution(result, model, solverVariables, solverSolutions.get(i))
+		
+			/* Add this result to the list of results which will be returned for display */	
 			results.add(result)
 		}
+		
 		return results
 	}
 	
