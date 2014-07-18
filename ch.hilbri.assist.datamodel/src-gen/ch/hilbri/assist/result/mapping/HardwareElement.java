@@ -3,6 +3,8 @@
  */
 package ch.hilbri.assist.result.mapping;
 
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link ch.hilbri.assist.result.mapping.HardwareElement#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.HardwareElement#getReferenceObject <em>Reference Object</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,5 +50,39 @@ public interface HardwareElement extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reference Object</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference Object</em>' reference.
+	 * @see #setReferenceObject(ch.hilbri.assist.model.HardwareElement)
+	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getHardwareElement_ReferenceObject()
+	 * @model
+	 * @generated
+	 */
+	ch.hilbri.assist.model.HardwareElement getReferenceObject();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.result.mapping.HardwareElement#getReferenceObject <em>Reference Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reference Object</em>' reference.
+	 * @see #getReferenceObject()
+	 * @generated
+	 */
+	void setReferenceObject(ch.hilbri.assist.model.HardwareElement value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 * @generated
+	 */
+	HardwareArchitectureLevelType getHardwareLevel();
 
 } // HardwareElement

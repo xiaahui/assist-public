@@ -3,12 +3,19 @@
  */
 package ch.hilbri.assist.result.mapping.impl;
 
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
+
 import ch.hilbri.assist.result.mapping.HardwareElement;
 import ch.hilbri.assist.result.mapping.MappingPackage;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -21,6 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.HardwareElementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.HardwareElementImpl#getReferenceObject <em>Reference Object</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,6 +54,16 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReferenceObject() <em>Reference Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceObject()
+	 * @generated
+	 * @ordered
+	 */
+	protected ch.hilbri.assist.model.HardwareElement referenceObject;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,11 +110,63 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ch.hilbri.assist.model.HardwareElement getReferenceObject() {
+		if (referenceObject != null && referenceObject.eIsProxy()) {
+			InternalEObject oldReferenceObject = (InternalEObject)referenceObject;
+			referenceObject = (ch.hilbri.assist.model.HardwareElement)eResolveProxy(oldReferenceObject);
+			if (referenceObject != oldReferenceObject) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MappingPackage.HARDWARE_ELEMENT__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
+			}
+		}
+		return referenceObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ch.hilbri.assist.model.HardwareElement basicGetReferenceObject() {
+		return referenceObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReferenceObject(ch.hilbri.assist.model.HardwareElement newReferenceObject) {
+		ch.hilbri.assist.model.HardwareElement oldReferenceObject = referenceObject;
+		referenceObject = newReferenceObject;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.HARDWARE_ELEMENT__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HardwareArchitectureLevelType getHardwareLevel() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case MappingPackage.HARDWARE_ELEMENT__NAME:
 				return getName();
+			case MappingPackage.HARDWARE_ELEMENT__REFERENCE_OBJECT:
+				if (resolve) return getReferenceObject();
+				return basicGetReferenceObject();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -111,6 +181,9 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case MappingPackage.HARDWARE_ELEMENT__NAME:
 				setName((String)newValue);
+				return;
+			case MappingPackage.HARDWARE_ELEMENT__REFERENCE_OBJECT:
+				setReferenceObject((ch.hilbri.assist.model.HardwareElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -127,6 +200,9 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 			case MappingPackage.HARDWARE_ELEMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case MappingPackage.HARDWARE_ELEMENT__REFERENCE_OBJECT:
+				setReferenceObject((ch.hilbri.assist.model.HardwareElement)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -141,8 +217,24 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case MappingPackage.HARDWARE_ELEMENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case MappingPackage.HARDWARE_ELEMENT__REFERENCE_OBJECT:
+				return referenceObject != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case MappingPackage.HARDWARE_ELEMENT___GET_HARDWARE_LEVEL:
+				return getHardwareLevel();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

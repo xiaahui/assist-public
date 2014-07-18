@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -47,6 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ApplicationImpl#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ApplicationImpl#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.ApplicationImpl#getThreads <em>Threads</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.ApplicationImpl#getReferenceObject <em>Reference Object</em>}</li>
  * </ul>
  * </p>
  *
@@ -214,7 +214,7 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	protected String developedBy = DEVELOPED_BY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getIoAdapterRequirements() <em>Io Adapter Requirements</em>}' containment reference list.
+	 * The cached value of the '{@link #getIoAdapterRequirements() <em>Io Adapter Requirements</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIoAdapterRequirements()
@@ -242,6 +242,16 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	 * @ordered
 	 */
 	protected EList<ch.hilbri.assist.result.mapping.Thread> threads;
+
+	/**
+	 * The cached value of the '{@link #getReferenceObject() <em>Reference Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceObject()
+	 * @generated
+	 * @ordered
+	 */
+	protected ch.hilbri.assist.model.Application referenceObject;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -437,7 +447,7 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	 */
 	public EList<IOAdapterRequirement> getIoAdapterRequirements() {
 		if (ioAdapterRequirements == null) {
-			ioAdapterRequirements = new EObjectContainmentEList<IOAdapterRequirement>(IOAdapterRequirement.class, this, MappingPackage.APPLICATION__IO_ADAPTER_REQUIREMENTS);
+			ioAdapterRequirements = new EObjectResolvingEList<IOAdapterRequirement>(IOAdapterRequirement.class, this, MappingPackage.APPLICATION__IO_ADAPTER_REQUIREMENTS);
 		}
 		return ioAdapterRequirements;
 	}
@@ -471,6 +481,44 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ch.hilbri.assist.model.Application getReferenceObject() {
+		if (referenceObject != null && referenceObject.eIsProxy()) {
+			InternalEObject oldReferenceObject = (InternalEObject)referenceObject;
+			referenceObject = (ch.hilbri.assist.model.Application)eResolveProxy(oldReferenceObject);
+			if (referenceObject != oldReferenceObject) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MappingPackage.APPLICATION__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
+			}
+		}
+		return referenceObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ch.hilbri.assist.model.Application basicGetReferenceObject() {
+		return referenceObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReferenceObject(ch.hilbri.assist.model.Application newReferenceObject) {
+		ch.hilbri.assist.model.Application oldReferenceObject = referenceObject;
+		referenceObject = newReferenceObject;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.APPLICATION__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -489,8 +537,6 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MappingPackage.APPLICATION__IO_ADAPTER_REQUIREMENTS:
-				return ((InternalEList<?>)getIoAdapterRequirements()).basicRemove(otherEnd, msgs);
 			case MappingPackage.APPLICATION__THREADS:
 				return ((InternalEList<?>)getThreads()).basicRemove(otherEnd, msgs);
 		}
@@ -527,6 +573,9 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 				return getRestrictMappingToHardwareElements();
 			case MappingPackage.APPLICATION__THREADS:
 				return getThreads();
+			case MappingPackage.APPLICATION__REFERENCE_OBJECT:
+				if (resolve) return getReferenceObject();
+				return basicGetReferenceObject();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -576,6 +625,9 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 				getThreads().clear();
 				getThreads().addAll((Collection<? extends ch.hilbri.assist.result.mapping.Thread>)newValue);
 				return;
+			case MappingPackage.APPLICATION__REFERENCE_OBJECT:
+				setReferenceObject((ch.hilbri.assist.model.Application)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -621,6 +673,9 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 			case MappingPackage.APPLICATION__THREADS:
 				getThreads().clear();
 				return;
+			case MappingPackage.APPLICATION__REFERENCE_OBJECT:
+				setReferenceObject((ch.hilbri.assist.model.Application)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -655,6 +710,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 				return restrictMappingToHardwareElements != null && !restrictMappingToHardwareElements.isEmpty();
 			case MappingPackage.APPLICATION__THREADS:
 				return threads != null && !threads.isEmpty();
+			case MappingPackage.APPLICATION__REFERENCE_OBJECT:
+				return referenceObject != null;
 		}
 		return super.eIsSet(featureID);
 	}

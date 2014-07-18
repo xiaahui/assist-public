@@ -3,6 +3,8 @@
  */
 package ch.hilbri.assist.result.mapping;
 
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -138,5 +140,14 @@ public interface Processor extends HardwareElement {
 	 * @generated
 	 */
 	boolean isNotUsed();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return <%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.PROCESSOR;'"
+	 * @generated
+	 */
+	HardwareArchitectureLevelType getHardwareLevel();
 
 } // Processor

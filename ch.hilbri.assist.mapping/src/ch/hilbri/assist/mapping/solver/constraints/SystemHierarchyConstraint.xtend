@@ -1,9 +1,10 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
-import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
-import ch.hilbri.assist.model.AssistModel
-import org.jacop.core.Store
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
+import ch.hilbri.assist.model.AssistModel
+import java.util.ArrayList
+import org.jacop.constraints.Element
+import org.jacop.core.Store
 
 /**
  * Ziel: Zwischen allen Abstraktionsebenen im Modell muessen Verbindungen hergestellt werden.
@@ -35,7 +36,25 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 		 * allHardwareComponents.get(MappingDataModel.CORE_LEVEL) stehen.
 		 * Jedem Core wird jetzt in dieser Liste die Nummer seines Processors zugewiesen 
 		 */
-//		int[][] hardwareLevelLink = new int[model.getHardwareLevelCount() - 1][];
+		 
+		 
+		val hardwareLevelLink = new ArrayList<ArrayList<Integer>>
+		
+		for (levelCtr : 1..model.hardwareLevelCount-1 ) {
+			
+			/* hardwareLevelLink[lowerLevel][Kind_Index] = Parent_Index */
+			val list = new ArrayList<Integer>
+			for (hw : model.getAllHardwareElements(levelCtr))
+				list.add(hw.eContainer.eContainer.eContents.indexOf(hw.eContainer)+1)
+			hardwareLevelLink.add(list)
+
+			for (t : model.allThreads) {
+				var index  = solverVariables.getThreadLocationVariable(t, levelCtr)
+				var values = solverVariables.getThreadLocationVariable(t, levelCtr + 1)
+				constraintStore.impose(new Element( index, hardwareLevelLink.get(levelCtr-1), values))
+			}			
+		} 
+		
 		return true
 	}
 	

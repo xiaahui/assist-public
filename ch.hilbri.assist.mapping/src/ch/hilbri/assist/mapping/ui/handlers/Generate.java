@@ -18,6 +18,7 @@ import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor;
 
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.application.helpers.Helpers;
+import ch.hilbri.assist.mapping.datamodel.PostProcessor;
 import ch.hilbri.assist.mapping.solver.SearchType;
 import ch.hilbri.assist.mapping.solver.SolverJob;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
@@ -67,17 +68,20 @@ public class Generate {
 					
 					/* Searching for errors inside the document? */
 					if (resource.getErrors().size() > 0) {	
-						ConsoleCommands.writeLineToConsole("Input contains errors - it will not be processed."); // ordentliche ausgabe
+						ConsoleCommands.writeLineToConsole("Input contains errors - it will not be processed."); 
 						return null; 
 					}
 					
-					if (resource.getContents().size() == 0) 
+					if (resource.getContents().size() == 0) { 
+						ConsoleCommands.writeLineToConsole("Input is empty? It will not be processed."); 
 						return null;
-					
+					}
 					
 					/* Create a new model for the input */
-					
 					AssistModel inputModel = (AssistModel) resource.getContents().get(0);
+					
+					/* Fix the model */
+					PostProcessor.createMissingThreads(inputModel);
 					
 					if (editor instanceof MultiPageEditor) {
 						
@@ -95,14 +99,17 @@ public class Generate {
 								findSolutionsJob.setMaxSolutions(soamd.getNumberOfSolutions());
 								findSolutionsJob.setMaxTimeOfCalculationInmsec(1); // wird sowieso nicht beachtet
 								break;
+								
 							case RANDOM:
 								findSolutionsJob.setKindOfSolutions(SearchType.RANDOM);
 								findSolutionsJob.setMaxSolutions(soamd.getNumberOfSolutions());
 								findSolutionsJob.setMaxTimeOfCalculationInmsec(soamd.getSearchTime());
 								break;
+								
 							default:
 								return null;
 							}
+
 							findSolutionsJob.schedule();
 						} 						
 					} 

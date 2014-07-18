@@ -57,8 +57,7 @@ public final class PathProvider {
 //------------------------------------------------------------------------------------------
 //External Paths
 	public static final String EXT_JAR_MAPPING = "./plugins/ch.hilbri.assist.mapping.metric.jar"; //$NON-NLS-1$
-	
-//	public static final String EXT_URL_PP_LOGO_WITH_BORDER_1_0 = "platform:/plugin/ch.hilbri.assist.application/icons/PP_logo_with_border_1.0.png"; //$NON-NLS-1$
+
 	
 //------------------------------------------------------------------------------------------
 //PrecisionPro Paths
@@ -94,8 +93,8 @@ public final class PathProvider {
 	public static final String MAPPING_IMAGE_REMOVE = "/icons/remove_icon.png"; //$NON-NLS-1$
 	
 	public static final String MAPPING_MAPPING_RESULT_VIEW = "ch.hilbri.assist.mapping.mappingResultView"; //$NON-NLS-1$
-	
-	public static final String MAPPING_MAPPINGDSL_MAPPINGDSL = "ch.hilbri.assist.mapping.mappingdsl.MappingDsl"; //$NON-NLS-1$
+
+	public static final String MAPPING_MAPPINGDSL_MAPPINGDSL = "ch.hilbri.assist.mappingdsl.MappingDSL"; //$NON-NLS-1$
 	
 	public static final String MAPPING_NATURE_METRICNATURE = "ch.hilbri.assist.mapping.nature.MetricNature"; //$NON-NLS-1$
 	

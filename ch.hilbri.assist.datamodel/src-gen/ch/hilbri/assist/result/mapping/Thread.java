@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link ch.hilbri.assist.result.mapping.Thread#getApplication <em>Application</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.Thread#getCore <em>Core</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.Thread#getReferenceObject <em>Reference Object</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.Thread#getName <em>Name</em>}</li>
  * </ul>
  * </p>
@@ -50,6 +52,58 @@ public interface Thread extends EObject {
 	 * @generated
 	 */
 	void setApplication(Application value);
+
+	/**
+	 * Returns the value of the '<em><b>Core</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Core</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Core</em>' reference.
+	 * @see #setCore(Core)
+	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getThread_Core()
+	 * @model
+	 * @generated
+	 */
+	Core getCore();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.result.mapping.Thread#getCore <em>Core</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Core</em>' reference.
+	 * @see #getCore()
+	 * @generated
+	 */
+	void setCore(Core value);
+
+	/**
+	 * Returns the value of the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reference Object</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference Object</em>' reference.
+	 * @see #setReferenceObject(ch.hilbri.assist.model.Thread)
+	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getThread_ReferenceObject()
+	 * @model
+	 * @generated
+	 */
+	ch.hilbri.assist.model.Thread getReferenceObject();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.result.mapping.Thread#getReferenceObject <em>Reference Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reference Object</em>' reference.
+	 * @see #getReferenceObject()
+	 * @generated
+	 */
+	void setReferenceObject(ch.hilbri.assist.model.Thread value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

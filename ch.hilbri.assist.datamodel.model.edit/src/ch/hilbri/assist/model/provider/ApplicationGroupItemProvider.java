@@ -6,17 +6,12 @@ package ch.hilbri.assist.model.provider;
 
 import ch.hilbri.assist.model.ApplicationGroup;
 import ch.hilbri.assist.model.ModelPackage;
-
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link ch.hilbri.assist.model.ApplicationGroup} object.
@@ -46,32 +41,9 @@ public class ApplicationGroupItemProvider extends ApplicationOrApplicationGroupI
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 			addApplicationsOrGroupsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ApplicationGroup_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ApplicationGroup_name_feature", "_UI_ApplicationGroup_type"),
-				 ModelPackage.Literals.APPLICATION_GROUP__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -132,12 +104,6 @@ public class ApplicationGroupItemProvider extends ApplicationOrApplicationGroupI
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ApplicationGroup.class)) {
-			case ModelPackage.APPLICATION_GROUP__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

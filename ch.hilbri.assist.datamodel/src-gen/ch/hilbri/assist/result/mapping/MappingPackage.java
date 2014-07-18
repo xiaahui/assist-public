@@ -144,22 +144,13 @@ public interface MappingPackage extends EPackage {
 	int RESULT__BOTTOM_HARDWARE_LEVEL = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Io Adapters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT__IO_ADAPTERS = COMPARABLE_FEATURE_COUNT + 5;
-
-	/**
 	 * The feature id for the '<em><b>Application Groups</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__APPLICATION_GROUPS = COMPARABLE_FEATURE_COUNT + 6;
+	int RESULT__APPLICATION_GROUPS = COMPARABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Applications</b></em>' containment reference list.
@@ -168,16 +159,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__APPLICATIONS = COMPARABLE_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Threads</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT__THREADS = COMPARABLE_FEATURE_COUNT + 8;
+	int RESULT__APPLICATIONS = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Networks</b></em>' containment reference list.
@@ -186,7 +168,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__NETWORKS = COMPARABLE_FEATURE_COUNT + 9;
+	int RESULT__NETWORKS = COMPARABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Communications</b></em>' containment reference list.
@@ -195,7 +177,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__COMMUNICATIONS = COMPARABLE_FEATURE_COUNT + 10;
+	int RESULT__COMMUNICATIONS = COMPARABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Evaluation</b></em>' containment reference.
@@ -204,16 +186,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__EVALUATION = COMPARABLE_FEATURE_COUNT + 11;
-
-	/**
-	 * The feature id for the '<em><b>Assist Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT__ASSIST_MODEL = COMPARABLE_FEATURE_COUNT + 12;
+	int RESULT__EVALUATION = COMPARABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Result</em>' class.
@@ -222,7 +195,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 13;
+	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Compare To</em>' operation.
@@ -261,13 +234,67 @@ public interface MappingPackage extends EPackage {
 	int RESULT___GET_ALL_BOARDS = COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get All Boxes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_ALL_BOXES = COMPARABLE_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get All Threads</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_ALL_THREADS = COMPARABLE_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Find Result Hardware Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___FIND_RESULT_HARDWARE_ELEMENT__HARDWAREELEMENT = COMPARABLE_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Find Result Application</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___FIND_RESULT_APPLICATION__APPLICATION = COMPARABLE_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Find Result Thread</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___FIND_RESULT_THREAD__THREAD = COMPARABLE_OPERATION_COUNT + 8;
+
+	/**
+	 * The operation id for the '<em>Find Result Application Group</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___FIND_RESULT_APPLICATION_GROUP__APPLICATIONGROUP = COMPARABLE_OPERATION_COUNT + 9;
+
+	/**
 	 * The number of operations of the '<em>Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 4;
+	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -289,13 +316,31 @@ public interface MappingPackage extends EPackage {
 	int HARDWARE_ELEMENT__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HARDWARE_ELEMENT__REFERENCE_OBJECT = 1;
+
+	/**
 	 * The number of structural features of the '<em>Hardware Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HARDWARE_ELEMENT_FEATURE_COUNT = 1;
+	int HARDWARE_ELEMENT_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Get Hardware Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HARDWARE_ELEMENT___GET_HARDWARE_LEVEL = 0;
 
 	/**
 	 * The number of operations of the '<em>Hardware Element</em>' class.
@@ -304,7 +349,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HARDWARE_ELEMENT_OPERATION_COUNT = 0;
+	int HARDWARE_ELEMENT_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.CompartmentImpl <em>Compartment</em>}' class.
@@ -324,6 +369,15 @@ public interface MappingPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARTMENT__NAME = HARDWARE_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARTMENT__REFERENCE_OBJECT = HARDWARE_ELEMENT__REFERENCE_OBJECT;
 
 	/**
 	 * The feature id for the '<em><b>Manufacturer</b></em>' attribute.
@@ -380,13 +434,22 @@ public interface MappingPackage extends EPackage {
 	int COMPARTMENT_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Get Hardware Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARTMENT___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Compartment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARTMENT_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+	int COMPARTMENT_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.BoxImpl <em>Box</em>}' class.
@@ -406,6 +469,15 @@ public interface MappingPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOX__NAME = HARDWARE_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX__REFERENCE_OBJECT = HARDWARE_ELEMENT__REFERENCE_OBJECT;
 
 	/**
 	 * The feature id for the '<em><b>Manufacturer</b></em>' attribute.
@@ -444,13 +516,22 @@ public interface MappingPackage extends EPackage {
 	int BOX_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Hardware Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Box</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOX_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+	int BOX_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.BoardImpl <em>Board</em>}' class.
@@ -470,6 +551,15 @@ public interface MappingPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOARD__NAME = HARDWARE_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD__REFERENCE_OBJECT = HARDWARE_ELEMENT__REFERENCE_OBJECT;
 
 	/**
 	 * The feature id for the '<em><b>Manufacturer</b></em>' attribute.
@@ -607,13 +697,22 @@ public interface MappingPackage extends EPackage {
 	int BOARD___GET_ALL_APPLICATIONS = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Hardware Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Board</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
+	int BOARD_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.ProcessorImpl <em>Processor</em>}' class.
@@ -633,6 +732,15 @@ public interface MappingPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROCESSOR__NAME = HARDWARE_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSOR__REFERENCE_OBJECT = HARDWARE_ELEMENT__REFERENCE_OBJECT;
 
 	/**
 	 * The feature id for the '<em><b>Manufacturer</b></em>' attribute.
@@ -689,13 +797,22 @@ public interface MappingPackage extends EPackage {
 	int PROCESSOR_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Get Hardware Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSOR___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Processor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSOR_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+	int PROCESSOR_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.CoreImpl <em>Core</em>}' class.
@@ -715,6 +832,15 @@ public interface MappingPackage extends EPackage {
 	 * @ordered
 	 */
 	int CORE__NAME = HARDWARE_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORE__REFERENCE_OBJECT = HARDWARE_ELEMENT__REFERENCE_OBJECT;
 
 	/**
 	 * The feature id for the '<em><b>Architecture</b></em>' attribute.
@@ -807,13 +933,22 @@ public interface MappingPackage extends EPackage {
 	int CORE_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>Get Hardware Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORE___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Core</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CORE_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+	int CORE_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.IOAdapterImpl <em>IO Adapter</em>}' class.
@@ -862,13 +997,22 @@ public interface MappingPackage extends EPackage {
 	int IO_ADAPTER__PROTECTION_LEVEL = 3;
 
 	/**
+	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IO_ADAPTER__REFERENCE_OBJECT = 4;
+
+	/**
 	 * The number of structural features of the '<em>IO Adapter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IO_ADAPTER_FEATURE_COUNT = 4;
+	int IO_ADAPTER_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>IO Adapter</em>' class.
@@ -926,13 +1070,22 @@ public interface MappingPackage extends EPackage {
 	int NETWORK__BOARDS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK__REFERENCE_OBJECT = 4;
+
+	/**
 	 * The number of structural features of the '<em>Network</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NETWORK_FEATURE_COUNT = 4;
+	int NETWORK_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Network</em>' class.
@@ -972,13 +1125,31 @@ public interface MappingPackage extends EPackage {
 	int APPLICATION_GROUP__APPLICATIONS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Application Groups</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_GROUP__APPLICATION_GROUPS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_GROUP__REFERENCE_OBJECT = 3;
+
+	/**
 	 * The number of structural features of the '<em>Application Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_GROUP_FEATURE_COUNT = 2;
+	int APPLICATION_GROUP_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Application Group</em>' class.
@@ -1072,7 +1243,7 @@ public interface MappingPackage extends EPackage {
 	int APPLICATION__DEVELOPED_BY = 7;
 
 	/**
-	 * The feature id for the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Io Adapter Requirements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1099,13 +1270,22 @@ public interface MappingPackage extends EPackage {
 	int APPLICATION__THREADS = 10;
 
 	/**
+	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__REFERENCE_OBJECT = 11;
+
+	/**
 	 * The number of structural features of the '<em>Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = 11;
+	int APPLICATION_FEATURE_COUNT = 12;
 
 	/**
 	 * The number of operations of the '<em>Application</em>' class.
@@ -1136,13 +1316,31 @@ public interface MappingPackage extends EPackage {
 	int THREAD__APPLICATION = 0;
 
 	/**
+	 * The feature id for the '<em><b>Core</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAD__CORE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAD__REFERENCE_OBJECT = 2;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THREAD__NAME = 1;
+	int THREAD__NAME = 3;
 
 	/**
 	 * The number of structural features of the '<em>Thread</em>' class.
@@ -1151,7 +1349,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THREAD_FEATURE_COUNT = 2;
+	int THREAD_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Thread</em>' class.
@@ -1209,13 +1407,22 @@ public interface MappingPackage extends EPackage {
 	int IO_ADAPTER_REQUIREMENT__IS_EXCLUSIVE_ONLY = 3;
 
 	/**
+	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IO_ADAPTER_REQUIREMENT__REFERENCE_OBJECT = 4;
+
+	/**
 	 * The number of structural features of the '<em>IO Adapter Requirement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IO_ADAPTER_REQUIREMENT_FEATURE_COUNT = 4;
+	int IO_ADAPTER_REQUIREMENT_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>IO Adapter Requirement</em>' class.
@@ -1255,13 +1462,22 @@ public interface MappingPackage extends EPackage {
 	int COMMUNICATION_RELATION__BANDWIDTH_UTILIZATION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_RELATION__REFERENCE_OBJECT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Communication Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_RELATION_FEATURE_COUNT = 2;
+	int COMMUNICATION_RELATION_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Communication Relation</em>' class.
@@ -1497,17 +1713,6 @@ public interface MappingPackage extends EPackage {
 	EAttribute getResult_BottomHardwareLevel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.result.mapping.Result#getIoAdapters <em>Io Adapters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Io Adapters</em>'.
-	 * @see ch.hilbri.assist.result.mapping.Result#getIoAdapters()
-	 * @see #getResult()
-	 * @generated
-	 */
-	EReference getResult_IoAdapters();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.result.mapping.Result#getApplicationGroups <em>Application Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1528,17 +1733,6 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResult_Applications();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.result.mapping.Result#getThreads <em>Threads</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Threads</em>'.
-	 * @see ch.hilbri.assist.result.mapping.Result#getThreads()
-	 * @see #getResult()
-	 * @generated
-	 */
-	EReference getResult_Threads();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.result.mapping.Result#getNetworks <em>Networks</em>}'.
@@ -1572,17 +1766,6 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResult_Evaluation();
-
-	/**
-	 * Returns the meta object for the reference '{@link ch.hilbri.assist.result.mapping.Result#getAssistModel <em>Assist Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Assist Model</em>'.
-	 * @see ch.hilbri.assist.result.mapping.Result#getAssistModel()
-	 * @see #getResult()
-	 * @generated
-	 */
-	EReference getResult_AssistModel();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#compareTo(ch.hilbri.assist.result.mapping.Result) <em>Compare To</em>}' operation.
@@ -1625,6 +1808,66 @@ public interface MappingPackage extends EPackage {
 	EOperation getResult__GetAllBoards();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllBoxes() <em>Get All Boxes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Boxes</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#getAllBoxes()
+	 * @generated
+	 */
+	EOperation getResult__GetAllBoxes();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllThreads() <em>Get All Threads</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Threads</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#getAllThreads()
+	 * @generated
+	 */
+	EOperation getResult__GetAllThreads();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#findResultHardwareElement(ch.hilbri.assist.model.HardwareElement) <em>Find Result Hardware Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Result Hardware Element</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#findResultHardwareElement(ch.hilbri.assist.model.HardwareElement)
+	 * @generated
+	 */
+	EOperation getResult__FindResultHardwareElement__HardwareElement();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#findResultApplication(ch.hilbri.assist.model.Application) <em>Find Result Application</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Result Application</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#findResultApplication(ch.hilbri.assist.model.Application)
+	 * @generated
+	 */
+	EOperation getResult__FindResultApplication__Application();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#findResultThread(ch.hilbri.assist.model.Thread) <em>Find Result Thread</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Result Thread</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#findResultThread(ch.hilbri.assist.model.Thread)
+	 * @generated
+	 */
+	EOperation getResult__FindResultThread__Thread();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#findResultApplicationGroup(ch.hilbri.assist.model.ApplicationGroup) <em>Find Result Application Group</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Result Application Group</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#findResultApplicationGroup(ch.hilbri.assist.model.ApplicationGroup)
+	 * @generated
+	 */
+	EOperation getResult__FindResultApplicationGroup__ApplicationGroup();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.HardwareElement <em>Hardware Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1644,6 +1887,27 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getHardwareElement_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.result.mapping.HardwareElement#getReferenceObject <em>Reference Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Reference Object</em>'.
+	 * @see ch.hilbri.assist.result.mapping.HardwareElement#getReferenceObject()
+	 * @see #getHardwareElement()
+	 * @generated
+	 */
+	EReference getHardwareElement_ReferenceObject();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.HardwareElement#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Hardware Level</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.HardwareElement#getHardwareLevel()
+	 * @generated
+	 */
+	EOperation getHardwareElement__GetHardwareLevel();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Compartment <em>Compartment</em>}'.
@@ -1711,6 +1975,16 @@ public interface MappingPackage extends EPackage {
 	EReference getCompartment_Boxes();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Compartment#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Hardware Level</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Compartment#getHardwareLevel()
+	 * @generated
+	 */
+	EOperation getCompartment__GetHardwareLevel();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Box <em>Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1752,6 +2026,16 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBox_Boards();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Box#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Hardware Level</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Box#getHardwareLevel()
+	 * @generated
+	 */
+	EOperation getBox__GetHardwareLevel();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Board <em>Board</em>}'.
@@ -1917,6 +2201,16 @@ public interface MappingPackage extends EPackage {
 	EOperation getBoard__GetAllApplications();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Board#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Hardware Level</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Board#getHardwareLevel()
+	 * @generated
+	 */
+	EOperation getBoard__GetHardwareLevel();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Processor <em>Processor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1980,6 +2274,16 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProcessor_NotUsed();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Processor#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Hardware Level</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Processor#getHardwareLevel()
+	 * @generated
+	 */
+	EOperation getProcessor__GetHardwareLevel();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Core <em>Core</em>}'.
@@ -2091,6 +2395,16 @@ public interface MappingPackage extends EPackage {
 	EAttribute getCore_RemainingRelativeCapacity();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Core#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Hardware Level</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Core#getHardwareLevel()
+	 * @generated
+	 */
+	EOperation getCore__GetHardwareLevel();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.IOAdapter <em>IO Adapter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2143,6 +2457,17 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIOAdapter_ProtectionLevel();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.result.mapping.IOAdapter#getReferenceObject <em>Reference Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Reference Object</em>'.
+	 * @see ch.hilbri.assist.result.mapping.IOAdapter#getReferenceObject()
+	 * @see #getIOAdapter()
+	 * @generated
+	 */
+	EReference getIOAdapter_ReferenceObject();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Network <em>Network</em>}'.
@@ -2199,6 +2524,17 @@ public interface MappingPackage extends EPackage {
 	EReference getNetwork_Boards();
 
 	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.result.mapping.Network#getReferenceObject <em>Reference Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Reference Object</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Network#getReferenceObject()
+	 * @see #getNetwork()
+	 * @generated
+	 */
+	EReference getNetwork_ReferenceObject();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.ApplicationGroup <em>Application Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2229,6 +2565,28 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getApplicationGroup_Applications();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.result.mapping.ApplicationGroup#getApplicationGroups <em>Application Groups</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Application Groups</em>'.
+	 * @see ch.hilbri.assist.result.mapping.ApplicationGroup#getApplicationGroups()
+	 * @see #getApplicationGroup()
+	 * @generated
+	 */
+	EReference getApplicationGroup_ApplicationGroups();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.result.mapping.ApplicationGroup#getReferenceObject <em>Reference Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Reference Object</em>'.
+	 * @see ch.hilbri.assist.result.mapping.ApplicationGroup#getReferenceObject()
+	 * @see #getApplicationGroup()
+	 * @generated
+	 */
+	EReference getApplicationGroup_ReferenceObject();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Application <em>Application</em>}'.
@@ -2329,10 +2687,10 @@ public interface MappingPackage extends EPackage {
 	EAttribute getApplication_DevelopedBy();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.result.mapping.Application#getIoAdapterRequirements <em>Io Adapter Requirements</em>}'.
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.result.mapping.Application#getIoAdapterRequirements <em>Io Adapter Requirements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Io Adapter Requirements</em>'.
+	 * @return the meta object for the reference list '<em>Io Adapter Requirements</em>'.
 	 * @see ch.hilbri.assist.result.mapping.Application#getIoAdapterRequirements()
 	 * @see #getApplication()
 	 * @generated
@@ -2362,6 +2720,17 @@ public interface MappingPackage extends EPackage {
 	EReference getApplication_Threads();
 
 	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.result.mapping.Application#getReferenceObject <em>Reference Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Reference Object</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Application#getReferenceObject()
+	 * @see #getApplication()
+	 * @generated
+	 */
+	EReference getApplication_ReferenceObject();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.Thread <em>Thread</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2381,6 +2750,28 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getThread_Application();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.result.mapping.Thread#getCore <em>Core</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Core</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Thread#getCore()
+	 * @see #getThread()
+	 * @generated
+	 */
+	EReference getThread_Core();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.result.mapping.Thread#getReferenceObject <em>Reference Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Reference Object</em>'.
+	 * @see ch.hilbri.assist.result.mapping.Thread#getReferenceObject()
+	 * @see #getThread()
+	 * @generated
+	 */
+	EReference getThread_ReferenceObject();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.result.mapping.Thread#getName <em>Name</em>}'.
@@ -2448,6 +2839,17 @@ public interface MappingPackage extends EPackage {
 	EAttribute getIOAdapterRequirement_IsExclusiveOnly();
 
 	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.result.mapping.IOAdapterRequirement#getReferenceObject <em>Reference Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Reference Object</em>'.
+	 * @see ch.hilbri.assist.result.mapping.IOAdapterRequirement#getReferenceObject()
+	 * @see #getIOAdapterRequirement()
+	 * @generated
+	 */
+	EReference getIOAdapterRequirement_ReferenceObject();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.CommunicationRelation <em>Communication Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2478,6 +2880,17 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCommunicationRelation_BandwidthUtilization();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.result.mapping.CommunicationRelation#getReferenceObject <em>Reference Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Reference Object</em>'.
+	 * @see ch.hilbri.assist.result.mapping.CommunicationRelation#getReferenceObject()
+	 * @see #getCommunicationRelation()
+	 * @generated
+	 */
+	EReference getCommunicationRelation_ReferenceObject();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.result.mapping.AbstractMetric <em>Abstract Metric</em>}'.
@@ -2692,14 +3105,6 @@ public interface MappingPackage extends EPackage {
 		EAttribute RESULT__BOTTOM_HARDWARE_LEVEL = eINSTANCE.getResult_BottomHardwareLevel();
 
 		/**
-		 * The meta object literal for the '<em><b>Io Adapters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESULT__IO_ADAPTERS = eINSTANCE.getResult_IoAdapters();
-
-		/**
 		 * The meta object literal for the '<em><b>Application Groups</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2714,14 +3119,6 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESULT__APPLICATIONS = eINSTANCE.getResult_Applications();
-
-		/**
-		 * The meta object literal for the '<em><b>Threads</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESULT__THREADS = eINSTANCE.getResult_Threads();
 
 		/**
 		 * The meta object literal for the '<em><b>Networks</b></em>' containment reference list feature.
@@ -2746,14 +3143,6 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESULT__EVALUATION = eINSTANCE.getResult_Evaluation();
-
-		/**
-		 * The meta object literal for the '<em><b>Assist Model</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESULT__ASSIST_MODEL = eINSTANCE.getResult_AssistModel();
 
 		/**
 		 * The meta object literal for the '<em><b>Compare To</b></em>' operation.
@@ -2788,6 +3177,54 @@ public interface MappingPackage extends EPackage {
 		EOperation RESULT___GET_ALL_BOARDS = eINSTANCE.getResult__GetAllBoards();
 
 		/**
+		 * The meta object literal for the '<em><b>Get All Boxes</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_ALL_BOXES = eINSTANCE.getResult__GetAllBoxes();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Threads</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_ALL_THREADS = eINSTANCE.getResult__GetAllThreads();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Result Hardware Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___FIND_RESULT_HARDWARE_ELEMENT__HARDWAREELEMENT = eINSTANCE.getResult__FindResultHardwareElement__HardwareElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Result Application</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___FIND_RESULT_APPLICATION__APPLICATION = eINSTANCE.getResult__FindResultApplication__Application();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Result Thread</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___FIND_RESULT_THREAD__THREAD = eINSTANCE.getResult__FindResultThread__Thread();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Result Application Group</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___FIND_RESULT_APPLICATION_GROUP__APPLICATIONGROUP = eINSTANCE.getResult__FindResultApplicationGroup__ApplicationGroup();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2804,6 +3241,22 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute HARDWARE_ELEMENT__NAME = eINSTANCE.getHardwareElement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference Object</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference HARDWARE_ELEMENT__REFERENCE_OBJECT = eINSTANCE.getHardwareElement_ReferenceObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation HARDWARE_ELEMENT___GET_HARDWARE_LEVEL = eINSTANCE.getHardwareElement__GetHardwareLevel();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.CompartmentImpl <em>Compartment</em>}' class.
@@ -2856,6 +3309,14 @@ public interface MappingPackage extends EPackage {
 		EReference COMPARTMENT__BOXES = eINSTANCE.getCompartment_Boxes();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARTMENT___GET_HARDWARE_LEVEL = eINSTANCE.getCompartment__GetHardwareLevel();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.BoxImpl <em>Box</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2888,6 +3349,14 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOX__BOARDS = eINSTANCE.getBox_Boards();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOX___GET_HARDWARE_LEVEL = eINSTANCE.getBox__GetHardwareLevel();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.BoardImpl <em>Board</em>}' class.
@@ -3012,6 +3481,14 @@ public interface MappingPackage extends EPackage {
 		EOperation BOARD___GET_ALL_APPLICATIONS = eINSTANCE.getBoard__GetAllApplications();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOARD___GET_HARDWARE_LEVEL = eINSTANCE.getBoard__GetHardwareLevel();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.ProcessorImpl <em>Processor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3060,6 +3537,14 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROCESSOR__NOT_USED = eINSTANCE.getProcessor_NotUsed();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROCESSOR___GET_HARDWARE_LEVEL = eINSTANCE.getProcessor__GetHardwareLevel();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.CoreImpl <em>Core</em>}' class.
@@ -3144,6 +3629,14 @@ public interface MappingPackage extends EPackage {
 		EAttribute CORE__REMAINING_RELATIVE_CAPACITY = eINSTANCE.getCore_RemainingRelativeCapacity();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CORE___GET_HARDWARE_LEVEL = eINSTANCE.getCore__GetHardwareLevel();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.IOAdapterImpl <em>IO Adapter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3184,6 +3677,14 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IO_ADAPTER__PROTECTION_LEVEL = eINSTANCE.getIOAdapter_ProtectionLevel();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference Object</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IO_ADAPTER__REFERENCE_OBJECT = eINSTANCE.getIOAdapter_ReferenceObject();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.NetworkImpl <em>Network</em>}' class.
@@ -3228,6 +3729,14 @@ public interface MappingPackage extends EPackage {
 		EReference NETWORK__BOARDS = eINSTANCE.getNetwork_Boards();
 
 		/**
+		 * The meta object literal for the '<em><b>Reference Object</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NETWORK__REFERENCE_OBJECT = eINSTANCE.getNetwork_ReferenceObject();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.ApplicationGroupImpl <em>Application Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3252,6 +3761,22 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference APPLICATION_GROUP__APPLICATIONS = eINSTANCE.getApplicationGroup_Applications();
+
+		/**
+		 * The meta object literal for the '<em><b>Application Groups</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPLICATION_GROUP__APPLICATION_GROUPS = eINSTANCE.getApplicationGroup_ApplicationGroups();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference Object</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPLICATION_GROUP__REFERENCE_OBJECT = eINSTANCE.getApplicationGroup_ReferenceObject();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.ApplicationImpl <em>Application</em>}' class.
@@ -3328,7 +3853,7 @@ public interface MappingPackage extends EPackage {
 		EAttribute APPLICATION__DEVELOPED_BY = eINSTANCE.getApplication_DevelopedBy();
 
 		/**
-		 * The meta object literal for the '<em><b>Io Adapter Requirements</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Io Adapter Requirements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3352,6 +3877,14 @@ public interface MappingPackage extends EPackage {
 		EReference APPLICATION__THREADS = eINSTANCE.getApplication_Threads();
 
 		/**
+		 * The meta object literal for the '<em><b>Reference Object</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPLICATION__REFERENCE_OBJECT = eINSTANCE.getApplication_ReferenceObject();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.ThreadImpl <em>Thread</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3368,6 +3901,22 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference THREAD__APPLICATION = eINSTANCE.getThread_Application();
+
+		/**
+		 * The meta object literal for the '<em><b>Core</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference THREAD__CORE = eINSTANCE.getThread_Core();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference Object</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference THREAD__REFERENCE_OBJECT = eINSTANCE.getThread_ReferenceObject();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -3420,6 +3969,14 @@ public interface MappingPackage extends EPackage {
 		EAttribute IO_ADAPTER_REQUIREMENT__IS_EXCLUSIVE_ONLY = eINSTANCE.getIOAdapterRequirement_IsExclusiveOnly();
 
 		/**
+		 * The meta object literal for the '<em><b>Reference Object</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IO_ADAPTER_REQUIREMENT__REFERENCE_OBJECT = eINSTANCE.getIOAdapterRequirement_ReferenceObject();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.CommunicationRelationImpl <em>Communication Relation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3444,6 +4001,14 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMMUNICATION_RELATION__BANDWIDTH_UTILIZATION = eINSTANCE.getCommunicationRelation_BandwidthUtilization();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference Object</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMUNICATION_RELATION__REFERENCE_OBJECT = eINSTANCE.getCommunicationRelation_ReferenceObject();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.result.mapping.impl.AbstractMetricImpl <em>Abstract Metric</em>}' class.

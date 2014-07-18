@@ -36,6 +36,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -49,8 +51,12 @@ import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.GotoSolutionDialog;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import ch.hilbri.assist.result.mapping.AbstractMetric;
+import ch.hilbri.assist.result.mapping.Board;
+import ch.hilbri.assist.result.mapping.Box;
+import ch.hilbri.assist.result.mapping.Compartment;
 import ch.hilbri.assist.result.mapping.Core;
 import ch.hilbri.assist.result.mapping.HardwareElement;
+import ch.hilbri.assist.result.mapping.Processor;
 import ch.hilbri.assist.result.mapping.Result;
 import ch.hilbri.assist.result.mapping.Thread;
 
@@ -416,11 +422,15 @@ public class ResultsViewController extends AnchorPane{
 		curProbNode.setVisible(true);
 		
 		//System Node
-		TreeItem<TreeObject> systemNode = new TreeItem<TreeObject>(new TreeObject(r));
+		Image i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_system_16x16.png"));
+		ImageView iv = new ImageView(i);
+		TreeItem<TreeObject> systemNode = new TreeItem<TreeObject>(new TreeObject(r), iv);
+		systemNode.setExpanded(true);
+		
 		resultTreeView.setRoot(systemNode);
 		resultTreeView.edit(systemNode);
+		resultTreeView.setEditable(false);
 		
-		systemNode.setExpanded(true);
 		for (HardwareElement child : r.getRootHardwareElements())
 			drawHardwareNodes(child, systemNode, r);
 		
@@ -438,8 +448,16 @@ public class ResultsViewController extends AnchorPane{
 	}
 	
 	private void drawHardwareNodes(EObject obj, TreeItem<TreeObject> rootNode, Result result) {
+		Image i;
+		if (obj instanceof Compartment) 	i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_compartment_16x16.png"));
+		else if (obj instanceof Box) 		i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_box_16x16.png"));
+		else if (obj instanceof Board) 		i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_board_16x16.png"));
+		else if (obj instanceof Processor)	i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_processor_16x16.png"));
+		else if (obj instanceof Core)		i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_core_16x16.png"));
+		else return;
 		
-		TreeItem<TreeObject> newNode = new TreeItem<TreeObject>(new TreeObject(obj));
+		ImageView iv = new ImageView(i);
+		TreeItem<TreeObject> newNode = new TreeItem<TreeObject>(new TreeObject(obj), iv);
 		rootNode.getChildren().add(newNode);
 		newNode.setExpanded(true);
 		
@@ -456,7 +474,9 @@ public class ResultsViewController extends AnchorPane{
 	}
 
 	private void drawSoftwareNodes(Thread thread, TreeItem<TreeObject> rootNode) {
-		TreeItem<TreeObject> newNode = new TreeItem<TreeObject>(new TreeObject(thread));
+		Image i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_application_16x16.png"));
+		ImageView iv = new ImageView(i);
+		TreeItem<TreeObject> newNode = new TreeItem<TreeObject>(new TreeObject(thread), iv);
 		rootNode.getChildren().add(newNode);
 	}
 	

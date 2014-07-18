@@ -1,5 +1,4 @@
 /**
- * Copyright 2014 - Robert Hilbrich
  */
 package ch.hilbri.assist.model.impl;
 
@@ -8,6 +7,8 @@ import ch.hilbri.assist.model.ModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link ch.hilbri.assist.model.impl.ThreadImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ThreadImpl#getApplication <em>Application</em>}</li>
  * </ul>
  * </p>
@@ -31,6 +33,16 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbri.assist.model.Thread {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,6 +60,22 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 	@Override
 	protected EClass eStaticClass() {
 		return ModelPackage.Literals.THREAD;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		Application _application = this.getApplication();
+		String _name = _application.getName();
+		String _plus = (_name + "_");
+		Application _application_1 = this.getApplication();
+		EList<ch.hilbri.assist.model.Thread> _threads = _application_1.getThreads();
+		int _indexOf = _threads.indexOf(this);
+		int _plus_1 = (_indexOf + 1);
+		return (_plus + Integer.valueOf(_plus_1));
 	}
 
 	/**
@@ -153,6 +181,8 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ModelPackage.THREAD__NAME:
+				return getName();
 			case ModelPackage.THREAD__APPLICATION:
 				if (resolve) return getApplication();
 				return basicGetApplication();
@@ -198,6 +228,8 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ModelPackage.THREAD__NAME:
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case ModelPackage.THREAD__APPLICATION:
 				return basicGetApplication() != null;
 		}

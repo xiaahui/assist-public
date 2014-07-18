@@ -3,9 +3,13 @@
  */
 package ch.hilbri.assist.result.mapping.impl;
 
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
+
 import ch.hilbri.assist.result.mapping.Box;
 import ch.hilbri.assist.result.mapping.Compartment;
 import ch.hilbri.assist.result.mapping.MappingPackage;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
@@ -250,6 +254,15 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public HardwareArchitectureLevelType getHardwareLevel() {
+		return HardwareArchitectureLevelType.COMPARTMENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -372,6 +385,20 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 				return boxes != null && !boxes.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case MappingPackage.COMPARTMENT___GET_HARDWARE_LEVEL:
+				return getHardwareLevel();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

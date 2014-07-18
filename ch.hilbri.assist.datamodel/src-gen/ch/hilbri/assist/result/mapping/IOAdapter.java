@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.result.mapping.IOAdapter#getTotalUnitCount <em>Total Unit Count</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.IOAdapter#getAdapterType <em>Adapter Type</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.IOAdapter#getProtectionLevel <em>Protection Level</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.IOAdapter#getReferenceObject <em>Reference Object</em>}</li>
  * </ul>
  * </p>
  *
@@ -138,5 +139,31 @@ public interface IOAdapter extends EObject {
 	 * @generated
 	 */
 	void setProtectionLevel(IOAdapterProtectionLevelType value);
+
+	/**
+	 * Returns the value of the '<em><b>Reference Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reference Object</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference Object</em>' reference.
+	 * @see #setReferenceObject(ch.hilbri.assist.model.IOAdapter)
+	 * @see ch.hilbri.assist.result.mapping.MappingPackage#getIOAdapter_ReferenceObject()
+	 * @model
+	 * @generated
+	 */
+	ch.hilbri.assist.model.IOAdapter getReferenceObject();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.result.mapping.IOAdapter#getReferenceObject <em>Reference Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reference Object</em>' reference.
+	 * @see #getReferenceObject()
+	 * @generated
+	 */
+	void setReferenceObject(ch.hilbri.assist.model.IOAdapter value);
 
 } // IOAdapter

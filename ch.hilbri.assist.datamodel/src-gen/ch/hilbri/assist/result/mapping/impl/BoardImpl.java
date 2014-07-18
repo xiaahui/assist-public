@@ -4,6 +4,7 @@
 package ch.hilbri.assist.result.mapping.impl;
 
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 
 import ch.hilbri.assist.result.mapping.Application;
 import ch.hilbri.assist.result.mapping.Board;
@@ -570,6 +571,15 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public HardwareArchitectureLevelType getHardwareLevel() {
+		return HardwareArchitectureLevelType.BOARD;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -807,6 +817,8 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 		switch (operationID) {
 			case MappingPackage.BOARD___GET_ALL_APPLICATIONS:
 				return getAllApplications();
+			case MappingPackage.BOARD___GET_HARDWARE_LEVEL:
+				return getHardwareLevel();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

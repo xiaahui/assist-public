@@ -19,7 +19,9 @@ import org.jacop.search.Search;
 import org.jacop.search.SelectChoicePoint;
 
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
+import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
@@ -79,9 +81,9 @@ public class SolverJob extends Job {
 		this.model = model;
 
 		if (editor != null) {
-			this.multiPageEditor = editor;
-			this.detailedResultsViewUiModel = editor.getDetailedResultViewUiModel();
-			detailedResultsViewUiModel.setEditor(editor);
+			multiPageEditor = editor;
+			detailedResultsViewUiModel = multiPageEditor.getDetailedResultViewUiModel();
+			detailedResultsViewUiModel.setEditor(multiPageEditor);
 		}
 		
 
@@ -93,26 +95,11 @@ public class SolverJob extends Job {
 		
 		/* Create a new Constraint Store (JaCoP) */
 		this.constraintStore = new Store();
-		this.solverVariables = new SolverVariablesContainer();
+		this.solverVariables = new SolverVariablesContainer(this.model, constraintStore);
 		
+		/* Create a new Constraint to process the system hierarchy */
+		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, constraintStore, solverVariables));
 		
-//		/* Create the set of Variables needed for a Thread */
-//		this.threadVariablesList = new ThreadVariablesList(model, constraintSystem);
-//		
-//		this.coreVariablesList = new CoreVariablesList(model);
-//		
-//		this.exclusiveAdapterVariablesList = new ExclusiveAdapterRequirementVariablesList(model, this.threadVariablesList);
-//		
-//		this.sharedAdapterVariablesList = new SharedAdapterRequirementVariablesList(model, this.threadVariablesList);
-//		
-//		this.communicationVariablesList = new CommunicationVariablesList(model, constraintSystem);
-//		
-//		this.ioAdapterVariablesList = new IOAdapterVariablesList(model, constraintSystem);
-//		
-//		
-//		/* Create a new Constraint to process the system hierarchy */
-//		this.mappingConstraintsList.add(new SystemHierarchyConstraint(this.constraintSystem, this.model, this.threadVariablesList));
-//		
 //		/* Create a new Constraint to process the I/O-adapter to board hierarchy */
 //		this.mappingConstraintsList.add(new IOAdapterHierarchyConstraint(this.constraintSystem, this.model, this.threadVariablesList,
 //				this.exclusiveAdapterVariablesList, this.sharedAdapterVariablesList, ioAdapterVariablesList));
@@ -179,7 +166,7 @@ public class SolverJob extends Job {
 			constraint.generate();
 			
 			/* Check the store for consistency so far */
-			if (!constraintStore.consistency()) {
+			if (constraintStore.consistency() == false) {
 				final String constraintName = constraint.getName();
 				
 				Display.getDefault().asyncExec(new Runnable() {
@@ -202,41 +189,44 @@ public class SolverJob extends Job {
 				monitor.worked(1);
 		}
 
-		 monitor.subTask("Searching for solutions");
-		 if (runSearchForSolutions(monitor) != Status.OK_STATUS) return Status.CANCEL_STATUS;
-		 monitor.worked(1);
-
-	
-		 monitor.subTask("Showing results");
-//		 if (presentResults == true) { showResults(newMappingResults); }
-		 monitor.worked(1);
-
-		 return Status.OK_STATUS;
+		monitor.subTask("Searching for solutions");
+		if (runSearchForSolutions(monitor) != Status.OK_STATUS) return Status.CANCEL_STATUS;
+		monitor.worked(1);
+		 
+		if (presentResults == true) { 
+			 monitor.subTask("Showing results");
+			 showResults(mappingResults);
+			 monitor.worked(1);
+		}
+		 
+		return Status.OK_STATUS;
 	}
 
 	private IStatus runSearchForSolutions(IProgressMonitor monitor) {
+		 
+		SelectChoicePoint<IntVar> select;
+		Search<IntVar> search;
 		
-		Search<IntVar> search = new DepthFirstSearch<IntVar>();
-		search.getSolutionListener().searchAll(true);
-		search.getSolutionListener().recordSolutions(true);
-		search.getSolutionListener().setSolutionLimit(this.maxSolutions);
+		if (this.kindOfSolutions == SearchType.CONSECUTIVE) {
+			search = new DepthFirstSearch<IntVar>();
+			search.getSolutionListener().searchAll(true);
+			search.getSolutionListener().recordSolutions(true);
+			search.getSolutionListener().setSolutionLimit(this.maxSolutions);
 				
-		SelectChoicePoint<IntVar> select = new InputOrderSelect<IntVar>(constraintStore, solverVariables.getSolutionVariablesAsArray(), new IndomainMin<IntVar>());
+			select = new InputOrderSelect<IntVar>(constraintStore, solverVariables.getSolutionVariables(), new IndomainMin<IntVar>());
+		}
+		else {
+			search = new DepthFirstSearch<IntVar>();
+			search.setTimeOut(this.maxTimeOfCalculationInmsec);
+			ConsoleCommands.writeLineToConsole("Random search is not yet implemented.");
+			return null;
+		}
 		 
 		boolean result = search.labeling(constraintStore, select); 
 		
 		if (result) {
 			ConsoleCommands.writeLineToConsole("Solutions found: " + search.getSolutionListener().solutionsNo() + " - Limit was set to " + this.maxSolutions + " - was it reached? " + search.getSolutionListener().solutionLimitReached());
-
-			search.printAllSolutions();
-			
-			  for (int i=1; i<=search.getSolutionListener().solutionsNo(); i++){ 
-				      ConsoleCommands.writeToConsole("Solution " + i + ": "); 
-				      for (int j=0; j<search.getSolution(i).length; j++) 
-				    	  ConsoleCommands.writeToConsole("" + search.getSolution(i)[j]); 
-				      ConsoleCommands.writeLineToConsole(""); 
-				   }
-			
+			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, search.getSolutionListener().getSolutions());
 		}
 		else
 			ConsoleCommands.writeErrorLineToConsole("Nothing found");
@@ -288,30 +278,32 @@ public class SolverJob extends Job {
 //			return Status.CANCEL_STATUS;
 //		}
 	}
-//	
-//	
-//	/**
-//	 * Zeigt die fertigen Resultate in der UI an.
-//	 * 
-//	 * @param allResults
-//	 *            die Resultate / L�sungen f�r das Mapping Problem
-//	 */
-//	private void showResults(final ArrayList<Result> allResults) {		
-//		// update the new UI
-//		
-//		detailedResultsViewUiModel.indexToDrawProperty().set(0);
-//		detailedResultsViewUiModel.setResultsList(allResults);
-//		
-//		if (multiPageEditor != null) {
-//			Display.getDefault().asyncExec(new Runnable() {
-//				@Override
-//				public void run() {	multiPageEditor.setActiveResultPage();	}
-//			});
-//		}
-//	}
-//	
-//
-//	
+	
+	/**
+	 * Zeigt die fertigen Resultate in der UI an.
+	 * 
+	 * @param allResults
+	 *            die Resultate / Loesungen fuer das Mapping Problem
+	 */
+	private void showResults(final ArrayList<Result> allResults) {		
+		
+		detailedResultsViewUiModel.setResultsList(allResults);
+		detailedResultsViewUiModel.indexToDrawProperty().set(0);
+		
+		
+		if (multiPageEditor != null) {
+			Display.getDefault().asyncExec(new Runnable() {
+				@Override
+				public void run() {	multiPageEditor.setActiveResultPage();	}
+			});
+		}
+	}
+
+	
+	
+	
+
+	
 	/**
 	 * Sets the maximum number of solution.
 	 * @param maxSolutions

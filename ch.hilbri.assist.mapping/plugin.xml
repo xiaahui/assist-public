@@ -14,7 +14,7 @@
       <editor
             class="ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor"
             contributorClass="ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditorContributor"
-            default="false"
+            default="true"
             extensions="mdsl"
             icon="icons/icon-mapping-specification-16x16.png"
             id="ch.hilbri.assist.mapping.editors.mappingeditor"

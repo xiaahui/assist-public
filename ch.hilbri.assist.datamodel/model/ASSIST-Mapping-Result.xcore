@@ -2,14 +2,12 @@
 
 package ch.hilbri.assist.result.mapping
 
-import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.DesignAssuranceLevelType
 import ch.hilbri.assist.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.model.IOAdapterProtectionLevelType
 import ch.hilbri.assist.model.IOAdapterType
-
-import org.eclipse.emf.common.util.BasicEList
 import java.util.HashMap
+import org.eclipse.emf.common.util.BasicEList
 
 
 
@@ -45,17 +43,14 @@ class Result extends Comparable {
 		HardwareArchitectureLevelType.CORE
 	}
 	
-	@GenModel(documentation="Contains a list of all io adapters")
-	contains IOAdapter[0..*]				ioAdapters
+//	@GenModel(documentation="Contains a list of all io adapters")
+//	contains IOAdapter[0..*]				ioAdapters
 	
 	@GenModel(documentation="Contains a list of all application groups")
 	contains ApplicationGroup[0..*]			applicationGroups
 	
 	@GenModel(documentation="Contains a list of all applications")
 	contains Application[0..*]				applications
-	
-	@GenModel(documentation="Contains a list of all threads")
-	contains Thread[0..*]					threads
 	
 	@GenModel(documentation="Contains a list of all networks")
 	contains Network[0..*] 					networks
@@ -66,10 +61,6 @@ class Result extends Comparable {
 	@GenModel(documentation="Contains the results of the evaluation for this result")
 	contains Evaluation[0..1] 				evaluation
 	
-	@GenModel(documentation="Refers to the original input specification")
-	refers AssistModel[0..1]				assistModel
-	
-	@GenModel(documentation="Refers to the original input specification")
 	op int compareTo(Result o) {
 		val double diff = this ?. evaluation.totalScaledScore - o ?. evaluation.totalScaledScore;
 		if (diff < 0.0)	return 1;
@@ -79,26 +70,84 @@ class Result extends Comparable {
 	
 	@GenModel(documentation="Creates a list of all cores")
 	op Core[] getAllCores() {
-		val list = new BasicEList<Core> // FIXME: Implement me!
+		val list = new BasicEList<Core> 
+		if (topHardwareLevel == HardwareArchitectureLevelType.COMPARTMENT) 		for (c : rootHardwareElements as Compartment[]) for (b : c.boxes) for (board : b.boards) for (p : board.processors) list.addAll(p.cores)		
+		else if (topHardwareLevel == HardwareArchitectureLevelType.BOX) 		for (b : rootHardwareElements as Box[]) for (board : b.boards) for (p : board.processors) list.addAll(p.cores)		
+		else if (topHardwareLevel == HardwareArchitectureLevelType.BOARD) 		for (b : rootHardwareElements as Board[]) for (p : b.processors) list.addAll(p.cores)		
 		return list
 	}
 	
 	@GenModel(documentation="Creates a list of all processors")
 	op Processor[] getAllProcessors() {
-		val list = new BasicEList<Processor> // FIXME: Implement me!
+		val list = new BasicEList<Processor> 
+		if (topHardwareLevel == HardwareArchitectureLevelType.COMPARTMENT) 		for (c : rootHardwareElements as Compartment[]) for (b : c.boxes) for (board : b.boards) list.addAll(board.processors)		
+		else if (topHardwareLevel == HardwareArchitectureLevelType.BOX) 		for (b : rootHardwareElements as Box[]) for (board : b.boards) list.addAll(board.processors)	
+		else if (topHardwareLevel == HardwareArchitectureLevelType.BOARD) 		for (b : rootHardwareElements as Board[]) list.addAll(b.processors)
 		return list
 	}
 	
 	@GenModel(documentation="Creates a list of all boards")
 	op Board[] getAllBoards() {
-		val list = new BasicEList<Board> // FIXME: Implement me!
+		val list = new BasicEList<Board> 
+		if (topHardwareLevel == HardwareArchitectureLevelType.COMPARTMENT) 		for (c : rootHardwareElements as Compartment[]) for (b : c.boxes) list.addAll(b.boards)		
+		else if (topHardwareLevel == HardwareArchitectureLevelType.BOX) 		for (b : rootHardwareElements as Box[]) list.addAll(b.boards)	
+		else if (topHardwareLevel == HardwareArchitectureLevelType.BOARD) 		for (b : rootHardwareElements as Board[]) list.add(b)	
 		return list
+	}
+	
+	@GenModel(documentation="Creates a list of all boxes") 
+	op Box[] getAllBoxes() {
+		val list = new BasicEList<Box>
+		if (topHardwareLevel == HardwareArchitectureLevelType.BOX) list.addAll(rootHardwareElements as Box[])
+		else if (topHardwareLevel == HardwareArchitectureLevelType.COMPARTMENT) for (c : rootHardwareElements) list.addAll((c as Compartment).boxes)
+		return list
+	}
+	
+	@GenModel(documentation="Creates a list of all threads in the result")
+	op Thread[] getAllThreads() {
+		val list = new BasicEList<Thread>
+		for (a : applications) list.addAll(a.threads)
+		return list
+	}
+	
+	@GenModel(documentation="Finds a hardware element in the result model which represents a given hardware element in the input model")
+	op HardwareElement findResultHardwareElement(ch.hilbri.assist.model.HardwareElement modelHwElement) {
+		switch modelHwElement {
+			ch.hilbri.assist.model.Core 		: for (c : allCores) 		if (c.referenceObject == modelHwElement) return c
+			ch.hilbri.assist.model.Processor	: for (p : allProcessors)	if (p.referenceObject == modelHwElement) return p
+			ch.hilbri.assist.model.Board		: for (b : allBoards)		if (b.referenceObject == modelHwElement) return b
+		}
+		return null
+	}
+	
+	@GenModel(documentation="Finds an application in the result model which represents a given Application in the input model")
+	op Application findResultApplication(ch.hilbri.assist.model.Application modelApp) {
+		for (resultApp : applications) 
+			if (resultApp.referenceObject == modelApp) return resultApp
+		return null	
+	}
+	
+	@GenModel(documentation="Finds a thread in the result model which represents a given thread in the input model")
+	op Thread findResultThread(ch.hilbri.assist.model.Thread modelThread) {
+		for (resultThread : allThreads) 
+			if (resultThread.referenceObject == modelThread) return resultThread
+		return null	
+	}
+	
+	@GenModel(documentation="Finds an applicationgroup in the result model which represents a given ApplicationGroup in the input model")
+	op ApplicationGroup findResultApplicationGroup(ch.hilbri.assist.model.ApplicationGroup modelAppGroup) {
+		for (resultAppGroup : applicationGroups) 
+			if (resultAppGroup.referenceObject == modelAppGroup) return resultAppGroup
+		return null	
 	}
 }
 
 
 class HardwareElement {
 	String name
+	refers ch.hilbri.assist.model.HardwareElement referenceObject
+	op HardwareArchitectureLevelType getHardwareLevel()
+	
 }
 
 class Compartment extends HardwareElement {
@@ -107,12 +156,14 @@ class Compartment extends HardwareElement {
 	String side
 	String zone
 	contains Box[1..*] boxes opposite compartment
+	op HardwareArchitectureLevelType getHardwareLevel() { HardwareArchitectureLevelType.COMPARTMENT }
 }
 
 class Box extends HardwareElement {
 	String manufacturer
 	container Compartment compartment opposite boxes
 	contains Board[1..*] boards opposite box
+	op HardwareArchitectureLevelType getHardwareLevel() { HardwareArchitectureLevelType.BOX }
 }
 
 class Board extends HardwareElement {
@@ -142,6 +193,8 @@ class Board extends HardwareElement {
 		val list = new BasicEList<Application> // FIXME: Implement me!
 		return list
 	}
+	
+	op HardwareArchitectureLevelType getHardwareLevel() { HardwareArchitectureLevelType.BOARD }
 }
 
 class Processor extends HardwareElement {
@@ -157,6 +210,8 @@ class Processor extends HardwareElement {
 			result = result || c.notUsed
 		return result 
 	} 
+	
+	op HardwareArchitectureLevelType getHardwareLevel() { HardwareArchitectureLevelType.PROCESSOR }
 }
 
 class Core extends HardwareElement {
@@ -176,6 +231,7 @@ class Core extends HardwareElement {
 	@GenModel(documentation="How much relative capacity of this core is left unused?")
 	derived double remainingRelativeCapacity get { remainingAbsoluteCapacity as double / capacity as double	}
 	
+	op HardwareArchitectureLevelType getHardwareLevel() { HardwareArchitectureLevelType.CORE }
 }
 
 class IOAdapter {
@@ -183,6 +239,7 @@ class IOAdapter {
 	int totalUnitCount
 	IOAdapterType adapterType
 	IOAdapterProtectionLevelType protectionLevel = "None"
+	refers ch.hilbri.assist.model.IOAdapter referenceObject
 }
 
 class Network {
@@ -190,11 +247,14 @@ class Network {
 	int bandwidthCapacity
 	derived boolean isBoardLocalNetwork get { boards.size <= 1 }
 	refers Board[2..*] boards opposite networks
+	refers ch.hilbri.assist.model.Network referenceObject
 }
 
 class ApplicationGroup {
 	String name
-	refers Application[1..*] applications
+	refers Application[0..*] applications
+	refers ApplicationGroup[0..*] applicationGroups
+	refers ch.hilbri.assist.model.ApplicationGroup referenceObject
 }
 
 class Application {
@@ -206,13 +266,16 @@ class Application {
 	IOAdapterProtectionLevelType 			ioAdapterProtectionLevel 			= "None"
 	int 									parallelThreads 					= "1"
 	String 									developedBy
-	contains IOAdapterRequirement[0..*] 	ioAdapterRequirements
+	refers IOAdapterRequirement[0..*] 		ioAdapterRequirements
 	refers HardwareElement[0..*] 			restrictMappingToHardwareElements
 	contains Thread[0..*] 					threads opposite application
+	refers ch.hilbri.assist.model.Application referenceObject
 }
 
 class Thread {
-	container Application 	application opposite threads
+	container Application 	application opposite threads 
+	refers Core				core 
+	refers ch.hilbri.assist.model.Thread referenceObject
 	derived String			name get { application.name + '_' + application.threads.indexOf(this) }
 }
 
@@ -221,11 +284,13 @@ class IOAdapterRequirement {
 	int 			requiredUnits 		= "0"
 	boolean 		isSharedAllowed 	= "false"
 	boolean 		isExclusiveOnly 	= "false"
+	refers ch.hilbri.assist.model.IOAdapterRequirement referenceObject
 }
 
 class CommunicationRelation{
 	refers Application[1..*] applicationsOrGroups
 	int bandwidthUtilization
+	refers ch.hilbri.assist.model.CommunicationRelation referenceObject
 }
 
 class AbstractMetric  {
@@ -243,6 +308,9 @@ class Evaluation {
 	MetricScoreMap					absoluteScores
 	MetricScoreMap					scaledScores
 	
-	derived double					totalScaledScore get { scaledScores.values.reduce[i1, i2 | i1 + i2] }
+	derived double					totalScaledScore get { 
+		if ((scaledScores == null) || (scaledScores.keySet.size == 0)) return 0.0
+		else scaledScores.values.reduce[i1, i2 | i1 + i2]
+	}
 	contains AbstractMetric[0..*] 	metricsUsed
 }

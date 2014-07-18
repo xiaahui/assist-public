@@ -12,6 +12,7 @@ import ch.hilbri.assist.result.mapping.MappingPackage;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.IOAdapterImpl#getTotalUnitCount <em>Total Unit Count</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.IOAdapterImpl#getAdapterType <em>Adapter Type</em>}</li>
  *   <li>{@link ch.hilbri.assist.result.mapping.impl.IOAdapterImpl#getProtectionLevel <em>Protection Level</em>}</li>
+ *   <li>{@link ch.hilbri.assist.result.mapping.impl.IOAdapterImpl#getReferenceObject <em>Reference Object</em>}</li>
  * </ul>
  * </p>
  *
@@ -112,6 +114,16 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 	 * @ordered
 	 */
 	protected IOAdapterProtectionLevelType protectionLevel = PROTECTION_LEVEL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReferenceObject() <em>Reference Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceObject()
+	 * @generated
+	 * @ordered
+	 */
+	protected ch.hilbri.assist.model.IOAdapter referenceObject;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -221,6 +233,44 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ch.hilbri.assist.model.IOAdapter getReferenceObject() {
+		if (referenceObject != null && referenceObject.eIsProxy()) {
+			InternalEObject oldReferenceObject = (InternalEObject)referenceObject;
+			referenceObject = (ch.hilbri.assist.model.IOAdapter)eResolveProxy(oldReferenceObject);
+			if (referenceObject != oldReferenceObject) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MappingPackage.IO_ADAPTER__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
+			}
+		}
+		return referenceObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ch.hilbri.assist.model.IOAdapter basicGetReferenceObject() {
+		return referenceObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReferenceObject(ch.hilbri.assist.model.IOAdapter newReferenceObject) {
+		ch.hilbri.assist.model.IOAdapter oldReferenceObject = referenceObject;
+		referenceObject = newReferenceObject;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.IO_ADAPTER__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -232,6 +282,9 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 				return getAdapterType();
 			case MappingPackage.IO_ADAPTER__PROTECTION_LEVEL:
 				return getProtectionLevel();
+			case MappingPackage.IO_ADAPTER__REFERENCE_OBJECT:
+				if (resolve) return getReferenceObject();
+				return basicGetReferenceObject();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -255,6 +308,9 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 				return;
 			case MappingPackage.IO_ADAPTER__PROTECTION_LEVEL:
 				setProtectionLevel((IOAdapterProtectionLevelType)newValue);
+				return;
+			case MappingPackage.IO_ADAPTER__REFERENCE_OBJECT:
+				setReferenceObject((ch.hilbri.assist.model.IOAdapter)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -280,6 +336,9 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 			case MappingPackage.IO_ADAPTER__PROTECTION_LEVEL:
 				setProtectionLevel(PROTECTION_LEVEL_EDEFAULT);
 				return;
+			case MappingPackage.IO_ADAPTER__REFERENCE_OBJECT:
+				setReferenceObject((ch.hilbri.assist.model.IOAdapter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -300,6 +359,8 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 				return adapterType != ADAPTER_TYPE_EDEFAULT;
 			case MappingPackage.IO_ADAPTER__PROTECTION_LEVEL:
 				return protectionLevel != PROTECTION_LEVEL_EDEFAULT;
+			case MappingPackage.IO_ADAPTER__REFERENCE_OBJECT:
+				return referenceObject != null;
 		}
 		return super.eIsSet(featureID);
 	}
