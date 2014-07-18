@@ -5,6 +5,7 @@ package ch.hilbri.assist.model.impl;
 
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.Box;
+import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.DesignAssuranceLevelType;
 import ch.hilbri.assist.model.IOAdapter;
 import ch.hilbri.assist.model.MetricParameter;
@@ -19,6 +20,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -474,6 +476,21 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Core> getAllCores() {
+		final BasicEList<Core> list = new BasicEList<Core>();
+		EList<Processor> _processors = this.getProcessors();
+		for (final Processor p : _processors) {
+			EList<Core> _cores = p.getCores();
+			list.addAll(_cores);
+		}
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -700,6 +717,8 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 		switch (operationID) {
 			case ModelPackage.BOARD___TO_STRING:
 				return toString();
+			case ModelPackage.BOARD___GET_ALL_CORES:
+				return getAllCores();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

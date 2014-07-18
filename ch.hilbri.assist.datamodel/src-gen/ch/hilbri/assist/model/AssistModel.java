@@ -260,14 +260,10 @@ public interface AssistModel extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * *
-	 * Should be called before the mapping to make the model proper
-	 * <!-- end-model-doc -->
-	 * @model unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return true;'"
+	 * @model unique="false" levelUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.HardwareElement%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.model.HardwareElement%>>();\nreturn list;'"
 	 * @generated
 	 */
-	boolean postProcessingForMapping();
+	EList<HardwareElement> getAllHardwareElements(HardwareArchitectureLevelType level);
 
 } // AssistModel

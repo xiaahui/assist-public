@@ -28,3 +28,7 @@
 /ProcessorAttributes.java
 /ProximityRelation.java
 /Thread.java
+/AssistModel.java
+/HardwareElement.java
+/ModelFactory.java
+/ModelPackage.java

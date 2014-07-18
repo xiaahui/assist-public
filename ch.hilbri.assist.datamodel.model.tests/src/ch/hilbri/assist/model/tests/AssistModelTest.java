@@ -26,7 +26,7 @@ import junit.textui.TestRunner;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link ch.hilbri.assist.model.AssistModel#postProcessingForMapping() <em>Post Processing For Mapping</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements(ch.hilbri.assist.model.HardwareArchitectureLevelType) <em>Get All Hardware Elements</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -155,13 +155,13 @@ public class AssistModelTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link ch.hilbri.assist.model.AssistModel#postProcessingForMapping() <em>Post Processing For Mapping</em>}' operation.
+	 * Tests the '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements(ch.hilbri.assist.model.HardwareArchitectureLevelType) <em>Get All Hardware Elements</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.model.AssistModel#postProcessingForMapping()
+	 * @see ch.hilbri.assist.model.AssistModel#getAllHardwareElements(ch.hilbri.assist.model.HardwareArchitectureLevelType)
 	 * @generated
 	 */
-	public void testPostProcessingForMapping() {
+	public void testGetAllHardwareElements__HardwareArchitectureLevelType() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

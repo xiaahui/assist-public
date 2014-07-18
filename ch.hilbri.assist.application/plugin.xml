@@ -29,6 +29,11 @@
           beforefragment="true"
           class="ch.hilbri.assist.application.processors.MainMenuProcessor">
     </processor>
+    <processor
+          apply="always"
+          beforefragment="true"
+          class="ch.hilbri.assist.application.processors.KeybindingProcessor">
+    </processor>
     <fragment
           apply="always"
           uri="fragments/file_menu_content.e4xmi">

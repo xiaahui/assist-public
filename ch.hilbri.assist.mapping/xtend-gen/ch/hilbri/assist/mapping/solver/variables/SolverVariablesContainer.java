@@ -37,7 +37,7 @@ public class SolverVariablesContainer {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((_solutionVariablesList== null) ? 0 : _solutionVariablesList.hashCode());
+    result = prime * result + ((this._solutionVariablesList== null) ? 0 : this._solutionVariablesList.hashCode());
     return result;
   }
   
@@ -50,10 +50,10 @@ public class SolverVariablesContainer {
     if (getClass() != obj.getClass())
       return false;
     SolverVariablesContainer other = (SolverVariablesContainer) obj;
-    if (_solutionVariablesList == null) {
+    if (this._solutionVariablesList == null) {
       if (other._solutionVariablesList != null)
         return false;
-    } else if (!_solutionVariablesList.equals(other._solutionVariablesList))
+    } else if (!this._solutionVariablesList.equals(other._solutionVariablesList))
       return false;
     return true;
   }

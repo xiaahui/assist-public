@@ -6,14 +6,19 @@ package ch.hilbri.assist.model.impl;
 import ch.hilbri.assist.model.Board;
 import ch.hilbri.assist.model.Box;
 import ch.hilbri.assist.model.Compartment;
+import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.MetricParameter;
 import ch.hilbri.assist.model.ModelPackage;
+import ch.hilbri.assist.model.Processor;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -203,6 +208,36 @@ public class BoxImpl extends HardwareElementContainerImpl implements Box {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Processor> getAllProcessors() {
+		final BasicEList<Processor> list = new BasicEList<Processor>();
+		EList<Board> _boards = this.getBoards();
+		for (final Board b : _boards) {
+			EList<Processor> _processors = b.getProcessors();
+			list.addAll(_processors);
+		}
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Core> getAllCores() {
+		final BasicEList<Core> list = new BasicEList<Core>();
+		EList<Board> _boards = this.getBoards();
+		for (final Board b : _boards) {
+			EList<Core> _allCores = b.getAllCores();
+			list.addAll(_allCores);
+		}
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -339,6 +374,22 @@ public class BoxImpl extends HardwareElementContainerImpl implements Box {
 				return metricParameters != null && !metricParameters.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ModelPackage.BOX___GET_ALL_PROCESSORS:
+				return getAllProcessors();
+			case ModelPackage.BOX___GET_ALL_CORES:
+				return getAllCores();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

@@ -14,6 +14,7 @@ import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.DislocalityRelation;
 import ch.hilbri.assist.model.DissimilarityRelation;
 import ch.hilbri.assist.model.HardwareArchitectureLevelType;
+import ch.hilbri.assist.model.HardwareElement;
 import ch.hilbri.assist.model.HardwareElementContainer;
 import ch.hilbri.assist.model.ModelPackage;
 import ch.hilbri.assist.model.Network;
@@ -448,8 +449,9 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean postProcessingForMapping() {
-		return true;
+	public EList<HardwareElement> getAllHardwareElements(final HardwareArchitectureLevelType level) {
+		final BasicEList<HardwareElement> list = new BasicEList<HardwareElement>();
+		return list;
 	}
 
 	/**
@@ -651,8 +653,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ModelPackage.ASSIST_MODEL___POST_PROCESSING_FOR_MAPPING:
-				return postProcessingForMapping();
+			case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE:
+				return getAllHardwareElements((HardwareArchitectureLevelType)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -20,3 +20,7 @@
 /ProcessorImpl.java
 /ProximityRelationImpl.java
 /ThreadImpl.java
+/AssistModelImpl.java
+/HardwareElementImpl.java
+/ModelFactoryImpl.java
+/ModelPackageImpl.java
