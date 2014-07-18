@@ -35,11 +35,15 @@
     </fragment>
     <fragment
           apply="always"
+          uri="fragments/help_menu_content.e4xmi">
+    </fragment>
+    <fragment
+          apply="always"
           uri="fragments/edit_menu_content.e4xmi">
     </fragment>
     <fragment
           apply="always"
-          uri="fragments/help_menu_content.e4xmi">
+          uri="fragments/toolbar_file.e4xmi">
     </fragment>
    	</extension>
    

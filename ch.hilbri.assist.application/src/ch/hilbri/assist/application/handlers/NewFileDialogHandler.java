@@ -17,7 +17,7 @@ import ch.hilbri.assist.application.helpers.PathProvider;
  * @author Mirko Liebender
  *
  */
-public class NewTextFileDialogHandler {
+public class NewFileDialogHandler {
 
 	@Execute
 	public void execute(EHandlerService hService, ECommandService cService) {

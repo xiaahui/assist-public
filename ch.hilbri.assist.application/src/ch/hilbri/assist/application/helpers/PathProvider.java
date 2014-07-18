@@ -60,7 +60,7 @@ public final class PathProvider {
 
 	
 //------------------------------------------------------------------------------------------
-//PrecisionPro Paths
+//Assist Paths
 	
 	//Application Paths
 	public static final String APP_CHEAT_SHEET_ID = "ch.hilbri.assist.application.cheatsheet42421446"; //$NON-NLS-1$

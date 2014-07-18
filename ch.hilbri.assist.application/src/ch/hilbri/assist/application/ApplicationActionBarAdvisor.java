@@ -1,6 +1,15 @@
 package ch.hilbri.assist.application;
 
+import org.eclipse.jface.action.GroupMarker;
+import org.eclipse.jface.action.ICoolBarManager;
 import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.action.ToolBarContributionItem;
+import org.eclipse.jface.action.ToolBarManager;
+import org.eclipse.swt.SWT;
+import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.actions.ActionFactory.IWorkbenchAction;
@@ -9,8 +18,13 @@ import org.eclipse.ui.application.IActionBarConfigurer;
 
 public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
-//	MenuManager newMenuMgr;
-//	IWorkbenchAction newActionItem;
+	private IWorkbenchAction exitAction;
+	private IWorkbenchAction copyAction;
+	private IWorkbenchAction pasteAction;
+	private IWorkbenchAction cutAction;
+	private IWorkbenchAction deleteAction;
+//	private IWorkbenchAction aboutAction;
+//	private IWorkbenchAction newWindowAction;
 	
     public ApplicationActionBarAdvisor(IActionBarConfigurer configurer) {
         super(configurer);
@@ -19,35 +33,39 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
     protected void makeActions(IWorkbenchWindow window) {
     	
     	//The following actions do not work in windows like the project explorer, if they are not explicitly created here
-    	IWorkbenchAction exitAction = ActionFactory.QUIT.create(window);
+    	exitAction = ActionFactory.QUIT.create(window);
     	exitAction.setEnabled(true); //set to true or else it will not be enabled
     	register(exitAction); //registers the Action
     	
-    	IWorkbenchAction copyAction = ActionFactory.COPY.create(window);
+    	copyAction = ActionFactory.COPY.create(window);
     	copyAction.setEnabled(true); 
     	register(copyAction);
     	
-    	IWorkbenchAction cutAction = ActionFactory.CUT.create(window);
+    	cutAction = ActionFactory.CUT.create(window);
     	cutAction.setEnabled(true);
     	register(cutAction);
     	
-    	IWorkbenchAction  pasteAction = ActionFactory.PASTE.create(window);
+    	pasteAction = ActionFactory.PASTE.create(window);
     	pasteAction.setEnabled(true);
     	register(pasteAction);
     	
-    	IWorkbenchAction deleteAction = ActionFactory.DELETE.create(window);
+    	deleteAction = ActionFactory.DELETE.create(window);
     	deleteAction.setEnabled(true);
     	register(deleteAction);
     	
-//    	newMenuMgr = new MenuManager("&New!", "new");
-//        newActionItem = ActionFactory.NEW.create(window);
+//        aboutAction = ActionFactory.ABOUT.create(window);
+//        register(aboutAction);
+//        
+//        newWindowAction = ActionFactory.OPEN_NEW_WINDOW.create(window);
+//        register(newWindowAction);
     }
 
     protected void fillMenuBar(IMenuManager menuBar) {
-//		MenuManager fileMenu = new MenuManager("&Test", "test");
-//		menuBar.add(fileMenu);
-//		newMenuMgr.add(newActionItem);
-//		fileMenu.add(newMenuMgr);
+    }
+    
+    protected void fillCoolBar(ICoolBarManager coolBar) {
+        IToolBarManager toolbar = new ToolBarManager(SWT.FLAT | SWT.RIGHT);
+        coolBar.add(new ToolBarContributionItem(toolbar, "main"));   
     }
     
 }
