@@ -40,7 +40,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.eclipse.xtext.xbase.lib.CollectionExtensions;
+import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
+
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
 /**
  * <!-- begin-user-doc -->
@@ -439,58 +441,21 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Core> getAllCores() {
-		final BasicEList<Core> list = new BasicEList<Core>();
+	public EList<Compartment> getAllCompartments() {
 		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
 		boolean _equals = Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.COMPARTMENT);
 		if (_equals) {
 			EList<HardwareElement> _rootHardwareElements = this.getRootHardwareElements();
-			for (final Compartment c : ((Compartment[]) ((Compartment[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(_rootHardwareElements, Compartment.class)))) {
-				EList<Box> _boxes = c.getBoxes();
-				for (final Box b : _boxes) {
-					EList<Board> _boards = b.getBoards();
-					for (final Board board : _boards) {
-						EList<Processor> _processors = board.getProcessors();
-						for (final Processor p : _processors) {
-							EList<Core> _cores = p.getCores();
-							list.addAll(_cores);
-						}
-					}
+			final Function1<HardwareElement, Compartment> _function = new Function1<HardwareElement, Compartment>() {
+				public Compartment apply(final HardwareElement elem) {
+					return ((Compartment) elem);
 				}
-			}
+			};
+			return XcoreEListExtensions.<HardwareElement, Compartment>map(_rootHardwareElements, _function);
 		}
 		else {
-			HardwareArchitectureLevelType _topHardwareLevel_1 = this.getTopHardwareLevel();
-			boolean _equals_1 = Objects.equal(_topHardwareLevel_1, HardwareArchitectureLevelType.BOX);
-			if (_equals_1) {
-				EList<HardwareElement> _rootHardwareElements_1 = this.getRootHardwareElements();
-				for (final Box b_1 : ((Box[]) ((Box[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(_rootHardwareElements_1, Box.class)))) {
-					EList<Board> _boards_1 = b_1.getBoards();
-					for (final Board board_1 : _boards_1) {
-						EList<Processor> _processors_1 = board_1.getProcessors();
-						for (final Processor p_1 : _processors_1) {
-							EList<Core> _cores_1 = p_1.getCores();
-							list.addAll(_cores_1);
-						}
-					}
-				}
-			}
-			else {
-				HardwareArchitectureLevelType _topHardwareLevel_2 = this.getTopHardwareLevel();
-				boolean _equals_2 = Objects.equal(_topHardwareLevel_2, HardwareArchitectureLevelType.BOARD);
-				if (_equals_2) {
-					EList<HardwareElement> _rootHardwareElements_2 = this.getRootHardwareElements();
-					for (final Board b_2 : ((Board[]) ((Board[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(_rootHardwareElements_2, Board.class)))) {
-						EList<Processor> _processors_2 = b_2.getProcessors();
-						for (final Processor p_2 : _processors_2) {
-							EList<Core> _cores_2 = p_2.getCores();
-							list.addAll(_cores_2);
-						}
-					}
-				}
-			}
+			return new BasicEList<Compartment>();
 		}
-		return list;
 	}
 
 	/**
@@ -498,47 +463,33 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Processor> getAllProcessors() {
-		final BasicEList<Processor> list = new BasicEList<Processor>();
+	public EList<Box> getAllBoxes() {
+		final BasicEList<Box> list = new BasicEList<Box>();
 		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
-		boolean _equals = Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.COMPARTMENT);
-		if (_equals) {
-			EList<HardwareElement> _rootHardwareElements = this.getRootHardwareElements();
-			for (final Compartment c : ((Compartment[]) ((Compartment[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(_rootHardwareElements, Compartment.class)))) {
-				EList<Box> _boxes = c.getBoxes();
-				for (final Box b : _boxes) {
-					EList<Board> _boards = b.getBoards();
-					for (final Board board : _boards) {
-						EList<Processor> _processors = board.getProcessors();
-						list.addAll(_processors);
+		if (_topHardwareLevel != null) {
+			switch (_topHardwareLevel) {
+				case COMPARTMENT:
+					EList<HardwareElement> _rootHardwareElements = this.getRootHardwareElements();
+					for (final HardwareElement c : _rootHardwareElements) {
+						EList<Box> _boxes = ((Compartment) c).getBoxes();
+						list.addAll(_boxes);
 					}
-				}
+					break;
+				case BOX:
+					EList<HardwareElement> _rootHardwareElements_1 = this.getRootHardwareElements();
+					final Function1<HardwareElement, Box> _function = new Function1<HardwareElement, Box>() {
+						public Box apply(final HardwareElement elem) {
+							return ((Box) elem);
+						}
+					};
+					EList<Box> _map = XcoreEListExtensions.<HardwareElement, Box>map(_rootHardwareElements_1, _function);
+					list.addAll(_map);
+					break;
+				default:
+					break;
 			}
 		}
 		else {
-			HardwareArchitectureLevelType _topHardwareLevel_1 = this.getTopHardwareLevel();
-			boolean _equals_1 = Objects.equal(_topHardwareLevel_1, HardwareArchitectureLevelType.BOX);
-			if (_equals_1) {
-				EList<HardwareElement> _rootHardwareElements_1 = this.getRootHardwareElements();
-				for (final Box b_1 : ((Box[]) ((Box[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(_rootHardwareElements_1, Box.class)))) {
-					EList<Board> _boards_1 = b_1.getBoards();
-					for (final Board board_1 : _boards_1) {
-						EList<Processor> _processors_1 = board_1.getProcessors();
-						list.addAll(_processors_1);
-					}
-				}
-			}
-			else {
-				HardwareArchitectureLevelType _topHardwareLevel_2 = this.getTopHardwareLevel();
-				boolean _equals_2 = Objects.equal(_topHardwareLevel_2, HardwareArchitectureLevelType.BOARD);
-				if (_equals_2) {
-					EList<HardwareElement> _rootHardwareElements_2 = this.getRootHardwareElements();
-					for (final Board b_2 : ((Board[]) ((Board[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(_rootHardwareElements_2, Board.class)))) {
-						EList<Processor> _processors_2 = b_2.getProcessors();
-						list.addAll(_processors_2);
-					}
-				}
-			}
 		}
 		return list;
 	}
@@ -551,37 +502,37 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	public EList<Board> getAllBoards() {
 		final BasicEList<Board> list = new BasicEList<Board>();
 		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
-		boolean _equals = Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.COMPARTMENT);
-		if (_equals) {
-			EList<HardwareElement> _rootHardwareElements = this.getRootHardwareElements();
-			for (final Compartment c : ((Compartment[]) ((Compartment[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(_rootHardwareElements, Compartment.class)))) {
-				EList<Box> _boxes = c.getBoxes();
-				for (final Box b : _boxes) {
-					EList<Board> _boards = b.getBoards();
-					list.addAll(_boards);
-				}
+		if (_topHardwareLevel != null) {
+			switch (_topHardwareLevel) {
+				case COMPARTMENT:
+					EList<HardwareElement> _rootHardwareElements = this.getRootHardwareElements();
+					for (final HardwareElement c : _rootHardwareElements) {
+						EList<Board> _allBoards = ((Compartment) c).getAllBoards();
+						list.addAll(_allBoards);
+					}
+					break;
+				case BOX:
+					EList<HardwareElement> _rootHardwareElements_1 = this.getRootHardwareElements();
+					for (final HardwareElement b : _rootHardwareElements_1) {
+						EList<Board> _boards = ((Box) b).getBoards();
+						list.addAll(_boards);
+					}
+					break;
+				case BOARD:
+					EList<HardwareElement> _rootHardwareElements_2 = this.getRootHardwareElements();
+					final Function1<HardwareElement, Board> _function = new Function1<HardwareElement, Board>() {
+						public Board apply(final HardwareElement elem) {
+							return ((Board) elem);
+						}
+					};
+					EList<Board> _map = XcoreEListExtensions.<HardwareElement, Board>map(_rootHardwareElements_2, _function);
+					list.addAll(_map);
+					break;
+				default:
+					break;
 			}
 		}
 		else {
-			HardwareArchitectureLevelType _topHardwareLevel_1 = this.getTopHardwareLevel();
-			boolean _equals_1 = Objects.equal(_topHardwareLevel_1, HardwareArchitectureLevelType.BOX);
-			if (_equals_1) {
-				EList<HardwareElement> _rootHardwareElements_1 = this.getRootHardwareElements();
-				for (final Box b_1 : ((Box[]) ((Box[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(_rootHardwareElements_1, Box.class)))) {
-					EList<Board> _boards_1 = b_1.getBoards();
-					list.addAll(_boards_1);
-				}
-			}
-			else {
-				HardwareArchitectureLevelType _topHardwareLevel_2 = this.getTopHardwareLevel();
-				boolean _equals_2 = Objects.equal(_topHardwareLevel_2, HardwareArchitectureLevelType.BOARD);
-				if (_equals_2) {
-					EList<HardwareElement> _rootHardwareElements_2 = this.getRootHardwareElements();
-					for (final Board b_2 : ((Board[]) ((Board[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(_rootHardwareElements_2, Board.class)))) {
-						list.add(b_2);
-					}
-				}
-			}
 		}
 		return list;
 	}
@@ -591,24 +542,77 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Box> getAllBoxes() {
-		final BasicEList<Box> list = new BasicEList<Box>();
+	public EList<Processor> getAllProcessors() {
+		final BasicEList<Processor> list = new BasicEList<Processor>();
 		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
-		boolean _equals = Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.BOX);
-		if (_equals) {
-			EList<HardwareElement> _rootHardwareElements = this.getRootHardwareElements();
-			CollectionExtensions.<Box>addAll(list, ((Box[]) ((Box[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(_rootHardwareElements, Box.class))));
+		if (_topHardwareLevel != null) {
+			switch (_topHardwareLevel) {
+				case COMPARTMENT:
+					EList<HardwareElement> _rootHardwareElements = this.getRootHardwareElements();
+					for (final HardwareElement c : _rootHardwareElements) {
+						EList<Processor> _allProcessors = ((Compartment) c).getAllProcessors();
+						list.addAll(_allProcessors);
+					}
+					break;
+				case BOX:
+					EList<HardwareElement> _rootHardwareElements_1 = this.getRootHardwareElements();
+					for (final HardwareElement b : _rootHardwareElements_1) {
+						EList<Processor> _allProcessors_1 = ((Box) b).getAllProcessors();
+						list.addAll(_allProcessors_1);
+					}
+					break;
+				case BOARD:
+					EList<HardwareElement> _rootHardwareElements_2 = this.getRootHardwareElements();
+					for (final HardwareElement b_1 : _rootHardwareElements_2) {
+						EList<Processor> _processors = ((Board) b_1).getProcessors();
+						list.addAll(_processors);
+					}
+					break;
+				default:
+					break;
+			}
 		}
 		else {
-			HardwareArchitectureLevelType _topHardwareLevel_1 = this.getTopHardwareLevel();
-			boolean _equals_1 = Objects.equal(_topHardwareLevel_1, HardwareArchitectureLevelType.COMPARTMENT);
-			if (_equals_1) {
-				EList<HardwareElement> _rootHardwareElements_1 = this.getRootHardwareElements();
-				for (final HardwareElement c : _rootHardwareElements_1) {
-					EList<Box> _boxes = ((Compartment) c).getBoxes();
-					list.addAll(_boxes);
-				}
+		}
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Core> getAllCores() {
+		final BasicEList<Core> list = new BasicEList<Core>();
+		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
+		if (_topHardwareLevel != null) {
+			switch (_topHardwareLevel) {
+				case COMPARTMENT:
+					EList<HardwareElement> _rootHardwareElements = this.getRootHardwareElements();
+					for (final HardwareElement c : _rootHardwareElements) {
+						EList<Core> _allCores = ((Compartment) c).getAllCores();
+						list.addAll(_allCores);
+					}
+					break;
+				case BOX:
+					EList<HardwareElement> _rootHardwareElements_1 = this.getRootHardwareElements();
+					for (final HardwareElement b : _rootHardwareElements_1) {
+						EList<Core> _allCores_1 = ((Box) b).getAllCores();
+						list.addAll(_allCores_1);
+					}
+					break;
+				case BOARD:
+					EList<HardwareElement> _rootHardwareElements_2 = this.getRootHardwareElements();
+					for (final HardwareElement b_1 : _rootHardwareElements_2) {
+						EList<Core> _allCores_2 = ((Board) b_1).getAllCores();
+						list.addAll(_allCores_2);
+					}
+					break;
+				default:
+					break;
 			}
+		}
+		else {
 		}
 		return list;
 	}
@@ -904,14 +908,16 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		switch (operationID) {
 			case MappingPackage.RESULT___COMPARE_TO__RESULT:
 				return compareTo((Result)arguments.get(0));
-			case MappingPackage.RESULT___GET_ALL_CORES:
-				return getAllCores();
-			case MappingPackage.RESULT___GET_ALL_PROCESSORS:
-				return getAllProcessors();
-			case MappingPackage.RESULT___GET_ALL_BOARDS:
-				return getAllBoards();
+			case MappingPackage.RESULT___GET_ALL_COMPARTMENTS:
+				return getAllCompartments();
 			case MappingPackage.RESULT___GET_ALL_BOXES:
 				return getAllBoxes();
+			case MappingPackage.RESULT___GET_ALL_BOARDS:
+				return getAllBoards();
+			case MappingPackage.RESULT___GET_ALL_PROCESSORS:
+				return getAllProcessors();
+			case MappingPackage.RESULT___GET_ALL_CORES:
+				return getAllCores();
 			case MappingPackage.RESULT___GET_ALL_THREADS:
 				return getAllThreads();
 			case MappingPackage.RESULT___FIND_RESULT_HARDWARE_ELEMENT__HARDWAREELEMENT:

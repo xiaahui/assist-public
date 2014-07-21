@@ -356,7 +356,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__GetAllCores() {
+	public EOperation getResult__GetAllCompartments() {
 		return resultEClass.getEOperations().get(1);
 	}
 
@@ -365,7 +365,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__GetAllProcessors() {
+	public EOperation getResult__GetAllBoxes() {
 		return resultEClass.getEOperations().get(2);
 	}
 
@@ -383,7 +383,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__GetAllBoxes() {
+	public EOperation getResult__GetAllProcessors() {
 		return resultEClass.getEOperations().get(4);
 	}
 
@@ -392,7 +392,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__GetAllThreads() {
+	public EOperation getResult__GetAllCores() {
 		return resultEClass.getEOperations().get(5);
 	}
 
@@ -401,7 +401,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__FindResultHardwareElement__HardwareElement() {
+	public EOperation getResult__GetAllThreads() {
 		return resultEClass.getEOperations().get(6);
 	}
 
@@ -410,7 +410,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__FindResultApplication__Application() {
+	public EOperation getResult__FindResultHardwareElement__HardwareElement() {
 		return resultEClass.getEOperations().get(7);
 	}
 
@@ -419,7 +419,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__FindResultThread__Thread() {
+	public EOperation getResult__FindResultApplication__Application() {
 		return resultEClass.getEOperations().get(8);
 	}
 
@@ -428,8 +428,17 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__FindResultApplicationGroup__ApplicationGroup() {
+	public EOperation getResult__FindResultThread__Thread() {
 		return resultEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getResult__FindResultApplicationGroup__ApplicationGroup() {
+		return resultEClass.getEOperations().get(10);
 	}
 
 	/**
@@ -527,8 +536,35 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCompartment__GetHardwareLevel() {
+	public EOperation getCompartment__GetAllBoards() {
 		return compartmentEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCompartment__GetAllProcessors() {
+		return compartmentEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCompartment__GetAllCores() {
+		return compartmentEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCompartment__GetHardwareLevel() {
+		return compartmentEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -572,8 +608,26 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBox__GetHardwareLevel() {
+	public EOperation getBox__GetAllProcessors() {
 		return boxEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBox__GetAllCores() {
+		return boxEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBox__GetHardwareLevel() {
+		return boxEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -716,8 +770,17 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBoard__GetHardwareLevel() {
+	public EOperation getBoard__GetAllCores() {
 		return boardEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBoard__GetHardwareLevel() {
+		return boardEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -1437,10 +1500,11 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEReference(resultEClass, RESULT__COMMUNICATIONS);
 		createEReference(resultEClass, RESULT__EVALUATION);
 		createEOperation(resultEClass, RESULT___COMPARE_TO__RESULT);
-		createEOperation(resultEClass, RESULT___GET_ALL_CORES);
-		createEOperation(resultEClass, RESULT___GET_ALL_PROCESSORS);
-		createEOperation(resultEClass, RESULT___GET_ALL_BOARDS);
+		createEOperation(resultEClass, RESULT___GET_ALL_COMPARTMENTS);
 		createEOperation(resultEClass, RESULT___GET_ALL_BOXES);
+		createEOperation(resultEClass, RESULT___GET_ALL_BOARDS);
+		createEOperation(resultEClass, RESULT___GET_ALL_PROCESSORS);
+		createEOperation(resultEClass, RESULT___GET_ALL_CORES);
 		createEOperation(resultEClass, RESULT___GET_ALL_THREADS);
 		createEOperation(resultEClass, RESULT___FIND_RESULT_HARDWARE_ELEMENT__HARDWAREELEMENT);
 		createEOperation(resultEClass, RESULT___FIND_RESULT_APPLICATION__APPLICATION);
@@ -1458,12 +1522,17 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEAttribute(compartmentEClass, COMPARTMENT__SIDE);
 		createEAttribute(compartmentEClass, COMPARTMENT__ZONE);
 		createEReference(compartmentEClass, COMPARTMENT__BOXES);
+		createEOperation(compartmentEClass, COMPARTMENT___GET_ALL_BOARDS);
+		createEOperation(compartmentEClass, COMPARTMENT___GET_ALL_PROCESSORS);
+		createEOperation(compartmentEClass, COMPARTMENT___GET_ALL_CORES);
 		createEOperation(compartmentEClass, COMPARTMENT___GET_HARDWARE_LEVEL);
 
 		boxEClass = createEClass(BOX);
 		createEAttribute(boxEClass, BOX__MANUFACTURER);
 		createEReference(boxEClass, BOX__COMPARTMENT);
 		createEReference(boxEClass, BOX__BOARDS);
+		createEOperation(boxEClass, BOX___GET_ALL_PROCESSORS);
+		createEOperation(boxEClass, BOX___GET_ALL_CORES);
 		createEOperation(boxEClass, BOX___GET_HARDWARE_LEVEL);
 
 		boardEClass = createEClass(BOARD);
@@ -1481,6 +1550,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEReference(boardEClass, BOARD__NETWORKS);
 		createEAttribute(boardEClass, BOARD__NOT_USED);
 		createEOperation(boardEClass, BOARD___GET_ALL_APPLICATIONS);
+		createEOperation(boardEClass, BOARD___GET_ALL_CORES);
 		createEOperation(boardEClass, BOARD___GET_HARDWARE_LEVEL);
 
 		processorEClass = createEClass(PROCESSOR);
@@ -1629,13 +1699,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		EOperation op = initEOperation(getResult__CompareTo__Result(), theEcorePackage.getEInt(), "compareTo", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getResult(), "o", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getResult__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getResult__GetAllCompartments(), this.getCompartment(), "getAllCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getResult__GetAllProcessors(), this.getProcessor(), "getAllProcessors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getResult__GetAllBoxes(), this.getBox(), "getAllBoxes", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getResult__GetAllBoards(), this.getBoard(), "getAllBoards", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getResult__GetAllBoxes(), this.getBox(), "getAllBoxes", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getResult__GetAllProcessors(), this.getProcessor(), "getAllProcessors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getResult__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getResult__GetAllThreads(), this.getThread(), "getAllThreads", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
@@ -1664,12 +1736,22 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEAttribute(getCompartment_Zone(), theEcorePackage.getEString(), "zone", null, 0, 1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCompartment_Boxes(), this.getBox(), this.getBox_Compartment(), "boxes", null, 1, -1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getCompartment__GetAllBoards(), this.getBoard(), "getAllBoards", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getCompartment__GetAllProcessors(), this.getProcessor(), "getAllProcessors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getCompartment__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getCompartment__GetHardwareLevel(), theModelPackage.getHardwareArchitectureLevelType(), "getHardwareLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(boxEClass, Box.class, "Box", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBox_Manufacturer(), theEcorePackage.getEString(), "manufacturer", null, 0, 1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBox_Compartment(), this.getCompartment(), this.getCompartment_Boxes(), "compartment", null, 0, 1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBox_Boards(), this.getBoard(), this.getBoard_Box(), "boards", null, 1, -1, Box.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getBox__GetAllProcessors(), this.getProcessor(), "getAllProcessors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getBox__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getBox__GetHardwareLevel(), theModelPackage.getHardwareArchitectureLevelType(), "getHardwareLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
@@ -1689,6 +1771,8 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEAttribute(getBoard_NotUsed(), theEcorePackage.getEBoolean(), "notUsed", null, 0, 1, Board.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getBoard__GetAllApplications(), this.getApplication(), "getAllApplications", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getBoard__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getBoard__GetHardwareLevel(), theModelPackage.getHardwareArchitectureLevelType(), "getHardwareLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
 

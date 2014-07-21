@@ -207,22 +207,22 @@ public interface MappingPackage extends EPackage {
 	int RESULT___COMPARE_TO__RESULT = COMPARABLE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get All Cores</em>' operation.
+	 * The operation id for the '<em>Get All Compartments</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___GET_ALL_CORES = COMPARABLE_OPERATION_COUNT + 1;
+	int RESULT___GET_ALL_COMPARTMENTS = COMPARABLE_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get All Processors</em>' operation.
+	 * The operation id for the '<em>Get All Boxes</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___GET_ALL_PROCESSORS = COMPARABLE_OPERATION_COUNT + 2;
+	int RESULT___GET_ALL_BOXES = COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get All Boards</em>' operation.
@@ -234,13 +234,22 @@ public interface MappingPackage extends EPackage {
 	int RESULT___GET_ALL_BOARDS = COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get All Boxes</em>' operation.
+	 * The operation id for the '<em>Get All Processors</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___GET_ALL_BOXES = COMPARABLE_OPERATION_COUNT + 4;
+	int RESULT___GET_ALL_PROCESSORS = COMPARABLE_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get All Cores</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_ALL_CORES = COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get All Threads</em>' operation.
@@ -249,7 +258,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___GET_ALL_THREADS = COMPARABLE_OPERATION_COUNT + 5;
+	int RESULT___GET_ALL_THREADS = COMPARABLE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Find Result Hardware Element</em>' operation.
@@ -258,7 +267,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___FIND_RESULT_HARDWARE_ELEMENT__HARDWAREELEMENT = COMPARABLE_OPERATION_COUNT + 6;
+	int RESULT___FIND_RESULT_HARDWARE_ELEMENT__HARDWAREELEMENT = COMPARABLE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Find Result Application</em>' operation.
@@ -267,7 +276,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___FIND_RESULT_APPLICATION__APPLICATION = COMPARABLE_OPERATION_COUNT + 7;
+	int RESULT___FIND_RESULT_APPLICATION__APPLICATION = COMPARABLE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Find Result Thread</em>' operation.
@@ -276,7 +285,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___FIND_RESULT_THREAD__THREAD = COMPARABLE_OPERATION_COUNT + 8;
+	int RESULT___FIND_RESULT_THREAD__THREAD = COMPARABLE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Find Result Application Group</em>' operation.
@@ -285,7 +294,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___FIND_RESULT_APPLICATION_GROUP__APPLICATIONGROUP = COMPARABLE_OPERATION_COUNT + 9;
+	int RESULT___FIND_RESULT_APPLICATION_GROUP__APPLICATIONGROUP = COMPARABLE_OPERATION_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Result</em>' class.
@@ -294,7 +303,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 10;
+	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -434,13 +443,40 @@ public interface MappingPackage extends EPackage {
 	int COMPARTMENT_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Get All Boards</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARTMENT___GET_ALL_BOARDS = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get All Processors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARTMENT___GET_ALL_PROCESSORS = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get All Cores</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARTMENT___GET_ALL_CORES = HARDWARE_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The operation id for the '<em>Get Hardware Level</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARTMENT___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+	int COMPARTMENT___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Compartment</em>' class.
@@ -449,7 +485,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARTMENT_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
+	int COMPARTMENT_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.BoxImpl <em>Box</em>}' class.
@@ -516,13 +552,31 @@ public interface MappingPackage extends EPackage {
 	int BOX_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get All Processors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX___GET_ALL_PROCESSORS = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get All Cores</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX___GET_ALL_CORES = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Get Hardware Level</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOX___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+	int BOX___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Box</em>' class.
@@ -531,7 +585,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOX_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
+	int BOX_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.BoardImpl <em>Board</em>}' class.
@@ -697,13 +751,22 @@ public interface MappingPackage extends EPackage {
 	int BOARD___GET_ALL_APPLICATIONS = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get All Cores</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD___GET_ALL_CORES = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Get Hardware Level</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
+	int BOARD___GET_HARDWARE_LEVEL = HARDWARE_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Board</em>' class.
@@ -712,7 +775,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 2;
+	int BOARD_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.result.mapping.impl.ProcessorImpl <em>Processor</em>}' class.
@@ -1778,24 +1841,24 @@ public interface MappingPackage extends EPackage {
 	EOperation getResult__CompareTo__Result();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllCores() <em>Get All Cores</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllCompartments() <em>Get All Compartments</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Cores</em>' operation.
-	 * @see ch.hilbri.assist.result.mapping.Result#getAllCores()
+	 * @return the meta object for the '<em>Get All Compartments</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#getAllCompartments()
 	 * @generated
 	 */
-	EOperation getResult__GetAllCores();
+	EOperation getResult__GetAllCompartments();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllProcessors() <em>Get All Processors</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllBoxes() <em>Get All Boxes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Processors</em>' operation.
-	 * @see ch.hilbri.assist.result.mapping.Result#getAllProcessors()
+	 * @return the meta object for the '<em>Get All Boxes</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#getAllBoxes()
 	 * @generated
 	 */
-	EOperation getResult__GetAllProcessors();
+	EOperation getResult__GetAllBoxes();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllBoards() <em>Get All Boards</em>}' operation.
@@ -1808,14 +1871,24 @@ public interface MappingPackage extends EPackage {
 	EOperation getResult__GetAllBoards();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllBoxes() <em>Get All Boxes</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllProcessors() <em>Get All Processors</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Boxes</em>' operation.
-	 * @see ch.hilbri.assist.result.mapping.Result#getAllBoxes()
+	 * @return the meta object for the '<em>Get All Processors</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#getAllProcessors()
 	 * @generated
 	 */
-	EOperation getResult__GetAllBoxes();
+	EOperation getResult__GetAllProcessors();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllCores() <em>Get All Cores</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Cores</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Result#getAllCores()
+	 * @generated
+	 */
+	EOperation getResult__GetAllCores();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Result#getAllThreads() <em>Get All Threads</em>}' operation.
@@ -1975,6 +2048,36 @@ public interface MappingPackage extends EPackage {
 	EReference getCompartment_Boxes();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Compartment#getAllBoards() <em>Get All Boards</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Boards</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Compartment#getAllBoards()
+	 * @generated
+	 */
+	EOperation getCompartment__GetAllBoards();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Compartment#getAllProcessors() <em>Get All Processors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Processors</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Compartment#getAllProcessors()
+	 * @generated
+	 */
+	EOperation getCompartment__GetAllProcessors();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Compartment#getAllCores() <em>Get All Cores</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Cores</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Compartment#getAllCores()
+	 * @generated
+	 */
+	EOperation getCompartment__GetAllCores();
+
+	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Compartment#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2026,6 +2129,26 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBox_Boards();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Box#getAllProcessors() <em>Get All Processors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Processors</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Box#getAllProcessors()
+	 * @generated
+	 */
+	EOperation getBox__GetAllProcessors();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Box#getAllCores() <em>Get All Cores</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Cores</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Box#getAllCores()
+	 * @generated
+	 */
+	EOperation getBox__GetAllCores();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Box#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
@@ -2199,6 +2322,16 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getBoard__GetAllApplications();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Board#getAllCores() <em>Get All Cores</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Cores</em>' operation.
+	 * @see ch.hilbri.assist.result.mapping.Board#getAllCores()
+	 * @generated
+	 */
+	EOperation getBoard__GetAllCores();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.result.mapping.Board#getHardwareLevel() <em>Get Hardware Level</em>}' operation.
@@ -3153,20 +3286,20 @@ public interface MappingPackage extends EPackage {
 		EOperation RESULT___COMPARE_TO__RESULT = eINSTANCE.getResult__CompareTo__Result();
 
 		/**
-		 * The meta object literal for the '<em><b>Get All Cores</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get All Compartments</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RESULT___GET_ALL_CORES = eINSTANCE.getResult__GetAllCores();
+		EOperation RESULT___GET_ALL_COMPARTMENTS = eINSTANCE.getResult__GetAllCompartments();
 
 		/**
-		 * The meta object literal for the '<em><b>Get All Processors</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get All Boxes</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RESULT___GET_ALL_PROCESSORS = eINSTANCE.getResult__GetAllProcessors();
+		EOperation RESULT___GET_ALL_BOXES = eINSTANCE.getResult__GetAllBoxes();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Boards</b></em>' operation.
@@ -3177,12 +3310,20 @@ public interface MappingPackage extends EPackage {
 		EOperation RESULT___GET_ALL_BOARDS = eINSTANCE.getResult__GetAllBoards();
 
 		/**
-		 * The meta object literal for the '<em><b>Get All Boxes</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get All Processors</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RESULT___GET_ALL_BOXES = eINSTANCE.getResult__GetAllBoxes();
+		EOperation RESULT___GET_ALL_PROCESSORS = eINSTANCE.getResult__GetAllProcessors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Cores</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_ALL_CORES = eINSTANCE.getResult__GetAllCores();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Threads</b></em>' operation.
@@ -3309,6 +3450,30 @@ public interface MappingPackage extends EPackage {
 		EReference COMPARTMENT__BOXES = eINSTANCE.getCompartment_Boxes();
 
 		/**
+		 * The meta object literal for the '<em><b>Get All Boards</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARTMENT___GET_ALL_BOARDS = eINSTANCE.getCompartment__GetAllBoards();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Processors</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARTMENT___GET_ALL_PROCESSORS = eINSTANCE.getCompartment__GetAllProcessors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Cores</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARTMENT___GET_ALL_CORES = eINSTANCE.getCompartment__GetAllCores();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3349,6 +3514,22 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOX__BOARDS = eINSTANCE.getBox_Boards();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Processors</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOX___GET_ALL_PROCESSORS = eINSTANCE.getBox__GetAllProcessors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Cores</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOX___GET_ALL_CORES = eINSTANCE.getBox__GetAllCores();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
@@ -3479,6 +3660,14 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation BOARD___GET_ALL_APPLICATIONS = eINSTANCE.getBoard__GetAllApplications();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Cores</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOARD___GET_ALL_CORES = eINSTANCE.getBoard__GetAllCores();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Hardware Level</b></em>' operation.
