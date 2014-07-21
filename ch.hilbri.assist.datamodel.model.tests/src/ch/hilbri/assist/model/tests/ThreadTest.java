@@ -17,6 +17,7 @@ import junit.textui.TestRunner;
  * The following features are tested:
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.Thread#getName() <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.Thread#getCoreUtilization() <em>Core Utilization</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -100,6 +101,19 @@ public class ThreadTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetName() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link ch.hilbri.assist.model.Thread#getCoreUtilization() <em>Core Utilization</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.model.Thread#getCoreUtilization()
+	 * @generated
+	 */
+	public void testGetCoreUtilization() {
 		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

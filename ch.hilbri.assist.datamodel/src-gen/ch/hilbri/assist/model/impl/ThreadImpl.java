@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.impl.ThreadImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.impl.ThreadImpl#getCoreUtilization <em>Core Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.impl.ThreadImpl#getApplication <em>Application</em>}</li>
  * </ul>
  * </p>
@@ -42,6 +43,16 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getCoreUtilization() <em>Core Utilization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCoreUtilization()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int CORE_UTILIZATION_EDEFAULT = 0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,6 +87,16 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 		int _indexOf = _threads.indexOf(this);
 		int _plus_1 = (_indexOf + 1);
 		return (_plus + Integer.valueOf(_plus_1));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getCoreUtilization() {
+		Application _application = this.getApplication();
+		return _application.getCoreUtilization();
 	}
 
 	/**
@@ -183,6 +204,8 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 		switch (featureID) {
 			case ModelPackage.THREAD__NAME:
 				return getName();
+			case ModelPackage.THREAD__CORE_UTILIZATION:
+				return getCoreUtilization();
 			case ModelPackage.THREAD__APPLICATION:
 				if (resolve) return getApplication();
 				return basicGetApplication();
@@ -230,6 +253,8 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 		switch (featureID) {
 			case ModelPackage.THREAD__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case ModelPackage.THREAD__CORE_UTILIZATION:
+				return getCoreUtilization() != CORE_UTILIZATION_EDEFAULT;
 			case ModelPackage.THREAD__APPLICATION:
 				return basicGetApplication() != null;
 		}

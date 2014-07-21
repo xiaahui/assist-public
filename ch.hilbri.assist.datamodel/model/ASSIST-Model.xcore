@@ -124,11 +124,11 @@ class AssistModel {
 
 
 enum HardwareArchitectureLevelType {
-	CORE 		as "Core"
-	PROCESSOR 	as "Processor"
-	BOARD		as "Board"
-	BOX			as "Box"
-	COMPARTMENT	as "Compartment"
+	CORE 		as "Core" 			= 1 
+	PROCESSOR 	as "Processor"		= 2
+	BOARD		as "Board"			= 3
+	BOX			as "Box"			= 4
+	COMPARTMENT	as "Compartment"	= 5
 }
 
 enum IOAdapterProtectionLevelType {
@@ -341,9 +341,9 @@ class Application extends ApplicationOrApplicationGroup {
 }
 
 class Thread {
-	derived String name get { application.name + '_' + (application.threads.indexOf(this)+1) }
+	derived String 	name get 			{ application.name + '_' + (application.threads.indexOf(this)+1) }
+	derived int	   	coreUtilization get { application.coreUtilization }
 	container Application application opposite threads
-		
 }
 
 class IOAdapterRequirement {	

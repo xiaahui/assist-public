@@ -18,6 +18,7 @@ import java.util.ArrayList
 import java.util.HashMap
 import org.eclipse.emf.ecore.EObject
 import org.jacop.core.Domain
+import org.jacop.core.IntDomain
 
 class ResultFactoryFromSolverSolutions {
 	
@@ -192,20 +193,22 @@ class ResultFactoryFromSolverSolutions {
 	
 	static def void addMappingFromSolution(Result result, AssistModel model, SolverVariablesContainer solverVariables, Domain[] solverSolution) {
 		for (thread : model.allThreads) {
+			
 			/* Which thread in the result corresponds to this model thread? */
 			val resultThread = result.findResultThread(thread)
 			
 			/* Which is the location variable which represents the placement of this model thread on the core level? */
-			val locVar = solverVariables.getThreadLocationVariable(thread, 1)
+			val locVarIndex = solverVariables.getIndexOfThreadLocationInSolutionVariablesList(thread, 1)
 			
-			/* Which core is this thread being placed to? */
-			val coreNr = locVar.value
-			
+			/* To which core number should the current thread be mapped to? */
+			val coreNr = (solverSolution.get(locVarIndex) as IntDomain).getElementAt(0)
+			val coreIndex = coreNr - 1
+			  
 			/* To which core does this correspond in the result model? */
-			val resultCore = result.findResultHardwareElement(model.allCores.get(coreNr-1)) as Core
+			val resultCore = result.findResultHardwareElement(model.allCores.get(coreIndex)) as Core
 			
 			if (resultCore == null) {
-				ConsoleCommands.writeErrorLineToConsole("Could not find the core " + model.allCores.get(coreNr-1) + " from the model in the result.");
+				ConsoleCommands.writeErrorLineToConsole("Could not find the core " + model.allCores.get(coreIndex) + " from the model in the result.");
 				return;
 			} else {
 				/* Place this thread to the core */

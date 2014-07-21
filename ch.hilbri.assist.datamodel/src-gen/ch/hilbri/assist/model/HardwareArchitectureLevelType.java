@@ -26,7 +26,7 @@ public enum HardwareArchitectureLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CORE(0, "CORE", "Core"),
+	CORE(1, "CORE", "Core"),
 
 	/**
 	 * The '<em><b>PROCESSOR</b></em>' literal object.
@@ -36,7 +36,7 @@ public enum HardwareArchitectureLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PROCESSOR(0, "PROCESSOR", "Processor"),
+	PROCESSOR(2, "PROCESSOR", "Processor"),
 
 	/**
 	 * The '<em><b>BOARD</b></em>' literal object.
@@ -46,7 +46,7 @@ public enum HardwareArchitectureLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BOARD(0, "BOARD", "Board"),
+	BOARD(3, "BOARD", "Board"),
 
 	/**
 	 * The '<em><b>BOX</b></em>' literal object.
@@ -56,7 +56,7 @@ public enum HardwareArchitectureLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BOX(0, "BOX", "Box"),
+	BOX(4, "BOX", "Box"),
 
 	/**
 	 * The '<em><b>COMPARTMENT</b></em>' literal object.
@@ -66,7 +66,7 @@ public enum HardwareArchitectureLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPARTMENT(0, "COMPARTMENT", "Compartment");
+	COMPARTMENT(5, "COMPARTMENT", "Compartment");
 
 	/**
 	 * The '<em><b>CORE</b></em>' literal value.
@@ -81,7 +81,7 @@ public enum HardwareArchitectureLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CORE_VALUE = 0;
+	public static final int CORE_VALUE = 1;
 
 	/**
 	 * The '<em><b>PROCESSOR</b></em>' literal value.
@@ -96,7 +96,7 @@ public enum HardwareArchitectureLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PROCESSOR_VALUE = 0;
+	public static final int PROCESSOR_VALUE = 2;
 
 	/**
 	 * The '<em><b>BOARD</b></em>' literal value.
@@ -111,7 +111,7 @@ public enum HardwareArchitectureLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BOARD_VALUE = 0;
+	public static final int BOARD_VALUE = 3;
 
 	/**
 	 * The '<em><b>BOX</b></em>' literal value.
@@ -126,7 +126,7 @@ public enum HardwareArchitectureLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BOX_VALUE = 0;
+	public static final int BOX_VALUE = 4;
 
 	/**
 	 * The '<em><b>COMPARTMENT</b></em>' literal value.
@@ -141,7 +141,7 @@ public enum HardwareArchitectureLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPARTMENT_VALUE = 0;
+	public static final int COMPARTMENT_VALUE = 5;
 
 	/**
 	 * An array of all the '<em><b>Hardware Architecture Level Type</b></em>' enumerators.
@@ -207,6 +207,10 @@ public enum HardwareArchitectureLevelType implements Enumerator {
 	public static HardwareArchitectureLevelType get(int value) {
 		switch (value) {
 			case CORE_VALUE: return CORE;
+			case PROCESSOR_VALUE: return PROCESSOR;
+			case BOARD_VALUE: return BOARD;
+			case BOX_VALUE: return BOX;
+			case COMPARTMENT_VALUE: return COMPARTMENT;
 		}
 		return null;
 	}

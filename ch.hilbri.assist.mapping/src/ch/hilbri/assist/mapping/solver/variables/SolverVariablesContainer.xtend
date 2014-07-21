@@ -41,6 +41,10 @@ import org.jacop.core.Store
 		return threadLocationVariablesList.get(t).get(level)
 	}
 	
+	def int getIndexOfThreadLocationInSolutionVariablesList(Thread t, int level) {
+		return solutionVariables.indexOf(getThreadLocationVariable(t, level))
+	}
+	
 	
 
 //	private ThreadVariablesList threadVariablesList;

@@ -1244,13 +1244,22 @@ public interface ModelPackage extends EPackage {
 	int THREAD__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Core Utilization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAD__CORE_UTILIZATION = 1;
+
+	/**
 	 * The feature id for the '<em><b>Application</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THREAD__APPLICATION = 1;
+	int THREAD__APPLICATION = 2;
 
 	/**
 	 * The number of structural features of the '<em>Thread</em>' class.
@@ -1259,7 +1268,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THREAD_FEATURE_COUNT = 2;
+	int THREAD_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Thread</em>' class.
@@ -2846,6 +2855,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getThread_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Thread#getCoreUtilization <em>Core Utilization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Core Utilization</em>'.
+	 * @see ch.hilbri.assist.model.Thread#getCoreUtilization()
+	 * @see #getThread()
+	 * @generated
+	 */
+	EAttribute getThread_CoreUtilization();
+
+	/**
 	 * Returns the meta object for the container reference '{@link ch.hilbri.assist.model.Thread#getApplication <em>Application</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4085,6 +4105,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute THREAD__NAME = eINSTANCE.getThread_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Core Utilization</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THREAD__CORE_UTILIZATION = eINSTANCE.getThread_CoreUtilization();
 
 		/**
 		 * The meta object literal for the '<em><b>Application</b></em>' container reference feature.

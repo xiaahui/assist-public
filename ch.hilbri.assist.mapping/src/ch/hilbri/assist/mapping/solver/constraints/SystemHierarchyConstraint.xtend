@@ -29,7 +29,7 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 		 * index-Elements, also z.B. der Prozessor-ID fuer einen Core.
 		 * 
 		 * Bsp:
-		 * Die 0-te Ebene verbindet Cores mit Processors. Die Processors 
+		 * Die 1-te Ebene verbindet Cores mit Processors. Die Processors 
 		 * werden durchnummeriert (von 0 bis n_Proc, entspricht upperLevelComponentCtr). Die Laenge der Liste
 		 * in der 0-ten Ebene entspricht der Anzahl an Cores (n_Core) und
 		 * gehoert jeweils zu dem Core in der Reihenfolge, wie sie in der Liste

@@ -21,6 +21,7 @@ import org.jacop.search.SelectChoicePoint;
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
@@ -99,6 +100,10 @@ public class SolverJob extends Job {
 		
 		/* Create a new Constraint to process the system hierarchy */
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, constraintStore, solverVariables));
+
+		/* Create a new constraint to keep the capacity of the cores */
+		this.mappingConstraintsList.add(new CoreUtilizationConstraint(model, constraintStore, solverVariables));
+
 		
 //		/* Create a new Constraint to process the I/O-adapter to board hierarchy */
 //		this.mappingConstraintsList.add(new IOAdapterHierarchyConstraint(this.constraintSystem, this.model, this.threadVariablesList,
@@ -110,8 +115,6 @@ public class SolverJob extends Job {
 //		/* Create a new constraint to keep the criticality level of the threads regarding to the assurance level of the boards */
 //		this.mappingConstraintsList.add(new CriticalityRequirementsConstraint(this.constraintSystem, this.model, this.threadVariablesList));
 //		
-//		/* Create a new constraint to keep the capacity of the cores */
-//		this.mappingConstraintsList.add(new CoreUtilizationConstraint(this.constraintSystem, this.model, this.threadVariablesList, coreVariablesList));
 //
 //		/* Create a new constraint to obey the restrictions on the proximity of the applications */
 //		this.mappingConstraintsList.add(new ProximityRelationsConstraint(this.constraintSystem, this.model, this.threadVariablesList));

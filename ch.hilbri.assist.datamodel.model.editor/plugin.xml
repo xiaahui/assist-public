@@ -8,6 +8,22 @@
 <plugin>
 
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ASSIST-Model -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ch.hilbri.assist.model.presentation.ModelModelWizardID"
+            name="%_UI_ModelModelWizard_label"
+            class="ch.hilbri.assist.model.presentation.ModelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ModelModelFile.gif">
+         <description>%_UI_ModelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
    <extension point="org.eclipse.ui.editors">
       <!-- @generated ASSIST-Model -->
       <editor

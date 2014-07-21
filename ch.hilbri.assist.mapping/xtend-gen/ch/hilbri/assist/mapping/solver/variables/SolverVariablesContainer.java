@@ -4,6 +4,7 @@ import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.model.HardwareElement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend.lib.Data;
@@ -67,6 +68,12 @@ public class SolverVariablesContainer {
     HashMap<ch.hilbri.assist.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = this.getThreadLocationVariablesList();
     HashMap<Integer, IntVar> _get = _threadLocationVariablesList.get(t);
     return _get.get(Integer.valueOf(level));
+  }
+  
+  public int getIndexOfThreadLocationInSolutionVariablesList(final ch.hilbri.assist.model.Thread t, final int level) {
+    IntVar[] _solutionVariables = this.getSolutionVariables();
+    IntVar _threadLocationVariable = this.getThreadLocationVariable(t, level);
+    return ((List<IntVar>)Conversions.doWrapArray(_solutionVariables)).indexOf(_threadLocationVariable);
   }
   
   @Override

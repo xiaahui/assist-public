@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link ch.hilbri.assist.model.Thread#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.model.Thread#getCoreUtilization <em>Core Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.model.Thread#getApplication <em>Application</em>}</li>
  * </ul>
  * </p>
@@ -37,6 +38,22 @@ public interface Thread extends EObject {
 	 * @generated
 	 */
 	String getName();
+
+	/**
+	 * Returns the value of the '<em><b>Core Utilization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Core Utilization</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Core Utilization</em>' attribute.
+	 * @see ch.hilbri.assist.model.ModelPackage#getThread_CoreUtilization()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%ch.hilbri.assist.model.Application%> _application = this.getApplication();\nreturn _application.getCoreUtilization();'"
+	 * @generated
+	 */
+	int getCoreUtilization();
 
 	/**
 	 * Returns the value of the '<em><b>Application</b></em>' container reference.
