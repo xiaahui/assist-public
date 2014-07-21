@@ -1,5 +1,4 @@
 /**
- * Copyright 2014 - Robert Hilbrich
  */
 package ch.hilbri.assist.model;
 
@@ -24,7 +23,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see ch.hilbri.assist.model.ModelFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel copyrightText='Copyright 2014 - Robert Hilbrich' editDirectory='/ch.hilbri.assist.datamodel.model.edit/src' editorDirectory='/ch.hilbri.assist.datamodel.model.editor/src' testsDirectory='/ch.hilbri.assist.datamodel.model.tests/src' basePackage='ch.hilbri.assist'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel editDirectory='/ch.hilbri.assist.datamodel.model.edit/src' editorDirectory='/ch.hilbri.assist.datamodel.model.editor/src' testsDirectory='/ch.hilbri.assist.datamodel.model.tests/src' basePackage='ch.hilbri.assist'"
  * @generated
  */
 public interface ModelPackage extends EPackage {
@@ -170,22 +169,13 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL = 10;
 
 	/**
-	 * The feature id for the '<em><b>All Hardware Levels</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL__ALL_HARDWARE_LEVELS = 11;
-
-	/**
 	 * The feature id for the '<em><b>Hardware Level Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__HARDWARE_LEVEL_COUNT = 12;
+	int ASSIST_MODEL__HARDWARE_LEVEL_COUNT = 11;
 
 	/**
 	 * The number of structural features of the '<em>Assist Model</em>' class.
@@ -194,7 +184,52 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_FEATURE_COUNT = 13;
+	int ASSIST_MODEL_FEATURE_COUNT = 12;
+
+	/**
+	 * The operation id for the '<em>Get All Compartments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_COMPARTMENTS = 0;
+
+	/**
+	 * The operation id for the '<em>Get All Boxes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_BOXES = 1;
+
+	/**
+	 * The operation id for the '<em>Get All Boards</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_BOARDS = 2;
+
+	/**
+	 * The operation id for the '<em>Get All Processors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_PROCESSORS = 3;
+
+	/**
+	 * The operation id for the '<em>Get All Cores</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_CORES = 4;
 
 	/**
 	 * The operation id for the '<em>Get All Hardware Elements</em>' operation.
@@ -203,7 +238,25 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE = 0;
+	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE = 5;
+
+	/**
+	 * The operation id for the '<em>Get All Hardware Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = 6;
+
+	/**
+	 * The operation id for the '<em>Get All Threads</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_THREADS = 7;
 
 	/**
 	 * The number of operations of the '<em>Assist Model</em>' class.
@@ -212,7 +265,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_OPERATION_COUNT = 1;
+	int ASSIST_MODEL_OPERATION_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -945,13 +998,22 @@ public interface ModelPackage extends EPackage {
 	int APPLICATION_OR_APPLICATION_GROUP = 10;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_OR_APPLICATION_GROUP__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>Application Or Application Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT = 0;
+	int APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Application Or Application Group</em>' class.
@@ -979,7 +1041,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_GROUP__NAME = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 0;
+	int APPLICATION_GROUP__NAME = APPLICATION_OR_APPLICATION_GROUP__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
@@ -988,7 +1050,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_GROUP__APPLICATIONS_OR_GROUPS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 1;
+	int APPLICATION_GROUP__APPLICATIONS_OR_GROUPS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Application Group</em>' class.
@@ -997,7 +1059,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_GROUP_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 2;
+	int APPLICATION_GROUP_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get All Applications</em>' operation.
@@ -1034,7 +1096,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__NAME = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 0;
+	int APPLICATION__NAME = APPLICATION_OR_APPLICATION_GROUP__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Core Utilization</b></em>' attribute.
@@ -1043,7 +1105,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__CORE_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 1;
+	int APPLICATION__CORE_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ram Utilization</b></em>' attribute.
@@ -1052,7 +1114,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__RAM_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 2;
+	int APPLICATION__RAM_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Rom Utilization</b></em>' attribute.
@@ -1061,7 +1123,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__ROM_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 3;
+	int APPLICATION__ROM_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Criticality Level</b></em>' attribute.
@@ -1070,7 +1132,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__CRITICALITY_LEVEL = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 4;
+	int APPLICATION__CRITICALITY_LEVEL = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Io Adapter Protection Level</b></em>' attribute.
@@ -1079,7 +1141,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__IO_ADAPTER_PROTECTION_LEVEL = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 5;
+	int APPLICATION__IO_ADAPTER_PROTECTION_LEVEL = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Parallel Threads</b></em>' attribute.
@@ -1088,7 +1150,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__PARALLEL_THREADS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 6;
+	int APPLICATION__PARALLEL_THREADS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Developed By</b></em>' attribute.
@@ -1097,7 +1159,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__DEVELOPED_BY = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 7;
+	int APPLICATION__DEVELOPED_BY = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
@@ -1106,7 +1168,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__IO_ADAPTER_REQUIREMENTS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 8;
+	int APPLICATION__IO_ADAPTER_REQUIREMENTS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
@@ -1115,7 +1177,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 9;
+	int APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Threads</b></em>' containment reference list.
@@ -1124,7 +1186,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__THREADS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 10;
+	int APPLICATION__THREADS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
@@ -1133,7 +1195,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__METRIC_PARAMETERS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 11;
+	int APPLICATION__METRIC_PARAMETERS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Application</em>' class.
@@ -1142,7 +1204,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 12;
+	int APPLICATION_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -1173,13 +1235,22 @@ public interface ModelPackage extends EPackage {
 	int THREAD = 13;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THREAD__NAME = 0;
+
+	/**
 	 * The feature id for the '<em><b>Application</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THREAD__APPLICATION = 0;
+	int THREAD__APPLICATION = 1;
 
 	/**
 	 * The number of structural features of the '<em>Thread</em>' class.
@@ -1188,7 +1259,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THREAD_FEATURE_COUNT = 1;
+	int THREAD_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Thread</em>' class.
@@ -1881,17 +1952,6 @@ public interface ModelPackage extends EPackage {
 	EAttribute getAssistModel_BottomHardwareLevel();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareLevels <em>All Hardware Levels</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>All Hardware Levels</em>'.
-	 * @see ch.hilbri.assist.model.AssistModel#getAllHardwareLevels()
-	 * @see #getAssistModel()
-	 * @generated
-	 */
-	EAttribute getAssistModel_AllHardwareLevels();
-
-	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.AssistModel#getHardwareLevelCount <em>Hardware Level Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1903,6 +1963,56 @@ public interface ModelPackage extends EPackage {
 	EAttribute getAssistModel_HardwareLevelCount();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllCompartments() <em>Get All Compartments</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Compartments</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllCompartments()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllCompartments();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllBoxes() <em>Get All Boxes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Boxes</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllBoxes()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllBoxes();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllBoards() <em>Get All Boards</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Boards</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllBoards()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllBoards();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllProcessors() <em>Get All Processors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Processors</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllProcessors()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllProcessors();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllCores() <em>Get All Cores</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Cores</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllCores()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllCores();
+
+	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements(ch.hilbri.assist.model.HardwareArchitectureLevelType) <em>Get All Hardware Elements</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1911,6 +2021,26 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllHardwareElements(int) <em>Get All Hardware Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Hardware Elements</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllHardwareElements(int)
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllHardwareElements__int();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.model.AssistModel#getAllThreads() <em>Get All Threads</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Threads</em>' operation.
+	 * @see ch.hilbri.assist.model.AssistModel#getAllThreads()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllThreads();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.HardwareElement <em>Hardware Element</em>}'.
@@ -2512,6 +2642,17 @@ public interface ModelPackage extends EPackage {
 	EClass getApplicationOrApplicationGroup();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.ApplicationOrApplicationGroup#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.model.ApplicationOrApplicationGroup#getName()
+	 * @see #getApplicationOrApplicationGroup()
+	 * @generated
+	 */
+	EAttribute getApplicationOrApplicationGroup_Name();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.model.ApplicationGroup <em>Application Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2520,17 +2661,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getApplicationGroup();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.ApplicationGroup#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ch.hilbri.assist.model.ApplicationGroup#getName()
-	 * @see #getApplicationGroup()
-	 * @generated
-	 */
-	EAttribute getApplicationGroup_Name();
 
 	/**
 	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.model.ApplicationGroup#getApplicationsOrGroups <em>Applications Or Groups</em>}'.
@@ -2562,17 +2692,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getApplication();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Application#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ch.hilbri.assist.model.Application#getName()
-	 * @see #getApplication()
-	 * @generated
-	 */
-	EAttribute getApplication_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Application#getCoreUtilization <em>Core Utilization</em>}'.
@@ -2714,6 +2833,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getThread();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.model.Thread#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.model.Thread#getName()
+	 * @see #getThread()
+	 * @generated
+	 */
+	EAttribute getThread_Name();
 
 	/**
 	 * Returns the meta object for the container reference '{@link ch.hilbri.assist.model.Thread#getApplication <em>Application</em>}'.
@@ -3259,14 +3389,6 @@ public interface ModelPackage extends EPackage {
 		EAttribute ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL = eINSTANCE.getAssistModel_BottomHardwareLevel();
 
 		/**
-		 * The meta object literal for the '<em><b>All Hardware Levels</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ASSIST_MODEL__ALL_HARDWARE_LEVELS = eINSTANCE.getAssistModel_AllHardwareLevels();
-
-		/**
 		 * The meta object literal for the '<em><b>Hardware Level Count</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3275,12 +3397,68 @@ public interface ModelPackage extends EPackage {
 		EAttribute ASSIST_MODEL__HARDWARE_LEVEL_COUNT = eINSTANCE.getAssistModel_HardwareLevelCount();
 
 		/**
+		 * The meta object literal for the '<em><b>Get All Compartments</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_COMPARTMENTS = eINSTANCE.getAssistModel__GetAllCompartments();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Boxes</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_BOXES = eINSTANCE.getAssistModel__GetAllBoxes();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Boards</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_BOARDS = eINSTANCE.getAssistModel__GetAllBoards();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Processors</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_PROCESSORS = eINSTANCE.getAssistModel__GetAllProcessors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Cores</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_CORES = eINSTANCE.getAssistModel__GetAllCores();
+
+		/**
 		 * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE = eINSTANCE.getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = eINSTANCE.getAssistModel__GetAllHardwareElements__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Threads</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_THREADS = eINSTANCE.getAssistModel__GetAllThreads();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -3751,6 +3929,14 @@ public interface ModelPackage extends EPackage {
 		EClass APPLICATION_OR_APPLICATION_GROUP = eINSTANCE.getApplicationOrApplicationGroup();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPLICATION_OR_APPLICATION_GROUP__NAME = eINSTANCE.getApplicationOrApplicationGroup_Name();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.model.impl.ApplicationGroupImpl <em>Application Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3759,14 +3945,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass APPLICATION_GROUP = eINSTANCE.getApplicationGroup();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute APPLICATION_GROUP__NAME = eINSTANCE.getApplicationGroup_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Applications Or Groups</b></em>' reference list feature.
@@ -3793,14 +3971,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass APPLICATION = eINSTANCE.getApplication();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute APPLICATION__NAME = eINSTANCE.getApplication_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Core Utilization</b></em>' attribute feature.
@@ -3907,6 +4077,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass THREAD = eINSTANCE.getThread();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THREAD__NAME = eINSTANCE.getThread_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Application</b></em>' container reference feature.

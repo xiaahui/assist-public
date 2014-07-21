@@ -1,5 +1,4 @@
 /**
- * Copyright 2014 - Robert Hilbrich
  */
 package ch.hilbri.assist.model.impl;
 
@@ -455,7 +454,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAssistModel_AllHardwareLevels() {
+	public EAttribute getAssistModel_HardwareLevelCount() {
 		return (EAttribute)assistModelEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -464,8 +463,44 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAssistModel_HardwareLevelCount() {
-		return (EAttribute)assistModelEClass.getEStructuralFeatures().get(12);
+	public EOperation getAssistModel__GetAllCompartments() {
+		return assistModelEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllBoxes() {
+		return assistModelEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllBoards() {
+		return assistModelEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllProcessors() {
+		return assistModelEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllCores() {
+		return assistModelEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -474,7 +509,25 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EOperation getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType() {
-		return assistModelEClass.getEOperations().get(0);
+		return assistModelEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllHardwareElements__int() {
+		return assistModelEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllThreads() {
+		return assistModelEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -986,6 +1039,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getApplicationOrApplicationGroup_Name() {
+		return (EAttribute)applicationOrApplicationGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getApplicationGroup() {
 		return applicationGroupEClass;
 	}
@@ -995,17 +1057,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationGroup_Name() {
-		return (EAttribute)applicationGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getApplicationGroup_ApplicationsOrGroups() {
-		return (EReference)applicationGroupEClass.getEStructuralFeatures().get(1);
+		return (EReference)applicationGroupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1031,7 +1084,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_Name() {
+	public EAttribute getApplication_CoreUtilization() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1040,7 +1093,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_CoreUtilization() {
+	public EAttribute getApplication_RamUtilization() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1049,7 +1102,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_RamUtilization() {
+	public EAttribute getApplication_RomUtilization() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1058,7 +1111,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_RomUtilization() {
+	public EAttribute getApplication_CriticalityLevel() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1067,7 +1120,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_CriticalityLevel() {
+	public EAttribute getApplication_IoAdapterProtectionLevel() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1076,7 +1129,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_IoAdapterProtectionLevel() {
+	public EAttribute getApplication_ParallelThreads() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1085,7 +1138,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_ParallelThreads() {
+	public EAttribute getApplication_DevelopedBy() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1094,17 +1147,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_DevelopedBy() {
-		return (EAttribute)applicationEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getApplication_IoAdapterRequirements() {
-		return (EReference)applicationEClass.getEStructuralFeatures().get(8);
+		return (EReference)applicationEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1113,7 +1157,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EReference getApplication_RestrictMappingToHardwareElements() {
-		return (EReference)applicationEClass.getEStructuralFeatures().get(9);
+		return (EReference)applicationEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1122,7 +1166,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EReference getApplication_Threads() {
-		return (EReference)applicationEClass.getEStructuralFeatures().get(10);
+		return (EReference)applicationEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1131,7 +1175,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EReference getApplication_MetricParameters() {
-		return (EReference)applicationEClass.getEStructuralFeatures().get(11);
+		return (EReference)applicationEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1157,8 +1201,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getThread_Name() {
+		return (EAttribute)threadEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getThread_Application() {
-		return (EReference)threadEClass.getEStructuralFeatures().get(0);
+		return (EReference)threadEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1552,9 +1605,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(assistModelEClass, ASSIST_MODEL__COMMUNICATION_RELATIONS);
 		createEAttribute(assistModelEClass, ASSIST_MODEL__TOP_HARDWARE_LEVEL);
 		createEAttribute(assistModelEClass, ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL);
-		createEAttribute(assistModelEClass, ASSIST_MODEL__ALL_HARDWARE_LEVELS);
 		createEAttribute(assistModelEClass, ASSIST_MODEL__HARDWARE_LEVEL_COUNT);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_COMPARTMENTS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_BOXES);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_BOARDS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_PROCESSORS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_CORES);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_THREADS);
 
 		hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
 		createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
@@ -1621,14 +1680,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(networkEClass, NETWORK__METRIC_PARAMETERS);
 
 		applicationOrApplicationGroupEClass = createEClass(APPLICATION_OR_APPLICATION_GROUP);
+		createEAttribute(applicationOrApplicationGroupEClass, APPLICATION_OR_APPLICATION_GROUP__NAME);
 
 		applicationGroupEClass = createEClass(APPLICATION_GROUP);
-		createEAttribute(applicationGroupEClass, APPLICATION_GROUP__NAME);
 		createEReference(applicationGroupEClass, APPLICATION_GROUP__APPLICATIONS_OR_GROUPS);
 		createEOperation(applicationGroupEClass, APPLICATION_GROUP___GET_ALL_APPLICATIONS);
 
 		applicationEClass = createEClass(APPLICATION);
-		createEAttribute(applicationEClass, APPLICATION__NAME);
 		createEAttribute(applicationEClass, APPLICATION__CORE_UTILIZATION);
 		createEAttribute(applicationEClass, APPLICATION__RAM_UTILIZATION);
 		createEAttribute(applicationEClass, APPLICATION__ROM_UTILIZATION);
@@ -1643,6 +1701,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(applicationEClass, APPLICATION___TO_STRING);
 
 		threadEClass = createEClass(THREAD);
+		createEAttribute(threadEClass, THREAD__NAME);
 		createEReference(threadEClass, THREAD__APPLICATION);
 
 		ioAdapterRequirementEClass = createEClass(IO_ADAPTER_REQUIREMENT);
@@ -1753,11 +1812,25 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getAssistModel_CommunicationRelations(), this.getCommunicationRelation(), null, "communicationRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAssistModel_TopHardwareLevel(), this.getHardwareArchitectureLevelType(), "topHardwareLevel", null, 0, 1, AssistModel.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAssistModel_BottomHardwareLevel(), this.getHardwareArchitectureLevelType(), "bottomHardwareLevel", null, 0, 1, AssistModel.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAssistModel_AllHardwareLevels(), this.getHardwareArchitectureLevelType(), "allHardwareLevels", null, 0, -1, AssistModel.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAssistModel_HardwareLevelCount(), theEcorePackage.getEInt(), "hardwareLevelCount", null, 0, 1, AssistModel.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetAllCompartments(), this.getCompartment(), "getAllCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetAllBoxes(), this.getBox(), "getAllBoxes", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetAllBoards(), this.getBoard(), "getAllBoards", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetAllProcessors(), this.getProcessor(), "getAllProcessors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		EOperation op = initEOperation(getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getHardwareArchitectureLevelType(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAssistModel__GetAllHardwareElements__int(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEInt(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetAllThreads(), this.getThread(), "getAllThreads", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHardwareElement_Name(), theEcorePackage.getEString(), "name", null, 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1831,15 +1904,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getNetwork_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, Network.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationOrApplicationGroupEClass, ApplicationOrApplicationGroup.class, "ApplicationOrApplicationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getApplicationOrApplicationGroup_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ApplicationOrApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationGroupEClass, ApplicationGroup.class, "ApplicationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getApplicationGroup_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplicationGroup_ApplicationsOrGroups(), this.getApplicationOrApplicationGroup(), null, "applicationsOrGroups", null, 1, -1, ApplicationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getApplicationGroup__GetAllApplications(), this.getApplication(), "getAllApplications", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getApplication_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_CoreUtilization(), theEcorePackage.getEInt(), "coreUtilization", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_RamUtilization(), theEcorePackage.getEInt(), "ramUtilization", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_RomUtilization(), theEcorePackage.getEInt(), "romUtilization", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1855,6 +1927,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEOperation(getApplication__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(threadEClass, ch.hilbri.assist.model.Thread.class, "Thread", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getThread_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ch.hilbri.assist.model.Thread.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getThread_Application(), this.getApplication(), this.getApplication_Threads(), "application", null, 0, 1, ch.hilbri.assist.model.Thread.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ioAdapterRequirementEClass, IOAdapterRequirement.class, "IOAdapterRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

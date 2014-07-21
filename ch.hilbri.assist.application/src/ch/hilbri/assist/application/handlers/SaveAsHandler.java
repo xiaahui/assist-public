@@ -10,8 +10,6 @@ import org.eclipse.e4.core.services.log.Logger;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
-import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor;
-import org.eclipse.ui.part.MultiPageEditor;
 
 import ch.hilbri.assist.application.helpers.Helpers;
 
