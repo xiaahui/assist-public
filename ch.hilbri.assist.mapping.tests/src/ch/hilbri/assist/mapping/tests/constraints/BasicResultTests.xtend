@@ -6,6 +6,7 @@ import ch.hilbri.assist.mapping.solver.SolverJob
 import ch.hilbri.assist.mapping.tests.helpers.MyTestingMonitor
 import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider
 import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.DesignAssuranceLevelType
 import ch.hilbri.assist.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.model.ModelPackage
 import ch.hilbri.assist.result.mapping.Compartment
@@ -40,9 +41,20 @@ Global {
 
 Hardware {
 	Compartment C1 {
+		Manufacturer = "CompartmentManufacturer";
+		Power supply = "CompartmentPowerSupply";
+		Side		 = "CompartmentSide";
+		Zone		 = "CompartmentZone";
+		
 		Box Box1 {
+			Manufacturer = "BoxManufacturer";
+			
 			Board Board1 {
 				Manufacturer = "Board Vendor 1";
+				Type		 = "BoardType";
+				Power supply = "BoardPowerSupply";
+				Design assurance level = C;
+								
 				Processor Processor1 {
 					Manufacturer = "Freescale";
 					Type = "MPC5554";
@@ -50,7 +62,10 @@ Hardware {
 						Capacity = 100;   
 						Architecture = "e200z6";
 					}
-				}	
+				}
+				
+				RAM capacity = "12345";
+				ROM capacity = "67890";
 			}
 		}
 	}
@@ -107,6 +122,26 @@ Software {
 		assertTrue(r.rootHardwareElements.get(0) instanceof Compartment)
 		val c = r.rootHardwareElements.get(0) as Compartment
 		assertEquals("C1", c.name)
+		assertEquals("CompartmentManufacturer", c.manufacturer)
+		assertEquals("CompartmentPowerSupply", c.powerSupply)
+		assertEquals("CompartmentSide", c.side)
+		assertEquals("CompartmentZone", c.zone)
+			
+		// Box
+		assertEquals(1, c.boxes.size)
+		val b = c.boxes.get(0)
+		assertEquals("Box1", b.name)
+		assertEquals("BoxManufacturer", b.manufacturer)		
 		
+		// Board
+		assertEquals(1, b.boards.size)
+		val board = b.boards.get(0)
+		assertEquals("Board1", board.name)
+		assertEquals("Board Vendor 1", board.manufacturer)
+		assertEquals("BoardType", board.boardType)
+		assertEquals("BoardPowerSupply", board.powerSupply)
+		assertEquals(DesignAssuranceLevelType.C, board.assuranceLevel)
+		assertEquals(12345, board.ramCapacity)
+		assertEquals(67890, board.romCapacity)
 	}
 }
