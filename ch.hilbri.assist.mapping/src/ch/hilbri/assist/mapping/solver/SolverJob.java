@@ -18,7 +18,6 @@ import org.jacop.search.InputOrderSelect;
 import org.jacop.search.Search;
 import org.jacop.search.SelectChoicePoint;
 
-import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint;
@@ -86,7 +85,6 @@ public class SolverJob extends Job {
 			detailedResultsViewUiModel = multiPageEditor.getDetailedResultViewUiModel();
 			detailedResultsViewUiModel.setEditor(multiPageEditor);
 		}
-		
 
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>();  
@@ -148,7 +146,7 @@ public class SolverJob extends Job {
 //		this.mappingConstraintsList.add(new RestrictedHardwareComponentsConstraint(this.constraintSystem, this.model, this.threadVariablesList));
 //
 	}
-//
+
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
 		return execute(monitor, true);
@@ -157,12 +155,12 @@ public class SolverJob extends Job {
 	/* Die Funktionalitaet der RUN-Methode wurde ausgelagert, um den Zugang fuer einen Test zu ermoeglichen */
 	public IStatus execute(IProgressMonitor monitor, boolean presentResults) 
 	{
+				
 		monitor.beginTask("Generating all mappings", 1);
 
 		for (AbstractMappingConstraint constraint : mappingConstraintsList) {
 
 			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
-
 			monitor.subTask("Processing constraint: \""	+ constraint.getName() + "\"");
 			
 			/* Generate this constraint */
@@ -188,8 +186,7 @@ public class SolverJob extends Job {
 				return Status.CANCEL_STATUS;
 			} 
 			
-			else 
-				monitor.worked(1);
+			else monitor.worked(1);
 		}
 
 		monitor.subTask("Searching for solutions");
@@ -219,67 +216,21 @@ public class SolverJob extends Job {
 			select = new InputOrderSelect<IntVar>(constraintStore, solverVariables.getSolutionVariables(), new IndomainMin<IntVar>());
 		}
 		else {
+			// FIXME: Implement me!
 			search = new DepthFirstSearch<IntVar>();
 			search.setTimeOut(this.maxTimeOfCalculationInmsec);
-			ConsoleCommands.writeLineToConsole("Random search is not yet implemented.");
+
 			return null;
 		}
 		 
 		boolean result = search.labeling(constraintStore, select); 
 		
 		if (result) {
-			ConsoleCommands.writeLineToConsole("Solutions found: " + search.getSolutionListener().solutionsNo() + " - Limit was set to " + this.maxSolutions + " - was it reached? " + search.getSolutionListener().solutionLimitReached());
 			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, search.getSolutionListener().getSolutions());
 		}
-		else
-			ConsoleCommands.writeErrorLineToConsole("Nothing found");
 		
 		return Status.OK_STATUS;
-		
-//		/*
-//		 * Sort the threadVariableList with respect to e.g. 'criticality', 'core utilization'
-//		 * with highest value first. For multiple criteria begin sorting with most important
-//		 * and end with less important criterion.
-//		 */
-//		Collections.sort(this.threadVariablesList, ThreadVariables.ThreadVariablesComparator.
-//				decending(ThreadVariables.ThreadVariablesComparator.getComparator(
-//				ThreadVariables.ThreadVariablesComparator.MAX_DOMAINS_REDUCTION_FIRST,
-//				ThreadVariables.ThreadVariablesComparator.MAX_EXCLUSIVE_ADAPTER_REQUIREMENT_FIRST,
-//				ThreadVariables.ThreadVariablesComparator.MAX_SHARED_ADAPTER_REQUIREMENT_FIRST,
-//				ThreadVariables.ThreadVariablesComparator.MAX_ROM_UTILIZATION_FIRST,
-//				ThreadVariables.ThreadVariablesComparator.MAX_RAM_UTILIZATION_FIRST,
-//				ThreadVariables.ThreadVariablesComparator.HIGHEST_CRITICALITY_FIRST,
-//				ThreadVariables.ThreadVariablesComparator.MAX_CORE_UTILIZATION_FIRST
-//				)));
-//		
-//		/*
-//		 * Create the set of solution variables - what are we interested in
-//		 * solving? It is a subset of the threadVariables
-//		 */
-//		this.solutionVariablesList = new SolutionVariablesList(
-//				this.threadVariablesList,
-//				this.communicationVariablesList,
-//				this.ioAdapterVariablesList,
-//				this.exclusiveAdapterVariablesList,
-//				this.sharedAdapterVariablesList);
-//
-//
-//		
-//		try {
-//			if (maxSolutions > 0 && kindOfSolutions != null && maxTimeOfCalculationInmsec > 0)
-//				return SolutionGenerator.generateSolutions(model, constraintSystem,
-//						threadVariablesList, communicationVariablesList, ioAdapterVariablesList,
-//						exclusiveAdapterVariablesList, sharedAdapterVariablesList, solutionVariablesList,
-//						newMappingResults, maxSolutions, kindOfSolutions, maxTimeOfCalculationInmsec, monitor);
-////			else
-////				return SolutionGenerator.generateSolutions(model, constraintSystem, threadVariablesList, solutionVariablesList, mappingResults, monitor);
-//			return null;
-//		} catch (UninstantiatedException e) {
-//			// wird geworfen, wenn solutionVariablen nicht eindeutig belegt wurden
-//			e.printStackTrace();
-//			System.err.println("FATAL ERROR: SolutionGenerator didn't set the variables to unique values!");
-//			return Status.CANCEL_STATUS;
-//		}
+
 	}
 	
 	/**

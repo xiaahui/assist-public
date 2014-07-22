@@ -3,6 +3,7 @@
 */
 package ch.hilbri.assist.mappingdsl;
 
+
 /**
  * Initialization support for running Xtext languages 
  * without equinox extension registry

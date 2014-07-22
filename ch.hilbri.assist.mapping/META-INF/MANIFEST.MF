@@ -38,3 +38,5 @@ Require-Bundle: ch.hilbri.assist.application,
  org.eclipse.core.databinding.observable;bundle-version="1.4.1",
  org.eclipse.core.databinding.property;bundle-version="1.4.200",
  org.jacop;bundle-version="4.1.0"
+Export-Package: ch.hilbri.assist.mapping.datamodel,
+ ch.hilbri.assist.mapping.solver
