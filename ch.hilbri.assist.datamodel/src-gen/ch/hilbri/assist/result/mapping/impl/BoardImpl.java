@@ -9,6 +9,7 @@ import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.result.mapping.Application;
 import ch.hilbri.assist.result.mapping.Board;
 import ch.hilbri.assist.result.mapping.Box;
+import ch.hilbri.assist.result.mapping.Core;
 import ch.hilbri.assist.result.mapping.IOAdapter;
 import ch.hilbri.assist.result.mapping.MappingPackage;
 import ch.hilbri.assist.result.mapping.Network;
@@ -571,6 +572,21 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Core> getAllCores() {
+		final BasicEList<Core> list = new BasicEList<Core>();
+		EList<Processor> _processors = this.getProcessors();
+		for (final Processor p : _processors) {
+			EList<Core> _cores = p.getCores();
+			list.addAll(_cores);
+		}
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public HardwareArchitectureLevelType getHardwareLevel() {
 		return HardwareArchitectureLevelType.BOARD;
 	}
@@ -817,6 +833,8 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 		switch (operationID) {
 			case MappingPackage.BOARD___GET_ALL_APPLICATIONS:
 				return getAllApplications();
+			case MappingPackage.BOARD___GET_ALL_CORES:
+				return getAllCores();
 			case MappingPackage.BOARD___GET_HARDWARE_LEVEL:
 				return getHardwareLevel();
 		}

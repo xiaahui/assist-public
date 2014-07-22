@@ -1,8 +1,8 @@
 @GenModel(
 	editDirectory="/ch.hilbri.assist.datamodel.model.edit/src", 
 	editorDirectory="/ch.hilbri.assist.datamodel.model.editor/src", 
-	testsDirectory="/ch.hilbri.assist.datamodel.model.tests/src"
-)
+	testsDirectory="/ch.hilbri.assist.datamodel.model.tests/src",
+	generateModelWizard="false")
 
 package ch.hilbri.assist.model
 

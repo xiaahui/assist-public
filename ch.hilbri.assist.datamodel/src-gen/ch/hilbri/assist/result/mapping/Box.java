@@ -101,6 +101,30 @@ public interface Box extends HardwareElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Create a list of all processors on this box
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.result.mapping.Processor%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.result.mapping.Processor%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.mapping.Board%>> _boards = this.getBoards();\nfor (final <%ch.hilbri.assist.result.mapping.Board%> b : _boards)\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.mapping.Processor%>> _processors = b.getProcessors();\n\tlist.addAll(_processors);\n}\nreturn list;'"
+	 * @generated
+	 */
+	EList<Processor> getAllProcessors();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Create a list of all cores on this box
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.result.mapping.Core%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.result.mapping.Core%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.mapping.Board%>> _boards = this.getBoards();\nfor (final <%ch.hilbri.assist.result.mapping.Board%> b : _boards)\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.result.mapping.Core%>> _allCores = b.getAllCores();\n\tlist.addAll(_allCores);\n}\nreturn list;'"
+	 * @generated
+	 */
+	EList<Core> getAllCores();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return <%ch.hilbri.assist.model.HardwareArchitectureLevelType%>.BOX;'"
 	 * @generated

@@ -8,7 +8,9 @@ import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.result.mapping.Board;
 import ch.hilbri.assist.result.mapping.Box;
 import ch.hilbri.assist.result.mapping.Compartment;
+import ch.hilbri.assist.result.mapping.Core;
 import ch.hilbri.assist.result.mapping.MappingPackage;
+import ch.hilbri.assist.result.mapping.Processor;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -17,6 +19,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -182,6 +185,36 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Processor> getAllProcessors() {
+		final BasicEList<Processor> list = new BasicEList<Processor>();
+		EList<Board> _boards = this.getBoards();
+		for (final Board b : _boards) {
+			EList<Processor> _processors = b.getProcessors();
+			list.addAll(_processors);
+		}
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Core> getAllCores() {
+		final BasicEList<Core> list = new BasicEList<Core>();
+		EList<Board> _boards = this.getBoards();
+		for (final Board b : _boards) {
+			EList<Core> _allCores = b.getAllCores();
+			list.addAll(_allCores);
+		}
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public HardwareArchitectureLevelType getHardwareLevel() {
 		return HardwareArchitectureLevelType.BOX;
 	}
@@ -324,6 +357,10 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case MappingPackage.BOX___GET_ALL_PROCESSORS:
+				return getAllProcessors();
+			case MappingPackage.BOX___GET_ALL_CORES:
+				return getAllCores();
 			case MappingPackage.BOX___GET_HARDWARE_LEVEL:
 				return getHardwareLevel();
 		}
