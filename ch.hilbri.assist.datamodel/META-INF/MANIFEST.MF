@@ -14,9 +14,9 @@ Bundle-ActivationPolicy: lazy
 Bundle-Vendor: Robert Hilbrich
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: ch.hilbri.assist.model,
- ch.hilbri.assist.model.impl,
- ch.hilbri.assist.model.util,
- ch.hilbri.assist.result.mapping,
- ch.hilbri.assist.result.mapping.impl,
- ch.hilbri.assist.result.mapping.util
+Export-Package: ch.hilbri.assist.model;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",
+ ch.hilbri.assist.model.impl;uses:="org.eclipse.emf.ecore,  org.eclipse.emf.common.util,  org.eclipse.emf.common.notify,  org.eclipse.emf.ecore.impl,  ch.hilbri.assist.model",
+ ch.hilbri.assist.model.util;uses:="org.eclipse.emf.ecore.util,  org.eclipse.emf.ecore,  org.eclipse.emf.common.notify.impl,  ch.hilbri.assist.model,  org.eclipse.emf.common.notify",
+ ch.hilbri.assist.result.mapping;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util,ch.hilbri.assist.model",
+ ch.hilbri.assist.result.mapping.impl;uses:="ch.hilbri.assist.result.mapping,  org.eclipse.emf.ecore,  org.eclipse.emf.common.util,  org.eclipse.emf.ecore.impl,  org.eclipse.emf.common.notify,  ch.hilbri.assist.model",
+ ch.hilbri.assist.result.mapping.util;uses:="org.eclipse.emf.ecore.util,  ch.hilbri.assist.result.mapping,  org.eclipse.emf.ecore,  org.eclipse.emf.common.notify.impl,  org.eclipse.emf.common.notify"
