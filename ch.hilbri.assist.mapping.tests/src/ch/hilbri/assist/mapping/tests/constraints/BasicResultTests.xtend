@@ -8,6 +8,7 @@ import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider
 import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.model.DesignAssuranceLevelType
 import ch.hilbri.assist.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.model.IOAdapterProtectionLevelType
 import ch.hilbri.assist.model.ModelPackage
 import ch.hilbri.assist.result.mapping.Compartment
 import ch.hilbri.assist.result.mapping.Result
@@ -64,8 +65,8 @@ Hardware {
 					}
 				}
 				
-				RAM capacity = "12345";
-				ROM capacity = "67890";
+				RAM capacity = 12345;
+				ROM capacity = 67890;
 			}
 		}
 	}
@@ -73,11 +74,15 @@ Hardware {
 
 Software {
 	Application A1   {	
-		Core-utilization = 1;
+		Core-utilization 			= 10;
+		Required RAM capacity 		= 12345; 
+		Required ROM capacity 		= 34567; 
+	    Criticality level 			= D;
+	    Required IO protection 		= L2;
+		Identical parallel threads 	= 3;
+		Developed by 				= "Company A";
 	}
-	Application A2   {	
-		Core-utilization = 2;
-	}
+	
 }
 '''
 
@@ -126,12 +131,15 @@ Software {
 		assertEquals("CompartmentPowerSupply", c.powerSupply)
 		assertEquals("CompartmentSide", c.side)
 		assertEquals("CompartmentZone", c.zone)
+		assertEquals(HardwareArchitectureLevelType.COMPARTMENT, c.hardwareLevel)
 			
 		// Box
 		assertEquals(1, c.boxes.size)
 		val b = c.boxes.get(0)
 		assertEquals("Box1", b.name)
-		assertEquals("BoxManufacturer", b.manufacturer)		
+		assertEquals("BoxManufacturer", b.manufacturer)
+		assertEquals(HardwareArchitectureLevelType.BOX, b.hardwareLevel)
+		assertEquals(c, b.eContainer)		
 		
 		// Board
 		assertEquals(1, b.boards.size)
@@ -143,5 +151,44 @@ Software {
 		assertEquals(DesignAssuranceLevelType.C, board.assuranceLevel)
 		assertEquals(12345, board.ramCapacity)
 		assertEquals(67890, board.romCapacity)
+		assertEquals(HardwareArchitectureLevelType.BOARD, board.hardwareLevel)
+		assertEquals(b, board.eContainer)
+		
+		// Processor
+		assertEquals(1, board.processors.size)
+		val p = board.processors.get(0)
+		assertEquals("Processor1", p.name)
+		assertEquals("Freescale", p.manufacturer)
+		assertEquals("MPC5554", p.processorType)
+		assertEquals(HardwareArchitectureLevelType.PROCESSOR, p.hardwareLevel)
+		assertEquals(board, p.eContainer)
+		
+		// Core
+		assertEquals(1, p.cores.size)
+		val core = p.cores.get(0)
+		assertEquals("Core1", core.name)
+		assertEquals(100, core.capacity)
+		assertEquals("e200z6", core.architecture)
+		assertEquals(HardwareArchitectureLevelType.CORE, core.hardwareLevel)
+		assertEquals(p, core.eContainer)
+		
+		// Application
+		assertEquals(1, model.applications.size)
+		val a = model.applications.get(0)
+		assertEquals("A1", a.name)
+		assertEquals(10, a.coreUtilization)
+		assertEquals(12345, a.ramUtilization)
+		assertEquals(34567, a.romUtilization)
+		assertEquals(DesignAssuranceLevelType.D, a.criticalityLevel)
+		assertEquals(IOAdapterProtectionLevelType.LEVEL_2, a.ioAdapterProtectionLevel)
+		assertEquals("Company A", a.developedBy)
+		
+		// Threads
+		assertEquals(3, a.threads.size)
+		for (i : {0..2}) {
+			assertEquals(a.name + "_" + (i+1), a.threads.get(i).name)
+			assertEquals(a.coreUtilization, a.threads.get(i).coreUtilization)
+			assertEquals(a, a.threads.get(i).eContainer)
+		}
 	}
 }
