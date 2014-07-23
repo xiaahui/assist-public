@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_GzwU0AEZEeSTlPOe0qW7tA">
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_scaQ0AEcEeSTlPOe0qW7tA" featurename="children" parentElementId="edit"/>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_GzwU0AEZEeSTlPOe0qW7tA">
+  <imports xsi:type="commands:Command" xmi:id="_hz0KkBJsEeS0b7yzu71Zvg" elementId="org.eclipse.ui.edit.undo"/>
+  <imports xsi:type="commands:Command" xmi:id="_nFxzcBJsEeS0b7yzu71Zvg" elementId="org.eclipse.ui.edit.redo"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_scaQ0AEcEeSTlPOe0qW7tA" featurename="children" parentElementId="edit">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_kjIQgBJsEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.undo" label="&amp;Undo" command="_hz0KkBJsEeS0b7yzu71Zvg"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_n-KM8BJsEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.redo" label="&amp;Redo" command="_nFxzcBJsEeS0b7yzu71Zvg"/>
+  </fragments>
 </fragment:ModelFragments>
