@@ -12,6 +12,9 @@
   <imports xsi:type="commands:Command" xmi:id="_ltZVQA58EeSelv1Zem0g8g" elementId="org.eclipse.ui.file.saveAs"/>
   <imports xsi:type="commands:Command" xmi:id="_mWShQA58EeSelv1Zem0g8g" elementId="org.eclipse.ui.file.saveAll"/>
   <imports xsi:type="commands:Command" xmi:id="_nGqOQA58EeSelv1Zem0g8g" elementId="org.eclipse.ui.file.revert"/>
+  <imports xsi:type="commands:Command" xmi:id="__YrVcBJSEeS0b7yzu71Zvg" elementId="org.eclipse.ui.file.print"/>
+  <imports xsi:type="commands:Command" xmi:id="_oXLjMBJnEeS0b7yzu71Zvg" elementId="org.eclipse.ui.file.import"/>
+  <imports xsi:type="commands:Command" xmi:id="_pOHLMBJnEeS0b7yzu71Zvg" elementId="org.eclipse.ui.file.export"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_PprXMAEaEeSTlPOe0qW7tA" featurename="children" parentElementId="file">
     <elements xsi:type="menu:Menu" xmi:id="_Sm6kYAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.new" label="&amp;New" mnemonics="N">
       <children xsi:type="menu:HandledMenuItem" xmi:id="_lbUekAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.new.project" label="Project ..." iconURI="" command="_bE9-AA58EeSelv1Zem0g8g"/>
@@ -26,11 +29,16 @@
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_1YQasA5zEeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.close" label="Close" mnemonics="C" command="_jbwp0A58EeSelv1Zem0g8g"/>
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_AqiDYA54EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.closeAll" label="&amp;Close All" command="_kK1WUA58EeSelv1Zem0g8g"/>
     <elements xsi:type="menu:MenuSeparator" xmi:id="_AYnw0A50EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.menuseparator.3"/>
-    <elements xsi:type="menu:HandledMenuItem" xmi:id="_k33qMA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.save" label="&amp;Save" command="_k_efUA58EeSelv1Zem0g8g"/>
-    <elements xsi:type="menu:HandledMenuItem" xmi:id="_ldyasA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.saveAs" label="&amp;Save As..." command="_ltZVQA58EeSelv1Zem0g8g"/>
-    <elements xsi:type="menu:HandledMenuItem" xmi:id="_ltlxQA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.saveAll" label="&amp;Save All" command="_mWShQA58EeSelv1Zem0g8g"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_k33qMA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.save" label="&amp;Save" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/save.png" command="_k_efUA58EeSelv1Zem0g8g"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_ldyasA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.saveAs" label="&amp;Save As..." iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/saveas.png" command="_ltZVQA58EeSelv1Zem0g8g"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_ltlxQA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.saveAll" label="&amp;Save All" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/saveAll.png" command="_mWShQA58EeSelv1Zem0g8g"/>
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_l7ecQA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.revert" label="&amp;Revert" command="_nGqOQA58EeSelv1Zem0g8g"/>
     <elements xsi:type="menu:MenuSeparator" xmi:id="_mr2JQA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.menuseparator.4"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_mLnQEBJSEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.print" label="&amp;Print" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/print.png" command="__YrVcBJSEeS0b7yzu71Zvg"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_kSvp8BJSEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.menuseparator.5"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="__yGyABJmEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.import" label="&amp;Import" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/import.png" command="_oXLjMBJnEeS0b7yzu71Zvg"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_1YvVABJnEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.export" label="&amp;Export" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/export.png" command="_pOHLMBJnEeS0b7yzu71Zvg"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_9ta9cBJmEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.menuseparator.6"/>
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_YIZ3AAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.quit" label="&amp;Exit" command="_oZYnoAEZEeSTlPOe0qW7tA"/>
   </fragments>
 </fragment:ModelFragments>
