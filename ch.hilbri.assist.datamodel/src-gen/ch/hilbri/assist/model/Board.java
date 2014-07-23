@@ -141,6 +141,7 @@ public interface Board extends HardwareElementContainer {
 
 	/**
 	 * Returns the value of the '<em><b>Ram Capacity</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Ram Capacity</em>' attribute isn't clear,
@@ -150,7 +151,7 @@ public interface Board extends HardwareElementContainer {
 	 * @return the value of the '<em>Ram Capacity</em>' attribute.
 	 * @see #setRamCapacity(int)
 	 * @see ch.hilbri.assist.model.ModelPackage#getBoard_RamCapacity()
-	 * @model unique="false"
+	 * @model default="0" unique="false"
 	 * @generated
 	 */
 	int getRamCapacity();
@@ -167,6 +168,7 @@ public interface Board extends HardwareElementContainer {
 
 	/**
 	 * Returns the value of the '<em><b>Rom Capacity</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rom Capacity</em>' attribute isn't clear,
@@ -176,7 +178,7 @@ public interface Board extends HardwareElementContainer {
 	 * @return the value of the '<em>Rom Capacity</em>' attribute.
 	 * @see #setRomCapacity(int)
 	 * @see ch.hilbri.assist.model.ModelPackage#getBoard_RomCapacity()
-	 * @model unique="false"
+	 * @model default="0" unique="false"
 	 * @generated
 	 */
 	int getRomCapacity();

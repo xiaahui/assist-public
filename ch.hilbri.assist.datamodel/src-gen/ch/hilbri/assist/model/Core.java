@@ -52,6 +52,7 @@ public interface Core extends HardwareElement {
 
 	/**
 	 * Returns the value of the '<em><b>Capacity</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Capacity</em>' attribute isn't clear,
@@ -61,7 +62,7 @@ public interface Core extends HardwareElement {
 	 * @return the value of the '<em>Capacity</em>' attribute.
 	 * @see #setCapacity(int)
 	 * @see ch.hilbri.assist.model.ModelPackage#getCore_Capacity()
-	 * @model unique="false"
+	 * @model default="0" unique="false"
 	 * @generated
 	 */
 	int getCapacity();
