@@ -80,7 +80,7 @@ public class SolverVariablesContainer {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((_threadLocationVariablesList== null) ? 0 : _threadLocationVariablesList.hashCode());
+    result = prime * result + ((this._threadLocationVariablesList== null) ? 0 : this._threadLocationVariablesList.hashCode());
     return result;
   }
   
@@ -93,10 +93,10 @@ public class SolverVariablesContainer {
     if (getClass() != obj.getClass())
       return false;
     SolverVariablesContainer other = (SolverVariablesContainer) obj;
-    if (_threadLocationVariablesList == null) {
+    if (this._threadLocationVariablesList == null) {
       if (other._threadLocationVariablesList != null)
         return false;
-    } else if (!_threadLocationVariablesList.equals(other._threadLocationVariablesList))
+    } else if (!this._threadLocationVariablesList.equals(other._threadLocationVariablesList))
       return false;
     return true;
   }
