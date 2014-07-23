@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.tests.constraints
+package ch.hilbri.assist.mapping.tests.results
 
 import ch.hilbri.assist.mapping.datamodel.PostProcessor
 import ch.hilbri.assist.mapping.solver.SearchType
@@ -10,8 +10,13 @@ import ch.hilbri.assist.model.DesignAssuranceLevelType
 import ch.hilbri.assist.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.model.IOAdapterProtectionLevelType
 import ch.hilbri.assist.model.ModelPackage
+import ch.hilbri.assist.result.mapping.Board
+import ch.hilbri.assist.result.mapping.Box
 import ch.hilbri.assist.result.mapping.Compartment
+import ch.hilbri.assist.result.mapping.Core
+import ch.hilbri.assist.result.mapping.Processor
 import ch.hilbri.assist.result.mapping.Result
+import ch.hilbri.assist.result.mapping.Thread
 import com.google.inject.Inject
 import java.util.ArrayList
 import org.eclipse.xtext.junit4.InjectWith
@@ -28,14 +33,8 @@ import static org.junit.Assert.*
 @RunWith(XtextRunner)
 class BasicResultTests {
 	
-	@Inject
-	ParseHelper<AssistModel> parser
-	
-	AssistModel model
-	
-	ArrayList<Result> allResults
-	
 	String input = '''
+	
 Global {
 	System name = "Simple System";
 }
@@ -85,6 +84,12 @@ Software {
 	
 }
 '''
+
+	AssistModel model
+	ArrayList<Result> allResults
+
+	@Inject
+	ParseHelper<AssistModel> parser
 
 	@BeforeClass
 	def static void registerEPackage() { ModelPackage.eINSTANCE.eClass() }	
@@ -190,5 +195,74 @@ Software {
 			assertEquals(a.coreUtilization, a.threads.get(i).coreUtilization)
 			assertEquals(a, a.threads.get(i).eContainer)
 		}
+	}
+
+	@Test
+	def void testGetAllAccessFunctions() {
+		val result = allResults.get(0)
+		
+		// AllCompartments
+		val allCompartmentsList = result.allCompartments
+		assertEquals(1, allCompartmentsList.size)
+		val compartment = allCompartmentsList.get(0)
+		assertTrue(compartment instanceof Compartment)
+		assertEquals(result.rootHardwareElements.get(0), compartment)
+		
+		// AllBoxes
+		val allBoxesList = result.allBoxes
+		assertEquals(1, allBoxesList.size)
+		val box = allBoxesList.get(0)
+		assertTrue(box instanceof Box)
+		assertEquals((result.rootHardwareElements.get(0) as Compartment).boxes.get(0), box)
+		
+		// AllBoards
+		val allBoardsList = result.allBoards
+		assertEquals(1, allBoardsList.size)
+		val board = allBoardsList.get(0)
+		assertTrue(board instanceof Board)
+		assertEquals((result.rootHardwareElements.get(0) as Compartment).boxes.get(0).boards.get(0), board)
+		
+		// AllProcessors
+		val allProcessorsList = result.allProcessors
+		assertEquals(1, allProcessorsList.size)
+		val processor = allProcessorsList.get(0)
+		assertTrue(processor instanceof Processor)
+		assertEquals((result.rootHardwareElements.get(0) as Compartment).boxes.get(0).boards.get(0).processors.get(0), processor)
+	
+		// AllCores
+		val allCoresList = result.allCores
+		assertEquals(1, allCoresList.size)
+		val core = allCoresList.get(0)
+		assertTrue(core instanceof Core)
+		assertEquals((result.rootHardwareElements.get(0) as Compartment).boxes.get(0).boards.get(0).processors.get(0).cores.get(0), core)
+	
+		// AllThreads
+		val allThreadsList = result.allThreads
+		assertEquals(3, allThreadsList.size)
+		for (i : {0..2}) {
+			val thread = allThreadsList.get(i)
+			assertTrue(thread instanceof Thread)
+			assertEquals(result.applications.get(0).threads.get(i), thread)	
+		}
+	}
+
+	@Test
+	def void testMappingAssignment() {
+		
+		// Core view
+		val core = allResults.get(0).allCores.get(0)
+		assertEquals(3, core.threads.size)
+		for (thread : core.threads)
+			assertTrue(allResults.get(0).allThreads.contains(thread))
+	
+		// Thread view
+		for (thread : allResults.get(0).allThreads) 
+			assertEquals(thread.core, core)
+	
+	}
+	
+	@Test
+	def void testUtilizationAfterMapping() {
+		fail
 	}
 }
