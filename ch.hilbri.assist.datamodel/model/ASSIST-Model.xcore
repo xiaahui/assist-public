@@ -3,7 +3,7 @@
 	editorDirectory="/ch.hilbri.assist.datamodel.model.editor/src", 
 	testsDirectory="/ch.hilbri.assist.datamodel.model.tests/src", 
 	generateModelWizard="false"
-)
+, generateExampleClass="false")
 
 package ch.hilbri.assist.model
 
