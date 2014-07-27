@@ -1870,6 +1870,26 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2011/Xcore
+		createXcoreAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2011/Xcore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createXcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2011/Xcore";	
+		addAnnotation
+		  (this, 
+		   source, 
+		   new String[] {
+			 "GenModel", "http://www.eclipse.org/emf/2002/GenModel"
+		   });
 	}
 
 } //MappingPackageImpl

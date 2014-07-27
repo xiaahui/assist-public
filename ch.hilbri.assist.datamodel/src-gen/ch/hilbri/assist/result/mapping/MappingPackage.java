@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EReference;
  * @see ch.hilbri.assist.result.mapping.MappingFactory
  * @model kind="package"
  *        annotation="http://www.eclipse.org/emf/2002/GenModel copyrightText='Copyright 2014 - Robert Hilbrich' basePackage='ch.hilbri.assist.result'"
+ *        annotation="http://www.eclipse.org/emf/2011/Xcore GenModel='http://www.eclipse.org/emf/2002/GenModel'"
  * @generated
  */
 public interface MappingPackage extends EPackage {
