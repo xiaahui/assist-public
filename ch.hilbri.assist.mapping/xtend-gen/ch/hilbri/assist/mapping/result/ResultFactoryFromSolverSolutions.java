@@ -27,7 +27,7 @@ import java.util.HashMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.jacop.core.Domain;
-import org.jacop.core.IntDomain;
+import org.jacop.core.ValueEnumeration;
 
 @SuppressWarnings("all")
 public class ResultFactoryFromSolverSolutions {
@@ -275,7 +275,8 @@ public class ResultFactoryFromSolverSolutions {
         final ch.hilbri.assist.result.mapping.Thread resultThread = result.findResultThread(thread);
         final int locVarIndex = solverVariables.getIndexOfThreadLocationInSolutionVariablesList(thread, 1);
         Domain _get = solverSolution[locVarIndex];
-        final int coreNr = ((IntDomain) _get).getElementAt(0);
+        ValueEnumeration _valueEnumeration = _get.valueEnumeration();
+        final int coreNr = _valueEnumeration.nextElement();
         final int coreIndex = (coreNr - 1);
         EList<Core> _allCores = model.getAllCores();
         Core _get_1 = _allCores.get(coreIndex);
@@ -293,6 +294,13 @@ public class ResultFactoryFromSolverSolutions {
           EList<ch.hilbri.assist.result.mapping.Thread> _threads = resultCore.getThreads();
           _threads.add(resultThread);
           resultThread.setCore(resultCore);
+          HardwareElement _referenceObject = resultCore.getReferenceObject();
+          final Core modelCore = ((Core) _referenceObject);
+          int _indexOfAbsoluteUtilizationInSolutionVariablesList = solverVariables.getIndexOfAbsoluteUtilizationInSolutionVariablesList(modelCore);
+          Domain _get_3 = solverSolution[_indexOfAbsoluteUtilizationInSolutionVariablesList];
+          ValueEnumeration _valueEnumeration_1 = _get_3.valueEnumeration();
+          final int absoluteUtilization = _valueEnumeration_1.nextElement();
+          resultCore.setUtilization(absoluteUtilization);
         }
       }
     }

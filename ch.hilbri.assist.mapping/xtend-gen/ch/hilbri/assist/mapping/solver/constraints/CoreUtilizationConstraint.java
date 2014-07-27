@@ -88,9 +88,8 @@ public class CoreUtilizationConstraint extends AbstractMappingConstraint {
             utilizationList.add(Integer.valueOf(_coreUtilization));
           }
         }
-        int _capacity = core.getCapacity();
-        final IntVar sum = new IntVar(this.constraintStore, "Weighted Sum", 0, _capacity);
-        final SumWeight constraintSumWeight = new SumWeight(factorList, utilizationList, sum);
+        final IntVar absoluteCoreUtilization = this.solverVariables.getAbsoluteCoreUtilizationVariable(core);
+        final SumWeight constraintSumWeight = new SumWeight(factorList, utilizationList, absoluteCoreUtilization);
         this.constraintStore.impose(constraintSumWeight);
         this.constraintStore.print();
       }

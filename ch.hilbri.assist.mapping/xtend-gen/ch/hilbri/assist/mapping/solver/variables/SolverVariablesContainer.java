@@ -1,6 +1,7 @@
 package ch.hilbri.assist.mapping.solver.variables;
 
 import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.Core;
 import ch.hilbri.assist.model.HardwareElement;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,10 +17,28 @@ import org.jacop.core.Store;
 @Data
 @SuppressWarnings("all")
 public class SolverVariablesContainer {
+  /**
+   * A list of location variables for each thread (and each system layer)
+   */
   private final HashMap<ch.hilbri.assist.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = new HashMap<ch.hilbri.assist.model.Thread, HashMap<Integer, IntVar>>();
   
+  /**
+   * A list of location variables for each thread (and each system layer)
+   */
   public HashMap<ch.hilbri.assist.model.Thread, HashMap<Integer, IntVar>> getThreadLocationVariablesList() {
     return this._threadLocationVariablesList;
+  }
+  
+  /**
+   * A list of variables; a variable for each core which contains the absolute utilization
+   */
+  private final HashMap<Core, IntVar> _absoluteCoreUtilizationList = new HashMap<Core, IntVar>();
+  
+  /**
+   * A list of variables; a variable for each core which contains the absolute utilization
+   */
+  public HashMap<Core, IntVar> getAbsoluteCoreUtilizationList() {
+    return this._absoluteCoreUtilizationList;
   }
   
   /**
@@ -44,8 +63,20 @@ public class SolverVariablesContainer {
         _threadLocationVariablesList.put(t, m);
       }
     }
+    EList<Core> _allCores = model.getAllCores();
+    for (final Core c : _allCores) {
+      HashMap<Core, IntVar> _absoluteCoreUtilizationList = this.getAbsoluteCoreUtilizationList();
+      String _name = c.getName();
+      String _plus = ("AbsUtilization-" + _name);
+      int _capacity = c.getCapacity();
+      IntVar _intVar = new IntVar(constraintStore, _plus, 0, _capacity);
+      _absoluteCoreUtilizationList.put(c, _intVar);
+    }
   }
   
+  /**
+   * Returns a list of Variables which the solver has to generate solutions for
+   */
   public IntVar[] getSolutionVariables() {
     final ArrayList<IntVar> list = new ArrayList<IntVar>();
     HashMap<ch.hilbri.assist.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = this.getThreadLocationVariablesList();
@@ -61,19 +92,50 @@ public class SolverVariablesContainer {
         list.add(_get_2);
       }
     }
+    HashMap<Core, IntVar> _absoluteCoreUtilizationList = this.getAbsoluteCoreUtilizationList();
+    Set<Core> _keySet_2 = _absoluteCoreUtilizationList.keySet();
+    for (final Core coreKey : _keySet_2) {
+      HashMap<Core, IntVar> _absoluteCoreUtilizationList_1 = this.getAbsoluteCoreUtilizationList();
+      IntVar _get_3 = _absoluteCoreUtilizationList_1.get(coreKey);
+      list.add(_get_3);
+    }
     return ((IntVar[])Conversions.unwrapArray(list, IntVar.class));
   }
   
+  /**
+   * Returns the location variable for a given thread and a given hardware level
+   */
   public IntVar getThreadLocationVariable(final ch.hilbri.assist.model.Thread t, final int level) {
     HashMap<ch.hilbri.assist.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = this.getThreadLocationVariablesList();
     HashMap<Integer, IntVar> _get = _threadLocationVariablesList.get(t);
     return _get.get(Integer.valueOf(level));
   }
   
+  /**
+   * Returns the index of the location variable for a given thread and hardware level
+   */
   public int getIndexOfThreadLocationInSolutionVariablesList(final ch.hilbri.assist.model.Thread t, final int level) {
     IntVar[] _solutionVariables = this.getSolutionVariables();
     IntVar _threadLocationVariable = this.getThreadLocationVariable(t, level);
     return ((List<IntVar>)Conversions.doWrapArray(_solutionVariables)).indexOf(_threadLocationVariable);
+  }
+  
+  /**
+   * Returns the variable which contains the absolute utilization for the given core
+   */
+  public IntVar getAbsoluteCoreUtilizationVariable(final Core c) {
+    HashMap<Core, IntVar> _absoluteCoreUtilizationList = this.getAbsoluteCoreUtilizationList();
+    return _absoluteCoreUtilizationList.get(c);
+  }
+  
+  /**
+   * Returns the index of the absolute utilization variable of a given core in the solutions variables list
+   */
+  public int getIndexOfAbsoluteUtilizationInSolutionVariablesList(final Core c) {
+    IntVar[] _solutionVariables = this.getSolutionVariables();
+    HashMap<Core, IntVar> _absoluteCoreUtilizationList = this.getAbsoluteCoreUtilizationList();
+    IntVar _get = _absoluteCoreUtilizationList.get(c);
+    return ((List<IntVar>)Conversions.doWrapArray(_solutionVariables)).indexOf(_get);
   }
   
   @Override
@@ -81,6 +143,7 @@ public class SolverVariablesContainer {
     final int prime = 31;
     int result = 1;
     result = prime * result + ((this._threadLocationVariablesList== null) ? 0 : this._threadLocationVariablesList.hashCode());
+    result = prime * result + ((this._absoluteCoreUtilizationList== null) ? 0 : this._absoluteCoreUtilizationList.hashCode());
     return result;
   }
   
@@ -97,6 +160,11 @@ public class SolverVariablesContainer {
       if (other._threadLocationVariablesList != null)
         return false;
     } else if (!this._threadLocationVariablesList.equals(other._threadLocationVariablesList))
+      return false;
+    if (this._absoluteCoreUtilizationList == null) {
+      if (other._absoluteCoreUtilizationList != null)
+        return false;
+    } else if (!this._absoluteCoreUtilizationList.equals(other._absoluteCoreUtilizationList))
       return false;
     return true;
   }

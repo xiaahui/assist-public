@@ -85,8 +85,8 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 				utilizationList.add(thread.coreUtilization)				
 			}
 			
-			val sum = new IntVar(constraintStore, "Weighted Sum", 0, core.capacity)
-			val constraintSumWeight = new SumWeight(factorList, utilizationList, sum)
+			val absoluteCoreUtilization = solverVariables.getAbsoluteCoreUtilizationVariable(core)
+			val constraintSumWeight = new SumWeight(factorList, utilizationList, absoluteCoreUtilization)
 
 			constraintStore.impose(constraintSumWeight)
 			

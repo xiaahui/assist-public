@@ -18,7 +18,6 @@ import java.util.ArrayList
 import java.util.HashMap
 import org.eclipse.emf.ecore.EObject
 import org.jacop.core.Domain
-import org.jacop.core.IntDomain
 
 class ResultFactoryFromSolverSolutions {
 	
@@ -201,7 +200,7 @@ class ResultFactoryFromSolverSolutions {
 			val locVarIndex = solverVariables.getIndexOfThreadLocationInSolutionVariablesList(thread, 1)
 			
 			/* To which core number should the current thread be mapped to? */
-			val coreNr = (solverSolution.get(locVarIndex) as IntDomain).getElementAt(0)
+			val coreNr = solverSolution.get(locVarIndex).valueEnumeration.nextElement
 			val coreIndex = coreNr - 1
 			  
 			/* To which core does this correspond in the result model? */
@@ -214,6 +213,11 @@ class ResultFactoryFromSolverSolutions {
 				/* Place this thread to the core */
 				resultCore.threads.add(resultThread)
 				resultThread.core = resultCore
+				
+				/* Update the absolute core utilization */
+				val modelCore = resultCore.referenceObject as ch.hilbri.assist.model.Core 
+				val absoluteUtilization = solverSolution.get(solverVariables.getIndexOfAbsoluteUtilizationInSolutionVariablesList(modelCore)).valueEnumeration.nextElement
+				resultCore.setUtilization(absoluteUtilization)
 			}
 		}
 	}
