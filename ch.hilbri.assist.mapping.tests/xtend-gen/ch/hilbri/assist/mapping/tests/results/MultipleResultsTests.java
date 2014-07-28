@@ -1,11 +1,11 @@
 package ch.hilbri.assist.mapping.tests.results;
 
-import ch.hilbri.assist.datamodel.model.Application;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.DesignAssuranceLevelType;
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.datamodel.model.IOAdapterProtectionLevelType;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+import ch.hilbri.assist.datamodel.result.mapping.Application;
 import ch.hilbri.assist.datamodel.result.mapping.Board;
 import ch.hilbri.assist.datamodel.result.mapping.Box;
 import ch.hilbri.assist.datamodel.result.mapping.Compartment;
@@ -38,10 +38,12 @@ import org.junit.runner.RunWith;
 @InjectWith(MappingDSLInjectorProvider.class)
 @RunWith(XtextRunner.class)
 @SuppressWarnings("all")
-public class BasicResultTests {
+public class MultipleResultsTests {
   private String input = new Function0<String>() {
     public String apply() {
       StringConcatenation _builder = new StringConcatenation();
+      _builder.append("\t");
+      _builder.newLine();
       _builder.append("Global {");
       _builder.newLine();
       _builder.append("\t");
@@ -56,16 +58,16 @@ public class BasicResultTests {
       _builder.append("Compartment C1 {");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("Manufacturer = \"CompartmentManufacturer\";");
+      _builder.append("Manufacturer = \"CompartmentManufacturer1\";");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("Power supply = \"CompartmentPowerSupply\";");
+      _builder.append("Power supply = \"CompartmentPowerSupply1\";");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("Side\t\t = \"CompartmentSide\";");
+      _builder.append("Side\t\t = \"CompartmentSide1\";");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("Zone\t\t = \"CompartmentZone\";");
+      _builder.append("Zone\t\t = \"CompartmentZone1\";");
       _builder.newLine();
       _builder.append("\t\t");
       _builder.newLine();
@@ -73,7 +75,7 @@ public class BasicResultTests {
       _builder.append("Box Box1 {");
       _builder.newLine();
       _builder.append("\t\t\t");
-      _builder.append("Manufacturer = \"BoxManufacturer\";");
+      _builder.append("Manufacturer = \"BoxManufacturer1\";");
       _builder.newLine();
       _builder.append("\t\t\t");
       _builder.newLine();
@@ -84,10 +86,10 @@ public class BasicResultTests {
       _builder.append("Manufacturer = \"Board Vendor 1\";");
       _builder.newLine();
       _builder.append("\t\t\t\t");
-      _builder.append("Type\t\t = \"BoardType\";");
+      _builder.append("Type\t\t = \"BoardType1\";");
       _builder.newLine();
       _builder.append("\t\t\t\t");
-      _builder.append("Power supply = \"BoardPowerSupply\";");
+      _builder.append("Power supply = \"BoardPowerSupply1\";");
       _builder.newLine();
       _builder.append("\t\t\t\t");
       _builder.append("Design assurance level = C;");
@@ -98,19 +100,19 @@ public class BasicResultTests {
       _builder.append("Processor Processor1 {");
       _builder.newLine();
       _builder.append("\t\t\t\t\t");
-      _builder.append("Manufacturer = \"Freescale\";");
+      _builder.append("Manufacturer = \"Freescale1\";");
       _builder.newLine();
       _builder.append("\t\t\t\t\t");
-      _builder.append("Type = \"MPC5554\";");
+      _builder.append("Type = \"MPC55541\";");
       _builder.newLine();
       _builder.append("\t\t\t\t\t");
       _builder.append("Core Core1 {");
       _builder.newLine();
       _builder.append("\t\t\t\t\t\t");
-      _builder.append("Capacity = 100;   ");
+      _builder.append("Capacity = 101;   ");
       _builder.newLine();
       _builder.append("\t\t\t\t\t\t");
-      _builder.append("Architecture = \"e200z6\";");
+      _builder.append("Architecture = \"e200z61\";");
       _builder.newLine();
       _builder.append("\t\t\t\t\t");
       _builder.append("}");
@@ -121,10 +123,95 @@ public class BasicResultTests {
       _builder.append("\t\t\t\t");
       _builder.newLine();
       _builder.append("\t\t\t\t");
-      _builder.append("RAM capacity = 98765;");
+      _builder.append("RAM capacity = 123451;");
       _builder.newLine();
       _builder.append("\t\t\t\t");
-      _builder.append("ROM capacity = 67890;");
+      _builder.append("ROM capacity = 678901;");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Compartment C2 {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Manufacturer = \"CompartmentManufacturer2\";");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Power supply = \"CompartmentPowerSupply2\";");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Side\t\t = \"CompartmentSide2\";");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Zone\t\t = \"CompartmentZone2\";");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Box Box2 {");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("Manufacturer = \"BoxManufacturer2\";");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("Board Board2 {");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("Manufacturer = \"Board Vendor 2\";");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("Type\t\t = \"BoardType2\";");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("Power supply = \"BoardPowerSupply2\";");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("Design assurance level = D;");
+      _builder.newLine();
+      _builder.append("\t\t\t\t\t\t\t\t");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("Processor Processor2 {");
+      _builder.newLine();
+      _builder.append("\t\t\t\t\t");
+      _builder.append("Manufacturer = \"Freescale2\";");
+      _builder.newLine();
+      _builder.append("\t\t\t\t\t");
+      _builder.append("Type = \"MPC55542\";");
+      _builder.newLine();
+      _builder.append("\t\t\t\t\t");
+      _builder.append("Core Core2 {");
+      _builder.newLine();
+      _builder.append("\t\t\t\t\t\t");
+      _builder.append("Capacity = 102;   ");
+      _builder.newLine();
+      _builder.append("\t\t\t\t\t\t");
+      _builder.append("Architecture = \"e200z62\";");
+      _builder.newLine();
+      _builder.append("\t\t\t\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("RAM capacity = 123452;");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("ROM capacity = 678902;");
       _builder.newLine();
       _builder.append("\t\t\t");
       _builder.append("}");
@@ -144,13 +231,13 @@ public class BasicResultTests {
       _builder.append("Application A1   {\t");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("Core-utilization \t\t\t= 10;");
+      _builder.append("Core-utilization \t\t\t= 11;");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("Required RAM capacity \t\t= 123; ");
+      _builder.append("Required RAM capacity \t\t= 12341; ");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("Required ROM capacity \t\t= 34567; ");
+      _builder.append("Required ROM capacity \t\t= 34561; ");
       _builder.newLine();
       _builder.append("\t    ");
       _builder.append("Criticality level \t\t\t= D;");
@@ -159,10 +246,39 @@ public class BasicResultTests {
       _builder.append("Required IO protection \t\t= L2;");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("Identical parallel threads \t= 3;");
+      _builder.append("Identical parallel threads \t= 1;");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("Developed by \t\t\t\t= \"Company A\";");
+      _builder.append("Developed by \t\t\t\t= \"Company A1\";");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append(" ");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Application A2   {\t");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Core-utilization \t\t\t= 12;");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Required RAM capacity \t\t= 12342; ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Required ROM capacity \t\t= 34562; ");
+      _builder.newLine();
+      _builder.append("\t    ");
+      _builder.append("Criticality level \t\t\t= D;");
+      _builder.newLine();
+      _builder.append("\t    ");
+      _builder.append("Required IO protection \t\t= L3;");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Identical parallel threads \t= 1;");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Developed by \t\t\t\t= \"Company A2\";");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
@@ -211,12 +327,42 @@ public class BasicResultTests {
   @Test
   public void testResultCount() {
     int _size = this.allResults.size();
-    Assert.assertEquals("There should be only 1 result", 1, _size);
+    Assert.assertEquals(4, _size);
   }
   
   @Test
-  public void testResultStructure() {
-    final Result r = this.allResults.get(0);
+  public void testResultAllApplicationsOnCore1() {
+    Result result = null;
+    for (final Result r : this.allResults) {
+      boolean _and = false;
+      EList<Application> _applications = r.getApplications();
+      Application _get = _applications.get(0);
+      EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads = _get.getThreads();
+      ch.hilbri.assist.datamodel.result.mapping.Thread _get_1 = _threads.get(0);
+      Core _core = _get_1.getCore();
+      String _name = _core.getName();
+      boolean _equals = _name.equals("Core1");
+      if (!_equals) {
+        _and = false;
+      } else {
+        EList<Application> _applications_1 = r.getApplications();
+        Application _get_2 = _applications_1.get(1);
+        EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_1 = _get_2.getThreads();
+        ch.hilbri.assist.datamodel.result.mapping.Thread _get_3 = _threads_1.get(0);
+        Core _core_1 = _get_3.getCore();
+        String _name_1 = _core_1.getName();
+        boolean _equals_1 = _name_1.equals("Core1");
+        _and = _equals_1;
+      }
+      if (_and) {
+        result = r;
+      }
+    }
+    Assert.assertNotNull(result);
+  }
+  
+  public void testResultStructure(final Result result) {
+    final Result r = result;
     HardwareArchitectureLevelType _topHardwareLevel = r.getTopHardwareLevel();
     Assert.assertEquals(HardwareArchitectureLevelType.COMPARTMENT, _topHardwareLevel);
     EList<HardwareElement> _rootHardwareElements = r.getRootHardwareElements();
@@ -269,7 +415,7 @@ public class BasicResultTests {
     DesignAssuranceLevelType _assuranceLevel = board.getAssuranceLevel();
     Assert.assertEquals(DesignAssuranceLevelType.C, _assuranceLevel);
     int _ramCapacity = board.getRamCapacity();
-    Assert.assertEquals(98765, _ramCapacity);
+    Assert.assertEquals(12345, _ramCapacity);
     int _romCapacity = board.getRomCapacity();
     Assert.assertEquals(67890, _romCapacity);
     HardwareArchitectureLevelType _hardwareLevel_2 = board.getHardwareLevel();
@@ -306,17 +452,17 @@ public class BasicResultTests {
     Assert.assertEquals(HardwareArchitectureLevelType.CORE, _hardwareLevel_4);
     EObject _eContainer_3 = core.eContainer();
     Assert.assertEquals(p, _eContainer_3);
-    EList<Application> _applications = this.model.getApplications();
+    EList<ch.hilbri.assist.datamodel.model.Application> _applications = this.model.getApplications();
     int _size_5 = _applications.size();
     Assert.assertEquals(1, _size_5);
-    EList<Application> _applications_1 = this.model.getApplications();
-    final Application a = _applications_1.get(0);
+    EList<ch.hilbri.assist.datamodel.model.Application> _applications_1 = this.model.getApplications();
+    final ch.hilbri.assist.datamodel.model.Application a = _applications_1.get(0);
     String _name_5 = a.getName();
     Assert.assertEquals("A1", _name_5);
     int _coreUtilization = a.getCoreUtilization();
     Assert.assertEquals(10, _coreUtilization);
     int _ramUtilization = a.getRamUtilization();
-    Assert.assertEquals(123, _ramUtilization);
+    Assert.assertEquals(12345, _ramUtilization);
     int _romUtilization = a.getRomUtilization();
     Assert.assertEquals(34567, _romUtilization);
     DesignAssuranceLevelType _criticalityLevel = a.getCriticalityLevel();
@@ -347,108 +493,6 @@ public class BasicResultTests {
         EObject _eContainer_4 = _get_4.eContainer();
         Assert.assertEquals(a, _eContainer_4);
       }
-    }
-  }
-  
-  @Test
-  public void testGetAllAccessFunctions() {
-    final Result result = this.allResults.get(0);
-    final EList<Compartment> allCompartmentsList = result.getAllCompartments();
-    int _size = allCompartmentsList.size();
-    Assert.assertEquals(1, _size);
-    final Compartment compartment = allCompartmentsList.get(0);
-    Assert.assertTrue((compartment instanceof Compartment));
-    EList<HardwareElement> _rootHardwareElements = result.getRootHardwareElements();
-    HardwareElement _get = _rootHardwareElements.get(0);
-    Assert.assertEquals(_get, compartment);
-    final EList<Box> allBoxesList = result.getAllBoxes();
-    int _size_1 = allBoxesList.size();
-    Assert.assertEquals(1, _size_1);
-    final Box box = allBoxesList.get(0);
-    Assert.assertTrue((box instanceof Box));
-    EList<HardwareElement> _rootHardwareElements_1 = result.getRootHardwareElements();
-    HardwareElement _get_1 = _rootHardwareElements_1.get(0);
-    EList<Box> _boxes = ((Compartment) _get_1).getBoxes();
-    Box _get_2 = _boxes.get(0);
-    Assert.assertEquals(_get_2, box);
-    final EList<Board> allBoardsList = result.getAllBoards();
-    int _size_2 = allBoardsList.size();
-    Assert.assertEquals(1, _size_2);
-    final Board board = allBoardsList.get(0);
-    Assert.assertTrue((board instanceof Board));
-    EList<HardwareElement> _rootHardwareElements_2 = result.getRootHardwareElements();
-    HardwareElement _get_3 = _rootHardwareElements_2.get(0);
-    EList<Box> _boxes_1 = ((Compartment) _get_3).getBoxes();
-    Box _get_4 = _boxes_1.get(0);
-    EList<Board> _boards = _get_4.getBoards();
-    Board _get_5 = _boards.get(0);
-    Assert.assertEquals(_get_5, board);
-    final EList<Processor> allProcessorsList = result.getAllProcessors();
-    int _size_3 = allProcessorsList.size();
-    Assert.assertEquals(1, _size_3);
-    final Processor processor = allProcessorsList.get(0);
-    Assert.assertTrue((processor instanceof Processor));
-    EList<HardwareElement> _rootHardwareElements_3 = result.getRootHardwareElements();
-    HardwareElement _get_6 = _rootHardwareElements_3.get(0);
-    EList<Box> _boxes_2 = ((Compartment) _get_6).getBoxes();
-    Box _get_7 = _boxes_2.get(0);
-    EList<Board> _boards_1 = _get_7.getBoards();
-    Board _get_8 = _boards_1.get(0);
-    EList<Processor> _processors = _get_8.getProcessors();
-    Processor _get_9 = _processors.get(0);
-    Assert.assertEquals(_get_9, processor);
-    final EList<Core> allCoresList = result.getAllCores();
-    int _size_4 = allCoresList.size();
-    Assert.assertEquals(1, _size_4);
-    final Core core = allCoresList.get(0);
-    Assert.assertTrue((core instanceof Core));
-    EList<HardwareElement> _rootHardwareElements_4 = result.getRootHardwareElements();
-    HardwareElement _get_10 = _rootHardwareElements_4.get(0);
-    EList<Box> _boxes_3 = ((Compartment) _get_10).getBoxes();
-    Box _get_11 = _boxes_3.get(0);
-    EList<Board> _boards_2 = _get_11.getBoards();
-    Board _get_12 = _boards_2.get(0);
-    EList<Processor> _processors_1 = _get_12.getProcessors();
-    Processor _get_13 = _processors_1.get(0);
-    EList<Core> _cores = _get_13.getCores();
-    Core _get_14 = _cores.get(0);
-    Assert.assertEquals(_get_14, core);
-    final EList<ch.hilbri.assist.datamodel.result.mapping.Thread> allThreadsList = result.getAllThreads();
-    int _size_5 = allThreadsList.size();
-    Assert.assertEquals(3, _size_5);
-    for (final Integer i : new IntegerRange(0, 2)) {
-      {
-        final ch.hilbri.assist.datamodel.result.mapping.Thread thread = allThreadsList.get((i).intValue());
-        Assert.assertTrue((thread instanceof ch.hilbri.assist.datamodel.result.mapping.Thread));
-        EList<ch.hilbri.assist.datamodel.result.mapping.Application> _applications = result.getApplications();
-        ch.hilbri.assist.datamodel.result.mapping.Application _get_15 = _applications.get(0);
-        EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads = _get_15.getThreads();
-        ch.hilbri.assist.datamodel.result.mapping.Thread _get_16 = _threads.get((i).intValue());
-        Assert.assertEquals(_get_16, thread);
-      }
-    }
-  }
-  
-  @Test
-  public void testMappingAssignment() {
-    Result _get = this.allResults.get(0);
-    EList<Core> _allCores = _get.getAllCores();
-    final Core core = _allCores.get(0);
-    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads = core.getThreads();
-    int _size = _threads.size();
-    Assert.assertEquals(3, _size);
-    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_1 = core.getThreads();
-    for (final ch.hilbri.assist.datamodel.result.mapping.Thread thread : _threads_1) {
-      Result _get_1 = this.allResults.get(0);
-      EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _allThreads = _get_1.getAllThreads();
-      boolean _contains = _allThreads.contains(thread);
-      Assert.assertTrue(_contains);
-    }
-    Result _get_2 = this.allResults.get(0);
-    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _allThreads_1 = _get_2.getAllThreads();
-    for (final ch.hilbri.assist.datamodel.result.mapping.Thread thread_1 : _allThreads_1) {
-      Core _core = thread_1.getCore();
-      Assert.assertEquals(_core, core);
     }
   }
 }
