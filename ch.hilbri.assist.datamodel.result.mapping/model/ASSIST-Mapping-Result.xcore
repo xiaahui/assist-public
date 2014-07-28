@@ -231,9 +231,9 @@ class Board extends HardwareElement {
 	String 						powerSupply
 	DesignAssuranceLevelType 	assuranceLevel = "None"
 	int 						ramCapacity
-	double						ramUtilization
+	int							ramUtilization
 	int 						romCapacity
-	double						romUtilization
+	int							romUtilization
 	container Box 				box opposite boards
 	contains Processor[1..*] 	processors opposite board
 	contains IOAdapter[0..*] 	ioAdapters
