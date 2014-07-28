@@ -294,14 +294,34 @@ public class ResultFactoryFromSolverSolutions {
           EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads = resultCore.getThreads();
           _threads.add(resultThread);
           resultThread.setCore(resultCore);
-          HardwareElement _referenceObject = resultCore.getReferenceObject();
-          final Core modelCore = ((Core) _referenceObject);
-          int _indexOfAbsoluteUtilizationInSolutionVariablesList = solverVariables.getIndexOfAbsoluteUtilizationInSolutionVariablesList(modelCore);
-          Domain _get_3 = solverSolution[_indexOfAbsoluteUtilizationInSolutionVariablesList];
-          ValueEnumeration _valueEnumeration_1 = _get_3.valueEnumeration();
-          final int absoluteUtilization = _valueEnumeration_1.nextElement();
-          resultCore.setUtilization(absoluteUtilization);
         }
+      }
+    }
+  }
+  
+  public static void addUtilizationInformation(final Result result, final AssistModel model, final SolverVariablesContainer solverVariables, final Domain[] solverSolution) {
+    EList<ch.hilbri.assist.datamodel.result.mapping.Core> _allCores = result.getAllCores();
+    for (final ch.hilbri.assist.datamodel.result.mapping.Core resultCore : _allCores) {
+      {
+        HardwareElement _referenceObject = resultCore.getReferenceObject();
+        final Core modelCore = ((Core) _referenceObject);
+        int _indexOfAbsoluteUtilizationInSolutionVariablesList = solverVariables.getIndexOfAbsoluteUtilizationInSolutionVariablesList(modelCore);
+        Domain _get = solverSolution[_indexOfAbsoluteUtilizationInSolutionVariablesList];
+        ValueEnumeration _valueEnumeration = _get.valueEnumeration();
+        final int absoluteUtilization = _valueEnumeration.nextElement();
+        resultCore.setUtilization(absoluteUtilization);
+      }
+    }
+    EList<ch.hilbri.assist.datamodel.result.mapping.Board> _allBoards = result.getAllBoards();
+    for (final ch.hilbri.assist.datamodel.result.mapping.Board resultBoard : _allBoards) {
+      {
+        HardwareElement _referenceObject = resultBoard.getReferenceObject();
+        final Board modelBoard = ((Board) _referenceObject);
+        int _indexOfAbsoluteRamUtilizationInSolutionVariablesList = solverVariables.getIndexOfAbsoluteRamUtilizationInSolutionVariablesList(modelBoard);
+        Domain _get = solverSolution[_indexOfAbsoluteRamUtilizationInSolutionVariablesList];
+        ValueEnumeration _valueEnumeration = _get.valueEnumeration();
+        final int absoluteRamUtilization = _valueEnumeration.nextElement();
+        resultBoard.setRamUtilization(absoluteRamUtilization);
       }
     }
   }
@@ -314,6 +334,8 @@ public class ResultFactoryFromSolverSolutions {
         final Result result = ResultFactoryFromSolverSolutions.createBasicResult(model, ("Result-" + Integer.valueOf(i)));
         Domain[] _get = solverSolutions[i];
         ResultFactoryFromSolverSolutions.addMappingFromSolution(result, model, solverVariables, _get);
+        Domain[] _get_1 = solverSolutions[i];
+        ResultFactoryFromSolverSolutions.addUtilizationInformation(result, model, solverVariables, _get_1);
         results.add(result);
       }
     }

@@ -21,6 +21,7 @@ import org.jacop.search.SelectChoicePoint;
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
@@ -102,6 +103,8 @@ public class SolverJob extends Job {
 		/* Create a new constraint to keep the capacity of the cores */
 		this.mappingConstraintsList.add(new CoreUtilizationConstraint(model, constraintStore, solverVariables));
 
+		/* Create a new set of constraints to watch for the RAM capacity of the boards */
+		this.mappingConstraintsList.add(new RAMUtilizationConstraint(model,  constraintStore, solverVariables));
 		
 //		/* Create a new Constraint to process the I/O-adapter to board hierarchy */
 //		this.mappingConstraintsList.add(new IOAdapterHierarchyConstraint(this.constraintSystem, this.model, this.threadVariablesList,

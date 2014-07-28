@@ -1,6 +1,7 @@
 package ch.hilbri.assist.mapping.solver.variables;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
+import ch.hilbri.assist.datamodel.model.Board;
 import ch.hilbri.assist.datamodel.model.Core;
 import ch.hilbri.assist.datamodel.model.HardwareElement;
 import java.util.ArrayList;
@@ -42,6 +43,18 @@ public class SolverVariablesContainer {
   }
   
   /**
+   * A list of variables; a variable for each board which contains the absolute ram utilization
+   */
+  private final HashMap<Board, IntVar> _absoluteRamUtilizationList = new HashMap<Board, IntVar>();
+  
+  /**
+   * A list of variables; a variable for each board which contains the absolute ram utilization
+   */
+  public HashMap<Board, IntVar> getAbsoluteRamUtilizationList() {
+    return this._absoluteRamUtilizationList;
+  }
+  
+  /**
    * CONSTRUCTOR
    */
   public SolverVariablesContainer(final AssistModel model, final Store constraintStore) {
@@ -67,10 +80,19 @@ public class SolverVariablesContainer {
     for (final Core c : _allCores) {
       HashMap<Core, IntVar> _absoluteCoreUtilizationList = this.getAbsoluteCoreUtilizationList();
       String _name = c.getName();
-      String _plus = ("AbsUtilization-" + _name);
+      String _plus = ("AbsCoreUtil-" + _name);
       int _capacity = c.getCapacity();
       IntVar _intVar = new IntVar(constraintStore, _plus, 0, _capacity);
       _absoluteCoreUtilizationList.put(c, _intVar);
+    }
+    EList<Board> _allBoards = model.getAllBoards();
+    for (final Board b : _allBoards) {
+      HashMap<Board, IntVar> _absoluteRamUtilizationList = this.getAbsoluteRamUtilizationList();
+      String _name_1 = b.getName();
+      String _plus_1 = ("AbsRamUtil-" + _name_1);
+      int _ramCapacity = b.getRamCapacity();
+      IntVar _intVar_1 = new IntVar(constraintStore, _plus_1, 0, _ramCapacity);
+      _absoluteRamUtilizationList.put(b, _intVar_1);
     }
   }
   
@@ -98,6 +120,13 @@ public class SolverVariablesContainer {
       HashMap<Core, IntVar> _absoluteCoreUtilizationList_1 = this.getAbsoluteCoreUtilizationList();
       IntVar _get_3 = _absoluteCoreUtilizationList_1.get(coreKey);
       list.add(_get_3);
+    }
+    HashMap<Board, IntVar> _absoluteRamUtilizationList = this.getAbsoluteRamUtilizationList();
+    Set<Board> _keySet_3 = _absoluteRamUtilizationList.keySet();
+    for (final Board boardKey : _keySet_3) {
+      HashMap<Core, IntVar> _absoluteCoreUtilizationList_2 = this.getAbsoluteCoreUtilizationList();
+      IntVar _get_4 = _absoluteCoreUtilizationList_2.get(boardKey);
+      list.add(_get_4);
     }
     return ((IntVar[])Conversions.unwrapArray(list, IntVar.class));
   }
@@ -138,12 +167,31 @@ public class SolverVariablesContainer {
     return ((List<IntVar>)Conversions.doWrapArray(_solutionVariables)).indexOf(_get);
   }
   
+  /**
+   * Returns the variable which contains the absolute ram utilization for the given board
+   */
+  public IntVar getAbsoluteRamUtilizationVariable(final Board b) {
+    HashMap<Board, IntVar> _absoluteRamUtilizationList = this.getAbsoluteRamUtilizationList();
+    return _absoluteRamUtilizationList.get(b);
+  }
+  
+  /**
+   * Returns the index of the absolute ram utilization variable of a given board in the solutions variables list
+   */
+  public int getIndexOfAbsoluteRamUtilizationInSolutionVariablesList(final Board b) {
+    IntVar[] _solutionVariables = this.getSolutionVariables();
+    HashMap<Board, IntVar> _absoluteRamUtilizationList = this.getAbsoluteRamUtilizationList();
+    IntVar _get = _absoluteRamUtilizationList.get(b);
+    return ((List<IntVar>)Conversions.doWrapArray(_solutionVariables)).indexOf(_get);
+  }
+  
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
     result = prime * result + ((this._threadLocationVariablesList== null) ? 0 : this._threadLocationVariablesList.hashCode());
     result = prime * result + ((this._absoluteCoreUtilizationList== null) ? 0 : this._absoluteCoreUtilizationList.hashCode());
+    result = prime * result + ((this._absoluteRamUtilizationList== null) ? 0 : this._absoluteRamUtilizationList.hashCode());
     return result;
   }
   
@@ -165,6 +213,11 @@ public class SolverVariablesContainer {
       if (other._absoluteCoreUtilizationList != null)
         return false;
     } else if (!this._absoluteCoreUtilizationList.equals(other._absoluteCoreUtilizationList))
+      return false;
+    if (this._absoluteRamUtilizationList == null) {
+      if (other._absoluteRamUtilizationList != null)
+        return false;
+    } else if (!this._absoluteRamUtilizationList.equals(other._absoluteRamUtilizationList))
       return false;
     return true;
   }

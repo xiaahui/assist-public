@@ -1,7 +1,6 @@
 package ch.hilbri.assist.mapping.result
 
 import ch.hilbri.assist.application.helpers.ConsoleCommands
-import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.result.mapping.Application
 import ch.hilbri.assist.datamodel.result.mapping.ApplicationGroup
@@ -14,6 +13,7 @@ import ch.hilbri.assist.datamodel.result.mapping.IOAdapter
 import ch.hilbri.assist.datamodel.result.mapping.MappingFactory
 import ch.hilbri.assist.datamodel.result.mapping.Processor
 import ch.hilbri.assist.datamodel.result.mapping.Result
+import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.HashMap
 import org.eclipse.emf.ecore.EObject
@@ -213,15 +213,25 @@ class ResultFactoryFromSolverSolutions {
 				/* Place this thread to the core */
 				resultCore.threads.add(resultThread)
 				resultThread.core = resultCore
-				
-				/* Update the absolute core utilization */
-				val modelCore = resultCore.referenceObject as ch.hilbri.assist.datamodel.model.Core 
-				val absoluteUtilization = solverSolution.get(solverVariables.getIndexOfAbsoluteUtilizationInSolutionVariablesList(modelCore)).valueEnumeration.nextElement
-				resultCore.setUtilization(absoluteUtilization)
 			}
 		}
 	}
 	
+	static def void addUtilizationInformation(Result result, AssistModel model, SolverVariablesContainer solverVariables, Domain[] solverSolution) {
+		/* 1. Update the load information on all cores */
+		for (resultCore : result.allCores) {
+			val modelCore = resultCore.referenceObject as ch.hilbri.assist.datamodel.model.Core 
+			val absoluteUtilization = solverSolution.get(solverVariables.getIndexOfAbsoluteUtilizationInSolutionVariablesList(modelCore)).valueEnumeration.nextElement
+			resultCore.setUtilization(absoluteUtilization)
+		}
+		
+		/* 2. Update the ram utilization data for all boards */
+		for (resultBoard : result.allBoards) {
+			val modelBoard = resultBoard.referenceObject as ch.hilbri.assist.datamodel.model.Board
+			val absoluteRamUtilization = solverSolution.get(solverVariables.getIndexOfAbsoluteRamUtilizationInSolutionVariablesList(modelBoard)).valueEnumeration.nextElement
+			resultBoard.setRamUtilization(absoluteRamUtilization)
+		}
+	}
 	
 	static def ArrayList<Result> create(AssistModel model, SolverVariablesContainer solverVariables, Domain[][] solverSolutions) {
 		f = MappingFactory.eINSTANCE
@@ -235,6 +245,9 @@ class ResultFactoryFromSolverSolutions {
 			
 			/* Add the deployment information */
 			addMappingFromSolution(result, model, solverVariables, solverSolutions.get(i))
+		
+			/* Add utilization information to result model */
+			addUtilizationInformation(result, model, solverVariables, solverSolutions.get(i))
 		
 			/* Add this result to the list of results which will be returned for display */	
 			results.add(result)
