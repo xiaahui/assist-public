@@ -1,13 +1,14 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
-import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.jacop.constraints.Element
 import org.jacop.constraints.Reified
 import org.jacop.constraints.SumWeight
 import org.jacop.constraints.XeqC
 import org.jacop.constraints.XgteqC
+import org.jacop.constraints.XgteqY
 import org.jacop.core.BooleanVar
 import org.jacop.core.BoundDomain
 import org.jacop.core.IntVar
@@ -42,13 +43,24 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 		
 		/* 0. The total sum of all application's core utilizations should
 		 *    be less than the total sum of all core capacities
+		 *    (This is a valid approach, because each applications core utilization is specified independently from the core)
 		 */
+		
+		// - create the total sum of core utilizations of all applications (+ threads)
+		val totalCoreUtilizationFromAllApplications = model.allThreads.map[it.coreUtilization].reduce[p1, p2 | p1 + p2]
+		val totalCoreUtilizationFromAllApplicationsVar = new IntVar(constraintStore, "TotalCoreUtilOfAllApps", totalCoreUtilizationFromAllApplications, totalCoreUtilizationFromAllApplications)
+		
+		// - create the total sum of all core capacities
+		val totalCoreCapacity = model.allCores.map[it.capacity].reduce[p1, p2 | p1 + p2]
+		val totalCoreCapacityVar = new IntVar(constraintStore, "TotalCoreCapacitiy", totalCoreCapacity, totalCoreCapacity)
+		
+		// - enforce that the capacity is always larger than the demand
+		constraintStore.impose(new XgteqY(totalCoreCapacityVar, totalCoreUtilizationFromAllApplicationsVar))
 		
 		
 		/* 1. If an application requires more processing power than a core offers, 
 		 *    the application (thread) cannot be mapped to this core
 		 */
-		
 
 		for (thread : model.allThreads) {
 
