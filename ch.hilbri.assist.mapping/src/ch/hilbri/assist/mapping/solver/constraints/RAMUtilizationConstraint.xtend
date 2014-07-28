@@ -93,7 +93,7 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 				constraintStore.impose(constraintReified)
 			
 				factorList.add(delta)
-				utilizationList.add(thread.coreUtilization)				
+				utilizationList.add(thread.application.ramUtilization)				
 			}
 			
 			val absoluteRamUtilization = solverVariables.getAbsoluteRamUtilizationVariable(board)

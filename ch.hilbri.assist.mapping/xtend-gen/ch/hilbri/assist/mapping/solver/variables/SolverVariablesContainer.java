@@ -124,8 +124,8 @@ public class SolverVariablesContainer {
     HashMap<Board, IntVar> _absoluteRamUtilizationList = this.getAbsoluteRamUtilizationList();
     Set<Board> _keySet_3 = _absoluteRamUtilizationList.keySet();
     for (final Board boardKey : _keySet_3) {
-      HashMap<Core, IntVar> _absoluteCoreUtilizationList_2 = this.getAbsoluteCoreUtilizationList();
-      IntVar _get_4 = _absoluteCoreUtilizationList_2.get(boardKey);
+      HashMap<Board, IntVar> _absoluteRamUtilizationList_1 = this.getAbsoluteRamUtilizationList();
+      IntVar _get_4 = _absoluteRamUtilizationList_1.get(boardKey);
       list.add(_get_4);
     }
     return ((IntVar[])Conversions.unwrapArray(list, IntVar.class));

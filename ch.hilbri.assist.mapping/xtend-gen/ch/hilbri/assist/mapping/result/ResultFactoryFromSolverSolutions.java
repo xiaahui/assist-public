@@ -317,8 +317,8 @@ public class ResultFactoryFromSolverSolutions {
       {
         HardwareElement _referenceObject = resultBoard.getReferenceObject();
         final Board modelBoard = ((Board) _referenceObject);
-        int _indexOfAbsoluteRamUtilizationInSolutionVariablesList = solverVariables.getIndexOfAbsoluteRamUtilizationInSolutionVariablesList(modelBoard);
-        Domain _get = solverSolution[_indexOfAbsoluteRamUtilizationInSolutionVariablesList];
+        final int index = solverVariables.getIndexOfAbsoluteRamUtilizationInSolutionVariablesList(modelBoard);
+        Domain _get = solverSolution[index];
         ValueEnumeration _valueEnumeration = _get.valueEnumeration();
         final int absoluteRamUtilization = _valueEnumeration.nextElement();
         resultBoard.setRamUtilization(absoluteRamUtilization);

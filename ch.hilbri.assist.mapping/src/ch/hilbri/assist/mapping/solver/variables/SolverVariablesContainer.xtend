@@ -56,7 +56,7 @@ import org.jacop.core.Store
 		
 		// All absolute board ram utilization variables are relevant for the solution
 		for (boardKey : absoluteRamUtilizationList.keySet)
-			list.add(absoluteCoreUtilizationList.get(boardKey))
+			list.add(absoluteRamUtilizationList.get(boardKey))
 		 
 		return list
 	}

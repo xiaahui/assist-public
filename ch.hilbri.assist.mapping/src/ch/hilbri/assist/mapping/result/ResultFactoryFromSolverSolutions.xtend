@@ -228,7 +228,8 @@ class ResultFactoryFromSolverSolutions {
 		/* 2. Update the ram utilization data for all boards */
 		for (resultBoard : result.allBoards) {
 			val modelBoard = resultBoard.referenceObject as ch.hilbri.assist.datamodel.model.Board
-			val absoluteRamUtilization = solverSolution.get(solverVariables.getIndexOfAbsoluteRamUtilizationInSolutionVariablesList(modelBoard)).valueEnumeration.nextElement
+			val index = solverVariables.getIndexOfAbsoluteRamUtilizationInSolutionVariablesList(modelBoard)
+			val absoluteRamUtilization = solverSolution.get(index).valueEnumeration.nextElement
 			resultBoard.setRamUtilization(absoluteRamUtilization)
 		}
 	}

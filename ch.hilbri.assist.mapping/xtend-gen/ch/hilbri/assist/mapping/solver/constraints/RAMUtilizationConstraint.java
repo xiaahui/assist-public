@@ -117,8 +117,9 @@ public class RAMUtilizationConstraint extends AbstractMappingConstraint {
             final Reified constraintReified = new Reified(constraintXeqC, delta);
             this.constraintStore.impose(constraintReified);
             factorList.add(delta);
-            int _coreUtilization = thread_1.getCoreUtilization();
-            utilizationList.add(Integer.valueOf(_coreUtilization));
+            Application _application = thread_1.getApplication();
+            int _ramUtilization = _application.getRamUtilization();
+            utilizationList.add(Integer.valueOf(_ramUtilization));
           }
         }
         final IntVar absoluteRamUtilization = this.solverVariables.getAbsoluteRamUtilizationVariable(board);
