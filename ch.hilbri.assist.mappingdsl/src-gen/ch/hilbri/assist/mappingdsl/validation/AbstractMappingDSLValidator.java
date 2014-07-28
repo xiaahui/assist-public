@@ -12,7 +12,7 @@ public class AbstractMappingDSLValidator extends org.eclipse.xtext.validation.Ab
 	@Override
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>();
-	    result.add(EPackage.Registry.INSTANCE.getEPackage("ch.hilbri.assist.model"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("ch.hilbri.assist.datamodel.model"));
 		return result;
 	}
 }

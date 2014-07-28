@@ -1,7 +1,7 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
-import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.datamodel.model.AssistModel
 import java.util.ArrayList
 import org.jacop.constraints.Element
 import org.jacop.constraints.Reified
@@ -39,6 +39,11 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 	
 		
 		/* **** Preparing the constraints **** */	 
+		
+		/* 0. The total sum of all application's core utilizations should
+		 *    be less than the total sum of all core capacities
+		 */
+		
 		
 		/* 1. If an application requires more processing power than a core offers, 
 		 *    the application (thread) cannot be mapped to this core

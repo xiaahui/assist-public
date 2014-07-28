@@ -1,6 +1,6 @@
 grammar ch.hilbri.assist.mappingdsl.MappingDSL with org.eclipse.xtext.common.Terminals
 
-import "ch.hilbri.assist.model"
+import "ch.hilbri.assist.datamodel.model"
 
 AssistModel: 
 	'Global' 	'{' 

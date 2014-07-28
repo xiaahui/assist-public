@@ -23,7 +23,7 @@ import ch.hilbri.assist.mapping.solver.SearchType;
 import ch.hilbri.assist.mapping.solver.SolverJob;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.searchtypesdialog.SimpleOrAdvancedModeDialog;
-import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.datamodel.model.AssistModel;
 
 
 public class Generate {

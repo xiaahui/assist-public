@@ -1,10 +1,10 @@
 package ch.hilbri.assist.mapping.datamodel;
 
-import ch.hilbri.assist.model.Application;
-import ch.hilbri.assist.model.Thread;
-import ch.hilbri.assist.model.AssistModel;
-import ch.hilbri.assist.model.ModelFactory;
-import ch.hilbri.assist.model.impl.ModelFactoryImpl;
+import ch.hilbri.assist.datamodel.model.Application;
+import ch.hilbri.assist.datamodel.model.Thread;
+import ch.hilbri.assist.datamodel.model.AssistModel;
+import ch.hilbri.assist.datamodel.model.ModelFactory;
+import ch.hilbri.assist.datamodel.model.impl.ModelFactoryImpl;
 
 public class PostProcessor {
 	

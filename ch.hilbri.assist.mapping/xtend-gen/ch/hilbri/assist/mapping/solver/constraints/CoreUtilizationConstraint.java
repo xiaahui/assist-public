@@ -1,10 +1,10 @@
 package ch.hilbri.assist.mapping.solver.constraints;
 
+import ch.hilbri.assist.datamodel.model.AssistModel;
+import ch.hilbri.assist.datamodel.model.Core;
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
-import ch.hilbri.assist.model.AssistModel;
-import ch.hilbri.assist.model.Core;
-import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Conversions;
@@ -40,20 +40,20 @@ public class CoreUtilizationConstraint extends AbstractMappingConstraint {
       BoundDomain _boundDomain = new BoundDomain(powerCapacity, powerCapacity);
       coreProcessingPowerCapacitiesDomain.addDom(_boundDomain);
     }
-    EList<ch.hilbri.assist.model.Thread> _allThreads = this.model.getAllThreads();
-    final Function1<ch.hilbri.assist.model.Thread, IntVar> _function_1 = new Function1<ch.hilbri.assist.model.Thread, IntVar>() {
-      public IntVar apply(final ch.hilbri.assist.model.Thread it) {
+    EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads = this.model.getAllThreads();
+    final Function1<ch.hilbri.assist.datamodel.model.Thread, IntVar> _function_1 = new Function1<ch.hilbri.assist.datamodel.model.Thread, IntVar>() {
+      public IntVar apply(final ch.hilbri.assist.datamodel.model.Thread it) {
         return new IntVar(CoreUtilizationConstraint.this.constraintStore, "Core Processing Power Capacities", coreProcessingPowerCapacitiesDomain);
       }
     };
-    final IntVar[] coreProcessingPowerCapacities = ((IntVar[])Conversions.unwrapArray(ListExtensions.<ch.hilbri.assist.model.Thread, IntVar>map(_allThreads, _function_1), IntVar.class));
-    EList<ch.hilbri.assist.model.Thread> _allThreads_1 = this.model.getAllThreads();
-    for (final ch.hilbri.assist.model.Thread thread : _allThreads_1) {
+    final IntVar[] coreProcessingPowerCapacities = ((IntVar[])Conversions.unwrapArray(ListExtensions.<ch.hilbri.assist.datamodel.model.Thread, IntVar>map(_allThreads, _function_1), IntVar.class));
+    EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads_1 = this.model.getAllThreads();
+    for (final ch.hilbri.assist.datamodel.model.Thread thread : _allThreads_1) {
       {
         HardwareArchitectureLevelType _bottomHardwareLevel = this.model.getBottomHardwareLevel();
         int _value = _bottomHardwareLevel.getValue();
         final IntVar threadLocationsCoreLevel = this.solverVariables.getThreadLocationVariable(thread, _value);
-        EList<ch.hilbri.assist.model.Thread> _allThreads_2 = this.model.getAllThreads();
+        EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads_2 = this.model.getAllThreads();
         int _indexOf = _allThreads_2.indexOf(thread);
         final IntVar threadAvailableProcessingPowerCapacities = coreProcessingPowerCapacities[_indexOf];
         Element _element = new Element(threadLocationsCoreLevel, allCoreProcessingPowerCapacities, threadAvailableProcessingPowerCapacities);
@@ -68,8 +68,8 @@ public class CoreUtilizationConstraint extends AbstractMappingConstraint {
       {
         final ArrayList<BooleanVar> factorList = new ArrayList<BooleanVar>();
         final ArrayList<Integer> utilizationList = new ArrayList<Integer>();
-        EList<ch.hilbri.assist.model.Thread> _allThreads_2 = this.model.getAllThreads();
-        for (final ch.hilbri.assist.model.Thread thread_1 : _allThreads_2) {
+        EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads_2 = this.model.getAllThreads();
+        for (final ch.hilbri.assist.datamodel.model.Thread thread_1 : _allThreads_2) {
           {
             HardwareArchitectureLevelType _bottomHardwareLevel = this.model.getBottomHardwareLevel();
             int _value = _bottomHardwareLevel.getValue();

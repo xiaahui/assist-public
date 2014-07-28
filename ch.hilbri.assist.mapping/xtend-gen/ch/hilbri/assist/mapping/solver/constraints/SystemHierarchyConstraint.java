@@ -1,9 +1,9 @@
 package ch.hilbri.assist.mapping.solver.constraints;
 
+import ch.hilbri.assist.datamodel.model.AssistModel;
+import ch.hilbri.assist.datamodel.model.HardwareElement;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
-import ch.hilbri.assist.model.AssistModel;
-import ch.hilbri.assist.model.HardwareElement;
 import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -41,8 +41,8 @@ public class SystemHierarchyConstraint extends AbstractMappingConstraint {
           list.add(Integer.valueOf(_plus));
         }
         hardwareLevelLink.add(list);
-        EList<ch.hilbri.assist.model.Thread> _allThreads = this.model.getAllThreads();
-        for (final ch.hilbri.assist.model.Thread t : _allThreads) {
+        EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads = this.model.getAllThreads();
+        for (final ch.hilbri.assist.datamodel.model.Thread t : _allThreads) {
           {
             IntVar index = this.solverVariables.getThreadLocationVariable(t, (levelCtr).intValue());
             IntVar values = this.solverVariables.getThreadLocationVariable(t, ((levelCtr).intValue() + 1));

@@ -2,7 +2,7 @@ package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview;
 
 import java.util.ArrayList;
 
-import ch.hilbri.assist.result.mapping.AbstractMetric;
+import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 
 public class MetricTableElement {
 

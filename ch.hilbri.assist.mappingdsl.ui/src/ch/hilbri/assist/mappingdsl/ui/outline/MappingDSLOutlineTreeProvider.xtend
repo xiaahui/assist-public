@@ -3,7 +3,7 @@
 */
 package ch.hilbri.assist.mappingdsl.ui.outline
 
-import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.datamodel.model.AssistModel
 import com.google.inject.Inject
 import org.eclipse.core.runtime.Platform
 import org.eclipse.jface.resource.ImageDescriptor

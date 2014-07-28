@@ -6,7 +6,10 @@ Bundle-Version: 0.1
 Bundle-Vendor: Robert Hilbrich
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: ch.hilbri.assist.application,
- ch.hilbri.assist.datamodel.editor,
+ ch.hilbri.assist.datamodel.model,
+ ch.hilbri.assist.datamodel.model.edit;bundle-version="0.1.0",
+ ch.hilbri.assist.datamodel.model.editor;bundle-version="0.1.0",
+ ch.hilbri.assist.datamodel.result.mapping;bundle-version="0.1.0",
  ch.hilbri.assist.mappingdsl.ui,
  ch.hilbri.assist.libraries.javafx;bundle-version="2.2.60",
  ch.hilbri.assist.libraries.math;bundle-version="3.2.0",

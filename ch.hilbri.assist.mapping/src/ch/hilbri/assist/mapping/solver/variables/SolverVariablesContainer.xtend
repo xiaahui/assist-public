@@ -1,8 +1,8 @@
 package ch.hilbri.assist.mapping.solver.variables
 
-import ch.hilbri.assist.model.AssistModel
-import ch.hilbri.assist.model.Core
-import ch.hilbri.assist.model.Thread
+import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.Core
+import ch.hilbri.assist.datamodel.model.Thread
 import java.util.ArrayList
 import java.util.HashMap
 import org.jacop.core.IntVar

@@ -10,8 +10,8 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated ASSIST-Model -->
       <factory
-            uri="ch.hilbri.assist.model"
-            class="ch.hilbri.assist.model.provider.ModelItemProviderAdapterFactory"
+            uri="ch.hilbri.assist.datamodel.model"
+            class="ch.hilbri.assist.datamodel.model.provider.ModelItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

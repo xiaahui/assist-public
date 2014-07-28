@@ -50,15 +50,15 @@ import org.eclipse.emf.ecore.EObject;
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.GotoSolutionDialog;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
-import ch.hilbri.assist.result.mapping.AbstractMetric;
-import ch.hilbri.assist.result.mapping.Board;
-import ch.hilbri.assist.result.mapping.Box;
-import ch.hilbri.assist.result.mapping.Compartment;
-import ch.hilbri.assist.result.mapping.Core;
-import ch.hilbri.assist.result.mapping.HardwareElement;
-import ch.hilbri.assist.result.mapping.Processor;
-import ch.hilbri.assist.result.mapping.Result;
-import ch.hilbri.assist.result.mapping.Thread;
+import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
+import ch.hilbri.assist.datamodel.result.mapping.Board;
+import ch.hilbri.assist.datamodel.result.mapping.Box;
+import ch.hilbri.assist.datamodel.result.mapping.Compartment;
+import ch.hilbri.assist.datamodel.result.mapping.Core;
+import ch.hilbri.assist.datamodel.result.mapping.HardwareElement;
+import ch.hilbri.assist.datamodel.result.mapping.Processor;
+import ch.hilbri.assist.datamodel.result.mapping.Result;
+import ch.hilbri.assist.datamodel.result.mapping.Thread;
 
 /**
  * Handles the DetailedResultView View

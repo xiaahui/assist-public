@@ -1,8 +1,8 @@
 package ch.hilbri.assist.mappingdsl.validation
 
-import ch.hilbri.assist.model.ApplicationGroup
-import ch.hilbri.assist.model.AssistModel
-import ch.hilbri.assist.model.ModelPackage
+import ch.hilbri.assist.datamodel.model.ApplicationGroup
+import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.ModelPackage
 import java.util.ArrayList
 import org.eclipse.xtext.validation.Check
 

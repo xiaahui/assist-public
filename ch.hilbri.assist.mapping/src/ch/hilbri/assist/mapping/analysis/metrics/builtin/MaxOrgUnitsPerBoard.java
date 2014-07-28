@@ -2,10 +2,10 @@ package ch.hilbri.assist.mapping.analysis.metrics.builtin;
 
 import java.util.ArrayList;
 
-import ch.hilbri.assist.result.mapping.Application;
-import ch.hilbri.assist.result.mapping.Board;
-import ch.hilbri.assist.result.mapping.Result;
-import ch.hilbri.assist.result.mapping.impl.AbstractMetricImpl;
+import ch.hilbri.assist.datamodel.result.mapping.Application;
+import ch.hilbri.assist.datamodel.result.mapping.Board;
+import ch.hilbri.assist.datamodel.result.mapping.Result;
+import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
 
 /**
  * 

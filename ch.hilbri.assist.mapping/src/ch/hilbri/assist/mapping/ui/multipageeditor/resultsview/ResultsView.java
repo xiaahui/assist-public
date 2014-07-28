@@ -16,7 +16,7 @@ import org.eclipse.swt.widgets.Composite;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.ResultsViewController;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
-import ch.hilbri.assist.model.presentation.ModelEditorAssist;
+import ch.hilbri.assist.datamodel.model.presentation.ModelEditorAssist;
 
 public class ResultsView {
 

@@ -17,8 +17,8 @@ import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxOrgUnitsPerBoard;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.UniformCoreLoadDistribution;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
-import ch.hilbri.assist.result.mapping.AbstractMetric;
-import ch.hilbri.assist.result.mapping.Result;
+import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
+import ch.hilbri.assist.datamodel.result.mapping.Result;
 
 public class DetailedResultsViewUiModel {
 

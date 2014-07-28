@@ -1,10 +1,10 @@
 package ch.hilbri.assist.mapping.analysis.metrics.builtin;
 
-import ch.hilbri.assist.result.mapping.Board;
-import ch.hilbri.assist.result.mapping.Core;
-import ch.hilbri.assist.result.mapping.Processor;
-import ch.hilbri.assist.result.mapping.Result;
-import ch.hilbri.assist.result.mapping.impl.AbstractMetricImpl;
+import ch.hilbri.assist.datamodel.result.mapping.Board;
+import ch.hilbri.assist.datamodel.result.mapping.Core;
+import ch.hilbri.assist.datamodel.result.mapping.Processor;
+import ch.hilbri.assist.datamodel.result.mapping.Result;
+import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
 
 public class MaxFreeCoreCapacity extends AbstractMetricImpl {
 

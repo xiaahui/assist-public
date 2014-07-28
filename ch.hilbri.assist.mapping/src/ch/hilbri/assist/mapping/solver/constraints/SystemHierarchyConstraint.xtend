@@ -1,7 +1,7 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
-import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.datamodel.model.AssistModel
 import java.util.ArrayList
 import org.jacop.constraints.Element
 import org.jacop.core.Store

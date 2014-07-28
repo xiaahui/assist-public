@@ -2,9 +2,9 @@ package ch.hilbri.assist.mapping.analysis.metrics.builtin;
 
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
-import ch.hilbri.assist.result.mapping.Core;
-import ch.hilbri.assist.result.mapping.Result;
-import ch.hilbri.assist.result.mapping.impl.AbstractMetricImpl;
+import ch.hilbri.assist.datamodel.result.mapping.Core;
+import ch.hilbri.assist.datamodel.result.mapping.Result;
+import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
 
 public class UniformCoreLoadDistribution extends AbstractMetricImpl {
 

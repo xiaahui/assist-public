@@ -25,8 +25,8 @@ import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
-import ch.hilbri.assist.model.AssistModel;
-import ch.hilbri.assist.result.mapping.Result;
+import ch.hilbri.assist.datamodel.model.AssistModel;
+import ch.hilbri.assist.datamodel.result.mapping.Result;
 
 public class SolverJob extends Job {
 

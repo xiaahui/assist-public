@@ -1,8 +1,8 @@
 package ch.hilbri.assist.mapping.solver.variables;
 
-import ch.hilbri.assist.model.AssistModel;
-import ch.hilbri.assist.model.Core;
-import ch.hilbri.assist.model.HardwareElement;
+import ch.hilbri.assist.datamodel.model.AssistModel;
+import ch.hilbri.assist.datamodel.model.Core;
+import ch.hilbri.assist.datamodel.model.HardwareElement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,12 +20,12 @@ public class SolverVariablesContainer {
   /**
    * A list of location variables for each thread (and each system layer)
    */
-  private final HashMap<ch.hilbri.assist.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = new HashMap<ch.hilbri.assist.model.Thread, HashMap<Integer, IntVar>>();
+  private final HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = new HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>>();
   
   /**
    * A list of location variables for each thread (and each system layer)
    */
-  public HashMap<ch.hilbri.assist.model.Thread, HashMap<Integer, IntVar>> getThreadLocationVariablesList() {
+  public HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> getThreadLocationVariablesList() {
     return this._threadLocationVariablesList;
   }
   
@@ -45,8 +45,8 @@ public class SolverVariablesContainer {
    * CONSTRUCTOR
    */
   public SolverVariablesContainer(final AssistModel model, final Store constraintStore) {
-    EList<ch.hilbri.assist.model.Thread> _allThreads = model.getAllThreads();
-    for (final ch.hilbri.assist.model.Thread t : _allThreads) {
+    EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads = model.getAllThreads();
+    for (final ch.hilbri.assist.datamodel.model.Thread t : _allThreads) {
       {
         final HashMap<Integer, IntVar> m = new HashMap<Integer, IntVar>();
         for (int i = 1; (i <= model.getHardwareLevelCount()); i++) {
@@ -59,7 +59,7 @@ public class SolverVariablesContainer {
           IntVar _intVar = new IntVar(constraintStore, _plus_2, 1, _size);
           m.put(Integer.valueOf(i), _intVar);
         }
-        HashMap<ch.hilbri.assist.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = this.getThreadLocationVariablesList();
+        HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = this.getThreadLocationVariablesList();
         _threadLocationVariablesList.put(t, m);
       }
     }
@@ -79,14 +79,14 @@ public class SolverVariablesContainer {
    */
   public IntVar[] getSolutionVariables() {
     final ArrayList<IntVar> list = new ArrayList<IntVar>();
-    HashMap<ch.hilbri.assist.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = this.getThreadLocationVariablesList();
-    Set<ch.hilbri.assist.model.Thread> _keySet = _threadLocationVariablesList.keySet();
-    for (final ch.hilbri.assist.model.Thread threadKey : _keySet) {
-      HashMap<ch.hilbri.assist.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList_1 = this.getThreadLocationVariablesList();
+    HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = this.getThreadLocationVariablesList();
+    Set<ch.hilbri.assist.datamodel.model.Thread> _keySet = _threadLocationVariablesList.keySet();
+    for (final ch.hilbri.assist.datamodel.model.Thread threadKey : _keySet) {
+      HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList_1 = this.getThreadLocationVariablesList();
       HashMap<Integer, IntVar> _get = _threadLocationVariablesList_1.get(threadKey);
       Set<Integer> _keySet_1 = _get.keySet();
       for (final Integer levelKey : _keySet_1) {
-        HashMap<ch.hilbri.assist.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList_2 = this.getThreadLocationVariablesList();
+        HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList_2 = this.getThreadLocationVariablesList();
         HashMap<Integer, IntVar> _get_1 = _threadLocationVariablesList_2.get(threadKey);
         IntVar _get_2 = _get_1.get(levelKey);
         list.add(_get_2);
@@ -105,8 +105,8 @@ public class SolverVariablesContainer {
   /**
    * Returns the location variable for a given thread and a given hardware level
    */
-  public IntVar getThreadLocationVariable(final ch.hilbri.assist.model.Thread t, final int level) {
-    HashMap<ch.hilbri.assist.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = this.getThreadLocationVariablesList();
+  public IntVar getThreadLocationVariable(final ch.hilbri.assist.datamodel.model.Thread t, final int level) {
+    HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = this.getThreadLocationVariablesList();
     HashMap<Integer, IntVar> _get = _threadLocationVariablesList.get(t);
     return _get.get(Integer.valueOf(level));
   }
@@ -114,7 +114,7 @@ public class SolverVariablesContainer {
   /**
    * Returns the index of the location variable for a given thread and hardware level
    */
-  public int getIndexOfThreadLocationInSolutionVariablesList(final ch.hilbri.assist.model.Thread t, final int level) {
+  public int getIndexOfThreadLocationInSolutionVariablesList(final ch.hilbri.assist.datamodel.model.Thread t, final int level) {
     IntVar[] _solutionVariables = this.getSolutionVariables();
     IntVar _threadLocationVariable = this.getThreadLocationVariable(t, level);
     return ((List<IntVar>)Conversions.doWrapArray(_solutionVariables)).indexOf(_threadLocationVariable);

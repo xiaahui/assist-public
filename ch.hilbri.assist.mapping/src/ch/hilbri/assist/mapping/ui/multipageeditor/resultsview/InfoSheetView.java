@@ -46,17 +46,17 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
-import ch.hilbri.assist.result.mapping.AbstractMetric;
-import ch.hilbri.assist.result.mapping.Board;
-import ch.hilbri.assist.result.mapping.Box;
-import ch.hilbri.assist.result.mapping.Compartment;
-import ch.hilbri.assist.result.mapping.Core;
-import ch.hilbri.assist.result.mapping.HardwareElement;
-import ch.hilbri.assist.result.mapping.IOAdapter;
-import ch.hilbri.assist.result.mapping.Network;
-import ch.hilbri.assist.result.mapping.Processor;
-import ch.hilbri.assist.result.mapping.Result;
-import ch.hilbri.assist.result.mapping.Thread;
+import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
+import ch.hilbri.assist.datamodel.result.mapping.Board;
+import ch.hilbri.assist.datamodel.result.mapping.Box;
+import ch.hilbri.assist.datamodel.result.mapping.Compartment;
+import ch.hilbri.assist.datamodel.result.mapping.Core;
+import ch.hilbri.assist.datamodel.result.mapping.HardwareElement;
+import ch.hilbri.assist.datamodel.result.mapping.IOAdapter;
+import ch.hilbri.assist.datamodel.result.mapping.Network;
+import ch.hilbri.assist.datamodel.result.mapping.Processor;
+import ch.hilbri.assist.datamodel.result.mapping.Result;
+import ch.hilbri.assist.datamodel.result.mapping.Thread;
 
 
 public class InfoSheetView {
@@ -411,7 +411,7 @@ public class InfoSheetView {
 
 		Result r = model.getObservableResultsList().get(index);
 
-		// Das Feld muss für jede verwendete Metrik den eigenen Score beinhalten
+		// Das Feld muss fï¿½r jede verwendete Metrik den eigenen Score beinhalten
 		Double[] scores = new Double[r.getEvaluation().getScaledScores().keySet().size()];
 		int metricCounter = 0;
 		for (AbstractMetric key : r.getEvaluation().getScaledScores().keySet()) 

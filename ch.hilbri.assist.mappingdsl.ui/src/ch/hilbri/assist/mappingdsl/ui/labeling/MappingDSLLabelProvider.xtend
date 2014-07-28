@@ -3,19 +3,19 @@
 */
 package ch.hilbri.assist.mappingdsl.ui.labeling
 
-import ch.hilbri.assist.model.Application
-import ch.hilbri.assist.model.ApplicationGroup
-import ch.hilbri.assist.model.AssistModel
-import ch.hilbri.assist.model.Board
-import ch.hilbri.assist.model.Box
-import ch.hilbri.assist.model.CommunicationRelation
-import ch.hilbri.assist.model.Compartment
-import ch.hilbri.assist.model.Core
-import ch.hilbri.assist.model.DislocalityRelation
-import ch.hilbri.assist.model.DissimilarityRelation
-import ch.hilbri.assist.model.Processor
-import ch.hilbri.assist.model.ProximityRelation
-import ch.hilbri.assist.model.Network
+import ch.hilbri.assist.datamodel.model.Application
+import ch.hilbri.assist.datamodel.model.ApplicationGroup
+import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.Board
+import ch.hilbri.assist.datamodel.model.Box
+import ch.hilbri.assist.datamodel.model.CommunicationRelation
+import ch.hilbri.assist.datamodel.model.Compartment
+import ch.hilbri.assist.datamodel.model.Core
+import ch.hilbri.assist.datamodel.model.DislocalityRelation
+import ch.hilbri.assist.datamodel.model.DissimilarityRelation
+import ch.hilbri.assist.datamodel.model.Processor
+import ch.hilbri.assist.datamodel.model.ProximityRelation
+import ch.hilbri.assist.datamodel.model.Network
 
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
