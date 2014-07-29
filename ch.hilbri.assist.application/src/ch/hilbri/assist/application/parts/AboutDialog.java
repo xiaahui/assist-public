@@ -12,7 +12,6 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
 /**
@@ -42,16 +41,6 @@ public class AboutDialog extends TitleAreaDialog {
 	    GridLayout layout = new GridLayout(1, false);
 	    container.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 	    container.setLayout(layout);
-	    
-	    Label lblAutomaticallySynthesizeYour = new Label(container, SWT.NONE);
-	    lblAutomaticallySynthesizeYour.setText("Automatically synthesize your system architecture based on explicit specifications with a constraint solver.");
-	    
-	    
-	    Label lbtVersion = new Label(container, SWT.NONE);
-	    lbtVersion.setText("Version: 0.1");
-
-	    Label lbtCpr = new Label(container, SWT.NONE);
-	    lbtCpr.setText("(c) Copyright by Robert Hilbrich. All rights reserved.");
 	    
 		return area;
 	}  
