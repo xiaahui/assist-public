@@ -5,13 +5,8 @@ import ch.hilbri.assist.datamodel.model.DesignAssuranceLevelType
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.model.IOAdapterProtectionLevelType
 import ch.hilbri.assist.datamodel.model.ModelPackage
-import ch.hilbri.assist.datamodel.result.mapping.Board
-import ch.hilbri.assist.datamodel.result.mapping.Box
 import ch.hilbri.assist.datamodel.result.mapping.Compartment
-import ch.hilbri.assist.datamodel.result.mapping.Core
-import ch.hilbri.assist.datamodel.result.mapping.Processor
 import ch.hilbri.assist.datamodel.result.mapping.Result
-import ch.hilbri.assist.datamodel.result.mapping.Thread
 import ch.hilbri.assist.mapping.datamodel.PostProcessor
 import ch.hilbri.assist.mapping.solver.SearchType
 import ch.hilbri.assist.mapping.solver.SolverJob
@@ -34,7 +29,6 @@ import static org.junit.Assert.*
 class MultipleResultsTests {
 	
 	String input = '''
-	
 Global {
 	System name = "Simple System";
 }
@@ -174,6 +168,7 @@ Software {
 		}
 		assertNotNull(result)
 
+		testResultStructure(result)
 		
 
 	}
@@ -181,126 +176,169 @@ Software {
 	def void testResultStructure(Result result) {
 		val r = result
 		
-		// Compartment
+		/* 
+		 * Compartments
+		 */
 		assertEquals(HardwareArchitectureLevelType.COMPARTMENT, r.topHardwareLevel)
-		assertEquals(1, r.rootHardwareElements.size)
+		assertEquals(2, r.rootHardwareElements.size)
+		
+		// Compartment C1 {
 		assertTrue(r.rootHardwareElements.get(0) instanceof Compartment)
-		val c = r.rootHardwareElements.get(0) as Compartment
-		assertEquals("C1", c.name)
-		assertEquals("CompartmentManufacturer", c.manufacturer)
-		assertEquals("CompartmentPowerSupply", c.powerSupply)
-		assertEquals("CompartmentSide", c.side)
-		assertEquals("CompartmentZone", c.zone)
-		assertEquals(HardwareArchitectureLevelType.COMPARTMENT, c.hardwareLevel)
+		val c1 = r.rootHardwareElements.get(0) as Compartment
+		assertEquals("C1", c1.name)
+		assertEquals("CompartmentManufacturer1", c1.manufacturer)
+		assertEquals("CompartmentPowerSupply1", c1.powerSupply)
+		assertEquals("CompartmentSide1", c1.side)
+		assertEquals("CompartmentZone1", c1.zone)
+		assertEquals(HardwareArchitectureLevelType.COMPARTMENT, c1.hardwareLevel)
+		
+		// Compartment C2 {
+		assertTrue(r.rootHardwareElements.get(1) instanceof Compartment)
+		val c2 = r.rootHardwareElements.get(1) as Compartment
+		assertEquals("C2", c2.name)
+		assertEquals("CompartmentManufacturer2", c2.manufacturer)
+		assertEquals("CompartmentPowerSupply2", c2.powerSupply)
+		assertEquals("CompartmentSide2", c2.side)
+		assertEquals("CompartmentZone2", c2.zone)
+		assertEquals(HardwareArchitectureLevelType.COMPARTMENT, c2.hardwareLevel)
+		
+		/*
+		 * Boxes
+		 */
 			
-		// Box
-		assertEquals(1, c.boxes.size)
-		val b = c.boxes.get(0)
-		assertEquals("Box1", b.name)
-		assertEquals("BoxManufacturer", b.manufacturer)
-		assertEquals(HardwareArchitectureLevelType.BOX, b.hardwareLevel)
-		assertEquals(c, b.eContainer)		
+		// Box 1
+		assertEquals(1, c1.boxes.size)
+		val b1 = c1.boxes.get(0)
+		assertEquals("Box1", b1.name)
+		assertEquals("BoxManufacturer1", b1.manufacturer)
+		assertEquals(HardwareArchitectureLevelType.BOX, b1.hardwareLevel)
+		assertEquals(c1, b1.eContainer)		
 		
-		// Board
-		assertEquals(1, b.boards.size)
-		val board = b.boards.get(0)
-		assertEquals("Board1", board.name)
-		assertEquals("Board Vendor 1", board.manufacturer)
-		assertEquals("BoardType", board.boardType)
-		assertEquals("BoardPowerSupply", board.powerSupply)
-		assertEquals(DesignAssuranceLevelType.C, board.assuranceLevel)
-		assertEquals(12345, board.ramCapacity)
-		assertEquals(67890, board.romCapacity)
-		assertEquals(HardwareArchitectureLevelType.BOARD, board.hardwareLevel)
-		assertEquals(b, board.eContainer)
+		// Box 2
+		assertEquals(1, c2.boxes.size)
+		val b2 = c2.boxes.get(0)
+		assertEquals("Box2", b2.name)
+		assertEquals("BoxManufacturer2", b2.manufacturer)
+		assertEquals(HardwareArchitectureLevelType.BOX, b2.hardwareLevel)
+		assertEquals(c2, b2.eContainer)
 		
-		// Processor
-		assertEquals(1, board.processors.size)
-		val p = board.processors.get(0)
-		assertEquals("Processor1", p.name)
-		assertEquals("Freescale", p.manufacturer)
-		assertEquals("MPC5554", p.processorType)
-		assertEquals(HardwareArchitectureLevelType.PROCESSOR, p.hardwareLevel)
-		assertEquals(board, p.eContainer)
+		/*
+		 * Boards
+		 */
+		 
+		// Board 1 
+		assertEquals(1, b1.boards.size)
+		val board1 = b1.boards.get(0)
+		assertEquals("Board1", board1.name)
+		assertEquals("Board Vendor 1", board1.manufacturer)
+		assertEquals("BoardType1", board1.boardType)
+		assertEquals("BoardPowerSupply1", board1.powerSupply)
+		assertEquals(DesignAssuranceLevelType.C, board1.assuranceLevel)
+		assertEquals(123451, board1.ramCapacity)
+		assertEquals(678901, board1.romCapacity)
+		assertEquals(HardwareArchitectureLevelType.BOARD, board1.hardwareLevel)
+		assertEquals(b1, board1.eContainer)
 		
-		// Core
-		assertEquals(1, p.cores.size)
-		val core = p.cores.get(0)
-		assertEquals("Core1", core.name)
-		assertEquals(100, core.capacity)
-		assertEquals("e200z6", core.architecture)
-		assertEquals(HardwareArchitectureLevelType.CORE, core.hardwareLevel)
-		assertEquals(p, core.eContainer)
+		// Board 2 
+		assertEquals(1, b2.boards.size)
+		val board2 = b2.boards.get(0)
+		assertEquals("Board2", board2.name)
+		assertEquals("Board Vendor 2", board2.manufacturer)
+		assertEquals("BoardType2", board2.boardType)
+		assertEquals("BoardPowerSupply2", board2.powerSupply)
+		assertEquals(DesignAssuranceLevelType.D, board2.assuranceLevel)
+		assertEquals(123452, board2.ramCapacity)
+		assertEquals(678902, board2.romCapacity)
+		assertEquals(HardwareArchitectureLevelType.BOARD, board2.hardwareLevel)
+		assertEquals(b2, board2.eContainer)
 		
-		// Application
-		assertEquals(1, model.applications.size)
-		val a = model.applications.get(0)
-		assertEquals("A1", a.name)
-		assertEquals(10, a.coreUtilization)
-		assertEquals(12345, a.ramUtilization)
-		assertEquals(34567, a.romUtilization)
-		assertEquals(DesignAssuranceLevelType.D, a.criticalityLevel)
-		assertEquals(IOAdapterProtectionLevelType.LEVEL_2, a.ioAdapterProtectionLevel)
-		assertEquals("Company A", a.developedBy)
+		/*
+		 * Processors
+		 */
+
+		// Processor 1
+		assertEquals(1, board1.processors.size)
+		val p1 = board1.processors.get(0)
+		assertEquals("Processor1", p1.name)
+		assertEquals("Freescale1", p1.manufacturer)
+		assertEquals("MPC55541", p1.processorType)
+		assertEquals(HardwareArchitectureLevelType.PROCESSOR, p1.hardwareLevel)
+		assertEquals(board1, p1.eContainer)
+
+		// Processor 2
+		assertEquals(1, board2.processors.size)
+		val p2 = board2.processors.get(0)
+		assertEquals("Processor2", p2.name)
+		assertEquals("Freescale2", p2.manufacturer)
+		assertEquals("MPC55542", p2.processorType)
+		assertEquals(HardwareArchitectureLevelType.PROCESSOR, p2.hardwareLevel)
+		assertEquals(board2, p2.eContainer)
+
+		/*
+		 * Cores
+		 */
+		 
+		// Core 1
+		assertEquals(1, p1.cores.size)
+		val core1 = p1.cores.get(0)
+		assertEquals("Core1", core1.name)
+		assertEquals(101, core1.capacity)
+		assertEquals("e200z61", core1.architecture)
+		assertEquals(HardwareArchitectureLevelType.CORE, core1.hardwareLevel)
+		assertEquals(p1, core1.eContainer)
+
+		// Core 2
+		assertEquals(1, p2.cores.size)
+		val core2 = p2.cores.get(0)
+		assertEquals("Core2", core2.name)
+		assertEquals(102, core2.capacity)
+		assertEquals("e200z62", core2.architecture)
+		assertEquals(HardwareArchitectureLevelType.CORE, core2.hardwareLevel)
+		assertEquals(p2, core2.eContainer)
+
+		/*
+		 * Applications
+		 */
 		
-		// Threads
-		assertEquals(3, a.threads.size)
-		for (i : {0..2}) {
-			assertEquals(a.name + "_" + (i+1), a.threads.get(i).name)
-			assertEquals(a.coreUtilization, a.threads.get(i).coreUtilization)
-			assertEquals(a, a.threads.get(i).eContainer)
-		}
+		assertEquals(2, model.applications.size)
+				
+		// Application A1
+		val a1 = model.applications.get(0)
+		assertEquals("A1", a1.name)
+		assertEquals(11, a1.coreUtilization)
+		assertEquals(12341, a1.ramUtilization)
+		assertEquals(34561, a1.romUtilization)
+		assertEquals(DesignAssuranceLevelType.D, a1.criticalityLevel)
+		assertEquals(IOAdapterProtectionLevelType.LEVEL_2, a1.ioAdapterProtectionLevel)
+		assertEquals("Company A1", a1.developedBy)
+
+		// Application A1
+		val a2 = model.applications.get(1)
+		assertEquals("A2", a2.name)
+		assertEquals(12, a2.coreUtilization)
+		assertEquals(12342, a2.ramUtilization)
+		assertEquals(34562, a2.romUtilization)
+		assertEquals(DesignAssuranceLevelType.D, a2.criticalityLevel)
+		assertEquals(IOAdapterProtectionLevelType.LEVEL_3, a2.ioAdapterProtectionLevel)
+		assertEquals("Company A2", a2.developedBy)
+
+		/*
+		 * Threads
+		 */
+		
+		// A1 Threads
+		assertEquals(1, a1.threads.size)
+		assertEquals(a1.name + "_" + 1, a1.threads.get(0).name)
+		assertEquals(a1.coreUtilization, a1.threads.get(0).coreUtilization)
+		assertEquals(a1, a1.threads.get(0).eContainer)
+		
+		// A2 Threads
+		assertEquals(1, a2.threads.size)
+		assertEquals(a2.name + "_" + 1, a2.threads.get(0).name)
+		assertEquals(a2.coreUtilization, a2.threads.get(0).coreUtilization)
+		assertEquals(a2, a2.threads.get(0).eContainer)
 	}
 
-//	@Test
-//	def void testGetAllAccessFunctions() {
-//		val result = allResults.get(0)
-//		
-//		// AllCompartments
-//		val allCompartmentsList = result.allCompartments
-//		assertEquals(1, allCompartmentsList.size)
-//		val compartment = allCompartmentsList.get(0)
-//		assertTrue(compartment instanceof Compartment)
-//		assertEquals(result.rootHardwareElements.get(0), compartment)
-//		
-//		// AllBoxes
-//		val allBoxesList = result.allBoxes
-//		assertEquals(1, allBoxesList.size)
-//		val box = allBoxesList.get(0)
-//		assertTrue(box instanceof Box)
-//		assertEquals((result.rootHardwareElements.get(0) as Compartment).boxes.get(0), box)
-//		
-//		// AllBoards
-//		val allBoardsList = result.allBoards
-//		assertEquals(1, allBoardsList.size)
-//		val board = allBoardsList.get(0)
-//		assertTrue(board instanceof Board)
-//		assertEquals((result.rootHardwareElements.get(0) as Compartment).boxes.get(0).boards.get(0), board)
-//		
-//		// AllProcessors
-//		val allProcessorsList = result.allProcessors
-//		assertEquals(1, allProcessorsList.size)
-//		val processor = allProcessorsList.get(0)
-//		assertTrue(processor instanceof Processor)
-//		assertEquals((result.rootHardwareElements.get(0) as Compartment).boxes.get(0).boards.get(0).processors.get(0), processor)
-//	
-//		// AllCores
-//		val allCoresList = result.allCores
-//		assertEquals(1, allCoresList.size)
-//		val core = allCoresList.get(0)
-//		assertTrue(core instanceof Core)
-//		assertEquals((result.rootHardwareElements.get(0) as Compartment).boxes.get(0).boards.get(0).processors.get(0).cores.get(0), core)
-//	
-//		// AllThreads
-//		val allThreadsList = result.allThreads
-//		assertEquals(3, allThreadsList.size)
-//		for (i : {0..2}) {
-//			val thread = allThreadsList.get(i)
-//			assertTrue(thread instanceof Thread)
-//			assertEquals(result.applications.get(0).threads.get(i), thread)	
-//		}
-//	}
-//
 //	@Test
 //	def void testMappingAssignment() {
 //		
@@ -315,9 +353,5 @@ Software {
 //			assertEquals(thread.core, core)
 //	
 //	}
-//	
-//	@Test
-//	def void testUtilizationAfterMapping() {
-//		fail
-//	}
+
 }
