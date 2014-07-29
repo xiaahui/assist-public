@@ -160,19 +160,158 @@ Software {
 	def void testResultAllApplicationsOnCore1() {
 		var Result result = null
 		
-		// find the result where all applications are mapped to core "core1"
-		for (r : allResults) {
+		/* 
+		 * find the result where all applications are mapped to core "core1"
+		 */
+		for (r : allResults) 
 			if (r.applications.get(0).threads.get(0).core.name.equals("Core1") &&
 				r.applications.get(1).threads.get(0).core.name.equals("Core1"))
 				result = r
-		}
+		
 		assertNotNull(result)
 
+		/*
+		 * Check the correct structure of the result
+		 */ 
 		testResultStructure(result)
 		
+		/* 
+		 * Check the correct mapping of the result
+		 */
+		// - Core 1 contains two threads
+		assertEquals(result.allCores.get(0).threads.size, 2)
+		// - Core 2 contains 0 threads
+		assertEquals(result.allCores.get(1).threads.size, 0)
+		
+		// - A1 is mapped to core 1
+		assertEquals(result.applications.get(0).threads.get(0).core, result.allCores.get(0))
+		// - Core 1 contains A1
+		assertTrue(result.allCores.get(0).threads.contains(result.applications.get(0).threads.get(0)))
 
+		// - A2 is mapped to core 1
+		assertEquals(result.applications.get(1).threads.get(0).core, result.allCores.get(0))
+		// - Core 1 contains A2
+		assertTrue(result.allCores.get(0).threads.contains(result.applications.get(1).threads.get(0)))
 	}
 	
+	
+	@Test
+	def void testResultAllApplicationsOnCore2() {
+		var Result result = null
+		
+		/* 
+		 * find the result where all applications are mapped to core "core2"
+		 */
+		for (r : allResults) 
+			if (r.applications.get(0).threads.get(0).core.name.equals("Core2") &&
+				r.applications.get(1).threads.get(0).core.name.equals("Core2"))
+				result = r
+		assertNotNull(result)
+
+		/*
+		 * Check the correct structure of the result
+		 */ 
+		testResultStructure(result)
+		
+		/* 
+		 * Check the correct mapping of the result
+		 */
+		// - Core 1 contains 0 threads
+		assertEquals(result.allCores.get(0).threads.size, 0)
+		// - Core 2 contains 2 threads
+		assertEquals(result.allCores.get(1).threads.size, 2)
+		
+		// - A1 is mapped to Core 2
+		assertEquals(result.applications.get(0).threads.get(0).core, result.allCores.get(1))
+		// - Core 2 contains A1
+		assertTrue(result.allCores.get(1).threads.contains(result.applications.get(0).threads.get(0)))
+
+		// - A2 is mapped to Core 2
+		assertEquals(result.applications.get(1).threads.get(0).core, result.allCores.get(1))
+		// - Core 2 contains A2
+		assertTrue(result.allCores.get(1).threads.contains(result.applications.get(1).threads.get(0)))
+	}
+	
+	@Test
+	def void testResultAppA1OnCore1AppA2OnCore2() {
+		var Result result = null
+		
+		/* 
+		 * find the result where application A1 is mapped to Core 1 and
+		 * application A2 is mapped to Core 2
+		 */
+		for (r : allResults) 
+			if (r.applications.get(0).threads.get(0).core.name.equals("Core1") &&
+				r.applications.get(1).threads.get(0).core.name.equals("Core2"))
+				result = r
+		assertNotNull(result)
+		
+		/*
+		 * Check the correct structure of the result
+		 */ 
+		testResultStructure(result)
+	
+		/* 
+		 * Check the correct mapping of the result
+		 */
+		// - Core 1 contains 1 threads
+		assertEquals(result.allCores.get(0).threads.size, 1)
+		// - Core 2 contains 1 threads
+		assertEquals(result.allCores.get(1).threads.size, 1)
+		
+		// - A1 is mapped to Core 1
+		assertEquals(result.applications.get(0).threads.get(0).core, result.allCores.get(0))
+		// - Core 1 contains A1
+		assertTrue(result.allCores.get(0).threads.contains(result.applications.get(0).threads.get(0)))
+
+		// - A2 is mapped to Core 2
+		assertEquals(result.applications.get(1).threads.get(0).core, result.allCores.get(1))
+		// - Core 2 contains A2
+		assertTrue(result.allCores.get(1).threads.contains(result.applications.get(1).threads.get(0)))
+	}
+
+	@Test
+	def void testResultAppA1OnCore2AppA2OnCore1() {
+		var Result result = null
+		
+		/* 
+		 * find the result where application A1 is mapped to Core 2 and
+		 * application A2 is mapped to Core 1
+		 */
+		for (r : allResults) 
+			if (r.applications.get(0).threads.get(0).core.name.equals("Core2") &&
+				r.applications.get(1).threads.get(0).core.name.equals("Core1"))
+				result = r
+		assertNotNull(result)
+
+		/*
+		 * Check the correct structure of the result
+		 */ 
+		testResultStructure(result)
+		
+		/* 
+		 * Check the correct mapping of the result
+		 */
+		// - Core 1 contains 1 threads
+		assertEquals(result.allCores.get(0).threads.size, 1)
+		// - Core 2 contains 1 threads
+		assertEquals(result.allCores.get(1).threads.size, 1)
+		
+		// - A1 is mapped to Core 2
+		assertEquals(result.applications.get(0).threads.get(0).core, result.allCores.get(1))
+		// - Core 2 contains A1
+		assertTrue(result.allCores.get(1).threads.contains(result.applications.get(0).threads.get(0)))
+
+		// - A2 is mapped to Core 1
+		assertEquals(result.applications.get(1).threads.get(0).core, result.allCores.get(0))
+		// - Core 1 contains A2
+		assertTrue(result.allCores.get(0).threads.contains(result.applications.get(1).threads.get(0)))
+	}	
+	
+	
+	
+	
+	/* Helper Routine for the real tests */
 	def void testResultStructure(Result result) {
 		val r = result
 		

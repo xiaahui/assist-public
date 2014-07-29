@@ -357,8 +357,283 @@ public class MultipleResultsTests {
     }
     Assert.assertNotNull(result);
     this.testResultStructure(result);
+    EList<Core> _allCores = result.getAllCores();
+    Core _get_4 = _allCores.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_2 = _get_4.getThreads();
+    int _size = _threads_2.size();
+    Assert.assertEquals(_size, 2);
+    EList<Core> _allCores_1 = result.getAllCores();
+    Core _get_5 = _allCores_1.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_3 = _get_5.getThreads();
+    int _size_1 = _threads_3.size();
+    Assert.assertEquals(_size_1, 0);
+    EList<Application> _applications_2 = result.getApplications();
+    Application _get_6 = _applications_2.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_4 = _get_6.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_7 = _threads_4.get(0);
+    Core _core_2 = _get_7.getCore();
+    EList<Core> _allCores_2 = result.getAllCores();
+    Core _get_8 = _allCores_2.get(0);
+    Assert.assertEquals(_core_2, _get_8);
+    EList<Core> _allCores_3 = result.getAllCores();
+    Core _get_9 = _allCores_3.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_5 = _get_9.getThreads();
+    EList<Application> _applications_3 = result.getApplications();
+    Application _get_10 = _applications_3.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_6 = _get_10.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_11 = _threads_6.get(0);
+    boolean _contains = _threads_5.contains(_get_11);
+    Assert.assertTrue(_contains);
+    EList<Application> _applications_4 = result.getApplications();
+    Application _get_12 = _applications_4.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_7 = _get_12.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_13 = _threads_7.get(0);
+    Core _core_3 = _get_13.getCore();
+    EList<Core> _allCores_4 = result.getAllCores();
+    Core _get_14 = _allCores_4.get(0);
+    Assert.assertEquals(_core_3, _get_14);
+    EList<Core> _allCores_5 = result.getAllCores();
+    Core _get_15 = _allCores_5.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_8 = _get_15.getThreads();
+    EList<Application> _applications_5 = result.getApplications();
+    Application _get_16 = _applications_5.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_9 = _get_16.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_17 = _threads_9.get(0);
+    boolean _contains_1 = _threads_8.contains(_get_17);
+    Assert.assertTrue(_contains_1);
   }
   
+  @Test
+  public void testResultAllApplicationsOnCore2() {
+    Result result = null;
+    for (final Result r : this.allResults) {
+      boolean _and = false;
+      EList<Application> _applications = r.getApplications();
+      Application _get = _applications.get(0);
+      EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads = _get.getThreads();
+      ch.hilbri.assist.datamodel.result.mapping.Thread _get_1 = _threads.get(0);
+      Core _core = _get_1.getCore();
+      String _name = _core.getName();
+      boolean _equals = _name.equals("Core2");
+      if (!_equals) {
+        _and = false;
+      } else {
+        EList<Application> _applications_1 = r.getApplications();
+        Application _get_2 = _applications_1.get(1);
+        EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_1 = _get_2.getThreads();
+        ch.hilbri.assist.datamodel.result.mapping.Thread _get_3 = _threads_1.get(0);
+        Core _core_1 = _get_3.getCore();
+        String _name_1 = _core_1.getName();
+        boolean _equals_1 = _name_1.equals("Core2");
+        _and = _equals_1;
+      }
+      if (_and) {
+        result = r;
+      }
+    }
+    Assert.assertNotNull(result);
+    this.testResultStructure(result);
+    EList<Core> _allCores = result.getAllCores();
+    Core _get_4 = _allCores.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_2 = _get_4.getThreads();
+    int _size = _threads_2.size();
+    Assert.assertEquals(_size, 0);
+    EList<Core> _allCores_1 = result.getAllCores();
+    Core _get_5 = _allCores_1.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_3 = _get_5.getThreads();
+    int _size_1 = _threads_3.size();
+    Assert.assertEquals(_size_1, 2);
+    EList<Application> _applications_2 = result.getApplications();
+    Application _get_6 = _applications_2.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_4 = _get_6.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_7 = _threads_4.get(0);
+    Core _core_2 = _get_7.getCore();
+    EList<Core> _allCores_2 = result.getAllCores();
+    Core _get_8 = _allCores_2.get(1);
+    Assert.assertEquals(_core_2, _get_8);
+    EList<Core> _allCores_3 = result.getAllCores();
+    Core _get_9 = _allCores_3.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_5 = _get_9.getThreads();
+    EList<Application> _applications_3 = result.getApplications();
+    Application _get_10 = _applications_3.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_6 = _get_10.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_11 = _threads_6.get(0);
+    boolean _contains = _threads_5.contains(_get_11);
+    Assert.assertTrue(_contains);
+    EList<Application> _applications_4 = result.getApplications();
+    Application _get_12 = _applications_4.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_7 = _get_12.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_13 = _threads_7.get(0);
+    Core _core_3 = _get_13.getCore();
+    EList<Core> _allCores_4 = result.getAllCores();
+    Core _get_14 = _allCores_4.get(1);
+    Assert.assertEquals(_core_3, _get_14);
+    EList<Core> _allCores_5 = result.getAllCores();
+    Core _get_15 = _allCores_5.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_8 = _get_15.getThreads();
+    EList<Application> _applications_5 = result.getApplications();
+    Application _get_16 = _applications_5.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_9 = _get_16.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_17 = _threads_9.get(0);
+    boolean _contains_1 = _threads_8.contains(_get_17);
+    Assert.assertTrue(_contains_1);
+  }
+  
+  @Test
+  public void testResultAppA1OnCore1AppA2OnCore2() {
+    Result result = null;
+    for (final Result r : this.allResults) {
+      boolean _and = false;
+      EList<Application> _applications = r.getApplications();
+      Application _get = _applications.get(0);
+      EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads = _get.getThreads();
+      ch.hilbri.assist.datamodel.result.mapping.Thread _get_1 = _threads.get(0);
+      Core _core = _get_1.getCore();
+      String _name = _core.getName();
+      boolean _equals = _name.equals("Core1");
+      if (!_equals) {
+        _and = false;
+      } else {
+        EList<Application> _applications_1 = r.getApplications();
+        Application _get_2 = _applications_1.get(1);
+        EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_1 = _get_2.getThreads();
+        ch.hilbri.assist.datamodel.result.mapping.Thread _get_3 = _threads_1.get(0);
+        Core _core_1 = _get_3.getCore();
+        String _name_1 = _core_1.getName();
+        boolean _equals_1 = _name_1.equals("Core2");
+        _and = _equals_1;
+      }
+      if (_and) {
+        result = r;
+      }
+    }
+    Assert.assertNotNull(result);
+    this.testResultStructure(result);
+    EList<Core> _allCores = result.getAllCores();
+    Core _get_4 = _allCores.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_2 = _get_4.getThreads();
+    int _size = _threads_2.size();
+    Assert.assertEquals(_size, 1);
+    EList<Core> _allCores_1 = result.getAllCores();
+    Core _get_5 = _allCores_1.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_3 = _get_5.getThreads();
+    int _size_1 = _threads_3.size();
+    Assert.assertEquals(_size_1, 1);
+    EList<Application> _applications_2 = result.getApplications();
+    Application _get_6 = _applications_2.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_4 = _get_6.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_7 = _threads_4.get(0);
+    Core _core_2 = _get_7.getCore();
+    EList<Core> _allCores_2 = result.getAllCores();
+    Core _get_8 = _allCores_2.get(0);
+    Assert.assertEquals(_core_2, _get_8);
+    EList<Core> _allCores_3 = result.getAllCores();
+    Core _get_9 = _allCores_3.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_5 = _get_9.getThreads();
+    EList<Application> _applications_3 = result.getApplications();
+    Application _get_10 = _applications_3.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_6 = _get_10.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_11 = _threads_6.get(0);
+    boolean _contains = _threads_5.contains(_get_11);
+    Assert.assertTrue(_contains);
+    EList<Application> _applications_4 = result.getApplications();
+    Application _get_12 = _applications_4.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_7 = _get_12.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_13 = _threads_7.get(0);
+    Core _core_3 = _get_13.getCore();
+    EList<Core> _allCores_4 = result.getAllCores();
+    Core _get_14 = _allCores_4.get(1);
+    Assert.assertEquals(_core_3, _get_14);
+    EList<Core> _allCores_5 = result.getAllCores();
+    Core _get_15 = _allCores_5.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_8 = _get_15.getThreads();
+    EList<Application> _applications_5 = result.getApplications();
+    Application _get_16 = _applications_5.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_9 = _get_16.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_17 = _threads_9.get(0);
+    boolean _contains_1 = _threads_8.contains(_get_17);
+    Assert.assertTrue(_contains_1);
+  }
+  
+  @Test
+  public void testResultAppA1OnCore2AppA2OnCore1() {
+    Result result = null;
+    for (final Result r : this.allResults) {
+      boolean _and = false;
+      EList<Application> _applications = r.getApplications();
+      Application _get = _applications.get(0);
+      EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads = _get.getThreads();
+      ch.hilbri.assist.datamodel.result.mapping.Thread _get_1 = _threads.get(0);
+      Core _core = _get_1.getCore();
+      String _name = _core.getName();
+      boolean _equals = _name.equals("Core2");
+      if (!_equals) {
+        _and = false;
+      } else {
+        EList<Application> _applications_1 = r.getApplications();
+        Application _get_2 = _applications_1.get(1);
+        EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_1 = _get_2.getThreads();
+        ch.hilbri.assist.datamodel.result.mapping.Thread _get_3 = _threads_1.get(0);
+        Core _core_1 = _get_3.getCore();
+        String _name_1 = _core_1.getName();
+        boolean _equals_1 = _name_1.equals("Core1");
+        _and = _equals_1;
+      }
+      if (_and) {
+        result = r;
+      }
+    }
+    Assert.assertNotNull(result);
+    this.testResultStructure(result);
+    EList<Core> _allCores = result.getAllCores();
+    Core _get_4 = _allCores.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_2 = _get_4.getThreads();
+    int _size = _threads_2.size();
+    Assert.assertEquals(_size, 1);
+    EList<Core> _allCores_1 = result.getAllCores();
+    Core _get_5 = _allCores_1.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_3 = _get_5.getThreads();
+    int _size_1 = _threads_3.size();
+    Assert.assertEquals(_size_1, 1);
+    EList<Application> _applications_2 = result.getApplications();
+    Application _get_6 = _applications_2.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_4 = _get_6.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_7 = _threads_4.get(0);
+    Core _core_2 = _get_7.getCore();
+    EList<Core> _allCores_2 = result.getAllCores();
+    Core _get_8 = _allCores_2.get(1);
+    Assert.assertEquals(_core_2, _get_8);
+    EList<Core> _allCores_3 = result.getAllCores();
+    Core _get_9 = _allCores_3.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_5 = _get_9.getThreads();
+    EList<Application> _applications_3 = result.getApplications();
+    Application _get_10 = _applications_3.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_6 = _get_10.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_11 = _threads_6.get(0);
+    boolean _contains = _threads_5.contains(_get_11);
+    Assert.assertTrue(_contains);
+    EList<Application> _applications_4 = result.getApplications();
+    Application _get_12 = _applications_4.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_7 = _get_12.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_13 = _threads_7.get(0);
+    Core _core_3 = _get_13.getCore();
+    EList<Core> _allCores_4 = result.getAllCores();
+    Core _get_14 = _allCores_4.get(0);
+    Assert.assertEquals(_core_3, _get_14);
+    EList<Core> _allCores_5 = result.getAllCores();
+    Core _get_15 = _allCores_5.get(0);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_8 = _get_15.getThreads();
+    EList<Application> _applications_5 = result.getApplications();
+    Application _get_16 = _applications_5.get(1);
+    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_9 = _get_16.getThreads();
+    ch.hilbri.assist.datamodel.result.mapping.Thread _get_17 = _threads_9.get(0);
+    boolean _contains_1 = _threads_8.contains(_get_17);
+    Assert.assertTrue(_contains_1);
+  }
+  
+  /**
+   * Helper Routine for the real tests
+   */
   public void testResultStructure(final Result result) {
     final Result r = result;
     HardwareArchitectureLevelType _topHardwareLevel = r.getTopHardwareLevel();
