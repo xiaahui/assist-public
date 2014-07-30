@@ -5,6 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 import ch.hilbri.assist.mapping.tests.constraints.CoreCapacityTests;
+import ch.hilbri.assist.mapping.tests.constraints.RAMCapacityTests;
 import ch.hilbri.assist.mapping.tests.results.BasicResultTests;
 import ch.hilbri.assist.mapping.tests.results.MultipleResultsTests;
 
@@ -12,7 +13,8 @@ import ch.hilbri.assist.mapping.tests.results.MultipleResultsTests;
 @SuiteClasses({
 	BasicResultTests.class,
 	MultipleResultsTests.class,
-	CoreCapacityTests.class
+	CoreCapacityTests.class,
+	RAMCapacityTests.class
 })  
 
 public class TestSuiteAllMappingTests {}
