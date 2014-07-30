@@ -1,113 +1,62 @@
 package ch.hilbri.assist.mapping.tests.constraints;
 
-import ch.hilbri.assist.datamodel.model.AssistModel;
-import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.result.mapping.Application;
 import ch.hilbri.assist.datamodel.result.mapping.Core;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
-import ch.hilbri.assist.mapping.datamodel.PostProcessor;
-import ch.hilbri.assist.mapping.solver.SearchType;
-import ch.hilbri.assist.mapping.solver.SolverJob;
-import ch.hilbri.assist.mapping.tests.helpers.MyTestingMonitor;
-import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider;
-import com.google.inject.Inject;
-import java.util.ArrayList;
+import ch.hilbri.assist.mapping.tests.AbstractMappingTest;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.junit4.InjectWith;
-import org.eclipse.xtext.junit4.XtextRunner;
-import org.eclipse.xtext.junit4.util.ParseHelper;
-import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-@InjectWith(MappingDSLInjectorProvider.class)
-@RunWith(XtextRunner.class)
 @SuppressWarnings("all")
-public class CoreCapacityTests {
-  private String input = new Function0<String>() {
-    public String apply() {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("Global {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("System name = \"System name\";");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("Hardware {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("Board Board1 {");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("Processor Processor1 {");
-      _builder.newLine();
-      _builder.append("\t\t\t");
-      _builder.append("Core Core1 { Capacity = 100; }");
-      _builder.newLine();
-      _builder.append("\t\t\t");
-      _builder.append("Core Core2 { Capacity = 100; }");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("Software {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("Application A1   {\tCore-utilization = 60; }");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("Application A2   {\tCore-utilization = 70; }");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      return _builder.toString();
-    }
-  }.apply();
-  
-  private AssistModel model;
-  
-  private ArrayList<Result> allResults;
-  
-  @Inject
-  private ParseHelper<AssistModel> parser;
-  
-  @BeforeClass
-  public static void registerEPackage() {
-    ModelPackage.eINSTANCE.eClass();
-  }
-  
-  @Before
-  public void loadModelAndCreateResults() {
-    try {
-      AssistModel _parse = this.parser.parse(this.input);
-      this.model = ((AssistModel) _parse);
-      PostProcessor.createMissingThreads(this.model);
-      Assert.assertNotNull(this.model);
-      final SolverJob findSolutionsJob = new SolverJob("", this.model, null);
-      findSolutionsJob.setKindOfSolutions(SearchType.CONSECUTIVE);
-      findSolutionsJob.setMaxSolutions(1000);
-      Assert.assertNotNull(findSolutionsJob);
-      MyTestingMonitor _myTestingMonitor = new MyTestingMonitor();
-      findSolutionsJob.execute(_myTestingMonitor, false);
-      ArrayList<Result> _newMappingResults = findSolutionsJob.getNewMappingResults();
-      this.allResults = _newMappingResults;
-      Assert.assertNotNull(this.allResults);
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+public class CoreCapacityTests extends AbstractMappingTest {
+  public CoreCapacityTests() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.newLine();
+    _builder.append("Global {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("System name = \"System name\";");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("Hardware {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("Board Board1 {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("Processor Processor1 {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("Core Core1 { Capacity = 100; }");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("Core Core2 { Capacity = 100; }");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("Software {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("Application A1   {\tCore-utilization = 60; }");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("Application A2   {\tCore-utilization = 70; }");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    this.input = _builder.toString();
   }
   
   @Test
