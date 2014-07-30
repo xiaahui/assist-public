@@ -29,7 +29,7 @@ import org.jacop.core.Store;
 @SuppressWarnings("all")
 public class RAMUtilizationConstraint extends AbstractMappingConstraint {
   public RAMUtilizationConstraint(final AssistModel model, final Store constraintStore, final SolverVariablesContainer solverVariables) {
-    super("RAM utilization", model, constraintStore, solverVariables);
+    super("RAM capacity constraints", model, constraintStore, solverVariables);
   }
   
   public boolean generate() {
@@ -48,7 +48,7 @@ public class RAMUtilizationConstraint extends AbstractMappingConstraint {
     EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads = this.model.getAllThreads();
     final Function1<ch.hilbri.assist.datamodel.model.Thread, IntVar> _function_1 = new Function1<ch.hilbri.assist.datamodel.model.Thread, IntVar>() {
       public IntVar apply(final ch.hilbri.assist.datamodel.model.Thread it) {
-        return new IntVar(RAMUtilizationConstraint.this.constraintStore, "Core Processing Power Capacities", ramCapacitiesDomain);
+        return new IntVar(RAMUtilizationConstraint.this.constraintStore, "RAM Capacities", ramCapacitiesDomain);
       }
     };
     final IntVar[] ramCapacities = ((IntVar[])Conversions.unwrapArray(ListExtensions.<ch.hilbri.assist.datamodel.model.Thread, IntVar>map(_allThreads, _function_1), IntVar.class));

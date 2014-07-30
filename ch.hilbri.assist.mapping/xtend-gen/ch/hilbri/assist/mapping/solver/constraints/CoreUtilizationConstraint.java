@@ -28,7 +28,7 @@ import org.jacop.core.Store;
 @SuppressWarnings("all")
 public class CoreUtilizationConstraint extends AbstractMappingConstraint {
   public CoreUtilizationConstraint(final AssistModel model, final Store constraintStore, final SolverVariablesContainer solverVariables) {
-    super("Core utilization", model, constraintStore, solverVariables);
+    super("Core capacity constraints", model, constraintStore, solverVariables);
   }
   
   public boolean generate() {

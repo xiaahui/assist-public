@@ -18,7 +18,7 @@ import org.jacop.core.Store
 class CoreUtilizationConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Store constraintStore, SolverVariablesContainer solverVariables) {
-		super("Core utilization", model, constraintStore, solverVariables)
+		super("Core capacity constraints", model, constraintStore, solverVariables)
 	}
 	
 	override generate() {

@@ -19,7 +19,7 @@ import org.jacop.core.Store
 class RAMUtilizationConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Store constraintStore, SolverVariablesContainer solverVariables) {
-		super("RAM utilization", model, constraintStore, solverVariables)
+		super("RAM capacity constraints", model, constraintStore, solverVariables)
 	}
 	
 	override generate() {
@@ -34,7 +34,7 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 			ramCapacitiesDomain.addDom(new BoundDomain(ramCapacity, ramCapacity))
 		
 		/* Create a set of variables - for each thread a variable which contains the power capabilties of all cores	 */
-		val IntVar[] ramCapacities = model.allThreads.map [ it | new IntVar(constraintStore, "Core Processing Power Capacities", ramCapacitiesDomain)]
+		val IntVar[] ramCapacities = model.allThreads.map [ it | new IntVar(constraintStore, "RAM Capacities", ramCapacitiesDomain)]
 		
 		/* **** Preparing the constraints **** */	 
 		

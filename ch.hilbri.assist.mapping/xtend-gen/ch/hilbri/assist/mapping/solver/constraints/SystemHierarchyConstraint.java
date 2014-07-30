@@ -23,31 +23,28 @@ public class SystemHierarchyConstraint extends AbstractMappingConstraint {
   }
   
   public boolean generate() {
-    final ArrayList<ArrayList<Integer>> hardwareLevelLink = new ArrayList<ArrayList<Integer>>();
     int _hardwareLevelCount = this.model.getHardwareLevelCount();
     int _minus = (_hardwareLevelCount - 1);
     IntegerRange _upTo = new IntegerRange(1, _minus);
     for (final Integer levelCtr : _upTo) {
       {
-        final ArrayList<Integer> list = new ArrayList<Integer>();
+        final ArrayList<Integer> hardwareLevelLink = new ArrayList<Integer>();
         EList<HardwareElement> _allHardwareElements = this.model.getAllHardwareElements((levelCtr).intValue());
-        for (final HardwareElement hw : _allHardwareElements) {
-          EObject _eContainer = hw.eContainer();
-          EObject _eContainer_1 = _eContainer.eContainer();
-          EList<EObject> _eContents = _eContainer_1.eContents();
-          EObject _eContainer_2 = hw.eContainer();
-          int _indexOf = _eContents.indexOf(_eContainer_2);
-          int _plus = (_indexOf + 1);
-          list.add(Integer.valueOf(_plus));
+        for (final HardwareElement childHardwareComponent : _allHardwareElements) {
+          {
+            final EObject parentHardwareComponent = childHardwareComponent.eContainer();
+            EList<HardwareElement> _allHardwareElements_1 = this.model.getAllHardwareElements(((levelCtr).intValue() + 1));
+            int _indexOf = _allHardwareElements_1.indexOf(parentHardwareComponent);
+            int _plus = (_indexOf + 1);
+            hardwareLevelLink.add(Integer.valueOf(_plus));
+          }
         }
-        hardwareLevelLink.add(list);
         EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads = this.model.getAllThreads();
         for (final ch.hilbri.assist.datamodel.model.Thread t : _allThreads) {
           {
             IntVar index = this.solverVariables.getThreadLocationVariable(t, (levelCtr).intValue());
             IntVar values = this.solverVariables.getThreadLocationVariable(t, ((levelCtr).intValue() + 1));
-            ArrayList<Integer> _get = hardwareLevelLink.get(((levelCtr).intValue() - 1));
-            Element _element = new Element(index, ((int[])Conversions.unwrapArray(_get, int.class)), values);
+            Element _element = new Element(index, ((int[])Conversions.unwrapArray(hardwareLevelLink, int.class)), values);
             this.constraintStore.impose(_element);
           }
         }

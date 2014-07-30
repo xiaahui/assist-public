@@ -16,42 +16,35 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 	}
 	
 	override generate() {
-		/**
-		 * hardwareLevelLink ist ein Feld von Feldern. Die erste Dimension
-		 * beschreibt die erforderliche "Link-Ebene"; Bei n-Ebenen brauchen wir
-		 * n-1 Links zwischen den Ebenen. Der link geht immer von der unteren
-		 * Ebene zur oberen Ebene (z.B. Cores -> Prozessor).
-		 * 
-		 * Die zweite Dimension ist ein Feld, dessen Laenge der Anzahl der
-		 * Elemente der unteren Ebene entspricht (z.B. maxCores). Jeder Index
-		 * entspricht einem Element der Liste aller Componenten der unteren
-		 * Ebene. Der Eintrag zu jedem Index entspricht der parent-ID des
-		 * index-Elements, also z.B. der Prozessor-ID fuer einen Core.
-		 * 
-		 * Bsp:
-		 * Die 1-te Ebene verbindet Cores mit Processors. Die Processors 
-		 * werden durchnummeriert (von 0 bis n_Proc, entspricht upperLevelComponentCtr). Die Laenge der Liste
-		 * in der 0-ten Ebene entspricht der Anzahl an Cores (n_Core) und
-		 * gehoert jeweils zu dem Core in der Reihenfolge, wie sie in der Liste
-		 * allHardwareComponents.get(MappingDataModel.CORE_LEVEL) stehen.
-		 * Jedem Core wird jetzt in dieser Liste die Nummer seines Processors zugewiesen 
-		 */
-		 
-		 
-		val hardwareLevelLink = new ArrayList<ArrayList<Integer>>
 		
+		/* Wir brauchen einen "Link" zwischen allen Hardware-Ebenen */
 		for (levelCtr : 1..model.hardwareLevelCount-1 ) {
-			
-			/* hardwareLevelLink[lowerLevel][Kind_Index] = Parent_Index */
-			val list = new ArrayList<Integer>
-			for (hw : model.getAllHardwareElements(levelCtr))
-				list.add(hw.eContainer.eContainer.eContents.indexOf(hw.eContainer)+1)
-			hardwareLevelLink.add(list)
 
+			/* HardwareLevelLink ist ein Feld von Nummern von Parent-Komponenten 		
+			 * hardwareLevelLink[KindIndex] = Parent_Nummer (nicht Index!) 
+			 *
+			 * Beispiel: 
+			 * - für die Verknüpfung von Cores und Prozessoren wird ein Link zwischen Ebene 1 und 2 benötigt
+			 * - die liste hardwareLevelLink enthält so viele Element, wie es Cores im Modell gibt
+			 * - für jeden Core wird die Nummer (nicht der Index! - da JaCoP bei 1 zu zählen anfängt) des Parents (= Prozessor)
+			 *   eingetragen
+			 */ 
+			
+			val hardwareLevelLink = new ArrayList<Integer>
+			for (childHardwareComponent : model.getAllHardwareElements(levelCtr)) {
+				val parentHardwareComponent = childHardwareComponent.eContainer
+				hardwareLevelLink.add(model.getAllHardwareElements(levelCtr+1).indexOf(parentHardwareComponent)+1)
+			}
+			
+			/*
+			 * Nun werden die Location Variablen eines Threads zwischen den Ebenen mit einem Element Constraint verknüpft;
+			 * Sollte damit beispielweise ein Prozessor als Lösung ausfallen, so werden automatisch auch die Kerne des 
+			 * Prozessors aus dem Lösungsraum entfernt (und umgedreht)
+			 */
 			for (t : model.allThreads) {
 				var index  = solverVariables.getThreadLocationVariable(t, levelCtr)
 				var values = solverVariables.getThreadLocationVariable(t, levelCtr + 1)
-				constraintStore.impose(new Element( index, hardwareLevelLink.get(levelCtr-1), values))
+				constraintStore.impose(new Element(index, hardwareLevelLink, values))
 			}			
 		} 
 		
