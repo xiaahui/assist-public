@@ -232,6 +232,14 @@ class ResultFactoryFromSolverSolutions {
 			val absoluteRamUtilization = solverSolution.get(index).valueEnumeration.nextElement
 			resultBoard.setRamUtilization(absoluteRamUtilization)
 		}
+		
+		/* 3. Update the rom utilization data for all boards */
+		for (resultBoard : result.allBoards) {
+			val modelBoard = resultBoard.referenceObject as ch.hilbri.assist.datamodel.model.Board
+			val index = solverVariables.getIndexOfAbsoluteRomUtilizationInSolutionVariablesList(modelBoard)
+			val absoluteRomUtilization = solverSolution.get(index).valueEnumeration.nextElement
+			resultBoard.setRomUtilization(absoluteRomUtilization)
+		}
 	}
 	
 	static def ArrayList<Result> create(AssistModel model, SolverVariablesContainer solverVariables, Domain[][] solverSolutions) {

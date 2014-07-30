@@ -132,7 +132,7 @@ public class BasicResultTests extends AbstractMappingTest {
     _builder.append("Required RAM capacity \t\t= 123; ");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("Required ROM capacity \t\t= 34567; ");
+    _builder.append("Required ROM capacity \t\t= 456; ");
     _builder.newLine();
     _builder.append("\t    ");
     _builder.append("Criticality level \t\t\t= D;");
@@ -266,7 +266,7 @@ public class BasicResultTests extends AbstractMappingTest {
     int _ramUtilization = a.getRamUtilization();
     Assert.assertEquals(123, _ramUtilization);
     int _romUtilization = a.getRomUtilization();
-    Assert.assertEquals(34567, _romUtilization);
+    Assert.assertEquals(456, _romUtilization);
     DesignAssuranceLevelType _criticalityLevel = a.getCriticalityLevel();
     Assert.assertEquals(DesignAssuranceLevelType.D, _criticalityLevel);
     IOAdapterProtectionLevelType _ioAdapterProtectionLevel = a.getIoAdapterProtectionLevel();

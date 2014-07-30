@@ -324,6 +324,18 @@ public class ResultFactoryFromSolverSolutions {
         resultBoard.setRamUtilization(absoluteRamUtilization);
       }
     }
+    EList<ch.hilbri.assist.datamodel.result.mapping.Board> _allBoards_1 = result.getAllBoards();
+    for (final ch.hilbri.assist.datamodel.result.mapping.Board resultBoard_1 : _allBoards_1) {
+      {
+        HardwareElement _referenceObject = resultBoard_1.getReferenceObject();
+        final Board modelBoard = ((Board) _referenceObject);
+        final int index = solverVariables.getIndexOfAbsoluteRomUtilizationInSolutionVariablesList(modelBoard);
+        Domain _get = solverSolution[index];
+        ValueEnumeration _valueEnumeration = _get.valueEnumeration();
+        final int absoluteRomUtilization = _valueEnumeration.nextElement();
+        resultBoard_1.setRomUtilization(absoluteRomUtilization);
+      }
+    }
   }
   
   public static ArrayList<Result> create(final AssistModel model, final SolverVariablesContainer solverVariables, final Domain[][] solverSolutions) {

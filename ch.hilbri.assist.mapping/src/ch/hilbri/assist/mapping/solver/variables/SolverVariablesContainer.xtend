@@ -20,6 +20,8 @@ import org.jacop.core.Store
 	/** A list of variables; a variable for each board which contains the absolute ram utilization */
 	HashMap<Board, IntVar>						absoluteRamUtilizationList = new HashMap
 	
+	/** A list of variables; a variable for each board which contains the absolute rom utilization */
+	HashMap<Board, IntVar>						absoluteRomUtilizationList = new HashMap
 	
 	/* CONSTRUCTOR */
 	new (AssistModel model, Store constraintStore) {
@@ -38,6 +40,7 @@ import org.jacop.core.Store
 		/* Initialize the hash map for all utilization variables */
 		for (c : model.allCores) 	absoluteCoreUtilizationList.put(c, new IntVar(constraintStore, "AbsCoreUtil-" + c.name, 0, c.capacity))
 		for (b : model.allBoards) 	absoluteRamUtilizationList.put(b, new IntVar(constraintStore, "AbsRamUtil-" + b.name, 0, b.ramCapacity))
+		for (b : model.allBoards) 	absoluteRomUtilizationList.put(b, new IntVar(constraintStore, "AbsRomUtil-" + b.name, 0, b.romCapacity))
 		
 	}
 
@@ -58,6 +61,10 @@ import org.jacop.core.Store
 		for (boardKey : absoluteRamUtilizationList.keySet)
 			list.add(absoluteRamUtilizationList.get(boardKey))
 		 
+		// All absolute board ram utilization variables are relevant for the solution
+		for (boardKey : absoluteRomUtilizationList.keySet)
+			list.add(absoluteRomUtilizationList.get(boardKey)) 
+		
 		return list
 	}
 	
@@ -91,33 +98,13 @@ import org.jacop.core.Store
 		return solutionVariables.indexOf(absoluteRamUtilizationList.get(b))
 	}
 	
+	/** Returns the variable which contains the absolute ram utilization for the given board */
+	def IntVar getAbsoluteRomUtilizationVariable(Board b) {
+		return absoluteRomUtilizationList.get(b)
+	}
 	
-//	private ThreadVariablesList threadVariablesList;
-//	
-//	private CoreVariablesList coreVariablesList;
-//	
-//	private ExclusiveAdapterRequiremeCoreriablesList exclusiveAdapterVariablesList;
-//	
-//	private SharedAdapterRequirementVariablesList sharedAdapterVariablesList;
-//	
-//	private CommunicationVariablesList communicationVariablesList;
-//	
-//	private IOAdapterVariablesList ioAdapterVariablesList;
-//	
-//	private SolutionVariablesList solutionVariablesList;
-//
-//		/* Create the set of Variables needed for a Thread */
-//		this.threadVariablesList = new ThreadVariablesList(model, constraintSystem);
-//		
-//		this.coreVariablesList = new CoreVariablesList(model);
-//		
-//		this.exclusiveAdapterVariablesList = new ExclusiveAdapterRequirementVariablesList(model, this.threadVariablesList);
-//		
-//		this.sharedAdapterVariablesList = new SharedAdapterRequirementVariablesList(model, this.threadVariablesList);
-//		
-//		this.communicationVariablesList = new CommunicationVariablesList(model, constraintSystem);
-//		
-//		this.ioAdapterVariablesList = new IOAdapterVariablesList(model, constraintSystem);
-		
-	
+	/** Returns the index of the absolute ram utilization variable of a given board in the solutions variables list */
+	def int getIndexOfAbsoluteRomUtilizationInSolutionVariablesList(Board b) {
+		return solutionVariables.indexOf(absoluteRomUtilizationList.get(b))
+	}
 }

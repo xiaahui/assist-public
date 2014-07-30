@@ -18,16 +18,17 @@ import org.jacop.search.InputOrderSelect;
 import org.jacop.search.Search;
 import org.jacop.search.SelectChoicePoint;
 
+import ch.hilbri.assist.datamodel.model.AssistModel;
+import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
-import ch.hilbri.assist.datamodel.model.AssistModel;
-import ch.hilbri.assist.datamodel.result.mapping.Result;
 
 public class SolverJob extends Job {
 
@@ -106,6 +107,9 @@ public class SolverJob extends Job {
 		/* Create a new set of constraints to watch for the RAM capacity of the boards */
 		this.mappingConstraintsList.add(new RAMUtilizationConstraint(model,  constraintStore, solverVariables));
 		
+		/* Create a new set of constraints to watch for the ROM capacity of the boards */
+		this.mappingConstraintsList.add(new ROMUtilizationConstraint(model,  constraintStore, solverVariables));
+		
 //		/* Create a new Constraint to process the I/O-adapter to board hierarchy */
 //		this.mappingConstraintsList.add(new IOAdapterHierarchyConstraint(this.constraintSystem, this.model, this.threadVariablesList,
 //				this.exclusiveAdapterVariablesList, this.sharedAdapterVariablesList, ioAdapterVariablesList));
@@ -115,7 +119,6 @@ public class SolverJob extends Job {
 //
 //		/* Create a new constraint to keep the criticality level of the threads regarding to the assurance level of the boards */
 //		this.mappingConstraintsList.add(new CriticalityRequirementsConstraint(this.constraintSystem, this.model, this.threadVariablesList));
-//		
 //
 //		/* Create a new constraint to obey the restrictions on the proximity of the applications */
 //		this.mappingConstraintsList.add(new ProximityRelationsConstraint(this.constraintSystem, this.model, this.threadVariablesList));
@@ -125,11 +128,7 @@ public class SolverJob extends Job {
 //		/* new */
 //		this.mappingConstraintsList.add(new DissimilarityTreeConstraint(this.constraintSystem, this.model, this.threadVariablesList));
 //		
-//		/* Create a new constraint to keep the RAM capacity of the boards */
-//		this.mappingConstraintsList.add(new RAMCapacityConstraint(this.constraintSystem, this.model, this.threadVariablesList));
-//		
-//		/* Create a new constraint to keep the ROM capacity of the boards */
-//		this.mappingConstraintsList.add(new ROMCapacityConstraint(this.constraintSystem, this.model, this.threadVariablesList));
+
 //		
 //		/* Create new constraints to keep the required adapters of the board (shared/exclusive) */
 //		for (IOAdapterType adapterType : IOAdapterType.values()){

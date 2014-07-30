@@ -55,6 +55,18 @@ public class SolverVariablesContainer {
   }
   
   /**
+   * A list of variables; a variable for each board which contains the absolute rom utilization
+   */
+  private final HashMap<Board, IntVar> _absoluteRomUtilizationList = new HashMap<Board, IntVar>();
+  
+  /**
+   * A list of variables; a variable for each board which contains the absolute rom utilization
+   */
+  public HashMap<Board, IntVar> getAbsoluteRomUtilizationList() {
+    return this._absoluteRomUtilizationList;
+  }
+  
+  /**
    * CONSTRUCTOR
    */
   public SolverVariablesContainer(final AssistModel model, final Store constraintStore) {
@@ -94,6 +106,15 @@ public class SolverVariablesContainer {
       IntVar _intVar_1 = new IntVar(constraintStore, _plus_1, 0, _ramCapacity);
       _absoluteRamUtilizationList.put(b, _intVar_1);
     }
+    EList<Board> _allBoards_1 = model.getAllBoards();
+    for (final Board b_1 : _allBoards_1) {
+      HashMap<Board, IntVar> _absoluteRomUtilizationList = this.getAbsoluteRomUtilizationList();
+      String _name_2 = b_1.getName();
+      String _plus_2 = ("AbsRomUtil-" + _name_2);
+      int _romCapacity = b_1.getRomCapacity();
+      IntVar _intVar_2 = new IntVar(constraintStore, _plus_2, 0, _romCapacity);
+      _absoluteRomUtilizationList.put(b_1, _intVar_2);
+    }
   }
   
   /**
@@ -127,6 +148,13 @@ public class SolverVariablesContainer {
       HashMap<Board, IntVar> _absoluteRamUtilizationList_1 = this.getAbsoluteRamUtilizationList();
       IntVar _get_4 = _absoluteRamUtilizationList_1.get(boardKey);
       list.add(_get_4);
+    }
+    HashMap<Board, IntVar> _absoluteRomUtilizationList = this.getAbsoluteRomUtilizationList();
+    Set<Board> _keySet_4 = _absoluteRomUtilizationList.keySet();
+    for (final Board boardKey_1 : _keySet_4) {
+      HashMap<Board, IntVar> _absoluteRomUtilizationList_1 = this.getAbsoluteRomUtilizationList();
+      IntVar _get_5 = _absoluteRomUtilizationList_1.get(boardKey_1);
+      list.add(_get_5);
     }
     return ((IntVar[])Conversions.unwrapArray(list, IntVar.class));
   }
@@ -185,6 +213,24 @@ public class SolverVariablesContainer {
     return ((List<IntVar>)Conversions.doWrapArray(_solutionVariables)).indexOf(_get);
   }
   
+  /**
+   * Returns the variable which contains the absolute ram utilization for the given board
+   */
+  public IntVar getAbsoluteRomUtilizationVariable(final Board b) {
+    HashMap<Board, IntVar> _absoluteRomUtilizationList = this.getAbsoluteRomUtilizationList();
+    return _absoluteRomUtilizationList.get(b);
+  }
+  
+  /**
+   * Returns the index of the absolute ram utilization variable of a given board in the solutions variables list
+   */
+  public int getIndexOfAbsoluteRomUtilizationInSolutionVariablesList(final Board b) {
+    IntVar[] _solutionVariables = this.getSolutionVariables();
+    HashMap<Board, IntVar> _absoluteRomUtilizationList = this.getAbsoluteRomUtilizationList();
+    IntVar _get = _absoluteRomUtilizationList.get(b);
+    return ((List<IntVar>)Conversions.doWrapArray(_solutionVariables)).indexOf(_get);
+  }
+  
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -192,6 +238,7 @@ public class SolverVariablesContainer {
     result = prime * result + ((this._threadLocationVariablesList== null) ? 0 : this._threadLocationVariablesList.hashCode());
     result = prime * result + ((this._absoluteCoreUtilizationList== null) ? 0 : this._absoluteCoreUtilizationList.hashCode());
     result = prime * result + ((this._absoluteRamUtilizationList== null) ? 0 : this._absoluteRamUtilizationList.hashCode());
+    result = prime * result + ((this._absoluteRomUtilizationList== null) ? 0 : this._absoluteRomUtilizationList.hashCode());
     return result;
   }
   
@@ -218,6 +265,11 @@ public class SolverVariablesContainer {
       if (other._absoluteRamUtilizationList != null)
         return false;
     } else if (!this._absoluteRamUtilizationList.equals(other._absoluteRamUtilizationList))
+      return false;
+    if (this._absoluteRomUtilizationList == null) {
+      if (other._absoluteRomUtilizationList != null)
+        return false;
+    } else if (!this._absoluteRomUtilizationList.equals(other._absoluteRomUtilizationList))
       return false;
     return true;
   }

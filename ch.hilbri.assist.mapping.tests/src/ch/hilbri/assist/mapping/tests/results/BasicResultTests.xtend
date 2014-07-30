@@ -59,7 +59,7 @@ Software {
 	Application A1   {	
 		Core-utilization 			= 10;
 		Required RAM capacity 		= 123; 
-		Required ROM capacity 		= 34567; 
+		Required ROM capacity 		= 456; 
 	    Criticality level 			= D;
 	    Required IO protection 		= L2;
 		Identical parallel threads 	= 3;
@@ -136,7 +136,7 @@ Software {
 		assertEquals("A1", a.name)
 		assertEquals(10, a.coreUtilization)
 		assertEquals(123, a.ramUtilization)
-		assertEquals(34567, a.romUtilization)
+		assertEquals(456, a.romUtilization)
 		assertEquals(DesignAssuranceLevelType.D, a.criticalityLevel)
 		assertEquals(IOAdapterProtectionLevelType.LEVEL_2, a.ioAdapterProtectionLevel)
 		assertEquals("Company A", a.developedBy)
