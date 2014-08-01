@@ -23,6 +23,7 @@ import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.NoPermutationsConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
@@ -110,6 +111,10 @@ public class SolverJob extends Job {
 		/* Create a new set of constraints to watch for the ROM capacity of the boards */
 		this.mappingConstraintsList.add(new ROMUtilizationConstraint(model,  constraintStore, solverVariables));
 		
+		/* Create a new constraint to avoid permuting solutions */
+		this.mappingConstraintsList.add(new NoPermutationsConstraint(model, constraintStore, solverVariables));
+
+		
 //		/* Create a new Constraint to process the I/O-adapter to board hierarchy */
 //		this.mappingConstraintsList.add(new IOAdapterHierarchyConstraint(this.constraintSystem, this.model, this.threadVariablesList,
 //				this.exclusiveAdapterVariablesList, this.sharedAdapterVariablesList, ioAdapterVariablesList));
@@ -141,8 +146,6 @@ public class SolverJob extends Job {
 //		/* Create new constraints to keep the applications on the networks */
 //		this.mappingConstraintsList.add(new CommunicationOnNetworkConstraint(constraintSystem, model, threadVariablesList, communicationVariablesList));
 //		
-//		/* Create a new constraint to avoid permuting solutions */
-//		this.mappingConstraintsList.add(new NoPermuationsConstraint(this.constraintSystem, this.model, this.threadVariablesList));
 //		
 //		/* Create a new constraint that restricts the applications to their specified ones */
 //		this.mappingConstraintsList.add(new RestrictedHardwareComponentsConstraint(this.constraintSystem, this.model, this.threadVariablesList));
