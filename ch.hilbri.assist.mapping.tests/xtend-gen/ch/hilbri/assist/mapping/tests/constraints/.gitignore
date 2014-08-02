@@ -6,3 +6,5 @@
 /.ROMCapacityTests.java._trace
 /.NoPermutationsTests.java._trace
 /.NoPermutationsAdvancedTests.java._trace
+/.AllApplicationThreadsOnSameBoard.java._trace
+/.AllApplicationThreadsOnSameBoardTests.java._trace

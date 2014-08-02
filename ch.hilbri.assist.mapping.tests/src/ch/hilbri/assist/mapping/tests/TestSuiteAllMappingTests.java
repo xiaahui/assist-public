@@ -4,6 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import ch.hilbri.assist.mapping.tests.constraints.AllApplicationThreadsOnSameBoardTests;
 import ch.hilbri.assist.mapping.tests.constraints.CoreCapacityTests;
 import ch.hilbri.assist.mapping.tests.constraints.NoPermutationsAdvancedTests;
 import ch.hilbri.assist.mapping.tests.constraints.NoPermutationsTests;
@@ -20,7 +21,8 @@ import ch.hilbri.assist.mapping.tests.results.MultipleResultsTests;
 	RAMCapacityTests.class,
 	ROMCapacityTests.class,
 	NoPermutationsTests.class,
-	NoPermutationsAdvancedTests.class
+	NoPermutationsAdvancedTests.class,
+	AllApplicationThreadsOnSameBoardTests.class
 })  
 
 public class TestSuiteAllMappingTests {}
