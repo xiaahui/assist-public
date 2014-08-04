@@ -8,3 +8,7 @@
 /.ROMUtilizationConstraint.java._trace
 /.NoPermutationsConstraint.java._trace
 /.AllApplicationThreadsOnSameBoard.java._trace
+/NoPermutationsConstraint.java
+/AllApplicationThreadsOnSameBoard.java
+/RAMUtilizationConstraint.java
+/ROMUtilizationConstraint.java

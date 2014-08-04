@@ -235,10 +235,10 @@ public class SolverVariablesContainer {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((this._threadLocationVariablesList== null) ? 0 : this._threadLocationVariablesList.hashCode());
-    result = prime * result + ((this._absoluteCoreUtilizationList== null) ? 0 : this._absoluteCoreUtilizationList.hashCode());
-    result = prime * result + ((this._absoluteRamUtilizationList== null) ? 0 : this._absoluteRamUtilizationList.hashCode());
-    result = prime * result + ((this._absoluteRomUtilizationList== null) ? 0 : this._absoluteRomUtilizationList.hashCode());
+    result = prime * result + ((_threadLocationVariablesList== null) ? 0 : _threadLocationVariablesList.hashCode());
+    result = prime * result + ((_absoluteCoreUtilizationList== null) ? 0 : _absoluteCoreUtilizationList.hashCode());
+    result = prime * result + ((_absoluteRamUtilizationList== null) ? 0 : _absoluteRamUtilizationList.hashCode());
+    result = prime * result + ((_absoluteRomUtilizationList== null) ? 0 : _absoluteRomUtilizationList.hashCode());
     return result;
   }
   
@@ -251,25 +251,25 @@ public class SolverVariablesContainer {
     if (getClass() != obj.getClass())
       return false;
     SolverVariablesContainer other = (SolverVariablesContainer) obj;
-    if (this._threadLocationVariablesList == null) {
+    if (_threadLocationVariablesList == null) {
       if (other._threadLocationVariablesList != null)
         return false;
-    } else if (!this._threadLocationVariablesList.equals(other._threadLocationVariablesList))
+    } else if (!_threadLocationVariablesList.equals(other._threadLocationVariablesList))
       return false;
-    if (this._absoluteCoreUtilizationList == null) {
+    if (_absoluteCoreUtilizationList == null) {
       if (other._absoluteCoreUtilizationList != null)
         return false;
-    } else if (!this._absoluteCoreUtilizationList.equals(other._absoluteCoreUtilizationList))
+    } else if (!_absoluteCoreUtilizationList.equals(other._absoluteCoreUtilizationList))
       return false;
-    if (this._absoluteRamUtilizationList == null) {
+    if (_absoluteRamUtilizationList == null) {
       if (other._absoluteRamUtilizationList != null)
         return false;
-    } else if (!this._absoluteRamUtilizationList.equals(other._absoluteRamUtilizationList))
+    } else if (!_absoluteRamUtilizationList.equals(other._absoluteRamUtilizationList))
       return false;
-    if (this._absoluteRomUtilizationList == null) {
+    if (_absoluteRomUtilizationList == null) {
       if (other._absoluteRomUtilizationList != null)
         return false;
-    } else if (!this._absoluteRomUtilizationList.equals(other._absoluteRomUtilizationList))
+    } else if (!_absoluteRomUtilizationList.equals(other._absoluteRomUtilizationList))
       return false;
     return true;
   }
