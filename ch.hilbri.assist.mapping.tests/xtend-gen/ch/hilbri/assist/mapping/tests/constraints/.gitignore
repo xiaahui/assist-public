@@ -8,3 +8,9 @@
 /.NoPermutationsAdvancedTests.java._trace
 /.AllApplicationThreadsOnSameBoard.java._trace
 /.AllApplicationThreadsOnSameBoardTests.java._trace
+/AllApplicationThreadsOnSameBoardTests.java
+/CoreCapacityTests.java
+/NoPermutationsAdvancedTests.java
+/NoPermutationsTests.java
+/RAMCapacityTests.java
+/ROMCapacityTests.java
