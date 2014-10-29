@@ -53,7 +53,7 @@
    	</extension>
    
    	<extension point="org.eclipse.e4.ui.css.swt.theme">
-   		<theme basestylesheeturi="css/e4_default_win7.css" id="ch.hilbri.assist.theme.default" label="Default theme" os="win32" os_version="6.1"></theme>
+   		<theme basestylesheeturi="css/e4_classic_win7.css" id="ch.hilbri.assist.theme.default" label="Default theme" os="win32" os_version="6.1"></theme>
 	</extension>
 
  	<extension point="org.eclipse.ui.activities"> <!-- This is used to disable unwanted wizards and perspectives -->
