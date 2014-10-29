@@ -21,5 +21,22 @@
             name="Mapping Specification">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="ch.hilbri.assist.mapping.Mapping"
+            name="Mapping">
+      </category>
+      <wizard
+            category="ch.hilbri.assist.mapping.Mapping"
+            class="ch.hilbri.assist.mapping.ui.wizards.NewMappingSpecificationWizard"
+            icon="icons/icon-mapping-specification-16x16.png"
+            id="ch.hilbri.assist.mapping.wizards.newMappingSpecification"
+            name="Mapping Specification">
+         <description>
+            This wizard creates a new mapping specification file with *.mdsl extension.
+         </description>
+      </wizard>
+   </extension>
 
 </plugin>
