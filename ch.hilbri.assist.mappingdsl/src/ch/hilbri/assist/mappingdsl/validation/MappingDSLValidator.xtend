@@ -5,6 +5,7 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.ModelPackage
 import java.util.ArrayList
 import org.eclipse.xtext.validation.Check
+import ch.hilbri.assist.datamodel.model.Board
 
 /**
  * Custom validation rules. 
@@ -31,6 +32,23 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 				list.add(hw.name)
 		}
 	}
+
+	@Check
+	def checkIOAdapterEntriesAreValid(Board board) {
+		for (adapter : board.ioAdapters) {
+			for (other : board.ioAdapters) {
+				if (adapter != other) {
+					if ((adapter.adapterType == other.adapterType) && 
+						(adapter.protectionLevel == other.protectionLevel )) {
+							error('There are multiple definitions for the i/o adapter with type "' + adapter.adapterType + '"' + 
+								  ' and protection level "' + adapter.protectionLevel + '"', 
+								  board, ModelPackage.Literals::BOARD__IO_ADAPTERS)
+						}
+				}
+			}
+		}
+	}
+
 
 //  public static val INVALID_NAME = 'invalidName'
 //
