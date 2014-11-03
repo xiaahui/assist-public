@@ -153,10 +153,9 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCoreAccess().getCapacityAssignment_5(), "rule__Core__CapacityAssignment_5");
 					put(grammarAccess.getCoreAccess().getArchitectureAssignment_7_2(), "rule__Core__ArchitectureAssignment_7_2");
 					put(grammarAccess.getCoreAccess().getMetricParametersAssignment_8_2(), "rule__Core__MetricParametersAssignment_8_2");
-					put(grammarAccess.getIOAdapterAccess().getNameAssignment_1(), "rule__IOAdapter__NameAssignment_1");
-					put(grammarAccess.getIOAdapterAccess().getAdapterTypeAssignment_5(), "rule__IOAdapter__AdapterTypeAssignment_5");
+					put(grammarAccess.getIOAdapterAccess().getTotalCountAssignment_3(), "rule__IOAdapter__TotalCountAssignment_3");
+					put(grammarAccess.getIOAdapterAccess().getAdapterTypeAssignment_6(), "rule__IOAdapter__AdapterTypeAssignment_6");
 					put(grammarAccess.getIOAdapterAccess().getProtectionLevelAssignment_7_2(), "rule__IOAdapter__ProtectionLevelAssignment_7_2");
-					put(grammarAccess.getIOAdapterAccess().getTotalUnitCountAssignment_10(), "rule__IOAdapter__TotalUnitCountAssignment_10");
 					put(grammarAccess.getNetworkAccess().getNameAssignment_1(), "rule__Network__NameAssignment_1");
 					put(grammarAccess.getNetworkAccess().getBandwidthCapacityAssignment_5(), "rule__Network__BandwidthCapacityAssignment_5");
 					put(grammarAccess.getNetworkAccess().getBoardsAssignment_8(), "rule__Network__BoardsAssignment_8");

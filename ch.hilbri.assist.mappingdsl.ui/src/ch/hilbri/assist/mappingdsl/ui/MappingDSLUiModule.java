@@ -16,6 +16,6 @@ public class MappingDSLUiModule extends ch.hilbri.assist.mappingdsl.ui.AbstractM
 	
 	/* RPH: Helps to prevent the unnerving question: "Do you want to add the XText Nature to the project" */
 	public Class<? extends IXtextEditorCallback> bindIXtextEditorCallback() {
-	    return NatureAddingEditorCallback.class;
+		return IXtextEditorCallback.NullImpl.class;
 	}
 }
