@@ -12,6 +12,7 @@ import ch.hilbri.assist.application.helpers.PathProvider;
  * Opens a dialog to create any file/folder/project registered in a wizard
  *
  */
+@SuppressWarnings("restriction")
 public class NewOtherDialogHandler {
 
 	@Execute

@@ -26,6 +26,7 @@ import ch.hilbri.assist.mapping.ui.searchtypesdialog.SimpleOrAdvancedModeDialog;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 
 
+@SuppressWarnings("restriction")
 public class Generate {
 
 	@CanExecute

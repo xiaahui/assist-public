@@ -17,6 +17,7 @@ import org.eclipse.e4.ui.workbench.modeling.EModelService;
 
 import ch.hilbri.assist.application.helpers.Helpers;
 
+@SuppressWarnings("restriction")
 public class RevertHandler {
 	
 	@CanExecute

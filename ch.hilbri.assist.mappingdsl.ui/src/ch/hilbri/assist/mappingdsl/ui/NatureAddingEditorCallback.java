@@ -12,6 +12,7 @@ import com.google.inject.Inject;
  * 
  * RPH: Helps to prevent the unnerving question: "Do you want to add the XText Nature to the project" 
  */
+@SuppressWarnings({ "restriction", "deprecation" })
 public class NatureAddingEditorCallback extends AbstractDirtyStateAwareEditorCallback {
 	
 	@Inject

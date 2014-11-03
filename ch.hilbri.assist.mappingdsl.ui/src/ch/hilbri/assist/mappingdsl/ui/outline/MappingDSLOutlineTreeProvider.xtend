@@ -5,9 +5,10 @@ package ch.hilbri.assist.mappingdsl.ui.outline
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import com.google.inject.Inject
+import org.eclipse.core.runtime.FileLocator
+import org.eclipse.core.runtime.Path
 import org.eclipse.core.runtime.Platform
 import org.eclipse.jface.resource.ImageDescriptor
-import org.eclipse.ui.internal.util.BundleUtility
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
 import org.eclipse.xtext.ui.editor.outline.impl.OutlinePage
@@ -25,8 +26,12 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	def _createChildren(IOutlineNode parentNode, AssistModel model) {
 		
 		val bundle = Platform.getBundle("ch.hilbri.assist.mappingdsl.ui");
-		val imgfolderDesc = ImageDescriptor.createFromURL(BundleUtility.find(bundle, "icons/outline_view_folder_16x16.png"));
-		val imgsubfolderDesc = ImageDescriptor.createFromURL(BundleUtility.find(bundle, "icons/outline_view_subfolder_16x16.png"));
+
+		// old code:
+		// val imgfolderDesc = ImageDescriptor.createFromURL(BundleUtility.find(bundle, "icons/outline_view_folder_16x16.png"));
+		// val imgsubfolderDesc = ImageDescriptor.createFromURL(BundleUtility.find(bundle, "icons/outline_view_subfolder_16x16.png"));
+		val imgfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outline_view_folder_16x16.png"), null));
+		val imgsubfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outline_view_subfolder_16x16.png"), null));
 		
 		
 		/* ---------- HARDWARE ------------- */

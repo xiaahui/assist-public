@@ -70,6 +70,7 @@ import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
  * @author Mirko Liebender
  *
  */
+@SuppressWarnings("restriction")
 public class MetricLoader {
 
 	private static int DEFAULT_WEIGHT = 1;

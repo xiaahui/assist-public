@@ -17,6 +17,7 @@ import ch.hilbri.assist.application.helpers.PathProvider;
  * @author Mirko Liebender
  *
  */
+@SuppressWarnings("restriction")
 public class NewFileDialogHandler {
 
 	@Execute

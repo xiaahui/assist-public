@@ -14,6 +14,7 @@ import ch.hilbri.assist.application.helpers.PathProvider;
 /**
  * Opens a dialog to create a new folder
  */
+@SuppressWarnings("restriction")
 public class NewFolderDialogHandler {
 
 	@Execute

@@ -18,6 +18,7 @@ import org.eclipse.ui.splash.BasicSplashHandler;
  * 
  *
  */
+@SuppressWarnings("restriction")
 public class SplashHandler extends BasicSplashHandler {
 
 	private final static int MESSAGE_X = 25;

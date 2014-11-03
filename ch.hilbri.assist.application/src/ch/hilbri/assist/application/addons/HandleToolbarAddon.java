@@ -20,13 +20,13 @@ import ch.hilbri.assist.application.helpers.PathProvider;
  *  *
  */
 
+@SuppressWarnings("restriction")
 public class HandleToolbarAddon{
 	 
 	
 	@Inject
 	@Optional
 	public void partActivation(@UIEventTopic(UIEvents.UILifeCycle.ACTIVATE) Event event, MApplication application, EModelService modelService) {
-		//System.out.println("OHA");
 	  TrimBarImpl toolbar = (TrimBarImpl) modelService.find(PathProvider.ECL_MAIN_TOOLBAR, application);
 	  if (toolbar != null) {
 		  toolbar.setVisible(true);

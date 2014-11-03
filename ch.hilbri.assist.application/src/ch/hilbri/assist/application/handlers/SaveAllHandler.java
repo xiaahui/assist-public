@@ -12,6 +12,7 @@ import org.eclipse.e4.core.services.log.Logger;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
 import org.eclipse.e4.ui.services.IServiceConstants;
 
+@SuppressWarnings("restriction")
 public class SaveAllHandler {
 	
 	@CanExecute
