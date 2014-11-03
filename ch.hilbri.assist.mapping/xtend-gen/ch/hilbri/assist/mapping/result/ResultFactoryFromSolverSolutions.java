@@ -219,8 +219,8 @@ public class ResultFactoryFromSolverSolutions {
         final ch.hilbri.assist.datamodel.result.mapping.IOAdapter i = ResultFactoryFromSolverSolutions.f.createIOAdapter();
         String _name = ((IOAdapter)modelElement).getName();
         i.setName(_name);
-        int _totalUnitCount = ((IOAdapter)modelElement).getTotalUnitCount();
-        i.setTotalUnitCount(_totalUnitCount);
+        int _totalCount = ((IOAdapter)modelElement).getTotalCount();
+        i.setTotalUnitCount(_totalCount);
         IOAdapterType _adapterType = ((IOAdapter)modelElement).getAdapterType();
         i.setAdapterType(_adapterType);
         IOAdapterProtectionLevelType _protectionLevel = ((IOAdapter)modelElement).getProtectionLevel();

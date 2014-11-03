@@ -144,7 +144,7 @@ class ResultFactoryFromSolverSolutions {
 			ch.hilbri.assist.datamodel.model.IOAdapter: {
 				val IOAdapter i 	= f.createIOAdapter
 				i.name 				= modelElement.name
-				i.totalUnitCount	= modelElement.totalUnitCount
+				i.totalUnitCount	= modelElement.totalCount
 				i.adapterType		= modelElement.adapterType
 				i.protectionLevel	= modelElement.protectionLevel
 				i.referenceObject	= modelElement
