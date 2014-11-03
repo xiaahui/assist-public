@@ -85,11 +85,10 @@ Core:
 	'}';
 
 IOAdapter:
-	'I/O Adapter' name=ID '{'
-		'Type' 						'=' adapterType=IOAdapterType ';'
-		('IO Protection' 			'=' protectionLevel=IOAdapterProtectionLevelType ';')?
-		'Total units' 				'=' totalUnitCount=INT ';'
-	'}'
+	'I/O adapter' 	 'count' '=' totalCount=INT
+					 'type' '=' adapterType=IOAdapterType 
+					('protection-level' '=' protectionLevel=IOAdapterProtectionLevelType)?
+					  ';'
 ;
 
 Network:

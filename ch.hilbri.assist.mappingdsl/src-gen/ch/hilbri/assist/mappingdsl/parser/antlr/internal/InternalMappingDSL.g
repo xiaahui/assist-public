@@ -1328,15 +1328,23 @@ ruleIOAdapter returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='I/O Adapter' 
+(	otherlv_0='I/O adapter' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getIOAdapterAccess().getIOAdapterKeyword_0());
     }
+	otherlv_1='count' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getIOAdapterAccess().getCountKeyword_1());
+    }
+	otherlv_2='=' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getIOAdapterAccess().getEqualsSignKeyword_2());
+    }
 (
 (
-		lv_name_1_0=RULE_ID
+		lv_totalCount_3_0=RULE_INT
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getIOAdapterAccess().getNameIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_totalCount_3_0, grammarAccess.getIOAdapterAccess().getTotalCountINTTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1344,49 +1352,41 @@ ruleIOAdapter returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"name",
-        		lv_name_1_0, 
-        		"ID");
+       			"totalCount",
+        		lv_totalCount_3_0, 
+        		"INT");
 	    }
 
 )
-)	otherlv_2='{' 
+)	otherlv_4='type' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getIOAdapterAccess().getLeftCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_4, grammarAccess.getIOAdapterAccess().getTypeKeyword_4());
     }
-	otherlv_3='Type' 
+	otherlv_5='=' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getIOAdapterAccess().getTypeKeyword_3());
-    }
-	otherlv_4='=' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getIOAdapterAccess().getEqualsSignKeyword_4());
+    	newLeafNode(otherlv_5, grammarAccess.getIOAdapterAccess().getEqualsSignKeyword_5());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getIOAdapterAccess().getAdapterTypeIOAdapterTypeEnumRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getIOAdapterAccess().getAdapterTypeIOAdapterTypeEnumRuleCall_6_0()); 
 	    }
-		lv_adapterType_5_0=ruleIOAdapterType		{
+		lv_adapterType_6_0=ruleIOAdapterType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIOAdapterRule());
 	        }
        		set(
        			$current, 
        			"adapterType",
-        		lv_adapterType_5_0, 
+        		lv_adapterType_6_0, 
         		"IOAdapterType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_6=';' 
+)(	otherlv_7='protection-level' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getIOAdapterAccess().getSemicolonKeyword_6());
-    }
-(	otherlv_7='IO Protection' 
-    {
-    	newLeafNode(otherlv_7, grammarAccess.getIOAdapterAccess().getIOProtectionKeyword_7_0());
+    	newLeafNode(otherlv_7, grammarAccess.getIOAdapterAccess().getProtectionLevelKeyword_7_0());
     }
 	otherlv_8='=' 
     {
@@ -1410,43 +1410,9 @@ ruleIOAdapter returns [EObject current=null]
 	    }
 
 )
-)	otherlv_10=';' 
+))?	otherlv_10=';' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getIOAdapterAccess().getSemicolonKeyword_7_3());
-    }
-)?	otherlv_11='Total units' 
-    {
-    	newLeafNode(otherlv_11, grammarAccess.getIOAdapterAccess().getTotalUnitsKeyword_8());
-    }
-	otherlv_12='=' 
-    {
-    	newLeafNode(otherlv_12, grammarAccess.getIOAdapterAccess().getEqualsSignKeyword_9());
-    }
-(
-(
-		lv_totalUnitCount_13_0=RULE_INT
-		{
-			newLeafNode(lv_totalUnitCount_13_0, grammarAccess.getIOAdapterAccess().getTotalUnitCountINTTerminalRuleCall_10_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getIOAdapterRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"totalUnitCount",
-        		lv_totalUnitCount_13_0, 
-        		"INT");
-	    }
-
-)
-)	otherlv_14=';' 
-    {
-    	newLeafNode(otherlv_14, grammarAccess.getIOAdapterAccess().getSemicolonKeyword_11());
-    }
-	otherlv_15='}' 
-    {
-    	newLeafNode(otherlv_15, grammarAccess.getIOAdapterAccess().getRightCurlyBracketKeyword_12());
+    	newLeafNode(otherlv_10, grammarAccess.getIOAdapterAccess().getSemicolonKeyword_8());
     }
 )
 ;
@@ -3407,7 +3373,7 @@ RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 RULE_INT : ('0'..'9')+;
 
-RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
+RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
