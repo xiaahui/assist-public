@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview;
+package ch.hilbri.assist.mapping.ui.infosheet;
 
 import java.text.DecimalFormat;
 
@@ -88,10 +88,12 @@ public class InfoSheetView {
 		toolkit = new FormToolkit(parent.getDisplay());
 		
 		form = toolkit.createScrolledForm(parent);
+		form.setBounds(0, 0, 448, 425);
 		form.setText("Current Deployment");
 		toolkit.decorateFormHeading(form.getForm());
 		form.setDelayedReflow(true);
 	    GridLayout gridLayout = new GridLayout(1, false);
+	    gridLayout.marginWidth = 0;
 	    form.getBody().setLayout(gridLayout);
 	    
 	    /* Section Deployment Information */
@@ -310,14 +312,14 @@ public class InfoSheetView {
 			if (obj instanceof Core) {
 				Core c = (Core) obj;
 				DecimalFormat f = new DecimalFormat("#0.00");
-				addRowToTableComponentProperties("Component Type", "Core");
+				addRowToTableComponentProperties("Component type", "Core");
 				addRowToTableComponentProperties("Name", c.getName());
 				addRowToTableComponentProperties("Architecture", c.getArchitecture());
-				addRowToTableComponentProperties("Max. Capacity", "" + c.getCapacity());
-				addRowToTableComponentProperties("Current Load", (c.getCapacity() > 0 ? f.format(new Double(c.getUtilization()) * 100 / new Double(c.getCapacity())) : "0") + "%");
+				addRowToTableComponentProperties("Max. capacity", "" + c.getCapacity());
+				addRowToTableComponentProperties("Current load", (c.getCapacity() > 0 ? f.format(new Double(c.getUtilization()) * 100 / new Double(c.getCapacity())) : "0") + "%");
 			} else if (obj instanceof Processor) {
 				Processor p = (Processor) obj;
-				addRowToTableComponentProperties("Component Type", "Processor");
+				addRowToTableComponentProperties("Component type", "Processor");
 				addRowToTableComponentProperties("Name", p.getName());
 				addRowToTableComponentProperties("Manufacturer", p.getManufacturer());
 				addRowToTableComponentProperties("Type", p.getProcessorType());
@@ -325,18 +327,16 @@ public class InfoSheetView {
 			} else if (obj instanceof Board) {
 				Board b = (Board) obj;
 				DecimalFormat f = new DecimalFormat("#0.00");
-				addRowToTableComponentProperties("Component Type", "Board");
+				addRowToTableComponentProperties("Component type", "Board");
 				addRowToTableComponentProperties("Name", b.getName());
 				addRowToTableComponentProperties("Manufacturer", b.getManufacturer());
-				addRowToTableComponentProperties("Power Suppy", b.getPowerSupply());
+				addRowToTableComponentProperties("Power suppy", b.getPowerSupply());
 				addRowToTableComponentProperties("DAL", b.getAssuranceLevel().toString());
-				addRowToTableComponentProperties("RAM Utilization", b.getRamUtilization() + " of " + b.getRamCapacity() + " (" + ((b.getRomCapacity() > 0) ? f.format(new Double(b.getRamUtilization()) * 100 / new Double(b.getRamCapacity())) : "0") + "%)");
-				addRowToTableComponentProperties("ROM Utilization", b.getRomUtilization() + " of " + b.getRomCapacity() + " (" + ((b.getRomCapacity() > 0) ? f.format(new Double(b.getRomUtilization()) * 100 / new Double(b.getRomCapacity())) : "0") + "%)");
+				addRowToTableComponentProperties("RAM", b.getRamUtilization() + " of " + b.getRamCapacity() + " (" + ((b.getRomCapacity() > 0) ? f.format(new Double(b.getRamUtilization()) * 100 / new Double(b.getRamCapacity())) : "0") + "%)");
+				addRowToTableComponentProperties("ROM", b.getRomUtilization() + " of " + b.getRomCapacity() + " (" + ((b.getRomCapacity() > 0) ? f.format(new Double(b.getRomUtilization()) * 100 / new Double(b.getRomCapacity())) : "0") + "%)");
 				
-				for (IOAdapter a : b.getIoAdapters()) {
-					addRowToTableComponentProperties("I/O Adapter '" + a.getName() + "'", "Type: " + a.getAdapterType());
-					addRowToTableComponentProperties("", "Units: " + a.getTotalUnitCount());
-				}
+				for (IOAdapter a : b.getIoAdapters()) 
+					addRowToTableComponentProperties("I/O adapters '" + a.getAdapterType() + "'", ""+a.getTotalUnitCount());
 				
 				for (Network n : b.getNetworks()) {
 					/* Do not show "virtual" networks on each board */

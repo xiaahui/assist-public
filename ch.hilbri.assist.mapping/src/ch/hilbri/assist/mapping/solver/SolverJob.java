@@ -24,6 +24,7 @@ import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.AllApplicationThreadsOnSameBoard;
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.NoPermutationsConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint;
@@ -118,6 +119,8 @@ public class SolverJob extends Job {
 		/* Create a new Constraint to keep threads of the same application on the same board. */
 		this.mappingConstraintsList.add(new AllApplicationThreadsOnSameBoard(model, constraintStore, solverVariables));
 		
+		/* Create a new Constraint for all i/o adapters (exclusive, shared, protection level, ...) */
+		this.mappingConstraintsList.add(new IOAdapterConstraint(model, constraintStore, solverVariables));
 		
 		
 //		/* Create a new Constraint to process the I/O-adapter to board hierarchy */
@@ -147,8 +150,7 @@ public class SolverJob extends Job {
 //		
 //		/* Create new constraints to keep the applications on the networks */
 //		this.mappingConstraintsList.add(new CommunicationOnNetworkConstraint(constraintSystem, model, threadVariablesList, communicationVariablesList));
-//		
-//		
+//
 //		/* Create a new constraint that restricts the applications to their specified ones */
 //		this.mappingConstraintsList.add(new RestrictedHardwareComponentsConstraint(this.constraintSystem, this.model, this.threadVariablesList));
 //

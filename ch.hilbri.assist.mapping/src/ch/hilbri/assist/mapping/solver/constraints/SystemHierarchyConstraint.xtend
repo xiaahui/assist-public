@@ -24,9 +24,9 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 			 * hardwareLevelLink[KindIndex] = Parent_Nummer (nicht Index!) 
 			 *
 			 * Beispiel: 
-			 * - fÃ¼r die VerknÃ¼pfung von Cores und Prozessoren wird ein Link zwischen Ebene 1 und 2 benÃ¶tigt
+			 * - für die Verknüpfung von Cores und Prozessoren wird ein Link zwischen Ebene 1 und 2 benötigt
 			 * - die liste hardwareLevelLink enthÃ¤lt so viele Element, wie es Cores im Modell gibt
-			 * - fÃ¼r jeden Core wird die Nummer (nicht der Index! - da JaCoP bei 1 zu zÃ¤hlen anfÃ¤ngt) des Parents (= Prozessor)
+			 * - für jeden Core wird die Nummer (nicht der Index! - da JaCoP bei 1 zu zählen anfängt) des Parents (= Prozessor)
 			 *   eingetragen
 			 */ 
 			
@@ -37,9 +37,9 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 			}
 			
 			/*
-			 * Nun werden die Location Variablen eines Threads zwischen den Ebenen mit einem Element Constraint verknÃ¼pft;
-			 * Sollte damit beispielweise ein Prozessor als LÃ¶sung ausfallen, so werden automatisch auch die Kerne des 
-			 * Prozessors aus dem LÃ¶sungsraum entfernt (und umgedreht)
+			 * Nun werden die Location Variablen eines Threads zwischen den Ebenen mit einem Element Constraint verknüpft;
+			 * Sollte damit beispielweise ein Prozessor als Lösung ausfallen, so werden automatisch auch die Kerne des 
+			 * Prozessors aus dem Lösungsraum entfernt (und umgedreht)
 			 */
 			for (t : model.allThreads) {
 				var index  = solverVariables.getThreadLocationVariable(t, levelCtr)

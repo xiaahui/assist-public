@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview;
+package ch.hilbri.assist.mapping.ui.metrics;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -63,6 +63,7 @@ import ch.hilbri.assist.application.helpers.Helpers;
 import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
 import ch.hilbri.assist.mapping.analysis.metrics.custom.MetricLoader;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
+import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.ComboBoxCellEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 

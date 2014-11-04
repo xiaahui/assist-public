@@ -19,6 +19,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 
+import ch.hilbri.assist.mapping.ui.metrics.MetricTableElement;
+import ch.hilbri.assist.mapping.ui.metrics.MetricTableView;
+
 /**
  * A cell editor that presents a list of items in a combo box. The cell editor's
  * value is the zero-based index of the selected item.

@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview;
+package ch.hilbri.assist.mapping.ui.metrics;
 
 import java.util.ArrayList;
 

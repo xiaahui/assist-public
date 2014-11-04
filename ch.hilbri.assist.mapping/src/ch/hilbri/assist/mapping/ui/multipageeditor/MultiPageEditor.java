@@ -34,8 +34,8 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 
 import ch.hilbri.assist.application.helpers.Helpers;
 import ch.hilbri.assist.application.helpers.PathProvider;
-import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.InfoSheetView;
-import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.MetricTableView;
+import ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView;
+import ch.hilbri.assist.mapping.ui.metrics.MetricTableView;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.ResultsView;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import ch.hilbri.assist.mapping.ui.multipageeditor.treeview.TreeView;
@@ -157,7 +157,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 			Helpers.addViewToBottomfield(
 					"ch.hilbri.assist.mapping.metrictable",
 					"Metric Table",
-					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.MetricTableView",
+					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricTableView",
 					application, modelService, true);
 		}
 	}
@@ -174,7 +174,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 			Helpers.addViewToInfofield(
 					"ch.hilbri.assist.mapping.infosheet",
 					"Information",
-					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.InfoSheetView",
+					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView",
 					application, modelService, true);
 		}
 	}
@@ -323,14 +323,14 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 			Helpers.addViewToInfofield(
 					"ch.hilbri.assist.mapping.infosheet",
 					"Information",
-					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.InfoSheetView",
+					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView",
 					application, modelService, true);
 
 
 			Helpers.addViewToBottomfield(
 					"ch.hilbri.assist.mapping.metrictable",
 					"Metric Table",
-					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.MetricTableView",
+					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricTableView",
 					application, modelService, true);
 
 		}
