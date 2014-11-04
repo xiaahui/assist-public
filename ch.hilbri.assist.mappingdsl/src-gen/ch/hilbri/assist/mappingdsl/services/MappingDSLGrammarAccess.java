@@ -1481,8 +1481,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "IOAdapterRequirement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cRequiresKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cRequiredUnitsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cRequiredUnitsINTTerminalRuleCall_1_0 = (RuleCall)cRequiredUnitsAssignment_1.eContents().get(0);
+		private final Assignment cRequiredAdapterCountAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRequiredAdapterCountINTTerminalRuleCall_1_0 = (RuleCall)cRequiredAdapterCountAssignment_1.eContents().get(0);
 		private final Assignment cAdapterTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cAdapterTypeIOAdapterTypeEnumRuleCall_2_0 = (RuleCall)cAdapterTypeAssignment_2.eContents().get(0);
 		private final Keyword cAdapterKeyword_3 = (Keyword)cGroup.eContents().get(3);
@@ -1493,25 +1493,30 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIsSharedAllowedAssignment_5_1 = (Assignment)cAlternatives_5.eContents().get(1);
 		private final Keyword cIsSharedAllowedSharedKeyword_5_1_0 = (Keyword)cIsSharedAllowedAssignment_5_1.eContents().get(0);
 		private final Keyword cAccessKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cSemicolonKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cWithKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cProtectionLevelKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Assignment cProtectionLevelAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
+		private final RuleCall cProtectionLevelIOAdapterProtectionLevelTypeEnumRuleCall_7_2_0 = (RuleCall)cProtectionLevelAssignment_7_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//IOAdapterRequirement:
-		//	"Requires" requiredUnits=INT adapterType=IOAdapterType "adapter" "(" (isExclusiveOnly?="exclusive" |
-		//	isSharedAllowed?="shared") "access)" ";";
+		//	"Requires" requiredAdapterCount=INT adapterType=IOAdapterType "adapter" "(" (isExclusiveOnly?="exclusive" |
+		//	isSharedAllowed?="shared") "access)" ("with" "protection-level" protectionLevel=IOAdapterProtectionLevelType)? ";";
 		public ParserRule getRule() { return rule; }
 
-		//"Requires" requiredUnits=INT adapterType=IOAdapterType "adapter" "(" (isExclusiveOnly?="exclusive" |
-		//isSharedAllowed?="shared") "access)" ";"
+		//"Requires" requiredAdapterCount=INT adapterType=IOAdapterType "adapter" "(" (isExclusiveOnly?="exclusive" |
+		//isSharedAllowed?="shared") "access)" ("with" "protection-level" protectionLevel=IOAdapterProtectionLevelType)? ";"
 		public Group getGroup() { return cGroup; }
 
 		//"Requires"
 		public Keyword getRequiresKeyword_0() { return cRequiresKeyword_0; }
 
-		//requiredUnits=INT
-		public Assignment getRequiredUnitsAssignment_1() { return cRequiredUnitsAssignment_1; }
+		//requiredAdapterCount=INT
+		public Assignment getRequiredAdapterCountAssignment_1() { return cRequiredAdapterCountAssignment_1; }
 
 		//INT
-		public RuleCall getRequiredUnitsINTTerminalRuleCall_1_0() { return cRequiredUnitsINTTerminalRuleCall_1_0; }
+		public RuleCall getRequiredAdapterCountINTTerminalRuleCall_1_0() { return cRequiredAdapterCountINTTerminalRuleCall_1_0; }
 
 		//adapterType=IOAdapterType
 		public Assignment getAdapterTypeAssignment_2() { return cAdapterTypeAssignment_2; }
@@ -1543,8 +1548,23 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"access)"
 		public Keyword getAccessKeyword_6() { return cAccessKeyword_6; }
 
+		//("with" "protection-level" protectionLevel=IOAdapterProtectionLevelType)?
+		public Group getGroup_7() { return cGroup_7; }
+
+		//"with"
+		public Keyword getWithKeyword_7_0() { return cWithKeyword_7_0; }
+
+		//"protection-level"
+		public Keyword getProtectionLevelKeyword_7_1() { return cProtectionLevelKeyword_7_1; }
+
+		//protectionLevel=IOAdapterProtectionLevelType
+		public Assignment getProtectionLevelAssignment_7_2() { return cProtectionLevelAssignment_7_2; }
+
+		//IOAdapterProtectionLevelType
+		public RuleCall getProtectionLevelIOAdapterProtectionLevelTypeEnumRuleCall_7_2_0() { return cProtectionLevelIOAdapterProtectionLevelTypeEnumRuleCall_7_2_0; }
+
 		//";"
-		public Keyword getSemicolonKeyword_7() { return cSemicolonKeyword_7; }
+		public Keyword getSemicolonKeyword_8() { return cSemicolonKeyword_8; }
 	}
 
 	public class DislocalityRelationElements extends AbstractParserRuleElementFinder {
@@ -3019,8 +3039,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//IOAdapterRequirement:
-	//	"Requires" requiredUnits=INT adapterType=IOAdapterType "adapter" "(" (isExclusiveOnly?="exclusive" |
-	//	isSharedAllowed?="shared") "access)" ";";
+	//	"Requires" requiredAdapterCount=INT adapterType=IOAdapterType "adapter" "(" (isExclusiveOnly?="exclusive" |
+	//	isSharedAllowed?="shared") "access)" ("with" "protection-level" protectionLevel=IOAdapterProtectionLevelType)? ";";
 	public IOAdapterRequirementElements getIOAdapterRequirementAccess() {
 		return pIOAdapterRequirement;
 	}

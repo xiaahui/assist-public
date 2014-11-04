@@ -2053,9 +2053,9 @@ ruleIOAdapterRequirement returns [EObject current=null]
     }
 (
 (
-		lv_requiredUnits_1_0=RULE_INT
+		lv_requiredAdapterCount_1_0=RULE_INT
 		{
-			newLeafNode(lv_requiredUnits_1_0, grammarAccess.getIOAdapterRequirementAccess().getRequiredUnitsINTTerminalRuleCall_1_0()); 
+			newLeafNode(lv_requiredAdapterCount_1_0, grammarAccess.getIOAdapterRequirementAccess().getRequiredAdapterCountINTTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2063,8 +2063,8 @@ ruleIOAdapterRequirement returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"requiredUnits",
-        		lv_requiredUnits_1_0, 
+       			"requiredAdapterCount",
+        		lv_requiredAdapterCount_1_0, 
         		"INT");
 	    }
 
@@ -2130,9 +2130,35 @@ ruleIOAdapterRequirement returns [EObject current=null]
     {
     	newLeafNode(otherlv_7, grammarAccess.getIOAdapterRequirementAccess().getAccessKeyword_6());
     }
-	otherlv_8=';' 
+(	otherlv_8='with' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getIOAdapterRequirementAccess().getSemicolonKeyword_7());
+    	newLeafNode(otherlv_8, grammarAccess.getIOAdapterRequirementAccess().getWithKeyword_7_0());
+    }
+	otherlv_9='protection-level' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getIOAdapterRequirementAccess().getProtectionLevelKeyword_7_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getIOAdapterRequirementAccess().getProtectionLevelIOAdapterProtectionLevelTypeEnumRuleCall_7_2_0()); 
+	    }
+		lv_protectionLevel_10_0=ruleIOAdapterProtectionLevelType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getIOAdapterRequirementRule());
+	        }
+       		set(
+       			$current, 
+       			"protectionLevel",
+        		lv_protectionLevel_10_0, 
+        		"IOAdapterProtectionLevelType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?	otherlv_11=';' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getIOAdapterRequirementAccess().getSemicolonKeyword_8());
     }
 )
 ;

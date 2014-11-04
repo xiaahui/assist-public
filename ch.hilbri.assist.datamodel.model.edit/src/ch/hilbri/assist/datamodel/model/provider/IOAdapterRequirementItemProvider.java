@@ -62,9 +62,10 @@ public class IOAdapterRequirementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addAdapterTypePropertyDescriptor(object);
-			addRequiredUnitsPropertyDescriptor(object);
+			addRequiredAdapterCountPropertyDescriptor(object);
 			addIsSharedAllowedPropertyDescriptor(object);
 			addIsExclusiveOnlyPropertyDescriptor(object);
+			addProtectionLevelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -92,19 +93,19 @@ public class IOAdapterRequirementItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Required Units feature.
+	 * This adds a property descriptor for the Required Adapter Count feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRequiredUnitsPropertyDescriptor(Object object) {
+	protected void addRequiredAdapterCountPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IOAdapterRequirement_requiredUnits_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IOAdapterRequirement_requiredUnits_feature", "_UI_IOAdapterRequirement_type"),
-				 ModelPackage.Literals.IO_ADAPTER_REQUIREMENT__REQUIRED_UNITS,
+				 getString("_UI_IOAdapterRequirement_requiredAdapterCount_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IOAdapterRequirement_requiredAdapterCount_feature", "_UI_IOAdapterRequirement_type"),
+				 ModelPackage.Literals.IO_ADAPTER_REQUIREMENT__REQUIRED_ADAPTER_COUNT,
 				 true,
 				 false,
 				 false,
@@ -158,6 +159,28 @@ public class IOAdapterRequirementItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Protection Level feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProtectionLevelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IOAdapterRequirement_protectionLevel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IOAdapterRequirement_protectionLevel_feature", "_UI_IOAdapterRequirement_type"),
+				 ModelPackage.Literals.IO_ADAPTER_REQUIREMENT__PROTECTION_LEVEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns IOAdapterRequirement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -197,9 +220,10 @@ public class IOAdapterRequirementItemProvider
 
 		switch (notification.getFeatureID(IOAdapterRequirement.class)) {
 			case ModelPackage.IO_ADAPTER_REQUIREMENT__ADAPTER_TYPE:
-			case ModelPackage.IO_ADAPTER_REQUIREMENT__REQUIRED_UNITS:
+			case ModelPackage.IO_ADAPTER_REQUIREMENT__REQUIRED_ADAPTER_COUNT:
 			case ModelPackage.IO_ADAPTER_REQUIREMENT__IS_SHARED_ALLOWED:
 			case ModelPackage.IO_ADAPTER_REQUIREMENT__IS_EXCLUSIVE_ONLY:
+			case ModelPackage.IO_ADAPTER_REQUIREMENT__PROTECTION_LEVEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

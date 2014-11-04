@@ -353,10 +353,11 @@ class Thread {
 }
 
 class IOAdapterRequirement {	
-	IOAdapterType adapterType
-	int requiredUnits = "0"
-	boolean isSharedAllowed = "false"
-	boolean isExclusiveOnly = "false"
+	IOAdapterType 					adapterType
+	int 							requiredAdapterCount 	= "0"
+	boolean 						isSharedAllowed 		= "false"
+	boolean 						isExclusiveOnly 		= "false"
+	IOAdapterProtectionLevelType 	protectionLevel 		= "None"
 }
 
 

@@ -88,7 +88,7 @@ IOAdapter:
 	'I/O adapter' 	 'count' '=' totalCount=INT
 					 'type' '=' adapterType=IOAdapterType 
 					('protection-level' '=' protectionLevel=IOAdapterProtectionLevelType)?
-					  ';'
+	';'
 ;
 
 Network:
@@ -119,7 +119,11 @@ Application:
 	'}';
 
 IOAdapterRequirement: 
-	'Requires' requiredUnits=INT adapterType=IOAdapterType 'adapter' '(' (isExclusiveOnly?='exclusive' | isSharedAllowed?='shared') 'access)' ';' 
+	'Requires' 	requiredAdapterCount=INT 
+				adapterType=IOAdapterType 'adapter' 
+				'(' (isExclusiveOnly?='exclusive' | isSharedAllowed?='shared') 'access)' 
+				('with' 'protection-level' protectionLevel=IOAdapterProtectionLevelType)?
+	';' 
 ;
 
 /* RELATIONEN */
