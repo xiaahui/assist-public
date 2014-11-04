@@ -115,7 +115,7 @@ Application:
 		('Developed by' 				'=' developedBy=STRING ';')?
 		(ioAdapterRequirements+=IOAdapterRequirement)*
 		('Restrict deployment to' 		'{' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* '}' ';')? 
-		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+		('Generic properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
 	'}';
 
 IOAdapterRequirement: 
