@@ -15,6 +15,8 @@ import java.util.HashMap;
 import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.jacop.constraints.Element;
 import org.jacop.constraints.XgteqC;
 import org.jacop.core.BoundDomain;
@@ -29,7 +31,8 @@ public class IOAdapterConstraint extends AbstractMappingConstraint {
   }
   
   public boolean generate() {
-    this.generateSingleThreadExclusiveRequests();
+    this.generate_SingleThreadExclusiveRequests_Constraints();
+    this.generate_SingleThreadProtectionLevel_Constraints();
     return true;
   }
   
@@ -37,15 +40,21 @@ public class IOAdapterConstraint extends AbstractMappingConstraint {
    * Implementation of Step 1
    * ------------------------
    * - only exclusive adapter requests and adapter types are considered here
-   * - io protection level are NOT considered here (yet)
+   * - io protection levels are NOT considered here (yet)
    */
-  public void generateSingleThreadExclusiveRequests() {
+  public void generate_SingleThreadExclusiveRequests_Constraints() {
     ArrayList<IOAdapterType> allRequestedIOAdapterTypes = new ArrayList<IOAdapterType>();
     EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads = this.model.getAllThreads();
     for (final ch.hilbri.assist.datamodel.model.Thread t : _allThreads) {
       Application _application = t.getApplication();
       EList<IOAdapterRequirement> _ioAdapterRequirements = _application.getIoAdapterRequirements();
-      for (final IOAdapterRequirement r : _ioAdapterRequirements) {
+      final Function1<IOAdapterRequirement, Boolean> _function = new Function1<IOAdapterRequirement, Boolean>() {
+        public Boolean apply(final IOAdapterRequirement it) {
+          return Boolean.valueOf(it.isIsExclusiveOnly());
+        }
+      };
+      Iterable<IOAdapterRequirement> _filter = IterableExtensions.<IOAdapterRequirement>filter(_ioAdapterRequirements, _function);
+      for (final IOAdapterRequirement r : _filter) {
         IOAdapterType _adapterType = r.getAdapterType();
         boolean _contains = allRequestedIOAdapterTypes.contains(_adapterType);
         boolean _not = (!_contains);
@@ -60,7 +69,13 @@ public class IOAdapterConstraint extends AbstractMappingConstraint {
     for (final ch.hilbri.assist.datamodel.model.Thread t_1 : _allThreads_1) {
       Application _application_1 = t_1.getApplication();
       EList<IOAdapterRequirement> _ioAdapterRequirements_1 = _application_1.getIoAdapterRequirements();
-      for (final IOAdapterRequirement r_1 : _ioAdapterRequirements_1) {
+      final Function1<IOAdapterRequirement, Boolean> _function_1 = new Function1<IOAdapterRequirement, Boolean>() {
+        public Boolean apply(final IOAdapterRequirement it) {
+          return Boolean.valueOf(it.isIsExclusiveOnly());
+        }
+      };
+      Iterable<IOAdapterRequirement> _filter_1 = IterableExtensions.<IOAdapterRequirement>filter(_ioAdapterRequirements_1, _function_1);
+      for (final IOAdapterRequirement r_1 : _filter_1) {
         {
           Set<ch.hilbri.assist.datamodel.model.Thread> _keySet = allIOAdapterExclusiveRequests.keySet();
           boolean _contains_1 = _keySet.contains(t_1);
@@ -140,15 +155,27 @@ public class IOAdapterConstraint extends AbstractMappingConstraint {
             IntVar _get_2 = _get_1.get(type_1);
             Element _element = new Element(threadLocationsBoardLevel, ((int[])Conversions.unwrapArray(_get, int.class)), _get_2);
             this.constraintStore.impose(_element);
-            HashMap<IOAdapterType, IntVar> _get_3 = ioAdapterVariables.get(t_3);
-            IntVar _get_4 = _get_3.get(type_1);
-            HashMap<IOAdapterType, Integer> _get_5 = allIOAdapterExclusiveRequests.get(t_3);
-            Integer _get_6 = _get_5.get(type_1);
-            XgteqC _xgteqC = new XgteqC(_get_4, (_get_6).intValue());
-            this.constraintStore.impose(_xgteqC);
+            HashMap<IOAdapterType, Integer> _get_3 = allIOAdapterExclusiveRequests.get(t_3);
+            boolean _notEquals = (!Objects.equal(_get_3, null));
+            if (_notEquals) {
+              HashMap<IOAdapterType, IntVar> _get_4 = ioAdapterVariables.get(t_3);
+              IntVar _get_5 = _get_4.get(type_1);
+              HashMap<IOAdapterType, Integer> _get_6 = allIOAdapterExclusiveRequests.get(t_3);
+              Integer _get_7 = _get_6.get(type_1);
+              XgteqC _xgteqC = new XgteqC(_get_5, (_get_7).intValue());
+              this.constraintStore.impose(_xgteqC);
+            }
           }
         }
       }
     }
+  }
+  
+  /**
+   * Implementation of step 2
+   * ------------------------
+   */
+  public Object generate_SingleThreadProtectionLevel_Constraints() {
+    return null;
   }
 }

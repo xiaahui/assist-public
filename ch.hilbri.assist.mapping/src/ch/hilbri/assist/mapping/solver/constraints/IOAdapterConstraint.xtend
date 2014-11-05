@@ -22,8 +22,8 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 
 	override generate() {
 		/* Step 1: Generate the constraints for single threads and their exclusive adapter requirement */
-		generateSingleThreadExclusiveRequests()
-		
+		generate_SingleThreadExclusiveRequests_Constraints()
+		generate_SingleThreadProtectionLevel_Constraints()
 		return true
 	}
 	
@@ -32,22 +32,23 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 	 * Implementation of Step 1
 	 * ------------------------
 	 * - only exclusive adapter requests and adapter types are considered here
-	 * - io protection level are NOT considered here (yet) 
+	 * - io protection levels are NOT considered here (yet) 
 	 */
-	def generateSingleThreadExclusiveRequests() {
+	def generate_SingleThreadExclusiveRequests_Constraints() {
 		
 		/* 1. Which i/o adapter types are requested in this deployment problem? */
 		// allRequestedIOAdapterTypes = [Typ0, Typ2, Typ5, Typ8] 
 		var allRequestedIOAdapterTypes = new ArrayList<IOAdapterType>()
 		for (t : model.allThreads)
-			for (r : t.application.ioAdapterRequirements)
-				if (!allRequestedIOAdapterTypes.contains(r.adapterType)) allRequestedIOAdapterTypes.add(r.adapterType) 
+			for (r : t.application.ioAdapterRequirements.filter[it | it.isIsExclusiveOnly])
+				if (!allRequestedIOAdapterTypes.contains(r.adapterType)) 
+					allRequestedIOAdapterTypes.add(r.adapterType) 
 		
 		/* 2. Create a value list for each thread which contains its demand for a given type */
 		// allIOAdapterExclusiveRequests[thread][type] = demand
 		var allIOAdapterExclusiveRequests = new HashMap<Thread, HashMap<IOAdapterType, Integer>>()
 		for (t : model.allThreads)
-			for (r : t.application.ioAdapterRequirements) {
+			for (r : t.application.ioAdapterRequirements.filter[it | it.isIsExclusiveOnly]) {
 				if (!allIOAdapterExclusiveRequests.keySet.contains(t)) 
 					allIOAdapterExclusiveRequests.put(t, new HashMap<IOAdapterType, Integer>())
 				
@@ -67,8 +68,8 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 						allAvailableIOAdapters.get(type).add(a.totalCount)
 					}
 				}
-				if (!foundAdapter)
-						allAvailableIOAdapters.get(type).add(0)
+				// If we have not found an adapter with this type on this board, we add "0"
+				if (!foundAdapter) allAvailableIOAdapters.get(type).add(0)
 			}
 		}
 
@@ -101,12 +102,22 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 			
 			for (type : allRequestedIOAdapterTypes) {
 				constraintStore.impose(new Element(threadLocationsBoardLevel, allAvailableIOAdapters.get(type), ioAdapterVariables.get(t).get(type)))
-				constraintStore.impose(new XgteqC(ioAdapterVariables.get(t).get(type), allIOAdapterExclusiveRequests.get(t).get(type))) 
+				
+				// if we have some exclusive adapter constraints for this type, then impose the restriction
+				if (allIOAdapterExclusiveRequests.get(t) != null)
+					constraintStore.impose(new XgteqC(ioAdapterVariables.get(t).get(type), allIOAdapterExclusiveRequests.get(t).get(type))) 
 			}	
 		}
 		
 	}
 	
+	
+	/*
+	 * Implementation of step 2
+	 * ------------------------
+	 * 
+	 */
+	def generate_SingleThreadProtectionLevel_Constraints() {}
 	
 	
 }
