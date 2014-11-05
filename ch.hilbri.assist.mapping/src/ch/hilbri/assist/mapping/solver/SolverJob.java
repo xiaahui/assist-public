@@ -24,6 +24,7 @@ import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.AllApplicationThreadsOnSameBoard;
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.NoPermutationsConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint;
@@ -122,13 +123,12 @@ public class SolverJob extends Job {
 		/* Create a new Constraint for all i/o adapters (exclusive, shared, protection level, ...) */
 		this.mappingConstraintsList.add(new IOAdapterConstraint(model, constraintStore, solverVariables));
 		
+		/* Create a new Constraint for the design assurance level compatibility of boards and threads */
+		this.mappingConstraintsList.add(new DesignAssuranceLevelConstraint(model, constraintStore, solverVariables));
 		
 //		/* Create a new Constraint to process the I/O-adapter to board hierarchy */
 //		this.mappingConstraintsList.add(new IOAdapterHierarchyConstraint(this.constraintSystem, this.model, this.threadVariablesList,
 //				this.exclusiveAdapterVariablesList, this.sharedAdapterVariablesList, ioAdapterVariablesList));
-//		
-//		/* Create a new constraint to keep the criticality level of the threads regarding to the assurance level of the boards */
-//		this.mappingConstraintsList.add(new CriticalityRequirementsConstraint(this.constraintSystem, this.model, this.threadVariablesList));
 //
 //		/* Create a new constraint to obey the restrictions on the proximity of the applications */
 //		this.mappingConstraintsList.add(new ProximityRelationsConstraint(this.constraintSystem, this.model, this.threadVariablesList));
@@ -137,9 +137,7 @@ public class SolverJob extends Job {
 //		this.mappingConstraintsList.add(new DislocalityConstraint(this.constraintSystem, this.model, this.threadVariablesList));
 //		/* new */
 //		this.mappingConstraintsList.add(new DissimilarityTreeConstraint(this.constraintSystem, this.model, this.threadVariablesList));
-//		
-
-//		
+//
 //		/* Create new constraints to keep the required adapters of the board (shared/exclusive) */
 //		for (IOAdapterType adapterType : IOAdapterType.values()){
 //			if ( !exclusiveAdapterVariablesList.get(adapterType.ordinal()).isEmpty() || !sharedAdapterVariablesList.get(adapterType.ordinal()).isEmpty() )
@@ -153,7 +151,7 @@ public class SolverJob extends Job {
 //
 //		/* Create a new constraint that restricts the applications to their specified ones */
 //		this.mappingConstraintsList.add(new RestrictedHardwareComponentsConstraint(this.constraintSystem, this.model, this.threadVariablesList));
-//
+
 	}
 
 	@Override
