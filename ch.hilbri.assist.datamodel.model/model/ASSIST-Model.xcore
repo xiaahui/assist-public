@@ -230,6 +230,24 @@ class Board extends HardwareElementContainer {
 		return list
 	}
 	
+	op int getSuitableAdapterCount(IOAdapterType paramAdapterType, IOAdapterProtectionLevelType paramMinProtectionLevel) {
+		
+		// the type has to match
+		val suitableTypeAdapters = ioAdapters.filter[adapterType == paramAdapterType]
+		if (suitableTypeAdapters == null) return 0
+		
+		// the protection level of the adapter is at least ...
+		val suiteableTypeAndProtectionLevel = suitableTypeAdapters.filter[protectionLevel.ordinal >= paramMinProtectionLevel.ordinal]
+		if (suiteableTypeAndProtectionLevel == null) return 0
+		
+		// we want the total count and then the sum of all suitable adapters on this board
+		val suiteableTypeAndProtectionLevelCount = suiteableTypeAndProtectionLevel.map[totalCount]
+		if (suiteableTypeAndProtectionLevelCount.length > 1) return suiteableTypeAndProtectionLevelCount.reduce[p1, p2| p1+p2]
+		else if (suiteableTypeAndProtectionLevelCount.length == 1) return suiteableTypeAndProtectionLevelCount.get(0)
+		else if (suiteableTypeAndProtectionLevelCount.length == 0) return 0
+		else return -1 
+	}
+	
 }
 
 class Processor extends HardwareElement {
@@ -357,7 +375,6 @@ class IOAdapterRequirement {
 	int 							requiredAdapterCount 	= "0"
 	boolean 						isSharedAllowed 		= "false"
 	boolean 						isExclusiveOnly 		= "false"
-	IOAdapterProtectionLevelType 	protectionLevel 		= "None"
 }
 
 

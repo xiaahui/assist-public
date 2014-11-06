@@ -65,7 +65,6 @@ public class IOAdapterRequirementItemProvider
 			addRequiredAdapterCountPropertyDescriptor(object);
 			addIsSharedAllowedPropertyDescriptor(object);
 			addIsExclusiveOnlyPropertyDescriptor(object);
-			addProtectionLevelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -159,28 +158,6 @@ public class IOAdapterRequirementItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Protection Level feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addProtectionLevelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IOAdapterRequirement_protectionLevel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IOAdapterRequirement_protectionLevel_feature", "_UI_IOAdapterRequirement_type"),
-				 ModelPackage.Literals.IO_ADAPTER_REQUIREMENT__PROTECTION_LEVEL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns IOAdapterRequirement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -223,7 +200,6 @@ public class IOAdapterRequirementItemProvider
 			case ModelPackage.IO_ADAPTER_REQUIREMENT__REQUIRED_ADAPTER_COUNT:
 			case ModelPackage.IO_ADAPTER_REQUIREMENT__IS_SHARED_ALLOWED:
 			case ModelPackage.IO_ADAPTER_REQUIREMENT__IS_EXCLUSIVE_ONLY:
-			case ModelPackage.IO_ADAPTER_REQUIREMENT__PROTECTION_LEVEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -122,7 +122,6 @@ IOAdapterRequirement:
 	'Requires' 	requiredAdapterCount=INT 
 				adapterType=IOAdapterType 'adapter' 
 				'(' (isExclusiveOnly?='exclusive' | isSharedAllowed?='shared') 'access)' 
-				('with' 'protection-level' protectionLevel=IOAdapterProtectionLevelType)?
 	';' 
 ;
 

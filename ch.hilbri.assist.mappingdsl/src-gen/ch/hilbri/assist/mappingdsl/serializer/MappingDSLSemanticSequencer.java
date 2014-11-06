@@ -333,12 +333,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         requiredAdapterCount=INT 
-	 *         adapterType=IOAdapterType 
-	 *         (isExclusiveOnly?='exclusive' | isSharedAllowed?='shared') 
-	 *         protectionLevel=IOAdapterProtectionLevelType?
-	 *     )
+	 *     (requiredAdapterCount=INT adapterType=IOAdapterType (isExclusiveOnly?='exclusive' | isSharedAllowed?='shared'))
 	 */
 	protected void sequence_IOAdapterRequirement(EObject context, IOAdapterRequirement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

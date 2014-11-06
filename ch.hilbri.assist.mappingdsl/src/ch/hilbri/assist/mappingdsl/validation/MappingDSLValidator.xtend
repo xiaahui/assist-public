@@ -55,10 +55,9 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 		for (r : app.ioAdapterRequirements)
 			for (other : app.ioAdapterRequirements)
 				if (r != other) {
-					if ((r.adapterType == other.adapterType) &&
-					    (r.protectionLevel == other.protectionLevel)) {
-					    	error('There are multiple definitions (requests) for the same i/o adapter with type "' + r.adapterType + '"' + 
-					    		  ' and protection level "' +  r.protectionLevel + '"', 
+					if (r.adapterType == other.adapterType)
+					     {
+					    	error('There are multiple definitions (requests) for the same i/o adapter with type "' + r.adapterType + '"', 
 					    		  app, ModelPackage.Literals::APPLICATION__IO_ADAPTER_REQUIREMENTS 
 					    	)
 					    }

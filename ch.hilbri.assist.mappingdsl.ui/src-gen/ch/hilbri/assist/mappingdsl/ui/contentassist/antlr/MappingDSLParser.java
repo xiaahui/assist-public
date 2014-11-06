@@ -94,7 +94,6 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getApplicationAccess().getGroup_14_3(), "rule__Application__Group_14_3__0");
 					put(grammarAccess.getApplicationAccess().getGroup_15(), "rule__Application__Group_15__0");
 					put(grammarAccess.getIOAdapterRequirementAccess().getGroup(), "rule__IOAdapterRequirement__Group__0");
-					put(grammarAccess.getIOAdapterRequirementAccess().getGroup_7(), "rule__IOAdapterRequirement__Group_7__0");
 					put(grammarAccess.getDislocalityRelationAccess().getGroup(), "rule__DislocalityRelation__Group__0");
 					put(grammarAccess.getDislocalityRelationAccess().getGroup_1(), "rule__DislocalityRelation__Group_1__0");
 					put(grammarAccess.getProximityRelationAccess().getGroup(), "rule__ProximityRelation__Group__0");
@@ -182,7 +181,6 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIOAdapterRequirementAccess().getAdapterTypeAssignment_2(), "rule__IOAdapterRequirement__AdapterTypeAssignment_2");
 					put(grammarAccess.getIOAdapterRequirementAccess().getIsExclusiveOnlyAssignment_5_0(), "rule__IOAdapterRequirement__IsExclusiveOnlyAssignment_5_0");
 					put(grammarAccess.getIOAdapterRequirementAccess().getIsSharedAllowedAssignment_5_1(), "rule__IOAdapterRequirement__IsSharedAllowedAssignment_5_1");
-					put(grammarAccess.getIOAdapterRequirementAccess().getProtectionLevelAssignment_7_2(), "rule__IOAdapterRequirement__ProtectionLevelAssignment_7_2");
 					put(grammarAccess.getDislocalityRelationAccess().getApplicationsOrGroupsAssignment_0(), "rule__DislocalityRelation__ApplicationsOrGroupsAssignment_0");
 					put(grammarAccess.getDislocalityRelationAccess().getApplicationsOrGroupsAssignment_1_1(), "rule__DislocalityRelation__ApplicationsOrGroupsAssignment_1_1");
 					put(grammarAccess.getDislocalityRelationAccess().getHardwareLevelAssignment_3(), "rule__DislocalityRelation__HardwareLevelAssignment_3");

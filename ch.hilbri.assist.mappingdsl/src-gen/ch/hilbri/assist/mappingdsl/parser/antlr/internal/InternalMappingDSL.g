@@ -2130,35 +2130,9 @@ ruleIOAdapterRequirement returns [EObject current=null]
     {
     	newLeafNode(otherlv_7, grammarAccess.getIOAdapterRequirementAccess().getAccessKeyword_6());
     }
-(	otherlv_8='with' 
+	otherlv_8=';' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getIOAdapterRequirementAccess().getWithKeyword_7_0());
-    }
-	otherlv_9='protection-level' 
-    {
-    	newLeafNode(otherlv_9, grammarAccess.getIOAdapterRequirementAccess().getProtectionLevelKeyword_7_1());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getIOAdapterRequirementAccess().getProtectionLevelIOAdapterProtectionLevelTypeEnumRuleCall_7_2_0()); 
-	    }
-		lv_protectionLevel_10_0=ruleIOAdapterProtectionLevelType		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getIOAdapterRequirementRule());
-	        }
-       		set(
-       			$current, 
-       			"protectionLevel",
-        		lv_protectionLevel_10_0, 
-        		"IOAdapterProtectionLevelType");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))?	otherlv_11=';' 
-    {
-    	newLeafNode(otherlv_11, grammarAccess.getIOAdapterRequirementAccess().getSemicolonKeyword_8());
+    	newLeafNode(otherlv_8, grammarAccess.getIOAdapterRequirementAccess().getSemicolonKeyword_7());
     }
 )
 ;
