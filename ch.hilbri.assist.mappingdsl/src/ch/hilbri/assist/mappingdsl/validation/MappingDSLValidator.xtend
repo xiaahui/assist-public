@@ -35,6 +35,12 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 	}
 
 	@Check
+	def checkAtLeastOneApplicationPresent(AssistModel model) {
+		if (model.applications.size < 1) 
+			error('A valid specification requires at least one application.', model, ModelPackage.Literals::ASSIST_MODEL__APPLICATIONS)
+	}
+
+	@Check
 	def checkIOAdapterEntriesAreValid(Board board) {
 		for (adapter : board.ioAdapters) {
 			for (other : board.ioAdapters) {

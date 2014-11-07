@@ -79,8 +79,8 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 		 */
 		for (board : model.allBoards) {
 			
-			val factorList = new ArrayList<BooleanVar>
-			val utilizationList = new ArrayList<Integer>
+			val factorList = new ArrayList<BooleanVar>()
+			val utilizationList = new ArrayList<Integer>()
 			
 			for (thread : model.allThreads) {
 
@@ -100,8 +100,6 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 			val constraintSumWeight = new SumWeight(factorList, utilizationList, absoluteRamUtilization)
 
 			constraintStore.impose(constraintSumWeight)
-			
-			constraintStore.print()
 		}
 		
 		return true

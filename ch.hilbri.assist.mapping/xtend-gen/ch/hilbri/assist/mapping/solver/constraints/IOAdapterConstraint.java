@@ -9,6 +9,7 @@ import ch.hilbri.assist.datamodel.model.IOAdapterRequirement;
 import ch.hilbri.assist.datamodel.model.IOAdapterType;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
+import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Conversions;
@@ -16,7 +17,11 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.jacop.constraints.Element;
+import org.jacop.constraints.Reified;
+import org.jacop.constraints.SumWeight;
+import org.jacop.constraints.XeqC;
 import org.jacop.constraints.XgteqC;
+import org.jacop.core.BooleanVar;
 import org.jacop.core.BoundDomain;
 import org.jacop.core.IntVar;
 import org.jacop.core.IntervalDomain;
@@ -30,7 +35,60 @@ public class IOAdapterConstraint extends AbstractMappingConstraint {
   
   public boolean generate() {
     this.generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints();
+    this.generate_MultipleTheads_ExclusiveRequests_incl_ProtectionLevel_Constraints();
     return true;
+  }
+  
+  public void generate_MultipleTheads_ExclusiveRequests_incl_ProtectionLevel_Constraints() {
+    EList<Board> _allBoards = this.model.getAllBoards();
+    for (final Board b : _allBoards) {
+      {
+        final ArrayList<BooleanVar> factorList = new ArrayList<BooleanVar>();
+        EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads = this.model.getAllThreads();
+        for (final ch.hilbri.assist.datamodel.model.Thread t : _allThreads) {
+          {
+            final IntVar threadLocationsBoardLevel = this.solverVariables.getThreadLocationVariable(t, HardwareArchitectureLevelType.BOARD_VALUE);
+            String _name = t.getName();
+            String _plus = ("Delta-for-" + _name);
+            final BooleanVar delta = new BooleanVar(this.constraintStore, _plus);
+            EList<Board> _allBoards_1 = this.model.getAllBoards();
+            int _indexOf = _allBoards_1.indexOf(b);
+            int _plus_1 = (_indexOf + 1);
+            XeqC _xeqC = new XeqC(threadLocationsBoardLevel, _plus_1);
+            Reified _reified = new Reified(_xeqC, delta);
+            this.constraintStore.impose(_reified);
+            factorList.add(delta);
+          }
+        }
+        IOAdapterType[] _values = IOAdapterType.values();
+        for (final IOAdapterType type : _values) {
+          IOAdapterProtectionLevelType[] _values_1 = IOAdapterProtectionLevelType.values();
+          for (final IOAdapterProtectionLevelType level : _values_1) {
+            {
+              String _name = b.getName();
+              String _plus = ("SuiteableIOAdapterCount-" + _name);
+              String _plus_1 = (_plus + "-");
+              String _plus_2 = (_plus_1 + type);
+              String _plus_3 = (_plus_2 + "-");
+              String _plus_4 = (_plus_3 + level);
+              int _suitableAdapterCount = b.getSuitableAdapterCount(type, level);
+              final IntVar suiteableIOAdapterCountVar = new IntVar(this.constraintStore, _plus_4, 
+                0, _suitableAdapterCount);
+              EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads_1 = this.model.getAllThreads();
+              final Function1<ch.hilbri.assist.datamodel.model.Thread, Integer> _function = new Function1<ch.hilbri.assist.datamodel.model.Thread, Integer>() {
+                public Integer apply(final ch.hilbri.assist.datamodel.model.Thread it) {
+                  return Integer.valueOf(it.getExclusiveAdapterRequestCount(type, level));
+                }
+              };
+              final List<Integer> requestCountForEachThreadWithProtectionLevelAndType = ListExtensions.<ch.hilbri.assist.datamodel.model.Thread, Integer>map(_allThreads_1, _function);
+              ArrayList<Integer> _arrayList = new ArrayList<Integer>(requestCountForEachThreadWithProtectionLevelAndType);
+              SumWeight _sumWeight = new SumWeight(factorList, _arrayList, suiteableIOAdapterCountVar);
+              this.constraintStore.impose(_sumWeight);
+            }
+          }
+        }
+      }
+    }
   }
   
   public void generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints() {

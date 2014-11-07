@@ -125,7 +125,6 @@ public class RAMUtilizationConstraint extends AbstractMappingConstraint {
         final IntVar absoluteRamUtilization = this.solverVariables.getAbsoluteRamUtilizationVariable(board);
         final SumWeight constraintSumWeight = new SumWeight(factorList, utilizationList, absoluteRamUtilization);
         this.constraintStore.impose(constraintSumWeight);
-        this.constraintStore.print();
       }
     }
     return true;

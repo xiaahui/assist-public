@@ -368,6 +368,29 @@ class Thread {
 	derived String 	name get 			{ application.name + '_' + (application.threads.indexOf(this)+1) }
 	derived int	   	coreUtilization get { application.coreUtilization }
 	container Application application opposite threads
+	
+	op int getExclusiveAdapterRequestCount(IOAdapterType paramAdapterType, IOAdapterProtectionLevelType paramMinProtectionLevel) {
+		
+		// check that this application (thread) requires at least the given protectionLevel
+		if (application.ioAdapterProtectionLevel.ordinal < paramMinProtectionLevel.ordinal) return 0
+		
+		// we are looking for exclusive requirements only
+		val exRequests = application.ioAdapterRequirements.filter[isIsExclusiveOnly]
+		if (exRequests == null) return 0
+		
+		// we are looking for exclusive requirements of the given type
+		val exRequestsWithCorrectType = exRequests.filter[adapterType == paramAdapterType]
+		if (exRequestsWithCorrectType == null) return 0		
+		
+		// we are looking for the count of desired adapters
+		val exRequestsWithCorrectTypeAdapterCount = exRequestsWithCorrectType.map[requiredAdapterCount]
+		
+		if (exRequestsWithCorrectTypeAdapterCount.length > 1) return exRequestsWithCorrectTypeAdapterCount.reduce[p1, p2 | p1+p2]
+		else if (exRequestsWithCorrectTypeAdapterCount.length == 1) return exRequestsWithCorrectTypeAdapterCount.get(0)
+		else if (exRequestsWithCorrectTypeAdapterCount.length == 0) return 0
+		else return -1
+	}
+	
 }
 
 class IOAdapterRequirement {	
