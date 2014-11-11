@@ -23,27 +23,33 @@ class RestrictedDeploymentConstraint extends AbstractMappingConstraint {
 	override generate() {
 		// Iterate over all threads
 		for (t : model.allThreads) {
-			val allowedCores = new HashSet<Core>()
 			
-			// determine the set of cores(!) that they can be deployed to
-			for (hwElem : t.application.restrictMappingToHardwareElements) {
-			 	if (hwElem instanceof Compartment) 		allowedCores.addAll((hwElem as Compartment).allCores)
-			 	else if (hwElem instanceof Box) 		allowedCores.addAll((hwElem as Box).allCores)
-			 	else if (hwElem instanceof Board) 		allowedCores.addAll((hwElem as Board).allCores)
-			 	else if (hwElem instanceof Processor) 	allowedCores.addAll((hwElem as Processor).cores)
-			 	else if (hwElem instanceof Core) 		allowedCores.add(hwElem as Core)
-			 	else return false
+			// Check if there is any restriction specified
+			if (!t.application.restrictMappingToHardwareElements.empty) {
+				
+				val allowedCores = new HashSet<Core>()
+			
+				// 	determine the set of cores(!) that they can be deployed to
+				for (hwElem : t.application.restrictMappingToHardwareElements) {
+			 		if (hwElem instanceof Compartment) 		allowedCores.addAll((hwElem as Compartment).allCores)
+			 		else if (hwElem instanceof Box) 		allowedCores.addAll((hwElem as Box).allCores)
+			 		else if (hwElem instanceof Board) 		allowedCores.addAll((hwElem as Board).allCores)
+			 		else if (hwElem instanceof Processor) 	allowedCores.addAll((hwElem as Processor).cores)
+			 		else if (hwElem instanceof Core) 		allowedCores.add(hwElem as Core)
+			 		else return false
+				}
+			
+				// 	determine the location variable for this thread and its cores
+				val threadLocationsCoreLevel = solverVariables.getThreadLocationVariable(t, HardwareArchitectureLevelType.CORE_VALUE) 
+			
+				// restrict this variable according to the allowed cores
+				var domain = new IntervalDomain()
+				for (core : allowedCores)
+					domain.addDom(new BoundDomain(model.allCores.indexOf(core)+1, model.allCores.indexOf(core)+1))
+			
+				constraintStore.impose(new In(threadLocationsCoreLevel, domain))
+			
 			}
-			
-			// determine the location variable for this thread and its cores
-			val threadLocationsCoreLevel = solverVariables.getThreadLocationVariable(t, HardwareArchitectureLevelType.CORE_VALUE) 
-			
-			// restrict this variable according to the allowed cores
-			var domain = new IntervalDomain()
-			for (core : allowedCores)
-				domain.addDom(new BoundDomain(model.allCores.indexOf(core)+1, model.allCores.indexOf(core)+1))
-			
-			constraintStore.impose(new In(threadLocationsCoreLevel, domain))
 		}
 		
 		return true
