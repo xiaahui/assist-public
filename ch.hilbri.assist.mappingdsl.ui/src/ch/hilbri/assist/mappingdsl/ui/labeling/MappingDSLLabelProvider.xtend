@@ -90,7 +90,20 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(DislocalityRelation r) {
-		r.applicationsOrGroups + " dislocal up to " + r.hardwareLevel
+		val output = new StringBuilder()
+		
+		output.append("[")
+		for (aog : r.applicationsOrGroups) {
+			if (aog instanceof Application) output.append((aog as Application).name)
+			if (aog instanceof ApplicationGroup) output.append((aog as ApplicationGroup).name)
+			if (r.applicationsOrGroups.last != aog) output.append(", ")
+		}
+		output.append("]")
+		output.append(" dislocal up to ")
+		output.append(r.hardwareLevel)
+		output.append("-level ")
+		
+		return output.toString
 	}
 
 	def image(DislocalityRelation r) {
@@ -98,7 +111,18 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(DissimilarityRelation r) {
-		r.applicationsOrGroups + " dissimilar"
+		val output = new StringBuilder()
+		
+		output.append("[")
+		for (aog : r.applicationsOrGroups) {
+			if (aog instanceof Application) output.append((aog as Application).name)
+			if (aog instanceof ApplicationGroup) output.append((aog as ApplicationGroup).name)
+			if (r.applicationsOrGroups.last != aog) output.append(", ")
+		}
+		output.append("]")
+		output.append(" dissimilar ")
+		
+		return output.toString
 	}
 
 	def image(DissimilarityRelation r) {
@@ -106,7 +130,20 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(ProximityRelation r) {
-		r.applicationsOrGroups + " on same " + r.hardwareLevel
+		val output = new StringBuilder()
+		
+		output.append("[")
+		for (aog : r.applicationsOrGroups) {
+			if (aog instanceof Application) output.append((aog as Application).name)
+			if (aog instanceof ApplicationGroup) output.append((aog as ApplicationGroup).name)
+			if (r.applicationsOrGroups.last != aog) output.append(", ")
+		}
+		output.append("]")
+		output.append(" on same ")
+		output.append(r.hardwareLevel)
+		output.append(" ")
+		
+		return output.toString
 	}
 
 	def image(ProximityRelation r) {

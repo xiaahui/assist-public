@@ -4,14 +4,12 @@
 package ch.hilbri.assist.mappingdsl.ui.outline
 
 import ch.hilbri.assist.datamodel.model.AssistModel
-import com.google.inject.Inject
 import org.eclipse.core.runtime.FileLocator
 import org.eclipse.core.runtime.Path
 import org.eclipse.core.runtime.Platform
 import org.eclipse.jface.resource.ImageDescriptor
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
-import org.eclipse.xtext.ui.editor.outline.impl.OutlinePage
 
 /**
  * Customization of the default outline structure.
@@ -20,19 +18,12 @@ import org.eclipse.xtext.ui.editor.outline.impl.OutlinePage
  */
 class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	
-	@Inject
-	private OutlinePage outlinePage;
 	
 	def _createChildren(IOutlineNode parentNode, AssistModel model) {
 		
 		val bundle = Platform.getBundle("ch.hilbri.assist.mappingdsl.ui");
-
-		// old code:
-		// val imgfolderDesc = ImageDescriptor.createFromURL(BundleUtility.find(bundle, "icons/outline_view_folder_16x16.png"));
-		// val imgsubfolderDesc = ImageDescriptor.createFromURL(BundleUtility.find(bundle, "icons/outline_view_subfolder_16x16.png"));
 		val imgfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outline_view_folder_16x16.png"), null));
 		val imgsubfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outline_view_subfolder_16x16.png"), null));
-		
 		
 		/* ---------- HARDWARE ------------- */
 		val hardwareNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Hardware", false)
@@ -80,11 +71,11 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 
 		/* ---------- PROXIMITY REQUIREMENTS --------- */
 		if (!model.proximityRelations.empty) {
-			val proximityRelationNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Proximity Constraints", false)
+			val proximityRelationNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Proximity", false)
 			for (r : model.proximityRelations) createNode(proximityRelationNode, r)
 		}
 		
-		this.outlinePage.treeViewer.expandToLevel(3)
+		
 		
 		
 	}
