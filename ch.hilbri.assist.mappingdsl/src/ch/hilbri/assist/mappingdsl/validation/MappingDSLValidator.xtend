@@ -7,6 +7,11 @@ import java.util.ArrayList
 import org.eclipse.xtext.validation.Check
 import ch.hilbri.assist.datamodel.model.Board
 import ch.hilbri.assist.datamodel.model.Application
+import ch.hilbri.assist.datamodel.model.ProximityRelation
+import java.util.LinkedHashSet
+import ch.hilbri.assist.datamodel.model.ApplicationOrApplicationGroup
+import ch.hilbri.assist.datamodel.model.DislocalityRelation
+import ch.hilbri.assist.datamodel.model.DissimilarityRelation
 
 /**
  * Custom validation rules. 
@@ -70,6 +75,30 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 				}
 	}
 
+	@Check
+	def checkApplicationDuplicatesInRelation(ProximityRelation r) {
+		val set = new LinkedHashSet<ApplicationOrApplicationGroup>(r.applicationsOrGroups)
+		if (set.size < r.applicationsOrGroups.size)
+			error('There are duplicate applications or application groups in this relation.', 
+					r, ModelPackage.Literals::PROXIMITY_RELATION__APPLICATIONS_OR_GROUPS)
+	}
+	
+	@Check
+	def checkApplicationDuplicatesInRelation(DislocalityRelation r) {
+		val set = new LinkedHashSet<ApplicationOrApplicationGroup>(r.applicationsOrGroups)
+		if (set.size < r.applicationsOrGroups.size)
+			error('There are duplicate applications or application groups in this relation.', 
+					r, ModelPackage.Literals::DISLOCALITY_RELATION__APPLICATIONS_OR_GROUPS)
+	}
+	
+	@Check
+	def checkApplicationDuplicatesInRelation(DissimilarityRelation r) {
+		val set = new LinkedHashSet<ApplicationOrApplicationGroup>(r.applicationsOrGroups)
+		if (set.size < r.applicationsOrGroups.size)
+			error('There are duplicate applications or application groups in this relation.', 
+					r, ModelPackage.Literals::DISSIMILARITY_RELATION__APPLICATIONS_OR_GROUPS)
+	}
+	
 
 //  public static val INVALID_NAME = 'invalidName'
 //
