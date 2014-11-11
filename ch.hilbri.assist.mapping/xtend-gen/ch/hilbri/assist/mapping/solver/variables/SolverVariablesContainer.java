@@ -11,7 +11,6 @@ import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend.lib.Data;
 import org.eclipse.xtext.xbase.lib.Conversions;
-import org.eclipse.xtext.xbase.lib.Pure;
 import org.eclipse.xtext.xbase.lib.util.ToStringHelper;
 import org.jacop.core.IntVar;
 import org.jacop.core.Store;
@@ -25,9 +24,23 @@ public class SolverVariablesContainer {
   private final HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = new HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>>();
   
   /**
+   * A list of location variables for each thread (and each system layer)
+   */
+  public HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> getThreadLocationVariablesList() {
+    return this._threadLocationVariablesList;
+  }
+  
+  /**
    * A list of variables; a variable for each core which contains the absolute utilization
    */
   private final HashMap<Core, IntVar> _absoluteCoreUtilizationList = new HashMap<Core, IntVar>();
+  
+  /**
+   * A list of variables; a variable for each core which contains the absolute utilization
+   */
+  public HashMap<Core, IntVar> getAbsoluteCoreUtilizationList() {
+    return this._absoluteCoreUtilizationList;
+  }
   
   /**
    * A list of variables; a variable for each board which contains the absolute ram utilization
@@ -35,9 +48,23 @@ public class SolverVariablesContainer {
   private final HashMap<Board, IntVar> _absoluteRamUtilizationList = new HashMap<Board, IntVar>();
   
   /**
+   * A list of variables; a variable for each board which contains the absolute ram utilization
+   */
+  public HashMap<Board, IntVar> getAbsoluteRamUtilizationList() {
+    return this._absoluteRamUtilizationList;
+  }
+  
+  /**
    * A list of variables; a variable for each board which contains the absolute rom utilization
    */
   private final HashMap<Board, IntVar> _absoluteRomUtilizationList = new HashMap<Board, IntVar>();
+  
+  /**
+   * A list of variables; a variable for each board which contains the absolute rom utilization
+   */
+  public HashMap<Board, IntVar> getAbsoluteRomUtilizationList() {
+    return this._absoluteRomUtilizationList;
+  }
   
   /**
    * CONSTRUCTOR
@@ -205,19 +232,17 @@ public class SolverVariablesContainer {
   }
   
   @Override
-  @Pure
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((this._threadLocationVariablesList== null) ? 0 : this._threadLocationVariablesList.hashCode());
-    result = prime * result + ((this._absoluteCoreUtilizationList== null) ? 0 : this._absoluteCoreUtilizationList.hashCode());
-    result = prime * result + ((this._absoluteRamUtilizationList== null) ? 0 : this._absoluteRamUtilizationList.hashCode());
-    result = prime * result + ((this._absoluteRomUtilizationList== null) ? 0 : this._absoluteRomUtilizationList.hashCode());
+    result = prime * result + ((_threadLocationVariablesList== null) ? 0 : _threadLocationVariablesList.hashCode());
+    result = prime * result + ((_absoluteCoreUtilizationList== null) ? 0 : _absoluteCoreUtilizationList.hashCode());
+    result = prime * result + ((_absoluteRamUtilizationList== null) ? 0 : _absoluteRamUtilizationList.hashCode());
+    result = prime * result + ((_absoluteRomUtilizationList== null) ? 0 : _absoluteRomUtilizationList.hashCode());
     return result;
   }
   
   @Override
-  @Pure
   public boolean equals(final Object obj) {
     if (this == obj)
       return true;
@@ -226,53 +251,32 @@ public class SolverVariablesContainer {
     if (getClass() != obj.getClass())
       return false;
     SolverVariablesContainer other = (SolverVariablesContainer) obj;
-    if (this._threadLocationVariablesList == null) {
+    if (_threadLocationVariablesList == null) {
       if (other._threadLocationVariablesList != null)
         return false;
-    } else if (!this._threadLocationVariablesList.equals(other._threadLocationVariablesList))
+    } else if (!_threadLocationVariablesList.equals(other._threadLocationVariablesList))
       return false;
-    if (this._absoluteCoreUtilizationList == null) {
+    if (_absoluteCoreUtilizationList == null) {
       if (other._absoluteCoreUtilizationList != null)
         return false;
-    } else if (!this._absoluteCoreUtilizationList.equals(other._absoluteCoreUtilizationList))
+    } else if (!_absoluteCoreUtilizationList.equals(other._absoluteCoreUtilizationList))
       return false;
-    if (this._absoluteRamUtilizationList == null) {
+    if (_absoluteRamUtilizationList == null) {
       if (other._absoluteRamUtilizationList != null)
         return false;
-    } else if (!this._absoluteRamUtilizationList.equals(other._absoluteRamUtilizationList))
+    } else if (!_absoluteRamUtilizationList.equals(other._absoluteRamUtilizationList))
       return false;
-    if (this._absoluteRomUtilizationList == null) {
+    if (_absoluteRomUtilizationList == null) {
       if (other._absoluteRomUtilizationList != null)
         return false;
-    } else if (!this._absoluteRomUtilizationList.equals(other._absoluteRomUtilizationList))
+    } else if (!_absoluteRomUtilizationList.equals(other._absoluteRomUtilizationList))
       return false;
     return true;
   }
   
   @Override
-  @Pure
   public String toString() {
     String result = new ToStringHelper().toString(this);
     return result;
-  }
-  
-  @Pure
-  public HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> getThreadLocationVariablesList() {
-    return this._threadLocationVariablesList;
-  }
-  
-  @Pure
-  public HashMap<Core, IntVar> getAbsoluteCoreUtilizationList() {
-    return this._absoluteCoreUtilizationList;
-  }
-  
-  @Pure
-  public HashMap<Board, IntVar> getAbsoluteRamUtilizationList() {
-    return this._absoluteRamUtilizationList;
-  }
-  
-  @Pure
-  public HashMap<Board, IntVar> getAbsoluteRomUtilizationList() {
-    return this._absoluteRomUtilizationList;
   }
 }
