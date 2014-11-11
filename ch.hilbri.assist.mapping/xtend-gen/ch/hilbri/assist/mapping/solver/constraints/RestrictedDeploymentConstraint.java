@@ -28,11 +28,15 @@ public class RestrictedDeploymentConstraint extends AbstractMappingConstraint {
   public boolean generate() {
     EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads = this.model.getAllThreads();
     for (final ch.hilbri.assist.datamodel.model.Thread t : _allThreads) {
-      {
+      Application _application = t.getApplication();
+      EList<HardwareElement> _restrictMappingToHardwareElements = _application.getRestrictMappingToHardwareElements();
+      boolean _isEmpty = _restrictMappingToHardwareElements.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
         final HashSet<Core> allowedCores = new HashSet<Core>();
-        Application _application = t.getApplication();
-        EList<HardwareElement> _restrictMappingToHardwareElements = _application.getRestrictMappingToHardwareElements();
-        for (final HardwareElement hwElem : _restrictMappingToHardwareElements) {
+        Application _application_1 = t.getApplication();
+        EList<HardwareElement> _restrictMappingToHardwareElements_1 = _application_1.getRestrictMappingToHardwareElements();
+        for (final HardwareElement hwElem : _restrictMappingToHardwareElements_1) {
           if ((hwElem instanceof Compartment)) {
             EList<Core> _allCores = ((Compartment) hwElem).getAllCores();
             allowedCores.addAll(_allCores);

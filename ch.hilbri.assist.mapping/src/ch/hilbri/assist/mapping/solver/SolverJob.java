@@ -23,6 +23,7 @@ import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.AllApplicationThreadsOnSameBoard;
+import ch.hilbri.assist.mapping.solver.constraints.ApplicationProximityConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint;
@@ -130,9 +131,9 @@ public class SolverJob extends Job {
 		/* Create a new constraint that restricts the applications to their specified hardware elements */
 		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, constraintStore, solverVariables));
 		
-//		/* Create a new constraint to obey the restrictions on the proximity of the applications */
-//		this.mappingConstraintsList.add(new ProximityRelationsConstraint(this.constraintSystem, this.model, this.threadVariablesList));
-//		
+		/* Create a new constraint to restrictions on the proximity of the applications */
+		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, constraintStore, solverVariables));
+		
 //		/* Create a new constraint to obey the dislocality and dissimilarity requirements */
 //		this.mappingConstraintsList.add(new DislocalityConstraint(this.constraintSystem, this.model, this.threadVariablesList));
 //		/* new */

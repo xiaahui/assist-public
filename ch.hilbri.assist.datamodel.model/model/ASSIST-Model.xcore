@@ -344,6 +344,16 @@ class ApplicationGroup extends ApplicationOrApplicationGroup {
 		
 		return list
 	}
+	
+	op Thread[] getAllThreads() {
+		var list = new BasicEList<Thread>
+		
+		for (app : this.allApplications) {
+			list.addAll(app.threads)
+		}
+		
+		return list
+	}
 }
 
 class Application extends ApplicationOrApplicationGroup {
