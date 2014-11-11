@@ -29,6 +29,7 @@ import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.NoPermutationsConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
@@ -126,10 +127,9 @@ public class SolverJob extends Job {
 		/* Create a new Constraint for the design assurance level compatibility of boards and threads */
 		this.mappingConstraintsList.add(new DesignAssuranceLevelConstraint(model, constraintStore, solverVariables));
 		
-//		/* Create a new Constraint to process the I/O-adapter to board hierarchy */
-//		this.mappingConstraintsList.add(new IOAdapterHierarchyConstraint(this.constraintSystem, this.model, this.threadVariablesList,
-//				this.exclusiveAdapterVariablesList, this.sharedAdapterVariablesList, ioAdapterVariablesList));
-//
+		/* Create a new constraint that restricts the applications to their specified hardware elements */
+		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, constraintStore, solverVariables));
+		
 //		/* Create a new constraint to obey the restrictions on the proximity of the applications */
 //		this.mappingConstraintsList.add(new ProximityRelationsConstraint(this.constraintSystem, this.model, this.threadVariablesList));
 //		
@@ -137,20 +137,9 @@ public class SolverJob extends Job {
 //		this.mappingConstraintsList.add(new DislocalityConstraint(this.constraintSystem, this.model, this.threadVariablesList));
 //		/* new */
 //		this.mappingConstraintsList.add(new DissimilarityTreeConstraint(this.constraintSystem, this.model, this.threadVariablesList));
-//
-//		/* Create new constraints to keep the required adapters of the board (shared/exclusive) */
-//		for (IOAdapterType adapterType : IOAdapterType.values()){
-//			if ( !exclusiveAdapterVariablesList.get(adapterType.ordinal()).isEmpty() || !sharedAdapterVariablesList.get(adapterType.ordinal()).isEmpty() )
-//				this.mappingConstraintsList.add(new IOAdapterConstraint(this.constraintSystem, this.model, this.threadVariablesList,
-//																		this.ioAdapterVariablesList,  this.exclusiveAdapterVariablesList,
-//																		this.sharedAdapterVariablesList, adapterType.toString(), adapterType));
-//		}
 //		
 //		/* Create new constraints to keep the applications on the networks */
 //		this.mappingConstraintsList.add(new CommunicationOnNetworkConstraint(constraintSystem, model, threadVariablesList, communicationVariablesList));
-//
-//		/* Create a new constraint that restricts the applications to their specified ones */
-//		this.mappingConstraintsList.add(new RestrictedHardwareComponentsConstraint(this.constraintSystem, this.model, this.threadVariablesList));
 
 	}
 
