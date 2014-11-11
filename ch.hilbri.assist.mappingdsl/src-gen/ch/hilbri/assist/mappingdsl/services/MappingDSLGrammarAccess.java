@@ -2786,76 +2786,46 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getCUSTOM39CustomType39Keyword_45_0() { return cCUSTOM39CustomType39Keyword_45_0; }
 	}
 	
-	private final AssistModelElements pAssistModel;
-	private final HardwareElementContainerElements pHardwareElementContainer;
-	private final CompartmentElements pCompartment;
-	private final BoxElements pBox;
-	private final BoardElements pBoard;
-	private final ProcessorElements pProcessor;
-	private final CoreElements pCore;
-	private final IOAdapterElements pIOAdapter;
-	private final NetworkElements pNetwork;
-	private final ApplicationGroupElements pApplicationGroup;
-	private final ApplicationElements pApplication;
-	private final IOAdapterRequirementElements pIOAdapterRequirement;
-	private final DislocalityRelationElements pDislocalityRelation;
-	private final ProximityRelationElements pProximityRelation;
-	private final CommunicationRelationElements pCommunicationRelation;
-	private final DissimilarityRelationElements pDissimilarityRelation;
-	private final DissimilarityClauseElements pDissimilarityClause;
-	private final DissimilarityDisjunctionElements pDissimilarityDisjunction;
-	private final DissimilarityConjunctionElements pDissimilarityConjunction;
-	private final DissimilarityEntryElements pDissimilarityEntry;
-	private final CompartmentAttributesElements unknownRuleCompartmentAttributes;
-	private final BoxAttributesElements unknownRuleBoxAttributes;
-	private final BoardAttributesElements unknownRuleBoardAttributes;
-	private final ProcessorAttributesElements unknownRuleProcessorAttributes;
-	private final MetricParameterElements pMetricParameter;
-	private final QualifiedNameElements pQualifiedName;
-	private final HardwareArchitectureLevelTypeElements unknownRuleHardwareArchitectureLevelType;
-	private final DesignAssuranceLevelTypeElements unknownRuleDesignAssuranceLevelType;
-	private final IOAdapterProtectionLevelTypeElements unknownRuleIOAdapterProtectionLevelType;
-	private final IOAdapterTypeElements unknownRuleIOAdapterType;
+	private AssistModelElements pAssistModel;
+	private HardwareElementContainerElements pHardwareElementContainer;
+	private CompartmentElements pCompartment;
+	private BoxElements pBox;
+	private BoardElements pBoard;
+	private ProcessorElements pProcessor;
+	private CoreElements pCore;
+	private IOAdapterElements pIOAdapter;
+	private NetworkElements pNetwork;
+	private ApplicationGroupElements pApplicationGroup;
+	private ApplicationElements pApplication;
+	private IOAdapterRequirementElements pIOAdapterRequirement;
+	private DislocalityRelationElements pDislocalityRelation;
+	private ProximityRelationElements pProximityRelation;
+	private CommunicationRelationElements pCommunicationRelation;
+	private DissimilarityRelationElements pDissimilarityRelation;
+	private DissimilarityClauseElements pDissimilarityClause;
+	private DissimilarityDisjunctionElements pDissimilarityDisjunction;
+	private DissimilarityConjunctionElements pDissimilarityConjunction;
+	private DissimilarityEntryElements pDissimilarityEntry;
+	private CompartmentAttributesElements unknownRuleCompartmentAttributes;
+	private BoxAttributesElements unknownRuleBoxAttributes;
+	private BoardAttributesElements unknownRuleBoardAttributes;
+	private ProcessorAttributesElements unknownRuleProcessorAttributes;
+	private MetricParameterElements pMetricParameter;
+	private QualifiedNameElements pQualifiedName;
+	private HardwareArchitectureLevelTypeElements unknownRuleHardwareArchitectureLevelType;
+	private DesignAssuranceLevelTypeElements unknownRuleDesignAssuranceLevelType;
+	private IOAdapterProtectionLevelTypeElements unknownRuleIOAdapterProtectionLevelType;
+	private IOAdapterTypeElements unknownRuleIOAdapterType;
 	
 	private final Grammar grammar;
 
-	private final TerminalsGrammarAccess gaTerminals;
+	private TerminalsGrammarAccess gaTerminals;
 
 	@Inject
 	public MappingDSLGrammarAccess(GrammarProvider grammarProvider,
 		TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pAssistModel = new AssistModelElements();
-		this.pHardwareElementContainer = new HardwareElementContainerElements();
-		this.pCompartment = new CompartmentElements();
-		this.pBox = new BoxElements();
-		this.pBoard = new BoardElements();
-		this.pProcessor = new ProcessorElements();
-		this.pCore = new CoreElements();
-		this.pIOAdapter = new IOAdapterElements();
-		this.pNetwork = new NetworkElements();
-		this.pApplicationGroup = new ApplicationGroupElements();
-		this.pApplication = new ApplicationElements();
-		this.pIOAdapterRequirement = new IOAdapterRequirementElements();
-		this.pDislocalityRelation = new DislocalityRelationElements();
-		this.pProximityRelation = new ProximityRelationElements();
-		this.pCommunicationRelation = new CommunicationRelationElements();
-		this.pDissimilarityRelation = new DissimilarityRelationElements();
-		this.pDissimilarityClause = new DissimilarityClauseElements();
-		this.pDissimilarityDisjunction = new DissimilarityDisjunctionElements();
-		this.pDissimilarityConjunction = new DissimilarityConjunctionElements();
-		this.pDissimilarityEntry = new DissimilarityEntryElements();
-		this.unknownRuleCompartmentAttributes = new CompartmentAttributesElements();
-		this.unknownRuleBoxAttributes = new BoxAttributesElements();
-		this.unknownRuleBoardAttributes = new BoardAttributesElements();
-		this.unknownRuleProcessorAttributes = new ProcessorAttributesElements();
-		this.pMetricParameter = new MetricParameterElements();
-		this.pQualifiedName = new QualifiedNameElements();
-		this.unknownRuleHardwareArchitectureLevelType = new HardwareArchitectureLevelTypeElements();
-		this.unknownRuleDesignAssuranceLevelType = new DesignAssuranceLevelTypeElements();
-		this.unknownRuleIOAdapterProtectionLevelType = new IOAdapterProtectionLevelTypeElements();
-		this.unknownRuleIOAdapterType = new IOAdapterTypeElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -2892,7 +2862,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	proximityRelations+=ProximityRelation* "}")? ("Communication" "{" communicationRelations+=CommunicationRelation*
 	//	"}")?;
 	public AssistModelElements getAssistModelAccess() {
-		return pAssistModel;
+		return (pAssistModel != null) ? pAssistModel : (pAssistModel = new AssistModelElements());
 	}
 	
 	public ParserRule getAssistModelRule() {
@@ -2902,7 +2872,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//HardwareElementContainer:
 	//	Compartment | Box | Board;
 	public HardwareElementContainerElements getHardwareElementContainerAccess() {
-		return pHardwareElementContainer;
+		return (pHardwareElementContainer != null) ? pHardwareElementContainer : (pHardwareElementContainer = new HardwareElementContainerElements());
 	}
 	
 	public ParserRule getHardwareElementContainerRule() {
@@ -2914,7 +2884,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	("Side" "=" side=STRING ";")? ("Zone" "=" zone=STRING ";")? boxes+=Box+ ("Generic properties" "{"
 	//	metricParameters+=MetricParameter* "}")? "}";
 	public CompartmentElements getCompartmentAccess() {
-		return pCompartment;
+		return (pCompartment != null) ? pCompartment : (pCompartment = new CompartmentElements());
 	}
 	
 	public ParserRule getCompartmentRule() {
@@ -2925,7 +2895,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"Box" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? boards+=Board+ ("Generic properties" "{"
 	//	metricParameters+=MetricParameter* "}")? "}";
 	public BoxElements getBoxAccess() {
-		return pBox;
+		return (pBox != null) ? pBox : (pBox = new BoxElements());
 	}
 	
 	public ParserRule getBoxRule() {
@@ -2938,7 +2908,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	processors+=Processor+ ("RAM capacity" "=" ramCapacity=INT ";")? ("ROM capacity" "=" romCapacity=INT ";")?
 	//	ioAdapters+=IOAdapter* ("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}";
 	public BoardElements getBoardAccess() {
-		return pBoard;
+		return (pBoard != null) ? pBoard : (pBoard = new BoardElements());
 	}
 	
 	public ParserRule getBoardRule() {
@@ -2949,7 +2919,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"Processor" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("Type" "=" processorType=STRING ";")?
 	//	cores+=Core+ ("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}";
 	public ProcessorElements getProcessorAccess() {
-		return pProcessor;
+		return (pProcessor != null) ? pProcessor : (pProcessor = new ProcessorElements());
 	}
 	
 	public ParserRule getProcessorRule() {
@@ -2960,7 +2930,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"Core" name=ID "{" "Capacity" "=" capacity=INT ";" ("Architecture" "=" architecture=STRING ";")?
 	//	("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}";
 	public CoreElements getCoreAccess() {
-		return pCore;
+		return (pCore != null) ? pCore : (pCore = new CoreElements());
 	}
 	
 	public ParserRule getCoreRule() {
@@ -2971,7 +2941,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"I/O adapter" "count" "=" totalCount=INT "type" "=" adapterType=IOAdapterType ("protection-level" "="
 	//	protectionLevel=IOAdapterProtectionLevelType)? ";";
 	public IOAdapterElements getIOAdapterAccess() {
-		return pIOAdapter;
+		return (pIOAdapter != null) ? pIOAdapter : (pIOAdapter = new IOAdapterElements());
 	}
 	
 	public ParserRule getIOAdapterRule() {
@@ -2983,7 +2953,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	boards+=[Board|QualifiedName] ("," boards+=[Board|QualifiedName])* ";" ("Generic properties" "{"
 	//	metricParameters+=MetricParameter* "}")? "}";
 	public NetworkElements getNetworkAccess() {
-		return pNetwork;
+		return (pNetwork != null) ? pNetwork : (pNetwork = new NetworkElements());
 	}
 	
 	public ParserRule getNetworkRule() {
@@ -2994,7 +2964,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"Group" name=ID "{" applicationsOrGroups+=[ApplicationOrApplicationGroup] (","
 	//	applicationsOrGroups+=[ApplicationOrApplicationGroup])+ "}";
 	public ApplicationGroupElements getApplicationGroupAccess() {
-		return pApplicationGroup;
+		return (pApplicationGroup != null) ? pApplicationGroup : (pApplicationGroup = new ApplicationGroupElements());
 	}
 	
 	public ParserRule getApplicationGroupRule() {
@@ -3011,7 +2981,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* "}" ";")? ("Generic properties" "{"
 	//	metricParameters+=MetricParameter* "}")? "}";
 	public ApplicationElements getApplicationAccess() {
-		return pApplication;
+		return (pApplication != null) ? pApplication : (pApplication = new ApplicationElements());
 	}
 	
 	public ParserRule getApplicationRule() {
@@ -3022,7 +2992,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"Requires" requiredAdapterCount=INT adapterType=IOAdapterType "adapter" "(" (isExclusiveOnly?="exclusive" |
 	//	isSharedAllowed?="shared") "access)" ";";
 	public IOAdapterRequirementElements getIOAdapterRequirementAccess() {
-		return pIOAdapterRequirement;
+		return (pIOAdapterRequirement != null) ? pIOAdapterRequirement : (pIOAdapterRequirement = new IOAdapterRequirementElements());
 	}
 	
 	public ParserRule getIOAdapterRequirementRule() {
@@ -3033,7 +3003,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	applicationsOrGroups+=[ApplicationOrApplicationGroup] ("," applicationsOrGroups+=[ApplicationOrApplicationGroup])*
 	//	"dislocal up to" hardwareLevel=HardwareArchitectureLevelType ";";
 	public DislocalityRelationElements getDislocalityRelationAccess() {
-		return pDislocalityRelation;
+		return (pDislocalityRelation != null) ? pDislocalityRelation : (pDislocalityRelation = new DislocalityRelationElements());
 	}
 	
 	public ParserRule getDislocalityRelationRule() {
@@ -3044,7 +3014,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	applicationsOrGroups+=[ApplicationOrApplicationGroup] ("," applicationsOrGroups+=[ApplicationOrApplicationGroup])*
 	//	"on same" hardwareLevel=HardwareArchitectureLevelType ";";
 	public ProximityRelationElements getProximityRelationAccess() {
-		return pProximityRelation;
+		return (pProximityRelation != null) ? pProximityRelation : (pProximityRelation = new ProximityRelationElements());
 	}
 	
 	public ParserRule getProximityRelationRule() {
@@ -3055,7 +3025,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	applicationsOrGroups+=[ApplicationOrApplicationGroup] ("," applicationsOrGroups+=[ApplicationOrApplicationGroup])*
 	//	"require" bandwidthUtilization=INT "bandwidth" ";";
 	public CommunicationRelationElements getCommunicationRelationAccess() {
-		return pCommunicationRelation;
+		return (pCommunicationRelation != null) ? pCommunicationRelation : (pCommunicationRelation = new CommunicationRelationElements());
 	}
 	
 	public ParserRule getCommunicationRelationRule() {
@@ -3066,7 +3036,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	applicationsOrGroups+=[ApplicationOrApplicationGroup] ("," applicationsOrGroups+=[ApplicationOrApplicationGroup])+
 	//	"dissimilar based on" dissimilarityClause=DissimilarityClause ";";
 	public DissimilarityRelationElements getDissimilarityRelationAccess() {
-		return pDissimilarityRelation;
+		return (pDissimilarityRelation != null) ? pDissimilarityRelation : (pDissimilarityRelation = new DissimilarityRelationElements());
 	}
 	
 	public ParserRule getDissimilarityRelationRule() {
@@ -3077,7 +3047,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	DissimilarityEntry // Der Pfeil ist wichtig!
 	// | "(" (DissimilarityDisjunction | DissimilarityConjunction) ")";
 	public DissimilarityClauseElements getDissimilarityClauseAccess() {
-		return pDissimilarityClause;
+		return (pDissimilarityClause != null) ? pDissimilarityClause : (pDissimilarityClause = new DissimilarityClauseElements());
 	}
 	
 	public ParserRule getDissimilarityClauseRule() {
@@ -3087,7 +3057,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//DissimilarityDisjunction:
 	//	dissimilarityClauses+=DissimilarityClause ("OR" dissimilarityClauses+=DissimilarityClause)+;
 	public DissimilarityDisjunctionElements getDissimilarityDisjunctionAccess() {
-		return pDissimilarityDisjunction;
+		return (pDissimilarityDisjunction != null) ? pDissimilarityDisjunction : (pDissimilarityDisjunction = new DissimilarityDisjunctionElements());
 	}
 	
 	public ParserRule getDissimilarityDisjunctionRule() {
@@ -3097,7 +3067,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//DissimilarityConjunction:
 	//	dissimilarityClauses+=DissimilarityClause ("AND" dissimilarityClauses+=DissimilarityClause)+;
 	public DissimilarityConjunctionElements getDissimilarityConjunctionAccess() {
-		return pDissimilarityConjunction;
+		return (pDissimilarityConjunction != null) ? pDissimilarityConjunction : (pDissimilarityConjunction = new DissimilarityConjunctionElements());
 	}
 	
 	public ParserRule getDissimilarityConjunctionRule() {
@@ -3108,7 +3078,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"Compartment." compartmentAttribute=CompartmentAttributes | "Box." boxAttribute=BoxAttributes | "Board."
 	//	boardAttribute=BoardAttributes | "Processor." processorAttribute=ProcessorAttributes;
 	public DissimilarityEntryElements getDissimilarityEntryAccess() {
-		return pDissimilarityEntry;
+		return (pDissimilarityEntry != null) ? pDissimilarityEntry : (pDissimilarityEntry = new DissimilarityEntryElements());
 	}
 	
 	public ParserRule getDissimilarityEntryRule() {
@@ -3118,7 +3088,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//enum CompartmentAttributes:
 	//	MANUFACTURER="Manufacturer" | POWERSUPPLY="Power supply" | SIDE="Side" | ZONE="Zone";
 	public CompartmentAttributesElements getCompartmentAttributesAccess() {
-		return unknownRuleCompartmentAttributes;
+		return (unknownRuleCompartmentAttributes != null) ? unknownRuleCompartmentAttributes : (unknownRuleCompartmentAttributes = new CompartmentAttributesElements());
 	}
 	
 	public EnumRule getCompartmentAttributesRule() {
@@ -3128,7 +3098,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//enum BoxAttributes:
 	//	MANUFACTURER="Manufacturer";
 	public BoxAttributesElements getBoxAttributesAccess() {
-		return unknownRuleBoxAttributes;
+		return (unknownRuleBoxAttributes != null) ? unknownRuleBoxAttributes : (unknownRuleBoxAttributes = new BoxAttributesElements());
 	}
 	
 	public EnumRule getBoxAttributesRule() {
@@ -3138,7 +3108,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//enum BoardAttributes:
 	//	MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="AssuranceLevel" | BOARDTYPE="BoardType";
 	public BoardAttributesElements getBoardAttributesAccess() {
-		return unknownRuleBoardAttributes;
+		return (unknownRuleBoardAttributes != null) ? unknownRuleBoardAttributes : (unknownRuleBoardAttributes = new BoardAttributesElements());
 	}
 	
 	public EnumRule getBoardAttributesRule() {
@@ -3148,7 +3118,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//enum ProcessorAttributes:
 	//	MANUFACTURER="Manufacturer" | PROCESSORTYPE="ProcessorType";
 	public ProcessorAttributesElements getProcessorAttributesAccess() {
-		return unknownRuleProcessorAttributes;
+		return (unknownRuleProcessorAttributes != null) ? unknownRuleProcessorAttributes : (unknownRuleProcessorAttributes = new ProcessorAttributesElements());
 	}
 	
 	public EnumRule getProcessorAttributesRule() {
@@ -3158,7 +3128,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//MetricParameter:
 	//	name=STRING "=" value=INT ";";
 	public MetricParameterElements getMetricParameterAccess() {
-		return pMetricParameter;
+		return (pMetricParameter != null) ? pMetricParameter : (pMetricParameter = new MetricParameterElements());
 	}
 	
 	public ParserRule getMetricParameterRule() {
@@ -3168,7 +3138,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//QualifiedName:
 	//	ID ("." ID)*;
 	public QualifiedNameElements getQualifiedNameAccess() {
-		return pQualifiedName;
+		return (pQualifiedName != null) ? pQualifiedName : (pQualifiedName = new QualifiedNameElements());
 	}
 	
 	public ParserRule getQualifiedNameRule() {
@@ -3178,7 +3148,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	/// * ENUMS * / enum HardwareArchitectureLevelType:
 	//	CORE="Core" | PROCESSOR="Processor" | BOARD="Board" | BOX="Box" | COMPARTMENT="Compartment";
 	public HardwareArchitectureLevelTypeElements getHardwareArchitectureLevelTypeAccess() {
-		return unknownRuleHardwareArchitectureLevelType;
+		return (unknownRuleHardwareArchitectureLevelType != null) ? unknownRuleHardwareArchitectureLevelType : (unknownRuleHardwareArchitectureLevelType = new HardwareArchitectureLevelTypeElements());
 	}
 	
 	public EnumRule getHardwareArchitectureLevelTypeRule() {
@@ -3188,7 +3158,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//enum DesignAssuranceLevelType:
 	//	NONE="None" | QS | D | C | B | A;
 	public DesignAssuranceLevelTypeElements getDesignAssuranceLevelTypeAccess() {
-		return unknownRuleDesignAssuranceLevelType;
+		return (unknownRuleDesignAssuranceLevelType != null) ? unknownRuleDesignAssuranceLevelType : (unknownRuleDesignAssuranceLevelType = new DesignAssuranceLevelTypeElements());
 	}
 	
 	public EnumRule getDesignAssuranceLevelTypeRule() {
@@ -3199,7 +3169,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	NONE="None" | LEVEL_1="L1" | LEVEL_2="L2" | LEVEL_3="L3" | LEVEL_4="L4" | LEVEL_5="L5" | LEVEL_6="L6" | LEVEL_7="L7"
 	//	| LEVEL_8="L8";
 	public IOAdapterProtectionLevelTypeElements getIOAdapterProtectionLevelTypeAccess() {
-		return unknownRuleIOAdapterProtectionLevelType;
+		return (unknownRuleIOAdapterProtectionLevelType != null) ? unknownRuleIOAdapterProtectionLevelType : (unknownRuleIOAdapterProtectionLevelType = new IOAdapterProtectionLevelTypeElements());
 	}
 	
 	public EnumRule getIOAdapterProtectionLevelTypeRule() {
@@ -3219,7 +3189,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	CUSTOM32="Custom Type 32" | CUSTOM33="Custom Type 33" | CUSTOM34="Custom Type 34" | CUSTOM35="Custom Type 35" |
 	//	CUSTOM36="Custom Type 36" | CUSTOM37="Custom Type 37" | CUSTOM38="Custom Type 38" | CUSTOM39="Custom Type 39";
 	public IOAdapterTypeElements getIOAdapterTypeAccess() {
-		return unknownRuleIOAdapterType;
+		return (unknownRuleIOAdapterType != null) ? unknownRuleIOAdapterType : (unknownRuleIOAdapterType = new IOAdapterTypeElements());
 	}
 	
 	public EnumRule getIOAdapterTypeRule() {
@@ -3239,8 +3209,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal STRING returns ecore::EString:
-	//	"\"" ("\\" . / * 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' * / | !("\\" | "\""))* "\"" | "\'" ("\\" .
-	//	/ * 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' * / | !("\\" | "\'"))* "\'";
+	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
+	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 

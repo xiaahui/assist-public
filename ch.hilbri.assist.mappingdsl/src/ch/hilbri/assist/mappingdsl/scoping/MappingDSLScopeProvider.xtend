@@ -16,17 +16,13 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 
 /**
  * This class contains custom scoping description.
- * 
- * see : http://www.eclipse.org/Xtext/documentation.html#scoping
- * on how and when to use it 
- *
  */
 class MappingDSLScopeProvider extends AbstractDeclarativeScopeProvider {
 	@Inject IQualifiedNameProvider nameprovider
 
 	/* 
 	 * Referenzen auf ein HardwareElement (FixedDeployment) soll es nur 
-	 * fuer Compartments, Boxen, Boards und Prozessoren geben (aber nicht fuer Cores)
+	 * fuer Compartments, Boxen, Boards, Prozessoren und Cores geben;
 	 * daher bauen wir uns hier einen eigenen Scope zusammen.
 	 * 
 	 * Der QualifiedNameProvider ist wichtig, denn damit koennen auch gleichnamige
@@ -45,6 +41,9 @@ class MappingDSLScopeProvider extends AbstractDeclarativeScopeProvider {
 						list.add(board)
 						for (processor : board.processors) {
 							list.add(processor)
+							for (core : processor.cores) {
+								list.add(core)
+							}
 						}
 					}
 				}
@@ -61,6 +60,9 @@ class MappingDSLScopeProvider extends AbstractDeclarativeScopeProvider {
 					list.add(board)
 					for (processor : board.processors) {
 						list.add(processor)
+						for (core : processor.cores) {
+								list.add(core)
+							}
 					}
 				}
 			}
@@ -74,6 +76,9 @@ class MappingDSLScopeProvider extends AbstractDeclarativeScopeProvider {
 				list.add(board)
 				for (processor : board.processors) {
 					list.add(processor)
+					for (core : processor.cores) {
+								list.add(core)
+							}
 				}
 			}
 			return Scopes::scopeFor(list,nameprovider,IScope.NULLSCOPE)
