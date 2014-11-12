@@ -20,6 +20,13 @@ import ch.hilbri.assist.datamodel.model.DissimilarityRelation
  */
 class MappingDSLValidator extends AbstractMappingDSLValidator {
 	
+	// FIXME: TASK
+	/*
+	 * Create a check that an application in a dislocality relation is not ALSO
+	 * part of an applicationGroup in the same relation!!!!
+	 */
+	
+	
 	@Check
 	def checkApplicationGroupDoesNotContainItself(ApplicationGroup group) {
 		for (member : group.applicationsOrGroups) {
