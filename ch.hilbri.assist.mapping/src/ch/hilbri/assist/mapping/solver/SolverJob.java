@@ -26,6 +26,7 @@ import ch.hilbri.assist.mapping.solver.constraints.AllApplicationThreadsOnSameBo
 import ch.hilbri.assist.mapping.solver.constraints.ApplicationProximityConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.NoPermutationsConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint;
@@ -134,8 +135,9 @@ public class SolverJob extends Job {
 		/* Create a new constraint to restrictions on the proximity of the applications */
 		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, constraintStore, solverVariables));
 		
-//		/* Create a new constraint to obey the dislocality and dissimilarity requirements */
-//		this.mappingConstraintsList.add(new DislocalityConstraint(this.constraintSystem, this.model, this.threadVariablesList));
+		/* Create a new constraint to obey the dislocality requirements */
+		this.mappingConstraintsList.add(new DislocalityConstraint(model, constraintStore, solverVariables));
+		
 //		/* new */
 //		this.mappingConstraintsList.add(new DissimilarityTreeConstraint(this.constraintSystem, this.model, this.threadVariablesList));
 //		
@@ -222,8 +224,10 @@ public class SolverJob extends Job {
 		 
 		boolean result = search.labeling(constraintStore, select); 
 		
+		int solutionCount = search.getSolutionListener().solutionsNo();
+		
 		if (result) {
-			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, search.getSolutionListener().getSolutions());
+			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, search.getSolutionListener().getSolutions(), solutionCount);
 		}
 		
 		return Status.OK_STATUS;
