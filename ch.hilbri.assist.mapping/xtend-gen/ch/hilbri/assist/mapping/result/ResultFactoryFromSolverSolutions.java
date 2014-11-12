@@ -338,10 +338,10 @@ public class ResultFactoryFromSolverSolutions {
     }
   }
   
-  public static ArrayList<Result> create(final AssistModel model, final SolverVariablesContainer solverVariables, final Domain[][] solverSolutions) {
+  public static ArrayList<Result> create(final AssistModel model, final SolverVariablesContainer solverVariables, final Domain[][] solverSolutions, final int solutionCounter) {
     ResultFactoryFromSolverSolutions.f = MappingFactory.eINSTANCE;
     final ArrayList<Result> results = new ArrayList<Result>();
-    for (int i = 0; (i < solverSolutions.length); i++) {
+    for (int i = 0; (i < solutionCounter); i++) {
       {
         final Result result = ResultFactoryFromSolverSolutions.createBasicResult(model, ("Result-" + Integer.valueOf(i)));
         Domain[] _get = solverSolutions[i];

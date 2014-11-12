@@ -242,13 +242,14 @@ class ResultFactoryFromSolverSolutions {
 		}
 	}
 	
-	static def ArrayList<Result> create(AssistModel model, SolverVariablesContainer solverVariables, Domain[][] solverSolutions) {
+	static def ArrayList<Result> create(AssistModel model, SolverVariablesContainer solverVariables, Domain[][] solverSolutions, int solutionCounter) {
 		f = MappingFactory.eINSTANCE
 		
 		/* The list of results which will be returned for display */
 		val results = new ArrayList<Result>
 		
-		for (var i = 0; i < solverSolutions.length; i++) {
+		
+		for (var i = 0; i < solutionCounter; i++) {
 			/* Create the basic result (hardware architecture, software architecture, ...) */
 			val result = createBasicResult(model, "Result-"+i)
 			
