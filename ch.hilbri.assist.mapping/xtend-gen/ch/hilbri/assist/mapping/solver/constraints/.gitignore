@@ -19,3 +19,6 @@
 /.RestrictedDeploymentConstraint.java._trace
 /.ApplicationProximityConstraint.java._trace
 /.DislocalityConstraint.java._trace
+/DislocalityConstraint.java
+/ApplicationProximityConstraint.java
+/RestrictedDeploymentConstraint.java
