@@ -31,7 +31,6 @@ import org.eclipse.zest.core.widgets.ZestStyles;
 import org.eclipse.zest.layouts.LayoutStyles;
 import org.eclipse.zest.layouts.algorithms.TreeLayoutAlgorithm;
 
-import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import ch.hilbri.assist.datamodel.result.mapping.Board;
 import ch.hilbri.assist.datamodel.result.mapping.Box;
 import ch.hilbri.assist.datamodel.result.mapping.Compartment;
@@ -40,6 +39,7 @@ import ch.hilbri.assist.datamodel.result.mapping.HardwareElement;
 import ch.hilbri.assist.datamodel.result.mapping.Processor;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.datamodel.result.mapping.Thread;
+import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 
 
 
@@ -223,11 +223,21 @@ public class TreeView extends ViewPart {
 			for (Thread thread : ((Core)obj).getThreads() ) 
 				drawSoftwareNodes(thread, newNode, result);
 		}
-		else 	
-			/* draw lower level hardware architecture */
-			for (EObject child : obj.eContents()) 
-				drawHardwareNodes(child, newNode, result);
+		else if (obj instanceof Compartment) 
+			for (Box box : ((Compartment) obj).getBoxes())
+				drawHardwareNodes(box, newNode, result);
+
+		else if (obj instanceof Box) 
+			for (Board board : ((Box) obj).getBoards())
+				drawHardwareNodes(board, newNode, result);
+
+		else if (obj instanceof Board) 
+			for (Processor processor : ((Board) obj).getProcessors())
+				drawHardwareNodes(processor, newNode, result);
 		
+		else if (obj instanceof Processor) 
+			for (Core  core : ((Processor) obj).getCores())
+				drawHardwareNodes(core, newNode, result);
 	}
 
 
