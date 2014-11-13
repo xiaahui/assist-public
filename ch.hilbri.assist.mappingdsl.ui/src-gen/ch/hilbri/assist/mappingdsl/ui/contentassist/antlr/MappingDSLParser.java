@@ -38,7 +38,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getHardwareElementContainerAccess().getAlternatives(), "rule__HardwareElementContainer__Alternatives");
-					put(grammarAccess.getIOAdapterRequirementAccess().getAlternatives_5(), "rule__IOAdapterRequirement__Alternatives_5");
+					put(grammarAccess.getIOAdapterRequirementAccess().getAlternatives_4(), "rule__IOAdapterRequirement__Alternatives_4");
 					put(grammarAccess.getDissimilarityClauseAccess().getAlternatives(), "rule__DissimilarityClause__Alternatives");
 					put(grammarAccess.getDissimilarityClauseAccess().getAlternatives_1_1(), "rule__DissimilarityClause__Alternatives_1_1");
 					put(grammarAccess.getDissimilarityEntryAccess().getAlternatives(), "rule__DissimilarityEntry__Alternatives");
@@ -77,7 +77,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCoreAccess().getGroup_7(), "rule__Core__Group_7__0");
 					put(grammarAccess.getCoreAccess().getGroup_8(), "rule__Core__Group_8__0");
 					put(grammarAccess.getIOAdapterAccess().getGroup(), "rule__IOAdapter__Group__0");
-					put(grammarAccess.getIOAdapterAccess().getGroup_7(), "rule__IOAdapter__Group_7__0");
+					put(grammarAccess.getIOAdapterAccess().getGroup_10(), "rule__IOAdapter__Group_10__0");
 					put(grammarAccess.getNetworkAccess().getGroup(), "rule__Network__Group__0");
 					put(grammarAccess.getNetworkAccess().getGroup_11(), "rule__Network__Group_11__0");
 					put(grammarAccess.getNetworkAccess().getGroup_13(), "rule__Network__Group_13__0");
@@ -153,9 +153,9 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCoreAccess().getCapacityAssignment_5(), "rule__Core__CapacityAssignment_5");
 					put(grammarAccess.getCoreAccess().getArchitectureAssignment_7_2(), "rule__Core__ArchitectureAssignment_7_2");
 					put(grammarAccess.getCoreAccess().getMetricParametersAssignment_8_2(), "rule__Core__MetricParametersAssignment_8_2");
-					put(grammarAccess.getIOAdapterAccess().getTotalCountAssignment_3(), "rule__IOAdapter__TotalCountAssignment_3");
-					put(grammarAccess.getIOAdapterAccess().getAdapterTypeAssignment_6(), "rule__IOAdapter__AdapterTypeAssignment_6");
-					put(grammarAccess.getIOAdapterAccess().getProtectionLevelAssignment_7_2(), "rule__IOAdapter__ProtectionLevelAssignment_7_2");
+					put(grammarAccess.getIOAdapterAccess().getAdapterTypeAssignment_4(), "rule__IOAdapter__AdapterTypeAssignment_4");
+					put(grammarAccess.getIOAdapterAccess().getTotalCountAssignment_8(), "rule__IOAdapter__TotalCountAssignment_8");
+					put(grammarAccess.getIOAdapterAccess().getProtectionLevelAssignment_10_2(), "rule__IOAdapter__ProtectionLevelAssignment_10_2");
 					put(grammarAccess.getNetworkAccess().getNameAssignment_1(), "rule__Network__NameAssignment_1");
 					put(grammarAccess.getNetworkAccess().getBandwidthCapacityAssignment_5(), "rule__Network__BandwidthCapacityAssignment_5");
 					put(grammarAccess.getNetworkAccess().getBoardsAssignment_8(), "rule__Network__BoardsAssignment_8");
@@ -179,8 +179,8 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getApplicationAccess().getMetricParametersAssignment_15_2(), "rule__Application__MetricParametersAssignment_15_2");
 					put(grammarAccess.getIOAdapterRequirementAccess().getRequiredAdapterCountAssignment_1(), "rule__IOAdapterRequirement__RequiredAdapterCountAssignment_1");
 					put(grammarAccess.getIOAdapterRequirementAccess().getAdapterTypeAssignment_2(), "rule__IOAdapterRequirement__AdapterTypeAssignment_2");
-					put(grammarAccess.getIOAdapterRequirementAccess().getIsExclusiveOnlyAssignment_5_0(), "rule__IOAdapterRequirement__IsExclusiveOnlyAssignment_5_0");
-					put(grammarAccess.getIOAdapterRequirementAccess().getIsSharedAllowedAssignment_5_1(), "rule__IOAdapterRequirement__IsSharedAllowedAssignment_5_1");
+					put(grammarAccess.getIOAdapterRequirementAccess().getIsExclusiveOnlyAssignment_4_0(), "rule__IOAdapterRequirement__IsExclusiveOnlyAssignment_4_0");
+					put(grammarAccess.getIOAdapterRequirementAccess().getIsSharedAllowedAssignment_4_1(), "rule__IOAdapterRequirement__IsSharedAllowedAssignment_4_1");
 					put(grammarAccess.getDislocalityRelationAccess().getApplicationsOrGroupsAssignment_0(), "rule__DislocalityRelation__ApplicationsOrGroupsAssignment_0");
 					put(grammarAccess.getDislocalityRelationAccess().getApplicationsOrGroupsAssignment_1_1(), "rule__DislocalityRelation__ApplicationsOrGroupsAssignment_1_1");
 					put(grammarAccess.getDislocalityRelationAccess().getHardwareLevelAssignment_3(), "rule__DislocalityRelation__HardwareLevelAssignment_3");

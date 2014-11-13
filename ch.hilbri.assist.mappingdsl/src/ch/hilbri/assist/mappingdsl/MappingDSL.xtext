@@ -85,10 +85,11 @@ Core:
 	'}';
 
 IOAdapter:
-	'I/O adapter' 	 'count' '=' totalCount=INT
-					 'type' '=' adapterType=IOAdapterType 
-					('protection-level' '=' protectionLevel=IOAdapterProtectionLevelType)?
-	';'
+	'I/O adapter' '{' 	
+	 				 'type' '=' adapterType=IOAdapterType ';'
+	 				'count' '=' totalCount=INT ';'
+					 ('protection-level' '=' protectionLevel=IOAdapterProtectionLevelType ';')?
+					'}' 
 ;
 
 Network:
@@ -121,7 +122,7 @@ Application:
 IOAdapterRequirement: 
 	'Requires' 	requiredAdapterCount=INT 
 				adapterType=IOAdapterType 'adapter' 
-				'(' (isExclusiveOnly?='exclusive' | isSharedAllowed?='shared') 'access)' 
+				 (isExclusiveOnly?='exclusive' | isSharedAllowed?='shared') 
 	';' 
 ;
 
@@ -225,45 +226,45 @@ enum IOAdapterType:
 	ANALOG 		= 'Analog'				|
 	DIGITAL		= 'Digital'				|
 	SERIAL		= 'Serial'				|
-	CUSTOM0		= 'Custom Type 0'		|
-	CUSTOM1		= 'Custom Type 1'		|
-	CUSTOM2		= 'Custom Type 2'		|
-	CUSTOM3		= 'Custom Type 3'		|
-	CUSTOM4		= 'Custom Type 4'		|
-	CUSTOM5		= 'Custom Type 5'		|
-	CUSTOM6		= 'Custom Type 6'		|		
-	CUSTOM7		= 'Custom Type 7'		|
-	CUSTOM8		= 'Custom Type 8'		|
-	CUSTOM9		= 'Custom Type 9'		|
-	CUSTOM10	= 'Custom Type 10'		|
-	CUSTOM11	= 'Custom Type 11'		|
-	CUSTOM12	= 'Custom Type 12'		|
-	CUSTOM13	= 'Custom Type 13'		|
-	CUSTOM14	= 'Custom Type 14'		|
-	CUSTOM15	= 'Custom Type 15'		|
-	CUSTOM16	= 'Custom Type 16'		|
-	CUSTOM17	= 'Custom Type 17'		|
-	CUSTOM18	= 'Custom Type 18'		|
-	CUSTOM19	= 'Custom Type 19'		|
-	CUSTOM20	= 'Custom Type 20'		|
-	CUSTOM21	= 'Custom Type 21'		|
-	CUSTOM22	= 'Custom Type 22'		|
-	CUSTOM23	= 'Custom Type 23'		|
-	CUSTOM24	= 'Custom Type 24'		|
-	CUSTOM25	= 'Custom Type 25'		|
-	CUSTOM26	= 'Custom Type 26'		|
-	CUSTOM27	= 'Custom Type 27'		|
-	CUSTOM28	= 'Custom Type 28'		|
-	CUSTOM29	= 'Custom Type 29'		|
-	CUSTOM30	= 'Custom Type 30'		|
-	CUSTOM31	= 'Custom Type 31'		|
-	CUSTOM32	= 'Custom Type 32'		|
-	CUSTOM33	= 'Custom Type 33'		|
-	CUSTOM34	= 'Custom Type 34'		|
-	CUSTOM35	= 'Custom Type 35'		|
-	CUSTOM36	= 'Custom Type 36'		|
-	CUSTOM37	= 'Custom Type 37'		|
-	CUSTOM38	= 'Custom Type 38'		|
-	CUSTOM39	= 'Custom Type 39'
+	CUSTOM0		= 'Custom-Type-0'		|
+	CUSTOM1		= 'Custom-Type-1'		|
+	CUSTOM2		= 'Custom-Type-2'		|
+	CUSTOM3		= 'Custom-Type-3'		|
+	CUSTOM4		= 'Custom-Type-4'		|
+	CUSTOM5		= 'Custom-Type-5'		|
+	CUSTOM6		= 'Custom-Type-6'		|		
+	CUSTOM7		= 'Custom-Type-7'		|
+	CUSTOM8		= 'Custom-Type-8'		|
+	CUSTOM9		= 'Custom-Type-9'		|
+	CUSTOM10	= 'Custom-Type-10'		|
+	CUSTOM11	= 'Custom-Type-11'		|
+	CUSTOM12	= 'Custom-Type-12'		|
+	CUSTOM13	= 'Custom-Type-13'		|
+	CUSTOM14	= 'Custom-Type-14'		|
+	CUSTOM15	= 'Custom-Type-15'		|
+	CUSTOM16	= 'Custom-Type-16'		|
+	CUSTOM17	= 'Custom-Type-17'		|
+	CUSTOM18	= 'Custom-Type-18'		|
+	CUSTOM19	= 'Custom-Type-19'		|
+	CUSTOM20	= 'Custom-Type-20'		|
+	CUSTOM21	= 'Custom-Type-21'		|
+	CUSTOM22	= 'Custom-Type-22'		|
+	CUSTOM23	= 'Custom-Type-23'		|
+	CUSTOM24	= 'Custom-Type-24'		|
+	CUSTOM25	= 'Custom-Type-25'		|
+	CUSTOM26	= 'Custom-Type-26'		|
+	CUSTOM27	= 'Custom-Type-27'		|
+	CUSTOM28	= 'Custom-Type-28'		|
+	CUSTOM29	= 'Custom-Type-29'		|
+	CUSTOM30	= 'Custom-Type-30'		|
+	CUSTOM31	= 'Custom-Type-31'		|
+	CUSTOM32	= 'Custom-Type-32'		|
+	CUSTOM33	= 'Custom-Type-33'		|
+	CUSTOM34	= 'Custom-Type-34'		|
+	CUSTOM35	= 'Custom-Type-35'		|
+	CUSTOM36	= 'Custom-Type-36'		|
+	CUSTOM37	= 'Custom-Type-37'		|
+	CUSTOM38	= 'Custom-Type-38'		|
+	CUSTOM39	= 'Custom-Type-39'
 ;
 
