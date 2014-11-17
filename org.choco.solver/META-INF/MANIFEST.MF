@@ -129,3 +129,4 @@ Export-Package: dk.brics.automaton,
  util.sort,
  util.tools
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: ch.qos.logback;bundle-version="1.1.2"
