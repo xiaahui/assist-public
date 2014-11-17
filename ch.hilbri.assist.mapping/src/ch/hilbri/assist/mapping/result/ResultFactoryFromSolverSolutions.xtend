@@ -2,9 +2,10 @@ package ch.hilbri.assist.mapping.result
 
 import ch.hilbri.assist.application.helpers.ConsoleCommands
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.Board
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.result.mapping.Application
 import ch.hilbri.assist.datamodel.result.mapping.ApplicationGroup
-import ch.hilbri.assist.datamodel.result.mapping.Board
 import ch.hilbri.assist.datamodel.result.mapping.Box
 import ch.hilbri.assist.datamodel.result.mapping.Compartment
 import ch.hilbri.assist.datamodel.result.mapping.Core
@@ -16,8 +17,11 @@ import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.HashMap
+import java.util.List
 import org.eclipse.emf.ecore.EObject
-import org.jacop.core.Domain
+import solver.search.solution.Solution
+
+//import org.jacop.core.Domain
 
 class ResultFactoryFromSolverSolutions {
 	
@@ -89,15 +93,15 @@ class ResultFactoryFromSolverSolutions {
 				b.name 				= modelElement.name
 				b.manufacturer 		= modelElement.manufacturer
 				for (board : modelElement.boards)
-					b.boards.add(createHardwareElements(board) as Board)
+					b.boards.add(createHardwareElements(board) as ch.hilbri.assist.datamodel.result.mapping.Board)
 					
 				b.referenceObject	= modelElement
 					
 				return b	
 			}
 			
-			ch.hilbri.assist.datamodel.model.Board: {
-				val Board b 		= f.createBoard
+			Board: {
+				val ch.hilbri.assist.datamodel.result.mapping.Board b 		= f.createBoard
 				b.name				= modelElement.name
 				b.manufacturer 		= modelElement.manufacturer
 				b.boardType			= modelElement.boardType
@@ -190,18 +194,22 @@ class ResultFactoryFromSolverSolutions {
 		return result
 	}
 	
-	static def void addMappingFromSolution(Result result, AssistModel model, SolverVariablesContainer solverVariables, Domain[] solverSolution) {
+	static def void addMappingFromSolution(Result result, AssistModel model, SolverVariablesContainer solverVariables, Solution solution) {
 		for (thread : model.allThreads) {
 			
 			/* Which thread in the result corresponds to this model thread? */
 			val resultThread = result.findResultThread(thread)
 			
+			
+			val locVar = solverVariables.getThreadLocationVariable(thread, HardwareArchitectureLevelType.CORE_VALUE)
+			
 			/* Which is the location variable which represents the placement of this model thread on the core level? */
-			val locVarIndex = solverVariables.getIndexOfThreadLocationInSolutionVariablesList(thread, 1)
+//			val locVarIndex = solverVariables.getIndexOfThreadLocationInSolutionVariablesList(thread, 1)
 			
 			/* To which core number should the current thread be mapped to? */
-			val coreNr = solverSolution.get(locVarIndex).valueEnumeration.nextElement
-			val coreIndex = coreNr - 1
+//			val coreNr = solverSolution.get(locVarIndex).valueEnumeration.nextElement
+
+			val coreIndex = solution.getIntVal(locVar)
 			  
 			/* To which core does this correspond in the result model? */
 			val resultCore = result.findResultHardwareElement(model.allCores.get(coreIndex)) as Core
@@ -217,47 +225,46 @@ class ResultFactoryFromSolverSolutions {
 		}
 	}
 	
-	static def void addUtilizationInformation(Result result, AssistModel model, SolverVariablesContainer solverVariables, Domain[] solverSolution) {
+	static def void addUtilizationInformation(Result result, AssistModel model, SolverVariablesContainer solverVariables, Solution solution) {
+
 		/* 1. Update the load information on all cores */
 		for (resultCore : result.allCores) {
 			val modelCore = resultCore.referenceObject as ch.hilbri.assist.datamodel.model.Core 
-			val absoluteUtilization = solverSolution.get(solverVariables.getIndexOfAbsoluteUtilizationInSolutionVariablesList(modelCore)).valueEnumeration.nextElement
+			val absoluteUtilization = solution.getIntVal(solverVariables.getAbsoluteCoreUtilizationVariable(modelCore))
 			resultCore.setUtilization(absoluteUtilization)
 		}
 		
 		/* 2. Update the ram utilization data for all boards */
 		for (resultBoard : result.allBoards) {
-			val modelBoard = resultBoard.referenceObject as ch.hilbri.assist.datamodel.model.Board
-			val index = solverVariables.getIndexOfAbsoluteRamUtilizationInSolutionVariablesList(modelBoard)
-			val absoluteRamUtilization = solverSolution.get(index).valueEnumeration.nextElement
+			val modelBoard = resultBoard.referenceObject as Board
+			val absoluteRamUtilization = solution.getIntVal(solverVariables.getAbsoluteRamUtilizationVariable(modelBoard))
 			resultBoard.setRamUtilization(absoluteRamUtilization)
 		}
 		
 		/* 3. Update the rom utilization data for all boards */
 		for (resultBoard : result.allBoards) {
-			val modelBoard = resultBoard.referenceObject as ch.hilbri.assist.datamodel.model.Board
-			val index = solverVariables.getIndexOfAbsoluteRomUtilizationInSolutionVariablesList(modelBoard)
-			val absoluteRomUtilization = solverSolution.get(index).valueEnumeration.nextElement
+			val modelBoard = resultBoard.referenceObject as Board
+			val absoluteRomUtilization = solution.getIntVal(solverVariables.getAbsoluteRomUtilizationVariable(modelBoard))
 			resultBoard.setRomUtilization(absoluteRomUtilization)
 		}
 	}
 	
-	static def ArrayList<Result> create(AssistModel model, SolverVariablesContainer solverVariables, Domain[][] solverSolutions, int solutionCounter) {
+	static def ArrayList<Result> create(AssistModel model, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {
 		f = MappingFactory.eINSTANCE
 		
 		/* The list of results which will be returned for display */
 		val results = new ArrayList<Result>
 		
 		
-		for (var i = 0; i < solutionCounter; i++) {
+		for (solution : solverSolutions) {
 			/* Create the basic result (hardware architecture, software architecture, ...) */
-			val result = createBasicResult(model, "Result-"+i)
+			val result = createBasicResult(model, "Result-"+ solverSolutions.indexOf(solution))
 			
 			/* Add the deployment information */
-			addMappingFromSolution(result, model, solverVariables, solverSolutions.get(i))
+			addMappingFromSolution(result, model, solverVariables, solution)
 		
 			/* Add utilization information to result model */
-			addUtilizationInformation(result, model, solverVariables, solverSolutions.get(i))
+			addUtilizationInformation(result, model, solverVariables, solution)
 		
 			/* Add this result to the list of results which will be returned for display */	
 			results.add(result)

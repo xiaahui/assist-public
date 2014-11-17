@@ -3,18 +3,20 @@ package ch.hilbri.assist.mapping.solver.variables;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.Board;
 import ch.hilbri.assist.datamodel.model.Core;
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.datamodel.model.HardwareElement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtend.lib.Data;
+import org.eclipse.xtend.lib.annotations.Data;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Pure;
-import org.eclipse.xtext.xbase.lib.util.ToStringHelper;
-import org.jacop.core.IntVar;
-import org.jacop.core.Store;
+import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
+import solver.Solver;
+import solver.variables.IntVar;
+import solver.variables.VF;
 
 @Data
 @SuppressWarnings("all")
@@ -22,111 +24,96 @@ public class SolverVariablesContainer {
   /**
    * A list of location variables for each thread (and each system layer)
    */
-  private final HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = new HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>>();
+  private final HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> threadLocationVariablesList = new HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>>();
   
   /**
    * A list of variables; a variable for each core which contains the absolute utilization
    */
-  private final HashMap<Core, IntVar> _absoluteCoreUtilizationList = new HashMap<Core, IntVar>();
+  private final HashMap<Core, IntVar> absoluteCoreUtilizationList = new HashMap<Core, IntVar>();
   
   /**
    * A list of variables; a variable for each board which contains the absolute ram utilization
    */
-  private final HashMap<Board, IntVar> _absoluteRamUtilizationList = new HashMap<Board, IntVar>();
+  private final HashMap<Board, IntVar> absoluteRamUtilizationList = new HashMap<Board, IntVar>();
   
   /**
    * A list of variables; a variable for each board which contains the absolute rom utilization
    */
-  private final HashMap<Board, IntVar> _absoluteRomUtilizationList = new HashMap<Board, IntVar>();
+  private final HashMap<Board, IntVar> absoluteRomUtilizationList = new HashMap<Board, IntVar>();
   
   /**
    * CONSTRUCTOR
    */
-  public SolverVariablesContainer(final AssistModel model, final Store constraintStore) {
+  public SolverVariablesContainer(final AssistModel model, final Solver solver) {
     EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads = model.getAllThreads();
     for (final ch.hilbri.assist.datamodel.model.Thread t : _allThreads) {
       {
         final HashMap<Integer, IntVar> m = new HashMap<Integer, IntVar>();
-        for (int i = 1; (i <= model.getHardwareLevelCount()); i++) {
+        for (int i = HardwareArchitectureLevelType.CORE_VALUE; (i <= model.getHardwareLevelCount()); i++) {
           String _name = t.getName();
-          String _plus = ("LocVar-" + _name);
-          String _plus_1 = (_plus + "-Level-");
+          String _plus = ("Loc-" + _name);
+          String _plus_1 = (_plus + "-L");
           String _plus_2 = (_plus_1 + Integer.valueOf(i));
           EList<HardwareElement> _allHardwareElements = model.getAllHardwareElements(i);
           int _size = _allHardwareElements.size();
-          IntVar _intVar = new IntVar(constraintStore, _plus_2, 1, _size);
-          m.put(Integer.valueOf(i), _intVar);
+          int _minus = (_size - 1);
+          IntVar _enumerated = VF.enumerated(_plus_2, 0, _minus, solver);
+          m.put(Integer.valueOf(i), _enumerated);
         }
-        HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = this.getThreadLocationVariablesList();
-        _threadLocationVariablesList.put(t, m);
+        this.threadLocationVariablesList.put(t, m);
       }
     }
     EList<Core> _allCores = model.getAllCores();
     for (final Core c : _allCores) {
-      HashMap<Core, IntVar> _absoluteCoreUtilizationList = this.getAbsoluteCoreUtilizationList();
       String _name = c.getName();
       String _plus = ("AbsCoreUtil-" + _name);
-      int _capacity = c.getCapacity();
-      IntVar _intVar = new IntVar(constraintStore, _plus, 0, _capacity);
-      _absoluteCoreUtilizationList.put(c, _intVar);
+      IntVar _bounded = VF.bounded(_plus, 0, 0, solver);
+      this.absoluteCoreUtilizationList.put(c, _bounded);
     }
     EList<Board> _allBoards = model.getAllBoards();
     for (final Board b : _allBoards) {
-      HashMap<Board, IntVar> _absoluteRamUtilizationList = this.getAbsoluteRamUtilizationList();
       String _name_1 = b.getName();
       String _plus_1 = ("AbsRamUtil-" + _name_1);
-      int _ramCapacity = b.getRamCapacity();
-      IntVar _intVar_1 = new IntVar(constraintStore, _plus_1, 0, _ramCapacity);
-      _absoluteRamUtilizationList.put(b, _intVar_1);
+      IntVar _bounded_1 = VF.bounded(_plus_1, 0, 0, solver);
+      this.absoluteRamUtilizationList.put(b, _bounded_1);
     }
     EList<Board> _allBoards_1 = model.getAllBoards();
     for (final Board b_1 : _allBoards_1) {
-      HashMap<Board, IntVar> _absoluteRomUtilizationList = this.getAbsoluteRomUtilizationList();
       String _name_2 = b_1.getName();
       String _plus_2 = ("AbsRomUtil-" + _name_2);
-      int _romCapacity = b_1.getRomCapacity();
-      IntVar _intVar_2 = new IntVar(constraintStore, _plus_2, 0, _romCapacity);
-      _absoluteRomUtilizationList.put(b_1, _intVar_2);
+      IntVar _bounded_2 = VF.bounded(_plus_2, 0, 0, solver);
+      this.absoluteRomUtilizationList.put(b_1, _bounded_2);
     }
   }
   
   /**
    * Returns a list of Variables which the solver has to generate solutions for
    */
-  public IntVar[] getSolutionVariables() {
+  public IntVar[] getAllVariables() {
     final ArrayList<IntVar> list = new ArrayList<IntVar>();
-    HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = this.getThreadLocationVariablesList();
-    Set<ch.hilbri.assist.datamodel.model.Thread> _keySet = _threadLocationVariablesList.keySet();
+    Set<ch.hilbri.assist.datamodel.model.Thread> _keySet = this.threadLocationVariablesList.keySet();
     for (final ch.hilbri.assist.datamodel.model.Thread threadKey : _keySet) {
-      HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList_1 = this.getThreadLocationVariablesList();
-      HashMap<Integer, IntVar> _get = _threadLocationVariablesList_1.get(threadKey);
+      HashMap<Integer, IntVar> _get = this.threadLocationVariablesList.get(threadKey);
       Set<Integer> _keySet_1 = _get.keySet();
       for (final Integer levelKey : _keySet_1) {
-        HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList_2 = this.getThreadLocationVariablesList();
-        HashMap<Integer, IntVar> _get_1 = _threadLocationVariablesList_2.get(threadKey);
+        HashMap<Integer, IntVar> _get_1 = this.threadLocationVariablesList.get(threadKey);
         IntVar _get_2 = _get_1.get(levelKey);
         list.add(_get_2);
       }
     }
-    HashMap<Core, IntVar> _absoluteCoreUtilizationList = this.getAbsoluteCoreUtilizationList();
-    Set<Core> _keySet_2 = _absoluteCoreUtilizationList.keySet();
+    Set<Core> _keySet_2 = this.absoluteCoreUtilizationList.keySet();
     for (final Core coreKey : _keySet_2) {
-      HashMap<Core, IntVar> _absoluteCoreUtilizationList_1 = this.getAbsoluteCoreUtilizationList();
-      IntVar _get_3 = _absoluteCoreUtilizationList_1.get(coreKey);
+      IntVar _get_3 = this.absoluteCoreUtilizationList.get(coreKey);
       list.add(_get_3);
     }
-    HashMap<Board, IntVar> _absoluteRamUtilizationList = this.getAbsoluteRamUtilizationList();
-    Set<Board> _keySet_3 = _absoluteRamUtilizationList.keySet();
+    Set<Board> _keySet_3 = this.absoluteRamUtilizationList.keySet();
     for (final Board boardKey : _keySet_3) {
-      HashMap<Board, IntVar> _absoluteRamUtilizationList_1 = this.getAbsoluteRamUtilizationList();
-      IntVar _get_4 = _absoluteRamUtilizationList_1.get(boardKey);
+      IntVar _get_4 = this.absoluteRamUtilizationList.get(boardKey);
       list.add(_get_4);
     }
-    HashMap<Board, IntVar> _absoluteRomUtilizationList = this.getAbsoluteRomUtilizationList();
-    Set<Board> _keySet_4 = _absoluteRomUtilizationList.keySet();
+    Set<Board> _keySet_4 = this.absoluteRomUtilizationList.keySet();
     for (final Board boardKey_1 : _keySet_4) {
-      HashMap<Board, IntVar> _absoluteRomUtilizationList_1 = this.getAbsoluteRomUtilizationList();
-      IntVar _get_5 = _absoluteRomUtilizationList_1.get(boardKey_1);
+      IntVar _get_5 = this.absoluteRomUtilizationList.get(boardKey_1);
       list.add(_get_5);
     }
     return ((IntVar[])Conversions.unwrapArray(list, IntVar.class));
@@ -136,8 +123,7 @@ public class SolverVariablesContainer {
    * Returns the location variable for a given thread and a given hardware level
    */
   public IntVar getThreadLocationVariable(final ch.hilbri.assist.datamodel.model.Thread t, final int level) {
-    HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = this.getThreadLocationVariablesList();
-    HashMap<Integer, IntVar> _get = _threadLocationVariablesList.get(t);
+    HashMap<Integer, IntVar> _get = this.threadLocationVariablesList.get(t);
     return _get.get(Integer.valueOf(level));
   }
   
@@ -145,63 +131,57 @@ public class SolverVariablesContainer {
    * Returns the index of the location variable for a given thread and hardware level
    */
   public int getIndexOfThreadLocationInSolutionVariablesList(final ch.hilbri.assist.datamodel.model.Thread t, final int level) {
-    IntVar[] _solutionVariables = this.getSolutionVariables();
+    IntVar[] _allVariables = this.getAllVariables();
     IntVar _threadLocationVariable = this.getThreadLocationVariable(t, level);
-    return ((List<IntVar>)Conversions.doWrapArray(_solutionVariables)).indexOf(_threadLocationVariable);
+    return ((List<IntVar>)Conversions.doWrapArray(_allVariables)).indexOf(_threadLocationVariable);
   }
   
   /**
    * Returns the variable which contains the absolute utilization for the given core
    */
   public IntVar getAbsoluteCoreUtilizationVariable(final Core c) {
-    HashMap<Core, IntVar> _absoluteCoreUtilizationList = this.getAbsoluteCoreUtilizationList();
-    return _absoluteCoreUtilizationList.get(c);
+    return this.absoluteCoreUtilizationList.get(c);
   }
   
   /**
    * Returns the index of the absolute utilization variable of a given core in the solutions variables list
    */
   public int getIndexOfAbsoluteUtilizationInSolutionVariablesList(final Core c) {
-    IntVar[] _solutionVariables = this.getSolutionVariables();
-    HashMap<Core, IntVar> _absoluteCoreUtilizationList = this.getAbsoluteCoreUtilizationList();
-    IntVar _get = _absoluteCoreUtilizationList.get(c);
-    return ((List<IntVar>)Conversions.doWrapArray(_solutionVariables)).indexOf(_get);
+    IntVar[] _allVariables = this.getAllVariables();
+    IntVar _get = this.absoluteCoreUtilizationList.get(c);
+    return ((List<IntVar>)Conversions.doWrapArray(_allVariables)).indexOf(_get);
   }
   
   /**
    * Returns the variable which contains the absolute ram utilization for the given board
    */
   public IntVar getAbsoluteRamUtilizationVariable(final Board b) {
-    HashMap<Board, IntVar> _absoluteRamUtilizationList = this.getAbsoluteRamUtilizationList();
-    return _absoluteRamUtilizationList.get(b);
+    return this.absoluteRamUtilizationList.get(b);
   }
   
   /**
    * Returns the index of the absolute ram utilization variable of a given board in the solutions variables list
    */
   public int getIndexOfAbsoluteRamUtilizationInSolutionVariablesList(final Board b) {
-    IntVar[] _solutionVariables = this.getSolutionVariables();
-    HashMap<Board, IntVar> _absoluteRamUtilizationList = this.getAbsoluteRamUtilizationList();
-    IntVar _get = _absoluteRamUtilizationList.get(b);
-    return ((List<IntVar>)Conversions.doWrapArray(_solutionVariables)).indexOf(_get);
+    IntVar[] _allVariables = this.getAllVariables();
+    IntVar _get = this.absoluteRamUtilizationList.get(b);
+    return ((List<IntVar>)Conversions.doWrapArray(_allVariables)).indexOf(_get);
   }
   
   /**
    * Returns the variable which contains the absolute ram utilization for the given board
    */
   public IntVar getAbsoluteRomUtilizationVariable(final Board b) {
-    HashMap<Board, IntVar> _absoluteRomUtilizationList = this.getAbsoluteRomUtilizationList();
-    return _absoluteRomUtilizationList.get(b);
+    return this.absoluteRomUtilizationList.get(b);
   }
   
   /**
    * Returns the index of the absolute ram utilization variable of a given board in the solutions variables list
    */
   public int getIndexOfAbsoluteRomUtilizationInSolutionVariablesList(final Board b) {
-    IntVar[] _solutionVariables = this.getSolutionVariables();
-    HashMap<Board, IntVar> _absoluteRomUtilizationList = this.getAbsoluteRomUtilizationList();
-    IntVar _get = _absoluteRomUtilizationList.get(b);
-    return ((List<IntVar>)Conversions.doWrapArray(_solutionVariables)).indexOf(_get);
+    IntVar[] _allVariables = this.getAllVariables();
+    IntVar _get = this.absoluteRomUtilizationList.get(b);
+    return ((List<IntVar>)Conversions.doWrapArray(_allVariables)).indexOf(_get);
   }
   
   @Override
@@ -209,10 +189,10 @@ public class SolverVariablesContainer {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((this._threadLocationVariablesList== null) ? 0 : this._threadLocationVariablesList.hashCode());
-    result = prime * result + ((this._absoluteCoreUtilizationList== null) ? 0 : this._absoluteCoreUtilizationList.hashCode());
-    result = prime * result + ((this._absoluteRamUtilizationList== null) ? 0 : this._absoluteRamUtilizationList.hashCode());
-    result = prime * result + ((this._absoluteRomUtilizationList== null) ? 0 : this._absoluteRomUtilizationList.hashCode());
+    result = prime * result + ((this.threadLocationVariablesList== null) ? 0 : this.threadLocationVariablesList.hashCode());
+    result = prime * result + ((this.absoluteCoreUtilizationList== null) ? 0 : this.absoluteCoreUtilizationList.hashCode());
+    result = prime * result + ((this.absoluteRamUtilizationList== null) ? 0 : this.absoluteRamUtilizationList.hashCode());
+    result = prime * result + ((this.absoluteRomUtilizationList== null) ? 0 : this.absoluteRomUtilizationList.hashCode());
     return result;
   }
   
@@ -226,25 +206,25 @@ public class SolverVariablesContainer {
     if (getClass() != obj.getClass())
       return false;
     SolverVariablesContainer other = (SolverVariablesContainer) obj;
-    if (this._threadLocationVariablesList == null) {
-      if (other._threadLocationVariablesList != null)
+    if (this.threadLocationVariablesList == null) {
+      if (other.threadLocationVariablesList != null)
         return false;
-    } else if (!this._threadLocationVariablesList.equals(other._threadLocationVariablesList))
+    } else if (!this.threadLocationVariablesList.equals(other.threadLocationVariablesList))
       return false;
-    if (this._absoluteCoreUtilizationList == null) {
-      if (other._absoluteCoreUtilizationList != null)
+    if (this.absoluteCoreUtilizationList == null) {
+      if (other.absoluteCoreUtilizationList != null)
         return false;
-    } else if (!this._absoluteCoreUtilizationList.equals(other._absoluteCoreUtilizationList))
+    } else if (!this.absoluteCoreUtilizationList.equals(other.absoluteCoreUtilizationList))
       return false;
-    if (this._absoluteRamUtilizationList == null) {
-      if (other._absoluteRamUtilizationList != null)
+    if (this.absoluteRamUtilizationList == null) {
+      if (other.absoluteRamUtilizationList != null)
         return false;
-    } else if (!this._absoluteRamUtilizationList.equals(other._absoluteRamUtilizationList))
+    } else if (!this.absoluteRamUtilizationList.equals(other.absoluteRamUtilizationList))
       return false;
-    if (this._absoluteRomUtilizationList == null) {
-      if (other._absoluteRomUtilizationList != null)
+    if (this.absoluteRomUtilizationList == null) {
+      if (other.absoluteRomUtilizationList != null)
         return false;
-    } else if (!this._absoluteRomUtilizationList.equals(other._absoluteRomUtilizationList))
+    } else if (!this.absoluteRomUtilizationList.equals(other.absoluteRomUtilizationList))
       return false;
     return true;
   }
@@ -252,27 +232,31 @@ public class SolverVariablesContainer {
   @Override
   @Pure
   public String toString() {
-    String result = new ToStringHelper().toString(this);
-    return result;
+    ToStringBuilder b = new ToStringBuilder(this);
+    b.add("threadLocationVariablesList", this.threadLocationVariablesList);
+    b.add("absoluteCoreUtilizationList", this.absoluteCoreUtilizationList);
+    b.add("absoluteRamUtilizationList", this.absoluteRamUtilizationList);
+    b.add("absoluteRomUtilizationList", this.absoluteRomUtilizationList);
+    return b.toString();
   }
   
   @Pure
   public HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> getThreadLocationVariablesList() {
-    return this._threadLocationVariablesList;
+    return this.threadLocationVariablesList;
   }
   
   @Pure
   public HashMap<Core, IntVar> getAbsoluteCoreUtilizationList() {
-    return this._absoluteCoreUtilizationList;
+    return this.absoluteCoreUtilizationList;
   }
   
   @Pure
   public HashMap<Board, IntVar> getAbsoluteRamUtilizationList() {
-    return this._absoluteRamUtilizationList;
+    return this.absoluteRamUtilizationList;
   }
   
   @Pure
   public HashMap<Board, IntVar> getAbsoluteRomUtilizationList() {
-    return this._absoluteRomUtilizationList;
+    return this.absoluteRomUtilizationList;
   }
 }

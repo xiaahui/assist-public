@@ -10,29 +10,18 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
-import org.jacop.core.IntVar;
-import org.jacop.core.Store;
-import org.jacop.search.DepthFirstSearch;
-import org.jacop.search.IndomainMin;
-import org.jacop.search.InputOrderSelect;
-import org.jacop.search.Search;
-import org.jacop.search.SelectChoicePoint;
 
+import solver.Solver;
+import solver.exception.ContradictionException;
+import solver.search.solution.AllSolutionsRecorder;
+import solver.search.strategy.IntStrategyFactory;
+import solver.search.strategy.selectors.values.IntDomainMin;
+import solver.search.strategy.selectors.variables.InputOrder;
+import solver.variables.IntVar;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
-import ch.hilbri.assist.mapping.solver.constraints.AllApplicationThreadsOnSameBoard;
-import ch.hilbri.assist.mapping.solver.constraints.ApplicationProximityConstraint;
-import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint;
-import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint;
-import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint;
-import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint;
-import ch.hilbri.assist.mapping.solver.constraints.NoPermutationsConstraint;
-import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint;
-import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint;
-import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstraint;
-import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
@@ -41,8 +30,8 @@ public class SolverJob extends Job {
 
 	private AssistModel model;
 	
-	private Store constraintStore;
-	
+	private Solver solver;
+
 	private SolverVariablesContainer solverVariables;
 	
 	private ArrayList<AbstractMappingConstraint> mappingConstraintsList;
@@ -101,42 +90,42 @@ public class SolverJob extends Job {
 		/* Create an empty set of constraints that will be used */
 		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>();
 		
-		/* Create a new Constraint Store (JaCoP) */
-		this.constraintStore = new Store();
-		this.solverVariables = new SolverVariablesContainer(this.model, constraintStore);
+		/* Create a new Solver object */
+		this.solver = new Solver();
+		this.solverVariables = new SolverVariablesContainer(this.model, solver);
 		
 		/* Create a new Constraint to process the system hierarchy */
-		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, constraintStore, solverVariables));
+//		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, constraintStore, solverVariables));
 
 		/* Create a new constraint to keep the capacity of the cores */
-		this.mappingConstraintsList.add(new CoreUtilizationConstraint(model, constraintStore, solverVariables));
+//		this.mappingConstraintsList.add(new CoreUtilizationConstraint(model, constraintStore, solverVariables));
 
 		/* Create a new set of constraints to watch for the RAM capacity of the boards */
-		this.mappingConstraintsList.add(new RAMUtilizationConstraint(model,  constraintStore, solverVariables));
+//		this.mappingConstraintsList.add(new RAMUtilizationConstraint(model,  constraintStore, solverVariables));
 		
 		/* Create a new set of constraints to watch for the ROM capacity of the boards */
-		this.mappingConstraintsList.add(new ROMUtilizationConstraint(model,  constraintStore, solverVariables));
+//		this.mappingConstraintsList.add(new ROMUtilizationConstraint(model,  constraintStore, solverVariables));
 		
 		/* Create a new constraint to avoid permuting solutions */
-		this.mappingConstraintsList.add(new NoPermutationsConstraint(model, constraintStore, solverVariables));
+//		this.mappingConstraintsList.add(new NoPermutationsConstraint(model, constraintStore, solverVariables));
 
 		/* Create a new Constraint to keep threads of the same application on the same board. */
-		this.mappingConstraintsList.add(new AllApplicationThreadsOnSameBoard(model, constraintStore, solverVariables));
+//		this.mappingConstraintsList.add(new AllApplicationThreadsOnSameBoard(model, constraintStore, solverVariables));
 		
 		/* Create a new Constraint for all i/o adapters (exclusive, shared, protection level, ...) */
-		this.mappingConstraintsList.add(new IOAdapterConstraint(model, constraintStore, solverVariables));
+//		this.mappingConstraintsList.add(new IOAdapterConstraint(model, constraintStore, solverVariables));
 		
 		/* Create a new Constraint for the design assurance level compatibility of boards and threads */
-		this.mappingConstraintsList.add(new DesignAssuranceLevelConstraint(model, constraintStore, solverVariables));
+//		this.mappingConstraintsList.add(new DesignAssuranceLevelConstraint(model, constraintStore, solverVariables));
 		
 		/* Create a new constraint that restricts the applications to their specified hardware elements */
-		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, constraintStore, solverVariables));
+//		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, constraintStore, solverVariables));
 		
 		/* Create a new constraint to restrictions on the proximity of the applications */
-		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, constraintStore, solverVariables));
+//		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, constraintStore, solverVariables));
 		
 		/* Create a new constraint to obey the dislocality requirements */
-		this.mappingConstraintsList.add(new DislocalityConstraint(model, constraintStore, solverVariables));
+//		this.mappingConstraintsList.add(new DislocalityConstraint(model, constraintStore, solverVariables));
 		
 //		/* new */
 //		this.mappingConstraintsList.add(new DissimilarityTreeConstraint(this.constraintSystem, this.model, this.threadVariablesList));
@@ -165,8 +154,12 @@ public class SolverJob extends Job {
 			/* Generate this constraint */
 			constraint.generate();
 			
-			/* Check the store for consistency so far */
-			if (constraintStore.consistency() == false) {
+			boolean  contradiction = false;
+			
+			try {
+				solver.propagate();
+			} catch (ContradictionException e) {
+				contradiction = true;
 				final String constraintName = constraint.getName();
 				
 				Display.getDefault().asyncExec(new Runnable() {
@@ -181,13 +174,14 @@ public class SolverJob extends Job {
 												+ ">" + constraintName + "<");
 					}
 				});
-				
-				return Status.CANCEL_STATUS;
-			} 
+			}
 			
+			if (contradiction) return Status.CANCEL_STATUS;
+
 			else monitor.worked(1);
 		}
 
+		
 		monitor.subTask("Searching for solutions");
 		if (runSearchForSolutions(monitor) != Status.OK_STATUS) return Status.CANCEL_STATUS;
 		monitor.worked(1);
@@ -201,44 +195,44 @@ public class SolverJob extends Job {
 		return Status.OK_STATUS;
 	}
 
+	
+	
+	
+	
 	private IStatus runSearchForSolutions(IProgressMonitor monitor) {
-		 
-		SelectChoicePoint<IntVar> select;
-		Search<IntVar> search;
+		
+		AllSolutionsRecorder recorder = new AllSolutionsRecorder(solver);
+		solver.set(recorder);
 		
 		if (this.kindOfSolutions == SearchType.CONSECUTIVE) {
-			search = new DepthFirstSearch<IntVar>();
-			search.getSolutionListener().searchAll(true);
-			search.getSolutionListener().recordSolutions(true);
-			search.getSolutionListener().setSolutionLimit(this.maxSolutions);
-				
-			select = new InputOrderSelect<IntVar>(constraintStore, solverVariables.getSolutionVariables(), new IndomainMin<IntVar>());
+			solver.set(IntStrategyFactory.custom(new InputOrder<IntVar>(), new IntDomainMin(), solverVariables.getAllVariables()));
+			@SuppressWarnings("unused")
+			int setSolutionLimit = this.maxSolutions;
+			@SuppressWarnings("unused")
+			long timeout = this.maxTimeOfCalculationInmsec;
+			
+			if(solver.findSolution()){
+				do{
+					// do something, e.g. print out variables' value
+					// FIXME: No upper solution bounds check yet
+				} while(solver.nextSolution());
+			}
 		}
 		else {
 			// FIXME: Implement me!
-			search = new DepthFirstSearch<IntVar>();
-			search.setTimeOut(this.maxTimeOfCalculationInmsec);
-
 			return null;
 		}
-		 
-		boolean result = search.labeling(constraintStore, select); 
-		
-		int solutionCount = search.getSolutionListener().solutionsNo();
-		
-		if (result) {
-			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, search.getSolutionListener().getSolutions(), solutionCount);
-		}
+			
+		mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions());
 		
 		return Status.OK_STATUS;
-
 	}
 	
 	/**
-	 * Zeigt die fertigen Resultate in der UI an.
+	 * Show the results in the UI
 	 * 
 	 * @param allResults
-	 *            die Resultate / Loesungen fuer das Mapping Problem
+	 *            
 	 */
 	private void showResults(final ArrayList<Result> allResults) {		
 		
@@ -254,11 +248,6 @@ public class SolverJob extends Job {
 		}
 	}
 
-	
-	
-	
-
-	
 	/**
 	 * Sets the maximum number of solution.
 	 * @param maxSolutions

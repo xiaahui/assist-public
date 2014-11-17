@@ -10,6 +10,7 @@ import ch.hilbri.assist.datamodel.model.Box;
 import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.Core;
 import ch.hilbri.assist.datamodel.model.DesignAssuranceLevelType;
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.datamodel.model.HardwareElement;
 import ch.hilbri.assist.datamodel.model.HardwareElementContainer;
 import ch.hilbri.assist.datamodel.model.IOAdapter;
@@ -24,10 +25,11 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import com.google.common.base.Objects;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.jacop.core.Domain;
-import org.jacop.core.ValueEnumeration;
+import solver.search.solution.Solution;
+import solver.variables.IntVar;
 
 @SuppressWarnings("all")
 public class ResultFactoryFromSolverSolutions {
@@ -268,25 +270,22 @@ public class ResultFactoryFromSolverSolutions {
     return result;
   }
   
-  public static void addMappingFromSolution(final Result result, final AssistModel model, final SolverVariablesContainer solverVariables, final Domain[] solverSolution) {
+  public static void addMappingFromSolution(final Result result, final AssistModel model, final SolverVariablesContainer solverVariables, final Solution solution) {
     EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads = model.getAllThreads();
     for (final ch.hilbri.assist.datamodel.model.Thread thread : _allThreads) {
       {
         final ch.hilbri.assist.datamodel.result.mapping.Thread resultThread = result.findResultThread(thread);
-        final int locVarIndex = solverVariables.getIndexOfThreadLocationInSolutionVariablesList(thread, 1);
-        Domain _get = solverSolution[locVarIndex];
-        ValueEnumeration _valueEnumeration = _get.valueEnumeration();
-        final int coreNr = _valueEnumeration.nextElement();
-        final int coreIndex = (coreNr - 1);
+        final IntVar locVar = solverVariables.getThreadLocationVariable(thread, HardwareArchitectureLevelType.CORE_VALUE);
+        final int coreIndex = solution.getIntVal(locVar);
         EList<Core> _allCores = model.getAllCores();
-        Core _get_1 = _allCores.get(coreIndex);
-        ch.hilbri.assist.datamodel.result.mapping.HardwareElement _findResultHardwareElement = result.findResultHardwareElement(_get_1);
+        Core _get = _allCores.get(coreIndex);
+        ch.hilbri.assist.datamodel.result.mapping.HardwareElement _findResultHardwareElement = result.findResultHardwareElement(_get);
         final ch.hilbri.assist.datamodel.result.mapping.Core resultCore = ((ch.hilbri.assist.datamodel.result.mapping.Core) _findResultHardwareElement);
         boolean _equals = Objects.equal(resultCore, null);
         if (_equals) {
           EList<Core> _allCores_1 = model.getAllCores();
-          Core _get_2 = _allCores_1.get(coreIndex);
-          String _plus = ("Could not find the core " + _get_2);
+          Core _get_1 = _allCores_1.get(coreIndex);
+          String _plus = ("Could not find the core " + _get_1);
           String _plus_1 = (_plus + " from the model in the result.");
           ConsoleCommands.writeErrorLineToConsole(_plus_1);
           return;
@@ -299,16 +298,14 @@ public class ResultFactoryFromSolverSolutions {
     }
   }
   
-  public static void addUtilizationInformation(final Result result, final AssistModel model, final SolverVariablesContainer solverVariables, final Domain[] solverSolution) {
+  public static void addUtilizationInformation(final Result result, final AssistModel model, final SolverVariablesContainer solverVariables, final Solution solution) {
     EList<ch.hilbri.assist.datamodel.result.mapping.Core> _allCores = result.getAllCores();
     for (final ch.hilbri.assist.datamodel.result.mapping.Core resultCore : _allCores) {
       {
         HardwareElement _referenceObject = resultCore.getReferenceObject();
         final Core modelCore = ((Core) _referenceObject);
-        int _indexOfAbsoluteUtilizationInSolutionVariablesList = solverVariables.getIndexOfAbsoluteUtilizationInSolutionVariablesList(modelCore);
-        Domain _get = solverSolution[_indexOfAbsoluteUtilizationInSolutionVariablesList];
-        ValueEnumeration _valueEnumeration = _get.valueEnumeration();
-        final int absoluteUtilization = _valueEnumeration.nextElement();
+        IntVar _absoluteCoreUtilizationVariable = solverVariables.getAbsoluteCoreUtilizationVariable(modelCore);
+        final int absoluteUtilization = solution.getIntVal(_absoluteCoreUtilizationVariable);
         resultCore.setUtilization(absoluteUtilization);
       }
     }
@@ -317,10 +314,8 @@ public class ResultFactoryFromSolverSolutions {
       {
         HardwareElement _referenceObject = resultBoard.getReferenceObject();
         final Board modelBoard = ((Board) _referenceObject);
-        final int index = solverVariables.getIndexOfAbsoluteRamUtilizationInSolutionVariablesList(modelBoard);
-        Domain _get = solverSolution[index];
-        ValueEnumeration _valueEnumeration = _get.valueEnumeration();
-        final int absoluteRamUtilization = _valueEnumeration.nextElement();
+        IntVar _absoluteRamUtilizationVariable = solverVariables.getAbsoluteRamUtilizationVariable(modelBoard);
+        final int absoluteRamUtilization = solution.getIntVal(_absoluteRamUtilizationVariable);
         resultBoard.setRamUtilization(absoluteRamUtilization);
       }
     }
@@ -329,25 +324,23 @@ public class ResultFactoryFromSolverSolutions {
       {
         HardwareElement _referenceObject = resultBoard_1.getReferenceObject();
         final Board modelBoard = ((Board) _referenceObject);
-        final int index = solverVariables.getIndexOfAbsoluteRomUtilizationInSolutionVariablesList(modelBoard);
-        Domain _get = solverSolution[index];
-        ValueEnumeration _valueEnumeration = _get.valueEnumeration();
-        final int absoluteRomUtilization = _valueEnumeration.nextElement();
+        IntVar _absoluteRomUtilizationVariable = solverVariables.getAbsoluteRomUtilizationVariable(modelBoard);
+        final int absoluteRomUtilization = solution.getIntVal(_absoluteRomUtilizationVariable);
         resultBoard_1.setRomUtilization(absoluteRomUtilization);
       }
     }
   }
   
-  public static ArrayList<Result> create(final AssistModel model, final SolverVariablesContainer solverVariables, final Domain[][] solverSolutions, final int solutionCounter) {
+  public static ArrayList<Result> create(final AssistModel model, final SolverVariablesContainer solverVariables, final List<Solution> solverSolutions) {
     ResultFactoryFromSolverSolutions.f = MappingFactory.eINSTANCE;
     final ArrayList<Result> results = new ArrayList<Result>();
-    for (int i = 0; (i < solutionCounter); i++) {
+    for (final Solution solution : solverSolutions) {
       {
-        final Result result = ResultFactoryFromSolverSolutions.createBasicResult(model, ("Result-" + Integer.valueOf(i)));
-        Domain[] _get = solverSolutions[i];
-        ResultFactoryFromSolverSolutions.addMappingFromSolution(result, model, solverVariables, _get);
-        Domain[] _get_1 = solverSolutions[i];
-        ResultFactoryFromSolverSolutions.addUtilizationInformation(result, model, solverVariables, _get_1);
+        int _indexOf = solverSolutions.indexOf(solution);
+        String _plus = ("Result-" + Integer.valueOf(_indexOf));
+        final Result result = ResultFactoryFromSolverSolutions.createBasicResult(model, _plus);
+        ResultFactoryFromSolverSolutions.addMappingFromSolution(result, model, solverVariables, solution);
+        ResultFactoryFromSolverSolutions.addUtilizationInformation(result, model, solverVariables, solution);
         results.add(result);
       }
     }
