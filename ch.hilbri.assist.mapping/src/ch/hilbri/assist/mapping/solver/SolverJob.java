@@ -13,6 +13,7 @@ import org.eclipse.ui.PlatformUI;
 
 import solver.Solver;
 import solver.exception.ContradictionException;
+import solver.search.loop.monitors.SMF;
 import solver.search.solution.AllSolutionsRecorder;
 import solver.search.strategy.IntStrategyFactory;
 import solver.search.strategy.selectors.values.IntDomainMin;
@@ -205,24 +206,21 @@ public class SolverJob extends Job {
 		solver.set(recorder);
 		
 		if (this.kindOfSolutions == SearchType.CONSECUTIVE) {
-			solver.set(IntStrategyFactory.custom(new InputOrder<IntVar>(), new IntDomainMin(), solverVariables.getAllVariables()));
-			@SuppressWarnings("unused")
-			int setSolutionLimit = this.maxSolutions;
-			@SuppressWarnings("unused")
-			long timeout = this.maxTimeOfCalculationInmsec;
 			
-			if(solver.findSolution()){
-				do{
-					// do something, e.g. print out variables' value
-					// FIXME: No upper solution bounds check yet
-				} while(solver.nextSolution());
-			}
+			SMF.limitSolution(solver, this.maxSolutions);
+			SMF.limitTime(solver, 60 * 60 * 1000); // 1h max runtime
+
+			solver.set(IntStrategyFactory.custom(new InputOrder<IntVar>(), new IntDomainMin(), solverVariables.getAllVariables()));
 		}
+
 		else {
 			// FIXME: Implement me!
+			SMF.limitTime(solver, this.maxTimeOfCalculationInmsec);
 			return null;
 		}
-			
+		
+		solver.findAllSolutions();
+		
 		mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions());
 		
 		return Status.OK_STATUS;
