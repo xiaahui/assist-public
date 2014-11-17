@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: org.jacop
-Bundle-SymbolicName: org.jacop
-Bundle-Version: 4.1.0
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.jacop.constraints,
- org.jacop.core,
- org.jacop.search
