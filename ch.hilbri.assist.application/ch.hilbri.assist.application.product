@@ -9,7 +9,6 @@
    <launcherArgs>
       <vmArgs>-Xms1024m
 -Xmx4096m
---launcher.XXMaxPermSize 2048M
       </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
@@ -297,6 +296,7 @@ The GNU General Public License does not permit incorporating your program into p
       <plugin id="org.apache.log4j"/>
       <plugin id="org.apache.lucene.analysis"/>
       <plugin id="org.apache.lucene.core"/>
+      <plugin id="org.choco.solver"/>
       <plugin id="org.eclipse.ant.core"/>
       <plugin id="org.eclipse.compare"/>
       <plugin id="org.eclipse.compare.core"/>
@@ -445,7 +445,6 @@ The GNU General Public License does not permit incorporating your program into p
       <plugin id="org.eclipse.xtext.xbase.lib"/>
       <plugin id="org.eclipse.zest.core"/>
       <plugin id="org.eclipse.zest.layouts"/>
-      <plugin id="org.jacop"/>
       <plugin id="org.objectweb.asm"/>
       <plugin id="org.w3c.css.sac"/>
       <plugin id="org.w3c.dom.events"/>
