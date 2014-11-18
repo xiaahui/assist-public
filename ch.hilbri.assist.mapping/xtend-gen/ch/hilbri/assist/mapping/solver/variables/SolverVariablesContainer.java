@@ -67,7 +67,8 @@ public class SolverVariablesContainer {
     for (final Core c : _allCores) {
       String _name = c.getName();
       String _plus = ("AbsCoreUtil-" + _name);
-      IntVar _bounded = VF.bounded(_plus, 0, 0, solver);
+      int _capacity = c.getCapacity();
+      IntVar _bounded = VF.bounded(_plus, 0, _capacity, solver);
       this.absoluteCoreUtilizationList.put(c, _bounded);
     }
     EList<Board> _allBoards = model.getAllBoards();

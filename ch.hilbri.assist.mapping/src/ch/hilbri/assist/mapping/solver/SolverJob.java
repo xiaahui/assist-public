@@ -25,6 +25,7 @@ import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
@@ -107,7 +108,8 @@ public class SolverJob extends Job {
 		logger.debug("Successfully created SystemHierarchyConstraint");
 		
 		/* Create a new constraint to keep the capacity of the cores */
-//		this.mappingConstraintsList.add(new CoreUtilizationConstraint(model, constraintStore, solverVariables));
+		this.mappingConstraintsList.add(new CoreUtilizationConstraint(model, solver, solverVariables));
+		logger.debug("Successfully created CoreUtilizationConstraint");
 
 		/* Create a new set of constraints to watch for the RAM capacity of the boards */
 //		this.mappingConstraintsList.add(new RAMUtilizationConstraint(model,  constraintStore, solverVariables));
