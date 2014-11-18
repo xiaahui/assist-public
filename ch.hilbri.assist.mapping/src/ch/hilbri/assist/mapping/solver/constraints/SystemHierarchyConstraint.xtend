@@ -1,40 +1,43 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
-import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import ch.hilbri.assist.datamodel.model.AssistModel
-import java.util.ArrayList
-import org.jacop.constraints.Element
-import org.jacop.core.Store
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
+import solver.Solver
+import solver.constraints.ICF
 
 /**
  * Ziel: Zwischen allen Abstraktionsebenen im Modell muessen Verbindungen hergestellt werden.
  */
 class SystemHierarchyConstraint extends AbstractMappingConstraint {
 	
-	new(AssistModel model, Store constraintStore, SolverVariablesContainer solverVariables) {
-		super("System Hierarchy Constraints", model, constraintStore, solverVariables)
+	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
+		super("System Hierarchy Constraints", model, solver, solverVariables)
 	}
 	
 	override generate() {
 		
 		/* Wir brauchen einen "Link" zwischen allen Hardware-Ebenen */
-		for (levelCtr : 1..model.hardwareLevelCount-1 ) {
+		for (levelCtr : HardwareArchitectureLevelType.CORE_VALUE .. model.hardwareLevelCount - 1) {
 
-			/* HardwareLevelLink ist ein Feld von Nummern von Parent-Komponenten 		
-			 * hardwareLevelLink[KindIndex] = Parent_Nummer (nicht Index!) 
+			/* HardwareLevelLink ist ein Feld von Indizes der Parent-Komponenten 		
+			 * hardwareLevelLink[KindIndex] = Parent_Index
 			 *
 			 * Beispiel: 
 			 * - für die Verknüpfung von Cores und Prozessoren wird ein Link zwischen Ebene 1 und 2 benötigt
-			 * - die liste hardwareLevelLink enthÃ¤lt so viele Element, wie es Cores im Modell gibt
-			 * - für jeden Core wird die Nummer (nicht der Index! - da JaCoP bei 1 zu zählen anfängt) des Parents (= Prozessor)
-			 *   eingetragen
+			 * - die liste hardwareLevelLink enthaelt so viele Element, wie es Cores im Modell gibt
+			 * - für jeden Core wird der Index des Parents (= Prozessor) eingetragen
 			 */ 
 			
-			val hardwareLevelLink = new ArrayList<Integer>
-			for (childHardwareComponent : model.getAllHardwareElements(levelCtr)) {
-				val parentHardwareComponent = childHardwareComponent.eContainer
-				hardwareLevelLink.add(model.getAllHardwareElements(levelCtr+1).indexOf(parentHardwareComponent)+1)
-			}
+			val hardwareLevelLink = model.getAllHardwareElements(levelCtr)
+										.map[eContainer]   											// get the parent object
+										.map[model.getAllHardwareElements(levelCtr+1).indexOf(it)] 	// get the parent index 
+			
+//			new ArrayList<Integer>
+//			for (childHardwareComponent : model.getAllHardwareElements(levelCtr)) {
+//				val parentHardwareComponent = childHardwareComponent.eContainer
+//				hardwareLevelLink.add(model.getAllHardwareElements(levelCtr+1).indexOf(parentHardwareComponent)+1)
+//			}
 			
 			/*
 			 * Nun werden die Location Variablen eines Threads zwischen den Ebenen mit einem Element Constraint verknüpft;
@@ -44,7 +47,8 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 			for (t : model.allThreads) {
 				var index  = solverVariables.getThreadLocationVariable(t, levelCtr)
 				var values = solverVariables.getThreadLocationVariable(t, levelCtr + 1)
-				constraintStore.impose(new Element(index, hardwareLevelLink, values))
+				solver.post(ICF.element(values, hardwareLevelLink, index))
+//				constraintStore.impose(new Element(index, hardwareLevelLink, values))
 			}			
 		} 
 		

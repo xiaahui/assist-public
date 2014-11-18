@@ -10,6 +10,8 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import solver.Solver;
 import solver.exception.ContradictionException;
@@ -23,6 +25,7 @@ import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
@@ -40,6 +43,8 @@ public class SolverJob extends Job {
 	private DetailedResultsViewUiModel detailedResultsViewUiModel;
 		
 	private MultiPageEditor multiPageEditor;
+	
+	private Logger logger;
 	
 	 /*
 	 * Dieser Wert definiert eine maximale Anzahl an Deployments, die
@@ -78,6 +83,8 @@ public class SolverJob extends Job {
 	public SolverJob(String name, AssistModel model, MultiPageEditor editor) {
 		super(name);
 		this.model = model;
+		this.logger = LoggerFactory.getLogger(SolverJob.class);
+
 
 		if (editor != null) {
 			multiPageEditor = editor;
@@ -96,8 +103,9 @@ public class SolverJob extends Job {
 		this.solverVariables = new SolverVariablesContainer(this.model, solver);
 		
 		/* Create a new Constraint to process the system hierarchy */
-//		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, constraintStore, solverVariables));
-
+		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables));
+		logger.debug("Successfully created SystemHierarchyConstraint");
+		
 		/* Create a new constraint to keep the capacity of the cores */
 //		this.mappingConstraintsList.add(new CoreUtilizationConstraint(model, constraintStore, solverVariables));
 
@@ -155,7 +163,7 @@ public class SolverJob extends Job {
 			/* Generate this constraint */
 			constraint.generate();
 			
-			boolean  contradiction = false;
+			boolean contradiction = false;
 			
 			try {
 				solver.propagate();
@@ -195,12 +203,10 @@ public class SolverJob extends Job {
 		 
 		return Status.OK_STATUS;
 	}
-
-	
-	
-	
 	
 	private IStatus runSearchForSolutions(IProgressMonitor monitor) {
+		
+		logger.debug("Searching for solutions");
 		
 		AllSolutionsRecorder recorder = new AllSolutionsRecorder(solver);
 		solver.set(recorder);
@@ -210,7 +216,10 @@ public class SolverJob extends Job {
 			SMF.limitSolution(solver, this.maxSolutions);
 			SMF.limitTime(solver, 60 * 60 * 1000); // 1h max runtime
 
-			solver.set(IntStrategyFactory.custom(new InputOrder<IntVar>(), new IntDomainMin(), solverVariables.getAllVariables()));
+			solver.set(IntStrategyFactory.custom(new InputOrder<IntVar>(), 
+												 new IntDomainMin(), 
+												 solverVariables.getAllVariables()
+												 ));
 		}
 
 		else {
@@ -219,7 +228,11 @@ public class SolverJob extends Job {
 			return null;
 		}
 		
+		logger.debug("Starting search for solutions");
+		
 		solver.findAllSolutions();
+		
+		logger.debug(recorder.getSolutions().size() + " solutions found");
 		
 		mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions());
 		
