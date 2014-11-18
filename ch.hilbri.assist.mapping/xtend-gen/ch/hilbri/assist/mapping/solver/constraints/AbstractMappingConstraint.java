@@ -2,6 +2,7 @@ package ch.hilbri.assist.mapping.solver.constraints;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
+import solver.Solver;
 
 @SuppressWarnings("all")
 public abstract class AbstractMappingConstraint {
@@ -18,7 +19,7 @@ public abstract class AbstractMappingConstraint {
   /**
    * A reference to the store of the constraint solver
    */
-  protected /* Store */Object constraintStore;
+  protected Solver solver;
   
   /**
    * A reference to the container of all solver variables
@@ -30,13 +31,13 @@ public abstract class AbstractMappingConstraint {
    * 
    * @param name Name of this Constraint
    * @param model Reference to the data model which contains the input specification
-   * @param constraintStore Reference to the store of the JaCoP solver instance
+   * @param solver Reference to the solver instance
    * @param solverVariables Reference to the container with all solver variables
    */
-  public AbstractMappingConstraint(final String name, final AssistModel model, final /* Store */Object constraintStore, final SolverVariablesContainer solverVariables) {
+  public AbstractMappingConstraint(final String name, final AssistModel model, final Solver solver, final SolverVariablesContainer solverVariables) {
     this.name = name;
     this.model = model;
-    this.constraintStore = constraintStore;
+    this.solver = solver;
     this.solverVariables = solverVariables;
   }
   
