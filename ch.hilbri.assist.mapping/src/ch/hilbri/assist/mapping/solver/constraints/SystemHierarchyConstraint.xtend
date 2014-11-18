@@ -33,11 +33,6 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 										.map[eContainer]   											// get the parent object
 										.map[model.getAllHardwareElements(levelCtr+1).indexOf(it)] 	// get the parent index 
 			
-//			new ArrayList<Integer>
-//			for (childHardwareComponent : model.getAllHardwareElements(levelCtr)) {
-//				val parentHardwareComponent = childHardwareComponent.eContainer
-//				hardwareLevelLink.add(model.getAllHardwareElements(levelCtr+1).indexOf(parentHardwareComponent)+1)
-//			}
 			
 			/*
 			 * Nun werden die Location Variablen eines Threads zwischen den Ebenen mit einem Element Constraint verknüpft;
@@ -48,7 +43,6 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 				var index  = solverVariables.getThreadLocationVariable(t, levelCtr)
 				var values = solverVariables.getThreadLocationVariable(t, levelCtr + 1)
 				solver.post(ICF.element(values, hardwareLevelLink, index))
-//				constraintStore.impose(new Element(index, hardwareLevelLink, values))
 			}			
 		} 
 		
