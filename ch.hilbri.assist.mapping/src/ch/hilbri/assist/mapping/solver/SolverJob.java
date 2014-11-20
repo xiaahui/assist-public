@@ -27,6 +27,7 @@ import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
@@ -113,10 +114,10 @@ public class SolverJob extends Job {
 		logger.debug("Successfully created CoreUtilizationConstraint");
 
 		/* Create a new set of constraints to watch for the RAM capacity of the boards */
-		this.mappingConstraintsList.add(new RAMUtilizationConstraint(model,  solver, solverVariables));
+		this.mappingConstraintsList.add(new RAMUtilizationConstraint(model, solver, solverVariables));
 		
 		/* Create a new set of constraints to watch for the ROM capacity of the boards */
-//		this.mappingConstraintsList.add(new ROMUtilizationConstraint(model,  constraintStore, solverVariables));
+		this.mappingConstraintsList.add(new ROMUtilizationConstraint(model, solver, solverVariables));
 		
 		/* Create a new constraint to avoid permuting solutions */
 //		this.mappingConstraintsList.add(new NoPermutationsConstraint(model, constraintStore, solverVariables));

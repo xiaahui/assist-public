@@ -44,7 +44,7 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 		/* Initialize the hash map for all utilization variables */
 		for (c : model.allCores) 	absoluteCoreUtilizationList.put(c, VF.bounded("AbsCoreUtil-" + c.name, 0, c.capacity, solver))
 		for (b : model.allBoards) 	absoluteRamUtilizationList.put (b, VF.bounded("AbsRamUtil-"  + b.name, 0, b.ramCapacity, solver))
-		for (b : model.allBoards) 	absoluteRomUtilizationList.put (b, VF.bounded("AbsRomUtil-"  + b.name, 0, 0, solver))
+		for (b : model.allBoards) 	absoluteRomUtilizationList.put (b, VF.bounded("AbsRomUtil-"  + b.name, 0, b.romCapacity, solver))
 	}
 
 	/** Returns a list of Variables which the solver has to generate solutions for */

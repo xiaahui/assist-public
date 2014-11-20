@@ -83,7 +83,8 @@ public class SolverVariablesContainer {
     for (final Board b_1 : _allBoards_1) {
       String _name_2 = b_1.getName();
       String _plus_2 = ("AbsRomUtil-" + _name_2);
-      IntVar _bounded_2 = VF.bounded(_plus_2, 0, 0, solver);
+      int _romCapacity = b_1.getRomCapacity();
+      IntVar _bounded_2 = VF.bounded(_plus_2, 0, _romCapacity, solver);
       this.absoluteRomUtilizationList.put(b_1, _bounded_2);
     }
   }

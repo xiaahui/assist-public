@@ -23,7 +23,7 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 		val int[] allRamCapacities = model.allBoards.map[ramCapacity]
 		
 		/* Create a set of variables - for each thread a variable which contains the power capabilties of all cores	 */
-		val IntVar[] ramCapacities = model.allThreads.map [VF.enumerated("RamCap", allRamCapacities.sort, solver)]
+		val IntVar[] ramCapacities = model.allThreads.map[VF.enumerated("RamCap", allRamCapacities.sort, solver)]
 		
 		/* **** Preparing the constraints **** */	 
 		
