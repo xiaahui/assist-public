@@ -42,7 +42,7 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 		val totalCoreCapacityVar = VF.fixed("TotalCoreCapacitiy", model.allCores.map[capacity].reduce[p1, p2 | p1 + p2], solver)
 		
 		// - enforce that the capacity is always larger than the demand
-		solver.post(ICF.arithm(totalCoreCapacityVar, ">=", totalCoreUtilizationFromAllApplicationsVar));
+		solver.post(ICF.arithm(totalCoreCapacityVar, ">=", totalCoreUtilizationFromAllApplicationsVar))
 		
 		
 		/* 1. If a thread requires more processing power than a core offers, 
