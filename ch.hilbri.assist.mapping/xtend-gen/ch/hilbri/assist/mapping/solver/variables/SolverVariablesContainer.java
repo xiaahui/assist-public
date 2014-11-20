@@ -75,7 +75,8 @@ public class SolverVariablesContainer {
     for (final Board b : _allBoards) {
       String _name_1 = b.getName();
       String _plus_1 = ("AbsRamUtil-" + _name_1);
-      IntVar _bounded_1 = VF.bounded(_plus_1, 0, 0, solver);
+      int _ramCapacity = b.getRamCapacity();
+      IntVar _bounded_1 = VF.bounded(_plus_1, 0, _ramCapacity, solver);
       this.absoluteRamUtilizationList.put(b, _bounded_1);
     }
     EList<Board> _allBoards_1 = model.getAllBoards();
