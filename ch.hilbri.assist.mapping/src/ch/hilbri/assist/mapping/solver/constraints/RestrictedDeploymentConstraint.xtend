@@ -9,15 +9,13 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.model.Processor
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.HashSet
-import org.jacop.constraints.In
-import org.jacop.core.BoundDomain
-import org.jacop.core.IntervalDomain
-import org.jacop.core.Store
+import solver.Solver
+import solver.constraints.ICF
 
 class RestrictedDeploymentConstraint extends AbstractMappingConstraint {
 	
-	new(AssistModel model, Store constraintStore, SolverVariablesContainer solverVariables) {
-		super("Restricted deployment constraints", model, constraintStore, solverVariables)
+	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
+		super("Restricted deployment constraints", model, solver, solverVariables)
 	}
 	
 	override generate() {
@@ -42,12 +40,15 @@ class RestrictedDeploymentConstraint extends AbstractMappingConstraint {
 				// 	determine the location variable for this thread and its cores
 				val threadLocationsCoreLevel = solverVariables.getThreadLocationVariable(t, HardwareArchitectureLevelType.CORE_VALUE) 
 			
-				// restrict this variable according to the allowed cores
-				var domain = new IntervalDomain()
-				for (core : allowedCores)
-					domain.addDom(new BoundDomain(model.allCores.indexOf(core)+1, model.allCores.indexOf(core)+1))
+				solver.post(ICF.member(threadLocationsCoreLevel, allowedCores.map[model.allCores.indexOf(it)]))
 			
-				constraintStore.impose(new In(threadLocationsCoreLevel, domain))
+			
+				// restrict this variable according to the allowed cores
+//				var domain = new IntervalDomain()
+//				for (core : allowedCores)
+//					domain.addDom(new BoundDomain(model.allCores.indexOf(core)+1, model.allCores.indexOf(core)+1))
+//			
+//				constraintStore.impose(new In(threadLocationsCoreLevel, domain))
 			
 			}
 		}

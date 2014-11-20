@@ -5,14 +5,14 @@ import ch.hilbri.assist.datamodel.model.ApplicationGroup
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
-import org.jacop.constraints.Alldifferent
-import org.jacop.core.IntVar
-import org.jacop.core.Store
+import solver.Solver
+import solver.constraints.ICF
+import solver.variables.IntVar
 
 class DislocalityConstraint extends AbstractMappingConstraint {
 	
-	new(AssistModel model, Store constraintStore, SolverVariablesContainer solverVariables) {
-		super("Dislocality constraints", model, constraintStore, solverVariables)
+	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
+		super("Dislocality constraints", model, solver, solverVariables)
 	}
 	
 	override generate() {
@@ -63,7 +63,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			val varSetForAllDifferentConstraint = createDisjointVariableSets(varList)
 			
 			for (list : varSetForAllDifferentConstraint) 
-				constraintStore.impose(new Alldifferent(list))
+				solver.post(ICF.alldifferent(list))
 			
 		}
 		return true

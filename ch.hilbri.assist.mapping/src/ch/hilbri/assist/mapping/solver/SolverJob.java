@@ -25,9 +25,16 @@ import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.AllApplicationThreadsOnSameBoard;
+import ch.hilbri.assist.mapping.solver.constraints.ApplicationProximityConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.NoPermutationsConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
@@ -120,25 +127,25 @@ public class SolverJob extends Job {
 		this.mappingConstraintsList.add(new ROMUtilizationConstraint(model, solver, solverVariables));
 		
 		/* Create a new constraint to avoid permuting solutions */
-//		this.mappingConstraintsList.add(new NoPermutationsConstraint(model, constraintStore, solverVariables));
+		this.mappingConstraintsList.add(new NoPermutationsConstraint(model, solver, solverVariables));
 
 		/* Create a new Constraint to keep threads of the same application on the same board. */
-//		this.mappingConstraintsList.add(new AllApplicationThreadsOnSameBoard(model, constraintStore, solverVariables));
+		this.mappingConstraintsList.add(new AllApplicationThreadsOnSameBoard(model, solver, solverVariables));
 		
 		/* Create a new Constraint for all i/o adapters (exclusive, shared, protection level, ...) */
-//		this.mappingConstraintsList.add(new IOAdapterConstraint(model, constraintStore, solverVariables));
+		this.mappingConstraintsList.add(new IOAdapterConstraint(model, solver, solverVariables));
 		
 		/* Create a new Constraint for the design assurance level compatibility of boards and threads */
-//		this.mappingConstraintsList.add(new DesignAssuranceLevelConstraint(model, constraintStore, solverVariables));
+		this.mappingConstraintsList.add(new DesignAssuranceLevelConstraint(model, solver, solverVariables));
 		
 		/* Create a new constraint that restricts the applications to their specified hardware elements */
-//		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, constraintStore, solverVariables));
+		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, solver, solverVariables));
 		
 		/* Create a new constraint to restrictions on the proximity of the applications */
-//		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, constraintStore, solverVariables));
+		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, solver, solverVariables));
 		
 		/* Create a new constraint to obey the dislocality requirements */
-//		this.mappingConstraintsList.add(new DislocalityConstraint(model, constraintStore, solverVariables));
+		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables));
 		
 //		/* new */
 //		this.mappingConstraintsList.add(new DissimilarityTreeConstraint(this.constraintSystem, this.model, this.threadVariablesList));

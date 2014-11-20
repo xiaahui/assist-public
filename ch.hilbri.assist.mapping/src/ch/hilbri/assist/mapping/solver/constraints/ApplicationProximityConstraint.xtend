@@ -6,18 +6,20 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.Thread
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
-import org.jacop.constraints.XeqY
-import org.jacop.core.IntVar
-import org.jacop.core.Store
+import solver.Solver
+import solver.constraints.ICF
+import solver.variables.IntVar
 
 class ApplicationProximityConstraint extends AbstractMappingConstraint {
-	new(AssistModel model, Store constraintStore, SolverVariablesContainer solverVariables) {
-		super("Application proximity constraints", model, constraintStore, solverVariables)
+	
+	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
+		super("Application proximity constraints", model, solver, solverVariables)
 	}
 	
 	override generate() {
 		
 		for (relation : model.proximityRelations) {
+			
 			val level = relation.hardwareLevel
 			
 			val threadList = new ArrayList<Thread>()
@@ -34,7 +36,7 @@ class ApplicationProximityConstraint extends AbstractMappingConstraint {
 			// Attention: potential performance bottle neck!
 			if (threadVarList.size > 1) 
 				for (var i = 0; i < threadVarList.size - 1; i++ ) 
-					constraintStore.impose(new XeqY(threadVarList.get(i), threadVarList.get(i+1)))
+					solver.post(ICF.arithm(threadVarList.get(i), "=", threadVarList.get(i+1)))
 			
 		}
 		
