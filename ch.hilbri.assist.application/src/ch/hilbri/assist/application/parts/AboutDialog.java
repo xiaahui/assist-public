@@ -3,6 +3,7 @@ package ch.hilbri.assist.application.parts;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
@@ -12,7 +13,9 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.wb.swt.ResourceManager;
 
 /**
  * Dialog which will show up after entering the "Help->About" menu.
@@ -38,9 +41,46 @@ public class AboutDialog extends TitleAreaDialog {
 		
 	
 		Composite container = new Composite(area, SWT.NONE);
-	    GridLayout layout = new GridLayout(1, false);
-	    container.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-	    container.setLayout(layout);
+	    container.setLayout(null);
+	    GridData gd_container = new GridData(SWT.FILL, SWT.FILL, true, true);
+	    gd_container.heightHint = 306;
+	    container.setLayoutData(gd_container);
+	    
+	    Label lblNewLabel = new Label(container, SWT.NONE);
+	    lblNewLabel.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.application", "icons/about.jpg"));
+	    lblNewLabel.setBounds(0, -2, 447, 235);
+	    
+	    Label lblVersion = new Label(container, SWT.NONE);
+	    lblVersion.setBounds(10, 266, 55, 15);
+	    lblVersion.setText("Version:");
+	    
+	    Label lblHomepage = new Label(container, SWT.NONE);
+	    lblHomepage.setBounds(10, 287, 72, 15);
+	    lblHomepage.setText("Homepage:");
+	    
+	    Label lblLicense = new Label(container, SWT.NONE);
+	    lblLicense.setBounds(10, 308, 55, 15);
+	    lblLicense.setText("License:");
+	    
+	    Label label = new Label(container, SWT.NONE);
+	    label.setBounds(100, 266, 55, 15);
+	    label.setText(Platform.getBundle("ch.hilbri.assist.application").getHeaders().get("Bundle-Version"));
+	    
+	    Label lblHttpassisthilbrich = new Label(container, SWT.NONE);
+	    lblHttpassisthilbrich.setBounds(100, 287, 147, 15);
+	    lblHttpassisthilbrich.setText("http://assist.hilbri.ch");
+	    
+	    Label lblNewLabel_1 = new Label(container, SWT.NONE);
+	    lblNewLabel_1.setBounds(100, 308, 211, 15);
+	    lblNewLabel_1.setText("GNU General Public License (GPLv3)");
+	    
+	    Label lblMainAuthor = new Label(container, SWT.NONE);
+	    lblMainAuthor.setBounds(10, 245, 72, 15);
+	    lblMainAuthor.setText("Main Author:");
+	    
+	    Label lblRobertHilbrich = new Label(container, SWT.NONE);
+	    lblRobertHilbrich.setBounds(100, 245, 135, 15);
+	    lblRobertHilbrich.setText("Robert Hilbrich");
 	    
 		return area;
 	}  
@@ -83,7 +123,7 @@ public class AboutDialog extends TitleAreaDialog {
 	
 	@Override
 	protected Point getInitialSize() {
-	  return new Point(600, 375);
+	  return new Point(454, 480);
 	}
 
 }
