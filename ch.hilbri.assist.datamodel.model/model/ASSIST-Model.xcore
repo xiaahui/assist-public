@@ -430,17 +430,19 @@ class DissimilarityConjunction extends DissimilarityClause  {
 }
 
 class DissimilarityEntry extends DissimilarityClause {
+	
 	derived HardwareArchitectureLevelType level get {
-		if (compartmentAttribute != CompartmentAttributes.NONE) HardwareArchitectureLevelType.COMPARTMENT
-		else if (boxAttribute != BoxAttributes.NONE) HardwareArchitectureLevelType.BOX
-		else if (boardAttribute != BoardAttributes.NONE) HardwareArchitectureLevelType.BOARD
+		if (compartmentAttribute != CompartmentAttributes.NONE)  HardwareArchitectureLevelType.COMPARTMENT
+		else if (boxAttribute != BoxAttributes.NONE) 			 HardwareArchitectureLevelType.BOX
+		else if (boardAttribute != BoardAttributes.NONE)		 HardwareArchitectureLevelType.BOARD
 		else if (processorAttribute != ProcessorAttributes.NONE) HardwareArchitectureLevelType.PROCESSOR
 		else null
 	}
-	CompartmentAttributes compartmentAttribute 	= "None"
-	BoxAttributes boxAttribute				  	= "None"
-	BoardAttributes boardAttribute				= "None"
-	ProcessorAttributes processorAttribute		= "None"
+	
+	CompartmentAttributes 	compartmentAttribute 	= "None"
+	BoxAttributes 			boxAttribute			= "None"
+	BoardAttributes 		boardAttribute			= "None"
+	ProcessorAttributes 	processorAttribute		= "None"
 }
 
 enum CompartmentAttributes{
