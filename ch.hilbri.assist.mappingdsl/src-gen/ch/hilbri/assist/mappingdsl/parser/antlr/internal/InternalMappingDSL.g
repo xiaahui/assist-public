@@ -2869,7 +2869,7 @@ ruleCompartmentAttributes returns [Enumerator current=null]
         newLeafNode(enumLiteral_0, grammarAccess.getCompartmentAttributesAccess().getMANUFACTUREREnumLiteralDeclaration_0()); 
     }
 )
-    |(	enumLiteral_1='Power supply' 
+    |(	enumLiteral_1='PowerSupply' 
 	{
         $current = grammarAccess.getCompartmentAttributesAccess().getPOWERSUPPLYEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_1, grammarAccess.getCompartmentAttributesAccess().getPOWERSUPPLYEnumLiteralDeclaration_1()); 

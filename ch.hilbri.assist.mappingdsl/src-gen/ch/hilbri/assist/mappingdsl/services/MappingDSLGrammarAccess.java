@@ -1820,11 +1820,11 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DissimilarityClause:
 		//	DissimilarityEntry // Der Pfeil ist wichtig!
-		// | "(" (DissimilarityDisjunction | DissimilarityConjunction) ")";
+		//	| "(" (DissimilarityDisjunction | DissimilarityConjunction) ")";
 		public ParserRule getRule() { return rule; }
 
 		//DissimilarityEntry // Der Pfeil ist wichtig!
-		// | "(" (DissimilarityDisjunction | DissimilarityConjunction) ")"
+		//| "(" (DissimilarityDisjunction | DissimilarityConjunction) ")"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//DissimilarityEntry
@@ -2077,10 +2077,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cZONEZoneKeyword_3_0 = (Keyword)cZONEEnumLiteralDeclaration_3.eContents().get(0);
 		
 		//enum CompartmentAttributes:
-		//	MANUFACTURER="Manufacturer" | POWERSUPPLY="Power supply" | SIDE="Side" | ZONE="Zone";
+		//	MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | SIDE="Side" | ZONE="Zone";
 		public EnumRule getRule() { return rule; }
 
-		//MANUFACTURER="Manufacturer" | POWERSUPPLY="Power supply" | SIDE="Side" | ZONE="Zone"
+		//MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | SIDE="Side" | ZONE="Zone"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//MANUFACTURER="Manufacturer"
@@ -2089,10 +2089,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Manufacturer"
 		public Keyword getMANUFACTURERManufacturerKeyword_0_0() { return cMANUFACTURERManufacturerKeyword_0_0; }
 
-		//POWERSUPPLY="Power supply"
+		//POWERSUPPLY="PowerSupply"
 		public EnumLiteralDeclaration getPOWERSUPPLYEnumLiteralDeclaration_1() { return cPOWERSUPPLYEnumLiteralDeclaration_1; }
 
-		//"Power supply"
+		//"PowerSupply"
 		public Keyword getPOWERSUPPLYPowerSupplyKeyword_1_0() { return cPOWERSUPPLYPowerSupplyKeyword_1_0; }
 
 		//SIDE="Side"
@@ -3083,7 +3083,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//DissimilarityClause:
 	//	DissimilarityEntry // Der Pfeil ist wichtig!
-	// | "(" (DissimilarityDisjunction | DissimilarityConjunction) ")";
+	//	| "(" (DissimilarityDisjunction | DissimilarityConjunction) ")";
 	public DissimilarityClauseElements getDissimilarityClauseAccess() {
 		return pDissimilarityClause;
 	}
@@ -3124,7 +3124,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum CompartmentAttributes:
-	//	MANUFACTURER="Manufacturer" | POWERSUPPLY="Power supply" | SIDE="Side" | ZONE="Zone";
+	//	MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | SIDE="Side" | ZONE="Zone";
 	public CompartmentAttributesElements getCompartmentAttributesAccess() {
 		return unknownRuleCompartmentAttributes;
 	}

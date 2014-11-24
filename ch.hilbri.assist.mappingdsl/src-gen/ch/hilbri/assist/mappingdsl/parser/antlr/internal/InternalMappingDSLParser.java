@@ -7743,7 +7743,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCompartmentAttributes"
-    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2863:1: ruleCompartmentAttributes returns [Enumerator current=null] : ( (enumLiteral_0= 'Manufacturer' ) | (enumLiteral_1= 'Power supply' ) | (enumLiteral_2= 'Side' ) | (enumLiteral_3= 'Zone' ) ) ;
+    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2863:1: ruleCompartmentAttributes returns [Enumerator current=null] : ( (enumLiteral_0= 'Manufacturer' ) | (enumLiteral_1= 'PowerSupply' ) | (enumLiteral_2= 'Side' ) | (enumLiteral_3= 'Zone' ) ) ;
     public final Enumerator ruleCompartmentAttributes() throws RecognitionException {
         Enumerator current = null;
 
@@ -7754,10 +7754,10 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2865:28: ( ( (enumLiteral_0= 'Manufacturer' ) | (enumLiteral_1= 'Power supply' ) | (enumLiteral_2= 'Side' ) | (enumLiteral_3= 'Zone' ) ) )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2866:1: ( (enumLiteral_0= 'Manufacturer' ) | (enumLiteral_1= 'Power supply' ) | (enumLiteral_2= 'Side' ) | (enumLiteral_3= 'Zone' ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2865:28: ( ( (enumLiteral_0= 'Manufacturer' ) | (enumLiteral_1= 'PowerSupply' ) | (enumLiteral_2= 'Side' ) | (enumLiteral_3= 'Zone' ) ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2866:1: ( (enumLiteral_0= 'Manufacturer' ) | (enumLiteral_1= 'PowerSupply' ) | (enumLiteral_2= 'Side' ) | (enumLiteral_3= 'Zone' ) )
             {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2866:1: ( (enumLiteral_0= 'Manufacturer' ) | (enumLiteral_1= 'Power supply' ) | (enumLiteral_2= 'Side' ) | (enumLiteral_3= 'Zone' ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2866:1: ( (enumLiteral_0= 'Manufacturer' ) | (enumLiteral_1= 'PowerSupply' ) | (enumLiteral_2= 'Side' ) | (enumLiteral_3= 'Zone' ) )
             int alt68=4;
             switch ( input.LA(1) ) {
             case 22:
@@ -7765,7 +7765,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                 alt68=1;
                 }
                 break;
-            case 23:
+            case 73:
                 {
                 alt68=2;
                 }
@@ -7809,12 +7809,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2872:6: (enumLiteral_1= 'Power supply' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2872:6: (enumLiteral_1= 'PowerSupply' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2872:6: (enumLiteral_1= 'Power supply' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2872:8: enumLiteral_1= 'Power supply'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2872:6: (enumLiteral_1= 'PowerSupply' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2872:8: enumLiteral_1= 'PowerSupply'
                     {
-                    enumLiteral_1=(Token)match(input,23,FOLLOW_23_in_ruleCompartmentAttributes6149); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,73,FOLLOW_73_in_ruleCompartmentAttributes6149); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getCompartmentAttributesAccess().getPOWERSUPPLYEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -10444,7 +10444,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleDissimilarityClause_in_ruleDissimilarityConjunction5579 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000008L});
     public static final BitSet FOLLOW_ruleDissimilarityEntry_in_entryRuleDissimilarityEntry5617 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleDissimilarityEntry5627 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_68_in_ruleDissimilarityEntry5665 = new BitSet(new long[]{0x0000000003C00000L});
+    public static final BitSet FOLLOW_68_in_ruleDissimilarityEntry5665 = new BitSet(new long[]{0x0000000003400000L,0x0000000000000200L});
     public static final BitSet FOLLOW_ruleCompartmentAttributes_in_ruleDissimilarityEntry5686 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_69_in_ruleDissimilarityEntry5706 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_ruleBoxAttributes_in_ruleDissimilarityEntry5727 = new BitSet(new long[]{0x0000000000000002L});
@@ -10464,7 +10464,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_72_in_ruleQualifiedName6056 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName6071 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000100L});
     public static final BitSet FOLLOW_22_in_ruleCompartmentAttributes6132 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_ruleCompartmentAttributes6149 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_ruleCompartmentAttributes6149 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_24_in_ruleCompartmentAttributes6166 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_25_in_ruleCompartmentAttributes6183 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_22_in_ruleBoxAttributes6227 = new BitSet(new long[]{0x0000000000000002L});

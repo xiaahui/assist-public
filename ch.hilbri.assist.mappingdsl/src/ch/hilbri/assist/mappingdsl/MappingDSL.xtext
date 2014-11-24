@@ -162,7 +162,7 @@ DissimilarityEntry:
 
 enum CompartmentAttributes :
 	MANUFACTURER 	= 'Manufacturer' 	| 
-	POWERSUPPLY	 	= 'Power supply' 	| 
+	POWERSUPPLY	 	= 'PowerSupply' 	| 
 	SIDE 		 	= 'Side' 			| 
 	ZONE		 	= 'Zone';
 	

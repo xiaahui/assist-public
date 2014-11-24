@@ -969,7 +969,7 @@ rule__CompartmentAttributes__Alternatives
 
     |(
 { before(grammarAccess.getCompartmentAttributesAccess().getPOWERSUPPLYEnumLiteralDeclaration_1()); }
-(	'Power supply' 
+(	'PowerSupply' 
 )
 { after(grammarAccess.getCompartmentAttributesAccess().getPOWERSUPPLYEnumLiteralDeclaration_1()); }
 )
