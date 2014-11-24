@@ -180,7 +180,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         coreUtilization=INT 
+	 *         coreUtilization=INT? 
 	 *         ramUtilization=INT? 
 	 *         romUtilization=INT? 
 	 *         criticalityLevel=DesignAssuranceLevelType? 

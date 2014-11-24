@@ -107,7 +107,7 @@ ApplicationGroup:
 
 Application:
 	'Application' name=ID '{'
-		'Core-utilization' 				'=' coreUtilization=INT ';' 
+		('Core-utilization' 			'=' coreUtilization=INT ';')? 
  		('Required RAM capacity' 		'=' ramUtilization=INT ';')? 
 		('Required ROM capacity' 		'=' romUtilization=INT ';')? 
 	    ('Criticality level' 			'=' criticalityLevel=DesignAssuranceLevelType ';')?

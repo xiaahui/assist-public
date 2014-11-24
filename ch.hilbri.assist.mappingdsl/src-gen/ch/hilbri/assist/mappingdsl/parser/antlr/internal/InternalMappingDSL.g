@@ -1730,19 +1730,19 @@ ruleApplication returns [EObject current=null]
     {
     	newLeafNode(otherlv_2, grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_2());
     }
-	otherlv_3='Core-utilization' 
+(	otherlv_3='Core-utilization' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getApplicationAccess().getCoreUtilizationKeyword_3());
+    	newLeafNode(otherlv_3, grammarAccess.getApplicationAccess().getCoreUtilizationKeyword_3_0());
     }
 	otherlv_4='=' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getApplicationAccess().getEqualsSignKeyword_4());
+    	newLeafNode(otherlv_4, grammarAccess.getApplicationAccess().getEqualsSignKeyword_3_1());
     }
 (
 (
 		lv_coreUtilization_5_0=RULE_INT
 		{
-			newLeafNode(lv_coreUtilization_5_0, grammarAccess.getApplicationAccess().getCoreUtilizationINTTerminalRuleCall_5_0()); 
+			newLeafNode(lv_coreUtilization_5_0, grammarAccess.getApplicationAccess().getCoreUtilizationINTTerminalRuleCall_3_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1758,21 +1758,21 @@ ruleApplication returns [EObject current=null]
 )
 )	otherlv_6=';' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getApplicationAccess().getSemicolonKeyword_6());
+    	newLeafNode(otherlv_6, grammarAccess.getApplicationAccess().getSemicolonKeyword_3_3());
     }
-(	otherlv_7='Required RAM capacity' 
+)?(	otherlv_7='Required RAM capacity' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getApplicationAccess().getRequiredRAMCapacityKeyword_7_0());
+    	newLeafNode(otherlv_7, grammarAccess.getApplicationAccess().getRequiredRAMCapacityKeyword_4_0());
     }
 	otherlv_8='=' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getApplicationAccess().getEqualsSignKeyword_7_1());
+    	newLeafNode(otherlv_8, grammarAccess.getApplicationAccess().getEqualsSignKeyword_4_1());
     }
 (
 (
 		lv_ramUtilization_9_0=RULE_INT
 		{
-			newLeafNode(lv_ramUtilization_9_0, grammarAccess.getApplicationAccess().getRamUtilizationINTTerminalRuleCall_7_2_0()); 
+			newLeafNode(lv_ramUtilization_9_0, grammarAccess.getApplicationAccess().getRamUtilizationINTTerminalRuleCall_4_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1788,21 +1788,21 @@ ruleApplication returns [EObject current=null]
 )
 )	otherlv_10=';' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getApplicationAccess().getSemicolonKeyword_7_3());
+    	newLeafNode(otherlv_10, grammarAccess.getApplicationAccess().getSemicolonKeyword_4_3());
     }
 )?(	otherlv_11='Required ROM capacity' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getApplicationAccess().getRequiredROMCapacityKeyword_8_0());
+    	newLeafNode(otherlv_11, grammarAccess.getApplicationAccess().getRequiredROMCapacityKeyword_5_0());
     }
 	otherlv_12='=' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getApplicationAccess().getEqualsSignKeyword_8_1());
+    	newLeafNode(otherlv_12, grammarAccess.getApplicationAccess().getEqualsSignKeyword_5_1());
     }
 (
 (
 		lv_romUtilization_13_0=RULE_INT
 		{
-			newLeafNode(lv_romUtilization_13_0, grammarAccess.getApplicationAccess().getRomUtilizationINTTerminalRuleCall_8_2_0()); 
+			newLeafNode(lv_romUtilization_13_0, grammarAccess.getApplicationAccess().getRomUtilizationINTTerminalRuleCall_5_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1818,20 +1818,20 @@ ruleApplication returns [EObject current=null]
 )
 )	otherlv_14=';' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getApplicationAccess().getSemicolonKeyword_8_3());
+    	newLeafNode(otherlv_14, grammarAccess.getApplicationAccess().getSemicolonKeyword_5_3());
     }
 )?(	otherlv_15='Criticality level' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getApplicationAccess().getCriticalityLevelKeyword_9_0());
+    	newLeafNode(otherlv_15, grammarAccess.getApplicationAccess().getCriticalityLevelKeyword_6_0());
     }
 	otherlv_16='=' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getApplicationAccess().getEqualsSignKeyword_9_1());
+    	newLeafNode(otherlv_16, grammarAccess.getApplicationAccess().getEqualsSignKeyword_6_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getApplicationAccess().getCriticalityLevelDesignAssuranceLevelTypeEnumRuleCall_9_2_0()); 
+	        newCompositeNode(grammarAccess.getApplicationAccess().getCriticalityLevelDesignAssuranceLevelTypeEnumRuleCall_6_2_0()); 
 	    }
 		lv_criticalityLevel_17_0=ruleDesignAssuranceLevelType		{
 	        if ($current==null) {
@@ -1848,20 +1848,20 @@ ruleApplication returns [EObject current=null]
 )
 )	otherlv_18=';' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getApplicationAccess().getSemicolonKeyword_9_3());
+    	newLeafNode(otherlv_18, grammarAccess.getApplicationAccess().getSemicolonKeyword_6_3());
     }
 )?(	otherlv_19='Required IO protection' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getApplicationAccess().getRequiredIOProtectionKeyword_10_0());
+    	newLeafNode(otherlv_19, grammarAccess.getApplicationAccess().getRequiredIOProtectionKeyword_7_0());
     }
 	otherlv_20='=' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getApplicationAccess().getEqualsSignKeyword_10_1());
+    	newLeafNode(otherlv_20, grammarAccess.getApplicationAccess().getEqualsSignKeyword_7_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getApplicationAccess().getIoAdapterProtectionLevelIOAdapterProtectionLevelTypeEnumRuleCall_10_2_0()); 
+	        newCompositeNode(grammarAccess.getApplicationAccess().getIoAdapterProtectionLevelIOAdapterProtectionLevelTypeEnumRuleCall_7_2_0()); 
 	    }
 		lv_ioAdapterProtectionLevel_21_0=ruleIOAdapterProtectionLevelType		{
 	        if ($current==null) {
@@ -1878,21 +1878,21 @@ ruleApplication returns [EObject current=null]
 )
 )	otherlv_22=';' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getApplicationAccess().getSemicolonKeyword_10_3());
+    	newLeafNode(otherlv_22, grammarAccess.getApplicationAccess().getSemicolonKeyword_7_3());
     }
 )?(	otherlv_23='Identical parallel threads' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getApplicationAccess().getIdenticalParallelThreadsKeyword_11_0());
+    	newLeafNode(otherlv_23, grammarAccess.getApplicationAccess().getIdenticalParallelThreadsKeyword_8_0());
     }
 	otherlv_24='=' 
     {
-    	newLeafNode(otherlv_24, grammarAccess.getApplicationAccess().getEqualsSignKeyword_11_1());
+    	newLeafNode(otherlv_24, grammarAccess.getApplicationAccess().getEqualsSignKeyword_8_1());
     }
 (
 (
 		lv_parallelThreads_25_0=RULE_INT
 		{
-			newLeafNode(lv_parallelThreads_25_0, grammarAccess.getApplicationAccess().getParallelThreadsINTTerminalRuleCall_11_2_0()); 
+			newLeafNode(lv_parallelThreads_25_0, grammarAccess.getApplicationAccess().getParallelThreadsINTTerminalRuleCall_8_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1908,21 +1908,21 @@ ruleApplication returns [EObject current=null]
 )
 )	otherlv_26=';' 
     {
-    	newLeafNode(otherlv_26, grammarAccess.getApplicationAccess().getSemicolonKeyword_11_3());
+    	newLeafNode(otherlv_26, grammarAccess.getApplicationAccess().getSemicolonKeyword_8_3());
     }
 )?(	otherlv_27='Developed by' 
     {
-    	newLeafNode(otherlv_27, grammarAccess.getApplicationAccess().getDevelopedByKeyword_12_0());
+    	newLeafNode(otherlv_27, grammarAccess.getApplicationAccess().getDevelopedByKeyword_9_0());
     }
 	otherlv_28='=' 
     {
-    	newLeafNode(otherlv_28, grammarAccess.getApplicationAccess().getEqualsSignKeyword_12_1());
+    	newLeafNode(otherlv_28, grammarAccess.getApplicationAccess().getEqualsSignKeyword_9_1());
     }
 (
 (
 		lv_developedBy_29_0=RULE_STRING
 		{
-			newLeafNode(lv_developedBy_29_0, grammarAccess.getApplicationAccess().getDevelopedBySTRINGTerminalRuleCall_12_2_0()); 
+			newLeafNode(lv_developedBy_29_0, grammarAccess.getApplicationAccess().getDevelopedBySTRINGTerminalRuleCall_9_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1938,12 +1938,12 @@ ruleApplication returns [EObject current=null]
 )
 )	otherlv_30=';' 
     {
-    	newLeafNode(otherlv_30, grammarAccess.getApplicationAccess().getSemicolonKeyword_12_3());
+    	newLeafNode(otherlv_30, grammarAccess.getApplicationAccess().getSemicolonKeyword_9_3());
     }
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getApplicationAccess().getIoAdapterRequirementsIOAdapterRequirementParserRuleCall_13_0()); 
+	        newCompositeNode(grammarAccess.getApplicationAccess().getIoAdapterRequirementsIOAdapterRequirementParserRuleCall_10_0()); 
 	    }
 		lv_ioAdapterRequirements_31_0=ruleIOAdapterRequirement		{
 	        if ($current==null) {
@@ -1960,11 +1960,11 @@ ruleApplication returns [EObject current=null]
 )
 )*(	otherlv_32='Restrict deployment to' 
     {
-    	newLeafNode(otherlv_32, grammarAccess.getApplicationAccess().getRestrictDeploymentToKeyword_14_0());
+    	newLeafNode(otherlv_32, grammarAccess.getApplicationAccess().getRestrictDeploymentToKeyword_11_0());
     }
 	otherlv_33='{' 
     {
-    	newLeafNode(otherlv_33, grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_14_1());
+    	newLeafNode(otherlv_33, grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_11_1());
     }
 (
 (
@@ -1974,7 +1974,7 @@ ruleApplication returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getApplicationAccess().getRestrictMappingToHardwareElementsHardwareElementCrossReference_14_2_0()); 
+	        newCompositeNode(grammarAccess.getApplicationAccess().getRestrictMappingToHardwareElementsHardwareElementCrossReference_11_2_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
@@ -1983,7 +1983,7 @@ ruleApplication returns [EObject current=null]
 )
 )(	otherlv_35=',' 
     {
-    	newLeafNode(otherlv_35, grammarAccess.getApplicationAccess().getCommaKeyword_14_3_0());
+    	newLeafNode(otherlv_35, grammarAccess.getApplicationAccess().getCommaKeyword_11_3_0());
     }
 (
 (
@@ -1993,7 +1993,7 @@ ruleApplication returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getApplicationAccess().getRestrictMappingToHardwareElementsHardwareElementCrossReference_14_3_1_0()); 
+	        newCompositeNode(grammarAccess.getApplicationAccess().getRestrictMappingToHardwareElementsHardwareElementCrossReference_11_3_1_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
@@ -2002,24 +2002,24 @@ ruleApplication returns [EObject current=null]
 )
 ))*	otherlv_37='}' 
     {
-    	newLeafNode(otherlv_37, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_14_4());
+    	newLeafNode(otherlv_37, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_11_4());
     }
 	otherlv_38=';' 
     {
-    	newLeafNode(otherlv_38, grammarAccess.getApplicationAccess().getSemicolonKeyword_14_5());
+    	newLeafNode(otherlv_38, grammarAccess.getApplicationAccess().getSemicolonKeyword_11_5());
     }
 )?(	otherlv_39='Generic properties' 
     {
-    	newLeafNode(otherlv_39, grammarAccess.getApplicationAccess().getGenericPropertiesKeyword_15_0());
+    	newLeafNode(otherlv_39, grammarAccess.getApplicationAccess().getGenericPropertiesKeyword_12_0());
     }
 	otherlv_40='{' 
     {
-    	newLeafNode(otherlv_40, grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_15_1());
+    	newLeafNode(otherlv_40, grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_12_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getApplicationAccess().getMetricParametersMetricParameterParserRuleCall_15_2_0()); 
+	        newCompositeNode(grammarAccess.getApplicationAccess().getMetricParametersMetricParameterParserRuleCall_12_2_0()); 
 	    }
 		lv_metricParameters_41_0=ruleMetricParameter		{
 	        if ($current==null) {
@@ -2036,11 +2036,11 @@ ruleApplication returns [EObject current=null]
 )
 )*	otherlv_42='}' 
     {
-    	newLeafNode(otherlv_42, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_15_3());
+    	newLeafNode(otherlv_42, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_12_3());
     }
 )?	otherlv_43='}' 
     {
-    	newLeafNode(otherlv_43, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_16());
+    	newLeafNode(otherlv_43, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_13());
     }
 )
 ;
