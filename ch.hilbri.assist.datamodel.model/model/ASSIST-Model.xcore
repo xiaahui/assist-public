@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.BasicEList
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 class AssistModel {
-	String 									systemName
+	String 									systemName 				= ""
 	contains HardwareElementContainer[1..*] hardwareContainer
 	contains Network[0..*] 					networks
 	contains Application[1..*] 				applications
@@ -159,16 +159,16 @@ enum DesignAssuranceLevelType {
 }
 
 class HardwareElement {
-	 String name
+	 String name = ""
 }
 
 class HardwareElementContainer extends HardwareElement {}
 
 class Compartment extends HardwareElementContainer {
-	String manufacturer
-	String powerSupply
-	String side
-	String zone
+	String manufacturer	= ""
+	String powerSupply	= ""
+	String side			= ""
+	String zone			= ""
 	contains Box[1..*] boxes opposite compartment
 	contains MetricParameter[0..*] metricParameters
 	
@@ -192,7 +192,7 @@ class Compartment extends HardwareElementContainer {
 }
 
 class Box extends HardwareElementContainer {
-	String manufacturer
+	String manufacturer	= ""
 	container Compartment compartment opposite boxes
 	contains Board[1..*] boards opposite box
 	contains MetricParameter[0..*] metricParameters
@@ -211,12 +211,12 @@ class Box extends HardwareElementContainer {
 }
 
 class Board extends HardwareElementContainer {
-	String 							manufacturer
-	String 							boardType
-	String 							powerSupply
-	DesignAssuranceLevelType 		assuranceLevel = "None"
-	int 							ramCapacity = "0"
-	int 							romCapacity = "0"
+	String 							manufacturer	= ""
+	String 							boardType		= ""
+	String 							powerSupply		= ""
+	DesignAssuranceLevelType 		assuranceLevel 	= "None"
+	int 							ramCapacity 	= "0"
+	int 							romCapacity 	= "0"
 	container Box 					box opposite boards
 	contains Processor[1..*] 		processors opposite board
 	contains IOAdapter[0..*] 		ioAdapters
@@ -251,21 +251,22 @@ class Board extends HardwareElementContainer {
 }
 
 class Processor extends HardwareElement {
-	String manufacturer
-	String processorType
+	String manufacturer  = ""
+	String processorType = ""
 	container Board board opposite processors
 	contains Core[1..*] cores opposite processor 
 	contains MetricParameter[0..*] metricParameters
 }
 
 class Core extends HardwareElement {
-	String architecture
+	String architecture = ""
 	int capacity = "0"
 	container Processor processor opposite cores
 	contains MetricParameter[0..*] metricParameters
 }
 
 enum IOAdapterType {
+	NONE		as "None"
 	CAN 		as "Can"
 	ELB			as "Enhanced Local Bus"
 	ETH			as "Ethernet"
@@ -315,21 +316,21 @@ enum IOAdapterType {
 }
 
 class IOAdapter {
-	String name
-	int totalCount
-	IOAdapterType adapterType
+	String name = ""
+	int totalCount = "0"
+	IOAdapterType adapterType = "None"
 	IOAdapterProtectionLevelType protectionLevel = "None"
 }
 
 class Network {
-	String name
-	int bandwidthCapacity
+	String name = ""
+	int bandwidthCapacity = "0"
 	refers Board[2..*] boards opposite networks
 	contains MetricParameter[0..*] metricParameters
 }
 
 class ApplicationOrApplicationGroup {
-	String name
+	String name = ""
 }
 
 class ApplicationGroup extends ApplicationOrApplicationGroup {
@@ -357,13 +358,13 @@ class ApplicationGroup extends ApplicationOrApplicationGroup {
 }
 
 class Application extends ApplicationOrApplicationGroup {
-	int coreUtilization
-	int ramUtilization
-	int romUtilization
-	DesignAssuranceLevelType criticalityLevel = "None"
-	IOAdapterProtectionLevelType ioAdapterProtectionLevel = "None"
-	int parallelThreads = "1"
-	String developedBy
+	int coreUtilization 									= "0"
+	int ramUtilization 										= "0"
+	int romUtilization										= "0"
+	DesignAssuranceLevelType criticalityLevel 				= "None"
+	IOAdapterProtectionLevelType ioAdapterProtectionLevel 	= "None"
+	int parallelThreads 									= "1"
+	String developedBy										= ""
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
 	contains Thread[0..*] threads opposite application
@@ -404,7 +405,7 @@ class Thread {
 }
 
 class IOAdapterRequirement {	
-	IOAdapterType 					adapterType
+	IOAdapterType 					adapterType				= "None"
 	int 							requiredAdapterCount 	= "0"
 	boolean 						isSharedAllowed 		= "false"
 	boolean 						isExclusiveOnly 		= "false"
@@ -485,11 +486,11 @@ class ProximityRelation{
 
 class CommunicationRelation{
 	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
-	int bandwidthUtilization
+	int bandwidthUtilization = "0"
 }
 
 class MetricParameter {
-	String name
-	int value
+	String name = ""
+	int value = "0"
 }
 
