@@ -30,6 +30,7 @@ import ch.hilbri.assist.mapping.solver.constraints.ApplicationProximityConstrain
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.DissimilarityConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.NoPermutationsConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint;
@@ -146,10 +147,9 @@ public class SolverJob extends Job {
 		
 		/* Create a new constraint to obey the dislocality requirements */
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables));
-		
-//		/* new */
-//		this.mappingConstraintsList.add(new DissimilarityTreeConstraint(this.constraintSystem, this.model, this.threadVariablesList));
-//		
+
+		/* Create a new constraint to obey the dissimilarity requirements */
+		this.mappingConstraintsList.add(new DissimilarityConstraint(model, solver, solverVariables));
 //		/* Create new constraints to keep the applications on the networks */
 //		this.mappingConstraintsList.add(new CommunicationOnNetworkConstraint(constraintSystem, model, threadVariablesList, communicationVariablesList));
 
