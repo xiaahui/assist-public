@@ -15,6 +15,9 @@ import solver.constraints.ICF
 import solver.constraints.LCF
 import solver.variables.IntVar
 import solver.variables.VF
+import ch.hilbri.assist.datamodel.model.DissimilarityClause
+import ch.hilbri.assist.datamodel.model.DissimilarityConjunction
+import ch.hilbri.assist.datamodel.model.DissimilarityDisjunction
 
 class DissimilarityConstraint extends AbstractMappingConstraint {
 
@@ -23,19 +26,54 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 		this.logger = LoggerFactory.getLogger(this.class);
 	}
 	
+	/*
+	 * Main method for all relations
+	 * 
+	 */
 	override generate() {
 		 
 		for (r : model.dissimilarityRelations) {
-			
-			val clause = r.dissimilarityClause
-			
-			/* Are we working on an entry? */
-			if (clause instanceof DissimilarityEntry) 
-				solver.post(generateDissimilarityEntry(r, clause))
-			
-		}
+			val constraint = generateConstraint(r, r.dissimilarityClause)
+			if (constraint != null)
+				solver.post(constraint)
+		} 
+
 		return true
 	}
+	
+
+	/*
+	 * Recursive constraint generation
+	 */
+	def Constraint generateConstraint(DissimilarityRelation relation, DissimilarityClause clause) {
+		// BASIC Case
+		if (clause instanceof DissimilarityEntry) 
+			return generateDissimilarityEntry(relation, clause)
+		
+		// AND
+		if (clause instanceof DissimilarityConjunction) {
+			val list = new ArrayList<Constraint>
+			
+			for (c : (clause as DissimilarityConjunction).dissimilarityClauses)
+				list.add(generateConstraint(relation, c))
+			
+			return LCF.and(list)
+		}
+
+		// OR
+		if (clause instanceof DissimilarityDisjunction) {
+			val list = new ArrayList<Constraint>
+			
+			for (c : (clause as DissimilarityDisjunction).dissimilarityClauses)
+				list.add(generateConstraint(relation, c))
+			
+			return LCF.or(list)
+		}
+
+		// ERROR		
+		return null
+	}
+	
 	
 	/* 
 	 * Helper method

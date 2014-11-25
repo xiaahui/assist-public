@@ -12,6 +12,8 @@ import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.CompartmentAttributes;
 import ch.hilbri.assist.datamodel.model.DesignAssuranceLevelType;
 import ch.hilbri.assist.datamodel.model.DissimilarityClause;
+import ch.hilbri.assist.datamodel.model.DissimilarityConjunction;
+import ch.hilbri.assist.datamodel.model.DissimilarityDisjunction;
 import ch.hilbri.assist.datamodel.model.DissimilarityEntry;
 import ch.hilbri.assist.datamodel.model.DissimilarityRelation;
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
@@ -19,6 +21,7 @@ import ch.hilbri.assist.datamodel.model.Processor;
 import ch.hilbri.assist.datamodel.model.ProcessorAttributes;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
+import com.google.common.base.Objects;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -44,18 +47,50 @@ public class DissimilarityConstraint extends AbstractMappingConstraint {
     this.logger = _logger;
   }
   
+  /**
+   * Main method for all relations
+   */
   public boolean generate() {
     EList<DissimilarityRelation> _dissimilarityRelations = this.model.getDissimilarityRelations();
     for (final DissimilarityRelation r : _dissimilarityRelations) {
       {
-        final DissimilarityClause clause = r.getDissimilarityClause();
-        if ((clause instanceof DissimilarityEntry)) {
-          Constraint _generateDissimilarityEntry = this.generateDissimilarityEntry(r, ((DissimilarityEntry)clause));
-          this.solver.post(_generateDissimilarityEntry);
+        DissimilarityClause _dissimilarityClause = r.getDissimilarityClause();
+        final Constraint constraint = this.generateConstraint(r, _dissimilarityClause);
+        boolean _notEquals = (!Objects.equal(constraint, null));
+        if (_notEquals) {
+          this.solver.post(constraint);
         }
       }
     }
     return true;
+  }
+  
+  /**
+   * Recursive constraint generation
+   */
+  public Constraint generateConstraint(final DissimilarityRelation relation, final DissimilarityClause clause) {
+    if ((clause instanceof DissimilarityEntry)) {
+      return this.generateDissimilarityEntry(relation, ((DissimilarityEntry)clause));
+    }
+    if ((clause instanceof DissimilarityConjunction)) {
+      final ArrayList<Constraint> list = new ArrayList<Constraint>();
+      EList<DissimilarityClause> _dissimilarityClauses = ((DissimilarityConjunction) clause).getDissimilarityClauses();
+      for (final DissimilarityClause c : _dissimilarityClauses) {
+        Constraint _generateConstraint = this.generateConstraint(relation, c);
+        list.add(_generateConstraint);
+      }
+      return LCF.and(((Constraint[])Conversions.unwrapArray(list, Constraint.class)));
+    }
+    if ((clause instanceof DissimilarityDisjunction)) {
+      final ArrayList<Constraint> list_1 = new ArrayList<Constraint>();
+      EList<DissimilarityClause> _dissimilarityClauses_1 = ((DissimilarityDisjunction) clause).getDissimilarityClauses();
+      for (final DissimilarityClause c_1 : _dissimilarityClauses_1) {
+        Constraint _generateConstraint_1 = this.generateConstraint(relation, c_1);
+        list_1.add(_generateConstraint_1);
+      }
+      return LCF.or(((Constraint[])Conversions.unwrapArray(list_1, Constraint.class)));
+    }
+    return null;
   }
   
   /**

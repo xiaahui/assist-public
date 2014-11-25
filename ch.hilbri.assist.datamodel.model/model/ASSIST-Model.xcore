@@ -422,12 +422,14 @@ class DissimilarityRelation {
 
 class DissimilarityClause {}
 
+// OR
 class DissimilarityDisjunction extends DissimilarityClause {
-	contains DissimilarityClause[2..*] dissimilarityClauses
+	contains DissimilarityClause[2] dissimilarityClauses
 }
 
+// AND
 class DissimilarityConjunction extends DissimilarityClause  {
-	contains DissimilarityClause[2..*] dissimilarityClauses
+	contains DissimilarityClause[2] dissimilarityClauses
 }
 
 class DissimilarityEntry extends DissimilarityClause {
