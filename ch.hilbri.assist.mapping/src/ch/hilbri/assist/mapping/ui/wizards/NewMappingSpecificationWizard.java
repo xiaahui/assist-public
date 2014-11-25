@@ -148,15 +148,14 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 
 	private InputStream openContentStream() {
 		String contents =
-			"//This is the initial file contents for *.mdsl file that should be word-sorted in the Preview page of the multi-page editor \n"
-			+ "Global { \n"
-			+ "\tSystem name = \"set system name\";\n"
+			"Global { \n"
+			+ "\tSystem name = \"Example System\";\n"
 			+ "}\n"
 			+ "\n"
 			+ "Hardware {\n"
-			+ "\tBoard nameOfBoard {\n"
-			+ "\t\tProcessor nameOfProcessor {\n"
-			+ "\t\t\tCore nameOfCore {\n"
+			+ "\tBoard Board1 {\n"
+			+ "\t\tProcessor Processor1 {\n"
+			+ "\t\t\tCore Core1 {\n"
 			+ "\t\t\t\tCapacity = 100;\n"
 			+ "\t\t\t}\n"
 			+ "\t\t}\n"
@@ -164,7 +163,7 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 			+ "}\n"
 			+ "\n"
 			+ "Software {\n"
-			+ "\tApplication nameOfApplication {\n"
+			+ "\tApplication A1 {\n"
 			+ "\t\tCore-utilization = 10;\n"
 			+ "\t}\n"
 			+ "}\n";
@@ -172,8 +171,7 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 	}
 
 	private void throwCoreException(String message) throws CoreException {
-		IStatus status =
-			new Status(IStatus.ERROR, PathProvider.MAPPING, IStatus.OK, message, null);
+		IStatus status = new Status(IStatus.ERROR, PathProvider.MAPPING, IStatus.OK, message, null);
 		throw new CoreException(status);
 	}
 

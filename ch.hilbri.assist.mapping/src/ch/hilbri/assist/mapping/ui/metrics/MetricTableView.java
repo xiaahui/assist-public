@@ -275,14 +275,14 @@ public class MetricTableView {
 		tltmSeperator_1.setText("Seperator");
 
 		ToolItem tltmSeperator = new ToolItem(toolBar, SWT.SEPARATOR);
-		tltmSeperator.setWidth(toolBar.getBounds().width - tltmLoadMetric.getBounds().width - tltmAddMetric.getBounds().width - tltmEvaluateAndSort.getBounds().width);
+		tltmSeperator.setWidth(4000);
 		tbMessageLabel = new Label(toolBar, SWT.NONE);
 		tbMessageLabel.setBackgroundImage(bgImg);
 		tltmSeperator.setControl(tbMessageLabel);
 	}
 
 	/**
-	 * Initialises the metric table
+	 * Initializes the metric table
 	 */
 	private void setupTable(Composite parentMain) {
 		final ScrolledComposite scrollComposite = new ScrolledComposite(parentMain, SWT.H_SCROLL | SWT.V_SCROLL);
@@ -312,8 +312,8 @@ public class MetricTableView {
 		// ----------------------Weight Column---------------------
 		TableColumn tblclmnIndexColumn = new TableColumn(table, SWT.LEFT);
 		tblclmnIndexColumn.setToolTipText("Displays the metrics index.");
-		tblclmnIndexColumn.setWidth(100);
-		tblclmnIndexColumn.setText("Index");
+		tblclmnIndexColumn.setWidth(40);
+		tblclmnIndexColumn.setText("No.");
 				
 		// ----------------------Weight Column---------------------
 		TableColumn tblclmnWeightColumn = new TableColumn(table, SWT.LEFT);
@@ -325,11 +325,11 @@ public class MetricTableView {
 		TableColumn tblclmnMetricColumn = new TableColumn(table, SWT.LEFT);
 		tblclmnMetricColumn.setToolTipText("Shows the chosen metrics. A combobox with the possible metrics will show up by clicking in the cell.");
 		tblclmnMetricColumn.setWidth(155);
-		tblclmnMetricColumn.setText("Metric");
+		tblclmnMetricColumn.setText("Metric Name");
 
 		// ---------------------Type Column---------------
 		TableColumn tblclmnTypeColumn = new TableColumn(table, SWT.LEFT);
-		tblclmnTypeColumn.setToolTipText("Indicates wheter the metric is a built-in or a custom metric.");
+		tblclmnTypeColumn.setToolTipText("");
 		tblclmnTypeColumn.setWidth(100);
 		tblclmnTypeColumn.setText("Type");
 
@@ -515,7 +515,7 @@ public class MetricTableView {
 					@Override
 					public void run() {
 						FontData fontData = label.getFont().getFontData()[0];
-						Font font = new Font(display, new FontData(fontData.getName(), fontData.getHeight(), SWT.ITALIC));
+						Font font = new Font(display, new FontData(fontData.getName(), fontData.getHeight(), SWT.BOLD));
 						label.setFont(font);
 						label.setForeground(labelColor);
 						label.setText(message);

@@ -156,7 +156,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 			EModelService modelService = (EModelService) objModel;
 			Helpers.addViewToBottomfield(
 					"ch.hilbri.assist.mapping.metrictable",
-					"Metric Table",
+					"Evaluation Metrics",
 					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricTableView",
 					application, modelService, true);
 		}
@@ -329,7 +329,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 
 			Helpers.addViewToBottomfield(
 					"ch.hilbri.assist.mapping.metrictable",
-					"Metric Table",
+					"Evaluation Metrics",
 					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricTableView",
 					application, modelService, true);
 
