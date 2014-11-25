@@ -310,6 +310,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 	public void setActiveResultPage() {
 		this.setFocus();
 		this.setActivePage(1);
+		
 	}
 
 	@Override

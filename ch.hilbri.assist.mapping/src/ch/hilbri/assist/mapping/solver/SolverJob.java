@@ -196,7 +196,15 @@ public class SolverJob extends Job {
 				});
 			}
 			
-			if (contradiction) return Status.CANCEL_STATUS;
+			if (contradiction) {
+				if (multiPageEditor != null) {
+					Display.getDefault().asyncExec(new Runnable() {
+						@Override
+						public void run() {	multiPageEditor.resetView(); }
+					});
+				}
+				return Status.CANCEL_STATUS;
+			}
 
 			else monitor.worked(1);
 		}
@@ -260,14 +268,14 @@ public class SolverJob extends Job {
 		
 		detailedResultsViewUiModel.setResultsList(allResults);
 		detailedResultsViewUiModel.indexToDrawProperty().set(0);
-		
-		
+	
 		if (multiPageEditor != null) {
 			Display.getDefault().asyncExec(new Runnable() {
 				@Override
 				public void run() {	multiPageEditor.setActiveResultPage();	}
 			});
 		}
+		
 	}
 
 	/**

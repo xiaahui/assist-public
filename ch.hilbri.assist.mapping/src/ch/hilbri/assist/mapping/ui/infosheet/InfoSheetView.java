@@ -65,6 +65,7 @@ public class InfoSheetView {
 	
 	
 	private DetailedResultsViewUiModel model;
+	
 	private Label lblScore, lblSolution;
 	private ChangeListener<TreeItem<TreeObject>> clickListener;
 	private ScrolledForm form;
@@ -211,7 +212,7 @@ public class InfoSheetView {
 	 * 
 	 * @param obj
 	 *            Object array with size 2 which holds the
-	 *            DetailedResultsViewUiModel as first and MultiPageEditor as
+	 *            DetailedResultsViewUiModel as first and MultiPageEditor as second
 	 */
 	@Inject
 	@Optional
@@ -283,6 +284,11 @@ public class InfoSheetView {
 				};
 				model.getObservableResultsList().addListener(resultListener);
 				
+				if (model.getResults() != null) { 
+					setDeploymentNumberAndScore(0);
+				} else {
+					setDeploymentNumberAndScore(-1);
+				}
 			}
 		}
 	}
