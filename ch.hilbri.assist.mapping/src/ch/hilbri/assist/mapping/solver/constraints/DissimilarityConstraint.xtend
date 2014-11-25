@@ -10,7 +10,9 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.slf4j.LoggerFactory
 import solver.Solver
+import solver.constraints.Constraint
 import solver.constraints.ICF
+import solver.constraints.LCF
 import solver.variables.IntVar
 import solver.variables.VF
 
@@ -28,76 +30,94 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 			val clause = r.dissimilarityClause
 			
 			/* Are we working on an entry? */
-			if (clause instanceof DissimilarityEntry) {
-
-				// Create a list of lists of location variables which have to be constrained
-				val varSetForAllDifferentConstraint = createDisjointVariableSets(createAListOfLocationVariables(r, clause.level))
-
-				// This is a list of hash-values (int) for each hardware element in the specified hardware level
-				var int[] dissimilarityValueList = null
-				
-				// Now we fill the dissimilarityValueList depending on the clause data
-				switch(clause.level) {
-					
-					case COMPARTMENT: 
-						switch(clause.compartmentAttribute) {
-							case NONE: 				{ 																				}
-							case MANUFACTURER: 		{ dissimilarityValueList = model.allCompartments.map[manufacturer.hashCode]		}
-							case POWERSUPPLY: 		{ dissimilarityValueList = model.allCompartments.map[powerSupply.hashCode]		}
-							case SIDE: 				{ dissimilarityValueList = model.allCompartments.map[side.hashCode]				}
-							case ZONE: 				{ dissimilarityValueList = model.allCompartments.map[zone.hashCode]				}
-						}
-						
-					case BOX: 
-						switch(clause.boxAttribute) {
-							case NONE: 				{				}
-							case MANUFACTURER: 		{ dissimilarityValueList = model.allBoxes.map[manufacturer.hashCode]			}
-						}
-						
-					case BOARD: 
-						switch(clause.boardAttribute) {
-							case NONE: 				{																				}
-							case MANUFACTURER: 		{ dissimilarityValueList = model.allBoards.map[manufacturer.hashCode]			}
-							case POWERSUPPLY: 		{ dissimilarityValueList = model.allBoards.map[powerSupply.hashCode]			}
-							case ASSURANCELEVEL: 	{ dissimilarityValueList = model.allBoards.map[assuranceLevel.ordinal]			}
-							case BOARDTYPE: 		{ dissimilarityValueList = model.allBoards.map[boardType.hashCode]				}
-						}
-					
-					case PROCESSOR: 
-						switch(clause.processorAttribute) {
-							case NONE: 				{																				}
-							case MANUFACTURER: 		{ dissimilarityValueList = model.allProcessors.map[manufacturer.hashCode]		}
-							case PROCESSORTYPE: 	{ dissimilarityValueList = model.allProcessors.map[processorType.hashCode]		}
-						}
-					
-					default: { return false	} // error case
-				}						
-				
-				// Now we have a list of numbers which represent the features of the hardware elements in the model
-
-				// In the next step, we have to combine this list with the location variables and apply an allDifferent constraint 
-
-				for (threadLocationVarGroup : varSetForAllDifferentConstraint) {
-					
-					val dissimilarityValueVarsForLocationVarGroup = new ArrayList<IntVar>
-
-					// Go through all threads of the current "group"					
-					for (threadLocationVar : threadLocationVarGroup) {
-						val threadDissimilarityValuesVar = VF.enumerated("DissimListVar", dissimilarityValueList.sort, solver)
-						dissimilarityValueVarsForLocationVarGroup.add(threadDissimilarityValuesVar)
-						
-						solver.post(ICF.element(threadDissimilarityValuesVar, dissimilarityValueList, threadLocationVar))
-					}
-					
-					solver.post(ICF.alldifferent(dissimilarityValueVarsForLocationVarGroup))
-				} 
-			}
+			if (clause instanceof DissimilarityEntry) 
+				solver.post(generateDissimilarityEntry(r, clause))
+			
 		}
-		
-		
 		return true
 	}
 	
+	/* 
+	 * Helper method
+	 * 
+	 * This method creates a constraint which is required by this dissimilarity entry
+	 */
+	
+	def Constraint generateDissimilarityEntry(DissimilarityRelation relation, DissimilarityEntry entry) {
+		
+		// Create a list of lists of location variables which have to be constrained
+		val varSetForAllDifferentConstraint = createDisjointVariableSets(createAListOfLocationVariables(relation, entry.level))
+
+		// This is a list of hash-values (int) for each hardware element in the specified hardware level
+		var int[] dissimilarityValueList = null
+				
+		// Now we fill the dissimilarityValueList depending on the clause data
+		switch(entry.level) {
+					
+			case COMPARTMENT: 
+				switch(entry.compartmentAttribute) {
+					case NONE: 				{ 																				}
+					case MANUFACTURER: 		{ dissimilarityValueList = model.allCompartments.map[manufacturer.hashCode]		}
+					case POWERSUPPLY: 		{ dissimilarityValueList = model.allCompartments.map[powerSupply.hashCode]		}
+					case SIDE: 				{ dissimilarityValueList = model.allCompartments.map[side.hashCode]				}
+					case ZONE: 				{ dissimilarityValueList = model.allCompartments.map[zone.hashCode]				}
+				}
+						
+			case BOX: 
+				switch(entry.boxAttribute) {
+					case NONE: 				{				}
+					case MANUFACTURER: 		{ dissimilarityValueList = model.allBoxes.map[manufacturer.hashCode]			}
+				}
+						
+			case BOARD: 
+				switch(entry.boardAttribute) {
+					case NONE: 				{																				}
+					case MANUFACTURER: 		{ dissimilarityValueList = model.allBoards.map[manufacturer.hashCode]			}
+					case POWERSUPPLY: 		{ dissimilarityValueList = model.allBoards.map[powerSupply.hashCode]			}
+					case ASSURANCELEVEL: 	{ dissimilarityValueList = model.allBoards.map[assuranceLevel.ordinal]			}
+					case BOARDTYPE: 		{ dissimilarityValueList = model.allBoards.map[boardType.hashCode]				}
+				}
+			
+			case PROCESSOR: 
+				switch(entry.processorAttribute) {
+					case NONE: 				{																				}
+					case MANUFACTURER: 		{ dissimilarityValueList = model.allProcessors.map[manufacturer.hashCode]		}
+					case PROCESSORTYPE: 	{ dissimilarityValueList = model.allProcessors.map[processorType.hashCode]		}
+				}
+					
+			default: { return null	} // error case
+		}						
+				
+			// This list holds all the AllDifferent constraints which are required for this dissimilarityEntry
+		val constraintsList = new ArrayList<Constraint>()
+		
+		// Now we have a list of numbers which represent the features of the hardware elements in the model
+		// In the next step, we have to combine this list with the location variables and apply an allDifferent constraint
+		for (threadLocationVarGroup : varSetForAllDifferentConstraint) {
+			
+			// First, we have to link the location to the dissimilarityValues list 
+			// and get a variable for each thread describing possible dissimilarityValues 	
+			val dissimilarityValueVarsForLocationVarGroup = new ArrayList<IntVar>
+
+			// Go through all threads of the current "group"					
+			for (threadLocationVar : threadLocationVarGroup) {
+				val threadDissimilarityValuesVar = VF.enumerated("DissimListVar", dissimilarityValueList.sort, solver)
+				dissimilarityValueVarsForLocationVarGroup.add(threadDissimilarityValuesVar)
+				
+				solver.post(ICF.element(threadDissimilarityValuesVar, dissimilarityValueList, threadLocationVar))
+			}
+
+			// Now we have all dissimilarityValue-variables which are already linked to the locations
+			// We can now request them to be different for all threads in the current group					
+			constraintsList.add(ICF.alldifferent(dissimilarityValueVarsForLocationVarGroup))
+		}
+		
+		// Now we have in constraintsList a list of all allDifferent constraints which are required for this DissimilarityEntry
+		// We do not post them now, but we reify them with an AND constraint and return the constraint only (dissimilarity tree!)
+		val entireDissimEntryConstraint = LCF.and(constraintsList) 
+		
+		return entireDissimEntryConstraint 
+	}
 	
 	/*
 	 * Helper method

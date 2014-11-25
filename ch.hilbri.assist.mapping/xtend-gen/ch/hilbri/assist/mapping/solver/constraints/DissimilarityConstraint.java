@@ -31,6 +31,7 @@ import org.slf4j.LoggerFactory;
 import solver.Solver;
 import solver.constraints.Constraint;
 import solver.constraints.ICF;
+import solver.constraints.LCF;
 import solver.variables.IntVar;
 import solver.variables.VF;
 
@@ -49,205 +50,218 @@ public class DissimilarityConstraint extends AbstractMappingConstraint {
       {
         final DissimilarityClause clause = r.getDissimilarityClause();
         if ((clause instanceof DissimilarityEntry)) {
-          HardwareArchitectureLevelType _level = ((DissimilarityEntry)clause).getLevel();
-          ArrayList<ArrayList<IntVar>> _createAListOfLocationVariables = this.createAListOfLocationVariables(r, _level);
-          final ArrayList<ArrayList<IntVar>> varSetForAllDifferentConstraint = this.createDisjointVariableSets(_createAListOfLocationVariables);
-          int[] dissimilarityValueList = null;
-          HardwareArchitectureLevelType _level_1 = ((DissimilarityEntry)clause).getLevel();
-          if (_level_1 != null) {
-            switch (_level_1) {
-              case COMPARTMENT:
-                CompartmentAttributes _compartmentAttribute = ((DissimilarityEntry)clause).getCompartmentAttribute();
-                if (_compartmentAttribute != null) {
-                  switch (_compartmentAttribute) {
-                    case NONE:
-                      break;
-                    case MANUFACTURER:
-                      EList<Compartment> _allCompartments = this.model.getAllCompartments();
-                      final Function1<Compartment, Integer> _function = new Function1<Compartment, Integer>() {
-                        public Integer apply(final Compartment it) {
-                          String _manufacturer = it.getManufacturer();
-                          return Integer.valueOf(_manufacturer.hashCode());
-                        }
-                      };
-                      List<Integer> _map = ListExtensions.<Compartment, Integer>map(_allCompartments, _function);
-                      dissimilarityValueList = ((int[])Conversions.unwrapArray(_map, int.class));
-                      break;
-                    case POWERSUPPLY:
-                      EList<Compartment> _allCompartments_1 = this.model.getAllCompartments();
-                      final Function1<Compartment, Integer> _function_1 = new Function1<Compartment, Integer>() {
-                        public Integer apply(final Compartment it) {
-                          String _powerSupply = it.getPowerSupply();
-                          return Integer.valueOf(_powerSupply.hashCode());
-                        }
-                      };
-                      List<Integer> _map_1 = ListExtensions.<Compartment, Integer>map(_allCompartments_1, _function_1);
-                      dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_1, int.class));
-                      break;
-                    case SIDE:
-                      EList<Compartment> _allCompartments_2 = this.model.getAllCompartments();
-                      final Function1<Compartment, Integer> _function_2 = new Function1<Compartment, Integer>() {
-                        public Integer apply(final Compartment it) {
-                          String _side = it.getSide();
-                          return Integer.valueOf(_side.hashCode());
-                        }
-                      };
-                      List<Integer> _map_2 = ListExtensions.<Compartment, Integer>map(_allCompartments_2, _function_2);
-                      dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_2, int.class));
-                      break;
-                    case ZONE:
-                      EList<Compartment> _allCompartments_3 = this.model.getAllCompartments();
-                      final Function1<Compartment, Integer> _function_3 = new Function1<Compartment, Integer>() {
-                        public Integer apply(final Compartment it) {
-                          String _zone = it.getZone();
-                          return Integer.valueOf(_zone.hashCode());
-                        }
-                      };
-                      List<Integer> _map_3 = ListExtensions.<Compartment, Integer>map(_allCompartments_3, _function_3);
-                      dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_3, int.class));
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                break;
-              case BOX:
-                BoxAttributes _boxAttribute = ((DissimilarityEntry)clause).getBoxAttribute();
-                if (_boxAttribute != null) {
-                  switch (_boxAttribute) {
-                    case NONE:
-                      break;
-                    case MANUFACTURER:
-                      EList<Box> _allBoxes = this.model.getAllBoxes();
-                      final Function1<Box, Integer> _function_4 = new Function1<Box, Integer>() {
-                        public Integer apply(final Box it) {
-                          String _manufacturer = it.getManufacturer();
-                          return Integer.valueOf(_manufacturer.hashCode());
-                        }
-                      };
-                      List<Integer> _map_4 = ListExtensions.<Box, Integer>map(_allBoxes, _function_4);
-                      dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_4, int.class));
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                break;
-              case BOARD:
-                BoardAttributes _boardAttribute = ((DissimilarityEntry)clause).getBoardAttribute();
-                if (_boardAttribute != null) {
-                  switch (_boardAttribute) {
-                    case NONE:
-                      break;
-                    case MANUFACTURER:
-                      EList<Board> _allBoards = this.model.getAllBoards();
-                      final Function1<Board, Integer> _function_5 = new Function1<Board, Integer>() {
-                        public Integer apply(final Board it) {
-                          String _manufacturer = it.getManufacturer();
-                          return Integer.valueOf(_manufacturer.hashCode());
-                        }
-                      };
-                      List<Integer> _map_5 = ListExtensions.<Board, Integer>map(_allBoards, _function_5);
-                      dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_5, int.class));
-                      break;
-                    case POWERSUPPLY:
-                      EList<Board> _allBoards_1 = this.model.getAllBoards();
-                      final Function1<Board, Integer> _function_6 = new Function1<Board, Integer>() {
-                        public Integer apply(final Board it) {
-                          String _powerSupply = it.getPowerSupply();
-                          return Integer.valueOf(_powerSupply.hashCode());
-                        }
-                      };
-                      List<Integer> _map_6 = ListExtensions.<Board, Integer>map(_allBoards_1, _function_6);
-                      dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_6, int.class));
-                      break;
-                    case ASSURANCELEVEL:
-                      EList<Board> _allBoards_2 = this.model.getAllBoards();
-                      final Function1<Board, Integer> _function_7 = new Function1<Board, Integer>() {
-                        public Integer apply(final Board it) {
-                          DesignAssuranceLevelType _assuranceLevel = it.getAssuranceLevel();
-                          return Integer.valueOf(_assuranceLevel.ordinal());
-                        }
-                      };
-                      List<Integer> _map_7 = ListExtensions.<Board, Integer>map(_allBoards_2, _function_7);
-                      dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_7, int.class));
-                      break;
-                    case BOARDTYPE:
-                      EList<Board> _allBoards_3 = this.model.getAllBoards();
-                      final Function1<Board, Integer> _function_8 = new Function1<Board, Integer>() {
-                        public Integer apply(final Board it) {
-                          String _boardType = it.getBoardType();
-                          return Integer.valueOf(_boardType.hashCode());
-                        }
-                      };
-                      List<Integer> _map_8 = ListExtensions.<Board, Integer>map(_allBoards_3, _function_8);
-                      dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_8, int.class));
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                break;
-              case PROCESSOR:
-                ProcessorAttributes _processorAttribute = ((DissimilarityEntry)clause).getProcessorAttribute();
-                if (_processorAttribute != null) {
-                  switch (_processorAttribute) {
-                    case NONE:
-                      break;
-                    case MANUFACTURER:
-                      EList<Processor> _allProcessors = this.model.getAllProcessors();
-                      final Function1<Processor, Integer> _function_9 = new Function1<Processor, Integer>() {
-                        public Integer apply(final Processor it) {
-                          String _manufacturer = it.getManufacturer();
-                          return Integer.valueOf(_manufacturer.hashCode());
-                        }
-                      };
-                      List<Integer> _map_9 = ListExtensions.<Processor, Integer>map(_allProcessors, _function_9);
-                      dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_9, int.class));
-                      break;
-                    case PROCESSORTYPE:
-                      EList<Processor> _allProcessors_1 = this.model.getAllProcessors();
-                      final Function1<Processor, Integer> _function_10 = new Function1<Processor, Integer>() {
-                        public Integer apply(final Processor it) {
-                          String _processorType = it.getProcessorType();
-                          return Integer.valueOf(_processorType.hashCode());
-                        }
-                      };
-                      List<Integer> _map_10 = ListExtensions.<Processor, Integer>map(_allProcessors_1, _function_10);
-                      dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_10, int.class));
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                break;
-              default:
-                return false;
-            }
-          } else {
-            return false;
-          }
-          for (final ArrayList<IntVar> threadLocationVarGroup : varSetForAllDifferentConstraint) {
-            {
-              final ArrayList<IntVar> dissimilarityValueVarsForLocationVarGroup = new ArrayList<IntVar>();
-              for (final IntVar threadLocationVar : threadLocationVarGroup) {
-                {
-                  final int[] _converted_dissimilarityValueList = (int[])dissimilarityValueList;
-                  List<Integer> _sort = IterableExtensions.<Integer>sort(((Iterable<Integer>)Conversions.doWrapArray(_converted_dissimilarityValueList)));
-                  final IntVar threadDissimilarityValuesVar = VF.enumerated("DissimListVar", ((int[])Conversions.unwrapArray(_sort, int.class)), this.solver);
-                  dissimilarityValueVarsForLocationVarGroup.add(threadDissimilarityValuesVar);
-                  Constraint _element = ICF.element(threadDissimilarityValuesVar, dissimilarityValueList, threadLocationVar);
-                  this.solver.post(_element);
-                }
-              }
-              Constraint _alldifferent = ICF.alldifferent(((IntVar[])Conversions.unwrapArray(dissimilarityValueVarsForLocationVarGroup, IntVar.class)));
-              this.solver.post(_alldifferent);
-            }
-          }
+          Constraint _generateDissimilarityEntry = this.generateDissimilarityEntry(r, ((DissimilarityEntry)clause));
+          this.solver.post(_generateDissimilarityEntry);
         }
       }
     }
     return true;
+  }
+  
+  /**
+   * Helper method
+   * 
+   * This method creates a constraint which is required by this dissimilarity entry
+   */
+  public Constraint generateDissimilarityEntry(final DissimilarityRelation relation, final DissimilarityEntry entry) {
+    HardwareArchitectureLevelType _level = entry.getLevel();
+    ArrayList<ArrayList<IntVar>> _createAListOfLocationVariables = this.createAListOfLocationVariables(relation, _level);
+    final ArrayList<ArrayList<IntVar>> varSetForAllDifferentConstraint = this.createDisjointVariableSets(_createAListOfLocationVariables);
+    int[] dissimilarityValueList = null;
+    HardwareArchitectureLevelType _level_1 = entry.getLevel();
+    if (_level_1 != null) {
+      switch (_level_1) {
+        case COMPARTMENT:
+          CompartmentAttributes _compartmentAttribute = entry.getCompartmentAttribute();
+          if (_compartmentAttribute != null) {
+            switch (_compartmentAttribute) {
+              case NONE:
+                break;
+              case MANUFACTURER:
+                EList<Compartment> _allCompartments = this.model.getAllCompartments();
+                final Function1<Compartment, Integer> _function = new Function1<Compartment, Integer>() {
+                  public Integer apply(final Compartment it) {
+                    String _manufacturer = it.getManufacturer();
+                    return Integer.valueOf(_manufacturer.hashCode());
+                  }
+                };
+                List<Integer> _map = ListExtensions.<Compartment, Integer>map(_allCompartments, _function);
+                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map, int.class));
+                break;
+              case POWERSUPPLY:
+                EList<Compartment> _allCompartments_1 = this.model.getAllCompartments();
+                final Function1<Compartment, Integer> _function_1 = new Function1<Compartment, Integer>() {
+                  public Integer apply(final Compartment it) {
+                    String _powerSupply = it.getPowerSupply();
+                    return Integer.valueOf(_powerSupply.hashCode());
+                  }
+                };
+                List<Integer> _map_1 = ListExtensions.<Compartment, Integer>map(_allCompartments_1, _function_1);
+                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_1, int.class));
+                break;
+              case SIDE:
+                EList<Compartment> _allCompartments_2 = this.model.getAllCompartments();
+                final Function1<Compartment, Integer> _function_2 = new Function1<Compartment, Integer>() {
+                  public Integer apply(final Compartment it) {
+                    String _side = it.getSide();
+                    return Integer.valueOf(_side.hashCode());
+                  }
+                };
+                List<Integer> _map_2 = ListExtensions.<Compartment, Integer>map(_allCompartments_2, _function_2);
+                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_2, int.class));
+                break;
+              case ZONE:
+                EList<Compartment> _allCompartments_3 = this.model.getAllCompartments();
+                final Function1<Compartment, Integer> _function_3 = new Function1<Compartment, Integer>() {
+                  public Integer apply(final Compartment it) {
+                    String _zone = it.getZone();
+                    return Integer.valueOf(_zone.hashCode());
+                  }
+                };
+                List<Integer> _map_3 = ListExtensions.<Compartment, Integer>map(_allCompartments_3, _function_3);
+                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_3, int.class));
+                break;
+              default:
+                break;
+            }
+          }
+          break;
+        case BOX:
+          BoxAttributes _boxAttribute = entry.getBoxAttribute();
+          if (_boxAttribute != null) {
+            switch (_boxAttribute) {
+              case NONE:
+                break;
+              case MANUFACTURER:
+                EList<Box> _allBoxes = this.model.getAllBoxes();
+                final Function1<Box, Integer> _function_4 = new Function1<Box, Integer>() {
+                  public Integer apply(final Box it) {
+                    String _manufacturer = it.getManufacturer();
+                    return Integer.valueOf(_manufacturer.hashCode());
+                  }
+                };
+                List<Integer> _map_4 = ListExtensions.<Box, Integer>map(_allBoxes, _function_4);
+                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_4, int.class));
+                break;
+              default:
+                break;
+            }
+          }
+          break;
+        case BOARD:
+          BoardAttributes _boardAttribute = entry.getBoardAttribute();
+          if (_boardAttribute != null) {
+            switch (_boardAttribute) {
+              case NONE:
+                break;
+              case MANUFACTURER:
+                EList<Board> _allBoards = this.model.getAllBoards();
+                final Function1<Board, Integer> _function_5 = new Function1<Board, Integer>() {
+                  public Integer apply(final Board it) {
+                    String _manufacturer = it.getManufacturer();
+                    return Integer.valueOf(_manufacturer.hashCode());
+                  }
+                };
+                List<Integer> _map_5 = ListExtensions.<Board, Integer>map(_allBoards, _function_5);
+                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_5, int.class));
+                break;
+              case POWERSUPPLY:
+                EList<Board> _allBoards_1 = this.model.getAllBoards();
+                final Function1<Board, Integer> _function_6 = new Function1<Board, Integer>() {
+                  public Integer apply(final Board it) {
+                    String _powerSupply = it.getPowerSupply();
+                    return Integer.valueOf(_powerSupply.hashCode());
+                  }
+                };
+                List<Integer> _map_6 = ListExtensions.<Board, Integer>map(_allBoards_1, _function_6);
+                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_6, int.class));
+                break;
+              case ASSURANCELEVEL:
+                EList<Board> _allBoards_2 = this.model.getAllBoards();
+                final Function1<Board, Integer> _function_7 = new Function1<Board, Integer>() {
+                  public Integer apply(final Board it) {
+                    DesignAssuranceLevelType _assuranceLevel = it.getAssuranceLevel();
+                    return Integer.valueOf(_assuranceLevel.ordinal());
+                  }
+                };
+                List<Integer> _map_7 = ListExtensions.<Board, Integer>map(_allBoards_2, _function_7);
+                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_7, int.class));
+                break;
+              case BOARDTYPE:
+                EList<Board> _allBoards_3 = this.model.getAllBoards();
+                final Function1<Board, Integer> _function_8 = new Function1<Board, Integer>() {
+                  public Integer apply(final Board it) {
+                    String _boardType = it.getBoardType();
+                    return Integer.valueOf(_boardType.hashCode());
+                  }
+                };
+                List<Integer> _map_8 = ListExtensions.<Board, Integer>map(_allBoards_3, _function_8);
+                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_8, int.class));
+                break;
+              default:
+                break;
+            }
+          }
+          break;
+        case PROCESSOR:
+          ProcessorAttributes _processorAttribute = entry.getProcessorAttribute();
+          if (_processorAttribute != null) {
+            switch (_processorAttribute) {
+              case NONE:
+                break;
+              case MANUFACTURER:
+                EList<Processor> _allProcessors = this.model.getAllProcessors();
+                final Function1<Processor, Integer> _function_9 = new Function1<Processor, Integer>() {
+                  public Integer apply(final Processor it) {
+                    String _manufacturer = it.getManufacturer();
+                    return Integer.valueOf(_manufacturer.hashCode());
+                  }
+                };
+                List<Integer> _map_9 = ListExtensions.<Processor, Integer>map(_allProcessors, _function_9);
+                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_9, int.class));
+                break;
+              case PROCESSORTYPE:
+                EList<Processor> _allProcessors_1 = this.model.getAllProcessors();
+                final Function1<Processor, Integer> _function_10 = new Function1<Processor, Integer>() {
+                  public Integer apply(final Processor it) {
+                    String _processorType = it.getProcessorType();
+                    return Integer.valueOf(_processorType.hashCode());
+                  }
+                };
+                List<Integer> _map_10 = ListExtensions.<Processor, Integer>map(_allProcessors_1, _function_10);
+                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_10, int.class));
+                break;
+              default:
+                break;
+            }
+          }
+          break;
+        default:
+          return null;
+      }
+    } else {
+      return null;
+    }
+    final ArrayList<Constraint> constraintsList = new ArrayList<Constraint>();
+    for (final ArrayList<IntVar> threadLocationVarGroup : varSetForAllDifferentConstraint) {
+      {
+        final ArrayList<IntVar> dissimilarityValueVarsForLocationVarGroup = new ArrayList<IntVar>();
+        for (final IntVar threadLocationVar : threadLocationVarGroup) {
+          {
+            final int[] _converted_dissimilarityValueList = (int[])dissimilarityValueList;
+            List<Integer> _sort = IterableExtensions.<Integer>sort(((Iterable<Integer>)Conversions.doWrapArray(_converted_dissimilarityValueList)));
+            final IntVar threadDissimilarityValuesVar = VF.enumerated("DissimListVar", ((int[])Conversions.unwrapArray(_sort, int.class)), this.solver);
+            dissimilarityValueVarsForLocationVarGroup.add(threadDissimilarityValuesVar);
+            Constraint _element = ICF.element(threadDissimilarityValuesVar, dissimilarityValueList, threadLocationVar);
+            this.solver.post(_element);
+          }
+        }
+        Constraint _alldifferent = ICF.alldifferent(((IntVar[])Conversions.unwrapArray(dissimilarityValueVarsForLocationVarGroup, IntVar.class)));
+        constraintsList.add(_alldifferent);
+      }
+    }
+    final Constraint entireDissimEntryConstraint = LCF.and(((Constraint[])Conversions.unwrapArray(constraintsList, Constraint.class)));
+    return entireDissimEntryConstraint;
   }
   
   /**
