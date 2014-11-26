@@ -323,9 +323,10 @@ class IOAdapter {
 }
 
 class Network {
-	String name = ""
-	int bandwidthCapacity = "0"
-	refers Board[2..*] boards opposite networks
+	String name 				= ""
+	int bandwidthCapacity 		= "0"
+	boolean isBoardLocalOnly 	= "false"
+	refers Board[1..*] boards opposite networks
 	contains MetricParameter[0..*] metricParameters
 }
 

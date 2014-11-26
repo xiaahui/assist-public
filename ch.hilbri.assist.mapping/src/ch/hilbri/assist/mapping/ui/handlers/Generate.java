@@ -109,7 +109,11 @@ public class Generate {
 					AssistModel inputModel = (AssistModel) resource.getContents().get(0);
 					
 					/* Fix the model */
+					// Threads are not part of the input - only implicitely; thus we have to create them afterwards
 					PostProcessor.createMissingThreads(inputModel);
+					// Each board is a "local network" to allow "communicating" applications to be mapped to the same board
+					// -> but local networks are not part of the input so they have to be created afterwards
+					PostProcessor.createMissingBoardLocalNetworks(inputModel);
 					
 					if (editor instanceof MultiPageEditor) {
 						

@@ -65,6 +65,7 @@ public class NetworkItemProvider
 
 			addNamePropertyDescriptor(object);
 			addBandwidthCapacityPropertyDescriptor(object);
+			addIsBoardLocalOnlyPropertyDescriptor(object);
 			addBoardsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -110,6 +111,28 @@ public class NetworkItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Board Local Only feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsBoardLocalOnlyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Network_isBoardLocalOnly_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Network_isBoardLocalOnly_feature", "_UI_Network_type"),
+				 ModelPackage.Literals.NETWORK__IS_BOARD_LOCAL_ONLY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -206,6 +229,7 @@ public class NetworkItemProvider
 		switch (notification.getFeatureID(Network.class)) {
 			case ModelPackage.NETWORK__NAME:
 			case ModelPackage.NETWORK__BANDWIDTH_CAPACITY:
+			case ModelPackage.NETWORK__IS_BOARD_LOCAL_ONLY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.NETWORK__METRIC_PARAMETERS:
