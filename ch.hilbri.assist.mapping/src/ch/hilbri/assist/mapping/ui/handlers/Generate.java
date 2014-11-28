@@ -53,7 +53,9 @@ public class Generate {
 					if (resource.getContents().size() == 0) { return false;	}
 					/* 2) Custom validation rule errors */
 					Diagnostic diagnostic = Diagnostician.INSTANCE.validate(resource.getContents().get(0));
-					if (diagnostic.getSeverity() == Diagnostic.ERROR) { return false; }
+					if (diagnostic.getSeverity() == Diagnostic.ERROR) { 
+						return false; 
+					}
 				
 					return true;
 				}
