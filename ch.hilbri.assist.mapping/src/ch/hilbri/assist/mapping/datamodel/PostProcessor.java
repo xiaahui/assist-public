@@ -31,7 +31,6 @@ public class PostProcessor {
 			Network network = f.createNetwork();
 			network.setName(board.getName() + "-Local-Net");
 			network.setBandwidthCapacity(-1);   // Local boards have infinite bandwidth capacity
-			network.setIsBoardLocalOnly(true);
 			network.getBoards().add(board);
 			
 			model.getNetworks().add(network);
