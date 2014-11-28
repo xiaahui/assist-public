@@ -32,6 +32,7 @@ import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstrain
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.DissimilarityConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint;
+import ch.hilbri.assist.mapping.solver.constraints.NetworkConstraints;
 import ch.hilbri.assist.mapping.solver.constraints.NoPermutationsConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint;
@@ -150,9 +151,9 @@ public class SolverJob extends Job {
 
 		/* Create a new constraint to obey the dissimilarity requirements */
 		this.mappingConstraintsList.add(new DissimilarityConstraint(model, solver, solverVariables));
-//		/* Create new constraints to keep the applications on the networks */
-//		this.mappingConstraintsList.add(new CommunicationOnNetworkConstraint(constraintSystem, model, threadVariablesList, communicationVariablesList));
-
+		
+		/* Create a new constraint to take care of the deployment of communication relations to networks between boards */
+		this.mappingConstraintsList.add(new NetworkConstraints(model, solver, solverVariables));
 	}
 
 	@Override

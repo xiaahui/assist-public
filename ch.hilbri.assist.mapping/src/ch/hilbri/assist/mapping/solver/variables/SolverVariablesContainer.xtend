@@ -11,6 +11,7 @@ import solver.Solver
 import solver.variables.IntVar
 import solver.variables.VF
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.datamodel.model.CommunicationRelation
 
 @Data class SolverVariablesContainer {
 	
@@ -26,10 +27,14 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 	/** A list of variables; a variable for each board which contains the absolute rom utilization */
 	HashMap<Board, IntVar>						absoluteRomUtilizationList = new HashMap
 	
+	/** A list of variables; a variable for each communication group and their placement to a network */
+	HashMap<CommunicationRelation, IntVar>		communicationGroupLocationVaruablesList = new HashMap
+	
+	
 	/* CONSTRUCTOR */
 	new (AssistModel model, Solver solver) {
 		
-		/* Initialize the hash map for all location variables */
+		/* Initialize the hash map for all thread-related location variables */
 		for (t : model.allThreads) {
 			val m = new HashMap<Integer, IntVar>
 			
@@ -45,6 +50,12 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 		for (c : model.allCores) 	absoluteCoreUtilizationList.put(c, VF.bounded("AbsCoreUtil-" + c.name, 0, c.capacity, solver))
 		for (b : model.allBoards) 	absoluteRamUtilizationList.put (b, VF.bounded("AbsRamUtil-"  + b.name, 0, b.ramCapacity, solver))
 		for (b : model.allBoards) 	absoluteRomUtilizationList.put (b, VF.bounded("AbsRomUtil-"  + b.name, 0, b.romCapacity, solver))
+
+		/* Initialize the hash map for all communication-group-related location variables */
+		if (model.networks.size > 0) {
+			for (r : model.communicationRelations) 
+				communicationGroupLocationVaruablesList.put(r, VF.enumerated("NetLoc-"+ model.communicationRelations.indexOf(r), 0, model.networks.size-1, solver))
+		}
 	}
 
 	/** Returns a list of Variables which the solver has to generate solutions for */
@@ -67,7 +78,16 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 		for (boardKey : absoluteRomUtilizationList.keySet)
 			list.add(absoluteRomUtilizationList.get(boardKey)) 
 		
+		// All locations of communication groups
+		for (relation : communicationGroupLocationVaruablesList.keySet)
+			list.add(communicationGroupLocationVaruablesList.get(relation))
+		
 		return list
+	}
+	
+	/** Returns the location variable for a given relation */
+	def IntVar getCommunicationRelationLocationVariable(CommunicationRelation relation) {
+		return communicationGroupLocationVaruablesList.get(relation)
 	}
 	
 	/** Returns the location variable for a given thread and a given hardware level */
