@@ -2,9 +2,11 @@ package ch.hilbri.assist.mapping.solver.variables;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.Board;
+import ch.hilbri.assist.datamodel.model.CommunicationRelation;
 import ch.hilbri.assist.datamodel.model.Core;
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.datamodel.model.HardwareElement;
+import ch.hilbri.assist.datamodel.model.Network;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,6 +42,11 @@ public class SolverVariablesContainer {
    * A list of variables; a variable for each board which contains the absolute rom utilization
    */
   private final HashMap<Board, IntVar> absoluteRomUtilizationList = new HashMap<Board, IntVar>();
+  
+  /**
+   * A list of variables; a variable for each communication group and their placement to a network
+   */
+  private final HashMap<CommunicationRelation, IntVar> communicationGroupLocationVaruablesList = new HashMap<CommunicationRelation, IntVar>();
   
   /**
    * CONSTRUCTOR
@@ -87,6 +94,22 @@ public class SolverVariablesContainer {
       IntVar _bounded_2 = VF.bounded(_plus_2, 0, _romCapacity, solver);
       this.absoluteRomUtilizationList.put(b_1, _bounded_2);
     }
+    EList<Network> _networks = model.getNetworks();
+    int _size = _networks.size();
+    boolean _greaterThan = (_size > 0);
+    if (_greaterThan) {
+      EList<CommunicationRelation> _communicationRelations = model.getCommunicationRelations();
+      for (final CommunicationRelation r : _communicationRelations) {
+        EList<CommunicationRelation> _communicationRelations_1 = model.getCommunicationRelations();
+        int _indexOf = _communicationRelations_1.indexOf(r);
+        String _plus_3 = ("NetLoc-" + Integer.valueOf(_indexOf));
+        EList<Network> _networks_1 = model.getNetworks();
+        int _size_1 = _networks_1.size();
+        int _minus = (_size_1 - 1);
+        IntVar _enumerated = VF.enumerated(_plus_3, 0, _minus, solver);
+        this.communicationGroupLocationVaruablesList.put(r, _enumerated);
+      }
+    }
   }
   
   /**
@@ -119,7 +142,19 @@ public class SolverVariablesContainer {
       IntVar _get_5 = this.absoluteRomUtilizationList.get(boardKey_1);
       list.add(_get_5);
     }
+    Set<CommunicationRelation> _keySet_5 = this.communicationGroupLocationVaruablesList.keySet();
+    for (final CommunicationRelation relation : _keySet_5) {
+      IntVar _get_6 = this.communicationGroupLocationVaruablesList.get(relation);
+      list.add(_get_6);
+    }
     return ((IntVar[])Conversions.unwrapArray(list, IntVar.class));
+  }
+  
+  /**
+   * Returns the location variable for a given relation
+   */
+  public IntVar getCommunicationRelationLocationVariable(final CommunicationRelation relation) {
+    return this.communicationGroupLocationVaruablesList.get(relation);
   }
   
   /**
@@ -196,6 +231,7 @@ public class SolverVariablesContainer {
     result = prime * result + ((this.absoluteCoreUtilizationList== null) ? 0 : this.absoluteCoreUtilizationList.hashCode());
     result = prime * result + ((this.absoluteRamUtilizationList== null) ? 0 : this.absoluteRamUtilizationList.hashCode());
     result = prime * result + ((this.absoluteRomUtilizationList== null) ? 0 : this.absoluteRomUtilizationList.hashCode());
+    result = prime * result + ((this.communicationGroupLocationVaruablesList== null) ? 0 : this.communicationGroupLocationVaruablesList.hashCode());
     return result;
   }
   
@@ -229,6 +265,11 @@ public class SolverVariablesContainer {
         return false;
     } else if (!this.absoluteRomUtilizationList.equals(other.absoluteRomUtilizationList))
       return false;
+    if (this.communicationGroupLocationVaruablesList == null) {
+      if (other.communicationGroupLocationVaruablesList != null)
+        return false;
+    } else if (!this.communicationGroupLocationVaruablesList.equals(other.communicationGroupLocationVaruablesList))
+      return false;
     return true;
   }
   
@@ -240,6 +281,7 @@ public class SolverVariablesContainer {
     b.add("absoluteCoreUtilizationList", this.absoluteCoreUtilizationList);
     b.add("absoluteRamUtilizationList", this.absoluteRamUtilizationList);
     b.add("absoluteRomUtilizationList", this.absoluteRomUtilizationList);
+    b.add("communicationGroupLocationVaruablesList", this.communicationGroupLocationVaruablesList);
     return b.toString();
   }
   
@@ -261,5 +303,10 @@ public class SolverVariablesContainer {
   @Pure
   public HashMap<Board, IntVar> getAbsoluteRomUtilizationList() {
     return this.absoluteRomUtilizationList;
+  }
+  
+  @Pure
+  public HashMap<CommunicationRelation, IntVar> getCommunicationGroupLocationVaruablesList() {
+    return this.communicationGroupLocationVaruablesList;
   }
 }
