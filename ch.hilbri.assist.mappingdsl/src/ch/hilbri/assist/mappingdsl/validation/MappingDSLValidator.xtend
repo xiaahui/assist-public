@@ -105,47 +105,4 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 			error('There are duplicate applications or application groups in this relation.', 
 					r, ModelPackage.Literals::DISSIMILARITY_RELATION__APPLICATIONS_OR_GROUPS)
 	}
-	
-
-//  public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					MyDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
-
-//	@Check
-//	def checkProximityRelationLevelIsValid(Model model) {
-//		for (ApplicationProximityRelation relation : model.relations.applicationProximityRelations) {
-//			if ((relation.level == HardwareArchitectureLevelType.COMPARTMENT) && (model.hardware.compartments.empty)) {
-//				error('Proximity relation is specified to compartments-level, but there are no compartments in the model.',	relation,
-//						MappingDslPackage$Literals::APPLICATION_PROXIMITY_RELATION__LEVEL, -1);
-//			}
-//			
-//			if ((relation.level == HardwareArchitectureLevelType.BOX) && (model.hardware.boxes.empty)) {
-//				error('Proximity relation is specified to box-level, but there are no boxes in the model.', relation,
-//						MappingDslPackage$Literals::APPLICATION_PROXIMITY_RELATION__LEVEL, -1);
-//			}	
-//		}
-//	}
-//	
-//	@Check
-//	def checkSafetyRelationLevelIsValid(Model model) {
-//		for (ApplicationSafetyRelation relation : model.relations.applicationSafetyRelations) {
-//			if ((relation.level == HardwareArchitectureLevelType.COMPARTMENT) && (model.hardware.compartments.empty)) {
-//				error('Safety relation is specified to compartments-level, but there are no compartments in the model.',	relation,
-//						MappingDslPackage$Literals::APPLICATION_SAFETY_RELATION__LEVEL, -1);
-//			}
-//			
-//			if ((relation.level == HardwareArchitectureLevelType.BOX) && (model.hardware.boxes.empty)) {
-//				error('Safety relation is specified to box-level, but there are no boxes in the model.', relation,
-//						MappingDslPackage$Literals::APPLICATION_SAFETY_RELATION__LEVEL, -1);
-//			}	
-//		}
-//	}
-
 }
