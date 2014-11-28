@@ -116,11 +116,9 @@ public class SolverJob extends Job {
 		
 		/* Create a new Constraint to process the system hierarchy */
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables));
-		logger.debug("Successfully created SystemHierarchyConstraint");
 		
 		/* Create a new constraint to keep the capacity of the cores */
 		this.mappingConstraintsList.add(new CoreUtilizationConstraint(model, solver, solverVariables));
-		logger.debug("Successfully created CoreUtilizationConstraint");
 
 		/* Create a new set of constraints to watch for the RAM capacity of the boards */
 		this.mappingConstraintsList.add(new RAMUtilizationConstraint(model, solver, solverVariables));
@@ -248,10 +246,8 @@ public class SolverJob extends Job {
 			return null;
 		}
 		
-		logger.debug("Starting search for solutions");
-		
+	
 		solver.findAllSolutions();
-		
 		logger.debug(recorder.getSolutions().size() + " solutions found");
 		
 		mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions());
