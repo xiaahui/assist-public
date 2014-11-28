@@ -50,6 +50,8 @@ class AssistModel {
 		}
 	}
 
+	
+
 	op Compartment[] getAllCompartments() {
 		if (topHardwareLevel == HardwareArchitectureLevelType.COMPARTMENT) return hardwareContainer.map(elem | elem as Compartment)
 		else return new BasicEList<Compartment>
@@ -220,8 +222,8 @@ class Board extends HardwareElementContainer {
 	container Box 					box opposite boards
 	contains Processor[1..*] 		processors opposite board
 	contains IOAdapter[0..*] 		ioAdapters
-	refers Network[0..*] 			networks opposite boards
 	contains MetricParameter[0..*] 	metricParameters
+	
 	op String toString() 			{ name }
 	
 	op Core[] getAllCores() {
@@ -247,7 +249,6 @@ class Board extends HardwareElementContainer {
 		else if (suiteableTypeAndProtectionLevelCount.length == 0) return 0
 		else return -1 
 	}
-	
 }
 
 class Processor extends HardwareElement {
@@ -325,9 +326,13 @@ class IOAdapter {
 class Network {
 	String name 				= ""
 	int bandwidthCapacity 		= "0"
-	boolean isBoardLocalOnly 	= "false"
-	refers Board[1..*] boards opposite networks
+	refers Board[1..*] boards 
 	contains MetricParameter[0..*] metricParameters
+	
+	derived boolean isBoardLocal get {
+		if (boards.size == 1) return true
+		else return false
+	}
 }
 
 class ApplicationOrApplicationGroup {
@@ -490,6 +495,18 @@ class ProximityRelation{
 class CommunicationRelation{
 	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
 	int bandwidthUtilization = "0"
+	
+	op Thread[] getAllThreads() {
+		var list = new BasicEList<Thread>
+		
+		for (aog : applicationsOrGroups) {
+			if (aog instanceof ApplicationGroup) list.addAll(aog.allThreads)
+			else if (aog instanceof Application) list.addAll(aog.threads)
+		}
+			
+		return list
+	}
+	
 }
 
 class MetricParameter {
