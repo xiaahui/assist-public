@@ -6,6 +6,7 @@ AssistModel:
 	'Global' 	'{' 
 					'System name' '=' systemName=STRING ';' 
 	'}'
+
 	'Hardware' 	'{'	
 					(hardwareContainer+=HardwareElementContainer)+
 					(networks+=Network)* 
@@ -16,19 +17,12 @@ AssistModel:
 					(applicationGroups+=ApplicationGroup)*
 	'}'
 
-	(
-	'Relations' '{'
+	('Relations' '{'
 					(dissimilarityRelations+=DissimilarityRelation)*
 					(dislocalityRelations+=DislocalityRelation)*
 					(proximityRelations+=ProximityRelation)*
-	'}'
-	)?
-	
-	(
-	'Communication' '{'
 					(communicationRelations+=CommunicationRelation)*
-	'}'
-	)?
+	'}')?
 ;
 
 HardwareElementContainer: 

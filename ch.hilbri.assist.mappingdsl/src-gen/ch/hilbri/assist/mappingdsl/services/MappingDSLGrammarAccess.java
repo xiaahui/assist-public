@@ -52,26 +52,21 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDislocalityRelationsDislocalityRelationParserRuleCall_17_3_0 = (RuleCall)cDislocalityRelationsAssignment_17_3.eContents().get(0);
 		private final Assignment cProximityRelationsAssignment_17_4 = (Assignment)cGroup_17.eContents().get(4);
 		private final RuleCall cProximityRelationsProximityRelationParserRuleCall_17_4_0 = (RuleCall)cProximityRelationsAssignment_17_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_17_5 = (Keyword)cGroup_17.eContents().get(5);
-		private final Group cGroup_18 = (Group)cGroup.eContents().get(18);
-		private final Keyword cCommunicationKeyword_18_0 = (Keyword)cGroup_18.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_18_1 = (Keyword)cGroup_18.eContents().get(1);
-		private final Assignment cCommunicationRelationsAssignment_18_2 = (Assignment)cGroup_18.eContents().get(2);
-		private final RuleCall cCommunicationRelationsCommunicationRelationParserRuleCall_18_2_0 = (RuleCall)cCommunicationRelationsAssignment_18_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_18_3 = (Keyword)cGroup_18.eContents().get(3);
+		private final Assignment cCommunicationRelationsAssignment_17_5 = (Assignment)cGroup_17.eContents().get(5);
+		private final RuleCall cCommunicationRelationsCommunicationRelationParserRuleCall_17_5_0 = (RuleCall)cCommunicationRelationsAssignment_17_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_17_6 = (Keyword)cGroup_17.eContents().get(6);
 		
 		//AssistModel:
 		//	"Global" "{" "System name" "=" systemName=STRING ";" "}" "Hardware" "{" hardwareContainer+=HardwareElementContainer+
 		//	networks+=Network* "}" "Software" "{" applications+=Application+ applicationGroups+=ApplicationGroup* "}"
 		//	("Relations" "{" dissimilarityRelations+=DissimilarityRelation* dislocalityRelations+=DislocalityRelation*
-		//	proximityRelations+=ProximityRelation* "}")? ("Communication" "{" communicationRelations+=CommunicationRelation*
-		//	"}")?;
+		//	proximityRelations+=ProximityRelation* communicationRelations+=CommunicationRelation* "}")?;
 		public ParserRule getRule() { return rule; }
 
 		//"Global" "{" "System name" "=" systemName=STRING ";" "}" "Hardware" "{" hardwareContainer+=HardwareElementContainer+
 		//networks+=Network* "}" "Software" "{" applications+=Application+ applicationGroups+=ApplicationGroup* "}" ("Relations"
 		//"{" dissimilarityRelations+=DissimilarityRelation* dislocalityRelations+=DislocalityRelation*
-		//proximityRelations+=ProximityRelation* "}")? ("Communication" "{" communicationRelations+=CommunicationRelation* "}")?
+		//proximityRelations+=ProximityRelation* communicationRelations+=CommunicationRelation* "}")?
 		public Group getGroup() { return cGroup; }
 
 		//"Global"
@@ -141,7 +136,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_16() { return cRightCurlyBracketKeyword_16; }
 
 		//("Relations" "{" dissimilarityRelations+=DissimilarityRelation* dislocalityRelations+=DislocalityRelation*
-		//proximityRelations+=ProximityRelation* "}")?
+		//proximityRelations+=ProximityRelation* communicationRelations+=CommunicationRelation* "}")?
 		public Group getGroup_17() { return cGroup_17; }
 
 		//"Relations"
@@ -168,26 +163,14 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//ProximityRelation
 		public RuleCall getProximityRelationsProximityRelationParserRuleCall_17_4_0() { return cProximityRelationsProximityRelationParserRuleCall_17_4_0; }
 
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_17_5() { return cRightCurlyBracketKeyword_17_5; }
-
-		//("Communication" "{" communicationRelations+=CommunicationRelation* "}")?
-		public Group getGroup_18() { return cGroup_18; }
-
-		//"Communication"
-		public Keyword getCommunicationKeyword_18_0() { return cCommunicationKeyword_18_0; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_18_1() { return cLeftCurlyBracketKeyword_18_1; }
-
 		//communicationRelations+=CommunicationRelation*
-		public Assignment getCommunicationRelationsAssignment_18_2() { return cCommunicationRelationsAssignment_18_2; }
+		public Assignment getCommunicationRelationsAssignment_17_5() { return cCommunicationRelationsAssignment_17_5; }
 
 		//CommunicationRelation
-		public RuleCall getCommunicationRelationsCommunicationRelationParserRuleCall_18_2_0() { return cCommunicationRelationsCommunicationRelationParserRuleCall_18_2_0; }
+		public RuleCall getCommunicationRelationsCommunicationRelationParserRuleCall_17_5_0() { return cCommunicationRelationsCommunicationRelationParserRuleCall_17_5_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_18_3() { return cRightCurlyBracketKeyword_18_3; }
+		public Keyword getRightCurlyBracketKeyword_17_6() { return cRightCurlyBracketKeyword_17_6; }
 	}
 
 	public class HardwareElementContainerElements extends AbstractParserRuleElementFinder {
@@ -2901,8 +2884,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"Global" "{" "System name" "=" systemName=STRING ";" "}" "Hardware" "{" hardwareContainer+=HardwareElementContainer+
 	//	networks+=Network* "}" "Software" "{" applications+=Application+ applicationGroups+=ApplicationGroup* "}"
 	//	("Relations" "{" dissimilarityRelations+=DissimilarityRelation* dislocalityRelations+=DislocalityRelation*
-	//	proximityRelations+=ProximityRelation* "}")? ("Communication" "{" communicationRelations+=CommunicationRelation*
-	//	"}")?;
+	//	proximityRelations+=ProximityRelation* communicationRelations+=CommunicationRelation* "}")?;
 	public AssistModelElements getAssistModelAccess() {
 		return pAssistModel;
 	}

@@ -205,8 +205,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         networks+=Network* 
 	 *         applications+=Application+ 
 	 *         applicationGroups+=ApplicationGroup* 
-	 *         (dissimilarityRelations+=DissimilarityRelation* dislocalityRelations+=DislocalityRelation* proximityRelations+=ProximityRelation*)? 
-	 *         communicationRelations+=CommunicationRelation*
+	 *         (
+	 *             dissimilarityRelations+=DissimilarityRelation* 
+	 *             dislocalityRelations+=DislocalityRelation* 
+	 *             proximityRelations+=ProximityRelation* 
+	 *             communicationRelations+=CommunicationRelation*
+	 *         )?
 	 *     )
 	 */
 	protected void sequence_AssistModel(EObject context, AssistModel semanticObject) {

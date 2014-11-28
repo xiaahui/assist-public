@@ -278,39 +278,27 @@ ruleAssistModel returns [EObject current=null]
 	    }
 
 )
-)*	otherlv_22='}' 
-    {
-    	newLeafNode(otherlv_22, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_17_5());
-    }
-)?(	otherlv_23='Communication' 
-    {
-    	newLeafNode(otherlv_23, grammarAccess.getAssistModelAccess().getCommunicationKeyword_18_0());
-    }
-	otherlv_24='{' 
-    {
-    	newLeafNode(otherlv_24, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_18_1());
-    }
-(
+)*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAssistModelAccess().getCommunicationRelationsCommunicationRelationParserRuleCall_18_2_0()); 
+	        newCompositeNode(grammarAccess.getAssistModelAccess().getCommunicationRelationsCommunicationRelationParserRuleCall_17_5_0()); 
 	    }
-		lv_communicationRelations_25_0=ruleCommunicationRelation		{
+		lv_communicationRelations_22_0=ruleCommunicationRelation		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAssistModelRule());
 	        }
        		add(
        			$current, 
        			"communicationRelations",
-        		lv_communicationRelations_25_0, 
+        		lv_communicationRelations_22_0, 
         		"CommunicationRelation");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_26='}' 
+)*	otherlv_23='}' 
     {
-    	newLeafNode(otherlv_26, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_18_3());
+    	newLeafNode(otherlv_23, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_17_6());
     }
 )?)
 ;

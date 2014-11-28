@@ -51,7 +51,6 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIOAdapterTypeAccess().getAlternatives(), "rule__IOAdapterType__Alternatives");
 					put(grammarAccess.getAssistModelAccess().getGroup(), "rule__AssistModel__Group__0");
 					put(grammarAccess.getAssistModelAccess().getGroup_17(), "rule__AssistModel__Group_17__0");
-					put(grammarAccess.getAssistModelAccess().getGroup_18(), "rule__AssistModel__Group_18__0");
 					put(grammarAccess.getCompartmentAccess().getGroup(), "rule__Compartment__Group__0");
 					put(grammarAccess.getCompartmentAccess().getGroup_3(), "rule__Compartment__Group_3__0");
 					put(grammarAccess.getCompartmentAccess().getGroup_4(), "rule__Compartment__Group_4__0");
@@ -123,7 +122,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAssistModelAccess().getDissimilarityRelationsAssignment_17_2(), "rule__AssistModel__DissimilarityRelationsAssignment_17_2");
 					put(grammarAccess.getAssistModelAccess().getDislocalityRelationsAssignment_17_3(), "rule__AssistModel__DislocalityRelationsAssignment_17_3");
 					put(grammarAccess.getAssistModelAccess().getProximityRelationsAssignment_17_4(), "rule__AssistModel__ProximityRelationsAssignment_17_4");
-					put(grammarAccess.getAssistModelAccess().getCommunicationRelationsAssignment_18_2(), "rule__AssistModel__CommunicationRelationsAssignment_18_2");
+					put(grammarAccess.getAssistModelAccess().getCommunicationRelationsAssignment_17_5(), "rule__AssistModel__CommunicationRelationsAssignment_17_5");
 					put(grammarAccess.getCompartmentAccess().getNameAssignment_1(), "rule__Compartment__NameAssignment_1");
 					put(grammarAccess.getCompartmentAccess().getManufacturerAssignment_3_2(), "rule__Compartment__ManufacturerAssignment_3_2");
 					put(grammarAccess.getCompartmentAccess().getPowerSupplyAssignment_4_2(), "rule__Compartment__PowerSupplyAssignment_4_2");
