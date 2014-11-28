@@ -1,11 +1,22 @@
 package ch.hilbri.assist.mapping.solver.constraints;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
+import ch.hilbri.assist.datamodel.model.Board;
+import ch.hilbri.assist.datamodel.model.CommunicationRelation;
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
+import ch.hilbri.assist.datamodel.model.Network;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
+import java.util.ArrayList;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import solver.Solver;
+import solver.constraints.Constraint;
+import solver.constraints.ICF;
+import solver.variables.IntVar;
+import solver.variables.VF;
 
 @SuppressWarnings("all")
 public class NetworkConstraints extends AbstractMappingConstraint {
@@ -17,7 +28,44 @@ public class NetworkConstraints extends AbstractMappingConstraint {
   }
   
   public boolean generate() {
-    this.logger.debug("Network constraints are called.");
+    final ArrayList<Integer> tableFromXToNetwork = new ArrayList<Integer>();
+    EList<Network> _networks = this.model.getNetworks();
+    for (final Network network : _networks) {
+      EList<Board> _boards = network.getBoards();
+      for (final Board board : _boards) {
+        EList<Network> _networks_1 = this.model.getNetworks();
+        int _indexOf = _networks_1.indexOf(network);
+        tableFromXToNetwork.add(Integer.valueOf(_indexOf));
+      }
+    }
+    final ArrayList<Integer> tableFromXToBoard = new ArrayList<Integer>();
+    EList<Network> _networks_2 = this.model.getNetworks();
+    for (final Network network_1 : _networks_2) {
+      EList<Board> _boards_1 = network_1.getBoards();
+      for (final Board board_1 : _boards_1) {
+        EList<Board> _allBoards = this.model.getAllBoards();
+        int _indexOf_1 = _allBoards.indexOf(board_1);
+        tableFromXToBoard.add(Integer.valueOf(_indexOf_1));
+      }
+    }
+    EList<CommunicationRelation> _communicationRelations = this.model.getCommunicationRelations();
+    for (final CommunicationRelation commRelation : _communicationRelations) {
+      EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads = commRelation.getAllThreads();
+      for (final ch.hilbri.assist.datamodel.model.Thread thread : _allThreads) {
+        {
+          final IntVar commRelVar = this.solverVariables.getCommunicationRelationLocationVariable(commRelation);
+          int _size = tableFromXToNetwork.size();
+          int _minus = (_size - 1);
+          final IntVar xVar = VF.enumerated("X", 0, _minus, this.solver);
+          Constraint _element = ICF.element(commRelVar, ((int[])Conversions.unwrapArray(tableFromXToNetwork, int.class)), xVar);
+          this.solver.post(_element);
+          int _value = HardwareArchitectureLevelType.BOARD.getValue();
+          final IntVar LocVar = this.solverVariables.getThreadLocationVariable(thread, _value);
+          Constraint _element_1 = ICF.element(LocVar, ((int[])Conversions.unwrapArray(tableFromXToBoard, int.class)), xVar);
+          this.solver.post(_element_1);
+        }
+      }
+    }
     return true;
   }
 }
