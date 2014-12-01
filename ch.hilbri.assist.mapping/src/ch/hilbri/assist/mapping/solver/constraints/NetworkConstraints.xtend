@@ -1,13 +1,14 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.slf4j.LoggerFactory
 import solver.Solver
 import solver.constraints.ICF
+import solver.constraints.LCF
 import solver.variables.VF
-import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 
 class NetworkConstraints extends AbstractMappingConstraint {
 	
@@ -67,6 +68,24 @@ class NetworkConstraints extends AbstractMappingConstraint {
 		 * Impose restrictions on the placement from communication relations to networks
 		 * in order to obey bandwidth restrictions
 		 */
+		
+		// Distinguish between virtual networks (board local, shared memory only) and real networks
+		val indicesOfVirtualNetworks = model.networks.filter[isIsBoardLocal].map[model.networks.indexOf(it)]
+		
+		for (commRelation : model.communicationRelations) {
+			
+			// Get the deployment variable for this communication relation
+			val commRelVar = solverVariables.getCommunicationRelationLocationVariable(commRelation)
+			
+			// This is a constraints which is used to check whether commRelation is NOT deployed to a virtual Network (board local)
+			val deploymentToRealNetworkConstraint = ICF.not_member(commRelVar, indicesOfVirtualNetworks)
+			
+			// If it is deployed to a real network, we have to make sure, at least two different boards are used ("to make it real")
+			val allLocationVariablesOfCommRelation = commRelation.allThreads.map[solverVariables.getThreadLocationVariable(it, HardwareArchitectureLevelType.BOARD.value)]
+			val useAtLeastTwoBoardsForRealNetworkDeploymentConstraint = ICF.atleast_nvalues(allLocationVariablesOfCommRelation, VF.fixed(2, solver), true) 
+			
+			solver.post(LCF.ifThen(deploymentToRealNetworkConstraint, useAtLeastTwoBoardsForRealNetworkDeploymentConstraint))
+		}
 		
 		return true
 	}

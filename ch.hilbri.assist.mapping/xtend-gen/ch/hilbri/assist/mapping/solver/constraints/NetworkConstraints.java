@@ -8,13 +8,18 @@ import ch.hilbri.assist.datamodel.model.Network;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import java.util.ArrayList;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import solver.Solver;
 import solver.constraints.Constraint;
 import solver.constraints.ICF;
+import solver.constraints.LCF;
 import solver.variables.IntVar;
 import solver.variables.VF;
 
@@ -64,6 +69,39 @@ public class NetworkConstraints extends AbstractMappingConstraint {
           Constraint _element_1 = ICF.element(LocVar, ((int[])Conversions.unwrapArray(tableFromXToBoard, int.class)), xVar);
           this.solver.post(_element_1);
         }
+      }
+    }
+    EList<Network> _networks_3 = this.model.getNetworks();
+    final Function1<Network, Boolean> _function = new Function1<Network, Boolean>() {
+      public Boolean apply(final Network it) {
+        return Boolean.valueOf(it.isIsBoardLocal());
+      }
+    };
+    Iterable<Network> _filter = IterableExtensions.<Network>filter(_networks_3, _function);
+    final Function1<Network, Integer> _function_1 = new Function1<Network, Integer>() {
+      public Integer apply(final Network it) {
+        EList<Network> _networks = NetworkConstraints.this.model.getNetworks();
+        return Integer.valueOf(_networks.indexOf(it));
+      }
+    };
+    final Iterable<Integer> indicesOfVirtualNetworks = IterableExtensions.<Network, Integer>map(_filter, _function_1);
+    EList<CommunicationRelation> _communicationRelations_1 = this.model.getCommunicationRelations();
+    for (final CommunicationRelation commRelation_1 : _communicationRelations_1) {
+      {
+        final IntVar commRelVar = this.solverVariables.getCommunicationRelationLocationVariable(commRelation_1);
+        final Constraint deploymentToRealNetworkConstraint = ICF.not_member(commRelVar, ((int[])Conversions.unwrapArray(indicesOfVirtualNetworks, int.class)));
+        EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads_1 = commRelation_1.getAllThreads();
+        final Function1<ch.hilbri.assist.datamodel.model.Thread, IntVar> _function_2 = new Function1<ch.hilbri.assist.datamodel.model.Thread, IntVar>() {
+          public IntVar apply(final ch.hilbri.assist.datamodel.model.Thread it) {
+            int _value = HardwareArchitectureLevelType.BOARD.getValue();
+            return NetworkConstraints.this.solverVariables.getThreadLocationVariable(it, _value);
+          }
+        };
+        final List<IntVar> allLocationVariablesOfCommRelation = ListExtensions.<ch.hilbri.assist.datamodel.model.Thread, IntVar>map(_allThreads_1, _function_2);
+        IntVar _fixed = VF.fixed(2, this.solver);
+        final Constraint useAtLeastTwoBoardsForRealNetworkDeploymentConstraint = ICF.atleast_nvalues(((IntVar[])Conversions.unwrapArray(allLocationVariablesOfCommRelation, IntVar.class)), _fixed, true);
+        Constraint _ifThen = LCF.ifThen(deploymentToRealNetworkConstraint, useAtLeastTwoBoardsForRealNetworkDeploymentConstraint);
+        this.solver.post(_ifThen);
       }
     }
     return true;
