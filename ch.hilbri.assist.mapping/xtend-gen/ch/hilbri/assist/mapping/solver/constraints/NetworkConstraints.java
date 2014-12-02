@@ -20,6 +20,7 @@ import solver.Solver;
 import solver.constraints.Constraint;
 import solver.constraints.ICF;
 import solver.constraints.LCF;
+import solver.variables.BoolVar;
 import solver.variables.IntVar;
 import solver.variables.VF;
 
@@ -102,6 +103,36 @@ public class NetworkConstraints extends AbstractMappingConstraint {
         final Constraint useAtLeastTwoBoardsForRealNetworkDeploymentConstraint = ICF.atleast_nvalues(((IntVar[])Conversions.unwrapArray(allLocationVariablesOfCommRelation, IntVar.class)), _fixed, true);
         Constraint _ifThen = LCF.ifThen(deploymentToRealNetworkConstraint, useAtLeastTwoBoardsForRealNetworkDeploymentConstraint);
         this.solver.post(_ifThen);
+      }
+    }
+    EList<Network> _networks_4 = this.model.getNetworks();
+    final Function1<Network, Boolean> _function_2 = new Function1<Network, Boolean>() {
+      public Boolean apply(final Network it) {
+        boolean _isIsBoardLocal = it.isIsBoardLocal();
+        return Boolean.valueOf((_isIsBoardLocal == false));
+      }
+    };
+    Iterable<Network> _filter_1 = IterableExtensions.<Network>filter(_networks_4, _function_2);
+    for (final Network network_2 : _filter_1) {
+      {
+        final ArrayList<BoolVar> factorList = new ArrayList<BoolVar>();
+        final ArrayList<Integer> bandwidthUtilizationList = new ArrayList<Integer>();
+        EList<CommunicationRelation> _communicationRelations_2 = this.model.getCommunicationRelations();
+        for (final CommunicationRelation commRelation_2 : _communicationRelations_2) {
+          {
+            final IntVar commRelVar = this.solverVariables.getCommunicationRelationLocationVariable(commRelation_2);
+            EList<Network> _networks_5 = this.model.getNetworks();
+            int _indexOf_2 = _networks_5.indexOf(network_2);
+            final Constraint constraint = ICF.arithm(commRelVar, "=", _indexOf_2);
+            final BoolVar delta = constraint.reif();
+            factorList.add(delta);
+            int _bandwidthUtilization = commRelation_2.getBandwidthUtilization();
+            bandwidthUtilizationList.add(Integer.valueOf(_bandwidthUtilization));
+          }
+        }
+        IntVar _absoluteBandwidthUtilizationVariable = this.solverVariables.getAbsoluteBandwidthUtilizationVariable(network_2);
+        Constraint _scalar = ICF.scalar(((IntVar[])Conversions.unwrapArray(factorList, IntVar.class)), ((int[])Conversions.unwrapArray(bandwidthUtilizationList, int.class)), "=", _absoluteBandwidthUtilizationVariable);
+        this.solver.post(_scalar);
       }
     }
     return true;

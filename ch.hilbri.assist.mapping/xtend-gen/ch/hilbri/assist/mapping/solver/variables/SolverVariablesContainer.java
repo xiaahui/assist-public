@@ -46,7 +46,12 @@ public class SolverVariablesContainer {
   /**
    * A list of variables; a variable for each communication group and their placement to a network
    */
-  private final HashMap<CommunicationRelation, IntVar> communicationGroupLocationVaruablesList = new HashMap<CommunicationRelation, IntVar>();
+  private final HashMap<CommunicationRelation, IntVar> communicationGroupLocationVariablesList = new HashMap<CommunicationRelation, IntVar>();
+  
+  /**
+   * A list of variables; a variable for each networks which contains the absolute bandwidth utilization
+   */
+  private final HashMap<Network, IntVar> absoluteBandwidthUtilizationList = new HashMap<Network, IntVar>();
   
   /**
    * CONSTRUCTOR
@@ -107,8 +112,16 @@ public class SolverVariablesContainer {
         int _size_1 = _networks_1.size();
         int _minus = (_size_1 - 1);
         IntVar _enumerated = VF.enumerated(_plus_3, 0, _minus, solver);
-        this.communicationGroupLocationVaruablesList.put(r, _enumerated);
+        this.communicationGroupLocationVariablesList.put(r, _enumerated);
       }
+    }
+    EList<Network> _networks_2 = model.getNetworks();
+    for (final Network n : _networks_2) {
+      String _name_3 = n.getName();
+      String _plus_4 = ("AbsBandUtil-" + _name_3);
+      int _bandwidthCapacity = n.getBandwidthCapacity();
+      IntVar _bounded_3 = VF.bounded(_plus_4, 0, _bandwidthCapacity, solver);
+      this.absoluteBandwidthUtilizationList.put(n, _bounded_3);
     }
   }
   
@@ -142,10 +155,15 @@ public class SolverVariablesContainer {
       IntVar _get_5 = this.absoluteRomUtilizationList.get(boardKey_1);
       list.add(_get_5);
     }
-    Set<CommunicationRelation> _keySet_5 = this.communicationGroupLocationVaruablesList.keySet();
+    Set<CommunicationRelation> _keySet_5 = this.communicationGroupLocationVariablesList.keySet();
     for (final CommunicationRelation relation : _keySet_5) {
-      IntVar _get_6 = this.communicationGroupLocationVaruablesList.get(relation);
+      IntVar _get_6 = this.communicationGroupLocationVariablesList.get(relation);
       list.add(_get_6);
+    }
+    Set<Network> _keySet_6 = this.absoluteBandwidthUtilizationList.keySet();
+    for (final Network networkKey : _keySet_6) {
+      IntVar _get_7 = this.absoluteBandwidthUtilizationList.get(networkKey);
+      list.add(_get_7);
     }
     return ((IntVar[])Conversions.unwrapArray(list, IntVar.class));
   }
@@ -154,7 +172,7 @@ public class SolverVariablesContainer {
    * Returns the location variable for a given relation
    */
   public IntVar getCommunicationRelationLocationVariable(final CommunicationRelation relation) {
-    return this.communicationGroupLocationVaruablesList.get(relation);
+    return this.communicationGroupLocationVariablesList.get(relation);
   }
   
   /**
@@ -222,6 +240,13 @@ public class SolverVariablesContainer {
     return ((List<IntVar>)Conversions.doWrapArray(_allVariables)).indexOf(_get);
   }
   
+  /**
+   * Returns the variable which contains the absolute bandwidth utilization for the given network
+   */
+  public IntVar getAbsoluteBandwidthUtilizationVariable(final Network n) {
+    return this.absoluteBandwidthUtilizationList.get(n);
+  }
+  
   @Override
   @Pure
   public int hashCode() {
@@ -231,7 +256,8 @@ public class SolverVariablesContainer {
     result = prime * result + ((this.absoluteCoreUtilizationList== null) ? 0 : this.absoluteCoreUtilizationList.hashCode());
     result = prime * result + ((this.absoluteRamUtilizationList== null) ? 0 : this.absoluteRamUtilizationList.hashCode());
     result = prime * result + ((this.absoluteRomUtilizationList== null) ? 0 : this.absoluteRomUtilizationList.hashCode());
-    result = prime * result + ((this.communicationGroupLocationVaruablesList== null) ? 0 : this.communicationGroupLocationVaruablesList.hashCode());
+    result = prime * result + ((this.communicationGroupLocationVariablesList== null) ? 0 : this.communicationGroupLocationVariablesList.hashCode());
+    result = prime * result + ((this.absoluteBandwidthUtilizationList== null) ? 0 : this.absoluteBandwidthUtilizationList.hashCode());
     return result;
   }
   
@@ -265,10 +291,15 @@ public class SolverVariablesContainer {
         return false;
     } else if (!this.absoluteRomUtilizationList.equals(other.absoluteRomUtilizationList))
       return false;
-    if (this.communicationGroupLocationVaruablesList == null) {
-      if (other.communicationGroupLocationVaruablesList != null)
+    if (this.communicationGroupLocationVariablesList == null) {
+      if (other.communicationGroupLocationVariablesList != null)
         return false;
-    } else if (!this.communicationGroupLocationVaruablesList.equals(other.communicationGroupLocationVaruablesList))
+    } else if (!this.communicationGroupLocationVariablesList.equals(other.communicationGroupLocationVariablesList))
+      return false;
+    if (this.absoluteBandwidthUtilizationList == null) {
+      if (other.absoluteBandwidthUtilizationList != null)
+        return false;
+    } else if (!this.absoluteBandwidthUtilizationList.equals(other.absoluteBandwidthUtilizationList))
       return false;
     return true;
   }
@@ -281,7 +312,8 @@ public class SolverVariablesContainer {
     b.add("absoluteCoreUtilizationList", this.absoluteCoreUtilizationList);
     b.add("absoluteRamUtilizationList", this.absoluteRamUtilizationList);
     b.add("absoluteRomUtilizationList", this.absoluteRomUtilizationList);
-    b.add("communicationGroupLocationVaruablesList", this.communicationGroupLocationVaruablesList);
+    b.add("communicationGroupLocationVariablesList", this.communicationGroupLocationVariablesList);
+    b.add("absoluteBandwidthUtilizationList", this.absoluteBandwidthUtilizationList);
     return b.toString();
   }
   
@@ -306,7 +338,12 @@ public class SolverVariablesContainer {
   }
   
   @Pure
-  public HashMap<CommunicationRelation, IntVar> getCommunicationGroupLocationVaruablesList() {
-    return this.communicationGroupLocationVaruablesList;
+  public HashMap<CommunicationRelation, IntVar> getCommunicationGroupLocationVariablesList() {
+    return this.communicationGroupLocationVariablesList;
+  }
+  
+  @Pure
+  public HashMap<Network, IntVar> getAbsoluteBandwidthUtilizationList() {
+    return this.absoluteBandwidthUtilizationList;
   }
 }

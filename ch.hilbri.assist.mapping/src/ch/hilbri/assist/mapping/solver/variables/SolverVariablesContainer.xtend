@@ -2,7 +2,10 @@ package ch.hilbri.assist.mapping.solver.variables
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.Board
+import ch.hilbri.assist.datamodel.model.CommunicationRelation
 import ch.hilbri.assist.datamodel.model.Core
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.datamodel.model.Network
 import ch.hilbri.assist.datamodel.model.Thread
 import java.util.ArrayList
 import java.util.HashMap
@@ -10,8 +13,6 @@ import org.eclipse.xtend.lib.annotations.Data
 import solver.Solver
 import solver.variables.IntVar
 import solver.variables.VF
-import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.datamodel.model.CommunicationRelation
 
 @Data class SolverVariablesContainer {
 	
@@ -28,7 +29,10 @@ import ch.hilbri.assist.datamodel.model.CommunicationRelation
 	HashMap<Board, IntVar>						absoluteRomUtilizationList = new HashMap
 	
 	/** A list of variables; a variable for each communication group and their placement to a network */
-	HashMap<CommunicationRelation, IntVar>		communicationGroupLocationVaruablesList = new HashMap
+	HashMap<CommunicationRelation, IntVar>		communicationGroupLocationVariablesList = new HashMap
+	
+	/** A list of variables; a variable for each networks which contains the absolute bandwidth utilization */
+	HashMap<Network, IntVar>					absoluteBandwidthUtilizationList = new HashMap
 	
 	
 	/* CONSTRUCTOR */
@@ -54,8 +58,11 @@ import ch.hilbri.assist.datamodel.model.CommunicationRelation
 		/* Initialize the hash map for all communication-group-related location variables */
 		if (model.networks.size > 0) {
 			for (r : model.communicationRelations) 
-				communicationGroupLocationVaruablesList.put(r, VF.enumerated("NetLoc-"+ model.communicationRelations.indexOf(r), 0, model.networks.size-1, solver))
+				communicationGroupLocationVariablesList.put(r, VF.enumerated("NetLoc-"+ model.communicationRelations.indexOf(r), 0, model.networks.size-1, solver))
 		}
+		
+		for (n : model.networks)	
+			absoluteBandwidthUtilizationList.put(n, VF.bounded("AbsBandUtil-" + n.name, 0, n.bandwidthCapacity, solver))
 	}
 
 	/** Returns a list of Variables which the solver has to generate solutions for */
@@ -79,15 +86,19 @@ import ch.hilbri.assist.datamodel.model.CommunicationRelation
 			list.add(absoluteRomUtilizationList.get(boardKey)) 
 		
 		// All locations of communication groups
-		for (relation : communicationGroupLocationVaruablesList.keySet)
-			list.add(communicationGroupLocationVaruablesList.get(relation))
+		for (relation : communicationGroupLocationVariablesList.keySet)
+			list.add(communicationGroupLocationVariablesList.get(relation))
+		
+		// All network capacity utilizations
+		for (networkKey : absoluteBandwidthUtilizationList.keySet)
+			list.add(absoluteBandwidthUtilizationList.get(networkKey))
 		
 		return list
 	}
 	
 	/** Returns the location variable for a given relation */
 	def IntVar getCommunicationRelationLocationVariable(CommunicationRelation relation) {
-		return communicationGroupLocationVaruablesList.get(relation)
+		return communicationGroupLocationVariablesList.get(relation)
 	}
 	
 	/** Returns the location variable for a given thread and a given hardware level */
@@ -124,9 +135,15 @@ import ch.hilbri.assist.datamodel.model.CommunicationRelation
 	def IntVar getAbsoluteRomUtilizationVariable(Board b) {
 		return absoluteRomUtilizationList.get(b)
 	}
-	
+		
 	/** Returns the index of the absolute ram utilization variable of a given board in the solutions variables list */
 	def int getIndexOfAbsoluteRomUtilizationInSolutionVariablesList(Board b) {
 		return allVariables.indexOf(absoluteRomUtilizationList.get(b))
 	}
+	
+	/** Returns the variable which contains the absolute bandwidth utilization for the given network */
+	def IntVar getAbsoluteBandwidthUtilizationVariable(Network n) {
+		return absoluteBandwidthUtilizationList.get(n)
+	}
+	
 }

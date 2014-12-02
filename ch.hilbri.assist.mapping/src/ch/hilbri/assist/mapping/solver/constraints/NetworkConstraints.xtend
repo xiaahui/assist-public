@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory
 import solver.Solver
 import solver.constraints.ICF
 import solver.constraints.LCF
+import solver.variables.BoolVar
 import solver.variables.VF
 
 class NetworkConstraints extends AbstractMappingConstraint {
@@ -65,11 +66,9 @@ class NetworkConstraints extends AbstractMappingConstraint {
 		/*
 		 * STEP 3)
 		 * 
-		 * Impose restrictions on the placement from communication relations to networks
-		 * in order to obey bandwidth restrictions
+		 * Distinguish between virtual networks (board local, shared memory only) and real networks
 		 */
 		
-		// Distinguish between virtual networks (board local, shared memory only) and real networks
 		val indicesOfVirtualNetworks = model.networks.filter[isIsBoardLocal].map[model.networks.indexOf(it)]
 		
 		for (commRelation : model.communicationRelations) {
@@ -85,6 +84,30 @@ class NetworkConstraints extends AbstractMappingConstraint {
 			val useAtLeastTwoBoardsForRealNetworkDeploymentConstraint = ICF.atleast_nvalues(allLocationVariablesOfCommRelation, VF.fixed(2, solver), true) 
 			
 			solver.post(LCF.ifThen(deploymentToRealNetworkConstraint, useAtLeastTwoBoardsForRealNetworkDeploymentConstraint))
+		}
+		
+		/*
+		 * STEP 4)
+		 * 
+		 * Impose restrictions on the placement from communication relations to networks
+		 * in order to obey bandwidth restrictions for REAL networks only
+		 */
+		
+		for (network : model.networks.filter[isIsBoardLocal == false]) {
+		
+			val factorList = new ArrayList<BoolVar>
+			val bandwidthUtilizationList = new ArrayList<Integer>()
+			
+			for (commRelation : model.communicationRelations) {
+				val commRelVar = solverVariables.getCommunicationRelationLocationVariable(commRelation)
+				val constraint = ICF.arithm(commRelVar, "=", model.networks.indexOf(network))
+				val delta      = constraint.reif
+				
+				factorList.add(delta)
+				bandwidthUtilizationList.add(commRelation.bandwidthUtilization)
+			}
+			
+			solver.post(ICF.scalar(factorList, bandwidthUtilizationList, "=", solverVariables.getAbsoluteBandwidthUtilizationVariable(network))) 
 		}
 		
 		return true
