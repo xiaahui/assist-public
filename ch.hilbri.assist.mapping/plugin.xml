@@ -23,12 +23,8 @@
    </extension>
    <extension
          point="org.eclipse.ui.newWizards">
-      <category
-            id="ch.hilbri.assist.mapping.Mapping"
-            name="Mapping">
-      </category>
       <wizard
-            category="ch.hilbri.assist.mapping.Mapping"
+            category="ch.hilbri.assist.application.category.assist"
             class="ch.hilbri.assist.mapping.ui.wizards.NewMappingSpecificationWizard"
             icon="icons/icon-mapping-specification-16x16.png"
             id="ch.hilbri.assist.mapping.wizards.newMappingSpecification"
