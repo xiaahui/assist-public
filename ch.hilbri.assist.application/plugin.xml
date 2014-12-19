@@ -69,6 +69,10 @@
 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.jdt.ui.wizards.*"></activityPatternBinding>
 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.ant.*"></activityPatternBinding>
  		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/ch.hilbri.assist.datamodel.model.editor*"></activityPatternBinding>
+   <activityPatternBinding
+         activityId="ch.hilbri.assist.application.activity.disable"
+         pattern=".*/org.eclipse.ui.ide.*">
+   </activityPatternBinding>
  	</extension>
  
  	<extension point="org.eclipse.ui.cheatsheets.cheatSheetContent">
@@ -84,4 +88,21 @@
     	<splashHandler class="ch.hilbri.assist.application.splashHandlers.SplashHandler" id="ch.hilbri.assist.application.splashHandler"></splashHandler>
     	<splashHandlerProductBinding productId="ch.hilbri.assist.application.assist_product" splashId="ch.hilbri.assist.application.splashHandler"></splashHandlerProductBinding>
  	</extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <category
+           id="ch.hilbri.assist.application.category.assist"
+           name="ASSIST">
+     </category>
+     <wizard
+           canFinishEarly="false"
+           category="ch.hilbri.assist.application.category.assist"
+           class="ch.hilbri.assist.application.ui.wizards.NewAssistProjectWizard"
+           hasPages="true"
+           icon="icons/newprj_wiz.png"
+           id="ch.hilbri.assist.application.wizards.newproject"
+           name="ASSIST Project"
+           project="true">
+     </wizard>
+  </extension>
 </plugin>

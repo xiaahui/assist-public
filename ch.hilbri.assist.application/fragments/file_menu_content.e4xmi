@@ -16,14 +16,8 @@
   <imports xsi:type="commands:Command" xmi:id="_oXLjMBJnEeS0b7yzu71Zvg" elementId="org.eclipse.ui.file.import"/>
   <imports xsi:type="commands:Command" xmi:id="_pOHLMBJnEeS0b7yzu71Zvg" elementId="org.eclipse.ui.file.export"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_PprXMAEaEeSTlPOe0qW7tA" featurename="children" parentElementId="file">
-    <elements xsi:type="menu:Menu" xmi:id="_Sm6kYAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.new" label="&amp;New" mnemonics="N">
-      <children xsi:type="menu:HandledMenuItem" xmi:id="_lbUekAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.new.project" label="Project ..." iconURI="" command="_bE9-AA58EeSelv1Zem0g8g"/>
-      <children xsi:type="menu:MenuSeparator" xmi:id="_r9hAQAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.menuseparator.1"/>
-      <children xsi:type="menu:HandledMenuItem" xmi:id="_s7230AEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.new.file" label="File" iconURI="" command="_JxGpgA58EeSelv1Zem0g8g"/>
-      <children xsi:type="menu:HandledMenuItem" xmi:id="_yEWboAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.new.folder" label="Folder" iconURI="" command="_bkLCgA58EeSelv1Zem0g8g"/>
-      <children xsi:type="menu:MenuSeparator" xmi:id="_18DtAAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.menuseparator.2"/>
-      <children xsi:type="menu:HandledMenuItem" xmi:id="_2dPugAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.new.other" label="Other ..." command="_g4Cv4A58EeSelv1Zem0g8g"/>
-    </elements>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_qD7RUId1EeSc37Dto09M8A" elementId="ch.hilbri.assist.application.handledmenuitem.new" label="&amp;New ..." iconURI="platform:/plugin/ch.hilbri.assist.application/icons/new_wiz.gif" command="_g4Cv4A58EeSelv1Zem0g8g"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_E2eGwId2EeSc37Dto09M8A" elementId="ch.hilbri.assist.application.menuseparator.1"/>
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_UIz08AEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.open" label="&amp;Open File ..." command="_lt_YYAEZEeSTlPOe0qW7tA"/>
     <elements xsi:type="menu:MenuSeparator" xmi:id="_W6JUIAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.menuseparator.0"/>
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_1YQasA5zEeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.close" label="Close" mnemonics="C" command="_jbwp0A58EeSelv1Zem0g8g"/>
@@ -32,7 +26,7 @@
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_k33qMA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.save" label="&amp;Save" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/save.png" command="_k_efUA58EeSelv1Zem0g8g"/>
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_ldyasA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.saveAs" label="&amp;Save As..." iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/saveas.png" command="_ltZVQA58EeSelv1Zem0g8g"/>
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_ltlxQA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.saveAll" label="&amp;Save All" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/saveAll.png" command="_mWShQA58EeSelv1Zem0g8g"/>
-    <elements xsi:type="menu:HandledMenuItem" xmi:id="_l7ecQA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.revert" label="&amp;Revert" command="_nGqOQA58EeSelv1Zem0g8g"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_l7ecQA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.revert" label="&amp;Revert" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/undo.png" command="_nGqOQA58EeSelv1Zem0g8g"/>
     <elements xsi:type="menu:MenuSeparator" xmi:id="_mr2JQA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.menuseparator.4"/>
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_mLnQEBJSEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.print" label="&amp;Print" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/print.png" command="__YrVcBJSEeS0b7yzu71Zvg"/>
     <elements xsi:type="menu:MenuSeparator" xmi:id="_kSvp8BJSEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.menuseparator.5"/>

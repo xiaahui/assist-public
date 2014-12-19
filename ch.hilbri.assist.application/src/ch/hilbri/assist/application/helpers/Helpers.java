@@ -223,8 +223,20 @@ public class Helpers {
 	 */
 	public static void disableWizards() {
 		// Manually disabling unwanted wizards
-		AbstractExtensionWizardRegistry wizardRegistry = (AbstractExtensionWizardRegistry) PlatformUI.getWorkbench().getNewWizardRegistry();
-		IWizardCategory[] categories = new IWizardCategory[] { PlatformUI.getWorkbench().getNewWizardRegistry().findCategory(PathProvider.ECL_JDT_UI_JAVA) };
+		
+		// Disable Basic / General Wizards
+		AbstractExtensionWizardRegistry wizardRegistry = (AbstractExtensionWizardRegistry)PlatformUI.getWorkbench().getNewWizardRegistry();
+		IWizardCategory[] categories = PlatformUI.getWorkbench().getNewWizardRegistry().getRootCategory().getCategories();
+		for(IWizardDescriptor wizard : getAllWizards(categories)){
+		    if(wizard.getCategory().getId().matches("org.eclipse.ui.Basic")){
+		        WorkbenchWizardElement wizardElement = (WorkbenchWizardElement) wizard;
+		        wizardRegistry.removeExtension(wizardElement.getConfigurationElement().getDeclaringExtension(), new Object[]{wizardElement});
+		    }
+		}
+		
+		// Disable Java-related Wizards
+		wizardRegistry = (AbstractExtensionWizardRegistry) PlatformUI.getWorkbench().getNewWizardRegistry();
+		categories = new IWizardCategory[] { PlatformUI.getWorkbench().getNewWizardRegistry().findCategory(PathProvider.ECL_JDT_UI_JAVA) };
 		for (IWizardDescriptor wizard : getAllWizards(categories)) {
 
 			// Disabling if statement
