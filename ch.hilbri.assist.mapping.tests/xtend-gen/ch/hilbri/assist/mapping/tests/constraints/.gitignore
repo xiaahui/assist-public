@@ -17,3 +17,6 @@
 /.DesignAssuranceLevelTests.java._trace
 /.DesignAssuranceLevelTestsInvalid.java._trace
 /.DesignAssuranceLevelComplexTests.java._trace
+/DesignAssuranceLevelComplexTests.java
+/DesignAssuranceLevelTests.java
+/DesignAssuranceLevelTestsInvalid.java

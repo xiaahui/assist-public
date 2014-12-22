@@ -24,3 +24,5 @@
 /RestrictedDeploymentConstraint.java
 /.DissimilarityConstraint.java._trace
 /.NetworkConstraints.java._trace
+/DissimilarityConstraint.java
+/NetworkConstraints.java

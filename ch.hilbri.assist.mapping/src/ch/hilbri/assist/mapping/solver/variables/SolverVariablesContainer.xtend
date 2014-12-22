@@ -9,7 +9,6 @@ import ch.hilbri.assist.datamodel.model.Network
 import ch.hilbri.assist.datamodel.model.Thread
 import java.util.ArrayList
 import java.util.HashMap
-import org.eclipse.xtend.lib.annotations.Data
 import solver.Solver
 import solver.variables.IntVar
 import solver.variables.VF
