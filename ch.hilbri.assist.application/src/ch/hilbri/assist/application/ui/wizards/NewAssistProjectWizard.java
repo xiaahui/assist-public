@@ -9,6 +9,9 @@ import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
@@ -22,6 +25,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
+import org.osgi.framework.Bundle;
 
 public class NewAssistProjectWizard extends Wizard implements INewWizard {
 
@@ -110,10 +114,15 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 		try {
 			IPackageFragmentRoot mappingPackageRoot = javaProject.getPackageFragmentRoot(mappingSourceFolder);
 			
-			IClasspathEntry[] cpEntries = new IClasspathEntry[2];
+			IClasspathEntry[] cpEntries = new IClasspathEntry[3];
 
 			cpEntries[0] = JavaCore.newSourceEntry(mappingPackageRoot.getPath());
 			cpEntries[1] = JavaRuntime.getDefaultJREContainerEntry();
+			
+			Bundle bundle = Platform.getBundle("ch.hilbri.assist.datamodel.result.mapping");
+			IPath path = new Path(bundle.getLocation().substring(bundle.getLocation().lastIndexOf("file:/")+6) + "bin/ch/hilbri/assist/datamodel/result/mapping");
+			cpEntries[2] = JavaCore.newLibraryEntry(path, null, null);
+			
 			
 			javaProject.setRawClasspath(cpEntries, null);
 			
