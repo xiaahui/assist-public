@@ -24,13 +24,27 @@
    <extension
          point="org.eclipse.ui.newWizards">
       <wizard
-            category="ch.hilbri.assist.application.category.assist"
+            canFinishEarly="false"
+            category="ch.hilbri.assist.categories.main"
             class="ch.hilbri.assist.mapping.ui.wizards.NewMappingSpecificationWizard"
             icon="icons/icon-mapping-specification-16x16.png"
             id="ch.hilbri.assist.mapping.wizards.newMappingSpecification"
-            name="Mapping Specification">
+            name="Mapping - Deployment Specification"
+            project="false">
          <description>
             This wizard creates a new mapping specification file with *.mdsl extension.
+         </description>
+      </wizard>
+      <wizard
+            canFinishEarly="true"
+            category="ch.hilbri.assist.categories.main"
+            class="ch.hilbri.assist.mapping.ui.wizards.NewMetricWizard"
+            hasPages="true"
+            id="ch.hilbri.assist.mapping.wizards.newMetric"
+            name="Mapping - Optimiziation Metric"
+            project="false">
+         <description>
+            Add a custom metric class
          </description>
       </wizard>
    </extension>
