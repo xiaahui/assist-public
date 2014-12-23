@@ -91,12 +91,12 @@
   <extension
         point="org.eclipse.ui.newWizards">
      <category
-           id="ch.hilbri.assist.application.category.assist"
+           id="ch.hilbri.assist.categories.main"
            name="ASSIST">
      </category>
      <wizard
            canFinishEarly="false"
-           category="ch.hilbri.assist.application.category.assist"
+           category="ch.hilbri.assist.categories.main"
            class="ch.hilbri.assist.application.ui.wizards.NewAssistProjectWizard"
            hasPages="true"
            icon="icons/newprj_wiz.png"
