@@ -105,4 +105,19 @@
            project="true">
      </wizard>
   </extension>
+  <extension
+        point="org.eclipse.jdt.ui.classpathContainerPage">
+     <classpathContainerPage
+           class="ch.hilbri.assist.application.classpath.ASSISTClasspathContainerPage"
+           id="ch.hilbri.assist.application.classpathContainer"
+           name="ASSIST Libraries">
+     </classpathContainerPage>
+  </extension>
+  <extension
+        point="org.eclipse.jdt.core.classpathContainerInitializer">
+     <classpathContainerInitializer
+           class="ch.hilbri.assist.application.classpath.ASSISTClasspathContainerInitializer"
+           id="ch.hilbri.assist.application.classpathContainer">
+     </classpathContainerInitializer>
+  </extension>
 </plugin>

@@ -9,9 +9,7 @@ import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
@@ -25,7 +23,6 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-import org.osgi.framework.Bundle;
 
 public class NewAssistProjectWizard extends Wizard implements INewWizard {
 
@@ -81,7 +78,7 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 
 		// However, it's not enough if we want to add Java source code to the project. We have to set the Java build path:
 		// (1) We first specify the output location of the compiler (the bin folder): 
-		IFolder binFolder = project.getFolder("compiled-metrics");
+		IFolder binFolder = project.getFolder("Compiled-Metrics");
 		try {
 			binFolder.create(false, true, null);
 			javaProject.setOutputLocation(binFolder.getFullPath(), null);
@@ -104,7 +101,7 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 		} catch (JavaModelException e) { e.printStackTrace(); }
 		
 		// (3) We have not yet the source folder created: 
-		IFolder mappingSourceFolder = project.getFolder("mapping");
+		IFolder mappingSourceFolder = project.getFolder("Mapping");
 		
 		try {
 			mappingSourceFolder.create(false, true, null);
@@ -117,20 +114,16 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 			IClasspathEntry[] cpEntries = new IClasspathEntry[3];
 
 			cpEntries[0] = JavaCore.newSourceEntry(mappingPackageRoot.getPath());
-			cpEntries[1] = JavaRuntime.getDefaultJREContainerEntry();
-			
-			Bundle bundle = Platform.getBundle("ch.hilbri.assist.datamodel.result.mapping");
-			IPath path = new Path(bundle.getLocation().substring(bundle.getLocation().lastIndexOf("file:/")+6) + "bin/ch/hilbri/assist/datamodel/result/mapping");
-			cpEntries[2] = JavaCore.newLibraryEntry(path, null, null);
-			
-			
+			cpEntries[1] = JavaCore.newContainerEntry(new Path("ch.hilbri.assist.application.classpathContainer"));
+			cpEntries[2] = JavaRuntime.getDefaultJREContainerEntry();
+
 			javaProject.setRawClasspath(cpEntries, null);
 			
 		} catch (JavaModelException e) { e.printStackTrace(); }
 		
 		// Create packages
 		try {
-			javaProject.getPackageFragmentRoot(mappingSourceFolder).createPackageFragment("metrics", false, null);
+			javaProject.getPackageFragmentRoot(mappingSourceFolder).createPackageFragment("Metrics", false, null);
 		} catch (JavaModelException e) {
 			e.printStackTrace();
 		}
