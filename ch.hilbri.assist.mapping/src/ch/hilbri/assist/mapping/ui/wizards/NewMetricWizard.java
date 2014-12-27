@@ -87,18 +87,21 @@ public class NewMetricWizard extends Wizard implements INewWizard {
 		packageName = packageName.length() > 0 ? "package " + packageName
 				+ ";\n\n" : "";
 		String contents = packageName
-				+ "import de.fraunhofer.fokus.precisionpro.mapping.result.Result;\n"
-				+ "import de.fraunhofer.fokus.precisionpro.mapping.analysis.AbstractMetric;\n\n"
+				+ "import ch.hilbri.assist.datamodel.result.mapping.Result;\n"
+				+ "import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;\n\n"
 				+
 
-				"public class " + fileName + " extends AbstractMetric { \n" +
+				"public class " + fileName + " extends AbstractMetricImpl { \n" +
 
 				"\tpublic " + fileName + "(int weight) {\n"
-				+ "\t\tsuper(weight, false, \"" + fileName + "\");\n"
+				+ "\t\tsetName(\"Metric Name\");\n"
+				+ "\t\tsetWeight(weight);\n"
+				+ "\t\tsetBuiltIn(false);\n"
+				+ "\t\tsetHigherScoreIsBetter(true);\n"
 				+ "\t}\n \n" +
 
 				"\t@Override\n"
-				+ "\tprotected double computeScore(Result result) {\n \n" +
+				+ "\tpublic double computeAbsoluteScore(Result result) {\n \n" +
 
 				"\t\tdouble score = 0;\n \n" +
 
