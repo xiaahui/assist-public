@@ -22,44 +22,42 @@ public class ASSISTClasspathContainer implements IClasspathContainer {
 
 		IClasspathEntry[] cpEntries = new IClasspathEntry[3];
 
-		// Refernce to AbstractMetric Class
-		// Development: proto = file; sonst: proto = jar
-		
-		// so geht es für proto = file:
-		Bundle assistResultBundle = Platform.getBundle("ch.hilbri.assist.datamodel.result.mapping");
-		
-		URL fileURL = FileLocator.find(assistResultBundle, new Path("bin"), null);
-		URL resolvedURL = null;
-
-		try {
-			resolvedURL = FileLocator.resolve(fileURL);
-		} catch (IOException e) { e.printStackTrace(); }
-		
-		if (resolvedURL != null) {
-				cpEntries[0] = JavaCore.newLibraryEntry(new Path(resolvedURL.getPath()), null, null);
-		}
-		
-		
-		
-		// TODO: Reference to EMF Jars
+		// Reference to AbstractMetric Class
+		Bundle assistMappingBundle = Platform.getBundle("ch.hilbri.assist.datamodel.result.mapping");
+		cpEntries[0] = JavaCore.newLibraryEntry(getLibraryPath(assistMappingBundle), null, null);
+				
+		// Reference to EMF Jars
 		Bundle emfCommon = Platform.getBundle("org.eclipse.emf.common");
-		fileURL = FileLocator.find(emfCommon, new Path(""), null);
-		try {
-			resolvedURL = FileLocator.resolve(fileURL);
-			
-		} catch (IOException e) { e.printStackTrace(); }
+		cpEntries[1] = JavaCore.newLibraryEntry(getLibraryPath(emfCommon), null, null);
 		
-		cpEntries[1] = JavaCore.newLibraryEntry(new Path("/C:/Program Files/eclipse-4.4/eclipse/plugins/org.eclipse.emf.common_2.10.0.v20140514-1158.jar"), null, null);
-		
-		// TODO: org.eclipse.core.runtime
-		cpEntries[2] = JavaCore.newLibraryEntry(new Path("/C:/Program Files/eclipse-4.4/eclipse/plugins/org.eclipse.emf.ecore_2.10.0.v20140514-1158.jar"), null, null);
-		
-		
-		
+		// Reference to org.eclipse.core.runtime
+		Bundle emfEcore = Platform.getBundle("org.eclipse.emf.ecore");
+		cpEntries[2] = JavaCore.newLibraryEntry(getLibraryPath(emfEcore), null, null);
 		
 		return cpEntries;
 	}
 
+	private Path getLibraryPath(Bundle bundle) {
+		String path = "";
+		URL fileURL = FileLocator.find(bundle, new Path(""), null);
+		URL resolvedURL = null;
+
+		try {
+			resolvedURL = FileLocator.resolve(fileURL);
+			
+			if (resolvedURL.getProtocol().equals("file")) {
+				fileURL = FileLocator.find(bundle, new Path("bin"), null);
+				resolvedURL = FileLocator.resolve(fileURL);
+				path = resolvedURL.getPath();
+				
+			} else if (resolvedURL.getProtocol().equals("jar")) {
+				path = resolvedURL.getPath().substring(5, resolvedURL.getPath().length()-2);
+			}
+		} catch (IOException e) { e.printStackTrace(); }
+		
+		return new Path(path);
+	}
+	
 	@Override
 	public String getDescription() {
 		return "ASSIST Library";
