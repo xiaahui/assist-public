@@ -358,12 +358,12 @@ class CommunicationRelation{
 	refers ch.hilbri.assist.datamodel.model.CommunicationRelation referenceObject
 }
 
-class AbstractMetric  {
+abstract class AbstractMetric  {
 	String 			name
 	int				weight
 	boolean 		higherScoreIsBetter
 	boolean 		builtIn = "true"
-	op double 		computeAbsoluteScore(Result result) { 0 }
+	op double 		computeAbsoluteScore(Result result)
 }
 
 type MetricScoreMap wraps HashMap<AbstractMetric, Double>
