@@ -20,33 +20,40 @@ public class ASSISTClasspathContainer implements IClasspathContainer {
 	@Override
 	public IClasspathEntry[] getClasspathEntries() {
 
-		IClasspathEntry[] cpEntries = new IClasspathEntry[3];
+		IClasspathEntry[] cpEntries = new IClasspathEntry[4];
 
 		// Reference to AbstractMetric Class
 		Bundle assistMappingBundle = Platform.getBundle("ch.hilbri.assist.datamodel.result.mapping");
-		cpEntries[0] = JavaCore.newLibraryEntry(getLibraryPath(assistMappingBundle), null, null);
+		cpEntries[0] = JavaCore.newLibraryEntry(getLibraryPath(assistMappingBundle, new Path("bin")), null, null);
 				
+		// Reference to Math Commons
+		Bundle assistMathBundle = Platform.getBundle("ch.hilbri.assist.libraries.math");
+		cpEntries[1] = JavaCore.newLibraryEntry(getLibraryPath(assistMathBundle), null, null);
+
 		// Reference to EMF Jars
 		Bundle emfCommon = Platform.getBundle("org.eclipse.emf.common");
-		cpEntries[1] = JavaCore.newLibraryEntry(getLibraryPath(emfCommon), null, null);
+		cpEntries[2] = JavaCore.newLibraryEntry(getLibraryPath(emfCommon), null, null);
 		
 		// Reference to org.eclipse.core.runtime
 		Bundle emfEcore = Platform.getBundle("org.eclipse.emf.ecore");
-		cpEntries[2] = JavaCore.newLibraryEntry(getLibraryPath(emfEcore), null, null);
+		cpEntries[3] = JavaCore.newLibraryEntry(getLibraryPath(emfEcore), null, null);
 		
 		return cpEntries;
 	}
 
 	private Path getLibraryPath(Bundle bundle) {
+		return getLibraryPath(bundle, new Path(""));
+	}
+	
+	private Path getLibraryPath(Bundle bundle, Path subDir) {
 		String path = "";
-		URL fileURL = FileLocator.find(bundle, new Path(""), null);
+		URL fileURL = FileLocator.find(bundle, subDir, null);
 		URL resolvedURL = null;
 
 		try {
 			resolvedURL = FileLocator.resolve(fileURL);
 			
 			if (resolvedURL.getProtocol().equals("file")) {
-				fileURL = FileLocator.find(bundle, new Path("bin"), null);
 				resolvedURL = FileLocator.resolve(fileURL);
 				path = resolvedURL.getPath();
 				
