@@ -78,7 +78,7 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 
 		// However, it's not enough if we want to add Java source code to the project. We have to set the Java build path:
 		// (1) We first specify the output location of the compiler (the bin folder): 
-		IFolder binFolder = project.getFolder("Compiled-Metrics");
+		IFolder binFolder = project.getFolder("Compiled-metrics");
 		try {
 			binFolder.create(false, true, null);
 			javaProject.setOutputLocation(binFolder.getFullPath(), null);
@@ -123,7 +123,7 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 		
 		// Create packages
 		try {
-			javaProject.getPackageFragmentRoot(mappingSourceFolder).createPackageFragment("Metrics", false, null);
+			javaProject.getPackageFragmentRoot(mappingSourceFolder).createPackageFragment("metrics", false, null);
 		} catch (JavaModelException e) {
 			e.printStackTrace();
 		}
