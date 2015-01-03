@@ -19,7 +19,7 @@ public class ASSISTClasspathContainerPage extends WizardPage implements IClasspa
 
 	private IJavaProject project;
 	
-//	private IClasspathEntry[] currentEntries;
+	private IClasspathEntry[] currentEntries;
 	
 	public ASSISTClasspathContainerPage() {
 		super("PageOne");
@@ -27,6 +27,12 @@ public class ASSISTClasspathContainerPage extends WizardPage implements IClasspa
 		setTitle("ASSIST Classpath Container");
 		setDescription("This container adds all necessary libraries for ASSIST projects");
 	}
+
+	@Override
+public void initialize(IJavaProject project, IClasspathEntry[] currentEntries) {
+	this.project = project;
+	this.currentEntries = currentEntries;
+}
 
 	@Override
 	public void createControl(Composite parent) {
@@ -44,13 +50,19 @@ public class ASSISTClasspathContainerPage extends WizardPage implements IClasspa
 	@Override
 	public boolean finish() {
 		
-		IClasspathEntry[] newEntries = new IClasspathEntry[1];
-		newEntries[0] = JavaCore.newContainerEntry(new Path("ch.hilbri.assist.application.classpathContainer"));
+		IClasspathEntry[] newEntries = new IClasspathEntry[currentEntries.length+1];
+		
+		System.arraycopy(currentEntries, 0, newEntries, 0, currentEntries.length);
+				
+		newEntries[newEntries.length-1] = JavaCore.newContainerEntry(new Path("ch.hilbri.assist.application.classpathContainer"));
 		
 		try {
+		
 			project.setRawClasspath(newEntries, null);
+		
 		} catch (JavaModelException e) {
 			e.printStackTrace();
+			return false;
 		}
 		return true;
 	}
@@ -63,12 +75,6 @@ public class ASSISTClasspathContainerPage extends WizardPage implements IClasspa
 	@Override
 	public void setSelection(IClasspathEntry containerEntry) {
 		selection = containerEntry;
-	}
-
-	@Override
-	public void initialize(IJavaProject project, IClasspathEntry[] currentEntries) {
-		this.project = project;
-//		this.currentEntries = currentEntries;
 	}
 
 }
