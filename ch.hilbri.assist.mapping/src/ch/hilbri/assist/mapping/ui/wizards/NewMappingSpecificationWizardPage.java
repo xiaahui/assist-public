@@ -60,18 +60,34 @@ public class NewMappingSpecificationWizardPage extends WizardPage {
 		container.setLayout(layout);
 		layout.numColumns = 3;
 		layout.verticalSpacing = 9;
-		Label label = new Label(container, SWT.NULL);
-		label.setText("&Container:");
+		
+		Label fileNameLabel = new Label(container, SWT.NULL);
+		fileNameLabel.setText("&File name:");
+
+		fileText = new Text(container, SWT.BORDER | SWT.SINGLE);
+
+		fileText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		fileText.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent e) {
+				dialogChanged();
+			}
+		});
+		
+		Label fileNameExtensionLabel = new Label(container, SWT.NULL);
+		fileNameExtensionLabel.setText(".mdsl"); 
+	
+		Label projectLabel = new Label(container, SWT.NULL);
+		projectLabel.setText("&Project:");
 
 		containerText = new Text(container, SWT.BORDER | SWT.SINGLE);
-		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
-		containerText.setLayoutData(gd);
+		containerText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		containerText.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
 				dialogChanged();
 			}
 		});
 
+		
 		Button button = new Button(container, SWT.PUSH);
 		button.setText("Browse...");
 		button.addSelectionListener(new SelectionAdapter() {
@@ -79,20 +95,8 @@ public class NewMappingSpecificationWizardPage extends WizardPage {
 				handleBrowse();
 			}
 		});
-		label = new Label(container, SWT.NULL);
-		label.setText("&File name:");
-
-		fileText = new Text(container, SWT.BORDER | SWT.SINGLE);
-		gd = new GridData(GridData.FILL_HORIZONTAL);
-		fileText.setLayoutData(gd);
-		fileText.addModifyListener(new ModifyListener() {
-			public void modifyText(ModifyEvent e) {
-				dialogChanged();
-			}
-		});
 		
-		label = new Label(container, SWT.NULL);
-		label.setText(".mdsl"); 
+		
 		
 		initialize();
 		dialogChanged();
@@ -105,9 +109,8 @@ public class NewMappingSpecificationWizardPage extends WizardPage {
 
 	private void initialize() {
 		if (selection == null) {
-			IWorkbenchWindow window =
-				    PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-				selection = window.getSelectionService().getSelection(PathProvider.ECL_PROJECT_EXPLORER);
+			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			selection = window.getSelectionService().getSelection(PathProvider.ECL_PROJECT_EXPLORER);
 		
 		}
 		if (selection != null && selection.isEmpty() == false
@@ -127,8 +130,7 @@ public class NewMappingSpecificationWizardPage extends WizardPage {
 		}
 		String name = "newMapper";
 		int i=1;
-		while(ResourcesPlugin.getWorkspace().getRoot()
-				.findMember(new Path(getContainerName() + "/" + name + ".mdsl")) != null) {
+		while(ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(getContainerName() + "/" + name + ".mdsl")) != null) {
 			name = "newMapper" + String.valueOf(i);
 			i++;
 		}
@@ -141,13 +143,13 @@ public class NewMappingSpecificationWizardPage extends WizardPage {
 	 */
 
 	private void handleBrowse() {
-		ContainerSelectionDialog dialog = new ContainerSelectionDialog(
-				getShell(), ResourcesPlugin.getWorkspace().getRoot(), false,
-				"Select new file container");
+		ContainerSelectionDialog dialog = new ContainerSelectionDialog(getShell(), ResourcesPlugin.getWorkspace().getRoot(), false, "Select project");
 		if (dialog.open() == ContainerSelectionDialog.OK) {
 			Object[] result = dialog.getResult();
 			if (result.length == 1) {
-				containerText.setText(((Path) result[0]).toString());
+				Path path = (Path) result[0];
+				if (path.segmentCount() > 1) path = (Path) path.removeLastSegments(path.segmentCount()-1);
+				containerText.setText(path.toString());
 			}
 		}
 	}
@@ -157,17 +159,16 @@ public class NewMappingSpecificationWizardPage extends WizardPage {
 	 */
 
 	private void dialogChanged() {
-		IResource container = ResourcesPlugin.getWorkspace().getRoot()
-				.findMember(new Path(getContainerName()));
+		IResource container = ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(getContainerName()));
 		String fileName = getFileName();
 
 		if (getContainerName().length() == 0) {
-			updateStatus("File container must be specified");
+			updateStatus("Project must be specified");
 			return;
 		}
 		if (container == null
 				|| (container.getType() & (IResource.PROJECT | IResource.FOLDER)) == 0) {
-			updateStatus("File container must exist");
+			updateStatus("Project must exist");
 			return;
 		}
 		if (!container.isAccessible()) {
@@ -182,22 +183,14 @@ public class NewMappingSpecificationWizardPage extends WizardPage {
 			updateStatus("File name must be valid");
 			return;
 		}
-		IResource temp = ResourcesPlugin.getWorkspace().getRoot()
-				.findMember(new Path(getContainerName() + "/" + fileName + ".mdsl"));
+		IResource temp = ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(getContainerName() + "/Mapping/" + fileName + ".mdsl"));
 		if (temp !=null) {
 			if (temp.exists()) {
 				updateStatus("File already exists");
 				return;
 			}
 		}
-//		int dotLoc = fileName.lastIndexOf('.');
-//		if (dotLoc != -1) {
-//			String ext = fileName.substring(dotLoc + 1);
-//			if (ext.equalsIgnoreCase("mdsl") == false) {
-//				updateStatus("File extension must be \"mdsl\"");
-//				return;
-//			}
-//		}
+
 		updateStatus(null);
 	}
 
