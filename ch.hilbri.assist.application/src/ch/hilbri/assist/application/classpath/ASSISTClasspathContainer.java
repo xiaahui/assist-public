@@ -24,7 +24,7 @@ public class ASSISTClasspathContainer implements IClasspathContainer {
 
 		// Reference to AbstractMetric Class
 		Bundle assistMappingBundle = Platform.getBundle("ch.hilbri.assist.datamodel.result.mapping");
-		cpEntries[0] = JavaCore.newLibraryEntry(getLibraryPath(assistMappingBundle, new Path("bin")), null, null);
+		cpEntries[0] = JavaCore.newLibraryEntry(getLibraryPath(assistMappingBundle), null, null);
 				
 		// Reference to Math Commons
 		Bundle assistMathBundle = Platform.getBundle("ch.hilbri.assist.libraries.math");
@@ -42,12 +42,14 @@ public class ASSISTClasspathContainer implements IClasspathContainer {
 	}
 
 	private Path getLibraryPath(Bundle bundle) {
-		return getLibraryPath(bundle, new Path(""));
-	}
-	
-	private Path getLibraryPath(Bundle bundle, Path subDir) {
 		String path = "";
-		URL fileURL = FileLocator.find(bundle, subDir, null);
+		
+		URL fileURL = FileLocator.find(bundle, new Path("bin"), null);
+		
+		if (fileURL == null)
+			fileURL = FileLocator.find(bundle, new Path(""), null);
+		
+				
 		URL resolvedURL = null;
 
 		try {
