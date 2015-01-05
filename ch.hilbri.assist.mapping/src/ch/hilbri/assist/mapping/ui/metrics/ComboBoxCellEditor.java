@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview;
+package ch.hilbri.assist.mapping.ui.metrics;
 
 import java.text.MessageFormat; 
 import java.util.ArrayList;
@@ -19,16 +19,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 
-import ch.hilbri.assist.mapping.ui.metrics.MetricTableElement;
-import ch.hilbri.assist.mapping.ui.metrics.MetricTableView;
-
 /**
  * A cell editor that presents a list of items in a combo box. The cell editor's
  * value is the zero-based index of the selected item.
- * <p>
- * This class may be instantiated; it is not intended to be subclassed.
- * </p>
- * @noextend This class is not intended to be subclassed by clients.
  */
 public class ComboBoxCellEditor extends AbstractComboBoxCellEditor {
 
@@ -72,18 +65,7 @@ public class ComboBoxCellEditor extends AbstractComboBoxCellEditor {
 
 	/**
 	 * Creates a new cell editor with a combo containing the given list of
-	 * choices and parented under the given control. The cell editor value is
-	 * the zero-based index of the selected item. Initially, the cell editor has
-	 * no cell validator and the first item in the list is selected.
-	 *
-	 * @param parent
-	 *            the parent control
-	 * @param items
-	 *            the list of strings for the combo box
-	 * @param style
-	 *            the style bits
-	 * @param tbMessageLabel 
-	 * @since 2.1
+	 * choices and parented under the given control. 
 	 */
 	public ComboBoxCellEditor(Composite parent, String[] items, int style, ArrayList<MetricTableElement> elementlist, Label tbMessageLabel) {
 		super(parent, style);

@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview;
+package ch.hilbri.assist.mapping.ui.metrics;
 
 /*******************************************************************************
  * Copyright (c) 2008 Tom Schindl and others.

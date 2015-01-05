@@ -2,10 +2,7 @@ package ch.hilbri.assist.mapping.ui.metrics;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -20,20 +17,11 @@ import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.CellEditor;
-import org.eclipse.jface.viewers.CellLabelProvider;
-import org.eclipse.jface.viewers.ColumnViewer;
-import org.eclipse.jface.viewers.ICellModifier;
-import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
-import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerCell;
-import org.eclipse.jface.viewers.ViewerColumn;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
-import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.SelectionEvent;
@@ -46,57 +34,51 @@ import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.PlatformUI;
 
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.application.helpers.Helpers;
-import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
 import ch.hilbri.assist.mapping.analysis.metrics.custom.MetricLoader;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
-import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.ComboBoxCellEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 
 
 public class MetricTableView {
-	private Table							table;
-
-	private TableViewer						tableViewer;
-
-	private ArrayList<MetricTableElement>	elementlist;
-
-	private ArrayList<AbstractMetric>		metricsList;
-
-	private DetailedResultsViewUiModel		model						= null;
-
-	public static final String				SET_METRIC_CONTENT_PROVIDER	= "set_metric_content_provider";
-
-	public static final String				EDITOR_CLOSED				= "editor_closed";
-
-	private static final String				INDEX						= "Index";
 	
-	private static final String				WEIGHT						= "Weight";
+	private Table					table;
+	private TableViewer				tableViewer;
+	
+	/* List of entries in the table */
+	ArrayList<MetricTableElement>	elementlist;
 
-	private static final String				METRIC						= "Metric";
+	/* List of currently available metrics for this table */
+	private ArrayList<AbstractMetric>		metricsList;
+	
+	private DetailedResultsViewUiModel		model				= null;
 
-	private static final String				TYPE						= "Type";
+	public static final String		SET_METRIC_CONTENT_PROVIDER	= "set_metric_content_provider";
+	public static final String		EDITOR_CLOSED				= "editor_closed";
+	static final String				INDEX						= "Index";
+	static final String				WEIGHT						= "Weight";
+	static final String				METRIC						= "Metric";
+	static final String				TYPE						= "Type";
+	static final String[]			PROPS						= { INDEX, WEIGHT, METRIC, TYPE };
 
-	private static final String[]			PROPS						= { INDEX, WEIGHT, METRIC, TYPE };
+	Label							tbMessageLabel;
 
-	private Label							tbMessageLabel;
-
-	public MetricTableView() {
-	}
+	/**
+	 * Constructor
+	 */
+	public MetricTableView() {}
 
 	/**
 	 * Create contents of the view part.
@@ -108,6 +90,7 @@ public class MetricTableView {
 		gl_parentMain.marginWidth = 0;
 		gl_parentMain.marginHeight = 0;
 		gl_parentMain.horizontalSpacing = 0;
+		
 		parentMain.setLayout(gl_parentMain);
 		parentMain.setLayoutData(new GridData(SWT.FILL, SWT.FILL));
 
@@ -150,9 +133,12 @@ public class MetricTableView {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				DetailedResultsViewUiModel model = getAndCheckModel();
+				
+				DetailedResultsViewUiModel model = getModel();
 				if (model == null) return;
+				
 				List<AbstractMetric> newMetrics = MetricLoader.loadMetric(metricsList, model);
+
 				if (newMetrics != null) {
 					if (newMetrics.size() == 0) return;
 
@@ -161,7 +147,7 @@ public class MetricTableView {
 
 						// Checks if the metric is already in the table and updates it if necessary
 						for (MetricTableElement tmp : elementlist) {
-							if (tmp.getMetric().getName().equals(metric.getName())) {
+							if (tmp.getSelectedMetric().getName().equals(metric.getName())) {
 								tmp.setMetric(tmp.getMetricPostitionInList());
 								continue newMetrics;
 							}
@@ -170,14 +156,16 @@ public class MetricTableView {
 						// If its a completely new metric, it is added as a new element
 						for (int i = 0; i < metricsList.size(); i++) {
 							if (metric == metricsList.get(i)) {
-								MetricTableElement element = new MetricTableElement(metric, i, metricsList);
+								MetricTableElement element = new MetricTableElement(metricsList, i);
 								elementlist.add(element);
 							}
 						}
 					}
+				
 					tableViewer.refresh();
 					refreshMetricComboBox();
-				} else {
+				} 
+				else {
 					sendMessageToMetricTable(tbMessageLabel, "An error occured while loading metrics. Please check the console for more information.", true);
 				}
 			}
@@ -199,6 +187,7 @@ public class MetricTableView {
 					sendMessageToMetricTable(tbMessageLabel, "All available metrics are already in use.", false);
 					return;
 				}
+
 				int pos = 0;
 				metricLoop: for (int i = 0; i < metricsList.size(); i++) {
 					for (MetricTableElement tmp : elementlist) {
@@ -209,8 +198,9 @@ public class MetricTableView {
 					pos = i;
 					break;
 				}
-				// int pos = elementlist.size() % metricsList.size();
-				MetricTableElement element = new MetricTableElement(metricsList.get(pos), pos, metricsList);
+				
+				MetricTableElement element = new MetricTableElement(metricsList, pos);
+				
 				elementlist.add(element);
 				tableViewer.refresh();
 			}
@@ -230,10 +220,10 @@ public class MetricTableView {
 			public void widgetSelected(SelectionEvent es) {
 				final ArrayList<AbstractMetric> analysis = new ArrayList<AbstractMetric>();
 				for (MetricTableElement tmp : elementlist) {
-					analysis.add(tmp.getMetric());
+					analysis.add(tmp.getSelectedMetric());
 				}
 
-				DetailedResultsViewUiModel model = getAndCheckModel();
+				DetailedResultsViewUiModel model = getModel();
 				if (model == null) return;
 
 				if (model.getResults() == null) {
@@ -249,7 +239,7 @@ public class MetricTableView {
 				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 				ProgressMonitorDialog progressDialog = new ProgressMonitorDialog(shell);
 				try {
-					progressDialog.run(true, true, new EvaluateJob(analysis));
+					progressDialog.run(true, true, new EvaluateJob(MetricTableView.this, analysis));
 				} catch (InvocationTargetException e) {
 					ConsoleCommands.writeErrorLineToConsole("InvocationTargetException while starting project scanner.");
 					e.printStackTrace();
@@ -306,35 +296,35 @@ public class MetricTableView {
 		tableViewer.setContentProvider(new MetricContentProvider());
 
 		table = tableViewer.getTable();
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
+		getTable().setHeaderVisible(true);
+		getTable().setLinesVisible(true);
 
 		// ----------------------Weight Column---------------------
-		TableColumn tblclmnIndexColumn = new TableColumn(table, SWT.LEFT);
+		TableColumn tblclmnIndexColumn = new TableColumn(getTable(), SWT.LEFT);
 		tblclmnIndexColumn.setToolTipText("Displays the metrics index.");
 		tblclmnIndexColumn.setWidth(40);
 		tblclmnIndexColumn.setText("No.");
 				
 		// ----------------------Weight Column---------------------
-		TableColumn tblclmnWeightColumn = new TableColumn(table, SWT.LEFT);
+		TableColumn tblclmnWeightColumn = new TableColumn(getTable(), SWT.LEFT);
 		tblclmnWeightColumn.setToolTipText("Displays the metrics weight. Can be edited by clicking in the cell.");
 		tblclmnWeightColumn.setWidth(100);
 		tblclmnWeightColumn.setText("Weight");
 
 		// ---------------------metric Column---------------
-		TableColumn tblclmnMetricColumn = new TableColumn(table, SWT.LEFT);
+		TableColumn tblclmnMetricColumn = new TableColumn(getTable(), SWT.LEFT);
 		tblclmnMetricColumn.setToolTipText("Shows the chosen metrics. A combobox with the possible metrics will show up by clicking in the cell.");
 		tblclmnMetricColumn.setWidth(155);
 		tblclmnMetricColumn.setText("Metric Name");
 
 		// ---------------------Type Column---------------
-		TableColumn tblclmnTypeColumn = new TableColumn(table, SWT.LEFT);
+		TableColumn tblclmnTypeColumn = new TableColumn(getTable(), SWT.LEFT);
 		tblclmnTypeColumn.setToolTipText("");
 		tblclmnTypeColumn.setWidth(100);
 		tblclmnTypeColumn.setText("Type");
 
 		// ----------------Remove Column-------------
-		TableColumn tblclmnRemoveColumn = new TableColumn(table, SWT.LEFT);
+		TableColumn tblclmnRemoveColumn = new TableColumn(getTable(), SWT.LEFT);
 		tblclmnRemoveColumn.setToolTipText("By clicking on the button you can remove the metric in the corresponding row.");
 		tblclmnRemoveColumn.setWidth(60);
 		tblclmnRemoveColumn.setText("Remove");
@@ -356,25 +346,23 @@ public class MetricTableView {
 		Helpers.installMouseWheelScrollRecursively(scrollComposite);
 	}
 
-	@PreDestroy
-	public void dispose() {
-		saveMetricList();
-	}
-
 	/**
 	 * Saves the current state of the metric table inside the model of the related Mapping Editor
 	 */
 	private void saveMetricList() {
 		if (model == null) return;
+		
 		ArrayList<AbstractMetric> usedMetrics = model.getUsedMetricList();
+		
 		if (usedMetrics == null) {
 			usedMetrics = new ArrayList<AbstractMetric>();
 			model.setUsedMetricList(usedMetrics);
 		} else {
 			usedMetrics.clear();
 		}
+		
 		for (MetricTableElement tmp : elementlist) {
-			usedMetrics.add(tmp.getMetric());
+			usedMetrics.add(tmp.getSelectedMetric());
 		}
 	}
 
@@ -383,36 +371,54 @@ public class MetricTableView {
 	 */
 	private void refreshMetricComboBox() {
 		CellEditor[] cellEditors = tableViewer.getCellEditors();
-		cellEditors[1] = new MetricComboBoxCellEditor();
+		cellEditors[1] = new MetricComboBoxCellEditor(this);
 	}
 
-	@Focus
-	public void setFocus() {
-	}
+	private void initialiseTable() {
+			ArrayList<AbstractMetric> usedMetrics = model.getUsedMetricList();
+			if (usedMetrics != null) {
+				for (AbstractMetric tmp : usedMetrics) {
+					for (int i = 0; i < metricsList.size(); i++) {
+						if (tmp == metricsList.get(i)) {
+							MetricTableElement element = new MetricTableElement(metricsList, i);
+							elementlist.add(element);
+						}
+					}
+				}
+			} else {
+				MetricTableElement element = new MetricTableElement(metricsList, 0);
+				elementlist.add(element);
+			}
+			CellEditor[] editors = new CellEditor[3];
+			editors[1] = new TextCellEditor(getTable());
+			editors[2] = new MetricComboBoxCellEditor(this);
+	
+			tableViewer.setLabelProvider(new MetricLabelProvider(this));
+			tableViewer.setColumnProperties(PROPS);
+			tableViewer.setCellModifier(new MetricCellModifier(this, tableViewer));
+			tableViewer.setCellEditors(editors);
+			tableViewer.refresh();
+	
+		}
 
 	/**
 	 * The method receives the broadcast from a Mapping Editor with the model of the focused editor.
-	 * 
-	 * @param obj
-	 *            Object array with size 2 which holds the DetailedResultsViewUiModel as first and MultiPageEditor as
 	 */
 	@Inject
 	@Optional
 	public void setMetricContentProvider(@UIEventTopic(SET_METRIC_CONTENT_PROVIDER) MultiPageEditor editor) {
+
 		DetailedResultsViewUiModel model = editor.getDetailedResultViewUiModel();
 
-		if (model.getEditor() == editor) {
-			if (this.model != model) {
-				if (this.model != null) {
-					saveMetricList();
-				}
-				this.model = model;
-				elementlist.clear();
-				this.metricsList = model.getMetricList();
+		if (this.model != model) {
+			saveMetricList();
+			
+			this.model = model;
+			this.metricsList = model.getMetricList();
 
-				initialiseTable();
-
-			}
+			elementlist.clear();
+			
+			initialiseTable();
 		}
 	}
 
@@ -425,43 +431,16 @@ public class MetricTableView {
 	@Optional
 	public void editorClosed(@UIEventTopic(EDITOR_CLOSED) MultiPageEditor editor) {
 		if (model == null) return;
+		
 		if (model.getEditor() == editor) {
-			this.model = null;
+			model = null;
 			tableViewer.getLabelProvider().dispose();
 			elementlist.clear();
 			tableViewer.refresh();
 		}
 	}
 
-	private void initialiseTable() {
-		ArrayList<AbstractMetric> usedMetrics = model.getUsedMetricList();
-		if (usedMetrics != null) {
-			for (AbstractMetric tmp : usedMetrics) {
-				for (int i = 0; i < metricsList.size(); i++) {
-					if (tmp == metricsList.get(i)) {
-						MetricTableElement element = new MetricTableElement(metricsList.get(i), i, metricsList);
-						elementlist.add(element);
-					}
-				}
-			}
-		} else {
-			MetricTableElement element = new MetricTableElement(metricsList.get(0), 0, metricsList);
-			elementlist.add(element);
-		}
-		CellEditor[] editors = new CellEditor[3];
-//		editors[0] = new TextCellEditor(table);
-		editors[1] = new TextCellEditor(table);
-		editors[2] = new MetricComboBoxCellEditor();
-
-		tableViewer.setLabelProvider(new MetricLabelProvider());
-		tableViewer.setColumnProperties(PROPS);
-		tableViewer.setCellModifier(new MetricCellModifier(tableViewer));
-		tableViewer.setCellEditors(editors);
-		tableViewer.refresh();
-
-	}
-
-	private String[] getMetricsAsArray() {
+	public String[] getMetricNames() {
 		if (metricsList != null) {
 			String[] metrics = new String[metricsList.size()];
 			for (int i = 0; i < metricsList.size(); i++) {
@@ -478,7 +457,7 @@ public class MetricTableView {
 	 * 
 	 * @return The valid model or null, if there is none or the editor closed
 	 */
-	private DetailedResultsViewUiModel getAndCheckModel() {
+	 public DetailedResultsViewUiModel getModel() {
 		if (model == null) {
 			MessageDialog noResultsFoundDialog = new MessageDialog(null, "No Model found", null, "Please select a Mapping Editor to obtain a valid model.", MessageDialog.INFORMATION, new String[] { "OK" }, 0);
 			noResultsFoundDialog.open();
@@ -497,9 +476,9 @@ public class MetricTableView {
 	 */
 	public static void sendMessageToMetricTable(final Label label, final String message, final boolean errorMsg) {
 		if (label.isDisposed()) return;
-
+	
 		Job messageJob = new Job("Update Message") {
-
+	
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
 				final Display display = label.getDisplay();
@@ -509,9 +488,9 @@ public class MetricTableView {
 				} else {
 					labelColor = new Color(display, 0, 0, 0);
 				}
-
+	
 				display.asyncExec(new Runnable() {
-
+	
 					@Override
 					public void run() {
 						FontData fontData = label.getFont().getFontData()[0];
@@ -527,7 +506,7 @@ public class MetricTableView {
 					e.printStackTrace();
 				}
 				display.asyncExec(new Runnable() {
-
+	
 					@Override
 					public void run() {
 						if (!label.isDisposed()) if (label.getText().equals(message)) {
@@ -537,212 +516,26 @@ public class MetricTableView {
 				});
 				return Status.OK_STATUS;
 			}
-
+	
 		};
-
+	
 		messageJob.schedule();
 	}
 
-	// ---------------------classes---------------------
-
-	/**
-	 * This class provides the content for the metric table
-	 */
-
-	class MetricContentProvider implements IStructuredContentProvider {
-		/**
-		 * Returns the Metric objects
-		 */
-		public Object[] getElements(Object inputElement) {
-			return ((ArrayList<?>) inputElement).toArray();
-		}
-
-		/**
-		 * Disposes any created resources
-		 */
-		public void dispose() {
-			// Do nothing
-		}
-
-		/**
-		 * Called when the input changes
-		 */
-		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-			// Ignore
-		}
+	@Focus
+	public void setFocus() {
 	}
 
-	private class MetricCellModifier implements ICellModifier {
-		private TableViewer	viewer;
-
-		public MetricCellModifier(TableViewer viewer) {
-			this.viewer = viewer;
-		}
-
-		@Override
-		public boolean canModify(Object element, String property) {
-			return true;
-		}
-
-		@Override
-		public Object getValue(Object element, String property) {
-			MetricTableElement metric = (MetricTableElement) element;
-			if (WEIGHT.equals(property)) {
-				return String.valueOf(metric.getWeight());
-			} else if (METRIC.equals(property)) {
-				return metric.getMetricPostitionInList();
-			} else if (TYPE.equals(property)) {
-				if (metric.isBuiltIn()) {
-					return "Built-in";
-				} else {
-					return "Custom";
-				}
-			} else if (INDEX.equals(property)) {
-				return table.indexOf((TableItem) element);
-			}else {
-				return null;
-			}
-		}
-
-		@Override
-		public void modify(Object element, String property, Object value) {
-			TableItem item = (TableItem) element;
-			MetricTableElement metric = (MetricTableElement) item.getData();
-			if (WEIGHT.equals(property)) {
-				try {
-					metric.setWeight(Integer.parseInt(String.valueOf(value)));
-				} catch (NumberFormatException e) {
-
-				}
-			} else if (METRIC.equals(property)) {
-				if (value instanceof Integer) {
-					int pos = (int) value;
-					metric.setMetric(pos);
-				}
-			} 
-			viewer.update(item.getData(), null);
-		}
-
+	@PreDestroy
+	public void dispose() {
+		saveMetricList();
 	}
 
-	private class MetricLabelProvider extends CellLabelProvider {
-
-		Map<Object, Button>	buttons	= new HashMap<Object, Button>();
-		TableEditor			editor;
-
-		@Override
-		public void update(final ViewerCell cell) {
-			final MetricTableElement metric = (MetricTableElement) cell.getElement();
-			switch (cell.getColumnIndex()) {
-			case 0:
-				cell.setText(String.valueOf(table.indexOf((TableItem) cell.getItem())+1));
-				break;
-			case 1:
-				cell.setText(String.valueOf(metric.getWeight()));
-				break;
-			case 2:
-				cell.setText(metric.getName());
-				break;
-			case 3:
-				if (metric.isBuiltIn()) {
-					cell.setText("Built-in");
-				} else {
-					cell.setText("Custom");
-				}
-				break;
-			case 4:
-				final Button button;
-				if (buttons.containsKey(cell.getElement())) {
-					button = buttons.get(cell.getElement());
-				} else {
-					button = new Button((Composite) cell.getViewerRow().getControl(), SWT.NONE);
-					button.addSelectionListener(new SelectionListener() {
-
-						@Override
-						public void widgetSelected(SelectionEvent e) {
-							if (elementlist.size() > 0) {
-								MessageDialog metricRemoveDialog = new MessageDialog(null, "Remove Metric", null, "Are you sure you want to remove the Metric \"" + metric.getName() + "\"?", MessageDialog.QUESTION, new String[] { "Yes", "No" }, 1);
-								int result = metricRemoveDialog.open();
-								if (result == 0) {
-									elementlist.remove(metric);
-									button.getDisplay().asyncExec(new Runnable() {
-
-										@Override
-										public void run() {
-											buttons.remove(cell.getElement());
-											button.dispose();
-											tableViewer.refresh();
-										}
-									});
-
-								}
-							}
-						}
-
-						@Override
-						public void widgetDefaultSelected(SelectionEvent e) {
-
-						}
-					});
-					buttons.put(cell.getElement(), button);
-				}
-
-				Image bgImg = new Image(table.getDisplay(), getClass().getClassLoader().getResourceAsStream("/icons/metricTable/remove_metric.gif"));
-				button.setImage(bgImg);
-				editor = new TableEditor(table);
-				editor.grabHorizontal = true;
-				editor.grabVertical = true;
-				TableItem item = (TableItem) cell.getItem();
-				editor.setEditor(button, item, 4);
-				editor.layout();
-				break;
-			}
-
-		}
-
-		@Override
-		public void dispose() {
-			for (Button tmp : buttons.values()) {
-				tmp.dispose();
-			}
-			super.dispose();
-		}
-
-		@Override
-		public void dispose(ColumnViewer viewer, ViewerColumn column) {
-			super.dispose(viewer, column);
-
-		}
+	public Table getTable() {
+		return table;
 	}
 
-	private class MetricComboBoxCellEditor extends ComboBoxCellEditor {
-
-		public MetricComboBoxCellEditor() {
-			super(table, getMetricsAsArray(), SWT.READ_ONLY, elementlist, tbMessageLabel);
-		}
-
-		@Override
-		public String[] getItems() {
-			return super.getItems();
-		}
-
-	}
-
-	private class EvaluateJob implements IRunnableWithProgress {
-
-		private ArrayList<AbstractMetric>	analysis;
-
-		public EvaluateJob(ArrayList<AbstractMetric> analysis) {
-			this.analysis = analysis;
-		}
-
-		@Override
-		public void run(IProgressMonitor monitor) {
-			monitor.beginTask("Evaluating results...", IProgressMonitor.UNKNOWN);
-			ResultsAnalysis.evaluate(model.getResults(), analysis);
-			Collections.sort(model.getResults());
-			model.setResultsList(model.getResults());
-			monitor.done();
-		}
+	public TableViewer getTableViewer() {
+		return tableViewer;
 	}
 }
