@@ -14,6 +14,7 @@ import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend.lib.Data;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Pure;
 import org.eclipse.xtext.xbase.lib.util.ToStringHelper;
 import solver.Solver;
 import solver.variables.IntVar;
@@ -28,23 +29,9 @@ public class SolverVariablesContainer {
   private final HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> _threadLocationVariablesList = new HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>>();
   
   /**
-   * A list of location variables for each thread (and each system layer)
-   */
-  public HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> getThreadLocationVariablesList() {
-    return this._threadLocationVariablesList;
-  }
-  
-  /**
    * A list of variables; a variable for each core which contains the absolute utilization
    */
   private final HashMap<Core, IntVar> _absoluteCoreUtilizationList = new HashMap<Core, IntVar>();
-  
-  /**
-   * A list of variables; a variable for each core which contains the absolute utilization
-   */
-  public HashMap<Core, IntVar> getAbsoluteCoreUtilizationList() {
-    return this._absoluteCoreUtilizationList;
-  }
   
   /**
    * A list of variables; a variable for each board which contains the absolute ram utilization
@@ -52,23 +39,9 @@ public class SolverVariablesContainer {
   private final HashMap<Board, IntVar> _absoluteRamUtilizationList = new HashMap<Board, IntVar>();
   
   /**
-   * A list of variables; a variable for each board which contains the absolute ram utilization
-   */
-  public HashMap<Board, IntVar> getAbsoluteRamUtilizationList() {
-    return this._absoluteRamUtilizationList;
-  }
-  
-  /**
    * A list of variables; a variable for each board which contains the absolute rom utilization
    */
   private final HashMap<Board, IntVar> _absoluteRomUtilizationList = new HashMap<Board, IntVar>();
-  
-  /**
-   * A list of variables; a variable for each board which contains the absolute rom utilization
-   */
-  public HashMap<Board, IntVar> getAbsoluteRomUtilizationList() {
-    return this._absoluteRomUtilizationList;
-  }
   
   /**
    * A list of variables; a variable for each communication group and their placement to a network
@@ -76,23 +49,9 @@ public class SolverVariablesContainer {
   private final HashMap<CommunicationRelation, IntVar> _communicationGroupLocationVariablesList = new HashMap<CommunicationRelation, IntVar>();
   
   /**
-   * A list of variables; a variable for each communication group and their placement to a network
-   */
-  public HashMap<CommunicationRelation, IntVar> getCommunicationGroupLocationVariablesList() {
-    return this._communicationGroupLocationVariablesList;
-  }
-  
-  /**
    * A list of variables; a variable for each networks which contains the absolute bandwidth utilization
    */
   private final HashMap<Network, IntVar> _absoluteBandwidthUtilizationList = new HashMap<Network, IntVar>();
-  
-  /**
-   * A list of variables; a variable for each networks which contains the absolute bandwidth utilization
-   */
-  public HashMap<Network, IntVar> getAbsoluteBandwidthUtilizationList() {
-    return this._absoluteBandwidthUtilizationList;
-  }
   
   /**
    * CONSTRUCTOR
@@ -317,19 +276,21 @@ public class SolverVariablesContainer {
   }
   
   @Override
+  @Pure
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((_threadLocationVariablesList== null) ? 0 : _threadLocationVariablesList.hashCode());
-    result = prime * result + ((_absoluteCoreUtilizationList== null) ? 0 : _absoluteCoreUtilizationList.hashCode());
-    result = prime * result + ((_absoluteRamUtilizationList== null) ? 0 : _absoluteRamUtilizationList.hashCode());
-    result = prime * result + ((_absoluteRomUtilizationList== null) ? 0 : _absoluteRomUtilizationList.hashCode());
-    result = prime * result + ((_communicationGroupLocationVariablesList== null) ? 0 : _communicationGroupLocationVariablesList.hashCode());
-    result = prime * result + ((_absoluteBandwidthUtilizationList== null) ? 0 : _absoluteBandwidthUtilizationList.hashCode());
+    result = prime * result + ((this._threadLocationVariablesList== null) ? 0 : this._threadLocationVariablesList.hashCode());
+    result = prime * result + ((this._absoluteCoreUtilizationList== null) ? 0 : this._absoluteCoreUtilizationList.hashCode());
+    result = prime * result + ((this._absoluteRamUtilizationList== null) ? 0 : this._absoluteRamUtilizationList.hashCode());
+    result = prime * result + ((this._absoluteRomUtilizationList== null) ? 0 : this._absoluteRomUtilizationList.hashCode());
+    result = prime * result + ((this._communicationGroupLocationVariablesList== null) ? 0 : this._communicationGroupLocationVariablesList.hashCode());
+    result = prime * result + ((this._absoluteBandwidthUtilizationList== null) ? 0 : this._absoluteBandwidthUtilizationList.hashCode());
     return result;
   }
   
   @Override
+  @Pure
   public boolean equals(final Object obj) {
     if (this == obj)
       return true;
@@ -338,42 +299,73 @@ public class SolverVariablesContainer {
     if (getClass() != obj.getClass())
       return false;
     SolverVariablesContainer other = (SolverVariablesContainer) obj;
-    if (_threadLocationVariablesList == null) {
+    if (this._threadLocationVariablesList == null) {
       if (other._threadLocationVariablesList != null)
         return false;
-    } else if (!_threadLocationVariablesList.equals(other._threadLocationVariablesList))
+    } else if (!this._threadLocationVariablesList.equals(other._threadLocationVariablesList))
       return false;
-    if (_absoluteCoreUtilizationList == null) {
+    if (this._absoluteCoreUtilizationList == null) {
       if (other._absoluteCoreUtilizationList != null)
         return false;
-    } else if (!_absoluteCoreUtilizationList.equals(other._absoluteCoreUtilizationList))
+    } else if (!this._absoluteCoreUtilizationList.equals(other._absoluteCoreUtilizationList))
       return false;
-    if (_absoluteRamUtilizationList == null) {
+    if (this._absoluteRamUtilizationList == null) {
       if (other._absoluteRamUtilizationList != null)
         return false;
-    } else if (!_absoluteRamUtilizationList.equals(other._absoluteRamUtilizationList))
+    } else if (!this._absoluteRamUtilizationList.equals(other._absoluteRamUtilizationList))
       return false;
-    if (_absoluteRomUtilizationList == null) {
+    if (this._absoluteRomUtilizationList == null) {
       if (other._absoluteRomUtilizationList != null)
         return false;
-    } else if (!_absoluteRomUtilizationList.equals(other._absoluteRomUtilizationList))
+    } else if (!this._absoluteRomUtilizationList.equals(other._absoluteRomUtilizationList))
       return false;
-    if (_communicationGroupLocationVariablesList == null) {
+    if (this._communicationGroupLocationVariablesList == null) {
       if (other._communicationGroupLocationVariablesList != null)
         return false;
-    } else if (!_communicationGroupLocationVariablesList.equals(other._communicationGroupLocationVariablesList))
+    } else if (!this._communicationGroupLocationVariablesList.equals(other._communicationGroupLocationVariablesList))
       return false;
-    if (_absoluteBandwidthUtilizationList == null) {
+    if (this._absoluteBandwidthUtilizationList == null) {
       if (other._absoluteBandwidthUtilizationList != null)
         return false;
-    } else if (!_absoluteBandwidthUtilizationList.equals(other._absoluteBandwidthUtilizationList))
+    } else if (!this._absoluteBandwidthUtilizationList.equals(other._absoluteBandwidthUtilizationList))
       return false;
     return true;
   }
   
   @Override
+  @Pure
   public String toString() {
     String result = new ToStringHelper().toString(this);
     return result;
+  }
+  
+  @Pure
+  public HashMap<ch.hilbri.assist.datamodel.model.Thread, HashMap<Integer, IntVar>> getThreadLocationVariablesList() {
+    return this._threadLocationVariablesList;
+  }
+  
+  @Pure
+  public HashMap<Core, IntVar> getAbsoluteCoreUtilizationList() {
+    return this._absoluteCoreUtilizationList;
+  }
+  
+  @Pure
+  public HashMap<Board, IntVar> getAbsoluteRamUtilizationList() {
+    return this._absoluteRamUtilizationList;
+  }
+  
+  @Pure
+  public HashMap<Board, IntVar> getAbsoluteRomUtilizationList() {
+    return this._absoluteRomUtilizationList;
+  }
+  
+  @Pure
+  public HashMap<CommunicationRelation, IntVar> getCommunicationGroupLocationVariablesList() {
+    return this._communicationGroupLocationVariablesList;
+  }
+  
+  @Pure
+  public HashMap<Network, IntVar> getAbsoluteBandwidthUtilizationList() {
+    return this._absoluteBandwidthUtilizationList;
   }
 }
