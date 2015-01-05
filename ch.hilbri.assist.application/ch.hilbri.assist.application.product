@@ -3,7 +3,6 @@
 
 <product name="ASSIST" id="ch.hilbri.assist.application.assist_product" application="ch.hilbri.assist.application.application" version="0.3" useFeatures="false" includeLaunchers="true">
 
-
    <configIni use="default">
    </configIni>
 
@@ -30,7 +29,6 @@
             winExtraLargeHigh="/ch.hilbri.assist.application/icons/ASSIST-launcher-icon-256x256-32bit.bmp"/>
       </win>
    </launcher>
-
 
    <vm>
       <linux include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</linux>
@@ -466,6 +464,7 @@ The GNU General Public License does not permit incorporating your program into p
       <plugin id="org.eclipse.xpand"/>
       <plugin id="org.eclipse.xtend"/>
       <plugin id="org.eclipse.xtend.lib"/>
+      <plugin id="org.eclipse.xtend.lib.macro"/>
       <plugin id="org.eclipse.xtend.typesystem.emf"/>
       <plugin id="org.eclipse.xtext"/>
       <plugin id="org.eclipse.xtext.builder"/>
