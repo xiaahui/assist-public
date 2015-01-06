@@ -131,31 +131,31 @@ public class MetricsView {
 		tblSelectedMetrics.setLinesVisible(true);
 		
 		TableViewerColumn tableViewerColumn = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-		tableViewerColumn.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics));
+		tableViewerColumn.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
 		TableColumn tblclmnIndex = tableViewerColumn.getColumn();
 		tcl_composite.setColumnData(tblclmnIndex, new ColumnPixelData(60, true, true));
 		tblclmnIndex.setText("Index");
 		
 		TableViewerColumn tableViewerColumn_1 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-		tableViewerColumn_1.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics));
+		tableViewerColumn_1.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
 		TableColumn tblclmnMetric = tableViewerColumn_1.getColumn();
 		tcl_composite.setColumnData(tblclmnMetric, new ColumnPixelData(260, true, true));
 		tblclmnMetric.setText("Metric");
 		
 		TableViewerColumn tableViewerColumn_2 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-		tableViewerColumn_2.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics));
+		tableViewerColumn_2.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
 		TableColumn tblclmnType = tableViewerColumn_2.getColumn();
 		tcl_composite.setColumnData(tblclmnType, new ColumnPixelData(90, true, true));
 		tblclmnType.setText("Type");
 		
 		TableViewerColumn tableViewerColumn_3 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-		tableViewerColumn_3.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics));
+		tableViewerColumn_3.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
 		TableColumn tblclmnWeight = tableViewerColumn_3.getColumn();
 		tcl_composite.setColumnData(tblclmnWeight, new ColumnPixelData(60, true, true));
 		tblclmnWeight.setText("Weight");
 		
 		TableViewerColumn tableViewerColumn_4 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-		tableViewerColumn_4.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics));
+		tableViewerColumn_4.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
 		TableColumn tblclmnRemove = tableViewerColumn_4.getColumn();
 		tcl_composite.setColumnData(tblclmnRemove, new ColumnPixelData(60, true, true));
 		tblclmnRemove.setText("Remove");
@@ -204,6 +204,11 @@ public class MetricsView {
 			
 			cbxAvailableMetrics.setItems(newItems);
 		}
+	}
+	
+	void removeEntryFromTable(MetricTableEntry entry) {
+		tblSelectedMetricsData.remove(entry);
+		tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
 	}
 	
 }
