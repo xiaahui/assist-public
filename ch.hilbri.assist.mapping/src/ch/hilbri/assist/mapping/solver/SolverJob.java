@@ -263,7 +263,7 @@ public class SolverJob extends Job {
 	 */
 	private void showResults(final ArrayList<Result> allResults) {		
 		
-		detailedResultsViewUiModel.setResultsList(allResults);
+		detailedResultsViewUiModel.setNewResultsList(allResults);
 		detailedResultsViewUiModel.indexToDrawProperty().set(0);
 	
 		if (multiPageEditor != null) {
