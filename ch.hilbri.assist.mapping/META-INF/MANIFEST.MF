@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.mapping
 Bundle-SymbolicName: ch.hilbri.assist.mapping;singleton:=true
-Bundle-Version: 0.3
+Bundle-Version: 0.4
 Bundle-Vendor: Robert Hilbrich
 Export-Package: ch.hilbri.assist.mapping.datamodel,
  ch.hilbri.assist.mapping.solver
