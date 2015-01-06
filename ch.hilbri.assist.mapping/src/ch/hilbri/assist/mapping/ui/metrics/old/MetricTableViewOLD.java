@@ -46,6 +46,7 @@ import org.eclipse.ui.PlatformUI;
 
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.application.helpers.Helpers;
+import ch.hilbri.assist.mapping.ui.metrics.EvaluateJob;
 import ch.hilbri.assist.mapping.ui.metrics.MetricsView;
 import ch.hilbri.assist.mapping.ui.metrics.loading.MetricLoader;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
@@ -59,7 +60,7 @@ public class MetricTableViewOLD {
 	private TableViewer				tableViewer;
 	
 	/* List of entries in the table */
-	ArrayList<MetricTableElement>	elementlist;
+//	ArrayList<MetricTableElement>	elementlist;
 
 	/* List of currently available metrics for this table */
 	private ArrayList<AbstractMetric>		metricsList;
