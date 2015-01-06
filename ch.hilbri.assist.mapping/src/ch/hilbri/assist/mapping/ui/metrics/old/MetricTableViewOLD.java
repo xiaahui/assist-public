@@ -46,7 +46,7 @@ import org.eclipse.ui.PlatformUI;
 
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.application.helpers.Helpers;
-import ch.hilbri.assist.mapping.ui.metrics.MetricTableView;
+import ch.hilbri.assist.mapping.ui.metrics.MetricsView;
 import ch.hilbri.assist.mapping.ui.metrics.loading.MetricLoader;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
@@ -245,7 +245,7 @@ public class MetricTableViewOLD {
 				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 				ProgressMonitorDialog progressDialog = new ProgressMonitorDialog(shell);
 				try {
-					progressDialog.run(true, true, new EvaluateJob(MetricTableView.this, analysis));
+					progressDialog.run(true, true, new EvaluateJob(MetricsView.this, analysis));
 				} catch (InvocationTargetException e) {
 					ConsoleCommands.writeErrorLineToConsole("InvocationTargetException while starting project scanner.");
 					e.printStackTrace();

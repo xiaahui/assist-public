@@ -19,7 +19,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 
-import ch.hilbri.assist.mapping.ui.metrics.MetricTableView;
+import ch.hilbri.assist.mapping.ui.metrics.MetricsView;
 
 /**
  * A cell editor that presents a list of items in a combo box. The cell editor's
@@ -234,7 +234,7 @@ public class ComboBoxCellEditor extends AbstractComboBoxCellEditor {
 		if (!taken) selection = comboBox.getSelectionIndex();
 		else if (selection != comboBox.getSelectionIndex()){
 			
-			MetricTableView.sendMessageToMetricTable(tbMessageLabel, "Metric " + getItems()[comboBox.getSelectionIndex()] + " is already in use, please choose a different one.", true);
+			MetricsView.sendMessageToMetricTable(tbMessageLabel, "Metric " + getItems()[comboBox.getSelectionIndex()] + " is already in use, please choose a different one.", true);
 			
 		}
 		Object newValue = doGetValue();

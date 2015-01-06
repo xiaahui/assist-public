@@ -17,12 +17,12 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.TableItem;
 
-import ch.hilbri.assist.mapping.ui.metrics.MetricTableView;
+import ch.hilbri.assist.mapping.ui.metrics.MetricsView;
 
 class MetricLabelProvider extends CellLabelProvider {
 
 	private TableEditor editor;
-	private MetricTableView metricTableView;
+	private MetricsView metricTableView;
 	private Map<Object, Button> buttons = new HashMap<Object, Button>();
 	
 	/**
@@ -30,7 +30,7 @@ class MetricLabelProvider extends CellLabelProvider {
 	 * 
 	 * @param metricTableView
 	 */
-	public MetricLabelProvider(MetricTableView metricTableView) {
+	public MetricLabelProvider(MetricsView metricTableView) {
 		this.metricTableView = metricTableView;
 	}
 

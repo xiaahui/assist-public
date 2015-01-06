@@ -1,13 +1,20 @@
 package ch.hilbri.assist.mapping.ui.metrics;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.jface.layout.TableColumnLayout;
+import org.eclipse.jface.viewers.ColumnPixelData;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -17,20 +24,22 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.wb.swt.ResourceManager;
 
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 
-public class MetricTableView {
+public class MetricsView {
 	
 	/* Internal messages from the detailed results view, so we get notified if the editor changes */
 	public static final String	MSG_CURRENT_EDITOR_SWITCHED	= "assist/mapping/current_editor_switched";
 	public static final String	MSG_CURRENT_EDITOR_CLOSED	= "assist/mapping/current_editor_closed";
 
 	/* Table which contains metric entries */
-	private Table table;
+	private Table tblSelectedMetrics;
+	private TableViewer tblSelectedMetricsViewer;
 	
 	/* ComboBox which contains the metrics which are available in the UI model */
 	private Combo cbxAvailableMetrics;
@@ -38,9 +47,18 @@ public class MetricTableView {
 	/* A reference to the UI model which contains the results and the current metrics */
 	private MultiPageEditor currentEditor;
 	private DetailedResultsViewUiModel currentModel;
-	
-	
 
+	/* A list which holds the entries in the table */
+	private List<MetricTableEntry> tblSelectedMetricsData; 
+	private Combo cbxWeight;
+	
+	/**
+	 * Public constructor
+	 */
+	public MetricsView() {
+		tblSelectedMetricsData = new ArrayList<MetricTableEntry>();
+	}
+	
 	/**
 	 * Create contents of the view part.
 	 */
@@ -56,21 +74,36 @@ public class MetricTableView {
 		
 		cbxAvailableMetrics = new Combo(parentMain, SWT.READ_ONLY);
 		GridData gd_cbxAvailableMetrics = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
-		gd_cbxAvailableMetrics.widthHint = 259;
+		gd_cbxAvailableMetrics.widthHint = 260;
 		cbxAvailableMetrics.setLayoutData(gd_cbxAvailableMetrics);
 	
 		Label lblWeight = new Label(parentMain, SWT.NONE);
 		lblWeight.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblWeight.setText("Weight:");
 		
-		Combo combo = new Combo(parentMain, SWT.READ_ONLY);
-		combo.setItems(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"});
-		combo.setVisibleItemCount(5);
-		combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		cbxWeight = new Combo(parentMain, SWT.READ_ONLY);
+		cbxWeight.setItems(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"});
+		cbxWeight.setVisibleItemCount(5);
+		cbxWeight.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		
-		Button btnNewButton = new Button(parentMain, SWT.NONE);
-		btnNewButton.setText("Add Metric");
-		btnNewButton.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/add.gif"));
+		Button btnAddMetric = new Button(parentMain, SWT.NONE);
+		btnAddMetric.setText("Add Metric");
+		btnAddMetric.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/add.gif"));
+		btnAddMetric.addSelectionListener(new SelectionListener() {
+			public void widgetDefaultSelected(SelectionEvent event) { widgetSelected(event);  }
+			public void widgetSelected(SelectionEvent event) {
+		        // Create new MetricTableEntry
+				int selectedMetricIndex = cbxAvailableMetrics.getSelectionIndex();
+				int selectedWeight = Integer.parseInt(cbxWeight.getItem(cbxWeight.getSelectionIndex()));
+				MetricTableEntry newEntry = new MetricTableEntry(currentModel.getAvailableMetricsList().get(selectedMetricIndex), selectedWeight);
+
+				// Add new entry to data
+				tblSelectedMetricsData.add(newEntry);
+				
+				// Add input to table
+				tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
+		    }
+	    });
 		
 		Button btnReloadMetrics = new Button(parentMain, SWT.NONE);
 		btnReloadMetrics.setText("Load custom metrics");
@@ -89,12 +122,44 @@ public class MetricTableView {
 		grpSelectedMetrics.setText("Selected metrics");
 		
 		Composite composite = new Composite(grpSelectedMetrics, SWT.NONE);
-		composite.setLayout(new TableColumnLayout());
+		TableColumnLayout tcl_composite = new TableColumnLayout();
+		composite.setLayout(tcl_composite);
 		
-		TableViewer tableViewer = new TableViewer(composite, SWT.BORDER | SWT.FULL_SELECTION);
-		table = tableViewer.getTable();
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
+		tblSelectedMetricsViewer = new TableViewer(composite, SWT.BORDER | SWT.FULL_SELECTION);
+		tblSelectedMetrics = tblSelectedMetricsViewer.getTable();
+		tblSelectedMetrics.setHeaderVisible(true);
+		tblSelectedMetrics.setLinesVisible(true);
+		
+		TableViewerColumn tableViewerColumn = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
+		tableViewerColumn.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics));
+		TableColumn tblclmnIndex = tableViewerColumn.getColumn();
+		tcl_composite.setColumnData(tblclmnIndex, new ColumnPixelData(60, true, true));
+		tblclmnIndex.setText("Index");
+		
+		TableViewerColumn tableViewerColumn_1 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
+		tableViewerColumn_1.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics));
+		TableColumn tblclmnMetric = tableViewerColumn_1.getColumn();
+		tcl_composite.setColumnData(tblclmnMetric, new ColumnPixelData(260, true, true));
+		tblclmnMetric.setText("Metric");
+		
+		TableViewerColumn tableViewerColumn_2 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
+		tableViewerColumn_2.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics));
+		TableColumn tblclmnType = tableViewerColumn_2.getColumn();
+		tcl_composite.setColumnData(tblclmnType, new ColumnPixelData(90, true, true));
+		tblclmnType.setText("Type");
+		
+		TableViewerColumn tableViewerColumn_3 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
+		tableViewerColumn_3.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics));
+		TableColumn tblclmnWeight = tableViewerColumn_3.getColumn();
+		tcl_composite.setColumnData(tblclmnWeight, new ColumnPixelData(60, true, true));
+		tblclmnWeight.setText("Weight");
+		
+		TableViewerColumn tableViewerColumn_4 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
+		tableViewerColumn_4.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics));
+		TableColumn tblclmnRemove = tableViewerColumn_4.getColumn();
+		tcl_composite.setColumnData(tblclmnRemove, new ColumnPixelData(60, true, true));
+		tblclmnRemove.setText("Remove");
+		tblSelectedMetricsViewer.setContentProvider(new MetricTableContentProvider());
 	}
 	
 	/**
