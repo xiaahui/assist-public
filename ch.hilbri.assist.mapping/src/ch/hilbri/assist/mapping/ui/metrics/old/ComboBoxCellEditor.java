@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.ui.metrics;
+package ch.hilbri.assist.mapping.ui.metrics.old;
 
 import java.text.MessageFormat; 
 import java.util.ArrayList;
@@ -18,6 +18,8 @@ import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
+
+import ch.hilbri.assist.mapping.ui.metrics.MetricTableView;
 
 /**
  * A cell editor that presents a list of items in a combo box. The cell editor's

@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.ui.metrics;
+package ch.hilbri.assist.mapping.ui.metrics.old;
 
 import java.util.ArrayList;
 

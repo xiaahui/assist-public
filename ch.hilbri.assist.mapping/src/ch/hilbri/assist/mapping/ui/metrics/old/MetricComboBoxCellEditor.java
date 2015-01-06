@@ -1,6 +1,8 @@
-package ch.hilbri.assist.mapping.ui.metrics;
+package ch.hilbri.assist.mapping.ui.metrics.old;
 
 import org.eclipse.swt.SWT;
+
+import ch.hilbri.assist.mapping.ui.metrics.MetricTableView;
 
 class MetricComboBoxCellEditor extends ComboBoxCellEditor {
 

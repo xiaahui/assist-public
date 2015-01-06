@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.ui.metrics;
+package ch.hilbri.assist.mapping.ui.metrics.old;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,6 +8,7 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
+import ch.hilbri.assist.mapping.ui.metrics.MetricTableView;
 
 class EvaluateJob implements IRunnableWithProgress {
 

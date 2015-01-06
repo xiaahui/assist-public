@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.ui.metrics;
+package ch.hilbri.assist.mapping.ui.metrics.old;
 
 import java.util.ArrayList;
 
@@ -46,6 +46,10 @@ public class MetricTableElement {
 	
 	public void setWeight(int weight) {
 		getSelectedMetric().setWeight(weight);
+	}
+
+	public void setMetricsList(ArrayList<AbstractMetric> metricsList) {
+		this.metricsList = metricsList;
 	}
 
 

@@ -1,8 +1,10 @@
-package ch.hilbri.assist.mapping.ui.metrics;
+package ch.hilbri.assist.mapping.ui.metrics.old;
 
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.TableItem;
+
+import ch.hilbri.assist.mapping.ui.metrics.MetricTableView;
 
 class MetricCellModifier implements ICellModifier {
 

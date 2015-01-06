@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.ui.metrics;
+package ch.hilbri.assist.mapping.ui.metrics.old;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +16,8 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.TableItem;
+
+import ch.hilbri.assist.mapping.ui.metrics.MetricTableView;
 
 class MetricLabelProvider extends CellLabelProvider {
 
