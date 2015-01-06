@@ -86,7 +86,7 @@ public class MetricTableEntryLabelProvider extends CellLabelProvider {
 			}
 			
 			TableEditor editor = new TableEditor(tblSelectedMetrics);
-			editor.grabHorizontal = true;
+			editor.minimumWidth = 25;
 			editor.grabVertical = true;
 			editor.setEditor(btnRemove, item, 4);
 			editor.layout();
