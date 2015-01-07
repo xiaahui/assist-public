@@ -1,5 +1,7 @@
 package ch.hilbri.assist.mapping.ui.metrics;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +10,6 @@ import javax.inject.Inject;
 
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ColumnPixelData;
 import org.eclipse.jface.viewers.TableViewer;
@@ -54,6 +55,9 @@ public class MetricsView {
 
 	/* A list which holds the current entries in the table (selected metrics) */
 	private List<AbstractMetric> tblSelectedMetricsData; 
+	
+	/* We need this reference to clear the buttons */
+	private MetricTableEntryLabelProvider lblProvider;
 	
 	/**
 	 * Public constructor
@@ -101,16 +105,30 @@ public class MetricsView {
 				// Create new MetricTableEntry
 				int selectedMetricIndex = cbxAvailableMetrics.getSelectionIndex();
 				int selectedWeight = Integer.parseInt(cbxWeight.getItem(cbxWeight.getSelectionIndex()));
-				AbstractMetric newEntry = EcoreUtil.copy(currentModel.getAvailableMetricsList().get(selectedMetricIndex));
-				newEntry.setWeight(selectedWeight);
-
-				// Add new entry to data
-				tblSelectedMetricsData.add(newEntry);
 				
-				// Add input to table
-				tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
+				// Create a new metrics instance
+				// we need to do this since we do not know the specific 
+				// class of the abstract metric - could be custom!
+				Class<? extends AbstractMetric> metricClass = currentModel.getAvailableMetricsList().get(selectedMetricIndex).getClass();
+				Constructor<?> metricClassConstructor = metricClass.getConstructors()[0];
+		
+				try {
+					AbstractMetric newMetricObject = (AbstractMetric) metricClassConstructor.newInstance();
+					newMetricObject.setWeight(selectedWeight);
+
+					// Add new entry to data
+					tblSelectedMetricsData.add(newMetricObject);
+					
+					// Add input to table
+					tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
+					
+				} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) { e.printStackTrace(); }
+				
+				// Clear selection
+				cbxAvailableMetrics.deselectAll();;
+				cbxWeight.deselectAll();;
 		    }
-	    });
+			});
 		
 		Button btnReloadMetrics = new Button(parentMain, SWT.NONE);
 		btnReloadMetrics.setText("Load custom metrics");
@@ -162,7 +180,8 @@ public class MetricsView {
 		tblclmnWeight.setText("Weight");
 		
 		TableViewerColumn tableViewerColumn_4 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
-		tableViewerColumn_4.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+		lblProvider = new MetricTableEntryLabelProvider(tblSelectedMetrics, this);
+		tableViewerColumn_4.setLabelProvider(lblProvider);
 		TableColumn tblclmnRemove = tableViewerColumn_4.getColumn();
 		tcl_composite.setColumnData(tblclmnRemove, new ColumnPixelData(60, true, true));
 		tblclmnRemove.setText("Remove");
@@ -177,14 +196,15 @@ public class MetricsView {
 	private void processMessageEditorSwitched(@UIEventTopic(MSG_CURRENT_EDITOR_SWITCHED) MultiPageEditor newEditor) {
 		if (newEditor != currentEditor) {
 			/* Store the current metric selection */
-			storeMetricsFromTableEntriesInCurrentModel();
+			storeTableInCurrentModel();
 			
 			/* Change editor and model */
 			DetailedResultsViewUiModel newModel = newEditor.getDetailedResultViewUiModel();
 			currentEditor = newEditor;
 			currentModel = newModel;
 			
-			/* Restore the data */
+			/* Restore the data from the new editor */
+			restoreTableFromCurrentModel();
 			
 			/* Fill the combobox with available metrics */
 			fillComboBoxWithAvailableMetrics();
@@ -220,18 +240,32 @@ public class MetricsView {
 	}
 	
 	void removeEntryFromTable(AbstractMetric entry) {
+		// Remove the entry (and the delete button)
 		tblSelectedMetricsData.remove(entry);
+		lblProvider.clearButton(entry);
+		
+		// Update the viewer with the new data
 		tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
 	}
 	
-	void storeMetricsFromTableEntriesInCurrentModel() {
-		currentModel.getSelectedMetricsList().clear();
-		currentModel.getSelectedMetricsList().addAll(tblSelectedMetricsData);
+	void storeTableInCurrentModel() {
+		if (currentModel != null) {
+			currentModel.getSelectedMetricsList().clear();
+			currentModel.getSelectedMetricsList().addAll(tblSelectedMetricsData);
+		}
 	}
 	
-	void restoreTableEntriesFromCurrentModel() {
-		tblSelectedMetricsData.clear();
-		tblSelectedMetricsData.addAll(currentModel.getSelectedMetricsList());
+	void restoreTableFromCurrentModel() {
+		if (currentModel != null) {
+			
+			// Remove the old stuff
+			tblSelectedMetricsData.clear();
+			lblProvider.clearAllButtons();
+
+			// Get the new stuff
+			tblSelectedMetricsData.addAll(currentModel.getSelectedMetricsList());
+			tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
+		}
 	}
 	
 }

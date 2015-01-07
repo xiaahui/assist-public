@@ -74,10 +74,9 @@ public class MetricTableEntryLabelProvider extends CellLabelProvider {
 								null, "Remove Metric", null, "Are you sure you want to remove the Metric \"" + metricTableEntry.getName() + "\"?",
 								MessageDialog.QUESTION, new String[] {"Yes", "No" }, 1);
 						
-						if (metricRemoveDialog.open() == 0) {
+						if (metricRemoveDialog.open() == 0) 
 							metricsView.removeEntryFromTable(metricTableEntry);
-							btnRemove.dispose();
-						}
+						
 					}
 
 					@Override
@@ -95,6 +94,18 @@ public class MetricTableEntryLabelProvider extends CellLabelProvider {
 			
 			break;
 		}
+	}
+	
+	public void clearButton(AbstractMetric metric) {
+		Button btn = (Button) allRemoveButtons.get(metric);
+		if (btn != null) btn.dispose();
+	}
+	
+	public void clearAllButtons() {
+		for (Object btn : allRemoveButtons.values())
+			((Button) btn).dispose();
+		
+		allRemoveButtons.clear();
 	}
 
 }
