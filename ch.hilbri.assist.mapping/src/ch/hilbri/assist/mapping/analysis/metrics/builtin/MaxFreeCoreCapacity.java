@@ -8,9 +8,8 @@ import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
 
 public class MaxFreeCoreCapacity extends AbstractMetricImpl {
 
-	public MaxFreeCoreCapacity(int weight) {
+	public MaxFreeCoreCapacity() {
 		setName("Max free Core Capacity");
-		setWeight(weight);
 		setBuiltIn(true);
 		setHigherScoreIsBetter(true);
 	}

@@ -8,12 +8,10 @@ import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
 
 public class UniformCoreLoadDistribution extends AbstractMetricImpl {
 
-	public UniformCoreLoadDistribution(int weight) {
+	public UniformCoreLoadDistribution() {
 		setName("Uniform Core Load distribution");
-		setWeight(weight);
 		setBuiltIn(true);
 		setHigherScoreIsBetter(false);
-		
 	}
 	
 

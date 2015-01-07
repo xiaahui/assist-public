@@ -6,9 +6,8 @@ import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
 
 public class RandomScore extends AbstractMetricImpl {
 
-	public RandomScore(int weight) {
+	public RandomScore() {
 		setName("Random Score");
-		setWeight(weight);
 		setBuiltIn(true);
 		setHigherScoreIsBetter(true);
 	}

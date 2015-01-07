@@ -22,19 +22,19 @@ public class ResultsAnalysis  {
 				statistics.addValue(absoluteScore);
 			}
 			
-			/* 2. Schritt: f�r jedes Result den skalierten Score berechnen */
+			/* 2. Schritt: fuer jedes Result den skalierten Score berechnen */
 			for (Result result : results)
 				if (statistics.getMax() - statistics.getMin() != 0) {
 					double absoluteScore = result.getEvaluation().getAbsoluteScores().get(metric);
 					double scaledScore = (absoluteScore - statistics.getMin()) / (statistics.getMax() - statistics.getMin());
 					
-					/* Invertieren wenn n�tig */
+					/* Invertieren wenn noetig */
 					if (!metric.isHigherScoreIsBetter()) scaledScore = 1 - scaledScore;
 					
 					/* Gewichtung vornehmen */
 					double weightedScaledScore = scaledScore * metric.getWeight();
 					
-					/* In das Resultat zur�ckschreiben */
+					/* In das Resultat zuruckschreiben */
 					result.getEvaluation().getScaledScores().put(metric, weightedScaledScore);
 				}
 				else 

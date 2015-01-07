@@ -21,9 +21,8 @@ import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
  */
 public class MaxOrgUnitsPerBoard extends AbstractMetricImpl {
 
-	public MaxOrgUnitsPerBoard(int weight) {
+	public MaxOrgUnitsPerBoard() {
 		setName("MaxOrgUnitsPerBoard");
-		setWeight(weight);
 		setBuiltIn(true);
 		setHigherScoreIsBetter(false);
  	}
