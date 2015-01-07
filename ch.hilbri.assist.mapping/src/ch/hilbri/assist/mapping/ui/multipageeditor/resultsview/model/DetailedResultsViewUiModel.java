@@ -30,40 +30,37 @@ public class DetailedResultsViewUiModel {
 	/**
 	 * All metrics available for this instance
 	 */
-	private ArrayList<AbstractMetric> metricsList; 
+	private ArrayList<AbstractMetric> availableMetricsList; 
 
 	/**
 	 * All metrics that are to be used for evaluation (the one added in the metrics table)
 	 */
-	private ArrayList<AbstractMetric> usedMetricsList;
+	private ArrayList<AbstractMetric> selectedMetricsList;
 	
 	private EditorPart editor;
 	
 	public DetailedResultsViewUiModel() {
 		
 		observableResultList = FXCollections.observableArrayList();
-		editor = null;
-		initialiseMetrics();
-	}
-	
-	/**
-	 * Initialises a list with the standard metrics
-	 */
-	private void initialiseMetrics() {
-		metricsList = new ArrayList<AbstractMetric>();
-		metricsList.add(new RandomScore(1));
-		metricsList.add(new UniformCoreLoadDistribution(1));
-		metricsList.add(new MaxFreeCoreCapacity(1));
-		metricsList.add(new MaxOrgUnitsPerBoard(1));
-		
-		usedMetricsList = new ArrayList<AbstractMetric>();
 
+		editor = null;
 		
+		availableMetricsList = new ArrayList<AbstractMetric>();
+		availableMetricsList.add(new RandomScore());
+		availableMetricsList.add(new UniformCoreLoadDistribution());
+		availableMetricsList.add(new MaxFreeCoreCapacity());
+		availableMetricsList.add(new MaxOrgUnitsPerBoard());
+		
+		selectedMetricsList = new ArrayList<AbstractMetric>();
 	}
 	
-	public void setResultsList(ArrayList<Result> results) {
+	public void setNewResultsList(ArrayList<Result> newResults) {
+		this.results = newResults;
+		refreshResultsList();
+	}
+	
+	public void refreshResultsList() {
 		/* Store a reference to the original results list */
-		this.results = results;
 		observableResultList.clear();
 		observableResultList.addAll(results);
 	}
@@ -72,16 +69,16 @@ public class DetailedResultsViewUiModel {
 		return observableResultList;
 	}
 	
-	public ArrayList<AbstractMetric> getMetricList() {
-		return metricsList;
+	public ArrayList<AbstractMetric> getAvailableMetricsList() {
+		return availableMetricsList;
 	}
 	
-	public ArrayList<AbstractMetric> getUsedMetricList() {
-		return usedMetricsList;
+	public ArrayList<AbstractMetric> getSelectedMetricsList() {
+		return selectedMetricsList;
 	}
 	
 	public void setUsedMetricList(ArrayList<AbstractMetric> usedMetrics) {
-		this.usedMetricsList = usedMetrics;
+		this.selectedMetricsList = usedMetrics;
 	}
 	
 	public void setIndexToDraw(int index) {
