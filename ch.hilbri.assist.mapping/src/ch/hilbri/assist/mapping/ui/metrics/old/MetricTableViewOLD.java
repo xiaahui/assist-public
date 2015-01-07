@@ -359,7 +359,7 @@ public class MetricTableViewOLD {
 	private void saveMetricList() {
 		if (model == null) return;
 		
-		ArrayList<AbstractMetric> usedMetrics = model.getUsedMetricList();
+		ArrayList<AbstractMetric> usedMetrics = model.getSelectedMetricsList();
 		
 		if (usedMetrics == null) {
 			usedMetrics = new ArrayList<AbstractMetric>();
@@ -382,7 +382,7 @@ public class MetricTableViewOLD {
 	}
 
 	private void initialiseTable() {
-			ArrayList<AbstractMetric> usedMetrics = model.getUsedMetricList();
+			ArrayList<AbstractMetric> usedMetrics = model.getSelectedMetricsList();
 			if (usedMetrics != null) {
 				for (AbstractMetric tmp : usedMetrics) {
 					for (int i = 0; i < metricsList.size(); i++) {

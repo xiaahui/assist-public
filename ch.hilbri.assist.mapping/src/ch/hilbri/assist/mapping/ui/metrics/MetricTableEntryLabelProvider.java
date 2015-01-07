@@ -16,6 +16,8 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.wb.swt.ResourceManager;
 
+import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
+
 public class MetricTableEntryLabelProvider extends CellLabelProvider {
 
 	private Table tblSelectedMetrics;
@@ -34,7 +36,7 @@ public class MetricTableEntryLabelProvider extends CellLabelProvider {
 	@Override
 	public void update(final ViewerCell cell) {
 
-		final MetricTableEntry metricTableEntry = (MetricTableEntry) cell.getElement();
+		final AbstractMetric metricTableEntry = (AbstractMetric) cell.getElement();
 		
 		switch (cell.getColumnIndex()) {
 		
@@ -43,11 +45,11 @@ public class MetricTableEntryLabelProvider extends CellLabelProvider {
 			break;
 		
 		case 1:
-			cell.setText(metricTableEntry.getMetric().getName());
+			cell.setText(metricTableEntry.getName());
 			break;
 		
 		case 2:
-			if (metricTableEntry.getMetric().isBuiltIn()) cell.setText("Built-in");
+			if (metricTableEntry.isBuiltIn()) cell.setText("Built-in");
 			else cell.setText("Custom");
 			break;
 		
@@ -69,7 +71,7 @@ public class MetricTableEntryLabelProvider extends CellLabelProvider {
 					@Override
 					public void widgetSelected(SelectionEvent e) {
 						MessageDialog metricRemoveDialog = new MessageDialog(
-								null, "Remove Metric", null, "Are you sure you want to remove the Metric \"" + metricTableEntry.getMetric().getName() + "\"?",
+								null, "Remove Metric", null, "Are you sure you want to remove the Metric \"" + metricTableEntry.getName() + "\"?",
 								MessageDialog.QUESTION, new String[] {"Yes", "No" }, 1);
 						
 						if (metricRemoveDialog.open() == 0) {

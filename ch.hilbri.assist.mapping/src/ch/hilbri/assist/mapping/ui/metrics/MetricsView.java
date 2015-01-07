@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ColumnPixelData;
 import org.eclipse.jface.viewers.TableViewer;
@@ -44,19 +45,21 @@ public class MetricsView {
 	/* ComboBox which contains the metrics which are available in the UI model */
 	private Combo cbxAvailableMetrics;
 	
+	/* ComboBox which contains available weights */
+	private Combo cbxWeight;
+	
 	/* A reference to the UI model which contains the results and the current metrics */
 	private MultiPageEditor currentEditor;
 	private DetailedResultsViewUiModel currentModel;
 
-	/* A list which holds the entries in the table */
-	private List<MetricTableEntry> tblSelectedMetricsData; 
-	private Combo cbxWeight;
+	/* A list which holds the current entries in the table (selected metrics) */
+	private List<AbstractMetric> tblSelectedMetricsData; 
 	
 	/**
 	 * Public constructor
 	 */
 	public MetricsView() {
-		tblSelectedMetricsData = new ArrayList<MetricTableEntry>();
+		tblSelectedMetricsData = new ArrayList<AbstractMetric>();
 	}
 	
 	/**
@@ -90,12 +93,16 @@ public class MetricsView {
 		btnAddMetric.setText("Add Metric");
 		btnAddMetric.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/add.gif"));
 		btnAddMetric.addSelectionListener(new SelectionListener() {
+			
 			public void widgetDefaultSelected(SelectionEvent event) { widgetSelected(event);  }
+			
 			public void widgetSelected(SelectionEvent event) {
-		        // Create new MetricTableEntry
+		    
+				// Create new MetricTableEntry
 				int selectedMetricIndex = cbxAvailableMetrics.getSelectionIndex();
 				int selectedWeight = Integer.parseInt(cbxWeight.getItem(cbxWeight.getSelectionIndex()));
-				MetricTableEntry newEntry = new MetricTableEntry(currentModel.getAvailableMetricsList().get(selectedMetricIndex), selectedWeight);
+				AbstractMetric newEntry = EcoreUtil.copy(currentModel.getAvailableMetricsList().get(selectedMetricIndex));
+				newEntry.setWeight(selectedWeight);
 
 				// Add new entry to data
 				tblSelectedMetricsData.add(newEntry);
@@ -169,9 +176,15 @@ public class MetricsView {
 	@Optional
 	private void processMessageEditorSwitched(@UIEventTopic(MSG_CURRENT_EDITOR_SWITCHED) MultiPageEditor newEditor) {
 		if (newEditor != currentEditor) {
+			/* Store the current metric selection */
+			storeMetricsFromTableEntriesInCurrentModel();
+			
+			/* Change editor and model */
 			DetailedResultsViewUiModel newModel = newEditor.getDetailedResultViewUiModel();
 			currentEditor = newEditor;
 			currentModel = newModel;
+			
+			/* Restore the data */
 			
 			/* Fill the combobox with available metrics */
 			fillComboBoxWithAvailableMetrics();
@@ -206,9 +219,19 @@ public class MetricsView {
 		}
 	}
 	
-	void removeEntryFromTable(MetricTableEntry entry) {
+	void removeEntryFromTable(AbstractMetric entry) {
 		tblSelectedMetricsData.remove(entry);
 		tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
+	}
+	
+	void storeMetricsFromTableEntriesInCurrentModel() {
+		currentModel.getSelectedMetricsList().clear();
+		currentModel.getSelectedMetricsList().addAll(tblSelectedMetricsData);
+	}
+	
+	void restoreTableEntriesFromCurrentModel() {
+		tblSelectedMetricsData.clear();
+		tblSelectedMetricsData.addAll(currentModel.getSelectedMetricsList());
 	}
 	
 }

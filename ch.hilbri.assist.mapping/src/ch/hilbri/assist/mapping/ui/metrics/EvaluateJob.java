@@ -15,9 +15,9 @@ class EvaluateJob implements IRunnableWithProgress {
 	private DetailedResultsViewUiModel model;
 	private ArrayList<AbstractMetric> selectedMetrics;
 
-	public EvaluateJob(DetailedResultsViewUiModel model, ArrayList<AbstractMetric> selectedMetrics) {
+	public EvaluateJob(DetailedResultsViewUiModel model, ArrayList<AbstractMetric> selectedMetricsList) {
 		this.model = model;
-		this.selectedMetrics = selectedMetrics;
+		this.selectedMetrics = selectedMetricsList;
 	}
 
 	@Override
