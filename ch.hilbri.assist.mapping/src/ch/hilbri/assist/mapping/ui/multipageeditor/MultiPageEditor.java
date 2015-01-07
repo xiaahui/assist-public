@@ -35,7 +35,7 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 import ch.hilbri.assist.application.helpers.Helpers;
 import ch.hilbri.assist.application.helpers.PathProvider;
 import ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView;
-import ch.hilbri.assist.mapping.ui.metrics.MetricTableView;
+import ch.hilbri.assist.mapping.ui.metrics.MetricsView;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.ResultsView;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import ch.hilbri.assist.mapping.ui.multipageeditor.treeview.TreeView;
@@ -157,9 +157,10 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 			Helpers.addViewToBottomfield(
 					"ch.hilbri.assist.mapping.metrictable",
 					"Evaluation Metrics",
-					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricTableView",
+					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricsView",
 					application, modelService, true);
 		}
+		
 	}
 
 	/**
@@ -331,10 +332,11 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 			Helpers.addViewToBottomfield(
 					"ch.hilbri.assist.mapping.metrictable",
 					"Evaluation Metrics",
-					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricTableView",
+					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricsView",
 					application, modelService, true);
 
 		}
+		
 		sendModelToContentProviders();
 	}
 
@@ -367,7 +369,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 	 */
 	private void sendMetricContentProvider(Object service) {
 		if (service instanceof IEventBroker) {
-			((IEventBroker) service).send(MetricTableView.SET_METRIC_CONTENT_PROVIDER, this);
+			((IEventBroker) service).send(MetricsView.MSG_CURRENT_EDITOR_SWITCHED, this);
 		}
 	}
 
@@ -375,10 +377,9 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 	 * Broadcasts an event to tell the metric table: this editor is gone
 	 */
 	private void notfityMetricTable() {
-		Object service = PlatformUI.getWorkbench().getService(
-				IEventBroker.class);
+		Object service = PlatformUI.getWorkbench().getService(IEventBroker.class);
 		if (service instanceof IEventBroker) {
-			((IEventBroker) service).send(MetricTableView.EDITOR_CLOSED, this);
+			((IEventBroker) service).send(MetricsView.MSG_CURRENT_EDITOR_CLOSED, this);
 		}
 	}
 
