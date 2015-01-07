@@ -93,9 +93,8 @@ public class NewMetricWizard extends Wizard implements INewWizard {
 
 				"public class " + fileName + " extends AbstractMetricImpl { \n" +
 
-				"\tpublic " + fileName + "(int weight) {\n"
+				"\tpublic " + fileName + "() {\n"
 				+ "\t\tsetName(\"Metric Name\");\n"
-				+ "\t\tsetWeight(weight);\n"
 				+ "\t\tsetBuiltIn(false);\n"
 				+ "\t\tsetHigherScoreIsBetter(true);\n"
 				+ "\t}\n \n" +
