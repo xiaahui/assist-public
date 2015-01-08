@@ -1,21 +1,28 @@
 package ch.hilbri.assist.mapping.ui.metrics;
 
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ColumnPixelData;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -29,9 +36,12 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.dialogs.ListSelectionDialog;
 import org.eclipse.wb.swt.ResourceManager;
 
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
+import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 
@@ -146,6 +156,83 @@ public class MetricsView {
 		Button btnReloadMetrics = new Button(parentMain, SWT.NONE);
 		btnReloadMetrics.setText("Load custom metrics");
 		btnReloadMetrics.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/refresh.gif"));
+		btnReloadMetrics.addSelectionListener(new SelectionListener() {
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) { widgetSelected(e); }
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				// determine the path of the current project
+				if (currentEditor == null) return;
+				
+				ArrayList<AbstractMetric> newCustomMetrics = new ArrayList<AbstractMetric>();
+				
+				// Determine the location where we have to look for new metrics
+				IFileEditorInput input = (IFileEditorInput)currentEditor.getEditorInput() ;
+				IProject activeProject = input.getFile().getProject();
+				IPath activeProjectPath = activeProject.getLocation();
+				IPath metricsPath = activeProjectPath.append("Compiled-metrics/");
+				
+				
+				ListSelectionDialog dialog = new ListSelectionDialog(currentEditor.getSite().getShell(), 
+													metricsPath.append("metrics"), 
+													new CompiledMetricsProvider(), 
+													new LabelProvider(),
+													"Select the metrics which you want to import:");
+				dialog.setTitle("Metric selection");
+				// Preselect all entries 
+				dialog.setInitialSelections((new CompiledMetricsProvider()).getElements(metricsPath.append("metrics")));
+				
+				if (dialog.open() != Window.OK) return;
+				
+				try {
+					
+					// Create the classloader for our new metrics
+					URL url = new URL("file:/" + metricsPath.toPortableString());
+					URLClassLoader classLoader = URLClassLoader.newInstance(new URL[] {url}, getClass().getClassLoader());
+
+					for (Object obj : dialog.getResult()) {
+						// Get the class name
+						String className = (String) obj;
+						
+						// Get the class
+						Class<? extends AbstractMetricImpl> metricClass = Class.forName("metrics." + className, true, classLoader).asSubclass(AbstractMetricImpl.class);
+						classLoader.close();
+
+						// Create a new instance of this metric
+						AbstractMetric metric  = metricClass.getDeclaredConstructor().newInstance();
+						
+						// Add the newly created metric to the temporary list of found metrics
+						newCustomMetrics.add(metric);
+					}
+
+					// Clear old custom metrics in the currentModel
+					for (AbstractMetric m : currentModel.getAvailableMetricsList()) 
+						if (!m.isBuiltIn())
+							currentModel.getAvailableMetricsList().remove(m);
+					
+					// Add the new metrics
+					currentModel.getAvailableMetricsList().addAll(newCustomMetrics);
+					
+					// Inform the user about our results
+					MessageDialog dlg = new MessageDialog(null, "New custom metrics", null, 
+							"'" + newCustomMetrics.size() + "' custom metric(s) were found and added to the list.", 
+							MessageDialog.INFORMATION, 
+							new String[] { "OK" }, 0);
+					dlg.open();
+					
+					// Refresh UI
+					fillComboBoxWithAvailableMetrics();
+					
+				} catch (ClassNotFoundException | IOException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e1) {
+					e1.printStackTrace();
+				}
+				
+				
+			}
+		});
+		
 		
 		Button btnEvaluateResults = new Button(parentMain, SWT.NONE);
 		btnEvaluateResults.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/evaluate.gif"));
