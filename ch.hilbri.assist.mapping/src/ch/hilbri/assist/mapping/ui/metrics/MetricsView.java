@@ -180,7 +180,16 @@ public class MetricsView {
 			
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if (currentEditor == null) return;
+				if (currentEditor == null) {
+					MessageDialog dlg = new MessageDialog(null, "Current editor contains no mapping specification", null, 
+							"The current editor window does not contain a mapping specification. " +
+							"Please open or select an editor tab with a mapping specification. " + 
+							"New custom metrics will be added to the currently active editor only.", 
+							MessageDialog.INFORMATION, 
+							new String[] { "OK" }, 0);
+					dlg.open();
+					return;
+				}
 				
 				
 				// This will hold our new metrics
