@@ -41,7 +41,7 @@
             class="ch.hilbri.assist.mapping.ui.wizards.NewMetricWizard"
             hasPages="true"
             id="ch.hilbri.assist.mapping.wizards.newMetric"
-            name="Mapping - Optimiziation Metric"
+            name="Mapping - Evaluation Metric"
             project="false">
          <description>
             Add a custom metric class
