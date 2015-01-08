@@ -12,6 +12,8 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IncrementalProjectBuilder;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
@@ -40,6 +42,7 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.dialogs.ListSelectionDialog;
 import org.eclipse.wb.swt.ResourceManager;
 
+import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
@@ -50,6 +53,7 @@ public class MetricsView {
 	/* Internal messages from the detailed results view, so we get notified if the editor changes */
 	public static final String	MSG_CURRENT_EDITOR_SWITCHED	= "assist/mapping/current_editor_switched";
 	public static final String	MSG_CURRENT_EDITOR_CLOSED	= "assist/mapping/current_editor_closed";
+	public static final String  MSG_CURRENT_EDITOR_LOST_FOCUS = "assist/mapping/current_editor_lost_focus";
 
 	/* Table which contains metric entries */
 	private Table tblSelectedMetrics;
@@ -105,6 +109,9 @@ public class MetricsView {
 		cbxWeight.setVisibleItemCount(5);
 		cbxWeight.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		
+		/*
+		 * ADD Metric
+		 */
 		Button btnAddMetric = new Button(parentMain, SWT.NONE);
 		btnAddMetric.setText("Add Metric");
 		btnAddMetric.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/add.gif"));
@@ -113,7 +120,9 @@ public class MetricsView {
 			public void widgetDefaultSelected(SelectionEvent event) { widgetSelected(event);  }
 			
 			public void widgetSelected(SelectionEvent event) {
-		    
+				
+				if (currentModel == null) return;
+				
 				// Do nothing, if nothing is selected
 				if ((cbxAvailableMetrics.getSelectionIndex() == -1) || 
 				    (cbxWeight.getSelectionIndex() == -1)) {
@@ -136,6 +145,7 @@ public class MetricsView {
 				Constructor<?> metricClassConstructor = metricClass.getConstructors()[0];
 		
 				try {
+					// Create a new instance
 					AbstractMetric newMetricObject = (AbstractMetric) metricClassConstructor.newInstance();
 					newMetricObject.setWeight(selectedWeight);
 
@@ -147,11 +157,18 @@ public class MetricsView {
 					
 				} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) { e.printStackTrace(); }
 				
+				// Store updated table in the model
+				saveTableToCurrentModel();
+
 				// Clear selection
 				cbxAvailableMetrics.deselectAll();;
 				cbxWeight.deselectAll();;
 		    }
 			});
+		
+		/*
+		 * Load metrics
+		 */
 		
 		Button btnReloadMetrics = new Button(parentMain, SWT.NONE);
 		btnReloadMetrics.setText("Load custom metrics");
@@ -163,28 +180,36 @@ public class MetricsView {
 			
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				// determine the path of the current project
 				if (currentEditor == null) return;
 				
-				ArrayList<AbstractMetric> newCustomMetrics = new ArrayList<AbstractMetric>();
+				
+				// This will hold our new metrics
+				List<AbstractMetric> newCustomMetrics = new ArrayList<AbstractMetric>();
 				
 				// Determine the location where we have to look for new metrics
 				IFileEditorInput input = (IFileEditorInput)currentEditor.getEditorInput() ;
 				IProject activeProject = input.getFile().getProject();
 				IPath activeProjectPath = activeProject.getLocation();
 				IPath metricsPath = activeProjectPath.append("Compiled-metrics/");
-				
-				
+
+				// Triggering a build for this project
+				try { activeProject.build(IncrementalProjectBuilder.FULL_BUILD, null);	} 
+				catch (CoreException e2) { ConsoleCommands.writeErrorLineToConsole("Build error"); return; }
+
+				// Asking the user which metric is to be imported and preselect all entries
 				ListSelectionDialog dialog = new ListSelectionDialog(currentEditor.getSite().getShell(), 
 													metricsPath.append("metrics"), 
 													new CompiledMetricsProvider(), 
 													new LabelProvider(),
 													"Select the metrics which you want to import:");
 				dialog.setTitle("Metric selection");
-				// Preselect all entries 
 				dialog.setInitialSelections((new CompiledMetricsProvider()).getElements(metricsPath.append("metrics")));
-				
 				if (dialog.open() != Window.OK) return;
+				
+				// Clear old custom metrics in the currentModel
+				for (AbstractMetric m : currentModel.getAvailableMetricsList()) 
+					if (!m.isBuiltIn())
+						currentModel.getAvailableMetricsList().remove(m);
 				
 				try {
 					
@@ -196,7 +221,7 @@ public class MetricsView {
 						// Get the class name
 						String className = (String) obj;
 						
-						// Get the class
+						// Get the new class
 						Class<? extends AbstractMetricImpl> metricClass = Class.forName("metrics." + className, true, classLoader).asSubclass(AbstractMetricImpl.class);
 						classLoader.close();
 
@@ -206,30 +231,17 @@ public class MetricsView {
 						// Add the newly created metric to the temporary list of found metrics
 						newCustomMetrics.add(metric);
 					}
-
-					// Clear old custom metrics in the currentModel
-					for (AbstractMetric m : currentModel.getAvailableMetricsList()) 
-						if (!m.isBuiltIn())
-							currentModel.getAvailableMetricsList().remove(m);
 					
 					// Add the new metrics
 					currentModel.getAvailableMetricsList().addAll(newCustomMetrics);
-					
-					// Inform the user about our results
-					MessageDialog dlg = new MessageDialog(null, "New custom metrics", null, 
-							"'" + newCustomMetrics.size() + "' custom metric(s) were found and added to the list.", 
-							MessageDialog.INFORMATION, 
-							new String[] { "OK" }, 0);
-					dlg.open();
-					
-					// Refresh UI
-					fillComboBoxWithAvailableMetrics();
 					
 				} catch (ClassNotFoundException | IOException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e1) {
 					e1.printStackTrace();
 				}
 				
-				
+				// Refresh UI with updated data from the UI model
+				restoreTableFromCurrentModel();
+				fillComboBoxWithAvailableMetrics();
 			}
 		});
 		
@@ -245,8 +257,6 @@ public class MetricsView {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				if (currentModel != null) {
-					
-					saveTableToCurrentModel();
 
 					if ((currentModel.getResults() != null) && (currentModel.getResults().size() > 0)) {
 						
@@ -357,6 +367,35 @@ public class MetricsView {
 		} 
 	}
 	
+	
+	/**
+	 * In case an editor lost focus we have to clear the table
+	 */
+	/**
+	 * In case an editor is closed, this method gets a broadcast and clears the table.
+	 * 
+	 * @param editor
+	 */
+	@Inject
+	@Optional
+	private void processMessageEditorLostFocus(@UIEventTopic(MSG_CURRENT_EDITOR_LOST_FOCUS) MultiPageEditor editor) {
+		/* Did the editor for our current model close? */
+		if (currentEditor == editor) { 
+			
+			saveTableToCurrentModel();
+			
+			// Set currentModels/Editors to null
+			currentModel = null;
+			currentEditor = null;
+			
+			// Clear the UI
+			tblSelectedMetricsData.clear();
+			tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
+			lblProvider.clearAllButtons();
+		} 
+	}
+	
+	
 	private void fillComboBoxWithAvailableMetrics() {
 		if (currentModel != null) {
 			
@@ -377,6 +416,9 @@ public class MetricsView {
 		
 		// Update the viewer with the new data
 		tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
+		
+		// Update the UI model
+		saveTableToCurrentModel();
 	}
 	
 	void saveTableToCurrentModel() {
@@ -396,6 +438,10 @@ public class MetricsView {
 			// Get the new stuff
 			tblSelectedMetricsData.addAll(currentModel.getSelectedMetricsList());
 			tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
+			
+			// Clear pre-selection
+			cbxAvailableMetrics.deselectAll();
+			cbxWeight.deselectAll();
 		}
 	}
 	

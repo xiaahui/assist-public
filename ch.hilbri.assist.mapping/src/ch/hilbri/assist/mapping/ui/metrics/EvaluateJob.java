@@ -1,7 +1,7 @@
 package ch.hilbri.assist.mapping.ui.metrics;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.operation.IRunnableWithProgress;
@@ -13,7 +13,7 @@ import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedRes
 class EvaluateJob implements IRunnableWithProgress {
 
 	private DetailedResultsViewUiModel model;
-	private ArrayList<AbstractMetric> selectedMetrics;
+	private List<AbstractMetric> selectedMetrics;
 
 	public EvaluateJob(DetailedResultsViewUiModel model) {
 		this.model = model;

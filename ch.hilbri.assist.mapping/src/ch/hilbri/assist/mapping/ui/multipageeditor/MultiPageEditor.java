@@ -23,7 +23,9 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.IPartListener2;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchPartReference;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
@@ -75,6 +77,8 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 		return super.getPageCount();
 	}
 
+
+	
 	/**
 	 * Creates page 0 of the multi-page editor, which contains a Xtext editor.
 	 */
@@ -142,6 +146,39 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 
 		this.setPartName(editor.getTitle());
 		this.setActivePage(0);
+		
+		// We have to get notified if the editor lost focus - maybe
+		// the user switched to a java file
+		// Now we have to clear the metrics view 
+		editor.getSite().getPage().addPartListener(new IPartListener2()
+        {
+           @Override
+           public void partActivated(IWorkbenchPartReference partRef) {}
+           
+           @Override
+           public void partBroughtToTop(IWorkbenchPartReference partRef) {}
+           
+           @Override
+           public void partClosed(IWorkbenchPartReference partRef) {}
+           
+           @Override
+           public void partDeactivated(IWorkbenchPartReference partRef) { 
+        	    }
+
+           @Override
+           public void partOpened(IWorkbenchPartReference partRef) {}
+           
+           @Override
+           public void partHidden(IWorkbenchPartReference partRef) {
+        	   sendEditorLostFocus();
+           }
+           
+           @Override
+           public void partVisible(IWorkbenchPartReference partRef) {}
+           
+           @Override
+           public void partInputChanged(IWorkbenchPartReference partRef) {}
+       }); 
 	}
 
 	/**
@@ -372,6 +409,20 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 			((IEventBroker) service).send(MetricsView.MSG_CURRENT_EDITOR_SWITCHED, this);
 		}
 	}
+	
+	/**
+	 * Broadcasts an event (Editor lost focus)
+	 * @param service 
+	 * 
+	 * @param metricContentProvider
+	 */
+	void sendEditorLostFocus() {
+		
+		Object service = PlatformUI.getWorkbench().getService(IEventBroker.class);
+		if (service instanceof IEventBroker) {
+			((IEventBroker) service).send(MetricsView.MSG_CURRENT_EDITOR_LOST_FOCUS, this);
+		}
+	}
 
 	/**
 	 * Broadcasts an event to tell the metric table: this editor is gone
@@ -382,5 +433,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 			((IEventBroker) service).send(MetricsView.MSG_CURRENT_EDITOR_CLOSED, this);
 		}
 	}
+	
+	
 
 }

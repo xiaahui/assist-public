@@ -6,7 +6,6 @@
     <elements xsi:type="commands:Handler" xmi:id="_nd_PcFNLEeOLk9AINn96_w" elementId="ch.hilbri.assist.handler.mapping.export.scheduling" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.handlers.ExportToScheduler" command="_wYnBEFNLEeOLk9AINn96_w"/>
     <elements xsi:type="commands:Handler" xmi:id="_L1gqMJMKEeO3abEfdPFoDA" elementId="ch.hilbri.assist.handler.mapping.import.magicdraw" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.handlers.ImportFromMagicDraw" command="_Esh1UJMKEeO3abEfdPFoDA"/>
     <elements xsi:type="commands:Handler" xmi:id="_AZVbIP1gEeO5XfAAZEIvRg" elementId="ch.hilbri.assist.handler.mapping.import.excel" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.handlers.ImportFromExcel" command="_FXL1MP1gEeO5XfAAZEIvRg"/>
-    <elements xsi:type="commands:Handler" xmi:id="_FbRy4JN9EeSSc4_U2XuYLQ" elementId="ch.hilbri.assist.handler.mapping.metrics.compile" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.handlers.CompileAllMetrics" command="_rYJoMJN8EeSSc4_U2XuYLQ"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_AMLgQA_cEeOdg7LCSWH6eQ" featurename="commands" parentElementId="ch.hilbri.assist.application">
     <elements xsi:type="commands:Command" xmi:id="_G7-ZEA_cEeOdg7LCSWH6eQ" elementId="ch.hilbri.assist.command.mapping.generate" commandName="Generate mappings"/>
@@ -14,14 +13,11 @@
     <elements xsi:type="commands:Command" xmi:id="_wYnBEFNLEeOLk9AINn96_w" elementId="ch.hilbri.assist.command.mapping.export.scheduling" commandName="Export mapping to scheduling"/>
     <elements xsi:type="commands:Command" xmi:id="_Esh1UJMKEeO3abEfdPFoDA" elementId="ch.hilbri.assist.command.mapping.import.magicdraw" commandName="Import mapping specification from MagicDraw"/>
     <elements xsi:type="commands:Command" xmi:id="_FXL1MP1gEeO5XfAAZEIvRg" elementId="ch.hilbri.assist.command.mapping.import.excel" commandName="Import mapping specification from Excel"/>
-    <elements xsi:type="commands:Command" xmi:id="_rYJoMJN8EeSSc4_U2XuYLQ" elementId="ch.hilbri.assist.command.mapping.metrics.compile" commandName="Compile all metrics"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_joYvoA_bEeOdg7LCSWH6eQ" featurename="children" parentElementId="ch.hilbri.assist.application.main.menu" positionInList="after:edit">
     <elements xsi:type="menu:Menu" xmi:id="_n4ghAA_bEeOdg7LCSWH6eQ" elementId="ch.hilbri.assist.mapping.menu" label="Mapping">
       <children xsi:type="menu:HandledMenuItem" xmi:id="_tbwHIA_bEeOdg7LCSWH6eQ" elementId="ch.hilbri.assist.mapping.menu.handledmenuitem.0" label="Generate Mappings" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
       <children xsi:type="menu:MenuSeparator" xmi:id="_xD8noFNMEeOLk9AINn96_w" elementId="ch.hilbri.assist.mapping.menu.menuseparator.0"/>
-      <children xsi:type="menu:HandledMenuItem" xmi:id="_4bOc8JN8EeSSc4_U2XuYLQ" elementId="ch.hilbri.assist.mapping.menu.handledmenuitem.6" label="Compile all metrics" command="_rYJoMJN8EeSSc4_U2XuYLQ"/>
-      <children xsi:type="menu:MenuSeparator" xmi:id="_6a4AgJN8EeSSc4_U2XuYLQ" elementId="ch.hilbri.assist.mapping.menuseparator.0"/>
       <children xsi:type="menu:HandledMenuItem" xmi:id="_aDJ0oJMKEeO3abEfdPFoDA" elementId="ch.hilbri.assist.mapping.menu.handledmenuitem.5" label="Import from MagicDraw" command="_Esh1UJMKEeO3abEfdPFoDA"/>
       <children xsi:type="menu:HandledMenuItem" xmi:id="_WOaRAP1gEeO5XfAAZEIvRg" elementId="ch.hilbri.assist.mapping.menu.handledmenuitem.6" label="Import from Excel" command="_FXL1MP1gEeO5XfAAZEIvRg"/>
       <children xsi:type="menu:MenuSeparator" xmi:id="_Yw4UcJMKEeO3abEfdPFoDA" elementId="ch.hilbri.assist.mapping.menu.menuseparator.1"/>

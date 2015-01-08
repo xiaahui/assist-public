@@ -1,6 +1,6 @@
 package ch.hilbri.assist.mapping.analysis;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
@@ -9,7 +9,15 @@ import ch.hilbri.assist.datamodel.result.mapping.Result;
 
 public class ResultsAnalysis  {
 
-	public static void evaluate(ArrayList<Result> results, ArrayList<AbstractMetric> metrics) {
+	public static void evaluate(List<Result> results, List<AbstractMetric> metrics) {
+		
+		// Resultate der vorigen Metriken löschen
+		
+		for (Result result : results) {
+			result.getEvaluation().getAbsoluteScores().clear();
+			result.getEvaluation().getMetricsUsed().clear();
+			result.getEvaluation().getScaledScores().clear();
+		}
 		
 		for (AbstractMetric metric : metrics) {
 			

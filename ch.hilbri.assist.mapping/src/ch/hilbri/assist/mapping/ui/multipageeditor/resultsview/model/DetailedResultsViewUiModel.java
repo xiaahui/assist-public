@@ -1,6 +1,8 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -12,13 +14,13 @@ import javafx.scene.control.TreeItem;
 
 import org.eclipse.ui.part.EditorPart;
 
+import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
+import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxFreeCoreCapacity;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxOrgUnitsPerBoard;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.UniformCoreLoadDistribution;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
-import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
-import ch.hilbri.assist.datamodel.result.mapping.Result;
 
 public class DetailedResultsViewUiModel {
 
@@ -30,12 +32,12 @@ public class DetailedResultsViewUiModel {
 	/**
 	 * All metrics available for this instance
 	 */
-	private ArrayList<AbstractMetric> availableMetricsList; 
+	private List<AbstractMetric> availableMetricsList; 
 
 	/**
 	 * All metrics that are to be used for evaluation (the one added in the metrics table)
 	 */
-	private ArrayList<AbstractMetric> selectedMetricsList;
+	private List<AbstractMetric> selectedMetricsList;
 	
 	private EditorPart editor;
 	
@@ -45,13 +47,13 @@ public class DetailedResultsViewUiModel {
 
 		editor = null;
 		
-		availableMetricsList = new ArrayList<AbstractMetric>();
+		availableMetricsList = new CopyOnWriteArrayList<AbstractMetric>();
 		availableMetricsList.add(new RandomScore());
 		availableMetricsList.add(new UniformCoreLoadDistribution());
 		availableMetricsList.add(new MaxFreeCoreCapacity());
 		availableMetricsList.add(new MaxOrgUnitsPerBoard());
 		
-		selectedMetricsList = new ArrayList<AbstractMetric>();
+		selectedMetricsList = new CopyOnWriteArrayList<AbstractMetric>();
 	}
 	
 	public void setNewResultsList(ArrayList<Result> newResults) {
@@ -69,11 +71,11 @@ public class DetailedResultsViewUiModel {
 		return observableResultList;
 	}
 	
-	public ArrayList<AbstractMetric> getAvailableMetricsList() {
+	public List<AbstractMetric> getAvailableMetricsList() {
 		return availableMetricsList;
 	}
 	
-	public ArrayList<AbstractMetric> getSelectedMetricsList() {
+	public List<AbstractMetric> getSelectedMetricsList() {
 		return selectedMetricsList;
 	}
 	
@@ -97,7 +99,7 @@ public class DetailedResultsViewUiModel {
 		return clickedObjectProperty;
 	}
 
-	public ArrayList<Result> getResults() {
+	public List<Result> getResults() {
 		return results;
 	}
 	
