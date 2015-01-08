@@ -95,7 +95,6 @@ public class NewMetricWizard extends Wizard implements INewWizard {
 
 				"\tpublic " + fileName + "() {\n"
 				+ "\t\tsetName(\"Metric Name\");\n"
-				+ "\t\tsetBuiltIn(false);\n"
 				+ "\t\tsetHigherScoreIsBetter(true);\n"
 				+ "\t}\n \n" +
 

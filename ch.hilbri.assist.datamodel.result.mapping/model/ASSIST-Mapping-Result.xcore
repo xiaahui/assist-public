@@ -392,7 +392,7 @@ abstract class AbstractMetric  {
 	String 			name
 	int				weight
 	boolean 		higherScoreIsBetter
-	boolean 		builtIn = "true"
+	boolean 		builtIn = "false"
 	op double 		computeAbsoluteScore(Result result)
 }
 
