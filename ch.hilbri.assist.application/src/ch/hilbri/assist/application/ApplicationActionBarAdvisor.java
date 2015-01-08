@@ -19,8 +19,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	private IWorkbenchAction pasteAction;
 	private IWorkbenchAction cutAction;
 	private IWorkbenchAction deleteAction;
-//	private IWorkbenchAction aboutAction;
-//	private IWorkbenchAction newWindowAction;
+	private IWorkbenchAction saveAction;
 	
     public ApplicationActionBarAdvisor(IActionBarConfigurer configurer) {
         super(configurer);
@@ -48,6 +47,11 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
     	deleteAction = ActionFactory.DELETE.create(window);
     	deleteAction.setEnabled(true);
     	register(deleteAction);
+    	
+    	saveAction = ActionFactory.SAVE.create(window);
+    	saveAction.setEnabled(true);
+    	register(saveAction);
+    	
     	
 //        aboutAction = ActionFactory.ABOUT.create(window);
 //        register(aboutAction);
