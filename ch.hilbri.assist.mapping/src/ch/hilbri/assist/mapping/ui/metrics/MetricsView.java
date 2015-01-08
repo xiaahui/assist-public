@@ -10,6 +10,8 @@ import javax.inject.Inject;
 
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ColumnPixelData;
 import org.eclipse.jface.viewers.TableViewer;
@@ -137,6 +139,37 @@ public class MetricsView {
 		Button btnEvaluateResults = new Button(parentMain, SWT.NONE);
 		btnEvaluateResults.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/evaluate.gif"));
 		btnEvaluateResults.setText("Evaluate results");
+		btnEvaluateResults.addSelectionListener(new SelectionListener() {
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) { widgetSelected(e); }
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (currentModel != null) {
+					
+					saveTableToCurrentModel();
+
+					if ((currentModel.getResults() != null) && (currentModel.getResults().size() > 0)) {
+						
+						ProgressMonitorDialog progressDialog = new ProgressMonitorDialog(currentEditor.getSite().getShell());
+						try {
+							progressDialog.run(true, false, new EvaluateJob(currentModel));
+						} catch (InvocationTargetException | InterruptedException e1) {
+							e1.printStackTrace();
+						}
+					}
+					else {
+						MessageDialog dlg = new MessageDialog(null, "No results found", null, 
+											"No results were found for analysis. Please generate valid deployments.", 
+											MessageDialog.INFORMATION, 
+											new String[] { "OK" }, 0);
+						dlg.open();
+					}
+				}
+			}
+			
+		});
 		
 		Label label = new Label(parentMain, SWT.NONE);
 		label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -196,7 +229,7 @@ public class MetricsView {
 	private void processMessageEditorSwitched(@UIEventTopic(MSG_CURRENT_EDITOR_SWITCHED) MultiPageEditor newEditor) {
 		if (newEditor != currentEditor) {
 			/* Store the current metric selection */
-			storeTableInCurrentModel();
+			saveTableToCurrentModel();
 			
 			/* Change editor and model */
 			DetailedResultsViewUiModel newModel = newEditor.getDetailedResultViewUiModel();
@@ -248,7 +281,7 @@ public class MetricsView {
 		tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
 	}
 	
-	void storeTableInCurrentModel() {
+	void saveTableToCurrentModel() {
 		if (currentModel != null) {
 			currentModel.getSelectedMetricsList().clear();
 			currentModel.getSelectedMetricsList().addAll(tblSelectedMetricsData);
