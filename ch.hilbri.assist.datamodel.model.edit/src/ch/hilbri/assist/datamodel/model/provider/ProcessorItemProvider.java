@@ -134,7 +134,6 @@ public class ProcessorItemProvider extends HardwareElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModelPackage.Literals.PROCESSOR__CORES);
-			childrenFeatures.add(ModelPackage.Literals.PROCESSOR__METRIC_PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -195,7 +194,6 @@ public class ProcessorItemProvider extends HardwareElementItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.PROCESSOR__CORES:
-			case ModelPackage.PROCESSOR__METRIC_PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -217,11 +215,6 @@ public class ProcessorItemProvider extends HardwareElementItemProvider {
 			(createChildParameter
 				(ModelPackage.Literals.PROCESSOR__CORES,
 				 ModelFactory.eINSTANCE.createCore()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.PROCESSOR__METRIC_PARAMETERS,
-				 ModelFactory.eINSTANCE.createMetricParameter()));
 	}
 
 }

@@ -55,9 +55,10 @@ Board:
 		('Type' 					'=' boardType=STRING ';')?
 		('Power supply' 			'=' powerSupply=STRING ';')?
 	    ('Design assurance level' 	'=' assuranceLevel=DesignAssuranceLevelType';')?
-		(processors+=Processor)+
+	    ('Side'						'=' side=STRING ';')?
 		('RAM capacity'  			'=' ramCapacity=INT ';')?
 		('ROM capacity'  			'=' romCapacity=INT ';')?
+		(processors+=Processor)+
 		(ioAdapters+=IOAdapter)*
 		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}'
@@ -167,7 +168,8 @@ enum BoardAttributes:
 	MANUFACTURER 	= 'Manufacturer' 	|
 	POWERSUPPLY 	= 'PowerSupply'		|
 	ASSURANCELEVEL 	= 'AssuranceLevel' 	|
-	BOARDTYPE 		= 'BoardType'; 		
+	BOARDTYPE 		= 'BoardType'       |
+	SIDE			= 'Side'; 		
 
 enum ProcessorAttributes:
 	MANUFACTURER 	= 'Manufacturer' 	| 

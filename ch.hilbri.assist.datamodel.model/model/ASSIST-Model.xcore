@@ -162,6 +162,7 @@ enum DesignAssuranceLevelType {
 
 class HardwareElement {
 	 String name = ""
+	 contains MetricParameter[0..*] metricParameters
 }
 
 class HardwareElementContainer extends HardwareElement {}
@@ -172,7 +173,6 @@ class Compartment extends HardwareElementContainer {
 	String side			= ""
 	String zone			= ""
 	contains Box[1..*] boxes opposite compartment
-	contains MetricParameter[0..*] metricParameters
 	
 	op Board[] getAllBoards() {
 		val list = new BasicEList<Board>
@@ -197,8 +197,7 @@ class Box extends HardwareElementContainer {
 	String manufacturer	= ""
 	container Compartment compartment opposite boxes
 	contains Board[1..*] boards opposite box
-	contains MetricParameter[0..*] metricParameters
-	
+		
 	op Processor[] getAllProcessors() {
 		val list = new BasicEList<Processor>
 		for (b: boards) list.addAll(b.processors)
@@ -216,14 +215,14 @@ class Board extends HardwareElementContainer {
 	String 							manufacturer	= ""
 	String 							boardType		= ""
 	String 							powerSupply		= ""
+	String							side			= ""
 	DesignAssuranceLevelType 		assuranceLevel 	= "None"
 	int 							ramCapacity 	= "0"
 	int 							romCapacity 	= "0"
 	container Box 					box opposite boards
 	contains Processor[1..*] 		processors opposite board
 	contains IOAdapter[0..*] 		ioAdapters
-	contains MetricParameter[0..*] 	metricParameters
-	
+		
 	op String toString() 			{ name }
 	
 	op Core[] getAllCores() {
@@ -256,14 +255,12 @@ class Processor extends HardwareElement {
 	String processorType = ""
 	container Board board opposite processors
 	contains Core[1..*] cores opposite processor 
-	contains MetricParameter[0..*] metricParameters
 }
 
 class Core extends HardwareElement {
 	String architecture = ""
 	int capacity = "0"
 	container Processor processor opposite cores
-	contains MetricParameter[0..*] metricParameters
 }
 
 enum IOAdapterType {
@@ -473,6 +470,7 @@ enum BoardAttributes{
 	POWERSUPPLY		as "PowerSupply"
 	ASSURANCELEVEL	as "AssuranceLevel"
 	BOARDTYPE		as "BoardType"
+	SIDE			as "Side"
 }
 
 enum ProcessorAttributes{

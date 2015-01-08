@@ -865,37 +865,49 @@ ruleBoard returns [EObject current=null]
     {
     	newLeafNode(otherlv_18, grammarAccess.getBoardAccess().getSemicolonKeyword_6_3());
     }
-)?(
+)?(	otherlv_19='Side' 
+    {
+    	newLeafNode(otherlv_19, grammarAccess.getBoardAccess().getSideKeyword_7_0());
+    }
+	otherlv_20='=' 
+    {
+    	newLeafNode(otherlv_20, grammarAccess.getBoardAccess().getEqualsSignKeyword_7_1());
+    }
 (
-		{ 
-	        newCompositeNode(grammarAccess.getBoardAccess().getProcessorsProcessorParserRuleCall_7_0()); 
-	    }
-		lv_processors_19_0=ruleProcessor		{
+(
+		lv_side_21_0=RULE_STRING
+		{
+			newLeafNode(lv_side_21_0, grammarAccess.getBoardAccess().getSideSTRINGTerminalRuleCall_7_2_0()); 
+		}
+		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getBoardRule());
+	            $current = createModelElement(grammarAccess.getBoardRule());
 	        }
-       		add(
+       		setWithLastConsumed(
        			$current, 
-       			"processors",
-        		lv_processors_19_0, 
-        		"Processor");
-	        afterParserOrEnumRuleCall();
+       			"side",
+        		lv_side_21_0, 
+        		"STRING");
 	    }
 
 )
-)+(	otherlv_20='RAM capacity' 
+)	otherlv_22=';' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getBoardAccess().getRAMCapacityKeyword_8_0());
+    	newLeafNode(otherlv_22, grammarAccess.getBoardAccess().getSemicolonKeyword_7_3());
     }
-	otherlv_21='=' 
+)?(	otherlv_23='RAM capacity' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getBoardAccess().getEqualsSignKeyword_8_1());
+    	newLeafNode(otherlv_23, grammarAccess.getBoardAccess().getRAMCapacityKeyword_8_0());
+    }
+	otherlv_24='=' 
+    {
+    	newLeafNode(otherlv_24, grammarAccess.getBoardAccess().getEqualsSignKeyword_8_1());
     }
 (
 (
-		lv_ramCapacity_22_0=RULE_INT
+		lv_ramCapacity_25_0=RULE_INT
 		{
-			newLeafNode(lv_ramCapacity_22_0, grammarAccess.getBoardAccess().getRamCapacityINTTerminalRuleCall_8_2_0()); 
+			newLeafNode(lv_ramCapacity_25_0, grammarAccess.getBoardAccess().getRamCapacityINTTerminalRuleCall_8_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -904,28 +916,28 @@ ruleBoard returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"ramCapacity",
-        		lv_ramCapacity_22_0, 
+        		lv_ramCapacity_25_0, 
         		"INT");
 	    }
 
 )
-)	otherlv_23=';' 
+)	otherlv_26=';' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getBoardAccess().getSemicolonKeyword_8_3());
+    	newLeafNode(otherlv_26, grammarAccess.getBoardAccess().getSemicolonKeyword_8_3());
     }
-)?(	otherlv_24='ROM capacity' 
+)?(	otherlv_27='ROM capacity' 
     {
-    	newLeafNode(otherlv_24, grammarAccess.getBoardAccess().getROMCapacityKeyword_9_0());
+    	newLeafNode(otherlv_27, grammarAccess.getBoardAccess().getROMCapacityKeyword_9_0());
     }
-	otherlv_25='=' 
+	otherlv_28='=' 
     {
-    	newLeafNode(otherlv_25, grammarAccess.getBoardAccess().getEqualsSignKeyword_9_1());
+    	newLeafNode(otherlv_28, grammarAccess.getBoardAccess().getEqualsSignKeyword_9_1());
     }
 (
 (
-		lv_romCapacity_26_0=RULE_INT
+		lv_romCapacity_29_0=RULE_INT
 		{
-			newLeafNode(lv_romCapacity_26_0, grammarAccess.getBoardAccess().getRomCapacityINTTerminalRuleCall_9_2_0()); 
+			newLeafNode(lv_romCapacity_29_0, grammarAccess.getBoardAccess().getRomCapacityINTTerminalRuleCall_9_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -934,66 +946,84 @@ ruleBoard returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"romCapacity",
-        		lv_romCapacity_26_0, 
+        		lv_romCapacity_29_0, 
         		"INT");
 	    }
 
 )
-)	otherlv_27=';' 
+)	otherlv_30=';' 
     {
-    	newLeafNode(otherlv_27, grammarAccess.getBoardAccess().getSemicolonKeyword_9_3());
+    	newLeafNode(otherlv_30, grammarAccess.getBoardAccess().getSemicolonKeyword_9_3());
     }
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBoardAccess().getIoAdaptersIOAdapterParserRuleCall_10_0()); 
+	        newCompositeNode(grammarAccess.getBoardAccess().getProcessorsProcessorParserRuleCall_10_0()); 
 	    }
-		lv_ioAdapters_28_0=ruleIOAdapter		{
+		lv_processors_31_0=ruleProcessor		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBoardRule());
+	        }
+       		add(
+       			$current, 
+       			"processors",
+        		lv_processors_31_0, 
+        		"Processor");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getBoardAccess().getIoAdaptersIOAdapterParserRuleCall_11_0()); 
+	    }
+		lv_ioAdapters_32_0=ruleIOAdapter		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getBoardRule());
 	        }
        		add(
        			$current, 
        			"ioAdapters",
-        		lv_ioAdapters_28_0, 
+        		lv_ioAdapters_32_0, 
         		"IOAdapter");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*(	otherlv_29='Generic properties' 
+)*(	otherlv_33='Generic properties' 
     {
-    	newLeafNode(otherlv_29, grammarAccess.getBoardAccess().getGenericPropertiesKeyword_11_0());
+    	newLeafNode(otherlv_33, grammarAccess.getBoardAccess().getGenericPropertiesKeyword_12_0());
     }
-	otherlv_30='{' 
+	otherlv_34='{' 
     {
-    	newLeafNode(otherlv_30, grammarAccess.getBoardAccess().getLeftCurlyBracketKeyword_11_1());
+    	newLeafNode(otherlv_34, grammarAccess.getBoardAccess().getLeftCurlyBracketKeyword_12_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBoardAccess().getMetricParametersMetricParameterParserRuleCall_11_2_0()); 
+	        newCompositeNode(grammarAccess.getBoardAccess().getMetricParametersMetricParameterParserRuleCall_12_2_0()); 
 	    }
-		lv_metricParameters_31_0=ruleMetricParameter		{
+		lv_metricParameters_35_0=ruleMetricParameter		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getBoardRule());
 	        }
        		add(
        			$current, 
        			"metricParameters",
-        		lv_metricParameters_31_0, 
+        		lv_metricParameters_35_0, 
         		"MetricParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_32='}' 
+)*	otherlv_36='}' 
     {
-    	newLeafNode(otherlv_32, grammarAccess.getBoardAccess().getRightCurlyBracketKeyword_11_3());
+    	newLeafNode(otherlv_36, grammarAccess.getBoardAccess().getRightCurlyBracketKeyword_12_3());
     }
-)?	otherlv_33='}' 
+)?	otherlv_37='}' 
     {
-    	newLeafNode(otherlv_33, grammarAccess.getBoardAccess().getRightCurlyBracketKeyword_12());
+    	newLeafNode(otherlv_37, grammarAccess.getBoardAccess().getRightCurlyBracketKeyword_13());
     }
 )
 ;
@@ -2917,6 +2947,12 @@ ruleBoardAttributes returns [Enumerator current=null]
 	{
         $current = grammarAccess.getBoardAttributesAccess().getBOARDTYPEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_3, grammarAccess.getBoardAttributesAccess().getBOARDTYPEEnumLiteralDeclaration_3()); 
+    }
+)
+    |(	enumLiteral_4='Side' 
+	{
+        $current = grammarAccess.getBoardAttributesAccess().getSIDEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_4, grammarAccess.getBoardAttributesAccess().getSIDEEnumLiteralDeclaration_4()); 
     }
 ));
 

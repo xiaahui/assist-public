@@ -114,6 +114,7 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 					case POWERSUPPLY: 		{ dissimilarityValueList = model.allBoards.map[powerSupply.hashCode]			}
 					case ASSURANCELEVEL: 	{ dissimilarityValueList = model.allBoards.map[assuranceLevel.ordinal]			}
 					case BOARDTYPE: 		{ dissimilarityValueList = model.allBoards.map[boardType.hashCode]				}
+					case SIDE:				{ dissimilarityValueList = model.allBoards.map[side.hashCode]					}
 				}
 			
 			case PROCESSOR: 

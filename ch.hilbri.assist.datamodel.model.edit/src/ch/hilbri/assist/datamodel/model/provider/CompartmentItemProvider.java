@@ -157,7 +157,6 @@ public class CompartmentItemProvider extends HardwareElementContainerItemProvide
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModelPackage.Literals.COMPARTMENT__BOXES);
-			childrenFeatures.add(ModelPackage.Literals.COMPARTMENT__METRIC_PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -220,7 +219,6 @@ public class CompartmentItemProvider extends HardwareElementContainerItemProvide
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.COMPARTMENT__BOXES:
-			case ModelPackage.COMPARTMENT__METRIC_PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -242,11 +240,6 @@ public class CompartmentItemProvider extends HardwareElementContainerItemProvide
 			(createChildParameter
 				(ModelPackage.Literals.COMPARTMENT__BOXES,
 				 ModelFactory.eINSTANCE.createBox()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPARTMENT__METRIC_PARAMETERS,
-				 ModelFactory.eINSTANCE.createMetricParameter()));
 	}
 
 }

@@ -21,7 +21,7 @@ import java.util.List
 import org.eclipse.emf.ecore.EObject
 import solver.search.solution.Solution
 
-//import org.jacop.core.Domain
+
 
 class ResultFactoryFromSolverSolutions {
 	
@@ -109,6 +109,7 @@ class ResultFactoryFromSolverSolutions {
 				b.assuranceLevel	= modelElement.assuranceLevel
 				b.ramCapacity		= modelElement.ramCapacity
 				b.romCapacity		= modelElement.romCapacity
+				b.side				= modelElement.side
 				
 				for (proc : modelElement.processors)
 					b.processors.add(createHardwareElements(proc) as Processor)

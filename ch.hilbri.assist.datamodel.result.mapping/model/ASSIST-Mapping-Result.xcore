@@ -17,7 +17,6 @@ annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 interface Comparable wraps Comparable<Result>{}
 
-
 class Result extends Comparable {
 	
 	@GenModel(documentation="Name of this result") 
@@ -46,9 +45,6 @@ class Result extends Comparable {
 	derived HardwareArchitectureLevelType bottomHardwareLevel get {
 		HardwareArchitectureLevelType.CORE
 	}
-	
-//	@GenModel(documentation="Contains a list of all io adapters")
-//	contains IOAdapter[0..*]				ioAdapters
 	
 	@GenModel(documentation="Contains a list of all application groups")
 	contains ApplicationGroup[0..*]			applicationGroups
@@ -168,6 +164,16 @@ class Result extends Comparable {
 class HardwareElement {
 	String name
 	refers ch.hilbri.assist.datamodel.model.HardwareElement referenceObject
+	
+	@GenModel(documentation="Returns the value for the given parameter name - or -1 if this parameter was not found")
+	op int getMetricParameterValue(String parameterName) {
+		for (parameter : referenceObject.metricParameters) {
+			if (parameter.name.equals(parameterName))
+				return parameter.value
+		}
+		return -1;
+	}
+	
 	op HardwareArchitectureLevelType getHardwareLevel()
 	
 }
@@ -178,7 +184,7 @@ class Compartment extends HardwareElement {
 	String side
 	String zone
 	contains Box[1..*] boxes opposite compartment
-	
+
 	@GenModel(documentation="Create a list of all boxes in this compartment")
 	op Board[] getAllBoards() {
 		val list = new BasicEList<Board>
@@ -207,6 +213,7 @@ class Box extends HardwareElement {
 	String manufacturer
 	container Compartment compartment opposite boxes
 	contains Board[1..*] boards opposite box
+
 	
 	@GenModel(documentation="Create a list of all processors on this box")
 	op Processor[] getAllProcessors() {
@@ -229,6 +236,7 @@ class Board extends HardwareElement {
 	String 						manufacturer
 	String 						boardType
 	String 						powerSupply
+	String						side
 	DesignAssuranceLevelType 	assuranceLevel = "None"
 	int 						ramCapacity
 	int							ramUtilization
@@ -238,6 +246,7 @@ class Board extends HardwareElement {
 	contains Processor[1..*] 	processors opposite board
 	contains IOAdapter[0..*] 	ioAdapters
 	refers Network[0..*] 		networks opposite boards
+	contains MetricParameter[0..*] metricParameters
 	
 	@GenModel(documentation="Is this processor used? Does it contain any mapped threads?")
 	derived boolean 	notUsed	get { 
@@ -267,6 +276,7 @@ class Processor extends HardwareElement {
 	String processorType
 	container Board board opposite processors
 	contains Core[1..*] cores opposite processor
+	contains MetricParameter[0..*] metricParameters
 	
 	@GenModel(documentation="Is this processor used? Does it contain any mapped threads?")
 	derived boolean 	notUsed	get { 
@@ -305,6 +315,8 @@ class IOAdapter {
 	IOAdapterType adapterType
 	IOAdapterProtectionLevelType protectionLevel = "None"
 	refers ch.hilbri.assist.datamodel.model.IOAdapter referenceObject
+	
+	
 }
 
 class Network {
@@ -313,6 +325,15 @@ class Network {
 	derived boolean isBoardLocalNetwork get { boards.size <= 1 }
 	refers Board[2..*] boards opposite networks
 	refers ch.hilbri.assist.datamodel.model.Network referenceObject
+	
+	@GenModel(documentation="Returns the value for the given parameter name - or -1 if this parameter was not found")
+	op int getMetricParameterValue(String parameterName) {
+		for (parameter : referenceObject.metricParameters) {
+			if (parameter.name.equals(parameterName))
+				return parameter.value
+		}
+		return -1;
+	}
 }
 
 class ApplicationGroup {
@@ -335,6 +356,15 @@ class Application {
 	refers HardwareElement[0..*] 			restrictMappingToHardwareElements
 	contains Thread[0..*] 					threads opposite application
 	refers ch.hilbri.assist.datamodel.model.Application referenceObject
+	
+	@GenModel(documentation="Returns the value for the given parameter name - or -1 if this parameter was not found")
+	op int getMetricParameterValue(String parameterName) {
+		for (parameter : referenceObject.metricParameters) {
+			if (parameter.name.equals(parameterName))
+				return parameter.value
+		}
+		return -1;
+	}
 }
 
 class Thread {
@@ -378,4 +408,9 @@ class Evaluation {
 		else scaledScores.values.reduce[i1, i2 | i1 + i2]
 	}
 	contains AbstractMetric[0..*] 	metricsUsed
+}
+
+class MetricParameter {
+	String name = ""
+	int value = "0"
 }

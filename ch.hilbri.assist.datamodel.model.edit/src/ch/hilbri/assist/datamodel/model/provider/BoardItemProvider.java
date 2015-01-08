@@ -51,6 +51,7 @@ public class BoardItemProvider extends HardwareElementContainerItemProvider {
 			addManufacturerPropertyDescriptor(object);
 			addBoardTypePropertyDescriptor(object);
 			addPowerSupplyPropertyDescriptor(object);
+			addSidePropertyDescriptor(object);
 			addAssuranceLevelPropertyDescriptor(object);
 			addRamCapacityPropertyDescriptor(object);
 			addRomCapacityPropertyDescriptor(object);
@@ -117,6 +118,28 @@ public class BoardItemProvider extends HardwareElementContainerItemProvider {
 				 getString("_UI_Board_powerSupply_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Board_powerSupply_feature", "_UI_Board_type"),
 				 ModelPackage.Literals.BOARD__POWER_SUPPLY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Side feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSidePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Board_side_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Board_side_feature", "_UI_Board_type"),
+				 ModelPackage.Literals.BOARD__SIDE,
 				 true,
 				 false,
 				 false,
@@ -227,7 +250,6 @@ public class BoardItemProvider extends HardwareElementContainerItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModelPackage.Literals.BOARD__PROCESSORS);
 			childrenFeatures.add(ModelPackage.Literals.BOARD__IO_ADAPTERS);
-			childrenFeatures.add(ModelPackage.Literals.BOARD__METRIC_PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -286,6 +308,7 @@ public class BoardItemProvider extends HardwareElementContainerItemProvider {
 			case ModelPackage.BOARD__MANUFACTURER:
 			case ModelPackage.BOARD__BOARD_TYPE:
 			case ModelPackage.BOARD__POWER_SUPPLY:
+			case ModelPackage.BOARD__SIDE:
 			case ModelPackage.BOARD__ASSURANCE_LEVEL:
 			case ModelPackage.BOARD__RAM_CAPACITY:
 			case ModelPackage.BOARD__ROM_CAPACITY:
@@ -293,7 +316,6 @@ public class BoardItemProvider extends HardwareElementContainerItemProvider {
 				return;
 			case ModelPackage.BOARD__PROCESSORS:
 			case ModelPackage.BOARD__IO_ADAPTERS:
-			case ModelPackage.BOARD__METRIC_PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -320,11 +342,6 @@ public class BoardItemProvider extends HardwareElementContainerItemProvider {
 			(createChildParameter
 				(ModelPackage.Literals.BOARD__IO_ADAPTERS,
 				 ModelFactory.eINSTANCE.createIOAdapter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.BOARD__METRIC_PARAMETERS,
-				 ModelFactory.eINSTANCE.createMetricParameter()));
 	}
 
 }

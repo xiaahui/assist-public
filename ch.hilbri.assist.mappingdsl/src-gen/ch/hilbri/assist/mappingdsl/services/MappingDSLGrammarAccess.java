@@ -482,8 +482,12 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAssuranceLevelAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
 		private final RuleCall cAssuranceLevelDesignAssuranceLevelTypeEnumRuleCall_6_2_0 = (RuleCall)cAssuranceLevelAssignment_6_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
-		private final Assignment cProcessorsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cProcessorsProcessorParserRuleCall_7_0 = (RuleCall)cProcessorsAssignment_7.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cSideKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Assignment cSideAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
+		private final RuleCall cSideSTRINGTerminalRuleCall_7_2_0 = (RuleCall)cSideAssignment_7_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_7_3 = (Keyword)cGroup_7.eContents().get(3);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cRAMCapacityKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
@@ -496,27 +500,29 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRomCapacityAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
 		private final RuleCall cRomCapacityINTTerminalRuleCall_9_2_0 = (RuleCall)cRomCapacityAssignment_9_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_9_3 = (Keyword)cGroup_9.eContents().get(3);
-		private final Assignment cIoAdaptersAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cIoAdaptersIOAdapterParserRuleCall_10_0 = (RuleCall)cIoAdaptersAssignment_10.eContents().get(0);
-		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cGenericPropertiesKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
-		private final Assignment cMetricParametersAssignment_11_2 = (Assignment)cGroup_11.eContents().get(2);
-		private final RuleCall cMetricParametersMetricParameterParserRuleCall_11_2_0 = (RuleCall)cMetricParametersAssignment_11_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_11_3 = (Keyword)cGroup_11.eContents().get(3);
-		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cProcessorsAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cProcessorsProcessorParserRuleCall_10_0 = (RuleCall)cProcessorsAssignment_10.eContents().get(0);
+		private final Assignment cIoAdaptersAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cIoAdaptersIOAdapterParserRuleCall_11_0 = (RuleCall)cIoAdaptersAssignment_11.eContents().get(0);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Keyword cGenericPropertiesKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
+		private final Assignment cMetricParametersAssignment_12_2 = (Assignment)cGroup_12.eContents().get(2);
+		private final RuleCall cMetricParametersMetricParameterParserRuleCall_12_2_0 = (RuleCall)cMetricParametersAssignment_12_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_12_3 = (Keyword)cGroup_12.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
 		
 		//Board:
 		//	"Board" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("Type" "=" boardType=STRING ";")? ("Power supply"
-		//	"=" powerSupply=STRING ";")? ("Design assurance level" "=" assuranceLevel=DesignAssuranceLevelType ";")?
-		//	processors+=Processor+ ("RAM capacity" "=" ramCapacity=INT ";")? ("ROM capacity" "=" romCapacity=INT ";")?
-		//	ioAdapters+=IOAdapter* ("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}";
+		//	"=" powerSupply=STRING ";")? ("Design assurance level" "=" assuranceLevel=DesignAssuranceLevelType ";")? ("Side" "="
+		//	side=STRING ";")? ("RAM capacity" "=" ramCapacity=INT ";")? ("ROM capacity" "=" romCapacity=INT ";")?
+		//	processors+=Processor+ ioAdapters+=IOAdapter* ("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"Board" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("Type" "=" boardType=STRING ";")? ("Power supply" "="
-		//powerSupply=STRING ";")? ("Design assurance level" "=" assuranceLevel=DesignAssuranceLevelType ";")?
-		//processors+=Processor+ ("RAM capacity" "=" ramCapacity=INT ";")? ("ROM capacity" "=" romCapacity=INT ";")?
-		//ioAdapters+=IOAdapter* ("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}"
+		//powerSupply=STRING ";")? ("Design assurance level" "=" assuranceLevel=DesignAssuranceLevelType ";")? ("Side" "="
+		//side=STRING ";")? ("RAM capacity" "=" ramCapacity=INT ";")? ("ROM capacity" "=" romCapacity=INT ";")?
+		//processors+=Processor+ ioAdapters+=IOAdapter* ("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Board"
@@ -603,11 +609,23 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_6_3() { return cSemicolonKeyword_6_3; }
 
-		//processors+=Processor+
-		public Assignment getProcessorsAssignment_7() { return cProcessorsAssignment_7; }
+		//("Side" "=" side=STRING ";")?
+		public Group getGroup_7() { return cGroup_7; }
 
-		//Processor
-		public RuleCall getProcessorsProcessorParserRuleCall_7_0() { return cProcessorsProcessorParserRuleCall_7_0; }
+		//"Side"
+		public Keyword getSideKeyword_7_0() { return cSideKeyword_7_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_7_1() { return cEqualsSignKeyword_7_1; }
+
+		//side=STRING
+		public Assignment getSideAssignment_7_2() { return cSideAssignment_7_2; }
+
+		//STRING
+		public RuleCall getSideSTRINGTerminalRuleCall_7_2_0() { return cSideSTRINGTerminalRuleCall_7_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_7_3() { return cSemicolonKeyword_7_3; }
 
 		//("RAM capacity" "=" ramCapacity=INT ";")?
 		public Group getGroup_8() { return cGroup_8; }
@@ -645,32 +663,38 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_9_3() { return cSemicolonKeyword_9_3; }
 
+		//processors+=Processor+
+		public Assignment getProcessorsAssignment_10() { return cProcessorsAssignment_10; }
+
+		//Processor
+		public RuleCall getProcessorsProcessorParserRuleCall_10_0() { return cProcessorsProcessorParserRuleCall_10_0; }
+
 		//ioAdapters+=IOAdapter*
-		public Assignment getIoAdaptersAssignment_10() { return cIoAdaptersAssignment_10; }
+		public Assignment getIoAdaptersAssignment_11() { return cIoAdaptersAssignment_11; }
 
 		//IOAdapter
-		public RuleCall getIoAdaptersIOAdapterParserRuleCall_10_0() { return cIoAdaptersIOAdapterParserRuleCall_10_0; }
+		public RuleCall getIoAdaptersIOAdapterParserRuleCall_11_0() { return cIoAdaptersIOAdapterParserRuleCall_11_0; }
 
 		//("Generic properties" "{" metricParameters+=MetricParameter* "}")?
-		public Group getGroup_11() { return cGroup_11; }
+		public Group getGroup_12() { return cGroup_12; }
 
 		//"Generic properties"
-		public Keyword getGenericPropertiesKeyword_11_0() { return cGenericPropertiesKeyword_11_0; }
+		public Keyword getGenericPropertiesKeyword_12_0() { return cGenericPropertiesKeyword_12_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_11_1() { return cLeftCurlyBracketKeyword_11_1; }
+		public Keyword getLeftCurlyBracketKeyword_12_1() { return cLeftCurlyBracketKeyword_12_1; }
 
 		//metricParameters+=MetricParameter*
-		public Assignment getMetricParametersAssignment_11_2() { return cMetricParametersAssignment_11_2; }
+		public Assignment getMetricParametersAssignment_12_2() { return cMetricParametersAssignment_12_2; }
 
 		//MetricParameter
-		public RuleCall getMetricParametersMetricParameterParserRuleCall_11_2_0() { return cMetricParametersMetricParameterParserRuleCall_11_2_0; }
+		public RuleCall getMetricParametersMetricParameterParserRuleCall_12_2_0() { return cMetricParametersMetricParameterParserRuleCall_12_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_11_3() { return cRightCurlyBracketKeyword_11_3; }
+		public Keyword getRightCurlyBracketKeyword_12_3() { return cRightCurlyBracketKeyword_12_3; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
+		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
 	}
 
 	public class ProcessorElements extends AbstractParserRuleElementFinder {
@@ -2122,12 +2146,16 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cASSURANCELEVELAssuranceLevelKeyword_2_0 = (Keyword)cASSURANCELEVELEnumLiteralDeclaration_2.eContents().get(0);
 		private final EnumLiteralDeclaration cBOARDTYPEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
 		private final Keyword cBOARDTYPEBoardTypeKeyword_3_0 = (Keyword)cBOARDTYPEEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cSIDEEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cSIDESideKeyword_4_0 = (Keyword)cSIDEEnumLiteralDeclaration_4.eContents().get(0);
 		
 		//enum BoardAttributes:
-		//	MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="AssuranceLevel" | BOARDTYPE="BoardType";
+		//	MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="AssuranceLevel" | BOARDTYPE="BoardType" |
+		//	SIDE="Side";
 		public EnumRule getRule() { return rule; }
 
-		//MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="AssuranceLevel" | BOARDTYPE="BoardType"
+		//MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="AssuranceLevel" | BOARDTYPE="BoardType" |
+		//SIDE="Side"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//MANUFACTURER="Manufacturer"
@@ -2153,6 +2181,12 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"BoardType"
 		public Keyword getBOARDTYPEBoardTypeKeyword_3_0() { return cBOARDTYPEBoardTypeKeyword_3_0; }
+
+		//SIDE="Side"
+		public EnumLiteralDeclaration getSIDEEnumLiteralDeclaration_4() { return cSIDEEnumLiteralDeclaration_4; }
+
+		//"Side"
+		public Keyword getSIDESideKeyword_4_0() { return cSIDESideKeyword_4_0; }
 	}
 
 	public class ProcessorAttributesElements extends AbstractEnumRuleElementFinder {
@@ -2928,9 +2962,9 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Board:
 	//	"Board" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("Type" "=" boardType=STRING ";")? ("Power supply"
-	//	"=" powerSupply=STRING ";")? ("Design assurance level" "=" assuranceLevel=DesignAssuranceLevelType ";")?
-	//	processors+=Processor+ ("RAM capacity" "=" ramCapacity=INT ";")? ("ROM capacity" "=" romCapacity=INT ";")?
-	//	ioAdapters+=IOAdapter* ("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}";
+	//	"=" powerSupply=STRING ";")? ("Design assurance level" "=" assuranceLevel=DesignAssuranceLevelType ";")? ("Side" "="
+	//	side=STRING ";")? ("RAM capacity" "=" ramCapacity=INT ";")? ("ROM capacity" "=" romCapacity=INT ";")?
+	//	processors+=Processor+ ioAdapters+=IOAdapter* ("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}";
 	public BoardElements getBoardAccess() {
 		return pBoard;
 	}
@@ -3130,7 +3164,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum BoardAttributes:
-	//	MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="AssuranceLevel" | BOARDTYPE="BoardType";
+	//	MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="AssuranceLevel" | BOARDTYPE="BoardType" |
+	//	SIDE="Side";
 	public BoardAttributesElements getBoardAttributesAccess() {
 		return unknownRuleBoardAttributes;
 	}
