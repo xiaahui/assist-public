@@ -29,8 +29,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
     	
     	//The following actions do not work in windows like the project explorer, if they are not explicitly created here
     	exitAction = ActionFactory.QUIT.create(window);
-    	exitAction.setEnabled(true); //set to true or else it will not be enabled
-    	register(exitAction); //registers the Action
+    	exitAction.setEnabled(true); 
+    	register(exitAction); 
     	
     	copyAction = ActionFactory.COPY.create(window);
     	copyAction.setEnabled(true); 
@@ -51,17 +51,9 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
     	saveAction = ActionFactory.SAVE.create(window);
     	saveAction.setEnabled(true);
     	register(saveAction);
-    	
-    	
-//        aboutAction = ActionFactory.ABOUT.create(window);
-//        register(aboutAction);
-//        
-//        newWindowAction = ActionFactory.OPEN_NEW_WINDOW.create(window);
-//        register(newWindowAction);
     }
 
-    protected void fillMenuBar(IMenuManager menuBar) {
-    }
+    protected void fillMenuBar(IMenuManager menuBar) { }
     
     protected void fillCoolBar(ICoolBarManager coolBar) {
         IToolBarManager toolbar = new ToolBarManager(SWT.FLAT | SWT.RIGHT);
