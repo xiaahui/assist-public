@@ -104,6 +104,17 @@ public class MetricsView {
 			
 			public void widgetSelected(SelectionEvent event) {
 		    
+				// Do nothing, if nothing is selected
+				if ((cbxAvailableMetrics.getSelectionIndex() == -1) || 
+				    (cbxWeight.getSelectionIndex() == -1)) {
+					MessageDialog dlg = new MessageDialog(null, "Select metric and weight", null, 
+							"Please select a metric and a weight from the drop down lists.", 
+							MessageDialog.INFORMATION, 
+							new String[] { "OK" }, 0);
+					dlg.open();
+					return;
+				}
+				
 				// Create new MetricTableEntry
 				int selectedMetricIndex = cbxAvailableMetrics.getSelectionIndex();
 				int selectedWeight = Integer.parseInt(cbxWeight.getItem(cbxWeight.getSelectionIndex()));
