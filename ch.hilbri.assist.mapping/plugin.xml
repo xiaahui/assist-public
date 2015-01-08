@@ -40,6 +40,7 @@
             category="ch.hilbri.assist.categories.main"
             class="ch.hilbri.assist.mapping.ui.wizards.NewMetricWizard"
             hasPages="true"
+            icon="icons/generic-file.gif"
             id="ch.hilbri.assist.mapping.wizards.newMetric"
             name="Mapping - Evaluation Metric"
             project="false">
