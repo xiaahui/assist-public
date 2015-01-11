@@ -237,6 +237,7 @@ class Board extends HardwareElement {
 	String 						boardType
 	String 						powerSupply
 	String						side
+	String						ess		    
 	DesignAssuranceLevelType 	assuranceLevel = "None"
 	int 						ramCapacity
 	int							ramUtilization

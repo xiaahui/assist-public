@@ -44,6 +44,7 @@ public class InternalMappingDSLLexer extends Lexer {
     public static final int T__97=97;
     public static final int T__96=96;
     public static final int T__95=95;
+    public static final int T__136=136;
     public static final int T__80=80;
     public static final int T__81=81;
     public static final int T__82=82;
@@ -1941,10 +1942,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__96;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:96:7: ( 'RAM capacity' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:96:9: 'RAM capacity'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:96:7: ( 'ESS' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:96:9: 'ESS'
             {
-            match("RAM capacity"); 
+            match("ESS"); 
 
 
             }
@@ -1962,10 +1963,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__97;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:97:7: ( 'ROM capacity' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:97:9: 'ROM capacity'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:97:7: ( 'RAM capacity' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:97:9: 'RAM capacity'
             {
-            match("ROM capacity"); 
+            match("RAM capacity"); 
 
 
             }
@@ -1983,10 +1984,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__98;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:98:7: ( 'Capacity' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:98:9: 'Capacity'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:98:7: ( 'ROM capacity' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:98:9: 'ROM capacity'
             {
-            match("Capacity"); 
+            match("ROM capacity"); 
 
 
             }
@@ -2004,10 +2005,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__99;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:99:7: ( 'Architecture' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:99:9: 'Architecture'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:99:7: ( 'Capacity' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:99:9: 'Capacity'
             {
-            match("Architecture"); 
+            match("Capacity"); 
 
 
             }
@@ -2025,10 +2026,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__100;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:100:8: ( 'I/O adapter' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:100:10: 'I/O adapter'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:100:8: ( 'Architecture' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:100:10: 'Architecture'
             {
-            match("I/O adapter"); 
+            match("Architecture"); 
 
 
             }
@@ -2046,10 +2047,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__101;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:101:8: ( 'type' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:101:10: 'type'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:101:8: ( 'I/O adapter' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:101:10: 'I/O adapter'
             {
-            match("type"); 
+            match("I/O adapter"); 
 
 
             }
@@ -2067,10 +2068,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__102;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:102:8: ( 'count' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:102:10: 'count'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:102:8: ( 'type' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:102:10: 'type'
             {
-            match("count"); 
+            match("type"); 
 
 
             }
@@ -2088,10 +2089,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__103;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:103:8: ( 'protection-level' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:103:10: 'protection-level'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:103:8: ( 'count' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:103:10: 'count'
             {
-            match("protection-level"); 
+            match("count"); 
 
 
             }
@@ -2109,10 +2110,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__104;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:104:8: ( 'Network' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:104:10: 'Network'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:104:8: ( 'protection-level' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:104:10: 'protection-level'
             {
-            match("Network"); 
+            match("protection-level"); 
 
 
             }
@@ -2130,10 +2131,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__105;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:105:8: ( 'Bandwidth' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:105:10: 'Bandwidth'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:105:8: ( 'Network' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:105:10: 'Network'
             {
-            match("Bandwidth"); 
+            match("Network"); 
 
 
             }
@@ -2151,10 +2152,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__106;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:106:8: ( 'Connects' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:106:10: 'Connects'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:106:8: ( 'Bandwidth' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:106:10: 'Bandwidth'
             {
-            match("Connects"); 
+            match("Bandwidth"); 
 
 
             }
@@ -2172,10 +2173,11 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__107;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:107:8: ( ',' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:107:10: ','
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:107:8: ( 'Connects' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:107:10: 'Connects'
             {
-            match(','); 
+            match("Connects"); 
+
 
             }
 
@@ -2192,11 +2194,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__108;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:108:8: ( 'Group' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:108:10: 'Group'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:108:8: ( ',' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:108:10: ','
             {
-            match("Group"); 
-
+            match(','); 
 
             }
 
@@ -2213,10 +2214,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__109;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:109:8: ( 'Application' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:109:10: 'Application'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:109:8: ( 'Group' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:109:10: 'Group'
             {
-            match("Application"); 
+            match("Group"); 
 
 
             }
@@ -2234,10 +2235,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__110;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:110:8: ( 'Core-utilization' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:110:10: 'Core-utilization'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:110:8: ( 'Application' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:110:10: 'Application'
             {
-            match("Core-utilization"); 
+            match("Application"); 
 
 
             }
@@ -2255,10 +2256,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__111;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:111:8: ( 'Required RAM capacity' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:111:10: 'Required RAM capacity'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:111:8: ( 'Core-utilization' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:111:10: 'Core-utilization'
             {
-            match("Required RAM capacity"); 
+            match("Core-utilization"); 
 
 
             }
@@ -2276,10 +2277,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__112;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:112:8: ( 'Required ROM capacity' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:112:10: 'Required ROM capacity'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:112:8: ( 'Required RAM capacity' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:112:10: 'Required RAM capacity'
             {
-            match("Required ROM capacity"); 
+            match("Required RAM capacity"); 
 
 
             }
@@ -2297,10 +2298,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__113;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:113:8: ( 'Criticality level' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:113:10: 'Criticality level'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:113:8: ( 'Required ROM capacity' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:113:10: 'Required ROM capacity'
             {
-            match("Criticality level"); 
+            match("Required ROM capacity"); 
 
 
             }
@@ -2318,10 +2319,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__114;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:114:8: ( 'Required IO protection' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:114:10: 'Required IO protection'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:114:8: ( 'Criticality level' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:114:10: 'Criticality level'
             {
-            match("Required IO protection"); 
+            match("Criticality level"); 
 
 
             }
@@ -2339,10 +2340,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__115;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:115:8: ( 'Identical parallel threads' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:115:10: 'Identical parallel threads'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:115:8: ( 'Required IO protection' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:115:10: 'Required IO protection'
             {
-            match("Identical parallel threads"); 
+            match("Required IO protection"); 
 
 
             }
@@ -2360,10 +2361,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__116;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:116:8: ( 'Developed by' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:116:10: 'Developed by'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:116:8: ( 'Identical parallel threads' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:116:10: 'Identical parallel threads'
             {
-            match("Developed by"); 
+            match("Identical parallel threads"); 
 
 
             }
@@ -2381,10 +2382,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__117;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:117:8: ( 'Restrict deployment to' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:117:10: 'Restrict deployment to'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:117:8: ( 'Developed by' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:117:10: 'Developed by'
             {
-            match("Restrict deployment to"); 
+            match("Developed by"); 
 
 
             }
@@ -2402,10 +2403,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__118;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:118:8: ( 'Requires' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:118:10: 'Requires'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:118:8: ( 'Restrict deployment to' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:118:10: 'Restrict deployment to'
             {
-            match("Requires"); 
+            match("Restrict deployment to"); 
 
 
             }
@@ -2423,10 +2424,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__119;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:119:8: ( 'adapter' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:119:10: 'adapter'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:119:8: ( 'Requires' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:119:10: 'Requires'
             {
-            match("adapter"); 
+            match("Requires"); 
 
 
             }
@@ -2444,10 +2445,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__120;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:120:8: ( 'dislocal up to' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:120:10: 'dislocal up to'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:120:8: ( 'adapter' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:120:10: 'adapter'
             {
-            match("dislocal up to"); 
+            match("adapter"); 
 
 
             }
@@ -2465,10 +2466,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__121;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:121:8: ( 'on same' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:121:10: 'on same'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:121:8: ( 'dislocal up to' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:121:10: 'dislocal up to'
             {
-            match("on same"); 
+            match("dislocal up to"); 
 
 
             }
@@ -2486,10 +2487,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__122;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:122:8: ( 'require' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:122:10: 'require'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:122:8: ( 'on same' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:122:10: 'on same'
             {
-            match("require"); 
+            match("on same"); 
 
 
             }
@@ -2507,10 +2508,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__123;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:123:8: ( 'bandwidth' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:123:10: 'bandwidth'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:123:8: ( 'require' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:123:10: 'require'
             {
-            match("bandwidth"); 
+            match("require"); 
 
 
             }
@@ -2528,10 +2529,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__124;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:124:8: ( 'dissimilar based on' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:124:10: 'dissimilar based on'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:124:8: ( 'bandwidth' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:124:10: 'bandwidth'
             {
-            match("dissimilar based on"); 
+            match("bandwidth"); 
 
 
             }
@@ -2549,10 +2550,11 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__125;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:125:8: ( '(' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:125:10: '('
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:125:8: ( 'dissimilar based on' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:125:10: 'dissimilar based on'
             {
-            match('('); 
+            match("dissimilar based on"); 
+
 
             }
 
@@ -2569,10 +2571,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__126;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:126:8: ( ')' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:126:10: ')'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:126:8: ( '(' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:126:10: '('
             {
-            match(')'); 
+            match('('); 
 
             }
 
@@ -2589,11 +2591,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__127;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:127:8: ( 'OR' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:127:10: 'OR'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:127:8: ( ')' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:127:10: ')'
             {
-            match("OR"); 
-
+            match(')'); 
 
             }
 
@@ -2610,10 +2611,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__128;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:128:8: ( 'AND' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:128:10: 'AND'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:128:8: ( 'OR' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:128:10: 'OR'
             {
-            match("AND"); 
+            match("OR"); 
 
 
             }
@@ -2631,10 +2632,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__129;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:129:8: ( 'Compartment.' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:129:10: 'Compartment.'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:129:8: ( 'AND' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:129:10: 'AND'
             {
-            match("Compartment."); 
+            match("AND"); 
 
 
             }
@@ -2652,10 +2653,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__130;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:130:8: ( 'Box.' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:130:10: 'Box.'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:130:8: ( 'Compartment.' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:130:10: 'Compartment.'
             {
-            match("Box."); 
+            match("Compartment."); 
 
 
             }
@@ -2673,10 +2674,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__131;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:131:8: ( 'Board.' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:131:10: 'Board.'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:131:8: ( 'Box.' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:131:10: 'Box.'
             {
-            match("Board."); 
+            match("Box."); 
 
 
             }
@@ -2694,10 +2695,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__132;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:132:8: ( 'Processor.' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:132:10: 'Processor.'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:132:8: ( 'Board.' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:132:10: 'Board.'
             {
-            match("Processor."); 
+            match("Board."); 
 
 
             }
@@ -2715,10 +2716,11 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__133;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:133:8: ( '.' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:133:10: '.'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:133:8: ( 'Processor.' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:133:10: 'Processor.'
             {
-            match('.'); 
+            match("Processor."); 
+
 
             }
 
@@ -2735,11 +2737,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__134;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:134:8: ( 'exclusive' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:134:10: 'exclusive'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:134:8: ( '.' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:134:10: '.'
             {
-            match("exclusive"); 
-
+            match('.'); 
 
             }
 
@@ -2756,10 +2757,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__135;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:135:8: ( 'shared' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:135:10: 'shared'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:135:8: ( 'exclusive' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:135:10: 'exclusive'
             {
-            match("shared"); 
+            match("exclusive"); 
 
 
             }
@@ -2772,15 +2773,36 @@ public class InternalMappingDSLLexer extends Lexer {
     }
     // $ANTLR end "T__135"
 
+    // $ANTLR start "T__136"
+    public final void mT__136() throws RecognitionException {
+        try {
+            int _type = T__136;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:136:8: ( 'shared' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:136:10: 'shared'
+            {
+            match("shared"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__136"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13128:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13128:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13303:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13303:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13128:11: ( '^' )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13303:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -2789,7 +2811,7 @@ public class InternalMappingDSLLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13128:11: '^'
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13303:11: '^'
                     {
                     match('^'); 
 
@@ -2807,7 +2829,7 @@ public class InternalMappingDSLLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13128:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13303:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -2856,10 +2878,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13130:10: ( ( '0' .. '9' )+ )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13130:12: ( '0' .. '9' )+
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13305:10: ( ( '0' .. '9' )+ )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13305:12: ( '0' .. '9' )+
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13130:12: ( '0' .. '9' )+
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13305:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -2873,7 +2895,7 @@ public class InternalMappingDSLLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13130:13: '0' .. '9'
+            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13305:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2905,10 +2927,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13132:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13132:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13307:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13307:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13132:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13307:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -2926,10 +2948,10 @@ public class InternalMappingDSLLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13132:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13307:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13132:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13307:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -2945,7 +2967,7 @@ public class InternalMappingDSLLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13132:21: '\\\\' .
+                    	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13307:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2953,7 +2975,7 @@ public class InternalMappingDSLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13132:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13307:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2978,10 +3000,10 @@ public class InternalMappingDSLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13132:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13307:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13132:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13307:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -2997,7 +3019,7 @@ public class InternalMappingDSLLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13132:54: '\\\\' .
+                    	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13307:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -3005,7 +3027,7 @@ public class InternalMappingDSLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13132:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13307:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -3048,12 +3070,12 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13134:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13134:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13309:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13309:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13134:24: ( options {greedy=false; } : . )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13309:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -3078,7 +3100,7 @@ public class InternalMappingDSLLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13134:52: .
+            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13309:52: .
             	    {
             	    matchAny(); 
 
@@ -3108,12 +3130,12 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13136:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13136:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13311:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13311:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13136:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13311:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -3126,7 +3148,7 @@ public class InternalMappingDSLLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13136:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13311:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3146,7 +3168,7 @@ public class InternalMappingDSLLexer extends Lexer {
                 }
             } while (true);
 
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13136:40: ( ( '\\r' )? '\\n' )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13311:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -3155,9 +3177,9 @@ public class InternalMappingDSLLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13136:41: ( '\\r' )? '\\n'
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13311:41: ( '\\r' )? '\\n'
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13136:41: ( '\\r' )?
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13311:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -3166,7 +3188,7 @@ public class InternalMappingDSLLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13136:41: '\\r'
+                            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13311:41: '\\r'
                             {
                             match('\r'); 
 
@@ -3198,10 +3220,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13138:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13138:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13313:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13313:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13138:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13313:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -3255,8 +3277,8 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13140:16: ( . )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13140:18: .
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13315:16: ( . )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:13315:18: .
             {
             matchAny(); 
 
@@ -3271,8 +3293,8 @@ public class InternalMappingDSLLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | T__117 | T__118 | T__119 | T__120 | T__121 | T__122 | T__123 | T__124 | T__125 | T__126 | T__127 | T__128 | T__129 | T__130 | T__131 | T__132 | T__133 | T__134 | T__135 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=132;
+        // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | T__117 | T__118 | T__119 | T__120 | T__121 | T__122 | T__123 | T__124 | T__125 | T__126 | T__127 | T__128 | T__129 | T__130 | T__131 | T__132 | T__133 | T__134 | T__135 | T__136 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=133;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -4151,49 +4173,56 @@ public class InternalMappingDSLLexer extends Lexer {
                 }
                 break;
             case 126 :
-                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:796: RULE_ID
+                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:796: T__136
+                {
+                mT__136(); 
+
+                }
+                break;
+            case 127 :
+                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:803: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 127 :
-                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:804: RULE_INT
+            case 128 :
+                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:811: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 128 :
-                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:813: RULE_STRING
+            case 129 :
+                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:820: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 129 :
-                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:825: RULE_ML_COMMENT
+            case 130 :
+                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:832: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 130 :
-                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:841: RULE_SL_COMMENT
+            case 131 :
+                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:848: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 131 :
-                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:857: RULE_WS
+            case 132 :
+                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:864: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 132 :
-                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:865: RULE_ANY_OTHER
+            case 133 :
+                // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1:872: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -4209,68 +4238,68 @@ public class InternalMappingDSLLexer extends Lexer {
     static final String DFA12_eotS =
         "\1\uffff\4\56\1\73\1\76\1\103\2\56\1\111\3\56\4\uffff\7\56\1\uffff"+
         "\5\56\2\uffff\1\56\1\uffff\2\56\1\54\2\uffff\3\54\2\uffff\1\56\1"+
-        "\uffff\14\56\1\uffff\2\56\1\uffff\4\56\1\uffff\2\56\1\u008f\2\56"+
-        "\1\uffff\1\u0093\1\u0094\1\u0095\1\u0096\1\u0097\1\u0098\1\u0099"+
-        "\1\u009a\5\56\4\uffff\5\56\1\uffff\4\56\1\uffff\5\56\2\uffff\1\u00b0"+
-        "\1\uffff\2\56\5\uffff\14\56\1\u00bf\1\56\1\u00c2\4\56\1\u00c7\5"+
-        "\56\1\uffff\3\56\10\uffff\22\56\1\uffff\2\56\1\uffff\5\56\1\u00ea"+
-        "\3\56\1\u00ee\4\56\1\uffff\1\56\2\uffff\1\56\1\u00f6\2\56\1\uffff"+
-        "\3\56\1\u00fc\15\56\2\uffff\1\u010a\1\56\1\u010c\14\56\1\uffff\3"+
-        "\56\1\uffff\4\56\1\u0123\1\56\2\uffff\5\56\1\uffff\10\56\1\u0132"+
-        "\4\56\1\uffff\1\56\1\uffff\1\u0138\12\56\1\uffff\1\56\1\u0144\3"+
-        "\56\1\u0148\3\56\2\uffff\14\56\1\u0158\1\56\1\uffff\5\56\1\uffff"+
-        "\7\56\1\u0166\3\56\2\uffff\2\56\1\uffff\7\56\1\uffff\1\56\1\u0175"+
-        "\1\u0176\1\uffff\3\56\1\uffff\7\56\1\u0182\2\56\1\u0185\2\56\1\uffff"+
-        "\3\56\1\u018b\6\56\1\u0192\1\u0193\1\uffff\1\56\2\uffff\2\56\1\u0198"+
-        "\1\uffff\1\u0199\2\56\1\u019c\3\56\1\uffff\2\56\1\uffff\4\56\1\u01a8"+
-        "\1\uffff\3\56\1\u01ac\1\u01ad\1\56\3\uffff\2\56\3\uffff\1\u01b2"+
-        "\3\uffff\2\56\1\uffff\1\56\1\u01b8\1\u01b9\3\56\2\uffff\3\56\2\uffff"+
-        "\1\56\1\uffff\1\56\5\uffff\2\56\2\uffff\1\56\1\u01c8\3\56\1\u01cc"+
-        "\1\u01ce\1\uffff\1\56\4\uffff\1\u01d1\1\uffff\2\56\1\u01d4\6\uffff"+
-        "\1\u01df\1\56\2\uffff\1\u01eb\1\u01f6\1\u0201\7\uffff\1\u0202\42"+
-        "\uffff";
+        "\uffff\14\56\1\uffff\2\56\1\uffff\4\56\1\uffff\2\56\1\u0090\2\56"+
+        "\1\uffff\1\u0094\1\u0095\1\u0096\1\u0097\1\u0098\1\u0099\1\u009a"+
+        "\1\u009b\6\56\4\uffff\5\56\1\uffff\4\56\1\uffff\5\56\2\uffff\1\u00b2"+
+        "\1\uffff\2\56\5\uffff\14\56\1\u00c1\1\56\1\u00c4\4\56\1\u00c9\5"+
+        "\56\1\uffff\3\56\10\uffff\2\56\1\u00d4\20\56\1\uffff\2\56\1\uffff"+
+        "\5\56\1\u00ed\3\56\1\u00f1\4\56\1\uffff\1\56\2\uffff\1\56\1\u00f9"+
+        "\2\56\1\uffff\3\56\1\u00ff\6\56\1\uffff\7\56\2\uffff\1\u010d\1\56"+
+        "\1\u010f\14\56\1\uffff\3\56\1\uffff\4\56\1\u0126\1\56\2\uffff\5"+
+        "\56\1\uffff\10\56\1\u0135\4\56\1\uffff\1\56\1\uffff\1\u013b\12\56"+
+        "\1\uffff\1\56\1\u0147\3\56\1\u014b\3\56\2\uffff\14\56\1\u015b\1"+
+        "\56\1\uffff\5\56\1\uffff\7\56\1\u0169\3\56\2\uffff\2\56\1\uffff"+
+        "\7\56\1\uffff\1\56\1\u0178\1\u0179\1\uffff\3\56\1\uffff\7\56\1\u0185"+
+        "\2\56\1\u0188\2\56\1\uffff\3\56\1\u018e\6\56\1\u0195\1\u0196\1\uffff"+
+        "\1\56\2\uffff\2\56\1\u019b\1\uffff\1\u019c\2\56\1\u019f\3\56\1\uffff"+
+        "\2\56\1\uffff\4\56\1\u01ab\1\uffff\3\56\1\u01af\1\u01b0\1\56\3\uffff"+
+        "\2\56\3\uffff\1\u01b5\3\uffff\2\56\1\uffff\1\56\1\u01bb\1\u01bc"+
+        "\3\56\2\uffff\3\56\2\uffff\1\56\1\uffff\1\56\5\uffff\2\56\2\uffff"+
+        "\1\56\1\u01cb\3\56\1\u01cf\1\u01d1\1\uffff\1\56\4\uffff\1\u01d4"+
+        "\1\uffff\2\56\1\u01d7\6\uffff\1\u01e2\1\56\2\uffff\1\u01ee\1\u01f9"+
+        "\1\u0204\7\uffff\1\u0205\42\uffff";
     static final String DFA12_eofS =
-        "\u0203\uffff";
+        "\u0206\uffff";
     static final String DFA12_minS =
-        "\1\0\1\141\1\157\1\145\1\157\3\60\1\145\1\123\1\60\1\61\1\156\1"+
+        "\1\0\1\141\1\157\1\145\1\157\3\60\1\145\1\123\1\60\1\61\1\123\1"+
         "\145\4\uffff\1\141\1\101\1\171\1\57\1\171\1\157\1\162\1\uffff\1"+
         "\144\1\151\1\156\1\145\1\141\2\uffff\1\122\1\uffff\1\170\1\150\1"+
         "\101\2\uffff\2\0\1\52\2\uffff\1\156\1\uffff\1\167\1\157\1\144\1"+
         "\162\1\163\1\146\1\156\1\163\1\141\1\143\1\160\1\104\1\uffff\1\141"+
         "\1\156\1\uffff\1\155\1\156\1\163\1\151\1\uffff\1\156\1\164\1\60"+
-        "\1\147\1\163\1\uffff\10\60\2\150\1\157\1\156\1\157\4\uffff\1\162"+
-        "\1\154\2\115\1\160\1\uffff\1\145\1\160\1\165\1\157\1\uffff\1\141"+
-        "\1\163\1\40\1\161\1\156\2\uffff\1\60\1\uffff\1\143\1\141\5\uffff"+
-        "\1\165\1\145\1\143\1\145\1\151\2\164\1\145\1\165\1\154\1\150\1\154"+
-        "\1\60\1\162\1\56\1\144\1\145\1\160\1\156\1\60\1\141\2\164\1\145"+
-        "\1\167\1\uffff\2\151\1\145\10\uffff\1\141\1\145\1\142\1\145\1\165"+
-        "\1\144\1\141\1\165\1\164\2\40\1\145\1\156\1\145\1\156\1\164\1\160"+
-        "\1\154\1\uffff\1\165\1\144\1\uffff\1\154\1\162\1\146\1\162\1\145"+
-        "\1\60\1\141\1\145\1\167\1\60\1\162\1\157\2\151\1\uffff\1\144\2\uffff"+
-        "\1\167\1\55\1\141\1\145\1\uffff\1\143\1\157\1\151\1\60\1\157\1\164"+
-        "\1\147\1\154\1\156\1\162\1\141\1\162\1\160\1\167\1\164\1\151\1\162"+
-        "\2\uffff\1\60\1\164\1\60\1\164\1\145\1\164\1\157\2\151\1\167\1\165"+
-        "\1\145\1\141\1\40\1\163\1\uffff\1\154\1\155\1\141\1\uffff\1\141"+
-        "\1\147\1\164\1\143\1\56\1\151\2\uffff\1\162\1\143\1\151\1\155\1"+
-        "\143\1\uffff\1\162\1\141\1\156\1\157\1\143\1\156\1\154\1\151\1\60"+
-        "\1\141\1\151\1\162\1\151\1\uffff\1\151\1\uffff\1\60\1\143\1\145"+
-        "\1\143\1\155\1\162\1\151\1\163\1\144\1\143\1\165\1\uffff\1\163\1"+
-        "\60\1\40\1\162\1\156\1\60\1\145\1\141\1\171\2\uffff\1\144\3\164"+
-        "\1\55\1\141\1\153\1\154\1\40\1\160\2\145\1\60\1\143\1\uffff\1\162"+
-        "\1\157\1\145\2\143\1\uffff\1\164\1\162\1\141\1\151\1\145\1\144\1"+
-        "\151\1\60\1\164\1\160\1\157\2\uffff\1\145\1\143\1\uffff\1\143\1"+
-        "\164\1\160\1\164\1\155\1\163\1\171\1\124\1\154\2\60\1\uffff\1\145"+
-        "\1\144\1\164\1\uffff\1\40\1\145\1\156\1\144\1\164\1\141\1\151\1"+
-        "\60\2\154\1\60\1\164\1\166\1\uffff\1\165\1\160\1\162\1\60\1\145"+
-        "\1\164\1\151\1\145\1\150\1\145\2\60\1\171\1\151\2\uffff\1\144\1"+
-        "\40\1\60\1\uffff\1\60\1\163\1\40\1\60\1\40\1\154\1\157\1\uffff\1"+
-        "\40\1\141\1\uffff\1\150\1\145\1\162\1\154\1\56\1\uffff\1\114\1\165"+
-        "\1\157\2\60\1\156\2\uffff\1\160\1\164\1\40\3\uffff\1\60\1\111\2"+
-        "\uffff\1\40\1\156\1\uffff\1\162\2\60\1\145\2\171\2\uffff\1\145\1"+
-        "\162\1\156\2\uffff\1\164\1\145\1\171\2\uffff\1\101\2\uffff\1\55"+
-        "\1\40\2\uffff\1\162\1\60\1\160\1\166\1\145\1\60\1\56\1\55\1\40\4"+
-        "\uffff\1\60\1\uffff\2\145\1\60\3\uffff\1\60\2\uffff\1\60\1\154\2"+
-        "\uffff\3\60\7\uffff\1\60\42\uffff";
+        "\1\147\1\163\1\uffff\10\60\2\150\1\123\1\157\1\156\1\157\4\uffff"+
+        "\1\162\1\154\2\115\1\160\1\uffff\1\145\1\160\1\165\1\157\1\uffff"+
+        "\1\141\1\163\1\40\1\161\1\156\2\uffff\1\60\1\uffff\1\143\1\141\5"+
+        "\uffff\1\165\1\145\1\143\1\145\1\151\2\164\1\145\1\165\1\154\1\150"+
+        "\1\154\1\60\1\162\1\56\1\144\1\145\1\160\1\156\1\60\1\141\2\164"+
+        "\1\145\1\167\1\uffff\2\151\1\145\10\uffff\1\141\1\145\1\60\1\142"+
+        "\1\145\1\165\1\144\1\141\1\165\1\164\2\40\1\145\1\156\1\145\1\156"+
+        "\1\164\1\160\1\154\1\uffff\1\165\1\144\1\uffff\1\154\1\162\1\146"+
+        "\1\162\1\145\1\60\1\141\1\145\1\167\1\60\1\162\1\157\2\151\1\uffff"+
+        "\1\144\2\uffff\1\167\1\55\1\141\1\145\1\uffff\1\143\1\157\1\151"+
+        "\1\60\1\157\1\164\1\147\1\154\1\156\1\162\1\uffff\1\141\1\162\1"+
+        "\160\1\167\1\164\1\151\1\162\2\uffff\1\60\1\164\1\60\1\164\1\145"+
+        "\1\164\1\157\2\151\1\167\1\165\1\145\1\141\1\40\1\163\1\uffff\1"+
+        "\154\1\155\1\141\1\uffff\1\141\1\147\1\164\1\143\1\56\1\151\2\uffff"+
+        "\1\162\1\143\1\151\1\155\1\143\1\uffff\1\162\1\141\1\156\1\157\1"+
+        "\143\1\156\1\154\1\151\1\60\1\141\1\151\1\162\1\151\1\uffff\1\151"+
+        "\1\uffff\1\60\1\143\1\145\1\143\1\155\1\162\1\151\1\163\1\144\1"+
+        "\143\1\165\1\uffff\1\163\1\60\1\40\1\162\1\156\1\60\1\145\1\141"+
+        "\1\171\2\uffff\1\144\3\164\1\55\1\141\1\153\1\154\1\40\1\160\2\145"+
+        "\1\60\1\143\1\uffff\1\162\1\157\1\145\2\143\1\uffff\1\164\1\162"+
+        "\1\141\1\151\1\145\1\144\1\151\1\60\1\164\1\160\1\157\2\uffff\1"+
+        "\145\1\143\1\uffff\1\143\1\164\1\160\1\164\1\155\1\163\1\171\1\124"+
+        "\1\154\2\60\1\uffff\1\145\1\144\1\164\1\uffff\1\40\1\145\1\156\1"+
+        "\144\1\164\1\141\1\151\1\60\2\154\1\60\1\164\1\166\1\uffff\1\165"+
+        "\1\160\1\162\1\60\1\145\1\164\1\151\1\145\1\150\1\145\2\60\1\171"+
+        "\1\151\2\uffff\1\144\1\40\1\60\1\uffff\1\60\1\163\1\40\1\60\1\40"+
+        "\1\154\1\157\1\uffff\1\40\1\141\1\uffff\1\150\1\145\1\162\1\154"+
+        "\1\56\1\uffff\1\114\1\165\1\157\2\60\1\156\2\uffff\1\160\1\164\1"+
+        "\40\3\uffff\1\60\1\111\2\uffff\1\40\1\156\1\uffff\1\162\2\60\1\145"+
+        "\2\171\2\uffff\1\145\1\162\1\156\2\uffff\1\164\1\145\1\171\2\uffff"+
+        "\1\101\2\uffff\1\55\1\40\2\uffff\1\162\1\60\1\160\1\166\1\145\1"+
+        "\60\1\56\1\55\1\40\4\uffff\1\60\1\uffff\2\145\1\60\3\uffff\1\60"+
+        "\2\uffff\1\60\1\154\2\uffff\3\60\7\uffff\1\60\42\uffff";
     static final String DFA12_maxS =
         "\1\uffff\1\141\1\162\1\171\1\157\3\172\1\157\1\123\1\172\1\70\1"+
         "\164\1\162\4\uffff\1\141\1\145\1\171\1\144\1\171\1\157\1\162\1\uffff"+
@@ -4278,63 +4307,64 @@ public class InternalMappingDSLLexer extends Lexer {
         "\1\172\2\uffff\2\uffff\1\57\2\uffff\1\156\1\uffff\1\167\1\157\1"+
         "\144\1\162\1\163\1\146\1\156\1\163\1\141\1\143\1\160\1\104\1\uffff"+
         "\1\170\1\156\1\uffff\1\162\1\160\1\163\1\151\1\uffff\1\156\1\164"+
-        "\1\172\1\147\1\166\1\uffff\10\172\2\150\1\157\1\156\1\157\4\uffff"+
-        "\1\162\1\163\2\115\1\160\1\uffff\1\145\1\160\1\165\1\157\1\uffff"+
-        "\1\141\1\163\1\40\1\161\1\156\2\uffff\1\172\1\uffff\1\143\1\141"+
-        "\5\uffff\1\165\1\145\1\143\1\145\1\151\2\164\1\145\1\165\1\154\1"+
-        "\150\1\154\1\172\1\162\1\172\1\144\1\145\1\160\1\156\1\172\1\141"+
-        "\2\164\1\145\1\167\1\uffff\2\151\1\145\10\uffff\1\141\1\145\1\142"+
-        "\1\145\1\165\1\144\1\141\1\165\1\164\2\40\1\145\1\156\1\145\1\156"+
-        "\1\164\1\160\1\163\1\uffff\1\165\1\144\1\uffff\1\154\1\162\1\146"+
-        "\1\162\1\145\1\172\1\141\1\145\1\167\1\172\1\162\1\157\2\151\1\uffff"+
-        "\1\144\2\uffff\1\167\1\172\1\141\1\145\1\uffff\1\143\1\157\1\151"+
-        "\1\172\1\157\1\164\1\147\1\154\1\156\1\162\1\141\1\162\1\160\1\167"+
-        "\1\164\1\151\1\162\2\uffff\1\172\1\164\1\172\1\164\1\145\1\164\1"+
-        "\157\2\151\1\167\1\165\1\145\1\141\1\123\1\163\1\uffff\1\154\1\155"+
-        "\1\141\1\uffff\1\141\1\147\1\164\1\143\1\172\1\151\2\uffff\1\162"+
-        "\1\143\1\151\1\155\1\143\1\uffff\1\162\1\141\1\156\1\157\1\143\1"+
-        "\156\1\154\1\151\1\172\1\141\1\151\1\162\1\151\1\uffff\1\151\1\uffff"+
-        "\1\172\1\143\1\145\1\143\1\155\1\162\1\151\1\163\1\144\1\143\1\165"+
-        "\1\uffff\1\163\1\172\1\40\1\162\1\156\1\172\1\145\1\141\1\171\2"+
-        "\uffff\1\144\3\164\1\55\1\141\1\153\1\154\1\40\1\160\2\145\1\172"+
-        "\1\143\1\uffff\1\162\1\157\1\145\2\143\1\uffff\1\164\1\162\1\141"+
-        "\1\151\1\145\1\144\1\151\1\172\1\164\1\160\1\157\2\uffff\1\145\1"+
-        "\143\1\uffff\1\143\1\164\1\160\1\164\1\155\1\163\1\171\1\124\1\154"+
-        "\2\172\1\uffff\1\145\1\144\1\164\1\uffff\1\40\1\145\1\156\1\163"+
-        "\1\164\1\141\1\151\1\172\2\154\1\172\1\164\1\166\1\uffff\1\165\1"+
-        "\160\1\162\1\172\1\145\1\164\1\151\1\145\1\150\1\145\2\172\1\171"+
-        "\1\151\2\uffff\1\144\1\40\1\172\1\uffff\1\172\1\163\1\40\1\172\1"+
-        "\40\1\154\1\157\1\uffff\1\40\1\141\1\uffff\1\150\1\145\1\162\1\154"+
-        "\1\172\1\uffff\1\114\1\165\1\157\2\172\1\156\2\uffff\1\160\1\164"+
-        "\1\40\3\uffff\1\172\1\122\2\uffff\1\40\1\156\1\uffff\1\162\2\172"+
-        "\1\145\2\171\2\uffff\1\145\1\162\1\156\2\uffff\1\164\1\145\1\171"+
-        "\2\uffff\1\117\2\uffff\1\55\1\40\2\uffff\1\162\1\172\1\160\1\166"+
-        "\1\145\2\172\1\55\1\40\4\uffff\1\172\1\uffff\2\145\1\172\3\uffff"+
-        "\1\71\2\uffff\1\172\1\154\2\uffff\3\71\7\uffff\1\172\42\uffff";
+        "\1\172\1\147\1\166\1\uffff\10\172\2\150\1\123\1\157\1\156\1\157"+
+        "\4\uffff\1\162\1\163\2\115\1\160\1\uffff\1\145\1\160\1\165\1\157"+
+        "\1\uffff\1\141\1\163\1\40\1\161\1\156\2\uffff\1\172\1\uffff\1\143"+
+        "\1\141\5\uffff\1\165\1\145\1\143\1\145\1\151\2\164\1\145\1\165\1"+
+        "\154\1\150\1\154\1\172\1\162\1\172\1\144\1\145\1\160\1\156\1\172"+
+        "\1\141\2\164\1\145\1\167\1\uffff\2\151\1\145\10\uffff\1\141\1\145"+
+        "\1\172\1\142\1\145\1\165\1\144\1\141\1\165\1\164\2\40\1\145\1\156"+
+        "\1\145\1\156\1\164\1\160\1\163\1\uffff\1\165\1\144\1\uffff\1\154"+
+        "\1\162\1\146\1\162\1\145\1\172\1\141\1\145\1\167\1\172\1\162\1\157"+
+        "\2\151\1\uffff\1\144\2\uffff\1\167\1\172\1\141\1\145\1\uffff\1\143"+
+        "\1\157\1\151\1\172\1\157\1\164\1\147\1\154\1\156\1\162\1\uffff\1"+
+        "\141\1\162\1\160\1\167\1\164\1\151\1\162\2\uffff\1\172\1\164\1\172"+
+        "\1\164\1\145\1\164\1\157\2\151\1\167\1\165\1\145\1\141\1\123\1\163"+
+        "\1\uffff\1\154\1\155\1\141\1\uffff\1\141\1\147\1\164\1\143\1\172"+
+        "\1\151\2\uffff\1\162\1\143\1\151\1\155\1\143\1\uffff\1\162\1\141"+
+        "\1\156\1\157\1\143\1\156\1\154\1\151\1\172\1\141\1\151\1\162\1\151"+
+        "\1\uffff\1\151\1\uffff\1\172\1\143\1\145\1\143\1\155\1\162\1\151"+
+        "\1\163\1\144\1\143\1\165\1\uffff\1\163\1\172\1\40\1\162\1\156\1"+
+        "\172\1\145\1\141\1\171\2\uffff\1\144\3\164\1\55\1\141\1\153\1\154"+
+        "\1\40\1\160\2\145\1\172\1\143\1\uffff\1\162\1\157\1\145\2\143\1"+
+        "\uffff\1\164\1\162\1\141\1\151\1\145\1\144\1\151\1\172\1\164\1\160"+
+        "\1\157\2\uffff\1\145\1\143\1\uffff\1\143\1\164\1\160\1\164\1\155"+
+        "\1\163\1\171\1\124\1\154\2\172\1\uffff\1\145\1\144\1\164\1\uffff"+
+        "\1\40\1\145\1\156\1\163\1\164\1\141\1\151\1\172\2\154\1\172\1\164"+
+        "\1\166\1\uffff\1\165\1\160\1\162\1\172\1\145\1\164\1\151\1\145\1"+
+        "\150\1\145\2\172\1\171\1\151\2\uffff\1\144\1\40\1\172\1\uffff\1"+
+        "\172\1\163\1\40\1\172\1\40\1\154\1\157\1\uffff\1\40\1\141\1\uffff"+
+        "\1\150\1\145\1\162\1\154\1\172\1\uffff\1\114\1\165\1\157\2\172\1"+
+        "\156\2\uffff\1\160\1\164\1\40\3\uffff\1\172\1\122\2\uffff\1\40\1"+
+        "\156\1\uffff\1\162\2\172\1\145\2\171\2\uffff\1\145\1\162\1\156\2"+
+        "\uffff\1\164\1\145\1\171\2\uffff\1\117\2\uffff\1\55\1\40\2\uffff"+
+        "\1\162\1\172\1\160\1\166\1\145\2\172\1\55\1\40\4\uffff\1\172\1\uffff"+
+        "\2\145\1\172\3\uffff\1\71\2\uffff\1\172\1\154\2\uffff\3\71\7\uffff"+
+        "\1\172\42\uffff";
     static final String DFA12_acceptS =
-        "\16\uffff\1\112\1\114\1\115\1\116\7\uffff\1\141\5\uffff\1\163\1"+
-        "\164\1\uffff\1\173\3\uffff\1\176\1\177\3\uffff\1\u0083\1\u0084\1"+
-        "\uffff\1\176\14\uffff\1\22\2\uffff\1\21\4\uffff\1\20\5\uffff\1\17"+
-        "\15\uffff\1\112\1\114\1\115\1\116\5\uffff\1\132\4\uffff\1\141\5"+
-        "\uffff\1\163\1\164\1\uffff\1\173\2\uffff\1\177\1\u0080\1\u0081\1"+
-        "\u0082\1\u0083\31\uffff\1\16\3\uffff\1\23\1\24\1\25\1\26\1\27\1"+
-        "\30\1\31\1\32\22\uffff\1\157\2\uffff\1\165\16\uffff\1\166\1\uffff"+
-        "\1\170\1\13\4\uffff\1\33\21\uffff\1\126\1\127\17\uffff\1\3\3\uffff"+
-        "\1\4\6\uffff\1\144\1\10\5\uffff\1\15\15\uffff\1\124\1\uffff\1\133"+
-        "\13\uffff\1\122\11\uffff\1\171\1\12\16\uffff\1\142\5\uffff\1\134"+
-        "\13\uffff\1\40\1\113\2\uffff\1\36\13\uffff\1\125\3\uffff\1\111\15"+
-        "\uffff\1\175\16\uffff\1\136\1\37\3\uffff\1\123\7\uffff\1\155\2\uffff"+
-        "\1\160\5\uffff\1\120\6\uffff\1\140\1\130\3\uffff\1\34\1\35\1\117"+
-        "\2\uffff\1\154\1\153\2\uffff\1\156\6\uffff\1\172\1\11\3\uffff\1"+
-        "\6\1\137\3\uffff\1\152\1\121\1\uffff\1\150\1\151\2\uffff\1\161\1"+
-        "\174\11\uffff\1\145\1\146\1\135\1\162\1\uffff\1\2\3\uffff\1\143"+
-        "\1\167\1\14\1\uffff\1\147\1\1\2\uffff\1\131\1\41\3\uffff\1\45\1"+
-        "\46\1\47\1\50\1\51\1\52\1\7\1\uffff\1\53\1\54\1\55\1\56\1\57\1\60"+
-        "\1\61\1\62\1\63\1\64\1\42\1\65\1\66\1\67\1\70\1\71\1\72\1\73\1\74"+
-        "\1\75\1\76\1\43\1\77\1\100\1\101\1\102\1\103\1\104\1\105\1\106\1"+
-        "\107\1\110\1\44\1\5";
+        "\16\uffff\1\112\1\114\1\115\1\116\7\uffff\1\142\5\uffff\1\164\1"+
+        "\165\1\uffff\1\174\3\uffff\1\177\1\u0080\3\uffff\1\u0084\1\u0085"+
+        "\1\uffff\1\177\14\uffff\1\22\2\uffff\1\21\4\uffff\1\20\5\uffff\1"+
+        "\17\16\uffff\1\112\1\114\1\115\1\116\5\uffff\1\133\4\uffff\1\142"+
+        "\5\uffff\1\164\1\165\1\uffff\1\174\2\uffff\1\u0080\1\u0081\1\u0082"+
+        "\1\u0083\1\u0084\31\uffff\1\16\3\uffff\1\23\1\24\1\25\1\26\1\27"+
+        "\1\30\1\31\1\32\23\uffff\1\160\2\uffff\1\166\16\uffff\1\167\1\uffff"+
+        "\1\171\1\13\4\uffff\1\33\12\uffff\1\126\7\uffff\1\127\1\130\17\uffff"+
+        "\1\3\3\uffff\1\4\6\uffff\1\145\1\10\5\uffff\1\15\15\uffff\1\124"+
+        "\1\uffff\1\134\13\uffff\1\122\11\uffff\1\172\1\12\16\uffff\1\143"+
+        "\5\uffff\1\135\13\uffff\1\40\1\113\2\uffff\1\36\13\uffff\1\125\3"+
+        "\uffff\1\111\15\uffff\1\176\16\uffff\1\137\1\37\3\uffff\1\123\7"+
+        "\uffff\1\156\2\uffff\1\161\5\uffff\1\120\6\uffff\1\141\1\131\3\uffff"+
+        "\1\34\1\35\1\117\2\uffff\1\155\1\154\2\uffff\1\157\6\uffff\1\173"+
+        "\1\11\3\uffff\1\6\1\140\3\uffff\1\153\1\121\1\uffff\1\151\1\152"+
+        "\2\uffff\1\162\1\175\11\uffff\1\146\1\147\1\136\1\163\1\uffff\1"+
+        "\2\3\uffff\1\144\1\170\1\14\1\uffff\1\150\1\1\2\uffff\1\132\1\41"+
+        "\3\uffff\1\45\1\46\1\47\1\50\1\51\1\52\1\7\1\uffff\1\53\1\54\1\55"+
+        "\1\56\1\57\1\60\1\61\1\62\1\63\1\64\1\42\1\65\1\66\1\67\1\70\1\71"+
+        "\1\72\1\73\1\74\1\75\1\76\1\43\1\77\1\100\1\101\1\102\1\103\1\104"+
+        "\1\105\1\106\1\107\1\110\1\44\1\5";
     static final String DFA12_specialS =
-        "\1\1\47\uffff\1\2\1\0\u01d9\uffff}>";
+        "\1\1\47\uffff\1\0\1\2\u01dc\uffff}>";
     static final String[] DFA12_transitionS = {
             "\11\54\2\53\2\54\1\53\22\54\1\53\1\54\1\50\4\54\1\51\1\37\1"+
             "\40\2\54\1\31\1\54\1\42\1\52\12\47\1\54\1\20\1\54\1\17\3\54"+
@@ -4357,42 +4387,41 @@ public class InternalMappingDSLLexer extends Lexer {
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\4\56\1\110\3\56"+
             "\1\107\21\56",
             "\1\112\1\113\1\114\1\115\1\116\1\117\1\120\1\121",
-            "\1\122\5\uffff\1\123",
-            "\1\125\6\uffff\1\124\5\uffff\1\126",
+            "\1\124\32\uffff\1\122\5\uffff\1\123",
+            "\1\126\6\uffff\1\125\5\uffff\1\127",
             "",
             "",
             "",
             "",
-            "\1\133",
-            "\1\135\15\uffff\1\136\25\uffff\1\134",
-            "\1\137",
-            "\1\140\64\uffff\1\141",
-            "\1\142",
+            "\1\134",
+            "\1\136\15\uffff\1\137\25\uffff\1\135",
+            "\1\140",
+            "\1\141\64\uffff\1\142",
             "\1\143",
             "\1\144",
+            "\1\145",
             "",
-            "\1\146",
             "\1\147",
             "\1\150",
             "\1\151",
             "\1\152",
+            "\1\153",
             "",
             "",
-            "\1\155",
+            "\1\156",
             "",
-            "\1\157",
             "\1\160",
+            "\1\161",
             "\32\56\4\uffff\1\56\1\uffff\32\56",
             "",
             "",
-            "\0\162",
-            "\0\162",
-            "\1\163\4\uffff\1\164",
+            "\0\163",
+            "\0\163",
+            "\1\164\4\uffff\1\165",
             "",
-            "",
-            "\1\166",
             "",
             "\1\167",
+            "",
             "\1\170",
             "\1\171",
             "\1\172",
@@ -4404,20 +4433,21 @@ public class InternalMappingDSLLexer extends Lexer {
             "\1\u0080",
             "\1\u0081",
             "\1\u0082",
+            "\1\u0083",
             "",
-            "\1\u0083\26\uffff\1\u0084",
-            "\1\u0085",
+            "\1\u0084\26\uffff\1\u0085",
+            "\1\u0086",
             "",
-            "\1\u0087\1\u0088\3\uffff\1\u0086",
-            "\1\u0089\1\uffff\1\u008a",
-            "\1\u008b",
+            "\1\u0088\1\u0089\3\uffff\1\u0087",
+            "\1\u008a\1\uffff\1\u008b",
             "\1\u008c",
-            "",
             "\1\u008d",
+            "",
             "\1\u008e",
+            "\1\u008f",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
-            "\1\u0090",
-            "\1\u0091\2\uffff\1\u0092",
+            "\1\u0091",
+            "\1\u0092\2\uffff\1\u0093",
             "",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
@@ -4427,44 +4457,43 @@ public class InternalMappingDSLLexer extends Lexer {
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
-            "\1\u009b",
             "\1\u009c",
             "\1\u009d",
             "\1\u009e",
             "\1\u009f",
-            "",
-            "",
-            "",
-            "",
             "\1\u00a0",
-            "\1\u00a1\4\uffff\1\u00a2\1\uffff\1\u00a3",
-            "\1\u00a4",
-            "\1\u00a5",
-            "\1\u00a6",
+            "\1\u00a1",
             "",
+            "",
+            "",
+            "",
+            "\1\u00a2",
+            "\1\u00a3\4\uffff\1\u00a4\1\uffff\1\u00a5",
+            "\1\u00a6",
             "\1\u00a7",
             "\1\u00a8",
+            "",
             "\1\u00a9",
             "\1\u00aa",
-            "",
             "\1\u00ab",
             "\1\u00ac",
+            "",
             "\1\u00ad",
             "\1\u00ae",
             "\1\u00af",
+            "\1\u00b0",
+            "\1\u00b1",
             "",
             "",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "",
-            "\1\u00b1",
-            "\1\u00b2",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\u00b3",
             "\1\u00b4",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\u00b5",
             "\1\u00b6",
             "\1\u00b7",
@@ -4475,37 +4504,37 @@ public class InternalMappingDSLLexer extends Lexer {
             "\1\u00bc",
             "\1\u00bd",
             "\1\u00be",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u00bf",
             "\1\u00c0",
-            "\1\u00c1\1\uffff\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff"+
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u00c2",
+            "\1\u00c3\1\uffff\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff"+
             "\32\56",
-            "\1\u00c3",
-            "\1\u00c4",
             "\1\u00c5",
             "\1\u00c6",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u00c7",
             "\1\u00c8",
-            "\1\u00c9",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u00ca",
             "\1\u00cb",
             "\1\u00cc",
-            "",
             "\1\u00cd",
             "\1\u00ce",
+            "",
             "\1\u00cf",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\u00d0",
             "\1\u00d1",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\u00d2",
             "\1\u00d3",
-            "\1\u00d4",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u00d5",
             "\1\u00d6",
             "\1\u00d7",
@@ -4518,60 +4547,61 @@ public class InternalMappingDSLLexer extends Lexer {
             "\1\u00de",
             "\1\u00df",
             "\1\u00e0",
-            "\1\u00e1\6\uffff\1\u00e2",
-            "",
+            "\1\u00e1",
+            "\1\u00e2",
             "\1\u00e3",
-            "\1\u00e4",
+            "\1\u00e4\6\uffff\1\u00e5",
             "",
-            "\1\u00e5",
             "\1\u00e6",
             "\1\u00e7",
+            "",
             "\1\u00e8",
             "\1\u00e9",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u00ea",
             "\1\u00eb",
             "\1\u00ec",
-            "\1\u00ed",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u00ee",
             "\1\u00ef",
             "\1\u00f0",
-            "\1\u00f1",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u00f2",
-            "",
             "\1\u00f3",
-            "",
-            "",
             "\1\u00f4",
-            "\1\u00f5\2\uffff\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff"+
-            "\32\56",
-            "\1\u00f7",
-            "\1\u00f8",
+            "\1\u00f5",
             "",
-            "\1\u00f9",
+            "\1\u00f6",
+            "",
+            "",
+            "\1\u00f7",
+            "\1\u00f8\2\uffff\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff"+
+            "\32\56",
             "\1\u00fa",
             "\1\u00fb",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "",
+            "\1\u00fc",
             "\1\u00fd",
             "\1\u00fe",
-            "\1\u00ff",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u0100",
             "\1\u0101",
             "\1\u0102",
             "\1\u0103",
             "\1\u0104",
             "\1\u0105",
+            "",
             "\1\u0106",
             "\1\u0107",
             "\1\u0108",
             "\1\u0109",
-            "",
-            "",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u010a",
             "\1\u010b",
+            "\1\u010c",
+            "",
+            "",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
-            "\1\u010d",
             "\1\u010e",
-            "\1\u010f",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u0110",
             "\1\u0111",
             "\1\u0112",
@@ -4579,48 +4609,48 @@ public class InternalMappingDSLLexer extends Lexer {
             "\1\u0114",
             "\1\u0115",
             "\1\u0116",
-            "\1\u0118\62\uffff\1\u0117",
+            "\1\u0117",
+            "\1\u0118",
             "\1\u0119",
-            "",
-            "\1\u011a",
-            "\1\u011b",
+            "\1\u011b\62\uffff\1\u011a",
             "\1\u011c",
             "",
             "\1\u011d",
             "\1\u011e",
             "\1\u011f",
+            "",
             "\1\u0120",
-            "\1\u0122\1\uffff\12\56\7\uffff\23\56\1\u0121\6\56\4\uffff"+
+            "\1\u0121",
+            "\1\u0122",
+            "\1\u0123",
+            "\1\u0125\1\uffff\12\56\7\uffff\23\56\1\u0124\6\56\4\uffff"+
             "\1\56\1\uffff\32\56",
-            "\1\u0124",
-            "",
-            "",
-            "\1\u0125",
-            "\1\u0126",
             "\1\u0127",
+            "",
+            "",
             "\1\u0128",
             "\1\u0129",
-            "",
             "\1\u012a",
             "\1\u012b",
             "\1\u012c",
+            "",
             "\1\u012d",
             "\1\u012e",
             "\1\u012f",
             "\1\u0130",
             "\1\u0131",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u0132",
             "\1\u0133",
             "\1\u0134",
-            "\1\u0135",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u0136",
-            "",
             "\1\u0137",
+            "\1\u0138",
+            "\1\u0139",
+            "",
+            "\1\u013a",
             "",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
-            "\1\u0139",
-            "\1\u013a",
-            "\1\u013b",
             "\1\u013c",
             "\1\u013d",
             "\1\u013e",
@@ -4628,21 +4658,21 @@ public class InternalMappingDSLLexer extends Lexer {
             "\1\u0140",
             "\1\u0141",
             "\1\u0142",
-            "",
             "\1\u0143",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u0144",
             "\1\u0145",
+            "",
             "\1\u0146",
-            "\1\u0147",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u0148",
             "\1\u0149",
             "\1\u014a",
-            "\1\u014b",
-            "",
-            "",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u014c",
             "\1\u014d",
             "\1\u014e",
+            "",
+            "",
             "\1\u014f",
             "\1\u0150",
             "\1\u0151",
@@ -4652,128 +4682,126 @@ public class InternalMappingDSLLexer extends Lexer {
             "\1\u0155",
             "\1\u0156",
             "\1\u0157",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u0158",
             "\1\u0159",
-            "",
             "\1\u015a",
-            "\1\u015b",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u015c",
+            "",
             "\1\u015d",
             "\1\u015e",
-            "",
             "\1\u015f",
             "\1\u0160",
             "\1\u0161",
+            "",
             "\1\u0162",
             "\1\u0163",
             "\1\u0164",
             "\1\u0165",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u0166",
             "\1\u0167",
             "\1\u0168",
-            "\1\u0169",
-            "",
-            "",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u016a",
             "\1\u016b",
-            "",
             "\1\u016c",
+            "",
+            "",
             "\1\u016d",
             "\1\u016e",
+            "",
             "\1\u016f",
             "\1\u0170",
             "\1\u0171",
             "\1\u0172",
             "\1\u0173",
             "\1\u0174",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
-            "",
+            "\1\u0175",
+            "\1\u0176",
             "\1\u0177",
-            "\1\u0178",
-            "\1\u0179",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "",
             "\1\u017a",
             "\1\u017b",
             "\1\u017c",
-            "\1\u017d\16\uffff\1\u017e",
+            "",
+            "\1\u017d",
+            "\1\u017e",
             "\1\u017f",
-            "\1\u0180",
-            "\1\u0181",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u0180\16\uffff\1\u0181",
+            "\1\u0182",
             "\1\u0183",
             "\1\u0184",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u0186",
             "\1\u0187",
-            "",
-            "\1\u0188",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u0189",
             "\1\u018a",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "",
+            "\1\u018b",
             "\1\u018c",
             "\1\u018d",
-            "\1\u018e",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u018f",
             "\1\u0190",
             "\1\u0191",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u0192",
+            "\1\u0193",
             "\1\u0194",
-            "\1\u0195",
-            "",
-            "",
-            "\1\u0196",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u0197",
+            "\1\u0198",
+            "",
+            "",
+            "\1\u0199",
+            "\1\u019a",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
-            "\1\u019a",
-            "\1\u019b",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u019d",
             "\1\u019e",
-            "\1\u019f",
-            "",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u01a0",
             "\1\u01a1",
-            "",
             "\1\u01a2",
+            "",
             "\1\u01a3",
             "\1\u01a4",
+            "",
             "\1\u01a5",
-            "\1\u01a7\1\uffff\12\56\7\uffff\23\56\1\u01a6\6\56\4\uffff"+
+            "\1\u01a6",
+            "\1\u01a7",
+            "\1\u01a8",
+            "\1\u01aa\1\uffff\12\56\7\uffff\23\56\1\u01a9\6\56\4\uffff"+
             "\1\56\1\uffff\32\56",
             "",
-            "\1\u01a9",
-            "\1\u01aa",
-            "\1\u01ab",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u01ac",
+            "\1\u01ad",
             "\1\u01ae",
-            "",
-            "",
-            "\1\u01af",
-            "\1\u01b0",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u01b1",
             "",
             "",
+            "\1\u01b2",
+            "\1\u01b3",
+            "\1\u01b4",
+            "",
+            "",
             "",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
-            "\1\u01b4\10\uffff\1\u01b3",
+            "\1\u01b7\10\uffff\1\u01b6",
             "",
             "",
-            "\1\u01b5",
-            "\1\u01b6",
+            "\1\u01b8",
+            "\1\u01b9",
             "",
-            "\1\u01b7",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u01ba",
-            "\1\u01bb",
-            "\1\u01bc",
-            "",
-            "",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u01bd",
             "\1\u01be",
             "\1\u01bf",
@@ -4784,49 +4812,54 @@ public class InternalMappingDSLLexer extends Lexer {
             "\1\u01c2",
             "",
             "",
-            "\1\u01c3\15\uffff\1\u01c4",
-            "",
-            "",
+            "\1\u01c3",
+            "\1\u01c4",
             "\1\u01c5",
-            "\1\u01c6",
             "",
             "",
-            "\1\u01c7",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u01c6\15\uffff\1\u01c7",
+            "",
+            "",
+            "\1\u01c8",
             "\1\u01c9",
+            "",
+            "",
             "\1\u01ca",
-            "\1\u01cb",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
-            "\1\u01cd\1\uffff\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff"+
+            "\1\u01cc",
+            "\1\u01cd",
+            "\1\u01ce",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u01d0\1\uffff\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff"+
             "\32\56",
-            "\1\u01cf",
-            "\1\u01d0",
-            "",
-            "",
-            "",
-            "",
-            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
-            "",
             "\1\u01d2",
             "\1\u01d3",
+            "",
+            "",
+            "",
+            "",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "",
+            "\1\u01d5",
+            "\1\u01d6",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "",
             "",
             "",
-            "\1\u01d5\1\u01d6\1\u01d7\1\u01d8\1\u01d9\1\u01da\1\u01db\1"+
-            "\u01dc\1\u01dd\1\u01de",
+            "\1\u01d8\1\u01d9\1\u01da\1\u01db\1\u01dc\1\u01dd\1\u01de\1"+
+            "\u01df\1\u01e0\1\u01e1",
             "",
             "",
             "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
-            "\1\u01e0",
+            "\1\u01e3",
             "",
             "",
-            "\1\u01e1\1\u01e2\1\u01e3\1\u01e4\1\u01e5\1\u01e6\1\u01e7\1"+
-            "\u01e8\1\u01e9\1\u01ea",
-            "\1\u01ec\1\u01ed\1\u01ee\1\u01ef\1\u01f0\1\u01f1\1\u01f2\1"+
-            "\u01f3\1\u01f4\1\u01f5",
-            "\1\u01f7\1\u01f8\1\u01f9\1\u01fa\1\u01fb\1\u01fc\1\u01fd\1"+
-            "\u01fe\1\u01ff\1\u0200",
+            "\1\u01e4\1\u01e5\1\u01e6\1\u01e7\1\u01e8\1\u01e9\1\u01ea\1"+
+            "\u01eb\1\u01ec\1\u01ed",
+            "\1\u01ef\1\u01f0\1\u01f1\1\u01f2\1\u01f3\1\u01f4\1\u01f5\1"+
+            "\u01f6\1\u01f7\1\u01f8",
+            "\1\u01fa\1\u01fb\1\u01fc\1\u01fd\1\u01fe\1\u01ff\1\u0200\1"+
+            "\u0201\1\u0202\1\u0203",
             "",
             "",
             "",
@@ -4901,17 +4934,17 @@ public class InternalMappingDSLLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | T__117 | T__118 | T__119 | T__120 | T__121 | T__122 | T__123 | T__124 | T__125 | T__126 | T__127 | T__128 | T__129 | T__130 | T__131 | T__132 | T__133 | T__134 | T__135 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | T__117 | T__118 | T__119 | T__120 | T__121 | T__122 | T__123 | T__124 | T__125 | T__126 | T__127 | T__128 | T__129 | T__130 | T__131 | T__132 | T__133 | T__134 | T__135 | T__136 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA12_41 = input.LA(1);
+                        int LA12_40 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_41>='\u0000' && LA12_41<='\uFFFF')) ) {s = 114;}
+                        if ( ((LA12_40>='\u0000' && LA12_40<='\uFFFF')) ) {s = 115;}
 
                         else s = 44;
 
@@ -5012,10 +5045,10 @@ public class InternalMappingDSLLexer extends Lexer {
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA12_40 = input.LA(1);
+                        int LA12_41 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_40>='\u0000' && LA12_40<='\uFFFF')) ) {s = 114;}
+                        if ( ((LA12_41>='\u0000' && LA12_41<='\uFFFF')) ) {s = 115;}
 
                         else s = 44;
 

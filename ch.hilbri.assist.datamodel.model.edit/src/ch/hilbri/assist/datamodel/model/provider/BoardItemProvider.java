@@ -52,6 +52,7 @@ public class BoardItemProvider extends HardwareElementContainerItemProvider {
 			addBoardTypePropertyDescriptor(object);
 			addPowerSupplyPropertyDescriptor(object);
 			addSidePropertyDescriptor(object);
+			addEssPropertyDescriptor(object);
 			addAssuranceLevelPropertyDescriptor(object);
 			addRamCapacityPropertyDescriptor(object);
 			addRomCapacityPropertyDescriptor(object);
@@ -140,6 +141,28 @@ public class BoardItemProvider extends HardwareElementContainerItemProvider {
 				 getString("_UI_Board_side_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Board_side_feature", "_UI_Board_type"),
 				 ModelPackage.Literals.BOARD__SIDE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Ess feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEssPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Board_ess_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Board_ess_feature", "_UI_Board_type"),
+				 ModelPackage.Literals.BOARD__ESS,
 				 true,
 				 false,
 				 false,
@@ -309,6 +332,7 @@ public class BoardItemProvider extends HardwareElementContainerItemProvider {
 			case ModelPackage.BOARD__BOARD_TYPE:
 			case ModelPackage.BOARD__POWER_SUPPLY:
 			case ModelPackage.BOARD__SIDE:
+			case ModelPackage.BOARD__ESS:
 			case ModelPackage.BOARD__ASSURANCE_LEVEL:
 			case ModelPackage.BOARD__RAM_CAPACITY:
 			case ModelPackage.BOARD__ROM_CAPACITY:

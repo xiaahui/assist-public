@@ -110,6 +110,7 @@ class ResultFactoryFromSolverSolutions {
 				b.ramCapacity		= modelElement.ramCapacity
 				b.romCapacity		= modelElement.romCapacity
 				b.side				= modelElement.side
+				b.ess				= modelElement.ess
 				
 				for (proc : modelElement.processors)
 					b.processors.add(createHardwareElements(proc) as Processor)
@@ -201,14 +202,7 @@ class ResultFactoryFromSolverSolutions {
 			/* Which thread in the result corresponds to this model thread? */
 			val resultThread = result.findResultThread(thread)
 			
-			
 			val locVar = solverVariables.getThreadLocationVariable(thread, HardwareArchitectureLevelType.CORE_VALUE)
-			
-			/* Which is the location variable which represents the placement of this model thread on the core level? */
-//			val locVarIndex = solverVariables.getIndexOfThreadLocationInSolutionVariablesList(thread, 1)
-			
-			/* To which core number should the current thread be mapped to? */
-//			val coreNr = solverSolution.get(locVarIndex).valueEnumeration.nextElement
 
 			val coreIndex = solution.getIntVal(locVar)
 			  

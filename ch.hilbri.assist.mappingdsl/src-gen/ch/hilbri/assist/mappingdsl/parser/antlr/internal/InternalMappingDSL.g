@@ -895,9 +895,9 @@ ruleBoard returns [EObject current=null]
     {
     	newLeafNode(otherlv_22, grammarAccess.getBoardAccess().getSemicolonKeyword_7_3());
     }
-)?(	otherlv_23='RAM capacity' 
+)?(	otherlv_23='ESS' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getBoardAccess().getRAMCapacityKeyword_8_0());
+    	newLeafNode(otherlv_23, grammarAccess.getBoardAccess().getESSKeyword_8_0());
     }
 	otherlv_24='=' 
     {
@@ -905,9 +905,39 @@ ruleBoard returns [EObject current=null]
     }
 (
 (
-		lv_ramCapacity_25_0=RULE_INT
+		lv_ess_25_0=RULE_STRING
 		{
-			newLeafNode(lv_ramCapacity_25_0, grammarAccess.getBoardAccess().getRamCapacityINTTerminalRuleCall_8_2_0()); 
+			newLeafNode(lv_ess_25_0, grammarAccess.getBoardAccess().getEssSTRINGTerminalRuleCall_8_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getBoardRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"ess",
+        		lv_ess_25_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_26=';' 
+    {
+    	newLeafNode(otherlv_26, grammarAccess.getBoardAccess().getSemicolonKeyword_8_3());
+    }
+)?(	otherlv_27='RAM capacity' 
+    {
+    	newLeafNode(otherlv_27, grammarAccess.getBoardAccess().getRAMCapacityKeyword_9_0());
+    }
+	otherlv_28='=' 
+    {
+    	newLeafNode(otherlv_28, grammarAccess.getBoardAccess().getEqualsSignKeyword_9_1());
+    }
+(
+(
+		lv_ramCapacity_29_0=RULE_INT
+		{
+			newLeafNode(lv_ramCapacity_29_0, grammarAccess.getBoardAccess().getRamCapacityINTTerminalRuleCall_9_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -916,37 +946,7 @@ ruleBoard returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"ramCapacity",
-        		lv_ramCapacity_25_0, 
-        		"INT");
-	    }
-
-)
-)	otherlv_26=';' 
-    {
-    	newLeafNode(otherlv_26, grammarAccess.getBoardAccess().getSemicolonKeyword_8_3());
-    }
-)?(	otherlv_27='ROM capacity' 
-    {
-    	newLeafNode(otherlv_27, grammarAccess.getBoardAccess().getROMCapacityKeyword_9_0());
-    }
-	otherlv_28='=' 
-    {
-    	newLeafNode(otherlv_28, grammarAccess.getBoardAccess().getEqualsSignKeyword_9_1());
-    }
-(
-(
-		lv_romCapacity_29_0=RULE_INT
-		{
-			newLeafNode(lv_romCapacity_29_0, grammarAccess.getBoardAccess().getRomCapacityINTTerminalRuleCall_9_2_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getBoardRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"romCapacity",
-        		lv_romCapacity_29_0, 
+        		lv_ramCapacity_29_0, 
         		"INT");
 	    }
 
@@ -955,19 +955,49 @@ ruleBoard returns [EObject current=null]
     {
     	newLeafNode(otherlv_30, grammarAccess.getBoardAccess().getSemicolonKeyword_9_3());
     }
+)?(	otherlv_31='ROM capacity' 
+    {
+    	newLeafNode(otherlv_31, grammarAccess.getBoardAccess().getROMCapacityKeyword_10_0());
+    }
+	otherlv_32='=' 
+    {
+    	newLeafNode(otherlv_32, grammarAccess.getBoardAccess().getEqualsSignKeyword_10_1());
+    }
+(
+(
+		lv_romCapacity_33_0=RULE_INT
+		{
+			newLeafNode(lv_romCapacity_33_0, grammarAccess.getBoardAccess().getRomCapacityINTTerminalRuleCall_10_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getBoardRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"romCapacity",
+        		lv_romCapacity_33_0, 
+        		"INT");
+	    }
+
+)
+)	otherlv_34=';' 
+    {
+    	newLeafNode(otherlv_34, grammarAccess.getBoardAccess().getSemicolonKeyword_10_3());
+    }
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBoardAccess().getProcessorsProcessorParserRuleCall_10_0()); 
+	        newCompositeNode(grammarAccess.getBoardAccess().getProcessorsProcessorParserRuleCall_11_0()); 
 	    }
-		lv_processors_31_0=ruleProcessor		{
+		lv_processors_35_0=ruleProcessor		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getBoardRule());
 	        }
        		add(
        			$current, 
        			"processors",
-        		lv_processors_31_0, 
+        		lv_processors_35_0, 
         		"Processor");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -976,54 +1006,54 @@ ruleBoard returns [EObject current=null]
 )+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBoardAccess().getIoAdaptersIOAdapterParserRuleCall_11_0()); 
+	        newCompositeNode(grammarAccess.getBoardAccess().getIoAdaptersIOAdapterParserRuleCall_12_0()); 
 	    }
-		lv_ioAdapters_32_0=ruleIOAdapter		{
+		lv_ioAdapters_36_0=ruleIOAdapter		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getBoardRule());
 	        }
        		add(
        			$current, 
        			"ioAdapters",
-        		lv_ioAdapters_32_0, 
+        		lv_ioAdapters_36_0, 
         		"IOAdapter");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*(	otherlv_33='Generic properties' 
+)*(	otherlv_37='Generic properties' 
     {
-    	newLeafNode(otherlv_33, grammarAccess.getBoardAccess().getGenericPropertiesKeyword_12_0());
+    	newLeafNode(otherlv_37, grammarAccess.getBoardAccess().getGenericPropertiesKeyword_13_0());
     }
-	otherlv_34='{' 
+	otherlv_38='{' 
     {
-    	newLeafNode(otherlv_34, grammarAccess.getBoardAccess().getLeftCurlyBracketKeyword_12_1());
+    	newLeafNode(otherlv_38, grammarAccess.getBoardAccess().getLeftCurlyBracketKeyword_13_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBoardAccess().getMetricParametersMetricParameterParserRuleCall_12_2_0()); 
+	        newCompositeNode(grammarAccess.getBoardAccess().getMetricParametersMetricParameterParserRuleCall_13_2_0()); 
 	    }
-		lv_metricParameters_35_0=ruleMetricParameter		{
+		lv_metricParameters_39_0=ruleMetricParameter		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getBoardRule());
 	        }
        		add(
        			$current, 
        			"metricParameters",
-        		lv_metricParameters_35_0, 
+        		lv_metricParameters_39_0, 
         		"MetricParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_36='}' 
+)*	otherlv_40='}' 
     {
-    	newLeafNode(otherlv_36, grammarAccess.getBoardAccess().getRightCurlyBracketKeyword_12_3());
+    	newLeafNode(otherlv_40, grammarAccess.getBoardAccess().getRightCurlyBracketKeyword_13_3());
     }
-)?	otherlv_37='}' 
+)?	otherlv_41='}' 
     {
-    	newLeafNode(otherlv_37, grammarAccess.getBoardAccess().getRightCurlyBracketKeyword_13());
+    	newLeafNode(otherlv_41, grammarAccess.getBoardAccess().getRightCurlyBracketKeyword_14());
     }
 )
 ;

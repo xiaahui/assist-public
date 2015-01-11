@@ -167,6 +167,8 @@ public class ResultFactoryFromSolverSolutions {
         b.setRomCapacity(_romCapacity);
         String _side = ((Board)modelElement).getSide();
         b.setSide(_side);
+        String _ess = ((Board)modelElement).getEss();
+        b.setEss(_ess);
         EList<Processor> _processors = ((Board)modelElement).getProcessors();
         for (final Processor proc : _processors) {
           EList<ch.hilbri.assist.datamodel.result.mapping.Processor> _processors_1 = b.getProcessors();

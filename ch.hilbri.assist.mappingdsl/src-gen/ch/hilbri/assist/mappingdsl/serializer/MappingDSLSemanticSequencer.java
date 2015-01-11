@@ -227,6 +227,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         powerSupply=STRING? 
 	 *         assuranceLevel=DesignAssuranceLevelType? 
 	 *         side=STRING? 
+	 *         ess=STRING? 
 	 *         ramCapacity=INT? 
 	 *         romCapacity=INT? 
 	 *         processors+=Processor+ 

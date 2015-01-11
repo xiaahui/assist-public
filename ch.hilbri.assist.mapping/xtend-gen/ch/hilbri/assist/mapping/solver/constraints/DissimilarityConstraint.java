@@ -244,6 +244,17 @@ public class DissimilarityConstraint extends AbstractMappingConstraint {
                 List<Integer> _map_9 = ListExtensions.<Board, Integer>map(_allBoards_4, _function_9);
                 dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_9, int.class));
                 break;
+              case ESS:
+                EList<Board> _allBoards_5 = this.model.getAllBoards();
+                final Function1<Board, Integer> _function_10 = new Function1<Board, Integer>() {
+                  public Integer apply(final Board it) {
+                    String _ess = it.getEss();
+                    return Integer.valueOf(_ess.hashCode());
+                  }
+                };
+                List<Integer> _map_10 = ListExtensions.<Board, Integer>map(_allBoards_5, _function_10);
+                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_10, int.class));
+                break;
               default:
                 break;
             }
@@ -257,25 +268,25 @@ public class DissimilarityConstraint extends AbstractMappingConstraint {
                 break;
               case MANUFACTURER:
                 EList<Processor> _allProcessors = this.model.getAllProcessors();
-                final Function1<Processor, Integer> _function_10 = new Function1<Processor, Integer>() {
+                final Function1<Processor, Integer> _function_11 = new Function1<Processor, Integer>() {
                   public Integer apply(final Processor it) {
                     String _manufacturer = it.getManufacturer();
                     return Integer.valueOf(_manufacturer.hashCode());
                   }
                 };
-                List<Integer> _map_10 = ListExtensions.<Processor, Integer>map(_allProcessors, _function_10);
-                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_10, int.class));
+                List<Integer> _map_11 = ListExtensions.<Processor, Integer>map(_allProcessors, _function_11);
+                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_11, int.class));
                 break;
               case PROCESSORTYPE:
                 EList<Processor> _allProcessors_1 = this.model.getAllProcessors();
-                final Function1<Processor, Integer> _function_11 = new Function1<Processor, Integer>() {
+                final Function1<Processor, Integer> _function_12 = new Function1<Processor, Integer>() {
                   public Integer apply(final Processor it) {
                     String _processorType = it.getProcessorType();
                     return Integer.valueOf(_processorType.hashCode());
                   }
                 };
-                List<Integer> _map_11 = ListExtensions.<Processor, Integer>map(_allProcessors_1, _function_11);
-                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_11, int.class));
+                List<Integer> _map_12 = ListExtensions.<Processor, Integer>map(_allProcessors_1, _function_12);
+                dissimilarityValueList = ((int[])Conversions.unwrapArray(_map_12, int.class));
                 break;
               default:
                 break;
