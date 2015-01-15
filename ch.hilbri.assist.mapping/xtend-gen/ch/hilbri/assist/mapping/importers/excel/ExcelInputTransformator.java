@@ -7,6 +7,7 @@ import com.google.common.base.Objects;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import jxl.Cell;
@@ -38,9 +39,7 @@ public class ExcelInputTransformator {
   public static String createMDSLFileInput(final String filePath) {
     String _createHeader = ExcelInputTransformator.createHeader(filePath);
     String _createBoardsAndIOAdapters = ExcelInputTransformator.createBoardsAndIOAdapters(filePath);
-    String _plus = (_createHeader + _createBoardsAndIOAdapters);
-    String _createApplicationsAndGroups = ExcelInputTransformator.createApplicationsAndGroups(filePath);
-    return (_plus + _createApplicationsAndGroups);
+    return (_createHeader + _createBoardsAndIOAdapters);
   }
   
   public static String createHeader(final String filePath) {
@@ -114,7 +113,7 @@ public class ExcelInputTransformator {
             final String excelSide = ExcelInputTransformator.clear(_contents_7);
             Cell _cell_8 = sheet.getCell(7, (row).intValue());
             String _contents_8 = _cell_8.getContents();
-            final String excelRoute = ExcelInputTransformator.clear(_contents_8);
+            final String excelEss = ExcelInputTransformator.clear(_contents_8);
             Cell _cell_9 = sheet.getCell(8, (row).intValue());
             String _contents_9 = _cell_9.getContents();
             final String excelResProtLvl = ExcelInputTransformator.clear(_contents_9);
@@ -137,7 +136,7 @@ public class ExcelInputTransformator {
             }
             Board currentBoard = null;
             if (isNewBoard) {
-              Board _board = new Board(excelResName, excelType, excelPowerSupply, excelSide, excelRoute);
+              Board _board = new Board(excelResName, excelType, excelPowerSupply, excelSide, excelEss);
               currentBoard = _board;
               int _length_1 = excelResPosX.length();
               boolean _greaterThan_1 = (_length_1 > 0);
@@ -168,10 +167,11 @@ public class ExcelInputTransformator {
               }
             }
             Set<String> _keySet = excelCustomType.keySet();
-            for (final String adapterType : _keySet) {
+            List<String> _sort = IterableExtensions.<String>sort(_keySet);
+            for (final String adapterType : _sort) {
               ArrayList<IOAdapter> _ioAdapters = currentBoard.getIoAdapters();
               String _get = excelCustomType.get(adapterType);
-              IOAdapter _iOAdapter = new IOAdapter((("Adapter" + adapterType) + excelResProtLvl), adapterType, excelResProtLvl, _get);
+              IOAdapter _iOAdapter = new IOAdapter(adapterType, excelResProtLvl, _get);
               _ioAdapters.add(_iOAdapter);
             }
           }
@@ -188,7 +188,13 @@ public class ExcelInputTransformator {
       _builder.append("Hardware {");
       _builder.newLine();
       {
-        for(final Board board : allBoards) {
+        final Function1<Board, String> _function = new Function1<Board, String>() {
+          public String apply(final Board it) {
+            return it.getName();
+          }
+        };
+        List<Board> _sortBy = IterableExtensions.<Board, String>sortBy(allBoards, _function);
+        for(final Board board : _sortBy) {
           _builder.append("\t");
           _builder.append("Board ");
           String _name = board.getName();
@@ -218,10 +224,17 @@ public class ExcelInputTransformator {
           _builder.newLineIfNotEmpty();
           _builder.append("\t");
           _builder.append("\t");
-          _builder.append("Route = \"");
-          String _route = board.getRoute();
-          _builder.append(_route, "\t\t");
-          _builder.append("\";");
+          {
+            String _ess = board.getEss();
+            int _length = _ess.length();
+            boolean _greaterThan = (_length > 0);
+            if (_greaterThan) {
+              _builder.append("ESS = \"");
+              String _ess_1 = board.getEss();
+              _builder.append(_ess_1, "\t\t");
+              _builder.append("\";");
+            }
+          }
           _builder.newLineIfNotEmpty();
           _builder.append("\t");
           _builder.append("\t");
@@ -229,18 +242,21 @@ public class ExcelInputTransformator {
           _builder.newLine();
           {
             ArrayList<IOAdapter> _ioAdapters = board.getIoAdapters();
-            for(final IOAdapter adapt : _ioAdapters) {
+            final Function1<IOAdapter, String> _function_1 = new Function1<IOAdapter, String>() {
+              public String apply(final IOAdapter it) {
+                return it.getType();
+              }
+            };
+            List<IOAdapter> _sortBy_1 = IterableExtensions.<IOAdapter, String>sortBy(_ioAdapters, _function_1);
+            for(final IOAdapter adapt : _sortBy_1) {
               _builder.append("\t");
               _builder.append("\t");
-              _builder.append("I/O Adapter ");
-              String _name_1 = adapt.getName();
-              _builder.append(_name_1, "\t\t");
-              _builder.append(" {");
-              _builder.newLineIfNotEmpty();
+              _builder.append("I/O adapter {");
+              _builder.newLine();
               _builder.append("\t");
               _builder.append("\t");
               _builder.append("\t");
-              _builder.append("Type = ");
+              _builder.append("type  = ");
               String _type_1 = adapt.getType();
               _builder.append(_type_1, "\t\t\t");
               _builder.append(";");
@@ -248,7 +264,15 @@ public class ExcelInputTransformator {
               _builder.append("\t");
               _builder.append("\t");
               _builder.append("\t");
-              _builder.append("IO Protection = ");
+              _builder.append("count = ");
+              String _units = adapt.getUnits();
+              _builder.append(_units, "\t\t\t");
+              _builder.append(";");
+              _builder.newLineIfNotEmpty();
+              _builder.append("\t");
+              _builder.append("\t");
+              _builder.append("\t");
+              _builder.append("protection-level = ");
               String _ioProtectionLevel = adapt.getIoProtectionLevel();
               _builder.append(_ioProtectionLevel, "\t\t\t");
               _builder.append(";");
@@ -256,11 +280,7 @@ public class ExcelInputTransformator {
               _builder.append("\t");
               _builder.append("\t");
               _builder.append("\t");
-              _builder.append("Total units = ");
-              String _units = adapt.getUnits();
-              _builder.append(_units, "\t\t\t");
-              _builder.append(";");
-              _builder.newLineIfNotEmpty();
+              _builder.newLine();
               _builder.append("\t");
               _builder.append("\t");
               _builder.append("}");
@@ -277,20 +297,16 @@ public class ExcelInputTransformator {
             for(final String p : _keySet) {
               _builder.append("\t");
               _builder.append("\t\t");
-              _builder.append("\"Â");
+              _builder.append("\"");
               _builder.append(p, "\t\t\t");
-              _builder.append("\" = Â");
+              _builder.append("\" = ");
               Map<String, String> _genericParameters_1 = board.getGenericParameters();
               String _get = _genericParameters_1.get(p);
               _builder.append(_get, "\t\t\t");
               _builder.append(";");
               _builder.newLineIfNotEmpty();
-              _builder.append("\t");
-              _builder.append("\t\t");
-              _builder.append("Â");
             }
           }
-          _builder.newLineIfNotEmpty();
           _builder.append("\t");
           _builder.append("\t");
           _builder.append("}");

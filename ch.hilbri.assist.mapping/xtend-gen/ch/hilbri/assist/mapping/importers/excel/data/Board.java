@@ -4,34 +4,34 @@ import ch.hilbri.assist.mapping.importers.excel.data.IOAdapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import org.eclipse.xtend.lib.Data;
+import org.eclipse.xtend.lib.annotations.Data;
 import org.eclipse.xtext.xbase.lib.Pure;
-import org.eclipse.xtext.xbase.lib.util.ToStringHelper;
+import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
 
 @Data
 @SuppressWarnings("all")
 public class Board {
-  private final String _name;
+  private final String name;
   
-  private final String _type;
+  private final String type;
   
-  private final String _powersupply;
+  private final String powersupply;
   
-  private final String _side;
+  private final String side;
   
-  private final String _route;
+  private final String ess;
   
-  private final Map<String, String> _genericParameters = new HashMap<String, String>();
+  private final Map<String, String> genericParameters = new HashMap<String, String>();
   
-  private final ArrayList<IOAdapter> _ioAdapters = new ArrayList<IOAdapter>();
+  private final ArrayList<IOAdapter> ioAdapters = new ArrayList<IOAdapter>();
   
-  public Board(final String name, final String type, final String powersupply, final String side, final String route) {
+  public Board(final String name, final String type, final String powersupply, final String side, final String ess) {
     super();
-    this._name = name;
-    this._type = type;
-    this._powersupply = powersupply;
-    this._side = side;
-    this._route = route;
+    this.name = name;
+    this.type = type;
+    this.powersupply = powersupply;
+    this.side = side;
+    this.ess = ess;
   }
   
   @Override
@@ -39,13 +39,13 @@ public class Board {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((this._name== null) ? 0 : this._name.hashCode());
-    result = prime * result + ((this._type== null) ? 0 : this._type.hashCode());
-    result = prime * result + ((this._powersupply== null) ? 0 : this._powersupply.hashCode());
-    result = prime * result + ((this._side== null) ? 0 : this._side.hashCode());
-    result = prime * result + ((this._route== null) ? 0 : this._route.hashCode());
-    result = prime * result + ((this._genericParameters== null) ? 0 : this._genericParameters.hashCode());
-    result = prime * result + ((this._ioAdapters== null) ? 0 : this._ioAdapters.hashCode());
+    result = prime * result + ((this.name== null) ? 0 : this.name.hashCode());
+    result = prime * result + ((this.type== null) ? 0 : this.type.hashCode());
+    result = prime * result + ((this.powersupply== null) ? 0 : this.powersupply.hashCode());
+    result = prime * result + ((this.side== null) ? 0 : this.side.hashCode());
+    result = prime * result + ((this.ess== null) ? 0 : this.ess.hashCode());
+    result = prime * result + ((this.genericParameters== null) ? 0 : this.genericParameters.hashCode());
+    result = prime * result + ((this.ioAdapters== null) ? 0 : this.ioAdapters.hashCode());
     return result;
   }
   
@@ -59,40 +59,40 @@ public class Board {
     if (getClass() != obj.getClass())
       return false;
     Board other = (Board) obj;
-    if (this._name == null) {
-      if (other._name != null)
+    if (this.name == null) {
+      if (other.name != null)
         return false;
-    } else if (!this._name.equals(other._name))
+    } else if (!this.name.equals(other.name))
       return false;
-    if (this._type == null) {
-      if (other._type != null)
+    if (this.type == null) {
+      if (other.type != null)
         return false;
-    } else if (!this._type.equals(other._type))
+    } else if (!this.type.equals(other.type))
       return false;
-    if (this._powersupply == null) {
-      if (other._powersupply != null)
+    if (this.powersupply == null) {
+      if (other.powersupply != null)
         return false;
-    } else if (!this._powersupply.equals(other._powersupply))
+    } else if (!this.powersupply.equals(other.powersupply))
       return false;
-    if (this._side == null) {
-      if (other._side != null)
+    if (this.side == null) {
+      if (other.side != null)
         return false;
-    } else if (!this._side.equals(other._side))
+    } else if (!this.side.equals(other.side))
       return false;
-    if (this._route == null) {
-      if (other._route != null)
+    if (this.ess == null) {
+      if (other.ess != null)
         return false;
-    } else if (!this._route.equals(other._route))
+    } else if (!this.ess.equals(other.ess))
       return false;
-    if (this._genericParameters == null) {
-      if (other._genericParameters != null)
+    if (this.genericParameters == null) {
+      if (other.genericParameters != null)
         return false;
-    } else if (!this._genericParameters.equals(other._genericParameters))
+    } else if (!this.genericParameters.equals(other.genericParameters))
       return false;
-    if (this._ioAdapters == null) {
-      if (other._ioAdapters != null)
+    if (this.ioAdapters == null) {
+      if (other.ioAdapters != null)
         return false;
-    } else if (!this._ioAdapters.equals(other._ioAdapters))
+    } else if (!this.ioAdapters.equals(other.ioAdapters))
       return false;
     return true;
   }
@@ -100,42 +100,49 @@ public class Board {
   @Override
   @Pure
   public String toString() {
-    String result = new ToStringHelper().toString(this);
-    return result;
+    ToStringBuilder b = new ToStringBuilder(this);
+    b.add("name", this.name);
+    b.add("type", this.type);
+    b.add("powersupply", this.powersupply);
+    b.add("side", this.side);
+    b.add("ess", this.ess);
+    b.add("genericParameters", this.genericParameters);
+    b.add("ioAdapters", this.ioAdapters);
+    return b.toString();
   }
   
   @Pure
   public String getName() {
-    return this._name;
+    return this.name;
   }
   
   @Pure
   public String getType() {
-    return this._type;
+    return this.type;
   }
   
   @Pure
   public String getPowersupply() {
-    return this._powersupply;
+    return this.powersupply;
   }
   
   @Pure
   public String getSide() {
-    return this._side;
+    return this.side;
   }
   
   @Pure
-  public String getRoute() {
-    return this._route;
+  public String getEss() {
+    return this.ess;
   }
   
   @Pure
   public Map<String, String> getGenericParameters() {
-    return this._genericParameters;
+    return this.genericParameters;
   }
   
   @Pure
   public ArrayList<IOAdapter> getIoAdapters() {
-    return this._ioAdapters;
+    return this.ioAdapters;
   }
 }

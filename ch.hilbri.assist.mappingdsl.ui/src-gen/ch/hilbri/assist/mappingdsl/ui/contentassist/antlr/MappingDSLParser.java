@@ -75,8 +75,9 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProcessorAccess().getGroup_4(), "rule__Processor__Group_4__0");
 					put(grammarAccess.getProcessorAccess().getGroup_6(), "rule__Processor__Group_6__0");
 					put(grammarAccess.getCoreAccess().getGroup(), "rule__Core__Group__0");
-					put(grammarAccess.getCoreAccess().getGroup_7(), "rule__Core__Group_7__0");
-					put(grammarAccess.getCoreAccess().getGroup_8(), "rule__Core__Group_8__0");
+					put(grammarAccess.getCoreAccess().getGroup_3(), "rule__Core__Group_3__0");
+					put(grammarAccess.getCoreAccess().getGroup_4(), "rule__Core__Group_4__0");
+					put(grammarAccess.getCoreAccess().getGroup_5(), "rule__Core__Group_5__0");
 					put(grammarAccess.getIOAdapterAccess().getGroup(), "rule__IOAdapter__Group__0");
 					put(grammarAccess.getIOAdapterAccess().getGroup_10(), "rule__IOAdapter__Group_10__0");
 					put(grammarAccess.getNetworkAccess().getGroup(), "rule__Network__Group__0");
@@ -154,9 +155,9 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProcessorAccess().getCoresAssignment_5(), "rule__Processor__CoresAssignment_5");
 					put(grammarAccess.getProcessorAccess().getMetricParametersAssignment_6_2(), "rule__Processor__MetricParametersAssignment_6_2");
 					put(grammarAccess.getCoreAccess().getNameAssignment_1(), "rule__Core__NameAssignment_1");
-					put(grammarAccess.getCoreAccess().getCapacityAssignment_5(), "rule__Core__CapacityAssignment_5");
-					put(grammarAccess.getCoreAccess().getArchitectureAssignment_7_2(), "rule__Core__ArchitectureAssignment_7_2");
-					put(grammarAccess.getCoreAccess().getMetricParametersAssignment_8_2(), "rule__Core__MetricParametersAssignment_8_2");
+					put(grammarAccess.getCoreAccess().getCapacityAssignment_3_2(), "rule__Core__CapacityAssignment_3_2");
+					put(grammarAccess.getCoreAccess().getArchitectureAssignment_4_2(), "rule__Core__ArchitectureAssignment_4_2");
+					put(grammarAccess.getCoreAccess().getMetricParametersAssignment_5_2(), "rule__Core__MetricParametersAssignment_5_2");
 					put(grammarAccess.getIOAdapterAccess().getAdapterTypeAssignment_4(), "rule__IOAdapter__AdapterTypeAssignment_4");
 					put(grammarAccess.getIOAdapterAccess().getTotalCountAssignment_8(), "rule__IOAdapter__TotalCountAssignment_8");
 					put(grammarAccess.getIOAdapterAccess().getProtectionLevelAssignment_10_2(), "rule__IOAdapter__ProtectionLevelAssignment_10_2");

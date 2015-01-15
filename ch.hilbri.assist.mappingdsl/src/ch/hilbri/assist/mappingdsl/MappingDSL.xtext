@@ -75,8 +75,8 @@ Processor:
 
 Core:
 	'Core' name=ID '{' 
-		'Capacity' 					'=' capacity=INT ';'
-		('Architecture' 			'=' architecture=STRING ';')?
+		('Capacity' 					'=' capacity=INT ';')?
+		('Architecture' 				'=' architecture=STRING ';')?
 		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}';
 
@@ -222,46 +222,45 @@ enum IOAdapterType:
 	ETH			= 'Ethernet'			|
 	ANALOG 		= 'Analog'				|
 	DIGITAL		= 'Digital'				|
-	SERIAL		= 'Serial'				|
-	CUSTOM0		= 'Custom-Type-0'		|
-	CUSTOM1		= 'Custom-Type-1'		|
-	CUSTOM2		= 'Custom-Type-2'		|
-	CUSTOM3		= 'Custom-Type-3'		|
-	CUSTOM4		= 'Custom-Type-4'		|
-	CUSTOM5		= 'Custom-Type-5'		|
-	CUSTOM6		= 'Custom-Type-6'		|		
-	CUSTOM7		= 'Custom-Type-7'		|
-	CUSTOM8		= 'Custom-Type-8'		|
-	CUSTOM9		= 'Custom-Type-9'		|
-	CUSTOM10	= 'Custom-Type-10'		|
-	CUSTOM11	= 'Custom-Type-11'		|
-	CUSTOM12	= 'Custom-Type-12'		|
-	CUSTOM13	= 'Custom-Type-13'		|
-	CUSTOM14	= 'Custom-Type-14'		|
-	CUSTOM15	= 'Custom-Type-15'		|
-	CUSTOM16	= 'Custom-Type-16'		|
-	CUSTOM17	= 'Custom-Type-17'		|
-	CUSTOM18	= 'Custom-Type-18'		|
-	CUSTOM19	= 'Custom-Type-19'		|
-	CUSTOM20	= 'Custom-Type-20'		|
-	CUSTOM21	= 'Custom-Type-21'		|
-	CUSTOM22	= 'Custom-Type-22'		|
-	CUSTOM23	= 'Custom-Type-23'		|
-	CUSTOM24	= 'Custom-Type-24'		|
-	CUSTOM25	= 'Custom-Type-25'		|
-	CUSTOM26	= 'Custom-Type-26'		|
-	CUSTOM27	= 'Custom-Type-27'		|
-	CUSTOM28	= 'Custom-Type-28'		|
-	CUSTOM29	= 'Custom-Type-29'		|
-	CUSTOM30	= 'Custom-Type-30'		|
-	CUSTOM31	= 'Custom-Type-31'		|
-	CUSTOM32	= 'Custom-Type-32'		|
-	CUSTOM33	= 'Custom-Type-33'		|
-	CUSTOM34	= 'Custom-Type-34'		|
-	CUSTOM35	= 'Custom-Type-35'		|
-	CUSTOM36	= 'Custom-Type-36'		|
-	CUSTOM37	= 'Custom-Type-37'		|
-	CUSTOM38	= 'Custom-Type-38'		|
-	CUSTOM39	= 'Custom-Type-39'
-;
+	SERIAL		= 'Serial'			|
+	CUSTOM0		= 'CustomType0'		|
+	CUSTOM1		= 'CustomType1'		|
+	CUSTOM2		= 'CustomType2'		|
+	CUSTOM3		= 'CustomType3'		|
+	CUSTOM4		= 'CustomType4'		|
+	CUSTOM5		= 'CustomType5'		|
+	CUSTOM6		= 'CustomType6'		|		
+	CUSTOM7		= 'CustomType7'		|
+	CUSTOM8		= 'CustomType8'		|
+	CUSTOM9		= 'CustomType9'		|
+	CUSTOM10	= 'CustomType10'	|
+	CUSTOM11	= 'CustomType11'	|
+	CUSTOM12	= 'CustomType12'	|
+	CUSTOM13	= 'CustomType13'	|
+	CUSTOM14	= 'CustomType14'	|
+	CUSTOM15	= 'CustomType15'	|
+	CUSTOM16	= 'CustomType16'	|
+	CUSTOM17	= 'CustomType17'	|
+	CUSTOM18	= 'CustomType18'	|
+	CUSTOM19	= 'CustomType19'	|
+	CUSTOM20	= 'CustomType20'	|
+	CUSTOM21	= 'CustomType21'	|
+	CUSTOM22	= 'CustomType22'	|
+	CUSTOM23	= 'CustomType23'	|
+	CUSTOM24	= 'CustomType24'	|
+	CUSTOM25	= 'CustomType25'	|
+	CUSTOM26	= 'CustomType26'	|
+	CUSTOM27	= 'CustomType27'	|
+	CUSTOM28	= 'CustomType28'	|
+	CUSTOM29	= 'CustomType29'	|
+	CUSTOM30	= 'CustomType30'	|
+	CUSTOM31	= 'CustomType31'	|
+	CUSTOM32	= 'CustomType32'	|
+	CUSTOM33	= 'CustomType33'	|
+	CUSTOM34	= 'CustomType34'	|
+	CUSTOM35	= 'CustomType35'	|
+	CUSTOM36	= 'CustomType36'	|
+	CUSTOM37	= 'CustomType37'	|
+	CUSTOM38	= 'CustomType38'	|
+	CUSTOM39	= 'CustomType39';
 

@@ -277,7 +277,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID capacity=INT architecture=STRING? metricParameters+=MetricParameter*)
+	 *     (name=ID capacity=INT? architecture=STRING? metricParameters+=MetricParameter*)
 	 */
 	protected void sequence_Core(EObject context, Core semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

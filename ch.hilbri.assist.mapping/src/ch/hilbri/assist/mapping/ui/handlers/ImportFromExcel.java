@@ -4,7 +4,6 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -31,15 +30,11 @@ public class ImportFromExcel {
 	@CanExecute
 	public boolean canExecute(MApplication application, EModelService service) {
 
-		IEditorPart editorPart = PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		if (editorPart == null)
-			return false;
+		IEditorPart editorPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		if (editorPart == null)	return false;
 
-		if (editorPart instanceof MultiPageEditor)
-			return true;
-		else
-			return false;
+		if (editorPart instanceof MultiPageEditor)	return true;
+		else return false;
 	}
 
 	/**
@@ -54,14 +49,12 @@ public class ImportFromExcel {
 		
 			MultiPageEditor editor = (MultiPageEditor) editorPart;
 			editor.doSave(null);
+			
 			IEditorInput input = editor.getEditorInput();
 
 			if (input instanceof IFileEditorInput) {
-				IResource resource = ((IFileEditorInput) input).getFile();
-				IProject project = resource.getProject();
-
-				IFile file = project.getFile(resource.getName());
-
+				IFile file = ((IFileEditorInput) input).getFile();
+				
 				FileDialog dialog = new FileDialog(editor.getSite().getShell(),	SWT.OPEN);
 				dialog.setFilterExtensions(new String[] { "*.xls" });
 				String filePath = dialog.open();

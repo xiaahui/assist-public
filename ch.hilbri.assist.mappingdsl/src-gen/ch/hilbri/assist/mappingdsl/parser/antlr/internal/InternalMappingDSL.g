@@ -1261,19 +1261,19 @@ ruleCore returns [EObject current=null]
     {
     	newLeafNode(otherlv_2, grammarAccess.getCoreAccess().getLeftCurlyBracketKeyword_2());
     }
-	otherlv_3='Capacity' 
+(	otherlv_3='Capacity' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getCoreAccess().getCapacityKeyword_3());
+    	newLeafNode(otherlv_3, grammarAccess.getCoreAccess().getCapacityKeyword_3_0());
     }
 	otherlv_4='=' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getCoreAccess().getEqualsSignKeyword_4());
+    	newLeafNode(otherlv_4, grammarAccess.getCoreAccess().getEqualsSignKeyword_3_1());
     }
 (
 (
 		lv_capacity_5_0=RULE_INT
 		{
-			newLeafNode(lv_capacity_5_0, grammarAccess.getCoreAccess().getCapacityINTTerminalRuleCall_5_0()); 
+			newLeafNode(lv_capacity_5_0, grammarAccess.getCoreAccess().getCapacityINTTerminalRuleCall_3_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1289,21 +1289,21 @@ ruleCore returns [EObject current=null]
 )
 )	otherlv_6=';' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getCoreAccess().getSemicolonKeyword_6());
+    	newLeafNode(otherlv_6, grammarAccess.getCoreAccess().getSemicolonKeyword_3_3());
     }
-(	otherlv_7='Architecture' 
+)?(	otherlv_7='Architecture' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getCoreAccess().getArchitectureKeyword_7_0());
+    	newLeafNode(otherlv_7, grammarAccess.getCoreAccess().getArchitectureKeyword_4_0());
     }
 	otherlv_8='=' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getCoreAccess().getEqualsSignKeyword_7_1());
+    	newLeafNode(otherlv_8, grammarAccess.getCoreAccess().getEqualsSignKeyword_4_1());
     }
 (
 (
 		lv_architecture_9_0=RULE_STRING
 		{
-			newLeafNode(lv_architecture_9_0, grammarAccess.getCoreAccess().getArchitectureSTRINGTerminalRuleCall_7_2_0()); 
+			newLeafNode(lv_architecture_9_0, grammarAccess.getCoreAccess().getArchitectureSTRINGTerminalRuleCall_4_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1319,20 +1319,20 @@ ruleCore returns [EObject current=null]
 )
 )	otherlv_10=';' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getCoreAccess().getSemicolonKeyword_7_3());
+    	newLeafNode(otherlv_10, grammarAccess.getCoreAccess().getSemicolonKeyword_4_3());
     }
 )?(	otherlv_11='Generic properties' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getCoreAccess().getGenericPropertiesKeyword_8_0());
+    	newLeafNode(otherlv_11, grammarAccess.getCoreAccess().getGenericPropertiesKeyword_5_0());
     }
 	otherlv_12='{' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getCoreAccess().getLeftCurlyBracketKeyword_8_1());
+    	newLeafNode(otherlv_12, grammarAccess.getCoreAccess().getLeftCurlyBracketKeyword_5_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCoreAccess().getMetricParametersMetricParameterParserRuleCall_8_2_0()); 
+	        newCompositeNode(grammarAccess.getCoreAccess().getMetricParametersMetricParameterParserRuleCall_5_2_0()); 
 	    }
 		lv_metricParameters_13_0=ruleMetricParameter		{
 	        if ($current==null) {
@@ -1349,11 +1349,11 @@ ruleCore returns [EObject current=null]
 )
 )*	otherlv_14='}' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getCoreAccess().getRightCurlyBracketKeyword_8_3());
+    	newLeafNode(otherlv_14, grammarAccess.getCoreAccess().getRightCurlyBracketKeyword_5_3());
     }
 )?	otherlv_15='}' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getCoreAccess().getRightCurlyBracketKeyword_9());
+    	newLeafNode(otherlv_15, grammarAccess.getCoreAccess().getRightCurlyBracketKeyword_6());
     }
 )
 ;
@@ -3188,241 +3188,241 @@ ruleIOAdapterType returns [Enumerator current=null]
         newLeafNode(enumLiteral_5, grammarAccess.getIOAdapterTypeAccess().getSERIALEnumLiteralDeclaration_5()); 
     }
 )
-    |(	enumLiteral_6='Custom-Type-0' 
+    |(	enumLiteral_6='CustomType0' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM0EnumLiteralDeclaration_6().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_6, grammarAccess.getIOAdapterTypeAccess().getCUSTOM0EnumLiteralDeclaration_6()); 
     }
 )
-    |(	enumLiteral_7='Custom-Type-1' 
+    |(	enumLiteral_7='CustomType1' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM1EnumLiteralDeclaration_7().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_7, grammarAccess.getIOAdapterTypeAccess().getCUSTOM1EnumLiteralDeclaration_7()); 
     }
 )
-    |(	enumLiteral_8='Custom-Type-2' 
+    |(	enumLiteral_8='CustomType2' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM2EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_8, grammarAccess.getIOAdapterTypeAccess().getCUSTOM2EnumLiteralDeclaration_8()); 
     }
 )
-    |(	enumLiteral_9='Custom-Type-3' 
+    |(	enumLiteral_9='CustomType3' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM3EnumLiteralDeclaration_9().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_9, grammarAccess.getIOAdapterTypeAccess().getCUSTOM3EnumLiteralDeclaration_9()); 
     }
 )
-    |(	enumLiteral_10='Custom-Type-4' 
+    |(	enumLiteral_10='CustomType4' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM4EnumLiteralDeclaration_10().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_10, grammarAccess.getIOAdapterTypeAccess().getCUSTOM4EnumLiteralDeclaration_10()); 
     }
 )
-    |(	enumLiteral_11='Custom-Type-5' 
+    |(	enumLiteral_11='CustomType5' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM5EnumLiteralDeclaration_11().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_11, grammarAccess.getIOAdapterTypeAccess().getCUSTOM5EnumLiteralDeclaration_11()); 
     }
 )
-    |(	enumLiteral_12='Custom-Type-6' 
+    |(	enumLiteral_12='CustomType6' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM6EnumLiteralDeclaration_12().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_12, grammarAccess.getIOAdapterTypeAccess().getCUSTOM6EnumLiteralDeclaration_12()); 
     }
 )
-    |(	enumLiteral_13='Custom-Type-7' 
+    |(	enumLiteral_13='CustomType7' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM7EnumLiteralDeclaration_13().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_13, grammarAccess.getIOAdapterTypeAccess().getCUSTOM7EnumLiteralDeclaration_13()); 
     }
 )
-    |(	enumLiteral_14='Custom-Type-8' 
+    |(	enumLiteral_14='CustomType8' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM8EnumLiteralDeclaration_14().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_14, grammarAccess.getIOAdapterTypeAccess().getCUSTOM8EnumLiteralDeclaration_14()); 
     }
 )
-    |(	enumLiteral_15='Custom-Type-9' 
+    |(	enumLiteral_15='CustomType9' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM9EnumLiteralDeclaration_15().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_15, grammarAccess.getIOAdapterTypeAccess().getCUSTOM9EnumLiteralDeclaration_15()); 
     }
 )
-    |(	enumLiteral_16='Custom-Type-10' 
+    |(	enumLiteral_16='CustomType10' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM10EnumLiteralDeclaration_16().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_16, grammarAccess.getIOAdapterTypeAccess().getCUSTOM10EnumLiteralDeclaration_16()); 
     }
 )
-    |(	enumLiteral_17='Custom-Type-11' 
+    |(	enumLiteral_17='CustomType11' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM11EnumLiteralDeclaration_17().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_17, grammarAccess.getIOAdapterTypeAccess().getCUSTOM11EnumLiteralDeclaration_17()); 
     }
 )
-    |(	enumLiteral_18='Custom-Type-12' 
+    |(	enumLiteral_18='CustomType12' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM12EnumLiteralDeclaration_18().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_18, grammarAccess.getIOAdapterTypeAccess().getCUSTOM12EnumLiteralDeclaration_18()); 
     }
 )
-    |(	enumLiteral_19='Custom-Type-13' 
+    |(	enumLiteral_19='CustomType13' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM13EnumLiteralDeclaration_19().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_19, grammarAccess.getIOAdapterTypeAccess().getCUSTOM13EnumLiteralDeclaration_19()); 
     }
 )
-    |(	enumLiteral_20='Custom-Type-14' 
+    |(	enumLiteral_20='CustomType14' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM14EnumLiteralDeclaration_20().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_20, grammarAccess.getIOAdapterTypeAccess().getCUSTOM14EnumLiteralDeclaration_20()); 
     }
 )
-    |(	enumLiteral_21='Custom-Type-15' 
+    |(	enumLiteral_21='CustomType15' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM15EnumLiteralDeclaration_21().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_21, grammarAccess.getIOAdapterTypeAccess().getCUSTOM15EnumLiteralDeclaration_21()); 
     }
 )
-    |(	enumLiteral_22='Custom-Type-16' 
+    |(	enumLiteral_22='CustomType16' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM16EnumLiteralDeclaration_22().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_22, grammarAccess.getIOAdapterTypeAccess().getCUSTOM16EnumLiteralDeclaration_22()); 
     }
 )
-    |(	enumLiteral_23='Custom-Type-17' 
+    |(	enumLiteral_23='CustomType17' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM17EnumLiteralDeclaration_23().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_23, grammarAccess.getIOAdapterTypeAccess().getCUSTOM17EnumLiteralDeclaration_23()); 
     }
 )
-    |(	enumLiteral_24='Custom-Type-18' 
+    |(	enumLiteral_24='CustomType18' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM18EnumLiteralDeclaration_24().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_24, grammarAccess.getIOAdapterTypeAccess().getCUSTOM18EnumLiteralDeclaration_24()); 
     }
 )
-    |(	enumLiteral_25='Custom-Type-19' 
+    |(	enumLiteral_25='CustomType19' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM19EnumLiteralDeclaration_25().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_25, grammarAccess.getIOAdapterTypeAccess().getCUSTOM19EnumLiteralDeclaration_25()); 
     }
 )
-    |(	enumLiteral_26='Custom-Type-20' 
+    |(	enumLiteral_26='CustomType20' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM20EnumLiteralDeclaration_26().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_26, grammarAccess.getIOAdapterTypeAccess().getCUSTOM20EnumLiteralDeclaration_26()); 
     }
 )
-    |(	enumLiteral_27='Custom-Type-21' 
+    |(	enumLiteral_27='CustomType21' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM21EnumLiteralDeclaration_27().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_27, grammarAccess.getIOAdapterTypeAccess().getCUSTOM21EnumLiteralDeclaration_27()); 
     }
 )
-    |(	enumLiteral_28='Custom-Type-22' 
+    |(	enumLiteral_28='CustomType22' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM22EnumLiteralDeclaration_28().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_28, grammarAccess.getIOAdapterTypeAccess().getCUSTOM22EnumLiteralDeclaration_28()); 
     }
 )
-    |(	enumLiteral_29='Custom-Type-23' 
+    |(	enumLiteral_29='CustomType23' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM23EnumLiteralDeclaration_29().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_29, grammarAccess.getIOAdapterTypeAccess().getCUSTOM23EnumLiteralDeclaration_29()); 
     }
 )
-    |(	enumLiteral_30='Custom-Type-24' 
+    |(	enumLiteral_30='CustomType24' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM24EnumLiteralDeclaration_30().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_30, grammarAccess.getIOAdapterTypeAccess().getCUSTOM24EnumLiteralDeclaration_30()); 
     }
 )
-    |(	enumLiteral_31='Custom-Type-25' 
+    |(	enumLiteral_31='CustomType25' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM25EnumLiteralDeclaration_31().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_31, grammarAccess.getIOAdapterTypeAccess().getCUSTOM25EnumLiteralDeclaration_31()); 
     }
 )
-    |(	enumLiteral_32='Custom-Type-26' 
+    |(	enumLiteral_32='CustomType26' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM26EnumLiteralDeclaration_32().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_32, grammarAccess.getIOAdapterTypeAccess().getCUSTOM26EnumLiteralDeclaration_32()); 
     }
 )
-    |(	enumLiteral_33='Custom-Type-27' 
+    |(	enumLiteral_33='CustomType27' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM27EnumLiteralDeclaration_33().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_33, grammarAccess.getIOAdapterTypeAccess().getCUSTOM27EnumLiteralDeclaration_33()); 
     }
 )
-    |(	enumLiteral_34='Custom-Type-28' 
+    |(	enumLiteral_34='CustomType28' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM28EnumLiteralDeclaration_34().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_34, grammarAccess.getIOAdapterTypeAccess().getCUSTOM28EnumLiteralDeclaration_34()); 
     }
 )
-    |(	enumLiteral_35='Custom-Type-29' 
+    |(	enumLiteral_35='CustomType29' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM29EnumLiteralDeclaration_35().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_35, grammarAccess.getIOAdapterTypeAccess().getCUSTOM29EnumLiteralDeclaration_35()); 
     }
 )
-    |(	enumLiteral_36='Custom-Type-30' 
+    |(	enumLiteral_36='CustomType30' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM30EnumLiteralDeclaration_36().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_36, grammarAccess.getIOAdapterTypeAccess().getCUSTOM30EnumLiteralDeclaration_36()); 
     }
 )
-    |(	enumLiteral_37='Custom-Type-31' 
+    |(	enumLiteral_37='CustomType31' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM31EnumLiteralDeclaration_37().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_37, grammarAccess.getIOAdapterTypeAccess().getCUSTOM31EnumLiteralDeclaration_37()); 
     }
 )
-    |(	enumLiteral_38='Custom-Type-32' 
+    |(	enumLiteral_38='CustomType32' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM32EnumLiteralDeclaration_38().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_38, grammarAccess.getIOAdapterTypeAccess().getCUSTOM32EnumLiteralDeclaration_38()); 
     }
 )
-    |(	enumLiteral_39='Custom-Type-33' 
+    |(	enumLiteral_39='CustomType33' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM33EnumLiteralDeclaration_39().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_39, grammarAccess.getIOAdapterTypeAccess().getCUSTOM33EnumLiteralDeclaration_39()); 
     }
 )
-    |(	enumLiteral_40='Custom-Type-34' 
+    |(	enumLiteral_40='CustomType34' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM34EnumLiteralDeclaration_40().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_40, grammarAccess.getIOAdapterTypeAccess().getCUSTOM34EnumLiteralDeclaration_40()); 
     }
 )
-    |(	enumLiteral_41='Custom-Type-35' 
+    |(	enumLiteral_41='CustomType35' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM35EnumLiteralDeclaration_41().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_41, grammarAccess.getIOAdapterTypeAccess().getCUSTOM35EnumLiteralDeclaration_41()); 
     }
 )
-    |(	enumLiteral_42='Custom-Type-36' 
+    |(	enumLiteral_42='CustomType36' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM36EnumLiteralDeclaration_42().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_42, grammarAccess.getIOAdapterTypeAccess().getCUSTOM36EnumLiteralDeclaration_42()); 
     }
 )
-    |(	enumLiteral_43='Custom-Type-37' 
+    |(	enumLiteral_43='CustomType37' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM37EnumLiteralDeclaration_43().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_43, grammarAccess.getIOAdapterTypeAccess().getCUSTOM37EnumLiteralDeclaration_43()); 
     }
 )
-    |(	enumLiteral_44='Custom-Type-38' 
+    |(	enumLiteral_44='CustomType38' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM38EnumLiteralDeclaration_44().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_44, grammarAccess.getIOAdapterTypeAccess().getCUSTOM38EnumLiteralDeclaration_44()); 
     }
 )
-    |(	enumLiteral_45='Custom-Type-39' 
+    |(	enumLiteral_45='CustomType39' 
 	{
         $current = grammarAccess.getIOAdapterTypeAccess().getCUSTOM39EnumLiteralDeclaration_45().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_45, grammarAccess.getIOAdapterTypeAccess().getCUSTOM39EnumLiteralDeclaration_45()); 

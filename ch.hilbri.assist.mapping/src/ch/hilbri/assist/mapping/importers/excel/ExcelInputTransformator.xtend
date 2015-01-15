@@ -19,9 +19,9 @@ class ExcelInputTransformator {
 
 	def static createMDSLFileInput(String filePath) {
 		return
-			createHeader(filePath) +
-			createBoardsAndIOAdapters(filePath) +
-			createApplicationsAndGroups(filePath) 
+			createHeader(filePath) 
+			+ createBoardsAndIOAdapters(filePath) 
+//			+ createApplicationsAndGroups(filePath) 
 	}
 
 	def static createHeader(String filePath) {
@@ -61,7 +61,7 @@ Global {
 
 				// **** EINLESEN ALLER ORIGINAL DATEN AUS EXCEL *****
 				
-				// Ãœberschreibe den alten Wert von resName nur, wenn ein neuer Wert in der Zelle steht (neues Board!)
+				// Ueberschreibe den alten Wert von resName nur, wenn ein neuer Wert in der Zelle steht (neues Board!)
 				if (sheet.getCell(0, row).contents.length > 0) {
 					excelResName = clear(sheet.getCell(0, row).contents) 	// Spalte: A
 					isNewBoard = true;
@@ -73,7 +73,7 @@ Global {
 				val excelResWeight 	= clear(sheet.getCell(4, row).contents) 	// Spalte: E
 				val excelPowerSupply= clear(sheet.getCell(5, row).contents) 	// Spalte: F
 				val excelSide		= clear(sheet.getCell(6, row).contents) 	// Spalte: G
-				val excelRoute		= clear(sheet.getCell(7, row).contents) 	// Spalte: H
+				val excelEss		= clear(sheet.getCell(7, row).contents) 	// Spalte: H
 				
 				val excelResProtLvl	= clear(sheet.getCell(8, row).contents) 	// Spalte: I
 				val excelCustomType	= new HashMap<String, String>
@@ -81,7 +81,7 @@ Global {
 				for (i : 1..39) {
 					val excelCustomEntry = sheet.getCell(8+i, row).contents
 					if (excelCustomEntry.length > 0) 					// Die Zelle darf nicht leer sein ...
-						if (Integer.parseInt(excelCustomEntry) > 0) 	// Die Anzahl muss grÃ¶ÃŸer als Null sein ...
+						if (Integer.parseInt(excelCustomEntry) > 0) 	// Die Anzahl muss groesser als Null sein ...
 							excelCustomType.put("CustomType"+i, excelCustomEntry)
 				}
 				
@@ -92,17 +92,16 @@ Global {
 				if (isNewBoard) {
 					
 					// Erstelle ein neues Board
-					currentBoard = new Board(excelResName, excelType, excelPowerSupply, excelSide, excelRoute)
+					currentBoard = new Board(excelResName, excelType, excelPowerSupply, excelSide, excelEss)
 					if (excelResPosX.length > 0) 	currentBoard.genericParameters.put("RES_POSITION_X", excelResPosX)
 					if (excelResPosY.length > 0) 	currentBoard.genericParameters.put("RES_POSITION_Y", excelResPosY)
 					if (excelResWeight.length > 0) 	currentBoard.genericParameters.put("RES_WEIGHT", excelResWeight)
 					
 					// Fuege das Board zur Liste hinzu
 					allBoards.add(currentBoard)
-					
 				}
 				
-				// wir haben eine ErgÃ¤nzung zu einem bestehenden Board gefunden
+				// wir haben eine Ergaenzung zu einem bestehenden Board gefunden
 				else  {
 					
 					// finde das richtige Board
@@ -111,32 +110,35 @@ Global {
 							currentBoard = otherBoard	
 				}
 				
-				// IO Adapter ergÃ¤nzen
-				for (adapterType : excelCustomType.keySet)
-					currentBoard.ioAdapters.add(new IOAdapter("Adapter" + adapterType + excelResProtLvl, adapterType, excelResProtLvl, excelCustomType.get(adapterType)))
+				// IO Adapter ergaenzen
+				for (adapterType : excelCustomType.keySet.sort)
+					currentBoard.ioAdapters.add(new IOAdapter(adapterType, excelResProtLvl, excelCustomType.get(adapterType)))
 			}
 		} catch (BiffException e) {	e.printStackTrace(); }
 
+		
+
 		return '''
 Hardware {
-	«FOR board : allBoards»
+	«FOR board : allBoards.sortBy[name]»
 	Board «board.name» {
 		Type = "«board.type»";
 		Power supply = "«board.powersupply»";
 		Side = "«board.side»";
-		Route = "«board.route»";
+		«IF board.ess.length > 0»ESS = "«board.ess»";«ENDIF»
 		Processor Processor0 { Core Core0 {}}
-		«FOR adapt : board.ioAdapters»
-		I/O Adapter «adapt.name» {
-			Type = «adapt.type»;
-			IO Protection = «adapt.ioProtectionLevel»;
-			Total units = «adapt.units»;
+		«FOR adapt : board.ioAdapters.sortBy[type]»
+		I/O adapter {
+			type  = «adapt.type»;
+			count = «adapt.units»;
+			protection-level = «adapt.ioProtectionLevel»;
+			
 		}
 		«ENDFOR»
 		Generic properties { 
 			«FOR p : board.genericParameters.keySet»
-			"Â«p»" = Â«board.genericParameters.get(p)»;
-			Â«ENDFOR»
+			"«p»" = «board.genericParameters.get(p)»;
+			«ENDFOR»
 		}
 	}
 	

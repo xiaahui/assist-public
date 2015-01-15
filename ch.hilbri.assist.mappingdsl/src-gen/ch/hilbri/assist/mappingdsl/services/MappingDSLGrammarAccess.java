@@ -844,32 +844,33 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cCapacityKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cEqualsSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cCapacityAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cCapacityINTTerminalRuleCall_5_0 = (RuleCall)cCapacityAssignment_5.eContents().get(0);
-		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cArchitectureKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
-		private final Assignment cArchitectureAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final RuleCall cArchitectureSTRINGTerminalRuleCall_7_2_0 = (RuleCall)cArchitectureAssignment_7_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_7_3 = (Keyword)cGroup_7.eContents().get(3);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cGenericPropertiesKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
-		private final Assignment cMetricParametersAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
-		private final RuleCall cMetricParametersMetricParameterParserRuleCall_8_2_0 = (RuleCall)cMetricParametersAssignment_8_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8_3 = (Keyword)cGroup_8.eContents().get(3);
-		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCapacityKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cCapacityAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cCapacityINTTerminalRuleCall_3_2_0 = (RuleCall)cCapacityAssignment_3_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cArchitectureKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cArchitectureAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cArchitectureSTRINGTerminalRuleCall_4_2_0 = (RuleCall)cArchitectureAssignment_4_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cGenericPropertiesKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cMetricParametersAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cMetricParametersMetricParameterParserRuleCall_5_2_0 = (RuleCall)cMetricParametersAssignment_5_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Core:
-		//	"Core" name=ID "{" "Capacity" "=" capacity=INT ";" ("Architecture" "=" architecture=STRING ";")?
+		//	"Core" name=ID "{" ("Capacity" "=" capacity=INT ";")? ("Architecture" "=" architecture=STRING ";")?
 		//	("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"Core" name=ID "{" "Capacity" "=" capacity=INT ";" ("Architecture" "=" architecture=STRING ";")? ("Generic properties"
-		//"{" metricParameters+=MetricParameter* "}")? "}"
+		//"Core" name=ID "{" ("Capacity" "=" capacity=INT ";")? ("Architecture" "=" architecture=STRING ";")?
+		//("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Core"
@@ -884,59 +885,62 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
+		//("Capacity" "=" capacity=INT ";")?
+		public Group getGroup_3() { return cGroup_3; }
+
 		//"Capacity"
-		public Keyword getCapacityKeyword_3() { return cCapacityKeyword_3; }
+		public Keyword getCapacityKeyword_3_0() { return cCapacityKeyword_3_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_4() { return cEqualsSignKeyword_4; }
+		public Keyword getEqualsSignKeyword_3_1() { return cEqualsSignKeyword_3_1; }
 
 		//capacity=INT
-		public Assignment getCapacityAssignment_5() { return cCapacityAssignment_5; }
+		public Assignment getCapacityAssignment_3_2() { return cCapacityAssignment_3_2; }
 
 		//INT
-		public RuleCall getCapacityINTTerminalRuleCall_5_0() { return cCapacityINTTerminalRuleCall_5_0; }
+		public RuleCall getCapacityINTTerminalRuleCall_3_2_0() { return cCapacityINTTerminalRuleCall_3_2_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
+		public Keyword getSemicolonKeyword_3_3() { return cSemicolonKeyword_3_3; }
 
 		//("Architecture" "=" architecture=STRING ";")?
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_4() { return cGroup_4; }
 
 		//"Architecture"
-		public Keyword getArchitectureKeyword_7_0() { return cArchitectureKeyword_7_0; }
+		public Keyword getArchitectureKeyword_4_0() { return cArchitectureKeyword_4_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_7_1() { return cEqualsSignKeyword_7_1; }
+		public Keyword getEqualsSignKeyword_4_1() { return cEqualsSignKeyword_4_1; }
 
 		//architecture=STRING
-		public Assignment getArchitectureAssignment_7_2() { return cArchitectureAssignment_7_2; }
+		public Assignment getArchitectureAssignment_4_2() { return cArchitectureAssignment_4_2; }
 
 		//STRING
-		public RuleCall getArchitectureSTRINGTerminalRuleCall_7_2_0() { return cArchitectureSTRINGTerminalRuleCall_7_2_0; }
+		public RuleCall getArchitectureSTRINGTerminalRuleCall_4_2_0() { return cArchitectureSTRINGTerminalRuleCall_4_2_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_7_3() { return cSemicolonKeyword_7_3; }
+		public Keyword getSemicolonKeyword_4_3() { return cSemicolonKeyword_4_3; }
 
 		//("Generic properties" "{" metricParameters+=MetricParameter* "}")?
-		public Group getGroup_8() { return cGroup_8; }
+		public Group getGroup_5() { return cGroup_5; }
 
 		//"Generic properties"
-		public Keyword getGenericPropertiesKeyword_8_0() { return cGenericPropertiesKeyword_8_0; }
+		public Keyword getGenericPropertiesKeyword_5_0() { return cGenericPropertiesKeyword_5_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_8_1() { return cLeftCurlyBracketKeyword_8_1; }
+		public Keyword getLeftCurlyBracketKeyword_5_1() { return cLeftCurlyBracketKeyword_5_1; }
 
 		//metricParameters+=MetricParameter*
-		public Assignment getMetricParametersAssignment_8_2() { return cMetricParametersAssignment_8_2; }
+		public Assignment getMetricParametersAssignment_5_2() { return cMetricParametersAssignment_5_2; }
 
 		//MetricParameter
-		public RuleCall getMetricParametersMetricParameterParserRuleCall_8_2_0() { return cMetricParametersMetricParameterParserRuleCall_8_2_0; }
+		public RuleCall getMetricParametersMetricParameterParserRuleCall_5_2_0() { return cMetricParametersMetricParameterParserRuleCall_5_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_8_3() { return cRightCurlyBracketKeyword_8_3; }
+		public Keyword getRightCurlyBracketKeyword_5_3() { return cRightCurlyBracketKeyword_5_3; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class IOAdapterElements extends AbstractParserRuleElementFinder {
@@ -1857,11 +1861,11 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DissimilarityClause:
 		//	DissimilarityEntry // Der Pfeil ist wichtig!
-		// | "(" (DissimilarityDisjunction | DissimilarityConjunction) ")";
+		//	| "(" (DissimilarityDisjunction | DissimilarityConjunction) ")";
 		public ParserRule getRule() { return rule; }
 
 		//DissimilarityEntry // Der Pfeil ist wichtig!
-		// | "(" (DissimilarityDisjunction | DissimilarityConjunction) ")"
+		//| "(" (DissimilarityDisjunction | DissimilarityConjunction) ")"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//DissimilarityEntry
@@ -2539,29 +2543,29 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//enum IOAdapterType:
 		//	CAN="Can" | ELB="Enhanced Local Bus" | ETH="Ethernet" | ANALOG="Analog" | DIGITAL="Digital" | SERIAL="Serial" |
-		//	CUSTOM0="Custom-Type-0" | CUSTOM1="Custom-Type-1" | CUSTOM2="Custom-Type-2" | CUSTOM3="Custom-Type-3" |
-		//	CUSTOM4="Custom-Type-4" | CUSTOM5="Custom-Type-5" | CUSTOM6="Custom-Type-6" | CUSTOM7="Custom-Type-7" |
-		//	CUSTOM8="Custom-Type-8" | CUSTOM9="Custom-Type-9" | CUSTOM10="Custom-Type-10" | CUSTOM11="Custom-Type-11" |
-		//	CUSTOM12="Custom-Type-12" | CUSTOM13="Custom-Type-13" | CUSTOM14="Custom-Type-14" | CUSTOM15="Custom-Type-15" |
-		//	CUSTOM16="Custom-Type-16" | CUSTOM17="Custom-Type-17" | CUSTOM18="Custom-Type-18" | CUSTOM19="Custom-Type-19" |
-		//	CUSTOM20="Custom-Type-20" | CUSTOM21="Custom-Type-21" | CUSTOM22="Custom-Type-22" | CUSTOM23="Custom-Type-23" |
-		//	CUSTOM24="Custom-Type-24" | CUSTOM25="Custom-Type-25" | CUSTOM26="Custom-Type-26" | CUSTOM27="Custom-Type-27" |
-		//	CUSTOM28="Custom-Type-28" | CUSTOM29="Custom-Type-29" | CUSTOM30="Custom-Type-30" | CUSTOM31="Custom-Type-31" |
-		//	CUSTOM32="Custom-Type-32" | CUSTOM33="Custom-Type-33" | CUSTOM34="Custom-Type-34" | CUSTOM35="Custom-Type-35" |
-		//	CUSTOM36="Custom-Type-36" | CUSTOM37="Custom-Type-37" | CUSTOM38="Custom-Type-38" | CUSTOM39="Custom-Type-39";
+		//	CUSTOM0="CustomType0" | CUSTOM1="CustomType1" | CUSTOM2="CustomType2" | CUSTOM3="CustomType3" | CUSTOM4="CustomType4"
+		//	| CUSTOM5="CustomType5" | CUSTOM6="CustomType6" | CUSTOM7="CustomType7" | CUSTOM8="CustomType8" |
+		//	CUSTOM9="CustomType9" | CUSTOM10="CustomType10" | CUSTOM11="CustomType11" | CUSTOM12="CustomType12" |
+		//	CUSTOM13="CustomType13" | CUSTOM14="CustomType14" | CUSTOM15="CustomType15" | CUSTOM16="CustomType16" |
+		//	CUSTOM17="CustomType17" | CUSTOM18="CustomType18" | CUSTOM19="CustomType19" | CUSTOM20="CustomType20" |
+		//	CUSTOM21="CustomType21" | CUSTOM22="CustomType22" | CUSTOM23="CustomType23" | CUSTOM24="CustomType24" |
+		//	CUSTOM25="CustomType25" | CUSTOM26="CustomType26" | CUSTOM27="CustomType27" | CUSTOM28="CustomType28" |
+		//	CUSTOM29="CustomType29" | CUSTOM30="CustomType30" | CUSTOM31="CustomType31" | CUSTOM32="CustomType32" |
+		//	CUSTOM33="CustomType33" | CUSTOM34="CustomType34" | CUSTOM35="CustomType35" | CUSTOM36="CustomType36" |
+		//	CUSTOM37="CustomType37" | CUSTOM38="CustomType38" | CUSTOM39="CustomType39";
 		public EnumRule getRule() { return rule; }
 
 		//CAN="Can" | ELB="Enhanced Local Bus" | ETH="Ethernet" | ANALOG="Analog" | DIGITAL="Digital" | SERIAL="Serial" |
-		//CUSTOM0="Custom-Type-0" | CUSTOM1="Custom-Type-1" | CUSTOM2="Custom-Type-2" | CUSTOM3="Custom-Type-3" |
-		//CUSTOM4="Custom-Type-4" | CUSTOM5="Custom-Type-5" | CUSTOM6="Custom-Type-6" | CUSTOM7="Custom-Type-7" |
-		//CUSTOM8="Custom-Type-8" | CUSTOM9="Custom-Type-9" | CUSTOM10="Custom-Type-10" | CUSTOM11="Custom-Type-11" |
-		//CUSTOM12="Custom-Type-12" | CUSTOM13="Custom-Type-13" | CUSTOM14="Custom-Type-14" | CUSTOM15="Custom-Type-15" |
-		//CUSTOM16="Custom-Type-16" | CUSTOM17="Custom-Type-17" | CUSTOM18="Custom-Type-18" | CUSTOM19="Custom-Type-19" |
-		//CUSTOM20="Custom-Type-20" | CUSTOM21="Custom-Type-21" | CUSTOM22="Custom-Type-22" | CUSTOM23="Custom-Type-23" |
-		//CUSTOM24="Custom-Type-24" | CUSTOM25="Custom-Type-25" | CUSTOM26="Custom-Type-26" | CUSTOM27="Custom-Type-27" |
-		//CUSTOM28="Custom-Type-28" | CUSTOM29="Custom-Type-29" | CUSTOM30="Custom-Type-30" | CUSTOM31="Custom-Type-31" |
-		//CUSTOM32="Custom-Type-32" | CUSTOM33="Custom-Type-33" | CUSTOM34="Custom-Type-34" | CUSTOM35="Custom-Type-35" |
-		//CUSTOM36="Custom-Type-36" | CUSTOM37="Custom-Type-37" | CUSTOM38="Custom-Type-38" | CUSTOM39="Custom-Type-39"
+		//CUSTOM0="CustomType0" | CUSTOM1="CustomType1" | CUSTOM2="CustomType2" | CUSTOM3="CustomType3" | CUSTOM4="CustomType4"
+		//| CUSTOM5="CustomType5" | CUSTOM6="CustomType6" | CUSTOM7="CustomType7" | CUSTOM8="CustomType8" |
+		//CUSTOM9="CustomType9" | CUSTOM10="CustomType10" | CUSTOM11="CustomType11" | CUSTOM12="CustomType12" |
+		//CUSTOM13="CustomType13" | CUSTOM14="CustomType14" | CUSTOM15="CustomType15" | CUSTOM16="CustomType16" |
+		//CUSTOM17="CustomType17" | CUSTOM18="CustomType18" | CUSTOM19="CustomType19" | CUSTOM20="CustomType20" |
+		//CUSTOM21="CustomType21" | CUSTOM22="CustomType22" | CUSTOM23="CustomType23" | CUSTOM24="CustomType24" |
+		//CUSTOM25="CustomType25" | CUSTOM26="CustomType26" | CUSTOM27="CustomType27" | CUSTOM28="CustomType28" |
+		//CUSTOM29="CustomType29" | CUSTOM30="CustomType30" | CUSTOM31="CustomType31" | CUSTOM32="CustomType32" |
+		//CUSTOM33="CustomType33" | CUSTOM34="CustomType34" | CUSTOM35="CustomType35" | CUSTOM36="CustomType36" |
+		//CUSTOM37="CustomType37" | CUSTOM38="CustomType38" | CUSTOM39="CustomType39"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//CAN="Can"
@@ -2600,244 +2604,244 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Serial"
 		public Keyword getSERIALSerialKeyword_5_0() { return cSERIALSerialKeyword_5_0; }
 
-		//CUSTOM0="Custom-Type-0"
+		//CUSTOM0="CustomType0"
 		public EnumLiteralDeclaration getCUSTOM0EnumLiteralDeclaration_6() { return cCUSTOM0EnumLiteralDeclaration_6; }
 
-		//"Custom-Type-0"
+		//"CustomType0"
 		public Keyword getCUSTOM0CustomType0Keyword_6_0() { return cCUSTOM0CustomType0Keyword_6_0; }
 
-		//CUSTOM1="Custom-Type-1"
+		//CUSTOM1="CustomType1"
 		public EnumLiteralDeclaration getCUSTOM1EnumLiteralDeclaration_7() { return cCUSTOM1EnumLiteralDeclaration_7; }
 
-		//"Custom-Type-1"
+		//"CustomType1"
 		public Keyword getCUSTOM1CustomType1Keyword_7_0() { return cCUSTOM1CustomType1Keyword_7_0; }
 
-		//CUSTOM2="Custom-Type-2"
+		//CUSTOM2="CustomType2"
 		public EnumLiteralDeclaration getCUSTOM2EnumLiteralDeclaration_8() { return cCUSTOM2EnumLiteralDeclaration_8; }
 
-		//"Custom-Type-2"
+		//"CustomType2"
 		public Keyword getCUSTOM2CustomType2Keyword_8_0() { return cCUSTOM2CustomType2Keyword_8_0; }
 
-		//CUSTOM3="Custom-Type-3"
+		//CUSTOM3="CustomType3"
 		public EnumLiteralDeclaration getCUSTOM3EnumLiteralDeclaration_9() { return cCUSTOM3EnumLiteralDeclaration_9; }
 
-		//"Custom-Type-3"
+		//"CustomType3"
 		public Keyword getCUSTOM3CustomType3Keyword_9_0() { return cCUSTOM3CustomType3Keyword_9_0; }
 
-		//CUSTOM4="Custom-Type-4"
+		//CUSTOM4="CustomType4"
 		public EnumLiteralDeclaration getCUSTOM4EnumLiteralDeclaration_10() { return cCUSTOM4EnumLiteralDeclaration_10; }
 
-		//"Custom-Type-4"
+		//"CustomType4"
 		public Keyword getCUSTOM4CustomType4Keyword_10_0() { return cCUSTOM4CustomType4Keyword_10_0; }
 
-		//CUSTOM5="Custom-Type-5"
+		//CUSTOM5="CustomType5"
 		public EnumLiteralDeclaration getCUSTOM5EnumLiteralDeclaration_11() { return cCUSTOM5EnumLiteralDeclaration_11; }
 
-		//"Custom-Type-5"
+		//"CustomType5"
 		public Keyword getCUSTOM5CustomType5Keyword_11_0() { return cCUSTOM5CustomType5Keyword_11_0; }
 
-		//CUSTOM6="Custom-Type-6"
+		//CUSTOM6="CustomType6"
 		public EnumLiteralDeclaration getCUSTOM6EnumLiteralDeclaration_12() { return cCUSTOM6EnumLiteralDeclaration_12; }
 
-		//"Custom-Type-6"
+		//"CustomType6"
 		public Keyword getCUSTOM6CustomType6Keyword_12_0() { return cCUSTOM6CustomType6Keyword_12_0; }
 
-		//CUSTOM7="Custom-Type-7"
+		//CUSTOM7="CustomType7"
 		public EnumLiteralDeclaration getCUSTOM7EnumLiteralDeclaration_13() { return cCUSTOM7EnumLiteralDeclaration_13; }
 
-		//"Custom-Type-7"
+		//"CustomType7"
 		public Keyword getCUSTOM7CustomType7Keyword_13_0() { return cCUSTOM7CustomType7Keyword_13_0; }
 
-		//CUSTOM8="Custom-Type-8"
+		//CUSTOM8="CustomType8"
 		public EnumLiteralDeclaration getCUSTOM8EnumLiteralDeclaration_14() { return cCUSTOM8EnumLiteralDeclaration_14; }
 
-		//"Custom-Type-8"
+		//"CustomType8"
 		public Keyword getCUSTOM8CustomType8Keyword_14_0() { return cCUSTOM8CustomType8Keyword_14_0; }
 
-		//CUSTOM9="Custom-Type-9"
+		//CUSTOM9="CustomType9"
 		public EnumLiteralDeclaration getCUSTOM9EnumLiteralDeclaration_15() { return cCUSTOM9EnumLiteralDeclaration_15; }
 
-		//"Custom-Type-9"
+		//"CustomType9"
 		public Keyword getCUSTOM9CustomType9Keyword_15_0() { return cCUSTOM9CustomType9Keyword_15_0; }
 
-		//CUSTOM10="Custom-Type-10"
+		//CUSTOM10="CustomType10"
 		public EnumLiteralDeclaration getCUSTOM10EnumLiteralDeclaration_16() { return cCUSTOM10EnumLiteralDeclaration_16; }
 
-		//"Custom-Type-10"
+		//"CustomType10"
 		public Keyword getCUSTOM10CustomType10Keyword_16_0() { return cCUSTOM10CustomType10Keyword_16_0; }
 
-		//CUSTOM11="Custom-Type-11"
+		//CUSTOM11="CustomType11"
 		public EnumLiteralDeclaration getCUSTOM11EnumLiteralDeclaration_17() { return cCUSTOM11EnumLiteralDeclaration_17; }
 
-		//"Custom-Type-11"
+		//"CustomType11"
 		public Keyword getCUSTOM11CustomType11Keyword_17_0() { return cCUSTOM11CustomType11Keyword_17_0; }
 
-		//CUSTOM12="Custom-Type-12"
+		//CUSTOM12="CustomType12"
 		public EnumLiteralDeclaration getCUSTOM12EnumLiteralDeclaration_18() { return cCUSTOM12EnumLiteralDeclaration_18; }
 
-		//"Custom-Type-12"
+		//"CustomType12"
 		public Keyword getCUSTOM12CustomType12Keyword_18_0() { return cCUSTOM12CustomType12Keyword_18_0; }
 
-		//CUSTOM13="Custom-Type-13"
+		//CUSTOM13="CustomType13"
 		public EnumLiteralDeclaration getCUSTOM13EnumLiteralDeclaration_19() { return cCUSTOM13EnumLiteralDeclaration_19; }
 
-		//"Custom-Type-13"
+		//"CustomType13"
 		public Keyword getCUSTOM13CustomType13Keyword_19_0() { return cCUSTOM13CustomType13Keyword_19_0; }
 
-		//CUSTOM14="Custom-Type-14"
+		//CUSTOM14="CustomType14"
 		public EnumLiteralDeclaration getCUSTOM14EnumLiteralDeclaration_20() { return cCUSTOM14EnumLiteralDeclaration_20; }
 
-		//"Custom-Type-14"
+		//"CustomType14"
 		public Keyword getCUSTOM14CustomType14Keyword_20_0() { return cCUSTOM14CustomType14Keyword_20_0; }
 
-		//CUSTOM15="Custom-Type-15"
+		//CUSTOM15="CustomType15"
 		public EnumLiteralDeclaration getCUSTOM15EnumLiteralDeclaration_21() { return cCUSTOM15EnumLiteralDeclaration_21; }
 
-		//"Custom-Type-15"
+		//"CustomType15"
 		public Keyword getCUSTOM15CustomType15Keyword_21_0() { return cCUSTOM15CustomType15Keyword_21_0; }
 
-		//CUSTOM16="Custom-Type-16"
+		//CUSTOM16="CustomType16"
 		public EnumLiteralDeclaration getCUSTOM16EnumLiteralDeclaration_22() { return cCUSTOM16EnumLiteralDeclaration_22; }
 
-		//"Custom-Type-16"
+		//"CustomType16"
 		public Keyword getCUSTOM16CustomType16Keyword_22_0() { return cCUSTOM16CustomType16Keyword_22_0; }
 
-		//CUSTOM17="Custom-Type-17"
+		//CUSTOM17="CustomType17"
 		public EnumLiteralDeclaration getCUSTOM17EnumLiteralDeclaration_23() { return cCUSTOM17EnumLiteralDeclaration_23; }
 
-		//"Custom-Type-17"
+		//"CustomType17"
 		public Keyword getCUSTOM17CustomType17Keyword_23_0() { return cCUSTOM17CustomType17Keyword_23_0; }
 
-		//CUSTOM18="Custom-Type-18"
+		//CUSTOM18="CustomType18"
 		public EnumLiteralDeclaration getCUSTOM18EnumLiteralDeclaration_24() { return cCUSTOM18EnumLiteralDeclaration_24; }
 
-		//"Custom-Type-18"
+		//"CustomType18"
 		public Keyword getCUSTOM18CustomType18Keyword_24_0() { return cCUSTOM18CustomType18Keyword_24_0; }
 
-		//CUSTOM19="Custom-Type-19"
+		//CUSTOM19="CustomType19"
 		public EnumLiteralDeclaration getCUSTOM19EnumLiteralDeclaration_25() { return cCUSTOM19EnumLiteralDeclaration_25; }
 
-		//"Custom-Type-19"
+		//"CustomType19"
 		public Keyword getCUSTOM19CustomType19Keyword_25_0() { return cCUSTOM19CustomType19Keyword_25_0; }
 
-		//CUSTOM20="Custom-Type-20"
+		//CUSTOM20="CustomType20"
 		public EnumLiteralDeclaration getCUSTOM20EnumLiteralDeclaration_26() { return cCUSTOM20EnumLiteralDeclaration_26; }
 
-		//"Custom-Type-20"
+		//"CustomType20"
 		public Keyword getCUSTOM20CustomType20Keyword_26_0() { return cCUSTOM20CustomType20Keyword_26_0; }
 
-		//CUSTOM21="Custom-Type-21"
+		//CUSTOM21="CustomType21"
 		public EnumLiteralDeclaration getCUSTOM21EnumLiteralDeclaration_27() { return cCUSTOM21EnumLiteralDeclaration_27; }
 
-		//"Custom-Type-21"
+		//"CustomType21"
 		public Keyword getCUSTOM21CustomType21Keyword_27_0() { return cCUSTOM21CustomType21Keyword_27_0; }
 
-		//CUSTOM22="Custom-Type-22"
+		//CUSTOM22="CustomType22"
 		public EnumLiteralDeclaration getCUSTOM22EnumLiteralDeclaration_28() { return cCUSTOM22EnumLiteralDeclaration_28; }
 
-		//"Custom-Type-22"
+		//"CustomType22"
 		public Keyword getCUSTOM22CustomType22Keyword_28_0() { return cCUSTOM22CustomType22Keyword_28_0; }
 
-		//CUSTOM23="Custom-Type-23"
+		//CUSTOM23="CustomType23"
 		public EnumLiteralDeclaration getCUSTOM23EnumLiteralDeclaration_29() { return cCUSTOM23EnumLiteralDeclaration_29; }
 
-		//"Custom-Type-23"
+		//"CustomType23"
 		public Keyword getCUSTOM23CustomType23Keyword_29_0() { return cCUSTOM23CustomType23Keyword_29_0; }
 
-		//CUSTOM24="Custom-Type-24"
+		//CUSTOM24="CustomType24"
 		public EnumLiteralDeclaration getCUSTOM24EnumLiteralDeclaration_30() { return cCUSTOM24EnumLiteralDeclaration_30; }
 
-		//"Custom-Type-24"
+		//"CustomType24"
 		public Keyword getCUSTOM24CustomType24Keyword_30_0() { return cCUSTOM24CustomType24Keyword_30_0; }
 
-		//CUSTOM25="Custom-Type-25"
+		//CUSTOM25="CustomType25"
 		public EnumLiteralDeclaration getCUSTOM25EnumLiteralDeclaration_31() { return cCUSTOM25EnumLiteralDeclaration_31; }
 
-		//"Custom-Type-25"
+		//"CustomType25"
 		public Keyword getCUSTOM25CustomType25Keyword_31_0() { return cCUSTOM25CustomType25Keyword_31_0; }
 
-		//CUSTOM26="Custom-Type-26"
+		//CUSTOM26="CustomType26"
 		public EnumLiteralDeclaration getCUSTOM26EnumLiteralDeclaration_32() { return cCUSTOM26EnumLiteralDeclaration_32; }
 
-		//"Custom-Type-26"
+		//"CustomType26"
 		public Keyword getCUSTOM26CustomType26Keyword_32_0() { return cCUSTOM26CustomType26Keyword_32_0; }
 
-		//CUSTOM27="Custom-Type-27"
+		//CUSTOM27="CustomType27"
 		public EnumLiteralDeclaration getCUSTOM27EnumLiteralDeclaration_33() { return cCUSTOM27EnumLiteralDeclaration_33; }
 
-		//"Custom-Type-27"
+		//"CustomType27"
 		public Keyword getCUSTOM27CustomType27Keyword_33_0() { return cCUSTOM27CustomType27Keyword_33_0; }
 
-		//CUSTOM28="Custom-Type-28"
+		//CUSTOM28="CustomType28"
 		public EnumLiteralDeclaration getCUSTOM28EnumLiteralDeclaration_34() { return cCUSTOM28EnumLiteralDeclaration_34; }
 
-		//"Custom-Type-28"
+		//"CustomType28"
 		public Keyword getCUSTOM28CustomType28Keyword_34_0() { return cCUSTOM28CustomType28Keyword_34_0; }
 
-		//CUSTOM29="Custom-Type-29"
+		//CUSTOM29="CustomType29"
 		public EnumLiteralDeclaration getCUSTOM29EnumLiteralDeclaration_35() { return cCUSTOM29EnumLiteralDeclaration_35; }
 
-		//"Custom-Type-29"
+		//"CustomType29"
 		public Keyword getCUSTOM29CustomType29Keyword_35_0() { return cCUSTOM29CustomType29Keyword_35_0; }
 
-		//CUSTOM30="Custom-Type-30"
+		//CUSTOM30="CustomType30"
 		public EnumLiteralDeclaration getCUSTOM30EnumLiteralDeclaration_36() { return cCUSTOM30EnumLiteralDeclaration_36; }
 
-		//"Custom-Type-30"
+		//"CustomType30"
 		public Keyword getCUSTOM30CustomType30Keyword_36_0() { return cCUSTOM30CustomType30Keyword_36_0; }
 
-		//CUSTOM31="Custom-Type-31"
+		//CUSTOM31="CustomType31"
 		public EnumLiteralDeclaration getCUSTOM31EnumLiteralDeclaration_37() { return cCUSTOM31EnumLiteralDeclaration_37; }
 
-		//"Custom-Type-31"
+		//"CustomType31"
 		public Keyword getCUSTOM31CustomType31Keyword_37_0() { return cCUSTOM31CustomType31Keyword_37_0; }
 
-		//CUSTOM32="Custom-Type-32"
+		//CUSTOM32="CustomType32"
 		public EnumLiteralDeclaration getCUSTOM32EnumLiteralDeclaration_38() { return cCUSTOM32EnumLiteralDeclaration_38; }
 
-		//"Custom-Type-32"
+		//"CustomType32"
 		public Keyword getCUSTOM32CustomType32Keyword_38_0() { return cCUSTOM32CustomType32Keyword_38_0; }
 
-		//CUSTOM33="Custom-Type-33"
+		//CUSTOM33="CustomType33"
 		public EnumLiteralDeclaration getCUSTOM33EnumLiteralDeclaration_39() { return cCUSTOM33EnumLiteralDeclaration_39; }
 
-		//"Custom-Type-33"
+		//"CustomType33"
 		public Keyword getCUSTOM33CustomType33Keyword_39_0() { return cCUSTOM33CustomType33Keyword_39_0; }
 
-		//CUSTOM34="Custom-Type-34"
+		//CUSTOM34="CustomType34"
 		public EnumLiteralDeclaration getCUSTOM34EnumLiteralDeclaration_40() { return cCUSTOM34EnumLiteralDeclaration_40; }
 
-		//"Custom-Type-34"
+		//"CustomType34"
 		public Keyword getCUSTOM34CustomType34Keyword_40_0() { return cCUSTOM34CustomType34Keyword_40_0; }
 
-		//CUSTOM35="Custom-Type-35"
+		//CUSTOM35="CustomType35"
 		public EnumLiteralDeclaration getCUSTOM35EnumLiteralDeclaration_41() { return cCUSTOM35EnumLiteralDeclaration_41; }
 
-		//"Custom-Type-35"
+		//"CustomType35"
 		public Keyword getCUSTOM35CustomType35Keyword_41_0() { return cCUSTOM35CustomType35Keyword_41_0; }
 
-		//CUSTOM36="Custom-Type-36"
+		//CUSTOM36="CustomType36"
 		public EnumLiteralDeclaration getCUSTOM36EnumLiteralDeclaration_42() { return cCUSTOM36EnumLiteralDeclaration_42; }
 
-		//"Custom-Type-36"
+		//"CustomType36"
 		public Keyword getCUSTOM36CustomType36Keyword_42_0() { return cCUSTOM36CustomType36Keyword_42_0; }
 
-		//CUSTOM37="Custom-Type-37"
+		//CUSTOM37="CustomType37"
 		public EnumLiteralDeclaration getCUSTOM37EnumLiteralDeclaration_43() { return cCUSTOM37EnumLiteralDeclaration_43; }
 
-		//"Custom-Type-37"
+		//"CustomType37"
 		public Keyword getCUSTOM37CustomType37Keyword_43_0() { return cCUSTOM37CustomType37Keyword_43_0; }
 
-		//CUSTOM38="Custom-Type-38"
+		//CUSTOM38="CustomType38"
 		public EnumLiteralDeclaration getCUSTOM38EnumLiteralDeclaration_44() { return cCUSTOM38EnumLiteralDeclaration_44; }
 
-		//"Custom-Type-38"
+		//"CustomType38"
 		public Keyword getCUSTOM38CustomType38Keyword_44_0() { return cCUSTOM38CustomType38Keyword_44_0; }
 
-		//CUSTOM39="Custom-Type-39"
+		//CUSTOM39="CustomType39"
 		public EnumLiteralDeclaration getCUSTOM39EnumLiteralDeclaration_45() { return cCUSTOM39EnumLiteralDeclaration_45; }
 
-		//"Custom-Type-39"
+		//"CustomType39"
 		public Keyword getCUSTOM39CustomType39Keyword_45_0() { return cCUSTOM39CustomType39Keyword_45_0; }
 	}
 	
@@ -3012,7 +3016,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Core:
-	//	"Core" name=ID "{" "Capacity" "=" capacity=INT ";" ("Architecture" "=" architecture=STRING ";")?
+	//	"Core" name=ID "{" ("Capacity" "=" capacity=INT ";")? ("Architecture" "=" architecture=STRING ";")?
 	//	("Generic properties" "{" metricParameters+=MetricParameter* "}")? "}";
 	public CoreElements getCoreAccess() {
 		return pCore;
@@ -3130,7 +3134,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//DissimilarityClause:
 	//	DissimilarityEntry // Der Pfeil ist wichtig!
-	// | "(" (DissimilarityDisjunction | DissimilarityConjunction) ")";
+	//	| "(" (DissimilarityDisjunction | DissimilarityConjunction) ")";
 	public DissimilarityClauseElements getDissimilarityClauseAccess() {
 		return pDissimilarityClause;
 	}
@@ -3264,16 +3268,16 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//enum IOAdapterType:
 	//	CAN="Can" | ELB="Enhanced Local Bus" | ETH="Ethernet" | ANALOG="Analog" | DIGITAL="Digital" | SERIAL="Serial" |
-	//	CUSTOM0="Custom-Type-0" | CUSTOM1="Custom-Type-1" | CUSTOM2="Custom-Type-2" | CUSTOM3="Custom-Type-3" |
-	//	CUSTOM4="Custom-Type-4" | CUSTOM5="Custom-Type-5" | CUSTOM6="Custom-Type-6" | CUSTOM7="Custom-Type-7" |
-	//	CUSTOM8="Custom-Type-8" | CUSTOM9="Custom-Type-9" | CUSTOM10="Custom-Type-10" | CUSTOM11="Custom-Type-11" |
-	//	CUSTOM12="Custom-Type-12" | CUSTOM13="Custom-Type-13" | CUSTOM14="Custom-Type-14" | CUSTOM15="Custom-Type-15" |
-	//	CUSTOM16="Custom-Type-16" | CUSTOM17="Custom-Type-17" | CUSTOM18="Custom-Type-18" | CUSTOM19="Custom-Type-19" |
-	//	CUSTOM20="Custom-Type-20" | CUSTOM21="Custom-Type-21" | CUSTOM22="Custom-Type-22" | CUSTOM23="Custom-Type-23" |
-	//	CUSTOM24="Custom-Type-24" | CUSTOM25="Custom-Type-25" | CUSTOM26="Custom-Type-26" | CUSTOM27="Custom-Type-27" |
-	//	CUSTOM28="Custom-Type-28" | CUSTOM29="Custom-Type-29" | CUSTOM30="Custom-Type-30" | CUSTOM31="Custom-Type-31" |
-	//	CUSTOM32="Custom-Type-32" | CUSTOM33="Custom-Type-33" | CUSTOM34="Custom-Type-34" | CUSTOM35="Custom-Type-35" |
-	//	CUSTOM36="Custom-Type-36" | CUSTOM37="Custom-Type-37" | CUSTOM38="Custom-Type-38" | CUSTOM39="Custom-Type-39";
+	//	CUSTOM0="CustomType0" | CUSTOM1="CustomType1" | CUSTOM2="CustomType2" | CUSTOM3="CustomType3" | CUSTOM4="CustomType4"
+	//	| CUSTOM5="CustomType5" | CUSTOM6="CustomType6" | CUSTOM7="CustomType7" | CUSTOM8="CustomType8" |
+	//	CUSTOM9="CustomType9" | CUSTOM10="CustomType10" | CUSTOM11="CustomType11" | CUSTOM12="CustomType12" |
+	//	CUSTOM13="CustomType13" | CUSTOM14="CustomType14" | CUSTOM15="CustomType15" | CUSTOM16="CustomType16" |
+	//	CUSTOM17="CustomType17" | CUSTOM18="CustomType18" | CUSTOM19="CustomType19" | CUSTOM20="CustomType20" |
+	//	CUSTOM21="CustomType21" | CUSTOM22="CustomType22" | CUSTOM23="CustomType23" | CUSTOM24="CustomType24" |
+	//	CUSTOM25="CustomType25" | CUSTOM26="CustomType26" | CUSTOM27="CustomType27" | CUSTOM28="CustomType28" |
+	//	CUSTOM29="CustomType29" | CUSTOM30="CustomType30" | CUSTOM31="CustomType31" | CUSTOM32="CustomType32" |
+	//	CUSTOM33="CustomType33" | CUSTOM34="CustomType34" | CUSTOM35="CustomType35" | CUSTOM36="CustomType36" |
+	//	CUSTOM37="CustomType37" | CUSTOM38="CustomType38" | CUSTOM39="CustomType39";
 	public IOAdapterTypeElements getIOAdapterTypeAccess() {
 		return unknownRuleIOAdapterType;
 	}
