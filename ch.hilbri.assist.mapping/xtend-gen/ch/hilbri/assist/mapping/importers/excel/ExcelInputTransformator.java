@@ -39,7 +39,9 @@ public class ExcelInputTransformator {
   public static String createMDSLFileInput(final String filePath) {
     String _createHeader = ExcelInputTransformator.createHeader(filePath);
     String _createBoardsAndIOAdapters = ExcelInputTransformator.createBoardsAndIOAdapters(filePath);
-    return (_createHeader + _createBoardsAndIOAdapters);
+    String _plus = (_createHeader + _createBoardsAndIOAdapters);
+    String _createApplicationsAndGroups = ExcelInputTransformator.createApplicationsAndGroups(filePath);
+    return (_plus + _createApplicationsAndGroups);
   }
   
   public static String createHeader(final String filePath) {
@@ -359,10 +361,10 @@ public class ExcelInputTransformator {
             final String interfaceType = ExcelInputTransformator.clear(_contents_4);
             Cell _cell_5 = sheet.getCell(9, (row).intValue());
             String _contents_5 = _cell_5.getContents();
-            final String paramCableWeight = ExcelInputTransformator.clear(_contents_5);
+            final String paramWeight = ExcelInputTransformator.clear(_contents_5);
             Cell _cell_6 = sheet.getCell(10, (row).intValue());
             String _contents_6 = _cell_6.getContents();
-            final String paramPower = ExcelInputTransformator.clear(_contents_6);
+            final String paramEqPower = ExcelInputTransformator.clear(_contents_6);
             Cell _cell_7 = sheet.getCell(13, (row).intValue());
             String _contents_7 = _cell_7.getContents();
             final String paramEqPosX = ExcelInputTransformator.clear(_contents_7);
@@ -413,11 +415,11 @@ public class ExcelInputTransformator {
                 Map<String, Integer> _ioAdapterRequirements_3 = application.getIoAdapterRequirements();
                 _ioAdapterRequirements_3.put(ioAdapterType, Integer.valueOf(ioAdapterCount));
               }
-              int _length_2 = paramCableWeight.length();
+              int _length_2 = paramWeight.length();
               boolean _greaterThan_2 = (_length_2 > 0);
               if (_greaterThan_2) {
                 Map<String, String> _genericParameters = application.getGenericParameters();
-                _genericParameters.put("CABLE_WEIGHT", paramCableWeight);
+                _genericParameters.put("CABLE_WEIGHT", paramWeight);
               }
               int _length_3 = paramEqPosX.length();
               boolean _greaterThan_3 = (_length_3 > 0);
@@ -431,11 +433,11 @@ public class ExcelInputTransformator {
                 Map<String, String> _genericParameters_2 = application.getGenericParameters();
                 _genericParameters_2.put("EQ_POSITION_Y", paramEqPosY);
               }
-              int _length_5 = paramPower.length();
+              int _length_5 = paramEqPower.length();
               boolean _greaterThan_5 = (_length_5 > 0);
               if (_greaterThan_5) {
                 Map<String, String> _genericParameters_3 = application.getGenericParameters();
-                _genericParameters_3.put("POWER", paramPower);
+                _genericParameters_3.put("EQ_POWER", paramEqPower);
               }
               final String genParmProtectionLevel = paramProtectionLvl.substring(1);
               int _length_6 = paramProtectionLvl.length();
@@ -481,10 +483,6 @@ public class ExcelInputTransformator {
           _builder.newLineIfNotEmpty();
           _builder.append("\t");
           _builder.append("\t");
-          _builder.append("Core-utilization = 0;");
-          _builder.newLine();
-          _builder.append("\t");
-          _builder.append("\t");
           {
             String _protectionLevel = application.getProtectionLevel();
             int _length = _protectionLevel.length();
@@ -501,21 +499,16 @@ public class ExcelInputTransformator {
             Map<String, Integer> _ioAdapterRequirements = application.getIoAdapterRequirements();
             Set<String> _keySet = _ioAdapterRequirements.keySet();
             for(final String ioReq : _keySet) {
-              {
-                Map<String, Integer> _ioAdapterRequirements_1 = application.getIoAdapterRequirements();
-                Integer _get = _ioAdapterRequirements_1.get(ioReq);
-                for(final Integer i : new IntegerRange(1, (_get).intValue())) {
-                  _builder.append("\t");
-                  _builder.append("\t");
-                  _builder.append("Requires 1 ");
-                  _builder.append(ioReq, "\t\t");
-                  _builder.append(" adapter (exclusive access);");
-                  _builder.newLineIfNotEmpty();
-                }
-              }
               _builder.append("\t");
               _builder.append("\t");
-              _builder.newLine();
+              _builder.append("Requires ");
+              Map<String, Integer> _ioAdapterRequirements_1 = application.getIoAdapterRequirements();
+              Integer _get = _ioAdapterRequirements_1.get(ioReq);
+              _builder.append(_get, "\t\t");
+              _builder.append(" ");
+              _builder.append(ioReq, "\t\t");
+              _builder.append(" adapter exclusive;");
+              _builder.newLineIfNotEmpty();
             }
           }
           _builder.append("\t");

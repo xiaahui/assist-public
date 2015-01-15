@@ -21,7 +21,7 @@ class ExcelInputTransformator {
 		return
 			createHeader(filePath) 
 			+ createBoardsAndIOAdapters(filePath) 
-//			+ createApplicationsAndGroups(filePath) 
+			+ createApplicationsAndGroups(filePath) 
 	}
 
 	def static createHeader(String filePath) {
@@ -166,16 +166,16 @@ Hardware {
 			for (row : 1 ..< sheet.rows) {
 
 				// Retrieve raw data from excel and clean it
-				val systemName = clear(sheet.getCell(0, row).contents) // Spalte: A
-				val subSystemName = clear(sheet.getCell(1, row).contents) // Spalte: B
-				val equipmentName = clear(sheet.getCell(11, row).contents) // Spalte: L
-				val interfaceUnit = clear(sheet.getCell(8, row).contents) // Spalte: I 	
-				val interfaceType = clear(sheet.getCell(7, row).contents) // Spalte: H
-				val paramCableWeight = clear(sheet.getCell(9, row).contents) // Spalte: J
-				val paramPower = clear(sheet.getCell(10, row).contents) // Spalte: K
-				val paramEqPosX = clear(sheet.getCell(13, row).contents) // Spalte: N
-				val paramEqPosY = clear(sheet.getCell(14, row).contents) // Spalte: O
-				val paramProtectionLvl = clear(sheet.getCell(15, row).contents) // Spalte: P
+				val systemName 			= clear(sheet.getCell(0, row).contents)  // Spalte: A
+				val subSystemName 		= clear(sheet.getCell(1, row).contents)  // Spalte: B
+				val equipmentName 		= clear(sheet.getCell(11, row).contents) // Spalte: L
+				val interfaceUnit 		= clear(sheet.getCell(8, row).contents)  // Spalte: I 	
+				val interfaceType 		= clear(sheet.getCell(7, row).contents)  // Spalte: H
+				val paramWeight		 	= clear(sheet.getCell(9, row).contents)  // Spalte: J
+				val paramEqPower		= clear(sheet.getCell(10, row).contents) // Spalte: K
+				val paramEqPosX 		= clear(sheet.getCell(13, row).contents) // Spalte: N
+				val paramEqPosY 		= clear(sheet.getCell(14, row).contents) // Spalte: O
+				val paramProtectionLvl 	= clear(sheet.getCell(15, row).contents) // Spalte: P
 
 				// Is this line empty?
 				if (systemName.length > 0) {
@@ -201,23 +201,22 @@ Hardware {
 					}
 
 					// ****** IO Adapter Type **************
-					// PrÃ¼fe, ob wir fÃ¼r diese App schon diesen IO Adapter Type hatten
+					// Pruefe, ob wir fuer diese App schon diesen IO Adapter Type hatten
 					if (application.ioAdapterRequirements.containsKey(ioAdapterType))
-						// Ja, diesen hatten wir schon - zÃ¤hle die Anzahl der benÃ¶tigten Adapter hoch
-						application.ioAdapterRequirements.put(ioAdapterType,
-							application.ioAdapterRequirements.get(ioAdapterType) + ioAdapterCount)
+						// Ja, diesen hatten wir schon - zaehle die Anzahl der benoetigten Adapter hoch
+						application.ioAdapterRequirements.put(ioAdapterType, application.ioAdapterRequirements.get(ioAdapterType) + ioAdapterCount)
 					else
-						// Nein, diesen hatten wir noch nicht - fÃ¼ge ihn einfach hinzu
+						// Nein, diesen hatten wir noch nicht - fuege ihn einfach hinzu
 						application.ioAdapterRequirements.put(ioAdapterType, ioAdapterCount)
 
 					// ****** PARAMETER **************				
-					if(paramCableWeight.length > 0) application.genericParameters.put("CABLE_WEIGHT", paramCableWeight)
-					if(paramEqPosX.length > 0) application.genericParameters.put("EQ_POSITION_X", paramEqPosX)
-					if(paramEqPosY.length > 0) application.genericParameters.put("EQ_POSITION_Y", paramEqPosY)
-					if(paramPower.length > 0) application.genericParameters.put("POWER", paramPower)
+					if(paramWeight.length > 0) 	application.genericParameters.put("CABLE_WEIGHT", paramWeight)
+					if(paramEqPosX.length > 0) 	application.genericParameters.put("EQ_POSITION_X", paramEqPosX)
+					if(paramEqPosY.length > 0) 	application.genericParameters.put("EQ_POSITION_Y", paramEqPosY)
+					if(paramEqPower.length > 0) application.genericParameters.put("EQ_POWER", paramEqPower)
 					
 					// EQ Protection Level wird als L1 ... L8 angegeben; bei den generischen Parametern sind allerdings
-					// nur Integer Zahlen als gÃ¼ltige Werte erlaubt.
+					// nur Integer Zahlen als gueltige Werte erlaubt.
 					// Daher schneiden wir den ersten Buchstaben ab.
 					val genParmProtectionLevel = paramProtectionLvl.substring(1)
 					if(paramProtectionLvl.length > 0) application.genericParameters.put("EQ_PROTECTION_LEVEL", genParmProtectionLevel)
@@ -242,13 +241,9 @@ Hardware {
 Software {
 	«FOR application : allApplications»
 	Application «application.name» {
-		Core-utilization = 0;
 		«IF application.protectionLevel.length > 0»Required IO protection = «application.protectionLevel»;«ENDIF»
 		«FOR ioReq : application.ioAdapterRequirements.keySet»
-		«FOR i : {1..application.ioAdapterRequirements.get(ioReq)}»
-		Requires 1 «ioReq» adapter (exclusive access);
-		«ENDFOR»
-		
+		Requires «application.ioAdapterRequirements.get(ioReq)» «ioReq» adapter exclusive;
 		«ENDFOR»
 		Generic properties { 
 			«FOR p : application.genericParameters.keySet»
