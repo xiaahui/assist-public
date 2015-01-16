@@ -2176,16 +2176,18 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cASSURANCELEVELAssuranceLevelKeyword_2_0 = (Keyword)cASSURANCELEVELEnumLiteralDeclaration_2.eContents().get(0);
 		private final EnumLiteralDeclaration cBOARDTYPEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
 		private final Keyword cBOARDTYPEBoardTypeKeyword_3_0 = (Keyword)cBOARDTYPEEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cSIDEEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cSIDESideKeyword_4_0 = (Keyword)cSIDEEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cESSEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cESSESSKeyword_4_0 = (Keyword)cESSEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cSIDEEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cSIDESideKeyword_5_0 = (Keyword)cSIDEEnumLiteralDeclaration_5.eContents().get(0);
 		
 		//enum BoardAttributes:
 		//	MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="AssuranceLevel" | BOARDTYPE="BoardType" |
-		//	SIDE="Side";
+		//	ESS | SIDE="Side";
 		public EnumRule getRule() { return rule; }
 
-		//MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="AssuranceLevel" | BOARDTYPE="BoardType" |
-		//SIDE="Side"
+		//MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="AssuranceLevel" | BOARDTYPE="BoardType" | ESS
+		//| SIDE="Side"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//MANUFACTURER="Manufacturer"
@@ -2212,11 +2214,17 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"BoardType"
 		public Keyword getBOARDTYPEBoardTypeKeyword_3_0() { return cBOARDTYPEBoardTypeKeyword_3_0; }
 
+		//ESS
+		public EnumLiteralDeclaration getESSEnumLiteralDeclaration_4() { return cESSEnumLiteralDeclaration_4; }
+
+		//"ESS"
+		public Keyword getESSESSKeyword_4_0() { return cESSESSKeyword_4_0; }
+
 		//SIDE="Side"
-		public EnumLiteralDeclaration getSIDEEnumLiteralDeclaration_4() { return cSIDEEnumLiteralDeclaration_4; }
+		public EnumLiteralDeclaration getSIDEEnumLiteralDeclaration_5() { return cSIDEEnumLiteralDeclaration_5; }
 
 		//"Side"
-		public Keyword getSIDESideKeyword_4_0() { return cSIDESideKeyword_4_0; }
+		public Keyword getSIDESideKeyword_5_0() { return cSIDESideKeyword_5_0; }
 	}
 
 	public class ProcessorAttributesElements extends AbstractEnumRuleElementFinder {
@@ -3196,7 +3204,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//enum BoardAttributes:
 	//	MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="AssuranceLevel" | BOARDTYPE="BoardType" |
-	//	SIDE="Side";
+	//	ESS | SIDE="Side";
 	public BoardAttributesElements getBoardAttributesAccess() {
 		return unknownRuleBoardAttributes;
 	}

@@ -170,7 +170,8 @@ enum BoardAttributes:
 	POWERSUPPLY 	= 'PowerSupply'		|
 	ASSURANCELEVEL 	= 'AssuranceLevel' 	|
 	BOARDTYPE 		= 'BoardType'       |
-	SIDE			= 'Side'; 		
+	ESS				= 'ESS'				|
+	SIDE			= 'Side'; 	
 
 enum ProcessorAttributes:
 	MANUFACTURER 	= 'Manufacturer' 	| 

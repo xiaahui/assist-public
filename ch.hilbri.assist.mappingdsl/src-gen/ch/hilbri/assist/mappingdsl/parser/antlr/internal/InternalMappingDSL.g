@@ -2979,10 +2979,16 @@ ruleBoardAttributes returns [Enumerator current=null]
         newLeafNode(enumLiteral_3, grammarAccess.getBoardAttributesAccess().getBOARDTYPEEnumLiteralDeclaration_3()); 
     }
 )
-    |(	enumLiteral_4='Side' 
+    |(	enumLiteral_4='ESS' 
 	{
-        $current = grammarAccess.getBoardAttributesAccess().getSIDEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_4, grammarAccess.getBoardAttributesAccess().getSIDEEnumLiteralDeclaration_4()); 
+        $current = grammarAccess.getBoardAttributesAccess().getESSEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_4, grammarAccess.getBoardAttributesAccess().getESSEnumLiteralDeclaration_4()); 
+    }
+)
+    |(	enumLiteral_5='Side' 
+	{
+        $current = grammarAccess.getBoardAttributesAccess().getSIDEEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_5, grammarAccess.getBoardAttributesAccess().getSIDEEnumLiteralDeclaration_5()); 
     }
 ));
 

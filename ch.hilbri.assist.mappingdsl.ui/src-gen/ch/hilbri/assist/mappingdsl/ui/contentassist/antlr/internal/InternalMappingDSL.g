@@ -1027,10 +1027,17 @@ rule__BoardAttributes__Alternatives
 )
 
     |(
-{ before(grammarAccess.getBoardAttributesAccess().getSIDEEnumLiteralDeclaration_4()); }
+{ before(grammarAccess.getBoardAttributesAccess().getESSEnumLiteralDeclaration_4()); }
+(	'ESS' 
+)
+{ after(grammarAccess.getBoardAttributesAccess().getESSEnumLiteralDeclaration_4()); }
+)
+
+    |(
+{ before(grammarAccess.getBoardAttributesAccess().getSIDEEnumLiteralDeclaration_5()); }
 (	'Side' 
 )
-{ after(grammarAccess.getBoardAttributesAccess().getSIDEEnumLiteralDeclaration_4()); }
+{ after(grammarAccess.getBoardAttributesAccess().getSIDEEnumLiteralDeclaration_5()); }
 )
 
 ;
