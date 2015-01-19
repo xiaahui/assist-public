@@ -1014,14 +1014,14 @@ rule__BoardAttributes__Alternatives
 
     |(
 { before(grammarAccess.getBoardAttributesAccess().getASSURANCELEVELEnumLiteralDeclaration_2()); }
-(	'AssuranceLevel' 
+(	'DesignAssuranceLevel' 
 )
 { after(grammarAccess.getBoardAttributesAccess().getASSURANCELEVELEnumLiteralDeclaration_2()); }
 )
 
     |(
 { before(grammarAccess.getBoardAttributesAccess().getBOARDTYPEEnumLiteralDeclaration_3()); }
-(	'BoardType' 
+(	'Type' 
 )
 { after(grammarAccess.getBoardAttributesAccess().getBOARDTYPEEnumLiteralDeclaration_3()); }
 )
@@ -4599,7 +4599,7 @@ rule__Board__Group_5__0__Impl
 (
 { before(grammarAccess.getBoardAccess().getPowerSupplyKeyword_5_0()); }
 
-	'Power supply' 
+	'PowerSupply' 
 
 { after(grammarAccess.getBoardAccess().getPowerSupplyKeyword_5_0()); }
 )
@@ -4728,7 +4728,7 @@ rule__Board__Group_6__0__Impl
 (
 { before(grammarAccess.getBoardAccess().getDesignAssuranceLevelKeyword_6_0()); }
 
-	'Design assurance level' 
+	'DesignAssuranceLevel' 
 
 { after(grammarAccess.getBoardAccess().getDesignAssuranceLevelKeyword_6_0()); }
 )

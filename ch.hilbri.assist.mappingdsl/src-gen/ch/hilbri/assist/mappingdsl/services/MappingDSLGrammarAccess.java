@@ -519,15 +519,15 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_14 = (Keyword)cGroup.eContents().get(14);
 		
 		//Board:
-		//	"Board" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("Type" "=" boardType=STRING ";")? ("Power supply"
-		//	"=" powerSupply=STRING ";")? ("Design assurance level" "=" assuranceLevel=DesignAssuranceLevelType ";")? ("Side" "="
+		//	"Board" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("Type" "=" boardType=STRING ";")? ("PowerSupply"
+		//	"=" powerSupply=STRING ";")? ("DesignAssuranceLevel" "=" assuranceLevel=DesignAssuranceLevelType ";")? ("Side" "="
 		//	side=STRING ";")? ("ESS" "=" ess=STRING ";")? ("RAM capacity" "=" ramCapacity=INT ";")? ("ROM capacity" "="
 		//	romCapacity=INT ";")? processors+=Processor+ ioAdapters+=IOAdapter* ("Generic properties" "{"
 		//	metricParameters+=MetricParameter* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"Board" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("Type" "=" boardType=STRING ";")? ("Power supply" "="
-		//powerSupply=STRING ";")? ("Design assurance level" "=" assuranceLevel=DesignAssuranceLevelType ";")? ("Side" "="
+		//"Board" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("Type" "=" boardType=STRING ";")? ("PowerSupply" "="
+		//powerSupply=STRING ";")? ("DesignAssuranceLevel" "=" assuranceLevel=DesignAssuranceLevelType ";")? ("Side" "="
 		//side=STRING ";")? ("ESS" "=" ess=STRING ";")? ("RAM capacity" "=" ramCapacity=INT ";")? ("ROM capacity" "="
 		//romCapacity=INT ";")? processors+=Processor+ ioAdapters+=IOAdapter* ("Generic properties" "{"
 		//metricParameters+=MetricParameter* "}")? "}"
@@ -581,10 +581,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_4_3() { return cSemicolonKeyword_4_3; }
 
-		//("Power supply" "=" powerSupply=STRING ";")?
+		//("PowerSupply" "=" powerSupply=STRING ";")?
 		public Group getGroup_5() { return cGroup_5; }
 
-		//"Power supply"
+		//"PowerSupply"
 		public Keyword getPowerSupplyKeyword_5_0() { return cPowerSupplyKeyword_5_0; }
 
 		//"="
@@ -599,10 +599,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_5_3() { return cSemicolonKeyword_5_3; }
 
-		//("Design assurance level" "=" assuranceLevel=DesignAssuranceLevelType ";")?
+		//("DesignAssuranceLevel" "=" assuranceLevel=DesignAssuranceLevelType ";")?
 		public Group getGroup_6() { return cGroup_6; }
 
-		//"Design assurance level"
+		//"DesignAssuranceLevel"
 		public Keyword getDesignAssuranceLevelKeyword_6_0() { return cDesignAssuranceLevelKeyword_6_0; }
 
 		//"="
@@ -2173,20 +2173,20 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final EnumLiteralDeclaration cPOWERSUPPLYEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cPOWERSUPPLYPowerSupplyKeyword_1_0 = (Keyword)cPOWERSUPPLYEnumLiteralDeclaration_1.eContents().get(0);
 		private final EnumLiteralDeclaration cASSURANCELEVELEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cASSURANCELEVELAssuranceLevelKeyword_2_0 = (Keyword)cASSURANCELEVELEnumLiteralDeclaration_2.eContents().get(0);
+		private final Keyword cASSURANCELEVELDesignAssuranceLevelKeyword_2_0 = (Keyword)cASSURANCELEVELEnumLiteralDeclaration_2.eContents().get(0);
 		private final EnumLiteralDeclaration cBOARDTYPEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cBOARDTYPEBoardTypeKeyword_3_0 = (Keyword)cBOARDTYPEEnumLiteralDeclaration_3.eContents().get(0);
+		private final Keyword cBOARDTYPETypeKeyword_3_0 = (Keyword)cBOARDTYPEEnumLiteralDeclaration_3.eContents().get(0);
 		private final EnumLiteralDeclaration cESSEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
 		private final Keyword cESSESSKeyword_4_0 = (Keyword)cESSEnumLiteralDeclaration_4.eContents().get(0);
 		private final EnumLiteralDeclaration cSIDEEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
 		private final Keyword cSIDESideKeyword_5_0 = (Keyword)cSIDEEnumLiteralDeclaration_5.eContents().get(0);
 		
 		//enum BoardAttributes:
-		//	MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="AssuranceLevel" | BOARDTYPE="BoardType" |
+		//	MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="DesignAssuranceLevel" | BOARDTYPE="Type" |
 		//	ESS | SIDE="Side";
 		public EnumRule getRule() { return rule; }
 
-		//MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="AssuranceLevel" | BOARDTYPE="BoardType" | ESS
+		//MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="DesignAssuranceLevel" | BOARDTYPE="Type" | ESS
 		//| SIDE="Side"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
@@ -2202,17 +2202,17 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"PowerSupply"
 		public Keyword getPOWERSUPPLYPowerSupplyKeyword_1_0() { return cPOWERSUPPLYPowerSupplyKeyword_1_0; }
 
-		//ASSURANCELEVEL="AssuranceLevel"
+		//ASSURANCELEVEL="DesignAssuranceLevel"
 		public EnumLiteralDeclaration getASSURANCELEVELEnumLiteralDeclaration_2() { return cASSURANCELEVELEnumLiteralDeclaration_2; }
 
-		//"AssuranceLevel"
-		public Keyword getASSURANCELEVELAssuranceLevelKeyword_2_0() { return cASSURANCELEVELAssuranceLevelKeyword_2_0; }
+		//"DesignAssuranceLevel"
+		public Keyword getASSURANCELEVELDesignAssuranceLevelKeyword_2_0() { return cASSURANCELEVELDesignAssuranceLevelKeyword_2_0; }
 
-		//BOARDTYPE="BoardType"
+		//BOARDTYPE="Type"
 		public EnumLiteralDeclaration getBOARDTYPEEnumLiteralDeclaration_3() { return cBOARDTYPEEnumLiteralDeclaration_3; }
 
-		//"BoardType"
-		public Keyword getBOARDTYPEBoardTypeKeyword_3_0() { return cBOARDTYPEBoardTypeKeyword_3_0; }
+		//"Type"
+		public Keyword getBOARDTYPETypeKeyword_3_0() { return cBOARDTYPETypeKeyword_3_0; }
 
 		//ESS
 		public EnumLiteralDeclaration getESSEnumLiteralDeclaration_4() { return cESSEnumLiteralDeclaration_4; }
@@ -2999,8 +2999,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Board:
-	//	"Board" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("Type" "=" boardType=STRING ";")? ("Power supply"
-	//	"=" powerSupply=STRING ";")? ("Design assurance level" "=" assuranceLevel=DesignAssuranceLevelType ";")? ("Side" "="
+	//	"Board" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("Type" "=" boardType=STRING ";")? ("PowerSupply"
+	//	"=" powerSupply=STRING ";")? ("DesignAssuranceLevel" "=" assuranceLevel=DesignAssuranceLevelType ";")? ("Side" "="
 	//	side=STRING ";")? ("ESS" "=" ess=STRING ";")? ("RAM capacity" "=" ramCapacity=INT ";")? ("ROM capacity" "="
 	//	romCapacity=INT ";")? processors+=Processor+ ioAdapters+=IOAdapter* ("Generic properties" "{"
 	//	metricParameters+=MetricParameter* "}")? "}";
@@ -3203,7 +3203,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum BoardAttributes:
-	//	MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="AssuranceLevel" | BOARDTYPE="BoardType" |
+	//	MANUFACTURER="Manufacturer" | POWERSUPPLY="PowerSupply" | ASSURANCELEVEL="DesignAssuranceLevel" | BOARDTYPE="Type" |
 	//	ESS | SIDE="Side";
 	public BoardAttributesElements getBoardAttributesAccess() {
 		return unknownRuleBoardAttributes;

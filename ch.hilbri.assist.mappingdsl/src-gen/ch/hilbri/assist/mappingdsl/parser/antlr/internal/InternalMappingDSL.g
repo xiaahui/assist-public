@@ -805,7 +805,7 @@ ruleBoard returns [EObject current=null]
     {
     	newLeafNode(otherlv_10, grammarAccess.getBoardAccess().getSemicolonKeyword_4_3());
     }
-)?(	otherlv_11='Power supply' 
+)?(	otherlv_11='PowerSupply' 
     {
     	newLeafNode(otherlv_11, grammarAccess.getBoardAccess().getPowerSupplyKeyword_5_0());
     }
@@ -835,7 +835,7 @@ ruleBoard returns [EObject current=null]
     {
     	newLeafNode(otherlv_14, grammarAccess.getBoardAccess().getSemicolonKeyword_5_3());
     }
-)?(	otherlv_15='Design assurance level' 
+)?(	otherlv_15='DesignAssuranceLevel' 
     {
     	newLeafNode(otherlv_15, grammarAccess.getBoardAccess().getDesignAssuranceLevelKeyword_6_0());
     }
@@ -2967,13 +2967,13 @@ ruleBoardAttributes returns [Enumerator current=null]
         newLeafNode(enumLiteral_1, grammarAccess.getBoardAttributesAccess().getPOWERSUPPLYEnumLiteralDeclaration_1()); 
     }
 )
-    |(	enumLiteral_2='AssuranceLevel' 
+    |(	enumLiteral_2='DesignAssuranceLevel' 
 	{
         $current = grammarAccess.getBoardAttributesAccess().getASSURANCELEVELEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_2, grammarAccess.getBoardAttributesAccess().getASSURANCELEVELEnumLiteralDeclaration_2()); 
     }
 )
-    |(	enumLiteral_3='BoardType' 
+    |(	enumLiteral_3='Type' 
 	{
         $current = grammarAccess.getBoardAttributesAccess().getBOARDTYPEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_3, grammarAccess.getBoardAttributesAccess().getBOARDTYPEEnumLiteralDeclaration_3()); 

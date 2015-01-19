@@ -205,32 +205,53 @@ public class ExcelInputTransformator {
           _builder.newLineIfNotEmpty();
           _builder.append("\t");
           _builder.append("\t");
-          _builder.append("Type = \"");
-          String _type = board.getType();
-          _builder.append(_type, "\t\t");
-          _builder.append("\";");
+          {
+            String _type = board.getType();
+            int _length = _type.length();
+            boolean _greaterThan = (_length > 0);
+            if (_greaterThan) {
+              _builder.append("Type = \"");
+              String _type_1 = board.getType();
+              _builder.append(_type_1, "\t\t");
+              _builder.append("\";");
+            }
+          }
           _builder.newLineIfNotEmpty();
           _builder.append("\t");
           _builder.append("\t");
-          _builder.append("Power supply = \"");
-          String _powersupply = board.getPowersupply();
-          _builder.append(_powersupply, "\t\t");
-          _builder.append("\";");
+          {
+            String _powersupply = board.getPowersupply();
+            int _length_1 = _powersupply.length();
+            boolean _greaterThan_1 = (_length_1 > 0);
+            if (_greaterThan_1) {
+              _builder.append("PowerSupply = \"");
+              String _powersupply_1 = board.getPowersupply();
+              _builder.append(_powersupply_1, "\t\t");
+              _builder.append("\";");
+            }
+          }
           _builder.newLineIfNotEmpty();
           _builder.append("\t");
           _builder.append("\t");
-          _builder.append("Side = \"");
-          String _side = board.getSide();
-          _builder.append(_side, "\t\t");
-          _builder.append("\";");
+          {
+            String _side = board.getSide();
+            int _length_2 = _side.length();
+            boolean _greaterThan_2 = (_length_2 > 0);
+            if (_greaterThan_2) {
+              _builder.append("Side = \"");
+              String _side_1 = board.getSide();
+              _builder.append(_side_1, "\t\t");
+              _builder.append("\";");
+            }
+          }
           _builder.newLineIfNotEmpty();
           _builder.append("\t");
           _builder.append("\t");
           {
             String _ess = board.getEss();
-            int _length = _ess.length();
-            boolean _greaterThan = (_length > 0);
-            if (_greaterThan) {
+            int _length_3 = _ess.length();
+            boolean _greaterThan_3 = (_length_3 > 0);
+            if (_greaterThan_3) {
               _builder.append("ESS = \"");
               String _ess_1 = board.getEss();
               _builder.append(_ess_1, "\t\t");
@@ -259,8 +280,8 @@ public class ExcelInputTransformator {
               _builder.append("\t");
               _builder.append("\t");
               _builder.append("type  = ");
-              String _type_1 = adapt.getType();
-              _builder.append(_type_1, "\t\t\t");
+              String _type_2 = adapt.getType();
+              _builder.append(_type_2, "\t\t\t");
               _builder.append(";");
               _builder.newLineIfNotEmpty();
               _builder.append("\t");

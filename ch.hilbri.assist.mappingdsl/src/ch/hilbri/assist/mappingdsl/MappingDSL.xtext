@@ -53,8 +53,8 @@ Board:
 	'Board' name=ID '{'
 		('Manufacturer' 			'=' manufacturer=STRING ';')?
 		('Type' 					'=' boardType=STRING ';')?
-		('Power supply' 			'=' powerSupply=STRING ';')?
-	    ('Design assurance level' 	'=' assuranceLevel=DesignAssuranceLevelType';')?
+		('PowerSupply' 				'=' powerSupply=STRING ';')?
+	    ('DesignAssuranceLevel' 	'=' assuranceLevel=DesignAssuranceLevelType';')?
 	    ('Side'						'=' side=STRING ';')?
 	    ('ESS'						'=' ess=STRING ';')?
 		('RAM capacity'  			'=' ramCapacity=INT ';')?
@@ -166,18 +166,17 @@ enum BoxAttributes :
 	MANUFACTURER 	= 'Manufacturer';
 	
 enum BoardAttributes:
-	MANUFACTURER 	= 'Manufacturer' 	|
-	POWERSUPPLY 	= 'PowerSupply'		|
-	ASSURANCELEVEL 	= 'AssuranceLevel' 	|
-	BOARDTYPE 		= 'BoardType'       |
-	ESS				= 'ESS'				|
+	MANUFACTURER 	= 'Manufacturer' 			|
+	POWERSUPPLY 	= 'PowerSupply'				|
+	ASSURANCELEVEL 	= 'DesignAssuranceLevel' 	|
+	BOARDTYPE 		= 'Type'	       			|
+	ESS				= 'ESS'						|
 	SIDE			= 'Side'; 	
 
 enum ProcessorAttributes:
 	MANUFACTURER 	= 'Manufacturer' 	| 
 	PROCESSORTYPE	= 'ProcessorType' 
 ;
-
 
 MetricParameter:  
 	name=STRING '=' value=INT ';'

@@ -51,7 +51,7 @@ Global {
 			// Get the first sheet
 			var Sheet sheet = workbook.getSheet("Hardware")
 
-			// Dies ist der Zwischenspeicher fÃ¼r das "aktuelle" Board
+			// Dies ist der Zwischenspeicher fuer das "aktuelle" Board
 			var String excelResName
 			
 			// Retrieve the data from all applications
@@ -122,10 +122,10 @@ Global {
 Hardware {
 	«FOR board : allBoards.sortBy[name]»
 	Board «board.name» {
-		Type = "«board.type»";
-		Power supply = "«board.powersupply»";
-		Side = "«board.side»";
-		«IF board.ess.length > 0»ESS = "«board.ess»";«ENDIF»
+		«IF board.type.length > 0        »Type = "«         board.type»";«        ENDIF»
+		«IF board.powersupply.length > 0 »PowerSupply = "«  board.powersupply»";« ENDIF»
+		«IF board.side.length > 0        »Side = "«         board.side»";«        ENDIF»
+		«IF board.ess.length > 0         »ESS = "«          board.ess»";«         ENDIF»
 		Processor Processor0 { Core Core0 {}}
 		«FOR adapt : board.ioAdapters.sortBy[type]»
 		I/O adapter {
