@@ -17,10 +17,7 @@ import solver.Solver;
 import solver.exception.ContradictionException;
 import solver.search.loop.monitors.SMF;
 import solver.search.solution.AllSolutionsRecorder;
-import solver.search.strategy.IntStrategyFactory;
-import solver.search.strategy.selectors.values.IntDomainMin;
-import solver.search.strategy.selectors.variables.InputOrder;
-import solver.variables.IntVar;
+import solver.search.strategy.ISF;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
@@ -232,12 +229,11 @@ public class SolverJob extends Job {
 		if (this.kindOfSolutions == SearchType.CONSECUTIVE) {
 			
 			SMF.limitSolution(solver, this.maxSolutions);
-			SMF.limitTime(solver, 60 * 60 * 1000); // 1h max runtime
+			SMF.limitTime(solver, 60 * 60 * 1000 * 4); // 4h max runtime
 
-			solver.set(IntStrategyFactory.custom(new InputOrder<IntVar>(), 
-												 new IntDomainMin(), 
-												 solverVariables.getAllVariables()
-												 ));
+			solver.set(ISF.custom(ISF.minDomainSize_var_selector(),
+								  ISF.randomBound_value_selector(System.currentTimeMillis()),
+								  solverVariables.getAllVariables()));
 		}
 
 		else {
