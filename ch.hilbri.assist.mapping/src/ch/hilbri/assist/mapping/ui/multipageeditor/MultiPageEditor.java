@@ -195,7 +195,9 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 					"ch.hilbri.assist.mapping.metrictable",
 					"Evaluation Metrics",
 					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricsView",
-					application, modelService, true);
+					application, modelService, true,
+					"platform:/plugin/ch.hilbri.assist.mapping/icons/generic-file.gif"
+					);
 		}
 		
 	}
@@ -370,7 +372,9 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 					"ch.hilbri.assist.mapping.metrictable",
 					"Evaluation Metrics",
 					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricsView",
-					application, modelService, true);
+					application, modelService, true,
+					"platform:/plugin/ch.hilbri.assist.mapping/icons/generic-file.gif"
+					);
 
 		}
 		

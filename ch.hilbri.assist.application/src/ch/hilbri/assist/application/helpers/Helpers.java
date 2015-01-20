@@ -134,9 +134,7 @@ public class Helpers {
 	 * @param label
 	 *            Label that is shown on top of the editor (usually for filename)
 	 * @param uri
-	 *            The uri for the class that is linked with this part(for example:
-	 *            "bundleclass://de.fraunhofer.fokus.precisionpro.application/de.fraunhofer.fokus.precisionpro.application.parts.SchedulingFXMainView"
-	 *            )
+	 *            The uri for the class that is linked with this part
 	 * @param application
 	 *            Obtained through injection
 	 * @param modelService
@@ -144,7 +142,7 @@ public class Helpers {
 	 * @param single
 	 *            if true, a part is only created if none already exists
 	 */
-	public static MPart addViewToBottomfield(String id, String label, String uri, MApplication application, EModelService modelService, boolean single) {
+	public static MPart addViewToBottomfield(String id, String label, String uri, MApplication application, EModelService modelService, boolean single, String iconUri) {
 		List<MPart> parts = modelService.findElements(application, id, MPart.class, null);
 		if (parts.size() > 0 && single) {
 			for (MPart tmpPart : parts) {
@@ -158,6 +156,7 @@ public class Helpers {
 		MPart part = MBasicFactory.INSTANCE.createPart();
 		part.setElementId(id);
 		part.setLabel(label);
+		part.setIconURI(iconUri);
 		part.setContributionURI(uri);
 		part.setCloseable(true);
 		MPartStack mpart = getBottomField(application, modelService);
