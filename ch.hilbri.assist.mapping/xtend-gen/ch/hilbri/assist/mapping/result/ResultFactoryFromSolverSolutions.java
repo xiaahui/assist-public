@@ -26,10 +26,10 @@ import com.google.common.base.Objects;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import org.chocosolver.solver.search.solution.Solution;
+import org.chocosolver.solver.variables.IntVar;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import solver.search.solution.Solution;
-import solver.variables.IntVar;
 
 @SuppressWarnings("all")
 public class ResultFactoryFromSolverSolutions {

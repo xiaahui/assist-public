@@ -4,12 +4,12 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
+import org.chocosolver.solver.Solver
+import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.constraints.LCF
+import org.chocosolver.solver.variables.BoolVar
+import org.chocosolver.solver.variables.VF
 import org.slf4j.LoggerFactory
-import solver.Solver
-import solver.constraints.ICF
-import solver.constraints.LCF
-import solver.variables.BoolVar
-import solver.variables.VF
 
 class NetworkConstraints extends AbstractMappingConstraint {
 	
@@ -82,8 +82,10 @@ class NetworkConstraints extends AbstractMappingConstraint {
 			// If it is deployed to a real network, we have to make sure, at least two different boards are used ("to make it real")
 			val allLocationVariablesOfCommRelation = commRelation.allThreads.map[solverVariables.getThreadLocationVariable(it, HardwareArchitectureLevelType.BOARD.value)]
 			val useAtLeastTwoBoardsForRealNetworkDeploymentConstraint = ICF.atleast_nvalues(allLocationVariablesOfCommRelation, VF.fixed(2, solver), true) 
+
+			// automatically posted to the solver			
+			LCF.ifThen(deploymentToRealNetworkConstraint,useAtLeastTwoBoardsForRealNetworkDeploymentConstraint)
 			
-			solver.post(LCF.ifThen(deploymentToRealNetworkConstraint, useAtLeastTwoBoardsForRealNetworkDeploymentConstraint))
 		}
 		
 		/*

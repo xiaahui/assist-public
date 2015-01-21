@@ -7,7 +7,6 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
-import javafx.embed.swt.FXCanvas;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -17,6 +16,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.TreeItem;
 import javafx.scene.paint.Color;
+import javafx.embed.swt.FXCanvas;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -43,9 +43,6 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
-import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
-import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 import ch.hilbri.assist.datamodel.result.mapping.Board;
 import ch.hilbri.assist.datamodel.result.mapping.Box;
@@ -57,6 +54,9 @@ import ch.hilbri.assist.datamodel.result.mapping.Network;
 import ch.hilbri.assist.datamodel.result.mapping.Processor;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.datamodel.result.mapping.Thread;
+import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
+import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
+import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 
 
 public class InfoSheetView {

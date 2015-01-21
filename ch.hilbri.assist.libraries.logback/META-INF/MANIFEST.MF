@@ -10,4 +10,4 @@ Bundle-Vendor: QOS.ch
 Export-Package: org.slf4j,
  org.slf4j.helpers,
  org.slf4j.spi
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

@@ -5,10 +5,10 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.model.Thread
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.HashMap
-import solver.Solver
-import solver.constraints.ICF
-import solver.variables.IntVar
-import solver.variables.VF
+import org.chocosolver.solver.Solver
+import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.variables.IntVar
+import org.chocosolver.solver.variables.VF
 
 class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 	

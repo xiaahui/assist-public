@@ -12,14 +12,14 @@ import ch.hilbri.assist.datamodel.model.Processor;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import java.util.HashSet;
+import org.chocosolver.solver.Solver;
+import org.chocosolver.solver.constraints.Constraint;
+import org.chocosolver.solver.constraints.ICF;
+import org.chocosolver.solver.variables.IntVar;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import solver.Solver;
-import solver.constraints.Constraint;
-import solver.constraints.ICF;
-import solver.variables.IntVar;
 
 @SuppressWarnings("all")
 public class RestrictedDeploymentConstraint extends AbstractMappingConstraint {

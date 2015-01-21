@@ -6,10 +6,10 @@ import ch.hilbri.assist.datamodel.model.IOAdapterProtectionLevelType
 import ch.hilbri.assist.datamodel.model.IOAdapterType
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
-import solver.Solver
-import solver.constraints.ICF
-import solver.variables.BoolVar
-import solver.variables.VF
+import org.chocosolver.solver.Solver
+import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.variables.BoolVar
+import org.chocosolver.solver.variables.VF
 
 class IOAdapterConstraint extends AbstractMappingConstraint {
 	
