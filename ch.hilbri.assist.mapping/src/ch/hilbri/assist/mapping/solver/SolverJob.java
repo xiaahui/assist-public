@@ -15,8 +15,6 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
@@ -53,7 +51,7 @@ public class SolverJob extends Job {
 		
 	private MultiPageEditor multiPageEditor;
 	
-	private Logger logger;
+//	private Logger logger;
 	
 	 /*
 	 * Dieser Wert definiert eine maximale Anzahl an Deployments, die
@@ -92,7 +90,7 @@ public class SolverJob extends Job {
 	public SolverJob(String name, AssistModel model, MultiPageEditor editor) {
 		super(name);
 		this.model = model;
-		this.logger = LoggerFactory.getLogger(SolverJob.class);
+//		this.logger = LoggerFactory.getLogger(SolverJob.class);
 
 
 		if (editor != null) {
@@ -109,6 +107,9 @@ public class SolverJob extends Job {
 		
 		/* Create a new Solver object */
 		this.solver = new Solver();
+
+		
+		
 		this.solverVariables = new SolverVariablesContainer(this.model, solver);
 		
 		/* Create a new Constraint to process the system hierarchy */
@@ -221,7 +222,7 @@ public class SolverJob extends Job {
 	
 	private IStatus runSearchForSolutions(IProgressMonitor monitor) {
 		
-		logger.debug("Searching for solutions");
+//		logger.debug("Searching for solutions");
 		
 		AllSolutionsRecorder recorder = new AllSolutionsRecorder(solver);
 		solver.set(recorder);
@@ -250,8 +251,10 @@ public class SolverJob extends Job {
 //		ConflictBasedBackjumping cbj = new ConflictBasedBackjumping(solver.getExplainer());
 //		cbj.activeUserExplanation(true);
 		
+		
+		
 		solver.findAllSolutions();
-		logger.debug(recorder.getSolutions().size() + " solutions found");
+//		logger.debug(recorder.getSolutions().size() + " solutions found");
 
 //		ConsoleCommands.writeLineToConsole(cbj.getUserExplanation().toString());
 		

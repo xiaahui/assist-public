@@ -21,16 +21,11 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @SuppressWarnings("all")
 public class NetworkConstraints extends AbstractMappingConstraint {
   public NetworkConstraints(final AssistModel model, final Solver solver, final SolverVariablesContainer solverVariables) {
     super("Network constraints", model, solver, solverVariables);
-    Class<? extends NetworkConstraints> _class = this.getClass();
-    Logger _logger = LoggerFactory.getLogger(_class);
-    this.logger = _logger;
   }
   
   public boolean generate() {
