@@ -17,13 +17,13 @@ import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.constraints.LCF
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
-
+import org.slf4j.LoggerFactory
 
 class DissimilarityConstraint extends AbstractMappingConstraint {
 
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
 		super("Dissimilarity constraints", model, solver, solverVariables)
-//		this.logger = LoggerFactory.getLogger(this.class);
+		this.logger = LoggerFactory.getLogger(this.class);
 	}
 	
 	/*

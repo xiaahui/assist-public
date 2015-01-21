@@ -1,4 +1,5 @@
 Manifest-Version: 1.0
+Eclipse-BuddyPolicy: registered
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.logback
 Bundle-SymbolicName: ch.hilbri.assist.libraries.logback
