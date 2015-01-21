@@ -3,8 +3,8 @@ package ch.hilbri.assist.mapping.solver.constraints
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
-import solver.Solver
-import solver.constraints.ICF
+import org.chocosolver.solver.Solver
+import org.chocosolver.solver.constraints.ICF
 
 class AllApplicationThreadsOnSameBoard extends AbstractMappingConstraint {
 	

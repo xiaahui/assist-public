@@ -18,10 +18,8 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.HashMap
 import java.util.List
+import org.chocosolver.solver.search.solution.Solution
 import org.eclipse.emf.ecore.EObject
-import solver.search.solution.Solution
-
-
 
 class ResultFactoryFromSolverSolutions {
 	

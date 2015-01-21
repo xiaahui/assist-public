@@ -9,8 +9,8 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.model.Processor
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.HashSet
-import solver.Solver
-import solver.constraints.ICF
+import org.chocosolver.solver.Solver
+import org.chocosolver.solver.constraints.ICF
 
 class RestrictedDeploymentConstraint extends AbstractMappingConstraint {
 	

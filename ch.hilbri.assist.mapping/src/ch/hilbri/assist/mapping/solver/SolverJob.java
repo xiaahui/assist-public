@@ -2,6 +2,11 @@ package ch.hilbri.assist.mapping.solver;
 
 import java.util.ArrayList;
 
+import org.chocosolver.solver.Solver;
+import org.chocosolver.solver.exception.ContradictionException;
+import org.chocosolver.solver.search.loop.monitors.SMF;
+import org.chocosolver.solver.search.solution.AllSolutionsRecorder;
+import org.chocosolver.solver.search.strategy.ISF;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -13,11 +18,6 @@ import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import solver.Solver;
-import solver.exception.ContradictionException;
-import solver.search.loop.monitors.SMF;
-import solver.search.solution.AllSolutionsRecorder;
-import solver.search.strategy.ISF;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
@@ -242,9 +242,18 @@ public class SolverJob extends Job {
 			return null;
 		}
 		
-	
+//		// Conflicts explained
+//		RecorderExplanationEngine ree = new RecorderExplanationEngine(solver); 
+//		solver.set(ree);
+//				
+//		
+//		ConflictBasedBackjumping cbj = new ConflictBasedBackjumping(solver.getExplainer());
+//		cbj.activeUserExplanation(true);
+		
 		solver.findAllSolutions();
 		logger.debug(recorder.getSolutions().size() + " solutions found");
+
+//		ConsoleCommands.writeLineToConsole(cbj.getUserExplanation().toString());
 		
 		mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions());
 		

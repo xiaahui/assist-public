@@ -2,8 +2,8 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
+import org.chocosolver.solver.Solver
 import org.slf4j.Logger
-import solver.Solver
 
 abstract class AbstractMappingConstraint {
 	

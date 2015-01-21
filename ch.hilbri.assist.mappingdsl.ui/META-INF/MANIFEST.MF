@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.mappingdsl.ui
 Bundle-Vendor: Robert Hilbrich
-Bundle-Version: 0.4
+Bundle-Version: 0.5
 Bundle-SymbolicName: ch.hilbri.assist.mappingdsl.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: ch.hilbri.assist.mappingdsl;visibility:=reexport,
@@ -20,7 +20,7 @@ Require-Bundle: ch.hilbri.assist.mappingdsl;visibility:=reexport,
  org.eclipse.xtext.xbase.lib
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ch.hilbri.assist.mappingdsl.ui.quickfix,
  ch.hilbri.assist.mappingdsl.ui.contentassist,
  ch.hilbri.assist.mappingdsl.ui.contentassist.antlr,

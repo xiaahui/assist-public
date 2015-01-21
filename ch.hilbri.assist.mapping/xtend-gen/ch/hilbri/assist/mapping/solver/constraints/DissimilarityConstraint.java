@@ -24,6 +24,12 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import com.google.common.base.Objects;
 import java.util.ArrayList;
 import java.util.List;
+import org.chocosolver.solver.Solver;
+import org.chocosolver.solver.constraints.Constraint;
+import org.chocosolver.solver.constraints.ICF;
+import org.chocosolver.solver.constraints.LCF;
+import org.chocosolver.solver.variables.IntVar;
+import org.chocosolver.solver.variables.VF;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
@@ -31,12 +37,6 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import solver.Solver;
-import solver.constraints.Constraint;
-import solver.constraints.ICF;
-import solver.constraints.LCF;
-import solver.variables.IntVar;
-import solver.variables.VF;
 
 @SuppressWarnings("all")
 public class DissimilarityConstraint extends AbstractMappingConstraint {
