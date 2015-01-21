@@ -3,7 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.choco
 Bundle-SymbolicName: ch.hilbri.assist.libraries.choco
 Bundle-Version: 3.3.0
-Bundle-ClassPath: choco-solver-3.3.0-with-dependencies.jar
+Bundle-ClassPath: choco-solver-3.3.0-sources.jar,
+ choco-solver-3.3.0-with-dependencies.jar
 Export-Package: ch.qos.logback.classic,
  ch.qos.logback.classic.boolex,
  ch.qos.logback.classic.db,
@@ -211,3 +212,4 @@ Export-Package: ch.qos.logback.classic,
  org.slf4j.impl,
  org.slf4j.spi
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: ch.hilbri.assist.libraries.logback;bundle-version="1.1.2"
