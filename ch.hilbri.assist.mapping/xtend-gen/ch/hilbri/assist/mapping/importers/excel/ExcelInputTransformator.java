@@ -24,16 +24,11 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 @SuppressWarnings("all")
 public class ExcelInputTransformator {
   public static String clear(final String excelRawData) {
-    String _replace = excelRawData.replace(" ", "_");
-    String _replace_1 = _replace.replace("-", "");
-    String _replace_2 = _replace_1.replace(".", "");
-    String _replace_3 = _replace_2.replace(",", "");
-    String _replace_4 = _replace_3.replace("/", "");
-    String _replace_5 = _replace_4.replace("#", "_");
-    String _replace_6 = _replace_5.replace("(", "_");
-    String _replace_7 = _replace_6.replace(")", "_");
-    String _replace_8 = _replace_7.replace("&", "_");
-    return _replace_8.replace("--", "-");
+    String _replaceAll = excelRawData.replaceAll("[[^a-z]&&[^A-Z]&&[^0-9]]", "_");
+    String _replaceAll_1 = _replaceAll.replaceAll("^_*", "");
+    String _replaceAll_2 = _replaceAll_1.replaceAll("_*$", "");
+    String _replaceAll_3 = _replaceAll_2.replaceAll("^[0-9]*", "");
+    return _replaceAll_3.replaceAll("__+", "_");
   }
   
   public static String createMDSLFileInput(final String filePath) {

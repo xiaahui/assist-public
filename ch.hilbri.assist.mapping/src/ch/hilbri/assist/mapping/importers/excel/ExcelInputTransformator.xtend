@@ -13,8 +13,11 @@ import jxl.read.biff.BiffException
 class ExcelInputTransformator {
 
 	def static clear(String excelRawData) {
-		return excelRawData.replace(" ", "_").replace("-", "").replace(".", "").replace(",", "").replace("/", "").
-			replace("#", "_").replace("(", "_").replace(")", "_").replace("&", "_").replace("--", "-")
+		return excelRawData.replaceAll("[[^a-z]&&[^A-Z]&&[^0-9]]", "_")   // replace everything which is not a-zA-Z0-9 with _
+						   .replaceAll("^_*", "")						  // remove all _ at the beginning
+						   .replaceAll("_*$", "")						  // remove all _ at the end
+						   .replaceAll("^[0-9]*", "")                     // remove all leading numbers 
+						   .replaceAll("__+", "_")						  // replace multiple _ with a single _
 	}
 
 	def static createMDSLFileInput(String filePath) {
