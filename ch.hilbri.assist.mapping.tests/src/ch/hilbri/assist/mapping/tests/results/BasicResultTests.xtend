@@ -26,7 +26,7 @@ Global {
 Hardware {
 	Compartment C1 {
 		Manufacturer = "CompartmentManufacturer";
-		Power supply = "CompartmentPowerSupply";
+		PowerSupply = "CompartmentPowerSupply";
 		Side		 = "CompartmentSide";
 		Zone		 = "CompartmentZone";
 		
@@ -36,8 +36,10 @@ Hardware {
 			Board Board1 {
 				Manufacturer = "Board Vendor 1";
 				Type		 = "BoardType";
-				Power supply = "BoardPowerSupply";
-				Design assurance level = C;
+				PowerSupply = "BoardPowerSupply";
+				DesignAssuranceLevel = C;
+				RAM capacity = 98765;
+				ROM capacity = 67890;
 								
 				Processor Processor1 {
 					Manufacturer = "Freescale";
@@ -48,8 +50,7 @@ Hardware {
 					}
 				}
 				
-				RAM capacity = 98765;
-				ROM capacity = 67890;
+				
 			}
 		}
 	}

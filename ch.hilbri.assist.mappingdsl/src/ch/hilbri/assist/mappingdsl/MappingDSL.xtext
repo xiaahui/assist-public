@@ -32,7 +32,7 @@ HardwareElementContainer:
 Compartment: 
 	'Compartment' name=ID '{'
 		('Manufacturer' 			'=' manufacturer=STRING ';')?
-		('Power supply' 			'=' powerSupply=STRING ';')?
+		('PowerSupply' 				'=' powerSupply=STRING ';')?
 		('Side' 					'=' side=STRING ';')?
 		('Zone' 					'=' zone=STRING ';')?
 		(boxes+=Box)+

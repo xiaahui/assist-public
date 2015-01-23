@@ -24,7 +24,7 @@ public class DesignAssuranceLevelTestsInvalid extends AbstractMappingTest {
     _builder.append("Board B_A {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("Design assurance level = B;");
+    _builder.append("DesignAssuranceLevel = B;");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("Processor P_A {");

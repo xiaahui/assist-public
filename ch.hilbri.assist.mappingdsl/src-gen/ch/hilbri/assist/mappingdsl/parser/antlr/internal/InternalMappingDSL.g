@@ -427,7 +427,7 @@ ruleCompartment returns [EObject current=null]
     {
     	newLeafNode(otherlv_6, grammarAccess.getCompartmentAccess().getSemicolonKeyword_3_3());
     }
-)?(	otherlv_7='Power supply' 
+)?(	otherlv_7='PowerSupply' 
     {
     	newLeafNode(otherlv_7, grammarAccess.getCompartmentAccess().getPowerSupplyKeyword_4_0());
     }

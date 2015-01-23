@@ -239,12 +239,12 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Compartment:
-		//	"Compartment" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("Power supply" "=" powerSupply=STRING ";")?
+		//	"Compartment" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("PowerSupply" "=" powerSupply=STRING ";")?
 		//	("Side" "=" side=STRING ";")? ("Zone" "=" zone=STRING ";")? boxes+=Box+ ("Generic properties" "{"
 		//	metricParameters+=MetricParameter* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"Compartment" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("Power supply" "=" powerSupply=STRING ";")?
+		//"Compartment" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("PowerSupply" "=" powerSupply=STRING ";")?
 		//("Side" "=" side=STRING ";")? ("Zone" "=" zone=STRING ";")? boxes+=Box+ ("Generic properties" "{"
 		//metricParameters+=MetricParameter* "}")? "}"
 		public Group getGroup() { return cGroup; }
@@ -279,10 +279,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_3_3() { return cSemicolonKeyword_3_3; }
 
-		//("Power supply" "=" powerSupply=STRING ";")?
+		//("PowerSupply" "=" powerSupply=STRING ";")?
 		public Group getGroup_4() { return cGroup_4; }
 
-		//"Power supply"
+		//"PowerSupply"
 		public Keyword getPowerSupplyKeyword_4_0() { return cPowerSupplyKeyword_4_0; }
 
 		//"="
@@ -2976,7 +2976,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Compartment:
-	//	"Compartment" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("Power supply" "=" powerSupply=STRING ";")?
+	//	"Compartment" name=ID "{" ("Manufacturer" "=" manufacturer=STRING ";")? ("PowerSupply" "=" powerSupply=STRING ";")?
 	//	("Side" "=" side=STRING ";")? ("Zone" "=" zone=STRING ";")? boxes+=Box+ ("Generic properties" "{"
 	//	metricParameters+=MetricParameter* "}")? "}";
 	public CompartmentElements getCompartmentAccess() {

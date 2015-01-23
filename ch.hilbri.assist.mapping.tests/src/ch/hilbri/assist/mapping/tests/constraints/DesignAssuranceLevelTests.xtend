@@ -16,21 +16,21 @@ Global {
 
 Hardware {
 	Board B_A {
-		Design assurance level = A;
+		DesignAssuranceLevel = A;
 		Processor P_A {
 			Core C_A { Capacity = 80; }
 		}
  	}
  	
  	Board B_B {
-		Design assurance level = B;
+		DesignAssuranceLevel = B;
 		Processor P_B {
 			Core C_B { Capacity = 80; }
 		}
  	}
  	
  	Board B_C {
-		Design assurance level = C;
+		DesignAssuranceLevel = C;
 		Processor P_C {
 			Core C_C { Capacity = 80; }
 		}

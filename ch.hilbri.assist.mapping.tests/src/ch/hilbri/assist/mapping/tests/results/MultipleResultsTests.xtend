@@ -14,7 +14,6 @@ class MultipleResultsTests extends AbstractMappingTest {
 	
 	new() {
 		input = '''
-		
 Global {
 	System name = "Simple System";
 }
@@ -22,7 +21,7 @@ Global {
 Hardware {
 	Compartment C1 {
 		Manufacturer = "CompartmentManufacturer1";
-		Power supply = "CompartmentPowerSupply1";
+		PowerSupply  = "CompartmentPowerSupply1";
 		Side		 = "CompartmentSide1";
 		Zone		 = "CompartmentZone1";
 		
@@ -32,8 +31,10 @@ Hardware {
 			Board Board1 {
 				Manufacturer = "Board Vendor 1";
 				Type		 = "BoardType1";
-				Power supply = "BoardPowerSupply1";
-				Design assurance level = C;
+				PowerSupply  = "BoardPowerSupply1";
+				DesignAssuranceLevel = C;
+				RAM capacity = 123451;
+				ROM capacity = 678901;
 								
 				Processor Processor1 {
 					Manufacturer = "Freescale1";
@@ -44,15 +45,13 @@ Hardware {
 					}
 				}
 				
-				RAM capacity = 123451;
-				ROM capacity = 678901;
 			}
 		}
 	}
 	
 	Compartment C2 {
 		Manufacturer = "CompartmentManufacturer2";
-		Power supply = "CompartmentPowerSupply2";
+		PowerSupply = "CompartmentPowerSupply2";
 		Side		 = "CompartmentSide2";
 		Zone		 = "CompartmentZone2";
 		
@@ -62,8 +61,11 @@ Hardware {
 			Board Board2 {
 				Manufacturer = "Board Vendor 2";
 				Type		 = "BoardType2";
-				Power supply = "BoardPowerSupply2";
-				Design assurance level = D;
+				PowerSupply = "BoardPowerSupply2";
+				DesignAssuranceLevel = D;
+
+				RAM capacity = 123452;
+				ROM capacity = 678902;
 								
 				Processor Processor2 {
 					Manufacturer = "Freescale2";
@@ -74,8 +76,6 @@ Hardware {
 					}
 				}
 				
-				RAM capacity = 123452;
-				ROM capacity = 678902;
 			}
 		}
 	}

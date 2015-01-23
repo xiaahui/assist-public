@@ -2861,7 +2861,7 @@ rule__Compartment__Group_4__0__Impl
 (
 { before(grammarAccess.getCompartmentAccess().getPowerSupplyKeyword_4_0()); }
 
-	'Power supply' 
+	'PowerSupply' 
 
 { after(grammarAccess.getCompartmentAccess().getPowerSupplyKeyword_4_0()); }
 )

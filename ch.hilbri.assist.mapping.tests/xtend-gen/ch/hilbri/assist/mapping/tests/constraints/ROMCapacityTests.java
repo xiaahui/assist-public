@@ -29,6 +29,11 @@ public class ROMCapacityTests extends AbstractMappingTest {
     _builder.append("Board Board1 {");
     _builder.newLine();
     _builder.append("\t\t");
+    _builder.append("ROM capacity = 100;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
     _builder.append("Processor Processor1 {");
     _builder.newLine();
     _builder.append("\t\t\t");
@@ -38,7 +43,6 @@ public class ROMCapacityTests extends AbstractMappingTest {
     _builder.append("}");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("ROM capacity = 100;");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
@@ -49,6 +53,11 @@ public class ROMCapacityTests extends AbstractMappingTest {
     _builder.append("Board Board2 {");
     _builder.newLine();
     _builder.append("\t\t");
+    _builder.append("ROM capacity = 100;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
     _builder.append("Processor Processor2 {");
     _builder.newLine();
     _builder.append("\t\t\t");
@@ -57,8 +66,6 @@ public class ROMCapacityTests extends AbstractMappingTest {
     _builder.append("\t\t");
     _builder.append("}");
     _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("ROM capacity = 100;");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");

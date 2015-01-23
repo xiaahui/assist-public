@@ -28,7 +28,7 @@ public class DesignAssuranceLevelTests extends AbstractMappingTest {
     _builder.append("Board B_A {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("Design assurance level = A;");
+    _builder.append("DesignAssuranceLevel = A;");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("Processor P_A {");
@@ -48,7 +48,7 @@ public class DesignAssuranceLevelTests extends AbstractMappingTest {
     _builder.append("Board B_B {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("Design assurance level = B;");
+    _builder.append("DesignAssuranceLevel = B;");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("Processor P_B {");
@@ -68,7 +68,7 @@ public class DesignAssuranceLevelTests extends AbstractMappingTest {
     _builder.append("Board B_C {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("Design assurance level = C;");
+    _builder.append("DesignAssuranceLevel = C;");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("Processor P_C {");

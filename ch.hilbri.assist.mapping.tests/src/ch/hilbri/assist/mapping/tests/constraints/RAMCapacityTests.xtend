@@ -16,17 +16,21 @@ Global {
 
 Hardware {
 	Board Board1 {
+		RAM capacity = 100;
+		
 		Processor Processor1 {
 			Core Core1 { Capacity = 100; }
 		}
-		RAM capacity = 100;
+		
 	}
 	
 	Board Board2 {
+		RAM capacity = 100;
+		
 		Processor Processor2 {
 			Core Core2 { Capacity = 100; }
 		}
-		RAM capacity = 100;
+		
 	}
 }
 

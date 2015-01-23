@@ -41,7 +41,7 @@ public class BasicResultTests extends AbstractMappingTest {
     _builder.append("Manufacturer = \"CompartmentManufacturer\";");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("Power supply = \"CompartmentPowerSupply\";");
+    _builder.append("PowerSupply = \"CompartmentPowerSupply\";");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("Side\t\t = \"CompartmentSide\";");
@@ -69,10 +69,16 @@ public class BasicResultTests extends AbstractMappingTest {
     _builder.append("Type\t\t = \"BoardType\";");
     _builder.newLine();
     _builder.append("\t\t\t\t");
-    _builder.append("Power supply = \"BoardPowerSupply\";");
+    _builder.append("PowerSupply = \"BoardPowerSupply\";");
     _builder.newLine();
     _builder.append("\t\t\t\t");
-    _builder.append("Design assurance level = C;");
+    _builder.append("DesignAssuranceLevel = C;");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("RAM capacity = 98765;");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("ROM capacity = 67890;");
     _builder.newLine();
     _builder.append("\t\t\t\t\t\t\t\t");
     _builder.newLine();
@@ -103,10 +109,6 @@ public class BasicResultTests extends AbstractMappingTest {
     _builder.append("\t\t\t\t");
     _builder.newLine();
     _builder.append("\t\t\t\t");
-    _builder.append("RAM capacity = 98765;");
-    _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append("ROM capacity = 67890;");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("}");

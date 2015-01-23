@@ -29,6 +29,11 @@ public class RAMCapacityTests extends AbstractMappingTest {
     _builder.append("Board Board1 {");
     _builder.newLine();
     _builder.append("\t\t");
+    _builder.append("RAM capacity = 100;");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
     _builder.append("Processor Processor1 {");
     _builder.newLine();
     _builder.append("\t\t\t");
@@ -38,7 +43,6 @@ public class RAMCapacityTests extends AbstractMappingTest {
     _builder.append("}");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("RAM capacity = 100;");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
@@ -47,6 +51,11 @@ public class RAMCapacityTests extends AbstractMappingTest {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("Board Board2 {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("RAM capacity = 100;");
+    _builder.newLine();
+    _builder.append("\t\t");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("Processor Processor2 {");
@@ -58,7 +67,6 @@ public class RAMCapacityTests extends AbstractMappingTest {
     _builder.append("}");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("RAM capacity = 100;");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
