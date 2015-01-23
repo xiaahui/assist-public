@@ -245,13 +245,11 @@ public class SolverJob extends Job {
 			return null;
 		}
 		
-//		// Conflicts explained
+		// Conflicts explained
 //		RecorderExplanationEngine ree = new RecorderExplanationEngine(solver); 
 //		solver.set(ree);
 //		ConflictBasedBackjumping cbj = new ConflictBasedBackjumping(solver.getExplainer());
 //		cbj.activeUserExplanation(true);
-		
-		
 		
 		solver.findAllSolutions();
 		logger.debug(recorder.getSolutions().size() + " solutions found");
