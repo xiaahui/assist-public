@@ -69,7 +69,7 @@ public class DoubleMinHeap {
         return pos << 1;
     }
 
-    @SuppressWarnings({ "UnusedDeclaration", "unused" })
+    @SuppressWarnings("UnusedDeclaration")
     private int rightchild(int pos) {
         return pos << 1 + 1;
     }

@@ -2,7 +2,6 @@ package ch.hilbri.assist.mapping.solver;
 
 import java.util.ArrayList;
 
-import org.chocosolver.solver.Settings;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.explanations.RecorderExplanationEngine;
@@ -114,13 +113,12 @@ public class SolverJob extends Job {
 		/* Create a new Solver object */
 		this.solver = new Solver();
 		
-		Settings solverSettings = new Settings(){ 
-			private static final long serialVersionUID = 4291880025846224054L;
-			public boolean enablePropagatorInExplanation() { return true; }
-		};
-		solver.set(solverSettings);
+//		Settings solverSettings = new Settings(){ 
+//			public boolean enablePropagatorInExplanation() { return true; }
+//		};
+//		this.solver.set(solverSettings);
 
-		
+		// // // // // // // // // // // // 
 		
 		this.solverVariables = new SolverVariablesContainer(this.model, solver);
 		

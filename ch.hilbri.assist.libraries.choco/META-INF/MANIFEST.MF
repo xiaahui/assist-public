@@ -3,12 +3,17 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.choco
 Bundle-SymbolicName: ch.hilbri.assist.libraries.choco
 Bundle-Version: 3.3.0
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: ch.hilbri.assist.libraries.logback;bundle-version="1.1.2",
+Bundle-Activator: ch.hilbri.assist.libraries.choco.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
  ch.hilbri.assist.libraries.args4j;bundle-version="2.0.21",
  ch.hilbri.assist.libraries.automaton;bundle-version="1.11.8",
  ch.hilbri.assist.libraries.jgrapht;bundle-version="0.9.0",
+ ch.hilbri.assist.libraries.logback;bundle-version="1.1.2",
+ ch.hilbri.assist.libraries.math;bundle-version="3.2.0",
  ch.hilbri.assist.libraries.trove4j;bundle-version="3.0.22"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
 Export-Package: org.chocosolver.memory,
  org.chocosolver.memory.copy,
  org.chocosolver.memory.copy.store,
@@ -48,12 +53,12 @@ Export-Package: org.chocosolver.memory,
  org.chocosolver.solver.constraints.nary.globalcardinality,
  org.chocosolver.solver.constraints.nary.lex,
  org.chocosolver.solver.constraints.nary.min_max,
+ org.chocosolver.solver.constraints.nary.nogood,
  org.chocosolver.solver.constraints.nary.nValue,
  org.chocosolver.solver.constraints.nary.nValue.amnv.differences,
  org.chocosolver.solver.constraints.nary.nValue.amnv.graph,
  org.chocosolver.solver.constraints.nary.nValue.amnv.mis,
  org.chocosolver.solver.constraints.nary.nValue.amnv.rules,
- org.chocosolver.solver.constraints.nary.nogood,
  org.chocosolver.solver.constraints.nary.sum,
  org.chocosolver.solver.constraints.nary.tree,
  org.chocosolver.solver.constraints.real,

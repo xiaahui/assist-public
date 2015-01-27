@@ -29,7 +29,6 @@
 package org.chocosolver.solver.constraints.nary.cumulative;
 
 import gnu.trove.map.hash.THashMap;
-
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.variables.IntVar;
@@ -162,8 +161,7 @@ public class PropGraphCumulative extends PropFullCumulative {
         return s[i].getLB() >= e[j].getUB() || s[j].getLB() >= e[i].getUB();
     }
 
-    @SuppressWarnings("unused")
-	private void naiveGraphComputation() {
+    private void naiveGraphComputation() {
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 if (!disjoint(i, j)) {

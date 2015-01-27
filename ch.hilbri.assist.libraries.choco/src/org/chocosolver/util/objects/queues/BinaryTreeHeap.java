@@ -345,5 +345,41 @@ public class BinaryTreeHeap implements IHeap {
         public String toString() {
             return "(" + element + "," + value + ")";
         }
+
+        /**
+         * ******* only for debug *********
+         */
+        public String completeString() {
+            if (father != null) {
+                if (left != null) {
+                    if (right != null) {
+                        return this + "--F:" + father + ";G:" + left + ";D:" + right;
+                    } else {
+                        return this + "--F:" + father + ";G:" + left + ";D:-";
+                    }
+                } else {
+                    if (right != null) {
+                        return this + "--F:" + father + ";G:-" + ";D:" + right;
+                    } else {
+                        return this + "--F:" + father + ";G:-" + ";D:-";
+                    }
+                }
+            } else {
+                if (left != null) {
+                    if (right != null) {
+                        return this + "--F:-" + ";G:" + left + ";D:" + right;
+                    } else {
+                        return this + "--F:-" + ";G:" + left + ";D:-";
+                    }
+                } else {
+                    if (right != null) {
+                        return this + "--F:-" + ";G:-" + ";D:" + right;
+                    } else {
+                        return this + "--F:-" + ";G:-" + ";D:-";
+                    }
+                }
+            }
+        }
+        /********** end debug **********/
     }
 }

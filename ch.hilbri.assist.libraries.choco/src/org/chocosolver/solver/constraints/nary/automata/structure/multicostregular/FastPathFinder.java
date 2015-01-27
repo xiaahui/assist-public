@@ -30,7 +30,6 @@ package org.chocosolver.solver.constraints.nary.automata.structure.multicostregu
 
 
 import gnu.trove.stack.TIntStack;
-
 import org.chocosolver.memory.IStateIntVector;
 import org.chocosolver.solver.constraints.nary.automata.PropMultiCostRegular;
 import org.chocosolver.solver.exception.ContradictionException;
@@ -572,8 +571,7 @@ public class FastPathFinder {
         return modified;
     }
 
-    @SuppressWarnings("unused")
-	private static double[] addArray(double[] spf, double[] cost) {
+    private static double[] addArray(double[] spf, double[] cost) {
         double[] out = new double[spf.length];
         for (int i = 0; i < out.length; i++) {
             out[i] = spf[i] + cost[i];

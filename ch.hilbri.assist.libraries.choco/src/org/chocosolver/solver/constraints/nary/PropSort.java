@@ -31,7 +31,6 @@ package org.chocosolver.solver.constraints.nary;
 import gnu.trove.map.hash.THashMap;
 import gnu.trove.stack.TIntStack;
 import gnu.trove.stack.array.TIntArrayStack;
-
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.Propagator;
 import org.chocosolver.solver.constraints.PropagatorPriority;
@@ -444,8 +443,7 @@ public final class PropSort extends Propagator<IntVar> {
             return true;
         }
 
-        @SuppressWarnings("unused")
-		public boolean pop(int[] x) {
+        public boolean pop(int[] x) {
             if (this.isEmpty()) {
                 return false;
             }
