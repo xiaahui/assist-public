@@ -10,142 +10,72 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<fx:root type="javafx.scene.layout.AnchorPane" id="mainPane" xmlns:fx="http://javafx.com/fxml">
+<fx:root id="mainPane" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <ScrollPane fx:id="mainScrollPane" prefHeight="734.0" prefWidth="994.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <ScrollPane fx:id="mainScrollPane" fitToHeight="true" fitToWidth="true" prefHeight="734.0" prefWidth="1037.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <content>
-        <AnchorPane id="Content" fx:id="mainPane" minHeight="0.0" prefHeight="733.0" prefWidth="993.0">
+        <AnchorPane id="Content" fx:id="mainPane" minHeight="0.0" prefHeight="733.0" prefWidth="891.0">
           <children>
-            <VBox fx:id="mainVbox" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-              <children>
-                <TitledPane id="titledPane1" fx:id="selectedTitledPane" animated="false" collapsible="false" prefHeight="714.0" prefWidth="983.0" text="Selected Allocation" VBox.vgrow="ALWAYS">
-                  <content>
-                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                      <children>
-                        <VBox prefHeight="503.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <children>
-                            <HBox prefHeight="487.0" VBox.vgrow="ALWAYS">
-                              <children>
-                                <VBox fx:id="selectedLeftBox" prefHeight="460.0" spacing="20.0">
-                                  <children>
-                                    <TitledPane id="selectedLeftPane" fx:id="selectedLeftPane1" animated="false" collapsible="false" prefHeight="439.0" prefWidth="594.0" text="System" textFill="#292929" VBox.vgrow="ALWAYS">
-                                      <content>
-                                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="200.0">
-                                          <children>
-                                            <TreeView fx:id="resultTreeView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                          </children>
-                                        </AnchorPane>
-                                      </content>
-                                    </TitledPane>
-                                    <Accordion fx:id="selectedLeftPane2" prefHeight="321.0" prefWidth="588.0">
-                                      <expandedPane>
-                                        <TitledPane fx:id="scoreDistributionPane" collapsible="false" prefHeight="150.0" prefWidth="594.0" text="Score Distribution">
-                                          <content>
-                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0">
-                                              <children>
-                                                <LineChart fx:id="scoreChart" legendVisible="false" style="-fx-border-color: white -fx-box-border;" AnchorPane.bottomAnchor="-25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                  <xAxis>
-                                                    <NumberAxis fx:id="xAxis" label="Results" minorTickVisible="false" side="BOTTOM" />
-                                                  </xAxis>
-                                                  <yAxis>
-                                                    <NumberAxis label="Score" side="LEFT" />
-                                                  </yAxis>
-                                                  <padding>
-                                                    <Insets left="5.0" right="5.0" />
-                                                  </padding>
-                                                </LineChart>
-                                              </children>
-                                            </AnchorPane>
-                                          </content>
-                                        </TitledPane>
-                                      </expandedPane>
-                                      <panes>
-                                        <fx:reference source="scoreDistributionPane" />
-                                        <TitledPane fx:id="scoreProbabiltyPane" text="Score Probability">
-                                          <content>
-                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                              <children>
-                                                <LineChart fx:id="scoreProbabiltyChart" minHeight="110.0" prefHeight="110.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                  <xAxis>
-                                                    <NumberAxis label="Score" side="BOTTOM" />
-                                                  </xAxis>
-                                                  <yAxis>
-                                                    <NumberAxis label="Score count" minorTickVisible="false" side="LEFT" />
-                                                  </yAxis>
-                                                </LineChart>
-                                              </children>
-                                            </AnchorPane>
-                                          </content>
-                                        </TitledPane>
-                                      </panes>
-                                    </Accordion>
-                                  </children>
-                                  <padding>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                  </padding>
-                                </VBox>
-                              </children>
-                              <padding>
-                                <Insets bottom="10.0" left="4.0" right="4.0" top="4.0" />
-                              </padding>
-                            </HBox>
-                            <GridPane VBox.vgrow="NEVER">
-                              <children>
-                                <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                  <children>
-                                    <Button fx:id="previousSolutionButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="&lt; Previous" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                                    <Button fx:id="firstSolutionButton" contentDisplay="CENTER" mnemonicParsing="false" text="&lt;&lt;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                                  </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                                <GridPane GridPane.columnIndex="2" GridPane.rowIndex="0">
-                                  <children>
-                                    <Button id="nextButton" fx:id="nextSolutionButton" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="65.0" text="Next &gt;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                                    <Button fx:id="lastSolutionButton" contentDisplay="CENTER" mnemonicParsing="false" text="&gt;&gt;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
-                                      <GridPane.margin>
-                                        <Insets />
-                                      </GridPane.margin>
+      <VBox prefHeight="713.0" prefWidth="973.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+                        <AnchorPane prefWidth="200.0" VBox.vgrow="ALWAYS">
+                           <children>
+            <TitledPane id="selectedLeftPane" fx:id="selectedLeftPane1" animated="false" collapsible="false" prefHeight="421.0" prefWidth="1035.0" text="System" textFill="#292929" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <content>
+                <AnchorPane id="Content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="359.0" prefWidth="766.0">
+                  <children>
+                    <TreeView fx:id="resultTreeView" layoutX="18.6" layoutY="6.6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="-5.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-5.0" />
+                  </children>
+                </AnchorPane>
+              </content>
+            </TitledPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="300.0" minHeight="250.0" prefHeight="300.0" VBox.vgrow="NEVER">
+                           <children>
+          <TitledPane fx:id="scoreDistributionPane" collapsible="false" prefHeight="255.0" prefWidth="1035.0" text="Score Distribution" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+              <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="229.0" prefWidth="866.0">
+                <children>
+                                          <LineChart fx:id="scoreChart" animated="false" layoutX="18.6" layoutY="19.6" legendVisible="false" prefHeight="216.0" prefWidth="868.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <NumberAxis animated="false" autoRanging="false" label="Result" minorTickCount="1" prefHeight="40.0" prefWidth="801.0" side="BOTTOM" tickUnit="1.0" upperBound="10.0" fx:id="xAxis" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis fx:id="yAxis" animated="false" autoRanging="false" label="Score" prefHeight="140.0" prefWidth="35.0" side="LEFT" tickLength="5.0" tickUnit="1.0" upperBound="5.0" />
+                                            </yAxis>
+                                             <padding>
+                                                <Insets bottom="-10.0" left="-14.0" />
+                                             </padding>
+                                          </LineChart>
+                </children>
+              </AnchorPane>
+            </content>
+          </TitledPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="50.0" minHeight="50.0" prefHeight="50.0" VBox.vgrow="NEVER">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="200.0" prefWidth="1035.0" spacing="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                  <Button fx:id="firstSolutionButton" contentDisplay="CENTER" mnemonicParsing="false" text="&lt;&lt;" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets left="60.0" />
+                                       </HBox.margin>
                                     </Button>
-                                  </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                                <Button fx:id="gotoSolutionButton" mnemonicParsing="false" text="Go to..." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                              </children>
-                              <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              </columnConstraints>
-                              <rowConstraints>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              </rowConstraints>
-                            </GridPane>
-                          </children>
-                          <padding>
-                            <Insets bottom="10.0" />
-                          </padding>
-                        </VBox>
-                      </children>
-                    </AnchorPane>
-                  </content>
-                </TitledPane>
-              </children>
-              <padding>
-                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
-              </padding>
-            </VBox>
+                  <Button fx:id="previousSolutionButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="&lt; Previous" />
+                    <Button fx:id="gotoSolutionButton" mnemonicParsing="false" text="Go to..." />
+                  <Button id="nextButton" fx:id="nextSolutionButton" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="65.0" text="Next &gt;" />
+                  <Button fx:id="lastSolutionButton" contentDisplay="CENTER" mnemonicParsing="false" text="&gt;&gt;" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+        </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+      </VBox>
           </children>
         </AnchorPane>
       </content>
