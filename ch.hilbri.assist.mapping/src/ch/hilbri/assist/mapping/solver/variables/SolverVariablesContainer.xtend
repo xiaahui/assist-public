@@ -96,6 +96,17 @@ import org.eclipse.xtend.lib.annotations.Data
 		return list
 	}
 	
+	
+	def IntVar[] getLocationVariables() {
+		val list = new ArrayList<IntVar>
+
+		for (threadKey : threadLocationVariablesList.keySet)
+			for (levelKey : threadLocationVariablesList.get(threadKey).keySet)
+				list.add(threadLocationVariablesList.get(threadKey).get(levelKey))	
+		
+		return list	
+	}
+	
 	/** Returns the location variable for a given relation */
 	def IntVar getCommunicationRelationLocationVariable(CommunicationRelation relation) {
 		return communicationGroupLocationVariablesList.get(relation)
