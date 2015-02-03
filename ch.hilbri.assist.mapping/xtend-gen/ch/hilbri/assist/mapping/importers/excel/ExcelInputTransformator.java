@@ -1,5 +1,6 @@
 package ch.hilbri.assist.mapping.importers.excel;
 
+import ch.hilbri.assist.mapping.importers.excel.StringWithNumberPostFixComparator;
 import ch.hilbri.assist.mapping.importers.excel.data.Application;
 import ch.hilbri.assist.mapping.importers.excel.data.Board;
 import ch.hilbri.assist.mapping.importers.excel.data.IOAdapter;
@@ -260,75 +261,56 @@ public class ExcelInputTransformator {
           _builder.newLine();
           {
             ArrayList<IOAdapter> _ioAdapters = board.getIoAdapters();
-            final Function1<IOAdapter, String> _function_1 = new Function1<IOAdapter, String>() {
-              public String apply(final IOAdapter it) {
-                return it.getType();
-              }
-            };
-            List<IOAdapter> _sortBy_1 = IterableExtensions.<IOAdapter, String>sortBy(_ioAdapters, _function_1);
-            for(final IOAdapter adapt : _sortBy_1) {
+            List<IOAdapter> _sort = IterableExtensions.<IOAdapter>sort(_ioAdapters);
+            for(final IOAdapter adapt : _sort) {
               _builder.append("\t");
               _builder.append("\t");
-              _builder.append("I/O adapter {");
-              _builder.newLine();
-              _builder.append("\t");
-              _builder.append("\t");
-              _builder.append("\t");
-              _builder.append("type  = ");
+              _builder.append("I/O adapter { type = ");
               String _type_2 = adapt.getType();
-              _builder.append(_type_2, "\t\t\t");
-              _builder.append(";");
-              _builder.newLineIfNotEmpty();
-              _builder.append("\t");
-              _builder.append("\t");
-              _builder.append("\t");
-              _builder.append("count = ");
+              _builder.append(_type_2, "\t\t");
+              _builder.append(";\tcount = ");
               String _units = adapt.getUnits();
-              _builder.append(_units, "\t\t\t");
-              _builder.append(";");
-              _builder.newLineIfNotEmpty();
-              _builder.append("\t");
-              _builder.append("\t");
-              _builder.append("\t");
-              _builder.append("protection-level = ");
+              _builder.append(_units, "\t\t");
+              _builder.append(";\tprotection-level = ");
               String _ioProtectionLevel = adapt.getIoProtectionLevel();
-              _builder.append(_ioProtectionLevel, "\t\t\t");
-              _builder.append(";");
+              _builder.append(_ioProtectionLevel, "\t\t");
+              _builder.append("; }");
               _builder.newLineIfNotEmpty();
+            }
+          }
+          {
+            Map<String, String> _genericParameters = board.getGenericParameters();
+            Set<String> _keySet = _genericParameters.keySet();
+            boolean _isEmpty = _keySet.isEmpty();
+            boolean _not = (!_isEmpty);
+            if (_not) {
               _builder.append("\t");
               _builder.append("\t");
-              _builder.append("\t");
+              _builder.append("Generic properties { ");
               _builder.newLine();
+              {
+                Map<String, String> _genericParameters_1 = board.getGenericParameters();
+                Set<String> _keySet_1 = _genericParameters_1.keySet();
+                for(final String p : _keySet_1) {
+                  _builder.append("\t");
+                  _builder.append("\t");
+                  _builder.append("\t");
+                  _builder.append("\"");
+                  _builder.append(p, "\t\t\t");
+                  _builder.append("\" = ");
+                  Map<String, String> _genericParameters_2 = board.getGenericParameters();
+                  String _get = _genericParameters_2.get(p);
+                  _builder.append(_get, "\t\t\t");
+                  _builder.append(";");
+                  _builder.newLineIfNotEmpty();
+                }
+              }
               _builder.append("\t");
               _builder.append("\t");
               _builder.append("}");
               _builder.newLine();
             }
           }
-          _builder.append("\t");
-          _builder.append("\t");
-          _builder.append("Generic properties { ");
-          _builder.newLine();
-          {
-            Map<String, String> _genericParameters = board.getGenericParameters();
-            Set<String> _keySet = _genericParameters.keySet();
-            for(final String p : _keySet) {
-              _builder.append("\t");
-              _builder.append("\t\t");
-              _builder.append("\"");
-              _builder.append(p, "\t\t\t");
-              _builder.append("\" = ");
-              Map<String, String> _genericParameters_1 = board.getGenericParameters();
-              String _get = _genericParameters_1.get(p);
-              _builder.append(_get, "\t\t\t");
-              _builder.append(";");
-              _builder.newLineIfNotEmpty();
-            }
-          }
-          _builder.append("\t");
-          _builder.append("\t");
-          _builder.append("}");
-          _builder.newLine();
           _builder.append("\t");
           _builder.append("}");
           _builder.newLine();
@@ -514,7 +496,9 @@ public class ExcelInputTransformator {
           {
             Map<String, Integer> _ioAdapterRequirements = application.getIoAdapterRequirements();
             Set<String> _keySet = _ioAdapterRequirements.keySet();
-            for(final String ioReq : _keySet) {
+            StringWithNumberPostFixComparator _stringWithNumberPostFixComparator = new StringWithNumberPostFixComparator();
+            List<String> _sortWith = IterableExtensions.<String>sortWith(_keySet, _stringWithNumberPostFixComparator);
+            for(final String ioReq : _sortWith) {
               _builder.append("\t");
               _builder.append("\t");
               _builder.append("Requires ");
@@ -527,30 +511,39 @@ public class ExcelInputTransformator {
               _builder.newLineIfNotEmpty();
             }
           }
-          _builder.append("\t");
-          _builder.append("\t");
-          _builder.append("Generic properties { ");
-          _builder.newLine();
           {
             Map<String, String> _genericParameters = application.getGenericParameters();
             Set<String> _keySet_1 = _genericParameters.keySet();
-            for(final String p : _keySet_1) {
+            boolean _isEmpty = _keySet_1.isEmpty();
+            boolean _not = (!_isEmpty);
+            if (_not) {
               _builder.append("\t");
-              _builder.append("\t\t");
-              _builder.append("\"");
-              _builder.append(p, "\t\t\t");
-              _builder.append("\" = ");
-              Map<String, String> _genericParameters_1 = application.getGenericParameters();
-              String _get_1 = _genericParameters_1.get(p);
-              _builder.append(_get_1, "\t\t\t");
-              _builder.append(";");
-              _builder.newLineIfNotEmpty();
+              _builder.append("\t");
+              _builder.append("Generic properties { ");
+              _builder.newLine();
+              {
+                Map<String, String> _genericParameters_1 = application.getGenericParameters();
+                Set<String> _keySet_2 = _genericParameters_1.keySet();
+                for(final String p : _keySet_2) {
+                  _builder.append("\t");
+                  _builder.append("\t");
+                  _builder.append("\t");
+                  _builder.append("\"");
+                  _builder.append(p, "\t\t\t");
+                  _builder.append("\" = ");
+                  Map<String, String> _genericParameters_2 = application.getGenericParameters();
+                  String _get_1 = _genericParameters_2.get(p);
+                  _builder.append(_get_1, "\t\t\t");
+                  _builder.append(";");
+                  _builder.newLineIfNotEmpty();
+                }
+              }
+              _builder.append("\t");
+              _builder.append("\t");
+              _builder.append("}");
+              _builder.newLine();
             }
           }
-          _builder.append("\t");
-          _builder.append("\t");
-          _builder.append("}");
-          _builder.newLine();
           _builder.append("\t");
           _builder.append("}");
           _builder.newLine();
@@ -559,7 +552,7 @@ public class ExcelInputTransformator {
         }
       }
       {
-        Set<String> _keySet_2 = allApplicationGroups.keySet();
+        Set<String> _keySet_3 = allApplicationGroups.keySet();
         final Function1<String, Boolean> _function = new Function1<String, Boolean>() {
           public Boolean apply(final String it) {
             ArrayList<Application> _get = allApplicationGroups.get(it);
@@ -567,7 +560,7 @@ public class ExcelInputTransformator {
             return Boolean.valueOf((_size > 1));
           }
         };
-        Iterable<String> _filter = IterableExtensions.<String>filter(_keySet_2, _function);
+        Iterable<String> _filter = IterableExtensions.<String>filter(_keySet_3, _function);
         for(final String groupName : _filter) {
           _builder.append("\t");
           _builder.append("Group Group_");

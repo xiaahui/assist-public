@@ -2,6 +2,7 @@ package ch.hilbri.assist.mapping.importers.excel.data
 
 import java.util.HashMap
 import java.util.Map
+import org.eclipse.xtend.lib.annotations.Data
 
 @Data class Application {
 	String 	name

@@ -130,19 +130,16 @@ Hardware {
 		«IF board.side.length > 0        »Side = "«         board.side»";«        ENDIF»
 		«IF board.ess.length > 0         »ESS = "«          board.ess»";«         ENDIF»
 		Processor Processor0 { Core Core0 {}}
-		«FOR adapt : board.ioAdapters.sortBy[type]»
-		I/O adapter {
-			type  = «adapt.type»;
-			count = «adapt.units»;
-			protection-level = «adapt.ioProtectionLevel»;
-			
-		}
+		«FOR adapt : board.ioAdapters.sort»
+		I/O adapter { type = «adapt.type»;	count = «adapt.units»;	protection-level = «adapt.ioProtectionLevel»; }
 		«ENDFOR»
+		«IF !board.genericParameters.keySet.empty»
 		Generic properties { 
 			«FOR p : board.genericParameters.keySet»
 			"«p»" = «board.genericParameters.get(p)»;
 			«ENDFOR»
 		}
+		«ENDIF»
 	}
 	
 	«ENDFOR»
@@ -245,14 +242,16 @@ Software {
 	«FOR application : allApplications»
 	Application «application.name» {
 		«IF application.protectionLevel.length > 0»Required IO protection = «application.protectionLevel»;«ENDIF»
-		«FOR ioReq : application.ioAdapterRequirements.keySet»
+		«FOR ioReq : application.ioAdapterRequirements.keySet.sortWith(new StringWithNumberPostFixComparator())»
 		Requires «application.ioAdapterRequirements.get(ioReq)» «ioReq» adapter exclusive;
 		«ENDFOR»
+		«IF !application.genericParameters.keySet.empty»
 		Generic properties { 
 			«FOR p : application.genericParameters.keySet»
 			"«p»" = «application.genericParameters.get(p)»;
 			«ENDFOR»
 		}
+		«ENDIF»
 	}
 	
 	«ENDFOR»

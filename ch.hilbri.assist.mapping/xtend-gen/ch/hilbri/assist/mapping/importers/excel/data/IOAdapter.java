@@ -6,12 +6,20 @@ import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
 
 @Data
 @SuppressWarnings("all")
-public class IOAdapter {
+public class IOAdapter implements Comparable<IOAdapter> {
   private final String type;
   
   private final String ioProtectionLevel;
   
   private final String units;
+  
+  public int compareTo(final IOAdapter o) {
+    String _replaceAll = this.type.replaceAll("^[a-zA-Z]*", "");
+    final int myNumber = Integer.parseInt(_replaceAll);
+    String _replaceAll_1 = o.type.replaceAll("^[a-zA-Z]*", "");
+    final int otherNumber = Integer.parseInt(_replaceAll_1);
+    return (myNumber - otherNumber);
+  }
   
   public IOAdapter(final String type, final String ioProtectionLevel, final String units) {
     super();
