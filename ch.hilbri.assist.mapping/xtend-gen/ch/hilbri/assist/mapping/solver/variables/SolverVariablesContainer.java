@@ -168,6 +168,21 @@ public class SolverVariablesContainer {
     return ((IntVar[])Conversions.unwrapArray(list, IntVar.class));
   }
   
+  public IntVar[] getLocationVariables() {
+    final ArrayList<IntVar> list = new ArrayList<IntVar>();
+    Set<ch.hilbri.assist.datamodel.model.Thread> _keySet = this.threadLocationVariablesList.keySet();
+    for (final ch.hilbri.assist.datamodel.model.Thread threadKey : _keySet) {
+      HashMap<Integer, IntVar> _get = this.threadLocationVariablesList.get(threadKey);
+      Set<Integer> _keySet_1 = _get.keySet();
+      for (final Integer levelKey : _keySet_1) {
+        HashMap<Integer, IntVar> _get_1 = this.threadLocationVariablesList.get(threadKey);
+        IntVar _get_2 = _get_1.get(levelKey);
+        list.add(_get_2);
+      }
+    }
+    return ((IntVar[])Conversions.unwrapArray(list, IntVar.class));
+  }
+  
   /**
    * Returns the location variable for a given relation
    */
