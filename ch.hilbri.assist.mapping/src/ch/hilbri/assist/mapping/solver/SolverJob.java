@@ -118,7 +118,7 @@ public class SolverJob extends Job {
 //		};
 //		this.solver.set(solverSettings);
 
-		// // // // // // // // // // // // 
+ 
 		
 		this.solverVariables = new SolverVariablesContainer(this.model, solver);
 		
@@ -160,11 +160,19 @@ public class SolverJob extends Job {
 		
 		/* Create a new constraint to take care of the deployment of communication relations to networks between boards */
 		this.mappingConstraintsList.add(new NetworkConstraints(model, solver, solverVariables));
+		
+		
 	}
 
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
-		return execute(monitor, true);
+		
+		long start = System.currentTimeMillis();
+		IStatus status =  execute(monitor, true);
+		long stop = System.currentTimeMillis();
+		
+		ConsoleCommands.writeLineToConsole("Time: " + (stop - start)) ;
+		return status;
 	}
 	
 	/* Die Funktionalitaet der RUN-Methode wurde ausgelagert, um den Zugang fuer einen Test zu ermoeglichen */
@@ -216,6 +224,8 @@ public class SolverJob extends Job {
 			else monitor.worked(1);
 		}
 
+
+//		System.out.println(solver);
 		
 		monitor.subTask("Searching for solutions");
 		if (runSearchForSolutions(monitor) != Status.OK_STATUS) return Status.CANCEL_STATUS;
@@ -243,8 +253,16 @@ public class SolverJob extends Job {
 			SMF.limitTime(solver, 60 * 60 * 1000 * 4); // 4h max runtime
 
 			solver.set(ISF.custom(ISF.minDomainSize_var_selector(),
-								  ISF.randomBound_value_selector(System.currentTimeMillis()),
-								  solverVariables.getAllVariables()));
+								  ISF.randomBound_value_selector(123L),
+								  solverVariables.getLocationVariables()));
+			
+//			solver.set(ISF.custom(new AssistBasicHeuristic(model),
+//					  ISF.randomBound_value_selector(123L),
+//					  solverVariables.getLocationVariables()));
+
+//			solver.set(ISF.lexico_LB(solverVariables.getAllVariables()));
+
+			
 		}
 
 		else {
