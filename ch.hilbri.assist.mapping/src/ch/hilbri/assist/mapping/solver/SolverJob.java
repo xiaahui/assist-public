@@ -2,6 +2,7 @@ package ch.hilbri.assist.mapping.solver;
 
 import java.util.ArrayList;
 
+import org.chocosolver.solver.Settings;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.explanations.RecorderExplanationEngine;
@@ -20,7 +21,6 @@ import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
@@ -85,6 +85,8 @@ public class SolverJob extends Job {
 	
 	private ArrayList<Result> mappingResults;
 
+	
+	
 	/**
 	 * Constructor
 	 * 
@@ -92,6 +94,7 @@ public class SolverJob extends Job {
 	 * @param model
 	 * @param editor 
 	 */
+	@SuppressWarnings("serial")
 	public SolverJob(String name, AssistModel model, MultiPageEditor editor) {
 		super(name);
 		this.model = model;
@@ -113,14 +116,12 @@ public class SolverJob extends Job {
 		/* Create a new Solver object */
 		this.solver = new Solver();
 		
-//		Settings solverSettings = new Settings(){ 
-//			public boolean enablePropagatorInExplanation() { return true; }
-//		};
-//		this.solver.set(solverSettings);
+		Settings solverSettings = new Settings(){ 
+			public boolean enablePropagatorInExplanation() { return true; }
+		};
+		this.solver.set(solverSettings);
 
- 
-		
-		this.solverVariables = new SolverVariablesContainer(this.model, solver);
+ 		this.solverVariables = new SolverVariablesContainer(this.model, solver);
 		
 		/* Create a new Constraint to process the system hierarchy */
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables));
@@ -168,10 +169,12 @@ public class SolverJob extends Job {
 	protected IStatus run(IProgressMonitor monitor) {
 		
 		long start = System.currentTimeMillis();
+		
 		IStatus status =  execute(monitor, true);
+		
 		long stop = System.currentTimeMillis();
 		
-		ConsoleCommands.writeLineToConsole("Time: " + (stop - start)) ;
+		logger.info("Elapsed time (in ms): " + (stop - start)) ;
 		return status;
 	}
 	
@@ -180,7 +183,8 @@ public class SolverJob extends Job {
 	{
 				
 		monitor.beginTask("Generating all mappings", 1);
-
+		logger.info("Generating and propagating all constraints");
+		
 		for (AbstractMappingConstraint constraint : mappingConstraintsList) {
 
 			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
@@ -223,16 +227,15 @@ public class SolverJob extends Job {
 
 			else monitor.worked(1);
 		}
-
-
-//		System.out.println(solver);
 		
-		monitor.subTask("Searching for solutions");
+		monitor.subTask("Starting the search for solutions");
+		logger.info("Starting the search for solutions");
 		if (runSearchForSolutions(monitor) != Status.OK_STATUS) return Status.CANCEL_STATUS;
 		monitor.worked(1);
 		 
 		if (presentResults == true) { 
-			 monitor.subTask("Showing results");
+			 monitor.subTask("Presenting the results");
+			 logger.info("Presenting the results");
 			 showResults(mappingResults);
 			 monitor.worked(1);
 		}
@@ -241,8 +244,6 @@ public class SolverJob extends Job {
 	}
 	
 	private IStatus runSearchForSolutions(IProgressMonitor monitor) {
-		
-		logger.debug("Searching for solutions");
 		
 		AllSolutionsRecorder recorder = new AllSolutionsRecorder(solver);
 		solver.set(recorder);
@@ -253,16 +254,8 @@ public class SolverJob extends Job {
 			SMF.limitTime(solver, 60 * 60 * 1000 * 4); // 4h max runtime
 
 			solver.set(ISF.custom(ISF.minDomainSize_var_selector(),
-								  ISF.randomBound_value_selector(123L),
+								  ISF.min_value_selector(),
 								  solverVariables.getLocationVariables()));
-			
-//			solver.set(ISF.custom(new AssistBasicHeuristic(model),
-//					  ISF.randomBound_value_selector(123L),
-//					  solverVariables.getLocationVariables()));
-
-//			solver.set(ISF.lexico_LB(solverVariables.getAllVariables()));
-
-			
 		}
 
 		else {
@@ -273,15 +266,18 @@ public class SolverJob extends Job {
 		
 		
 		solver.findAllSolutions();
-		logger.debug(recorder.getSolutions().size() + " solutions found");
+		logger.info("Solutions found: " + recorder.getSolutions().size());
 		
 		mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions());
-		
+		logger.info("Results created: " + mappingResults.size());
 		
 		
 		// If the search was not successful, we try to get a trace 
 		// from the solver ...
 		if (recorder.getSolutions().size() == 0) {
+			
+			logger.info("No solution found, trying to determine an explaination.");
+			
 			solver.getSearchLoop().reset();
 			solver.getEngine().flush();
 			
@@ -292,9 +288,12 @@ public class SolverJob extends Job {
 			cbj.activeUserExplanation(true);
 			solver.findSolution();
 			
-			ConsoleCommands.writeLineToConsole(solver.toString());
-			ConsoleCommands.writeLineToConsole("");
-			ConsoleCommands.writeLineToConsole(cbj.getUserExplanation().toString());		
+			logger.debug("Solver contents: ");
+			logger.debug(solver.toString());
+			
+			
+			logger.info("Explanation:");
+			logger.info(cbj.getUserExplanation().toString());		
 		}
 
 		
