@@ -5,11 +5,13 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 class AllApplicationThreadsOnSameBoard extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("All threads of an applications should be on the same board", model, solver, solverVariables)
+		super("all threads of an application on the same board", model, solver, solverVariables)
 	}
 	
 	override generate() {
@@ -22,6 +24,13 @@ class AllApplicationThreadsOnSameBoard extends AbstractMappingConstraint {
 					solver.post(ICF.arithm(var1, "=", var2))
 				}
 			} 
+		}
+		
+		try {
+			solver.propagate()
+		}
+		catch (ContradictionException e) {
+			throw new BasicConstraintsException(name)
 		}
 				
 		return true

@@ -8,17 +8,20 @@ import ch.hilbri.assist.datamodel.model.IOAdapterProtectionLevelType;
 import ch.hilbri.assist.datamodel.model.IOAdapterRequirement;
 import ch.hilbri.assist.datamodel.model.IOAdapterType;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import java.util.ArrayList;
 import java.util.List;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.Constraint;
 import org.chocosolver.solver.constraints.ICF;
+import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.variables.BoolVar;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.VF;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
@@ -30,9 +33,23 @@ public class IOAdapterConstraint extends AbstractMappingConstraint {
   }
   
   public boolean generate() {
-    this.generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints();
-    this.generate_MultipleTheads_ExclusiveRequests_incl_ProtectionLevel_Constraints();
-    return true;
+    try {
+      this.generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints();
+      this.generate_MultipleTheads_ExclusiveRequests_incl_ProtectionLevel_Constraints();
+      try {
+        this.solver.propagate();
+      } catch (final Throwable _t) {
+        if (_t instanceof ContradictionException) {
+          final ContradictionException e = (ContradictionException)_t;
+          throw new BasicConstraintsException(this.name);
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
+      }
+      return true;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   public void generate_MultipleTheads_ExclusiveRequests_incl_ProtectionLevel_Constraints() {

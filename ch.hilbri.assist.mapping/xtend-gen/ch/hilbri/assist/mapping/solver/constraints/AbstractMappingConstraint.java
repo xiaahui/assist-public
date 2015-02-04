@@ -1,6 +1,7 @@
 package ch.hilbri.assist.mapping.solver.constraints;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import org.chocosolver.solver.Solver;
 import org.slf4j.Logger;
@@ -53,7 +54,7 @@ public abstract class AbstractMappingConstraint {
    * 
    * @return
    */
-  public abstract boolean generate();
+  public abstract boolean generate() throws BasicConstraintsException;
   
   /**
    * Returns the name of this constraint

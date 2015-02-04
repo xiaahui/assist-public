@@ -7,8 +7,10 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.HashMap
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 	
@@ -57,7 +59,13 @@ class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 			solver.post(ICF.arithm(designAssuranceLevelVariables.get(t), ">=",allDesignAssuranceLevelRequests.get(t)))
 
 		}
-			
+		
+		try {
+			solver.propagate()
+		}
+		catch (ContradictionException e) {
+			throw new BasicConstraintsException(name)
+		}
 		return true
 	}
 }

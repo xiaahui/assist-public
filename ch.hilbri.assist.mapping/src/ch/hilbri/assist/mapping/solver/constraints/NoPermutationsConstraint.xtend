@@ -5,6 +5,8 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 class NoPermutationsConstraint extends AbstractMappingConstraint {
 	
@@ -25,6 +27,14 @@ class NoPermutationsConstraint extends AbstractMappingConstraint {
 				}
 			}
 		}
+		
+		try {
+			solver.propagate()
+		}
+		catch (ContradictionException e) {
+			throw new BasicConstraintsException(name)
+		}
+				
 		return true
 	}
 	

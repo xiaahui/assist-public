@@ -7,7 +7,9 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 class DislocalityConstraint extends AbstractMappingConstraint {
 	
@@ -66,6 +68,14 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				solver.post(ICF.alldifferent(list))
 			
 		}
+		
+		try {
+			solver.propagate()
+		}
+		catch (ContradictionException e) {
+			throw new BasicConstraintsException(name)
+		}
+		
 		return true
 	}
 	

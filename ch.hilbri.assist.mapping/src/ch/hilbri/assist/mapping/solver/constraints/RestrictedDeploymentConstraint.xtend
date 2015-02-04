@@ -11,6 +11,8 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.HashSet
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 class RestrictedDeploymentConstraint extends AbstractMappingConstraint {
 	
@@ -42,17 +44,15 @@ class RestrictedDeploymentConstraint extends AbstractMappingConstraint {
 			
 				solver.post(ICF.member(threadLocationsCoreLevel, allowedCores.map[model.allCores.indexOf(it)]))
 			
-			
-				// restrict this variable according to the allowed cores
-//				var domain = new IntervalDomain()
-//				for (core : allowedCores)
-//					domain.addDom(new BoundDomain(model.allCores.indexOf(core)+1, model.allCores.indexOf(core)+1))
-//			
-//				constraintStore.impose(new In(threadLocationsCoreLevel, domain))
-			
 			}
 		}
 		
+		try {
+			solver.propagate()
+		}
+		catch (ContradictionException e) {
+			throw new BasicConstraintsException(name)
+		}
 		return true
 	}
 	
