@@ -4,7 +4,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.logback
 Bundle-SymbolicName: ch.hilbri.assist.libraries.logback
 Bundle-Version: 1.1.2
-Bundle-ClassPath: slf4j-api-1.7.7.jar,
+Bundle-ClassPath: src/,
+ slf4j-api-1.7.7.jar,
  logback-classic-1.1.2.jar,
  logback-core-1.1.2.jar
 Bundle-Vendor: QOS.ch
@@ -12,3 +13,5 @@ Export-Package: org.slf4j,
  org.slf4j.helpers,
  org.slf4j.spi
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.ui.console,
+ org.eclipse.jface
