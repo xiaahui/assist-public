@@ -4,15 +4,12 @@ import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.Core;
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
-import ch.hilbri.assist.mapping.solver.exceptions.TotalCoreUtilizationDemandExceedsTotalCapabilities;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import java.util.ArrayList;
 import java.util.List;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.Constraint;
 import org.chocosolver.solver.constraints.ICF;
-import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.variables.BoolVar;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.VF;
@@ -77,16 +74,7 @@ public class CoreUtilizationConstraint extends AbstractMappingConstraint {
       final IntVar totalCoreCapacityVar = VF.fixed("TotalCoreCapacitiy", (_reduce_1).intValue(), this.solver);
       Constraint _arithm = ICF.arithm(totalCoreCapacityVar, ">=", totalCoreUtilizationFromAllApplicationsVar);
       this.solver.post(_arithm);
-      try {
-        this.solver.propagate();
-      } catch (final Throwable _t) {
-        if (_t instanceof ContradictionException) {
-          final ContradictionException e = (ContradictionException)_t;
-          throw new TotalCoreUtilizationDemandExceedsTotalCapabilities(this.name);
-        } else {
-          throw Exceptions.sneakyThrow(_t);
-        }
-      }
+      this.propagate();
       EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads_2 = this.model.getAllThreads();
       for (final ch.hilbri.assist.datamodel.model.Thread thread : _allThreads_2) {
         {
@@ -130,16 +118,7 @@ public class CoreUtilizationConstraint extends AbstractMappingConstraint {
           this.solver.post(_scalar);
         }
       }
-      try {
-        this.solver.propagate();
-      } catch (final Throwable _t_1) {
-        if (_t_1 instanceof ContradictionException) {
-          final ContradictionException e_1 = (ContradictionException)_t_1;
-          throw new BasicConstraintsException(this.name);
-        } else {
-          throw Exceptions.sneakyThrow(_t_1);
-        }
-      }
+      this.propagate();
       return true;
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

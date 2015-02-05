@@ -1,10 +1,11 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
+import org.chocosolver.solver.exception.ContradictionException
 import org.slf4j.Logger
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 abstract class AbstractMappingConstraint {
 	
@@ -46,6 +47,21 @@ abstract class AbstractMappingConstraint {
 	 */
 	abstract def boolean generate() throws BasicConstraintsException
 	
+	/**
+	 * Propagation of constraints and throwing a generic exception if
+	 * an inconsistency is encountered 
+	 * 
+	 * This should be overwritten in specific constraints
+	 */
+	def void propagate() throws BasicConstraintsException {
+		try {
+			solver.propagate()
+		}
+		catch (ContradictionException e) {
+			throw new BasicConstraintsException(this)
+		}
+	}
+	
 	
 	/**
 	 * Returns the name of this constraint
@@ -53,4 +69,6 @@ abstract class AbstractMappingConstraint {
 	def String getName() {
 		return name
 	}
+	
+	
 }

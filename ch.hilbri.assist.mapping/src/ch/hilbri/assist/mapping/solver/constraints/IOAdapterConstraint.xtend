@@ -8,10 +8,8 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
-import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.VF
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 class IOAdapterConstraint extends AbstractMappingConstraint {
 	
@@ -23,12 +21,8 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 		generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints()
 		generate_MultipleTheads_ExclusiveRequests_incl_ProtectionLevel_Constraints()
 		
-		try {
-			solver.propagate()
-		}
-		catch (ContradictionException e) {
-			throw new BasicConstraintsException(name)
-		}
+		propagate()
+		
 		return true
 	}
 	

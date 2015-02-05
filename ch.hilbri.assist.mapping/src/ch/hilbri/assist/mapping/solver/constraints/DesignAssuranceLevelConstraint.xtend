@@ -7,10 +7,8 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.HashMap
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
-import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 	
@@ -33,13 +31,6 @@ class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 		// designAssuranceLevelVariables[thread] = Var <- Domain = allAvailableDesignAssuranceLevels
 		var designAssuranceLevelVariables = new HashMap<Thread, IntVar>()
 		for (t : model.allThreads) {
-
-//			var domain = new IntervalDomain()
-//			for (designAssuranceLevelPerBoard : allAvailableDesignAssuranceLevels)
-//				domain.addDom(new BoundDomain(designAssuranceLevelPerBoard, designAssuranceLevelPerBoard))
-//			
-//			designAssuranceLevelVariables.put(t, new IntVar(constraintStore, "DALVar-" + t.name, domain))
-			
 			designAssuranceLevelVariables.put(t, VF.enumerated("DALVar-" + t.name, allAvailableDesignAssuranceLevels, solver))			
 		}
 
@@ -52,20 +43,13 @@ class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 			/* To which board can we map this thread? */
 			val threadLocationsBoardLevel = solverVariables.getThreadLocationVariable(t, HardwareArchitectureLevelType.BOARD_VALUE)
 			
-//			constraintStore.impose(new Element(threadLocationsBoardLevel, allAvailableDesignAssuranceLevels, designAssuranceLevelVariables.get(t) ))
-//			constraintStore.impose(new XgteqC(designAssuranceLevelVariables.get(t), allDesignAssuranceLevelRequests.get(t)))
-			
 			solver.post(ICF.element(designAssuranceLevelVariables.get(t), allAvailableDesignAssuranceLevels, threadLocationsBoardLevel))
 			solver.post(ICF.arithm(designAssuranceLevelVariables.get(t), ">=",allDesignAssuranceLevelRequests.get(t)))
 
 		}
 		
-		try {
-			solver.propagate()
-		}
-		catch (ContradictionException e) {
-			throw new BasicConstraintsException(name)
-		}
+		propagate()
+		
 		return true
 	}
 }

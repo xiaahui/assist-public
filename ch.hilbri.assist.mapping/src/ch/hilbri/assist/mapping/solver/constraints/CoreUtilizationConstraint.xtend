@@ -6,12 +6,9 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
-import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
-import ch.hilbri.assist.mapping.solver.exceptions.TotalCoreUtilizationDemandExceedsTotalCapabilities
 
 class CoreUtilizationConstraint extends AbstractMappingConstraint {
 	
@@ -47,8 +44,7 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 		// - enforce that the capacity is always larger than the demand
 		solver.post(ICF.arithm(totalCoreCapacityVar, ">=", totalCoreUtilizationFromAllApplicationsVar))
 		
-		try { solver.propagate() }
-		catch (ContradictionException e) { throw new TotalCoreUtilizationDemandExceedsTotalCapabilities(name)  }
+		propagate()
 		
 		/* 1. If a thread requires more processing power than a core offers, 
 		 *    the application (thread) cannot be mapped to this core
@@ -92,12 +88,7 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteCoreUtilizationVariable(core)))
 		}
 
-		try {
-			solver.propagate()
-		}
-		catch (ContradictionException e) {
-			throw new BasicConstraintsException(name)
-		}
+		propagate()
 
 		return true
 	}

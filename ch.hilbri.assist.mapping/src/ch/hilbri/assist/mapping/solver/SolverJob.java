@@ -36,9 +36,7 @@ import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
-import ch.hilbri.assist.mapping.solver.exceptions.ApplicationProximityException;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
-import ch.hilbri.assist.mapping.solver.exceptions.TotalCoreUtilizationDemandExceedsTotalCapabilities;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
@@ -173,6 +171,8 @@ public class SolverJob extends Job {
 	protected IStatus run(IProgressMonitor monitor) {
 
 		long start = System.currentTimeMillis();
+		logger.info("---------------------------------------------------------");
+		logger.info("Starting a new solver run");
 		
 		// Set the time limits, solution limits and the search strategy
 		configureSolver();
@@ -192,6 +192,10 @@ public class SolverJob extends Job {
 			monitor.beginTask("Searching for solutions", 1);
 			solver.findAllSolutions();
 			logger.info("Solutions found: " + recorder.getSolutions().size());
+			
+			if (solver.hasReachedLimit())
+				logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)");
+			
 			monitor.worked(1);
 			
 			// Did we find a solution? If not, then turn on the explanations ...
@@ -229,8 +233,8 @@ public class SolverJob extends Job {
 		
 		
 		catch (BasicConstraintsException e) {
-			String message = getMessageText(e);
 			String constraintName = e.getConstraintName();
+			String message = e.getExplanation();
 			logger.info("Inconsistency found while processing constraint \"" + constraintName + "\"");
 			logger.info("\""+ message + "\"");
 			showMessageInUI(constraintName, message);
@@ -260,31 +264,13 @@ public class SolverJob extends Job {
 								  solverVariables.getLocationVariables()));
 		}
 	}
-	
-	public String getMessageText(BasicConstraintsException e) {
-		String message = "";
-
-		if (e instanceof ApplicationProximityException) 
-			message += "Application proximity (\"on same\") could not be satisfied\n" +
-		               "the following relation:\n" +
-		               ((ApplicationProximityException) e).getRelation().toString();
-			
-		else if (e instanceof TotalCoreUtilizationDemandExceedsTotalCapabilities)  
-			message += "The total capacity of all cores in the system is less than the total demand of all applications.";
-		
-		else 
-			message += "The last constraints which lead to an inconsistency are:\n\n" + 
-		               ">" + e.getConstraintName() + "<";
-		
-		return message;
-	}
 		
 	private void showMessageInUI(String constraintName, String explanation) {
 		
 		String title = "Specification inconsistency detected";
 		String message = "Your specifications became inconsistent. A correct deployment cannot be generated.\n\n" + 
-						 "Detected at constraint: \"" + constraintName + "\"\n\n" +
-						 "Explanation: \"" + explanation + "\"";
+						 "Constraints: \"" + constraintName + "\"\n\n" +
+						 "Explanation: " + explanation + "";
 				
 		Display.getDefault().asyncExec(new Runnable() {
 			public void run() {MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), title, message);}

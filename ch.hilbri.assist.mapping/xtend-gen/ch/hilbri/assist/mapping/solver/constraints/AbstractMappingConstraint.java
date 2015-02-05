@@ -4,6 +4,8 @@ import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import org.chocosolver.solver.Solver;
+import org.chocosolver.solver.exception.ContradictionException;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.slf4j.Logger;
 
 @SuppressWarnings("all")
@@ -55,6 +57,25 @@ public abstract class AbstractMappingConstraint {
    * @return
    */
   public abstract boolean generate() throws BasicConstraintsException;
+  
+  /**
+   * Propagation of constraints and throwing a generic exception if
+   * an inconsistency is encountered
+   * 
+   * This should be overwritten in specific constraints
+   */
+  public void propagate() throws BasicConstraintsException {
+    try {
+      this.solver.propagate();
+    } catch (final Throwable _t) {
+      if (_t instanceof ContradictionException) {
+        final ContradictionException e = (ContradictionException)_t;
+        throw new BasicConstraintsException(this);
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+  }
   
   /**
    * Returns the name of this constraint

@@ -4,12 +4,10 @@ import ch.hilbri.assist.datamodel.model.Application;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.Constraint;
 import org.chocosolver.solver.constraints.ICF;
-import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.variables.IntVar;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Exceptions;
@@ -51,16 +49,7 @@ public class NoPermutationsConstraint extends AbstractMappingConstraint {
           }
         }
       }
-      try {
-        this.solver.propagate();
-      } catch (final Throwable _t) {
-        if (_t instanceof ContradictionException) {
-          final ContradictionException e = (ContradictionException)_t;
-          throw new BasicConstraintsException(this.name);
-        } else {
-          throw Exceptions.sneakyThrow(_t);
-        }
-      }
+      this.propagate();
       return true;
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

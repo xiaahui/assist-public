@@ -7,11 +7,9 @@ import java.util.ArrayList
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.constraints.LCF
-import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.VF
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 class NetworkConstraints extends AbstractMappingConstraint {
 	
@@ -114,12 +112,8 @@ class NetworkConstraints extends AbstractMappingConstraint {
 			solver.post(ICF.scalar(factorList, bandwidthUtilizationList, "=", solverVariables.getAbsoluteBandwidthUtilizationVariable(network))) 
 		}
 		
-		try {
-			solver.propagate()
-		}
-		catch (ContradictionException e) {
-			throw new BasicConstraintsException(name)
-		}
+		propagate()
+		
 		return true
 	}
 	
