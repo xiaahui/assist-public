@@ -4,7 +4,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 import org.apache.commons.io.IOUtils;
-import org.eclipse.xtext.junit4.IInjectorProvider;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
@@ -26,8 +25,7 @@ public class Runner {
 	public static void main(String[] args) throws Exception {
 	    ModelPackage.eINSTANCE.eClass();
 		Runner runner = new Runner();
-		IInjectorProvider injectorProvider = new MappingDSLInjectorProvider();
-		injectorProvider.getInjector().injectMembers(runner);
+		new MappingDSLInjectorProvider().getInjector().injectMembers(runner);
 
 		AssistModel model = runner.parser.parse(IOUtils.toString(new FileReader(args[0])));
 		PostProcessor.createMissingThreads(model);
@@ -35,8 +33,12 @@ public class Runner {
 		findSolutionsJob.setKindOfSolutions(SearchType.CONSECUTIVE);
 		findSolutionsJob.setMaxSolutions(1000);
 		findSolutionsJob.execute(new MyTestingMonitor(), false);
-		ArrayList<Result> newMappingResults = findSolutionsJob
-				.getNewMappingResults();
-		System.out.println(newMappingResults);
+		ArrayList<Result> newMappingResults = findSolutionsJob.getNewMappingResults();
+		for (Result r : newMappingResults) {
+			for (ch.hilbri.assist.datamodel.result.mapping.Thread t: r.getAllThreads()) {
+				System.out.println(t.getApplication().getName() + " -> " + t.getCore().getName());
+			}
+			System.out.println();
+		}
 	}
 }
