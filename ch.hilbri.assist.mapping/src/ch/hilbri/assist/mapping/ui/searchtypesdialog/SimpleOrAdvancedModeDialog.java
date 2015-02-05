@@ -17,7 +17,6 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.wb.swt.SWTResourceManager;
 
 import ch.hilbri.assist.mapping.solver.SearchType;
 
@@ -27,12 +26,9 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 	private Text solNrAdvancedMode;
 	private Text searchTimeAdvancedMode;
 	private Combo timeUnitAdvancedMode;
-	private Label lblNewLabel;
 	private Button btnSimpleMode;
 	private Button btnAdvancedMode;
-	String infoSimpleModel = "Linear Search:\r\n\nUse this mode for a quick start. It will compute consecutive solutions and can give you a hint whether there are more solutions.";
-	String infoAdvancedModel = "Random Search:\r\n\nUse this mode for finding different solutions (stochastic selection).";
-	
+
 	private long searchTime = 30;
 	private int searchTimeUnit = 0;
 	private String searchTimeItem = null;
@@ -60,10 +56,11 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 		
 		
 		Composite composite_1 = new Composite(container, SWT.NONE);
-		composite_1.setBounds(0, 0, 286, 153);
+		composite_1.setBounds(0, 0, 303, 153);
 		
 		Label lblNumberOfSolutionsAdvancedMode = new Label(composite_1, SWT.NONE);
-		lblNumberOfSolutionsAdvancedMode.setLocation(27, 88);
+		lblNumberOfSolutionsAdvancedMode.setEnabled(false);
+		lblNumberOfSolutionsAdvancedMode.setLocation(27, 125);
 		lblNumberOfSolutionsAdvancedMode.setSize(113, 15);
 		lblNumberOfSolutionsAdvancedMode.setText("number of solutions:");
 		
@@ -74,13 +71,16 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 		Label lblNumberOfSolutionsSimpleMode = new Label(composite_1, SWT.NONE);
 		lblNumberOfSolutionsSimpleMode.setLocation(27, 32);
 		lblNumberOfSolutionsSimpleMode.setSize(113, 15);
-		lblNumberOfSolutionsSimpleMode.setText("number of solutions:");
+		lblNumberOfSolutionsSimpleMode.setText("Max. solutions:");
 		
 		solNrSimpleMode = new Text(composite_1, SWT.BORDER | SWT.RIGHT);
 		solNrSimpleMode.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				maxSolutions = Integer.parseInt(solNrSimpleMode.getText());
+				try {
+					int tmp = Integer.parseInt(solNrSimpleMode.getText());
+					maxSolutions = tmp;
+				} catch (NumberFormatException exception) {}
 			}
 		});
 		solNrSimpleMode.setLocation(153, 32);
@@ -92,7 +92,6 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 		btnSimpleMode.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				lblNewLabel.setText(infoSimpleModel); // Infotext anzeigen
 				selectedMode = SearchType.CONSECUTIVE;
 				maxSolutions = Integer.parseInt(solNrSimpleMode.getText());
 				solNrSimpleMode.setEditable(true);
@@ -104,40 +103,43 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 		btnSimpleMode.setLocation(10, 10);
 		btnSimpleMode.setSize(240, 16);
 		btnSimpleMode.setSelection(true);
-		btnSimpleMode.setText("Linear Search (Simple Mode)");		
+		btnSimpleMode.setText("Standard Search");		
 		
 		/* + advanced mode + */
 		
 		/* number of solutions */
 		solNrAdvancedMode = new Text(composite_1, SWT.BORDER | SWT.RIGHT);
+		solNrAdvancedMode.setEnabled(false);
 		solNrAdvancedMode.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
 				maxSolutions = Integer.parseInt(solNrAdvancedMode.getText());
 			}
 		});
-		solNrAdvancedMode.setLocation(153, 85);
+		solNrAdvancedMode.setLocation(153, 122);
 		solNrAdvancedMode.setSize(55, 21);
 		solNrAdvancedMode.setText(maxSolutions + "");
 		solNrAdvancedMode.setEditable(false);
 		
 		/* search time */
 		Label lblMaximumSearchTime = new Label(composite_1, SWT.NONE);
-		lblMaximumSearchTime.setLocation(27, 118);
+		lblMaximumSearchTime.setLocation(27, 63);
 		lblMaximumSearchTime.setSize(126, 15);
-		lblMaximumSearchTime.setText("Time out:");
+		lblMaximumSearchTime.setText("Max. search time:");
 		
 		searchTimeAdvancedMode = new Text(composite_1, SWT.BORDER | SWT.RIGHT);
 		searchTimeAdvancedMode.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				searchTime = Integer.parseInt(searchTimeAdvancedMode.getText());
+				try {
+					int tmp = Integer.parseInt(searchTimeAdvancedMode.getText());
+					searchTime = tmp;
+				} catch (NumberFormatException exception) {}
 			}
 		});
-		searchTimeAdvancedMode.setLocation(153, 115);
+		searchTimeAdvancedMode.setLocation(153, 60);
 		searchTimeAdvancedMode.setSize(55, 21);
 		searchTimeAdvancedMode.setText(searchTime + "");
-		searchTimeAdvancedMode.setEditable(false);
 		
 		timeUnitAdvancedMode = new Combo(composite_1, SWT.NONE);
 		timeUnitAdvancedMode.addSelectionListener(new SelectionAdapter() {
@@ -147,36 +149,25 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 				searchTimeItem = timeUnitAdvancedMode.getItem(searchTimeUnit);
 			}
 		});
-		timeUnitAdvancedMode.setLocation(217, 114);
+		timeUnitAdvancedMode.setLocation(214, 60);
 		timeUnitAdvancedMode.setSize(55, 23);
 		timeUnitAdvancedMode.setItems(new String[] {"sec", "min"});
 		timeUnitAdvancedMode.select(0);
 		searchTimeItem = timeUnitAdvancedMode.getItem(0);
-		timeUnitAdvancedMode.setEnabled(false);
 		
 		/* selection */
 		btnAdvancedMode = new Button(composite_1, SWT.RADIO);
+		btnAdvancedMode.setEnabled(false);
 		btnAdvancedMode.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				lblNewLabel.setText(infoAdvancedModel); // Infotext anzeigen
-				selectedMode = SearchType.RANDOM;
 				maxSolutions = Integer.parseInt(solNrAdvancedMode.getText());
 				solNrSimpleMode.setEditable(false);
 				solNrAdvancedMode.setEditable(true);
-				searchTimeAdvancedMode.setEditable(true);
-				timeUnitAdvancedMode.setEnabled(true);
 			}
 		});
-		btnAdvancedMode.setBounds(10, 70, 240, 16);
+		btnAdvancedMode.setBounds(10, 107, 240, 16);
 		btnAdvancedMode.setText("Random Search");
-		
-		/* + info text + */
-		
-		lblNewLabel = new Label(container, SWT.WRAP);
-		lblNewLabel.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
-		lblNewLabel.setBounds(292, 10, 141, 133);
-		lblNewLabel.setText(infoSimpleModel);
 
 		return area;
 	}
@@ -187,11 +178,9 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
-		Button button = createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,
-				true);
+		Button button = createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,	true);
 		button.setText("Search");
-		createButton(parent, IDialogConstants.CANCEL_ID,
-				IDialogConstants.CANCEL_LABEL, false);
+		createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
 	}
 
 	/**
@@ -199,7 +188,7 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(450, 300);
+		return new Point(308, 300);
 	}
 	protected DataBindingContext initDataBindings() {
 		DataBindingContext bindingContext = new DataBindingContext();

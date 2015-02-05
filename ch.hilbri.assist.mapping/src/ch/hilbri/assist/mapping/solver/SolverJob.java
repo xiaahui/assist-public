@@ -2,8 +2,8 @@ package ch.hilbri.assist.mapping.solver;
 
 import java.util.ArrayList;
 
+import org.chocosolver.solver.Settings;
 import org.chocosolver.solver.Solver;
-import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.explanations.RecorderExplanationEngine;
 import org.chocosolver.solver.explanations.strategies.ConflictBasedBackjumping;
 import org.chocosolver.solver.search.loop.monitors.SMF;
@@ -15,12 +15,10 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions;
@@ -38,6 +36,7 @@ import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
@@ -47,6 +46,8 @@ public class SolverJob extends Job {
 	private AssistModel model;
 	
 	private Solver solver;
+	
+	private AllSolutionsRecorder recorder;
 
 	private SolverVariablesContainer solverVariables;
 	
@@ -74,7 +75,7 @@ public class SolverJob extends Job {
 	 * CONSECUTIVE: sucht "hintereiander" liegende Loesungen
 	 * 				(Vorteil: Es kann eindeutig bestimmt werden, ob alle moeglichen Loesungen gefunden wurden)
 	 */
-	private SearchType kindOfSolutions;
+	private SearchType searchStrategy;
 
 	/*
 	 * Im Advances Mode gibt dies die maximale Suchzeit an, da nicht
@@ -85,6 +86,8 @@ public class SolverJob extends Job {
 	
 	private ArrayList<Result> mappingResults;
 
+	
+	
 	/**
 	 * Constructor
 	 * 
@@ -92,6 +95,7 @@ public class SolverJob extends Job {
 	 * @param model
 	 * @param editor 
 	 */
+	@SuppressWarnings("serial")
 	public SolverJob(String name, AssistModel model, MultiPageEditor editor) {
 		super(name);
 		this.model = model;
@@ -112,15 +116,14 @@ public class SolverJob extends Job {
 		
 		/* Create a new Solver object */
 		this.solver = new Solver();
+		this.solver.set(new Settings(){ public boolean enablePropagatorInExplanation() { return true; }});
 		
-//		Settings solverSettings = new Settings(){ 
-//			public boolean enablePropagatorInExplanation() { return true; }
-//		};
-//		this.solver.set(solverSettings);
-
- 
+		/* Create a new recorder for our solutions */
+		this.recorder = new AllSolutionsRecorder(solver);
+		solver.set(recorder);
 		
-		this.solverVariables = new SolverVariablesContainer(this.model, solver);
+		/* Create the container for variables which are needed in the solver */
+ 		this.solverVariables = new SolverVariablesContainer(this.model, solver);
 		
 		/* Create a new Constraint to process the system hierarchy */
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables));
@@ -160,147 +163,130 @@ public class SolverJob extends Job {
 		
 		/* Create a new constraint to take care of the deployment of communication relations to networks between boards */
 		this.mappingConstraintsList.add(new NetworkConstraints(model, solver, solverVariables));
-		
-		
 	}
 
+	
+	
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
-		
+
 		long start = System.currentTimeMillis();
-		IStatus status =  execute(monitor, true);
-		long stop = System.currentTimeMillis();
+		logger.info("---------------------------------------------------------");
+		logger.info("Starting a new solver run");
 		
-		ConsoleCommands.writeLineToConsole("Time: " + (stop - start)) ;
-		return status;
-	}
+		// Set the time limits, solution limits and the search strategy
+		configureSolver();
+		
+		try {
+			// Generate and propagate all constraints 
+			for (AbstractMappingConstraint constraint : mappingConstraintsList) {
+				monitor.beginTask("Processing constraint: \""	+ constraint.getName() + "\"", mappingConstraintsList.size());
+				
+				constraint.generate();
+				
+				logger.info("Constraint \"" + constraint.getName() + "\" successfully generated");
+				monitor.worked(1);
+			};
+			
+			// Search for a solution
+			monitor.beginTask("Searching for solutions", 1);
+			solver.findAllSolutions();
+			logger.info("Solutions found: " + recorder.getSolutions().size());
+			
+			if (solver.hasReachedLimit())
+				logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)");
+			
+			monitor.worked(1);
+			
+			// Did we find a solution? If not, then turn on the explanations ...
+			if (recorder.getSolutions().size() == 0) {
+				logger.info("No solution found, trying to get an explanation");
+				
+				solver.getSearchLoop().reset();
+				solver.getEngine().flush();
+				
+				// Conflicts explained
+				solver.set(new RecorderExplanationEngine(solver));
+				ConflictBasedBackjumping cbj = new ConflictBasedBackjumping(solver.getExplainer());
+				cbj.activeUserExplanation(true);
+				solver.findSolution();
+				
+				logger.debug("Solver contents: ");
+				logger.debug(solver.toString());
+				
+				logger.info("Explanation:");
+				logger.info(cbj.getUserExplanation().toString());		
+			}
+			
+			// Create the results 
+			monitor.beginTask("Creating results", 1);
+			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions());
+			logger.info("Results created: " + mappingResults.size());
+			monitor.worked(1);
+			
+			// Present the results 
+			monitor.beginTask("Presenting the results", 1);
+			logger.info("Presenting the results");
+			showResults(mappingResults);
+			monitor.worked(1);
+		}
+		
+		
+		catch (BasicConstraintsException e) {
+			String constraintName = e.getConstraintName();
+			String message = e.getExplanation();
+			logger.info("Inconsistency found while processing constraint \"" + constraintName + "\"");
+			logger.info("\""+ message + "\"");
+			showMessageInUI(constraintName, message);
+			resetView();
+		}
 	
-	/* Die Funktionalitaet der RUN-Methode wurde ausgelagert, um den Zugang fuer einen Test zu ermoeglichen */
-	public IStatus execute(IProgressMonitor monitor, boolean presentResults) 
-	{
-				
-		monitor.beginTask("Generating all mappings", 1);
-
-		for (AbstractMappingConstraint constraint : mappingConstraintsList) {
-
-			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
-			monitor.subTask("Processing constraint: \""	+ constraint.getName() + "\"");
-			
-			/* Generate this constraint */
-			constraint.generate();
-			
-			boolean contradiction = false;
-			
-			try {
-				solver.propagate();
-			} catch (ContradictionException e) {
-				contradiction = true;
-				final String constraintName = constraint.getName();
-				
-				Display.getDefault().asyncExec(new Runnable() {
-
-					public void run() {
-						Shell activeShell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-						MessageDialog.openError(activeShell,
-										"Specification inconsistencies",
-										"Your specifications have been inconsistent.\n"
-												+ "I was unable to generate a valid solution.\n\n"
-												+ "Here is the last set of constraints which failed to propagate:\n\n"
-												+ ">" + constraintName + "<");
-					}
-				});
-			}
-			
-			if (contradiction) {
-				if (multiPageEditor != null) {
-					Display.getDefault().asyncExec(new Runnable() {
-						@Override
-						public void run() {	multiPageEditor.resetView(); }
-					});
-				}
-				return Status.CANCEL_STATUS;
-			}
-
-			else monitor.worked(1);
+		finally {
+			long stop = System.currentTimeMillis();
+			logger.info("Elapsed total time (in ms): " + (stop - start)) ;
 		}
-
-
-//		System.out.println(solver);
-		
-		monitor.subTask("Searching for solutions");
-		if (runSearchForSolutions(monitor) != Status.OK_STATUS) return Status.CANCEL_STATUS;
-		monitor.worked(1);
-		 
-		if (presentResults == true) { 
-			 monitor.subTask("Showing results");
-			 showResults(mappingResults);
-			 monitor.worked(1);
-		}
-		 
+				
 		return Status.OK_STATUS;
 	}
 	
-	private IStatus runSearchForSolutions(IProgressMonitor monitor) {
+	
+	public void configureSolver() {
+		logger.info("Setting time limit to " + this.maxTimeOfCalculationInmsec + "ms");
+		SMF.limitTime(solver, this.maxTimeOfCalculationInmsec);
 		
-		logger.debug("Searching for solutions");
+		logger.info("Setting max solutions limit to " + this.maxSolutions);
+		SMF.limitSolution(solver, this.maxSolutions);
 		
-		AllSolutionsRecorder recorder = new AllSolutionsRecorder(solver);
-		solver.set(recorder);
-		
-		if (this.kindOfSolutions == SearchType.CONSECUTIVE) {
-			
-			SMF.limitSolution(solver, this.maxSolutions);
-			SMF.limitTime(solver, 60 * 60 * 1000 * 4); // 4h max runtime
-
+		if (this.searchStrategy == SearchType.CONSECUTIVE) {
+			logger.info("Setting search strategy to minDomainSize + minValue");
 			solver.set(ISF.custom(ISF.minDomainSize_var_selector(),
-								  ISF.randomBound_value_selector(123L),
+								  ISF.min_value_selector(),
 								  solverVariables.getLocationVariables()));
-			
-//			solver.set(ISF.custom(new AssistBasicHeuristic(model),
-//					  ISF.randomBound_value_selector(123L),
-//					  solverVariables.getLocationVariables()));
-
-//			solver.set(ISF.lexico_LB(solverVariables.getAllVariables()));
-
-			
 		}
+	}
+		
+	private void showMessageInUI(String constraintName, String explanation) {
+		
+		String title = "Specification inconsistency detected";
+		String message = "Your specifications became inconsistent. A correct deployment cannot be generated.\n\n" + 
+						 "Constraints: \"" + constraintName + "\"\n\n" +
+						 "Explanation: " + explanation + "";
+				
+		Display.getDefault().asyncExec(new Runnable() {
+			public void run() {MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), title, message);}
+		});
 
-		else {
-			// FIXME: Implement me!
-			SMF.limitTime(solver, this.maxTimeOfCalculationInmsec);
-			return null;
+	}
+	
+	private void resetView() {
+		if (multiPageEditor != null) {
+			Display.getDefault().asyncExec(new Runnable() {
+				@Override
+				public void run() {
+					multiPageEditor.resetView();
+				}
+			});
 		}
-		
-		
-		solver.findAllSolutions();
-		logger.debug(recorder.getSolutions().size() + " solutions found");
-		
-		mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions());
-		
-		
-		
-		// If the search was not successful, we try to get a trace 
-		// from the solver ...
-		if (recorder.getSolutions().size() == 0) {
-			solver.getSearchLoop().reset();
-			solver.getEngine().flush();
-			
-			// Conflicts explained
-			RecorderExplanationEngine ree = new RecorderExplanationEngine(solver); 
-			solver.set(ree);
-			ConflictBasedBackjumping cbj = new ConflictBasedBackjumping(solver.getExplainer());
-			cbj.activeUserExplanation(true);
-			solver.findSolution();
-			
-			ConsoleCommands.writeLineToConsole(solver.toString());
-			ConsoleCommands.writeLineToConsole("");
-			ConsoleCommands.writeLineToConsole(cbj.getUserExplanation().toString());		
-		}
-
-		
-		
-		
-		return Status.OK_STATUS;
 	}
 	
 	/**
@@ -336,7 +322,7 @@ public class SolverJob extends Job {
 	 * @param kindOfSolutions
 	 */
 	public void setKindOfSolutions(SearchType kindOfSolutions) {
-		this.kindOfSolutions = kindOfSolutions;
+		this.searchStrategy = kindOfSolutions;
 	}
 
 	/**

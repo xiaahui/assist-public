@@ -25,6 +25,9 @@ class NoPermutationsConstraint extends AbstractMappingConstraint {
 				}
 			}
 		}
+		
+		propagate()
+				
 		return true
 	}
 	

@@ -19,6 +19,7 @@ import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.VF;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
@@ -30,9 +31,14 @@ public class IOAdapterConstraint extends AbstractMappingConstraint {
   }
   
   public boolean generate() {
-    this.generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints();
-    this.generate_MultipleTheads_ExclusiveRequests_incl_ProtectionLevel_Constraints();
-    return true;
+    try {
+      this.generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints();
+      this.generate_MultipleTheads_ExclusiveRequests_incl_ProtectionLevel_Constraints();
+      this.propagate();
+      return true;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   public void generate_MultipleTheads_ExclusiveRequests_incl_ProtectionLevel_Constraints() {

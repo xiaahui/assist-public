@@ -13,7 +13,7 @@ import org.chocosolver.solver.variables.VF
 class CoreUtilizationConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("Core capacity constraints", model, solver, solverVariables)
+		super("core capacity", model, solver, solverVariables)
 	}
 	
 	override generate() {
@@ -44,6 +44,7 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 		// - enforce that the capacity is always larger than the demand
 		solver.post(ICF.arithm(totalCoreCapacityVar, ">=", totalCoreUtilizationFromAllApplicationsVar))
 		
+		propagate()
 		
 		/* 1. If a thread requires more processing power than a core offers, 
 		 *    the application (thread) cannot be mapped to this core
@@ -86,6 +87,8 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 			
 			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteCoreUtilizationVariable(core)))
 		}
+
+		propagate()
 
 		return true
 	}

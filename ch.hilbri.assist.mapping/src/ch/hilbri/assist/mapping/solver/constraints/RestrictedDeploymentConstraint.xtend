@@ -42,16 +42,10 @@ class RestrictedDeploymentConstraint extends AbstractMappingConstraint {
 			
 				solver.post(ICF.member(threadLocationsCoreLevel, allowedCores.map[model.allCores.indexOf(it)]))
 			
-			
-				// restrict this variable according to the allowed cores
-//				var domain = new IntervalDomain()
-//				for (core : allowedCores)
-//					domain.addDom(new BoundDomain(model.allCores.indexOf(core)+1, model.allCores.indexOf(core)+1))
-//			
-//				constraintStore.impose(new In(threadLocationsCoreLevel, domain))
-			
 			}
 		}
+		
+		propagate()
 		
 		return true
 	}

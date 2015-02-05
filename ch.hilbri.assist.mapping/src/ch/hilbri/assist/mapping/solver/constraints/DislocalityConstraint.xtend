@@ -66,6 +66,9 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				solver.post(ICF.alldifferent(list))
 			
 		}
+		
+		propagate()
+		
 		return true
 	}
 	

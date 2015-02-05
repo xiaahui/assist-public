@@ -131,17 +131,8 @@ public class Generate {
 							case CONSECUTIVE:
 								findSolutionsJob.setKindOfSolutions(SearchType.CONSECUTIVE);
 								findSolutionsJob.setMaxSolutions(soamd.getNumberOfSolutions());
-								findSolutionsJob.setMaxTimeOfCalculationInmsec(1); // wird sowieso nicht beachtet
-								break;
-								
-							case RANDOM:
-								findSolutionsJob.setKindOfSolutions(SearchType.RANDOM);
-								findSolutionsJob.setMaxSolutions(soamd.getNumberOfSolutions());
 								findSolutionsJob.setMaxTimeOfCalculationInmsec(soamd.getSearchTime());
 								break;
-								
-							default:
-								return null;
 							}
 
 							findSolutionsJob.schedule();

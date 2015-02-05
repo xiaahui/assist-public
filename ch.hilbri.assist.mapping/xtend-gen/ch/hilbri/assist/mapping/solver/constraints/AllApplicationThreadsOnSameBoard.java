@@ -4,18 +4,21 @@ import ch.hilbri.assist.datamodel.model.Application;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
+import ch.hilbri.assist.mapping.solver.exceptions.allapplicationthreadsonsameboard.TwoThreadsCannotBeDeployedToSameBoard;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.Constraint;
 import org.chocosolver.solver.constraints.ICF;
+import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.variables.IntVar;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 
 @SuppressWarnings("all")
 public class AllApplicationThreadsOnSameBoard extends AbstractMappingConstraint {
   public AllApplicationThreadsOnSameBoard(final AssistModel model, final Solver solver, final SolverVariablesContainer solverVariables) {
-    super("All threads of an applications should be on the same board", model, solver, solverVariables);
+    super("all applications\'s threads on the same board", model, solver, solverVariables);
   }
   
   public boolean generate() {
@@ -39,10 +42,32 @@ public class AllApplicationThreadsOnSameBoard extends AbstractMappingConstraint 
             final IntVar var2 = this.solverVariables.getThreadLocationVariable(_get_1, HardwareArchitectureLevelType.BOARD_VALUE);
             Constraint _arithm = ICF.arithm(var1, "=", var2);
             this.solver.post(_arithm);
+            EList<ch.hilbri.assist.datamodel.model.Thread> _threads_4 = application.getThreads();
+            ch.hilbri.assist.datamodel.model.Thread _get_2 = _threads_4.get((i).intValue());
+            EList<ch.hilbri.assist.datamodel.model.Thread> _threads_5 = application.getThreads();
+            ch.hilbri.assist.datamodel.model.Thread _get_3 = _threads_5.get(((i).intValue() + 1));
+            this.propagate(_get_2, _get_3);
           }
         }
       }
     }
     return true;
+  }
+  
+  public void propagate(final ch.hilbri.assist.datamodel.model.Thread t1, final ch.hilbri.assist.datamodel.model.Thread t2) {
+    try {
+      try {
+        this.solver.propagate();
+      } catch (final Throwable _t) {
+        if (_t instanceof ContradictionException) {
+          final ContradictionException e = (ContradictionException)_t;
+          throw new TwoThreadsCannotBeDeployedToSameBoard(this, t1, t2);
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
+      }
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
 }

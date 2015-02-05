@@ -13,7 +13,7 @@ import org.chocosolver.solver.variables.IntVar
 class ApplicationProximityConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("Application proximity constraints", model, solver, solverVariables)
+		super("application proximity (on same)", model, solver, solverVariables)
 	}
 	
 	override generate() {
@@ -32,14 +32,14 @@ class ApplicationProximityConstraint extends AbstractMappingConstraint {
 			val threadVarList = new ArrayList<IntVar>()
 			for (t : threadList) threadVarList.add(solverVariables.getThreadLocationVariable(t, level.value))
 			
-			// JaCoP offers no AllEqual constraint, so we have to formulate that pairwise 
-			// Attention: potential performance bottle neck!
 			if (threadVarList.size > 1) 
 				for (var i = 0; i < threadVarList.size - 1; i++ ) 
 					solver.post(ICF.arithm(threadVarList.get(i), "=", threadVarList.get(i+1)))
 			
-		}
 		
+			propagate()
+		}
+
 		return true
 	}
 	

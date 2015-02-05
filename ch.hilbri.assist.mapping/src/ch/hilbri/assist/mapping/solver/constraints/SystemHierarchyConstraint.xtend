@@ -46,6 +46,8 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 			}			
 		} 
 		
+		propagate()
+		
 		return true
 	}
 	

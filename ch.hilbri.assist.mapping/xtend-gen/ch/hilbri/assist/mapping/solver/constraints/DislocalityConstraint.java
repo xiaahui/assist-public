@@ -15,6 +15,7 @@ import org.chocosolver.solver.constraints.ICF;
 import org.chocosolver.solver.variables.IntVar;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
 public class DislocalityConstraint extends AbstractMappingConstraint {
@@ -23,46 +24,51 @@ public class DislocalityConstraint extends AbstractMappingConstraint {
   }
   
   public boolean generate() {
-    EList<DislocalityRelation> _dislocalityRelations = this.model.getDislocalityRelations();
-    for (final DislocalityRelation r : _dislocalityRelations) {
-      {
-        final ArrayList<ArrayList<IntVar>> varList = new ArrayList<ArrayList<IntVar>>();
-        EList<ApplicationOrApplicationGroup> _applicationsOrGroups = r.getApplicationsOrGroups();
-        for (final ApplicationOrApplicationGroup aog : _applicationsOrGroups) {
-          {
-            final ArrayList<IntVar> aogList = new ArrayList<IntVar>();
-            if ((aog instanceof Application)) {
-              EList<ch.hilbri.assist.datamodel.model.Thread> _threads = ((Application) aog).getThreads();
-              for (final ch.hilbri.assist.datamodel.model.Thread t : _threads) {
-                HardwareArchitectureLevelType _hardwareLevel = r.getHardwareLevel();
-                int _value = _hardwareLevel.getValue();
-                IntVar _threadLocationVariable = this.solverVariables.getThreadLocationVariable(t, _value);
-                aogList.add(_threadLocationVariable);
-              }
-            } else {
-              if ((aog instanceof ApplicationGroup)) {
-                EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads = ((ApplicationGroup) aog).getAllThreads();
-                for (final ch.hilbri.assist.datamodel.model.Thread t_1 : _allThreads) {
-                  HardwareArchitectureLevelType _hardwareLevel_1 = r.getHardwareLevel();
-                  int _value_1 = _hardwareLevel_1.getValue();
-                  IntVar _threadLocationVariable_1 = this.solverVariables.getThreadLocationVariable(t_1, _value_1);
-                  aogList.add(_threadLocationVariable_1);
+    try {
+      EList<DislocalityRelation> _dislocalityRelations = this.model.getDislocalityRelations();
+      for (final DislocalityRelation r : _dislocalityRelations) {
+        {
+          final ArrayList<ArrayList<IntVar>> varList = new ArrayList<ArrayList<IntVar>>();
+          EList<ApplicationOrApplicationGroup> _applicationsOrGroups = r.getApplicationsOrGroups();
+          for (final ApplicationOrApplicationGroup aog : _applicationsOrGroups) {
+            {
+              final ArrayList<IntVar> aogList = new ArrayList<IntVar>();
+              if ((aog instanceof Application)) {
+                EList<ch.hilbri.assist.datamodel.model.Thread> _threads = ((Application) aog).getThreads();
+                for (final ch.hilbri.assist.datamodel.model.Thread t : _threads) {
+                  HardwareArchitectureLevelType _hardwareLevel = r.getHardwareLevel();
+                  int _value = _hardwareLevel.getValue();
+                  IntVar _threadLocationVariable = this.solverVariables.getThreadLocationVariable(t, _value);
+                  aogList.add(_threadLocationVariable);
                 }
               } else {
-                return false;
+                if ((aog instanceof ApplicationGroup)) {
+                  EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads = ((ApplicationGroup) aog).getAllThreads();
+                  for (final ch.hilbri.assist.datamodel.model.Thread t_1 : _allThreads) {
+                    HardwareArchitectureLevelType _hardwareLevel_1 = r.getHardwareLevel();
+                    int _value_1 = _hardwareLevel_1.getValue();
+                    IntVar _threadLocationVariable_1 = this.solverVariables.getThreadLocationVariable(t_1, _value_1);
+                    aogList.add(_threadLocationVariable_1);
+                  }
+                } else {
+                  return false;
+                }
               }
+              varList.add(aogList);
             }
-            varList.add(aogList);
+          }
+          final ArrayList<ArrayList<IntVar>> varSetForAllDifferentConstraint = this.createDisjointVariableSets(varList);
+          for (final ArrayList<IntVar> list : varSetForAllDifferentConstraint) {
+            Constraint _alldifferent = ICF.alldifferent(((IntVar[])Conversions.unwrapArray(list, IntVar.class)));
+            this.solver.post(_alldifferent);
           }
         }
-        final ArrayList<ArrayList<IntVar>> varSetForAllDifferentConstraint = this.createDisjointVariableSets(varList);
-        for (final ArrayList<IntVar> list : varSetForAllDifferentConstraint) {
-          Constraint _alldifferent = ICF.alldifferent(((IntVar[])Conversions.unwrapArray(list, IntVar.class)));
-          this.solver.post(_alldifferent);
-        }
       }
+      this.propagate();
+      return true;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
-    return true;
   }
   
   public ArrayList<ArrayList<IntVar>> createDisjointVariableSets(final ArrayList<ArrayList<IntVar>> locationVariables) {

@@ -83,6 +83,8 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteRamUtilizationVariable(board)))	
 		}
 		
+		propagate()
+		
 		return true
 	}
 	

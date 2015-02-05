@@ -20,6 +20,9 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 	override generate() {
 		generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints()
 		generate_MultipleTheads_ExclusiveRequests_incl_ProtectionLevel_Constraints()
+		
+		propagate()
+		
 		return true
 	}
 	

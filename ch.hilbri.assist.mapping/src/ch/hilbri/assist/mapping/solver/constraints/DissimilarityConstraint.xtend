@@ -38,6 +38,8 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 				solver.post(constraint)
 		} 
 
+		propagate()
+		
 		return true
 	}
 	

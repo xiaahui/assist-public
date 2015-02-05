@@ -83,6 +83,7 @@ class ROMUtilizationConstraint extends AbstractMappingConstraint {
 			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteRomUtilizationVariable(board)))	
 		}
 		
+		propagate()
 		
 		return true
 	}

@@ -32,6 +32,7 @@ import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.VF;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
@@ -51,18 +52,23 @@ public class DissimilarityConstraint extends AbstractMappingConstraint {
    * Main method for all relations
    */
   public boolean generate() {
-    EList<DissimilarityRelation> _dissimilarityRelations = this.model.getDissimilarityRelations();
-    for (final DissimilarityRelation r : _dissimilarityRelations) {
-      {
-        DissimilarityClause _dissimilarityClause = r.getDissimilarityClause();
-        final Constraint constraint = this.generateConstraint(r, _dissimilarityClause);
-        boolean _notEquals = (!Objects.equal(constraint, null));
-        if (_notEquals) {
-          this.solver.post(constraint);
+    try {
+      EList<DissimilarityRelation> _dissimilarityRelations = this.model.getDissimilarityRelations();
+      for (final DissimilarityRelation r : _dissimilarityRelations) {
+        {
+          DissimilarityClause _dissimilarityClause = r.getDissimilarityClause();
+          final Constraint constraint = this.generateConstraint(r, _dissimilarityClause);
+          boolean _notEquals = (!Objects.equal(constraint, null));
+          if (_notEquals) {
+            this.solver.post(constraint);
+          }
         }
       }
+      this.propagate();
+      return true;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
-    return true;
   }
   
   /**

@@ -112,6 +112,8 @@ class NetworkConstraints extends AbstractMappingConstraint {
 			solver.post(ICF.scalar(factorList, bandwidthUtilizationList, "=", solverVariables.getAbsoluteBandwidthUtilizationVariable(network))) 
 		}
 		
+		propagate()
+		
 		return true
 	}
 	
