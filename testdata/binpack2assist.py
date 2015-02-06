@@ -11,7 +11,7 @@ for f in sys.argv[1:]:
         print("Converting %s problems from %s" % (numProbs, f))
         for p in range(numProbs):
             desc = r.readline().strip()
-            cap, numItems, numBins = [int(x) for x in r.readline().split()]
+            cap, numItems, numBins = [int(float(x)) for x in r.readline().split()]
             with open(desc + ".mdsl", 'w') as w:
                 print("""\
 Global {
@@ -36,6 +36,6 @@ Hardware {""" % desc, file=w)
                     print("""\
         Application A%s {
                 Core-utilization = %s;
-        }""" % (i, int(r.readline())), file=w)
+        }""" % (i, int(float(r.readline()))), file=w)
 
                 print("}\n", file=w)
