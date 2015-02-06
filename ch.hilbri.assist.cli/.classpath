@@ -52,7 +52,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="src" path="/ch.hilbri.assist.mapping.tests"/>
 	<classpathentry kind="var" path="ECLIPSE_HOME/plugins/org.apache.commons.io_2.0.1.v201105210651.jar"/>
-	<classpathentry kind="lib" path="/ch.hilbri.assist.libraries.logback/logback-classic-1.1.2.jar"/>
-	<classpathentry kind="lib" path="/ch.hilbri.assist.libraries.logback/logback-core-1.1.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
