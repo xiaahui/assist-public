@@ -23,7 +23,7 @@ import ch.hilbri.assist.application.helpers.Helpers;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.mapping.datamodel.PostProcessor;
 import ch.hilbri.assist.mapping.solver.SearchType;
-import ch.hilbri.assist.mapping.solver.SolverJob;
+import ch.hilbri.assist.mapping.solver.GuiSolverJob;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.searchtypesdialog.SimpleOrAdvancedModeDialog;
 
@@ -125,7 +125,7 @@ public class Generate {
 						if (soamd.open() == org.eclipse.jface.window.Window.OK) {
 							// User hat OK geklickt
 							/* Create a new background Job for finding all solutions */
-							SolverJob findSolutionsJob = new SolverJob("Find all mappings", inputModel, (MultiPageEditor)editor);
+							GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", inputModel, (MultiPageEditor)editor);
 							findSolutionsJob.setUser(true);
 							switch (soamd.getMode()) {
 							case CONSECUTIVE:
