@@ -4,9 +4,9 @@ import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.datamodel.PostProcessor;
+import ch.hilbri.assist.mapping.solver.AssistSolver;
 import ch.hilbri.assist.mapping.solver.SearchType;
-import ch.hilbri.assist.mapping.solver.SolverJob;
-import ch.hilbri.assist.mapping.tests.helpers.MyTestingMonitor;
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider;
 import com.google.inject.Inject;
 import java.util.ArrayList;
@@ -18,6 +18,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @InjectWith(MappingDSLInjectorProvider.class)
 @RunWith(XtextRunner.class)
@@ -28,6 +30,13 @@ public class AbstractMappingTest {
   protected AssistModel model;
   
   protected ArrayList<Result> allResults;
+  
+  private Logger logger;
+  
+  public AbstractMappingTest() {
+    Logger _logger = LoggerFactory.getLogger(AbstractMappingTest.class);
+    this.logger = _logger;
+  }
   
   @Inject
   protected ParseHelper<AssistModel> parser;
@@ -44,14 +53,26 @@ public class AbstractMappingTest {
       this.model = ((AssistModel) _parse);
       PostProcessor.createMissingThreads(this.model);
       Assert.assertNotNull(this.model);
-      final SolverJob findSolutionsJob = new SolverJob("", this.model, null);
-      findSolutionsJob.setKindOfSolutions(SearchType.CONSECUTIVE);
-      findSolutionsJob.setMaxSolutions(1000);
-      Assert.assertNotNull(findSolutionsJob);
-      MyTestingMonitor _myTestingMonitor = new MyTestingMonitor();
-      findSolutionsJob.execute(_myTestingMonitor, false);
-      ArrayList<Result> _newMappingResults = findSolutionsJob.getNewMappingResults();
-      this.allResults = _newMappingResults;
+      final AssistSolver solver = new AssistSolver(this.model);
+      solver.setSolverSearchStrategy(SearchType.CONSECUTIVE);
+      solver.setSolverMaxSolutions(1000);
+      Assert.assertNotNull(solver);
+      try {
+        solver.propagation();
+        solver.solutionSearch();
+      } catch (final Throwable _t) {
+        if (_t instanceof BasicConstraintsException) {
+          final BasicConstraintsException e = (BasicConstraintsException)_t;
+          final String constraintName = e.getConstraintName();
+          final String message = e.getExplanation();
+          this.logger.info((("Inconsistency found while processing constraint \"" + constraintName) + "\""));
+          this.logger.info((("\"" + message) + "\""));
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
+      }
+      ArrayList<Result> _results = solver.getResults();
+      this.allResults = _results;
       Assert.assertNotNull(this.allResults);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
