@@ -5,6 +5,7 @@
 	<classpathentry kind="src" path="/ch.hilbri.assist.datamodel.model"/>
 	<classpathentry kind="src" path="/ch.hilbri.assist.datamodel.result.mapping"/>
 	<classpathentry kind="src" path="/ch.hilbri.assist.mapping"/>
+	<classpathentry kind="src" path="/ch.hilbri.assist.mappingdsl.tests"/>
 	<classpathentry kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.xtext.junit4_2.7.3.v201411190455.jar" sourcepath="ECLIPSE_HOME/plugins/org.eclipse.xtext.junit4.source_2.7.3.v201411190455.jar">
 		<accessrules>
 			<accessrule kind="accessible" pattern="org/eclipse/xtext/junit4/*"/>
@@ -20,7 +21,6 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry kind="src" path="/ch.hilbri.assist.mappingdsl.tests"/>
 	<classpathentry kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.emf.ecore_2.10.2.v20150123-0348.jar"/>
 	<classpathentry kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.emf.common_2.10.1.v20150123-0348.jar"/>
 	<classpathentry kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.equinox.common_3.6.200.v20130402-1505.jar" sourcepath="ECLIPSE_HOME/plugins/org.eclipse.equinox.common.source_3.6.200.v20130402-1505.jar">
@@ -49,8 +49,7 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="src" path="/ch.hilbri.assist.mapping.tests"/>
 	<classpathentry kind="var" path="ECLIPSE_HOME/plugins/org.apache.commons.io_2.0.1.v201105210651.jar"/>
+	<classpathentry kind="var" path="ECLIPSE_HOME/plugins/org.apache.commons.cli_1.2.0.v201404270220.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

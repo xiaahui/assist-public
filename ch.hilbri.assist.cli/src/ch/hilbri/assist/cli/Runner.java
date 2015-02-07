@@ -3,6 +3,10 @@ package ch.hilbri.assist.cli;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+import org.apache.commons.cli.BasicParser;
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.Options;
 import org.apache.commons.io.IOUtils;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 
@@ -23,29 +27,38 @@ public class Runner {
 	protected ParseHelper<AssistModel> parser;
 
 	public static void main(String[] args) throws Exception {
+		final Options options = new Options();
+		options.addOption("s", "solutions", true, "the number of solution to find");
+		final CommandLineParser parser = new BasicParser();
+		final CommandLine cmd = parser.parse(options, args);
+		final int numSolutions = Integer.parseInt(cmd.getOptionValue("solutions", "1"));
+		
 	    ModelPackage.eINSTANCE.eClass();
-		Runner runner = new Runner();
+		final Runner runner = new Runner();
 		new MappingDSLInjectorProvider().getInjector().injectMembers(runner);
 
-		AssistModel model = runner.parser.parse(IOUtils.toString(new FileReader(args[0])));
-		PostProcessor.createMissingThreads(model);
-		final AssistSolver solver = new AssistSolver(model);
-		solver.setSolverSearchStrategy(SearchType.CONSECUTIVE);
-		solver.setSolverMaxSolutions(1000);
-		try {
-			solver.propagation();
-			solver.solutionSearch();
-			ArrayList<Result> newMappingResults = solver.getResults();
-			for (Result r : newMappingResults) {
-				for (ch.hilbri.assist.datamodel.result.mapping.Thread t: r.getAllThreads()) {
-					System.out.println(t.getApplication().getName() + " -> " + t.getCore().getName());
+		for (String arg: cmd.getArgs()) {
+			final AssistModel model = runner.parser.parse(IOUtils.toString(new FileReader(arg)));
+			PostProcessor.createMissingThreads(model);
+			final AssistSolver solver = new AssistSolver(model);
+			solver.setSolverSearchStrategy(SearchType.CONSECUTIVE);
+			solver.setSolverMaxSolutions(numSolutions);
+			try {
+				solver.propagation();
+				solver.solutionSearch();
+				final ArrayList<Result> results = solver.getResults();
+				System.out.println(results.size() + " solutions found.");
+				for (Result r: results) {
+					for (ch.hilbri.assist.datamodel.result.mapping.Thread t: r.getAllThreads()) {
+						System.out.println(t.getApplication().getName() + " -> " + t.getCore().getName());
+					}
+					System.out.println();
 				}
-				System.out.println();
 			}
-		}
-		catch (BasicConstraintsException e) {
-			System.err.println("Inconsistency found while processing constraint \"" + e.getConstraintName() + "\"");
-			System.err.println("\""+ e.getExplanation() + "\"");
+			catch (BasicConstraintsException e) {
+				System.err.println("Inconsistency found while processing constraint \"" + e.getConstraintName() + "\"");
+				System.err.println("\""+ e.getExplanation() + "\"");
+			}
 		}
 	}
 
