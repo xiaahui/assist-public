@@ -4,12 +4,16 @@ import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.Core;
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
+import ch.hilbri.assist.mapping.solver.exceptions.coreutilization.AllThreadsOnThisCoreExceedItsProcessingPower;
+import ch.hilbri.assist.mapping.solver.exceptions.coreutilization.NoCoreHasEnoughCoreProcessingPowerForThisThread;
+import ch.hilbri.assist.mapping.solver.exceptions.coreutilization.TotalProcessingPowerRequestExceedsAvailableProcessingPower;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import java.util.ArrayList;
 import java.util.List;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.Constraint;
 import org.chocosolver.solver.constraints.ICF;
+import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.variables.BoolVar;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.VF;
@@ -74,7 +78,16 @@ public class CoreUtilizationConstraint extends AbstractMappingConstraint {
       final IntVar totalCoreCapacityVar = VF.fixed("TotalCoreCapacitiy", (_reduce_1).intValue(), this.solver);
       Constraint _arithm = ICF.arithm(totalCoreCapacityVar, ">=", totalCoreUtilizationFromAllApplicationsVar);
       this.solver.post(_arithm);
-      this.propagate();
+      try {
+        this.solver.propagate();
+      } catch (final Throwable _t) {
+        if (_t instanceof ContradictionException) {
+          final ContradictionException e = (ContradictionException)_t;
+          throw new TotalProcessingPowerRequestExceedsAvailableProcessingPower(this);
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
+      }
       EList<ch.hilbri.assist.datamodel.model.Thread> _allThreads_2 = this.model.getAllThreads();
       for (final ch.hilbri.assist.datamodel.model.Thread thread : _allThreads_2) {
         {
@@ -87,6 +100,16 @@ public class CoreUtilizationConstraint extends AbstractMappingConstraint {
           int _coreUtilization = thread.getCoreUtilization();
           Constraint _arithm_1 = ICF.arithm(threadAvailableProcessingPowerCapacitiesVar, ">=", _coreUtilization);
           this.solver.post(_arithm_1);
+          try {
+            this.solver.propagate();
+          } catch (final Throwable _t_1) {
+            if (_t_1 instanceof ContradictionException) {
+              final ContradictionException e_1 = (ContradictionException)_t_1;
+              throw new NoCoreHasEnoughCoreProcessingPowerForThisThread(this, thread);
+            } else {
+              throw Exceptions.sneakyThrow(_t_1);
+            }
+          }
         }
       }
       EList<Core> _allCores_2 = this.model.getAllCores();
@@ -116,9 +139,18 @@ public class CoreUtilizationConstraint extends AbstractMappingConstraint {
           IntVar _absoluteCoreUtilizationVariable = this.solverVariables.getAbsoluteCoreUtilizationVariable(core);
           Constraint _scalar = ICF.scalar(((IntVar[])Conversions.unwrapArray(factorList, IntVar.class)), ((int[])Conversions.unwrapArray(utilizationList, int.class)), "=", _absoluteCoreUtilizationVariable);
           this.solver.post(_scalar);
+          try {
+            this.solver.propagate();
+          } catch (final Throwable _t_1) {
+            if (_t_1 instanceof ContradictionException) {
+              final ContradictionException e_1 = (ContradictionException)_t_1;
+              throw new AllThreadsOnThisCoreExceedItsProcessingPower(this, core);
+            } else {
+              throw Exceptions.sneakyThrow(_t_1);
+            }
+          }
         }
       }
-      this.propagate();
       return true;
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

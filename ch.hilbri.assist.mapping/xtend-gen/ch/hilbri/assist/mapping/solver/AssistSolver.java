@@ -19,6 +19,7 @@ import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
+import ch.hilbri.assist.mapping.solver.strategies.FirstFailWithProgressionOutput;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import com.google.common.base.Objects;
 import java.util.ArrayList;
@@ -36,7 +37,6 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder;
 import org.chocosolver.solver.search.solution.Solution;
 import org.chocosolver.solver.search.strategy.ISF;
 import org.chocosolver.solver.search.strategy.selectors.IntValueSelector;
-import org.chocosolver.solver.search.strategy.selectors.VariableSelector;
 import org.chocosolver.solver.search.strategy.strategy.IntStrategy;
 import org.chocosolver.solver.variables.IntVar;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -61,7 +61,8 @@ public class AssistSolver {
   
   public AssistSolver(final AssistModel model) {
     this.model = model;
-    Logger _logger = LoggerFactory.getLogger(AssistSolver.class);
+    Class<? extends AssistSolver> _class = this.getClass();
+    Logger _logger = LoggerFactory.getLogger(_class);
     this.logger = _logger;
     ArrayList<Result> _arrayList = new ArrayList<Result>();
     this.mappingResults = _arrayList;
@@ -121,10 +122,10 @@ public class AssistSolver {
     boolean _equals = Objects.equal(strategy, SearchType.CONSECUTIVE);
     if (_equals) {
       this.logger.info("Setting search strategy to minDomainSize + minValue");
-      VariableSelector<IntVar> _minDomainSize_var_selector = ISF.minDomainSize_var_selector();
+      FirstFailWithProgressionOutput _firstFailWithProgressionOutput = new FirstFailWithProgressionOutput();
       IntValueSelector _min_value_selector = ISF.min_value_selector();
       IntVar[] _locationVariables = this.solverVariables.getLocationVariables();
-      IntStrategy _custom = ISF.custom(_minDomainSize_var_selector, _min_value_selector, _locationVariables);
+      IntStrategy _custom = ISF.custom(_firstFailWithProgressionOutput, _min_value_selector, _locationVariables);
       this.solver.set(_custom);
     } else {
       this.logger.info("Unknown search strategy supplied");
