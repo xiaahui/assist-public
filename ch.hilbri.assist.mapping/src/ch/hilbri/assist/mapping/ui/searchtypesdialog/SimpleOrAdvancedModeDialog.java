@@ -28,13 +28,14 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 	private Combo timeUnitAdvancedMode;
 	private Button btnSimpleMode;
 	private Button btnAdvancedMode;
-
-	private long searchTime = 30;
+	
+	private long searchTime = 60;
 	private int searchTimeUnit = 0;
 	private String searchTimeItem = null;
-	private int maxSolutions = 1000;
+	private int maxSolutions = 1;
 	private SearchType selectedMode = SearchType.CONSECUTIVE;
-
+	private boolean retrieveExplanations = false;
+	
 	/**
 	 * Create the dialog.
 	 * @param parentShell
@@ -56,11 +57,11 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 		
 		
 		Composite composite_1 = new Composite(container, SWT.NONE);
-		composite_1.setBounds(0, 0, 303, 153);
+		composite_1.setBounds(0, 0, 303, 179);
 		
 		Label lblNumberOfSolutionsAdvancedMode = new Label(composite_1, SWT.NONE);
 		lblNumberOfSolutionsAdvancedMode.setEnabled(false);
-		lblNumberOfSolutionsAdvancedMode.setLocation(27, 125);
+		lblNumberOfSolutionsAdvancedMode.setLocation(27, 151);
 		lblNumberOfSolutionsAdvancedMode.setSize(113, 15);
 		lblNumberOfSolutionsAdvancedMode.setText("number of solutions:");
 		
@@ -85,7 +86,7 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 		});
 		solNrSimpleMode.setLocation(153, 32);
 		solNrSimpleMode.setSize(55, 21);
-		solNrSimpleMode.setText(maxSolutions + "");
+		solNrSimpleMode.setText("" + maxSolutions);
 		
 		/* selection */
 		btnSimpleMode = new Button(composite_1, SWT.RADIO);
@@ -116,7 +117,7 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 				maxSolutions = Integer.parseInt(solNrAdvancedMode.getText());
 			}
 		});
-		solNrAdvancedMode.setLocation(153, 122);
+		solNrAdvancedMode.setLocation(153, 148);
 		solNrAdvancedMode.setSize(55, 21);
 		solNrAdvancedMode.setText(maxSolutions + "");
 		solNrAdvancedMode.setEditable(false);
@@ -139,7 +140,7 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 		});
 		searchTimeAdvancedMode.setLocation(153, 60);
 		searchTimeAdvancedMode.setSize(55, 21);
-		searchTimeAdvancedMode.setText(searchTime + "");
+		searchTimeAdvancedMode.setText("" + searchTime);
 		
 		timeUnitAdvancedMode = new Combo(composite_1, SWT.NONE);
 		timeUnitAdvancedMode.addSelectionListener(new SelectionAdapter() {
@@ -166,8 +167,18 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 				solNrAdvancedMode.setEditable(true);
 			}
 		});
-		btnAdvancedMode.setBounds(10, 107, 240, 16);
+		btnAdvancedMode.setBounds(10, 133, 240, 16);
 		btnAdvancedMode.setText("Random Search");
+		
+		Button btnExplanation = new Button(composite_1, SWT.CHECK);
+		btnExplanation.setBounds(27, 96, 142, 16);
+		btnExplanation.setText("Retrieve explanation");
+		btnExplanation.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				retrieveExplanations = btnExplanation.getSelection();
+			}
+		});
 
 		return area;
 	}
@@ -188,7 +199,7 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(308, 300);
+		return new Point(308, 326);
 	}
 	protected DataBindingContext initDataBindings() {
 		DataBindingContext bindingContext = new DataBindingContext();
@@ -219,5 +230,9 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 			break;
 		}
 		return 0;
+	}
+	
+	public boolean getRetrieveExplanation() {
+		return retrieveExplanations;
 	}
 }
