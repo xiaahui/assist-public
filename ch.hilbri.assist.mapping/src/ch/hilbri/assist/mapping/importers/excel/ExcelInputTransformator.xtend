@@ -255,7 +255,7 @@ Software {
 	}
 	
 	«ENDFOR»
-	«FOR groupName : allApplicationGroups.keySet.filter[allApplicationGroups.get(it).size > 1]»
+	«FOR groupName : allApplicationGroups.keySet.filter[allApplicationGroups.get(it).size > 1].sort»
 	Group Group_«groupName» { «FOR app : allApplicationGroups.get(groupName)»«IF allApplicationGroups.get(groupName).indexOf(app) > 0», «ENDIF»«app.name»«ENDFOR» }
 	«ENDFOR»
 }
