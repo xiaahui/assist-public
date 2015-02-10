@@ -132,6 +132,7 @@ public class Generate {
 								findSolutionsJob.setKindOfSolutions(SearchType.CONSECUTIVE);
 								findSolutionsJob.setMaxSolutions(soamd.getNumberOfSolutions());
 								findSolutionsJob.setMaxTimeOfCalculationInmsec(soamd.getSearchTime());
+								findSolutionsJob.setRetrieveExplanation(soamd.getRetrieveExplanation());
 								break;
 							}
 
