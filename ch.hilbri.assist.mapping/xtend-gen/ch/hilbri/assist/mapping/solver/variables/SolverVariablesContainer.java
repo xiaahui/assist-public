@@ -1,5 +1,6 @@
 package ch.hilbri.assist.mapping.solver.variables;
 
+import ch.hilbri.assist.datamodel.model.Application;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.Board;
 import ch.hilbri.assist.datamodel.model.CommunicationRelation;
@@ -7,6 +8,7 @@ import ch.hilbri.assist.datamodel.model.Core;
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.datamodel.model.HardwareElement;
 import ch.hilbri.assist.datamodel.model.Network;
+import com.google.common.base.Objects;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -53,6 +55,8 @@ public class SolverVariablesContainer {
    */
   private final HashMap<Network, IntVar> absoluteBandwidthUtilizationList = new HashMap<Network, IntVar>();
   
+  private final HashMap<IntVar, ch.hilbri.assist.datamodel.model.Thread> locationVarMap = new HashMap<IntVar, ch.hilbri.assist.datamodel.model.Thread>();
+  
   /**
    * CONSTRUCTOR
    */
@@ -62,15 +66,18 @@ public class SolverVariablesContainer {
       {
         final HashMap<Integer, IntVar> m = new HashMap<Integer, IntVar>();
         for (int i = HardwareArchitectureLevelType.CORE_VALUE; (i <= model.getHardwareLevelCount()); i++) {
-          String _name = t.getName();
-          String _plus = ("Loc-" + _name);
-          String _plus_1 = (_plus + "-L");
-          String _plus_2 = (_plus_1 + Integer.valueOf(i));
-          EList<HardwareElement> _allHardwareElements = model.getAllHardwareElements(i);
-          int _size = _allHardwareElements.size();
-          int _minus = (_size - 1);
-          IntVar _enumerated = VF.enumerated(_plus_2, 0, _minus, solver);
-          m.put(Integer.valueOf(i), _enumerated);
+          {
+            String _name = t.getName();
+            String _plus = ("Loc-" + _name);
+            String _plus_1 = (_plus + "-L");
+            String _plus_2 = (_plus_1 + Integer.valueOf(i));
+            EList<HardwareElement> _allHardwareElements = model.getAllHardwareElements(i);
+            int _size = _allHardwareElements.size();
+            int _minus = (_size - 1);
+            final IntVar newVar = VF.enumerated(_plus_2, 0, _minus, solver);
+            m.put(Integer.valueOf(i), newVar);
+            this.locationVarMap.put(newVar, t);
+          }
         }
         this.threadLocationVariablesList.put(t, m);
       }
@@ -262,6 +269,16 @@ public class SolverVariablesContainer {
     return this.absoluteBandwidthUtilizationList.get(n);
   }
   
+  public Application getApplicationForLocationVariable(final IntVar variable) {
+    final ch.hilbri.assist.datamodel.model.Thread t = this.locationVarMap.get(variable);
+    boolean _notEquals = (!Objects.equal(t, null));
+    if (_notEquals) {
+      return t.getApplication();
+    } else {
+      return null;
+    }
+  }
+  
   @Override
   @Pure
   public int hashCode() {
@@ -273,6 +290,7 @@ public class SolverVariablesContainer {
     result = prime * result + ((this.absoluteRomUtilizationList== null) ? 0 : this.absoluteRomUtilizationList.hashCode());
     result = prime * result + ((this.communicationGroupLocationVariablesList== null) ? 0 : this.communicationGroupLocationVariablesList.hashCode());
     result = prime * result + ((this.absoluteBandwidthUtilizationList== null) ? 0 : this.absoluteBandwidthUtilizationList.hashCode());
+    result = prime * result + ((this.locationVarMap== null) ? 0 : this.locationVarMap.hashCode());
     return result;
   }
   
@@ -316,6 +334,11 @@ public class SolverVariablesContainer {
         return false;
     } else if (!this.absoluteBandwidthUtilizationList.equals(other.absoluteBandwidthUtilizationList))
       return false;
+    if (this.locationVarMap == null) {
+      if (other.locationVarMap != null)
+        return false;
+    } else if (!this.locationVarMap.equals(other.locationVarMap))
+      return false;
     return true;
   }
   
@@ -329,6 +352,7 @@ public class SolverVariablesContainer {
     b.add("absoluteRomUtilizationList", this.absoluteRomUtilizationList);
     b.add("communicationGroupLocationVariablesList", this.communicationGroupLocationVariablesList);
     b.add("absoluteBandwidthUtilizationList", this.absoluteBandwidthUtilizationList);
+    b.add("locationVarMap", this.locationVarMap);
     return b.toString();
   }
   
@@ -360,5 +384,10 @@ public class SolverVariablesContainer {
   @Pure
   public HashMap<Network, IntVar> getAbsoluteBandwidthUtilizationList() {
     return this.absoluteBandwidthUtilizationList;
+  }
+  
+  @Pure
+  public HashMap<IntVar, ch.hilbri.assist.datamodel.model.Thread> getLocationVarMap() {
+    return this.locationVarMap;
   }
 }

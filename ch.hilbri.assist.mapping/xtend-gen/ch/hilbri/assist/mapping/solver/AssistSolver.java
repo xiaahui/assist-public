@@ -122,7 +122,7 @@ public class AssistSolver {
     boolean _equals = Objects.equal(strategy, SearchType.CONSECUTIVE);
     if (_equals) {
       this.logger.info("Setting search strategy to minDomainSize + minValue");
-      FirstFailWithProgressionOutput _firstFailWithProgressionOutput = new FirstFailWithProgressionOutput();
+      FirstFailWithProgressionOutput _firstFailWithProgressionOutput = new FirstFailWithProgressionOutput(this.solverVariables, this.model);
       IntValueSelector _min_value_selector = ISF.min_value_selector();
       IntVar[] _locationVariables = this.solverVariables.getLocationVariables();
       IntStrategy _custom = ISF.custom(_firstFailWithProgressionOutput, _min_value_selector, _locationVariables);

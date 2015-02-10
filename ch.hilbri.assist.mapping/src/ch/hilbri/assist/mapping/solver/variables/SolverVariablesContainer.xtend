@@ -1,5 +1,6 @@
 package ch.hilbri.assist.mapping.solver.variables
 
+import ch.hilbri.assist.datamodel.model.Application
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.Board
 import ch.hilbri.assist.datamodel.model.CommunicationRelation
@@ -34,6 +35,7 @@ import org.eclipse.xtend.lib.annotations.Data
 	/** A list of variables; a variable for each networks which contains the absolute bandwidth utilization */
 	HashMap<Network, IntVar>					absoluteBandwidthUtilizationList = new HashMap
 	
+	HashMap<IntVar, Thread> 					locationVarMap = new HashMap
 	
 	/* CONSTRUCTOR */
 	new (AssistModel model, Solver solver) {
@@ -45,7 +47,11 @@ import org.eclipse.xtend.lib.annotations.Data
 			for (var i = HardwareArchitectureLevelType.CORE_VALUE; i <= model.hardwareLevelCount; i++) {
 				/* Create a new location variable for each thread;
 				 * initialize its domain to 0 .. size of hardware elements in this level - 1 */
-				m.put(i, VF.enumerated("Loc-" + t.name + "-L" + i, 0, model.getAllHardwareElements(i).size-1, solver))
+				val newVar = VF.enumerated("Loc-" + t.name + "-L" + i, 0, model.getAllHardwareElements(i).size-1, solver)
+				m.put(i, newVar)
+				
+				/* Add this solver variable to the map, so we can find corresponding thread quickly	 */
+				locationVarMap.put(newVar, t)
 			}
 			threadLocationVariablesList.put(t, m)
 		}
@@ -155,6 +161,15 @@ import org.eclipse.xtend.lib.annotations.Data
 	/** Returns the variable which contains the absolute bandwidth utilization for the given network */
 	def IntVar getAbsoluteBandwidthUtilizationVariable(Network n) {
 		return absoluteBandwidthUtilizationList.get(n)
+	}
+	
+	def Application getApplicationForLocationVariable(IntVar variable) {
+		val t = locationVarMap.get(variable)
+		
+		if (t != null)
+			return t.application
+		else
+			return null
 	}
 	
 }

@@ -128,6 +128,27 @@ class AssistModel {
 		for (a : applications) list.addAll(a.threads)
 		return list
 	}
+	
+	op DislocalityRelation[] getAllDislocalityRelations(Application app) {
+		
+		val list = new BasicEList<DislocalityRelation>
+		
+		for (relation : dislocalityRelations) {
+			var found = false
+			for (aog : relation.applicationsOrGroups) {
+				if (aog == app) {
+					found = true
+				}
+				else if (aog instanceof ApplicationGroup) {
+					if (aog.allApplications.contains(app)) 
+						found = true
+				}
+			}
+			if (found) list.add(relation)
+		}
+		
+		return list
+	}
 }
 
 
@@ -485,6 +506,16 @@ enum ProcessorAttributes{
 class DislocalityRelation{
 	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
 	HardwareArchitectureLevelType hardwareLevel
+	
+	op int getApplicationCount() {
+		var ctr = 0
+		for (aog : applicationsOrGroups) {
+			if (aog instanceof Application) ctr++
+			if (aog instanceof ApplicationGroup) ctr += aog.allApplications.size
+		}
+		
+		return ctr
+	}
 }
 
 class ProximityRelation{
