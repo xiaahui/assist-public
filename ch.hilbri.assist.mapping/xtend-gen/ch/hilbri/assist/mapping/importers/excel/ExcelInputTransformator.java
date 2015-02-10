@@ -561,7 +561,8 @@ public class ExcelInputTransformator {
           }
         };
         Iterable<String> _filter = IterableExtensions.<String>filter(_keySet_3, _function);
-        for(final String groupName : _filter) {
+        List<String> _sort = IterableExtensions.<String>sort(_filter);
+        for(final String groupName : _sort) {
           _builder.append("\t");
           _builder.append("Group Group_");
           _builder.append(groupName, "\t");

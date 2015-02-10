@@ -59,7 +59,7 @@ public class DislocalityConstraint extends AbstractMappingConstraint {
           }
           final ArrayList<ArrayList<IntVar>> varSetForAllDifferentConstraint = this.createDisjointVariableSets(varList);
           for (final ArrayList<IntVar> list : varSetForAllDifferentConstraint) {
-            Constraint _alldifferent = ICF.alldifferent(((IntVar[])Conversions.unwrapArray(list, IntVar.class)));
+            Constraint _alldifferent = ICF.alldifferent(((IntVar[])Conversions.unwrapArray(list, IntVar.class)), "AC");
             this.solver.post(_alldifferent);
           }
         }

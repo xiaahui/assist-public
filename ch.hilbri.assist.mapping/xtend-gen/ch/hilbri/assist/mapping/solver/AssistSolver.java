@@ -173,28 +173,36 @@ public class AssistSolver {
       _builder_1.append(_size_2, "");
       this.logger.info(_builder_1.toString());
     } else {
-      this.logger.info("No solution found, trying to get an explanation");
-      ISearchLoop _searchLoop = this.solver.getSearchLoop();
-      _searchLoop.reset();
-      IPropagationEngine _engine = this.solver.getEngine();
-      _engine.flush();
-      RecorderExplanationEngine _recorderExplanationEngine = new RecorderExplanationEngine(this.solver);
-      this.solver.set(_recorderExplanationEngine);
-      ExplanationEngine _explainer = this.solver.getExplainer();
-      final ConflictBasedBackjumping cbj = new ConflictBasedBackjumping(_explainer);
-      cbj.activeUserExplanation(true);
-      this.solver.findSolution();
-      this.logger.debug("Solver contents: ");
-      String _string = this.solver.toString();
-      this.logger.debug(_string);
-      this.logger.info("Explanation:");
-      Explanation _userExplanation = cbj.getUserExplanation();
-      String _string_1 = _userExplanation.toString();
-      this.logger.info(_string_1);
+      this.mappingResults.clear();
     }
+  }
+  
+  public void getExplanation() {
+    this.logger.info("Trying to get an explanation");
+    ISearchLoop _searchLoop = this.solver.getSearchLoop();
+    _searchLoop.reset();
+    IPropagationEngine _engine = this.solver.getEngine();
+    _engine.flush();
+    RecorderExplanationEngine _recorderExplanationEngine = new RecorderExplanationEngine(this.solver);
+    this.solver.set(_recorderExplanationEngine);
+    ExplanationEngine _explainer = this.solver.getExplainer();
+    final ConflictBasedBackjumping cbj = new ConflictBasedBackjumping(_explainer);
+    cbj.activeUserExplanation(true);
+    this.solver.findSolution();
+    this.logger.debug("Solver contents: ");
+    String _string = this.solver.toString();
+    this.logger.debug(_string);
+    this.logger.info("Explanation:");
+    Explanation _userExplanation = cbj.getUserExplanation();
+    String _string_1 = _userExplanation.toString();
+    this.logger.info(_string_1);
   }
   
   public ArrayList<Result> getResults() {
     return this.mappingResults;
+  }
+  
+  public boolean hasReachedLimit() {
+    return this.solver.hasReachedLimit();
   }
 }
