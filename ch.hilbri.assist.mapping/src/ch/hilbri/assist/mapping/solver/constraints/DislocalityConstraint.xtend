@@ -63,7 +63,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			val varSetForAllDifferentConstraint = createDisjointVariableSets(varList)
 			
 			for (list : varSetForAllDifferentConstraint) 
-				solver.post(ICF.alldifferent(list))
+				solver.post(ICF.alldifferent(list, "AC"))
 			
 		}
 		
