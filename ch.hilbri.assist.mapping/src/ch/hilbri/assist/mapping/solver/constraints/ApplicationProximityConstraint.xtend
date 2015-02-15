@@ -3,11 +3,14 @@ package ch.hilbri.assist.mapping.solver.constraints
 import ch.hilbri.assist.datamodel.model.Application
 import ch.hilbri.assist.datamodel.model.ApplicationGroup
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.model.Thread
+import ch.hilbri.assist.mapping.solver.exceptions.applicationproximity.TwoApplicationsCouldNotBeDeployedToTheSameHardwareElement
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 
 class ApplicationProximityConstraint extends AbstractMappingConstraint {
@@ -33,14 +36,20 @@ class ApplicationProximityConstraint extends AbstractMappingConstraint {
 			for (t : threadList) threadVarList.add(solverVariables.getThreadLocationVariable(t, level.value))
 			
 			if (threadVarList.size > 1) 
-				for (var i = 0; i < threadVarList.size - 1; i++ ) 
+				for (var i = 0; i < threadVarList.size - 1; i++ ) { 
 					solver.post(ICF.arithm(threadVarList.get(i), "=", threadVarList.get(i+1)))
-			
-		
-			propagate()
+					propagate(threadList.get(i).application, threadList.get(i+1).application, level)
+				}
 		}
-
+		
 		return true
+	}
+	
+	def propagate(Application a1, Application a2, HardwareArchitectureLevelType level) {
+		try { solver.propagate() }
+		catch (ContradictionException e) { 
+			throw new TwoApplicationsCouldNotBeDeployedToTheSameHardwareElement(this, a1, a2, level)
+		}
 	}
 	
 }

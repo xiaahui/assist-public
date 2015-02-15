@@ -28,6 +28,8 @@ public class GuiSolverJob extends Job {
 	
 	private Logger logger;
 	
+	private boolean retrieveExplanation = false;
+	
 	/**
 	 * Constructor
 	 * 
@@ -60,13 +62,37 @@ public class GuiSolverJob extends Job {
 			solver.propagation();
 			monitor.worked(1);
 
+			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
+			
 			monitor.beginTask("Searching for solutions", 1);
 			solver.solutionSearch();
 			monitor.worked(1);
 			
-			monitor.beginTask("Presenting the results", 1);
-			showResults(solver.getResults());
-			monitor.worked(1);
+			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
+			
+			if (retrieveExplanation) {
+				monitor.beginTask("Trying to get an explanation", 1);
+				solver.getExplanation();
+				monitor.worked(1);
+				
+				if (monitor.isCanceled()) return Status.CANCEL_STATUS;
+			}
+			
+			if (solver.getResults().size() > 0) {
+				monitor.beginTask("Presenting the results", 1);
+				showResults(solver.getResults());
+				monitor.worked(1);
+			} 
+			else {
+				String message;
+				
+				if (solver.hasReachedLimit()) message = "No solutions were found during the maximum allowed search time.";
+				else						  message = "There are no solutions for this deployment specification.";
+
+				Display.getDefault().asyncExec(new Runnable() {
+					public void run() {MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Result", message);}
+				});
+			}
 		}
 		catch (BasicConstraintsException e) {
 			String constraintName = e.getConstraintName();
@@ -159,5 +185,10 @@ public class GuiSolverJob extends Job {
 	public ArrayList<Result> getNewMappingResults() {
 		return solver.getResults();
 	}
+	
+	public void setRetrieveExplanation(boolean value) {
+		retrieveExplanation = value;
+	}
+	
 	
 }

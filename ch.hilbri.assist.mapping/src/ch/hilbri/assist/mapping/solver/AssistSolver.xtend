@@ -29,6 +29,7 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.strategies.FirstFailWithProgressionOutput
 
 class AssistSolver {
 	
@@ -42,7 +43,7 @@ class AssistSolver {
 	
 	new (AssistModel model) {
 		this.model = model
-		this.logger = LoggerFactory.getLogger(typeof(AssistSolver))
+		this.logger = LoggerFactory.getLogger(this.class)
 
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>()  
@@ -114,9 +115,9 @@ class AssistSolver {
 	def setSolverSearchStrategy(SearchType strategy) {
 		if (strategy == SearchType.CONSECUTIVE) {
 			logger.info("Setting search strategy to minDomainSize + minValue")
-			solver.set(ISF.custom(ISF.minDomainSize_var_selector(),
-								  ISF.min_value_selector(),
-								  solverVariables.getLocationVariables()))
+			solver.set(ISF.custom(new FirstFailWithProgressionOutput,
+								  ISF.min_value_selector,
+								  solverVariables.getLocationVariables))
 		} else
 			logger.info("Unknown search strategy supplied")
 	}
@@ -141,26 +142,30 @@ class AssistSolver {
 		if (recorder.solutions.size > 0) {
 			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions)
 			logger.info('''Results created:  «mappingResults.size»''')
+		} else {
+			mappingResults.clear
 		}
-		//If not, then turn on the explanations ...
-		else {
-			logger.info("No solution found, trying to get an explanation");
-			solver.searchLoop.reset
-			solver.engine.flush
-				
-			// Conflicts explained
-			solver.set(new RecorderExplanationEngine(solver))
-			val cbj = new ConflictBasedBackjumping(solver.getExplainer())
-			cbj.activeUserExplanation(true)
-			solver.findSolution
+	}
 	
-			logger.debug("Solver contents: ")
-			logger.debug(solver.toString)
-			
-			logger.info("Explanation:")
-			logger.info(cbj.getUserExplanation.toString)
-		}		
+	def getExplanation() {
+		logger.info("Trying to get an explanation")
+		solver.searchLoop.reset
+		solver.engine.flush
+				
+		// Conflicts explained
+		solver.set(new RecorderExplanationEngine(solver))
+		val cbj = new ConflictBasedBackjumping(solver.getExplainer())
+		cbj.activeUserExplanation(true)
+		solver.findSolution
+	
+		logger.debug("Solver contents: ")
+		logger.debug(solver.toString)
+		
+		logger.info("Explanation:")
+		logger.info(cbj.getUserExplanation.toString)
 	}
 
-	def ArrayList<Result> getResults() { mappingResults }
+	def ArrayList<Result> getResults() 	{ mappingResults 			}
+	def hasReachedLimit() 				{ solver.hasReachedLimit 	}
+	
 }

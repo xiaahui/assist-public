@@ -31,7 +31,9 @@ class AllApplicationThreadsOnSameBoard extends AbstractMappingConstraint {
 	
 	def propagate(Thread t1, Thread t2) {
 		try { solver.propagate() }
-		catch (ContradictionException e) { throw new TwoThreadsCannotBeDeployedToSameBoard(this, t1, t2)}
+		catch (ContradictionException e) { 
+			throw new TwoThreadsCannotBeDeployedToSameBoard(this, t1, t2)
+		}
 	}
 	
 }

@@ -6,9 +6,13 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
+import ch.hilbri.assist.mapping.solver.exceptions.coreutilization.NoCoreHasEnoughCoreProcessingPowerForThisThread
+import ch.hilbri.assist.mapping.solver.exceptions.coreutilization.AllThreadsOnThisCoreExceedItsProcessingPower
+import ch.hilbri.assist.mapping.solver.exceptions.coreutilization.TotalProcessingPowerRequestExceedsAvailableProcessingPower
 
 class CoreUtilizationConstraint extends AbstractMappingConstraint {
 	
@@ -44,8 +48,12 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 		// - enforce that the capacity is always larger than the demand
 		solver.post(ICF.arithm(totalCoreCapacityVar, ">=", totalCoreUtilizationFromAllApplicationsVar))
 		
-		propagate()
+		try { solver.propagate }
+		catch (ContradictionException e) {
+			throw new TotalProcessingPowerRequestExceedsAvailableProcessingPower(this)
+		}
 		
+				
 		/* 1. If a thread requires more processing power than a core offers, 
 		 *    the application (thread) cannot be mapped to this core
 		 */
@@ -63,6 +71,12 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 			
 			/* Impose that the processing capacity of the core must be greater than the required capacity of the thread */
 			solver.post(ICF.arithm(threadAvailableProcessingPowerCapacitiesVar, ">=", thread.coreUtilization))
+		
+			try { solver.propagate }
+			catch (ContradictionException e){ 
+				throw new NoCoreHasEnoughCoreProcessingPowerForThisThread(this, thread)
+			}
+		
 		}
 		
 		/*
@@ -86,9 +100,12 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 			}
 			
 			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteCoreUtilizationVariable(core)))
-		}
 
-		propagate()
+			try { solver.propagate }
+			catch (ContradictionException e) {
+				throw new AllThreadsOnThisCoreExceedItsProcessingPower(this, core)
+			}			
+		}
 
 		return true
 	}
