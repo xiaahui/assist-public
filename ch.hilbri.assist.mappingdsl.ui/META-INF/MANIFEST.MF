@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.mappingdsl.ui
 Bundle-Vendor: Robert Hilbrich
-Bundle-Version: 0.5
+Bundle-Version: 0.6
 Bundle-SymbolicName: ch.hilbri.assist.mappingdsl.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: ch.hilbri.assist.mappingdsl;visibility:=reexport,
