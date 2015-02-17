@@ -7,15 +7,20 @@ import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.DislocalityRelation;
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
+import ch.hilbri.assist.mapping.solver.exceptions.dislocality.ApplicationsCannotBeMappedDislocal;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import java.util.ArrayList;
+import java.util.List;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.Constraint;
 import org.chocosolver.solver.constraints.ICF;
+import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.variables.IntVar;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 @SuppressWarnings("all")
 public class DislocalityConstraint extends AbstractMappingConstraint {
@@ -59,12 +64,30 @@ public class DislocalityConstraint extends AbstractMappingConstraint {
           }
           final ArrayList<ArrayList<IntVar>> varSetForAllDifferentConstraint = this.createDisjointVariableSets(varList);
           for (final ArrayList<IntVar> list : varSetForAllDifferentConstraint) {
-            Constraint _alldifferent = ICF.alldifferent(((IntVar[])Conversions.unwrapArray(list, IntVar.class)), "AC");
-            this.solver.post(_alldifferent);
+            {
+              Constraint _alldifferent = ICF.alldifferent(((IntVar[])Conversions.unwrapArray(list, IntVar.class)), "AC");
+              this.solver.post(_alldifferent);
+              try {
+                this.solver.propagate();
+              } catch (final Throwable _t) {
+                if (_t instanceof ContradictionException) {
+                  final ContradictionException e = (ContradictionException)_t;
+                  final Function1<IntVar, Application> _function = new Function1<IntVar, Application>() {
+                    public Application apply(final IntVar it) {
+                      return DislocalityConstraint.this.solverVariables.getApplicationForLocationVariable(it);
+                    }
+                  };
+                  List<Application> _map = ListExtensions.<IntVar, Application>map(list, _function);
+                  HardwareArchitectureLevelType _hardwareLevel = r.getHardwareLevel();
+                  throw new ApplicationsCannotBeMappedDislocal(this, _map, _hardwareLevel);
+                } else {
+                  throw Exceptions.sneakyThrow(_t);
+                }
+              }
+            }
           }
         }
       }
-      this.propagate();
       return true;
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

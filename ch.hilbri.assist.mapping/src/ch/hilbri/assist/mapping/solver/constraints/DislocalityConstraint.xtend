@@ -3,10 +3,12 @@ package ch.hilbri.assist.mapping.solver.constraints
 import ch.hilbri.assist.datamodel.model.Application
 import ch.hilbri.assist.datamodel.model.ApplicationGroup
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.mapping.solver.exceptions.dislocality.ApplicationsCannotBeMappedDislocal
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 
 class DislocalityConstraint extends AbstractMappingConstraint {
@@ -62,13 +64,16 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			
 			val varSetForAllDifferentConstraint = createDisjointVariableSets(varList)
 			
-			for (list : varSetForAllDifferentConstraint) 
+			for (list : varSetForAllDifferentConstraint) {
 				solver.post(ICF.alldifferent(list, "AC"))
-			
+				
+				try { solver.propagate }
+				catch (ContradictionException e) {
+					throw new ApplicationsCannotBeMappedDislocal(this, list.map[solverVariables.getApplicationForLocationVariable(it)], r.hardwareLevel)
+				}
+			}
 		}
-		
-		propagate()
-		
+
 		return true
 	}
 	
