@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.mapping.tests
 Bundle-SymbolicName: ch.hilbri.assist.mapping.tests
-Bundle-Version: 0.5
+Bundle-Version: 0.6
 Bundle-Vendor: Robert Hilbrich
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: 

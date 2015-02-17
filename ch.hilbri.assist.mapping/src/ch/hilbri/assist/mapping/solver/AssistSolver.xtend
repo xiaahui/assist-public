@@ -115,7 +115,7 @@ class AssistSolver {
 	def setSolverSearchStrategy(SearchType strategy) {
 		if (strategy == SearchType.CONSECUTIVE) {
 			logger.info("Setting search strategy to minDomainSize + minValue")
-			solver.set(ISF.custom(new FirstFailWithProgressionOutput,
+			solver.set(ISF.custom(new FirstFailWithProgressionOutput(solverVariables, model),
 								  ISF.min_value_selector,
 								  solverVariables.getLocationVariables))
 		} else
