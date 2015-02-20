@@ -53,7 +53,6 @@ class AssistSolver {
 		
 		/* Create a new Solver object */
 		this.solver = new Solver()
-		this.solver.set(new Settings(){ public override boolean enablePropagatorInExplanation() { return true; }})
 		
 		/* Create a new recorder for our solutions */
 		this.recorder = new AllSolutionsRecorder(solver)
@@ -149,6 +148,7 @@ class AssistSolver {
 	
 	def getExplanation() {
 		logger.info("Trying to get an explanation")
+		solver.set(new Settings(){ public override boolean enablePropagatorInExplanation() { return true; }})
 		solver.searchLoop.reset
 		solver.engine.flush
 				
