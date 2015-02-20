@@ -19,6 +19,9 @@ import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstraint;
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
+import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor;
+import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor;
+import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor;
 import ch.hilbri.assist.mapping.solver.strategies.FirstFailWithProgressionOutput;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import com.google.common.base.Objects;
@@ -33,6 +36,7 @@ import org.chocosolver.solver.explanations.strategies.ConflictBasedBackjumping;
 import org.chocosolver.solver.propagation.IPropagationEngine;
 import org.chocosolver.solver.search.loop.ISearchLoop;
 import org.chocosolver.solver.search.loop.monitors.SMF;
+import org.chocosolver.solver.search.measure.IMeasures;
 import org.chocosolver.solver.search.solution.AllSolutionsRecorder;
 import org.chocosolver.solver.search.solution.Solution;
 import org.chocosolver.solver.search.strategy.ISF;
@@ -70,11 +74,15 @@ public class AssistSolver {
     this.mappingConstraintsList = _arrayList_1;
     Solver _solver = new Solver();
     this.solver = _solver;
-    this.solver.set(new Settings() {
-      public boolean enablePropagatorInExplanation() {
-        return true;
-      }
-    });
+    ISearchLoop _searchLoop = this.solver.getSearchLoop();
+    SolutionFoundMonitor _solutionFoundMonitor = new SolutionFoundMonitor();
+    _searchLoop.plugSearchMonitor(_solutionFoundMonitor);
+    ISearchLoop _searchLoop_1 = this.solver.getSearchLoop();
+    BacktrackingMonitor _backtrackingMonitor = new BacktrackingMonitor();
+    _searchLoop_1.plugSearchMonitor(_backtrackingMonitor);
+    ISearchLoop _searchLoop_2 = this.solver.getSearchLoop();
+    CloseMonitor _closeMonitor = new CloseMonitor();
+    _searchLoop_2.plugSearchMonitor(_closeMonitor);
     AllSolutionsRecorder _allSolutionsRecorder = new AllSolutionsRecorder(this.solver);
     this.recorder = _allSolutionsRecorder;
     this.solver.set(this.recorder);
@@ -156,6 +164,12 @@ public class AssistSolver {
     int _size = _solutions.size();
     _builder.append(_size, "");
     this.logger.info(_builder.toString());
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("Search statistics: ");
+    IMeasures _measures = this.solver.getMeasures();
+    String _oneLineString = _measures.toOneLineString();
+    _builder_1.append(_oneLineString, "");
+    this.logger.info(_builder_1.toString());
     boolean _hasReachedLimit = this.solver.hasReachedLimit();
     if (_hasReachedLimit) {
       this.logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)");
@@ -167,11 +181,11 @@ public class AssistSolver {
       List<Solution> _solutions_2 = this.recorder.getSolutions();
       ArrayList<Result> _create = ResultFactoryFromSolverSolutions.create(this.model, this.solverVariables, _solutions_2);
       this.mappingResults = _create;
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Results created:  ");
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append("Results created:  ");
       int _size_2 = this.mappingResults.size();
-      _builder_1.append(_size_2, "");
-      this.logger.info(_builder_1.toString());
+      _builder_2.append(_size_2, "");
+      this.logger.info(_builder_2.toString());
     } else {
       this.mappingResults.clear();
     }
@@ -179,6 +193,11 @@ public class AssistSolver {
   
   public void getExplanation() {
     this.logger.info("Trying to get an explanation");
+    this.solver.set(new Settings() {
+      public boolean enablePropagatorInExplanation() {
+        return true;
+      }
+    });
     ISearchLoop _searchLoop = this.solver.getSearchLoop();
     _searchLoop.reset();
     IPropagationEngine _engine = this.solver.getEngine();

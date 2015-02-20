@@ -18,6 +18,8 @@ import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
+import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor
+import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor
 import ch.hilbri.assist.mapping.solver.strategies.FirstFailWithProgressionOutput
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
@@ -30,6 +32,7 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
 
 class AssistSolver {
 	
@@ -53,6 +56,11 @@ class AssistSolver {
 		
 		/* Create a new Solver object */
 		this.solver = new Solver()
+		
+		/* Attach the search monitor */
+		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor)
+		this.solver.searchLoop.plugSearchMonitor(new BacktrackingMonitor)
+		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 		
 		/* Create a new recorder for our solutions */
 		this.recorder = new AllSolutionsRecorder(solver)
@@ -134,8 +142,8 @@ class AssistSolver {
 		solver.findAllSolutions
 		logger.info('''Solutions found: «recorder.solutions.size»''') 
 		
-		logger.info('''Retrieving statistics regarding the search:''')
-		logger.info('''>>> «solver.measures.toOneLineString»''')
+		logger.info('''Search statistics: «solver.measures.toOneLineString»''')
+		
 			
 		if (solver.hasReachedLimit)
 			logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)")
