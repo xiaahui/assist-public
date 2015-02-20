@@ -18,6 +18,7 @@ import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
+import ch.hilbri.assist.mapping.solver.strategies.FirstFailWithProgressionOutput
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Settings
@@ -29,7 +30,6 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.strategies.FirstFailWithProgressionOutput
 
 class AssistSolver {
 	
@@ -133,6 +133,9 @@ class AssistSolver {
 		logger.info("Searching for a solution")
 		solver.findAllSolutions
 		logger.info('''Solutions found: «recorder.solutions.size»''') 
+		
+		logger.info('''Retrieving statistics regarding the search:''')
+		logger.info('''>>> «solver.measures.toOneLineString»''')
 			
 		if (solver.hasReachedLimit)
 			logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)")
