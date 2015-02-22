@@ -18,6 +18,9 @@ import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
+import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor
+import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor
+import ch.hilbri.assist.mapping.solver.strategies.FirstFailWithProgressionOutput
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Settings
@@ -29,7 +32,7 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.strategies.FirstFailWithProgressionOutput
+import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
 
 class AssistSolver {
 	
@@ -53,7 +56,11 @@ class AssistSolver {
 		
 		/* Create a new Solver object */
 		this.solver = new Solver()
-		this.solver.set(new Settings(){ public override boolean enablePropagatorInExplanation() { return true; }})
+		
+		/* Attach the search monitor */
+		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor)
+		this.solver.searchLoop.plugSearchMonitor(new BacktrackingMonitor)
+		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 		
 		/* Create a new recorder for our solutions */
 		this.recorder = new AllSolutionsRecorder(solver)
@@ -134,6 +141,9 @@ class AssistSolver {
 		logger.info("Searching for a solution")
 		solver.findAllSolutions
 		logger.info('''Solutions found: «recorder.solutions.size»''') 
+		
+		logger.info('''Search statistics: «solver.measures.toOneLineString»''')
+		
 			
 		if (solver.hasReachedLimit)
 			logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)")
@@ -149,6 +159,7 @@ class AssistSolver {
 	
 	def getExplanation() {
 		logger.info("Trying to get an explanation")
+		solver.set(new Settings(){ public override boolean enablePropagatorInExplanation() { return true; }})
 		solver.searchLoop.reset
 		solver.engine.flush
 				

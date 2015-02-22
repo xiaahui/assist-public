@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory
 
 class FirstFailWithProgressionOutput extends FirstFail {
 	
-	private int bestProgress = 0
+//	private int bestProgress = 0
 	private Logger logger
 	private SolverVariablesContainer solverVariables
 	private AssistModel model
@@ -41,16 +41,16 @@ class FirstFailWithProgressionOutput extends FirstFail {
 	
 	override IntVar getVariable(IntVar[] variables) {
 		
-		val instantiatedVarCount = variables.filter[domainSize == 1].size
+		val instantiatedVarCount = variables.filter[isInstantiated].size
 		val currentProgress = instantiatedVarCount * 100 / variables.size
 		
-		if (bestProgress < currentProgress) {
-			logger.info("Search progress " + currentProgress + "%")
-			bestProgress = currentProgress
-		} else if (instantiatedVarCount == variables.size) {
-			logger.info("A solution was found - backtracking for more solutions")
-			bestProgress = 0
-		} 
+//		if (bestProgress < currentProgress) {
+//			logger.info("Instantiated variables: " + currentProgress + "%")
+//			bestProgress = currentProgress
+//		} else
+//		if (instantiatedVarCount == variables.size) {
+//			bestProgress = 0
+//		} 
 
 		val newList = variables.sortBy[map.get(it)]
 	
@@ -59,6 +59,7 @@ class FirstFailWithProgressionOutput extends FirstFail {
 			printVariablesInSortedOrder = false
 		}
 		
+		logger.info('''Selecting a variable («currentProgress»% instantiated)''')
 					
 		return super.getVariable(newList)
 	}
