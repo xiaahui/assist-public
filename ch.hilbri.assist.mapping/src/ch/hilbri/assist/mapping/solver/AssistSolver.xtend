@@ -171,9 +171,12 @@ class AssistSolver {
 	
 		logger.debug("Solver contents: ")
 		logger.debug(solver.toString)
-		
-		logger.info("Explanation:")
-		logger.info(cbj.getUserExplanation.toString)
+
+		if (cbj.getUserExplanation == null) {
+			logger.info("No explanation available, because at least one solution was found.")
+		} else {
+			logger.info('''Explanation: >>«cbj.userExplanation.toString»<<''')
+		}
 	}
 
 	def ArrayList<Result> getResults() 	{ mappingResults 			}

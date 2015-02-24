@@ -211,10 +211,19 @@ public class AssistSolver {
     this.logger.debug("Solver contents: ");
     String _string = this.solver.toString();
     this.logger.debug(_string);
-    this.logger.info("Explanation:");
     Explanation _userExplanation = cbj.getUserExplanation();
-    String _string_1 = _userExplanation.toString();
-    this.logger.info(_string_1);
+    boolean _equals = Objects.equal(_userExplanation, null);
+    if (_equals) {
+      this.logger.info("No explanation available, because at least one solution was found.");
+    } else {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Explanation: >>");
+      Explanation _userExplanation_1 = cbj.getUserExplanation();
+      String _string_1 = _userExplanation_1.toString();
+      _builder.append(_string_1, "");
+      _builder.append("<<");
+      this.logger.info(_builder.toString());
+    }
   }
   
   public ArrayList<Result> getResults() {
