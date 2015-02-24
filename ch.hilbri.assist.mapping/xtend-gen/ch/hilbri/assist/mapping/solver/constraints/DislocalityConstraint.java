@@ -9,9 +9,7 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
 import ch.hilbri.assist.mapping.solver.exceptions.dislocality.ApplicationsCannotBeMappedDislocal;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
-import com.google.common.collect.Iterables;
 import java.util.ArrayList;
-import java.util.List;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.Constraint;
 import org.chocosolver.solver.constraints.ICF;
@@ -20,9 +18,6 @@ import org.chocosolver.solver.variables.IntVar;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 @SuppressWarnings("all")
 public class DislocalityConstraint extends AbstractMappingConstraint {
@@ -74,16 +69,9 @@ public class DislocalityConstraint extends AbstractMappingConstraint {
           } catch (final Throwable _t) {
             if (_t instanceof ContradictionException) {
               final ContradictionException e = (ContradictionException)_t;
-              Iterable<IntVar> _flatten = Iterables.<IntVar>concat(varList);
-              final List<IntVar> locationVariables = IterableExtensions.<IntVar>toList(_flatten);
-              final Function1<IntVar, Application> _function = new Function1<IntVar, Application>() {
-                public Application apply(final IntVar it) {
-                  return DislocalityConstraint.this.solverVariables.getApplicationForLocationVariable(it);
-                }
-              };
-              List<Application> _map = ListExtensions.<IntVar, Application>map(locationVariables, _function);
+              EList<ApplicationOrApplicationGroup> _applicationsOrGroups_1 = r.getApplicationsOrGroups();
               HardwareArchitectureLevelType _hardwareLevel = r.getHardwareLevel();
-              throw new ApplicationsCannotBeMappedDislocal(this, _map, _hardwareLevel);
+              throw new ApplicationsCannotBeMappedDislocal(this, _applicationsOrGroups_1, _hardwareLevel);
             } else {
               throw Exceptions.sneakyThrow(_t);
             }

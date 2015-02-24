@@ -20,6 +20,7 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.datamodel.model.Processor;
 import ch.hilbri.assist.datamodel.model.ProcessorAttributes;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
+import ch.hilbri.assist.mapping.solver.exceptions.dissimilarity.ApplicationsCannotBeMappedDissimilar;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import com.google.common.base.Objects;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.Constraint;
 import org.chocosolver.solver.constraints.ICF;
 import org.chocosolver.solver.constraints.LCF;
+import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.VF;
 import org.eclipse.emf.common.util.EList;
@@ -61,10 +63,20 @@ public class DissimilarityConstraint extends AbstractMappingConstraint {
           boolean _notEquals = (!Objects.equal(constraint, null));
           if (_notEquals) {
             this.solver.post(constraint);
+            try {
+              this.solver.propagate();
+            } catch (final Throwable _t) {
+              if (_t instanceof ContradictionException) {
+                final ContradictionException e = (ContradictionException)_t;
+                EList<ApplicationOrApplicationGroup> _applicationsOrGroups = r.getApplicationsOrGroups();
+                throw new ApplicationsCannotBeMappedDissimilar(this, _applicationsOrGroups);
+              } else {
+                throw Exceptions.sneakyThrow(_t);
+              }
+            }
           }
         }
       }
-      this.propagate();
       return true;
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
