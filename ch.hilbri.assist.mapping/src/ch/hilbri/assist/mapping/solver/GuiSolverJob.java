@@ -116,7 +116,7 @@ public class GuiSolverJob extends Job {
 		String title = "Specification inconsistency detected";
 		String message = "Your specifications became inconsistent. A correct deployment cannot be generated.\n\n" + 
 						 "Constraints: \"" + constraintName + "\"\n\n" +
-						 "Explanation: " + explanation + "";
+						 explanation + "";
 				
 		Display.getDefault().asyncExec(new Runnable() {
 			public void run() {MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), title, message);}
