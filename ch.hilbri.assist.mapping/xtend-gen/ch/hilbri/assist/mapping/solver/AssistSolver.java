@@ -165,7 +165,7 @@ public class AssistSolver {
     _builder.append(_size, "");
     this.logger.info(_builder.toString());
     StringConcatenation _builder_1 = new StringConcatenation();
-    _builder_1.append("Search statistics: ");
+    _builder_1.append("Internal solver statistics: ");
     IMeasures _measures = this.solver.getMeasures();
     String _oneLineString = _measures.toOneLineString();
     _builder_1.append(_oneLineString, "");

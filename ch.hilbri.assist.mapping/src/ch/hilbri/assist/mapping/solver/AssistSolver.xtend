@@ -142,7 +142,7 @@ class AssistSolver {
 		solver.findAllSolutions
 		logger.info('''Solutions found: «recorder.solutions.size»''') 
 		
-		logger.info('''Search statistics: «solver.measures.toOneLineString»''')
+		logger.info('''Internal solver statistics: «solver.measures.toOneLineString»''')
 		
 			
 		if (solver.hasReachedLimit)
