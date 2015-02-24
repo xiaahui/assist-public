@@ -18,6 +18,6 @@ class ApplicationsCannotBeMappedDislocal extends BasicConstraintsException {
 	}
 	
 	override def String getExplanation() { 
-		'''The applications [«FOR a : applications»«a.name», «ENDFOR»] could not be mapped dislocally up to «level»'''
+		'''The applications «applications» could not be mapped dislocally up to level "«level»".'''
 	}
 }
