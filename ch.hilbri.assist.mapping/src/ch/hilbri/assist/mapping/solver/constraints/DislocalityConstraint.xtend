@@ -66,11 +66,12 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			
 			for (list : varSetForAllDifferentConstraint) {
 				solver.post(ICF.alldifferent(list, "AC"))
-				
-				try { solver.propagate }
-				catch (ContradictionException e) {
-					throw new ApplicationsCannotBeMappedDislocal(this, list.map[solverVariables.getApplicationForLocationVariable(it)], r.hardwareLevel)
-				}
+			}
+			
+			try { solver.propagate }
+			catch (ContradictionException e) {
+				val locationVariables = varList.flatten.toList
+				throw new ApplicationsCannotBeMappedDislocal(this, locationVariables.map[solverVariables.getApplicationForLocationVariable(it)], r.hardwareLevel)
 			}
 		}
 
