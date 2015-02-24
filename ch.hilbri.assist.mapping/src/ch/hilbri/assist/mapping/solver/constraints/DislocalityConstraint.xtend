@@ -70,8 +70,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			
 			try { solver.propagate }
 			catch (ContradictionException e) {
-				val locationVariables = varList.flatten.toList
-				throw new ApplicationsCannotBeMappedDislocal(this, locationVariables.map[solverVariables.getApplicationForLocationVariable(it)], r.hardwareLevel)
+				throw new ApplicationsCannotBeMappedDislocal(this, r.applicationsOrGroups, r.hardwareLevel)
 			}
 		}
 

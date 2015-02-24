@@ -9,12 +9,14 @@ import ch.hilbri.assist.datamodel.model.DissimilarityDisjunction
 import ch.hilbri.assist.datamodel.model.DissimilarityEntry
 import ch.hilbri.assist.datamodel.model.DissimilarityRelation
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.mapping.solver.exceptions.dissimilarity.ApplicationsCannotBeMappedDissimilar
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.Constraint
 import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.constraints.LCF
+import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
 import org.slf4j.LoggerFactory
@@ -34,12 +36,17 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 		 
 		for (r : model.dissimilarityRelations) {
 			val constraint = generateConstraint(r, r.dissimilarityClause)
-			if (constraint != null)
+			if (constraint != null) {
 				solver.post(constraint)
+				
+				try { solver.propagate }
+				catch (ContradictionException e) {
+					throw new ApplicationsCannotBeMappedDissimilar(this, r.applicationsOrGroups)
+				}
+			}
+			
 		} 
 
-		propagate()
-		
 		return true
 	}
 	
