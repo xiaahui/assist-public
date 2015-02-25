@@ -4,10 +4,13 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.model.IOAdapterProtectionLevelType
 import ch.hilbri.assist.datamodel.model.IOAdapterType
+import ch.hilbri.assist.mapping.solver.exceptions.ioadapter.NoBoardOffersSufficientIOAdaptersForSingleApplication
+import ch.hilbri.assist.mapping.solver.exceptions.ioadapter.SingleBoardDoesNotOfferSufficientIOAdaptersForMultipleApplications
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.VF
 
@@ -20,9 +23,7 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 	override generate() {
 		generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints()
 		generate_MultipleTheads_ExclusiveRequests_incl_ProtectionLevel_Constraints()
-		
-		propagate()
-		
+	
 		return true
 	}
 	
@@ -55,6 +56,12 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 
 					// Define the sum to constrain the deployment
 					solver.post(ICF.scalar(factorList, requestCountForEachThreadWithProtectionLevelAndType, "=", suiteableIOAdapterCountVar))
+					
+					try { solver.propagate }
+					catch (ContradictionException e) {
+						throw new SingleBoardDoesNotOfferSufficientIOAdaptersForMultipleApplications(this, b, type, level)
+					}
+					
 				}	
 			}
 		}
@@ -81,6 +88,11 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 				
 				// Impose constraints on the adapterCountVariable
 				solver.post(ICF.arithm(suiteableAdapterCountPerBoardVariable, ">=", exReq.requiredAdapterCount))
+				
+				try { solver.propagate }
+				catch (ContradictionException e) {
+					throw new NoBoardOffersSufficientIOAdaptersForSingleApplication(this, t.application, exReq.adapterType, t.application.ioAdapterProtectionLevel, exReq.requiredAdapterCount)
+				}
 			}			
 		}	
 	}
