@@ -14,7 +14,7 @@ import org.chocosolver.solver.variables.IntVar
 class DislocalityConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("Dislocality constraints", model, solver, solverVariables)
+		super("dislocality", model, solver, solverVariables)
 	}
 	
 	override generate() {
@@ -66,11 +66,11 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			
 			for (list : varSetForAllDifferentConstraint) {
 				solver.post(ICF.alldifferent(list, "AC"))
-				
-				try { solver.propagate }
-				catch (ContradictionException e) {
-					throw new ApplicationsCannotBeMappedDislocal(this, list.map[solverVariables.getApplicationForLocationVariable(it)], r.hardwareLevel)
-				}
+			}
+			
+			try { solver.propagate }
+			catch (ContradictionException e) {
+				throw new ApplicationsCannotBeMappedDislocal(this, r.applicationsOrGroups, r.hardwareLevel)
 			}
 		}
 

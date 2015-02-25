@@ -9,11 +9,14 @@ import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
+import org.chocosolver.solver.exception.ContradictionException
+import ch.hilbri.assist.mapping.solver.exceptions.ramcapacity.NoBoardHasEnoughRAMForThisApplication
+import ch.hilbri.assist.mapping.solver.exceptions.ramcapacity.BoardHasInsufficientRAMForAllItsApplications
 
 class RAMUtilizationConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("RAM capacity constraints", model, solver, solverVariables)
+		super("ram capacity", model, solver, solverVariables)
 	}
 	
 	override generate() {
@@ -58,6 +61,9 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 			
 			/* Impose that the ram capacity of the board must be greater than the required capacity of the thread */
 			solver.post(ICF.arithm(threadAvailableRamCapacitiesVar, ">=", thread.application.ramUtilization))
+			
+			try { solver.propagate }
+			catch (ContradictionException e) { throw new NoBoardHasEnoughRAMForThisApplication(this, thread.application)}
 		}
 		
 		/*
@@ -80,7 +86,10 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 				utilizationList.add(thread.application.ramUtilization)				
 			}
 			
-			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteRamUtilizationVariable(board)))	
+			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteRamUtilizationVariable(board)))
+			
+			try { solver.propagate }
+			catch (ContradictionException e) { throw new BoardHasInsufficientRAMForAllItsApplications(this, board)}	
 		}
 		
 		propagate()

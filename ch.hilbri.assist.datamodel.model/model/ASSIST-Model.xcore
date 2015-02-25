@@ -356,6 +356,10 @@ class Network {
 
 class ApplicationOrApplicationGroup {
 	String name = ""
+	
+	op String toString() {
+		name
+	}
 }
 
 class ApplicationGroup extends ApplicationOrApplicationGroup {
@@ -379,6 +383,10 @@ class ApplicationGroup extends ApplicationOrApplicationGroup {
 		}
 		
 		return list
+	}
+	
+	op String toString() {
+		name
 	}
 }
 

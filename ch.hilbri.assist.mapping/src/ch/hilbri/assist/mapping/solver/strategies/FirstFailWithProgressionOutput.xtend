@@ -18,7 +18,7 @@ class FirstFailWithProgressionOutput extends FirstFail {
 	
 	private Map<IntVar, Integer> map
 	
-	private boolean printVariablesInSortedOrder = true
+	private boolean printVariablesInSortedOrder = false
 
 	
 	new(SolverVariablesContainer solverVariables, AssistModel model) {
@@ -44,14 +44,6 @@ class FirstFailWithProgressionOutput extends FirstFail {
 		val instantiatedVarCount = variables.filter[isInstantiated].size
 		val currentProgress = instantiatedVarCount * 100 / variables.size
 		
-//		if (bestProgress < currentProgress) {
-//			logger.info("Instantiated variables: " + currentProgress + "%")
-//			bestProgress = currentProgress
-//		} else
-//		if (instantiatedVarCount == variables.size) {
-//			bestProgress = 0
-//		} 
-
 		val newList = variables.sortBy[map.get(it)]
 	
 		if (printVariablesInSortedOrder) {

@@ -11,11 +11,13 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.HashSet
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
+import ch.hilbri.assist.mapping.solver.exceptions.restricteddeployment.RestrictingDeploymentOfApplicationFailed
 
 class RestrictedDeploymentConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("Restricted deployment constraints", model, solver, solverVariables)
+		super("restricted deployment", model, solver, solverVariables)
 	}
 	
 	override generate() {
@@ -41,6 +43,9 @@ class RestrictedDeploymentConstraint extends AbstractMappingConstraint {
 				val threadLocationsCoreLevel = solverVariables.getThreadLocationVariable(t, HardwareArchitectureLevelType.CORE_VALUE) 
 			
 				solver.post(ICF.member(threadLocationsCoreLevel, allowedCores.map[model.allCores.indexOf(it)]))
+				
+				try { solver.propagate }
+				catch (ContradictionException e) { throw new RestrictingDeploymentOfApplicationFailed(this, t.application)}
 			
 			}
 		}

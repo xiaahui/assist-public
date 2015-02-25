@@ -55,7 +55,6 @@ public class GuiSolverJob extends Job {
 	protected IStatus run(IProgressMonitor monitor) {
 
 		long start = System.currentTimeMillis();
-		logger.info("Starting a new solver run");
 		
 		try {
 			monitor.beginTask("Propagating all constraints", 1);
@@ -116,7 +115,7 @@ public class GuiSolverJob extends Job {
 		String title = "Specification inconsistency detected";
 		String message = "Your specifications became inconsistent. A correct deployment cannot be generated.\n\n" + 
 						 "Constraints: \"" + constraintName + "\"\n\n" +
-						 "Explanation: " + explanation + "";
+						 explanation + "";
 				
 		Display.getDefault().asyncExec(new Runnable() {
 			public void run() {MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), title, message);}

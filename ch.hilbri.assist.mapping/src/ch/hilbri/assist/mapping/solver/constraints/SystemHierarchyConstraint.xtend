@@ -12,7 +12,7 @@ import org.chocosolver.solver.constraints.ICF
 class SystemHierarchyConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("System Hierarchy Constraints", model, solver, solverVariables)
+		super("system hierarchy", model, solver, solverVariables)
 	}
 	
 	override generate() {

@@ -9,7 +9,7 @@ import org.chocosolver.solver.constraints.ICF
 class NoPermutationsConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("No permutations of threads", model, solver, solverVariables)
+		super("no permutations of threads", model, solver, solverVariables)
 	}
 	
 	override generate() {

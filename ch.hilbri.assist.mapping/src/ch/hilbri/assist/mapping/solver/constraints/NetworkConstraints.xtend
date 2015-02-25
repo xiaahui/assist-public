@@ -10,11 +10,13 @@ import org.chocosolver.solver.constraints.LCF
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.VF
 import org.slf4j.LoggerFactory
+import org.chocosolver.solver.exception.ContradictionException
+import ch.hilbri.assist.mapping.solver.exceptions.networks.NetworkHasInsufficientBandwidth
 
 class NetworkConstraints extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("Network constraints", model, solver, solverVariables)
+		super("network", model, solver, solverVariables)
 		this.logger = LoggerFactory.getLogger(this.class);
 	}
 	
@@ -109,7 +111,13 @@ class NetworkConstraints extends AbstractMappingConstraint {
 				bandwidthUtilizationList.add(commRelation.bandwidthUtilization)
 			}
 			
+			
 			solver.post(ICF.scalar(factorList, bandwidthUtilizationList, "=", solverVariables.getAbsoluteBandwidthUtilizationVariable(network))) 
+		
+			try { solver.propagate	}
+			catch (ContradictionException e) {
+				throw new NetworkHasInsufficientBandwidth(this, network)
+			}
 		}
 		
 		propagate()

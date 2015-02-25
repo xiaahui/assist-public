@@ -19,6 +19,6 @@ class TwoApplicationsCouldNotBeDeployedToTheSameHardwareElement extends BasicCon
 	}
 	
 	override def String getExplanation() { 
-		'''The applications "«a1.name»" and "«a2.name»" could not be mapped to the same «level.literal».'''
+		'''The applications "«a1»" and "«a2»" could not be mapped to the same «level».'''
 	} 
 }

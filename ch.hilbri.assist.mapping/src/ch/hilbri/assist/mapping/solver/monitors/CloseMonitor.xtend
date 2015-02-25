@@ -11,7 +11,7 @@ class CloseMonitor implements IMonitorClose {
 		this.logger = LoggerFactory.getLogger(this.class) 
 	}
 	override afterClose() {
-		logger.info('''Closing the search - the entire search space has been explored.''')
+		logger.info('''Closing the search.''')
 	}
 	
 	override beforeClose() {

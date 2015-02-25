@@ -8,7 +8,7 @@ import ch.hilbri.assist.mapping.solver.constraints.AllApplicationThreadsOnSameBo
 import ch.hilbri.assist.mapping.solver.constraints.ApplicationProximityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint
-import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
+import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraintImproved
 import ch.hilbri.assist.mapping.solver.constraints.DissimilarityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint
 import ch.hilbri.assist.mapping.solver.constraints.NetworkConstraints
@@ -19,6 +19,7 @@ import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstrain
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor
+import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
 import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor
 import ch.hilbri.assist.mapping.solver.strategies.FirstFailWithProgressionOutput
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
@@ -32,7 +33,6 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
 
 class AssistSolver {
 	
@@ -100,7 +100,8 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, solver, solverVariables))
 		
 		/* Create a new constraint to obey the dislocality requirements */
-		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new DislocalityConstraintImproved(model, solver, solverVariables))
 
 		/* Create a new constraint to obey the dissimilarity requirements */
 		this.mappingConstraintsList.add(new DissimilarityConstraint(model, solver, solverVariables))
@@ -111,17 +112,17 @@ class AssistSolver {
 	
 	def setSolverTimeLimit(long timeInMs) {
 		SMF.limitTime(solver, timeInMs);
-		logger.info("Setting time limit to " + timeInMs + "ms");
+		logger.info("Setting choco-solver search time limit to " + timeInMs + "ms");
 	}
 	
 	def setSolverMaxSolutions(int maxSolutions) {
-		logger.info("Setting max solutions limit to " + maxSolutions);
+		logger.info("Setting choco-solver max solutions limit to " + maxSolutions);
 		SMF.limitSolution(solver, maxSolutions);
 	}
 	
 	def setSolverSearchStrategy(SearchType strategy) {
 		if (strategy == SearchType.CONSECUTIVE) {
-			logger.info("Setting search strategy to minDomainSize + minValue")
+			logger.info("Setting choco-solver search strategy to minDomainSize + minValue")
 			solver.set(ISF.custom(new FirstFailWithProgressionOutput(solverVariables, model),
 								  ISF.min_value_selector,
 								  solverVariables.getLocationVariables))
@@ -130,20 +131,21 @@ class AssistSolver {
 	}
 
 	def propagation() throws BasicConstraintsException {
-		logger.info("Starting a solver propagation");
+		logger.info("Starting to generate constraints for the choco-solver");
 		for (constraint : mappingConstraintsList) {
+			logger.info('''Starting to generate constraints for "«constraint.name»"...''')
 			constraint.generate();
-			logger.info('''Constraint "«constraint.name»" successfully generated''')
+			logger.info('''done.''')
 		}
 	}
 	
 	def solutionSearch() throws BasicConstraintsException {		
-		logger.info("Searching for a solution")
+		logger.info("Initiating choco-solver - searching for a solution")
 		solver.findAllSolutions
 		logger.info('''Solutions found: «recorder.solutions.size»''') 
 		
-		logger.info('''Search statistics: «solver.measures.toOneLineString»''')
-		
+		logger.info('''Internal solver statistics: «solver.measures.toOneLineString»''')
+		logger.info('''«solver»''')
 			
 		if (solver.hasReachedLimit)
 			logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)")
@@ -171,9 +173,12 @@ class AssistSolver {
 	
 		logger.debug("Solver contents: ")
 		logger.debug(solver.toString)
-		
-		logger.info("Explanation:")
-		logger.info(cbj.getUserExplanation.toString)
+
+		if (cbj.getUserExplanation == null) {
+			logger.info("No explanation available, because at least one solution was found.")
+		} else {
+			logger.info('''Explanation: >>«cbj.userExplanation.toString»<<''')
+		}
 	}
 
 	def ArrayList<Result> getResults() 	{ mappingResults 			}
