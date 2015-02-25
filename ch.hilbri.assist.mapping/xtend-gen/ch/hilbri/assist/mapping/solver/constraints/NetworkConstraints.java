@@ -6,6 +6,7 @@ import ch.hilbri.assist.datamodel.model.CommunicationRelation;
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.datamodel.model.Network;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
+import ch.hilbri.assist.mapping.solver.exceptions.networks.NetworkHasInsufficientBandwidth;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.Constraint;
 import org.chocosolver.solver.constraints.ICF;
 import org.chocosolver.solver.constraints.LCF;
+import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.variables.BoolVar;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.VF;
@@ -134,6 +136,16 @@ public class NetworkConstraints extends AbstractMappingConstraint {
           IntVar _absoluteBandwidthUtilizationVariable = this.solverVariables.getAbsoluteBandwidthUtilizationVariable(network_2);
           Constraint _scalar = ICF.scalar(((IntVar[])Conversions.unwrapArray(factorList, IntVar.class)), ((int[])Conversions.unwrapArray(bandwidthUtilizationList, int.class)), "=", _absoluteBandwidthUtilizationVariable);
           this.solver.post(_scalar);
+          try {
+            this.solver.propagate();
+          } catch (final Throwable _t) {
+            if (_t instanceof ContradictionException) {
+              final ContradictionException e = (ContradictionException)_t;
+              throw new NetworkHasInsufficientBandwidth(this, network_2);
+            } else {
+              throw Exceptions.sneakyThrow(_t);
+            }
+          }
         }
       }
       this.propagate();
