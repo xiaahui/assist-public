@@ -5,12 +5,15 @@ import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.Board;
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
+import ch.hilbri.assist.mapping.solver.exceptions.romcapacity.BoardHasInsufficientROMForAllItsApplications;
+import ch.hilbri.assist.mapping.solver.exceptions.romcapacity.NoBoardHasEnoughROMForThisApplication;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import java.util.ArrayList;
 import java.util.List;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.Constraint;
 import org.chocosolver.solver.constraints.ICF;
+import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.variables.BoolVar;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.VF;
@@ -89,6 +92,17 @@ public class ROMUtilizationConstraint extends AbstractMappingConstraint {
           int _romUtilization = _application.getRomUtilization();
           Constraint _arithm_1 = ICF.arithm(threadAvailableRomCapacitiesVar, ">=", _romUtilization);
           this.solver.post(_arithm_1);
+          try {
+            this.solver.propagate();
+          } catch (final Throwable _t) {
+            if (_t instanceof ContradictionException) {
+              final ContradictionException e = (ContradictionException)_t;
+              Application _application_1 = thread.getApplication();
+              throw new NoBoardHasEnoughROMForThisApplication(this, _application_1);
+            } else {
+              throw Exceptions.sneakyThrow(_t);
+            }
+          }
         }
       }
       EList<Board> _allBoards_2 = this.model.getAllBoards();
@@ -119,6 +133,16 @@ public class ROMUtilizationConstraint extends AbstractMappingConstraint {
           IntVar _absoluteRomUtilizationVariable = this.solverVariables.getAbsoluteRomUtilizationVariable(board);
           Constraint _scalar = ICF.scalar(((IntVar[])Conversions.unwrapArray(factorList, IntVar.class)), ((int[])Conversions.unwrapArray(utilizationList, int.class)), "=", _absoluteRomUtilizationVariable);
           this.solver.post(_scalar);
+          try {
+            this.solver.propagate();
+          } catch (final Throwable _t) {
+            if (_t instanceof ContradictionException) {
+              final ContradictionException e = (ContradictionException)_t;
+              throw new BoardHasInsufficientROMForAllItsApplications(this, board);
+            } else {
+              throw Exceptions.sneakyThrow(_t);
+            }
+          }
         }
       }
       this.propagate();

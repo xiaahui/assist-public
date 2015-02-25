@@ -2,10 +2,13 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.mapping.solver.exceptions.romcapacity.BoardHasInsufficientROMForAllItsApplications
+import ch.hilbri.assist.mapping.solver.exceptions.romcapacity.NoBoardHasEnoughROMForThisApplication
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
@@ -58,6 +61,9 @@ class ROMUtilizationConstraint extends AbstractMappingConstraint {
 			
 			/* Impose that the rom capacity of the board must be greater than the required capacity of the thread */
 			solver.post(ICF.arithm(threadAvailableRomCapacitiesVar, ">=", thread.application.romUtilization))
+			
+			try { solver.propagate }
+			catch (ContradictionException e) { throw new NoBoardHasEnoughROMForThisApplication(this, thread.application)}
 		}
 		
 		/*
@@ -80,7 +86,10 @@ class ROMUtilizationConstraint extends AbstractMappingConstraint {
 				utilizationList.add(thread.application.romUtilization)				
 			}
 			
-			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteRomUtilizationVariable(board)))	
+			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteRomUtilizationVariable(board)))
+			
+			try { solver.propagate }
+			catch (ContradictionException e) { throw new BoardHasInsufficientROMForAllItsApplications(this, board)}		
 		}
 		
 		propagate()

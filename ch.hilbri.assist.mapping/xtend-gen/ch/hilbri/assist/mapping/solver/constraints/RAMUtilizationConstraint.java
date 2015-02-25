@@ -5,12 +5,15 @@ import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.Board;
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint;
+import ch.hilbri.assist.mapping.solver.exceptions.ramcapacity.BoardHasInsufficientRAMForAllItsApplications;
+import ch.hilbri.assist.mapping.solver.exceptions.ramcapacity.NoBoardHasEnoughRAMForThisApplication;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 import java.util.ArrayList;
 import java.util.List;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.Constraint;
 import org.chocosolver.solver.constraints.ICF;
+import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.variables.BoolVar;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.VF;
@@ -89,6 +92,17 @@ public class RAMUtilizationConstraint extends AbstractMappingConstraint {
           int _ramUtilization = _application.getRamUtilization();
           Constraint _arithm_1 = ICF.arithm(threadAvailableRamCapacitiesVar, ">=", _ramUtilization);
           this.solver.post(_arithm_1);
+          try {
+            this.solver.propagate();
+          } catch (final Throwable _t) {
+            if (_t instanceof ContradictionException) {
+              final ContradictionException e = (ContradictionException)_t;
+              Application _application_1 = thread.getApplication();
+              throw new NoBoardHasEnoughRAMForThisApplication(this, _application_1);
+            } else {
+              throw Exceptions.sneakyThrow(_t);
+            }
+          }
         }
       }
       EList<Board> _allBoards_2 = this.model.getAllBoards();
@@ -119,6 +133,16 @@ public class RAMUtilizationConstraint extends AbstractMappingConstraint {
           IntVar _absoluteRamUtilizationVariable = this.solverVariables.getAbsoluteRamUtilizationVariable(board);
           Constraint _scalar = ICF.scalar(((IntVar[])Conversions.unwrapArray(factorList, IntVar.class)), ((int[])Conversions.unwrapArray(utilizationList, int.class)), "=", _absoluteRamUtilizationVariable);
           this.solver.post(_scalar);
+          try {
+            this.solver.propagate();
+          } catch (final Throwable _t) {
+            if (_t instanceof ContradictionException) {
+              final ContradictionException e = (ContradictionException)_t;
+              throw new BoardHasInsufficientRAMForAllItsApplications(this, board);
+            } else {
+              throw Exceptions.sneakyThrow(_t);
+            }
+          }
         }
       }
       this.propagate();
