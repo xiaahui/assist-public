@@ -8,7 +8,7 @@ import ch.hilbri.assist.mapping.solver.constraints.AllApplicationThreadsOnSameBo
 import ch.hilbri.assist.mapping.solver.constraints.ApplicationProximityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint
-import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
+import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraintImproved
 import ch.hilbri.assist.mapping.solver.constraints.DissimilarityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint
 import ch.hilbri.assist.mapping.solver.constraints.NetworkConstraints
@@ -19,6 +19,7 @@ import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstrain
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor
+import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
 import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor
 import ch.hilbri.assist.mapping.solver.strategies.FirstFailWithProgressionOutput
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
@@ -32,7 +33,6 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
 
 class AssistSolver {
 	
@@ -100,7 +100,8 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, solver, solverVariables))
 		
 		/* Create a new constraint to obey the dislocality requirements */
-		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new DislocalityConstraintImproved(model, solver, solverVariables))
 
 		/* Create a new constraint to obey the dissimilarity requirements */
 		this.mappingConstraintsList.add(new DissimilarityConstraint(model, solver, solverVariables))
@@ -144,7 +145,7 @@ class AssistSolver {
 		logger.info('''Solutions found: «recorder.solutions.size»''') 
 		
 		logger.info('''Internal solver statistics: «solver.measures.toOneLineString»''')
-		
+		logger.info('''«solver»''')
 			
 		if (solver.hasReachedLimit)
 			logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)")
