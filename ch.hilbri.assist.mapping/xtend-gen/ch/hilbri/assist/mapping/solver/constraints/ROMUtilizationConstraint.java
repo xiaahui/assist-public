@@ -28,7 +28,7 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
 @SuppressWarnings("all")
 public class ROMUtilizationConstraint extends AbstractMappingConstraint {
   public ROMUtilizationConstraint(final AssistModel model, final Solver solver, final SolverVariablesContainer solverVariables) {
-    super("ROM capacity constraints", model, solver, solverVariables);
+    super("rom capacity", model, solver, solverVariables);
   }
   
   public boolean generate() {

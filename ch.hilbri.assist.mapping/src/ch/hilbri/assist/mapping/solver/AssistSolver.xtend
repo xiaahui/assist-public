@@ -111,17 +111,17 @@ class AssistSolver {
 	
 	def setSolverTimeLimit(long timeInMs) {
 		SMF.limitTime(solver, timeInMs);
-		logger.info("Setting time limit to " + timeInMs + "ms");
+		logger.info("Setting choco-solver search time limit to " + timeInMs + "ms");
 	}
 	
 	def setSolverMaxSolutions(int maxSolutions) {
-		logger.info("Setting max solutions limit to " + maxSolutions);
+		logger.info("Setting choco-solver max solutions limit to " + maxSolutions);
 		SMF.limitSolution(solver, maxSolutions);
 	}
 	
 	def setSolverSearchStrategy(SearchType strategy) {
 		if (strategy == SearchType.CONSECUTIVE) {
-			logger.info("Setting search strategy to minDomainSize + minValue")
+			logger.info("Setting choco-solver search strategy to minDomainSize + minValue")
 			solver.set(ISF.custom(new FirstFailWithProgressionOutput(solverVariables, model),
 								  ISF.min_value_selector,
 								  solverVariables.getLocationVariables))
@@ -130,15 +130,16 @@ class AssistSolver {
 	}
 
 	def propagation() throws BasicConstraintsException {
-		logger.info("Starting a solver propagation");
+		logger.info("Starting to generate constraints for the choco-solver");
 		for (constraint : mappingConstraintsList) {
+			logger.info('''Starting to generate constraints for "«constraint.name»"...''')
 			constraint.generate();
-			logger.info('''Constraint "«constraint.name»" successfully generated''')
+			logger.info('''done.''')
 		}
 	}
 	
 	def solutionSearch() throws BasicConstraintsException {		
-		logger.info("Searching for a solution")
+		logger.info("Initiating choco-solver - searching for a solution")
 		solver.findAllSolutions
 		logger.info('''Solutions found: «recorder.solutions.size»''') 
 		

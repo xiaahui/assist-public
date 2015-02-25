@@ -27,7 +27,7 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 @SuppressWarnings("all")
 public class RestrictedDeploymentConstraint extends AbstractMappingConstraint {
   public RestrictedDeploymentConstraint(final AssistModel model, final Solver solver, final SolverVariablesContainer solverVariables) {
-    super("Restricted deployment constraints", model, solver, solverVariables);
+    super("restricted deployment", model, solver, solverVariables);
   }
   
   public boolean generate() {

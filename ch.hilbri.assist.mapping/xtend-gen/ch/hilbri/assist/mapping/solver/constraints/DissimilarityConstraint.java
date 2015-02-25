@@ -44,7 +44,7 @@ import org.slf4j.LoggerFactory;
 @SuppressWarnings("all")
 public class DissimilarityConstraint extends AbstractMappingConstraint {
   public DissimilarityConstraint(final AssistModel model, final Solver solver, final SolverVariablesContainer solverVariables) {
-    super("Dissimilarity constraints", model, solver, solverVariables);
+    super("dissimilarity", model, solver, solverVariables);
     Class<? extends DissimilarityConstraint> _class = this.getClass();
     Logger _logger = LoggerFactory.getLogger(_class);
     this.logger = _logger;

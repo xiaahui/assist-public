@@ -28,7 +28,7 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
 @SuppressWarnings("all")
 public class RAMUtilizationConstraint extends AbstractMappingConstraint {
   public RAMUtilizationConstraint(final AssistModel model, final Solver solver, final SolverVariablesContainer solverVariables) {
-    super("RAM capacity constraints", model, solver, solverVariables);
+    super("ram capacity", model, solver, solverVariables);
   }
   
   public boolean generate() {

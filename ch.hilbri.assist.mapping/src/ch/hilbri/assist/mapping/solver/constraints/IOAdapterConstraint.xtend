@@ -17,7 +17,7 @@ import org.chocosolver.solver.variables.VF
 class IOAdapterConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("I/O adapter constraints", model, solver, solverVariables)
+		super("i/o adapter", model, solver, solverVariables)
 	}
 
 	override generate() {

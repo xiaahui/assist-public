@@ -15,7 +15,7 @@ import ch.hilbri.assist.mapping.solver.exceptions.designassurancelevel.NoBoardWi
 class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("Design assurance level constraints", model, solver, solverVariables)
+		super("design assurance level", model, solver, solverVariables)
 	}
 	
 	override generate() {

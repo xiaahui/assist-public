@@ -24,7 +24,7 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
 @SuppressWarnings("all")
 public class SystemHierarchyConstraint extends AbstractMappingConstraint {
   public SystemHierarchyConstraint(final AssistModel model, final Solver solver, final SolverVariablesContainer solverVariables) {
-    super("System Hierarchy Constraints", model, solver, solverVariables);
+    super("system hierarchy", model, solver, solverVariables);
   }
   
   public boolean generate() {

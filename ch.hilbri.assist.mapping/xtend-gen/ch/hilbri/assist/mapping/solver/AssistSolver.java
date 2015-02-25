@@ -118,18 +118,18 @@ public class AssistSolver {
   
   public void setSolverTimeLimit(final long timeInMs) {
     SMF.limitTime(this.solver, timeInMs);
-    this.logger.info((("Setting time limit to " + Long.valueOf(timeInMs)) + "ms"));
+    this.logger.info((("Setting choco-solver search time limit to " + Long.valueOf(timeInMs)) + "ms"));
   }
   
   public void setSolverMaxSolutions(final int maxSolutions) {
-    this.logger.info(("Setting max solutions limit to " + Integer.valueOf(maxSolutions)));
+    this.logger.info(("Setting choco-solver max solutions limit to " + Integer.valueOf(maxSolutions)));
     SMF.limitSolution(this.solver, maxSolutions);
   }
   
   public void setSolverSearchStrategy(final SearchType strategy) {
     boolean _equals = Objects.equal(strategy, SearchType.CONSECUTIVE);
     if (_equals) {
-      this.logger.info("Setting search strategy to minDomainSize + minValue");
+      this.logger.info("Setting choco-solver search strategy to minDomainSize + minValue");
       FirstFailWithProgressionOutput _firstFailWithProgressionOutput = new FirstFailWithProgressionOutput(this.solverVariables, this.model);
       IntValueSelector _min_value_selector = ISF.min_value_selector();
       IntVar[] _locationVariables = this.solverVariables.getLocationVariables();
@@ -141,22 +141,25 @@ public class AssistSolver {
   }
   
   public void propagation() throws BasicConstraintsException {
-    this.logger.info("Starting a solver propagation");
+    this.logger.info("Starting to generate constraints for the choco-solver");
     for (final AbstractMappingConstraint constraint : this.mappingConstraintsList) {
       {
-        constraint.generate();
         StringConcatenation _builder = new StringConcatenation();
-        _builder.append("Constraint \"");
+        _builder.append("Starting to generate constraints for \"");
         String _name = constraint.getName();
         _builder.append(_name, "");
-        _builder.append("\" successfully generated");
+        _builder.append("\"...");
         this.logger.info(_builder.toString());
+        constraint.generate();
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("done.");
+        this.logger.info(_builder_1.toString());
       }
     }
   }
   
   public void solutionSearch() throws BasicConstraintsException {
-    this.logger.info("Searching for a solution");
+    this.logger.info("Initiating choco-solver - searching for a solution");
     this.solver.findAllSolutions();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("Solutions found: ");

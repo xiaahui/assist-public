@@ -30,7 +30,7 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
 @SuppressWarnings("all")
 public class IOAdapterConstraint extends AbstractMappingConstraint {
   public IOAdapterConstraint(final AssistModel model, final Solver solver, final SolverVariablesContainer solverVariables) {
-    super("I/O adapter constraints", model, solver, solverVariables);
+    super("i/o adapter", model, solver, solverVariables);
   }
   
   public boolean generate() {

@@ -25,7 +25,7 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
 @SuppressWarnings("all")
 public class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
   public DesignAssuranceLevelConstraint(final AssistModel model, final Solver solver, final SolverVariablesContainer solverVariables) {
-    super("Design assurance level constraints", model, solver, solverVariables);
+    super("design assurance level", model, solver, solverVariables);
   }
   
   public boolean generate() {

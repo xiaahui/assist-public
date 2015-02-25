@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
 @SuppressWarnings("all")
 public class NetworkConstraints extends AbstractMappingConstraint {
   public NetworkConstraints(final AssistModel model, final Solver solver, final SolverVariablesContainer solverVariables) {
-    super("Network constraints", model, solver, solverVariables);
+    super("network", model, solver, solverVariables);
     Class<? extends NetworkConstraints> _class = this.getClass();
     Logger _logger = LoggerFactory.getLogger(_class);
     this.logger = _logger;

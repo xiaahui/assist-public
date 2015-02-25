@@ -16,7 +16,7 @@ import ch.hilbri.assist.mapping.solver.exceptions.ramcapacity.BoardHasInsufficie
 class RAMUtilizationConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("RAM capacity constraints", model, solver, solverVariables)
+		super("ram capacity", model, solver, solverVariables)
 	}
 	
 	override generate() {

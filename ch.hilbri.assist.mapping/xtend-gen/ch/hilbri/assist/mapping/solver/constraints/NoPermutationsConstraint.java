@@ -16,7 +16,7 @@ import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 @SuppressWarnings("all")
 public class NoPermutationsConstraint extends AbstractMappingConstraint {
   public NoPermutationsConstraint(final AssistModel model, final Solver solver, final SolverVariablesContainer solverVariables) {
-    super("No permutations of threads", model, solver, solverVariables);
+    super("no permutations of threads", model, solver, solverVariables);
   }
   
   public boolean generate() {

@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory
 class DissimilarityConstraint extends AbstractMappingConstraint {
 
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("Dissimilarity constraints", model, solver, solverVariables)
+		super("dissimilarity", model, solver, solverVariables)
 		this.logger = LoggerFactory.getLogger(this.class);
 	}
 	

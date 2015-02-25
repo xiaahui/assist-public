@@ -55,7 +55,6 @@ public class GuiSolverJob extends Job {
 	protected IStatus run(IProgressMonitor monitor) {
 
 		long start = System.currentTimeMillis();
-		logger.info("Starting a new solver run");
 		
 		try {
 			monitor.beginTask("Propagating all constraints", 1);

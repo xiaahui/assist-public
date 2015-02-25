@@ -14,7 +14,7 @@ import org.chocosolver.solver.variables.IntVar
 class DislocalityConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("Dislocality constraints", model, solver, solverVariables)
+		super("dislocality", model, solver, solverVariables)
 	}
 	
 	override generate() {

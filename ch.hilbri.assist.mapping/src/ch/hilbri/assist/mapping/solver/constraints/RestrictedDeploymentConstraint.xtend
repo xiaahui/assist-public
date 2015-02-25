@@ -17,7 +17,7 @@ import ch.hilbri.assist.mapping.solver.exceptions.restricteddeployment.Restricti
 class RestrictedDeploymentConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("Restricted deployment constraints", model, solver, solverVariables)
+		super("restricted deployment", model, solver, solverVariables)
 	}
 	
 	override generate() {

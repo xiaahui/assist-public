@@ -16,7 +16,7 @@ import ch.hilbri.assist.mapping.solver.exceptions.networks.NetworkHasInsufficien
 class NetworkConstraints extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("Network constraints", model, solver, solverVariables)
+		super("network", model, solver, solverVariables)
 		this.logger = LoggerFactory.getLogger(this.class);
 	}
 	

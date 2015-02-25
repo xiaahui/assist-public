@@ -16,7 +16,7 @@ import org.chocosolver.solver.variables.VF
 class ROMUtilizationConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("ROM capacity constraints", model, solver, solverVariables)
+		super("rom capacity", model, solver, solverVariables)
 	}
 	
 	override generate() {

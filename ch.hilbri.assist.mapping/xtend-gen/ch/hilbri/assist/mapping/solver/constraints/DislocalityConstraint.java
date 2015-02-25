@@ -22,7 +22,7 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 @SuppressWarnings("all")
 public class DislocalityConstraint extends AbstractMappingConstraint {
   public DislocalityConstraint(final AssistModel model, final Solver solver, final SolverVariablesContainer solverVariables) {
-    super("Dislocality constraints", model, solver, solverVariables);
+    super("dislocality", model, solver, solverVariables);
   }
   
   public boolean generate() {
