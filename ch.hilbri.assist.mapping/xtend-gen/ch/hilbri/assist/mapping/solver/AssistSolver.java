@@ -173,9 +173,6 @@ public class AssistSolver {
     String _oneLineString = _measures.toOneLineString();
     _builder_1.append(_oneLineString, "");
     this.logger.info(_builder_1.toString());
-    StringConcatenation _builder_2 = new StringConcatenation();
-    _builder_2.append(this.solver, "");
-    this.logger.info(_builder_2.toString());
     boolean _hasReachedLimit = this.solver.hasReachedLimit();
     if (_hasReachedLimit) {
       this.logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)");
@@ -187,11 +184,11 @@ public class AssistSolver {
       List<Solution> _solutions_2 = this.recorder.getSolutions();
       ArrayList<Result> _create = ResultFactoryFromSolverSolutions.create(this.model, this.solverVariables, _solutions_2);
       this.mappingResults = _create;
-      StringConcatenation _builder_3 = new StringConcatenation();
-      _builder_3.append("Results created:  ");
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append("Results created:  ");
       int _size_2 = this.mappingResults.size();
-      _builder_3.append(_size_2, "");
-      this.logger.info(_builder_3.toString());
+      _builder_2.append(_size_2, "");
+      this.logger.info(_builder_2.toString());
     } else {
       this.mappingResults.clear();
     }
