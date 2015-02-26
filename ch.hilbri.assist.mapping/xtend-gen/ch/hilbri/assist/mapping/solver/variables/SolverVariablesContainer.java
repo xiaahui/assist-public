@@ -19,6 +19,8 @@ import org.chocosolver.solver.variables.VF;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend.lib.annotations.Data;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
 
@@ -178,10 +180,17 @@ public class SolverVariablesContainer {
   public IntVar[] getLocationVariables() {
     final ArrayList<IntVar> list = new ArrayList<IntVar>();
     Set<ch.hilbri.assist.datamodel.model.Thread> _keySet = this.threadLocationVariablesList.keySet();
-    for (final ch.hilbri.assist.datamodel.model.Thread threadKey : _keySet) {
+    final Function1<ch.hilbri.assist.datamodel.model.Thread, String> _function = new Function1<ch.hilbri.assist.datamodel.model.Thread, String>() {
+      public String apply(final ch.hilbri.assist.datamodel.model.Thread it) {
+        return it.getName();
+      }
+    };
+    List<ch.hilbri.assist.datamodel.model.Thread> _sortBy = IterableExtensions.<ch.hilbri.assist.datamodel.model.Thread, String>sortBy(_keySet, _function);
+    for (final ch.hilbri.assist.datamodel.model.Thread threadKey : _sortBy) {
       HashMap<Integer, IntVar> _get = this.threadLocationVariablesList.get(threadKey);
       Set<Integer> _keySet_1 = _get.keySet();
-      for (final Integer levelKey : _keySet_1) {
+      List<Integer> _sort = IterableExtensions.<Integer>sort(_keySet_1);
+      for (final Integer levelKey : _sort) {
         HashMap<Integer, IntVar> _get_1 = this.threadLocationVariablesList.get(threadKey);
         IntVar _get_2 = _get_1.get(levelKey);
         list.add(_get_2);
