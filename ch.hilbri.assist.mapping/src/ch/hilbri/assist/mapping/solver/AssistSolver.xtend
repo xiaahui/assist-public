@@ -145,7 +145,7 @@ class AssistSolver {
 		logger.info('''Solutions found: «recorder.solutions.size»''') 
 		
 		logger.info('''Internal solver statistics: «solver.measures.toOneLineString»''')
-		logger.info('''«solver»''')
+		
 			
 		if (solver.hasReachedLimit)
 			logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)")

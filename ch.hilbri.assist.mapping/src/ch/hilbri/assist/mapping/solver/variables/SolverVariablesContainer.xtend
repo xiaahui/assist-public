@@ -106,8 +106,8 @@ import org.eclipse.xtend.lib.annotations.Data
 	def IntVar[] getLocationVariables() {
 		val list = new ArrayList<IntVar>
 
-		for (threadKey : threadLocationVariablesList.keySet)
-			for (levelKey : threadLocationVariablesList.get(threadKey).keySet)
+		for (threadKey : threadLocationVariablesList.keySet.sortBy[name])
+			for (levelKey : threadLocationVariablesList.get(threadKey).keySet.sort)
 				list.add(threadLocationVariablesList.get(threadKey).get(levelKey))	
 		
 		return list	

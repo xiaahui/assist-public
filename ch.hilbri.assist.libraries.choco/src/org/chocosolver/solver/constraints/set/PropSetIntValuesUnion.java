@@ -92,9 +92,13 @@ public class PropSetIntValuesUnion extends Propagator<Variable> {
 				if(!values.envelopeContains(v)){
 					X[i].removeValue(v,aCause);
 				}
-				if(X[i].isInstantiated()){
-					values.addToKernel(v,aCause);
-				}
+//				if(X[i].isInstantiated()){
+//					values.addToKernel(v,aCause);
+//				}
+			}
+			
+			if(X[i].isInstantiated()){
+				values.addToKernel(X[i].getValue(),aCause);
 			}
 		}
 	}

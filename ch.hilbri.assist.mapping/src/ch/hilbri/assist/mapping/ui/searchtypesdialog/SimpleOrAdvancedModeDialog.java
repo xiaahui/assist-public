@@ -171,6 +171,7 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 		btnAdvancedMode.setText("Random Search");
 		
 		Button btnExplanation = new Button(composite_1, SWT.CHECK);
+		btnExplanation.setEnabled(false);
 		btnExplanation.setBounds(27, 96, 266, 16);
 		btnExplanation.setText("Retrieve explanation if no solution was found");
 		btnExplanation.addSelectionListener(new SelectionAdapter() {
