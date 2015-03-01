@@ -21,13 +21,18 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 	}
 
 	override generate() {
+		val minLevel = IOAdapterProtectionLevelType.values.min
+		val usedTypes = IOAdapterType.values.filter[s | !model.allThreads.filter[getExclusiveAdapterRequestCount(s, minLevel) > 0].empty]
+        if (usedTypes.empty) {
+        	return false
+        }
 		generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints()
-		generate_MultipleTheads_ExclusiveRequests_incl_ProtectionLevel_Constraints()
+		generate_MultipleThreads_ExclusiveRequests_incl_ProtectionLevel_Constraints(usedTypes)
 	
 		return true
 	}
 	
-	def generate_MultipleTheads_ExclusiveRequests_incl_ProtectionLevel_Constraints() {
+	def generate_MultipleThreads_ExclusiveRequests_incl_ProtectionLevel_Constraints(IOAdapterType[] usedTypes) {
 		
 		for (b : model.allBoards) {
 			/* Contains a boolean factor for the weighted sum - is this thread mapped to this board? 
@@ -45,7 +50,7 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 				factorList.add(delta)
 			}
 			
-			for (type : IOAdapterType.values) {
+			for (type : usedTypes) {
 				for (level : IOAdapterProtectionLevelType.values) {
 
 					// how many adapters does this board have for the type and level

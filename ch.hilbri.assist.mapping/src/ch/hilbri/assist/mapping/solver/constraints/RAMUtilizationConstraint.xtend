@@ -12,6 +12,7 @@ import org.chocosolver.solver.variables.VF
 import org.chocosolver.solver.exception.ContradictionException
 import ch.hilbri.assist.mapping.solver.exceptions.ramcapacity.NoBoardHasEnoughRAMForThisApplication
 import ch.hilbri.assist.mapping.solver.exceptions.ramcapacity.BoardHasInsufficientRAMForAllItsApplications
+import ch.hilbri.assist.mapping.solver.exceptions.ramcapacity.InsufficientTotalRAMException
 
 class RAMUtilizationConstraint extends AbstractMappingConstraint {
 	
@@ -25,7 +26,13 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 		/* How much RAM capacity does each board offer? */
 		val int[] allRamCapacities = model.allBoards.map[ramCapacity]
 		
-		/* Create a set of variables - for each thread a variable which contains the power capabilties of all cores	 */
+		val totalRamUtilization = model.allThreads.map[application.ramUtilization].reduce[p1, p2 | p1 + p2]
+		
+		if (totalRamUtilization <= allRamCapacities.min) {
+			return false
+		}
+		
+		/* Create a set of variables - for each thread a variable which contains the RAM capacities of all cores	 */
 		val IntVar[] ramCapacities = model.allThreads.map[VF.enumerated("RamCap", allRamCapacities.sort, solver)]
 		
 		/* **** Preparing the constraints **** */	 
@@ -34,15 +41,9 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 		 *    be less than the total sum of all ram capacities
 		 */
 		
-		// - create the total sum of ram utilizations of all applications (threads!)
-		val totalRamUtilizationFromAllApplicationsVar = VF.fixed("TotalRamUtil", model.allThreads.map[application.ramUtilization].reduce[p1, p2 | p1 + p2], solver)
-		
-		// - create the total sum of all ram capacities
-		val totalRamCapacityVar = VF.fixed("TotalRamCap", model.allBoards.map[ramCapacity].reduce[p1, p2 | p1 + p2], solver)
-		
-		// - enforce that the capacity is always larger than the demand
-		solver.post(ICF.arithm(totalRamCapacityVar, ">=", totalRamUtilizationFromAllApplicationsVar))
-		
+		if (totalRamUtilization > allRamCapacities.reduce[p1, p2 | p1 + p2]) {
+			throw new InsufficientTotalRAMException(this)
+		}
 		
 		/* 1. If an application requires more ram than a board offers, 
 		 *    the application (thread) cannot be mapped to this board

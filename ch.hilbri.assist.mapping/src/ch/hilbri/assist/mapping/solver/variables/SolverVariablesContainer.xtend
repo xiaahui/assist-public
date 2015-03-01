@@ -71,44 +71,11 @@ import org.eclipse.xtend.lib.annotations.Data
 			absoluteBandwidthUtilizationList.put(n, VF.bounded("AbsBandUtil-" + n.name, 0, n.bandwidthCapacity, solver))
 	}
 
-	/** Returns a list of Variables which the solver has to generate solutions for */
-	def IntVar[] getAllVariables() {
-		val list = new ArrayList<IntVar>
-
-		for (threadKey : threadLocationVariablesList.keySet)
-			for (levelKey : threadLocationVariablesList.get(threadKey).keySet)
-				list.add(threadLocationVariablesList.get(threadKey).get(levelKey))		
-		
-		// All absolute core utilization variables are relevant for the solution
-		for (coreKey : absoluteCoreUtilizationList.keySet)
-			list.add(absoluteCoreUtilizationList.get(coreKey))
-		
-		// All absolute board ram utilization variables are relevant for the solution
-		for (boardKey : absoluteRamUtilizationList.keySet)
-			list.add(absoluteRamUtilizationList.get(boardKey))
-		 
-		// All absolute board ram utilization variables are relevant for the solution
-		for (boardKey : absoluteRomUtilizationList.keySet)
-			list.add(absoluteRomUtilizationList.get(boardKey)) 
-		
-		// All locations of communication groups
-		for (relation : communicationGroupLocationVariablesList.keySet)
-			list.add(communicationGroupLocationVariablesList.get(relation))
-		
-		// All network capacity utilizations
-		for (networkKey : absoluteBandwidthUtilizationList.keySet)
-			list.add(absoluteBandwidthUtilizationList.get(networkKey))
-		
-		return list
-	}
-	
-	
 	def IntVar[] getLocationVariables() {
 		val list = new ArrayList<IntVar>
 
 		for (threadKey : threadLocationVariablesList.keySet.sortBy[name])
-			for (levelKey : threadLocationVariablesList.get(threadKey).keySet.sort)
-				list.add(threadLocationVariablesList.get(threadKey).get(levelKey))	
+			list.add(threadLocationVariablesList.get(threadKey).get(HardwareArchitectureLevelType.CORE_VALUE))	
 		
 		return list	
 	}
@@ -123,19 +90,9 @@ import org.eclipse.xtend.lib.annotations.Data
 		return threadLocationVariablesList.get(t).get(level)
 	}
 	
-	/** Returns the index of the location variable for a given thread and hardware level */
-	def int getIndexOfThreadLocationInSolutionVariablesList(Thread t, int level) {
-		return allVariables.indexOf(getThreadLocationVariable(t, level))
-	}
-	
 	/** Returns the variable which contains the absolute utilization for the given core */
 	def IntVar getAbsoluteCoreUtilizationVariable(Core c) {
 		return absoluteCoreUtilizationList.get(c)
-	}
-	
-	/** Returns the index of the absolute utilization variable of a given core in the solutions variables list */
-	def int getIndexOfAbsoluteUtilizationInSolutionVariablesList(Core c) {
-		return allVariables.indexOf(absoluteCoreUtilizationList.get(c))
 	}
 	
 	/** Returns the variable which contains the absolute ram utilization for the given board */
@@ -143,21 +100,11 @@ import org.eclipse.xtend.lib.annotations.Data
 		return absoluteRamUtilizationList.get(b)
 	}
 	
-	/** Returns the index of the absolute ram utilization variable of a given board in the solutions variables list */
-	def int getIndexOfAbsoluteRamUtilizationInSolutionVariablesList(Board b) {
-		return allVariables.indexOf(absoluteRamUtilizationList.get(b))
-	}
-	
 	/** Returns the variable which contains the absolute ram utilization for the given board */
 	def IntVar getAbsoluteRomUtilizationVariable(Board b) {
 		return absoluteRomUtilizationList.get(b)
 	}
 		
-	/** Returns the index of the absolute ram utilization variable of a given board in the solutions variables list */
-	def int getIndexOfAbsoluteRomUtilizationInSolutionVariablesList(Board b) {
-		return allVariables.indexOf(absoluteRomUtilizationList.get(b))
-	}
-	
 	/** Returns the variable which contains the absolute bandwidth utilization for the given network */
 	def IntVar getAbsoluteBandwidthUtilizationVariable(Network n) {
 		return absoluteBandwidthUtilizationList.get(n)

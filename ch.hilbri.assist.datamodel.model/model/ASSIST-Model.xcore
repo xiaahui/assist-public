@@ -416,7 +416,7 @@ class Thread {
 	op int getExclusiveAdapterRequestCount(IOAdapterType paramAdapterType, IOAdapterProtectionLevelType paramMinProtectionLevel) {
 		
 		// check that this application (thread) requires at least the given protectionLevel
-		if (application.ioAdapterProtectionLevel.ordinal < paramMinProtectionLevel.ordinal) return 0
+		if (application.ioAdapterProtectionLevel < paramMinProtectionLevel) return 0
 		
 		// we are looking for exclusive requirements only
 		val exRequests = application.ioAdapterRequirements.filter[isIsExclusiveOnly]
