@@ -59,7 +59,7 @@ public class SplashHandler extends BasicSplashHandler {
 
 				public void paintControl(PaintEvent e) {
 					
-					String versionText = "Version: " + Platform.getBundle("ch.hilbri.assist.application").getHeaders().get("Bundle-Version") + 
+					String versionText = "Version: " + Platform.getBundle("ch.hilbri.assist.application").getHeaders().get("Bundle-Version") + "-Airbus" + 
 										 "\nPlatform: " + System.getProperty("os.name") + " " + System.getProperty("sun.arch.data.model") + "bit";
 					e.gc.setForeground(new Color(null, VERSION_R, VERSION_G, VERSION_B));
 					e.gc.setFont(new Font(e.display,"Tahoma", 8, SWT.BOLD));
