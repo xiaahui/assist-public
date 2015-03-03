@@ -66,12 +66,12 @@ public class ThreadItemProvider
 			addPeriodPropertyDescriptor(object);
 			addEarlyTolerancePropertyDescriptor(object);
 			addLateTolerancePropertyDescriptor(object);
-			addLatestStartTimePropertyDescriptor(object);
-			addLatestEndTimePropertyDescriptor(object);
+			addLatestFirstStartPropertyDescriptor(object);
+			addLatestFirstEndPropertyDescriptor(object);
 			addInitTimePropertyDescriptor(object);
 			addMaxSlicesPropertyDescriptor(object);
 			addMinSliceDurationPropertyDescriptor(object);
-			addLocationPropertyDescriptor(object);
+			addCorePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -231,19 +231,19 @@ public class ThreadItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Latest Start Time feature.
+	 * This adds a property descriptor for the Latest First Start feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLatestStartTimePropertyDescriptor(Object object) {
+	protected void addLatestFirstStartPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Thread_latestStartTime_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_latestStartTime_feature", "_UI_Thread_type"),
-				 ModelPackage.Literals.THREAD__LATEST_START_TIME,
+				 getString("_UI_Thread_latestFirstStart_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_latestFirstStart_feature", "_UI_Thread_type"),
+				 ModelPackage.Literals.THREAD__LATEST_FIRST_START,
 				 true,
 				 false,
 				 false,
@@ -253,19 +253,19 @@ public class ThreadItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Latest End Time feature.
+	 * This adds a property descriptor for the Latest First End feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLatestEndTimePropertyDescriptor(Object object) {
+	protected void addLatestFirstEndPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Thread_latestEndTime_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_latestEndTime_feature", "_UI_Thread_type"),
-				 ModelPackage.Literals.THREAD__LATEST_END_TIME,
+				 getString("_UI_Thread_latestFirstEnd_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_latestFirstEnd_feature", "_UI_Thread_type"),
+				 ModelPackage.Literals.THREAD__LATEST_FIRST_END,
 				 true,
 				 false,
 				 false,
@@ -341,19 +341,19 @@ public class ThreadItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Location feature.
+	 * This adds a property descriptor for the Core feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLocationPropertyDescriptor(Object object) {
+	protected void addCorePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Thread_location_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_location_feature", "_UI_Thread_type"),
-				 ModelPackage.Literals.THREAD__LOCATION,
+				 getString("_UI_Thread_core_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_core_feature", "_UI_Thread_type"),
+				 ModelPackage.Literals.THREAD__CORE,
 				 true,
 				 false,
 				 true,
@@ -406,8 +406,8 @@ public class ThreadItemProvider
 			case ModelPackage.THREAD__PERIOD:
 			case ModelPackage.THREAD__EARLY_TOLERANCE:
 			case ModelPackage.THREAD__LATE_TOLERANCE:
-			case ModelPackage.THREAD__LATEST_START_TIME:
-			case ModelPackage.THREAD__LATEST_END_TIME:
+			case ModelPackage.THREAD__LATEST_FIRST_START:
+			case ModelPackage.THREAD__LATEST_FIRST_END:
 			case ModelPackage.THREAD__INIT_TIME:
 			case ModelPackage.THREAD__MAX_SLICES:
 			case ModelPackage.THREAD__MIN_SLICE_DURATION:

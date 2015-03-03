@@ -342,7 +342,7 @@ enum IOAdapterType {
 class IOAdapter {
 	String name = ""
 	int totalCount = "0"
-	int sharedUnitCount = "0" /* Scheduling */
+	int sharedCount = "0" /* Scheduling */
 	IOAdapterType adapterType = "None"
 	IOAdapterProtectionLevelType protectionLevel = "None"
 }
@@ -423,12 +423,12 @@ class Thread {
 	int period	 			= "0"
 	int earlyTolerance 		= "0"
 	int lateTolerance  		= "0"
-	int latestStartTime 	= "0"
-	int latestEndTime 		= "0"
+	int latestFirstStart 	= "0"
+	int latestFirstEnd 		= "0"
 	int initTime			= "0"
 	int maxSlices			= "0"
 	int minSliceDuration 	= "0"
-	refers Core[0..1] location
+	refers Core[0..1] core
 	/* Scheduling END */
 	
 	op int getExclusiveAdapterRequestCount(IOAdapterType paramAdapterType, IOAdapterProtectionLevelType paramMinProtectionLevel) {
@@ -458,6 +458,7 @@ class Thread {
 class IOAdapterRequirement {	
 	IOAdapterType 					adapterType				= "None"
 	int 							requiredAdapterCount 	= "0"
+	int								requiredSharedCount		= "0"
 	boolean 						isSharedAllowed 		= "false"
 	boolean 						isExclusiveOnly 		= "false"
 }
