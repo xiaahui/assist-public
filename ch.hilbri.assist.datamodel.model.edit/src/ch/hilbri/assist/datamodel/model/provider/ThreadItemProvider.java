@@ -62,6 +62,16 @@ public class ThreadItemProvider
 			addNamePropertyDescriptor(object);
 			addCoreUtilizationPropertyDescriptor(object);
 			addApplicationPropertyDescriptor(object);
+			addDurationPropertyDescriptor(object);
+			addPeriodPropertyDescriptor(object);
+			addEarlyTolerancePropertyDescriptor(object);
+			addLateTolerancePropertyDescriptor(object);
+			addLatestStartTimePropertyDescriptor(object);
+			addLatestEndTimePropertyDescriptor(object);
+			addInitTimePropertyDescriptor(object);
+			addMaxSlicesPropertyDescriptor(object);
+			addMinSliceDurationPropertyDescriptor(object);
+			addLocationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -133,6 +143,226 @@ public class ThreadItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Duration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDurationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Thread_duration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_duration_feature", "_UI_Thread_type"),
+				 ModelPackage.Literals.THREAD__DURATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Period feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPeriodPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Thread_period_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_period_feature", "_UI_Thread_type"),
+				 ModelPackage.Literals.THREAD__PERIOD,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Early Tolerance feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEarlyTolerancePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Thread_earlyTolerance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_earlyTolerance_feature", "_UI_Thread_type"),
+				 ModelPackage.Literals.THREAD__EARLY_TOLERANCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Late Tolerance feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLateTolerancePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Thread_lateTolerance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_lateTolerance_feature", "_UI_Thread_type"),
+				 ModelPackage.Literals.THREAD__LATE_TOLERANCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Latest Start Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLatestStartTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Thread_latestStartTime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_latestStartTime_feature", "_UI_Thread_type"),
+				 ModelPackage.Literals.THREAD__LATEST_START_TIME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Latest End Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLatestEndTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Thread_latestEndTime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_latestEndTime_feature", "_UI_Thread_type"),
+				 ModelPackage.Literals.THREAD__LATEST_END_TIME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Init Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInitTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Thread_initTime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_initTime_feature", "_UI_Thread_type"),
+				 ModelPackage.Literals.THREAD__INIT_TIME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Max Slices feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaxSlicesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Thread_maxSlices_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_maxSlices_feature", "_UI_Thread_type"),
+				 ModelPackage.Literals.THREAD__MAX_SLICES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Min Slice Duration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinSliceDurationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Thread_minSliceDuration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_minSliceDuration_feature", "_UI_Thread_type"),
+				 ModelPackage.Literals.THREAD__MIN_SLICE_DURATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Location feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLocationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Thread_location_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Thread_location_feature", "_UI_Thread_type"),
+				 ModelPackage.Literals.THREAD__LOCATION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Thread.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -172,6 +402,15 @@ public class ThreadItemProvider
 		switch (notification.getFeatureID(ch.hilbri.assist.datamodel.model.Thread.class)) {
 			case ModelPackage.THREAD__NAME:
 			case ModelPackage.THREAD__CORE_UTILIZATION:
+			case ModelPackage.THREAD__DURATION:
+			case ModelPackage.THREAD__PERIOD:
+			case ModelPackage.THREAD__EARLY_TOLERANCE:
+			case ModelPackage.THREAD__LATE_TOLERANCE:
+			case ModelPackage.THREAD__LATEST_START_TIME:
+			case ModelPackage.THREAD__LATEST_END_TIME:
+			case ModelPackage.THREAD__INIT_TIME:
+			case ModelPackage.THREAD__MAX_SLICES:
+			case ModelPackage.THREAD__MIN_SLICE_DURATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

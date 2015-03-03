@@ -601,6 +601,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.SchedulingRelation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SchedulingRelationItemProvider schedulingRelationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.SchedulingRelation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSchedulingRelationAdapter() {
+		if (schedulingRelationItemProvider == null) {
+			schedulingRelationItemProvider = new SchedulingRelationItemProvider(this);
+		}
+
+		return schedulingRelationItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.MetricParameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -745,6 +768,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
 		if (proximityRelationItemProvider != null) proximityRelationItemProvider.dispose();
 		if (communicationRelationItemProvider != null) communicationRelationItemProvider.dispose();
+		if (schedulingRelationItemProvider != null) schedulingRelationItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 	}
 

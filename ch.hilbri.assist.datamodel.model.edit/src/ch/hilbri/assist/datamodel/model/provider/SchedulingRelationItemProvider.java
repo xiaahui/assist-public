@@ -3,9 +3,9 @@
 package ch.hilbri.assist.datamodel.model.provider;
 
 
-import ch.hilbri.assist.datamodel.model.IOAdapter;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
-
+import ch.hilbri.assist.datamodel.model.ReferencePointType;
+import ch.hilbri.assist.datamodel.model.SchedulingRelation;
 import java.util.Collection;
 import java.util.List;
 
@@ -26,12 +26,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.IOAdapter} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.SchedulingRelation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class IOAdapterItemProvider 
+public class SchedulingRelationItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +45,7 @@ public class IOAdapterItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IOAdapterItemProvider(AdapterFactory adapterFactory) {
+	public SchedulingRelationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,29 +60,29 @@ public class IOAdapterItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addTotalCountPropertyDescriptor(object);
-			addSharedUnitCountPropertyDescriptor(object);
-			addAdapterTypePropertyDescriptor(object);
-			addProtectionLevelPropertyDescriptor(object);
+			addRefBeforePropertyDescriptor(object);
+			addRefAfterPropertyDescriptor(object);
+			addThreadBeforePropertyDescriptor(object);
+			addThreadAfterPropertyDescriptor(object);
+			addDelayPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Ref Before feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addRefBeforePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IOAdapter_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IOAdapter_name_feature", "_UI_IOAdapter_type"),
-				 ModelPackage.Literals.IO_ADAPTER__NAME,
+				 getString("_UI_SchedulingRelation_refBefore_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchedulingRelation_refBefore_feature", "_UI_SchedulingRelation_type"),
+				 ModelPackage.Literals.SCHEDULING_RELATION__REF_BEFORE,
 				 true,
 				 false,
 				 false,
@@ -92,19 +92,85 @@ public class IOAdapterItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Total Count feature.
+	 * This adds a property descriptor for the Thread Before feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTotalCountPropertyDescriptor(Object object) {
+	protected void addThreadBeforePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IOAdapter_totalCount_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IOAdapter_totalCount_feature", "_UI_IOAdapter_type"),
-				 ModelPackage.Literals.IO_ADAPTER__TOTAL_COUNT,
+				 getString("_UI_SchedulingRelation_threadBefore_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchedulingRelation_threadBefore_feature", "_UI_SchedulingRelation_type"),
+				 ModelPackage.Literals.SCHEDULING_RELATION__THREAD_BEFORE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Ref After feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRefAfterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SchedulingRelation_refAfter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchedulingRelation_refAfter_feature", "_UI_SchedulingRelation_type"),
+				 ModelPackage.Literals.SCHEDULING_RELATION__REF_AFTER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Thread After feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addThreadAfterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SchedulingRelation_threadAfter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchedulingRelation_threadAfter_feature", "_UI_SchedulingRelation_type"),
+				 ModelPackage.Literals.SCHEDULING_RELATION__THREAD_AFTER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Delay feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDelayPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SchedulingRelation_delay_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchedulingRelation_delay_feature", "_UI_SchedulingRelation_type"),
+				 ModelPackage.Literals.SCHEDULING_RELATION__DELAY,
 				 true,
 				 false,
 				 false,
@@ -114,80 +180,14 @@ public class IOAdapterItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Shared Unit Count feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSharedUnitCountPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IOAdapter_sharedUnitCount_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IOAdapter_sharedUnitCount_feature", "_UI_IOAdapter_type"),
-				 ModelPackage.Literals.IO_ADAPTER__SHARED_UNIT_COUNT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Adapter Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAdapterTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IOAdapter_adapterType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IOAdapter_adapterType_feature", "_UI_IOAdapter_type"),
-				 ModelPackage.Literals.IO_ADAPTER__ADAPTER_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Protection Level feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addProtectionLevelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IOAdapter_protectionLevel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IOAdapter_protectionLevel_feature", "_UI_IOAdapter_type"),
-				 ModelPackage.Literals.IO_ADAPTER__PROTECTION_LEVEL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns IOAdapter.gif.
+	 * This returns SchedulingRelation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IOAdapter"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SchedulingRelation"));
 	}
 
 	/**
@@ -198,10 +198,11 @@ public class IOAdapterItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((IOAdapter)object).getName();
+		ReferencePointType labelValue = ((SchedulingRelation)object).getRefBefore();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IOAdapter_type") :
-			getString("_UI_IOAdapter_type") + " " + label;
+			getString("_UI_SchedulingRelation_type") :
+			getString("_UI_SchedulingRelation_type") + " " + label;
 	}
 	
 
@@ -216,12 +217,10 @@ public class IOAdapterItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(IOAdapter.class)) {
-			case ModelPackage.IO_ADAPTER__NAME:
-			case ModelPackage.IO_ADAPTER__TOTAL_COUNT:
-			case ModelPackage.IO_ADAPTER__SHARED_UNIT_COUNT:
-			case ModelPackage.IO_ADAPTER__ADAPTER_TYPE:
-			case ModelPackage.IO_ADAPTER__PROTECTION_LEVEL:
+		switch (notification.getFeatureID(SchedulingRelation.class)) {
+			case ModelPackage.SCHEDULING_RELATION__REF_BEFORE:
+			case ModelPackage.SCHEDULING_RELATION__REF_AFTER:
+			case ModelPackage.SCHEDULING_RELATION__DELAY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
