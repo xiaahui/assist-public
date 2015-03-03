@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_GzwU0AEZEeSTlPOe0qW7tA">
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_PprXMAEaEeSTlPOe0qW7tA" featurename="children" parentElementId="help">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_PprXMAEaEeSTlPOe0qW7tA" featurename="children" parentElementId="help" positionInList="">
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_-s2F0AEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.help" label="Help" command="_MKwR4AEdEeSTlPOe0qW7tA"/>
     <elements xsi:type="menu:MenuSeparator" xmi:id="__gd7IAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.menuseparator.0"/>
     <elements xsi:type="menu:HandledMenuItem" xmi:id="__5A-AAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.showCheatSheet" label="Show Usage Cheat Sheet" command="_SYuQAAEdEeSTlPOe0qW7tA"/>
