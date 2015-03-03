@@ -1,0 +1,8 @@
+grammar ch.hilbri.assist.schedulingdsl.SchedulingDSL with org.eclipse.xtext.common.Terminals
+
+import "ch.hilbri.assist.datamodel.model"
+
+AssistModel: 
+	'Global' 	'{' 
+					'System name' '=' systemName=STRING ';' 
+	'}';

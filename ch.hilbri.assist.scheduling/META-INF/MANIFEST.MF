@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ch.hilbri.assist.scheduling
+Bundle-SymbolicName: ch.hilbri.assist.scheduling
+Bundle-Version: 0.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
