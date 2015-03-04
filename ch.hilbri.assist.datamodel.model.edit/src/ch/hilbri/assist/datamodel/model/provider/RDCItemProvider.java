@@ -49,8 +49,7 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addCompartmentPropertyDescriptor(object);
-			addBoardTypePropertyDescriptor(object);
-			addSidePropertyDescriptor(object);
+			addRdcTypePropertyDescriptor(object);
 			addEssPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -79,41 +78,19 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Board Type feature.
+	 * This adds a property descriptor for the Rdc Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addBoardTypePropertyDescriptor(Object object) {
+	protected void addRdcTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RDC_boardType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_boardType_feature", "_UI_RDC_type"),
-				 ModelPackage.Literals.RDC__BOARD_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Side feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSidePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RDC_side_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_side_feature", "_UI_RDC_type"),
-				 ModelPackage.Literals.RDC__SIDE,
+				 getString("_UI_RDC_rdcType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_rdcType_feature", "_UI_RDC_type"),
+				 ModelPackage.Literals.RDC__RDC_TYPE,
 				 true,
 				 false,
 				 false,
@@ -212,8 +189,7 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RDC.class)) {
-			case ModelPackage.RDC__BOARD_TYPE:
-			case ModelPackage.RDC__SIDE:
+			case ModelPackage.RDC__RDC_TYPE:
 			case ModelPackage.RDC__ESS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

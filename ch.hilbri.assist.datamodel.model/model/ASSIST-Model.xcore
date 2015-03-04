@@ -24,11 +24,12 @@ class HardwareElement {
 	 String name 			= ""
 	 String manufacturer	= ""
 	 String powerSupply		= ""
-
+	 String side				= ""
 	 contains MetricParameter[0..*] metricParameters
 }
 
 class Compartment extends HardwareElement {
+
 	String zone				= ""
 	contains RDC[1..*] rdcs opposite compartment
 	op String toString() 			{ name }
@@ -36,14 +37,14 @@ class Compartment extends HardwareElement {
 
 class RDC extends HardwareElement {
 	container Compartment compartment opposite rdcs
-	String boardType 		= ""
-	String side				= ""
+	String rdcType	 		= ""
 	String ess				= ""
 	contains Connector[1..*] connectors opposite rdc
 	op String toString() 			{ name }
 }
 
 class Connector {
+	String name				= ""
 	container RDC rdc opposite connectors
 	contains AvailableInterface[1..*] 	availableInterfaces
 	contains Interface[0..*]			mappedInterfaces  	
@@ -129,7 +130,7 @@ class Interface {
 
 class InterfaceGroup {
 	String name = ""
-	contains Interface[1..*] interfaces
+	refers Interface[1..*] interfaces
 }
 
 class MetricParameter {
