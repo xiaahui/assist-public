@@ -3,30 +3,19 @@ grammar ch.hilbri.assist.mappingdsl.MappingDSL with org.eclipse.xtext.common.Ter
 import "ch.hilbri.assist.datamodel.model"
 
 AssistModel: 
-	'Global' 	'{' 
-					'System name' '=' systemName=STRING ';' 
+	'Global'  '{' 
+		'System name' '=' systemName=STRING ';' 
 	'}'
 
-	'Hardware' 	'{'	
-					(hardwareContainer+=HardwareElementContainer)+
-					(networks+=Network)* 
+	(compartments+=Compartment)+
+
+	'Interfaces' '{'
+		(interfaces+=Interface)+ 
 	'}'
-
-	'Software' '{'
-					(applications+=Application)+ 
-					(applicationGroups+=ApplicationGroup)*
+	
+	'InterfaceGroups' '{'
+		(interfaceGroups+=InterfaceGroup)
 	'}'
-
-	('Relations' '{'
-					(dissimilarityRelations+=DissimilarityRelation)*
-					(dislocalityRelations+=DislocalityRelation)*
-					(proximityRelations+=ProximityRelation)*
-					(communicationRelations+=CommunicationRelation)*
-	'}')?
-;
-
-HardwareElementContainer: 
-	Compartment | Box | Board
 ;
 
 Compartment: 
@@ -35,96 +24,58 @@ Compartment:
 		('PowerSupply' 				'=' powerSupply=STRING ';')?
 		('Side' 					'=' side=STRING ';')?
 		('Zone' 					'=' zone=STRING ';')?
-		(boxes+=Box)+
+		(rdcs+=RDC)+
 		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}'
 ;
 
-
-Box:
-	'Box' name=ID '{'
+RDC:
+	'RDC' name=ID '{'
 		('Manufacturer' 			'=' manufacturer=STRING ';')?
-		(boards+=Board)+
-		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
-	'}'
-;
-	
-Board:
-	'Board' name=ID '{'
-		('Manufacturer' 			'=' manufacturer=STRING ';')?
-		('Type' 					'=' boardType=STRING ';')?
 		('PowerSupply' 				'=' powerSupply=STRING ';')?
-	    ('DesignAssuranceLevel' 	'=' assuranceLevel=DesignAssuranceLevelType';')?
-	    ('Side'						'=' side=STRING ';')?
-	    ('ESS'						'=' ess=STRING ';')?
-		('RAM capacity'  			'=' ramCapacity=INT ';')?
-		('ROM capacity'  			'=' romCapacity=INT ';')?
-		(processors+=Processor)+
-		(ioAdapters+=IOAdapter)*
-		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+		('Type' 					'=' rdcType=STRING ';')?
+		('ESS'		 				'=' ess=STRING ';')?
+		(connectors+=Connector)+
+		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?			
 	'}'
 ;
 
-Processor:
-	'Processor' name=ID '{'
-	    ('Manufacturer' 			'=' manufacturer=STRING ';')?
-	    ('Type'         			'=' processorType=STRING ';')?
-		(cores+=Core)+
-		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
-	'}';
-
-Core:
-	'Core' name=ID '{' 
-		('Capacity' 					'=' capacity=INT ';')?
-		('Architecture' 				'=' architecture=STRING ';')?
-		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
-	'}';
-
-IOAdapter:
-	'I/O adapter' '{' 	
-	 				 'type' '=' adapterType=IOAdapterType ';'
-	 				'count' '=' totalCount=INT ';'
-					 ('protection-level' '=' protectionLevel=IOAdapterProtectionLevelType ';')?
-					'}' 
+Connector:
+	'Connector' name=ID '{'
+		(availableInterfaces+=AvailableInterface)*
+	'}'
 ;
 
-Network:
-	'Network' name=ID '{'
-		'Bandwidth' 				'=' bandwidthCapacity=INT ';'
-		'Connects' boards+=[Board|QualifiedName] ',' boards+=[Board|QualifiedName] (',' boards+=[Board|QualifiedName])* ';'
-		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
-	'}';
+AvailableInterface:
+	count=INT 'interface with type' interfaceType=InterfaceType ';'
+;
+
 
 /* SOFTWARE */
 
-ApplicationGroup: 
-	'Group' name=ID '{' applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+ '}'
+InterfaceGroup: 
+	'Group' name=ID '{' interfaces+=[Interface] (',' interfaces+=[Interface])+ '}'
 ;
 
-Application:
-	'Application' name=ID '{'
-		('Core-utilization' 			'=' coreUtilization=INT ';')? 
- 		('Required RAM capacity' 		'=' ramUtilization=INT ';')? 
-		('Required ROM capacity' 		'=' romUtilization=INT ';')? 
-	    ('Criticality level' 			'=' criticalityLevel=DesignAssuranceLevelType ';')?
-	    ('Required IO protection' 		'=' ioAdapterProtectionLevel=IOAdapterProtectionLevelType ';')?
-		('Identical parallel threads' 	'=' parallelThreads=INT ';')?
-		('Developed by' 				'=' developedBy=STRING ';')?
-		(ioAdapterRequirements+=IOAdapterRequirement)*
-		('Restrict deployment to' 		'{' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* '}' ';')? 
+Interface:
+	'Interface' name=ID '{'
+		('System' 			'=' system=STRING ';')?
+		('SubAta' 			'=' subAta=STRING ';')?
+		('Resource'			'=' resource=STRING ';')?
+		('LineName'			'=' lineName=STRING ';')?
+		('WiringLane'		'=' wiringLane=STRING ';')?
+		('GrpInfo'			'=' grpInfo=STRING ';')?
+		('Route'			'=' route=STRING ';')?
+		('PwSup1'			'=' pwSup1=STRING ';')?
+		('EmhZone1'			'=' emhZone1=STRING ';')?
+		('Type'				'=' ioType=InterfaceType ';')?
 		('Generic properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
 	'}';
 
-IOAdapterRequirement: 
-	'Requires' 	requiredAdapterCount=INT 
-				adapterType=IOAdapterType 'adapter' 
-				 (isExclusiveOnly?='exclusive' | isSharedAllowed?='shared') 
-	';' 
-;
 
 /* RELATIONEN */
 
-DislocalityRelation:
+/* DislocalityRelation:
 	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'dislocal up to' hardwareLevel=HardwareArchitectureLevelType ';';
 	
 ProximityRelation:
@@ -177,7 +128,7 @@ enum ProcessorAttributes:
 	MANUFACTURER 	= 'Manufacturer' 	| 
 	PROCESSORTYPE	= 'ProcessorType' 
 ;
-
+*/
 MetricParameter:  
 	name=STRING '=' value=INT ';'
 ;
@@ -187,36 +138,8 @@ QualifiedName:
 ;
 
 /* ENUMS */
-enum HardwareArchitectureLevelType:
-	CORE 		= 'Core'		|
-	PROCESSOR 	= 'Processor'	|
-	BOARD		= 'Board'		|
-	BOX			= 'Box'			|
-	COMPARTMENT	= 'Compartment'
-;
 
-enum DesignAssuranceLevelType: 
-	NONE= 'None' 	|
-	QS	= 'QS'	 	|
-	D	= 'D'		|
-	C	= 'C'		|
-	B	= 'B'		|
-	A 	= 'A'  
-;
-
-enum IOAdapterProtectionLevelType:
-	NONE 		= 'None' 		|
-	LEVEL_1 	= 'L1'		|
-	LEVEL_2 	= 'L2'		|
-	LEVEL_3 	= 'L3'		|
-	LEVEL_4 	= 'L4'		|
-	LEVEL_5 	= 'L5'		|
-	LEVEL_6 	= 'L6'		|
-	LEVEL_7 	= 'L7'		|
-	LEVEL_8 	= 'L8'		
-;
-
-enum IOAdapterType:
+enum InterfaceType:
 	CAN 		= 'Can'					|
 	ELB			= 'Enhanced Local Bus'	|
 	ETH			= 'Ethernet'			|

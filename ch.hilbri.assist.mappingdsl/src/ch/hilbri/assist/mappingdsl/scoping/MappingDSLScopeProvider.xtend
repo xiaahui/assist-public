@@ -3,22 +3,13 @@
  */
 package ch.hilbri.assist.mappingdsl.scoping
 
-import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.Board
-import ch.hilbri.assist.datamodel.model.Box
-import ch.hilbri.assist.datamodel.model.Compartment
-import com.google.inject.Inject
-import org.eclipse.emf.ecore.EReference
-import org.eclipse.xtext.naming.IQualifiedNameProvider
-import org.eclipse.xtext.scoping.IScope
-import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 
 /**
  * This class contains custom scoping description.
  */
 class MappingDSLScopeProvider extends AbstractDeclarativeScopeProvider {
-	@Inject IQualifiedNameProvider nameprovider
+//	@Inject IQualifiedNameProvider nameprovider
 
 	/* 
 	 * Referenzen auf ein HardwareElement (FixedDeployment) soll es nur 
@@ -28,7 +19,7 @@ class MappingDSLScopeProvider extends AbstractDeclarativeScopeProvider {
 	 * Der QualifiedNameProvider ist wichtig, denn damit koennen auch gleichnamige
 	 * Boxen in unterschiedlichen Compartments referenziert werden.
 	 */
-	def scope_HardwareElement(AssistModel ctx, EReference ref) {
+/* 	def scope_HardwareElement(AssistModel ctx, EReference ref) {
 
 		if (ctx.hardwareContainer.get(0) instanceof Compartment) {
 			val list = newArrayList()
@@ -86,4 +77,6 @@ class MappingDSLScopeProvider extends AbstractDeclarativeScopeProvider {
 		
 		else return IScope.NULLSCOPE
 	}
+	* 
+	*/
 }

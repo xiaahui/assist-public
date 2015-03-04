@@ -23,57 +23,59 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		
 		val bundle = Platform.getBundle("ch.hilbri.assist.mappingdsl.ui");
 		val imgfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outline_view_folder_16x16.png"), null));
-		val imgsubfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outline_view_subfolder_16x16.png"), null));
+//		val imgsubfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outline_view_subfolder_16x16.png"), null));
 		
 		/* ---------- HARDWARE ------------- */
-		val hardwareNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Hardware", false)
-		for (hw : model.hardwareContainer)
-			createNode(hardwareNode, hw)
+		val compartmentsNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Compartments", false)
+		for (compartment : model.compartments)
+			createNode(compartmentsNode, compartment)
 		
 		/* ---------- APPLICATIONS AND GROUPS --------- */
-		val applicationsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Applications", false)
-		for (sw : model.applications) createNode(applicationsNode, sw)
+		val interfaceNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Interfaces", false)
+		for (iface : model.interfaces) 
+			createNode(interfaceNode, iface)
 		
-		if (!model.applicationGroups.empty) {
-			val appGroupNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Application Groups", false)
-			for (group : model.applicationGroups)createNode(appGroupNode, group)
+		if (!model.interfaceGroups.empty) {
+			val interfaceGroupNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Interface Groups", false)
+			for (group : model.interfaceGroups)
+				createNode(interfaceGroupNode, group)
 		}
 		
 		/* --------- SAFETY CONSTRAINTS -------------- */
-		if (!model.dislocalityRelations.empty || !model.dissimilarityRelations.empty) {
-			val safetyRelationNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Safety", false)
-
-			if (!model.dislocalityRelations.empty) {		
-				val dislocalRelationNode = new VirtualOutlineNode(safetyRelationNode, imgsubfolderDesc, "Dislocality Constraints", false)
-				for (r : model.dislocalityRelations) createNode(dislocalRelationNode, r)
-			}
-
-			if (!model.dissimilarityRelations.empty) {		
-				val dissimRelationNode = new VirtualOutlineNode(safetyRelationNode, imgsubfolderDesc, "Dissimilarity Constraints", false)
-				for (r : model.dissimilarityRelations) createNode(dissimRelationNode, r)
-			}
-		}
+//		if (!model.dislocalityRelations.empty || !model.dissimilarityRelations.empty) {
+//			val safetyRelationNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Safety", false)
+//
+//			if (!model.dislocalityRelations.empty) {		
+//				val dislocalRelationNode = new VirtualOutlineNode(safetyRelationNode, imgsubfolderDesc, "Dislocality Constraints", false)
+//				for (r : model.dislocalityRelations) createNode(dislocalRelationNode, r)
+//			}
+//
+//			if (!model.dissimilarityRelations.empty) {		
+//				val dissimRelationNode = new VirtualOutlineNode(safetyRelationNode, imgsubfolderDesc, "Dissimilarity Constraints", false)
+//				for (r : model.dissimilarityRelations) createNode(dissimRelationNode, r)
+//			}
+//		}
 		
 		/* --------- NETWORKING ---------------------- */
-		if (!model.networks.empty || !model.communicationRelations.empty) {
-			val networkNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Networks and Communication", false)
-
-			if (!model.networks.empty) {
-				val physNetworksNode = new VirtualOutlineNode(networkNode, imgsubfolderDesc, "Physical Networks", false)
-				for (n : model.networks) createNode(physNetworksNode, n)
-			}
-
-			if (!model.communicationRelations.empty) {
-				val commRelationNode = new VirtualOutlineNode(networkNode, imgsubfolderDesc, "Logical Communication", false)
-				for (r : model.communicationRelations) createNode(commRelationNode, r)
-			}
-		}
+//		if (!model.networks.empty || !model.communicationRelations.empty) {
+//			val networkNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Networks and Communication", false)
+//
+//			if (!model.networks.empty) {
+//				val physNetworksNode = new VirtualOutlineNode(networkNode, imgsubfolderDesc, "Physical Networks", false)
+//				for (n : model.networks) createNode(physNetworksNode, n)
+//			}
+//
+//			if (!model.communicationRelations.empty) {
+//				val commRelationNode = new VirtualOutlineNode(networkNode, imgsubfolderDesc, "Logical Communication", false)
+//				for (r : model.communicationRelations) createNode(commRelationNode, r)
+//			}
+//		}
 
 		/* ---------- PROXIMITY REQUIREMENTS --------- */
-		if (!model.proximityRelations.empty) {
-			val proximityRelationNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Proximity", false)
-			for (r : model.proximityRelations) createNode(proximityRelationNode, r)
-		}
+//		if (!model.proximityRelations.empty) {
+//			val proximityRelationNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Proximity", false)
+//			for (r : model.proximityRelations) createNode(proximityRelationNode, r)
+//		}
 		
 		
 		
