@@ -3,7 +3,7 @@
 package ch.hilbri.assist.datamodel.model.provider;
 
 
-import ch.hilbri.assist.datamodel.model.HardwareElement;
+import ch.hilbri.assist.datamodel.model.InterfaceGroup;
 import ch.hilbri.assist.datamodel.model.ModelFactory;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 
@@ -29,12 +29,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.HardwareElement} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.InterfaceGroup} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class HardwareElementItemProvider 
+public class InterfaceGroupItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +48,7 @@ public class HardwareElementItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HardwareElementItemProvider(AdapterFactory adapterFactory) {
+	public InterfaceGroupItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,8 +64,6 @@ public class HardwareElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addManufacturerPropertyDescriptor(object);
-			addPowerSupplyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -81,53 +79,9 @@ public class HardwareElementItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_HardwareElement_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_HardwareElement_name_feature", "_UI_HardwareElement_type"),
-				 ModelPackage.Literals.HARDWARE_ELEMENT__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Manufacturer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addManufacturerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_HardwareElement_manufacturer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_HardwareElement_manufacturer_feature", "_UI_HardwareElement_type"),
-				 ModelPackage.Literals.HARDWARE_ELEMENT__MANUFACTURER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Power Supply feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPowerSupplyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_HardwareElement_powerSupply_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_HardwareElement_powerSupply_feature", "_UI_HardwareElement_type"),
-				 ModelPackage.Literals.HARDWARE_ELEMENT__POWER_SUPPLY,
+				 getString("_UI_InterfaceGroup_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InterfaceGroup_name_feature", "_UI_InterfaceGroup_type"),
+				 ModelPackage.Literals.INTERFACE_GROUP__NAME,
 				 true,
 				 false,
 				 false,
@@ -148,7 +102,7 @@ public class HardwareElementItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.HARDWARE_ELEMENT__METRIC_PARAMETERS);
+			childrenFeatures.add(ModelPackage.Literals.INTERFACE_GROUP__INTERFACES);
 		}
 		return childrenFeatures;
 	}
@@ -167,14 +121,14 @@ public class HardwareElementItemProvider
 	}
 
 	/**
-	 * This returns HardwareElement.gif.
+	 * This returns InterfaceGroup.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/HardwareElement"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InterfaceGroup"));
 	}
 
 	/**
@@ -185,10 +139,10 @@ public class HardwareElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((HardwareElement)object).getName();
+		String label = ((InterfaceGroup)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_HardwareElement_type") :
-			getString("_UI_HardwareElement_type") + " " + label;
+			getString("_UI_InterfaceGroup_type") :
+			getString("_UI_InterfaceGroup_type") + " " + label;
 	}
 	
 
@@ -203,13 +157,11 @@ public class HardwareElementItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(HardwareElement.class)) {
-			case ModelPackage.HARDWARE_ELEMENT__NAME:
-			case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
-			case ModelPackage.HARDWARE_ELEMENT__POWER_SUPPLY:
+		switch (notification.getFeatureID(InterfaceGroup.class)) {
+			case ModelPackage.INTERFACE_GROUP__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS:
+			case ModelPackage.INTERFACE_GROUP__INTERFACES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -229,8 +181,8 @@ public class HardwareElementItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.HARDWARE_ELEMENT__METRIC_PARAMETERS,
-				 ModelFactory.eINSTANCE.createMetricParameter()));
+				(ModelPackage.Literals.INTERFACE_GROUP__INTERFACES,
+				 ModelFactory.eINSTANCE.createInterface()));
 	}
 
 	/**

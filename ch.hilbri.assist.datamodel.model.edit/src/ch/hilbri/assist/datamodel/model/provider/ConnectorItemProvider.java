@@ -3,7 +3,7 @@
 package ch.hilbri.assist.datamodel.model.provider;
 
 
-import ch.hilbri.assist.datamodel.model.HardwareElement;
+import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.ModelFactory;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 
@@ -24,17 +24,16 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.HardwareElement} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.Connector} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class HardwareElementItemProvider 
+public class ConnectorItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +47,7 @@ public class HardwareElementItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HardwareElementItemProvider(AdapterFactory adapterFactory) {
+	public ConnectorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,75 +62,29 @@ public class HardwareElementItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addManufacturerPropertyDescriptor(object);
-			addPowerSupplyPropertyDescriptor(object);
+			addRdcPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Rdc feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addRdcPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_HardwareElement_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_HardwareElement_name_feature", "_UI_HardwareElement_type"),
-				 ModelPackage.Literals.HARDWARE_ELEMENT__NAME,
+				 getString("_UI_Connector_rdc_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Connector_rdc_feature", "_UI_Connector_type"),
+				 ModelPackage.Literals.CONNECTOR__RDC,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
 				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Manufacturer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addManufacturerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_HardwareElement_manufacturer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_HardwareElement_manufacturer_feature", "_UI_HardwareElement_type"),
-				 ModelPackage.Literals.HARDWARE_ELEMENT__MANUFACTURER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Power Supply feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPowerSupplyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_HardwareElement_powerSupply_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_HardwareElement_powerSupply_feature", "_UI_HardwareElement_type"),
-				 ModelPackage.Literals.HARDWARE_ELEMENT__POWER_SUPPLY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -148,7 +101,8 @@ public class HardwareElementItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.HARDWARE_ELEMENT__METRIC_PARAMETERS);
+			childrenFeatures.add(ModelPackage.Literals.CONNECTOR__AVAILABLE_INTERFACES);
+			childrenFeatures.add(ModelPackage.Literals.CONNECTOR__MAPPED_INTERFACES);
 		}
 		return childrenFeatures;
 	}
@@ -167,14 +121,14 @@ public class HardwareElementItemProvider
 	}
 
 	/**
-	 * This returns HardwareElement.gif.
+	 * This returns Connector.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/HardwareElement"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Connector"));
 	}
 
 	/**
@@ -185,10 +139,7 @@ public class HardwareElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((HardwareElement)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_HardwareElement_type") :
-			getString("_UI_HardwareElement_type") + " " + label;
+		return getString("_UI_Connector_type");
 	}
 	
 
@@ -203,13 +154,9 @@ public class HardwareElementItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(HardwareElement.class)) {
-			case ModelPackage.HARDWARE_ELEMENT__NAME:
-			case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
-			case ModelPackage.HARDWARE_ELEMENT__POWER_SUPPLY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS:
+		switch (notification.getFeatureID(Connector.class)) {
+			case ModelPackage.CONNECTOR__AVAILABLE_INTERFACES:
+			case ModelPackage.CONNECTOR__MAPPED_INTERFACES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -229,8 +176,13 @@ public class HardwareElementItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.HARDWARE_ELEMENT__METRIC_PARAMETERS,
-				 ModelFactory.eINSTANCE.createMetricParameter()));
+				(ModelPackage.Literals.CONNECTOR__AVAILABLE_INTERFACES,
+				 ModelFactory.eINSTANCE.createAvailableInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.CONNECTOR__MAPPED_INTERFACES,
+				 ModelFactory.eINSTANCE.createInterface()));
 	}
 
 	/**
