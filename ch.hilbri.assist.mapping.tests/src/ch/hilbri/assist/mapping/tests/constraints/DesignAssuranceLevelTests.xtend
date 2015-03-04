@@ -1,10 +1,6 @@
 package ch.hilbri.assist.mapping.tests.constraints
 
-import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.tests.AbstractMappingTest
-import org.junit.Test
-
-import static org.junit.Assert.*
 
 class DesignAssuranceLevelTests extends AbstractMappingTest {
 	new() {
@@ -46,28 +42,28 @@ Software {
 '''
 	}
 	
-	@Test
-	def void testResultCount() {
-		assertEquals(2, allResults.size)
-	}
-	
-	@Test
-	def void testA1onBoardB_A() {
-		var Result result = null
-
-		for (r : allResults) 
-			if (r.applications.get(0).threads.get(0).core.name.equals("C_A")) result = r
-			
-		assertNotNull(result)
-	}
-	
-	@Test
-	def void testA1onBoardB_B() {
-		var Result result = null
-
-		for (r : allResults) 
-			if (r.applications.get(0).threads.get(0).core.name.equals("C_B")) result = r
-			
-		assertNotNull(result)
-	}
+//	@Test
+//	def void testResultCount() {
+//		assertEquals(2, allResults.size)
+//	}
+//	
+//	@Test
+//	def void testA1onBoardB_A() {
+//		var Result result = null
+//
+//		for (r : allResults) 
+//			if (r.applications.get(0).threads.get(0).core.name.equals("C_A")) result = r
+//			
+//		assertNotNull(result)
+//	}
+//	
+//	@Test
+//	def void testA1onBoardB_B() {
+//		var Result result = null
+//
+//		for (r : allResults) 
+//			if (r.applications.get(0).threads.get(0).core.name.equals("C_B")) result = r
+//			
+//		assertNotNull(result)
+//	}
 }

@@ -1,10 +1,6 @@
 package ch.hilbri.assist.mapping.tests.constraints
 
-import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.tests.AbstractMappingTest
-import org.junit.Test
-
-import static org.junit.Assert.*
 
 class DesignAssuranceLevelComplexTests extends AbstractMappingTest {
 	new() {
@@ -58,80 +54,80 @@ Software {
 '''
 	}
 	
-	@Test
-	def void testResultCount() {
-		assertEquals(6, allResults.size)
-	}
-	
-	@Test
-	def void test_A1onB1_And_A2onB1() {
-		var Result result = null
-
-		for (r : allResults) 
-			if (r.applications.get(0).threads.get(0).core.name.equals("C_A") &&
-				r.applications.get(1).threads.get(0).core.name.equals("C_A")) 
-				result = r
-			
-		assertNotNull(result)
-	}
-	
-	@Test
-	def void test_A1onB1_And_A2onB2() {
-		var Result result = null
-
-		for (r : allResults) 
-			if (r.applications.get(0).threads.get(0).core.name.equals("C_A") &&
-				r.applications.get(1).threads.get(0).core.name.equals("C_B")) 
-				result = r
-			
-		assertNotNull(result)
-	}
-	
-	@Test
-	def void test_A1onB1_And_A2onB3() {
-		var Result result = null
-
-		for (r : allResults) 
-			if (r.applications.get(0).threads.get(0).core.name.equals("C_A") &&
-				r.applications.get(1).threads.get(0).core.name.equals("C_C")) 
-				result = r
-			
-		assertNotNull(result)
-	}
-	
-	@Test
-	def void test_A1onB2_And_A2onB1() {
-		var Result result = null
-
-		for (r : allResults) 
-			if (r.applications.get(0).threads.get(0).core.name.equals("C_B") &&
-				r.applications.get(1).threads.get(0).core.name.equals("C_A")) 
-				result = r
-			
-		assertNotNull(result)
-	}
-	
-	@Test
-	def void test_A1onB2_And_A2onB2() {
-		var Result result = null
-
-		for (r : allResults) 
-			if (r.applications.get(0).threads.get(0).core.name.equals("C_B") &&
-				r.applications.get(1).threads.get(0).core.name.equals("C_B")) 
-				result = r
-			
-		assertNotNull(result)
-	}
-	
-	@Test
-	def void test_A1onB2_And_A2onB3() {
-		var Result result = null
-
-		for (r : allResults) 
-			if (r.applications.get(0).threads.get(0).core.name.equals("C_B") &&
-				r.applications.get(1).threads.get(0).core.name.equals("C_C")) 
-				result = r
-			
-		assertNotNull(result)
-	}
+//	@Test
+//	def void testResultCount() {
+//		assertEquals(6, allResults.size)
+//	}
+//	
+//	@Test
+//	def void test_A1onB1_And_A2onB1() {
+//		var Result result = null
+//
+//		for (r : allResults) 
+//			if (r.applications.get(0).threads.get(0).core.name.equals("C_A") &&
+//				r.applications.get(1).threads.get(0).core.name.equals("C_A")) 
+//				result = r
+//			
+//		assertNotNull(result)
+//	}
+//	
+//	@Test
+//	def void test_A1onB1_And_A2onB2() {
+//		var Result result = null
+//
+//		for (r : allResults) 
+//			if (r.applications.get(0).threads.get(0).core.name.equals("C_A") &&
+//				r.applications.get(1).threads.get(0).core.name.equals("C_B")) 
+//				result = r
+//			
+//		assertNotNull(result)
+//	}
+//	
+//	@Test
+//	def void test_A1onB1_And_A2onB3() {
+//		var Result result = null
+//
+//		for (r : allResults) 
+//			if (r.applications.get(0).threads.get(0).core.name.equals("C_A") &&
+//				r.applications.get(1).threads.get(0).core.name.equals("C_C")) 
+//				result = r
+//			
+//		assertNotNull(result)
+//	}
+//	
+//	@Test
+//	def void test_A1onB2_And_A2onB1() {
+//		var Result result = null
+//
+//		for (r : allResults) 
+//			if (r.applications.get(0).threads.get(0).core.name.equals("C_B") &&
+//				r.applications.get(1).threads.get(0).core.name.equals("C_A")) 
+//				result = r
+//			
+//		assertNotNull(result)
+//	}
+//	
+//	@Test
+//	def void test_A1onB2_And_A2onB2() {
+//		var Result result = null
+//
+//		for (r : allResults) 
+//			if (r.applications.get(0).threads.get(0).core.name.equals("C_B") &&
+//				r.applications.get(1).threads.get(0).core.name.equals("C_B")) 
+//				result = r
+//			
+//		assertNotNull(result)
+//	}
+//	
+//	@Test
+//	def void test_A1onB2_And_A2onB3() {
+//		var Result result = null
+//
+//		for (r : allResults) 
+//			if (r.applications.get(0).threads.get(0).core.name.equals("C_B") &&
+//				r.applications.get(1).threads.get(0).core.name.equals("C_C")) 
+//				result = r
+//			
+//		assertNotNull(result)
+//	}
 }

@@ -1,13 +1,7 @@
 package ch.hilbri.assist.mapping.tests.constraints;
 
-import ch.hilbri.assist.datamodel.result.mapping.Application;
-import ch.hilbri.assist.datamodel.result.mapping.Core;
-import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.tests.AbstractMappingTest;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
-import org.junit.Assert;
-import org.junit.Test;
 
 @SuppressWarnings("all")
 public class NoPermutationsTests extends AbstractMappingTest {
@@ -65,35 +59,5 @@ public class NoPermutationsTests extends AbstractMappingTest {
     _builder.newLine();
     _builder.newLine();
     this.input = _builder.toString();
-  }
-  
-  @Test
-  public void testResultCount() {
-    int _size = this.allResults.size();
-    Assert.assertEquals(1, _size);
-  }
-  
-  @Test
-  public void testResultThread1OnCore1_and_Thread2OnCore2() {
-    final Result result = this.allResults.get(0);
-    Assert.assertNotNull(result);
-    EList<Application> _applications = result.getApplications();
-    Application _get = _applications.get(0);
-    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads = _get.getThreads();
-    ch.hilbri.assist.datamodel.result.mapping.Thread _get_1 = _threads.get(0);
-    EList<Core> _allCores = result.getAllCores();
-    Core _get_2 = _allCores.get(0);
-    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_1 = _get_2.getThreads();
-    ch.hilbri.assist.datamodel.result.mapping.Thread _get_3 = _threads_1.get(0);
-    Assert.assertEquals(_get_1, _get_3);
-    EList<Application> _applications_1 = result.getApplications();
-    Application _get_4 = _applications_1.get(0);
-    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_2 = _get_4.getThreads();
-    ch.hilbri.assist.datamodel.result.mapping.Thread _get_5 = _threads_2.get(1);
-    EList<Core> _allCores_1 = result.getAllCores();
-    Core _get_6 = _allCores_1.get(1);
-    EList<ch.hilbri.assist.datamodel.result.mapping.Thread> _threads_3 = _get_6.getThreads();
-    ch.hilbri.assist.datamodel.result.mapping.Thread _get_7 = _threads_3.get(0);
-    Assert.assertEquals(_get_5, _get_7);
   }
 }
