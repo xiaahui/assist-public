@@ -3,9 +3,9 @@ package ch.hilbri.assist.mapping.tests
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.ModelPackage
 import ch.hilbri.assist.datamodel.result.mapping.Result
-import ch.hilbri.assist.mapping.datamodel.PostProcessor
 import ch.hilbri.assist.mapping.solver.AssistSolver
 import ch.hilbri.assist.mapping.solver.SearchType
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider
 import com.google.inject.Inject
 import java.util.ArrayList
@@ -19,7 +19,6 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 import static org.junit.Assert.*
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 @InjectWith(MappingDSLInjectorProvider)
 @RunWith(XtextRunner)
@@ -48,7 +47,7 @@ class AbstractMappingTest {
 		model = parser.parse(input) as AssistModel
 		
 		/* Fix the model */
-		PostProcessor.createMissingThreads(model);
+//		PostProcessor.createMissingThreads(model);
 		assertNotNull(model) 
 
 		/* Create the job to search for new solutions */
