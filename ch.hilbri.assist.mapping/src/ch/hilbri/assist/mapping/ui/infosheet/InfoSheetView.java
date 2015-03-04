@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
+import javafx.embed.swt.FXCanvas;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -16,7 +17,6 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.TreeItem;
 import javafx.scene.paint.Color;
-import javafx.embed.swt.FXCanvas;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -43,17 +43,13 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+import ch.hilbri.assist.datamodel.model.Compartment;
+import ch.hilbri.assist.datamodel.model.Connector;
+import ch.hilbri.assist.datamodel.model.HardwareElement;
+import ch.hilbri.assist.datamodel.model.Interface;
+import ch.hilbri.assist.datamodel.model.RDC;
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
-import ch.hilbri.assist.datamodel.result.mapping.Board;
-import ch.hilbri.assist.datamodel.result.mapping.Box;
-import ch.hilbri.assist.datamodel.result.mapping.Compartment;
-import ch.hilbri.assist.datamodel.result.mapping.Core;
-import ch.hilbri.assist.datamodel.result.mapping.HardwareElement;
-import ch.hilbri.assist.datamodel.result.mapping.IOAdapter;
-import ch.hilbri.assist.datamodel.result.mapping.Network;
-import ch.hilbri.assist.datamodel.result.mapping.Processor;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
-import ch.hilbri.assist.datamodel.result.mapping.Thread;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
@@ -315,47 +311,36 @@ public class InfoSheetView {
 
 		else if (obj instanceof HardwareElement) {
 
-			if (obj instanceof Core) {
-				Core c = (Core) obj;
-				DecimalFormat f = new DecimalFormat("#0.00");
-				addRowToTableComponentProperties("Component type", "Core");
-				addRowToTableComponentProperties("Name", c.getName());
-				addRowToTableComponentProperties("Architecture", c.getArchitecture());
-				addRowToTableComponentProperties("Max. capacity", "" + c.getCapacity());
-				addRowToTableComponentProperties("Current load", (c.getCapacity() > 0 ? f.format(new Double(c.getUtilization()) * 100 / new Double(c.getCapacity())) : "0") + "%");
-			} else if (obj instanceof Processor) {
-				Processor p = (Processor) obj;
-				addRowToTableComponentProperties("Component type", "Processor");
-				addRowToTableComponentProperties("Name", p.getName());
-				addRowToTableComponentProperties("Manufacturer", p.getManufacturer());
-				addRowToTableComponentProperties("Type", p.getProcessorType());
-				addRowToTableComponentProperties("# Cores", "" + p.getCores().size());
-			} else if (obj instanceof Board) {
-				Board b = (Board) obj;
-				DecimalFormat f = new DecimalFormat("#0.00");
-				addRowToTableComponentProperties("Component type", "Board");
+			if (obj instanceof Connector) {
+				Connector c = (Connector) obj;
+//				DecimalFormat f = new DecimalFormat("#0.00");
+				addRowToTableComponentProperties("Component type", "Connector");
+//				addRowToTableComponentProperties("Name", c.getName());
+//				addRowToTableComponentProperties("Architecture", c.getArchitecture());
+//				addRowToTableComponentProperties("Max. capacity", "" + c.getCapacity());
+//				addRowToTableComponentProperties("Current load", (c.getCapacity() > 0 ? f.format(new Double(c.getUtilization()) * 100 / new Double(c.getCapacity())) : "0") + "%");
+			 
+			} else if (obj instanceof RDC) {
+				RDC b = (RDC) obj;
+//				DecimalFormat f = new DecimalFormat("#0.00");
+//				addRowToTableComponentProperties("Component type", "Board");
 				addRowToTableComponentProperties("Name", b.getName());
 				addRowToTableComponentProperties("Manufacturer", b.getManufacturer());
 				addRowToTableComponentProperties("Power suppy", b.getPowerSupply());
-				addRowToTableComponentProperties("DAL", b.getAssuranceLevel().toString());
-				addRowToTableComponentProperties("RAM", b.getRamUtilization() + " of " + b.getRamCapacity() + " (" + ((b.getRomCapacity() > 0) ? f.format(new Double(b.getRamUtilization()) * 100 / new Double(b.getRamCapacity())) : "0") + "%)");
-				addRowToTableComponentProperties("ROM", b.getRomUtilization() + " of " + b.getRomCapacity() + " (" + ((b.getRomCapacity() > 0) ? f.format(new Double(b.getRomUtilization()) * 100 / new Double(b.getRomCapacity())) : "0") + "%)");
+//				addRowToTableComponentProperties("DAL", b.getAssuranceLevel().toString());
+//				addRowToTableComponentProperties("RAM", b.getRamUtilization() + " of " + b.getRamCapacity() + " (" + ((b.getRomCapacity() > 0) ? f.format(new Double(b.getRamUtilization()) * 100 / new Double(b.getRamCapacity())) : "0") + "%)");
+//				addRowToTableComponentProperties("ROM", b.getRomUtilization() + " of " + b.getRomCapacity() + " (" + ((b.getRomCapacity() > 0) ? f.format(new Double(b.getRomUtilization()) * 100 / new Double(b.getRomCapacity())) : "0") + "%)");
 				
-				for (IOAdapter a : b.getIoAdapters()) 
-					addRowToTableComponentProperties("I/O adapters '" + a.getAdapterType() + "'", ""+a.getTotalUnitCount());
+//				for (IOAdapter a : b.getIoAdapters()) 
+//					addRowToTableComponentProperties("I/O adapters '" + a.getAdapterType() + "'", ""+a.getTotalUnitCount());
+//				
+//				for (Network n : b.getNetworks()) {
+//					/* Do not show "virtual" networks on each board */
+//					if (n.isIsBoardLocalNetwork()) continue;
+//					addRowToTableComponentProperties("Network '" + n.getName() + "'", "Capacity: " + n.getBandwidthCapacity());	
+//				}
 				
-				for (Network n : b.getNetworks()) {
-					/* Do not show "virtual" networks on each board */
-					if (n.isIsBoardLocalNetwork()) continue;
-					addRowToTableComponentProperties("Network '" + n.getName() + "'", "Capacity: " + n.getBandwidthCapacity());	
-				}
-				
-				
-			} else if (obj instanceof Box) {
-				Box b = (Box) obj;
-				addRowToTableComponentProperties("Component Type", "Box");
-				addRowToTableComponentProperties("Name", b.getName());
-				addRowToTableComponentProperties("Manufacturer", b.getManufacturer());
+	
 			} else if (obj instanceof Compartment) {
 				Compartment c = (Compartment) obj;
 				addRowToTableComponentProperties("Component Type", "Compartment");
@@ -365,17 +350,17 @@ public class InfoSheetView {
 				addRowToTableComponentProperties("Zone", c.getZone());
 				addRowToTableComponentProperties("Power Suppy", c.getPowerSupply());
 			}
-		} else if (obj instanceof Thread) {
-			Thread t = (Thread) obj;
-			addRowToTableComponentProperties("Component Type", "Thread");
-			addRowToTableComponentProperties("Application Name", t.getApplication().getName());
-			addRowToTableComponentProperties("Thread ID", t.getName());
-			addRowToTableComponentProperties("Criticality", t.getApplication().getCriticalityLevel().getLiteral());
-			addRowToTableComponentProperties("IO Adapter Protection", t.getApplication().getIoAdapterProtectionLevel().getLiteral());
-			addRowToTableComponentProperties("Core utilization", "" + t.getApplication().getCoreUtilization());
-			addRowToTableComponentProperties("RAM utilization", "" + t.getApplication().getRamUtilization());
-			addRowToTableComponentProperties("ROM utilization", "" + t.getApplication().getRomUtilization());
-			addRowToTableComponentProperties("Developed by", t.getApplication().getDevelopedBy());
+		} else if (obj instanceof Interface) {
+//			Interface iface  = (Interface) obj;
+//			addRowToTableComponentProperties("Component Type", "Thread");
+//			addRowToTableComponentProperties("Application Name", t.getApplication().getName());
+//			addRowToTableComponentProperties("Thread ID", t.getName());
+//			addRowToTableComponentProperties("Criticality", t.getApplication().getCriticalityLevel().getLiteral());
+//			addRowToTableComponentProperties("IO Adapter Protection", t.getApplication().getIoAdapterProtectionLevel().getLiteral());
+//			addRowToTableComponentProperties("Core utilization", "" + t.getApplication().getCoreUtilization());
+//			addRowToTableComponentProperties("RAM utilization", "" + t.getApplication().getRamUtilization());
+//			addRowToTableComponentProperties("ROM utilization", "" + t.getApplication().getRomUtilization());
+//			addRowToTableComponentProperties("Developed by", t.getApplication().getDevelopedBy());
 		}
 	}
 

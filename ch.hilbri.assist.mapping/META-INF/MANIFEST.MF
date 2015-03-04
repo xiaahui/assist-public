@@ -7,8 +7,7 @@ Bundle-Version: 0.6
 Bundle-Vendor: Robert Hilbrich
 Export-Package: ch.hilbri.assist.mapping.datamodel,
  ch.hilbri.assist.mapping.solver,
- ch.hilbri.assist.mapping.solver.exceptions,
- ch.hilbri.assist.mapping.solver.exceptions.allapplicationthreadsonsameboard
+ ch.hilbri.assist.mapping.solver.exceptions
 Require-Bundle: ch.hilbri.assist.application,
  ch.hilbri.assist.datamodel.model,
  ch.hilbri.assist.datamodel.model.edit,

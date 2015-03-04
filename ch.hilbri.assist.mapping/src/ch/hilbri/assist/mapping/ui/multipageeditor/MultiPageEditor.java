@@ -40,7 +40,6 @@ import ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView;
 import ch.hilbri.assist.mapping.ui.metrics.MetricsView;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.ResultsView;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
-import ch.hilbri.assist.mapping.ui.multipageeditor.treeview.TreeView;
 import ch.hilbri.assist.mappingdsl.ui.internal.MappingDSLActivator;
 
 import com.google.inject.Injector;
@@ -61,8 +60,8 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 	/** View showing more detailed results */
 	private ResultsView detailedResultsView;
 	
-	/** View showing the calculated result */
-	private TreeView treeView;
+//	/** View showing the calculated result */
+//	private TreeView treeView;
 
 	/**
 	 * Creates a multi-page editor.
@@ -114,14 +113,14 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 	 * @Important Page one has to be created before this page, else the
 	 *            resultViewUiModel would be null.
 	 */
-	void createPage2() {
-
-		Composite composite = new Composite(getContainer(), SWT.NONE);
-		treeView = new TreeView(getDetailedResultViewUiModel());
-		treeView.createPartControl(composite);
-		int index = addPage(composite);
-		setPageText(index, "Results (Tree View)");
-	}
+//	void createPage2() {
+//
+//		Composite composite = new Composite(getContainer(), SWT.NONE);
+//		treeView = new TreeView(getDetailedResultViewUiModel());
+//		treeView.createPartControl(composite);
+//		int index = addPage(composite);
+//		setPageText(index, "Results (Tree View)");
+//	}
 
 	/**
 	 * Returns the Xtexteditor used in page 0
@@ -138,7 +137,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 	protected void createPages() {
 		createPage0();
 		createPage1();
-		createPage2();
+//		createPage2();
 
 		openInfoSheetView();
 
@@ -344,7 +343,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 
 	public void resetView() {
 		detailedResultsView.resetView();
-		treeView.resetView();
+//		treeView.resetView();
 	}
 
 	public void setActiveResultPage() {
