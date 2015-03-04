@@ -118,29 +118,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.HardwareElementContainer} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected HardwareElementContainerItemProvider hardwareElementContainerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.HardwareElementContainer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createHardwareElementContainerAdapter() {
-		if (hardwareElementContainerItemProvider == null) {
-			hardwareElementContainerItemProvider = new HardwareElementContainerItemProvider(this);
-		}
-
-		return hardwareElementContainerItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Compartment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,463 +141,118 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Box} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.RDC} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BoxItemProvider boxItemProvider;
+	protected RDCItemProvider rdcItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.Box}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.RDC}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createBoxAdapter() {
-		if (boxItemProvider == null) {
-			boxItemProvider = new BoxItemProvider(this);
+	public Adapter createRDCAdapter() {
+		if (rdcItemProvider == null) {
+			rdcItemProvider = new RDCItemProvider(this);
 		}
 
-		return boxItemProvider;
+		return rdcItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Board} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Connector} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BoardItemProvider boardItemProvider;
+	protected ConnectorItemProvider connectorItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.Board}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.Connector}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createBoardAdapter() {
-		if (boardItemProvider == null) {
-			boardItemProvider = new BoardItemProvider(this);
+	public Adapter createConnectorAdapter() {
+		if (connectorItemProvider == null) {
+			connectorItemProvider = new ConnectorItemProvider(this);
 		}
 
-		return boardItemProvider;
+		return connectorItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Processor} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.AvailableInterface} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProcessorItemProvider processorItemProvider;
+	protected AvailableInterfaceItemProvider availableInterfaceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.Processor}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.AvailableInterface}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createProcessorAdapter() {
-		if (processorItemProvider == null) {
-			processorItemProvider = new ProcessorItemProvider(this);
+	public Adapter createAvailableInterfaceAdapter() {
+		if (availableInterfaceItemProvider == null) {
+			availableInterfaceItemProvider = new AvailableInterfaceItemProvider(this);
 		}
 
-		return processorItemProvider;
+		return availableInterfaceItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Core} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Interface} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CoreItemProvider coreItemProvider;
+	protected InterfaceItemProvider interfaceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.Core}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.Interface}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCoreAdapter() {
-		if (coreItemProvider == null) {
-			coreItemProvider = new CoreItemProvider(this);
+	public Adapter createInterfaceAdapter() {
+		if (interfaceItemProvider == null) {
+			interfaceItemProvider = new InterfaceItemProvider(this);
 		}
 
-		return coreItemProvider;
+		return interfaceItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.IOAdapter} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.InterfaceGroup} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IOAdapterItemProvider ioAdapterItemProvider;
+	protected InterfaceGroupItemProvider interfaceGroupItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.IOAdapter}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.InterfaceGroup}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createIOAdapterAdapter() {
-		if (ioAdapterItemProvider == null) {
-			ioAdapterItemProvider = new IOAdapterItemProvider(this);
+	public Adapter createInterfaceGroupAdapter() {
+		if (interfaceGroupItemProvider == null) {
+			interfaceGroupItemProvider = new InterfaceGroupItemProvider(this);
 		}
 
-		return ioAdapterItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Network} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NetworkItemProvider networkItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.Network}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNetworkAdapter() {
-		if (networkItemProvider == null) {
-			networkItemProvider = new NetworkItemProvider(this);
-		}
-
-		return networkItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ApplicationOrApplicationGroup} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ApplicationOrApplicationGroupItemProvider applicationOrApplicationGroupItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ApplicationOrApplicationGroup}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createApplicationOrApplicationGroupAdapter() {
-		if (applicationOrApplicationGroupItemProvider == null) {
-			applicationOrApplicationGroupItemProvider = new ApplicationOrApplicationGroupItemProvider(this);
-		}
-
-		return applicationOrApplicationGroupItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ApplicationGroup} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ApplicationGroupItemProvider applicationGroupItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ApplicationGroup}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createApplicationGroupAdapter() {
-		if (applicationGroupItemProvider == null) {
-			applicationGroupItemProvider = new ApplicationGroupItemProvider(this);
-		}
-
-		return applicationGroupItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Application} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ApplicationItemProvider applicationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.Application}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createApplicationAdapter() {
-		if (applicationItemProvider == null) {
-			applicationItemProvider = new ApplicationItemProvider(this);
-		}
-
-		return applicationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Thread} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ThreadItemProvider threadItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.Thread}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createThreadAdapter() {
-		if (threadItemProvider == null) {
-			threadItemProvider = new ThreadItemProvider(this);
-		}
-
-		return threadItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.IOAdapterRequirement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IOAdapterRequirementItemProvider ioAdapterRequirementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.IOAdapterRequirement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createIOAdapterRequirementAdapter() {
-		if (ioAdapterRequirementItemProvider == null) {
-			ioAdapterRequirementItemProvider = new IOAdapterRequirementItemProvider(this);
-		}
-
-		return ioAdapterRequirementItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.DissimilarityRelation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DissimilarityRelationItemProvider dissimilarityRelationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.DissimilarityRelation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDissimilarityRelationAdapter() {
-		if (dissimilarityRelationItemProvider == null) {
-			dissimilarityRelationItemProvider = new DissimilarityRelationItemProvider(this);
-		}
-
-		return dissimilarityRelationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.DissimilarityClause} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DissimilarityClauseItemProvider dissimilarityClauseItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.DissimilarityClause}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDissimilarityClauseAdapter() {
-		if (dissimilarityClauseItemProvider == null) {
-			dissimilarityClauseItemProvider = new DissimilarityClauseItemProvider(this);
-		}
-
-		return dissimilarityClauseItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.DissimilarityDisjunction} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DissimilarityDisjunctionItemProvider dissimilarityDisjunctionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.DissimilarityDisjunction}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDissimilarityDisjunctionAdapter() {
-		if (dissimilarityDisjunctionItemProvider == null) {
-			dissimilarityDisjunctionItemProvider = new DissimilarityDisjunctionItemProvider(this);
-		}
-
-		return dissimilarityDisjunctionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.DissimilarityConjunction} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DissimilarityConjunctionItemProvider dissimilarityConjunctionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.DissimilarityConjunction}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDissimilarityConjunctionAdapter() {
-		if (dissimilarityConjunctionItemProvider == null) {
-			dissimilarityConjunctionItemProvider = new DissimilarityConjunctionItemProvider(this);
-		}
-
-		return dissimilarityConjunctionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.DissimilarityEntry} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DissimilarityEntryItemProvider dissimilarityEntryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.DissimilarityEntry}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDissimilarityEntryAdapter() {
-		if (dissimilarityEntryItemProvider == null) {
-			dissimilarityEntryItemProvider = new DissimilarityEntryItemProvider(this);
-		}
-
-		return dissimilarityEntryItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.DislocalityRelation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DislocalityRelationItemProvider dislocalityRelationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.DislocalityRelation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDislocalityRelationAdapter() {
-		if (dislocalityRelationItemProvider == null) {
-			dislocalityRelationItemProvider = new DislocalityRelationItemProvider(this);
-		}
-
-		return dislocalityRelationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ProximityRelation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ProximityRelationItemProvider proximityRelationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ProximityRelation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createProximityRelationAdapter() {
-		if (proximityRelationItemProvider == null) {
-			proximityRelationItemProvider = new ProximityRelationItemProvider(this);
-		}
-
-		return proximityRelationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CommunicationRelation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CommunicationRelationItemProvider communicationRelationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.CommunicationRelation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCommunicationRelationAdapter() {
-		if (communicationRelationItemProvider == null) {
-			communicationRelationItemProvider = new CommunicationRelationItemProvider(this);
-		}
-
-		return communicationRelationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.SchedulingRelation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SchedulingRelationItemProvider schedulingRelationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.SchedulingRelation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSchedulingRelationAdapter() {
-		if (schedulingRelationItemProvider == null) {
-			schedulingRelationItemProvider = new SchedulingRelationItemProvider(this);
-		}
-
-		return schedulingRelationItemProvider;
+		return interfaceGroupItemProvider;
 	}
 
 	/**
@@ -747,28 +379,12 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	public void dispose() {
 		if (assistModelItemProvider != null) assistModelItemProvider.dispose();
 		if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();
-		if (hardwareElementContainerItemProvider != null) hardwareElementContainerItemProvider.dispose();
 		if (compartmentItemProvider != null) compartmentItemProvider.dispose();
-		if (boxItemProvider != null) boxItemProvider.dispose();
-		if (boardItemProvider != null) boardItemProvider.dispose();
-		if (processorItemProvider != null) processorItemProvider.dispose();
-		if (coreItemProvider != null) coreItemProvider.dispose();
-		if (ioAdapterItemProvider != null) ioAdapterItemProvider.dispose();
-		if (networkItemProvider != null) networkItemProvider.dispose();
-		if (applicationOrApplicationGroupItemProvider != null) applicationOrApplicationGroupItemProvider.dispose();
-		if (applicationGroupItemProvider != null) applicationGroupItemProvider.dispose();
-		if (applicationItemProvider != null) applicationItemProvider.dispose();
-		if (threadItemProvider != null) threadItemProvider.dispose();
-		if (ioAdapterRequirementItemProvider != null) ioAdapterRequirementItemProvider.dispose();
-		if (dissimilarityRelationItemProvider != null) dissimilarityRelationItemProvider.dispose();
-		if (dissimilarityClauseItemProvider != null) dissimilarityClauseItemProvider.dispose();
-		if (dissimilarityDisjunctionItemProvider != null) dissimilarityDisjunctionItemProvider.dispose();
-		if (dissimilarityConjunctionItemProvider != null) dissimilarityConjunctionItemProvider.dispose();
-		if (dissimilarityEntryItemProvider != null) dissimilarityEntryItemProvider.dispose();
-		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
-		if (proximityRelationItemProvider != null) proximityRelationItemProvider.dispose();
-		if (communicationRelationItemProvider != null) communicationRelationItemProvider.dispose();
-		if (schedulingRelationItemProvider != null) schedulingRelationItemProvider.dispose();
+		if (rdcItemProvider != null) rdcItemProvider.dispose();
+		if (connectorItemProvider != null) connectorItemProvider.dispose();
+		if (availableInterfaceItemProvider != null) availableInterfaceItemProvider.dispose();
+		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
+		if (interfaceGroupItemProvider != null) interfaceGroupItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 	}
 

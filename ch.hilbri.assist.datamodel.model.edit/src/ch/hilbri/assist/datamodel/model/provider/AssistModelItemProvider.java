@@ -64,10 +64,6 @@ public class AssistModelItemProvider
 			super.getPropertyDescriptors(object);
 
 			addSystemNamePropertyDescriptor(object);
-			addChangeDelayPropertyDescriptor(object);
-			addTopHardwareLevelPropertyDescriptor(object);
-			addBottomHardwareLevelPropertyDescriptor(object);
-			addHardwareLevelCountPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -95,94 +91,6 @@ public class AssistModelItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Change Delay feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addChangeDelayPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AssistModel_changeDelay_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_changeDelay_feature", "_UI_AssistModel_type"),
-				 ModelPackage.Literals.ASSIST_MODEL__CHANGE_DELAY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Top Hardware Level feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTopHardwareLevelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AssistModel_topHardwareLevel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_topHardwareLevel_feature", "_UI_AssistModel_type"),
-				 ModelPackage.Literals.ASSIST_MODEL__TOP_HARDWARE_LEVEL,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Bottom Hardware Level feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBottomHardwareLevelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AssistModel_bottomHardwareLevel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_bottomHardwareLevel_feature", "_UI_AssistModel_type"),
-				 ModelPackage.Literals.ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Hardware Level Count feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHardwareLevelCountPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AssistModel_hardwareLevelCount_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_hardwareLevelCount_feature", "_UI_AssistModel_type"),
-				 ModelPackage.Literals.ASSIST_MODEL__HARDWARE_LEVEL_COUNT,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -194,15 +102,9 @@ public class AssistModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__HARDWARE_CONTAINER);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__NETWORKS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__APPLICATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__APPLICATION_GROUPS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISSIMILARITY_RELATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__PROXIMITY_RELATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMMUNICATION_RELATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__SCHEDULING_RELATIONS);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__INTERFACES);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__INTERFACE_GROUPS);
 		}
 		return childrenFeatures;
 	}
@@ -259,21 +161,11 @@ public class AssistModelItemProvider
 
 		switch (notification.getFeatureID(AssistModel.class)) {
 			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
-			case ModelPackage.ASSIST_MODEL__CHANGE_DELAY:
-			case ModelPackage.ASSIST_MODEL__TOP_HARDWARE_LEVEL:
-			case ModelPackage.ASSIST_MODEL__BOTTOM_HARDWARE_LEVEL:
-			case ModelPackage.ASSIST_MODEL__HARDWARE_LEVEL_COUNT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ModelPackage.ASSIST_MODEL__HARDWARE_CONTAINER:
-			case ModelPackage.ASSIST_MODEL__NETWORKS:
-			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
-			case ModelPackage.ASSIST_MODEL__APPLICATION_GROUPS:
-			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
-			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
-			case ModelPackage.ASSIST_MODEL__PROXIMITY_RELATIONS:
-			case ModelPackage.ASSIST_MODEL__COMMUNICATION_RELATIONS:
-			case ModelPackage.ASSIST_MODEL__SCHEDULING_RELATIONS:
+			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
+			case ModelPackage.ASSIST_MODEL__INTERFACES:
+			case ModelPackage.ASSIST_MODEL__INTERFACE_GROUPS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -293,63 +185,18 @@ public class AssistModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__HARDWARE_CONTAINER,
-				 ModelFactory.eINSTANCE.createHardwareElementContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__HARDWARE_CONTAINER,
+				(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS,
 				 ModelFactory.eINSTANCE.createCompartment()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__HARDWARE_CONTAINER,
-				 ModelFactory.eINSTANCE.createBox()));
+				(ModelPackage.Literals.ASSIST_MODEL__INTERFACES,
+				 ModelFactory.eINSTANCE.createInterface()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__HARDWARE_CONTAINER,
-				 ModelFactory.eINSTANCE.createBoard()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__NETWORKS,
-				 ModelFactory.eINSTANCE.createNetwork()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__APPLICATIONS,
-				 ModelFactory.eINSTANCE.createApplication()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__APPLICATION_GROUPS,
-				 ModelFactory.eINSTANCE.createApplicationGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__DISSIMILARITY_RELATIONS,
-				 ModelFactory.eINSTANCE.createDissimilarityRelation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS,
-				 ModelFactory.eINSTANCE.createDislocalityRelation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__PROXIMITY_RELATIONS,
-				 ModelFactory.eINSTANCE.createProximityRelation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__COMMUNICATION_RELATIONS,
-				 ModelFactory.eINSTANCE.createCommunicationRelation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__SCHEDULING_RELATIONS,
-				 ModelFactory.eINSTANCE.createSchedulingRelation()));
+				(ModelPackage.Literals.ASSIST_MODEL__INTERFACE_GROUPS,
+				 ModelFactory.eINSTANCE.createInterfaceGroup()));
 	}
 
 	/**
