@@ -31,12 +31,12 @@ class FirstFailWithProgressionOutput extends FirstFail {
 		this.map = new HashMap
 
 		for (v : solverVariables.locationVariables) {
-			val app 			= solverVariables.getApplicationForLocationVariable(v)
-			val disLocRels 		= model.getAllDislocalityRelations(app)
-			if (disLocRels.length <= 0) 
+//			val app 			= solverVariables.getApplicationForLocationVariable(v)
+//			val disLocRels 		= model.getAllDislocalityRelations(app)
+//			if (disLocRels.length <= 0) 
 				this.map.put(v, 0)
-			else
-				this.map.put(v, disLocRels.map[applicationCount].reduce[p1, p2|p1 + p2]) 
+//			else
+//				this.map.put(v, disLocRels.map[applicationCount].reduce[p1, p2|p1 + p2]) 
 		}
 	}
 	

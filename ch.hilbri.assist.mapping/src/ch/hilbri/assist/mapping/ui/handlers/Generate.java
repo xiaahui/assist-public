@@ -21,9 +21,8 @@ import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor;
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.application.helpers.Helpers;
 import ch.hilbri.assist.datamodel.model.AssistModel;
-import ch.hilbri.assist.mapping.datamodel.PostProcessor;
-import ch.hilbri.assist.mapping.solver.SearchType;
 import ch.hilbri.assist.mapping.solver.GuiSolverJob;
+import ch.hilbri.assist.mapping.solver.SearchType;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.searchtypesdialog.SimpleOrAdvancedModeDialog;
 
@@ -109,13 +108,6 @@ public class Generate {
 					
 					/* Create a new model for the input */
 					AssistModel inputModel = (AssistModel) resource.getContents().get(0);
-					
-					/* Fix the model */
-					// Threads are not part of the input - only implicitely; thus we have to create them afterwards
-					PostProcessor.createMissingThreads(inputModel);
-					// Each board is a "local network" to allow "communicating" applications to be mapped to the same board
-					// -> but local networks are not part of the input so they have to be created afterwards
-					PostProcessor.createMissingBoardLocalNetworks(inputModel);
 					
 					if (editor instanceof MultiPageEditor) {
 						
