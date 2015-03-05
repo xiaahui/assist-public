@@ -187,72 +187,72 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.AvailableInterface} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.AvailableEqInterface} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AvailableInterfaceItemProvider availableInterfaceItemProvider;
+	protected AvailableEqInterfaceItemProvider availableEqInterfaceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.AvailableInterface}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.AvailableEqInterface}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAvailableInterfaceAdapter() {
-		if (availableInterfaceItemProvider == null) {
-			availableInterfaceItemProvider = new AvailableInterfaceItemProvider(this);
+	public Adapter createAvailableEqInterfaceAdapter() {
+		if (availableEqInterfaceItemProvider == null) {
+			availableEqInterfaceItemProvider = new AvailableEqInterfaceItemProvider(this);
 		}
 
-		return availableInterfaceItemProvider;
+		return availableEqInterfaceItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Interface} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.EqInterface} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InterfaceItemProvider interfaceItemProvider;
+	protected EqInterfaceItemProvider eqInterfaceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.Interface}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.EqInterface}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createInterfaceAdapter() {
-		if (interfaceItemProvider == null) {
-			interfaceItemProvider = new InterfaceItemProvider(this);
+	public Adapter createEqInterfaceAdapter() {
+		if (eqInterfaceItemProvider == null) {
+			eqInterfaceItemProvider = new EqInterfaceItemProvider(this);
 		}
 
-		return interfaceItemProvider;
+		return eqInterfaceItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.InterfaceGroup} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.EqInterfaceGroup} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InterfaceGroupItemProvider interfaceGroupItemProvider;
+	protected EqInterfaceGroupItemProvider eqInterfaceGroupItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.InterfaceGroup}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.EqInterfaceGroup}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createInterfaceGroupAdapter() {
-		if (interfaceGroupItemProvider == null) {
-			interfaceGroupItemProvider = new InterfaceGroupItemProvider(this);
+	public Adapter createEqInterfaceGroupAdapter() {
+		if (eqInterfaceGroupItemProvider == null) {
+			eqInterfaceGroupItemProvider = new EqInterfaceGroupItemProvider(this);
 		}
 
-		return interfaceGroupItemProvider;
+		return eqInterfaceGroupItemProvider;
 	}
 
 	/**
@@ -382,9 +382,9 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (compartmentItemProvider != null) compartmentItemProvider.dispose();
 		if (rdcItemProvider != null) rdcItemProvider.dispose();
 		if (connectorItemProvider != null) connectorItemProvider.dispose();
-		if (availableInterfaceItemProvider != null) availableInterfaceItemProvider.dispose();
-		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
-		if (interfaceGroupItemProvider != null) interfaceGroupItemProvider.dispose();
+		if (availableEqInterfaceItemProvider != null) availableEqInterfaceItemProvider.dispose();
+		if (eqInterfaceItemProvider != null) eqInterfaceItemProvider.dispose();
+		if (eqInterfaceGroupItemProvider != null) eqInterfaceGroupItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 	}
 

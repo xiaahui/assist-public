@@ -56,6 +56,7 @@
 'GrpInfo'=84
 'Interface'=78
 'InterfaceGroups'=64
+'InterfaceSystem'=79
 'Interfaces'=63
 'LineName'=82
 'Manufacturer'=66
@@ -68,7 +69,6 @@
 'Side'=68
 'SubAta'=80
 'System name'=59
-'System'=79
 'Type'=72
 'WiringLane'=83
 'Zone'=69

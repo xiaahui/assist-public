@@ -45,8 +45,8 @@ import org.eclipse.wb.swt.SWTResourceManager;
 
 import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.Connector;
+import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.HardwareElement;
-import ch.hilbri.assist.datamodel.model.Interface;
 import ch.hilbri.assist.datamodel.model.RDC;
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
@@ -307,12 +307,12 @@ public class InfoSheetView {
 		tableComponentProperties.removeAll();
 
 		if (obj != null) if (obj instanceof Result)
-			addRowToTableComponentProperties("System Name", ((Result) obj).getSystemName());
+			addRowToTableComponentProperties("System Name", ((Result) obj).getModel().getSystemName());
 
 		else if (obj instanceof HardwareElement) {
 
 			if (obj instanceof Connector) {
-				Connector c = (Connector) obj;
+//				Connector c = (Connector) obj;
 //				DecimalFormat f = new DecimalFormat("#0.00");
 				addRowToTableComponentProperties("Component type", "Connector");
 //				addRowToTableComponentProperties("Name", c.getName());
@@ -350,7 +350,7 @@ public class InfoSheetView {
 				addRowToTableComponentProperties("Zone", c.getZone());
 				addRowToTableComponentProperties("Power Suppy", c.getPowerSupply());
 			}
-		} else if (obj instanceof Interface) {
+		} else if (obj instanceof EqInterface) {
 //			Interface iface  = (Interface) obj;
 //			addRowToTableComponentProperties("Component Type", "Thread");
 //			addRowToTableComponentProperties("Application Name", t.getApplication().getName());

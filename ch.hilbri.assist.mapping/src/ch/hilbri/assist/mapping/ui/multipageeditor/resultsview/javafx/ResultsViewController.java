@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.Connector;
-import ch.hilbri.assist.datamodel.model.Interface;
+import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.RDC;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.GotoSolutionDialog;
@@ -320,7 +320,7 @@ public class ResultsViewController extends AnchorPane{
 		resultTreeView.edit(systemNode);
 		resultTreeView.setEditable(false);
 		
-		for (Compartment compartment : r.getCompartments())
+		for (Compartment compartment : r.getModel().getCompartments())
 			drawHardwareNodes(compartment, systemNode, r);
 		
 		if (detailedResultsViewUiModel.clickedObjectProperty().get() == null) {
@@ -349,8 +349,9 @@ public class ResultsViewController extends AnchorPane{
 		newNode.setExpanded(true);
 		
 		if (obj instanceof Connector) { 
-			/* draw applications */
-			for (Interface iface : ((Connector)obj).getMappedInterfaces()) 
+			/* draw interfaces */
+			
+			for (EqInterface iface : result.getAllMappedEqInterfacesForConnector((Connector) obj)) 
 				drawInterfaceNodes(iface, newNode);
 		}
 		else { 	
@@ -360,7 +361,7 @@ public class ResultsViewController extends AnchorPane{
 		}
 	}
 
-	private void drawInterfaceNodes(Interface iface, TreeItem<TreeObject> rootNode) {
+	private void drawInterfaceNodes(EqInterface iface, TreeItem<TreeObject> rootNode) {
 		Image i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_application_16x16.png"));
 		ImageView iv = new ImageView(i);
 		TreeItem<TreeObject> newNode = new TreeItem<TreeObject>(new TreeObject(iface), iv);

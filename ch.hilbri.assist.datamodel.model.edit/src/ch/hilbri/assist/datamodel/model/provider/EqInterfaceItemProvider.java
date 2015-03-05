@@ -3,7 +3,7 @@
 package ch.hilbri.assist.datamodel.model.provider;
 
 
-import ch.hilbri.assist.datamodel.model.Interface;
+import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.ModelFactory;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 
@@ -29,12 +29,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.Interface} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.EqInterface} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class InterfaceItemProvider 
+public class EqInterfaceItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +48,7 @@ public class InterfaceItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InterfaceItemProvider(AdapterFactory adapterFactory) {
+	public EqInterfaceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -90,9 +90,9 @@ public class InterfaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Interface_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_name_feature", "_UI_Interface_type"),
-				 ModelPackage.Literals.INTERFACE__NAME,
+				 getString("_UI_EqInterface_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_name_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__NAME,
 				 true,
 				 false,
 				 false,
@@ -112,9 +112,9 @@ public class InterfaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Interface_system_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_system_feature", "_UI_Interface_type"),
-				 ModelPackage.Literals.INTERFACE__SYSTEM,
+				 getString("_UI_EqInterface_system_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_system_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__SYSTEM,
 				 true,
 				 false,
 				 false,
@@ -134,9 +134,9 @@ public class InterfaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Interface_subAta_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_subAta_feature", "_UI_Interface_type"),
-				 ModelPackage.Literals.INTERFACE__SUB_ATA,
+				 getString("_UI_EqInterface_subAta_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_subAta_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__SUB_ATA,
 				 true,
 				 false,
 				 false,
@@ -156,9 +156,9 @@ public class InterfaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Interface_resource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_resource_feature", "_UI_Interface_type"),
-				 ModelPackage.Literals.INTERFACE__RESOURCE,
+				 getString("_UI_EqInterface_resource_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_resource_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__RESOURCE,
 				 true,
 				 false,
 				 false,
@@ -178,9 +178,9 @@ public class InterfaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Interface_lineName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_lineName_feature", "_UI_Interface_type"),
-				 ModelPackage.Literals.INTERFACE__LINE_NAME,
+				 getString("_UI_EqInterface_lineName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_lineName_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__LINE_NAME,
 				 true,
 				 false,
 				 false,
@@ -200,9 +200,9 @@ public class InterfaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Interface_wiringLane_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_wiringLane_feature", "_UI_Interface_type"),
-				 ModelPackage.Literals.INTERFACE__WIRING_LANE,
+				 getString("_UI_EqInterface_wiringLane_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_wiringLane_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__WIRING_LANE,
 				 true,
 				 false,
 				 false,
@@ -222,9 +222,9 @@ public class InterfaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Interface_grpInfo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_grpInfo_feature", "_UI_Interface_type"),
-				 ModelPackage.Literals.INTERFACE__GRP_INFO,
+				 getString("_UI_EqInterface_grpInfo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_grpInfo_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__GRP_INFO,
 				 true,
 				 false,
 				 false,
@@ -244,9 +244,9 @@ public class InterfaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Interface_route_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_route_feature", "_UI_Interface_type"),
-				 ModelPackage.Literals.INTERFACE__ROUTE,
+				 getString("_UI_EqInterface_route_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_route_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__ROUTE,
 				 true,
 				 false,
 				 false,
@@ -266,9 +266,9 @@ public class InterfaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Interface_pwSup1_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_pwSup1_feature", "_UI_Interface_type"),
-				 ModelPackage.Literals.INTERFACE__PW_SUP1,
+				 getString("_UI_EqInterface_pwSup1_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_pwSup1_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__PW_SUP1,
 				 true,
 				 false,
 				 false,
@@ -288,9 +288,9 @@ public class InterfaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Interface_emhZone1_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_emhZone1_feature", "_UI_Interface_type"),
-				 ModelPackage.Literals.INTERFACE__EMH_ZONE1,
+				 getString("_UI_EqInterface_emhZone1_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_emhZone1_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__EMH_ZONE1,
 				 true,
 				 false,
 				 false,
@@ -310,9 +310,9 @@ public class InterfaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Interface_ioType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_ioType_feature", "_UI_Interface_type"),
-				 ModelPackage.Literals.INTERFACE__IO_TYPE,
+				 getString("_UI_EqInterface_ioType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_ioType_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__IO_TYPE,
 				 true,
 				 false,
 				 false,
@@ -332,9 +332,9 @@ public class InterfaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Interface_mappedConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_mappedConnector_feature", "_UI_Interface_type"),
-				 ModelPackage.Literals.INTERFACE__MAPPED_CONNECTOR,
+				 getString("_UI_EqInterface_mappedConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_mappedConnector_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__MAPPED_CONNECTOR,
 				 true,
 				 false,
 				 true,
@@ -355,7 +355,7 @@ public class InterfaceItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.INTERFACE__METRIC_PARAMETERS);
+			childrenFeatures.add(ModelPackage.Literals.EQ_INTERFACE__METRIC_PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -374,14 +374,14 @@ public class InterfaceItemProvider
 	}
 
 	/**
-	 * This returns Interface.gif.
+	 * This returns EqInterface.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Interface"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EqInterface"));
 	}
 
 	/**
@@ -392,10 +392,10 @@ public class InterfaceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Interface)object).getName();
+		String label = ((EqInterface)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Interface_type") :
-			getString("_UI_Interface_type") + " " + label;
+			getString("_UI_EqInterface_type") :
+			getString("_UI_EqInterface_type") + " " + label;
 	}
 	
 
@@ -410,21 +410,21 @@ public class InterfaceItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Interface.class)) {
-			case ModelPackage.INTERFACE__NAME:
-			case ModelPackage.INTERFACE__SYSTEM:
-			case ModelPackage.INTERFACE__SUB_ATA:
-			case ModelPackage.INTERFACE__RESOURCE:
-			case ModelPackage.INTERFACE__LINE_NAME:
-			case ModelPackage.INTERFACE__WIRING_LANE:
-			case ModelPackage.INTERFACE__GRP_INFO:
-			case ModelPackage.INTERFACE__ROUTE:
-			case ModelPackage.INTERFACE__PW_SUP1:
-			case ModelPackage.INTERFACE__EMH_ZONE1:
-			case ModelPackage.INTERFACE__IO_TYPE:
+		switch (notification.getFeatureID(EqInterface.class)) {
+			case ModelPackage.EQ_INTERFACE__NAME:
+			case ModelPackage.EQ_INTERFACE__SYSTEM:
+			case ModelPackage.EQ_INTERFACE__SUB_ATA:
+			case ModelPackage.EQ_INTERFACE__RESOURCE:
+			case ModelPackage.EQ_INTERFACE__LINE_NAME:
+			case ModelPackage.EQ_INTERFACE__WIRING_LANE:
+			case ModelPackage.EQ_INTERFACE__GRP_INFO:
+			case ModelPackage.EQ_INTERFACE__ROUTE:
+			case ModelPackage.EQ_INTERFACE__PW_SUP1:
+			case ModelPackage.EQ_INTERFACE__EMH_ZONE1:
+			case ModelPackage.EQ_INTERFACE__IO_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ModelPackage.INTERFACE__METRIC_PARAMETERS:
+			case ModelPackage.EQ_INTERFACE__METRIC_PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -444,7 +444,7 @@ public class InterfaceItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.INTERFACE__METRIC_PARAMETERS,
+				(ModelPackage.Literals.EQ_INTERFACE__METRIC_PARAMETERS,
 				 ModelFactory.eINSTANCE.createMetricParameter()));
 	}
 

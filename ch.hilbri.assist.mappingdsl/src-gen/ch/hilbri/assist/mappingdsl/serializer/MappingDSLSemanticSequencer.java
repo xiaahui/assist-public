@@ -1,11 +1,11 @@
 package ch.hilbri.assist.mappingdsl.serializer;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
-import ch.hilbri.assist.datamodel.model.AvailableInterface;
+import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
 import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.Connector;
-import ch.hilbri.assist.datamodel.model.Interface;
-import ch.hilbri.assist.datamodel.model.InterfaceGroup;
+import ch.hilbri.assist.datamodel.model.EqInterface;
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
 import ch.hilbri.assist.datamodel.model.MetricParameter;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.model.RDC;
@@ -38,9 +38,9 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
-			case ModelPackage.AVAILABLE_INTERFACE:
-				if(context == grammarAccess.getAvailableInterfaceRule()) {
-					sequence_AvailableInterface(context, (AvailableInterface) semanticObject); 
+			case ModelPackage.AVAILABLE_EQ_INTERFACE:
+				if(context == grammarAccess.getAvailableEqInterfaceRule()) {
+					sequence_AvailableEqInterface(context, (AvailableEqInterface) semanticObject); 
 					return; 
 				}
 				else break;
@@ -56,15 +56,15 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
-			case ModelPackage.INTERFACE:
-				if(context == grammarAccess.getInterfaceRule()) {
-					sequence_Interface(context, (Interface) semanticObject); 
+			case ModelPackage.EQ_INTERFACE:
+				if(context == grammarAccess.getEqInterfaceRule()) {
+					sequence_EqInterface(context, (EqInterface) semanticObject); 
 					return; 
 				}
 				else break;
-			case ModelPackage.INTERFACE_GROUP:
-				if(context == grammarAccess.getInterfaceGroupRule()) {
-					sequence_InterfaceGroup(context, (InterfaceGroup) semanticObject); 
+			case ModelPackage.EQ_INTERFACE_GROUP:
+				if(context == grammarAccess.getEqInterfaceGroupRule()) {
+					sequence_EqInterfaceGroup(context, (EqInterfaceGroup) semanticObject); 
 					return; 
 				}
 				else break;
@@ -86,7 +86,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (systemName=STRING compartments+=Compartment+ interfaces+=Interface+ interfaceGroups+=InterfaceGroup)
+	 *     (systemName=STRING compartments+=Compartment? eqInterfaces+=EqInterface* eqInterfaceGroups+=EqInterfaceGroup*)
 	 */
 	protected void sequence_AssistModel(EObject context, AssistModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -95,19 +95,19 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (count=INT interfaceType=InterfaceType)
+	 *     (count=INT eqInterfaceType=EqInterfaceType)
 	 */
-	protected void sequence_AvailableInterface(EObject context, AvailableInterface semanticObject) {
+	protected void sequence_AvailableEqInterface(EObject context, AvailableEqInterface semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.AVAILABLE_INTERFACE__INTERFACE_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.AVAILABLE_INTERFACE__INTERFACE_TYPE));
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.AVAILABLE_INTERFACE__COUNT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.AVAILABLE_INTERFACE__COUNT));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__EQ_INTERFACE_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__EQ_INTERFACE_TYPE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__COUNT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__COUNT));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAvailableInterfaceAccess().getCountINTTerminalRuleCall_0_0(), semanticObject.getCount());
-		feeder.accept(grammarAccess.getAvailableInterfaceAccess().getInterfaceTypeInterfaceTypeEnumRuleCall_2_0(), semanticObject.getInterfaceType());
+		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getCountINTTerminalRuleCall_0_0(), semanticObject.getCount());
+		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getEqInterfaceTypeEqInterfaceTypeEnumRuleCall_2_0(), semanticObject.getEqInterfaceType());
 		feeder.finish();
 	}
 	
@@ -131,7 +131,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID availableInterfaces+=AvailableInterface*)
+	 *     (name=ID availableEqInterfaces+=AvailableEqInterface*)
 	 */
 	protected void sequence_Connector(EObject context, Connector semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -140,9 +140,9 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID interfaces+=[Interface|ID] interfaces+=[Interface|ID]+)
+	 *     (name=ID eqInterfaces+=[EqInterface|ID] eqInterfaces+=[EqInterface|ID]+)
 	 */
-	protected void sequence_InterfaceGroup(EObject context, InterfaceGroup semanticObject) {
+	protected void sequence_EqInterfaceGroup(EObject context, EqInterfaceGroup semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -160,11 +160,11 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         route=STRING? 
 	 *         pwSup1=STRING? 
 	 *         emhZone1=STRING? 
-	 *         ioType=InterfaceType? 
+	 *         ioType=EqInterfaceType? 
 	 *         metricParameters+=MetricParameter*
 	 *     )
 	 */
-	protected void sequence_Interface(EObject context, Interface semanticObject) {
+	protected void sequence_EqInterface(EObject context, EqInterface semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

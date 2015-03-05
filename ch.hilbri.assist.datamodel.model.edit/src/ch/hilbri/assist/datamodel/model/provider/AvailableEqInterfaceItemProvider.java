@@ -3,13 +3,18 @@
 package ch.hilbri.assist.datamodel.model.provider;
 
 
-import ch.hilbri.assist.datamodel.model.InterfaceGroup;
+import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
+import ch.hilbri.assist.datamodel.model.EqInterfaceType;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -22,12 +27,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.InterfaceGroup} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.AvailableEqInterface} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class InterfaceGroupItemProvider 
+public class AvailableEqInterfaceItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -41,7 +46,7 @@ public class InterfaceGroupItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InterfaceGroupItemProvider(AdapterFactory adapterFactory) {
+	public AvailableEqInterfaceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -56,26 +61,26 @@ public class InterfaceGroupItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addInterfacesPropertyDescriptor(object);
+			addEqInterfaceTypePropertyDescriptor(object);
+			addCountPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Eq Interface Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addEqInterfaceTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InterfaceGroup_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InterfaceGroup_name_feature", "_UI_InterfaceGroup_type"),
-				 ModelPackage.Literals.INTERFACE_GROUP__NAME,
+				 getString("_UI_AvailableEqInterface_eqInterfaceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AvailableEqInterface_eqInterfaceType_feature", "_UI_AvailableEqInterface_type"),
+				 ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__EQ_INTERFACE_TYPE,
 				 true,
 				 false,
 				 false,
@@ -85,36 +90,36 @@ public class InterfaceGroupItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Interfaces feature.
+	 * This adds a property descriptor for the Count feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInterfacesPropertyDescriptor(Object object) {
+	protected void addCountPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InterfaceGroup_interfaces_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InterfaceGroup_interfaces_feature", "_UI_InterfaceGroup_type"),
-				 ModelPackage.Literals.INTERFACE_GROUP__INTERFACES,
+				 getString("_UI_AvailableEqInterface_count_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AvailableEqInterface_count_feature", "_UI_AvailableEqInterface_type"),
+				 ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__COUNT,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This returns InterfaceGroup.gif.
+	 * This returns AvailableEqInterface.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InterfaceGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AvailableEqInterface"));
 	}
 
 	/**
@@ -125,10 +130,11 @@ public class InterfaceGroupItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((InterfaceGroup)object).getName();
+		EqInterfaceType labelValue = ((AvailableEqInterface)object).getEqInterfaceType();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_InterfaceGroup_type") :
-			getString("_UI_InterfaceGroup_type") + " " + label;
+			getString("_UI_AvailableEqInterface_type") :
+			getString("_UI_AvailableEqInterface_type") + " " + label;
 	}
 	
 
@@ -143,8 +149,9 @@ public class InterfaceGroupItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(InterfaceGroup.class)) {
-			case ModelPackage.INTERFACE_GROUP__NAME:
+		switch (notification.getFeatureID(AvailableEqInterface.class)) {
+			case ModelPackage.AVAILABLE_EQ_INTERFACE__EQ_INTERFACE_TYPE:
+			case ModelPackage.AVAILABLE_EQ_INTERFACE__COUNT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

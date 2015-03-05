@@ -7,15 +7,15 @@ AssistModel:
 		'System name' '=' systemName=STRING ';' 
 	'}'
 
-	(compartments+=Compartment)+
+	((compartments+=Compartment)+)?
 
-	'Interfaces' '{'
-		(interfaces+=Interface)+ 
-	'}'
+	('Interfaces' '{'
+		(eqInterfaces+=EqInterface)+ 
+	'}')?
 	
-	'InterfaceGroups' '{'
-		(interfaceGroups+=InterfaceGroup)
-	'}'
+	('InterfaceGroups' '{'
+		(eqInterfaceGroups+=EqInterfaceGroup)+
+	'}')?
 ;
 
 Compartment: 
@@ -42,24 +42,24 @@ RDC:
 
 Connector:
 	'Connector' name=ID '{'
-		(availableInterfaces+=AvailableInterface)*
+		(availableEqInterfaces+=AvailableEqInterface)*
 	'}'
 ;
 
-AvailableInterface:
-	count=INT 'interface with type' interfaceType=InterfaceType ';'
+AvailableEqInterface:
+	count=INT 'interface with type' eqInterfaceType=EqInterfaceType ';'
 ;
 
 
 /* SOFTWARE */
 
-InterfaceGroup: 
-	'Group' name=ID '{' interfaces+=[Interface] (',' interfaces+=[Interface])+ '}'
+EqInterfaceGroup: 
+	'Group' name=ID '{' eqInterfaces+=[EqInterface] (',' eqInterfaces+=[EqInterface])+ '}'
 ;
 
-Interface:
+EqInterface:
 	'Interface' name=ID '{'
-		('System' 			'=' system=STRING ';')?
+		('InterfaceSystem' 	'=' system=STRING ';')?
 		('SubAta' 			'=' subAta=STRING ';')?
 		('Resource'			'=' resource=STRING ';')?
 		('LineName'			'=' lineName=STRING ';')?
@@ -68,7 +68,7 @@ Interface:
 		('Route'			'=' route=STRING ';')?
 		('PwSup1'			'=' pwSup1=STRING ';')?
 		('EmhZone1'			'=' emhZone1=STRING ';')?
-		('Type'				'=' ioType=InterfaceType ';')?
+		('Type'				'=' ioType=EqInterfaceType ';')?
 		('Generic properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
 	'}';
 
@@ -139,7 +139,7 @@ QualifiedName:
 
 /* ENUMS */
 
-enum InterfaceType:
+enum EqInterfaceType:
 	CAN 		= 'Can'					|
 	ELB			= 'Enhanced Local Bus'	|
 	ETH			= 'Ethernet'			|

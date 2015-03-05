@@ -125,8 +125,7 @@ public class ConnectorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.CONNECTOR__AVAILABLE_INTERFACES);
-			childrenFeatures.add(ModelPackage.Literals.CONNECTOR__MAPPED_INTERFACES);
+			childrenFeatures.add(ModelPackage.Literals.CONNECTOR__AVAILABLE_EQ_INTERFACES);
 		}
 		return childrenFeatures;
 	}
@@ -185,8 +184,7 @@ public class ConnectorItemProvider
 			case ModelPackage.CONNECTOR__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ModelPackage.CONNECTOR__AVAILABLE_INTERFACES:
-			case ModelPackage.CONNECTOR__MAPPED_INTERFACES:
+			case ModelPackage.CONNECTOR__AVAILABLE_EQ_INTERFACES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -206,13 +204,8 @@ public class ConnectorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.CONNECTOR__AVAILABLE_INTERFACES,
-				 ModelFactory.eINSTANCE.createAvailableInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.CONNECTOR__MAPPED_INTERFACES,
-				 ModelFactory.eINSTANCE.createInterface()));
+				(ModelPackage.Literals.CONNECTOR__AVAILABLE_EQ_INTERFACES,
+				 ModelFactory.eINSTANCE.createAvailableEqInterface()));
 	}
 
 	/**

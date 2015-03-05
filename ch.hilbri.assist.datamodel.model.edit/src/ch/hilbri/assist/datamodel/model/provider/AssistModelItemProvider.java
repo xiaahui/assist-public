@@ -103,8 +103,8 @@ public class AssistModelItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__INTERFACES);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__INTERFACE_GROUPS);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACES);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACE_GROUPS);
 		}
 		return childrenFeatures;
 	}
@@ -164,8 +164,8 @@ public class AssistModelItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
-			case ModelPackage.ASSIST_MODEL__INTERFACES:
-			case ModelPackage.ASSIST_MODEL__INTERFACE_GROUPS:
+			case ModelPackage.ASSIST_MODEL__EQ_INTERFACES:
+			case ModelPackage.ASSIST_MODEL__EQ_INTERFACE_GROUPS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -190,13 +190,13 @@ public class AssistModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__INTERFACES,
-				 ModelFactory.eINSTANCE.createInterface()));
+				(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACES,
+				 ModelFactory.eINSTANCE.createEqInterface()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__INTERFACE_GROUPS,
-				 ModelFactory.eINSTANCE.createInterfaceGroup()));
+				(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACE_GROUPS,
+				 ModelFactory.eINSTANCE.createEqInterfaceGroup()));
 	}
 
 	/**

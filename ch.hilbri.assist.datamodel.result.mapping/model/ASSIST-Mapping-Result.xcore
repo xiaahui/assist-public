@@ -6,21 +6,37 @@
 package ch.hilbri.assist.datamodel.result.mapping
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.Connector
+import ch.hilbri.assist.datamodel.model.EqInterface
+
 import java.util.HashMap
+import org.eclipse.emf.common.util.BasicEList
 
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 interface Comparable wraps Comparable<Result>{}
 
-class Result extends Comparable, AssistModel {
+type EqInterfaceConnectorMapType wraps HashMap<EqInterface, Connector>
+
+class Result extends Comparable {
 	String								name
-	contains Evaluation[0..1] 				evaluation
+	refers AssistModel					model
+	EqInterfaceConnectorMapType 		mapping
+	contains Evaluation[0..1] 			evaluation
 	
 	op int compareTo(Result o) {
 		val double diff = this ?. evaluation.totalScaledScore - o ?. evaluation.totalScaledScore;
 		if (diff < 0.0)	return 1;
 		if (diff > 0.0)	return -1;
 		return 0;
+	}
+	
+	op EqInterface[] getAllMappedEqInterfacesForConnector(Connector connector) {
+		val list = new BasicEList<EqInterface>
+		for (iface : mapping.keySet)
+			if (mapping.get(iface) == connector)
+				list.add(iface)
+		return list
 	}
 }
 

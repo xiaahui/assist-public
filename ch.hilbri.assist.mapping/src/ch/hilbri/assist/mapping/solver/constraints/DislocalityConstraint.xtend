@@ -1,14 +1,9 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
-import ch.hilbri.assist.datamodel.model.Application
-import ch.hilbri.assist.datamodel.model.ApplicationGroup
 import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.mapping.solver.exceptions.dislocality.ApplicationsCannotBeMappedDislocal
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
-import org.chocosolver.solver.constraints.ICF
-import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 
 class DislocalityConstraint extends AbstractMappingConstraint {
@@ -42,38 +37,38 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 		 * 3) Create an Alldifferent constraint for each set
 		 */
 		
-		for (r : model.dislocalityRelations) {
-			
-			val varList = new ArrayList<ArrayList<IntVar>>()
-			
-			for (aog : r.applicationsOrGroups) {
-				val aogList = new ArrayList<IntVar>()
-				
-				if (aog instanceof Application) 
-					for (t : (aog as Application).threads) 
-						aogList.add(solverVariables.getThreadLocationVariable(t, r.hardwareLevel.value))
-				
-				else if (aog instanceof ApplicationGroup)
-					for (t : (aog as ApplicationGroup).allThreads)
-						aogList.add(solverVariables.getThreadLocationVariable(t, r.hardwareLevel.value))
-	 			
-	 			else return false
-				
-				varList.add(aogList)
-			}			
-			
-			val varSetForAllDifferentConstraint = createDisjointVariableSets(varList)
-			
-			for (list : varSetForAllDifferentConstraint) {
-				solver.post(ICF.alldifferent(list, "AC"))
-			}
-			
-			try { solver.propagate }
-			catch (ContradictionException e) {
-				throw new ApplicationsCannotBeMappedDislocal(this, r.applicationsOrGroups, r.hardwareLevel)
-			}
-		}
-
+//		for (r : model.dislocalityRelations) {
+//			
+//			val varList = new ArrayList<ArrayList<IntVar>>()
+//			
+//			for (aog : r.applicationsOrGroups) {
+//				val aogList = new ArrayList<IntVar>()
+//				
+//				if (aog instanceof Application) 
+//					for (t : (aog as Application).threads) 
+//						aogList.add(solverVariables.getThreadLocationVariable(t, r.hardwareLevel.value))
+//				
+//				else if (aog instanceof ApplicationGroup)
+//					for (t : (aog as ApplicationGroup).allThreads)
+//						aogList.add(solverVariables.getThreadLocationVariable(t, r.hardwareLevel.value))
+//	 			
+//	 			else return false
+//				
+//				varList.add(aogList)
+//			}			
+//			
+//			val varSetForAllDifferentConstraint = createDisjointVariableSets(varList)
+//			
+//			for (list : varSetForAllDifferentConstraint) {
+//				solver.post(ICF.alldifferent(list, "AC"))
+//			}
+//			
+//			try { solver.propagate }
+//			catch (ContradictionException e) {
+//				throw new ApplicationsCannotBeMappedDislocal(this, r.applicationsOrGroups, r.hardwareLevel)
+//			}
+//		}
+//
 		return true
 	}
 	

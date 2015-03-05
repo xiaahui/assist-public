@@ -138,67 +138,67 @@ ruleAssistModel returns [EObject current=null]
 	    }
 
 )
-)+	otherlv_8='Interfaces' 
+)?(	otherlv_8='Interfaces' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getAssistModelAccess().getInterfacesKeyword_8());
+    	newLeafNode(otherlv_8, grammarAccess.getAssistModelAccess().getInterfacesKeyword_8_0());
     }
 	otherlv_9='{' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_9());
+    	newLeafNode(otherlv_9, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_8_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAssistModelAccess().getInterfacesInterfaceParserRuleCall_10_0()); 
+	        newCompositeNode(grammarAccess.getAssistModelAccess().getEqInterfacesEqInterfaceParserRuleCall_8_2_0()); 
 	    }
-		lv_interfaces_10_0=ruleInterface		{
+		lv_eqInterfaces_10_0=ruleEqInterface		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAssistModelRule());
 	        }
        		add(
        			$current, 
-       			"interfaces",
-        		lv_interfaces_10_0, 
-        		"Interface");
+       			"eqInterfaces",
+        		lv_eqInterfaces_10_0, 
+        		"EqInterface");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )+	otherlv_11='}' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_11());
+    	newLeafNode(otherlv_11, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_8_3());
     }
-	otherlv_12='InterfaceGroups' 
+)?(	otherlv_12='InterfaceGroups' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getAssistModelAccess().getInterfaceGroupsKeyword_12());
+    	newLeafNode(otherlv_12, grammarAccess.getAssistModelAccess().getInterfaceGroupsKeyword_9_0());
     }
 	otherlv_13='{' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_13());
+    	newLeafNode(otherlv_13, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_9_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAssistModelAccess().getInterfaceGroupsInterfaceGroupParserRuleCall_14_0()); 
+	        newCompositeNode(grammarAccess.getAssistModelAccess().getEqInterfaceGroupsEqInterfaceGroupParserRuleCall_9_2_0()); 
 	    }
-		lv_interfaceGroups_14_0=ruleInterfaceGroup		{
+		lv_eqInterfaceGroups_14_0=ruleEqInterfaceGroup		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAssistModelRule());
 	        }
        		add(
        			$current, 
-       			"interfaceGroups",
-        		lv_interfaceGroups_14_0, 
-        		"InterfaceGroup");
+       			"eqInterfaceGroups",
+        		lv_eqInterfaceGroups_14_0, 
+        		"EqInterfaceGroup");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_15='}' 
+)+	otherlv_15='}' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_15());
+    	newLeafNode(otherlv_15, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_9_3());
     }
-)
+)?)
 ;
 
 
@@ -686,17 +686,17 @@ ruleConnector returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getConnectorAccess().getAvailableInterfacesAvailableInterfaceParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getConnectorAccess().getAvailableEqInterfacesAvailableEqInterfaceParserRuleCall_3_0()); 
 	    }
-		lv_availableInterfaces_3_0=ruleAvailableInterface		{
+		lv_availableEqInterfaces_3_0=ruleAvailableEqInterface		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getConnectorRule());
 	        }
        		add(
        			$current, 
-       			"availableInterfaces",
-        		lv_availableInterfaces_3_0, 
-        		"AvailableInterface");
+       			"availableEqInterfaces",
+        		lv_availableEqInterfaces_3_0, 
+        		"AvailableEqInterface");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -712,17 +712,17 @@ ruleConnector returns [EObject current=null]
 
 
 
-// Entry rule entryRuleAvailableInterface
-entryRuleAvailableInterface returns [EObject current=null] 
+// Entry rule entryRuleAvailableEqInterface
+entryRuleAvailableEqInterface returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getAvailableInterfaceRule()); }
-	 iv_ruleAvailableInterface=ruleAvailableInterface 
-	 { $current=$iv_ruleAvailableInterface.current; } 
+	{ newCompositeNode(grammarAccess.getAvailableEqInterfaceRule()); }
+	 iv_ruleAvailableEqInterface=ruleAvailableEqInterface 
+	 { $current=$iv_ruleAvailableEqInterface.current; } 
 	 EOF 
 ;
 
-// Rule AvailableInterface
-ruleAvailableInterface returns [EObject current=null] 
+// Rule AvailableEqInterface
+ruleAvailableEqInterface returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
@@ -730,11 +730,11 @@ ruleAvailableInterface returns [EObject current=null]
 (
 		lv_count_0_0=RULE_INT
 		{
-			newLeafNode(lv_count_0_0, grammarAccess.getAvailableInterfaceAccess().getCountINTTerminalRuleCall_0_0()); 
+			newLeafNode(lv_count_0_0, grammarAccess.getAvailableEqInterfaceAccess().getCountINTTerminalRuleCall_0_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getAvailableInterfaceRule());
+	            $current = createModelElement(grammarAccess.getAvailableEqInterfaceRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -746,29 +746,29 @@ ruleAvailableInterface returns [EObject current=null]
 )
 )	otherlv_1='interface with type' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getAvailableInterfaceAccess().getInterfaceWithTypeKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getAvailableEqInterfaceAccess().getInterfaceWithTypeKeyword_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAvailableInterfaceAccess().getInterfaceTypeInterfaceTypeEnumRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getAvailableEqInterfaceAccess().getEqInterfaceTypeEqInterfaceTypeEnumRuleCall_2_0()); 
 	    }
-		lv_interfaceType_2_0=ruleInterfaceType		{
+		lv_eqInterfaceType_2_0=ruleEqInterfaceType		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getAvailableInterfaceRule());
+	            $current = createModelElementForParent(grammarAccess.getAvailableEqInterfaceRule());
 	        }
        		set(
        			$current, 
-       			"interfaceType",
-        		lv_interfaceType_2_0, 
-        		"InterfaceType");
+       			"eqInterfaceType",
+        		lv_eqInterfaceType_2_0, 
+        		"EqInterfaceType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )	otherlv_3=';' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getAvailableInterfaceAccess().getSemicolonKeyword_3());
+    	newLeafNode(otherlv_3, grammarAccess.getAvailableEqInterfaceAccess().getSemicolonKeyword_3());
     }
 )
 ;
@@ -777,33 +777,33 @@ ruleAvailableInterface returns [EObject current=null]
 
 
 
-// Entry rule entryRuleInterfaceGroup
-entryRuleInterfaceGroup returns [EObject current=null] 
+// Entry rule entryRuleEqInterfaceGroup
+entryRuleEqInterfaceGroup returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getInterfaceGroupRule()); }
-	 iv_ruleInterfaceGroup=ruleInterfaceGroup 
-	 { $current=$iv_ruleInterfaceGroup.current; } 
+	{ newCompositeNode(grammarAccess.getEqInterfaceGroupRule()); }
+	 iv_ruleEqInterfaceGroup=ruleEqInterfaceGroup 
+	 { $current=$iv_ruleEqInterfaceGroup.current; } 
 	 EOF 
 ;
 
-// Rule InterfaceGroup
-ruleInterfaceGroup returns [EObject current=null] 
+// Rule EqInterfaceGroup
+ruleEqInterfaceGroup returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (	otherlv_0='Group' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getInterfaceGroupAccess().getGroupKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getEqInterfaceGroupAccess().getGroupKeyword_0());
     }
 (
 (
 		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getInterfaceGroupAccess().getNameIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getEqInterfaceGroupAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getInterfaceGroupRule());
+	            $current = createModelElement(grammarAccess.getEqInterfaceGroupRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -815,41 +815,41 @@ ruleInterfaceGroup returns [EObject current=null]
 )
 )	otherlv_2='{' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getInterfaceGroupAccess().getLeftCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getEqInterfaceGroupAccess().getLeftCurlyBracketKeyword_2());
     }
 (
 (
 		{
 			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getInterfaceGroupRule());
+	            $current = createModelElement(grammarAccess.getEqInterfaceGroupRule());
 	        }
         }
 	otherlv_3=RULE_ID
 	{
-		newLeafNode(otherlv_3, grammarAccess.getInterfaceGroupAccess().getInterfacesInterfaceCrossReference_3_0()); 
+		newLeafNode(otherlv_3, grammarAccess.getEqInterfaceGroupAccess().getEqInterfacesEqInterfaceCrossReference_3_0()); 
 	}
 
 )
 )(	otherlv_4=',' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getInterfaceGroupAccess().getCommaKeyword_4_0());
+    	newLeafNode(otherlv_4, grammarAccess.getEqInterfaceGroupAccess().getCommaKeyword_4_0());
     }
 (
 (
 		{
 			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getInterfaceGroupRule());
+	            $current = createModelElement(grammarAccess.getEqInterfaceGroupRule());
 	        }
         }
 	otherlv_5=RULE_ID
 	{
-		newLeafNode(otherlv_5, grammarAccess.getInterfaceGroupAccess().getInterfacesInterfaceCrossReference_4_1_0()); 
+		newLeafNode(otherlv_5, grammarAccess.getEqInterfaceGroupAccess().getEqInterfacesEqInterfaceCrossReference_4_1_0()); 
 	}
 
 )
 ))+	otherlv_6='}' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getInterfaceGroupAccess().getRightCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_6, grammarAccess.getEqInterfaceGroupAccess().getRightCurlyBracketKeyword_5());
     }
 )
 ;
@@ -858,33 +858,33 @@ ruleInterfaceGroup returns [EObject current=null]
 
 
 
-// Entry rule entryRuleInterface
-entryRuleInterface returns [EObject current=null] 
+// Entry rule entryRuleEqInterface
+entryRuleEqInterface returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getInterfaceRule()); }
-	 iv_ruleInterface=ruleInterface 
-	 { $current=$iv_ruleInterface.current; } 
+	{ newCompositeNode(grammarAccess.getEqInterfaceRule()); }
+	 iv_ruleEqInterface=ruleEqInterface 
+	 { $current=$iv_ruleEqInterface.current; } 
 	 EOF 
 ;
 
-// Rule Interface
-ruleInterface returns [EObject current=null] 
+// Rule EqInterface
+ruleEqInterface returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (	otherlv_0='Interface' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getInterfaceAccess().getInterfaceKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getEqInterfaceAccess().getInterfaceKeyword_0());
     }
 (
 (
 		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getInterfaceAccess().getNameIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getEqInterfaceAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getInterfaceRule());
+	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -896,25 +896,25 @@ ruleInterface returns [EObject current=null]
 )
 )	otherlv_2='{' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getInterfaceAccess().getLeftCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getEqInterfaceAccess().getLeftCurlyBracketKeyword_2());
     }
-(	otherlv_3='System' 
+(	otherlv_3='InterfaceSystem' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getInterfaceAccess().getSystemKeyword_3_0());
+    	newLeafNode(otherlv_3, grammarAccess.getEqInterfaceAccess().getInterfaceSystemKeyword_3_0());
     }
 	otherlv_4='=' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getInterfaceAccess().getEqualsSignKeyword_3_1());
+    	newLeafNode(otherlv_4, grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_1());
     }
 (
 (
 		lv_system_5_0=RULE_STRING
 		{
-			newLeafNode(lv_system_5_0, grammarAccess.getInterfaceAccess().getSystemSTRINGTerminalRuleCall_3_2_0()); 
+			newLeafNode(lv_system_5_0, grammarAccess.getEqInterfaceAccess().getSystemSTRINGTerminalRuleCall_3_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getInterfaceRule());
+	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -926,25 +926,25 @@ ruleInterface returns [EObject current=null]
 )
 )	otherlv_6=';' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getInterfaceAccess().getSemicolonKeyword_3_3());
+    	newLeafNode(otherlv_6, grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_3());
     }
 )?(	otherlv_7='SubAta' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getInterfaceAccess().getSubAtaKeyword_4_0());
+    	newLeafNode(otherlv_7, grammarAccess.getEqInterfaceAccess().getSubAtaKeyword_4_0());
     }
 	otherlv_8='=' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getInterfaceAccess().getEqualsSignKeyword_4_1());
+    	newLeafNode(otherlv_8, grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_4_1());
     }
 (
 (
 		lv_subAta_9_0=RULE_STRING
 		{
-			newLeafNode(lv_subAta_9_0, grammarAccess.getInterfaceAccess().getSubAtaSTRINGTerminalRuleCall_4_2_0()); 
+			newLeafNode(lv_subAta_9_0, grammarAccess.getEqInterfaceAccess().getSubAtaSTRINGTerminalRuleCall_4_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getInterfaceRule());
+	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -956,25 +956,25 @@ ruleInterface returns [EObject current=null]
 )
 )	otherlv_10=';' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getInterfaceAccess().getSemicolonKeyword_4_3());
+    	newLeafNode(otherlv_10, grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_4_3());
     }
 )?(	otherlv_11='Resource' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getInterfaceAccess().getResourceKeyword_5_0());
+    	newLeafNode(otherlv_11, grammarAccess.getEqInterfaceAccess().getResourceKeyword_5_0());
     }
 	otherlv_12='=' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getInterfaceAccess().getEqualsSignKeyword_5_1());
+    	newLeafNode(otherlv_12, grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_5_1());
     }
 (
 (
 		lv_resource_13_0=RULE_STRING
 		{
-			newLeafNode(lv_resource_13_0, grammarAccess.getInterfaceAccess().getResourceSTRINGTerminalRuleCall_5_2_0()); 
+			newLeafNode(lv_resource_13_0, grammarAccess.getEqInterfaceAccess().getResourceSTRINGTerminalRuleCall_5_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getInterfaceRule());
+	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -986,25 +986,25 @@ ruleInterface returns [EObject current=null]
 )
 )	otherlv_14=';' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getInterfaceAccess().getSemicolonKeyword_5_3());
+    	newLeafNode(otherlv_14, grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_5_3());
     }
 )?(	otherlv_15='LineName' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getInterfaceAccess().getLineNameKeyword_6_0());
+    	newLeafNode(otherlv_15, grammarAccess.getEqInterfaceAccess().getLineNameKeyword_6_0());
     }
 	otherlv_16='=' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getInterfaceAccess().getEqualsSignKeyword_6_1());
+    	newLeafNode(otherlv_16, grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_6_1());
     }
 (
 (
 		lv_lineName_17_0=RULE_STRING
 		{
-			newLeafNode(lv_lineName_17_0, grammarAccess.getInterfaceAccess().getLineNameSTRINGTerminalRuleCall_6_2_0()); 
+			newLeafNode(lv_lineName_17_0, grammarAccess.getEqInterfaceAccess().getLineNameSTRINGTerminalRuleCall_6_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getInterfaceRule());
+	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -1016,25 +1016,25 @@ ruleInterface returns [EObject current=null]
 )
 )	otherlv_18=';' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getInterfaceAccess().getSemicolonKeyword_6_3());
+    	newLeafNode(otherlv_18, grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_6_3());
     }
 )?(	otherlv_19='WiringLane' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getInterfaceAccess().getWiringLaneKeyword_7_0());
+    	newLeafNode(otherlv_19, grammarAccess.getEqInterfaceAccess().getWiringLaneKeyword_7_0());
     }
 	otherlv_20='=' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getInterfaceAccess().getEqualsSignKeyword_7_1());
+    	newLeafNode(otherlv_20, grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_7_1());
     }
 (
 (
 		lv_wiringLane_21_0=RULE_STRING
 		{
-			newLeafNode(lv_wiringLane_21_0, grammarAccess.getInterfaceAccess().getWiringLaneSTRINGTerminalRuleCall_7_2_0()); 
+			newLeafNode(lv_wiringLane_21_0, grammarAccess.getEqInterfaceAccess().getWiringLaneSTRINGTerminalRuleCall_7_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getInterfaceRule());
+	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -1046,25 +1046,25 @@ ruleInterface returns [EObject current=null]
 )
 )	otherlv_22=';' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getInterfaceAccess().getSemicolonKeyword_7_3());
+    	newLeafNode(otherlv_22, grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_7_3());
     }
 )?(	otherlv_23='GrpInfo' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getInterfaceAccess().getGrpInfoKeyword_8_0());
+    	newLeafNode(otherlv_23, grammarAccess.getEqInterfaceAccess().getGrpInfoKeyword_8_0());
     }
 	otherlv_24='=' 
     {
-    	newLeafNode(otherlv_24, grammarAccess.getInterfaceAccess().getEqualsSignKeyword_8_1());
+    	newLeafNode(otherlv_24, grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_8_1());
     }
 (
 (
 		lv_grpInfo_25_0=RULE_STRING
 		{
-			newLeafNode(lv_grpInfo_25_0, grammarAccess.getInterfaceAccess().getGrpInfoSTRINGTerminalRuleCall_8_2_0()); 
+			newLeafNode(lv_grpInfo_25_0, grammarAccess.getEqInterfaceAccess().getGrpInfoSTRINGTerminalRuleCall_8_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getInterfaceRule());
+	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -1076,25 +1076,25 @@ ruleInterface returns [EObject current=null]
 )
 )	otherlv_26=';' 
     {
-    	newLeafNode(otherlv_26, grammarAccess.getInterfaceAccess().getSemicolonKeyword_8_3());
+    	newLeafNode(otherlv_26, grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_8_3());
     }
 )?(	otherlv_27='Route' 
     {
-    	newLeafNode(otherlv_27, grammarAccess.getInterfaceAccess().getRouteKeyword_9_0());
+    	newLeafNode(otherlv_27, grammarAccess.getEqInterfaceAccess().getRouteKeyword_9_0());
     }
 	otherlv_28='=' 
     {
-    	newLeafNode(otherlv_28, grammarAccess.getInterfaceAccess().getEqualsSignKeyword_9_1());
+    	newLeafNode(otherlv_28, grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_9_1());
     }
 (
 (
 		lv_route_29_0=RULE_STRING
 		{
-			newLeafNode(lv_route_29_0, grammarAccess.getInterfaceAccess().getRouteSTRINGTerminalRuleCall_9_2_0()); 
+			newLeafNode(lv_route_29_0, grammarAccess.getEqInterfaceAccess().getRouteSTRINGTerminalRuleCall_9_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getInterfaceRule());
+	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -1106,25 +1106,25 @@ ruleInterface returns [EObject current=null]
 )
 )	otherlv_30=';' 
     {
-    	newLeafNode(otherlv_30, grammarAccess.getInterfaceAccess().getSemicolonKeyword_9_3());
+    	newLeafNode(otherlv_30, grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_9_3());
     }
 )?(	otherlv_31='PwSup1' 
     {
-    	newLeafNode(otherlv_31, grammarAccess.getInterfaceAccess().getPwSup1Keyword_10_0());
+    	newLeafNode(otherlv_31, grammarAccess.getEqInterfaceAccess().getPwSup1Keyword_10_0());
     }
 	otherlv_32='=' 
     {
-    	newLeafNode(otherlv_32, grammarAccess.getInterfaceAccess().getEqualsSignKeyword_10_1());
+    	newLeafNode(otherlv_32, grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_10_1());
     }
 (
 (
 		lv_pwSup1_33_0=RULE_STRING
 		{
-			newLeafNode(lv_pwSup1_33_0, grammarAccess.getInterfaceAccess().getPwSup1STRINGTerminalRuleCall_10_2_0()); 
+			newLeafNode(lv_pwSup1_33_0, grammarAccess.getEqInterfaceAccess().getPwSup1STRINGTerminalRuleCall_10_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getInterfaceRule());
+	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -1136,25 +1136,25 @@ ruleInterface returns [EObject current=null]
 )
 )	otherlv_34=';' 
     {
-    	newLeafNode(otherlv_34, grammarAccess.getInterfaceAccess().getSemicolonKeyword_10_3());
+    	newLeafNode(otherlv_34, grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_10_3());
     }
 )?(	otherlv_35='EmhZone1' 
     {
-    	newLeafNode(otherlv_35, grammarAccess.getInterfaceAccess().getEmhZone1Keyword_11_0());
+    	newLeafNode(otherlv_35, grammarAccess.getEqInterfaceAccess().getEmhZone1Keyword_11_0());
     }
 	otherlv_36='=' 
     {
-    	newLeafNode(otherlv_36, grammarAccess.getInterfaceAccess().getEqualsSignKeyword_11_1());
+    	newLeafNode(otherlv_36, grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_11_1());
     }
 (
 (
 		lv_emhZone1_37_0=RULE_STRING
 		{
-			newLeafNode(lv_emhZone1_37_0, grammarAccess.getInterfaceAccess().getEmhZone1STRINGTerminalRuleCall_11_2_0()); 
+			newLeafNode(lv_emhZone1_37_0, grammarAccess.getEqInterfaceAccess().getEmhZone1STRINGTerminalRuleCall_11_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getInterfaceRule());
+	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -1166,54 +1166,54 @@ ruleInterface returns [EObject current=null]
 )
 )	otherlv_38=';' 
     {
-    	newLeafNode(otherlv_38, grammarAccess.getInterfaceAccess().getSemicolonKeyword_11_3());
+    	newLeafNode(otherlv_38, grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_11_3());
     }
 )?(	otherlv_39='Type' 
     {
-    	newLeafNode(otherlv_39, grammarAccess.getInterfaceAccess().getTypeKeyword_12_0());
+    	newLeafNode(otherlv_39, grammarAccess.getEqInterfaceAccess().getTypeKeyword_12_0());
     }
 	otherlv_40='=' 
     {
-    	newLeafNode(otherlv_40, grammarAccess.getInterfaceAccess().getEqualsSignKeyword_12_1());
+    	newLeafNode(otherlv_40, grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_12_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getInterfaceAccess().getIoTypeInterfaceTypeEnumRuleCall_12_2_0()); 
+	        newCompositeNode(grammarAccess.getEqInterfaceAccess().getIoTypeEqInterfaceTypeEnumRuleCall_12_2_0()); 
 	    }
-		lv_ioType_41_0=ruleInterfaceType		{
+		lv_ioType_41_0=ruleEqInterfaceType		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getInterfaceRule());
+	            $current = createModelElementForParent(grammarAccess.getEqInterfaceRule());
 	        }
        		set(
        			$current, 
        			"ioType",
         		lv_ioType_41_0, 
-        		"InterfaceType");
+        		"EqInterfaceType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )	otherlv_42=';' 
     {
-    	newLeafNode(otherlv_42, grammarAccess.getInterfaceAccess().getSemicolonKeyword_12_3());
+    	newLeafNode(otherlv_42, grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_12_3());
     }
 )?(	otherlv_43='Generic properties' 
     {
-    	newLeafNode(otherlv_43, grammarAccess.getInterfaceAccess().getGenericPropertiesKeyword_13_0());
+    	newLeafNode(otherlv_43, grammarAccess.getEqInterfaceAccess().getGenericPropertiesKeyword_13_0());
     }
 	otherlv_44='{' 
     {
-    	newLeafNode(otherlv_44, grammarAccess.getInterfaceAccess().getLeftCurlyBracketKeyword_13_1());
+    	newLeafNode(otherlv_44, grammarAccess.getEqInterfaceAccess().getLeftCurlyBracketKeyword_13_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getInterfaceAccess().getMetricParametersMetricParameterParserRuleCall_13_2_0()); 
+	        newCompositeNode(grammarAccess.getEqInterfaceAccess().getMetricParametersMetricParameterParserRuleCall_13_2_0()); 
 	    }
 		lv_metricParameters_45_0=ruleMetricParameter		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getInterfaceRule());
+	            $current = createModelElementForParent(grammarAccess.getEqInterfaceRule());
 	        }
        		add(
        			$current, 
@@ -1226,11 +1226,11 @@ ruleInterface returns [EObject current=null]
 )
 )*	otherlv_46='}' 
     {
-    	newLeafNode(otherlv_46, grammarAccess.getInterfaceAccess().getRightCurlyBracketKeyword_13_3());
+    	newLeafNode(otherlv_46, grammarAccess.getEqInterfaceAccess().getRightCurlyBracketKeyword_13_3());
     }
 )?	otherlv_47='}' 
     {
-    	newLeafNode(otherlv_47, grammarAccess.getInterfaceAccess().getRightCurlyBracketKeyword_14());
+    	newLeafNode(otherlv_47, grammarAccess.getEqInterfaceAccess().getRightCurlyBracketKeyword_14());
     }
 )
 ;
@@ -1306,284 +1306,284 @@ ruleMetricParameter returns [EObject current=null]
 
 
 
-// Rule InterfaceType
-ruleInterfaceType returns [Enumerator current=null] 
+// Rule EqInterfaceType
+ruleEqInterfaceType returns [Enumerator current=null] 
     @init { enterRule(); }
     @after { leaveRule(); }:
 ((	enumLiteral_0='Can' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCANEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getInterfaceTypeAccess().getCANEnumLiteralDeclaration_0()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCANEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getEqInterfaceTypeAccess().getCANEnumLiteralDeclaration_0()); 
     }
 )
     |(	enumLiteral_1='Enhanced Local Bus' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getELBEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getInterfaceTypeAccess().getELBEnumLiteralDeclaration_1()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getELBEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getEqInterfaceTypeAccess().getELBEnumLiteralDeclaration_1()); 
     }
 )
     |(	enumLiteral_2='Ethernet' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getETHEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_2, grammarAccess.getInterfaceTypeAccess().getETHEnumLiteralDeclaration_2()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getETHEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getEqInterfaceTypeAccess().getETHEnumLiteralDeclaration_2()); 
     }
 )
     |(	enumLiteral_3='Analog' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getANALOGEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_3, grammarAccess.getInterfaceTypeAccess().getANALOGEnumLiteralDeclaration_3()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getANALOGEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_3, grammarAccess.getEqInterfaceTypeAccess().getANALOGEnumLiteralDeclaration_3()); 
     }
 )
     |(	enumLiteral_4='Digital' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getDIGITALEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_4, grammarAccess.getInterfaceTypeAccess().getDIGITALEnumLiteralDeclaration_4()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getDIGITALEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_4, grammarAccess.getEqInterfaceTypeAccess().getDIGITALEnumLiteralDeclaration_4()); 
     }
 )
     |(	enumLiteral_5='Serial' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getSERIALEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_5, grammarAccess.getInterfaceTypeAccess().getSERIALEnumLiteralDeclaration_5()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getSERIALEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_5, grammarAccess.getEqInterfaceTypeAccess().getSERIALEnumLiteralDeclaration_5()); 
     }
 )
     |(	enumLiteral_6='CustomType0' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM0EnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_6, grammarAccess.getInterfaceTypeAccess().getCUSTOM0EnumLiteralDeclaration_6()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM0EnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_6, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM0EnumLiteralDeclaration_6()); 
     }
 )
     |(	enumLiteral_7='CustomType1' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM1EnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_7, grammarAccess.getInterfaceTypeAccess().getCUSTOM1EnumLiteralDeclaration_7()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM1EnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_7, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM1EnumLiteralDeclaration_7()); 
     }
 )
     |(	enumLiteral_8='CustomType2' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM2EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_8, grammarAccess.getInterfaceTypeAccess().getCUSTOM2EnumLiteralDeclaration_8()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM2EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_8, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM2EnumLiteralDeclaration_8()); 
     }
 )
     |(	enumLiteral_9='CustomType3' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM3EnumLiteralDeclaration_9().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_9, grammarAccess.getInterfaceTypeAccess().getCUSTOM3EnumLiteralDeclaration_9()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM3EnumLiteralDeclaration_9().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_9, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM3EnumLiteralDeclaration_9()); 
     }
 )
     |(	enumLiteral_10='CustomType4' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM4EnumLiteralDeclaration_10().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_10, grammarAccess.getInterfaceTypeAccess().getCUSTOM4EnumLiteralDeclaration_10()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM4EnumLiteralDeclaration_10().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_10, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM4EnumLiteralDeclaration_10()); 
     }
 )
     |(	enumLiteral_11='CustomType5' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM5EnumLiteralDeclaration_11().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_11, grammarAccess.getInterfaceTypeAccess().getCUSTOM5EnumLiteralDeclaration_11()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM5EnumLiteralDeclaration_11().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_11, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM5EnumLiteralDeclaration_11()); 
     }
 )
     |(	enumLiteral_12='CustomType6' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM6EnumLiteralDeclaration_12().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_12, grammarAccess.getInterfaceTypeAccess().getCUSTOM6EnumLiteralDeclaration_12()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM6EnumLiteralDeclaration_12().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_12, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM6EnumLiteralDeclaration_12()); 
     }
 )
     |(	enumLiteral_13='CustomType7' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM7EnumLiteralDeclaration_13().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_13, grammarAccess.getInterfaceTypeAccess().getCUSTOM7EnumLiteralDeclaration_13()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM7EnumLiteralDeclaration_13().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_13, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM7EnumLiteralDeclaration_13()); 
     }
 )
     |(	enumLiteral_14='CustomType8' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM8EnumLiteralDeclaration_14().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_14, grammarAccess.getInterfaceTypeAccess().getCUSTOM8EnumLiteralDeclaration_14()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM8EnumLiteralDeclaration_14().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_14, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM8EnumLiteralDeclaration_14()); 
     }
 )
     |(	enumLiteral_15='CustomType9' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM9EnumLiteralDeclaration_15().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_15, grammarAccess.getInterfaceTypeAccess().getCUSTOM9EnumLiteralDeclaration_15()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM9EnumLiteralDeclaration_15().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_15, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM9EnumLiteralDeclaration_15()); 
     }
 )
     |(	enumLiteral_16='CustomType10' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM10EnumLiteralDeclaration_16().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_16, grammarAccess.getInterfaceTypeAccess().getCUSTOM10EnumLiteralDeclaration_16()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM10EnumLiteralDeclaration_16().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_16, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM10EnumLiteralDeclaration_16()); 
     }
 )
     |(	enumLiteral_17='CustomType11' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM11EnumLiteralDeclaration_17().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_17, grammarAccess.getInterfaceTypeAccess().getCUSTOM11EnumLiteralDeclaration_17()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM11EnumLiteralDeclaration_17().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_17, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM11EnumLiteralDeclaration_17()); 
     }
 )
     |(	enumLiteral_18='CustomType12' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM12EnumLiteralDeclaration_18().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_18, grammarAccess.getInterfaceTypeAccess().getCUSTOM12EnumLiteralDeclaration_18()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM12EnumLiteralDeclaration_18().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_18, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM12EnumLiteralDeclaration_18()); 
     }
 )
     |(	enumLiteral_19='CustomType13' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM13EnumLiteralDeclaration_19().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_19, grammarAccess.getInterfaceTypeAccess().getCUSTOM13EnumLiteralDeclaration_19()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM13EnumLiteralDeclaration_19().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_19, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM13EnumLiteralDeclaration_19()); 
     }
 )
     |(	enumLiteral_20='CustomType14' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM14EnumLiteralDeclaration_20().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_20, grammarAccess.getInterfaceTypeAccess().getCUSTOM14EnumLiteralDeclaration_20()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM14EnumLiteralDeclaration_20().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_20, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM14EnumLiteralDeclaration_20()); 
     }
 )
     |(	enumLiteral_21='CustomType15' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM15EnumLiteralDeclaration_21().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_21, grammarAccess.getInterfaceTypeAccess().getCUSTOM15EnumLiteralDeclaration_21()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM15EnumLiteralDeclaration_21().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_21, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM15EnumLiteralDeclaration_21()); 
     }
 )
     |(	enumLiteral_22='CustomType16' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM16EnumLiteralDeclaration_22().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_22, grammarAccess.getInterfaceTypeAccess().getCUSTOM16EnumLiteralDeclaration_22()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM16EnumLiteralDeclaration_22().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_22, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM16EnumLiteralDeclaration_22()); 
     }
 )
     |(	enumLiteral_23='CustomType17' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM17EnumLiteralDeclaration_23().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_23, grammarAccess.getInterfaceTypeAccess().getCUSTOM17EnumLiteralDeclaration_23()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM17EnumLiteralDeclaration_23().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_23, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM17EnumLiteralDeclaration_23()); 
     }
 )
     |(	enumLiteral_24='CustomType18' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM18EnumLiteralDeclaration_24().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_24, grammarAccess.getInterfaceTypeAccess().getCUSTOM18EnumLiteralDeclaration_24()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM18EnumLiteralDeclaration_24().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_24, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM18EnumLiteralDeclaration_24()); 
     }
 )
     |(	enumLiteral_25='CustomType19' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM19EnumLiteralDeclaration_25().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_25, grammarAccess.getInterfaceTypeAccess().getCUSTOM19EnumLiteralDeclaration_25()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM19EnumLiteralDeclaration_25().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_25, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM19EnumLiteralDeclaration_25()); 
     }
 )
     |(	enumLiteral_26='CustomType20' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM20EnumLiteralDeclaration_26().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_26, grammarAccess.getInterfaceTypeAccess().getCUSTOM20EnumLiteralDeclaration_26()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM20EnumLiteralDeclaration_26().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_26, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM20EnumLiteralDeclaration_26()); 
     }
 )
     |(	enumLiteral_27='CustomType21' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM21EnumLiteralDeclaration_27().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_27, grammarAccess.getInterfaceTypeAccess().getCUSTOM21EnumLiteralDeclaration_27()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM21EnumLiteralDeclaration_27().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_27, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM21EnumLiteralDeclaration_27()); 
     }
 )
     |(	enumLiteral_28='CustomType22' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM22EnumLiteralDeclaration_28().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_28, grammarAccess.getInterfaceTypeAccess().getCUSTOM22EnumLiteralDeclaration_28()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM22EnumLiteralDeclaration_28().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_28, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM22EnumLiteralDeclaration_28()); 
     }
 )
     |(	enumLiteral_29='CustomType23' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM23EnumLiteralDeclaration_29().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_29, grammarAccess.getInterfaceTypeAccess().getCUSTOM23EnumLiteralDeclaration_29()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM23EnumLiteralDeclaration_29().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_29, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM23EnumLiteralDeclaration_29()); 
     }
 )
     |(	enumLiteral_30='CustomType24' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM24EnumLiteralDeclaration_30().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_30, grammarAccess.getInterfaceTypeAccess().getCUSTOM24EnumLiteralDeclaration_30()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM24EnumLiteralDeclaration_30().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_30, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM24EnumLiteralDeclaration_30()); 
     }
 )
     |(	enumLiteral_31='CustomType25' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM25EnumLiteralDeclaration_31().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_31, grammarAccess.getInterfaceTypeAccess().getCUSTOM25EnumLiteralDeclaration_31()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM25EnumLiteralDeclaration_31().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_31, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM25EnumLiteralDeclaration_31()); 
     }
 )
     |(	enumLiteral_32='CustomType26' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM26EnumLiteralDeclaration_32().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_32, grammarAccess.getInterfaceTypeAccess().getCUSTOM26EnumLiteralDeclaration_32()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM26EnumLiteralDeclaration_32().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_32, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM26EnumLiteralDeclaration_32()); 
     }
 )
     |(	enumLiteral_33='CustomType27' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM27EnumLiteralDeclaration_33().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_33, grammarAccess.getInterfaceTypeAccess().getCUSTOM27EnumLiteralDeclaration_33()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM27EnumLiteralDeclaration_33().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_33, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM27EnumLiteralDeclaration_33()); 
     }
 )
     |(	enumLiteral_34='CustomType28' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM28EnumLiteralDeclaration_34().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_34, grammarAccess.getInterfaceTypeAccess().getCUSTOM28EnumLiteralDeclaration_34()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM28EnumLiteralDeclaration_34().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_34, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM28EnumLiteralDeclaration_34()); 
     }
 )
     |(	enumLiteral_35='CustomType29' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM29EnumLiteralDeclaration_35().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_35, grammarAccess.getInterfaceTypeAccess().getCUSTOM29EnumLiteralDeclaration_35()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM29EnumLiteralDeclaration_35().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_35, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM29EnumLiteralDeclaration_35()); 
     }
 )
     |(	enumLiteral_36='CustomType30' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM30EnumLiteralDeclaration_36().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_36, grammarAccess.getInterfaceTypeAccess().getCUSTOM30EnumLiteralDeclaration_36()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM30EnumLiteralDeclaration_36().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_36, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM30EnumLiteralDeclaration_36()); 
     }
 )
     |(	enumLiteral_37='CustomType31' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM31EnumLiteralDeclaration_37().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_37, grammarAccess.getInterfaceTypeAccess().getCUSTOM31EnumLiteralDeclaration_37()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM31EnumLiteralDeclaration_37().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_37, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM31EnumLiteralDeclaration_37()); 
     }
 )
     |(	enumLiteral_38='CustomType32' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM32EnumLiteralDeclaration_38().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_38, grammarAccess.getInterfaceTypeAccess().getCUSTOM32EnumLiteralDeclaration_38()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM32EnumLiteralDeclaration_38().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_38, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM32EnumLiteralDeclaration_38()); 
     }
 )
     |(	enumLiteral_39='CustomType33' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM33EnumLiteralDeclaration_39().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_39, grammarAccess.getInterfaceTypeAccess().getCUSTOM33EnumLiteralDeclaration_39()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM33EnumLiteralDeclaration_39().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_39, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM33EnumLiteralDeclaration_39()); 
     }
 )
     |(	enumLiteral_40='CustomType34' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM34EnumLiteralDeclaration_40().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_40, grammarAccess.getInterfaceTypeAccess().getCUSTOM34EnumLiteralDeclaration_40()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM34EnumLiteralDeclaration_40().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_40, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM34EnumLiteralDeclaration_40()); 
     }
 )
     |(	enumLiteral_41='CustomType35' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM35EnumLiteralDeclaration_41().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_41, grammarAccess.getInterfaceTypeAccess().getCUSTOM35EnumLiteralDeclaration_41()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM35EnumLiteralDeclaration_41().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_41, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM35EnumLiteralDeclaration_41()); 
     }
 )
     |(	enumLiteral_42='CustomType36' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM36EnumLiteralDeclaration_42().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_42, grammarAccess.getInterfaceTypeAccess().getCUSTOM36EnumLiteralDeclaration_42()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM36EnumLiteralDeclaration_42().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_42, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM36EnumLiteralDeclaration_42()); 
     }
 )
     |(	enumLiteral_43='CustomType37' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM37EnumLiteralDeclaration_43().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_43, grammarAccess.getInterfaceTypeAccess().getCUSTOM37EnumLiteralDeclaration_43()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM37EnumLiteralDeclaration_43().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_43, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM37EnumLiteralDeclaration_43()); 
     }
 )
     |(	enumLiteral_44='CustomType38' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM38EnumLiteralDeclaration_44().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_44, grammarAccess.getInterfaceTypeAccess().getCUSTOM38EnumLiteralDeclaration_44()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM38EnumLiteralDeclaration_44().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_44, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM38EnumLiteralDeclaration_44()); 
     }
 )
     |(	enumLiteral_45='CustomType39' 
 	{
-        $current = grammarAccess.getInterfaceTypeAccess().getCUSTOM39EnumLiteralDeclaration_45().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_45, grammarAccess.getInterfaceTypeAccess().getCUSTOM39EnumLiteralDeclaration_45()); 
+        $current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM39EnumLiteralDeclaration_45().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_45, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM39EnumLiteralDeclaration_45()); 
     }
 ));
 

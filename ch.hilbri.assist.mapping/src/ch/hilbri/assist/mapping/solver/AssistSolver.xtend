@@ -4,19 +4,6 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
-import ch.hilbri.assist.mapping.solver.constraints.AllApplicationThreadsOnSameBoard
-import ch.hilbri.assist.mapping.solver.constraints.ApplicationProximityConstraint
-import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint
-import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint
-import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraintImproved
-import ch.hilbri.assist.mapping.solver.constraints.DissimilarityConstraint
-import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint
-import ch.hilbri.assist.mapping.solver.constraints.NetworkConstraints
-import ch.hilbri.assist.mapping.solver.constraints.NoPermutationsConstraint
-import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint
-import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint
-import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstraint
-import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor
 import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
@@ -70,44 +57,24 @@ class AssistSolver {
  		this.solverVariables = new SolverVariablesContainer(this.model, solver)
 		
 		/* Create a new Constraint to process the system hierarchy */
-		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
-		
-		/* Create a new constraint to keep the capacity of the cores */
-		this.mappingConstraintsList.add(new CoreUtilizationConstraint(model, solver, solverVariables))
-
-		/* Create a new set of constraints to watch for the RAM capacity of the boards */
-		this.mappingConstraintsList.add(new RAMUtilizationConstraint(model, solver, solverVariables))
-		
-		/* Create a new set of constraints to watch for the ROM capacity of the boards */
-		this.mappingConstraintsList.add(new ROMUtilizationConstraint(model, solver, solverVariables))
-		
-		/* Create a new constraint to avoid permuting solutions */
-		this.mappingConstraintsList.add(new NoPermutationsConstraint(model, solver, solverVariables))
-
-		/* Create a new Constraint to keep threads of the same application on the same board. */
-		this.mappingConstraintsList.add(new AllApplicationThreadsOnSameBoard(model, solver, solverVariables))
-		
+//		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
+				
 		/* Create a new Constraint for all i/o adapters (exclusive, shared, protection level, ...) */
-		this.mappingConstraintsList.add(new IOAdapterConstraint(model, solver, solverVariables))
-		
-		/* Create a new Constraint for the design assurance level compatibility of boards and threads */
-		this.mappingConstraintsList.add(new DesignAssuranceLevelConstraint(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new IOAdapterConstraint(model, solver, solverVariables))
 		
 		/* Create a new constraint that restricts the applications to their specified hardware elements */
-		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, solver, solverVariables))
 		
 		/* Create a new constraint to restrictions on the proximity of the applications */
-		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, solver, solverVariables))
 		
 		/* Create a new constraint to obey the dislocality requirements */
 //		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new DislocalityConstraintImproved(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new DislocalityConstraintImproved(model, solver, solverVariables))
 
 		/* Create a new constraint to obey the dissimilarity requirements */
-		this.mappingConstraintsList.add(new DissimilarityConstraint(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new DissimilarityConstraint(model, solver, solverVariables))
 		
-		/* Create a new constraint to take care of the deployment of communication relations to networks between boards */
-		this.mappingConstraintsList.add(new NetworkConstraints(model, solver, solverVariables))
 	}
 	
 	def setSolverTimeLimit(long timeInMs) {

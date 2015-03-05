@@ -6,7 +6,7 @@ package ch.hilbri.assist.mappingdsl.ui.labeling
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.Compartment
 import ch.hilbri.assist.datamodel.model.Connector
-import ch.hilbri.assist.datamodel.model.Interface
+import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.RDC
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
@@ -56,7 +56,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		'outline_view_core_16x16.png'
 	}
 
-	def text(Interface a) {
+	def text(EqInterface a) {
 		'Interface ' + a.name
 	}
 
