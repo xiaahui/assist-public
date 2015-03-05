@@ -16,6 +16,8 @@ annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 class AssistModel {
 	String 									systemName 				= ""
+	int										changeDelay				= "0" 	/* Scheduling */
+	
 	contains HardwareElementContainer[1..*] hardwareContainer
 	contains Network[0..*] 					networks
 	contains Application[1..*] 				applications
@@ -24,6 +26,8 @@ class AssistModel {
 	contains DislocalityRelation[0..*] 		dislocalityRelations
 	contains ProximityRelation[0..*] 		proximityRelations
 	contains CommunicationRelation[0..*] 	communicationRelations
+	
+	contains SchedulingRelation[0..*]		schedulingRelations				/* Scheduling */
 
 	derived HardwareArchitectureLevelType topHardwareLevel get {
 		if (!hardwareContainer.empty) {
@@ -338,6 +342,7 @@ enum IOAdapterType {
 class IOAdapter {
 	String name = ""
 	int totalCount = "0"
+	int sharedCount = "0" /* Scheduling */
 	IOAdapterType adapterType = "None"
 	IOAdapterProtectionLevelType protectionLevel = "None"
 }
@@ -413,6 +418,19 @@ class Thread {
 	derived int	   	coreUtilization get { application.coreUtilization }
 	container Application application opposite threads
 	
+	/* Scheduling BEGIN */
+	int duration 			= "0"
+	int period	 			= "0"
+	int earlyTolerance 		= "0"
+	int lateTolerance  		= "0"
+	int latestFirstStart 	= "0"
+	int latestFirstEnd 		= "0"
+	int initTime			= "0"
+	int maxSlices			= "0"
+	int minSliceDuration 	= "0"
+	refers Core[0..1] core
+	/* Scheduling END */
+	
 	op int getExclusiveAdapterRequestCount(IOAdapterType paramAdapterType, IOAdapterProtectionLevelType paramMinProtectionLevel) {
 		
 		// check that this application (thread) requires at least the given protectionLevel
@@ -440,6 +458,7 @@ class Thread {
 class IOAdapterRequirement {	
 	IOAdapterType 					adapterType				= "None"
 	int 							requiredAdapterCount 	= "0"
+	int								requiredSharedCount		= "0"
 	boolean 						isSharedAllowed 		= "false"
 	boolean 						isExclusiveOnly 		= "false"
 }
@@ -547,6 +566,21 @@ class CommunicationRelation{
 	}
 	
 }
+
+/* Scheduling BEGIN */
+enum ReferencePointType{
+	START			as "Start"
+	END				as "End"
+}
+
+class SchedulingRelation{
+	ReferencePointType refBefore
+	ReferencePointType refAfter
+	refers Thread[1] threadBefore
+	refers Thread[1] threadAfter
+	int delay = "0"	
+}
+/* Scheduling END */
 
 class MetricParameter {
 	String name = ""

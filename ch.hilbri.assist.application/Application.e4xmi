@@ -37,6 +37,8 @@
     <mainMenu xmi:id="_hYv-UA5-EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_isEAUA5-EeSelv1Zem0g8g" elementId="file" label="&amp;File" mnemonics="F"/>
       <children xsi:type="menu:Menu" xmi:id="_j0Af0A5-EeSelv1Zem0g8g" elementId="edit" label="&amp;Edit" mnemonics="E"/>
+      <children xsi:type="menu:Menu" xmi:id="_Zh0aQMGnEeSYCbQ7GR0lag" elementId="mapping" label="&amp;Mapping" mnemonics="M"/>
+      <children xsi:type="menu:Menu" xmi:id="_eFHmUMGnEeSYCbQ7GR0lag" elementId="scheduling" label="&amp;Scheduling" mnemonics="S"/>
       <children xsi:type="menu:Menu" xmi:id="_kHmxQA5-EeSelv1Zem0g8g" elementId="help" label="&amp;Help" mnemonics="H"/>
     </mainMenu>
     <sharedElements xsi:type="advanced:Area" xmi:id="_Hmg4kNSjEeGwXp2p959l3w" elementId="testArea" label="Editor Area">

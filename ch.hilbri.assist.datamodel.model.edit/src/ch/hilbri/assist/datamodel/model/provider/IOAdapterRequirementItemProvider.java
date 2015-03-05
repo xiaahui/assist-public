@@ -63,6 +63,7 @@ public class IOAdapterRequirementItemProvider
 
 			addAdapterTypePropertyDescriptor(object);
 			addRequiredAdapterCountPropertyDescriptor(object);
+			addRequiredSharedCountPropertyDescriptor(object);
 			addIsSharedAllowedPropertyDescriptor(object);
 			addIsExclusiveOnlyPropertyDescriptor(object);
 		}
@@ -105,6 +106,28 @@ public class IOAdapterRequirementItemProvider
 				 getString("_UI_IOAdapterRequirement_requiredAdapterCount_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_IOAdapterRequirement_requiredAdapterCount_feature", "_UI_IOAdapterRequirement_type"),
 				 ModelPackage.Literals.IO_ADAPTER_REQUIREMENT__REQUIRED_ADAPTER_COUNT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Required Shared Count feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRequiredSharedCountPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IOAdapterRequirement_requiredSharedCount_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IOAdapterRequirement_requiredSharedCount_feature", "_UI_IOAdapterRequirement_type"),
+				 ModelPackage.Literals.IO_ADAPTER_REQUIREMENT__REQUIRED_SHARED_COUNT,
 				 true,
 				 false,
 				 false,
@@ -198,6 +221,7 @@ public class IOAdapterRequirementItemProvider
 		switch (notification.getFeatureID(IOAdapterRequirement.class)) {
 			case ModelPackage.IO_ADAPTER_REQUIREMENT__ADAPTER_TYPE:
 			case ModelPackage.IO_ADAPTER_REQUIREMENT__REQUIRED_ADAPTER_COUNT:
+			case ModelPackage.IO_ADAPTER_REQUIREMENT__REQUIRED_SHARED_COUNT:
 			case ModelPackage.IO_ADAPTER_REQUIREMENT__IS_SHARED_ALLOWED:
 			case ModelPackage.IO_ADAPTER_REQUIREMENT__IS_EXCLUSIVE_ONLY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
