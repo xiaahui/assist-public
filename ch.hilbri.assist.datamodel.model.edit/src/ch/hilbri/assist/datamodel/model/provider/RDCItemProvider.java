@@ -48,11 +48,80 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addManufacturerPropertyDescriptor(object);
+			addPowerSupplyPropertyDescriptor(object);
+			addSidePropertyDescriptor(object);
 			addCompartmentPropertyDescriptor(object);
 			addRdcTypePropertyDescriptor(object);
 			addEssPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Manufacturer feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addManufacturerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RDC_manufacturer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_manufacturer_feature", "_UI_RDC_type"),
+				 ModelPackage.Literals.RDC__MANUFACTURER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Power Supply feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPowerSupplyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RDC_powerSupply_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_powerSupply_feature", "_UI_RDC_type"),
+				 ModelPackage.Literals.RDC__POWER_SUPPLY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Side feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSidePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RDC_side_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_side_feature", "_UI_RDC_type"),
+				 ModelPackage.Literals.RDC__SIDE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -189,6 +258,9 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RDC.class)) {
+			case ModelPackage.RDC__MANUFACTURER:
+			case ModelPackage.RDC__POWER_SUPPLY:
+			case ModelPackage.RDC__SIDE:
 			case ModelPackage.RDC__RDC_TYPE:
 			case ModelPackage.RDC__ESS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

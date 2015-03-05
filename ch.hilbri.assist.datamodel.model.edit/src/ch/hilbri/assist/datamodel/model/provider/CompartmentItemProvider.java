@@ -48,9 +48,78 @@ public class CompartmentItemProvider extends HardwareElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addManufacturerPropertyDescriptor(object);
+			addPowerSupplyPropertyDescriptor(object);
+			addSidePropertyDescriptor(object);
 			addZonePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Manufacturer feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addManufacturerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Compartment_manufacturer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Compartment_manufacturer_feature", "_UI_Compartment_type"),
+				 ModelPackage.Literals.COMPARTMENT__MANUFACTURER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Power Supply feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPowerSupplyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Compartment_powerSupply_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Compartment_powerSupply_feature", "_UI_Compartment_type"),
+				 ModelPackage.Literals.COMPARTMENT__POWER_SUPPLY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Side feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSidePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Compartment_side_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Compartment_side_feature", "_UI_Compartment_type"),
+				 ModelPackage.Literals.COMPARTMENT__SIDE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -143,6 +212,9 @@ public class CompartmentItemProvider extends HardwareElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Compartment.class)) {
+			case ModelPackage.COMPARTMENT__MANUFACTURER:
+			case ModelPackage.COMPARTMENT__POWER_SUPPLY:
+			case ModelPackage.COMPARTMENT__SIDE:
 			case ModelPackage.COMPARTMENT__ZONE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

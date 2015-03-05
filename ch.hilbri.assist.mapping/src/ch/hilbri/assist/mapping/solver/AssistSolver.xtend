@@ -4,6 +4,7 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
+import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor
 import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
@@ -57,7 +58,7 @@ class AssistSolver {
  		this.solverVariables = new SolverVariablesContainer(this.model, solver)
 		
 		/* Create a new Constraint to process the system hierarchy */
-//		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
 				
 		/* Create a new Constraint for all i/o adapters (exclusive, shared, protection level, ...) */
 //		this.mappingConstraintsList.add(new IOAdapterConstraint(model, solver, solverVariables))

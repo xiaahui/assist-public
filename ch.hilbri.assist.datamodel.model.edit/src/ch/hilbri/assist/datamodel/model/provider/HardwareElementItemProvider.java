@@ -64,9 +64,6 @@ public class HardwareElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addManufacturerPropertyDescriptor(object);
-			addPowerSupplyPropertyDescriptor(object);
-			addSidePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,72 +82,6 @@ public class HardwareElementItemProvider
 				 getString("_UI_HardwareElement_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_HardwareElement_name_feature", "_UI_HardwareElement_type"),
 				 ModelPackage.Literals.HARDWARE_ELEMENT__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Manufacturer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addManufacturerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_HardwareElement_manufacturer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_HardwareElement_manufacturer_feature", "_UI_HardwareElement_type"),
-				 ModelPackage.Literals.HARDWARE_ELEMENT__MANUFACTURER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Power Supply feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPowerSupplyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_HardwareElement_powerSupply_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_HardwareElement_powerSupply_feature", "_UI_HardwareElement_type"),
-				 ModelPackage.Literals.HARDWARE_ELEMENT__POWER_SUPPLY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Side feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSidePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_HardwareElement_side_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_HardwareElement_side_feature", "_UI_HardwareElement_type"),
-				 ModelPackage.Literals.HARDWARE_ELEMENT__SIDE,
 				 true,
 				 false,
 				 false,
@@ -228,9 +159,6 @@ public class HardwareElementItemProvider
 
 		switch (notification.getFeatureID(HardwareElement.class)) {
 			case ModelPackage.HARDWARE_ELEMENT__NAME:
-			case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
-			case ModelPackage.HARDWARE_ELEMENT__POWER_SUPPLY:
-			case ModelPackage.HARDWARE_ELEMENT__SIDE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS:
