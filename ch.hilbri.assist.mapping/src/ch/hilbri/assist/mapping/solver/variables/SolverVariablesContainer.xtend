@@ -10,6 +10,7 @@ import org.chocosolver.solver.Solver
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
 import org.eclipse.xtend.lib.annotations.Data
+import org.chocosolver.solver.variables.BoolVar
 
 @Data class SolverVariablesContainer {
 	
@@ -17,6 +18,8 @@ import org.eclipse.xtend.lib.annotations.Data
 	Map<EqInterface, List<IntVar>> 	eqInterfaceLocationVariables	= new HashMap 
 	
 	Map<IntVar, EqInterface> 		locationVarMap = new HashMap
+	
+	BoolVar[][] interfaceConnectorIndicatorVariables;
 	
 	/* CONSTRUCTOR */
 	new (AssistModel model, Solver solver) {
@@ -43,6 +46,9 @@ import org.eclipse.xtend.lib.annotations.Data
 			eqInterfaceLocationVariables.put(iface, l)
 		}
 		
+		/* Initialize the board indicator variables */
+		interfaceConnectorIndicatorVariables = VF.boolMatrix("d", model.allConnectors.size, model.allEqInterfaces.size, solver)
+
 	}
 	
 	def IntVar[] getLocationVariables() {
@@ -55,6 +61,11 @@ import org.eclipse.xtend.lib.annotations.Data
 	}
 	
 	
+	/** Returns the indicator variables */
+	def BoolVar[][] getInterfaceConnectorIndicatorVariables() {
+		return interfaceConnectorIndicatorVariables
+	}
+
 	/** Returns the location variable for a given thread and a given hardware level */
 	def IntVar getEqInterfaceLocationVariable(EqInterface iface, int level) {
 		return eqInterfaceLocationVariables.get(iface).get(level)
