@@ -4,6 +4,7 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.constraints.^extension.Tuples
 
 /**
  * Ziel: Zwischen allen Abstraktionsebenen im Modell muessen Verbindungen hergestellt werden.
@@ -16,34 +17,25 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 	
 	override generate() {
 		
-		/* Wir brauchen einen "Link" zwischen allen Hardware-Ebenen */
-		for (levelCtr : 0 .. 1) {
+		val tuples = new Tuples(true)
 
-			/* HardwareLevelLink ist ein Feld von Indizes der Parent-Komponenten 		
-			 * hardwareLevelLink[KindIndex] = Parent_Index
-			 *
-			 * Beispiel: 
-			 * - für die Verknüpfung von Cores und Prozessoren wird ein Link zwischen Ebene 1 und 2 benötigt
-			 * - die liste hardwareLevelLink enthaelt so viele Element, wie es Cores im Modell gibt
-			 * - für jeden Core wird der Index des Parents (= Prozessor) eingetragen
-			 */
+		// tuples bauen
+		for (int connIdx : 0 ..< model.allConnectors.length) {
+				val rdcIdx 	= model.allRDCs.indexOf(model.allConnectors.get(connIdx).eContainer)
+				val compIdx = model.allCompartments.indexOf(model.allConnectors.get(connIdx).eContainer.eContainer)
+				tuples.add(connIdx, rdcIdx, compIdx) 
+		}
+
+		// table constraints bauen		
+		for (iface : model.eqInterfaces) {
+			val varConn = solverVariables.getEqInterfaceLocationVariable(iface, 0)
+			val varRdc = solverVariables.getEqInterfaceLocationVariable(iface, 1)
+			val varComp = solverVariables.getEqInterfaceLocationVariable(iface, 2)
 			
-			val hardwareLevelLink = model.getAllHardwareElements(levelCtr)
-										.map[eContainer]   											// get the parent object
-										.map[model.getAllHardwareElements(levelCtr+1).indexOf(it)] 	// get the parent index 
+			val varList = #[varConn, varRdc, varComp]
 			
-			
-			/*
-			 * Nun werden die Location Variablen eines Interfaces zwischen den Ebenen mit einem Element Constraint verknüpft;
-			 * Sollte damit beispielweise ein RDC als Lösung ausfallen, so werden automatisch auch die Connectoren des 
-			 * RDCs aus dem Lösungsraum entfernt (und umgedreht)
-			 */
-			for (iface : model.allEqInterfaces) {
-				var index  = solverVariables.getEqInterfaceLocationVariable(iface, levelCtr)
-				var values = solverVariables.getEqInterfaceLocationVariable(iface, levelCtr + 1)
-				solver.post(ICF.element(values, hardwareLevelLink, index))
-			}			
-		} 
+			solver.post(ICF.table(varList, tuples, "GAC3rm+"))	
+		}
 		
 		propagate()
 		
