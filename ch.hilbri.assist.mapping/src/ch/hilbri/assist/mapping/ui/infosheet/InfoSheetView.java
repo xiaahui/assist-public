@@ -372,10 +372,15 @@ public class InfoSheetView {
 			lblScore.setText("n/a");
 			lblSolution.setText("n/a");
 		} else {
-			Result r = model.getObservableResultsList().get(index);
-			DecimalFormat f = new DecimalFormat("#0.00"); 
-			lblScore.setText(f.format(r.getEvaluation().getTotalScaledScore()));
-			lblSolution.setText((index + 1) + " of " + model.getObservableResultsList().size());
+			if (index <= model.getObservableResultsList().size()-1) {
+				Result r = model.getObservableResultsList().get(index);
+				DecimalFormat f = new DecimalFormat("#0.00"); 
+				lblScore.setText(f.format(r.getEvaluation().getTotalScaledScore()));
+				lblSolution.setText((index + 1) + " of " + model.getObservableResultsList().size());
+			}
+			else {
+				setDeploymentNumberAndScore(-1);
+			}
 		}
 	}
 
@@ -402,7 +407,7 @@ public class InfoSheetView {
 
 		Result r = model.getObservableResultsList().get(index);
 
-		// Das Feld muss f�r jede verwendete Metrik den eigenen Score beinhalten
+		// Das Feld muss fuer jede verwendete Metrik den eigenen Score beinhalten
 		Double[] scores = new Double[r.getEvaluation().getScaledScores().keySet().size()];
 		int metricCounter = 0;
 		for (AbstractMetric key : r.getEvaluation().getScaledScores().keySet()) 
