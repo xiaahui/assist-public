@@ -21,6 +21,7 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
 
 class AssistSolver {
 	
@@ -59,9 +60,9 @@ class AssistSolver {
 		
 		/* Create a new Constraint to process the system hierarchy */
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
-				
-		/* Create a new Constraint for all i/o adapters (exclusive, shared, protection level, ...) */
-//		this.mappingConstraintsList.add(new IOAdapterConstraint(model, solver, solverVariables))
+		
+		/* Create a new constraint for all interface types */
+		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))				
 		
 		/* Create a new constraint that restricts the applications to their specified hardware elements */
 //		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, solver, solverVariables))
