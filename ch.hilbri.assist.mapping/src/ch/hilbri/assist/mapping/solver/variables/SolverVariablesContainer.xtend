@@ -56,7 +56,7 @@ import org.chocosolver.solver.variables.BoolVar
 		val list = new ArrayList<IntVar>
 
 		for (iface : eqInterfaceLocationVariables.keySet.sortBy[name])
-			list.addAll(eqInterfaceLocationVariables.get(iface))
+			list.add(eqInterfaceLocationVariables.get(iface).get(0))
 
 		return list	
 	}
