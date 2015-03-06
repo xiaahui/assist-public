@@ -23,6 +23,7 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.constraints.OneRouteForEachConnector
 
 class AssistSolver {
 	
@@ -59,15 +60,10 @@ class AssistSolver {
 		/* Create the container for variables which are needed in the solver */
  		this.solverVariables = new SolverVariablesContainer(this.model, solver)
 		
-		/* Create a new Constraint to process the system hierarchy */
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
-		
-		/* Create a new constraint for all interface types */
 		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))				
-		
-		/* Create a new constraint to obey the dislocality requirements */
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
-
+		this.mappingConstraintsList.add(new OneRouteForEachConnector(model, solver, solverVariables))
 
 		/* Create a new constraint that restricts the applications to their specified hardware elements */
 //		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, solver, solverVariables))
