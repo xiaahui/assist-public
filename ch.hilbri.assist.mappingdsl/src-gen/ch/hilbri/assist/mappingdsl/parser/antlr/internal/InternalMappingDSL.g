@@ -198,6 +198,36 @@ ruleAssistModel returns [EObject current=null]
     {
     	newLeafNode(otherlv_15, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_9_3());
     }
+)?(	otherlv_16='Restrictions' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getAssistModelAccess().getRestrictionsKeyword_10_0());
+    }
+	otherlv_17='{' 
+    {
+    	newLeafNode(otherlv_17, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_10_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAssistModelAccess().getDislocalityRelationsDislocalityRelationParserRuleCall_10_2_0()); 
+	    }
+		lv_dislocalityRelations_18_0=ruleDislocalityRelation		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAssistModelRule());
+	        }
+       		add(
+       			$current, 
+       			"dislocalityRelations",
+        		lv_dislocalityRelations_18_0, 
+        		"DislocalityRelation");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_19='}' 
+    {
+    	newLeafNode(otherlv_19, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_10_3());
+    }
 )?)
 ;
 
@@ -245,19 +275,33 @@ ruleCompartment returns [EObject current=null]
     {
     	newLeafNode(otherlv_2, grammarAccess.getCompartmentAccess().getLeftCurlyBracketKeyword_2());
     }
-(	otherlv_3='Manufacturer' 
+(
+
+(
+	{ 
+	  getUnorderedGroupHelper().enter(grammarAccess.getCompartmentAccess().getUnorderedGroup_3());
+	}
+	(
+		(
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 0)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 0);
+	 				}
+					({true}?=>(	otherlv_4='Manufacturer' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getCompartmentAccess().getManufacturerKeyword_3_0());
+    	newLeafNode(otherlv_4, grammarAccess.getCompartmentAccess().getManufacturerKeyword_3_0_0());
     }
-	otherlv_4='=' 
+	otherlv_5='=' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getCompartmentAccess().getEqualsSignKeyword_3_1());
+    	newLeafNode(otherlv_5, grammarAccess.getCompartmentAccess().getEqualsSignKeyword_3_0_1());
     }
 (
 (
-		lv_manufacturer_5_0=RULE_STRING
+		lv_manufacturer_6_0=RULE_STRING
 		{
-			newLeafNode(lv_manufacturer_5_0, grammarAccess.getCompartmentAccess().getManufacturerSTRINGTerminalRuleCall_3_2_0()); 
+			newLeafNode(lv_manufacturer_6_0, grammarAccess.getCompartmentAccess().getManufacturerSTRINGTerminalRuleCall_3_0_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -266,28 +310,40 @@ ruleCompartment returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"manufacturer",
-        		lv_manufacturer_5_0, 
+        		lv_manufacturer_6_0, 
         		"STRING");
 	    }
 
 )
-)	otherlv_6=';' 
+)	otherlv_7=';' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getCompartmentAccess().getSemicolonKeyword_3_3());
+    	newLeafNode(otherlv_7, grammarAccess.getCompartmentAccess().getSemicolonKeyword_3_0_3());
     }
-)?(	otherlv_7='PowerSupply' 
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getCompartmentAccess().getUnorderedGroup_3());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 1)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 1);
+	 				}
+					({true}?=>(	otherlv_8='PowerSupply' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getCompartmentAccess().getPowerSupplyKeyword_4_0());
+    	newLeafNode(otherlv_8, grammarAccess.getCompartmentAccess().getPowerSupplyKeyword_3_1_0());
     }
-	otherlv_8='=' 
+	otherlv_9='=' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getCompartmentAccess().getEqualsSignKeyword_4_1());
+    	newLeafNode(otherlv_9, grammarAccess.getCompartmentAccess().getEqualsSignKeyword_3_1_1());
     }
 (
 (
-		lv_powerSupply_9_0=RULE_STRING
+		lv_powerSupply_10_0=RULE_STRING
 		{
-			newLeafNode(lv_powerSupply_9_0, grammarAccess.getCompartmentAccess().getPowerSupplySTRINGTerminalRuleCall_4_2_0()); 
+			newLeafNode(lv_powerSupply_10_0, grammarAccess.getCompartmentAccess().getPowerSupplySTRINGTerminalRuleCall_3_1_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -296,28 +352,40 @@ ruleCompartment returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"powerSupply",
-        		lv_powerSupply_9_0, 
+        		lv_powerSupply_10_0, 
         		"STRING");
 	    }
 
 )
-)	otherlv_10=';' 
+)	otherlv_11=';' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getCompartmentAccess().getSemicolonKeyword_4_3());
+    	newLeafNode(otherlv_11, grammarAccess.getCompartmentAccess().getSemicolonKeyword_3_1_3());
     }
-)?(	otherlv_11='Side' 
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getCompartmentAccess().getUnorderedGroup_3());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 2)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 2);
+	 				}
+					({true}?=>(	otherlv_12='Side' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getCompartmentAccess().getSideKeyword_5_0());
+    	newLeafNode(otherlv_12, grammarAccess.getCompartmentAccess().getSideKeyword_3_2_0());
     }
-	otherlv_12='=' 
+	otherlv_13='=' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getCompartmentAccess().getEqualsSignKeyword_5_1());
+    	newLeafNode(otherlv_13, grammarAccess.getCompartmentAccess().getEqualsSignKeyword_3_2_1());
     }
 (
 (
-		lv_side_13_0=RULE_STRING
+		lv_side_14_0=RULE_STRING
 		{
-			newLeafNode(lv_side_13_0, grammarAccess.getCompartmentAccess().getSideSTRINGTerminalRuleCall_5_2_0()); 
+			newLeafNode(lv_side_14_0, grammarAccess.getCompartmentAccess().getSideSTRINGTerminalRuleCall_3_2_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -326,28 +394,40 @@ ruleCompartment returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"side",
-        		lv_side_13_0, 
+        		lv_side_14_0, 
         		"STRING");
 	    }
 
 )
-)	otherlv_14=';' 
+)	otherlv_15=';' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getCompartmentAccess().getSemicolonKeyword_5_3());
+    	newLeafNode(otherlv_15, grammarAccess.getCompartmentAccess().getSemicolonKeyword_3_2_3());
     }
-)?(	otherlv_15='Zone' 
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getCompartmentAccess().getUnorderedGroup_3());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 3)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 3);
+	 				}
+					({true}?=>(	otherlv_16='Zone' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getCompartmentAccess().getZoneKeyword_6_0());
+    	newLeafNode(otherlv_16, grammarAccess.getCompartmentAccess().getZoneKeyword_3_3_0());
     }
-	otherlv_16='=' 
+	otherlv_17='=' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getCompartmentAccess().getEqualsSignKeyword_6_1());
+    	newLeafNode(otherlv_17, grammarAccess.getCompartmentAccess().getEqualsSignKeyword_3_3_1());
     }
 (
 (
-		lv_zone_17_0=RULE_STRING
+		lv_zone_18_0=RULE_STRING
 		{
-			newLeafNode(lv_zone_17_0, grammarAccess.getCompartmentAccess().getZoneSTRINGTerminalRuleCall_6_2_0()); 
+			newLeafNode(lv_zone_18_0, grammarAccess.getCompartmentAccess().getZoneSTRINGTerminalRuleCall_3_3_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -356,66 +436,62 @@ ruleCompartment returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"zone",
-        		lv_zone_17_0, 
+        		lv_zone_18_0, 
         		"STRING");
 	    }
 
 )
-)	otherlv_18=';' 
+)	otherlv_19=';' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getCompartmentAccess().getSemicolonKeyword_6_3());
+    	newLeafNode(otherlv_19, grammarAccess.getCompartmentAccess().getSemicolonKeyword_3_3_3());
     }
-)?(
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getCompartmentAccess().getUnorderedGroup_3());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 4)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 4);
+	 				}
+					({true}?=>(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCompartmentAccess().getRdcsRDCParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getCompartmentAccess().getRdcsRDCParserRuleCall_3_4_0()); 
 	    }
-		lv_rdcs_19_0=ruleRDC		{
+		lv_rdcs_20_0=ruleRDC		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getCompartmentRule());
 	        }
        		add(
        			$current, 
        			"rdcs",
-        		lv_rdcs_19_0, 
+        		lv_rdcs_20_0, 
         		"RDC");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+(	otherlv_20='Generic properties' 
-    {
-    	newLeafNode(otherlv_20, grammarAccess.getCompartmentAccess().getGenericPropertiesKeyword_8_0());
-    }
-	otherlv_21='{' 
-    {
-    	newLeafNode(otherlv_21, grammarAccess.getCompartmentAccess().getLeftCurlyBracketKeyword_8_1());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getCompartmentAccess().getMetricParametersMetricParameterParserRuleCall_8_2_0()); 
-	    }
-		lv_metricParameters_22_0=ruleMetricParameter		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getCompartmentRule());
-	        }
-       		add(
-       			$current, 
-       			"metricParameters",
-        		lv_metricParameters_22_0, 
-        		"MetricParameter");
-	        afterParserOrEnumRuleCall();
-	    }
+))+
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getCompartmentAccess().getUnorderedGroup_3());
+	 				}
+ 				)
+			)  
 
+		)*	
+	)
 )
-)*	otherlv_23='}' 
+	{ 
+	  getUnorderedGroupHelper().leave(grammarAccess.getCompartmentAccess().getUnorderedGroup_3());
+	}
+
+)	otherlv_21='}' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getCompartmentAccess().getRightCurlyBracketKeyword_8_3());
-    }
-)?	otherlv_24='}' 
-    {
-    	newLeafNode(otherlv_24, grammarAccess.getCompartmentAccess().getRightCurlyBracketKeyword_9());
+    	newLeafNode(otherlv_21, grammarAccess.getCompartmentAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;
@@ -1239,6 +1315,66 @@ ruleEqInterface returns [EObject current=null]
 
 
 
+// Entry rule entryRuleDislocalityRelation
+entryRuleDislocalityRelation returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getDislocalityRelationRule()); }
+	 iv_ruleDislocalityRelation=ruleDislocalityRelation 
+	 { $current=$iv_ruleDislocalityRelation.current; } 
+	 EOF 
+;
+
+// Rule DislocalityRelation
+ruleDislocalityRelation returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDislocalityRelationRule());
+	        }
+        }
+	otherlv_0=RULE_ID
+	{
+		newLeafNode(otherlv_0, grammarAccess.getDislocalityRelationAccess().getEqInterfaceGroupEqInterfaceGroupCrossReference_0_0()); 
+	}
+
+)
+)	otherlv_1='dislocal up to' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getDislocalityRelationAccess().getDislocalUpToKeyword_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDislocalityRelationAccess().getHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_2_0()); 
+	    }
+		lv_hardwareLevel_2_0=ruleHardwareArchitectureLevelType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDislocalityRelationRule());
+	        }
+       		set(
+       			$current, 
+       			"hardwareLevel",
+        		lv_hardwareLevel_2_0, 
+        		"HardwareArchitectureLevelType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_3=';' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getDislocalityRelationAccess().getSemicolonKeyword_3());
+    }
+)
+;
+
+
+
+
+
 // Entry rule entryRuleMetricParameter
 entryRuleMetricParameter returns [EObject current=null] 
 	:
@@ -1303,6 +1439,31 @@ ruleMetricParameter returns [EObject current=null]
 
 
 
+
+
+
+// Rule HardwareArchitectureLevelType
+ruleHardwareArchitectureLevelType returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+((	enumLiteral_0='Compartment' 
+	{
+        $current = grammarAccess.getHardwareArchitectureLevelTypeAccess().getCOMPARTMENTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getHardwareArchitectureLevelTypeAccess().getCOMPARTMENTEnumLiteralDeclaration_0()); 
+    }
+)
+    |(	enumLiteral_1='RDC' 
+	{
+        $current = grammarAccess.getHardwareArchitectureLevelTypeAccess().getRDCEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getHardwareArchitectureLevelTypeAccess().getRDCEnumLiteralDeclaration_1()); 
+    }
+)
+    |(	enumLiteral_2='Connector' 
+	{
+        $current = grammarAccess.getHardwareArchitectureLevelTypeAccess().getCONNECTOREnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getHardwareArchitectureLevelTypeAccess().getCONNECTOREnumLiteralDeclaration_2()); 
+    }
+));
 
 
 

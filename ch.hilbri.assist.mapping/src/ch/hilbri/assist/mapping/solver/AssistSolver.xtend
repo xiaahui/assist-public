@@ -4,6 +4,8 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
+import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
+import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor
@@ -21,7 +23,6 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
 
 class AssistSolver {
 	
@@ -64,15 +65,16 @@ class AssistSolver {
 		/* Create a new constraint for all interface types */
 		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))				
 		
+		/* Create a new constraint to obey the dislocality requirements */
+		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
+
+
 		/* Create a new constraint that restricts the applications to their specified hardware elements */
 //		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, solver, solverVariables))
 		
 		/* Create a new constraint to restrictions on the proximity of the applications */
 //		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, solver, solverVariables))
 		
-		/* Create a new constraint to obey the dislocality requirements */
-//		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new DislocalityConstraintImproved(model, solver, solverVariables))
 
 		/* Create a new constraint to obey the dissimilarity requirements */
 //		this.mappingConstraintsList.add(new DissimilarityConstraint(model, solver, solverVariables))

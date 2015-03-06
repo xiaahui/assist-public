@@ -279,6 +279,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.DislocalityRelation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DislocalityRelationItemProvider dislocalityRelationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.DislocalityRelation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDislocalityRelationAdapter() {
+		if (dislocalityRelationItemProvider == null) {
+			dislocalityRelationItemProvider = new DislocalityRelationItemProvider(this);
+		}
+
+		return dislocalityRelationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,6 +409,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (eqInterfaceItemProvider != null) eqInterfaceItemProvider.dispose();
 		if (eqInterfaceGroupItemProvider != null) eqInterfaceGroupItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
+		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
 	}
 
 }

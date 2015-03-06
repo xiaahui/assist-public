@@ -37,16 +37,17 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getHardwareArchitectureLevelTypeAccess().getAlternatives(), "rule__HardwareArchitectureLevelType__Alternatives");
 					put(grammarAccess.getEqInterfaceTypeAccess().getAlternatives(), "rule__EqInterfaceType__Alternatives");
 					put(grammarAccess.getAssistModelAccess().getGroup(), "rule__AssistModel__Group__0");
 					put(grammarAccess.getAssistModelAccess().getGroup_8(), "rule__AssistModel__Group_8__0");
 					put(grammarAccess.getAssistModelAccess().getGroup_9(), "rule__AssistModel__Group_9__0");
+					put(grammarAccess.getAssistModelAccess().getGroup_10(), "rule__AssistModel__Group_10__0");
 					put(grammarAccess.getCompartmentAccess().getGroup(), "rule__Compartment__Group__0");
-					put(grammarAccess.getCompartmentAccess().getGroup_3(), "rule__Compartment__Group_3__0");
-					put(grammarAccess.getCompartmentAccess().getGroup_4(), "rule__Compartment__Group_4__0");
-					put(grammarAccess.getCompartmentAccess().getGroup_5(), "rule__Compartment__Group_5__0");
-					put(grammarAccess.getCompartmentAccess().getGroup_6(), "rule__Compartment__Group_6__0");
-					put(grammarAccess.getCompartmentAccess().getGroup_8(), "rule__Compartment__Group_8__0");
+					put(grammarAccess.getCompartmentAccess().getGroup_3_0(), "rule__Compartment__Group_3_0__0");
+					put(grammarAccess.getCompartmentAccess().getGroup_3_1(), "rule__Compartment__Group_3_1__0");
+					put(grammarAccess.getCompartmentAccess().getGroup_3_2(), "rule__Compartment__Group_3_2__0");
+					put(grammarAccess.getCompartmentAccess().getGroup_3_3(), "rule__Compartment__Group_3_3__0");
 					put(grammarAccess.getRDCAccess().getGroup(), "rule__RDC__Group__0");
 					put(grammarAccess.getRDCAccess().getGroup_3(), "rule__RDC__Group_3__0");
 					put(grammarAccess.getRDCAccess().getGroup_4(), "rule__RDC__Group_4__0");
@@ -69,6 +70,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEqInterfaceAccess().getGroup_11(), "rule__EqInterface__Group_11__0");
 					put(grammarAccess.getEqInterfaceAccess().getGroup_12(), "rule__EqInterface__Group_12__0");
 					put(grammarAccess.getEqInterfaceAccess().getGroup_13(), "rule__EqInterface__Group_13__0");
+					put(grammarAccess.getDislocalityRelationAccess().getGroup(), "rule__DislocalityRelation__Group__0");
 					put(grammarAccess.getMetricParameterAccess().getGroup(), "rule__MetricParameter__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
@@ -76,13 +78,13 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAssistModelAccess().getCompartmentsAssignment_7(), "rule__AssistModel__CompartmentsAssignment_7");
 					put(grammarAccess.getAssistModelAccess().getEqInterfacesAssignment_8_2(), "rule__AssistModel__EqInterfacesAssignment_8_2");
 					put(grammarAccess.getAssistModelAccess().getEqInterfaceGroupsAssignment_9_2(), "rule__AssistModel__EqInterfaceGroupsAssignment_9_2");
+					put(grammarAccess.getAssistModelAccess().getDislocalityRelationsAssignment_10_2(), "rule__AssistModel__DislocalityRelationsAssignment_10_2");
 					put(grammarAccess.getCompartmentAccess().getNameAssignment_1(), "rule__Compartment__NameAssignment_1");
-					put(grammarAccess.getCompartmentAccess().getManufacturerAssignment_3_2(), "rule__Compartment__ManufacturerAssignment_3_2");
-					put(grammarAccess.getCompartmentAccess().getPowerSupplyAssignment_4_2(), "rule__Compartment__PowerSupplyAssignment_4_2");
-					put(grammarAccess.getCompartmentAccess().getSideAssignment_5_2(), "rule__Compartment__SideAssignment_5_2");
-					put(grammarAccess.getCompartmentAccess().getZoneAssignment_6_2(), "rule__Compartment__ZoneAssignment_6_2");
-					put(grammarAccess.getCompartmentAccess().getRdcsAssignment_7(), "rule__Compartment__RdcsAssignment_7");
-					put(grammarAccess.getCompartmentAccess().getMetricParametersAssignment_8_2(), "rule__Compartment__MetricParametersAssignment_8_2");
+					put(grammarAccess.getCompartmentAccess().getManufacturerAssignment_3_0_2(), "rule__Compartment__ManufacturerAssignment_3_0_2");
+					put(grammarAccess.getCompartmentAccess().getPowerSupplyAssignment_3_1_2(), "rule__Compartment__PowerSupplyAssignment_3_1_2");
+					put(grammarAccess.getCompartmentAccess().getSideAssignment_3_2_2(), "rule__Compartment__SideAssignment_3_2_2");
+					put(grammarAccess.getCompartmentAccess().getZoneAssignment_3_3_2(), "rule__Compartment__ZoneAssignment_3_3_2");
+					put(grammarAccess.getCompartmentAccess().getRdcsAssignment_3_4(), "rule__Compartment__RdcsAssignment_3_4");
 					put(grammarAccess.getRDCAccess().getNameAssignment_1(), "rule__RDC__NameAssignment_1");
 					put(grammarAccess.getRDCAccess().getManufacturerAssignment_3_2(), "rule__RDC__ManufacturerAssignment_3_2");
 					put(grammarAccess.getRDCAccess().getPowerSupplyAssignment_4_2(), "rule__RDC__PowerSupplyAssignment_4_2");
@@ -109,8 +111,11 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEqInterfaceAccess().getEmhZone1Assignment_11_2(), "rule__EqInterface__EmhZone1Assignment_11_2");
 					put(grammarAccess.getEqInterfaceAccess().getIoTypeAssignment_12_2(), "rule__EqInterface__IoTypeAssignment_12_2");
 					put(grammarAccess.getEqInterfaceAccess().getMetricParametersAssignment_13_2(), "rule__EqInterface__MetricParametersAssignment_13_2");
+					put(grammarAccess.getDislocalityRelationAccess().getEqInterfaceGroupAssignment_0(), "rule__DislocalityRelation__EqInterfaceGroupAssignment_0");
+					put(grammarAccess.getDislocalityRelationAccess().getHardwareLevelAssignment_2(), "rule__DislocalityRelation__HardwareLevelAssignment_2");
 					put(grammarAccess.getMetricParameterAccess().getNameAssignment_0(), "rule__MetricParameter__NameAssignment_0");
 					put(grammarAccess.getMetricParameterAccess().getValueAssignment_2(), "rule__MetricParameter__ValueAssignment_2");
+					put(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), "rule__Compartment__UnorderedGroup_3");
 				}
 			};
 		}

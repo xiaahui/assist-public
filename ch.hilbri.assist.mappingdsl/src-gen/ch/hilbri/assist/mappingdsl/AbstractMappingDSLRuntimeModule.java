@@ -89,6 +89,11 @@ public abstract class AbstractMappingDSLRuntimeModule extends DefaultRuntimeModu
 		return org.eclipse.xtext.parser.antlr.AntlrTokenDefProvider.class;
 	}
 
+	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	public Class<? extends org.eclipse.xtext.parser.antlr.IUnorderedGroupHelper> bindIUnorderedGroupHelper() {
+		return org.eclipse.xtext.parser.antlr.UnorderedGroupHelper.class;
+	}
+
 	// contributed by org.eclipse.xtext.generator.validation.ValidatorFragment
 	@org.eclipse.xtext.service.SingletonBinding(eager=true)	public Class<? extends ch.hilbri.assist.mappingdsl.validation.MappingDSLValidator> bindMappingDSLValidator() {
 		return ch.hilbri.assist.mappingdsl.validation.MappingDSLValidator.class;

@@ -16,27 +16,33 @@ AssistModel:
 	('InterfaceGroups' '{'
 		(eqInterfaceGroups+=EqInterfaceGroup)+
 	'}')?
+	
+	('Restrictions' '{'
+		(dislocalityRelations+=DislocalityRelation)*
+	'}')?
 ;
 
 Compartment: 
 	'Compartment' name=ID '{'
-		('Manufacturer' 			'=' manufacturer=STRING ';')?
-		('PowerSupply' 				'=' powerSupply=STRING ';')?
-		('Side' 					'=' side=STRING ';')?
-		('Zone' 					'=' zone=STRING ';')?
-		(rdcs+=RDC)+
-		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+		(
+			('Manufacturer' 			'=' manufacturer=STRING ';')?  					&
+			('PowerSupply' 				'=' powerSupply=STRING ';')?					&
+			('Side' 					'=' side=STRING ';')?							&
+			('Zone' 					'=' zone=STRING ';')?							&
+			rdcs+=RDC+															
+		)
 	'}'
 ;
 
 RDC:
 	'RDC' name=ID '{'
-		('Manufacturer' 			'=' manufacturer=STRING ';')?
-		('PowerSupply' 				'=' powerSupply=STRING ';')?
-		('Type' 					'=' rdcType=STRING ';')?
-		('ESS'		 				'=' ess=STRING ';')?
-		(connectors+=Connector)+
-		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?			
+		(
+			('Manufacturer' 			'=' manufacturer=STRING ';')?					&
+			('PowerSupply' 				'=' powerSupply=STRING ';')?					&
+			('Type' 					'=' rdcType=STRING ';')?						&
+			('ESS'		 				'=' ess=STRING ';')?							&
+			connectors+=Connector+
+		)													
 	'}'
 ;
 
@@ -47,7 +53,7 @@ Connector:
 ;
 
 AvailableEqInterface:
-	count=INT 'interface with type' eqInterfaceType=EqInterfaceType ';'
+	count=INT 'with type' eqInterfaceType=EqInterfaceType ';'
 ;
 
 
@@ -59,26 +65,33 @@ EqInterfaceGroup:
 
 EqInterface:
 	'Interface' name=ID '{'
-		('InterfaceSystem' 	'=' system=STRING ';')?
-		('SubAta' 			'=' subAta=STRING ';')?
-		('Resource'			'=' resource=STRING ';')?
-		('LineName'			'=' lineName=STRING ';')?
-		('WiringLane'		'=' wiringLane=STRING ';')?
-		('GrpInfo'			'=' grpInfo=STRING ';')?
-		('Route'			'=' route=STRING ';')?
-		('PwSup1'			'=' pwSup1=STRING ';')?
-		('EmhZone1'			'=' emhZone1=STRING ';')?
-		('Type'				'=' ioType=EqInterfaceType ';')?
-		('Generic properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
+		(
+			('InterfaceSystem' 	'=' system=STRING ';')?				&
+			('SubAta' 			'=' subAta=STRING ';')?				&
+			('Resource'			'=' resource=STRING ';')?			&
+			('LineName'			'=' lineName=STRING ';')?			&
+			('WiringLane'		'=' wiringLane=STRING ';')?			&
+			('GrpInfo'			'=' grpInfo=STRING ';')?			&
+			('Route'			'=' route=STRING ';')?				&
+			('PwSup1'			'=' pwSup1=STRING ';')?				&
+			('EmhZone1'			'=' emhZone1=STRING ';')?			&
+			('Type'				'=' ioType=EqInterfaceType ';')?
+		)
 	'}';
 
 
 /* RELATIONEN */
 
-/* DislocalityRelation:
-	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'dislocal up to' hardwareLevel=HardwareArchitectureLevelType ';';
+enum HardwareArchitectureLevelType :
+	COMPARTMENT = 'Compartment' |
+	RDC			= 'RDC'			|
+	CONNECTOR	= 'Connector'
+;
+
+DislocalityRelation:
+	eqInterfaceGroup=[EqInterfaceGroup] 'dislocal up to' hardwareLevel=HardwareArchitectureLevelType ';';
 	
-ProximityRelation:
+/*ProximityRelation:
 	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'on same' hardwareLevel=HardwareArchitectureLevelType ';'; 
 
 CommunicationRelation: 

@@ -4,6 +4,7 @@ import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
 import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.Connector;
+import ch.hilbri.assist.datamodel.model.DislocalityRelation;
 import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
 import ch.hilbri.assist.datamodel.model.MetricParameter;
@@ -56,6 +57,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case ModelPackage.DISLOCALITY_RELATION:
+				if(context == grammarAccess.getDislocalityRelationRule()) {
+					sequence_DislocalityRelation(context, (DislocalityRelation) semanticObject); 
+					return; 
+				}
+				else break;
 			case ModelPackage.EQ_INTERFACE:
 				if(context == grammarAccess.getEqInterfaceRule()) {
 					sequence_EqInterface(context, (EqInterface) semanticObject); 
@@ -86,7 +93,13 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (systemName=STRING compartments+=Compartment? eqInterfaces+=EqInterface* eqInterfaceGroups+=EqInterfaceGroup*)
+	 *     (
+	 *         systemName=STRING 
+	 *         compartments+=Compartment? 
+	 *         eqInterfaces+=EqInterface* 
+	 *         eqInterfaceGroups+=EqInterfaceGroup* 
+	 *         dislocalityRelations+=DislocalityRelation*
+	 *     )
 	 */
 	protected void sequence_AssistModel(EObject context, AssistModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -120,8 +133,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         powerSupply=STRING? 
 	 *         side=STRING? 
 	 *         zone=STRING? 
-	 *         rdcs+=RDC+ 
-	 *         metricParameters+=MetricParameter*
+	 *         rdcs+=RDC*
 	 *     )
 	 */
 	protected void sequence_Compartment(EObject context, Compartment semanticObject) {
@@ -135,6 +147,25 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Connector(EObject context, Connector semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (eqInterfaceGroup=[EqInterfaceGroup|ID] hardwareLevel=HardwareArchitectureLevelType)
+	 */
+	protected void sequence_DislocalityRelation(EObject context, DislocalityRelation semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.DISLOCALITY_RELATION__EQ_INTERFACE_GROUP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.DISLOCALITY_RELATION__EQ_INTERFACE_GROUP));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.DISLOCALITY_RELATION__HARDWARE_LEVEL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.DISLOCALITY_RELATION__HARDWARE_LEVEL));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getDislocalityRelationAccess().getEqInterfaceGroupEqInterfaceGroupIDTerminalRuleCall_0_0_1(), semanticObject.getEqInterfaceGroup());
+		feeder.accept(grammarAccess.getDislocalityRelationAccess().getHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_2_0(), semanticObject.getHardwareLevel());
+		feeder.finish();
 	}
 	
 	

@@ -105,6 +105,7 @@ public class AssistModelItemProvider
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACES);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACE_GROUPS);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -166,6 +167,7 @@ public class AssistModelItemProvider
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
 			case ModelPackage.ASSIST_MODEL__EQ_INTERFACES:
 			case ModelPackage.ASSIST_MODEL__EQ_INTERFACE_GROUPS:
+			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -197,6 +199,11 @@ public class AssistModelItemProvider
 			(createChildParameter
 				(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACE_GROUPS,
 				 ModelFactory.eINSTANCE.createEqInterfaceGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS,
+				 ModelFactory.eINSTANCE.createDislocalityRelation()));
 	}
 
 	/**
