@@ -2,10 +2,11 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.mapping.solver.exceptions.InterfaceGroupCannotBeMappedDislocally
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
+import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
-import ch.hilbri.assist.mapping.solver.exceptions.InterfaceGroupCannotBeMappedDislocally
 
 class DislocalityConstraint extends AbstractMappingConstraint {
 	
@@ -30,10 +31,10 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			
 			/* Only post if there are actually elements in it */
 			if (varList.size > 1) {
+				solver.post(ICF.alldifferent(varList))
+				
 				try { solver.propagate }
-				catch (ContradictionException e) {
-					throw new InterfaceGroupCannotBeMappedDislocally(this, r.eqInterfaceGroup)
-				}
+				catch (ContradictionException e) {	throw new InterfaceGroupCannotBeMappedDislocally(this, r.eqInterfaceGroup)	}
 			}
 		}
 
