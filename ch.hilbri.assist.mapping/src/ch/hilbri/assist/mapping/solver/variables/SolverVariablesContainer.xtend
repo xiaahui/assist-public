@@ -19,6 +19,7 @@ import org.chocosolver.solver.variables.BoolVar
 	
 	Map<IntVar, EqInterface> 		locationVarMap = new HashMap
 	
+	/** Matrix of indicator variables; first dimension corresponds to the connectors, the second dimension to the interfaces */
 	BoolVar[][] interfaceConnectorIndicatorVariables;
 	
 	/* CONSTRUCTOR */
