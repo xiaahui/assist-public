@@ -13,6 +13,7 @@ import ch.hilbri.assist.mapping.solver.constraints.DissimilarityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint
 import ch.hilbri.assist.mapping.solver.constraints.NetworkConstraints
 import ch.hilbri.assist.mapping.solver.constraints.NoPermutationsConstraint
+import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
@@ -32,7 +33,6 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint
 
 class AssistSolver {
 	
@@ -59,7 +59,7 @@ class AssistSolver {
 		
 		/* Attach the search monitor */
 		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor)
-		//this.solver.searchLoop.plugSearchMonitor(new BacktrackingMonitor)
+		this.solver.searchLoop.plugSearchMonitor(new BacktrackingMonitor)
 		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 		
 		/* Create a new recorder for our solutions */
