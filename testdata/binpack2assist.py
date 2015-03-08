@@ -14,33 +14,37 @@ def readBPPC(numItems, cap, input, bound):
         print("""\
 Global {
     System name = "Binpack with conflicts System %s";
-}
-
-Hardware {""" % base, file=w)
+}""" % base, file=w)
 
         for i in range(numBoards):
             print("""\
-    Board Board%s {
-        Processor Processor%s {
-            Core Core%s {
-                Capacity = %s;
-            }
+Compartment Compartment%s {
+    RDC RDC%s {
+        Connector Connector%s {
+            %s interface with type CustomType0;
         }
-    }""" % (i, i, i, intCap), file=w)
+    }
+}""" % (i, i, i, intCap), file=w)
 
-        print("}\n\nSoftware {", file=w)
+        print("\n\nInterfaces {", file=w)
 
         for i in range(int(numItems)):
             items.append(input.readline().split())
-            print("""\
-    Application A%s {
-        Core-utilization = %s;
-    }""" % (items[-1][0], int(float(items[-1][1]))), file=w)
+            for j in range(int(float(items[-1][1]))):
+                print("""\
+    Interface I%s.%s {
+        Type = CustomType0;
+    }""" % (items[-1][0], j), file=w)
 
-        print("}\n\nRelations {", file=w)
+        print("}\n\nInterfaceGroups {", file=w)
         for item in items:
             for conflict in item[2:]:
-                print("    A%s,A%s dislocal up to Board;" % (item[0], conflict), file=w)
+                print("    I%s.0,I%s dislocal up to Connector;" % (item[0], conflict), file=w)
+
+        print("}\n\nRestrictions {", file=w)
+        for item in items:
+            for conflict in item[2:]:
+                print("    I%s.0,I%s dislocal up to Connector;" % (item[0], conflict), file=w)
 
         print("}\n\n", file=w)
     return w.name
@@ -63,27 +67,26 @@ def readFile(input):
             print("""\
 Global {
         System name = "Binpack System %s";
-}
-
-Hardware {""" % desc, file=w)
+}""" % desc, file=w)
 
             for i in range(numBoards):
                 print("""\
-        Board Board%s {
-                Processor Processor%s {
-                        Core Core%s {
-                                Capacity = %s;
-                        }
-                }
-        }""" % (i, i, i, intCap), file=w)
+Compartment Compartment%s {
+    RDC RDC%s {
+        Connector Connector%s {
+            %s interface with type CustomType0;
+        }
+    }
+}""" % (i, i, i, intCap), file=w)
 
-            print("}\n\nSoftware {", file=w)
+            print("\n\nInterfaces {", file=w)
 
             for i in range(int(numItems)):
-                print("""\
-        Application A%s {
-                Core-utilization = %s;
-        }""" % (i, int(float(input.readline()))), file=w)
+                for j in range(int(float(input.readline()))):
+                    print("""\
+    Interface I%s.%s {
+        Type = CustomType0;
+    }""" % (i, j), file=w)
 
             print("}\n", file=w)
     return w.name
