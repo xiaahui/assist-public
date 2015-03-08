@@ -3,12 +3,12 @@
 # to assist instances
 
 from __future__ import print_function
-import os, sys, argparse, zipfile
+import os, sys, argparse, zipfile, subprocess, time
 
 def readBPPC(numItems, cap, input, bound):
     base = os.path.basename(input.name)
     intCap = int(cap * args.capacity_scale)
-    numBoards = args.number if args.number else int(bound[base] * args.scale)
+    numBoards = args.number if args.number else int(bound[base] * args.bin_scale)
     items = []
     with open(base[:-4] + ".mdsl", 'w') as w:
         print("""\
@@ -43,29 +43,32 @@ Hardware {""" % base, file=w)
                 print("    A%s,A%s dislocal up to Board;" % (item[0], conflict), file=w)
 
         print("}\n\n", file=w)
+    return w.name
 
 def readFile(input):
-        first = input.readline().split()
-        if len(first) == 2:
-            readBPPC(int(first[0]), float(first[1]), input, bound)
-            return
-        numProbs = int(first[0])
-        print("Converting %s problems from %s" % (numProbs, f))
-        for p in range(numProbs):
-            desc = input.readline().strip()
-            cap, numItems, numBins = [float(x) for x in input.readline().split()]
-            intCap = int(cap * args.capacity_scale)
-            numBoards = args.number if args.number else int(numBins * args.scale)
-            with open(desc + ".mdsl", 'w') as w:
-                print("""\
+    first = input.readline().split()
+    try:
+        f0 = int(first[0])
+    except:
+        return None
+    if len(first) == 2:
+        return readBPPC(f0, float(first[1]), input, bound)
+    print("Converting %s problems from %s" % (f0, f))
+    for p in range(f0):
+        desc = input.readline().strip()
+        cap, numItems, numBins = [float(x) for x in input.readline().split()]
+        intCap = int(cap * args.capacity_scale)
+        numBoards = args.number if args.number else int(numBins * args.bin_scale)
+        with open(desc + ".mdsl", 'w') as w:
+            print("""\
 Global {
         System name = "Binpack System %s";
 }
 
 Hardware {""" % desc, file=w)
 
-                for i in range(numBoards):
-                    print("""\
+            for i in range(numBoards):
+                print("""\
         Board Board%s {
                 Processor Processor%s {
                         Core Core%s {
@@ -74,15 +77,33 @@ Hardware {""" % desc, file=w)
                 }
         }""" % (i, i, i, intCap), file=w)
 
-                print("}\n\nSoftware {", file=w)
+            print("}\n\nSoftware {", file=w)
 
-                for i in range(int(numItems)):
-                    print("""\
+            for i in range(int(numItems)):
+                print("""\
         Application A%s {
                 Core-utilization = %s;
         }""" % (i, int(float(input.readline()))), file=w)
 
-                print("}\n", file=w)
+            print("}\n", file=w)
+    return w.name
+
+def runAssist(inputs, args):
+    procs = []
+    for i in inputs:
+        if not i:
+            continue
+        procs.append(subprocess.Popen(["java", "-jar", args.jar, i, "-s", str(args.solutions)],
+                                      stdout=open(i+".log", 'w'), stderr=subprocess.STDOUT))
+        if len(procs) == args.instances:
+            if args.timeout == 0:
+                for p in procs:
+                    p.wait()
+            else:
+                time.sleep(args.timeout)
+                for p in procs:
+                    p.kill()
+            procs = []
 
 def getEntry(line):
     return line.split(">")[1].split("<")[0]
@@ -92,9 +113,13 @@ if __name__ == "__main__":
     parser.add_argument('files', metavar='<file>', nargs='+',
                         help='files to parse')
     parser.add_argument("-n", "--number", type=int, help="set fixed number of bins/boards")
-    parser.add_argument("-s", "--scale", type=float, default=1.0, help="scale number of bins/boards")
+    parser.add_argument("-b", "--bin-scale", type=float, default=1.0, help="scale number of bins/boards")
     parser.add_argument("-c", "--capacity-scale", type=float, default=1.0, help="scale capacity of bins/boards")
     parser.add_argument("-r", "--bppc-results", help="results file for BPPC to read the bin number from")
+    parser.add_argument("-j", "--jar", default=os.path.join(os.path.dirname(__file__), '..', 'ch.hilbri.assist.cli', 'assist_cli.jar'), help="jar file to start")
+    parser.add_argument("-i", "--instances", type=int, default=0, help="number of parallel instances to start")
+    parser.add_argument("-t", "--timeout", type=int, default=0, help="timeout in seconds")
+    parser.add_argument("-s", "--solutions", type=int, default=1, help="number of solutions to find")
     args = parser.parse_args()
 
     bound = {}
@@ -110,11 +135,14 @@ if __name__ == "__main__":
                 if count == 3:
                     bound[name] = int(getEntry(line))
                     count = -1
-
+    mdsls = []
     for f in args.files:
         if zipfile.is_zipfile(f):
             zipf = zipfile.ZipFile(f)
             for z in zipf.namelist():
-                readFile(zipf.open(z))
+                mdsls.append(readFile(zipf.open(z)))
         else:
-            readFile(open(f))
+            mdsls.append(readFile(open(f)))
+
+    if args.instances > 0:
+        runAssist(mdsls, args)
