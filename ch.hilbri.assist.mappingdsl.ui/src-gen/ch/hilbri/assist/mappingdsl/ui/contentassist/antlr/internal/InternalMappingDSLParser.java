@@ -9646,17 +9646,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterfaceGroup__Group__5"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3378:1: rule__EqInterfaceGroup__Group__5 : rule__EqInterfaceGroup__Group__5__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3378:1: rule__EqInterfaceGroup__Group__5 : rule__EqInterfaceGroup__Group__5__Impl rule__EqInterfaceGroup__Group__6 ;
     public final void rule__EqInterfaceGroup__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3382:1: ( rule__EqInterfaceGroup__Group__5__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3383:2: rule__EqInterfaceGroup__Group__5__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3382:1: ( rule__EqInterfaceGroup__Group__5__Impl rule__EqInterfaceGroup__Group__6 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3383:2: rule__EqInterfaceGroup__Group__5__Impl rule__EqInterfaceGroup__Group__6
             {
             pushFollow(FOLLOW_rule__EqInterfaceGroup__Group__5__Impl_in_rule__EqInterfaceGroup__Group__56998);
             rule__EqInterfaceGroup__Group__5__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_rule__EqInterfaceGroup__Group__6_in_rule__EqInterfaceGroup__Group__57001);
+            rule__EqInterfaceGroup__Group__6();
 
             state._fsp--;
             if (state.failed) return ;
@@ -9679,22 +9684,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterfaceGroup__Group__5__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3389:1: rule__EqInterfaceGroup__Group__5__Impl : ( '}' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3390:1: rule__EqInterfaceGroup__Group__5__Impl : ( '}' ) ;
     public final void rule__EqInterfaceGroup__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3393:1: ( ( '}' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3394:1: ( '}' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3394:1: ( ( '}' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3395:1: ( '}' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3394:1: ( '}' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3395:1: '}'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3395:1: ( '}' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3396:1: '}'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceGroupAccess().getRightCurlyBracketKeyword_5()); 
             }
-            match(input,65,FOLLOW_65_in_rule__EqInterfaceGroup__Group__5__Impl7026); if (state.failed) return ;
+            match(input,65,FOLLOW_65_in_rule__EqInterfaceGroup__Group__5__Impl7029); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceGroupAccess().getRightCurlyBracketKeyword_5()); 
             }
@@ -9719,22 +9724,96 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__EqInterfaceGroup__Group__5__Impl"
 
 
+    // $ANTLR start "rule__EqInterfaceGroup__Group__6"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3409:1: rule__EqInterfaceGroup__Group__6 : rule__EqInterfaceGroup__Group__6__Impl ;
+    public final void rule__EqInterfaceGroup__Group__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3413:1: ( rule__EqInterfaceGroup__Group__6__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3414:2: rule__EqInterfaceGroup__Group__6__Impl
+            {
+            pushFollow(FOLLOW_rule__EqInterfaceGroup__Group__6__Impl_in_rule__EqInterfaceGroup__Group__67060);
+            rule__EqInterfaceGroup__Group__6__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EqInterfaceGroup__Group__6"
+
+
+    // $ANTLR start "rule__EqInterfaceGroup__Group__6__Impl"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3420:1: rule__EqInterfaceGroup__Group__6__Impl : ( ';' ) ;
+    public final void rule__EqInterfaceGroup__Group__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3424:1: ( ( ';' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3425:1: ( ';' )
+            {
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3425:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3426:1: ';'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getEqInterfaceGroupAccess().getSemicolonKeyword_6()); 
+            }
+            match(input,64,FOLLOW_64_in_rule__EqInterfaceGroup__Group__6__Impl7088); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getEqInterfaceGroupAccess().getSemicolonKeyword_6()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EqInterfaceGroup__Group__6__Impl"
+
+
     // $ANTLR start "rule__EqInterfaceGroup__Group_4__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3420:1: rule__EqInterfaceGroup__Group_4__0 : rule__EqInterfaceGroup__Group_4__0__Impl rule__EqInterfaceGroup__Group_4__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3453:1: rule__EqInterfaceGroup__Group_4__0 : rule__EqInterfaceGroup__Group_4__0__Impl rule__EqInterfaceGroup__Group_4__1 ;
     public final void rule__EqInterfaceGroup__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3424:1: ( rule__EqInterfaceGroup__Group_4__0__Impl rule__EqInterfaceGroup__Group_4__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3425:2: rule__EqInterfaceGroup__Group_4__0__Impl rule__EqInterfaceGroup__Group_4__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3457:1: ( rule__EqInterfaceGroup__Group_4__0__Impl rule__EqInterfaceGroup__Group_4__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3458:2: rule__EqInterfaceGroup__Group_4__0__Impl rule__EqInterfaceGroup__Group_4__1
             {
-            pushFollow(FOLLOW_rule__EqInterfaceGroup__Group_4__0__Impl_in_rule__EqInterfaceGroup__Group_4__07069);
+            pushFollow(FOLLOW_rule__EqInterfaceGroup__Group_4__0__Impl_in_rule__EqInterfaceGroup__Group_4__07133);
             rule__EqInterfaceGroup__Group_4__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterfaceGroup__Group_4__1_in_rule__EqInterfaceGroup__Group_4__07072);
+            pushFollow(FOLLOW_rule__EqInterfaceGroup__Group_4__1_in_rule__EqInterfaceGroup__Group_4__07136);
             rule__EqInterfaceGroup__Group_4__1();
 
             state._fsp--;
@@ -9758,22 +9837,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterfaceGroup__Group_4__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3432:1: rule__EqInterfaceGroup__Group_4__0__Impl : ( ',' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3465:1: rule__EqInterfaceGroup__Group_4__0__Impl : ( ',' ) ;
     public final void rule__EqInterfaceGroup__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3436:1: ( ( ',' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3437:1: ( ',' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3469:1: ( ( ',' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3470:1: ( ',' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3437:1: ( ',' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3438:1: ','
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3470:1: ( ',' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3471:1: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceGroupAccess().getCommaKeyword_4_0()); 
             }
-            match(input,76,FOLLOW_76_in_rule__EqInterfaceGroup__Group_4__0__Impl7100); if (state.failed) return ;
+            match(input,76,FOLLOW_76_in_rule__EqInterfaceGroup__Group_4__0__Impl7164); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceGroupAccess().getCommaKeyword_4_0()); 
             }
@@ -9799,16 +9878,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterfaceGroup__Group_4__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3451:1: rule__EqInterfaceGroup__Group_4__1 : rule__EqInterfaceGroup__Group_4__1__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3484:1: rule__EqInterfaceGroup__Group_4__1 : rule__EqInterfaceGroup__Group_4__1__Impl ;
     public final void rule__EqInterfaceGroup__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3455:1: ( rule__EqInterfaceGroup__Group_4__1__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3456:2: rule__EqInterfaceGroup__Group_4__1__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3488:1: ( rule__EqInterfaceGroup__Group_4__1__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3489:2: rule__EqInterfaceGroup__Group_4__1__Impl
             {
-            pushFollow(FOLLOW_rule__EqInterfaceGroup__Group_4__1__Impl_in_rule__EqInterfaceGroup__Group_4__17131);
+            pushFollow(FOLLOW_rule__EqInterfaceGroup__Group_4__1__Impl_in_rule__EqInterfaceGroup__Group_4__17195);
             rule__EqInterfaceGroup__Group_4__1__Impl();
 
             state._fsp--;
@@ -9832,25 +9911,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterfaceGroup__Group_4__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3462:1: rule__EqInterfaceGroup__Group_4__1__Impl : ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3495:1: rule__EqInterfaceGroup__Group_4__1__Impl : ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1 ) ) ;
     public final void rule__EqInterfaceGroup__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3466:1: ( ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3467:1: ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3499:1: ( ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3500:1: ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3467:1: ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3468:1: ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3500:1: ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3501:1: ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceGroupAccess().getEqInterfacesAssignment_4_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3469:1: ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3469:2: rule__EqInterfaceGroup__EqInterfacesAssignment_4_1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3502:1: ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3502:2: rule__EqInterfaceGroup__EqInterfacesAssignment_4_1
             {
-            pushFollow(FOLLOW_rule__EqInterfaceGroup__EqInterfacesAssignment_4_1_in_rule__EqInterfaceGroup__Group_4__1__Impl7158);
+            pushFollow(FOLLOW_rule__EqInterfaceGroup__EqInterfacesAssignment_4_1_in_rule__EqInterfaceGroup__Group_4__1__Impl7222);
             rule__EqInterfaceGroup__EqInterfacesAssignment_4_1();
 
             state._fsp--;
@@ -9883,21 +9962,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3483:1: rule__EqInterface__Group__0 : rule__EqInterface__Group__0__Impl rule__EqInterface__Group__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3516:1: rule__EqInterface__Group__0 : rule__EqInterface__Group__0__Impl rule__EqInterface__Group__1 ;
     public final void rule__EqInterface__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3487:1: ( rule__EqInterface__Group__0__Impl rule__EqInterface__Group__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3488:2: rule__EqInterface__Group__0__Impl rule__EqInterface__Group__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3520:1: ( rule__EqInterface__Group__0__Impl rule__EqInterface__Group__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3521:2: rule__EqInterface__Group__0__Impl rule__EqInterface__Group__1
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group__0__Impl_in_rule__EqInterface__Group__07192);
+            pushFollow(FOLLOW_rule__EqInterface__Group__0__Impl_in_rule__EqInterface__Group__07256);
             rule__EqInterface__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group__1_in_rule__EqInterface__Group__07195);
+            pushFollow(FOLLOW_rule__EqInterface__Group__1_in_rule__EqInterface__Group__07259);
             rule__EqInterface__Group__1();
 
             state._fsp--;
@@ -9921,22 +10000,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3495:1: rule__EqInterface__Group__0__Impl : ( 'Interface' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3528:1: rule__EqInterface__Group__0__Impl : ( 'Interface' ) ;
     public final void rule__EqInterface__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3499:1: ( ( 'Interface' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3500:1: ( 'Interface' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3532:1: ( ( 'Interface' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3533:1: ( 'Interface' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3500:1: ( 'Interface' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3501:1: 'Interface'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3533:1: ( 'Interface' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3534:1: 'Interface'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getInterfaceKeyword_0()); 
             }
-            match(input,77,FOLLOW_77_in_rule__EqInterface__Group__0__Impl7223); if (state.failed) return ;
+            match(input,77,FOLLOW_77_in_rule__EqInterface__Group__0__Impl7287); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getInterfaceKeyword_0()); 
             }
@@ -9962,21 +10041,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3514:1: rule__EqInterface__Group__1 : rule__EqInterface__Group__1__Impl rule__EqInterface__Group__2 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3547:1: rule__EqInterface__Group__1 : rule__EqInterface__Group__1__Impl rule__EqInterface__Group__2 ;
     public final void rule__EqInterface__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3518:1: ( rule__EqInterface__Group__1__Impl rule__EqInterface__Group__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3519:2: rule__EqInterface__Group__1__Impl rule__EqInterface__Group__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3551:1: ( rule__EqInterface__Group__1__Impl rule__EqInterface__Group__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3552:2: rule__EqInterface__Group__1__Impl rule__EqInterface__Group__2
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group__1__Impl_in_rule__EqInterface__Group__17254);
+            pushFollow(FOLLOW_rule__EqInterface__Group__1__Impl_in_rule__EqInterface__Group__17318);
             rule__EqInterface__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group__2_in_rule__EqInterface__Group__17257);
+            pushFollow(FOLLOW_rule__EqInterface__Group__2_in_rule__EqInterface__Group__17321);
             rule__EqInterface__Group__2();
 
             state._fsp--;
@@ -10000,25 +10079,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3526:1: rule__EqInterface__Group__1__Impl : ( ( rule__EqInterface__NameAssignment_1 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3559:1: rule__EqInterface__Group__1__Impl : ( ( rule__EqInterface__NameAssignment_1 ) ) ;
     public final void rule__EqInterface__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3530:1: ( ( ( rule__EqInterface__NameAssignment_1 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3531:1: ( ( rule__EqInterface__NameAssignment_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3563:1: ( ( ( rule__EqInterface__NameAssignment_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3564:1: ( ( rule__EqInterface__NameAssignment_1 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3531:1: ( ( rule__EqInterface__NameAssignment_1 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3532:1: ( rule__EqInterface__NameAssignment_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3564:1: ( ( rule__EqInterface__NameAssignment_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3565:1: ( rule__EqInterface__NameAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getNameAssignment_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3533:1: ( rule__EqInterface__NameAssignment_1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3533:2: rule__EqInterface__NameAssignment_1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3566:1: ( rule__EqInterface__NameAssignment_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3566:2: rule__EqInterface__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__EqInterface__NameAssignment_1_in_rule__EqInterface__Group__1__Impl7284);
+            pushFollow(FOLLOW_rule__EqInterface__NameAssignment_1_in_rule__EqInterface__Group__1__Impl7348);
             rule__EqInterface__NameAssignment_1();
 
             state._fsp--;
@@ -10051,21 +10130,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3543:1: rule__EqInterface__Group__2 : rule__EqInterface__Group__2__Impl rule__EqInterface__Group__3 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3576:1: rule__EqInterface__Group__2 : rule__EqInterface__Group__2__Impl rule__EqInterface__Group__3 ;
     public final void rule__EqInterface__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3547:1: ( rule__EqInterface__Group__2__Impl rule__EqInterface__Group__3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3548:2: rule__EqInterface__Group__2__Impl rule__EqInterface__Group__3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3580:1: ( rule__EqInterface__Group__2__Impl rule__EqInterface__Group__3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3581:2: rule__EqInterface__Group__2__Impl rule__EqInterface__Group__3
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group__2__Impl_in_rule__EqInterface__Group__27314);
+            pushFollow(FOLLOW_rule__EqInterface__Group__2__Impl_in_rule__EqInterface__Group__27378);
             rule__EqInterface__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group__3_in_rule__EqInterface__Group__27317);
+            pushFollow(FOLLOW_rule__EqInterface__Group__3_in_rule__EqInterface__Group__27381);
             rule__EqInterface__Group__3();
 
             state._fsp--;
@@ -10089,22 +10168,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3555:1: rule__EqInterface__Group__2__Impl : ( '{' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3588:1: rule__EqInterface__Group__2__Impl : ( '{' ) ;
     public final void rule__EqInterface__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3559:1: ( ( '{' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3560:1: ( '{' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3592:1: ( ( '{' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3593:1: ( '{' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3560:1: ( '{' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3561:1: '{'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3593:1: ( '{' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3594:1: '{'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getLeftCurlyBracketKeyword_2()); 
             }
-            match(input,61,FOLLOW_61_in_rule__EqInterface__Group__2__Impl7345); if (state.failed) return ;
+            match(input,61,FOLLOW_61_in_rule__EqInterface__Group__2__Impl7409); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getLeftCurlyBracketKeyword_2()); 
             }
@@ -10130,21 +10209,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3574:1: rule__EqInterface__Group__3 : rule__EqInterface__Group__3__Impl rule__EqInterface__Group__4 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3607:1: rule__EqInterface__Group__3 : rule__EqInterface__Group__3__Impl rule__EqInterface__Group__4 ;
     public final void rule__EqInterface__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3578:1: ( rule__EqInterface__Group__3__Impl rule__EqInterface__Group__4 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3579:2: rule__EqInterface__Group__3__Impl rule__EqInterface__Group__4
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3611:1: ( rule__EqInterface__Group__3__Impl rule__EqInterface__Group__4 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3612:2: rule__EqInterface__Group__3__Impl rule__EqInterface__Group__4
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group__3__Impl_in_rule__EqInterface__Group__37376);
+            pushFollow(FOLLOW_rule__EqInterface__Group__3__Impl_in_rule__EqInterface__Group__37440);
             rule__EqInterface__Group__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group__4_in_rule__EqInterface__Group__37379);
+            pushFollow(FOLLOW_rule__EqInterface__Group__4_in_rule__EqInterface__Group__37443);
             rule__EqInterface__Group__4();
 
             state._fsp--;
@@ -10168,25 +10247,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group__3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3586:1: rule__EqInterface__Group__3__Impl : ( ( rule__EqInterface__UnorderedGroup_3 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3619:1: rule__EqInterface__Group__3__Impl : ( ( rule__EqInterface__UnorderedGroup_3 ) ) ;
     public final void rule__EqInterface__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3590:1: ( ( ( rule__EqInterface__UnorderedGroup_3 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3591:1: ( ( rule__EqInterface__UnorderedGroup_3 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3623:1: ( ( ( rule__EqInterface__UnorderedGroup_3 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3624:1: ( ( rule__EqInterface__UnorderedGroup_3 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3591:1: ( ( rule__EqInterface__UnorderedGroup_3 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3592:1: ( rule__EqInterface__UnorderedGroup_3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3624:1: ( ( rule__EqInterface__UnorderedGroup_3 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3625:1: ( rule__EqInterface__UnorderedGroup_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3593:1: ( rule__EqInterface__UnorderedGroup_3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3593:2: rule__EqInterface__UnorderedGroup_3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3626:1: ( rule__EqInterface__UnorderedGroup_3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3626:2: rule__EqInterface__UnorderedGroup_3
             {
-            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3_in_rule__EqInterface__Group__3__Impl7406);
+            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3_in_rule__EqInterface__Group__3__Impl7470);
             rule__EqInterface__UnorderedGroup_3();
 
             state._fsp--;
@@ -10219,16 +10298,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group__4"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3603:1: rule__EqInterface__Group__4 : rule__EqInterface__Group__4__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3636:1: rule__EqInterface__Group__4 : rule__EqInterface__Group__4__Impl ;
     public final void rule__EqInterface__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3607:1: ( rule__EqInterface__Group__4__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3608:2: rule__EqInterface__Group__4__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3640:1: ( rule__EqInterface__Group__4__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3641:2: rule__EqInterface__Group__4__Impl
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group__4__Impl_in_rule__EqInterface__Group__47436);
+            pushFollow(FOLLOW_rule__EqInterface__Group__4__Impl_in_rule__EqInterface__Group__47500);
             rule__EqInterface__Group__4__Impl();
 
             state._fsp--;
@@ -10252,22 +10331,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group__4__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3614:1: rule__EqInterface__Group__4__Impl : ( '}' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3647:1: rule__EqInterface__Group__4__Impl : ( '}' ) ;
     public final void rule__EqInterface__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3618:1: ( ( '}' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3619:1: ( '}' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3651:1: ( ( '}' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3652:1: ( '}' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3619:1: ( '}' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3620:1: '}'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3652:1: ( '}' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3653:1: '}'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getRightCurlyBracketKeyword_4()); 
             }
-            match(input,65,FOLLOW_65_in_rule__EqInterface__Group__4__Impl7464); if (state.failed) return ;
+            match(input,65,FOLLOW_65_in_rule__EqInterface__Group__4__Impl7528); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getRightCurlyBracketKeyword_4()); 
             }
@@ -10293,21 +10372,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_0__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3643:1: rule__EqInterface__Group_3_0__0 : rule__EqInterface__Group_3_0__0__Impl rule__EqInterface__Group_3_0__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3676:1: rule__EqInterface__Group_3_0__0 : rule__EqInterface__Group_3_0__0__Impl rule__EqInterface__Group_3_0__1 ;
     public final void rule__EqInterface__Group_3_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3647:1: ( rule__EqInterface__Group_3_0__0__Impl rule__EqInterface__Group_3_0__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3648:2: rule__EqInterface__Group_3_0__0__Impl rule__EqInterface__Group_3_0__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3680:1: ( rule__EqInterface__Group_3_0__0__Impl rule__EqInterface__Group_3_0__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3681:2: rule__EqInterface__Group_3_0__0__Impl rule__EqInterface__Group_3_0__1
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_0__0__Impl_in_rule__EqInterface__Group_3_0__07505);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_0__0__Impl_in_rule__EqInterface__Group_3_0__07569);
             rule__EqInterface__Group_3_0__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_0__1_in_rule__EqInterface__Group_3_0__07508);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_0__1_in_rule__EqInterface__Group_3_0__07572);
             rule__EqInterface__Group_3_0__1();
 
             state._fsp--;
@@ -10331,22 +10410,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_0__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3655:1: rule__EqInterface__Group_3_0__0__Impl : ( 'InterfaceSystem' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3688:1: rule__EqInterface__Group_3_0__0__Impl : ( 'InterfaceSystem' ) ;
     public final void rule__EqInterface__Group_3_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3659:1: ( ( 'InterfaceSystem' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3660:1: ( 'InterfaceSystem' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3692:1: ( ( 'InterfaceSystem' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3693:1: ( 'InterfaceSystem' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3660:1: ( 'InterfaceSystem' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3661:1: 'InterfaceSystem'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3693:1: ( 'InterfaceSystem' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3694:1: 'InterfaceSystem'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getInterfaceSystemKeyword_3_0_0()); 
             }
-            match(input,78,FOLLOW_78_in_rule__EqInterface__Group_3_0__0__Impl7536); if (state.failed) return ;
+            match(input,78,FOLLOW_78_in_rule__EqInterface__Group_3_0__0__Impl7600); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getInterfaceSystemKeyword_3_0_0()); 
             }
@@ -10372,21 +10451,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_0__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3674:1: rule__EqInterface__Group_3_0__1 : rule__EqInterface__Group_3_0__1__Impl rule__EqInterface__Group_3_0__2 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3707:1: rule__EqInterface__Group_3_0__1 : rule__EqInterface__Group_3_0__1__Impl rule__EqInterface__Group_3_0__2 ;
     public final void rule__EqInterface__Group_3_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3678:1: ( rule__EqInterface__Group_3_0__1__Impl rule__EqInterface__Group_3_0__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3679:2: rule__EqInterface__Group_3_0__1__Impl rule__EqInterface__Group_3_0__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3711:1: ( rule__EqInterface__Group_3_0__1__Impl rule__EqInterface__Group_3_0__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3712:2: rule__EqInterface__Group_3_0__1__Impl rule__EqInterface__Group_3_0__2
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_0__1__Impl_in_rule__EqInterface__Group_3_0__17567);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_0__1__Impl_in_rule__EqInterface__Group_3_0__17631);
             rule__EqInterface__Group_3_0__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_0__2_in_rule__EqInterface__Group_3_0__17570);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_0__2_in_rule__EqInterface__Group_3_0__17634);
             rule__EqInterface__Group_3_0__2();
 
             state._fsp--;
@@ -10410,22 +10489,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_0__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3686:1: rule__EqInterface__Group_3_0__1__Impl : ( '=' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3719:1: rule__EqInterface__Group_3_0__1__Impl : ( '=' ) ;
     public final void rule__EqInterface__Group_3_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3690:1: ( ( '=' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3691:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3723:1: ( ( '=' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3724:1: ( '=' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3691:1: ( '=' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3692:1: '='
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3724:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3725:1: '='
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_0_1()); 
             }
-            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_0__1__Impl7598); if (state.failed) return ;
+            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_0__1__Impl7662); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_0_1()); 
             }
@@ -10451,21 +10530,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_0__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3705:1: rule__EqInterface__Group_3_0__2 : rule__EqInterface__Group_3_0__2__Impl rule__EqInterface__Group_3_0__3 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3738:1: rule__EqInterface__Group_3_0__2 : rule__EqInterface__Group_3_0__2__Impl rule__EqInterface__Group_3_0__3 ;
     public final void rule__EqInterface__Group_3_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3709:1: ( rule__EqInterface__Group_3_0__2__Impl rule__EqInterface__Group_3_0__3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3710:2: rule__EqInterface__Group_3_0__2__Impl rule__EqInterface__Group_3_0__3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3742:1: ( rule__EqInterface__Group_3_0__2__Impl rule__EqInterface__Group_3_0__3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3743:2: rule__EqInterface__Group_3_0__2__Impl rule__EqInterface__Group_3_0__3
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_0__2__Impl_in_rule__EqInterface__Group_3_0__27629);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_0__2__Impl_in_rule__EqInterface__Group_3_0__27693);
             rule__EqInterface__Group_3_0__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_0__3_in_rule__EqInterface__Group_3_0__27632);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_0__3_in_rule__EqInterface__Group_3_0__27696);
             rule__EqInterface__Group_3_0__3();
 
             state._fsp--;
@@ -10489,25 +10568,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_0__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3717:1: rule__EqInterface__Group_3_0__2__Impl : ( ( rule__EqInterface__SystemAssignment_3_0_2 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3750:1: rule__EqInterface__Group_3_0__2__Impl : ( ( rule__EqInterface__SystemAssignment_3_0_2 ) ) ;
     public final void rule__EqInterface__Group_3_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3721:1: ( ( ( rule__EqInterface__SystemAssignment_3_0_2 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3722:1: ( ( rule__EqInterface__SystemAssignment_3_0_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3754:1: ( ( ( rule__EqInterface__SystemAssignment_3_0_2 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3755:1: ( ( rule__EqInterface__SystemAssignment_3_0_2 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3722:1: ( ( rule__EqInterface__SystemAssignment_3_0_2 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3723:1: ( rule__EqInterface__SystemAssignment_3_0_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3755:1: ( ( rule__EqInterface__SystemAssignment_3_0_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3756:1: ( rule__EqInterface__SystemAssignment_3_0_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSystemAssignment_3_0_2()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3724:1: ( rule__EqInterface__SystemAssignment_3_0_2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3724:2: rule__EqInterface__SystemAssignment_3_0_2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3757:1: ( rule__EqInterface__SystemAssignment_3_0_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3757:2: rule__EqInterface__SystemAssignment_3_0_2
             {
-            pushFollow(FOLLOW_rule__EqInterface__SystemAssignment_3_0_2_in_rule__EqInterface__Group_3_0__2__Impl7659);
+            pushFollow(FOLLOW_rule__EqInterface__SystemAssignment_3_0_2_in_rule__EqInterface__Group_3_0__2__Impl7723);
             rule__EqInterface__SystemAssignment_3_0_2();
 
             state._fsp--;
@@ -10540,16 +10619,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_0__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3734:1: rule__EqInterface__Group_3_0__3 : rule__EqInterface__Group_3_0__3__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3767:1: rule__EqInterface__Group_3_0__3 : rule__EqInterface__Group_3_0__3__Impl ;
     public final void rule__EqInterface__Group_3_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3738:1: ( rule__EqInterface__Group_3_0__3__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3739:2: rule__EqInterface__Group_3_0__3__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3771:1: ( rule__EqInterface__Group_3_0__3__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3772:2: rule__EqInterface__Group_3_0__3__Impl
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_0__3__Impl_in_rule__EqInterface__Group_3_0__37689);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_0__3__Impl_in_rule__EqInterface__Group_3_0__37753);
             rule__EqInterface__Group_3_0__3__Impl();
 
             state._fsp--;
@@ -10573,22 +10652,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_0__3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3745:1: rule__EqInterface__Group_3_0__3__Impl : ( ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3778:1: rule__EqInterface__Group_3_0__3__Impl : ( ';' ) ;
     public final void rule__EqInterface__Group_3_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3749:1: ( ( ';' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3750:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3782:1: ( ( ';' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3783:1: ( ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3750:1: ( ';' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3751:1: ';'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3783:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3784:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_0_3()); 
             }
-            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_0__3__Impl7717); if (state.failed) return ;
+            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_0__3__Impl7781); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_0_3()); 
             }
@@ -10614,21 +10693,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_1__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3772:1: rule__EqInterface__Group_3_1__0 : rule__EqInterface__Group_3_1__0__Impl rule__EqInterface__Group_3_1__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3805:1: rule__EqInterface__Group_3_1__0 : rule__EqInterface__Group_3_1__0__Impl rule__EqInterface__Group_3_1__1 ;
     public final void rule__EqInterface__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3776:1: ( rule__EqInterface__Group_3_1__0__Impl rule__EqInterface__Group_3_1__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3777:2: rule__EqInterface__Group_3_1__0__Impl rule__EqInterface__Group_3_1__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3809:1: ( rule__EqInterface__Group_3_1__0__Impl rule__EqInterface__Group_3_1__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3810:2: rule__EqInterface__Group_3_1__0__Impl rule__EqInterface__Group_3_1__1
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_1__0__Impl_in_rule__EqInterface__Group_3_1__07756);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_1__0__Impl_in_rule__EqInterface__Group_3_1__07820);
             rule__EqInterface__Group_3_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_1__1_in_rule__EqInterface__Group_3_1__07759);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_1__1_in_rule__EqInterface__Group_3_1__07823);
             rule__EqInterface__Group_3_1__1();
 
             state._fsp--;
@@ -10652,22 +10731,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_1__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3784:1: rule__EqInterface__Group_3_1__0__Impl : ( 'SubAta' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3817:1: rule__EqInterface__Group_3_1__0__Impl : ( 'SubAta' ) ;
     public final void rule__EqInterface__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3788:1: ( ( 'SubAta' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3789:1: ( 'SubAta' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3821:1: ( ( 'SubAta' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3822:1: ( 'SubAta' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3789:1: ( 'SubAta' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3790:1: 'SubAta'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3822:1: ( 'SubAta' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3823:1: 'SubAta'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSubAtaKeyword_3_1_0()); 
             }
-            match(input,79,FOLLOW_79_in_rule__EqInterface__Group_3_1__0__Impl7787); if (state.failed) return ;
+            match(input,79,FOLLOW_79_in_rule__EqInterface__Group_3_1__0__Impl7851); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getSubAtaKeyword_3_1_0()); 
             }
@@ -10693,21 +10772,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_1__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3803:1: rule__EqInterface__Group_3_1__1 : rule__EqInterface__Group_3_1__1__Impl rule__EqInterface__Group_3_1__2 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3836:1: rule__EqInterface__Group_3_1__1 : rule__EqInterface__Group_3_1__1__Impl rule__EqInterface__Group_3_1__2 ;
     public final void rule__EqInterface__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3807:1: ( rule__EqInterface__Group_3_1__1__Impl rule__EqInterface__Group_3_1__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3808:2: rule__EqInterface__Group_3_1__1__Impl rule__EqInterface__Group_3_1__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3840:1: ( rule__EqInterface__Group_3_1__1__Impl rule__EqInterface__Group_3_1__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3841:2: rule__EqInterface__Group_3_1__1__Impl rule__EqInterface__Group_3_1__2
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_1__1__Impl_in_rule__EqInterface__Group_3_1__17818);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_1__1__Impl_in_rule__EqInterface__Group_3_1__17882);
             rule__EqInterface__Group_3_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_1__2_in_rule__EqInterface__Group_3_1__17821);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_1__2_in_rule__EqInterface__Group_3_1__17885);
             rule__EqInterface__Group_3_1__2();
 
             state._fsp--;
@@ -10731,22 +10810,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_1__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3815:1: rule__EqInterface__Group_3_1__1__Impl : ( '=' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3848:1: rule__EqInterface__Group_3_1__1__Impl : ( '=' ) ;
     public final void rule__EqInterface__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3819:1: ( ( '=' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3820:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3852:1: ( ( '=' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3853:1: ( '=' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3820:1: ( '=' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3821:1: '='
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3853:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3854:1: '='
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_1_1()); 
             }
-            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_1__1__Impl7849); if (state.failed) return ;
+            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_1__1__Impl7913); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_1_1()); 
             }
@@ -10772,21 +10851,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_1__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3834:1: rule__EqInterface__Group_3_1__2 : rule__EqInterface__Group_3_1__2__Impl rule__EqInterface__Group_3_1__3 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3867:1: rule__EqInterface__Group_3_1__2 : rule__EqInterface__Group_3_1__2__Impl rule__EqInterface__Group_3_1__3 ;
     public final void rule__EqInterface__Group_3_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3838:1: ( rule__EqInterface__Group_3_1__2__Impl rule__EqInterface__Group_3_1__3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3839:2: rule__EqInterface__Group_3_1__2__Impl rule__EqInterface__Group_3_1__3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3871:1: ( rule__EqInterface__Group_3_1__2__Impl rule__EqInterface__Group_3_1__3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3872:2: rule__EqInterface__Group_3_1__2__Impl rule__EqInterface__Group_3_1__3
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_1__2__Impl_in_rule__EqInterface__Group_3_1__27880);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_1__2__Impl_in_rule__EqInterface__Group_3_1__27944);
             rule__EqInterface__Group_3_1__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_1__3_in_rule__EqInterface__Group_3_1__27883);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_1__3_in_rule__EqInterface__Group_3_1__27947);
             rule__EqInterface__Group_3_1__3();
 
             state._fsp--;
@@ -10810,25 +10889,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_1__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3846:1: rule__EqInterface__Group_3_1__2__Impl : ( ( rule__EqInterface__SubAtaAssignment_3_1_2 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3879:1: rule__EqInterface__Group_3_1__2__Impl : ( ( rule__EqInterface__SubAtaAssignment_3_1_2 ) ) ;
     public final void rule__EqInterface__Group_3_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3850:1: ( ( ( rule__EqInterface__SubAtaAssignment_3_1_2 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3851:1: ( ( rule__EqInterface__SubAtaAssignment_3_1_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3883:1: ( ( ( rule__EqInterface__SubAtaAssignment_3_1_2 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3884:1: ( ( rule__EqInterface__SubAtaAssignment_3_1_2 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3851:1: ( ( rule__EqInterface__SubAtaAssignment_3_1_2 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3852:1: ( rule__EqInterface__SubAtaAssignment_3_1_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3884:1: ( ( rule__EqInterface__SubAtaAssignment_3_1_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3885:1: ( rule__EqInterface__SubAtaAssignment_3_1_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSubAtaAssignment_3_1_2()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3853:1: ( rule__EqInterface__SubAtaAssignment_3_1_2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3853:2: rule__EqInterface__SubAtaAssignment_3_1_2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3886:1: ( rule__EqInterface__SubAtaAssignment_3_1_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3886:2: rule__EqInterface__SubAtaAssignment_3_1_2
             {
-            pushFollow(FOLLOW_rule__EqInterface__SubAtaAssignment_3_1_2_in_rule__EqInterface__Group_3_1__2__Impl7910);
+            pushFollow(FOLLOW_rule__EqInterface__SubAtaAssignment_3_1_2_in_rule__EqInterface__Group_3_1__2__Impl7974);
             rule__EqInterface__SubAtaAssignment_3_1_2();
 
             state._fsp--;
@@ -10861,16 +10940,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_1__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3863:1: rule__EqInterface__Group_3_1__3 : rule__EqInterface__Group_3_1__3__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3896:1: rule__EqInterface__Group_3_1__3 : rule__EqInterface__Group_3_1__3__Impl ;
     public final void rule__EqInterface__Group_3_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3867:1: ( rule__EqInterface__Group_3_1__3__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3868:2: rule__EqInterface__Group_3_1__3__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3900:1: ( rule__EqInterface__Group_3_1__3__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3901:2: rule__EqInterface__Group_3_1__3__Impl
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_1__3__Impl_in_rule__EqInterface__Group_3_1__37940);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_1__3__Impl_in_rule__EqInterface__Group_3_1__38004);
             rule__EqInterface__Group_3_1__3__Impl();
 
             state._fsp--;
@@ -10894,22 +10973,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_1__3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3874:1: rule__EqInterface__Group_3_1__3__Impl : ( ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3907:1: rule__EqInterface__Group_3_1__3__Impl : ( ';' ) ;
     public final void rule__EqInterface__Group_3_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3878:1: ( ( ';' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3879:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3911:1: ( ( ';' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3912:1: ( ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3879:1: ( ';' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3880:1: ';'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3912:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3913:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_1_3()); 
             }
-            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_1__3__Impl7968); if (state.failed) return ;
+            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_1__3__Impl8032); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_1_3()); 
             }
@@ -10935,21 +11014,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_2__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3901:1: rule__EqInterface__Group_3_2__0 : rule__EqInterface__Group_3_2__0__Impl rule__EqInterface__Group_3_2__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3934:1: rule__EqInterface__Group_3_2__0 : rule__EqInterface__Group_3_2__0__Impl rule__EqInterface__Group_3_2__1 ;
     public final void rule__EqInterface__Group_3_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3905:1: ( rule__EqInterface__Group_3_2__0__Impl rule__EqInterface__Group_3_2__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3906:2: rule__EqInterface__Group_3_2__0__Impl rule__EqInterface__Group_3_2__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3938:1: ( rule__EqInterface__Group_3_2__0__Impl rule__EqInterface__Group_3_2__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3939:2: rule__EqInterface__Group_3_2__0__Impl rule__EqInterface__Group_3_2__1
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_2__0__Impl_in_rule__EqInterface__Group_3_2__08007);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_2__0__Impl_in_rule__EqInterface__Group_3_2__08071);
             rule__EqInterface__Group_3_2__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_2__1_in_rule__EqInterface__Group_3_2__08010);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_2__1_in_rule__EqInterface__Group_3_2__08074);
             rule__EqInterface__Group_3_2__1();
 
             state._fsp--;
@@ -10973,22 +11052,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_2__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3913:1: rule__EqInterface__Group_3_2__0__Impl : ( 'Resource' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3946:1: rule__EqInterface__Group_3_2__0__Impl : ( 'Resource' ) ;
     public final void rule__EqInterface__Group_3_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3917:1: ( ( 'Resource' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3918:1: ( 'Resource' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3950:1: ( ( 'Resource' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3951:1: ( 'Resource' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3918:1: ( 'Resource' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3919:1: 'Resource'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3951:1: ( 'Resource' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3952:1: 'Resource'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getResourceKeyword_3_2_0()); 
             }
-            match(input,80,FOLLOW_80_in_rule__EqInterface__Group_3_2__0__Impl8038); if (state.failed) return ;
+            match(input,80,FOLLOW_80_in_rule__EqInterface__Group_3_2__0__Impl8102); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getResourceKeyword_3_2_0()); 
             }
@@ -11014,21 +11093,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_2__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3932:1: rule__EqInterface__Group_3_2__1 : rule__EqInterface__Group_3_2__1__Impl rule__EqInterface__Group_3_2__2 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3965:1: rule__EqInterface__Group_3_2__1 : rule__EqInterface__Group_3_2__1__Impl rule__EqInterface__Group_3_2__2 ;
     public final void rule__EqInterface__Group_3_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3936:1: ( rule__EqInterface__Group_3_2__1__Impl rule__EqInterface__Group_3_2__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3937:2: rule__EqInterface__Group_3_2__1__Impl rule__EqInterface__Group_3_2__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3969:1: ( rule__EqInterface__Group_3_2__1__Impl rule__EqInterface__Group_3_2__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3970:2: rule__EqInterface__Group_3_2__1__Impl rule__EqInterface__Group_3_2__2
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_2__1__Impl_in_rule__EqInterface__Group_3_2__18069);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_2__1__Impl_in_rule__EqInterface__Group_3_2__18133);
             rule__EqInterface__Group_3_2__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_2__2_in_rule__EqInterface__Group_3_2__18072);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_2__2_in_rule__EqInterface__Group_3_2__18136);
             rule__EqInterface__Group_3_2__2();
 
             state._fsp--;
@@ -11052,22 +11131,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_2__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3944:1: rule__EqInterface__Group_3_2__1__Impl : ( '=' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3977:1: rule__EqInterface__Group_3_2__1__Impl : ( '=' ) ;
     public final void rule__EqInterface__Group_3_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3948:1: ( ( '=' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3949:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3981:1: ( ( '=' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3982:1: ( '=' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3949:1: ( '=' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3950:1: '='
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3982:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3983:1: '='
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_2_1()); 
             }
-            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_2__1__Impl8100); if (state.failed) return ;
+            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_2__1__Impl8164); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_2_1()); 
             }
@@ -11093,21 +11172,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_2__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3963:1: rule__EqInterface__Group_3_2__2 : rule__EqInterface__Group_3_2__2__Impl rule__EqInterface__Group_3_2__3 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3996:1: rule__EqInterface__Group_3_2__2 : rule__EqInterface__Group_3_2__2__Impl rule__EqInterface__Group_3_2__3 ;
     public final void rule__EqInterface__Group_3_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3967:1: ( rule__EqInterface__Group_3_2__2__Impl rule__EqInterface__Group_3_2__3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3968:2: rule__EqInterface__Group_3_2__2__Impl rule__EqInterface__Group_3_2__3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4000:1: ( rule__EqInterface__Group_3_2__2__Impl rule__EqInterface__Group_3_2__3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4001:2: rule__EqInterface__Group_3_2__2__Impl rule__EqInterface__Group_3_2__3
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_2__2__Impl_in_rule__EqInterface__Group_3_2__28131);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_2__2__Impl_in_rule__EqInterface__Group_3_2__28195);
             rule__EqInterface__Group_3_2__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_2__3_in_rule__EqInterface__Group_3_2__28134);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_2__3_in_rule__EqInterface__Group_3_2__28198);
             rule__EqInterface__Group_3_2__3();
 
             state._fsp--;
@@ -11131,25 +11210,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_2__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3975:1: rule__EqInterface__Group_3_2__2__Impl : ( ( rule__EqInterface__ResourceAssignment_3_2_2 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4008:1: rule__EqInterface__Group_3_2__2__Impl : ( ( rule__EqInterface__ResourceAssignment_3_2_2 ) ) ;
     public final void rule__EqInterface__Group_3_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3979:1: ( ( ( rule__EqInterface__ResourceAssignment_3_2_2 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3980:1: ( ( rule__EqInterface__ResourceAssignment_3_2_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4012:1: ( ( ( rule__EqInterface__ResourceAssignment_3_2_2 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4013:1: ( ( rule__EqInterface__ResourceAssignment_3_2_2 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3980:1: ( ( rule__EqInterface__ResourceAssignment_3_2_2 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3981:1: ( rule__EqInterface__ResourceAssignment_3_2_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4013:1: ( ( rule__EqInterface__ResourceAssignment_3_2_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4014:1: ( rule__EqInterface__ResourceAssignment_3_2_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getResourceAssignment_3_2_2()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3982:1: ( rule__EqInterface__ResourceAssignment_3_2_2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3982:2: rule__EqInterface__ResourceAssignment_3_2_2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4015:1: ( rule__EqInterface__ResourceAssignment_3_2_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4015:2: rule__EqInterface__ResourceAssignment_3_2_2
             {
-            pushFollow(FOLLOW_rule__EqInterface__ResourceAssignment_3_2_2_in_rule__EqInterface__Group_3_2__2__Impl8161);
+            pushFollow(FOLLOW_rule__EqInterface__ResourceAssignment_3_2_2_in_rule__EqInterface__Group_3_2__2__Impl8225);
             rule__EqInterface__ResourceAssignment_3_2_2();
 
             state._fsp--;
@@ -11182,16 +11261,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_2__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3992:1: rule__EqInterface__Group_3_2__3 : rule__EqInterface__Group_3_2__3__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4025:1: rule__EqInterface__Group_3_2__3 : rule__EqInterface__Group_3_2__3__Impl ;
     public final void rule__EqInterface__Group_3_2__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3996:1: ( rule__EqInterface__Group_3_2__3__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3997:2: rule__EqInterface__Group_3_2__3__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4029:1: ( rule__EqInterface__Group_3_2__3__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4030:2: rule__EqInterface__Group_3_2__3__Impl
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_2__3__Impl_in_rule__EqInterface__Group_3_2__38191);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_2__3__Impl_in_rule__EqInterface__Group_3_2__38255);
             rule__EqInterface__Group_3_2__3__Impl();
 
             state._fsp--;
@@ -11215,22 +11294,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_2__3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4003:1: rule__EqInterface__Group_3_2__3__Impl : ( ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4036:1: rule__EqInterface__Group_3_2__3__Impl : ( ';' ) ;
     public final void rule__EqInterface__Group_3_2__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4007:1: ( ( ';' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4008:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4040:1: ( ( ';' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4041:1: ( ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4008:1: ( ';' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4009:1: ';'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4041:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4042:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_2_3()); 
             }
-            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_2__3__Impl8219); if (state.failed) return ;
+            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_2__3__Impl8283); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_2_3()); 
             }
@@ -11256,21 +11335,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_3__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4030:1: rule__EqInterface__Group_3_3__0 : rule__EqInterface__Group_3_3__0__Impl rule__EqInterface__Group_3_3__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4063:1: rule__EqInterface__Group_3_3__0 : rule__EqInterface__Group_3_3__0__Impl rule__EqInterface__Group_3_3__1 ;
     public final void rule__EqInterface__Group_3_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4034:1: ( rule__EqInterface__Group_3_3__0__Impl rule__EqInterface__Group_3_3__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4035:2: rule__EqInterface__Group_3_3__0__Impl rule__EqInterface__Group_3_3__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4067:1: ( rule__EqInterface__Group_3_3__0__Impl rule__EqInterface__Group_3_3__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4068:2: rule__EqInterface__Group_3_3__0__Impl rule__EqInterface__Group_3_3__1
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_3__0__Impl_in_rule__EqInterface__Group_3_3__08258);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_3__0__Impl_in_rule__EqInterface__Group_3_3__08322);
             rule__EqInterface__Group_3_3__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_3__1_in_rule__EqInterface__Group_3_3__08261);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_3__1_in_rule__EqInterface__Group_3_3__08325);
             rule__EqInterface__Group_3_3__1();
 
             state._fsp--;
@@ -11294,22 +11373,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_3__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4042:1: rule__EqInterface__Group_3_3__0__Impl : ( 'LineName' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4075:1: rule__EqInterface__Group_3_3__0__Impl : ( 'LineName' ) ;
     public final void rule__EqInterface__Group_3_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4046:1: ( ( 'LineName' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4047:1: ( 'LineName' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4079:1: ( ( 'LineName' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4080:1: ( 'LineName' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4047:1: ( 'LineName' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4048:1: 'LineName'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4080:1: ( 'LineName' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4081:1: 'LineName'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getLineNameKeyword_3_3_0()); 
             }
-            match(input,81,FOLLOW_81_in_rule__EqInterface__Group_3_3__0__Impl8289); if (state.failed) return ;
+            match(input,81,FOLLOW_81_in_rule__EqInterface__Group_3_3__0__Impl8353); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getLineNameKeyword_3_3_0()); 
             }
@@ -11335,21 +11414,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_3__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4061:1: rule__EqInterface__Group_3_3__1 : rule__EqInterface__Group_3_3__1__Impl rule__EqInterface__Group_3_3__2 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4094:1: rule__EqInterface__Group_3_3__1 : rule__EqInterface__Group_3_3__1__Impl rule__EqInterface__Group_3_3__2 ;
     public final void rule__EqInterface__Group_3_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4065:1: ( rule__EqInterface__Group_3_3__1__Impl rule__EqInterface__Group_3_3__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4066:2: rule__EqInterface__Group_3_3__1__Impl rule__EqInterface__Group_3_3__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4098:1: ( rule__EqInterface__Group_3_3__1__Impl rule__EqInterface__Group_3_3__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4099:2: rule__EqInterface__Group_3_3__1__Impl rule__EqInterface__Group_3_3__2
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_3__1__Impl_in_rule__EqInterface__Group_3_3__18320);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_3__1__Impl_in_rule__EqInterface__Group_3_3__18384);
             rule__EqInterface__Group_3_3__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_3__2_in_rule__EqInterface__Group_3_3__18323);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_3__2_in_rule__EqInterface__Group_3_3__18387);
             rule__EqInterface__Group_3_3__2();
 
             state._fsp--;
@@ -11373,22 +11452,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_3__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4073:1: rule__EqInterface__Group_3_3__1__Impl : ( '=' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4106:1: rule__EqInterface__Group_3_3__1__Impl : ( '=' ) ;
     public final void rule__EqInterface__Group_3_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4077:1: ( ( '=' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4078:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4110:1: ( ( '=' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4111:1: ( '=' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4078:1: ( '=' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4079:1: '='
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4111:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4112:1: '='
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_3_1()); 
             }
-            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_3__1__Impl8351); if (state.failed) return ;
+            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_3__1__Impl8415); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_3_1()); 
             }
@@ -11414,21 +11493,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_3__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4092:1: rule__EqInterface__Group_3_3__2 : rule__EqInterface__Group_3_3__2__Impl rule__EqInterface__Group_3_3__3 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4125:1: rule__EqInterface__Group_3_3__2 : rule__EqInterface__Group_3_3__2__Impl rule__EqInterface__Group_3_3__3 ;
     public final void rule__EqInterface__Group_3_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4096:1: ( rule__EqInterface__Group_3_3__2__Impl rule__EqInterface__Group_3_3__3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4097:2: rule__EqInterface__Group_3_3__2__Impl rule__EqInterface__Group_3_3__3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4129:1: ( rule__EqInterface__Group_3_3__2__Impl rule__EqInterface__Group_3_3__3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4130:2: rule__EqInterface__Group_3_3__2__Impl rule__EqInterface__Group_3_3__3
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_3__2__Impl_in_rule__EqInterface__Group_3_3__28382);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_3__2__Impl_in_rule__EqInterface__Group_3_3__28446);
             rule__EqInterface__Group_3_3__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_3__3_in_rule__EqInterface__Group_3_3__28385);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_3__3_in_rule__EqInterface__Group_3_3__28449);
             rule__EqInterface__Group_3_3__3();
 
             state._fsp--;
@@ -11452,25 +11531,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_3__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4104:1: rule__EqInterface__Group_3_3__2__Impl : ( ( rule__EqInterface__LineNameAssignment_3_3_2 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4137:1: rule__EqInterface__Group_3_3__2__Impl : ( ( rule__EqInterface__LineNameAssignment_3_3_2 ) ) ;
     public final void rule__EqInterface__Group_3_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4108:1: ( ( ( rule__EqInterface__LineNameAssignment_3_3_2 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4109:1: ( ( rule__EqInterface__LineNameAssignment_3_3_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4141:1: ( ( ( rule__EqInterface__LineNameAssignment_3_3_2 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4142:1: ( ( rule__EqInterface__LineNameAssignment_3_3_2 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4109:1: ( ( rule__EqInterface__LineNameAssignment_3_3_2 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4110:1: ( rule__EqInterface__LineNameAssignment_3_3_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4142:1: ( ( rule__EqInterface__LineNameAssignment_3_3_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4143:1: ( rule__EqInterface__LineNameAssignment_3_3_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getLineNameAssignment_3_3_2()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4111:1: ( rule__EqInterface__LineNameAssignment_3_3_2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4111:2: rule__EqInterface__LineNameAssignment_3_3_2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4144:1: ( rule__EqInterface__LineNameAssignment_3_3_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4144:2: rule__EqInterface__LineNameAssignment_3_3_2
             {
-            pushFollow(FOLLOW_rule__EqInterface__LineNameAssignment_3_3_2_in_rule__EqInterface__Group_3_3__2__Impl8412);
+            pushFollow(FOLLOW_rule__EqInterface__LineNameAssignment_3_3_2_in_rule__EqInterface__Group_3_3__2__Impl8476);
             rule__EqInterface__LineNameAssignment_3_3_2();
 
             state._fsp--;
@@ -11503,16 +11582,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_3__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4121:1: rule__EqInterface__Group_3_3__3 : rule__EqInterface__Group_3_3__3__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4154:1: rule__EqInterface__Group_3_3__3 : rule__EqInterface__Group_3_3__3__Impl ;
     public final void rule__EqInterface__Group_3_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4125:1: ( rule__EqInterface__Group_3_3__3__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4126:2: rule__EqInterface__Group_3_3__3__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4158:1: ( rule__EqInterface__Group_3_3__3__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4159:2: rule__EqInterface__Group_3_3__3__Impl
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_3__3__Impl_in_rule__EqInterface__Group_3_3__38442);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_3__3__Impl_in_rule__EqInterface__Group_3_3__38506);
             rule__EqInterface__Group_3_3__3__Impl();
 
             state._fsp--;
@@ -11536,22 +11615,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_3__3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4132:1: rule__EqInterface__Group_3_3__3__Impl : ( ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4165:1: rule__EqInterface__Group_3_3__3__Impl : ( ';' ) ;
     public final void rule__EqInterface__Group_3_3__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4136:1: ( ( ';' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4137:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4169:1: ( ( ';' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4170:1: ( ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4137:1: ( ';' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4138:1: ';'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4170:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4171:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_3_3()); 
             }
-            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_3__3__Impl8470); if (state.failed) return ;
+            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_3__3__Impl8534); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_3_3()); 
             }
@@ -11577,21 +11656,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_4__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4159:1: rule__EqInterface__Group_3_4__0 : rule__EqInterface__Group_3_4__0__Impl rule__EqInterface__Group_3_4__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4192:1: rule__EqInterface__Group_3_4__0 : rule__EqInterface__Group_3_4__0__Impl rule__EqInterface__Group_3_4__1 ;
     public final void rule__EqInterface__Group_3_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4163:1: ( rule__EqInterface__Group_3_4__0__Impl rule__EqInterface__Group_3_4__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4164:2: rule__EqInterface__Group_3_4__0__Impl rule__EqInterface__Group_3_4__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4196:1: ( rule__EqInterface__Group_3_4__0__Impl rule__EqInterface__Group_3_4__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4197:2: rule__EqInterface__Group_3_4__0__Impl rule__EqInterface__Group_3_4__1
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_4__0__Impl_in_rule__EqInterface__Group_3_4__08509);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_4__0__Impl_in_rule__EqInterface__Group_3_4__08573);
             rule__EqInterface__Group_3_4__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_4__1_in_rule__EqInterface__Group_3_4__08512);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_4__1_in_rule__EqInterface__Group_3_4__08576);
             rule__EqInterface__Group_3_4__1();
 
             state._fsp--;
@@ -11615,22 +11694,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_4__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4171:1: rule__EqInterface__Group_3_4__0__Impl : ( 'WiringLane' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4204:1: rule__EqInterface__Group_3_4__0__Impl : ( 'WiringLane' ) ;
     public final void rule__EqInterface__Group_3_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4175:1: ( ( 'WiringLane' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4176:1: ( 'WiringLane' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4208:1: ( ( 'WiringLane' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4209:1: ( 'WiringLane' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4176:1: ( 'WiringLane' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4177:1: 'WiringLane'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4209:1: ( 'WiringLane' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4210:1: 'WiringLane'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getWiringLaneKeyword_3_4_0()); 
             }
-            match(input,82,FOLLOW_82_in_rule__EqInterface__Group_3_4__0__Impl8540); if (state.failed) return ;
+            match(input,82,FOLLOW_82_in_rule__EqInterface__Group_3_4__0__Impl8604); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getWiringLaneKeyword_3_4_0()); 
             }
@@ -11656,21 +11735,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_4__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4190:1: rule__EqInterface__Group_3_4__1 : rule__EqInterface__Group_3_4__1__Impl rule__EqInterface__Group_3_4__2 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4223:1: rule__EqInterface__Group_3_4__1 : rule__EqInterface__Group_3_4__1__Impl rule__EqInterface__Group_3_4__2 ;
     public final void rule__EqInterface__Group_3_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4194:1: ( rule__EqInterface__Group_3_4__1__Impl rule__EqInterface__Group_3_4__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4195:2: rule__EqInterface__Group_3_4__1__Impl rule__EqInterface__Group_3_4__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4227:1: ( rule__EqInterface__Group_3_4__1__Impl rule__EqInterface__Group_3_4__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4228:2: rule__EqInterface__Group_3_4__1__Impl rule__EqInterface__Group_3_4__2
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_4__1__Impl_in_rule__EqInterface__Group_3_4__18571);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_4__1__Impl_in_rule__EqInterface__Group_3_4__18635);
             rule__EqInterface__Group_3_4__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_4__2_in_rule__EqInterface__Group_3_4__18574);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_4__2_in_rule__EqInterface__Group_3_4__18638);
             rule__EqInterface__Group_3_4__2();
 
             state._fsp--;
@@ -11694,22 +11773,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_4__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4202:1: rule__EqInterface__Group_3_4__1__Impl : ( '=' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4235:1: rule__EqInterface__Group_3_4__1__Impl : ( '=' ) ;
     public final void rule__EqInterface__Group_3_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4206:1: ( ( '=' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4207:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4239:1: ( ( '=' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4240:1: ( '=' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4207:1: ( '=' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4208:1: '='
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4240:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4241:1: '='
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_4_1()); 
             }
-            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_4__1__Impl8602); if (state.failed) return ;
+            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_4__1__Impl8666); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_4_1()); 
             }
@@ -11735,21 +11814,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_4__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4221:1: rule__EqInterface__Group_3_4__2 : rule__EqInterface__Group_3_4__2__Impl rule__EqInterface__Group_3_4__3 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4254:1: rule__EqInterface__Group_3_4__2 : rule__EqInterface__Group_3_4__2__Impl rule__EqInterface__Group_3_4__3 ;
     public final void rule__EqInterface__Group_3_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4225:1: ( rule__EqInterface__Group_3_4__2__Impl rule__EqInterface__Group_3_4__3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4226:2: rule__EqInterface__Group_3_4__2__Impl rule__EqInterface__Group_3_4__3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4258:1: ( rule__EqInterface__Group_3_4__2__Impl rule__EqInterface__Group_3_4__3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4259:2: rule__EqInterface__Group_3_4__2__Impl rule__EqInterface__Group_3_4__3
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_4__2__Impl_in_rule__EqInterface__Group_3_4__28633);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_4__2__Impl_in_rule__EqInterface__Group_3_4__28697);
             rule__EqInterface__Group_3_4__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_4__3_in_rule__EqInterface__Group_3_4__28636);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_4__3_in_rule__EqInterface__Group_3_4__28700);
             rule__EqInterface__Group_3_4__3();
 
             state._fsp--;
@@ -11773,25 +11852,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_4__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4233:1: rule__EqInterface__Group_3_4__2__Impl : ( ( rule__EqInterface__WiringLaneAssignment_3_4_2 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4266:1: rule__EqInterface__Group_3_4__2__Impl : ( ( rule__EqInterface__WiringLaneAssignment_3_4_2 ) ) ;
     public final void rule__EqInterface__Group_3_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4237:1: ( ( ( rule__EqInterface__WiringLaneAssignment_3_4_2 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4238:1: ( ( rule__EqInterface__WiringLaneAssignment_3_4_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4270:1: ( ( ( rule__EqInterface__WiringLaneAssignment_3_4_2 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4271:1: ( ( rule__EqInterface__WiringLaneAssignment_3_4_2 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4238:1: ( ( rule__EqInterface__WiringLaneAssignment_3_4_2 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4239:1: ( rule__EqInterface__WiringLaneAssignment_3_4_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4271:1: ( ( rule__EqInterface__WiringLaneAssignment_3_4_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4272:1: ( rule__EqInterface__WiringLaneAssignment_3_4_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getWiringLaneAssignment_3_4_2()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4240:1: ( rule__EqInterface__WiringLaneAssignment_3_4_2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4240:2: rule__EqInterface__WiringLaneAssignment_3_4_2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4273:1: ( rule__EqInterface__WiringLaneAssignment_3_4_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4273:2: rule__EqInterface__WiringLaneAssignment_3_4_2
             {
-            pushFollow(FOLLOW_rule__EqInterface__WiringLaneAssignment_3_4_2_in_rule__EqInterface__Group_3_4__2__Impl8663);
+            pushFollow(FOLLOW_rule__EqInterface__WiringLaneAssignment_3_4_2_in_rule__EqInterface__Group_3_4__2__Impl8727);
             rule__EqInterface__WiringLaneAssignment_3_4_2();
 
             state._fsp--;
@@ -11824,16 +11903,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_4__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4250:1: rule__EqInterface__Group_3_4__3 : rule__EqInterface__Group_3_4__3__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4283:1: rule__EqInterface__Group_3_4__3 : rule__EqInterface__Group_3_4__3__Impl ;
     public final void rule__EqInterface__Group_3_4__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4254:1: ( rule__EqInterface__Group_3_4__3__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4255:2: rule__EqInterface__Group_3_4__3__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4287:1: ( rule__EqInterface__Group_3_4__3__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4288:2: rule__EqInterface__Group_3_4__3__Impl
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_4__3__Impl_in_rule__EqInterface__Group_3_4__38693);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_4__3__Impl_in_rule__EqInterface__Group_3_4__38757);
             rule__EqInterface__Group_3_4__3__Impl();
 
             state._fsp--;
@@ -11857,22 +11936,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_4__3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4261:1: rule__EqInterface__Group_3_4__3__Impl : ( ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4294:1: rule__EqInterface__Group_3_4__3__Impl : ( ';' ) ;
     public final void rule__EqInterface__Group_3_4__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4265:1: ( ( ';' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4266:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4298:1: ( ( ';' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4299:1: ( ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4266:1: ( ';' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4267:1: ';'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4299:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4300:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_4_3()); 
             }
-            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_4__3__Impl8721); if (state.failed) return ;
+            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_4__3__Impl8785); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_4_3()); 
             }
@@ -11898,21 +11977,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_5__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4288:1: rule__EqInterface__Group_3_5__0 : rule__EqInterface__Group_3_5__0__Impl rule__EqInterface__Group_3_5__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4321:1: rule__EqInterface__Group_3_5__0 : rule__EqInterface__Group_3_5__0__Impl rule__EqInterface__Group_3_5__1 ;
     public final void rule__EqInterface__Group_3_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4292:1: ( rule__EqInterface__Group_3_5__0__Impl rule__EqInterface__Group_3_5__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4293:2: rule__EqInterface__Group_3_5__0__Impl rule__EqInterface__Group_3_5__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4325:1: ( rule__EqInterface__Group_3_5__0__Impl rule__EqInterface__Group_3_5__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4326:2: rule__EqInterface__Group_3_5__0__Impl rule__EqInterface__Group_3_5__1
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_5__0__Impl_in_rule__EqInterface__Group_3_5__08760);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_5__0__Impl_in_rule__EqInterface__Group_3_5__08824);
             rule__EqInterface__Group_3_5__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_5__1_in_rule__EqInterface__Group_3_5__08763);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_5__1_in_rule__EqInterface__Group_3_5__08827);
             rule__EqInterface__Group_3_5__1();
 
             state._fsp--;
@@ -11936,22 +12015,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_5__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4300:1: rule__EqInterface__Group_3_5__0__Impl : ( 'GrpInfo' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4333:1: rule__EqInterface__Group_3_5__0__Impl : ( 'GrpInfo' ) ;
     public final void rule__EqInterface__Group_3_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4304:1: ( ( 'GrpInfo' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4305:1: ( 'GrpInfo' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4337:1: ( ( 'GrpInfo' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4338:1: ( 'GrpInfo' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4305:1: ( 'GrpInfo' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4306:1: 'GrpInfo'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4338:1: ( 'GrpInfo' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4339:1: 'GrpInfo'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getGrpInfoKeyword_3_5_0()); 
             }
-            match(input,83,FOLLOW_83_in_rule__EqInterface__Group_3_5__0__Impl8791); if (state.failed) return ;
+            match(input,83,FOLLOW_83_in_rule__EqInterface__Group_3_5__0__Impl8855); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getGrpInfoKeyword_3_5_0()); 
             }
@@ -11977,21 +12056,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_5__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4319:1: rule__EqInterface__Group_3_5__1 : rule__EqInterface__Group_3_5__1__Impl rule__EqInterface__Group_3_5__2 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4352:1: rule__EqInterface__Group_3_5__1 : rule__EqInterface__Group_3_5__1__Impl rule__EqInterface__Group_3_5__2 ;
     public final void rule__EqInterface__Group_3_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4323:1: ( rule__EqInterface__Group_3_5__1__Impl rule__EqInterface__Group_3_5__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4324:2: rule__EqInterface__Group_3_5__1__Impl rule__EqInterface__Group_3_5__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4356:1: ( rule__EqInterface__Group_3_5__1__Impl rule__EqInterface__Group_3_5__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4357:2: rule__EqInterface__Group_3_5__1__Impl rule__EqInterface__Group_3_5__2
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_5__1__Impl_in_rule__EqInterface__Group_3_5__18822);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_5__1__Impl_in_rule__EqInterface__Group_3_5__18886);
             rule__EqInterface__Group_3_5__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_5__2_in_rule__EqInterface__Group_3_5__18825);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_5__2_in_rule__EqInterface__Group_3_5__18889);
             rule__EqInterface__Group_3_5__2();
 
             state._fsp--;
@@ -12015,22 +12094,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_5__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4331:1: rule__EqInterface__Group_3_5__1__Impl : ( '=' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4364:1: rule__EqInterface__Group_3_5__1__Impl : ( '=' ) ;
     public final void rule__EqInterface__Group_3_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4335:1: ( ( '=' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4336:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4368:1: ( ( '=' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4369:1: ( '=' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4336:1: ( '=' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4337:1: '='
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4369:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4370:1: '='
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_5_1()); 
             }
-            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_5__1__Impl8853); if (state.failed) return ;
+            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_5__1__Impl8917); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_5_1()); 
             }
@@ -12056,21 +12135,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_5__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4350:1: rule__EqInterface__Group_3_5__2 : rule__EqInterface__Group_3_5__2__Impl rule__EqInterface__Group_3_5__3 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4383:1: rule__EqInterface__Group_3_5__2 : rule__EqInterface__Group_3_5__2__Impl rule__EqInterface__Group_3_5__3 ;
     public final void rule__EqInterface__Group_3_5__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4354:1: ( rule__EqInterface__Group_3_5__2__Impl rule__EqInterface__Group_3_5__3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4355:2: rule__EqInterface__Group_3_5__2__Impl rule__EqInterface__Group_3_5__3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4387:1: ( rule__EqInterface__Group_3_5__2__Impl rule__EqInterface__Group_3_5__3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4388:2: rule__EqInterface__Group_3_5__2__Impl rule__EqInterface__Group_3_5__3
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_5__2__Impl_in_rule__EqInterface__Group_3_5__28884);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_5__2__Impl_in_rule__EqInterface__Group_3_5__28948);
             rule__EqInterface__Group_3_5__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_5__3_in_rule__EqInterface__Group_3_5__28887);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_5__3_in_rule__EqInterface__Group_3_5__28951);
             rule__EqInterface__Group_3_5__3();
 
             state._fsp--;
@@ -12094,25 +12173,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_5__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4362:1: rule__EqInterface__Group_3_5__2__Impl : ( ( rule__EqInterface__GrpInfoAssignment_3_5_2 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4395:1: rule__EqInterface__Group_3_5__2__Impl : ( ( rule__EqInterface__GrpInfoAssignment_3_5_2 ) ) ;
     public final void rule__EqInterface__Group_3_5__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4366:1: ( ( ( rule__EqInterface__GrpInfoAssignment_3_5_2 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4367:1: ( ( rule__EqInterface__GrpInfoAssignment_3_5_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4399:1: ( ( ( rule__EqInterface__GrpInfoAssignment_3_5_2 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4400:1: ( ( rule__EqInterface__GrpInfoAssignment_3_5_2 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4367:1: ( ( rule__EqInterface__GrpInfoAssignment_3_5_2 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4368:1: ( rule__EqInterface__GrpInfoAssignment_3_5_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4400:1: ( ( rule__EqInterface__GrpInfoAssignment_3_5_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4401:1: ( rule__EqInterface__GrpInfoAssignment_3_5_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getGrpInfoAssignment_3_5_2()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4369:1: ( rule__EqInterface__GrpInfoAssignment_3_5_2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4369:2: rule__EqInterface__GrpInfoAssignment_3_5_2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4402:1: ( rule__EqInterface__GrpInfoAssignment_3_5_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4402:2: rule__EqInterface__GrpInfoAssignment_3_5_2
             {
-            pushFollow(FOLLOW_rule__EqInterface__GrpInfoAssignment_3_5_2_in_rule__EqInterface__Group_3_5__2__Impl8914);
+            pushFollow(FOLLOW_rule__EqInterface__GrpInfoAssignment_3_5_2_in_rule__EqInterface__Group_3_5__2__Impl8978);
             rule__EqInterface__GrpInfoAssignment_3_5_2();
 
             state._fsp--;
@@ -12145,16 +12224,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_5__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4379:1: rule__EqInterface__Group_3_5__3 : rule__EqInterface__Group_3_5__3__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4412:1: rule__EqInterface__Group_3_5__3 : rule__EqInterface__Group_3_5__3__Impl ;
     public final void rule__EqInterface__Group_3_5__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4383:1: ( rule__EqInterface__Group_3_5__3__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4384:2: rule__EqInterface__Group_3_5__3__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4416:1: ( rule__EqInterface__Group_3_5__3__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4417:2: rule__EqInterface__Group_3_5__3__Impl
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_5__3__Impl_in_rule__EqInterface__Group_3_5__38944);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_5__3__Impl_in_rule__EqInterface__Group_3_5__39008);
             rule__EqInterface__Group_3_5__3__Impl();
 
             state._fsp--;
@@ -12178,22 +12257,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_5__3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4390:1: rule__EqInterface__Group_3_5__3__Impl : ( ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4423:1: rule__EqInterface__Group_3_5__3__Impl : ( ';' ) ;
     public final void rule__EqInterface__Group_3_5__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4394:1: ( ( ';' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4395:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4427:1: ( ( ';' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4428:1: ( ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4395:1: ( ';' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4396:1: ';'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4428:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4429:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_5_3()); 
             }
-            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_5__3__Impl8972); if (state.failed) return ;
+            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_5__3__Impl9036); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_5_3()); 
             }
@@ -12219,21 +12298,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_6__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4417:1: rule__EqInterface__Group_3_6__0 : rule__EqInterface__Group_3_6__0__Impl rule__EqInterface__Group_3_6__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4450:1: rule__EqInterface__Group_3_6__0 : rule__EqInterface__Group_3_6__0__Impl rule__EqInterface__Group_3_6__1 ;
     public final void rule__EqInterface__Group_3_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4421:1: ( rule__EqInterface__Group_3_6__0__Impl rule__EqInterface__Group_3_6__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4422:2: rule__EqInterface__Group_3_6__0__Impl rule__EqInterface__Group_3_6__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4454:1: ( rule__EqInterface__Group_3_6__0__Impl rule__EqInterface__Group_3_6__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4455:2: rule__EqInterface__Group_3_6__0__Impl rule__EqInterface__Group_3_6__1
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_6__0__Impl_in_rule__EqInterface__Group_3_6__09011);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_6__0__Impl_in_rule__EqInterface__Group_3_6__09075);
             rule__EqInterface__Group_3_6__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_6__1_in_rule__EqInterface__Group_3_6__09014);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_6__1_in_rule__EqInterface__Group_3_6__09078);
             rule__EqInterface__Group_3_6__1();
 
             state._fsp--;
@@ -12257,22 +12336,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_6__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4429:1: rule__EqInterface__Group_3_6__0__Impl : ( 'Route' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4462:1: rule__EqInterface__Group_3_6__0__Impl : ( 'Route' ) ;
     public final void rule__EqInterface__Group_3_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4433:1: ( ( 'Route' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4434:1: ( 'Route' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4466:1: ( ( 'Route' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4467:1: ( 'Route' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4434:1: ( 'Route' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4435:1: 'Route'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4467:1: ( 'Route' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4468:1: 'Route'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getRouteKeyword_3_6_0()); 
             }
-            match(input,84,FOLLOW_84_in_rule__EqInterface__Group_3_6__0__Impl9042); if (state.failed) return ;
+            match(input,84,FOLLOW_84_in_rule__EqInterface__Group_3_6__0__Impl9106); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getRouteKeyword_3_6_0()); 
             }
@@ -12298,21 +12377,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_6__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4448:1: rule__EqInterface__Group_3_6__1 : rule__EqInterface__Group_3_6__1__Impl rule__EqInterface__Group_3_6__2 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4481:1: rule__EqInterface__Group_3_6__1 : rule__EqInterface__Group_3_6__1__Impl rule__EqInterface__Group_3_6__2 ;
     public final void rule__EqInterface__Group_3_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4452:1: ( rule__EqInterface__Group_3_6__1__Impl rule__EqInterface__Group_3_6__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4453:2: rule__EqInterface__Group_3_6__1__Impl rule__EqInterface__Group_3_6__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4485:1: ( rule__EqInterface__Group_3_6__1__Impl rule__EqInterface__Group_3_6__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4486:2: rule__EqInterface__Group_3_6__1__Impl rule__EqInterface__Group_3_6__2
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_6__1__Impl_in_rule__EqInterface__Group_3_6__19073);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_6__1__Impl_in_rule__EqInterface__Group_3_6__19137);
             rule__EqInterface__Group_3_6__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_6__2_in_rule__EqInterface__Group_3_6__19076);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_6__2_in_rule__EqInterface__Group_3_6__19140);
             rule__EqInterface__Group_3_6__2();
 
             state._fsp--;
@@ -12336,22 +12415,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_6__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4460:1: rule__EqInterface__Group_3_6__1__Impl : ( '=' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4493:1: rule__EqInterface__Group_3_6__1__Impl : ( '=' ) ;
     public final void rule__EqInterface__Group_3_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4464:1: ( ( '=' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4465:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4497:1: ( ( '=' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4498:1: ( '=' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4465:1: ( '=' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4466:1: '='
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4498:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4499:1: '='
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_6_1()); 
             }
-            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_6__1__Impl9104); if (state.failed) return ;
+            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_6__1__Impl9168); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_6_1()); 
             }
@@ -12377,21 +12456,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_6__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4479:1: rule__EqInterface__Group_3_6__2 : rule__EqInterface__Group_3_6__2__Impl rule__EqInterface__Group_3_6__3 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4512:1: rule__EqInterface__Group_3_6__2 : rule__EqInterface__Group_3_6__2__Impl rule__EqInterface__Group_3_6__3 ;
     public final void rule__EqInterface__Group_3_6__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4483:1: ( rule__EqInterface__Group_3_6__2__Impl rule__EqInterface__Group_3_6__3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4484:2: rule__EqInterface__Group_3_6__2__Impl rule__EqInterface__Group_3_6__3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4516:1: ( rule__EqInterface__Group_3_6__2__Impl rule__EqInterface__Group_3_6__3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4517:2: rule__EqInterface__Group_3_6__2__Impl rule__EqInterface__Group_3_6__3
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_6__2__Impl_in_rule__EqInterface__Group_3_6__29135);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_6__2__Impl_in_rule__EqInterface__Group_3_6__29199);
             rule__EqInterface__Group_3_6__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_6__3_in_rule__EqInterface__Group_3_6__29138);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_6__3_in_rule__EqInterface__Group_3_6__29202);
             rule__EqInterface__Group_3_6__3();
 
             state._fsp--;
@@ -12415,25 +12494,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_6__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4491:1: rule__EqInterface__Group_3_6__2__Impl : ( ( rule__EqInterface__RouteAssignment_3_6_2 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4524:1: rule__EqInterface__Group_3_6__2__Impl : ( ( rule__EqInterface__RouteAssignment_3_6_2 ) ) ;
     public final void rule__EqInterface__Group_3_6__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4495:1: ( ( ( rule__EqInterface__RouteAssignment_3_6_2 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4496:1: ( ( rule__EqInterface__RouteAssignment_3_6_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4528:1: ( ( ( rule__EqInterface__RouteAssignment_3_6_2 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4529:1: ( ( rule__EqInterface__RouteAssignment_3_6_2 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4496:1: ( ( rule__EqInterface__RouteAssignment_3_6_2 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4497:1: ( rule__EqInterface__RouteAssignment_3_6_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4529:1: ( ( rule__EqInterface__RouteAssignment_3_6_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4530:1: ( rule__EqInterface__RouteAssignment_3_6_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getRouteAssignment_3_6_2()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4498:1: ( rule__EqInterface__RouteAssignment_3_6_2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4498:2: rule__EqInterface__RouteAssignment_3_6_2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4531:1: ( rule__EqInterface__RouteAssignment_3_6_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4531:2: rule__EqInterface__RouteAssignment_3_6_2
             {
-            pushFollow(FOLLOW_rule__EqInterface__RouteAssignment_3_6_2_in_rule__EqInterface__Group_3_6__2__Impl9165);
+            pushFollow(FOLLOW_rule__EqInterface__RouteAssignment_3_6_2_in_rule__EqInterface__Group_3_6__2__Impl9229);
             rule__EqInterface__RouteAssignment_3_6_2();
 
             state._fsp--;
@@ -12466,16 +12545,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_6__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4508:1: rule__EqInterface__Group_3_6__3 : rule__EqInterface__Group_3_6__3__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4541:1: rule__EqInterface__Group_3_6__3 : rule__EqInterface__Group_3_6__3__Impl ;
     public final void rule__EqInterface__Group_3_6__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4512:1: ( rule__EqInterface__Group_3_6__3__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4513:2: rule__EqInterface__Group_3_6__3__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4545:1: ( rule__EqInterface__Group_3_6__3__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4546:2: rule__EqInterface__Group_3_6__3__Impl
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_6__3__Impl_in_rule__EqInterface__Group_3_6__39195);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_6__3__Impl_in_rule__EqInterface__Group_3_6__39259);
             rule__EqInterface__Group_3_6__3__Impl();
 
             state._fsp--;
@@ -12499,22 +12578,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_6__3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4519:1: rule__EqInterface__Group_3_6__3__Impl : ( ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4552:1: rule__EqInterface__Group_3_6__3__Impl : ( ';' ) ;
     public final void rule__EqInterface__Group_3_6__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4523:1: ( ( ';' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4524:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4556:1: ( ( ';' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4557:1: ( ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4524:1: ( ';' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4525:1: ';'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4557:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4558:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_6_3()); 
             }
-            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_6__3__Impl9223); if (state.failed) return ;
+            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_6__3__Impl9287); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_6_3()); 
             }
@@ -12540,21 +12619,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_7__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4546:1: rule__EqInterface__Group_3_7__0 : rule__EqInterface__Group_3_7__0__Impl rule__EqInterface__Group_3_7__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4579:1: rule__EqInterface__Group_3_7__0 : rule__EqInterface__Group_3_7__0__Impl rule__EqInterface__Group_3_7__1 ;
     public final void rule__EqInterface__Group_3_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4550:1: ( rule__EqInterface__Group_3_7__0__Impl rule__EqInterface__Group_3_7__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4551:2: rule__EqInterface__Group_3_7__0__Impl rule__EqInterface__Group_3_7__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4583:1: ( rule__EqInterface__Group_3_7__0__Impl rule__EqInterface__Group_3_7__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4584:2: rule__EqInterface__Group_3_7__0__Impl rule__EqInterface__Group_3_7__1
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_7__0__Impl_in_rule__EqInterface__Group_3_7__09262);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_7__0__Impl_in_rule__EqInterface__Group_3_7__09326);
             rule__EqInterface__Group_3_7__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_7__1_in_rule__EqInterface__Group_3_7__09265);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_7__1_in_rule__EqInterface__Group_3_7__09329);
             rule__EqInterface__Group_3_7__1();
 
             state._fsp--;
@@ -12578,22 +12657,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_7__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4558:1: rule__EqInterface__Group_3_7__0__Impl : ( 'PwSup1' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4591:1: rule__EqInterface__Group_3_7__0__Impl : ( 'PwSup1' ) ;
     public final void rule__EqInterface__Group_3_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4562:1: ( ( 'PwSup1' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4563:1: ( 'PwSup1' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4595:1: ( ( 'PwSup1' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4596:1: ( 'PwSup1' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4563:1: ( 'PwSup1' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4564:1: 'PwSup1'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4596:1: ( 'PwSup1' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4597:1: 'PwSup1'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getPwSup1Keyword_3_7_0()); 
             }
-            match(input,85,FOLLOW_85_in_rule__EqInterface__Group_3_7__0__Impl9293); if (state.failed) return ;
+            match(input,85,FOLLOW_85_in_rule__EqInterface__Group_3_7__0__Impl9357); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getPwSup1Keyword_3_7_0()); 
             }
@@ -12619,21 +12698,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_7__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4577:1: rule__EqInterface__Group_3_7__1 : rule__EqInterface__Group_3_7__1__Impl rule__EqInterface__Group_3_7__2 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4610:1: rule__EqInterface__Group_3_7__1 : rule__EqInterface__Group_3_7__1__Impl rule__EqInterface__Group_3_7__2 ;
     public final void rule__EqInterface__Group_3_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4581:1: ( rule__EqInterface__Group_3_7__1__Impl rule__EqInterface__Group_3_7__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4582:2: rule__EqInterface__Group_3_7__1__Impl rule__EqInterface__Group_3_7__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4614:1: ( rule__EqInterface__Group_3_7__1__Impl rule__EqInterface__Group_3_7__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4615:2: rule__EqInterface__Group_3_7__1__Impl rule__EqInterface__Group_3_7__2
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_7__1__Impl_in_rule__EqInterface__Group_3_7__19324);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_7__1__Impl_in_rule__EqInterface__Group_3_7__19388);
             rule__EqInterface__Group_3_7__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_7__2_in_rule__EqInterface__Group_3_7__19327);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_7__2_in_rule__EqInterface__Group_3_7__19391);
             rule__EqInterface__Group_3_7__2();
 
             state._fsp--;
@@ -12657,22 +12736,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_7__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4589:1: rule__EqInterface__Group_3_7__1__Impl : ( '=' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4622:1: rule__EqInterface__Group_3_7__1__Impl : ( '=' ) ;
     public final void rule__EqInterface__Group_3_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4593:1: ( ( '=' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4594:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4626:1: ( ( '=' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4627:1: ( '=' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4594:1: ( '=' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4595:1: '='
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4627:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4628:1: '='
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_7_1()); 
             }
-            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_7__1__Impl9355); if (state.failed) return ;
+            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_7__1__Impl9419); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_7_1()); 
             }
@@ -12698,21 +12777,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_7__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4608:1: rule__EqInterface__Group_3_7__2 : rule__EqInterface__Group_3_7__2__Impl rule__EqInterface__Group_3_7__3 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4641:1: rule__EqInterface__Group_3_7__2 : rule__EqInterface__Group_3_7__2__Impl rule__EqInterface__Group_3_7__3 ;
     public final void rule__EqInterface__Group_3_7__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4612:1: ( rule__EqInterface__Group_3_7__2__Impl rule__EqInterface__Group_3_7__3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4613:2: rule__EqInterface__Group_3_7__2__Impl rule__EqInterface__Group_3_7__3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4645:1: ( rule__EqInterface__Group_3_7__2__Impl rule__EqInterface__Group_3_7__3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4646:2: rule__EqInterface__Group_3_7__2__Impl rule__EqInterface__Group_3_7__3
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_7__2__Impl_in_rule__EqInterface__Group_3_7__29386);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_7__2__Impl_in_rule__EqInterface__Group_3_7__29450);
             rule__EqInterface__Group_3_7__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_7__3_in_rule__EqInterface__Group_3_7__29389);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_7__3_in_rule__EqInterface__Group_3_7__29453);
             rule__EqInterface__Group_3_7__3();
 
             state._fsp--;
@@ -12736,25 +12815,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_7__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4620:1: rule__EqInterface__Group_3_7__2__Impl : ( ( rule__EqInterface__PwSup1Assignment_3_7_2 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4653:1: rule__EqInterface__Group_3_7__2__Impl : ( ( rule__EqInterface__PwSup1Assignment_3_7_2 ) ) ;
     public final void rule__EqInterface__Group_3_7__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4624:1: ( ( ( rule__EqInterface__PwSup1Assignment_3_7_2 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4625:1: ( ( rule__EqInterface__PwSup1Assignment_3_7_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4657:1: ( ( ( rule__EqInterface__PwSup1Assignment_3_7_2 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4658:1: ( ( rule__EqInterface__PwSup1Assignment_3_7_2 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4625:1: ( ( rule__EqInterface__PwSup1Assignment_3_7_2 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4626:1: ( rule__EqInterface__PwSup1Assignment_3_7_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4658:1: ( ( rule__EqInterface__PwSup1Assignment_3_7_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4659:1: ( rule__EqInterface__PwSup1Assignment_3_7_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getPwSup1Assignment_3_7_2()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4627:1: ( rule__EqInterface__PwSup1Assignment_3_7_2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4627:2: rule__EqInterface__PwSup1Assignment_3_7_2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4660:1: ( rule__EqInterface__PwSup1Assignment_3_7_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4660:2: rule__EqInterface__PwSup1Assignment_3_7_2
             {
-            pushFollow(FOLLOW_rule__EqInterface__PwSup1Assignment_3_7_2_in_rule__EqInterface__Group_3_7__2__Impl9416);
+            pushFollow(FOLLOW_rule__EqInterface__PwSup1Assignment_3_7_2_in_rule__EqInterface__Group_3_7__2__Impl9480);
             rule__EqInterface__PwSup1Assignment_3_7_2();
 
             state._fsp--;
@@ -12787,16 +12866,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_7__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4637:1: rule__EqInterface__Group_3_7__3 : rule__EqInterface__Group_3_7__3__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4670:1: rule__EqInterface__Group_3_7__3 : rule__EqInterface__Group_3_7__3__Impl ;
     public final void rule__EqInterface__Group_3_7__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4641:1: ( rule__EqInterface__Group_3_7__3__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4642:2: rule__EqInterface__Group_3_7__3__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4674:1: ( rule__EqInterface__Group_3_7__3__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4675:2: rule__EqInterface__Group_3_7__3__Impl
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_7__3__Impl_in_rule__EqInterface__Group_3_7__39446);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_7__3__Impl_in_rule__EqInterface__Group_3_7__39510);
             rule__EqInterface__Group_3_7__3__Impl();
 
             state._fsp--;
@@ -12820,22 +12899,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_7__3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4648:1: rule__EqInterface__Group_3_7__3__Impl : ( ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4681:1: rule__EqInterface__Group_3_7__3__Impl : ( ';' ) ;
     public final void rule__EqInterface__Group_3_7__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4652:1: ( ( ';' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4653:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4685:1: ( ( ';' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4686:1: ( ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4653:1: ( ';' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4654:1: ';'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4686:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4687:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_7_3()); 
             }
-            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_7__3__Impl9474); if (state.failed) return ;
+            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_7__3__Impl9538); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_7_3()); 
             }
@@ -12861,21 +12940,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_8__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4675:1: rule__EqInterface__Group_3_8__0 : rule__EqInterface__Group_3_8__0__Impl rule__EqInterface__Group_3_8__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4708:1: rule__EqInterface__Group_3_8__0 : rule__EqInterface__Group_3_8__0__Impl rule__EqInterface__Group_3_8__1 ;
     public final void rule__EqInterface__Group_3_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4679:1: ( rule__EqInterface__Group_3_8__0__Impl rule__EqInterface__Group_3_8__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4680:2: rule__EqInterface__Group_3_8__0__Impl rule__EqInterface__Group_3_8__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4712:1: ( rule__EqInterface__Group_3_8__0__Impl rule__EqInterface__Group_3_8__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4713:2: rule__EqInterface__Group_3_8__0__Impl rule__EqInterface__Group_3_8__1
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_8__0__Impl_in_rule__EqInterface__Group_3_8__09513);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_8__0__Impl_in_rule__EqInterface__Group_3_8__09577);
             rule__EqInterface__Group_3_8__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_8__1_in_rule__EqInterface__Group_3_8__09516);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_8__1_in_rule__EqInterface__Group_3_8__09580);
             rule__EqInterface__Group_3_8__1();
 
             state._fsp--;
@@ -12899,22 +12978,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_8__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4687:1: rule__EqInterface__Group_3_8__0__Impl : ( 'EmhZone1' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4720:1: rule__EqInterface__Group_3_8__0__Impl : ( 'EmhZone1' ) ;
     public final void rule__EqInterface__Group_3_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4691:1: ( ( 'EmhZone1' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4692:1: ( 'EmhZone1' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4724:1: ( ( 'EmhZone1' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4725:1: ( 'EmhZone1' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4692:1: ( 'EmhZone1' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4693:1: 'EmhZone1'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4725:1: ( 'EmhZone1' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4726:1: 'EmhZone1'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getEmhZone1Keyword_3_8_0()); 
             }
-            match(input,86,FOLLOW_86_in_rule__EqInterface__Group_3_8__0__Impl9544); if (state.failed) return ;
+            match(input,86,FOLLOW_86_in_rule__EqInterface__Group_3_8__0__Impl9608); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getEmhZone1Keyword_3_8_0()); 
             }
@@ -12940,21 +13019,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_8__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4706:1: rule__EqInterface__Group_3_8__1 : rule__EqInterface__Group_3_8__1__Impl rule__EqInterface__Group_3_8__2 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4739:1: rule__EqInterface__Group_3_8__1 : rule__EqInterface__Group_3_8__1__Impl rule__EqInterface__Group_3_8__2 ;
     public final void rule__EqInterface__Group_3_8__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4710:1: ( rule__EqInterface__Group_3_8__1__Impl rule__EqInterface__Group_3_8__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4711:2: rule__EqInterface__Group_3_8__1__Impl rule__EqInterface__Group_3_8__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4743:1: ( rule__EqInterface__Group_3_8__1__Impl rule__EqInterface__Group_3_8__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4744:2: rule__EqInterface__Group_3_8__1__Impl rule__EqInterface__Group_3_8__2
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_8__1__Impl_in_rule__EqInterface__Group_3_8__19575);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_8__1__Impl_in_rule__EqInterface__Group_3_8__19639);
             rule__EqInterface__Group_3_8__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_8__2_in_rule__EqInterface__Group_3_8__19578);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_8__2_in_rule__EqInterface__Group_3_8__19642);
             rule__EqInterface__Group_3_8__2();
 
             state._fsp--;
@@ -12978,22 +13057,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_8__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4718:1: rule__EqInterface__Group_3_8__1__Impl : ( '=' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4751:1: rule__EqInterface__Group_3_8__1__Impl : ( '=' ) ;
     public final void rule__EqInterface__Group_3_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4722:1: ( ( '=' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4723:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4755:1: ( ( '=' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4756:1: ( '=' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4723:1: ( '=' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4724:1: '='
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4756:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4757:1: '='
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_8_1()); 
             }
-            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_8__1__Impl9606); if (state.failed) return ;
+            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_8__1__Impl9670); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_8_1()); 
             }
@@ -13019,21 +13098,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_8__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4737:1: rule__EqInterface__Group_3_8__2 : rule__EqInterface__Group_3_8__2__Impl rule__EqInterface__Group_3_8__3 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4770:1: rule__EqInterface__Group_3_8__2 : rule__EqInterface__Group_3_8__2__Impl rule__EqInterface__Group_3_8__3 ;
     public final void rule__EqInterface__Group_3_8__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4741:1: ( rule__EqInterface__Group_3_8__2__Impl rule__EqInterface__Group_3_8__3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4742:2: rule__EqInterface__Group_3_8__2__Impl rule__EqInterface__Group_3_8__3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4774:1: ( rule__EqInterface__Group_3_8__2__Impl rule__EqInterface__Group_3_8__3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4775:2: rule__EqInterface__Group_3_8__2__Impl rule__EqInterface__Group_3_8__3
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_8__2__Impl_in_rule__EqInterface__Group_3_8__29637);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_8__2__Impl_in_rule__EqInterface__Group_3_8__29701);
             rule__EqInterface__Group_3_8__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_8__3_in_rule__EqInterface__Group_3_8__29640);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_8__3_in_rule__EqInterface__Group_3_8__29704);
             rule__EqInterface__Group_3_8__3();
 
             state._fsp--;
@@ -13057,25 +13136,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_8__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4749:1: rule__EqInterface__Group_3_8__2__Impl : ( ( rule__EqInterface__EmhZone1Assignment_3_8_2 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4782:1: rule__EqInterface__Group_3_8__2__Impl : ( ( rule__EqInterface__EmhZone1Assignment_3_8_2 ) ) ;
     public final void rule__EqInterface__Group_3_8__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4753:1: ( ( ( rule__EqInterface__EmhZone1Assignment_3_8_2 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4754:1: ( ( rule__EqInterface__EmhZone1Assignment_3_8_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4786:1: ( ( ( rule__EqInterface__EmhZone1Assignment_3_8_2 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4787:1: ( ( rule__EqInterface__EmhZone1Assignment_3_8_2 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4754:1: ( ( rule__EqInterface__EmhZone1Assignment_3_8_2 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4755:1: ( rule__EqInterface__EmhZone1Assignment_3_8_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4787:1: ( ( rule__EqInterface__EmhZone1Assignment_3_8_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4788:1: ( rule__EqInterface__EmhZone1Assignment_3_8_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getEmhZone1Assignment_3_8_2()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4756:1: ( rule__EqInterface__EmhZone1Assignment_3_8_2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4756:2: rule__EqInterface__EmhZone1Assignment_3_8_2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4789:1: ( rule__EqInterface__EmhZone1Assignment_3_8_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4789:2: rule__EqInterface__EmhZone1Assignment_3_8_2
             {
-            pushFollow(FOLLOW_rule__EqInterface__EmhZone1Assignment_3_8_2_in_rule__EqInterface__Group_3_8__2__Impl9667);
+            pushFollow(FOLLOW_rule__EqInterface__EmhZone1Assignment_3_8_2_in_rule__EqInterface__Group_3_8__2__Impl9731);
             rule__EqInterface__EmhZone1Assignment_3_8_2();
 
             state._fsp--;
@@ -13108,16 +13187,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_8__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4766:1: rule__EqInterface__Group_3_8__3 : rule__EqInterface__Group_3_8__3__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4799:1: rule__EqInterface__Group_3_8__3 : rule__EqInterface__Group_3_8__3__Impl ;
     public final void rule__EqInterface__Group_3_8__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4770:1: ( rule__EqInterface__Group_3_8__3__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4771:2: rule__EqInterface__Group_3_8__3__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4803:1: ( rule__EqInterface__Group_3_8__3__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4804:2: rule__EqInterface__Group_3_8__3__Impl
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_8__3__Impl_in_rule__EqInterface__Group_3_8__39697);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_8__3__Impl_in_rule__EqInterface__Group_3_8__39761);
             rule__EqInterface__Group_3_8__3__Impl();
 
             state._fsp--;
@@ -13141,22 +13220,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_8__3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4777:1: rule__EqInterface__Group_3_8__3__Impl : ( ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4810:1: rule__EqInterface__Group_3_8__3__Impl : ( ';' ) ;
     public final void rule__EqInterface__Group_3_8__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4781:1: ( ( ';' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4782:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4814:1: ( ( ';' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4815:1: ( ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4782:1: ( ';' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4783:1: ';'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4815:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4816:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_8_3()); 
             }
-            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_8__3__Impl9725); if (state.failed) return ;
+            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_8__3__Impl9789); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_8_3()); 
             }
@@ -13182,21 +13261,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_9__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4804:1: rule__EqInterface__Group_3_9__0 : rule__EqInterface__Group_3_9__0__Impl rule__EqInterface__Group_3_9__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4837:1: rule__EqInterface__Group_3_9__0 : rule__EqInterface__Group_3_9__0__Impl rule__EqInterface__Group_3_9__1 ;
     public final void rule__EqInterface__Group_3_9__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4808:1: ( rule__EqInterface__Group_3_9__0__Impl rule__EqInterface__Group_3_9__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4809:2: rule__EqInterface__Group_3_9__0__Impl rule__EqInterface__Group_3_9__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4841:1: ( rule__EqInterface__Group_3_9__0__Impl rule__EqInterface__Group_3_9__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4842:2: rule__EqInterface__Group_3_9__0__Impl rule__EqInterface__Group_3_9__1
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_9__0__Impl_in_rule__EqInterface__Group_3_9__09764);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_9__0__Impl_in_rule__EqInterface__Group_3_9__09828);
             rule__EqInterface__Group_3_9__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_9__1_in_rule__EqInterface__Group_3_9__09767);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_9__1_in_rule__EqInterface__Group_3_9__09831);
             rule__EqInterface__Group_3_9__1();
 
             state._fsp--;
@@ -13220,22 +13299,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_9__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4816:1: rule__EqInterface__Group_3_9__0__Impl : ( 'Type' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4849:1: rule__EqInterface__Group_3_9__0__Impl : ( 'Type' ) ;
     public final void rule__EqInterface__Group_3_9__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4820:1: ( ( 'Type' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4821:1: ( 'Type' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4853:1: ( ( 'Type' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4854:1: ( 'Type' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4821:1: ( 'Type' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4822:1: 'Type'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4854:1: ( 'Type' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4855:1: 'Type'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getTypeKeyword_3_9_0()); 
             }
-            match(input,73,FOLLOW_73_in_rule__EqInterface__Group_3_9__0__Impl9795); if (state.failed) return ;
+            match(input,73,FOLLOW_73_in_rule__EqInterface__Group_3_9__0__Impl9859); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getTypeKeyword_3_9_0()); 
             }
@@ -13261,21 +13340,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_9__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4835:1: rule__EqInterface__Group_3_9__1 : rule__EqInterface__Group_3_9__1__Impl rule__EqInterface__Group_3_9__2 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4868:1: rule__EqInterface__Group_3_9__1 : rule__EqInterface__Group_3_9__1__Impl rule__EqInterface__Group_3_9__2 ;
     public final void rule__EqInterface__Group_3_9__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4839:1: ( rule__EqInterface__Group_3_9__1__Impl rule__EqInterface__Group_3_9__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4840:2: rule__EqInterface__Group_3_9__1__Impl rule__EqInterface__Group_3_9__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4872:1: ( rule__EqInterface__Group_3_9__1__Impl rule__EqInterface__Group_3_9__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4873:2: rule__EqInterface__Group_3_9__1__Impl rule__EqInterface__Group_3_9__2
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_9__1__Impl_in_rule__EqInterface__Group_3_9__19826);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_9__1__Impl_in_rule__EqInterface__Group_3_9__19890);
             rule__EqInterface__Group_3_9__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_9__2_in_rule__EqInterface__Group_3_9__19829);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_9__2_in_rule__EqInterface__Group_3_9__19893);
             rule__EqInterface__Group_3_9__2();
 
             state._fsp--;
@@ -13299,22 +13378,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_9__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4847:1: rule__EqInterface__Group_3_9__1__Impl : ( '=' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4880:1: rule__EqInterface__Group_3_9__1__Impl : ( '=' ) ;
     public final void rule__EqInterface__Group_3_9__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4851:1: ( ( '=' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4852:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4884:1: ( ( '=' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4885:1: ( '=' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4852:1: ( '=' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4853:1: '='
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4885:1: ( '=' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4886:1: '='
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_9_1()); 
             }
-            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_9__1__Impl9857); if (state.failed) return ;
+            match(input,63,FOLLOW_63_in_rule__EqInterface__Group_3_9__1__Impl9921); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_9_1()); 
             }
@@ -13340,21 +13419,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_9__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4866:1: rule__EqInterface__Group_3_9__2 : rule__EqInterface__Group_3_9__2__Impl rule__EqInterface__Group_3_9__3 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4899:1: rule__EqInterface__Group_3_9__2 : rule__EqInterface__Group_3_9__2__Impl rule__EqInterface__Group_3_9__3 ;
     public final void rule__EqInterface__Group_3_9__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4870:1: ( rule__EqInterface__Group_3_9__2__Impl rule__EqInterface__Group_3_9__3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4871:2: rule__EqInterface__Group_3_9__2__Impl rule__EqInterface__Group_3_9__3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4903:1: ( rule__EqInterface__Group_3_9__2__Impl rule__EqInterface__Group_3_9__3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4904:2: rule__EqInterface__Group_3_9__2__Impl rule__EqInterface__Group_3_9__3
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_9__2__Impl_in_rule__EqInterface__Group_3_9__29888);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_9__2__Impl_in_rule__EqInterface__Group_3_9__29952);
             rule__EqInterface__Group_3_9__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_9__3_in_rule__EqInterface__Group_3_9__29891);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_9__3_in_rule__EqInterface__Group_3_9__29955);
             rule__EqInterface__Group_3_9__3();
 
             state._fsp--;
@@ -13378,25 +13457,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_9__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4878:1: rule__EqInterface__Group_3_9__2__Impl : ( ( rule__EqInterface__IoTypeAssignment_3_9_2 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4911:1: rule__EqInterface__Group_3_9__2__Impl : ( ( rule__EqInterface__IoTypeAssignment_3_9_2 ) ) ;
     public final void rule__EqInterface__Group_3_9__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4882:1: ( ( ( rule__EqInterface__IoTypeAssignment_3_9_2 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4883:1: ( ( rule__EqInterface__IoTypeAssignment_3_9_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4915:1: ( ( ( rule__EqInterface__IoTypeAssignment_3_9_2 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4916:1: ( ( rule__EqInterface__IoTypeAssignment_3_9_2 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4883:1: ( ( rule__EqInterface__IoTypeAssignment_3_9_2 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4884:1: ( rule__EqInterface__IoTypeAssignment_3_9_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4916:1: ( ( rule__EqInterface__IoTypeAssignment_3_9_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4917:1: ( rule__EqInterface__IoTypeAssignment_3_9_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getIoTypeAssignment_3_9_2()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4885:1: ( rule__EqInterface__IoTypeAssignment_3_9_2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4885:2: rule__EqInterface__IoTypeAssignment_3_9_2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4918:1: ( rule__EqInterface__IoTypeAssignment_3_9_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4918:2: rule__EqInterface__IoTypeAssignment_3_9_2
             {
-            pushFollow(FOLLOW_rule__EqInterface__IoTypeAssignment_3_9_2_in_rule__EqInterface__Group_3_9__2__Impl9918);
+            pushFollow(FOLLOW_rule__EqInterface__IoTypeAssignment_3_9_2_in_rule__EqInterface__Group_3_9__2__Impl9982);
             rule__EqInterface__IoTypeAssignment_3_9_2();
 
             state._fsp--;
@@ -13429,16 +13508,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_9__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4895:1: rule__EqInterface__Group_3_9__3 : rule__EqInterface__Group_3_9__3__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4928:1: rule__EqInterface__Group_3_9__3 : rule__EqInterface__Group_3_9__3__Impl ;
     public final void rule__EqInterface__Group_3_9__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4899:1: ( rule__EqInterface__Group_3_9__3__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4900:2: rule__EqInterface__Group_3_9__3__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4932:1: ( rule__EqInterface__Group_3_9__3__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4933:2: rule__EqInterface__Group_3_9__3__Impl
             {
-            pushFollow(FOLLOW_rule__EqInterface__Group_3_9__3__Impl_in_rule__EqInterface__Group_3_9__39948);
+            pushFollow(FOLLOW_rule__EqInterface__Group_3_9__3__Impl_in_rule__EqInterface__Group_3_9__310012);
             rule__EqInterface__Group_3_9__3__Impl();
 
             state._fsp--;
@@ -13462,22 +13541,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__Group_3_9__3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4906:1: rule__EqInterface__Group_3_9__3__Impl : ( ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4939:1: rule__EqInterface__Group_3_9__3__Impl : ( ';' ) ;
     public final void rule__EqInterface__Group_3_9__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4910:1: ( ( ';' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4911:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4943:1: ( ( ';' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4944:1: ( ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4911:1: ( ';' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4912:1: ';'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4944:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4945:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_9_3()); 
             }
-            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_9__3__Impl9976); if (state.failed) return ;
+            match(input,64,FOLLOW_64_in_rule__EqInterface__Group_3_9__3__Impl10040); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_9_3()); 
             }
@@ -13503,21 +13582,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4933:1: rule__DislocalityRelation__Group__0 : rule__DislocalityRelation__Group__0__Impl rule__DislocalityRelation__Group__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4966:1: rule__DislocalityRelation__Group__0 : rule__DislocalityRelation__Group__0__Impl rule__DislocalityRelation__Group__1 ;
     public final void rule__DislocalityRelation__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4937:1: ( rule__DislocalityRelation__Group__0__Impl rule__DislocalityRelation__Group__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4938:2: rule__DislocalityRelation__Group__0__Impl rule__DislocalityRelation__Group__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4970:1: ( rule__DislocalityRelation__Group__0__Impl rule__DislocalityRelation__Group__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4971:2: rule__DislocalityRelation__Group__0__Impl rule__DislocalityRelation__Group__1
             {
-            pushFollow(FOLLOW_rule__DislocalityRelation__Group__0__Impl_in_rule__DislocalityRelation__Group__010015);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Group__0__Impl_in_rule__DislocalityRelation__Group__010079);
             rule__DislocalityRelation__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__DislocalityRelation__Group__1_in_rule__DislocalityRelation__Group__010018);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Group__1_in_rule__DislocalityRelation__Group__010082);
             rule__DislocalityRelation__Group__1();
 
             state._fsp--;
@@ -13541,25 +13620,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4945:1: rule__DislocalityRelation__Group__0__Impl : ( ( rule__DislocalityRelation__Alternatives_0 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4978:1: rule__DislocalityRelation__Group__0__Impl : ( ( rule__DislocalityRelation__Alternatives_0 ) ) ;
     public final void rule__DislocalityRelation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4949:1: ( ( ( rule__DislocalityRelation__Alternatives_0 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4950:1: ( ( rule__DislocalityRelation__Alternatives_0 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4982:1: ( ( ( rule__DislocalityRelation__Alternatives_0 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4983:1: ( ( rule__DislocalityRelation__Alternatives_0 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4950:1: ( ( rule__DislocalityRelation__Alternatives_0 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4951:1: ( rule__DislocalityRelation__Alternatives_0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4983:1: ( ( rule__DislocalityRelation__Alternatives_0 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4984:1: ( rule__DislocalityRelation__Alternatives_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getAlternatives_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4952:1: ( rule__DislocalityRelation__Alternatives_0 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4952:2: rule__DislocalityRelation__Alternatives_0
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4985:1: ( rule__DislocalityRelation__Alternatives_0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4985:2: rule__DislocalityRelation__Alternatives_0
             {
-            pushFollow(FOLLOW_rule__DislocalityRelation__Alternatives_0_in_rule__DislocalityRelation__Group__0__Impl10045);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Alternatives_0_in_rule__DislocalityRelation__Group__0__Impl10109);
             rule__DislocalityRelation__Alternatives_0();
 
             state._fsp--;
@@ -13592,21 +13671,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4962:1: rule__DislocalityRelation__Group__1 : rule__DislocalityRelation__Group__1__Impl rule__DislocalityRelation__Group__2 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4995:1: rule__DislocalityRelation__Group__1 : rule__DislocalityRelation__Group__1__Impl rule__DislocalityRelation__Group__2 ;
     public final void rule__DislocalityRelation__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4966:1: ( rule__DislocalityRelation__Group__1__Impl rule__DislocalityRelation__Group__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4967:2: rule__DislocalityRelation__Group__1__Impl rule__DislocalityRelation__Group__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4999:1: ( rule__DislocalityRelation__Group__1__Impl rule__DislocalityRelation__Group__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5000:2: rule__DislocalityRelation__Group__1__Impl rule__DislocalityRelation__Group__2
             {
-            pushFollow(FOLLOW_rule__DislocalityRelation__Group__1__Impl_in_rule__DislocalityRelation__Group__110075);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Group__1__Impl_in_rule__DislocalityRelation__Group__110139);
             rule__DislocalityRelation__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__DislocalityRelation__Group__2_in_rule__DislocalityRelation__Group__110078);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Group__2_in_rule__DislocalityRelation__Group__110142);
             rule__DislocalityRelation__Group__2();
 
             state._fsp--;
@@ -13630,22 +13709,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4974:1: rule__DislocalityRelation__Group__1__Impl : ( 'dislocal up to' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5007:1: rule__DislocalityRelation__Group__1__Impl : ( 'dislocal up to' ) ;
     public final void rule__DislocalityRelation__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4978:1: ( ( 'dislocal up to' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4979:1: ( 'dislocal up to' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5011:1: ( ( 'dislocal up to' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5012:1: ( 'dislocal up to' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4979:1: ( 'dislocal up to' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4980:1: 'dislocal up to'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5012:1: ( 'dislocal up to' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5013:1: 'dislocal up to'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getDislocalUpToKeyword_1()); 
             }
-            match(input,87,FOLLOW_87_in_rule__DislocalityRelation__Group__1__Impl10106); if (state.failed) return ;
+            match(input,87,FOLLOW_87_in_rule__DislocalityRelation__Group__1__Impl10170); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDislocalityRelationAccess().getDislocalUpToKeyword_1()); 
             }
@@ -13671,21 +13750,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4993:1: rule__DislocalityRelation__Group__2 : rule__DislocalityRelation__Group__2__Impl rule__DislocalityRelation__Group__3 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5026:1: rule__DislocalityRelation__Group__2 : rule__DislocalityRelation__Group__2__Impl rule__DislocalityRelation__Group__3 ;
     public final void rule__DislocalityRelation__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4997:1: ( rule__DislocalityRelation__Group__2__Impl rule__DislocalityRelation__Group__3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:4998:2: rule__DislocalityRelation__Group__2__Impl rule__DislocalityRelation__Group__3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5030:1: ( rule__DislocalityRelation__Group__2__Impl rule__DislocalityRelation__Group__3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5031:2: rule__DislocalityRelation__Group__2__Impl rule__DislocalityRelation__Group__3
             {
-            pushFollow(FOLLOW_rule__DislocalityRelation__Group__2__Impl_in_rule__DislocalityRelation__Group__210137);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Group__2__Impl_in_rule__DislocalityRelation__Group__210201);
             rule__DislocalityRelation__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__DislocalityRelation__Group__3_in_rule__DislocalityRelation__Group__210140);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Group__3_in_rule__DislocalityRelation__Group__210204);
             rule__DislocalityRelation__Group__3();
 
             state._fsp--;
@@ -13709,25 +13788,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5005:1: rule__DislocalityRelation__Group__2__Impl : ( ( rule__DislocalityRelation__HardwareLevelAssignment_2 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5038:1: rule__DislocalityRelation__Group__2__Impl : ( ( rule__DislocalityRelation__HardwareLevelAssignment_2 ) ) ;
     public final void rule__DislocalityRelation__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5009:1: ( ( ( rule__DislocalityRelation__HardwareLevelAssignment_2 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5010:1: ( ( rule__DislocalityRelation__HardwareLevelAssignment_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5042:1: ( ( ( rule__DislocalityRelation__HardwareLevelAssignment_2 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5043:1: ( ( rule__DislocalityRelation__HardwareLevelAssignment_2 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5010:1: ( ( rule__DislocalityRelation__HardwareLevelAssignment_2 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5011:1: ( rule__DislocalityRelation__HardwareLevelAssignment_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5043:1: ( ( rule__DislocalityRelation__HardwareLevelAssignment_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5044:1: ( rule__DislocalityRelation__HardwareLevelAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getHardwareLevelAssignment_2()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5012:1: ( rule__DislocalityRelation__HardwareLevelAssignment_2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5012:2: rule__DislocalityRelation__HardwareLevelAssignment_2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5045:1: ( rule__DislocalityRelation__HardwareLevelAssignment_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5045:2: rule__DislocalityRelation__HardwareLevelAssignment_2
             {
-            pushFollow(FOLLOW_rule__DislocalityRelation__HardwareLevelAssignment_2_in_rule__DislocalityRelation__Group__2__Impl10167);
+            pushFollow(FOLLOW_rule__DislocalityRelation__HardwareLevelAssignment_2_in_rule__DislocalityRelation__Group__2__Impl10231);
             rule__DislocalityRelation__HardwareLevelAssignment_2();
 
             state._fsp--;
@@ -13760,16 +13839,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5022:1: rule__DislocalityRelation__Group__3 : rule__DislocalityRelation__Group__3__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5055:1: rule__DislocalityRelation__Group__3 : rule__DislocalityRelation__Group__3__Impl ;
     public final void rule__DislocalityRelation__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5026:1: ( rule__DislocalityRelation__Group__3__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5027:2: rule__DislocalityRelation__Group__3__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5059:1: ( rule__DislocalityRelation__Group__3__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5060:2: rule__DislocalityRelation__Group__3__Impl
             {
-            pushFollow(FOLLOW_rule__DislocalityRelation__Group__3__Impl_in_rule__DislocalityRelation__Group__310197);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Group__3__Impl_in_rule__DislocalityRelation__Group__310261);
             rule__DislocalityRelation__Group__3__Impl();
 
             state._fsp--;
@@ -13793,22 +13872,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group__3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5033:1: rule__DislocalityRelation__Group__3__Impl : ( ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5066:1: rule__DislocalityRelation__Group__3__Impl : ( ';' ) ;
     public final void rule__DislocalityRelation__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5037:1: ( ( ';' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5038:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5070:1: ( ( ';' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5071:1: ( ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5038:1: ( ';' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5039:1: ';'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5071:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5072:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getSemicolonKeyword_3()); 
             }
-            match(input,64,FOLLOW_64_in_rule__DislocalityRelation__Group__3__Impl10225); if (state.failed) return ;
+            match(input,64,FOLLOW_64_in_rule__DislocalityRelation__Group__3__Impl10289); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDislocalityRelationAccess().getSemicolonKeyword_3()); 
             }
@@ -13834,21 +13913,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group_0_1__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5060:1: rule__DislocalityRelation__Group_0_1__0 : rule__DislocalityRelation__Group_0_1__0__Impl rule__DislocalityRelation__Group_0_1__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5093:1: rule__DislocalityRelation__Group_0_1__0 : rule__DislocalityRelation__Group_0_1__0__Impl rule__DislocalityRelation__Group_0_1__1 ;
     public final void rule__DislocalityRelation__Group_0_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5064:1: ( rule__DislocalityRelation__Group_0_1__0__Impl rule__DislocalityRelation__Group_0_1__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5065:2: rule__DislocalityRelation__Group_0_1__0__Impl rule__DislocalityRelation__Group_0_1__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5097:1: ( rule__DislocalityRelation__Group_0_1__0__Impl rule__DislocalityRelation__Group_0_1__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5098:2: rule__DislocalityRelation__Group_0_1__0__Impl rule__DislocalityRelation__Group_0_1__1
             {
-            pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1__0__Impl_in_rule__DislocalityRelation__Group_0_1__010264);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1__0__Impl_in_rule__DislocalityRelation__Group_0_1__010328);
             rule__DislocalityRelation__Group_0_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1__1_in_rule__DislocalityRelation__Group_0_1__010267);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1__1_in_rule__DislocalityRelation__Group_0_1__010331);
             rule__DislocalityRelation__Group_0_1__1();
 
             state._fsp--;
@@ -13872,25 +13951,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group_0_1__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5072:1: rule__DislocalityRelation__Group_0_1__0__Impl : ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_0 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5105:1: rule__DislocalityRelation__Group_0_1__0__Impl : ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_0 ) ) ;
     public final void rule__DislocalityRelation__Group_0_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5076:1: ( ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_0 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5077:1: ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_0 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5109:1: ( ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_0 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5110:1: ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_0 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5077:1: ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_0 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5078:1: ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5110:1: ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_0 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5111:1: ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getEqInterfacesAssignment_0_1_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5079:1: ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_0 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5079:2: rule__DislocalityRelation__EqInterfacesAssignment_0_1_0
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5112:1: ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5112:2: rule__DislocalityRelation__EqInterfacesAssignment_0_1_0
             {
-            pushFollow(FOLLOW_rule__DislocalityRelation__EqInterfacesAssignment_0_1_0_in_rule__DislocalityRelation__Group_0_1__0__Impl10294);
+            pushFollow(FOLLOW_rule__DislocalityRelation__EqInterfacesAssignment_0_1_0_in_rule__DislocalityRelation__Group_0_1__0__Impl10358);
             rule__DislocalityRelation__EqInterfacesAssignment_0_1_0();
 
             state._fsp--;
@@ -13923,16 +14002,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group_0_1__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5089:1: rule__DislocalityRelation__Group_0_1__1 : rule__DislocalityRelation__Group_0_1__1__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5122:1: rule__DislocalityRelation__Group_0_1__1 : rule__DislocalityRelation__Group_0_1__1__Impl ;
     public final void rule__DislocalityRelation__Group_0_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5093:1: ( rule__DislocalityRelation__Group_0_1__1__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5094:2: rule__DislocalityRelation__Group_0_1__1__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5126:1: ( rule__DislocalityRelation__Group_0_1__1__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5127:2: rule__DislocalityRelation__Group_0_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1__1__Impl_in_rule__DislocalityRelation__Group_0_1__110324);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1__1__Impl_in_rule__DislocalityRelation__Group_0_1__110388);
             rule__DislocalityRelation__Group_0_1__1__Impl();
 
             state._fsp--;
@@ -13956,28 +14035,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group_0_1__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5100:1: rule__DislocalityRelation__Group_0_1__1__Impl : ( ( ( rule__DislocalityRelation__Group_0_1_1__0 ) ) ( ( rule__DislocalityRelation__Group_0_1_1__0 )* ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5133:1: rule__DislocalityRelation__Group_0_1__1__Impl : ( ( ( rule__DislocalityRelation__Group_0_1_1__0 ) ) ( ( rule__DislocalityRelation__Group_0_1_1__0 )* ) ) ;
     public final void rule__DislocalityRelation__Group_0_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5104:1: ( ( ( ( rule__DislocalityRelation__Group_0_1_1__0 ) ) ( ( rule__DislocalityRelation__Group_0_1_1__0 )* ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5105:1: ( ( ( rule__DislocalityRelation__Group_0_1_1__0 ) ) ( ( rule__DislocalityRelation__Group_0_1_1__0 )* ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5137:1: ( ( ( ( rule__DislocalityRelation__Group_0_1_1__0 ) ) ( ( rule__DislocalityRelation__Group_0_1_1__0 )* ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5138:1: ( ( ( rule__DislocalityRelation__Group_0_1_1__0 ) ) ( ( rule__DislocalityRelation__Group_0_1_1__0 )* ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5105:1: ( ( ( rule__DislocalityRelation__Group_0_1_1__0 ) ) ( ( rule__DislocalityRelation__Group_0_1_1__0 )* ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5106:1: ( ( rule__DislocalityRelation__Group_0_1_1__0 ) ) ( ( rule__DislocalityRelation__Group_0_1_1__0 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5138:1: ( ( ( rule__DislocalityRelation__Group_0_1_1__0 ) ) ( ( rule__DislocalityRelation__Group_0_1_1__0 )* ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5139:1: ( ( rule__DislocalityRelation__Group_0_1_1__0 ) ) ( ( rule__DislocalityRelation__Group_0_1_1__0 )* )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5106:1: ( ( rule__DislocalityRelation__Group_0_1_1__0 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5107:1: ( rule__DislocalityRelation__Group_0_1_1__0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5139:1: ( ( rule__DislocalityRelation__Group_0_1_1__0 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5140:1: ( rule__DislocalityRelation__Group_0_1_1__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getGroup_0_1_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5108:1: ( rule__DislocalityRelation__Group_0_1_1__0 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5108:2: rule__DislocalityRelation__Group_0_1_1__0
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5141:1: ( rule__DislocalityRelation__Group_0_1_1__0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5141:2: rule__DislocalityRelation__Group_0_1_1__0
             {
-            pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1_1__0_in_rule__DislocalityRelation__Group_0_1__1__Impl10353);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1_1__0_in_rule__DislocalityRelation__Group_0_1__1__Impl10417);
             rule__DislocalityRelation__Group_0_1_1__0();
 
             state._fsp--;
@@ -13991,13 +14070,13 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
             }
 
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5111:1: ( ( rule__DislocalityRelation__Group_0_1_1__0 )* )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5112:1: ( rule__DislocalityRelation__Group_0_1_1__0 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5144:1: ( ( rule__DislocalityRelation__Group_0_1_1__0 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5145:1: ( rule__DislocalityRelation__Group_0_1_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getGroup_0_1_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5113:1: ( rule__DislocalityRelation__Group_0_1_1__0 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5146:1: ( rule__DislocalityRelation__Group_0_1_1__0 )*
             loop14:
             do {
                 int alt14=2;
@@ -14010,9 +14089,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
                 switch (alt14) {
             	case 1 :
-            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5113:2: rule__DislocalityRelation__Group_0_1_1__0
+            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5146:2: rule__DislocalityRelation__Group_0_1_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1_1__0_in_rule__DislocalityRelation__Group_0_1__1__Impl10365);
+            	    pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1_1__0_in_rule__DislocalityRelation__Group_0_1__1__Impl10429);
             	    rule__DislocalityRelation__Group_0_1_1__0();
 
             	    state._fsp--;
@@ -14054,21 +14133,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group_0_1_1__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5128:1: rule__DislocalityRelation__Group_0_1_1__0 : rule__DislocalityRelation__Group_0_1_1__0__Impl rule__DislocalityRelation__Group_0_1_1__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5161:1: rule__DislocalityRelation__Group_0_1_1__0 : rule__DislocalityRelation__Group_0_1_1__0__Impl rule__DislocalityRelation__Group_0_1_1__1 ;
     public final void rule__DislocalityRelation__Group_0_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5132:1: ( rule__DislocalityRelation__Group_0_1_1__0__Impl rule__DislocalityRelation__Group_0_1_1__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5133:2: rule__DislocalityRelation__Group_0_1_1__0__Impl rule__DislocalityRelation__Group_0_1_1__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5165:1: ( rule__DislocalityRelation__Group_0_1_1__0__Impl rule__DislocalityRelation__Group_0_1_1__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5166:2: rule__DislocalityRelation__Group_0_1_1__0__Impl rule__DislocalityRelation__Group_0_1_1__1
             {
-            pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1_1__0__Impl_in_rule__DislocalityRelation__Group_0_1_1__010402);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1_1__0__Impl_in_rule__DislocalityRelation__Group_0_1_1__010466);
             rule__DislocalityRelation__Group_0_1_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1_1__1_in_rule__DislocalityRelation__Group_0_1_1__010405);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1_1__1_in_rule__DislocalityRelation__Group_0_1_1__010469);
             rule__DislocalityRelation__Group_0_1_1__1();
 
             state._fsp--;
@@ -14092,22 +14171,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group_0_1_1__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5140:1: rule__DislocalityRelation__Group_0_1_1__0__Impl : ( ',' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5173:1: rule__DislocalityRelation__Group_0_1_1__0__Impl : ( ',' ) ;
     public final void rule__DislocalityRelation__Group_0_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5144:1: ( ( ',' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5145:1: ( ',' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5177:1: ( ( ',' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5178:1: ( ',' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5145:1: ( ',' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5146:1: ','
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5178:1: ( ',' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5179:1: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getCommaKeyword_0_1_1_0()); 
             }
-            match(input,76,FOLLOW_76_in_rule__DislocalityRelation__Group_0_1_1__0__Impl10433); if (state.failed) return ;
+            match(input,76,FOLLOW_76_in_rule__DislocalityRelation__Group_0_1_1__0__Impl10497); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDislocalityRelationAccess().getCommaKeyword_0_1_1_0()); 
             }
@@ -14133,16 +14212,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group_0_1_1__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5159:1: rule__DislocalityRelation__Group_0_1_1__1 : rule__DislocalityRelation__Group_0_1_1__1__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5192:1: rule__DislocalityRelation__Group_0_1_1__1 : rule__DislocalityRelation__Group_0_1_1__1__Impl ;
     public final void rule__DislocalityRelation__Group_0_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5163:1: ( rule__DislocalityRelation__Group_0_1_1__1__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5164:2: rule__DislocalityRelation__Group_0_1_1__1__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5196:1: ( rule__DislocalityRelation__Group_0_1_1__1__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5197:2: rule__DislocalityRelation__Group_0_1_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1_1__1__Impl_in_rule__DislocalityRelation__Group_0_1_1__110464);
+            pushFollow(FOLLOW_rule__DislocalityRelation__Group_0_1_1__1__Impl_in_rule__DislocalityRelation__Group_0_1_1__110528);
             rule__DislocalityRelation__Group_0_1_1__1__Impl();
 
             state._fsp--;
@@ -14166,25 +14245,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__Group_0_1_1__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5170:1: rule__DislocalityRelation__Group_0_1_1__1__Impl : ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5203:1: rule__DislocalityRelation__Group_0_1_1__1__Impl : ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1 ) ) ;
     public final void rule__DislocalityRelation__Group_0_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5174:1: ( ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5175:1: ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5207:1: ( ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5208:1: ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5175:1: ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5176:1: ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5208:1: ( ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5209:1: ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getEqInterfacesAssignment_0_1_1_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5177:1: ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5177:2: rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5210:1: ( rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5210:2: rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1
             {
-            pushFollow(FOLLOW_rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1_in_rule__DislocalityRelation__Group_0_1_1__1__Impl10491);
+            pushFollow(FOLLOW_rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1_in_rule__DislocalityRelation__Group_0_1_1__1__Impl10555);
             rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1();
 
             state._fsp--;
@@ -14217,21 +14296,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5191:1: rule__ColocalityRelation__Group__0 : rule__ColocalityRelation__Group__0__Impl rule__ColocalityRelation__Group__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5224:1: rule__ColocalityRelation__Group__0 : rule__ColocalityRelation__Group__0__Impl rule__ColocalityRelation__Group__1 ;
     public final void rule__ColocalityRelation__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5195:1: ( rule__ColocalityRelation__Group__0__Impl rule__ColocalityRelation__Group__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5196:2: rule__ColocalityRelation__Group__0__Impl rule__ColocalityRelation__Group__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5228:1: ( rule__ColocalityRelation__Group__0__Impl rule__ColocalityRelation__Group__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5229:2: rule__ColocalityRelation__Group__0__Impl rule__ColocalityRelation__Group__1
             {
-            pushFollow(FOLLOW_rule__ColocalityRelation__Group__0__Impl_in_rule__ColocalityRelation__Group__010525);
+            pushFollow(FOLLOW_rule__ColocalityRelation__Group__0__Impl_in_rule__ColocalityRelation__Group__010589);
             rule__ColocalityRelation__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ColocalityRelation__Group__1_in_rule__ColocalityRelation__Group__010528);
+            pushFollow(FOLLOW_rule__ColocalityRelation__Group__1_in_rule__ColocalityRelation__Group__010592);
             rule__ColocalityRelation__Group__1();
 
             state._fsp--;
@@ -14255,25 +14334,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5203:1: rule__ColocalityRelation__Group__0__Impl : ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5236:1: rule__ColocalityRelation__Group__0__Impl : ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 ) ) ;
     public final void rule__ColocalityRelation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5207:1: ( ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5208:1: ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5240:1: ( ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5241:1: ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5208:1: ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5209:1: ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5241:1: ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5242:1: ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsAssignment_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5210:1: ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5210:2: rule__ColocalityRelation__EqInterfaceGroupsAssignment_0
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5243:1: ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5243:2: rule__ColocalityRelation__EqInterfaceGroupsAssignment_0
             {
-            pushFollow(FOLLOW_rule__ColocalityRelation__EqInterfaceGroupsAssignment_0_in_rule__ColocalityRelation__Group__0__Impl10555);
+            pushFollow(FOLLOW_rule__ColocalityRelation__EqInterfaceGroupsAssignment_0_in_rule__ColocalityRelation__Group__0__Impl10619);
             rule__ColocalityRelation__EqInterfaceGroupsAssignment_0();
 
             state._fsp--;
@@ -14306,21 +14385,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5220:1: rule__ColocalityRelation__Group__1 : rule__ColocalityRelation__Group__1__Impl rule__ColocalityRelation__Group__2 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5253:1: rule__ColocalityRelation__Group__1 : rule__ColocalityRelation__Group__1__Impl rule__ColocalityRelation__Group__2 ;
     public final void rule__ColocalityRelation__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5224:1: ( rule__ColocalityRelation__Group__1__Impl rule__ColocalityRelation__Group__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5225:2: rule__ColocalityRelation__Group__1__Impl rule__ColocalityRelation__Group__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5257:1: ( rule__ColocalityRelation__Group__1__Impl rule__ColocalityRelation__Group__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5258:2: rule__ColocalityRelation__Group__1__Impl rule__ColocalityRelation__Group__2
             {
-            pushFollow(FOLLOW_rule__ColocalityRelation__Group__1__Impl_in_rule__ColocalityRelation__Group__110585);
+            pushFollow(FOLLOW_rule__ColocalityRelation__Group__1__Impl_in_rule__ColocalityRelation__Group__110649);
             rule__ColocalityRelation__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ColocalityRelation__Group__2_in_rule__ColocalityRelation__Group__110588);
+            pushFollow(FOLLOW_rule__ColocalityRelation__Group__2_in_rule__ColocalityRelation__Group__110652);
             rule__ColocalityRelation__Group__2();
 
             state._fsp--;
@@ -14344,22 +14423,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5232:1: rule__ColocalityRelation__Group__1__Impl : ( ( rule__ColocalityRelation__Group_1__0 )* ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5265:1: rule__ColocalityRelation__Group__1__Impl : ( ( rule__ColocalityRelation__Group_1__0 )* ) ;
     public final void rule__ColocalityRelation__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5236:1: ( ( ( rule__ColocalityRelation__Group_1__0 )* ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5237:1: ( ( rule__ColocalityRelation__Group_1__0 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5269:1: ( ( ( rule__ColocalityRelation__Group_1__0 )* ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5270:1: ( ( rule__ColocalityRelation__Group_1__0 )* )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5237:1: ( ( rule__ColocalityRelation__Group_1__0 )* )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5238:1: ( rule__ColocalityRelation__Group_1__0 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5270:1: ( ( rule__ColocalityRelation__Group_1__0 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5271:1: ( rule__ColocalityRelation__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getColocalityRelationAccess().getGroup_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5239:1: ( rule__ColocalityRelation__Group_1__0 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5272:1: ( rule__ColocalityRelation__Group_1__0 )*
             loop15:
             do {
                 int alt15=2;
@@ -14372,9 +14451,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
                 switch (alt15) {
             	case 1 :
-            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5239:2: rule__ColocalityRelation__Group_1__0
+            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5272:2: rule__ColocalityRelation__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__ColocalityRelation__Group_1__0_in_rule__ColocalityRelation__Group__1__Impl10615);
+            	    pushFollow(FOLLOW_rule__ColocalityRelation__Group_1__0_in_rule__ColocalityRelation__Group__1__Impl10679);
             	    rule__ColocalityRelation__Group_1__0();
 
             	    state._fsp--;
@@ -14413,21 +14492,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5249:1: rule__ColocalityRelation__Group__2 : rule__ColocalityRelation__Group__2__Impl rule__ColocalityRelation__Group__3 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5282:1: rule__ColocalityRelation__Group__2 : rule__ColocalityRelation__Group__2__Impl rule__ColocalityRelation__Group__3 ;
     public final void rule__ColocalityRelation__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5253:1: ( rule__ColocalityRelation__Group__2__Impl rule__ColocalityRelation__Group__3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5254:2: rule__ColocalityRelation__Group__2__Impl rule__ColocalityRelation__Group__3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5286:1: ( rule__ColocalityRelation__Group__2__Impl rule__ColocalityRelation__Group__3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5287:2: rule__ColocalityRelation__Group__2__Impl rule__ColocalityRelation__Group__3
             {
-            pushFollow(FOLLOW_rule__ColocalityRelation__Group__2__Impl_in_rule__ColocalityRelation__Group__210646);
+            pushFollow(FOLLOW_rule__ColocalityRelation__Group__2__Impl_in_rule__ColocalityRelation__Group__210710);
             rule__ColocalityRelation__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ColocalityRelation__Group__3_in_rule__ColocalityRelation__Group__210649);
+            pushFollow(FOLLOW_rule__ColocalityRelation__Group__3_in_rule__ColocalityRelation__Group__210713);
             rule__ColocalityRelation__Group__3();
 
             state._fsp--;
@@ -14451,22 +14530,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5261:1: rule__ColocalityRelation__Group__2__Impl : ( 'on same' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5294:1: rule__ColocalityRelation__Group__2__Impl : ( 'on same' ) ;
     public final void rule__ColocalityRelation__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5265:1: ( ( 'on same' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5266:1: ( 'on same' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5298:1: ( ( 'on same' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5299:1: ( 'on same' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5266:1: ( 'on same' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5267:1: 'on same'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5299:1: ( 'on same' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5300:1: 'on same'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getColocalityRelationAccess().getOnSameKeyword_2()); 
             }
-            match(input,88,FOLLOW_88_in_rule__ColocalityRelation__Group__2__Impl10677); if (state.failed) return ;
+            match(input,88,FOLLOW_88_in_rule__ColocalityRelation__Group__2__Impl10741); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getColocalityRelationAccess().getOnSameKeyword_2()); 
             }
@@ -14492,21 +14571,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5280:1: rule__ColocalityRelation__Group__3 : rule__ColocalityRelation__Group__3__Impl rule__ColocalityRelation__Group__4 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5313:1: rule__ColocalityRelation__Group__3 : rule__ColocalityRelation__Group__3__Impl rule__ColocalityRelation__Group__4 ;
     public final void rule__ColocalityRelation__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5284:1: ( rule__ColocalityRelation__Group__3__Impl rule__ColocalityRelation__Group__4 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5285:2: rule__ColocalityRelation__Group__3__Impl rule__ColocalityRelation__Group__4
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5317:1: ( rule__ColocalityRelation__Group__3__Impl rule__ColocalityRelation__Group__4 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5318:2: rule__ColocalityRelation__Group__3__Impl rule__ColocalityRelation__Group__4
             {
-            pushFollow(FOLLOW_rule__ColocalityRelation__Group__3__Impl_in_rule__ColocalityRelation__Group__310708);
+            pushFollow(FOLLOW_rule__ColocalityRelation__Group__3__Impl_in_rule__ColocalityRelation__Group__310772);
             rule__ColocalityRelation__Group__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ColocalityRelation__Group__4_in_rule__ColocalityRelation__Group__310711);
+            pushFollow(FOLLOW_rule__ColocalityRelation__Group__4_in_rule__ColocalityRelation__Group__310775);
             rule__ColocalityRelation__Group__4();
 
             state._fsp--;
@@ -14530,25 +14609,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group__3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5292:1: rule__ColocalityRelation__Group__3__Impl : ( ( rule__ColocalityRelation__HardwareLevelAssignment_3 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5325:1: rule__ColocalityRelation__Group__3__Impl : ( ( rule__ColocalityRelation__HardwareLevelAssignment_3 ) ) ;
     public final void rule__ColocalityRelation__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5296:1: ( ( ( rule__ColocalityRelation__HardwareLevelAssignment_3 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5297:1: ( ( rule__ColocalityRelation__HardwareLevelAssignment_3 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5329:1: ( ( ( rule__ColocalityRelation__HardwareLevelAssignment_3 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5330:1: ( ( rule__ColocalityRelation__HardwareLevelAssignment_3 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5297:1: ( ( rule__ColocalityRelation__HardwareLevelAssignment_3 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5298:1: ( rule__ColocalityRelation__HardwareLevelAssignment_3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5330:1: ( ( rule__ColocalityRelation__HardwareLevelAssignment_3 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5331:1: ( rule__ColocalityRelation__HardwareLevelAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getColocalityRelationAccess().getHardwareLevelAssignment_3()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5299:1: ( rule__ColocalityRelation__HardwareLevelAssignment_3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5299:2: rule__ColocalityRelation__HardwareLevelAssignment_3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5332:1: ( rule__ColocalityRelation__HardwareLevelAssignment_3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5332:2: rule__ColocalityRelation__HardwareLevelAssignment_3
             {
-            pushFollow(FOLLOW_rule__ColocalityRelation__HardwareLevelAssignment_3_in_rule__ColocalityRelation__Group__3__Impl10738);
+            pushFollow(FOLLOW_rule__ColocalityRelation__HardwareLevelAssignment_3_in_rule__ColocalityRelation__Group__3__Impl10802);
             rule__ColocalityRelation__HardwareLevelAssignment_3();
 
             state._fsp--;
@@ -14581,16 +14660,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group__4"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5309:1: rule__ColocalityRelation__Group__4 : rule__ColocalityRelation__Group__4__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5342:1: rule__ColocalityRelation__Group__4 : rule__ColocalityRelation__Group__4__Impl ;
     public final void rule__ColocalityRelation__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5313:1: ( rule__ColocalityRelation__Group__4__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5314:2: rule__ColocalityRelation__Group__4__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5346:1: ( rule__ColocalityRelation__Group__4__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5347:2: rule__ColocalityRelation__Group__4__Impl
             {
-            pushFollow(FOLLOW_rule__ColocalityRelation__Group__4__Impl_in_rule__ColocalityRelation__Group__410768);
+            pushFollow(FOLLOW_rule__ColocalityRelation__Group__4__Impl_in_rule__ColocalityRelation__Group__410832);
             rule__ColocalityRelation__Group__4__Impl();
 
             state._fsp--;
@@ -14614,22 +14693,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group__4__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5320:1: rule__ColocalityRelation__Group__4__Impl : ( ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5353:1: rule__ColocalityRelation__Group__4__Impl : ( ';' ) ;
     public final void rule__ColocalityRelation__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5324:1: ( ( ';' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5325:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5357:1: ( ( ';' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5358:1: ( ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5325:1: ( ';' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5326:1: ';'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5358:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5359:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getColocalityRelationAccess().getSemicolonKeyword_4()); 
             }
-            match(input,64,FOLLOW_64_in_rule__ColocalityRelation__Group__4__Impl10796); if (state.failed) return ;
+            match(input,64,FOLLOW_64_in_rule__ColocalityRelation__Group__4__Impl10860); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getColocalityRelationAccess().getSemicolonKeyword_4()); 
             }
@@ -14655,21 +14734,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group_1__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5349:1: rule__ColocalityRelation__Group_1__0 : rule__ColocalityRelation__Group_1__0__Impl rule__ColocalityRelation__Group_1__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5382:1: rule__ColocalityRelation__Group_1__0 : rule__ColocalityRelation__Group_1__0__Impl rule__ColocalityRelation__Group_1__1 ;
     public final void rule__ColocalityRelation__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5353:1: ( rule__ColocalityRelation__Group_1__0__Impl rule__ColocalityRelation__Group_1__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5354:2: rule__ColocalityRelation__Group_1__0__Impl rule__ColocalityRelation__Group_1__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5386:1: ( rule__ColocalityRelation__Group_1__0__Impl rule__ColocalityRelation__Group_1__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5387:2: rule__ColocalityRelation__Group_1__0__Impl rule__ColocalityRelation__Group_1__1
             {
-            pushFollow(FOLLOW_rule__ColocalityRelation__Group_1__0__Impl_in_rule__ColocalityRelation__Group_1__010837);
+            pushFollow(FOLLOW_rule__ColocalityRelation__Group_1__0__Impl_in_rule__ColocalityRelation__Group_1__010901);
             rule__ColocalityRelation__Group_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ColocalityRelation__Group_1__1_in_rule__ColocalityRelation__Group_1__010840);
+            pushFollow(FOLLOW_rule__ColocalityRelation__Group_1__1_in_rule__ColocalityRelation__Group_1__010904);
             rule__ColocalityRelation__Group_1__1();
 
             state._fsp--;
@@ -14693,22 +14772,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group_1__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5361:1: rule__ColocalityRelation__Group_1__0__Impl : ( ',' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5394:1: rule__ColocalityRelation__Group_1__0__Impl : ( ',' ) ;
     public final void rule__ColocalityRelation__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5365:1: ( ( ',' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5366:1: ( ',' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5398:1: ( ( ',' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5399:1: ( ',' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5366:1: ( ',' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5367:1: ','
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5399:1: ( ',' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5400:1: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getColocalityRelationAccess().getCommaKeyword_1_0()); 
             }
-            match(input,76,FOLLOW_76_in_rule__ColocalityRelation__Group_1__0__Impl10868); if (state.failed) return ;
+            match(input,76,FOLLOW_76_in_rule__ColocalityRelation__Group_1__0__Impl10932); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getColocalityRelationAccess().getCommaKeyword_1_0()); 
             }
@@ -14734,16 +14813,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group_1__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5380:1: rule__ColocalityRelation__Group_1__1 : rule__ColocalityRelation__Group_1__1__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5413:1: rule__ColocalityRelation__Group_1__1 : rule__ColocalityRelation__Group_1__1__Impl ;
     public final void rule__ColocalityRelation__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5384:1: ( rule__ColocalityRelation__Group_1__1__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5385:2: rule__ColocalityRelation__Group_1__1__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5417:1: ( rule__ColocalityRelation__Group_1__1__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5418:2: rule__ColocalityRelation__Group_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__ColocalityRelation__Group_1__1__Impl_in_rule__ColocalityRelation__Group_1__110899);
+            pushFollow(FOLLOW_rule__ColocalityRelation__Group_1__1__Impl_in_rule__ColocalityRelation__Group_1__110963);
             rule__ColocalityRelation__Group_1__1__Impl();
 
             state._fsp--;
@@ -14767,25 +14846,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group_1__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5391:1: rule__ColocalityRelation__Group_1__1__Impl : ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5424:1: rule__ColocalityRelation__Group_1__1__Impl : ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 ) ) ;
     public final void rule__ColocalityRelation__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5395:1: ( ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5396:1: ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5428:1: ( ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5429:1: ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5396:1: ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5397:1: ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5429:1: ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5430:1: ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsAssignment_1_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5398:1: ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5398:2: rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5431:1: ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5431:2: rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1_in_rule__ColocalityRelation__Group_1__1__Impl10926);
+            pushFollow(FOLLOW_rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1_in_rule__ColocalityRelation__Group_1__1__Impl10990);
             rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1();
 
             state._fsp--;
@@ -14818,21 +14897,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5412:1: rule__ValidDeployment__Group__0 : rule__ValidDeployment__Group__0__Impl rule__ValidDeployment__Group__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5445:1: rule__ValidDeployment__Group__0 : rule__ValidDeployment__Group__0__Impl rule__ValidDeployment__Group__1 ;
     public final void rule__ValidDeployment__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5416:1: ( rule__ValidDeployment__Group__0__Impl rule__ValidDeployment__Group__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5417:2: rule__ValidDeployment__Group__0__Impl rule__ValidDeployment__Group__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5449:1: ( rule__ValidDeployment__Group__0__Impl rule__ValidDeployment__Group__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5450:2: rule__ValidDeployment__Group__0__Impl rule__ValidDeployment__Group__1
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__0__Impl_in_rule__ValidDeployment__Group__010960);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__0__Impl_in_rule__ValidDeployment__Group__011024);
             rule__ValidDeployment__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__1_in_rule__ValidDeployment__Group__010963);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__1_in_rule__ValidDeployment__Group__011027);
             rule__ValidDeployment__Group__1();
 
             state._fsp--;
@@ -14856,22 +14935,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5424:1: rule__ValidDeployment__Group__0__Impl : ( 'Valid for' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5457:1: rule__ValidDeployment__Group__0__Impl : ( 'Valid for' ) ;
     public final void rule__ValidDeployment__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5428:1: ( ( 'Valid for' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5429:1: ( 'Valid for' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5461:1: ( ( 'Valid for' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5462:1: ( 'Valid for' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5429:1: ( 'Valid for' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5430:1: 'Valid for'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5462:1: ( 'Valid for' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5463:1: 'Valid for'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getValidForKeyword_0()); 
             }
-            match(input,89,FOLLOW_89_in_rule__ValidDeployment__Group__0__Impl10991); if (state.failed) return ;
+            match(input,89,FOLLOW_89_in_rule__ValidDeployment__Group__0__Impl11055); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getValidDeploymentAccess().getValidForKeyword_0()); 
             }
@@ -14897,21 +14976,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5443:1: rule__ValidDeployment__Group__1 : rule__ValidDeployment__Group__1__Impl rule__ValidDeployment__Group__2 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5476:1: rule__ValidDeployment__Group__1 : rule__ValidDeployment__Group__1__Impl rule__ValidDeployment__Group__2 ;
     public final void rule__ValidDeployment__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5447:1: ( rule__ValidDeployment__Group__1__Impl rule__ValidDeployment__Group__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5448:2: rule__ValidDeployment__Group__1__Impl rule__ValidDeployment__Group__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5480:1: ( rule__ValidDeployment__Group__1__Impl rule__ValidDeployment__Group__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5481:2: rule__ValidDeployment__Group__1__Impl rule__ValidDeployment__Group__2
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__1__Impl_in_rule__ValidDeployment__Group__111022);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__1__Impl_in_rule__ValidDeployment__Group__111086);
             rule__ValidDeployment__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__2_in_rule__ValidDeployment__Group__111025);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__2_in_rule__ValidDeployment__Group__111089);
             rule__ValidDeployment__Group__2();
 
             state._fsp--;
@@ -14935,25 +15014,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5455:1: rule__ValidDeployment__Group__1__Impl : ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5488:1: rule__ValidDeployment__Group__1__Impl : ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1 ) ) ;
     public final void rule__ValidDeployment__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5459:1: ( ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5460:1: ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5492:1: ( ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5493:1: ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5460:1: ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5461:1: ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5493:1: ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5494:1: ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getEqInterfaceOrGroupsAssignment_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5462:1: ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5462:2: rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5495:1: ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5495:2: rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1_in_rule__ValidDeployment__Group__1__Impl11052);
+            pushFollow(FOLLOW_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1_in_rule__ValidDeployment__Group__1__Impl11116);
             rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1();
 
             state._fsp--;
@@ -14986,21 +15065,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5472:1: rule__ValidDeployment__Group__2 : rule__ValidDeployment__Group__2__Impl rule__ValidDeployment__Group__3 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5505:1: rule__ValidDeployment__Group__2 : rule__ValidDeployment__Group__2__Impl rule__ValidDeployment__Group__3 ;
     public final void rule__ValidDeployment__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5476:1: ( rule__ValidDeployment__Group__2__Impl rule__ValidDeployment__Group__3 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5477:2: rule__ValidDeployment__Group__2__Impl rule__ValidDeployment__Group__3
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5509:1: ( rule__ValidDeployment__Group__2__Impl rule__ValidDeployment__Group__3 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5510:2: rule__ValidDeployment__Group__2__Impl rule__ValidDeployment__Group__3
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__2__Impl_in_rule__ValidDeployment__Group__211082);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__2__Impl_in_rule__ValidDeployment__Group__211146);
             rule__ValidDeployment__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__3_in_rule__ValidDeployment__Group__211085);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__3_in_rule__ValidDeployment__Group__211149);
             rule__ValidDeployment__Group__3();
 
             state._fsp--;
@@ -15024,22 +15103,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5484:1: rule__ValidDeployment__Group__2__Impl : ( ( rule__ValidDeployment__Group_2__0 )* ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5517:1: rule__ValidDeployment__Group__2__Impl : ( ( rule__ValidDeployment__Group_2__0 )* ) ;
     public final void rule__ValidDeployment__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5488:1: ( ( ( rule__ValidDeployment__Group_2__0 )* ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5489:1: ( ( rule__ValidDeployment__Group_2__0 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5521:1: ( ( ( rule__ValidDeployment__Group_2__0 )* ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5522:1: ( ( rule__ValidDeployment__Group_2__0 )* )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5489:1: ( ( rule__ValidDeployment__Group_2__0 )* )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5490:1: ( rule__ValidDeployment__Group_2__0 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5522:1: ( ( rule__ValidDeployment__Group_2__0 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5523:1: ( rule__ValidDeployment__Group_2__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getGroup_2()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5491:1: ( rule__ValidDeployment__Group_2__0 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5524:1: ( rule__ValidDeployment__Group_2__0 )*
             loop16:
             do {
                 int alt16=2;
@@ -15052,9 +15131,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
                 switch (alt16) {
             	case 1 :
-            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5491:2: rule__ValidDeployment__Group_2__0
+            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5524:2: rule__ValidDeployment__Group_2__0
             	    {
-            	    pushFollow(FOLLOW_rule__ValidDeployment__Group_2__0_in_rule__ValidDeployment__Group__2__Impl11112);
+            	    pushFollow(FOLLOW_rule__ValidDeployment__Group_2__0_in_rule__ValidDeployment__Group__2__Impl11176);
             	    rule__ValidDeployment__Group_2__0();
 
             	    state._fsp--;
@@ -15093,21 +15172,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5501:1: rule__ValidDeployment__Group__3 : rule__ValidDeployment__Group__3__Impl rule__ValidDeployment__Group__4 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5534:1: rule__ValidDeployment__Group__3 : rule__ValidDeployment__Group__3__Impl rule__ValidDeployment__Group__4 ;
     public final void rule__ValidDeployment__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5505:1: ( rule__ValidDeployment__Group__3__Impl rule__ValidDeployment__Group__4 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5506:2: rule__ValidDeployment__Group__3__Impl rule__ValidDeployment__Group__4
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5538:1: ( rule__ValidDeployment__Group__3__Impl rule__ValidDeployment__Group__4 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5539:2: rule__ValidDeployment__Group__3__Impl rule__ValidDeployment__Group__4
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__3__Impl_in_rule__ValidDeployment__Group__311143);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__3__Impl_in_rule__ValidDeployment__Group__311207);
             rule__ValidDeployment__Group__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__4_in_rule__ValidDeployment__Group__311146);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__4_in_rule__ValidDeployment__Group__311210);
             rule__ValidDeployment__Group__4();
 
             state._fsp--;
@@ -15131,22 +15210,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5513:1: rule__ValidDeployment__Group__3__Impl : ( 'is' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5546:1: rule__ValidDeployment__Group__3__Impl : ( 'is' ) ;
     public final void rule__ValidDeployment__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5517:1: ( ( 'is' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5518:1: ( 'is' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5550:1: ( ( 'is' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5551:1: ( 'is' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5518:1: ( 'is' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5519:1: 'is'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5551:1: ( 'is' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5552:1: 'is'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getIsKeyword_3()); 
             }
-            match(input,90,FOLLOW_90_in_rule__ValidDeployment__Group__3__Impl11174); if (state.failed) return ;
+            match(input,90,FOLLOW_90_in_rule__ValidDeployment__Group__3__Impl11238); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getValidDeploymentAccess().getIsKeyword_3()); 
             }
@@ -15172,21 +15251,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__4"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5532:1: rule__ValidDeployment__Group__4 : rule__ValidDeployment__Group__4__Impl rule__ValidDeployment__Group__5 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5565:1: rule__ValidDeployment__Group__4 : rule__ValidDeployment__Group__4__Impl rule__ValidDeployment__Group__5 ;
     public final void rule__ValidDeployment__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5536:1: ( rule__ValidDeployment__Group__4__Impl rule__ValidDeployment__Group__5 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5537:2: rule__ValidDeployment__Group__4__Impl rule__ValidDeployment__Group__5
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5569:1: ( rule__ValidDeployment__Group__4__Impl rule__ValidDeployment__Group__5 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5570:2: rule__ValidDeployment__Group__4__Impl rule__ValidDeployment__Group__5
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__4__Impl_in_rule__ValidDeployment__Group__411205);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__4__Impl_in_rule__ValidDeployment__Group__411269);
             rule__ValidDeployment__Group__4__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__5_in_rule__ValidDeployment__Group__411208);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__5_in_rule__ValidDeployment__Group__411272);
             rule__ValidDeployment__Group__5();
 
             state._fsp--;
@@ -15210,22 +15289,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__4__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5544:1: rule__ValidDeployment__Group__4__Impl : ( '{' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5577:1: rule__ValidDeployment__Group__4__Impl : ( '{' ) ;
     public final void rule__ValidDeployment__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5548:1: ( ( '{' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5549:1: ( '{' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5581:1: ( ( '{' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5582:1: ( '{' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5549:1: ( '{' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5550:1: '{'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5582:1: ( '{' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5583:1: '{'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getLeftCurlyBracketKeyword_4()); 
             }
-            match(input,61,FOLLOW_61_in_rule__ValidDeployment__Group__4__Impl11236); if (state.failed) return ;
+            match(input,61,FOLLOW_61_in_rule__ValidDeployment__Group__4__Impl11300); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getValidDeploymentAccess().getLeftCurlyBracketKeyword_4()); 
             }
@@ -15251,21 +15330,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__5"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5563:1: rule__ValidDeployment__Group__5 : rule__ValidDeployment__Group__5__Impl rule__ValidDeployment__Group__6 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5596:1: rule__ValidDeployment__Group__5 : rule__ValidDeployment__Group__5__Impl rule__ValidDeployment__Group__6 ;
     public final void rule__ValidDeployment__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5567:1: ( rule__ValidDeployment__Group__5__Impl rule__ValidDeployment__Group__6 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5568:2: rule__ValidDeployment__Group__5__Impl rule__ValidDeployment__Group__6
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5600:1: ( rule__ValidDeployment__Group__5__Impl rule__ValidDeployment__Group__6 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5601:2: rule__ValidDeployment__Group__5__Impl rule__ValidDeployment__Group__6
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__5__Impl_in_rule__ValidDeployment__Group__511267);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__5__Impl_in_rule__ValidDeployment__Group__511331);
             rule__ValidDeployment__Group__5__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__6_in_rule__ValidDeployment__Group__511270);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__6_in_rule__ValidDeployment__Group__511334);
             rule__ValidDeployment__Group__6();
 
             state._fsp--;
@@ -15289,25 +15368,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__5__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5575:1: rule__ValidDeployment__Group__5__Impl : ( ( rule__ValidDeployment__HardwareElementsAssignment_5 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5608:1: rule__ValidDeployment__Group__5__Impl : ( ( rule__ValidDeployment__HardwareElementsAssignment_5 ) ) ;
     public final void rule__ValidDeployment__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5579:1: ( ( ( rule__ValidDeployment__HardwareElementsAssignment_5 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5580:1: ( ( rule__ValidDeployment__HardwareElementsAssignment_5 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5612:1: ( ( ( rule__ValidDeployment__HardwareElementsAssignment_5 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5613:1: ( ( rule__ValidDeployment__HardwareElementsAssignment_5 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5580:1: ( ( rule__ValidDeployment__HardwareElementsAssignment_5 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5581:1: ( rule__ValidDeployment__HardwareElementsAssignment_5 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5613:1: ( ( rule__ValidDeployment__HardwareElementsAssignment_5 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5614:1: ( rule__ValidDeployment__HardwareElementsAssignment_5 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getHardwareElementsAssignment_5()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5582:1: ( rule__ValidDeployment__HardwareElementsAssignment_5 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5582:2: rule__ValidDeployment__HardwareElementsAssignment_5
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5615:1: ( rule__ValidDeployment__HardwareElementsAssignment_5 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5615:2: rule__ValidDeployment__HardwareElementsAssignment_5
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__HardwareElementsAssignment_5_in_rule__ValidDeployment__Group__5__Impl11297);
+            pushFollow(FOLLOW_rule__ValidDeployment__HardwareElementsAssignment_5_in_rule__ValidDeployment__Group__5__Impl11361);
             rule__ValidDeployment__HardwareElementsAssignment_5();
 
             state._fsp--;
@@ -15340,21 +15419,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__6"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5592:1: rule__ValidDeployment__Group__6 : rule__ValidDeployment__Group__6__Impl rule__ValidDeployment__Group__7 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5625:1: rule__ValidDeployment__Group__6 : rule__ValidDeployment__Group__6__Impl rule__ValidDeployment__Group__7 ;
     public final void rule__ValidDeployment__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5596:1: ( rule__ValidDeployment__Group__6__Impl rule__ValidDeployment__Group__7 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5597:2: rule__ValidDeployment__Group__6__Impl rule__ValidDeployment__Group__7
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5629:1: ( rule__ValidDeployment__Group__6__Impl rule__ValidDeployment__Group__7 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5630:2: rule__ValidDeployment__Group__6__Impl rule__ValidDeployment__Group__7
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__6__Impl_in_rule__ValidDeployment__Group__611327);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__6__Impl_in_rule__ValidDeployment__Group__611391);
             rule__ValidDeployment__Group__6__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__7_in_rule__ValidDeployment__Group__611330);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__7_in_rule__ValidDeployment__Group__611394);
             rule__ValidDeployment__Group__7();
 
             state._fsp--;
@@ -15378,22 +15457,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__6__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5604:1: rule__ValidDeployment__Group__6__Impl : ( ( rule__ValidDeployment__Group_6__0 )* ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5637:1: rule__ValidDeployment__Group__6__Impl : ( ( rule__ValidDeployment__Group_6__0 )* ) ;
     public final void rule__ValidDeployment__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5608:1: ( ( ( rule__ValidDeployment__Group_6__0 )* ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5609:1: ( ( rule__ValidDeployment__Group_6__0 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5641:1: ( ( ( rule__ValidDeployment__Group_6__0 )* ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5642:1: ( ( rule__ValidDeployment__Group_6__0 )* )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5609:1: ( ( rule__ValidDeployment__Group_6__0 )* )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5610:1: ( rule__ValidDeployment__Group_6__0 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5642:1: ( ( rule__ValidDeployment__Group_6__0 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5643:1: ( rule__ValidDeployment__Group_6__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getGroup_6()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5611:1: ( rule__ValidDeployment__Group_6__0 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5644:1: ( rule__ValidDeployment__Group_6__0 )*
             loop17:
             do {
                 int alt17=2;
@@ -15406,9 +15485,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
                 switch (alt17) {
             	case 1 :
-            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5611:2: rule__ValidDeployment__Group_6__0
+            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5644:2: rule__ValidDeployment__Group_6__0
             	    {
-            	    pushFollow(FOLLOW_rule__ValidDeployment__Group_6__0_in_rule__ValidDeployment__Group__6__Impl11357);
+            	    pushFollow(FOLLOW_rule__ValidDeployment__Group_6__0_in_rule__ValidDeployment__Group__6__Impl11421);
             	    rule__ValidDeployment__Group_6__0();
 
             	    state._fsp--;
@@ -15447,21 +15526,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__7"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5621:1: rule__ValidDeployment__Group__7 : rule__ValidDeployment__Group__7__Impl rule__ValidDeployment__Group__8 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5654:1: rule__ValidDeployment__Group__7 : rule__ValidDeployment__Group__7__Impl rule__ValidDeployment__Group__8 ;
     public final void rule__ValidDeployment__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5625:1: ( rule__ValidDeployment__Group__7__Impl rule__ValidDeployment__Group__8 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5626:2: rule__ValidDeployment__Group__7__Impl rule__ValidDeployment__Group__8
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5658:1: ( rule__ValidDeployment__Group__7__Impl rule__ValidDeployment__Group__8 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5659:2: rule__ValidDeployment__Group__7__Impl rule__ValidDeployment__Group__8
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__7__Impl_in_rule__ValidDeployment__Group__711388);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__7__Impl_in_rule__ValidDeployment__Group__711452);
             rule__ValidDeployment__Group__7__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__8_in_rule__ValidDeployment__Group__711391);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__8_in_rule__ValidDeployment__Group__711455);
             rule__ValidDeployment__Group__8();
 
             state._fsp--;
@@ -15485,22 +15564,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__7__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5633:1: rule__ValidDeployment__Group__7__Impl : ( '}' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5666:1: rule__ValidDeployment__Group__7__Impl : ( '}' ) ;
     public final void rule__ValidDeployment__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5637:1: ( ( '}' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5638:1: ( '}' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5670:1: ( ( '}' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5671:1: ( '}' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5638:1: ( '}' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5639:1: '}'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5671:1: ( '}' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5672:1: '}'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getRightCurlyBracketKeyword_7()); 
             }
-            match(input,65,FOLLOW_65_in_rule__ValidDeployment__Group__7__Impl11419); if (state.failed) return ;
+            match(input,65,FOLLOW_65_in_rule__ValidDeployment__Group__7__Impl11483); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getValidDeploymentAccess().getRightCurlyBracketKeyword_7()); 
             }
@@ -15526,16 +15605,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__8"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5652:1: rule__ValidDeployment__Group__8 : rule__ValidDeployment__Group__8__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5685:1: rule__ValidDeployment__Group__8 : rule__ValidDeployment__Group__8__Impl ;
     public final void rule__ValidDeployment__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5656:1: ( rule__ValidDeployment__Group__8__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5657:2: rule__ValidDeployment__Group__8__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5689:1: ( rule__ValidDeployment__Group__8__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5690:2: rule__ValidDeployment__Group__8__Impl
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group__8__Impl_in_rule__ValidDeployment__Group__811450);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group__8__Impl_in_rule__ValidDeployment__Group__811514);
             rule__ValidDeployment__Group__8__Impl();
 
             state._fsp--;
@@ -15559,22 +15638,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__8__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5663:1: rule__ValidDeployment__Group__8__Impl : ( ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5696:1: rule__ValidDeployment__Group__8__Impl : ( ';' ) ;
     public final void rule__ValidDeployment__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5667:1: ( ( ';' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5668:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5700:1: ( ( ';' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5701:1: ( ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5668:1: ( ';' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5669:1: ';'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5701:1: ( ';' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5702:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getSemicolonKeyword_8()); 
             }
-            match(input,64,FOLLOW_64_in_rule__ValidDeployment__Group__8__Impl11478); if (state.failed) return ;
+            match(input,64,FOLLOW_64_in_rule__ValidDeployment__Group__8__Impl11542); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getValidDeploymentAccess().getSemicolonKeyword_8()); 
             }
@@ -15600,21 +15679,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group_2__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5700:1: rule__ValidDeployment__Group_2__0 : rule__ValidDeployment__Group_2__0__Impl rule__ValidDeployment__Group_2__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5733:1: rule__ValidDeployment__Group_2__0 : rule__ValidDeployment__Group_2__0__Impl rule__ValidDeployment__Group_2__1 ;
     public final void rule__ValidDeployment__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5704:1: ( rule__ValidDeployment__Group_2__0__Impl rule__ValidDeployment__Group_2__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5705:2: rule__ValidDeployment__Group_2__0__Impl rule__ValidDeployment__Group_2__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5737:1: ( rule__ValidDeployment__Group_2__0__Impl rule__ValidDeployment__Group_2__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5738:2: rule__ValidDeployment__Group_2__0__Impl rule__ValidDeployment__Group_2__1
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group_2__0__Impl_in_rule__ValidDeployment__Group_2__011527);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group_2__0__Impl_in_rule__ValidDeployment__Group_2__011591);
             rule__ValidDeployment__Group_2__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ValidDeployment__Group_2__1_in_rule__ValidDeployment__Group_2__011530);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group_2__1_in_rule__ValidDeployment__Group_2__011594);
             rule__ValidDeployment__Group_2__1();
 
             state._fsp--;
@@ -15638,22 +15717,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group_2__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5712:1: rule__ValidDeployment__Group_2__0__Impl : ( ',' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5745:1: rule__ValidDeployment__Group_2__0__Impl : ( ',' ) ;
     public final void rule__ValidDeployment__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5716:1: ( ( ',' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5717:1: ( ',' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5749:1: ( ( ',' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5750:1: ( ',' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5717:1: ( ',' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5718:1: ','
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5750:1: ( ',' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5751:1: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getCommaKeyword_2_0()); 
             }
-            match(input,76,FOLLOW_76_in_rule__ValidDeployment__Group_2__0__Impl11558); if (state.failed) return ;
+            match(input,76,FOLLOW_76_in_rule__ValidDeployment__Group_2__0__Impl11622); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getValidDeploymentAccess().getCommaKeyword_2_0()); 
             }
@@ -15679,16 +15758,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group_2__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5731:1: rule__ValidDeployment__Group_2__1 : rule__ValidDeployment__Group_2__1__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5764:1: rule__ValidDeployment__Group_2__1 : rule__ValidDeployment__Group_2__1__Impl ;
     public final void rule__ValidDeployment__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5735:1: ( rule__ValidDeployment__Group_2__1__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5736:2: rule__ValidDeployment__Group_2__1__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5768:1: ( rule__ValidDeployment__Group_2__1__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5769:2: rule__ValidDeployment__Group_2__1__Impl
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group_2__1__Impl_in_rule__ValidDeployment__Group_2__111589);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group_2__1__Impl_in_rule__ValidDeployment__Group_2__111653);
             rule__ValidDeployment__Group_2__1__Impl();
 
             state._fsp--;
@@ -15712,25 +15791,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group_2__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5742:1: rule__ValidDeployment__Group_2__1__Impl : ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5775:1: rule__ValidDeployment__Group_2__1__Impl : ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1 ) ) ;
     public final void rule__ValidDeployment__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5746:1: ( ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5747:1: ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5779:1: ( ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5780:1: ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5747:1: ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5748:1: ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5780:1: ( ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5781:1: ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getEqInterfaceOrGroupsAssignment_2_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5749:1: ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5749:2: rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5782:1: ( rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5782:2: rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1_in_rule__ValidDeployment__Group_2__1__Impl11616);
+            pushFollow(FOLLOW_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1_in_rule__ValidDeployment__Group_2__1__Impl11680);
             rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1();
 
             state._fsp--;
@@ -15763,21 +15842,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group_6__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5763:1: rule__ValidDeployment__Group_6__0 : rule__ValidDeployment__Group_6__0__Impl rule__ValidDeployment__Group_6__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5796:1: rule__ValidDeployment__Group_6__0 : rule__ValidDeployment__Group_6__0__Impl rule__ValidDeployment__Group_6__1 ;
     public final void rule__ValidDeployment__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5767:1: ( rule__ValidDeployment__Group_6__0__Impl rule__ValidDeployment__Group_6__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5768:2: rule__ValidDeployment__Group_6__0__Impl rule__ValidDeployment__Group_6__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5800:1: ( rule__ValidDeployment__Group_6__0__Impl rule__ValidDeployment__Group_6__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5801:2: rule__ValidDeployment__Group_6__0__Impl rule__ValidDeployment__Group_6__1
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group_6__0__Impl_in_rule__ValidDeployment__Group_6__011650);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group_6__0__Impl_in_rule__ValidDeployment__Group_6__011714);
             rule__ValidDeployment__Group_6__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ValidDeployment__Group_6__1_in_rule__ValidDeployment__Group_6__011653);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group_6__1_in_rule__ValidDeployment__Group_6__011717);
             rule__ValidDeployment__Group_6__1();
 
             state._fsp--;
@@ -15801,22 +15880,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group_6__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5775:1: rule__ValidDeployment__Group_6__0__Impl : ( ',' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5808:1: rule__ValidDeployment__Group_6__0__Impl : ( ',' ) ;
     public final void rule__ValidDeployment__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5779:1: ( ( ',' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5780:1: ( ',' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5812:1: ( ( ',' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5813:1: ( ',' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5780:1: ( ',' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5781:1: ','
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5813:1: ( ',' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5814:1: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getCommaKeyword_6_0()); 
             }
-            match(input,76,FOLLOW_76_in_rule__ValidDeployment__Group_6__0__Impl11681); if (state.failed) return ;
+            match(input,76,FOLLOW_76_in_rule__ValidDeployment__Group_6__0__Impl11745); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getValidDeploymentAccess().getCommaKeyword_6_0()); 
             }
@@ -15842,16 +15921,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group_6__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5794:1: rule__ValidDeployment__Group_6__1 : rule__ValidDeployment__Group_6__1__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5827:1: rule__ValidDeployment__Group_6__1 : rule__ValidDeployment__Group_6__1__Impl ;
     public final void rule__ValidDeployment__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5798:1: ( rule__ValidDeployment__Group_6__1__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5799:2: rule__ValidDeployment__Group_6__1__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5831:1: ( rule__ValidDeployment__Group_6__1__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5832:2: rule__ValidDeployment__Group_6__1__Impl
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group_6__1__Impl_in_rule__ValidDeployment__Group_6__111712);
+            pushFollow(FOLLOW_rule__ValidDeployment__Group_6__1__Impl_in_rule__ValidDeployment__Group_6__111776);
             rule__ValidDeployment__Group_6__1__Impl();
 
             state._fsp--;
@@ -15875,25 +15954,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group_6__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5805:1: rule__ValidDeployment__Group_6__1__Impl : ( ( rule__ValidDeployment__HardwareElementsAssignment_6_1 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5838:1: rule__ValidDeployment__Group_6__1__Impl : ( ( rule__ValidDeployment__HardwareElementsAssignment_6_1 ) ) ;
     public final void rule__ValidDeployment__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5809:1: ( ( ( rule__ValidDeployment__HardwareElementsAssignment_6_1 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5810:1: ( ( rule__ValidDeployment__HardwareElementsAssignment_6_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5842:1: ( ( ( rule__ValidDeployment__HardwareElementsAssignment_6_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5843:1: ( ( rule__ValidDeployment__HardwareElementsAssignment_6_1 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5810:1: ( ( rule__ValidDeployment__HardwareElementsAssignment_6_1 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5811:1: ( rule__ValidDeployment__HardwareElementsAssignment_6_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5843:1: ( ( rule__ValidDeployment__HardwareElementsAssignment_6_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5844:1: ( rule__ValidDeployment__HardwareElementsAssignment_6_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getHardwareElementsAssignment_6_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5812:1: ( rule__ValidDeployment__HardwareElementsAssignment_6_1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5812:2: rule__ValidDeployment__HardwareElementsAssignment_6_1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5845:1: ( rule__ValidDeployment__HardwareElementsAssignment_6_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5845:2: rule__ValidDeployment__HardwareElementsAssignment_6_1
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__HardwareElementsAssignment_6_1_in_rule__ValidDeployment__Group_6__1__Impl11739);
+            pushFollow(FOLLOW_rule__ValidDeployment__HardwareElementsAssignment_6_1_in_rule__ValidDeployment__Group_6__1__Impl11803);
             rule__ValidDeployment__HardwareElementsAssignment_6_1();
 
             state._fsp--;
@@ -15926,21 +16005,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5827:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5860:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
     public final void rule__QualifiedName__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5831:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5832:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5864:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5865:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
             {
-            pushFollow(FOLLOW_rule__QualifiedName__Group__0__Impl_in_rule__QualifiedName__Group__011774);
+            pushFollow(FOLLOW_rule__QualifiedName__Group__0__Impl_in_rule__QualifiedName__Group__011838);
             rule__QualifiedName__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__QualifiedName__Group__1_in_rule__QualifiedName__Group__011777);
+            pushFollow(FOLLOW_rule__QualifiedName__Group__1_in_rule__QualifiedName__Group__011841);
             rule__QualifiedName__Group__1();
 
             state._fsp--;
@@ -15964,22 +16043,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5839:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5872:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
     public final void rule__QualifiedName__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5843:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5844:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5876:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5877:1: ( RULE_ID )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5844:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5845:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5877:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5878:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__QualifiedName__Group__0__Impl11804); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__QualifiedName__Group__0__Impl11868); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
             }
@@ -16005,16 +16084,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5856:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5889:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
     public final void rule__QualifiedName__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5860:1: ( rule__QualifiedName__Group__1__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5861:2: rule__QualifiedName__Group__1__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5893:1: ( rule__QualifiedName__Group__1__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5894:2: rule__QualifiedName__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__QualifiedName__Group__1__Impl_in_rule__QualifiedName__Group__111833);
+            pushFollow(FOLLOW_rule__QualifiedName__Group__1__Impl_in_rule__QualifiedName__Group__111897);
             rule__QualifiedName__Group__1__Impl();
 
             state._fsp--;
@@ -16038,22 +16117,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5867:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5900:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
     public final void rule__QualifiedName__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5871:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5872:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5904:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5905:1: ( ( rule__QualifiedName__Group_1__0 )* )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5872:1: ( ( rule__QualifiedName__Group_1__0 )* )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5873:1: ( rule__QualifiedName__Group_1__0 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5905:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5906:1: ( rule__QualifiedName__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5874:1: ( rule__QualifiedName__Group_1__0 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5907:1: ( rule__QualifiedName__Group_1__0 )*
             loop18:
             do {
                 int alt18=2;
@@ -16066,9 +16145,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
                 switch (alt18) {
             	case 1 :
-            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5874:2: rule__QualifiedName__Group_1__0
+            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5907:2: rule__QualifiedName__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__QualifiedName__Group_1__0_in_rule__QualifiedName__Group__1__Impl11860);
+            	    pushFollow(FOLLOW_rule__QualifiedName__Group_1__0_in_rule__QualifiedName__Group__1__Impl11924);
             	    rule__QualifiedName__Group_1__0();
 
             	    state._fsp--;
@@ -16107,21 +16186,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5888:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5921:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
     public final void rule__QualifiedName__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5892:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5893:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5925:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5926:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
             {
-            pushFollow(FOLLOW_rule__QualifiedName__Group_1__0__Impl_in_rule__QualifiedName__Group_1__011895);
+            pushFollow(FOLLOW_rule__QualifiedName__Group_1__0__Impl_in_rule__QualifiedName__Group_1__011959);
             rule__QualifiedName__Group_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__QualifiedName__Group_1__1_in_rule__QualifiedName__Group_1__011898);
+            pushFollow(FOLLOW_rule__QualifiedName__Group_1__1_in_rule__QualifiedName__Group_1__011962);
             rule__QualifiedName__Group_1__1();
 
             state._fsp--;
@@ -16145,22 +16224,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5900:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5933:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
     public final void rule__QualifiedName__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5904:1: ( ( '.' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5905:1: ( '.' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5937:1: ( ( '.' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5938:1: ( '.' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5905:1: ( '.' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5906:1: '.'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5938:1: ( '.' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5939:1: '.'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
             }
-            match(input,91,FOLLOW_91_in_rule__QualifiedName__Group_1__0__Impl11926); if (state.failed) return ;
+            match(input,91,FOLLOW_91_in_rule__QualifiedName__Group_1__0__Impl11990); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
             }
@@ -16186,16 +16265,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5919:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5952:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
     public final void rule__QualifiedName__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5923:1: ( rule__QualifiedName__Group_1__1__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5924:2: rule__QualifiedName__Group_1__1__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5956:1: ( rule__QualifiedName__Group_1__1__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5957:2: rule__QualifiedName__Group_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__QualifiedName__Group_1__1__Impl_in_rule__QualifiedName__Group_1__111957);
+            pushFollow(FOLLOW_rule__QualifiedName__Group_1__1__Impl_in_rule__QualifiedName__Group_1__112021);
             rule__QualifiedName__Group_1__1__Impl();
 
             state._fsp--;
@@ -16219,22 +16298,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5930:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5963:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
     public final void rule__QualifiedName__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5934:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5935:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5967:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5968:1: ( RULE_ID )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5935:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5936:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5968:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5969:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__QualifiedName__Group_1__1__Impl11984); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__QualifiedName__Group_1__1__Impl12048); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
             }
@@ -16260,17 +16339,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Compartment__UnorderedGroup_3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5952:1: rule__Compartment__UnorderedGroup_3 : rule__Compartment__UnorderedGroup_3__0 {...}?;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5985:1: rule__Compartment__UnorderedGroup_3 : rule__Compartment__UnorderedGroup_3__0 {...}?;
     public final void rule__Compartment__UnorderedGroup_3() throws RecognitionException {
 
             	int stackSize = keepStackSize();
         		getUnorderedGroupHelper().enter(grammarAccess.getCompartmentAccess().getUnorderedGroup_3());
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5957:1: ( rule__Compartment__UnorderedGroup_3__0 {...}?)
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5958:2: rule__Compartment__UnorderedGroup_3__0 {...}?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5990:1: ( rule__Compartment__UnorderedGroup_3__0 {...}?)
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5991:2: rule__Compartment__UnorderedGroup_3__0 {...}?
             {
-            pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__0_in_rule__Compartment__UnorderedGroup_312018);
+            pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__0_in_rule__Compartment__UnorderedGroup_312082);
             rule__Compartment__UnorderedGroup_3__0();
 
             state._fsp--;
@@ -16299,17 +16378,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Compartment__UnorderedGroup_3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5969:1: rule__Compartment__UnorderedGroup_3__Impl : ( ({...}? => ( ( ( rule__Compartment__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) ) ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6002:1: rule__Compartment__UnorderedGroup_3__Impl : ( ({...}? => ( ( ( rule__Compartment__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) ) ) ) ;
     public final void rule__Compartment__UnorderedGroup_3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         		boolean selected = false;
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5974:1: ( ( ({...}? => ( ( ( rule__Compartment__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) ) ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5975:3: ( ({...}? => ( ( ( rule__Compartment__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6007:1: ( ( ({...}? => ( ( ( rule__Compartment__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) ) ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6008:3: ( ({...}? => ( ( ( rule__Compartment__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) ) ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5975:3: ( ({...}? => ( ( ( rule__Compartment__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6008:3: ( ({...}? => ( ( ( rule__Compartment__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__Compartment__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) ) ) )
             int alt20=5;
             int LA20_0 = input.LA(1);
 
@@ -16337,30 +16416,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
             switch (alt20) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5977:4: ({...}? => ( ( ( rule__Compartment__Group_3_0__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6010:4: ({...}? => ( ( ( rule__Compartment__Group_3_0__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5977:4: ({...}? => ( ( ( rule__Compartment__Group_3_0__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5978:5: {...}? => ( ( ( rule__Compartment__Group_3_0__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6010:4: ({...}? => ( ( ( rule__Compartment__Group_3_0__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6011:5: {...}? => ( ( ( rule__Compartment__Group_3_0__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 0) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__Compartment__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 0)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5978:108: ( ( ( rule__Compartment__Group_3_0__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5979:6: ( ( rule__Compartment__Group_3_0__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6011:108: ( ( ( rule__Compartment__Group_3_0__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6012:6: ( ( rule__Compartment__Group_3_0__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 0);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5985:6: ( ( rule__Compartment__Group_3_0__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5987:7: ( rule__Compartment__Group_3_0__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6018:6: ( ( rule__Compartment__Group_3_0__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6020:7: ( rule__Compartment__Group_3_0__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getCompartmentAccess().getGroup_3_0()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5988:7: ( rule__Compartment__Group_3_0__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5988:8: rule__Compartment__Group_3_0__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6021:7: ( rule__Compartment__Group_3_0__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6021:8: rule__Compartment__Group_3_0__0
                     {
-                    pushFollow(FOLLOW_rule__Compartment__Group_3_0__0_in_rule__Compartment__UnorderedGroup_3__Impl12107);
+                    pushFollow(FOLLOW_rule__Compartment__Group_3_0__0_in_rule__Compartment__UnorderedGroup_3__Impl12171);
                     rule__Compartment__Group_3_0__0();
 
                     state._fsp--;
@@ -16384,30 +16463,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5994:4: ({...}? => ( ( ( rule__Compartment__Group_3_1__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6027:4: ({...}? => ( ( ( rule__Compartment__Group_3_1__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5994:4: ({...}? => ( ( ( rule__Compartment__Group_3_1__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5995:5: {...}? => ( ( ( rule__Compartment__Group_3_1__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6027:4: ({...}? => ( ( ( rule__Compartment__Group_3_1__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6028:5: {...}? => ( ( ( rule__Compartment__Group_3_1__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 1) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__Compartment__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 1)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5995:108: ( ( ( rule__Compartment__Group_3_1__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5996:6: ( ( rule__Compartment__Group_3_1__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6028:108: ( ( ( rule__Compartment__Group_3_1__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6029:6: ( ( rule__Compartment__Group_3_1__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 1);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6002:6: ( ( rule__Compartment__Group_3_1__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6004:7: ( rule__Compartment__Group_3_1__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6035:6: ( ( rule__Compartment__Group_3_1__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6037:7: ( rule__Compartment__Group_3_1__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getCompartmentAccess().getGroup_3_1()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6005:7: ( rule__Compartment__Group_3_1__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6005:8: rule__Compartment__Group_3_1__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6038:7: ( rule__Compartment__Group_3_1__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6038:8: rule__Compartment__Group_3_1__0
                     {
-                    pushFollow(FOLLOW_rule__Compartment__Group_3_1__0_in_rule__Compartment__UnorderedGroup_3__Impl12198);
+                    pushFollow(FOLLOW_rule__Compartment__Group_3_1__0_in_rule__Compartment__UnorderedGroup_3__Impl12262);
                     rule__Compartment__Group_3_1__0();
 
                     state._fsp--;
@@ -16431,30 +16510,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 3 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6011:4: ({...}? => ( ( ( rule__Compartment__Group_3_2__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6044:4: ({...}? => ( ( ( rule__Compartment__Group_3_2__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6011:4: ({...}? => ( ( ( rule__Compartment__Group_3_2__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6012:5: {...}? => ( ( ( rule__Compartment__Group_3_2__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6044:4: ({...}? => ( ( ( rule__Compartment__Group_3_2__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6045:5: {...}? => ( ( ( rule__Compartment__Group_3_2__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 2) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__Compartment__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 2)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6012:108: ( ( ( rule__Compartment__Group_3_2__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6013:6: ( ( rule__Compartment__Group_3_2__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6045:108: ( ( ( rule__Compartment__Group_3_2__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6046:6: ( ( rule__Compartment__Group_3_2__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 2);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6019:6: ( ( rule__Compartment__Group_3_2__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6021:7: ( rule__Compartment__Group_3_2__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6052:6: ( ( rule__Compartment__Group_3_2__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6054:7: ( rule__Compartment__Group_3_2__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getCompartmentAccess().getGroup_3_2()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6022:7: ( rule__Compartment__Group_3_2__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6022:8: rule__Compartment__Group_3_2__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6055:7: ( rule__Compartment__Group_3_2__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6055:8: rule__Compartment__Group_3_2__0
                     {
-                    pushFollow(FOLLOW_rule__Compartment__Group_3_2__0_in_rule__Compartment__UnorderedGroup_3__Impl12289);
+                    pushFollow(FOLLOW_rule__Compartment__Group_3_2__0_in_rule__Compartment__UnorderedGroup_3__Impl12353);
                     rule__Compartment__Group_3_2__0();
 
                     state._fsp--;
@@ -16478,30 +16557,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 4 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6028:4: ({...}? => ( ( ( rule__Compartment__Group_3_3__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6061:4: ({...}? => ( ( ( rule__Compartment__Group_3_3__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6028:4: ({...}? => ( ( ( rule__Compartment__Group_3_3__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6029:5: {...}? => ( ( ( rule__Compartment__Group_3_3__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6061:4: ({...}? => ( ( ( rule__Compartment__Group_3_3__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6062:5: {...}? => ( ( ( rule__Compartment__Group_3_3__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 3) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__Compartment__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 3)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6029:108: ( ( ( rule__Compartment__Group_3_3__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6030:6: ( ( rule__Compartment__Group_3_3__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6062:108: ( ( ( rule__Compartment__Group_3_3__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6063:6: ( ( rule__Compartment__Group_3_3__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 3);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6036:6: ( ( rule__Compartment__Group_3_3__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6038:7: ( rule__Compartment__Group_3_3__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6069:6: ( ( rule__Compartment__Group_3_3__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6071:7: ( rule__Compartment__Group_3_3__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getCompartmentAccess().getGroup_3_3()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6039:7: ( rule__Compartment__Group_3_3__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6039:8: rule__Compartment__Group_3_3__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6072:7: ( rule__Compartment__Group_3_3__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6072:8: rule__Compartment__Group_3_3__0
                     {
-                    pushFollow(FOLLOW_rule__Compartment__Group_3_3__0_in_rule__Compartment__UnorderedGroup_3__Impl12380);
+                    pushFollow(FOLLOW_rule__Compartment__Group_3_3__0_in_rule__Compartment__UnorderedGroup_3__Impl12444);
                     rule__Compartment__Group_3_3__0();
 
                     state._fsp--;
@@ -16525,33 +16604,33 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 5 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6045:4: ({...}? => ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6078:4: ({...}? => ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6045:4: ({...}? => ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6046:5: {...}? => ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6078:4: ({...}? => ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6079:5: {...}? => ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 4) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__Compartment__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 4)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6046:108: ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6047:6: ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6079:108: ( ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6080:6: ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), 4);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6053:6: ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6054:6: ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6086:6: ( ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6087:6: ( ( rule__Compartment__RdcsAssignment_3_4 ) ) ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6054:6: ( ( rule__Compartment__RdcsAssignment_3_4 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6055:7: ( rule__Compartment__RdcsAssignment_3_4 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6087:6: ( ( rule__Compartment__RdcsAssignment_3_4 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6088:7: ( rule__Compartment__RdcsAssignment_3_4 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getCompartmentAccess().getRdcsAssignment_3_4()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6056:7: ( rule__Compartment__RdcsAssignment_3_4 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6056:8: rule__Compartment__RdcsAssignment_3_4
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6089:7: ( rule__Compartment__RdcsAssignment_3_4 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6089:8: rule__Compartment__RdcsAssignment_3_4
                     {
-                    pushFollow(FOLLOW_rule__Compartment__RdcsAssignment_3_4_in_rule__Compartment__UnorderedGroup_3__Impl12472);
+                    pushFollow(FOLLOW_rule__Compartment__RdcsAssignment_3_4_in_rule__Compartment__UnorderedGroup_3__Impl12536);
                     rule__Compartment__RdcsAssignment_3_4();
 
                     state._fsp--;
@@ -16565,13 +16644,13 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
                     }
 
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6059:6: ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6060:7: ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )*
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6092:6: ( ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )* )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6093:7: ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )*
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getCompartmentAccess().getRdcsAssignment_3_4()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6061:7: ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )*
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6094:7: ( ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4 )*
                     loop19:
                     do {
                         int alt19=2;
@@ -16590,9 +16669,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
                         switch (alt19) {
                     	case 1 :
-                    	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6061:8: ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4
+                    	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6094:8: ( rule__Compartment__RdcsAssignment_3_4 )=> rule__Compartment__RdcsAssignment_3_4
                     	    {
-                    	    pushFollow(FOLLOW_rule__Compartment__RdcsAssignment_3_4_in_rule__Compartment__UnorderedGroup_3__Impl12516);
+                    	    pushFollow(FOLLOW_rule__Compartment__RdcsAssignment_3_4_in_rule__Compartment__UnorderedGroup_3__Impl12580);
                     	    rule__Compartment__RdcsAssignment_3_4();
 
                     	    state._fsp--;
@@ -16648,21 +16727,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Compartment__UnorderedGroup_3__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6076:1: rule__Compartment__UnorderedGroup_3__0 : rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__1 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6109:1: rule__Compartment__UnorderedGroup_3__0 : rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__1 )? ;
     public final void rule__Compartment__UnorderedGroup_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6080:1: ( rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__1 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6081:2: rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__1 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6113:1: ( rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__1 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6114:2: rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__1 )?
             {
-            pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__012582);
+            pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__012646);
             rule__Compartment__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6082:2: ( rule__Compartment__UnorderedGroup_3__1 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6115:2: ( rule__Compartment__UnorderedGroup_3__1 )?
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -16683,9 +16762,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
             switch (alt21) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6082:2: rule__Compartment__UnorderedGroup_3__1
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6115:2: rule__Compartment__UnorderedGroup_3__1
                     {
-                    pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__1_in_rule__Compartment__UnorderedGroup_3__012585);
+                    pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__1_in_rule__Compartment__UnorderedGroup_3__012649);
                     rule__Compartment__UnorderedGroup_3__1();
 
                     state._fsp--;
@@ -16715,21 +16794,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Compartment__UnorderedGroup_3__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6089:1: rule__Compartment__UnorderedGroup_3__1 : rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__2 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6122:1: rule__Compartment__UnorderedGroup_3__1 : rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__2 )? ;
     public final void rule__Compartment__UnorderedGroup_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6093:1: ( rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__2 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6094:2: rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__2 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6126:1: ( rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__2 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6127:2: rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__2 )?
             {
-            pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__112610);
+            pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__112674);
             rule__Compartment__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6095:2: ( rule__Compartment__UnorderedGroup_3__2 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6128:2: ( rule__Compartment__UnorderedGroup_3__2 )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -16750,9 +16829,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
             switch (alt22) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6095:2: rule__Compartment__UnorderedGroup_3__2
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6128:2: rule__Compartment__UnorderedGroup_3__2
                     {
-                    pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__2_in_rule__Compartment__UnorderedGroup_3__112613);
+                    pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__2_in_rule__Compartment__UnorderedGroup_3__112677);
                     rule__Compartment__UnorderedGroup_3__2();
 
                     state._fsp--;
@@ -16782,21 +16861,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Compartment__UnorderedGroup_3__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6102:1: rule__Compartment__UnorderedGroup_3__2 : rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__3 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6135:1: rule__Compartment__UnorderedGroup_3__2 : rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__3 )? ;
     public final void rule__Compartment__UnorderedGroup_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6106:1: ( rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__3 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6107:2: rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__3 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6139:1: ( rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__3 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6140:2: rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__3 )?
             {
-            pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__212638);
+            pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__212702);
             rule__Compartment__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6108:2: ( rule__Compartment__UnorderedGroup_3__3 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6141:2: ( rule__Compartment__UnorderedGroup_3__3 )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -16817,9 +16896,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
             switch (alt23) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6108:2: rule__Compartment__UnorderedGroup_3__3
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6141:2: rule__Compartment__UnorderedGroup_3__3
                     {
-                    pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__3_in_rule__Compartment__UnorderedGroup_3__212641);
+                    pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__3_in_rule__Compartment__UnorderedGroup_3__212705);
                     rule__Compartment__UnorderedGroup_3__3();
 
                     state._fsp--;
@@ -16849,21 +16928,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Compartment__UnorderedGroup_3__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6115:1: rule__Compartment__UnorderedGroup_3__3 : rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__4 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6148:1: rule__Compartment__UnorderedGroup_3__3 : rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__4 )? ;
     public final void rule__Compartment__UnorderedGroup_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6119:1: ( rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__4 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6120:2: rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__4 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6152:1: ( rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__4 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6153:2: rule__Compartment__UnorderedGroup_3__Impl ( rule__Compartment__UnorderedGroup_3__4 )?
             {
-            pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__312666);
+            pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__312730);
             rule__Compartment__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6121:2: ( rule__Compartment__UnorderedGroup_3__4 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6154:2: ( rule__Compartment__UnorderedGroup_3__4 )?
             int alt24=2;
             int LA24_0 = input.LA(1);
 
@@ -16884,9 +16963,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
             switch (alt24) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6121:2: rule__Compartment__UnorderedGroup_3__4
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6154:2: rule__Compartment__UnorderedGroup_3__4
                     {
-                    pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__4_in_rule__Compartment__UnorderedGroup_3__312669);
+                    pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__4_in_rule__Compartment__UnorderedGroup_3__312733);
                     rule__Compartment__UnorderedGroup_3__4();
 
                     state._fsp--;
@@ -16916,16 +16995,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Compartment__UnorderedGroup_3__4"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6128:1: rule__Compartment__UnorderedGroup_3__4 : rule__Compartment__UnorderedGroup_3__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6161:1: rule__Compartment__UnorderedGroup_3__4 : rule__Compartment__UnorderedGroup_3__Impl ;
     public final void rule__Compartment__UnorderedGroup_3__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6132:1: ( rule__Compartment__UnorderedGroup_3__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6133:2: rule__Compartment__UnorderedGroup_3__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6165:1: ( rule__Compartment__UnorderedGroup_3__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6166:2: rule__Compartment__UnorderedGroup_3__Impl
             {
-            pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__412694);
+            pushFollow(FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__412758);
             rule__Compartment__UnorderedGroup_3__Impl();
 
             state._fsp--;
@@ -16949,17 +17028,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RDC__UnorderedGroup_3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6150:1: rule__RDC__UnorderedGroup_3 : rule__RDC__UnorderedGroup_3__0 {...}?;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6183:1: rule__RDC__UnorderedGroup_3 : rule__RDC__UnorderedGroup_3__0 {...}?;
     public final void rule__RDC__UnorderedGroup_3() throws RecognitionException {
 
             	int stackSize = keepStackSize();
         		getUnorderedGroupHelper().enter(grammarAccess.getRDCAccess().getUnorderedGroup_3());
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6155:1: ( rule__RDC__UnorderedGroup_3__0 {...}?)
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6156:2: rule__RDC__UnorderedGroup_3__0 {...}?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6188:1: ( rule__RDC__UnorderedGroup_3__0 {...}?)
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6189:2: rule__RDC__UnorderedGroup_3__0 {...}?
             {
-            pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__0_in_rule__RDC__UnorderedGroup_312728);
+            pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__0_in_rule__RDC__UnorderedGroup_312792);
             rule__RDC__UnorderedGroup_3__0();
 
             state._fsp--;
@@ -16988,17 +17067,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RDC__UnorderedGroup_3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6167:1: rule__RDC__UnorderedGroup_3__Impl : ( ({...}? => ( ( ( rule__RDC__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) ) ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6200:1: rule__RDC__UnorderedGroup_3__Impl : ( ({...}? => ( ( ( rule__RDC__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) ) ) ) ;
     public final void rule__RDC__UnorderedGroup_3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         		boolean selected = false;
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6172:1: ( ( ({...}? => ( ( ( rule__RDC__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) ) ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6173:3: ( ({...}? => ( ( ( rule__RDC__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6205:1: ( ( ({...}? => ( ( ( rule__RDC__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) ) ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6206:3: ( ({...}? => ( ( ( rule__RDC__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) ) ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6173:3: ( ({...}? => ( ( ( rule__RDC__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6206:3: ( ({...}? => ( ( ( rule__RDC__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__RDC__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) ) ) )
             int alt26=5;
             int LA26_0 = input.LA(1);
 
@@ -17026,30 +17105,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
             switch (alt26) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6175:4: ({...}? => ( ( ( rule__RDC__Group_3_0__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6208:4: ({...}? => ( ( ( rule__RDC__Group_3_0__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6175:4: ({...}? => ( ( ( rule__RDC__Group_3_0__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6176:5: {...}? => ( ( ( rule__RDC__Group_3_0__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6208:4: ({...}? => ( ( ( rule__RDC__Group_3_0__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6209:5: {...}? => ( ( ( rule__RDC__Group_3_0__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 0) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__RDC__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 0)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6176:100: ( ( ( rule__RDC__Group_3_0__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6177:6: ( ( rule__RDC__Group_3_0__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6209:100: ( ( ( rule__RDC__Group_3_0__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6210:6: ( ( rule__RDC__Group_3_0__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 0);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6183:6: ( ( rule__RDC__Group_3_0__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6185:7: ( rule__RDC__Group_3_0__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6216:6: ( ( rule__RDC__Group_3_0__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6218:7: ( rule__RDC__Group_3_0__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getRDCAccess().getGroup_3_0()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6186:7: ( rule__RDC__Group_3_0__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6186:8: rule__RDC__Group_3_0__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6219:7: ( rule__RDC__Group_3_0__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6219:8: rule__RDC__Group_3_0__0
                     {
-                    pushFollow(FOLLOW_rule__RDC__Group_3_0__0_in_rule__RDC__UnorderedGroup_3__Impl12817);
+                    pushFollow(FOLLOW_rule__RDC__Group_3_0__0_in_rule__RDC__UnorderedGroup_3__Impl12881);
                     rule__RDC__Group_3_0__0();
 
                     state._fsp--;
@@ -17073,30 +17152,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6192:4: ({...}? => ( ( ( rule__RDC__Group_3_1__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6225:4: ({...}? => ( ( ( rule__RDC__Group_3_1__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6192:4: ({...}? => ( ( ( rule__RDC__Group_3_1__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6193:5: {...}? => ( ( ( rule__RDC__Group_3_1__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6225:4: ({...}? => ( ( ( rule__RDC__Group_3_1__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6226:5: {...}? => ( ( ( rule__RDC__Group_3_1__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 1) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__RDC__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 1)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6193:100: ( ( ( rule__RDC__Group_3_1__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6194:6: ( ( rule__RDC__Group_3_1__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6226:100: ( ( ( rule__RDC__Group_3_1__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6227:6: ( ( rule__RDC__Group_3_1__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 1);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6200:6: ( ( rule__RDC__Group_3_1__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6202:7: ( rule__RDC__Group_3_1__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6233:6: ( ( rule__RDC__Group_3_1__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6235:7: ( rule__RDC__Group_3_1__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getRDCAccess().getGroup_3_1()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6203:7: ( rule__RDC__Group_3_1__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6203:8: rule__RDC__Group_3_1__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6236:7: ( rule__RDC__Group_3_1__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6236:8: rule__RDC__Group_3_1__0
                     {
-                    pushFollow(FOLLOW_rule__RDC__Group_3_1__0_in_rule__RDC__UnorderedGroup_3__Impl12908);
+                    pushFollow(FOLLOW_rule__RDC__Group_3_1__0_in_rule__RDC__UnorderedGroup_3__Impl12972);
                     rule__RDC__Group_3_1__0();
 
                     state._fsp--;
@@ -17120,30 +17199,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 3 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6209:4: ({...}? => ( ( ( rule__RDC__Group_3_2__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6242:4: ({...}? => ( ( ( rule__RDC__Group_3_2__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6209:4: ({...}? => ( ( ( rule__RDC__Group_3_2__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6210:5: {...}? => ( ( ( rule__RDC__Group_3_2__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6242:4: ({...}? => ( ( ( rule__RDC__Group_3_2__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6243:5: {...}? => ( ( ( rule__RDC__Group_3_2__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 2) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__RDC__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 2)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6210:100: ( ( ( rule__RDC__Group_3_2__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6211:6: ( ( rule__RDC__Group_3_2__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6243:100: ( ( ( rule__RDC__Group_3_2__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6244:6: ( ( rule__RDC__Group_3_2__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 2);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6217:6: ( ( rule__RDC__Group_3_2__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6219:7: ( rule__RDC__Group_3_2__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6250:6: ( ( rule__RDC__Group_3_2__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6252:7: ( rule__RDC__Group_3_2__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getRDCAccess().getGroup_3_2()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6220:7: ( rule__RDC__Group_3_2__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6220:8: rule__RDC__Group_3_2__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6253:7: ( rule__RDC__Group_3_2__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6253:8: rule__RDC__Group_3_2__0
                     {
-                    pushFollow(FOLLOW_rule__RDC__Group_3_2__0_in_rule__RDC__UnorderedGroup_3__Impl12999);
+                    pushFollow(FOLLOW_rule__RDC__Group_3_2__0_in_rule__RDC__UnorderedGroup_3__Impl13063);
                     rule__RDC__Group_3_2__0();
 
                     state._fsp--;
@@ -17167,30 +17246,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 4 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6226:4: ({...}? => ( ( ( rule__RDC__Group_3_3__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6259:4: ({...}? => ( ( ( rule__RDC__Group_3_3__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6226:4: ({...}? => ( ( ( rule__RDC__Group_3_3__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6227:5: {...}? => ( ( ( rule__RDC__Group_3_3__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6259:4: ({...}? => ( ( ( rule__RDC__Group_3_3__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6260:5: {...}? => ( ( ( rule__RDC__Group_3_3__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 3) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__RDC__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 3)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6227:100: ( ( ( rule__RDC__Group_3_3__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6228:6: ( ( rule__RDC__Group_3_3__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6260:100: ( ( ( rule__RDC__Group_3_3__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6261:6: ( ( rule__RDC__Group_3_3__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 3);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6234:6: ( ( rule__RDC__Group_3_3__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6236:7: ( rule__RDC__Group_3_3__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6267:6: ( ( rule__RDC__Group_3_3__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6269:7: ( rule__RDC__Group_3_3__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getRDCAccess().getGroup_3_3()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6237:7: ( rule__RDC__Group_3_3__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6237:8: rule__RDC__Group_3_3__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6270:7: ( rule__RDC__Group_3_3__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6270:8: rule__RDC__Group_3_3__0
                     {
-                    pushFollow(FOLLOW_rule__RDC__Group_3_3__0_in_rule__RDC__UnorderedGroup_3__Impl13090);
+                    pushFollow(FOLLOW_rule__RDC__Group_3_3__0_in_rule__RDC__UnorderedGroup_3__Impl13154);
                     rule__RDC__Group_3_3__0();
 
                     state._fsp--;
@@ -17214,33 +17293,33 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 5 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6243:4: ({...}? => ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6276:4: ({...}? => ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6243:4: ({...}? => ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6244:5: {...}? => ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6276:4: ({...}? => ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6277:5: {...}? => ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 4) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__RDC__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 4)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6244:100: ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6245:6: ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6277:100: ( ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6278:6: ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 4);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6251:6: ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6252:6: ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6284:6: ( ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6285:6: ( ( rule__RDC__ConnectorsAssignment_3_4 ) ) ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6252:6: ( ( rule__RDC__ConnectorsAssignment_3_4 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6253:7: ( rule__RDC__ConnectorsAssignment_3_4 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6285:6: ( ( rule__RDC__ConnectorsAssignment_3_4 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6286:7: ( rule__RDC__ConnectorsAssignment_3_4 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getRDCAccess().getConnectorsAssignment_3_4()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6254:7: ( rule__RDC__ConnectorsAssignment_3_4 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6254:8: rule__RDC__ConnectorsAssignment_3_4
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6287:7: ( rule__RDC__ConnectorsAssignment_3_4 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6287:8: rule__RDC__ConnectorsAssignment_3_4
                     {
-                    pushFollow(FOLLOW_rule__RDC__ConnectorsAssignment_3_4_in_rule__RDC__UnorderedGroup_3__Impl13182);
+                    pushFollow(FOLLOW_rule__RDC__ConnectorsAssignment_3_4_in_rule__RDC__UnorderedGroup_3__Impl13246);
                     rule__RDC__ConnectorsAssignment_3_4();
 
                     state._fsp--;
@@ -17254,22 +17333,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
                     }
 
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6257:6: ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6258:7: ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )*
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6290:6: ( ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )* )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6291:7: ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )*
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getRDCAccess().getConnectorsAssignment_3_4()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6259:7: ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )*
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6292:7: ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )*
                     loop25:
                     do {
                         int alt25=2;
                         alt25 = dfa25.predict(input);
                         switch (alt25) {
                     	case 1 :
-                    	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6259:8: ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4
+                    	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6292:8: ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4
                     	    {
-                    	    pushFollow(FOLLOW_rule__RDC__ConnectorsAssignment_3_4_in_rule__RDC__UnorderedGroup_3__Impl13226);
+                    	    pushFollow(FOLLOW_rule__RDC__ConnectorsAssignment_3_4_in_rule__RDC__UnorderedGroup_3__Impl13290);
                     	    rule__RDC__ConnectorsAssignment_3_4();
 
                     	    state._fsp--;
@@ -17325,21 +17404,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RDC__UnorderedGroup_3__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6274:1: rule__RDC__UnorderedGroup_3__0 : rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__1 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6307:1: rule__RDC__UnorderedGroup_3__0 : rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__1 )? ;
     public final void rule__RDC__UnorderedGroup_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6278:1: ( rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__1 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6279:2: rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__1 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6311:1: ( rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__1 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6312:2: rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__1 )?
             {
-            pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__013292);
+            pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__013356);
             rule__RDC__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6280:2: ( rule__RDC__UnorderedGroup_3__1 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6313:2: ( rule__RDC__UnorderedGroup_3__1 )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -17360,9 +17439,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
             switch (alt27) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6280:2: rule__RDC__UnorderedGroup_3__1
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6313:2: rule__RDC__UnorderedGroup_3__1
                     {
-                    pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__1_in_rule__RDC__UnorderedGroup_3__013295);
+                    pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__1_in_rule__RDC__UnorderedGroup_3__013359);
                     rule__RDC__UnorderedGroup_3__1();
 
                     state._fsp--;
@@ -17392,21 +17471,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RDC__UnorderedGroup_3__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6287:1: rule__RDC__UnorderedGroup_3__1 : rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__2 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6320:1: rule__RDC__UnorderedGroup_3__1 : rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__2 )? ;
     public final void rule__RDC__UnorderedGroup_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6291:1: ( rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__2 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6292:2: rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__2 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6324:1: ( rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__2 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6325:2: rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__2 )?
             {
-            pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__113320);
+            pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__113384);
             rule__RDC__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6293:2: ( rule__RDC__UnorderedGroup_3__2 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6326:2: ( rule__RDC__UnorderedGroup_3__2 )?
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -17427,9 +17506,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
             switch (alt28) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6293:2: rule__RDC__UnorderedGroup_3__2
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6326:2: rule__RDC__UnorderedGroup_3__2
                     {
-                    pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__2_in_rule__RDC__UnorderedGroup_3__113323);
+                    pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__2_in_rule__RDC__UnorderedGroup_3__113387);
                     rule__RDC__UnorderedGroup_3__2();
 
                     state._fsp--;
@@ -17459,21 +17538,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RDC__UnorderedGroup_3__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6300:1: rule__RDC__UnorderedGroup_3__2 : rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__3 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6333:1: rule__RDC__UnorderedGroup_3__2 : rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__3 )? ;
     public final void rule__RDC__UnorderedGroup_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6304:1: ( rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__3 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6305:2: rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__3 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6337:1: ( rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__3 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6338:2: rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__3 )?
             {
-            pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__213348);
+            pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__213412);
             rule__RDC__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6306:2: ( rule__RDC__UnorderedGroup_3__3 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6339:2: ( rule__RDC__UnorderedGroup_3__3 )?
             int alt29=2;
             int LA29_0 = input.LA(1);
 
@@ -17494,9 +17573,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
             switch (alt29) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6306:2: rule__RDC__UnorderedGroup_3__3
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6339:2: rule__RDC__UnorderedGroup_3__3
                     {
-                    pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__3_in_rule__RDC__UnorderedGroup_3__213351);
+                    pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__3_in_rule__RDC__UnorderedGroup_3__213415);
                     rule__RDC__UnorderedGroup_3__3();
 
                     state._fsp--;
@@ -17526,21 +17605,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RDC__UnorderedGroup_3__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6313:1: rule__RDC__UnorderedGroup_3__3 : rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__4 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6346:1: rule__RDC__UnorderedGroup_3__3 : rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__4 )? ;
     public final void rule__RDC__UnorderedGroup_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6317:1: ( rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__4 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6318:2: rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__4 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6350:1: ( rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__4 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6351:2: rule__RDC__UnorderedGroup_3__Impl ( rule__RDC__UnorderedGroup_3__4 )?
             {
-            pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__313376);
+            pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__313440);
             rule__RDC__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6319:2: ( rule__RDC__UnorderedGroup_3__4 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6352:2: ( rule__RDC__UnorderedGroup_3__4 )?
             int alt30=2;
             int LA30_0 = input.LA(1);
 
@@ -17561,9 +17640,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
             switch (alt30) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6319:2: rule__RDC__UnorderedGroup_3__4
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6352:2: rule__RDC__UnorderedGroup_3__4
                     {
-                    pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__4_in_rule__RDC__UnorderedGroup_3__313379);
+                    pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__4_in_rule__RDC__UnorderedGroup_3__313443);
                     rule__RDC__UnorderedGroup_3__4();
 
                     state._fsp--;
@@ -17593,16 +17672,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RDC__UnorderedGroup_3__4"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6326:1: rule__RDC__UnorderedGroup_3__4 : rule__RDC__UnorderedGroup_3__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6359:1: rule__RDC__UnorderedGroup_3__4 : rule__RDC__UnorderedGroup_3__Impl ;
     public final void rule__RDC__UnorderedGroup_3__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6330:1: ( rule__RDC__UnorderedGroup_3__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6331:2: rule__RDC__UnorderedGroup_3__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6363:1: ( rule__RDC__UnorderedGroup_3__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6364:2: rule__RDC__UnorderedGroup_3__Impl
             {
-            pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__413404);
+            pushFollow(FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__413468);
             rule__RDC__UnorderedGroup_3__Impl();
 
             state._fsp--;
@@ -17626,24 +17705,24 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__UnorderedGroup_3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6348:1: rule__EqInterface__UnorderedGroup_3 : ( rule__EqInterface__UnorderedGroup_3__0 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6381:1: rule__EqInterface__UnorderedGroup_3 : ( rule__EqInterface__UnorderedGroup_3__0 )? ;
     public final void rule__EqInterface__UnorderedGroup_3() throws RecognitionException {
 
             	int stackSize = keepStackSize();
         		getUnorderedGroupHelper().enter(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3());
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6353:1: ( ( rule__EqInterface__UnorderedGroup_3__0 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6354:2: ( rule__EqInterface__UnorderedGroup_3__0 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6386:1: ( ( rule__EqInterface__UnorderedGroup_3__0 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6387:2: ( rule__EqInterface__UnorderedGroup_3__0 )?
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6354:2: ( rule__EqInterface__UnorderedGroup_3__0 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6387:2: ( rule__EqInterface__UnorderedGroup_3__0 )?
             int alt31=2;
             alt31 = dfa31.predict(input);
             switch (alt31) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6354:2: rule__EqInterface__UnorderedGroup_3__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6387:2: rule__EqInterface__UnorderedGroup_3__0
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__0_in_rule__EqInterface__UnorderedGroup_313438);
+                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__0_in_rule__EqInterface__UnorderedGroup_313502);
                     rule__EqInterface__UnorderedGroup_3__0();
 
                     state._fsp--;
@@ -17674,45 +17753,45 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__UnorderedGroup_3__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6364:1: rule__EqInterface__UnorderedGroup_3__Impl : ( ({...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) ) ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6397:1: rule__EqInterface__UnorderedGroup_3__Impl : ( ({...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) ) ) ) ;
     public final void rule__EqInterface__UnorderedGroup_3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         		boolean selected = false;
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6369:1: ( ( ({...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) ) ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6370:3: ( ({...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6402:1: ( ( ({...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) ) ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6403:3: ( ({...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) ) ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6370:3: ( ({...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6403:3: ( ({...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) ) ) )
             int alt32=10;
             alt32 = dfa32.predict(input);
             switch (alt32) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6372:4: ({...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6405:4: ({...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6372:4: ({...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6373:5: {...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6405:4: ({...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6406:5: {...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 0) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__EqInterface__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 0)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6373:108: ( ( ( rule__EqInterface__Group_3_0__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6374:6: ( ( rule__EqInterface__Group_3_0__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6406:108: ( ( ( rule__EqInterface__Group_3_0__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6407:6: ( ( rule__EqInterface__Group_3_0__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 0);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6380:6: ( ( rule__EqInterface__Group_3_0__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6382:7: ( rule__EqInterface__Group_3_0__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6413:6: ( ( rule__EqInterface__Group_3_0__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6415:7: ( rule__EqInterface__Group_3_0__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getEqInterfaceAccess().getGroup_3_0()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6383:7: ( rule__EqInterface__Group_3_0__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6383:8: rule__EqInterface__Group_3_0__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6416:7: ( rule__EqInterface__Group_3_0__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6416:8: rule__EqInterface__Group_3_0__0
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__Group_3_0__0_in_rule__EqInterface__UnorderedGroup_3__Impl13525);
+                    pushFollow(FOLLOW_rule__EqInterface__Group_3_0__0_in_rule__EqInterface__UnorderedGroup_3__Impl13589);
                     rule__EqInterface__Group_3_0__0();
 
                     state._fsp--;
@@ -17736,30 +17815,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6389:4: ({...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6422:4: ({...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6389:4: ({...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6390:5: {...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6422:4: ({...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6423:5: {...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 1) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__EqInterface__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 1)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6390:108: ( ( ( rule__EqInterface__Group_3_1__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6391:6: ( ( rule__EqInterface__Group_3_1__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6423:108: ( ( ( rule__EqInterface__Group_3_1__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6424:6: ( ( rule__EqInterface__Group_3_1__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 1);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6397:6: ( ( rule__EqInterface__Group_3_1__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6399:7: ( rule__EqInterface__Group_3_1__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6430:6: ( ( rule__EqInterface__Group_3_1__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6432:7: ( rule__EqInterface__Group_3_1__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getEqInterfaceAccess().getGroup_3_1()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6400:7: ( rule__EqInterface__Group_3_1__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6400:8: rule__EqInterface__Group_3_1__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6433:7: ( rule__EqInterface__Group_3_1__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6433:8: rule__EqInterface__Group_3_1__0
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__Group_3_1__0_in_rule__EqInterface__UnorderedGroup_3__Impl13616);
+                    pushFollow(FOLLOW_rule__EqInterface__Group_3_1__0_in_rule__EqInterface__UnorderedGroup_3__Impl13680);
                     rule__EqInterface__Group_3_1__0();
 
                     state._fsp--;
@@ -17783,30 +17862,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 3 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6406:4: ({...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6439:4: ({...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6406:4: ({...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6407:5: {...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6439:4: ({...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6440:5: {...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 2) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__EqInterface__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 2)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6407:108: ( ( ( rule__EqInterface__Group_3_2__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6408:6: ( ( rule__EqInterface__Group_3_2__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6440:108: ( ( ( rule__EqInterface__Group_3_2__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6441:6: ( ( rule__EqInterface__Group_3_2__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 2);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6414:6: ( ( rule__EqInterface__Group_3_2__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6416:7: ( rule__EqInterface__Group_3_2__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6447:6: ( ( rule__EqInterface__Group_3_2__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6449:7: ( rule__EqInterface__Group_3_2__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getEqInterfaceAccess().getGroup_3_2()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6417:7: ( rule__EqInterface__Group_3_2__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6417:8: rule__EqInterface__Group_3_2__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6450:7: ( rule__EqInterface__Group_3_2__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6450:8: rule__EqInterface__Group_3_2__0
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__Group_3_2__0_in_rule__EqInterface__UnorderedGroup_3__Impl13707);
+                    pushFollow(FOLLOW_rule__EqInterface__Group_3_2__0_in_rule__EqInterface__UnorderedGroup_3__Impl13771);
                     rule__EqInterface__Group_3_2__0();
 
                     state._fsp--;
@@ -17830,30 +17909,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 4 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6423:4: ({...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6456:4: ({...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6423:4: ({...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6424:5: {...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6456:4: ({...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6457:5: {...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 3) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__EqInterface__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 3)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6424:108: ( ( ( rule__EqInterface__Group_3_3__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6425:6: ( ( rule__EqInterface__Group_3_3__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6457:108: ( ( ( rule__EqInterface__Group_3_3__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6458:6: ( ( rule__EqInterface__Group_3_3__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 3);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6431:6: ( ( rule__EqInterface__Group_3_3__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6433:7: ( rule__EqInterface__Group_3_3__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6464:6: ( ( rule__EqInterface__Group_3_3__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6466:7: ( rule__EqInterface__Group_3_3__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getEqInterfaceAccess().getGroup_3_3()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6434:7: ( rule__EqInterface__Group_3_3__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6434:8: rule__EqInterface__Group_3_3__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6467:7: ( rule__EqInterface__Group_3_3__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6467:8: rule__EqInterface__Group_3_3__0
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__Group_3_3__0_in_rule__EqInterface__UnorderedGroup_3__Impl13798);
+                    pushFollow(FOLLOW_rule__EqInterface__Group_3_3__0_in_rule__EqInterface__UnorderedGroup_3__Impl13862);
                     rule__EqInterface__Group_3_3__0();
 
                     state._fsp--;
@@ -17877,30 +17956,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 5 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6440:4: ({...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6473:4: ({...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6440:4: ({...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6441:5: {...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6473:4: ({...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6474:5: {...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 4) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__EqInterface__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 4)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6441:108: ( ( ( rule__EqInterface__Group_3_4__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6442:6: ( ( rule__EqInterface__Group_3_4__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6474:108: ( ( ( rule__EqInterface__Group_3_4__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6475:6: ( ( rule__EqInterface__Group_3_4__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 4);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6448:6: ( ( rule__EqInterface__Group_3_4__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6450:7: ( rule__EqInterface__Group_3_4__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6481:6: ( ( rule__EqInterface__Group_3_4__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6483:7: ( rule__EqInterface__Group_3_4__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getEqInterfaceAccess().getGroup_3_4()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6451:7: ( rule__EqInterface__Group_3_4__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6451:8: rule__EqInterface__Group_3_4__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6484:7: ( rule__EqInterface__Group_3_4__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6484:8: rule__EqInterface__Group_3_4__0
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__Group_3_4__0_in_rule__EqInterface__UnorderedGroup_3__Impl13889);
+                    pushFollow(FOLLOW_rule__EqInterface__Group_3_4__0_in_rule__EqInterface__UnorderedGroup_3__Impl13953);
                     rule__EqInterface__Group_3_4__0();
 
                     state._fsp--;
@@ -17924,30 +18003,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 6 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6457:4: ({...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6490:4: ({...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6457:4: ({...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6458:5: {...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6490:4: ({...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6491:5: {...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 5) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__EqInterface__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 5)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6458:108: ( ( ( rule__EqInterface__Group_3_5__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6459:6: ( ( rule__EqInterface__Group_3_5__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6491:108: ( ( ( rule__EqInterface__Group_3_5__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6492:6: ( ( rule__EqInterface__Group_3_5__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 5);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6465:6: ( ( rule__EqInterface__Group_3_5__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6467:7: ( rule__EqInterface__Group_3_5__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6498:6: ( ( rule__EqInterface__Group_3_5__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6500:7: ( rule__EqInterface__Group_3_5__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getEqInterfaceAccess().getGroup_3_5()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6468:7: ( rule__EqInterface__Group_3_5__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6468:8: rule__EqInterface__Group_3_5__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6501:7: ( rule__EqInterface__Group_3_5__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6501:8: rule__EqInterface__Group_3_5__0
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__Group_3_5__0_in_rule__EqInterface__UnorderedGroup_3__Impl13980);
+                    pushFollow(FOLLOW_rule__EqInterface__Group_3_5__0_in_rule__EqInterface__UnorderedGroup_3__Impl14044);
                     rule__EqInterface__Group_3_5__0();
 
                     state._fsp--;
@@ -17971,30 +18050,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 7 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6474:4: ({...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6507:4: ({...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6474:4: ({...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6475:5: {...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6507:4: ({...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6508:5: {...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 6) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__EqInterface__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 6)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6475:108: ( ( ( rule__EqInterface__Group_3_6__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6476:6: ( ( rule__EqInterface__Group_3_6__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6508:108: ( ( ( rule__EqInterface__Group_3_6__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6509:6: ( ( rule__EqInterface__Group_3_6__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 6);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6482:6: ( ( rule__EqInterface__Group_3_6__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6484:7: ( rule__EqInterface__Group_3_6__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6515:6: ( ( rule__EqInterface__Group_3_6__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6517:7: ( rule__EqInterface__Group_3_6__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getEqInterfaceAccess().getGroup_3_6()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6485:7: ( rule__EqInterface__Group_3_6__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6485:8: rule__EqInterface__Group_3_6__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6518:7: ( rule__EqInterface__Group_3_6__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6518:8: rule__EqInterface__Group_3_6__0
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__Group_3_6__0_in_rule__EqInterface__UnorderedGroup_3__Impl14071);
+                    pushFollow(FOLLOW_rule__EqInterface__Group_3_6__0_in_rule__EqInterface__UnorderedGroup_3__Impl14135);
                     rule__EqInterface__Group_3_6__0();
 
                     state._fsp--;
@@ -18018,30 +18097,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 8 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6491:4: ({...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6524:4: ({...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6491:4: ({...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6492:5: {...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6524:4: ({...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6525:5: {...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 7) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__EqInterface__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 7)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6492:108: ( ( ( rule__EqInterface__Group_3_7__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6493:6: ( ( rule__EqInterface__Group_3_7__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6525:108: ( ( ( rule__EqInterface__Group_3_7__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6526:6: ( ( rule__EqInterface__Group_3_7__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 7);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6499:6: ( ( rule__EqInterface__Group_3_7__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6501:7: ( rule__EqInterface__Group_3_7__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6532:6: ( ( rule__EqInterface__Group_3_7__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6534:7: ( rule__EqInterface__Group_3_7__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getEqInterfaceAccess().getGroup_3_7()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6502:7: ( rule__EqInterface__Group_3_7__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6502:8: rule__EqInterface__Group_3_7__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6535:7: ( rule__EqInterface__Group_3_7__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6535:8: rule__EqInterface__Group_3_7__0
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__Group_3_7__0_in_rule__EqInterface__UnorderedGroup_3__Impl14162);
+                    pushFollow(FOLLOW_rule__EqInterface__Group_3_7__0_in_rule__EqInterface__UnorderedGroup_3__Impl14226);
                     rule__EqInterface__Group_3_7__0();
 
                     state._fsp--;
@@ -18065,30 +18144,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 9 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6508:4: ({...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6541:4: ({...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6508:4: ({...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6509:5: {...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6541:4: ({...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6542:5: {...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 8) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__EqInterface__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 8)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6509:108: ( ( ( rule__EqInterface__Group_3_8__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6510:6: ( ( rule__EqInterface__Group_3_8__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6542:108: ( ( ( rule__EqInterface__Group_3_8__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6543:6: ( ( rule__EqInterface__Group_3_8__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 8);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6516:6: ( ( rule__EqInterface__Group_3_8__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6518:7: ( rule__EqInterface__Group_3_8__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6549:6: ( ( rule__EqInterface__Group_3_8__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6551:7: ( rule__EqInterface__Group_3_8__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getEqInterfaceAccess().getGroup_3_8()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6519:7: ( rule__EqInterface__Group_3_8__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6519:8: rule__EqInterface__Group_3_8__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6552:7: ( rule__EqInterface__Group_3_8__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6552:8: rule__EqInterface__Group_3_8__0
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__Group_3_8__0_in_rule__EqInterface__UnorderedGroup_3__Impl14253);
+                    pushFollow(FOLLOW_rule__EqInterface__Group_3_8__0_in_rule__EqInterface__UnorderedGroup_3__Impl14317);
                     rule__EqInterface__Group_3_8__0();
 
                     state._fsp--;
@@ -18112,30 +18191,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 10 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6525:4: ({...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6558:4: ({...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6525:4: ({...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6526:5: {...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6558:4: ({...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6559:5: {...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 9) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__EqInterface__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 9)");
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6526:108: ( ( ( rule__EqInterface__Group_3_9__0 ) ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6527:6: ( ( rule__EqInterface__Group_3_9__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6559:108: ( ( ( rule__EqInterface__Group_3_9__0 ) ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6560:6: ( ( rule__EqInterface__Group_3_9__0 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 9);
                     selected = true;
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6533:6: ( ( rule__EqInterface__Group_3_9__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6535:7: ( rule__EqInterface__Group_3_9__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6566:6: ( ( rule__EqInterface__Group_3_9__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6568:7: ( rule__EqInterface__Group_3_9__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getEqInterfaceAccess().getGroup_3_9()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6536:7: ( rule__EqInterface__Group_3_9__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6536:8: rule__EqInterface__Group_3_9__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6569:7: ( rule__EqInterface__Group_3_9__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6569:8: rule__EqInterface__Group_3_9__0
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__Group_3_9__0_in_rule__EqInterface__UnorderedGroup_3__Impl14344);
+                    pushFollow(FOLLOW_rule__EqInterface__Group_3_9__0_in_rule__EqInterface__UnorderedGroup_3__Impl14408);
                     rule__EqInterface__Group_3_9__0();
 
                     state._fsp--;
@@ -18182,28 +18261,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__UnorderedGroup_3__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6551:1: rule__EqInterface__UnorderedGroup_3__0 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__1 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6584:1: rule__EqInterface__UnorderedGroup_3__0 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__1 )? ;
     public final void rule__EqInterface__UnorderedGroup_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6555:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__1 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6556:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__1 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6588:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__1 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6589:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__1 )?
             {
-            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__014403);
+            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__014467);
             rule__EqInterface__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6557:2: ( rule__EqInterface__UnorderedGroup_3__1 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6590:2: ( rule__EqInterface__UnorderedGroup_3__1 )?
             int alt33=2;
             alt33 = dfa33.predict(input);
             switch (alt33) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6557:2: rule__EqInterface__UnorderedGroup_3__1
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6590:2: rule__EqInterface__UnorderedGroup_3__1
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__1_in_rule__EqInterface__UnorderedGroup_3__014406);
+                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__1_in_rule__EqInterface__UnorderedGroup_3__014470);
                     rule__EqInterface__UnorderedGroup_3__1();
 
                     state._fsp--;
@@ -18233,28 +18312,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__UnorderedGroup_3__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6564:1: rule__EqInterface__UnorderedGroup_3__1 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__2 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6597:1: rule__EqInterface__UnorderedGroup_3__1 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__2 )? ;
     public final void rule__EqInterface__UnorderedGroup_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6568:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__2 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6569:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__2 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6601:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__2 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6602:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__2 )?
             {
-            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__114431);
+            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__114495);
             rule__EqInterface__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6570:2: ( rule__EqInterface__UnorderedGroup_3__2 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6603:2: ( rule__EqInterface__UnorderedGroup_3__2 )?
             int alt34=2;
             alt34 = dfa34.predict(input);
             switch (alt34) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6570:2: rule__EqInterface__UnorderedGroup_3__2
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6603:2: rule__EqInterface__UnorderedGroup_3__2
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__2_in_rule__EqInterface__UnorderedGroup_3__114434);
+                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__2_in_rule__EqInterface__UnorderedGroup_3__114498);
                     rule__EqInterface__UnorderedGroup_3__2();
 
                     state._fsp--;
@@ -18284,28 +18363,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__UnorderedGroup_3__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6577:1: rule__EqInterface__UnorderedGroup_3__2 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__3 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6610:1: rule__EqInterface__UnorderedGroup_3__2 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__3 )? ;
     public final void rule__EqInterface__UnorderedGroup_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6581:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__3 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6582:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__3 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6614:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__3 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6615:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__3 )?
             {
-            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__214459);
+            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__214523);
             rule__EqInterface__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6583:2: ( rule__EqInterface__UnorderedGroup_3__3 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6616:2: ( rule__EqInterface__UnorderedGroup_3__3 )?
             int alt35=2;
             alt35 = dfa35.predict(input);
             switch (alt35) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6583:2: rule__EqInterface__UnorderedGroup_3__3
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6616:2: rule__EqInterface__UnorderedGroup_3__3
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__3_in_rule__EqInterface__UnorderedGroup_3__214462);
+                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__3_in_rule__EqInterface__UnorderedGroup_3__214526);
                     rule__EqInterface__UnorderedGroup_3__3();
 
                     state._fsp--;
@@ -18335,28 +18414,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__UnorderedGroup_3__3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6590:1: rule__EqInterface__UnorderedGroup_3__3 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__4 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6623:1: rule__EqInterface__UnorderedGroup_3__3 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__4 )? ;
     public final void rule__EqInterface__UnorderedGroup_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6594:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__4 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6595:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__4 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6627:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__4 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6628:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__4 )?
             {
-            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__314487);
+            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__314551);
             rule__EqInterface__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6596:2: ( rule__EqInterface__UnorderedGroup_3__4 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6629:2: ( rule__EqInterface__UnorderedGroup_3__4 )?
             int alt36=2;
             alt36 = dfa36.predict(input);
             switch (alt36) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6596:2: rule__EqInterface__UnorderedGroup_3__4
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6629:2: rule__EqInterface__UnorderedGroup_3__4
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__4_in_rule__EqInterface__UnorderedGroup_3__314490);
+                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__4_in_rule__EqInterface__UnorderedGroup_3__314554);
                     rule__EqInterface__UnorderedGroup_3__4();
 
                     state._fsp--;
@@ -18386,28 +18465,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__UnorderedGroup_3__4"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6603:1: rule__EqInterface__UnorderedGroup_3__4 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__5 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6636:1: rule__EqInterface__UnorderedGroup_3__4 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__5 )? ;
     public final void rule__EqInterface__UnorderedGroup_3__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6607:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__5 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6608:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__5 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6640:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__5 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6641:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__5 )?
             {
-            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__414515);
+            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__414579);
             rule__EqInterface__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6609:2: ( rule__EqInterface__UnorderedGroup_3__5 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6642:2: ( rule__EqInterface__UnorderedGroup_3__5 )?
             int alt37=2;
             alt37 = dfa37.predict(input);
             switch (alt37) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6609:2: rule__EqInterface__UnorderedGroup_3__5
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6642:2: rule__EqInterface__UnorderedGroup_3__5
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__5_in_rule__EqInterface__UnorderedGroup_3__414518);
+                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__5_in_rule__EqInterface__UnorderedGroup_3__414582);
                     rule__EqInterface__UnorderedGroup_3__5();
 
                     state._fsp--;
@@ -18437,28 +18516,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__UnorderedGroup_3__5"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6616:1: rule__EqInterface__UnorderedGroup_3__5 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__6 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6649:1: rule__EqInterface__UnorderedGroup_3__5 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__6 )? ;
     public final void rule__EqInterface__UnorderedGroup_3__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6620:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__6 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6621:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__6 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6653:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__6 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6654:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__6 )?
             {
-            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__514543);
+            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__514607);
             rule__EqInterface__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6622:2: ( rule__EqInterface__UnorderedGroup_3__6 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6655:2: ( rule__EqInterface__UnorderedGroup_3__6 )?
             int alt38=2;
             alt38 = dfa38.predict(input);
             switch (alt38) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6622:2: rule__EqInterface__UnorderedGroup_3__6
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6655:2: rule__EqInterface__UnorderedGroup_3__6
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__6_in_rule__EqInterface__UnorderedGroup_3__514546);
+                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__6_in_rule__EqInterface__UnorderedGroup_3__514610);
                     rule__EqInterface__UnorderedGroup_3__6();
 
                     state._fsp--;
@@ -18488,28 +18567,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__UnorderedGroup_3__6"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6629:1: rule__EqInterface__UnorderedGroup_3__6 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__7 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6662:1: rule__EqInterface__UnorderedGroup_3__6 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__7 )? ;
     public final void rule__EqInterface__UnorderedGroup_3__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6633:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__7 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6634:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__7 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6666:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__7 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6667:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__7 )?
             {
-            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__614571);
+            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__614635);
             rule__EqInterface__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6635:2: ( rule__EqInterface__UnorderedGroup_3__7 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6668:2: ( rule__EqInterface__UnorderedGroup_3__7 )?
             int alt39=2;
             alt39 = dfa39.predict(input);
             switch (alt39) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6635:2: rule__EqInterface__UnorderedGroup_3__7
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6668:2: rule__EqInterface__UnorderedGroup_3__7
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__7_in_rule__EqInterface__UnorderedGroup_3__614574);
+                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__7_in_rule__EqInterface__UnorderedGroup_3__614638);
                     rule__EqInterface__UnorderedGroup_3__7();
 
                     state._fsp--;
@@ -18539,28 +18618,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__UnorderedGroup_3__7"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6642:1: rule__EqInterface__UnorderedGroup_3__7 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__8 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6675:1: rule__EqInterface__UnorderedGroup_3__7 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__8 )? ;
     public final void rule__EqInterface__UnorderedGroup_3__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6646:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__8 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6647:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__8 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6679:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__8 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6680:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__8 )?
             {
-            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__714599);
+            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__714663);
             rule__EqInterface__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6648:2: ( rule__EqInterface__UnorderedGroup_3__8 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6681:2: ( rule__EqInterface__UnorderedGroup_3__8 )?
             int alt40=2;
             alt40 = dfa40.predict(input);
             switch (alt40) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6648:2: rule__EqInterface__UnorderedGroup_3__8
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6681:2: rule__EqInterface__UnorderedGroup_3__8
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__8_in_rule__EqInterface__UnorderedGroup_3__714602);
+                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__8_in_rule__EqInterface__UnorderedGroup_3__714666);
                     rule__EqInterface__UnorderedGroup_3__8();
 
                     state._fsp--;
@@ -18590,28 +18669,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__UnorderedGroup_3__8"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6655:1: rule__EqInterface__UnorderedGroup_3__8 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__9 )? ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6688:1: rule__EqInterface__UnorderedGroup_3__8 : rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__9 )? ;
     public final void rule__EqInterface__UnorderedGroup_3__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6659:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__9 )? )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6660:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__9 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6692:1: ( rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__9 )? )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6693:2: rule__EqInterface__UnorderedGroup_3__Impl ( rule__EqInterface__UnorderedGroup_3__9 )?
             {
-            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__814627);
+            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__814691);
             rule__EqInterface__UnorderedGroup_3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6661:2: ( rule__EqInterface__UnorderedGroup_3__9 )?
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6694:2: ( rule__EqInterface__UnorderedGroup_3__9 )?
             int alt41=2;
             alt41 = dfa41.predict(input);
             switch (alt41) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6661:2: rule__EqInterface__UnorderedGroup_3__9
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6694:2: rule__EqInterface__UnorderedGroup_3__9
                     {
-                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__9_in_rule__EqInterface__UnorderedGroup_3__814630);
+                    pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__9_in_rule__EqInterface__UnorderedGroup_3__814694);
                     rule__EqInterface__UnorderedGroup_3__9();
 
                     state._fsp--;
@@ -18641,16 +18720,16 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__UnorderedGroup_3__9"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6668:1: rule__EqInterface__UnorderedGroup_3__9 : rule__EqInterface__UnorderedGroup_3__Impl ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6701:1: rule__EqInterface__UnorderedGroup_3__9 : rule__EqInterface__UnorderedGroup_3__Impl ;
     public final void rule__EqInterface__UnorderedGroup_3__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6672:1: ( rule__EqInterface__UnorderedGroup_3__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6673:2: rule__EqInterface__UnorderedGroup_3__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6705:1: ( rule__EqInterface__UnorderedGroup_3__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6706:2: rule__EqInterface__UnorderedGroup_3__Impl
             {
-            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__914655);
+            pushFollow(FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__914719);
             rule__EqInterface__UnorderedGroup_3__Impl();
 
             state._fsp--;
@@ -18674,22 +18753,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AssistModel__SystemNameAssignment_4"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6700:1: rule__AssistModel__SystemNameAssignment_4 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6733:1: rule__AssistModel__SystemNameAssignment_4 : ( RULE_STRING ) ;
     public final void rule__AssistModel__SystemNameAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6704:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6705:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6737:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6738:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6705:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6706:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6738:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6739:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssistModelAccess().getSystemNameSTRINGTerminalRuleCall_4_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__AssistModel__SystemNameAssignment_414703); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__AssistModel__SystemNameAssignment_414767); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssistModelAccess().getSystemNameSTRINGTerminalRuleCall_4_0()); 
             }
@@ -18715,22 +18794,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AssistModel__CompartmentsAssignment_7"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6715:1: rule__AssistModel__CompartmentsAssignment_7 : ( ruleCompartment ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6748:1: rule__AssistModel__CompartmentsAssignment_7 : ( ruleCompartment ) ;
     public final void rule__AssistModel__CompartmentsAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6719:1: ( ( ruleCompartment ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6720:1: ( ruleCompartment )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6752:1: ( ( ruleCompartment ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6753:1: ( ruleCompartment )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6720:1: ( ruleCompartment )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6721:1: ruleCompartment
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6753:1: ( ruleCompartment )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6754:1: ruleCompartment
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssistModelAccess().getCompartmentsCompartmentParserRuleCall_7_0()); 
             }
-            pushFollow(FOLLOW_ruleCompartment_in_rule__AssistModel__CompartmentsAssignment_714734);
+            pushFollow(FOLLOW_ruleCompartment_in_rule__AssistModel__CompartmentsAssignment_714798);
             ruleCompartment();
 
             state._fsp--;
@@ -18760,22 +18839,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AssistModel__EqInterfacesAssignment_8_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6730:1: rule__AssistModel__EqInterfacesAssignment_8_2 : ( ruleEqInterface ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6763:1: rule__AssistModel__EqInterfacesAssignment_8_2 : ( ruleEqInterface ) ;
     public final void rule__AssistModel__EqInterfacesAssignment_8_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6734:1: ( ( ruleEqInterface ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6735:1: ( ruleEqInterface )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6767:1: ( ( ruleEqInterface ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6768:1: ( ruleEqInterface )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6735:1: ( ruleEqInterface )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6736:1: ruleEqInterface
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6768:1: ( ruleEqInterface )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6769:1: ruleEqInterface
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssistModelAccess().getEqInterfacesEqInterfaceParserRuleCall_8_2_0()); 
             }
-            pushFollow(FOLLOW_ruleEqInterface_in_rule__AssistModel__EqInterfacesAssignment_8_214765);
+            pushFollow(FOLLOW_ruleEqInterface_in_rule__AssistModel__EqInterfacesAssignment_8_214829);
             ruleEqInterface();
 
             state._fsp--;
@@ -18805,22 +18884,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AssistModel__EqInterfaceGroupsAssignment_9_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6745:1: rule__AssistModel__EqInterfaceGroupsAssignment_9_2 : ( ruleEqInterfaceGroup ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6778:1: rule__AssistModel__EqInterfaceGroupsAssignment_9_2 : ( ruleEqInterfaceGroup ) ;
     public final void rule__AssistModel__EqInterfaceGroupsAssignment_9_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6749:1: ( ( ruleEqInterfaceGroup ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6750:1: ( ruleEqInterfaceGroup )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6782:1: ( ( ruleEqInterfaceGroup ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6783:1: ( ruleEqInterfaceGroup )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6750:1: ( ruleEqInterfaceGroup )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6751:1: ruleEqInterfaceGroup
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6783:1: ( ruleEqInterfaceGroup )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6784:1: ruleEqInterfaceGroup
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssistModelAccess().getEqInterfaceGroupsEqInterfaceGroupParserRuleCall_9_2_0()); 
             }
-            pushFollow(FOLLOW_ruleEqInterfaceGroup_in_rule__AssistModel__EqInterfaceGroupsAssignment_9_214796);
+            pushFollow(FOLLOW_ruleEqInterfaceGroup_in_rule__AssistModel__EqInterfaceGroupsAssignment_9_214860);
             ruleEqInterfaceGroup();
 
             state._fsp--;
@@ -18850,22 +18929,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AssistModel__DislocalityRelationsAssignment_10_2_0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6760:1: rule__AssistModel__DislocalityRelationsAssignment_10_2_0 : ( ruleDislocalityRelation ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6793:1: rule__AssistModel__DislocalityRelationsAssignment_10_2_0 : ( ruleDislocalityRelation ) ;
     public final void rule__AssistModel__DislocalityRelationsAssignment_10_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6764:1: ( ( ruleDislocalityRelation ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6765:1: ( ruleDislocalityRelation )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6797:1: ( ( ruleDislocalityRelation ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6798:1: ( ruleDislocalityRelation )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6765:1: ( ruleDislocalityRelation )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6766:1: ruleDislocalityRelation
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6798:1: ( ruleDislocalityRelation )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6799:1: ruleDislocalityRelation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssistModelAccess().getDislocalityRelationsDislocalityRelationParserRuleCall_10_2_0_0()); 
             }
-            pushFollow(FOLLOW_ruleDislocalityRelation_in_rule__AssistModel__DislocalityRelationsAssignment_10_2_014827);
+            pushFollow(FOLLOW_ruleDislocalityRelation_in_rule__AssistModel__DislocalityRelationsAssignment_10_2_014891);
             ruleDislocalityRelation();
 
             state._fsp--;
@@ -18895,22 +18974,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AssistModel__ColocalityRelationsAssignment_10_2_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6775:1: rule__AssistModel__ColocalityRelationsAssignment_10_2_1 : ( ruleColocalityRelation ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6808:1: rule__AssistModel__ColocalityRelationsAssignment_10_2_1 : ( ruleColocalityRelation ) ;
     public final void rule__AssistModel__ColocalityRelationsAssignment_10_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6779:1: ( ( ruleColocalityRelation ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6780:1: ( ruleColocalityRelation )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6812:1: ( ( ruleColocalityRelation ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6813:1: ( ruleColocalityRelation )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6780:1: ( ruleColocalityRelation )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6781:1: ruleColocalityRelation
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6813:1: ( ruleColocalityRelation )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6814:1: ruleColocalityRelation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssistModelAccess().getColocalityRelationsColocalityRelationParserRuleCall_10_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleColocalityRelation_in_rule__AssistModel__ColocalityRelationsAssignment_10_2_114858);
+            pushFollow(FOLLOW_ruleColocalityRelation_in_rule__AssistModel__ColocalityRelationsAssignment_10_2_114922);
             ruleColocalityRelation();
 
             state._fsp--;
@@ -18940,22 +19019,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AssistModel__ValidDeploymentsAssignment_10_2_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6790:1: rule__AssistModel__ValidDeploymentsAssignment_10_2_2 : ( ruleValidDeployment ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6823:1: rule__AssistModel__ValidDeploymentsAssignment_10_2_2 : ( ruleValidDeployment ) ;
     public final void rule__AssistModel__ValidDeploymentsAssignment_10_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6794:1: ( ( ruleValidDeployment ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6795:1: ( ruleValidDeployment )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6827:1: ( ( ruleValidDeployment ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6828:1: ( ruleValidDeployment )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6795:1: ( ruleValidDeployment )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6796:1: ruleValidDeployment
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6828:1: ( ruleValidDeployment )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6829:1: ruleValidDeployment
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssistModelAccess().getValidDeploymentsValidDeploymentParserRuleCall_10_2_2_0()); 
             }
-            pushFollow(FOLLOW_ruleValidDeployment_in_rule__AssistModel__ValidDeploymentsAssignment_10_2_214889);
+            pushFollow(FOLLOW_ruleValidDeployment_in_rule__AssistModel__ValidDeploymentsAssignment_10_2_214953);
             ruleValidDeployment();
 
             state._fsp--;
@@ -18985,22 +19064,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Compartment__NameAssignment_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6805:1: rule__Compartment__NameAssignment_1 : ( RULE_ID ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6838:1: rule__Compartment__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Compartment__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6809:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6810:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6842:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6843:1: ( RULE_ID )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6810:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6811:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6843:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6844:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCompartmentAccess().getNameIDTerminalRuleCall_1_0()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Compartment__NameAssignment_114920); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Compartment__NameAssignment_114984); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCompartmentAccess().getNameIDTerminalRuleCall_1_0()); 
             }
@@ -19026,22 +19105,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Compartment__ManufacturerAssignment_3_0_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6820:1: rule__Compartment__ManufacturerAssignment_3_0_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6853:1: rule__Compartment__ManufacturerAssignment_3_0_2 : ( RULE_STRING ) ;
     public final void rule__Compartment__ManufacturerAssignment_3_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6824:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6825:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6857:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6858:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6825:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6826:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6858:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6859:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCompartmentAccess().getManufacturerSTRINGTerminalRuleCall_3_0_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Compartment__ManufacturerAssignment_3_0_214951); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Compartment__ManufacturerAssignment_3_0_215015); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCompartmentAccess().getManufacturerSTRINGTerminalRuleCall_3_0_2_0()); 
             }
@@ -19067,22 +19146,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Compartment__PowerSupplyAssignment_3_1_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6835:1: rule__Compartment__PowerSupplyAssignment_3_1_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6868:1: rule__Compartment__PowerSupplyAssignment_3_1_2 : ( RULE_STRING ) ;
     public final void rule__Compartment__PowerSupplyAssignment_3_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6839:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6840:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6872:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6873:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6840:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6841:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6873:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6874:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCompartmentAccess().getPowerSupplySTRINGTerminalRuleCall_3_1_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Compartment__PowerSupplyAssignment_3_1_214982); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Compartment__PowerSupplyAssignment_3_1_215046); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCompartmentAccess().getPowerSupplySTRINGTerminalRuleCall_3_1_2_0()); 
             }
@@ -19108,22 +19187,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Compartment__SideAssignment_3_2_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6850:1: rule__Compartment__SideAssignment_3_2_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6883:1: rule__Compartment__SideAssignment_3_2_2 : ( RULE_STRING ) ;
     public final void rule__Compartment__SideAssignment_3_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6854:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6855:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6887:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6888:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6855:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6856:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6888:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6889:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCompartmentAccess().getSideSTRINGTerminalRuleCall_3_2_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Compartment__SideAssignment_3_2_215013); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Compartment__SideAssignment_3_2_215077); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCompartmentAccess().getSideSTRINGTerminalRuleCall_3_2_2_0()); 
             }
@@ -19149,22 +19228,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Compartment__ZoneAssignment_3_3_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6865:1: rule__Compartment__ZoneAssignment_3_3_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6898:1: rule__Compartment__ZoneAssignment_3_3_2 : ( RULE_STRING ) ;
     public final void rule__Compartment__ZoneAssignment_3_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6869:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6870:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6902:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6903:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6870:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6871:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6903:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6904:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCompartmentAccess().getZoneSTRINGTerminalRuleCall_3_3_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Compartment__ZoneAssignment_3_3_215044); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Compartment__ZoneAssignment_3_3_215108); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCompartmentAccess().getZoneSTRINGTerminalRuleCall_3_3_2_0()); 
             }
@@ -19190,22 +19269,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Compartment__RdcsAssignment_3_4"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6880:1: rule__Compartment__RdcsAssignment_3_4 : ( ruleRDC ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6913:1: rule__Compartment__RdcsAssignment_3_4 : ( ruleRDC ) ;
     public final void rule__Compartment__RdcsAssignment_3_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6884:1: ( ( ruleRDC ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6885:1: ( ruleRDC )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6917:1: ( ( ruleRDC ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6918:1: ( ruleRDC )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6885:1: ( ruleRDC )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6886:1: ruleRDC
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6918:1: ( ruleRDC )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6919:1: ruleRDC
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCompartmentAccess().getRdcsRDCParserRuleCall_3_4_0()); 
             }
-            pushFollow(FOLLOW_ruleRDC_in_rule__Compartment__RdcsAssignment_3_415075);
+            pushFollow(FOLLOW_ruleRDC_in_rule__Compartment__RdcsAssignment_3_415139);
             ruleRDC();
 
             state._fsp--;
@@ -19235,22 +19314,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RDC__NameAssignment_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6895:1: rule__RDC__NameAssignment_1 : ( RULE_ID ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6928:1: rule__RDC__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__RDC__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6899:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6900:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6932:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6933:1: ( RULE_ID )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6900:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6901:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6933:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6934:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRDCAccess().getNameIDTerminalRuleCall_1_0()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__RDC__NameAssignment_115106); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__RDC__NameAssignment_115170); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getRDCAccess().getNameIDTerminalRuleCall_1_0()); 
             }
@@ -19276,22 +19355,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RDC__ManufacturerAssignment_3_0_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6910:1: rule__RDC__ManufacturerAssignment_3_0_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6943:1: rule__RDC__ManufacturerAssignment_3_0_2 : ( RULE_STRING ) ;
     public final void rule__RDC__ManufacturerAssignment_3_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6914:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6915:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6947:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6948:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6915:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6916:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6948:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6949:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRDCAccess().getManufacturerSTRINGTerminalRuleCall_3_0_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__RDC__ManufacturerAssignment_3_0_215137); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__RDC__ManufacturerAssignment_3_0_215201); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getRDCAccess().getManufacturerSTRINGTerminalRuleCall_3_0_2_0()); 
             }
@@ -19317,22 +19396,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RDC__PowerSupplyAssignment_3_1_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6925:1: rule__RDC__PowerSupplyAssignment_3_1_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6958:1: rule__RDC__PowerSupplyAssignment_3_1_2 : ( RULE_STRING ) ;
     public final void rule__RDC__PowerSupplyAssignment_3_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6929:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6930:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6962:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6963:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6930:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6931:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6963:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6964:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRDCAccess().getPowerSupplySTRINGTerminalRuleCall_3_1_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__RDC__PowerSupplyAssignment_3_1_215168); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__RDC__PowerSupplyAssignment_3_1_215232); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getRDCAccess().getPowerSupplySTRINGTerminalRuleCall_3_1_2_0()); 
             }
@@ -19358,22 +19437,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RDC__RdcTypeAssignment_3_2_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6940:1: rule__RDC__RdcTypeAssignment_3_2_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6973:1: rule__RDC__RdcTypeAssignment_3_2_2 : ( RULE_STRING ) ;
     public final void rule__RDC__RdcTypeAssignment_3_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6944:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6945:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6977:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6978:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6945:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6946:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6978:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6979:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRDCAccess().getRdcTypeSTRINGTerminalRuleCall_3_2_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__RDC__RdcTypeAssignment_3_2_215199); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__RDC__RdcTypeAssignment_3_2_215263); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getRDCAccess().getRdcTypeSTRINGTerminalRuleCall_3_2_2_0()); 
             }
@@ -19399,22 +19478,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RDC__EssAssignment_3_3_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6955:1: rule__RDC__EssAssignment_3_3_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6988:1: rule__RDC__EssAssignment_3_3_2 : ( RULE_STRING ) ;
     public final void rule__RDC__EssAssignment_3_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6959:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6960:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6992:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6993:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6960:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6961:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6993:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6994:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRDCAccess().getEssSTRINGTerminalRuleCall_3_3_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__RDC__EssAssignment_3_3_215230); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__RDC__EssAssignment_3_3_215294); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getRDCAccess().getEssSTRINGTerminalRuleCall_3_3_2_0()); 
             }
@@ -19440,22 +19519,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RDC__ConnectorsAssignment_3_4"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6970:1: rule__RDC__ConnectorsAssignment_3_4 : ( ruleConnector ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7003:1: rule__RDC__ConnectorsAssignment_3_4 : ( ruleConnector ) ;
     public final void rule__RDC__ConnectorsAssignment_3_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6974:1: ( ( ruleConnector ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6975:1: ( ruleConnector )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7007:1: ( ( ruleConnector ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7008:1: ( ruleConnector )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6975:1: ( ruleConnector )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6976:1: ruleConnector
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7008:1: ( ruleConnector )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7009:1: ruleConnector
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRDCAccess().getConnectorsConnectorParserRuleCall_3_4_0()); 
             }
-            pushFollow(FOLLOW_ruleConnector_in_rule__RDC__ConnectorsAssignment_3_415261);
+            pushFollow(FOLLOW_ruleConnector_in_rule__RDC__ConnectorsAssignment_3_415325);
             ruleConnector();
 
             state._fsp--;
@@ -19485,22 +19564,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Connector__NameAssignment_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6985:1: rule__Connector__NameAssignment_1 : ( RULE_ID ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7018:1: rule__Connector__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Connector__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6989:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6990:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7022:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7023:1: ( RULE_ID )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6990:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6991:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7023:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7024:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConnectorAccess().getNameIDTerminalRuleCall_1_0()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Connector__NameAssignment_115292); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Connector__NameAssignment_115356); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getConnectorAccess().getNameIDTerminalRuleCall_1_0()); 
             }
@@ -19526,22 +19605,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Connector__AvailableEqInterfacesAssignment_3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7000:1: rule__Connector__AvailableEqInterfacesAssignment_3 : ( ruleAvailableEqInterface ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7033:1: rule__Connector__AvailableEqInterfacesAssignment_3 : ( ruleAvailableEqInterface ) ;
     public final void rule__Connector__AvailableEqInterfacesAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7004:1: ( ( ruleAvailableEqInterface ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7005:1: ( ruleAvailableEqInterface )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7037:1: ( ( ruleAvailableEqInterface ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7038:1: ( ruleAvailableEqInterface )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7005:1: ( ruleAvailableEqInterface )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7006:1: ruleAvailableEqInterface
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7038:1: ( ruleAvailableEqInterface )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7039:1: ruleAvailableEqInterface
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConnectorAccess().getAvailableEqInterfacesAvailableEqInterfaceParserRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleAvailableEqInterface_in_rule__Connector__AvailableEqInterfacesAssignment_315323);
+            pushFollow(FOLLOW_ruleAvailableEqInterface_in_rule__Connector__AvailableEqInterfacesAssignment_315387);
             ruleAvailableEqInterface();
 
             state._fsp--;
@@ -19571,22 +19650,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AvailableEqInterface__EqInterfaceTypeAssignment_0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7015:1: rule__AvailableEqInterface__EqInterfaceTypeAssignment_0 : ( ruleEqInterfaceType ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7048:1: rule__AvailableEqInterface__EqInterfaceTypeAssignment_0 : ( ruleEqInterfaceType ) ;
     public final void rule__AvailableEqInterface__EqInterfaceTypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7019:1: ( ( ruleEqInterfaceType ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7020:1: ( ruleEqInterfaceType )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7052:1: ( ( ruleEqInterfaceType ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7053:1: ( ruleEqInterfaceType )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7020:1: ( ruleEqInterfaceType )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7021:1: ruleEqInterfaceType
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7053:1: ( ruleEqInterfaceType )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7054:1: ruleEqInterfaceType
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAvailableEqInterfaceAccess().getEqInterfaceTypeEqInterfaceTypeEnumRuleCall_0_0()); 
             }
-            pushFollow(FOLLOW_ruleEqInterfaceType_in_rule__AvailableEqInterface__EqInterfaceTypeAssignment_015354);
+            pushFollow(FOLLOW_ruleEqInterfaceType_in_rule__AvailableEqInterface__EqInterfaceTypeAssignment_015418);
             ruleEqInterfaceType();
 
             state._fsp--;
@@ -19616,22 +19695,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AvailableEqInterface__CountAssignment_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7030:1: rule__AvailableEqInterface__CountAssignment_2 : ( RULE_INT ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7063:1: rule__AvailableEqInterface__CountAssignment_2 : ( RULE_INT ) ;
     public final void rule__AvailableEqInterface__CountAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7034:1: ( ( RULE_INT ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7035:1: ( RULE_INT )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7067:1: ( ( RULE_INT ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7068:1: ( RULE_INT )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7035:1: ( RULE_INT )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7036:1: RULE_INT
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7068:1: ( RULE_INT )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7069:1: RULE_INT
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAvailableEqInterfaceAccess().getCountINTTerminalRuleCall_2_0()); 
             }
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__AvailableEqInterface__CountAssignment_215385); if (state.failed) return ;
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__AvailableEqInterface__CountAssignment_215449); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAvailableEqInterfaceAccess().getCountINTTerminalRuleCall_2_0()); 
             }
@@ -19657,22 +19736,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterfaceGroup__NameAssignment_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7045:1: rule__EqInterfaceGroup__NameAssignment_1 : ( RULE_ID ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7078:1: rule__EqInterfaceGroup__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__EqInterfaceGroup__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7049:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7050:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7082:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7083:1: ( RULE_ID )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7050:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7051:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7083:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7084:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceGroupAccess().getNameIDTerminalRuleCall_1_0()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__NameAssignment_115416); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__NameAssignment_115480); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceGroupAccess().getNameIDTerminalRuleCall_1_0()); 
             }
@@ -19698,28 +19777,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterfaceGroup__EqInterfacesAssignment_3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7060:1: rule__EqInterfaceGroup__EqInterfacesAssignment_3 : ( ( RULE_ID ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7093:1: rule__EqInterfaceGroup__EqInterfacesAssignment_3 : ( ( RULE_ID ) ) ;
     public final void rule__EqInterfaceGroup__EqInterfacesAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7064:1: ( ( ( RULE_ID ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7065:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7097:1: ( ( ( RULE_ID ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7098:1: ( ( RULE_ID ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7065:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7066:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7098:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7099:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceGroupAccess().getEqInterfacesEqInterfaceCrossReference_3_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7067:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7068:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7100:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7101:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceGroupAccess().getEqInterfacesEqInterfaceIDTerminalRuleCall_3_0_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__EqInterfacesAssignment_315451); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__EqInterfacesAssignment_315515); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceGroupAccess().getEqInterfacesEqInterfaceIDTerminalRuleCall_3_0_1()); 
             }
@@ -19751,28 +19830,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterfaceGroup__EqInterfacesAssignment_4_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7079:1: rule__EqInterfaceGroup__EqInterfacesAssignment_4_1 : ( ( RULE_ID ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7112:1: rule__EqInterfaceGroup__EqInterfacesAssignment_4_1 : ( ( RULE_ID ) ) ;
     public final void rule__EqInterfaceGroup__EqInterfacesAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7083:1: ( ( ( RULE_ID ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7084:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7116:1: ( ( ( RULE_ID ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7117:1: ( ( RULE_ID ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7084:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7085:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7117:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7118:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceGroupAccess().getEqInterfacesEqInterfaceCrossReference_4_1_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7086:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7087:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7119:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7120:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceGroupAccess().getEqInterfacesEqInterfaceIDTerminalRuleCall_4_1_0_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__EqInterfacesAssignment_4_115490); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__EqInterfacesAssignment_4_115554); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceGroupAccess().getEqInterfacesEqInterfaceIDTerminalRuleCall_4_1_0_1()); 
             }
@@ -19804,22 +19883,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__NameAssignment_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7098:1: rule__EqInterface__NameAssignment_1 : ( RULE_ID ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7131:1: rule__EqInterface__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__EqInterface__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7102:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7103:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7135:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7136:1: ( RULE_ID )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7103:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7104:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7136:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7137:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getNameIDTerminalRuleCall_1_0()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EqInterface__NameAssignment_115525); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__EqInterface__NameAssignment_115589); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getNameIDTerminalRuleCall_1_0()); 
             }
@@ -19845,22 +19924,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__SystemAssignment_3_0_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7113:1: rule__EqInterface__SystemAssignment_3_0_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7146:1: rule__EqInterface__SystemAssignment_3_0_2 : ( RULE_STRING ) ;
     public final void rule__EqInterface__SystemAssignment_3_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7117:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7118:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7150:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7151:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7118:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7119:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7151:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7152:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSystemSTRINGTerminalRuleCall_3_0_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__SystemAssignment_3_0_215556); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__SystemAssignment_3_0_215620); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getSystemSTRINGTerminalRuleCall_3_0_2_0()); 
             }
@@ -19886,22 +19965,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__SubAtaAssignment_3_1_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7128:1: rule__EqInterface__SubAtaAssignment_3_1_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7161:1: rule__EqInterface__SubAtaAssignment_3_1_2 : ( RULE_STRING ) ;
     public final void rule__EqInterface__SubAtaAssignment_3_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7132:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7133:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7165:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7166:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7133:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7134:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7166:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7167:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getSubAtaSTRINGTerminalRuleCall_3_1_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__SubAtaAssignment_3_1_215587); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__SubAtaAssignment_3_1_215651); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getSubAtaSTRINGTerminalRuleCall_3_1_2_0()); 
             }
@@ -19927,22 +20006,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__ResourceAssignment_3_2_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7143:1: rule__EqInterface__ResourceAssignment_3_2_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7176:1: rule__EqInterface__ResourceAssignment_3_2_2 : ( RULE_STRING ) ;
     public final void rule__EqInterface__ResourceAssignment_3_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7147:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7148:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7180:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7181:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7148:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7149:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7181:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7182:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getResourceSTRINGTerminalRuleCall_3_2_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__ResourceAssignment_3_2_215618); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__ResourceAssignment_3_2_215682); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getResourceSTRINGTerminalRuleCall_3_2_2_0()); 
             }
@@ -19968,22 +20047,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__LineNameAssignment_3_3_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7158:1: rule__EqInterface__LineNameAssignment_3_3_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7191:1: rule__EqInterface__LineNameAssignment_3_3_2 : ( RULE_STRING ) ;
     public final void rule__EqInterface__LineNameAssignment_3_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7162:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7163:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7195:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7196:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7163:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7164:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7196:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7197:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getLineNameSTRINGTerminalRuleCall_3_3_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__LineNameAssignment_3_3_215649); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__LineNameAssignment_3_3_215713); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getLineNameSTRINGTerminalRuleCall_3_3_2_0()); 
             }
@@ -20009,22 +20088,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__WiringLaneAssignment_3_4_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7173:1: rule__EqInterface__WiringLaneAssignment_3_4_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7206:1: rule__EqInterface__WiringLaneAssignment_3_4_2 : ( RULE_STRING ) ;
     public final void rule__EqInterface__WiringLaneAssignment_3_4_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7177:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7178:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7210:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7211:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7178:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7179:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7211:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7212:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getWiringLaneSTRINGTerminalRuleCall_3_4_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__WiringLaneAssignment_3_4_215680); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__WiringLaneAssignment_3_4_215744); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getWiringLaneSTRINGTerminalRuleCall_3_4_2_0()); 
             }
@@ -20050,22 +20129,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__GrpInfoAssignment_3_5_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7188:1: rule__EqInterface__GrpInfoAssignment_3_5_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7221:1: rule__EqInterface__GrpInfoAssignment_3_5_2 : ( RULE_STRING ) ;
     public final void rule__EqInterface__GrpInfoAssignment_3_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7192:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7193:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7225:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7226:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7193:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7194:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7226:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7227:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getGrpInfoSTRINGTerminalRuleCall_3_5_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__GrpInfoAssignment_3_5_215711); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__GrpInfoAssignment_3_5_215775); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getGrpInfoSTRINGTerminalRuleCall_3_5_2_0()); 
             }
@@ -20091,22 +20170,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__RouteAssignment_3_6_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7203:1: rule__EqInterface__RouteAssignment_3_6_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7236:1: rule__EqInterface__RouteAssignment_3_6_2 : ( RULE_STRING ) ;
     public final void rule__EqInterface__RouteAssignment_3_6_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7207:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7208:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7240:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7241:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7208:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7209:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7241:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7242:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getRouteSTRINGTerminalRuleCall_3_6_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__RouteAssignment_3_6_215742); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__RouteAssignment_3_6_215806); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getRouteSTRINGTerminalRuleCall_3_6_2_0()); 
             }
@@ -20132,22 +20211,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__PwSup1Assignment_3_7_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7218:1: rule__EqInterface__PwSup1Assignment_3_7_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7251:1: rule__EqInterface__PwSup1Assignment_3_7_2 : ( RULE_STRING ) ;
     public final void rule__EqInterface__PwSup1Assignment_3_7_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7222:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7223:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7255:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7256:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7223:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7224:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7256:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7257:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getPwSup1STRINGTerminalRuleCall_3_7_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__PwSup1Assignment_3_7_215773); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__PwSup1Assignment_3_7_215837); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getPwSup1STRINGTerminalRuleCall_3_7_2_0()); 
             }
@@ -20173,22 +20252,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__EmhZone1Assignment_3_8_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7233:1: rule__EqInterface__EmhZone1Assignment_3_8_2 : ( RULE_STRING ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7266:1: rule__EqInterface__EmhZone1Assignment_3_8_2 : ( RULE_STRING ) ;
     public final void rule__EqInterface__EmhZone1Assignment_3_8_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7237:1: ( ( RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7238:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7270:1: ( ( RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7271:1: ( RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7238:1: ( RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7239:1: RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7271:1: ( RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7272:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getEmhZone1STRINGTerminalRuleCall_3_8_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__EmhZone1Assignment_3_8_215804); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__EqInterface__EmhZone1Assignment_3_8_215868); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEqInterfaceAccess().getEmhZone1STRINGTerminalRuleCall_3_8_2_0()); 
             }
@@ -20214,22 +20293,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterface__IoTypeAssignment_3_9_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7248:1: rule__EqInterface__IoTypeAssignment_3_9_2 : ( ruleEqInterfaceType ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7281:1: rule__EqInterface__IoTypeAssignment_3_9_2 : ( ruleEqInterfaceType ) ;
     public final void rule__EqInterface__IoTypeAssignment_3_9_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7252:1: ( ( ruleEqInterfaceType ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7253:1: ( ruleEqInterfaceType )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7285:1: ( ( ruleEqInterfaceType ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7286:1: ( ruleEqInterfaceType )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7253:1: ( ruleEqInterfaceType )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7254:1: ruleEqInterfaceType
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7286:1: ( ruleEqInterfaceType )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7287:1: ruleEqInterfaceType
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEqInterfaceAccess().getIoTypeEqInterfaceTypeEnumRuleCall_3_9_2_0()); 
             }
-            pushFollow(FOLLOW_ruleEqInterfaceType_in_rule__EqInterface__IoTypeAssignment_3_9_215835);
+            pushFollow(FOLLOW_ruleEqInterfaceType_in_rule__EqInterface__IoTypeAssignment_3_9_215899);
             ruleEqInterfaceType();
 
             state._fsp--;
@@ -20259,28 +20338,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__EqInterfaceGroupAssignment_0_0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7263:1: rule__DislocalityRelation__EqInterfaceGroupAssignment_0_0 : ( ( RULE_ID ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7296:1: rule__DislocalityRelation__EqInterfaceGroupAssignment_0_0 : ( ( RULE_ID ) ) ;
     public final void rule__DislocalityRelation__EqInterfaceGroupAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7267:1: ( ( ( RULE_ID ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7268:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7300:1: ( ( ( RULE_ID ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7301:1: ( ( RULE_ID ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7268:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7269:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7301:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7302:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getEqInterfaceGroupEqInterfaceGroupCrossReference_0_0_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7270:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7271:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7303:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7304:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getEqInterfaceGroupEqInterfaceGroupIDTerminalRuleCall_0_0_0_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DislocalityRelation__EqInterfaceGroupAssignment_0_015870); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DislocalityRelation__EqInterfaceGroupAssignment_0_015934); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDislocalityRelationAccess().getEqInterfaceGroupEqInterfaceGroupIDTerminalRuleCall_0_0_0_1()); 
             }
@@ -20312,28 +20391,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__EqInterfacesAssignment_0_1_0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7282:1: rule__DislocalityRelation__EqInterfacesAssignment_0_1_0 : ( ( RULE_ID ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7315:1: rule__DislocalityRelation__EqInterfacesAssignment_0_1_0 : ( ( RULE_ID ) ) ;
     public final void rule__DislocalityRelation__EqInterfacesAssignment_0_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7286:1: ( ( ( RULE_ID ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7287:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7319:1: ( ( ( RULE_ID ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7320:1: ( ( RULE_ID ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7287:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7288:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7320:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7321:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getEqInterfacesEqInterfaceCrossReference_0_1_0_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7289:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7290:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7322:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7323:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getEqInterfacesEqInterfaceIDTerminalRuleCall_0_1_0_0_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DislocalityRelation__EqInterfacesAssignment_0_1_015909); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DislocalityRelation__EqInterfacesAssignment_0_1_015973); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDislocalityRelationAccess().getEqInterfacesEqInterfaceIDTerminalRuleCall_0_1_0_0_1()); 
             }
@@ -20365,28 +20444,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7301:1: rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1 : ( ( RULE_ID ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7334:1: rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1 : ( ( RULE_ID ) ) ;
     public final void rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7305:1: ( ( ( RULE_ID ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7306:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7338:1: ( ( ( RULE_ID ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7339:1: ( ( RULE_ID ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7306:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7307:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7339:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7340:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getEqInterfacesEqInterfaceCrossReference_0_1_1_1_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7308:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7309:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7341:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7342:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getEqInterfacesEqInterfaceIDTerminalRuleCall_0_1_1_1_0_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_115948); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_116012); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDislocalityRelationAccess().getEqInterfacesEqInterfaceIDTerminalRuleCall_0_1_1_1_0_1()); 
             }
@@ -20418,22 +20497,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DislocalityRelation__HardwareLevelAssignment_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7320:1: rule__DislocalityRelation__HardwareLevelAssignment_2 : ( ruleHardwareArchitectureLevelType ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7353:1: rule__DislocalityRelation__HardwareLevelAssignment_2 : ( ruleHardwareArchitectureLevelType ) ;
     public final void rule__DislocalityRelation__HardwareLevelAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7324:1: ( ( ruleHardwareArchitectureLevelType ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7325:1: ( ruleHardwareArchitectureLevelType )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7357:1: ( ( ruleHardwareArchitectureLevelType ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7358:1: ( ruleHardwareArchitectureLevelType )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7325:1: ( ruleHardwareArchitectureLevelType )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7326:1: ruleHardwareArchitectureLevelType
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7358:1: ( ruleHardwareArchitectureLevelType )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7359:1: ruleHardwareArchitectureLevelType
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDislocalityRelationAccess().getHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleHardwareArchitectureLevelType_in_rule__DislocalityRelation__HardwareLevelAssignment_215983);
+            pushFollow(FOLLOW_ruleHardwareArchitectureLevelType_in_rule__DislocalityRelation__HardwareLevelAssignment_216047);
             ruleHardwareArchitectureLevelType();
 
             state._fsp--;
@@ -20463,28 +20542,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__EqInterfaceGroupsAssignment_0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7335:1: rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 : ( ( RULE_ID ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7368:1: rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__ColocalityRelation__EqInterfaceGroupsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7339:1: ( ( ( RULE_ID ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7340:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7372:1: ( ( ( RULE_ID ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7373:1: ( ( RULE_ID ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7340:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7341:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7373:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7374:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupCrossReference_0_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7342:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7343:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7375:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7376:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupIDTerminalRuleCall_0_0_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceGroupsAssignment_016018); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceGroupsAssignment_016082); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupIDTerminalRuleCall_0_0_1()); 
             }
@@ -20516,28 +20595,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7354:1: rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 : ( ( RULE_ID ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7387:1: rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 : ( ( RULE_ID ) ) ;
     public final void rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7358:1: ( ( ( RULE_ID ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7359:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7391:1: ( ( ( RULE_ID ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7392:1: ( ( RULE_ID ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7359:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7360:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7392:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7393:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupCrossReference_1_1_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7361:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7362:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7394:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7395:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupIDTerminalRuleCall_1_1_0_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_116057); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_116121); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupIDTerminalRuleCall_1_1_0_1()); 
             }
@@ -20569,22 +20648,22 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__HardwareLevelAssignment_3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7373:1: rule__ColocalityRelation__HardwareLevelAssignment_3 : ( ruleHardwareArchitectureLevelType ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7406:1: rule__ColocalityRelation__HardwareLevelAssignment_3 : ( ruleHardwareArchitectureLevelType ) ;
     public final void rule__ColocalityRelation__HardwareLevelAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7377:1: ( ( ruleHardwareArchitectureLevelType ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7378:1: ( ruleHardwareArchitectureLevelType )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7410:1: ( ( ruleHardwareArchitectureLevelType ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7411:1: ( ruleHardwareArchitectureLevelType )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7378:1: ( ruleHardwareArchitectureLevelType )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7379:1: ruleHardwareArchitectureLevelType
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7411:1: ( ruleHardwareArchitectureLevelType )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7412:1: ruleHardwareArchitectureLevelType
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getColocalityRelationAccess().getHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleHardwareArchitectureLevelType_in_rule__ColocalityRelation__HardwareLevelAssignment_316092);
+            pushFollow(FOLLOW_ruleHardwareArchitectureLevelType_in_rule__ColocalityRelation__HardwareLevelAssignment_316156);
             ruleHardwareArchitectureLevelType();
 
             state._fsp--;
@@ -20614,28 +20693,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7388:1: rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1 : ( ( RULE_ID ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7421:1: rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7392:1: ( ( ( RULE_ID ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7393:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7425:1: ( ( ( RULE_ID ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7426:1: ( ( RULE_ID ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7393:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7394:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7426:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7427:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7395:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7396:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7428:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7429:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_1_0_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_116127); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_116191); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getValidDeploymentAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_1_0_1()); 
             }
@@ -20667,28 +20746,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7407:1: rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1 : ( ( RULE_ID ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7440:1: rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1 : ( ( RULE_ID ) ) ;
     public final void rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7411:1: ( ( ( RULE_ID ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7412:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7444:1: ( ( ( RULE_ID ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7445:1: ( ( RULE_ID ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7412:1: ( ( RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7413:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7445:1: ( ( RULE_ID ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7446:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_2_1_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7414:1: ( RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7415:1: RULE_ID
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7447:1: ( RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7448:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_2_1_0_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_116166); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_116230); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getValidDeploymentAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_2_1_0_1()); 
             }
@@ -20720,28 +20799,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__HardwareElementsAssignment_5"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7426:1: rule__ValidDeployment__HardwareElementsAssignment_5 : ( ( ruleQualifiedName ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7459:1: rule__ValidDeployment__HardwareElementsAssignment_5 : ( ( ruleQualifiedName ) ) ;
     public final void rule__ValidDeployment__HardwareElementsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7430:1: ( ( ( ruleQualifiedName ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7431:1: ( ( ruleQualifiedName ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7463:1: ( ( ( ruleQualifiedName ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7464:1: ( ( ruleQualifiedName ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7431:1: ( ( ruleQualifiedName ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7432:1: ( ruleQualifiedName )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7464:1: ( ( ruleQualifiedName ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7465:1: ( ruleQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_5_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7433:1: ( ruleQualifiedName )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7434:1: ruleQualifiedName
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7466:1: ( ruleQualifiedName )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7467:1: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementQualifiedNameParserRuleCall_5_0_1()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__ValidDeployment__HardwareElementsAssignment_516205);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__ValidDeployment__HardwareElementsAssignment_516269);
             ruleQualifiedName();
 
             state._fsp--;
@@ -20777,28 +20856,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__HardwareElementsAssignment_6_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7445:1: rule__ValidDeployment__HardwareElementsAssignment_6_1 : ( ( ruleQualifiedName ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7478:1: rule__ValidDeployment__HardwareElementsAssignment_6_1 : ( ( ruleQualifiedName ) ) ;
     public final void rule__ValidDeployment__HardwareElementsAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7449:1: ( ( ( ruleQualifiedName ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7450:1: ( ( ruleQualifiedName ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7482:1: ( ( ( ruleQualifiedName ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7483:1: ( ( ruleQualifiedName ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7450:1: ( ( ruleQualifiedName ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7451:1: ( ruleQualifiedName )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7483:1: ( ( ruleQualifiedName ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7484:1: ( ruleQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_1_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7452:1: ( ruleQualifiedName )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7453:1: ruleQualifiedName
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7485:1: ( ruleQualifiedName )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7486:1: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementQualifiedNameParserRuleCall_6_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__ValidDeployment__HardwareElementsAssignment_6_116244);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__ValidDeployment__HardwareElementsAssignment_6_116308);
             ruleQualifiedName();
 
             state._fsp--;
@@ -20834,10 +20913,10 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
     // $ANTLR start synpred1_InternalMappingDSL
     public final void synpred1_InternalMappingDSL_fragment() throws RecognitionException {   
-        // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6061:8: ( rule__Compartment__RdcsAssignment_3_4 )
-        // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6061:9: rule__Compartment__RdcsAssignment_3_4
+        // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6094:8: ( rule__Compartment__RdcsAssignment_3_4 )
+        // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6094:9: rule__Compartment__RdcsAssignment_3_4
         {
-        pushFollow(FOLLOW_rule__Compartment__RdcsAssignment_3_4_in_synpred1_InternalMappingDSL12513);
+        pushFollow(FOLLOW_rule__Compartment__RdcsAssignment_3_4_in_synpred1_InternalMappingDSL12577);
         rule__Compartment__RdcsAssignment_3_4();
 
         state._fsp--;
@@ -20849,10 +20928,10 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
     // $ANTLR start synpred2_InternalMappingDSL
     public final void synpred2_InternalMappingDSL_fragment() throws RecognitionException {   
-        // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6259:8: ( rule__RDC__ConnectorsAssignment_3_4 )
-        // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6259:9: rule__RDC__ConnectorsAssignment_3_4
+        // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6292:8: ( rule__RDC__ConnectorsAssignment_3_4 )
+        // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6292:9: rule__RDC__ConnectorsAssignment_3_4
         {
-        pushFollow(FOLLOW_rule__RDC__ConnectorsAssignment_3_4_in_synpred2_InternalMappingDSL13223);
+        pushFollow(FOLLOW_rule__RDC__ConnectorsAssignment_3_4_in_synpred2_InternalMappingDSL13287);
         rule__RDC__ConnectorsAssignment_3_4();
 
         state._fsp--;
@@ -21073,7 +21152,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             this.transition = DFA25_transition;
         }
         public String getDescription() {
-            return "()* loopback of 6259:7: ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )*";
+            return "()* loopback of 6292:7: ( ( rule__RDC__ConnectorsAssignment_3_4 )=> rule__RDC__ConnectorsAssignment_3_4 )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -21160,7 +21239,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             this.transition = DFA31_transition;
         }
         public String getDescription() {
-            return "6354:2: ( rule__EqInterface__UnorderedGroup_3__0 )?";
+            return "6387:2: ( rule__EqInterface__UnorderedGroup_3__0 )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -21263,7 +21342,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             this.transition = DFA32_transition;
         }
         public String getDescription() {
-            return "6370:3: ( ({...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) ) ) )";
+            return "6403:3: ( ({...}? => ( ( ( rule__EqInterface__Group_3_0__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_1__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_2__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_3__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_4__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_5__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_6__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_7__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_8__0 ) ) ) ) | ({...}? => ( ( ( rule__EqInterface__Group_3_9__0 ) ) ) ) )";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -21366,7 +21445,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             this.transition = DFA33_transition;
         }
         public String getDescription() {
-            return "6557:2: ( rule__EqInterface__UnorderedGroup_3__1 )?";
+            return "6590:2: ( rule__EqInterface__UnorderedGroup_3__1 )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -21471,7 +21550,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             this.transition = DFA34_transition;
         }
         public String getDescription() {
-            return "6570:2: ( rule__EqInterface__UnorderedGroup_3__2 )?";
+            return "6603:2: ( rule__EqInterface__UnorderedGroup_3__2 )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -21576,7 +21655,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             this.transition = DFA35_transition;
         }
         public String getDescription() {
-            return "6583:2: ( rule__EqInterface__UnorderedGroup_3__3 )?";
+            return "6616:2: ( rule__EqInterface__UnorderedGroup_3__3 )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -21681,7 +21760,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             this.transition = DFA36_transition;
         }
         public String getDescription() {
-            return "6596:2: ( rule__EqInterface__UnorderedGroup_3__4 )?";
+            return "6629:2: ( rule__EqInterface__UnorderedGroup_3__4 )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -21786,7 +21865,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             this.transition = DFA37_transition;
         }
         public String getDescription() {
-            return "6609:2: ( rule__EqInterface__UnorderedGroup_3__5 )?";
+            return "6642:2: ( rule__EqInterface__UnorderedGroup_3__5 )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -21891,7 +21970,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             this.transition = DFA38_transition;
         }
         public String getDescription() {
-            return "6622:2: ( rule__EqInterface__UnorderedGroup_3__6 )?";
+            return "6655:2: ( rule__EqInterface__UnorderedGroup_3__6 )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -21996,7 +22075,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             this.transition = DFA39_transition;
         }
         public String getDescription() {
-            return "6635:2: ( rule__EqInterface__UnorderedGroup_3__7 )?";
+            return "6668:2: ( rule__EqInterface__UnorderedGroup_3__7 )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -22101,7 +22180,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             this.transition = DFA40_transition;
         }
         public String getDescription() {
-            return "6648:2: ( rule__EqInterface__UnorderedGroup_3__8 )?";
+            return "6681:2: ( rule__EqInterface__UnorderedGroup_3__8 )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -22206,7 +22285,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             this.transition = DFA41_transition;
         }
         public String getDescription() {
-            return "6661:2: ( rule__EqInterface__UnorderedGroup_3__9 )?";
+            return "6694:2: ( rule__EqInterface__UnorderedGroup_3__9 )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -22569,335 +22648,338 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group__5_in_rule__EqInterfaceGroup__Group__46924 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group_4__0_in_rule__EqInterfaceGroup__Group__4__Impl6953 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
     public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group_4__0_in_rule__EqInterfaceGroup__Group__4__Impl6965 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group__5__Impl_in_rule__EqInterfaceGroup__Group__56998 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_rule__EqInterfaceGroup__Group__5__Impl7026 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group_4__0__Impl_in_rule__EqInterfaceGroup__Group_4__07069 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group_4__1_in_rule__EqInterfaceGroup__Group_4__07072 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_rule__EqInterfaceGroup__Group_4__0__Impl7100 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group_4__1__Impl_in_rule__EqInterfaceGroup__Group_4__17131 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterfaceGroup__EqInterfacesAssignment_4_1_in_rule__EqInterfaceGroup__Group_4__1__Impl7158 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group__0__Impl_in_rule__EqInterface__Group__07192 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group__1_in_rule__EqInterface__Group__07195 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_77_in_rule__EqInterface__Group__0__Impl7223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group__1__Impl_in_rule__EqInterface__Group__17254 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group__2_in_rule__EqInterface__Group__17257 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__NameAssignment_1_in_rule__EqInterface__Group__1__Impl7284 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group__2__Impl_in_rule__EqInterface__Group__27314 = new BitSet(new long[]{0x0000000000000000L,0x00000000007FC200L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group__3_in_rule__EqInterface__Group__27317 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_61_in_rule__EqInterface__Group__2__Impl7345 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group__3__Impl_in_rule__EqInterface__Group__37376 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group__4_in_rule__EqInterface__Group__37379 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3_in_rule__EqInterface__Group__3__Impl7406 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group__4__Impl_in_rule__EqInterface__Group__47436 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_rule__EqInterface__Group__4__Impl7464 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__0__Impl_in_rule__EqInterface__Group_3_0__07505 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__1_in_rule__EqInterface__Group_3_0__07508 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_78_in_rule__EqInterface__Group_3_0__0__Impl7536 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__1__Impl_in_rule__EqInterface__Group_3_0__17567 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__2_in_rule__EqInterface__Group_3_0__17570 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_0__1__Impl7598 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__2__Impl_in_rule__EqInterface__Group_3_0__27629 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__3_in_rule__EqInterface__Group_3_0__27632 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__SystemAssignment_3_0_2_in_rule__EqInterface__Group_3_0__2__Impl7659 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__3__Impl_in_rule__EqInterface__Group_3_0__37689 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_0__3__Impl7717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__0__Impl_in_rule__EqInterface__Group_3_1__07756 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__1_in_rule__EqInterface__Group_3_1__07759 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_79_in_rule__EqInterface__Group_3_1__0__Impl7787 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__1__Impl_in_rule__EqInterface__Group_3_1__17818 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__2_in_rule__EqInterface__Group_3_1__17821 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_1__1__Impl7849 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__2__Impl_in_rule__EqInterface__Group_3_1__27880 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__3_in_rule__EqInterface__Group_3_1__27883 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__SubAtaAssignment_3_1_2_in_rule__EqInterface__Group_3_1__2__Impl7910 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__3__Impl_in_rule__EqInterface__Group_3_1__37940 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_1__3__Impl7968 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__0__Impl_in_rule__EqInterface__Group_3_2__08007 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__1_in_rule__EqInterface__Group_3_2__08010 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_80_in_rule__EqInterface__Group_3_2__0__Impl8038 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__1__Impl_in_rule__EqInterface__Group_3_2__18069 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__2_in_rule__EqInterface__Group_3_2__18072 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_2__1__Impl8100 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__2__Impl_in_rule__EqInterface__Group_3_2__28131 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__3_in_rule__EqInterface__Group_3_2__28134 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__ResourceAssignment_3_2_2_in_rule__EqInterface__Group_3_2__2__Impl8161 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__3__Impl_in_rule__EqInterface__Group_3_2__38191 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_2__3__Impl8219 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__0__Impl_in_rule__EqInterface__Group_3_3__08258 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__1_in_rule__EqInterface__Group_3_3__08261 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_81_in_rule__EqInterface__Group_3_3__0__Impl8289 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__1__Impl_in_rule__EqInterface__Group_3_3__18320 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__2_in_rule__EqInterface__Group_3_3__18323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_3__1__Impl8351 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__2__Impl_in_rule__EqInterface__Group_3_3__28382 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__3_in_rule__EqInterface__Group_3_3__28385 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__LineNameAssignment_3_3_2_in_rule__EqInterface__Group_3_3__2__Impl8412 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__3__Impl_in_rule__EqInterface__Group_3_3__38442 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_3__3__Impl8470 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__0__Impl_in_rule__EqInterface__Group_3_4__08509 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__1_in_rule__EqInterface__Group_3_4__08512 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_82_in_rule__EqInterface__Group_3_4__0__Impl8540 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__1__Impl_in_rule__EqInterface__Group_3_4__18571 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__2_in_rule__EqInterface__Group_3_4__18574 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_4__1__Impl8602 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__2__Impl_in_rule__EqInterface__Group_3_4__28633 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__3_in_rule__EqInterface__Group_3_4__28636 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__WiringLaneAssignment_3_4_2_in_rule__EqInterface__Group_3_4__2__Impl8663 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__3__Impl_in_rule__EqInterface__Group_3_4__38693 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_4__3__Impl8721 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__0__Impl_in_rule__EqInterface__Group_3_5__08760 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__1_in_rule__EqInterface__Group_3_5__08763 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_83_in_rule__EqInterface__Group_3_5__0__Impl8791 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__1__Impl_in_rule__EqInterface__Group_3_5__18822 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__2_in_rule__EqInterface__Group_3_5__18825 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_5__1__Impl8853 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__2__Impl_in_rule__EqInterface__Group_3_5__28884 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__3_in_rule__EqInterface__Group_3_5__28887 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__GrpInfoAssignment_3_5_2_in_rule__EqInterface__Group_3_5__2__Impl8914 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__3__Impl_in_rule__EqInterface__Group_3_5__38944 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_5__3__Impl8972 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__0__Impl_in_rule__EqInterface__Group_3_6__09011 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__1_in_rule__EqInterface__Group_3_6__09014 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_84_in_rule__EqInterface__Group_3_6__0__Impl9042 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__1__Impl_in_rule__EqInterface__Group_3_6__19073 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__2_in_rule__EqInterface__Group_3_6__19076 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_6__1__Impl9104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__2__Impl_in_rule__EqInterface__Group_3_6__29135 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__3_in_rule__EqInterface__Group_3_6__29138 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__RouteAssignment_3_6_2_in_rule__EqInterface__Group_3_6__2__Impl9165 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__3__Impl_in_rule__EqInterface__Group_3_6__39195 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_6__3__Impl9223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__0__Impl_in_rule__EqInterface__Group_3_7__09262 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__1_in_rule__EqInterface__Group_3_7__09265 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_85_in_rule__EqInterface__Group_3_7__0__Impl9293 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__1__Impl_in_rule__EqInterface__Group_3_7__19324 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__2_in_rule__EqInterface__Group_3_7__19327 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_7__1__Impl9355 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__2__Impl_in_rule__EqInterface__Group_3_7__29386 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__3_in_rule__EqInterface__Group_3_7__29389 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__PwSup1Assignment_3_7_2_in_rule__EqInterface__Group_3_7__2__Impl9416 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__3__Impl_in_rule__EqInterface__Group_3_7__39446 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_7__3__Impl9474 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__0__Impl_in_rule__EqInterface__Group_3_8__09513 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__1_in_rule__EqInterface__Group_3_8__09516 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_86_in_rule__EqInterface__Group_3_8__0__Impl9544 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__1__Impl_in_rule__EqInterface__Group_3_8__19575 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__2_in_rule__EqInterface__Group_3_8__19578 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_8__1__Impl9606 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__2__Impl_in_rule__EqInterface__Group_3_8__29637 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__3_in_rule__EqInterface__Group_3_8__29640 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__EmhZone1Assignment_3_8_2_in_rule__EqInterface__Group_3_8__2__Impl9667 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__3__Impl_in_rule__EqInterface__Group_3_8__39697 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_8__3__Impl9725 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__0__Impl_in_rule__EqInterface__Group_3_9__09764 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__1_in_rule__EqInterface__Group_3_9__09767 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_73_in_rule__EqInterface__Group_3_9__0__Impl9795 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__1__Impl_in_rule__EqInterface__Group_3_9__19826 = new BitSet(new long[]{0x0FFFFFFFFFFFC000L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__2_in_rule__EqInterface__Group_3_9__19829 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_9__1__Impl9857 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__2__Impl_in_rule__EqInterface__Group_3_9__29888 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__3_in_rule__EqInterface__Group_3_9__29891 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__IoTypeAssignment_3_9_2_in_rule__EqInterface__Group_3_9__2__Impl9918 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__3__Impl_in_rule__EqInterface__Group_3_9__39948 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_9__3__Impl9976 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group__0__Impl_in_rule__DislocalityRelation__Group__010015 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group__1_in_rule__DislocalityRelation__Group__010018 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Alternatives_0_in_rule__DislocalityRelation__Group__0__Impl10045 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group__1__Impl_in_rule__DislocalityRelation__Group__110075 = new BitSet(new long[]{0x0000000000003800L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group__2_in_rule__DislocalityRelation__Group__110078 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_87_in_rule__DislocalityRelation__Group__1__Impl10106 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group__2__Impl_in_rule__DislocalityRelation__Group__210137 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group__3_in_rule__DislocalityRelation__Group__210140 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__HardwareLevelAssignment_2_in_rule__DislocalityRelation__Group__2__Impl10167 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group__3__Impl_in_rule__DislocalityRelation__Group__310197 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_rule__DislocalityRelation__Group__3__Impl10225 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1__0__Impl_in_rule__DislocalityRelation__Group_0_1__010264 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1__1_in_rule__DislocalityRelation__Group_0_1__010267 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__EqInterfacesAssignment_0_1_0_in_rule__DislocalityRelation__Group_0_1__0__Impl10294 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1__1__Impl_in_rule__DislocalityRelation__Group_0_1__110324 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1_1__0_in_rule__DislocalityRelation__Group_0_1__1__Impl10353 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1_1__0_in_rule__DislocalityRelation__Group_0_1__1__Impl10365 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1_1__0__Impl_in_rule__DislocalityRelation__Group_0_1_1__010402 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1_1__1_in_rule__DislocalityRelation__Group_0_1_1__010405 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_rule__DislocalityRelation__Group_0_1_1__0__Impl10433 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1_1__1__Impl_in_rule__DislocalityRelation__Group_0_1_1__110464 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1_in_rule__DislocalityRelation__Group_0_1_1__1__Impl10491 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__0__Impl_in_rule__ColocalityRelation__Group__010525 = new BitSet(new long[]{0x0000000000000000L,0x0000000001001000L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__1_in_rule__ColocalityRelation__Group__010528 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__EqInterfaceGroupsAssignment_0_in_rule__ColocalityRelation__Group__0__Impl10555 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__1__Impl_in_rule__ColocalityRelation__Group__110585 = new BitSet(new long[]{0x0000000000000000L,0x0000000001001000L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__2_in_rule__ColocalityRelation__Group__110588 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__Group_1__0_in_rule__ColocalityRelation__Group__1__Impl10615 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__2__Impl_in_rule__ColocalityRelation__Group__210646 = new BitSet(new long[]{0x0000000000003800L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__3_in_rule__ColocalityRelation__Group__210649 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_88_in_rule__ColocalityRelation__Group__2__Impl10677 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__3__Impl_in_rule__ColocalityRelation__Group__310708 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__4_in_rule__ColocalityRelation__Group__310711 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__HardwareLevelAssignment_3_in_rule__ColocalityRelation__Group__3__Impl10738 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__4__Impl_in_rule__ColocalityRelation__Group__410768 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_rule__ColocalityRelation__Group__4__Impl10796 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__Group_1__0__Impl_in_rule__ColocalityRelation__Group_1__010837 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__Group_1__1_in_rule__ColocalityRelation__Group_1__010840 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_rule__ColocalityRelation__Group_1__0__Impl10868 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__Group_1__1__Impl_in_rule__ColocalityRelation__Group_1__110899 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1_in_rule__ColocalityRelation__Group_1__1__Impl10926 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__0__Impl_in_rule__ValidDeployment__Group__010960 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__1_in_rule__ValidDeployment__Group__010963 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_89_in_rule__ValidDeployment__Group__0__Impl10991 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__1__Impl_in_rule__ValidDeployment__Group__111022 = new BitSet(new long[]{0x0000000000000000L,0x0000000004001000L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__2_in_rule__ValidDeployment__Group__111025 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1_in_rule__ValidDeployment__Group__1__Impl11052 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__2__Impl_in_rule__ValidDeployment__Group__211082 = new BitSet(new long[]{0x0000000000000000L,0x0000000004001000L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__3_in_rule__ValidDeployment__Group__211085 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group_2__0_in_rule__ValidDeployment__Group__2__Impl11112 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__3__Impl_in_rule__ValidDeployment__Group__311143 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__4_in_rule__ValidDeployment__Group__311146 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_90_in_rule__ValidDeployment__Group__3__Impl11174 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__4__Impl_in_rule__ValidDeployment__Group__411205 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__5_in_rule__ValidDeployment__Group__411208 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_61_in_rule__ValidDeployment__Group__4__Impl11236 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__5__Impl_in_rule__ValidDeployment__Group__511267 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__6_in_rule__ValidDeployment__Group__511270 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__HardwareElementsAssignment_5_in_rule__ValidDeployment__Group__5__Impl11297 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__6__Impl_in_rule__ValidDeployment__Group__611327 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__7_in_rule__ValidDeployment__Group__611330 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6__0_in_rule__ValidDeployment__Group__6__Impl11357 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__7__Impl_in_rule__ValidDeployment__Group__711388 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__8_in_rule__ValidDeployment__Group__711391 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_rule__ValidDeployment__Group__7__Impl11419 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__8__Impl_in_rule__ValidDeployment__Group__811450 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_rule__ValidDeployment__Group__8__Impl11478 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group_2__0__Impl_in_rule__ValidDeployment__Group_2__011527 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group_2__1_in_rule__ValidDeployment__Group_2__011530 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_rule__ValidDeployment__Group_2__0__Impl11558 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group_2__1__Impl_in_rule__ValidDeployment__Group_2__111589 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1_in_rule__ValidDeployment__Group_2__1__Impl11616 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6__0__Impl_in_rule__ValidDeployment__Group_6__011650 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6__1_in_rule__ValidDeployment__Group_6__011653 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_rule__ValidDeployment__Group_6__0__Impl11681 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6__1__Impl_in_rule__ValidDeployment__Group_6__111712 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__HardwareElementsAssignment_6_1_in_rule__ValidDeployment__Group_6__1__Impl11739 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group__0__Impl_in_rule__QualifiedName__Group__011774 = new BitSet(new long[]{0x0000000000000000L,0x0000000008000000L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group__1_in_rule__QualifiedName__Group__011777 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__QualifiedName__Group__0__Impl11804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group__1__Impl_in_rule__QualifiedName__Group__111833 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0_in_rule__QualifiedName__Group__1__Impl11860 = new BitSet(new long[]{0x0000000000000002L,0x0000000008000000L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0__Impl_in_rule__QualifiedName__Group_1__011895 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__1_in_rule__QualifiedName__Group_1__011898 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_91_in_rule__QualifiedName__Group_1__0__Impl11926 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__1__Impl_in_rule__QualifiedName__Group_1__111957 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__QualifiedName__Group_1__1__Impl11984 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__0_in_rule__Compartment__UnorderedGroup_312018 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Compartment__Group_3_0__0_in_rule__Compartment__UnorderedGroup_3__Impl12107 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Compartment__Group_3_1__0_in_rule__Compartment__UnorderedGroup_3__Impl12198 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Compartment__Group_3_2__0_in_rule__Compartment__UnorderedGroup_3__Impl12289 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Compartment__Group_3_3__0_in_rule__Compartment__UnorderedGroup_3__Impl12380 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Compartment__RdcsAssignment_3_4_in_rule__Compartment__UnorderedGroup_3__Impl12472 = new BitSet(new long[]{0x0000000000001002L,0x00000000000001E0L});
-    public static final BitSet FOLLOW_rule__Compartment__RdcsAssignment_3_4_in_rule__Compartment__UnorderedGroup_3__Impl12516 = new BitSet(new long[]{0x0000000000001002L,0x00000000000001E0L});
-    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__012582 = new BitSet(new long[]{0x0000000000001002L,0x00000000000001E0L});
-    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__1_in_rule__Compartment__UnorderedGroup_3__012585 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__112610 = new BitSet(new long[]{0x0000000000001002L,0x00000000000001E0L});
-    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__2_in_rule__Compartment__UnorderedGroup_3__112613 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__212638 = new BitSet(new long[]{0x0000000000001002L,0x00000000000001E0L});
-    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__3_in_rule__Compartment__UnorderedGroup_3__212641 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__312666 = new BitSet(new long[]{0x0000000000001002L,0x00000000000001E0L});
-    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__4_in_rule__Compartment__UnorderedGroup_3__312669 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__412694 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__0_in_rule__RDC__UnorderedGroup_312728 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RDC__Group_3_0__0_in_rule__RDC__UnorderedGroup_3__Impl12817 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RDC__Group_3_1__0_in_rule__RDC__UnorderedGroup_3__Impl12908 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RDC__Group_3_2__0_in_rule__RDC__UnorderedGroup_3__Impl12999 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RDC__Group_3_3__0_in_rule__RDC__UnorderedGroup_3__Impl13090 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RDC__ConnectorsAssignment_3_4_in_rule__RDC__UnorderedGroup_3__Impl13182 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000660L});
-    public static final BitSet FOLLOW_rule__RDC__ConnectorsAssignment_3_4_in_rule__RDC__UnorderedGroup_3__Impl13226 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000660L});
-    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__013292 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000660L});
-    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__1_in_rule__RDC__UnorderedGroup_3__013295 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__113320 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000660L});
-    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__2_in_rule__RDC__UnorderedGroup_3__113323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__213348 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000660L});
-    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__3_in_rule__RDC__UnorderedGroup_3__213351 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__313376 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000660L});
-    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__4_in_rule__RDC__UnorderedGroup_3__313379 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__413404 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__0_in_rule__EqInterface__UnorderedGroup_313438 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__0_in_rule__EqInterface__UnorderedGroup_3__Impl13525 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__0_in_rule__EqInterface__UnorderedGroup_3__Impl13616 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__0_in_rule__EqInterface__UnorderedGroup_3__Impl13707 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__0_in_rule__EqInterface__UnorderedGroup_3__Impl13798 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__0_in_rule__EqInterface__UnorderedGroup_3__Impl13889 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__0_in_rule__EqInterface__UnorderedGroup_3__Impl13980 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__0_in_rule__EqInterface__UnorderedGroup_3__Impl14071 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__0_in_rule__EqInterface__UnorderedGroup_3__Impl14162 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__0_in_rule__EqInterface__UnorderedGroup_3__Impl14253 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__0_in_rule__EqInterface__UnorderedGroup_3__Impl14344 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__014403 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__1_in_rule__EqInterface__UnorderedGroup_3__014406 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__114431 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__2_in_rule__EqInterface__UnorderedGroup_3__114434 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__214459 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__3_in_rule__EqInterface__UnorderedGroup_3__214462 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__314487 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__4_in_rule__EqInterface__UnorderedGroup_3__314490 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__414515 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__5_in_rule__EqInterface__UnorderedGroup_3__414518 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__514543 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__6_in_rule__EqInterface__UnorderedGroup_3__514546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__614571 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__7_in_rule__EqInterface__UnorderedGroup_3__614574 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__714599 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__8_in_rule__EqInterface__UnorderedGroup_3__714602 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__814627 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__9_in_rule__EqInterface__UnorderedGroup_3__814630 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__914655 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__AssistModel__SystemNameAssignment_414703 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompartment_in_rule__AssistModel__CompartmentsAssignment_714734 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEqInterface_in_rule__AssistModel__EqInterfacesAssignment_8_214765 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEqInterfaceGroup_in_rule__AssistModel__EqInterfaceGroupsAssignment_9_214796 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDislocalityRelation_in_rule__AssistModel__DislocalityRelationsAssignment_10_2_014827 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleColocalityRelation_in_rule__AssistModel__ColocalityRelationsAssignment_10_2_114858 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidDeployment_in_rule__AssistModel__ValidDeploymentsAssignment_10_2_214889 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Compartment__NameAssignment_114920 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Compartment__ManufacturerAssignment_3_0_214951 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Compartment__PowerSupplyAssignment_3_1_214982 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Compartment__SideAssignment_3_2_215013 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Compartment__ZoneAssignment_3_3_215044 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRDC_in_rule__Compartment__RdcsAssignment_3_415075 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__RDC__NameAssignment_115106 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__RDC__ManufacturerAssignment_3_0_215137 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__RDC__PowerSupplyAssignment_3_1_215168 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__RDC__RdcTypeAssignment_3_2_215199 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__RDC__EssAssignment_3_3_215230 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConnector_in_rule__RDC__ConnectorsAssignment_3_415261 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Connector__NameAssignment_115292 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAvailableEqInterface_in_rule__Connector__AvailableEqInterfacesAssignment_315323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEqInterfaceType_in_rule__AvailableEqInterface__EqInterfaceTypeAssignment_015354 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_rule__AvailableEqInterface__CountAssignment_215385 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__NameAssignment_115416 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__EqInterfacesAssignment_315451 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__EqInterfacesAssignment_4_115490 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__EqInterface__NameAssignment_115525 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__SystemAssignment_3_0_215556 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__SubAtaAssignment_3_1_215587 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__ResourceAssignment_3_2_215618 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__LineNameAssignment_3_3_215649 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__WiringLaneAssignment_3_4_215680 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__GrpInfoAssignment_3_5_215711 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__RouteAssignment_3_6_215742 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__PwSup1Assignment_3_7_215773 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__EmhZone1Assignment_3_8_215804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEqInterfaceType_in_rule__EqInterface__IoTypeAssignment_3_9_215835 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DislocalityRelation__EqInterfaceGroupAssignment_0_015870 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DislocalityRelation__EqInterfacesAssignment_0_1_015909 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_115948 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleHardwareArchitectureLevelType_in_rule__DislocalityRelation__HardwareLevelAssignment_215983 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceGroupsAssignment_016018 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_116057 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleHardwareArchitectureLevelType_in_rule__ColocalityRelation__HardwareLevelAssignment_316092 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_116127 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_116166 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__ValidDeployment__HardwareElementsAssignment_516205 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__ValidDeployment__HardwareElementsAssignment_6_116244 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Compartment__RdcsAssignment_3_4_in_synpred1_InternalMappingDSL12513 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RDC__ConnectorsAssignment_3_4_in_synpred2_InternalMappingDSL13223 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group__5__Impl_in_rule__EqInterfaceGroup__Group__56998 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group__6_in_rule__EqInterfaceGroup__Group__57001 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_rule__EqInterfaceGroup__Group__5__Impl7029 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group__6__Impl_in_rule__EqInterfaceGroup__Group__67060 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__EqInterfaceGroup__Group__6__Impl7088 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group_4__0__Impl_in_rule__EqInterfaceGroup__Group_4__07133 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group_4__1_in_rule__EqInterfaceGroup__Group_4__07136 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_rule__EqInterfaceGroup__Group_4__0__Impl7164 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group_4__1__Impl_in_rule__EqInterfaceGroup__Group_4__17195 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterfaceGroup__EqInterfacesAssignment_4_1_in_rule__EqInterfaceGroup__Group_4__1__Impl7222 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group__0__Impl_in_rule__EqInterface__Group__07256 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group__1_in_rule__EqInterface__Group__07259 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_77_in_rule__EqInterface__Group__0__Impl7287 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group__1__Impl_in_rule__EqInterface__Group__17318 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group__2_in_rule__EqInterface__Group__17321 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__NameAssignment_1_in_rule__EqInterface__Group__1__Impl7348 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group__2__Impl_in_rule__EqInterface__Group__27378 = new BitSet(new long[]{0x0000000000000000L,0x00000000007FC200L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group__3_in_rule__EqInterface__Group__27381 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_rule__EqInterface__Group__2__Impl7409 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group__3__Impl_in_rule__EqInterface__Group__37440 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group__4_in_rule__EqInterface__Group__37443 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3_in_rule__EqInterface__Group__3__Impl7470 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group__4__Impl_in_rule__EqInterface__Group__47500 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_rule__EqInterface__Group__4__Impl7528 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__0__Impl_in_rule__EqInterface__Group_3_0__07569 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__1_in_rule__EqInterface__Group_3_0__07572 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_78_in_rule__EqInterface__Group_3_0__0__Impl7600 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__1__Impl_in_rule__EqInterface__Group_3_0__17631 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__2_in_rule__EqInterface__Group_3_0__17634 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_0__1__Impl7662 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__2__Impl_in_rule__EqInterface__Group_3_0__27693 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__3_in_rule__EqInterface__Group_3_0__27696 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__SystemAssignment_3_0_2_in_rule__EqInterface__Group_3_0__2__Impl7723 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__3__Impl_in_rule__EqInterface__Group_3_0__37753 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_0__3__Impl7781 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__0__Impl_in_rule__EqInterface__Group_3_1__07820 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__1_in_rule__EqInterface__Group_3_1__07823 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_79_in_rule__EqInterface__Group_3_1__0__Impl7851 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__1__Impl_in_rule__EqInterface__Group_3_1__17882 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__2_in_rule__EqInterface__Group_3_1__17885 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_1__1__Impl7913 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__2__Impl_in_rule__EqInterface__Group_3_1__27944 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__3_in_rule__EqInterface__Group_3_1__27947 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__SubAtaAssignment_3_1_2_in_rule__EqInterface__Group_3_1__2__Impl7974 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__3__Impl_in_rule__EqInterface__Group_3_1__38004 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_1__3__Impl8032 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__0__Impl_in_rule__EqInterface__Group_3_2__08071 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__1_in_rule__EqInterface__Group_3_2__08074 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_80_in_rule__EqInterface__Group_3_2__0__Impl8102 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__1__Impl_in_rule__EqInterface__Group_3_2__18133 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__2_in_rule__EqInterface__Group_3_2__18136 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_2__1__Impl8164 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__2__Impl_in_rule__EqInterface__Group_3_2__28195 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__3_in_rule__EqInterface__Group_3_2__28198 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__ResourceAssignment_3_2_2_in_rule__EqInterface__Group_3_2__2__Impl8225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__3__Impl_in_rule__EqInterface__Group_3_2__38255 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_2__3__Impl8283 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__0__Impl_in_rule__EqInterface__Group_3_3__08322 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__1_in_rule__EqInterface__Group_3_3__08325 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_81_in_rule__EqInterface__Group_3_3__0__Impl8353 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__1__Impl_in_rule__EqInterface__Group_3_3__18384 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__2_in_rule__EqInterface__Group_3_3__18387 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_3__1__Impl8415 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__2__Impl_in_rule__EqInterface__Group_3_3__28446 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__3_in_rule__EqInterface__Group_3_3__28449 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__LineNameAssignment_3_3_2_in_rule__EqInterface__Group_3_3__2__Impl8476 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__3__Impl_in_rule__EqInterface__Group_3_3__38506 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_3__3__Impl8534 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__0__Impl_in_rule__EqInterface__Group_3_4__08573 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__1_in_rule__EqInterface__Group_3_4__08576 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_82_in_rule__EqInterface__Group_3_4__0__Impl8604 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__1__Impl_in_rule__EqInterface__Group_3_4__18635 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__2_in_rule__EqInterface__Group_3_4__18638 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_4__1__Impl8666 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__2__Impl_in_rule__EqInterface__Group_3_4__28697 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__3_in_rule__EqInterface__Group_3_4__28700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__WiringLaneAssignment_3_4_2_in_rule__EqInterface__Group_3_4__2__Impl8727 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__3__Impl_in_rule__EqInterface__Group_3_4__38757 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_4__3__Impl8785 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__0__Impl_in_rule__EqInterface__Group_3_5__08824 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__1_in_rule__EqInterface__Group_3_5__08827 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_83_in_rule__EqInterface__Group_3_5__0__Impl8855 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__1__Impl_in_rule__EqInterface__Group_3_5__18886 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__2_in_rule__EqInterface__Group_3_5__18889 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_5__1__Impl8917 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__2__Impl_in_rule__EqInterface__Group_3_5__28948 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__3_in_rule__EqInterface__Group_3_5__28951 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__GrpInfoAssignment_3_5_2_in_rule__EqInterface__Group_3_5__2__Impl8978 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__3__Impl_in_rule__EqInterface__Group_3_5__39008 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_5__3__Impl9036 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__0__Impl_in_rule__EqInterface__Group_3_6__09075 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__1_in_rule__EqInterface__Group_3_6__09078 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_84_in_rule__EqInterface__Group_3_6__0__Impl9106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__1__Impl_in_rule__EqInterface__Group_3_6__19137 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__2_in_rule__EqInterface__Group_3_6__19140 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_6__1__Impl9168 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__2__Impl_in_rule__EqInterface__Group_3_6__29199 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__3_in_rule__EqInterface__Group_3_6__29202 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__RouteAssignment_3_6_2_in_rule__EqInterface__Group_3_6__2__Impl9229 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__3__Impl_in_rule__EqInterface__Group_3_6__39259 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_6__3__Impl9287 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__0__Impl_in_rule__EqInterface__Group_3_7__09326 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__1_in_rule__EqInterface__Group_3_7__09329 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_85_in_rule__EqInterface__Group_3_7__0__Impl9357 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__1__Impl_in_rule__EqInterface__Group_3_7__19388 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__2_in_rule__EqInterface__Group_3_7__19391 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_7__1__Impl9419 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__2__Impl_in_rule__EqInterface__Group_3_7__29450 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__3_in_rule__EqInterface__Group_3_7__29453 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__PwSup1Assignment_3_7_2_in_rule__EqInterface__Group_3_7__2__Impl9480 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__3__Impl_in_rule__EqInterface__Group_3_7__39510 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_7__3__Impl9538 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__0__Impl_in_rule__EqInterface__Group_3_8__09577 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__1_in_rule__EqInterface__Group_3_8__09580 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_86_in_rule__EqInterface__Group_3_8__0__Impl9608 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__1__Impl_in_rule__EqInterface__Group_3_8__19639 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__2_in_rule__EqInterface__Group_3_8__19642 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_8__1__Impl9670 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__2__Impl_in_rule__EqInterface__Group_3_8__29701 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__3_in_rule__EqInterface__Group_3_8__29704 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__EmhZone1Assignment_3_8_2_in_rule__EqInterface__Group_3_8__2__Impl9731 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__3__Impl_in_rule__EqInterface__Group_3_8__39761 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_8__3__Impl9789 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__0__Impl_in_rule__EqInterface__Group_3_9__09828 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__1_in_rule__EqInterface__Group_3_9__09831 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_rule__EqInterface__Group_3_9__0__Impl9859 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__1__Impl_in_rule__EqInterface__Group_3_9__19890 = new BitSet(new long[]{0x0FFFFFFFFFFFC000L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__2_in_rule__EqInterface__Group_3_9__19893 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_rule__EqInterface__Group_3_9__1__Impl9921 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__2__Impl_in_rule__EqInterface__Group_3_9__29952 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__3_in_rule__EqInterface__Group_3_9__29955 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__IoTypeAssignment_3_9_2_in_rule__EqInterface__Group_3_9__2__Impl9982 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__3__Impl_in_rule__EqInterface__Group_3_9__310012 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__EqInterface__Group_3_9__3__Impl10040 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group__0__Impl_in_rule__DislocalityRelation__Group__010079 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group__1_in_rule__DislocalityRelation__Group__010082 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Alternatives_0_in_rule__DislocalityRelation__Group__0__Impl10109 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group__1__Impl_in_rule__DislocalityRelation__Group__110139 = new BitSet(new long[]{0x0000000000003800L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group__2_in_rule__DislocalityRelation__Group__110142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_87_in_rule__DislocalityRelation__Group__1__Impl10170 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group__2__Impl_in_rule__DislocalityRelation__Group__210201 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group__3_in_rule__DislocalityRelation__Group__210204 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__HardwareLevelAssignment_2_in_rule__DislocalityRelation__Group__2__Impl10231 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group__3__Impl_in_rule__DislocalityRelation__Group__310261 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__DislocalityRelation__Group__3__Impl10289 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1__0__Impl_in_rule__DislocalityRelation__Group_0_1__010328 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1__1_in_rule__DislocalityRelation__Group_0_1__010331 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__EqInterfacesAssignment_0_1_0_in_rule__DislocalityRelation__Group_0_1__0__Impl10358 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1__1__Impl_in_rule__DislocalityRelation__Group_0_1__110388 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1_1__0_in_rule__DislocalityRelation__Group_0_1__1__Impl10417 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1_1__0_in_rule__DislocalityRelation__Group_0_1__1__Impl10429 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1_1__0__Impl_in_rule__DislocalityRelation__Group_0_1_1__010466 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1_1__1_in_rule__DislocalityRelation__Group_0_1_1__010469 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_rule__DislocalityRelation__Group_0_1_1__0__Impl10497 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__Group_0_1_1__1__Impl_in_rule__DislocalityRelation__Group_0_1_1__110528 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1_in_rule__DislocalityRelation__Group_0_1_1__1__Impl10555 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__0__Impl_in_rule__ColocalityRelation__Group__010589 = new BitSet(new long[]{0x0000000000000000L,0x0000000001001000L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__1_in_rule__ColocalityRelation__Group__010592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__EqInterfaceGroupsAssignment_0_in_rule__ColocalityRelation__Group__0__Impl10619 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__1__Impl_in_rule__ColocalityRelation__Group__110649 = new BitSet(new long[]{0x0000000000000000L,0x0000000001001000L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__2_in_rule__ColocalityRelation__Group__110652 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__Group_1__0_in_rule__ColocalityRelation__Group__1__Impl10679 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__2__Impl_in_rule__ColocalityRelation__Group__210710 = new BitSet(new long[]{0x0000000000003800L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__3_in_rule__ColocalityRelation__Group__210713 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_88_in_rule__ColocalityRelation__Group__2__Impl10741 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__3__Impl_in_rule__ColocalityRelation__Group__310772 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__4_in_rule__ColocalityRelation__Group__310775 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__HardwareLevelAssignment_3_in_rule__ColocalityRelation__Group__3__Impl10802 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__Group__4__Impl_in_rule__ColocalityRelation__Group__410832 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__ColocalityRelation__Group__4__Impl10860 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__Group_1__0__Impl_in_rule__ColocalityRelation__Group_1__010901 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__Group_1__1_in_rule__ColocalityRelation__Group_1__010904 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_rule__ColocalityRelation__Group_1__0__Impl10932 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__Group_1__1__Impl_in_rule__ColocalityRelation__Group_1__110963 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1_in_rule__ColocalityRelation__Group_1__1__Impl10990 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__0__Impl_in_rule__ValidDeployment__Group__011024 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__1_in_rule__ValidDeployment__Group__011027 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_89_in_rule__ValidDeployment__Group__0__Impl11055 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__1__Impl_in_rule__ValidDeployment__Group__111086 = new BitSet(new long[]{0x0000000000000000L,0x0000000004001000L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__2_in_rule__ValidDeployment__Group__111089 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1_in_rule__ValidDeployment__Group__1__Impl11116 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__2__Impl_in_rule__ValidDeployment__Group__211146 = new BitSet(new long[]{0x0000000000000000L,0x0000000004001000L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__3_in_rule__ValidDeployment__Group__211149 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group_2__0_in_rule__ValidDeployment__Group__2__Impl11176 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__3__Impl_in_rule__ValidDeployment__Group__311207 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__4_in_rule__ValidDeployment__Group__311210 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_90_in_rule__ValidDeployment__Group__3__Impl11238 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__4__Impl_in_rule__ValidDeployment__Group__411269 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__5_in_rule__ValidDeployment__Group__411272 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_rule__ValidDeployment__Group__4__Impl11300 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__5__Impl_in_rule__ValidDeployment__Group__511331 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__6_in_rule__ValidDeployment__Group__511334 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__HardwareElementsAssignment_5_in_rule__ValidDeployment__Group__5__Impl11361 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__6__Impl_in_rule__ValidDeployment__Group__611391 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__7_in_rule__ValidDeployment__Group__611394 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6__0_in_rule__ValidDeployment__Group__6__Impl11421 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__7__Impl_in_rule__ValidDeployment__Group__711452 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__8_in_rule__ValidDeployment__Group__711455 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_rule__ValidDeployment__Group__7__Impl11483 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__8__Impl_in_rule__ValidDeployment__Group__811514 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__ValidDeployment__Group__8__Impl11542 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group_2__0__Impl_in_rule__ValidDeployment__Group_2__011591 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group_2__1_in_rule__ValidDeployment__Group_2__011594 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_rule__ValidDeployment__Group_2__0__Impl11622 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group_2__1__Impl_in_rule__ValidDeployment__Group_2__111653 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1_in_rule__ValidDeployment__Group_2__1__Impl11680 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6__0__Impl_in_rule__ValidDeployment__Group_6__011714 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6__1_in_rule__ValidDeployment__Group_6__011717 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_rule__ValidDeployment__Group_6__0__Impl11745 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6__1__Impl_in_rule__ValidDeployment__Group_6__111776 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__HardwareElementsAssignment_6_1_in_rule__ValidDeployment__Group_6__1__Impl11803 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group__0__Impl_in_rule__QualifiedName__Group__011838 = new BitSet(new long[]{0x0000000000000000L,0x0000000008000000L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group__1_in_rule__QualifiedName__Group__011841 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__QualifiedName__Group__0__Impl11868 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group__1__Impl_in_rule__QualifiedName__Group__111897 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0_in_rule__QualifiedName__Group__1__Impl11924 = new BitSet(new long[]{0x0000000000000002L,0x0000000008000000L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0__Impl_in_rule__QualifiedName__Group_1__011959 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__1_in_rule__QualifiedName__Group_1__011962 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_91_in_rule__QualifiedName__Group_1__0__Impl11990 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__1__Impl_in_rule__QualifiedName__Group_1__112021 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__QualifiedName__Group_1__1__Impl12048 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__0_in_rule__Compartment__UnorderedGroup_312082 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Compartment__Group_3_0__0_in_rule__Compartment__UnorderedGroup_3__Impl12171 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Compartment__Group_3_1__0_in_rule__Compartment__UnorderedGroup_3__Impl12262 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Compartment__Group_3_2__0_in_rule__Compartment__UnorderedGroup_3__Impl12353 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Compartment__Group_3_3__0_in_rule__Compartment__UnorderedGroup_3__Impl12444 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Compartment__RdcsAssignment_3_4_in_rule__Compartment__UnorderedGroup_3__Impl12536 = new BitSet(new long[]{0x0000000000001002L,0x00000000000001E0L});
+    public static final BitSet FOLLOW_rule__Compartment__RdcsAssignment_3_4_in_rule__Compartment__UnorderedGroup_3__Impl12580 = new BitSet(new long[]{0x0000000000001002L,0x00000000000001E0L});
+    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__012646 = new BitSet(new long[]{0x0000000000001002L,0x00000000000001E0L});
+    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__1_in_rule__Compartment__UnorderedGroup_3__012649 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__112674 = new BitSet(new long[]{0x0000000000001002L,0x00000000000001E0L});
+    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__2_in_rule__Compartment__UnorderedGroup_3__112677 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__212702 = new BitSet(new long[]{0x0000000000001002L,0x00000000000001E0L});
+    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__3_in_rule__Compartment__UnorderedGroup_3__212705 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__312730 = new BitSet(new long[]{0x0000000000001002L,0x00000000000001E0L});
+    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__4_in_rule__Compartment__UnorderedGroup_3__312733 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Compartment__UnorderedGroup_3__Impl_in_rule__Compartment__UnorderedGroup_3__412758 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__0_in_rule__RDC__UnorderedGroup_312792 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RDC__Group_3_0__0_in_rule__RDC__UnorderedGroup_3__Impl12881 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RDC__Group_3_1__0_in_rule__RDC__UnorderedGroup_3__Impl12972 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RDC__Group_3_2__0_in_rule__RDC__UnorderedGroup_3__Impl13063 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RDC__Group_3_3__0_in_rule__RDC__UnorderedGroup_3__Impl13154 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RDC__ConnectorsAssignment_3_4_in_rule__RDC__UnorderedGroup_3__Impl13246 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000660L});
+    public static final BitSet FOLLOW_rule__RDC__ConnectorsAssignment_3_4_in_rule__RDC__UnorderedGroup_3__Impl13290 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000660L});
+    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__013356 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000660L});
+    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__1_in_rule__RDC__UnorderedGroup_3__013359 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__113384 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000660L});
+    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__2_in_rule__RDC__UnorderedGroup_3__113387 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__213412 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000660L});
+    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__3_in_rule__RDC__UnorderedGroup_3__213415 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__313440 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000660L});
+    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__4_in_rule__RDC__UnorderedGroup_3__313443 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RDC__UnorderedGroup_3__Impl_in_rule__RDC__UnorderedGroup_3__413468 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__0_in_rule__EqInterface__UnorderedGroup_313502 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_0__0_in_rule__EqInterface__UnorderedGroup_3__Impl13589 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_1__0_in_rule__EqInterface__UnorderedGroup_3__Impl13680 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_2__0_in_rule__EqInterface__UnorderedGroup_3__Impl13771 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_3__0_in_rule__EqInterface__UnorderedGroup_3__Impl13862 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_4__0_in_rule__EqInterface__UnorderedGroup_3__Impl13953 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_5__0_in_rule__EqInterface__UnorderedGroup_3__Impl14044 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_6__0_in_rule__EqInterface__UnorderedGroup_3__Impl14135 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_7__0_in_rule__EqInterface__UnorderedGroup_3__Impl14226 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_8__0_in_rule__EqInterface__UnorderedGroup_3__Impl14317 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__Group_3_9__0_in_rule__EqInterface__UnorderedGroup_3__Impl14408 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__014467 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__1_in_rule__EqInterface__UnorderedGroup_3__014470 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__114495 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__2_in_rule__EqInterface__UnorderedGroup_3__114498 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__214523 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__3_in_rule__EqInterface__UnorderedGroup_3__214526 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__314551 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__4_in_rule__EqInterface__UnorderedGroup_3__314554 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__414579 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__5_in_rule__EqInterface__UnorderedGroup_3__414582 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__514607 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__6_in_rule__EqInterface__UnorderedGroup_3__514610 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__614635 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__7_in_rule__EqInterface__UnorderedGroup_3__614638 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__714663 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__8_in_rule__EqInterface__UnorderedGroup_3__714666 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__814691 = new BitSet(new long[]{0x0000000000000002L,0x00000000007FC200L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__9_in_rule__EqInterface__UnorderedGroup_3__814694 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__914719 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__AssistModel__SystemNameAssignment_414767 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCompartment_in_rule__AssistModel__CompartmentsAssignment_714798 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEqInterface_in_rule__AssistModel__EqInterfacesAssignment_8_214829 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEqInterfaceGroup_in_rule__AssistModel__EqInterfaceGroupsAssignment_9_214860 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDislocalityRelation_in_rule__AssistModel__DislocalityRelationsAssignment_10_2_014891 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleColocalityRelation_in_rule__AssistModel__ColocalityRelationsAssignment_10_2_114922 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidDeployment_in_rule__AssistModel__ValidDeploymentsAssignment_10_2_214953 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Compartment__NameAssignment_114984 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Compartment__ManufacturerAssignment_3_0_215015 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Compartment__PowerSupplyAssignment_3_1_215046 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Compartment__SideAssignment_3_2_215077 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Compartment__ZoneAssignment_3_3_215108 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRDC_in_rule__Compartment__RdcsAssignment_3_415139 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__RDC__NameAssignment_115170 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__RDC__ManufacturerAssignment_3_0_215201 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__RDC__PowerSupplyAssignment_3_1_215232 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__RDC__RdcTypeAssignment_3_2_215263 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__RDC__EssAssignment_3_3_215294 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConnector_in_rule__RDC__ConnectorsAssignment_3_415325 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Connector__NameAssignment_115356 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAvailableEqInterface_in_rule__Connector__AvailableEqInterfacesAssignment_315387 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEqInterfaceType_in_rule__AvailableEqInterface__EqInterfaceTypeAssignment_015418 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_rule__AvailableEqInterface__CountAssignment_215449 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__NameAssignment_115480 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__EqInterfacesAssignment_315515 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__EqInterfacesAssignment_4_115554 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__EqInterface__NameAssignment_115589 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__SystemAssignment_3_0_215620 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__SubAtaAssignment_3_1_215651 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__ResourceAssignment_3_2_215682 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__LineNameAssignment_3_3_215713 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__WiringLaneAssignment_3_4_215744 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__GrpInfoAssignment_3_5_215775 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__RouteAssignment_3_6_215806 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__PwSup1Assignment_3_7_215837 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__EqInterface__EmhZone1Assignment_3_8_215868 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEqInterfaceType_in_rule__EqInterface__IoTypeAssignment_3_9_215899 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DislocalityRelation__EqInterfaceGroupAssignment_0_015934 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DislocalityRelation__EqInterfacesAssignment_0_1_015973 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_116012 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleHardwareArchitectureLevelType_in_rule__DislocalityRelation__HardwareLevelAssignment_216047 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceGroupsAssignment_016082 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_116121 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleHardwareArchitectureLevelType_in_rule__ColocalityRelation__HardwareLevelAssignment_316156 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_116191 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_116230 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__ValidDeployment__HardwareElementsAssignment_516269 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__ValidDeployment__HardwareElementsAssignment_6_116308 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Compartment__RdcsAssignment_3_4_in_synpred1_InternalMappingDSL12577 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RDC__ConnectorsAssignment_3_4_in_synpred2_InternalMappingDSL13287 = new BitSet(new long[]{0x0000000000000002L});
 
 }

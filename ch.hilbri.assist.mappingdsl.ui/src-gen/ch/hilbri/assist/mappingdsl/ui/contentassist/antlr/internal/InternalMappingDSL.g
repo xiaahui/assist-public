@@ -3381,6 +3381,7 @@ rule__EqInterfaceGroup__Group__5
     }
 :
 	rule__EqInterfaceGroup__Group__5__Impl
+	rule__EqInterfaceGroup__Group__6
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -3403,6 +3404,38 @@ rule__EqInterfaceGroup__Group__5__Impl
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__EqInterfaceGroup__Group__6
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__EqInterfaceGroup__Group__6__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__EqInterfaceGroup__Group__6__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getEqInterfaceGroupAccess().getSemicolonKeyword_6()); }
+
+	';' 
+
+{ after(grammarAccess.getEqInterfaceGroupAccess().getSemicolonKeyword_6()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 

@@ -65,7 +65,7 @@ AvailableEqInterface:
 /* SOFTWARE */
 
 EqInterfaceGroup: 
-	'Group' name=ID '{' eqInterfaces+=[EqInterface] (',' eqInterfaces+=[EqInterface])+ '}'
+	'Group' name=ID '{' eqInterfaces+=[EqInterface] (',' eqInterfaces+=[EqInterface])+ '}' ';'
 ;
 
 EqInterface:

@@ -1013,6 +1013,10 @@ ruleEqInterfaceGroup returns [EObject current=null]
     {
     	newLeafNode(otherlv_6, grammarAccess.getEqInterfaceGroupAccess().getRightCurlyBracketKeyword_5());
     }
+	otherlv_7=';' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getEqInterfaceGroupAccess().getSemicolonKeyword_6());
+    }
 )
 ;
 
