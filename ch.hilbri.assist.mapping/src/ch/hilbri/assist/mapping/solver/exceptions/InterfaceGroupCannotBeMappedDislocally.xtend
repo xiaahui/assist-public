@@ -1,20 +1,18 @@
 package ch.hilbri.assist.mapping.solver.exceptions
 
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
-import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 
 class InterfaceGroupCannotBeMappedDislocally extends BasicConstraintsException {
 	
-	private EqInterfaceGroup group
+	private String groupName
 	
-	new(AbstractMappingConstraint constraint, EqInterfaceGroup group) {
+	new(AbstractMappingConstraint constraint, String groupName) {
 		super(constraint)
-		this.group = group
+		this.groupName = groupName
 	}
 	
 	override def String getExplanation() {
-		'''The group «group.name» could not be mapped dislocally.'''
+		'''The group «groupName» could not be mapped dislocally.'''
 	}
 	
 }

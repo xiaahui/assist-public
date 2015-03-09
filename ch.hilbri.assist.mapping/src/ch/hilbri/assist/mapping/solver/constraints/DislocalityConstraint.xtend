@@ -40,7 +40,12 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				solver.post(ICF.alldifferent(varList))
 				
 				try { solver.propagate }
-				catch (ContradictionException e) {	throw new InterfaceGroupCannotBeMappedDislocally(this, r.eqInterfaceGroup)	}
+				catch (ContradictionException e) {
+					if (r.eqInterfaceGroup != null)
+						throw new InterfaceGroupCannotBeMappedDislocally(this, r.eqInterfaceGroup.name)
+					else
+						throw new InterfaceGroupCannotBeMappedDislocally(this, r.eqInterfaces.toString)
+				}
 			} 
 			else
 				return false
