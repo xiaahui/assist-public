@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Eclipse-RegisterBuddy: ch.hilbri.assist.libraries.logback
+Bundle-ManifestVersion: 2
+Bundle-Name: ch.hilbri.assist.cli
+Bundle-SymbolicName: ch.hilbri.assist.cli;singleton:=true
+Bundle-Version: 0.6
+Bundle-Vendor: Robert Hilbrich
+Export-Package: ch.hilbri.assist.cli
+Require-Bundle: ch.hilbri.assist.datamodel.model,
+ ch.hilbri.assist.datamodel.result.mapping,
+ ch.hilbri.assist.mapping,
+ ch.hilbri.assist.mappingdsl.tests,
+ com.google.inject,
+ org.apache.commons.cli,
+ org.apache.commons.io,
+ org.eclipse.xtext.junit4
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
