@@ -106,7 +106,10 @@ ColocalityRelation:
 ;	
 
 ValidDeployment:
-	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* '=' '{' hardwareElements+=[HardwareElement] (',' hardwareElements+=[HardwareElement])* '}' 
+	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
+	'is' '{'
+		  hardwareElements+=[HardwareElement|QualifiedName] (',' hardwareElements+=[HardwareElement|QualifiedName])* 
+	'}' ';'
 ;
 
 

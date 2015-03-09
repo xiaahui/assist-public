@@ -68,7 +68,16 @@ class Compartment extends HardwareElement {
 	String side				= ""
 	String zone				= ""
 	contains RDC[0..*] rdcs opposite compartment
+	
 	op String toString() 			{ name }
+	
+	op Connector[] getAllConnectors() {
+		val list = new BasicEList<Connector>
+		for (rdc : rdcs)
+			list.addAll(rdc.connectors)		
+		return list
+	}
+	
 }
 
 class RDC extends HardwareElement {

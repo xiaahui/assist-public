@@ -255,8 +255,8 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (
 	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] 
 	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID]* 
-	 *         hardwareElements+=[HardwareElement|ID] 
-	 *         hardwareElements+=[HardwareElement|ID]*
+	 *         hardwareElements+=[HardwareElement|QualifiedName] 
+	 *         hardwareElements+=[HardwareElement|QualifiedName]*
 	 *     )
 	 */
 	protected void sequence_ValidDeployment(EObject context, ValidDeployment semanticObject) {

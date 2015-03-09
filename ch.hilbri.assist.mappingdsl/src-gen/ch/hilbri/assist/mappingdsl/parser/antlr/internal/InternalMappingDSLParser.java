@@ -22,22 +22,13 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Global'", "'{'", "'System name'", "'='", "';'", "'}'", "'Interfaces'", "'InterfaceGroups'", "'Restrictions'", "'Compartment'", "'Manufacturer'", "'PowerSupply'", "'Side'", "'Zone'", "'RDC'", "'Type'", "'ESS'", "'Connector'", "'Group'", "','", "'Interface'", "'InterfaceSystem'", "'SubAta'", "'Resource'", "'LineName'", "'WiringLane'", "'GrpInfo'", "'Route'", "'PwSup1'", "'EmhZone1'", "'dislocal up to'", "'on same'", "'Valid for'", "'Can'", "'Enhanced Local Bus'", "'Ethernet'", "'Analog'", "'Digital'", "'Serial'", "'CustomType0'", "'CustomType1'", "'CustomType2'", "'CustomType3'", "'CustomType4'", "'CustomType5'", "'CustomType6'", "'CustomType7'", "'CustomType8'", "'CustomType9'", "'CustomType10'", "'CustomType11'", "'CustomType12'", "'CustomType13'", "'CustomType14'", "'CustomType15'", "'CustomType16'", "'CustomType17'", "'CustomType18'", "'CustomType19'", "'CustomType20'", "'CustomType21'", "'CustomType22'", "'CustomType23'", "'CustomType24'", "'CustomType25'", "'CustomType26'", "'CustomType27'", "'CustomType28'", "'CustomType29'", "'CustomType30'", "'CustomType31'", "'CustomType32'", "'CustomType33'", "'CustomType34'", "'CustomType35'", "'CustomType36'", "'CustomType37'", "'CustomType38'", "'CustomType39'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Global'", "'{'", "'System name'", "'='", "';'", "'}'", "'Interfaces'", "'InterfaceGroups'", "'Restrictions'", "'Compartment'", "'Manufacturer'", "'PowerSupply'", "'Side'", "'Zone'", "'RDC'", "'Type'", "'ESS'", "'Connector'", "'Group'", "','", "'Interface'", "'InterfaceSystem'", "'SubAta'", "'Resource'", "'LineName'", "'WiringLane'", "'GrpInfo'", "'Route'", "'PwSup1'", "'EmhZone1'", "'dislocal up to'", "'on same'", "'Valid for'", "'is'", "'.'", "'Can'", "'Enhanced Local Bus'", "'Ethernet'", "'Analog'", "'Digital'", "'Serial'", "'CustomType0'", "'CustomType1'", "'CustomType2'", "'CustomType3'", "'CustomType4'", "'CustomType5'", "'CustomType6'", "'CustomType7'", "'CustomType8'", "'CustomType9'", "'CustomType10'", "'CustomType11'", "'CustomType12'", "'CustomType13'", "'CustomType14'", "'CustomType15'", "'CustomType16'", "'CustomType17'", "'CustomType18'", "'CustomType19'", "'CustomType20'", "'CustomType21'", "'CustomType22'", "'CustomType23'", "'CustomType24'", "'CustomType25'", "'CustomType26'", "'CustomType27'", "'CustomType28'", "'CustomType29'", "'CustomType30'", "'CustomType31'", "'CustomType32'", "'CustomType33'", "'CustomType34'", "'CustomType35'", "'CustomType36'", "'CustomType37'", "'CustomType38'", "'CustomType39'"
     };
     public static final int T__50=50;
-    public static final int T__19=19;
-    public static final int T__15=15;
     public static final int T__59=59;
-    public static final int T__16=16;
-    public static final int T__17=17;
-    public static final int T__18=18;
-    public static final int T__11=11;
     public static final int T__55=55;
-    public static final int T__12=12;
     public static final int T__56=56;
-    public static final int T__13=13;
     public static final int T__57=57;
-    public static final int T__14=14;
     public static final int T__58=58;
     public static final int T__51=51;
     public static final int T__52=52;
@@ -46,48 +37,69 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
     public static final int T__60=60;
     public static final int T__61=61;
     public static final int RULE_ID=5;
-    public static final int T__26=26;
-    public static final int T__27=27;
-    public static final int T__28=28;
     public static final int RULE_INT=6;
-    public static final int T__29=29;
-    public static final int T__22=22;
     public static final int T__66=66;
     public static final int RULE_ML_COMMENT=7;
-    public static final int T__23=23;
     public static final int T__67=67;
-    public static final int T__24=24;
     public static final int T__68=68;
-    public static final int T__25=25;
     public static final int T__69=69;
     public static final int T__62=62;
     public static final int T__63=63;
-    public static final int T__20=20;
     public static final int T__64=64;
-    public static final int T__21=21;
     public static final int T__65=65;
+    public static final int T__37=37;
+    public static final int T__38=38;
+    public static final int T__39=39;
+    public static final int T__33=33;
+    public static final int T__34=34;
+    public static final int T__35=35;
+    public static final int T__36=36;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int T__32=32;
+    public static final int T__48=48;
+    public static final int T__49=49;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int T__46=46;
+    public static final int T__47=47;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__42=42;
+    public static final int T__43=43;
+    public static final int T__91=91;
+    public static final int T__90=90;
+    public static final int T__19=19;
+    public static final int T__15=15;
+    public static final int T__16=16;
+    public static final int T__17=17;
+    public static final int T__18=18;
+    public static final int T__11=11;
+    public static final int T__12=12;
+    public static final int T__13=13;
+    public static final int T__14=14;
+    public static final int T__26=26;
+    public static final int T__27=27;
+    public static final int T__28=28;
+    public static final int T__29=29;
+    public static final int T__22=22;
+    public static final int T__23=23;
+    public static final int T__24=24;
+    public static final int T__25=25;
+    public static final int T__20=20;
+    public static final int T__21=21;
     public static final int T__70=70;
     public static final int T__71=71;
     public static final int T__72=72;
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
-    public static final int T__37=37;
-    public static final int T__38=38;
-    public static final int T__39=39;
-    public static final int T__33=33;
     public static final int T__77=77;
-    public static final int T__34=34;
     public static final int T__78=78;
-    public static final int T__35=35;
     public static final int T__79=79;
-    public static final int T__36=36;
     public static final int T__73=73;
     public static final int EOF=-1;
-    public static final int T__30=30;
     public static final int T__74=74;
-    public static final int T__31=31;
     public static final int T__75=75;
-    public static final int T__32=32;
     public static final int T__76=76;
     public static final int T__80=80;
     public static final int T__81=81;
@@ -95,21 +107,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
     public static final int T__83=83;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
-    public static final int T__48=48;
-    public static final int T__49=49;
-    public static final int T__44=44;
     public static final int T__88=88;
-    public static final int T__45=45;
     public static final int T__89=89;
-    public static final int T__46=46;
-    public static final int T__47=47;
-    public static final int T__40=40;
     public static final int T__84=84;
-    public static final int T__41=41;
     public static final int T__85=85;
-    public static final int T__42=42;
     public static final int T__86=86;
-    public static final int T__43=43;
     public static final int T__87=87;
 
     // delegates
@@ -1986,7 +1988,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                 int alt12=2;
                 int LA12_0 = input.LA(1);
 
-                if ( ((LA12_0>=44 && LA12_0<=89)) ) {
+                if ( ((LA12_0>=46 && LA12_0<=91)) ) {
                     alt12=1;
                 }
 
@@ -3866,7 +3868,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValidDeployment"
-    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1688:1: ruleValidDeployment returns [EObject current=null] : (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* otherlv_4= '=' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' ) ;
+    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1688:1: ruleValidDeployment returns [EObject current=null] : (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* otherlv_4= 'is' otherlv_5= '{' ( ( ruleQualifiedName ) ) (otherlv_7= ',' ( ( ruleQualifiedName ) ) )* otherlv_9= '}' otherlv_10= ';' ) ;
     public final EObject ruleValidDeployment() throws RecognitionException {
         EObject current = null;
 
@@ -3876,19 +3878,18 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
         Token otherlv_3=null;
         Token otherlv_4=null;
         Token otherlv_5=null;
-        Token otherlv_6=null;
         Token otherlv_7=null;
-        Token otherlv_8=null;
         Token otherlv_9=null;
+        Token otherlv_10=null;
 
          enterRule(); 
             
         try {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1691:28: ( (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* otherlv_4= '=' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' ) )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1692:1: (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* otherlv_4= '=' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1691:28: ( (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* otherlv_4= 'is' otherlv_5= '{' ( ( ruleQualifiedName ) ) (otherlv_7= ',' ( ( ruleQualifiedName ) ) )* otherlv_9= '}' otherlv_10= ';' ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1692:1: (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* otherlv_4= 'is' otherlv_5= '{' ( ( ruleQualifiedName ) ) (otherlv_7= ',' ( ( ruleQualifiedName ) ) )* otherlv_9= '}' otherlv_10= ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1692:1: (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* otherlv_4= '=' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1692:3: otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* otherlv_4= '=' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}'
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1692:1: (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* otherlv_4= 'is' otherlv_5= '{' ( ( ruleQualifiedName ) ) (otherlv_7= ',' ( ( ruleQualifiedName ) ) )* otherlv_9= '}' otherlv_10= ';' )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1692:3: otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* otherlv_4= 'is' otherlv_5= '{' ( ( ruleQualifiedName ) ) (otherlv_7= ',' ( ( ruleQualifiedName ) ) )* otherlv_9= '}' otherlv_10= ';'
             {
             otherlv_0=(Token)match(input,43,FOLLOW_43_in_ruleValidDeployment4088); 
 
@@ -3964,36 +3965,43 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,14,FOLLOW_14_in_ruleValidDeployment4155); 
+            otherlv_4=(Token)match(input,44,FOLLOW_44_in_ruleValidDeployment4155); 
 
-                	newLeafNode(otherlv_4, grammarAccess.getValidDeploymentAccess().getEqualsSignKeyword_3());
+                	newLeafNode(otherlv_4, grammarAccess.getValidDeploymentAccess().getIsKeyword_3());
                 
             otherlv_5=(Token)match(input,12,FOLLOW_12_in_ruleValidDeployment4167); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getValidDeploymentAccess().getLeftCurlyBracketKeyword_4());
                 
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1734:1: ( (otherlv_6= RULE_ID ) )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1735:1: (otherlv_6= RULE_ID )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1734:1: ( ( ruleQualifiedName ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1735:1: ( ruleQualifiedName )
             {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1735:1: (otherlv_6= RULE_ID )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1736:3: otherlv_6= RULE_ID
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1735:1: ( ruleQualifiedName )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1736:3: ruleQualifiedName
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getValidDeploymentRule());
             	        }
                     
-            otherlv_6=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleValidDeployment4187); 
+             
+            	        newCompositeNode(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_5_0()); 
+            	    
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleValidDeployment4190);
+            ruleQualifiedName();
 
-            		newLeafNode(otherlv_6, grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_5_0()); 
-            	
+            state._fsp--;
+
+             
+            	        afterParserOrEnumRuleCall();
+            	    
 
             }
 
 
             }
 
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1747:2: (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )*
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1749:2: (otherlv_7= ',' ( ( ruleQualifiedName ) ) )*
             loop19:
             do {
                 int alt19=2;
@@ -4006,27 +4014,34 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
                 switch (alt19) {
             	case 1 :
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1747:4: otherlv_7= ',' ( (otherlv_8= RULE_ID ) )
+            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1749:4: otherlv_7= ',' ( ( ruleQualifiedName ) )
             	    {
-            	    otherlv_7=(Token)match(input,30,FOLLOW_30_in_ruleValidDeployment4200); 
+            	    otherlv_7=(Token)match(input,30,FOLLOW_30_in_ruleValidDeployment4203); 
 
             	        	newLeafNode(otherlv_7, grammarAccess.getValidDeploymentAccess().getCommaKeyword_6_0());
             	        
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1751:1: ( (otherlv_8= RULE_ID ) )
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1752:1: (otherlv_8= RULE_ID )
+            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1753:1: ( ( ruleQualifiedName ) )
+            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1754:1: ( ruleQualifiedName )
             	    {
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1752:1: (otherlv_8= RULE_ID )
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1753:3: otherlv_8= RULE_ID
+            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1754:1: ( ruleQualifiedName )
+            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1755:3: ruleQualifiedName
             	    {
 
             	    			if (current==null) {
             	    	            current = createModelElement(grammarAccess.getValidDeploymentRule());
             	    	        }
             	            
-            	    otherlv_8=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleValidDeployment4220); 
+            	     
+            	    	        newCompositeNode(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_1_0()); 
+            	    	    
+            	    pushFollow(FOLLOW_ruleQualifiedName_in_ruleValidDeployment4226);
+            	    ruleQualifiedName();
 
-            	    		newLeafNode(otherlv_8, grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_1_0()); 
-            	    	
+            	    state._fsp--;
+
+            	     
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
 
             	    }
 
@@ -4042,9 +4057,13 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_9=(Token)match(input,16,FOLLOW_16_in_ruleValidDeployment4234); 
+            otherlv_9=(Token)match(input,16,FOLLOW_16_in_ruleValidDeployment4240); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getValidDeploymentAccess().getRightCurlyBracketKeyword_7());
+                
+            otherlv_10=(Token)match(input,15,FOLLOW_15_in_ruleValidDeployment4252); 
+
+                	newLeafNode(otherlv_10, grammarAccess.getValidDeploymentAccess().getSemicolonKeyword_8());
                 
 
             }
@@ -4066,8 +4085,125 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleValidDeployment"
 
 
+    // $ANTLR start "entryRuleQualifiedName"
+    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1786:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    public final String entryRuleQualifiedName() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleQualifiedName = null;
+
+
+        try {
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1787:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1788:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            {
+             newCompositeNode(grammarAccess.getQualifiedNameRule()); 
+            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName4291);
+            iv_ruleQualifiedName=ruleQualifiedName();
+
+            state._fsp--;
+
+             current =iv_ruleQualifiedName.getText(); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName4302); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleQualifiedName"
+
+
+    // $ANTLR start "ruleQualifiedName"
+    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1795:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token this_ID_0=null;
+        Token kw=null;
+        Token this_ID_2=null;
+
+         enterRule(); 
+            
+        try {
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1798:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1799:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            {
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1799:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1799:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            {
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName4342); 
+
+            		current.merge(this_ID_0);
+                
+             
+                newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
+                
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1806:1: (kw= '.' this_ID_2= RULE_ID )*
+            loop20:
+            do {
+                int alt20=2;
+                int LA20_0 = input.LA(1);
+
+                if ( (LA20_0==45) ) {
+                    alt20=1;
+                }
+
+
+                switch (alt20) {
+            	case 1 :
+            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1807:2: kw= '.' this_ID_2= RULE_ID
+            	    {
+            	    kw=(Token)match(input,45,FOLLOW_45_in_ruleQualifiedName4361); 
+
+            	            current.merge(kw);
+            	            newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
+            	        
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName4376); 
+
+            	    		current.merge(this_ID_2);
+            	        
+            	     
+            	        newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop20;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleQualifiedName"
+
+
     // $ANTLR start "ruleHardwareArchitectureLevelType"
-    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1780:1: ruleHardwareArchitectureLevelType returns [Enumerator current=null] : ( (enumLiteral_0= 'Compartment' ) | (enumLiteral_1= 'RDC' ) | (enumLiteral_2= 'Connector' ) ) ;
+    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1827:1: ruleHardwareArchitectureLevelType returns [Enumerator current=null] : ( (enumLiteral_0= 'Compartment' ) | (enumLiteral_1= 'RDC' ) | (enumLiteral_2= 'Connector' ) ) ;
     public final Enumerator ruleHardwareArchitectureLevelType() throws RecognitionException {
         Enumerator current = null;
 
@@ -4077,42 +4213,42 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1782:28: ( ( (enumLiteral_0= 'Compartment' ) | (enumLiteral_1= 'RDC' ) | (enumLiteral_2= 'Connector' ) ) )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1783:1: ( (enumLiteral_0= 'Compartment' ) | (enumLiteral_1= 'RDC' ) | (enumLiteral_2= 'Connector' ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1829:28: ( ( (enumLiteral_0= 'Compartment' ) | (enumLiteral_1= 'RDC' ) | (enumLiteral_2= 'Connector' ) ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1830:1: ( (enumLiteral_0= 'Compartment' ) | (enumLiteral_1= 'RDC' ) | (enumLiteral_2= 'Connector' ) )
             {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1783:1: ( (enumLiteral_0= 'Compartment' ) | (enumLiteral_1= 'RDC' ) | (enumLiteral_2= 'Connector' ) )
-            int alt20=3;
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1830:1: ( (enumLiteral_0= 'Compartment' ) | (enumLiteral_1= 'RDC' ) | (enumLiteral_2= 'Connector' ) )
+            int alt21=3;
             switch ( input.LA(1) ) {
             case 20:
                 {
-                alt20=1;
+                alt21=1;
                 }
                 break;
             case 25:
                 {
-                alt20=2;
+                alt21=2;
                 }
                 break;
             case 28:
                 {
-                alt20=3;
+                alt21=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 20, 0, input);
+                    new NoViableAltException("", 21, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt20) {
+            switch (alt21) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1783:2: (enumLiteral_0= 'Compartment' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1830:2: (enumLiteral_0= 'Compartment' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1783:2: (enumLiteral_0= 'Compartment' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1783:4: enumLiteral_0= 'Compartment'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1830:2: (enumLiteral_0= 'Compartment' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1830:4: enumLiteral_0= 'Compartment'
                     {
-                    enumLiteral_0=(Token)match(input,20,FOLLOW_20_in_ruleHardwareArchitectureLevelType4288); 
+                    enumLiteral_0=(Token)match(input,20,FOLLOW_20_in_ruleHardwareArchitectureLevelType4437); 
 
                             current = grammarAccess.getHardwareArchitectureLevelTypeAccess().getCOMPARTMENTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getHardwareArchitectureLevelTypeAccess().getCOMPARTMENTEnumLiteralDeclaration_0()); 
@@ -4124,12 +4260,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1789:6: (enumLiteral_1= 'RDC' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1836:6: (enumLiteral_1= 'RDC' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1789:6: (enumLiteral_1= 'RDC' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1789:8: enumLiteral_1= 'RDC'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1836:6: (enumLiteral_1= 'RDC' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1836:8: enumLiteral_1= 'RDC'
                     {
-                    enumLiteral_1=(Token)match(input,25,FOLLOW_25_in_ruleHardwareArchitectureLevelType4305); 
+                    enumLiteral_1=(Token)match(input,25,FOLLOW_25_in_ruleHardwareArchitectureLevelType4454); 
 
                             current = grammarAccess.getHardwareArchitectureLevelTypeAccess().getRDCEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getHardwareArchitectureLevelTypeAccess().getRDCEnumLiteralDeclaration_1()); 
@@ -4141,12 +4277,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1795:6: (enumLiteral_2= 'Connector' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1842:6: (enumLiteral_2= 'Connector' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1795:6: (enumLiteral_2= 'Connector' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1795:8: enumLiteral_2= 'Connector'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1842:6: (enumLiteral_2= 'Connector' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1842:8: enumLiteral_2= 'Connector'
                     {
-                    enumLiteral_2=(Token)match(input,28,FOLLOW_28_in_ruleHardwareArchitectureLevelType4322); 
+                    enumLiteral_2=(Token)match(input,28,FOLLOW_28_in_ruleHardwareArchitectureLevelType4471); 
 
                             current = grammarAccess.getHardwareArchitectureLevelTypeAccess().getCONNECTOREnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getHardwareArchitectureLevelTypeAccess().getCONNECTOREnumLiteralDeclaration_2()); 
@@ -4178,7 +4314,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEqInterfaceType"
-    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1805:1: ruleEqInterfaceType returns [Enumerator current=null] : ( (enumLiteral_0= 'Can' ) | (enumLiteral_1= 'Enhanced Local Bus' ) | (enumLiteral_2= 'Ethernet' ) | (enumLiteral_3= 'Analog' ) | (enumLiteral_4= 'Digital' ) | (enumLiteral_5= 'Serial' ) | (enumLiteral_6= 'CustomType0' ) | (enumLiteral_7= 'CustomType1' ) | (enumLiteral_8= 'CustomType2' ) | (enumLiteral_9= 'CustomType3' ) | (enumLiteral_10= 'CustomType4' ) | (enumLiteral_11= 'CustomType5' ) | (enumLiteral_12= 'CustomType6' ) | (enumLiteral_13= 'CustomType7' ) | (enumLiteral_14= 'CustomType8' ) | (enumLiteral_15= 'CustomType9' ) | (enumLiteral_16= 'CustomType10' ) | (enumLiteral_17= 'CustomType11' ) | (enumLiteral_18= 'CustomType12' ) | (enumLiteral_19= 'CustomType13' ) | (enumLiteral_20= 'CustomType14' ) | (enumLiteral_21= 'CustomType15' ) | (enumLiteral_22= 'CustomType16' ) | (enumLiteral_23= 'CustomType17' ) | (enumLiteral_24= 'CustomType18' ) | (enumLiteral_25= 'CustomType19' ) | (enumLiteral_26= 'CustomType20' ) | (enumLiteral_27= 'CustomType21' ) | (enumLiteral_28= 'CustomType22' ) | (enumLiteral_29= 'CustomType23' ) | (enumLiteral_30= 'CustomType24' ) | (enumLiteral_31= 'CustomType25' ) | (enumLiteral_32= 'CustomType26' ) | (enumLiteral_33= 'CustomType27' ) | (enumLiteral_34= 'CustomType28' ) | (enumLiteral_35= 'CustomType29' ) | (enumLiteral_36= 'CustomType30' ) | (enumLiteral_37= 'CustomType31' ) | (enumLiteral_38= 'CustomType32' ) | (enumLiteral_39= 'CustomType33' ) | (enumLiteral_40= 'CustomType34' ) | (enumLiteral_41= 'CustomType35' ) | (enumLiteral_42= 'CustomType36' ) | (enumLiteral_43= 'CustomType37' ) | (enumLiteral_44= 'CustomType38' ) | (enumLiteral_45= 'CustomType39' ) ) ;
+    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1852:1: ruleEqInterfaceType returns [Enumerator current=null] : ( (enumLiteral_0= 'Can' ) | (enumLiteral_1= 'Enhanced Local Bus' ) | (enumLiteral_2= 'Ethernet' ) | (enumLiteral_3= 'Analog' ) | (enumLiteral_4= 'Digital' ) | (enumLiteral_5= 'Serial' ) | (enumLiteral_6= 'CustomType0' ) | (enumLiteral_7= 'CustomType1' ) | (enumLiteral_8= 'CustomType2' ) | (enumLiteral_9= 'CustomType3' ) | (enumLiteral_10= 'CustomType4' ) | (enumLiteral_11= 'CustomType5' ) | (enumLiteral_12= 'CustomType6' ) | (enumLiteral_13= 'CustomType7' ) | (enumLiteral_14= 'CustomType8' ) | (enumLiteral_15= 'CustomType9' ) | (enumLiteral_16= 'CustomType10' ) | (enumLiteral_17= 'CustomType11' ) | (enumLiteral_18= 'CustomType12' ) | (enumLiteral_19= 'CustomType13' ) | (enumLiteral_20= 'CustomType14' ) | (enumLiteral_21= 'CustomType15' ) | (enumLiteral_22= 'CustomType16' ) | (enumLiteral_23= 'CustomType17' ) | (enumLiteral_24= 'CustomType18' ) | (enumLiteral_25= 'CustomType19' ) | (enumLiteral_26= 'CustomType20' ) | (enumLiteral_27= 'CustomType21' ) | (enumLiteral_28= 'CustomType22' ) | (enumLiteral_29= 'CustomType23' ) | (enumLiteral_30= 'CustomType24' ) | (enumLiteral_31= 'CustomType25' ) | (enumLiteral_32= 'CustomType26' ) | (enumLiteral_33= 'CustomType27' ) | (enumLiteral_34= 'CustomType28' ) | (enumLiteral_35= 'CustomType29' ) | (enumLiteral_36= 'CustomType30' ) | (enumLiteral_37= 'CustomType31' ) | (enumLiteral_38= 'CustomType32' ) | (enumLiteral_39= 'CustomType33' ) | (enumLiteral_40= 'CustomType34' ) | (enumLiteral_41= 'CustomType35' ) | (enumLiteral_42= 'CustomType36' ) | (enumLiteral_43= 'CustomType37' ) | (enumLiteral_44= 'CustomType38' ) | (enumLiteral_45= 'CustomType39' ) ) ;
     public final Enumerator ruleEqInterfaceType() throws RecognitionException {
         Enumerator current = null;
 
@@ -4231,257 +4367,257 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1807:28: ( ( (enumLiteral_0= 'Can' ) | (enumLiteral_1= 'Enhanced Local Bus' ) | (enumLiteral_2= 'Ethernet' ) | (enumLiteral_3= 'Analog' ) | (enumLiteral_4= 'Digital' ) | (enumLiteral_5= 'Serial' ) | (enumLiteral_6= 'CustomType0' ) | (enumLiteral_7= 'CustomType1' ) | (enumLiteral_8= 'CustomType2' ) | (enumLiteral_9= 'CustomType3' ) | (enumLiteral_10= 'CustomType4' ) | (enumLiteral_11= 'CustomType5' ) | (enumLiteral_12= 'CustomType6' ) | (enumLiteral_13= 'CustomType7' ) | (enumLiteral_14= 'CustomType8' ) | (enumLiteral_15= 'CustomType9' ) | (enumLiteral_16= 'CustomType10' ) | (enumLiteral_17= 'CustomType11' ) | (enumLiteral_18= 'CustomType12' ) | (enumLiteral_19= 'CustomType13' ) | (enumLiteral_20= 'CustomType14' ) | (enumLiteral_21= 'CustomType15' ) | (enumLiteral_22= 'CustomType16' ) | (enumLiteral_23= 'CustomType17' ) | (enumLiteral_24= 'CustomType18' ) | (enumLiteral_25= 'CustomType19' ) | (enumLiteral_26= 'CustomType20' ) | (enumLiteral_27= 'CustomType21' ) | (enumLiteral_28= 'CustomType22' ) | (enumLiteral_29= 'CustomType23' ) | (enumLiteral_30= 'CustomType24' ) | (enumLiteral_31= 'CustomType25' ) | (enumLiteral_32= 'CustomType26' ) | (enumLiteral_33= 'CustomType27' ) | (enumLiteral_34= 'CustomType28' ) | (enumLiteral_35= 'CustomType29' ) | (enumLiteral_36= 'CustomType30' ) | (enumLiteral_37= 'CustomType31' ) | (enumLiteral_38= 'CustomType32' ) | (enumLiteral_39= 'CustomType33' ) | (enumLiteral_40= 'CustomType34' ) | (enumLiteral_41= 'CustomType35' ) | (enumLiteral_42= 'CustomType36' ) | (enumLiteral_43= 'CustomType37' ) | (enumLiteral_44= 'CustomType38' ) | (enumLiteral_45= 'CustomType39' ) ) )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1808:1: ( (enumLiteral_0= 'Can' ) | (enumLiteral_1= 'Enhanced Local Bus' ) | (enumLiteral_2= 'Ethernet' ) | (enumLiteral_3= 'Analog' ) | (enumLiteral_4= 'Digital' ) | (enumLiteral_5= 'Serial' ) | (enumLiteral_6= 'CustomType0' ) | (enumLiteral_7= 'CustomType1' ) | (enumLiteral_8= 'CustomType2' ) | (enumLiteral_9= 'CustomType3' ) | (enumLiteral_10= 'CustomType4' ) | (enumLiteral_11= 'CustomType5' ) | (enumLiteral_12= 'CustomType6' ) | (enumLiteral_13= 'CustomType7' ) | (enumLiteral_14= 'CustomType8' ) | (enumLiteral_15= 'CustomType9' ) | (enumLiteral_16= 'CustomType10' ) | (enumLiteral_17= 'CustomType11' ) | (enumLiteral_18= 'CustomType12' ) | (enumLiteral_19= 'CustomType13' ) | (enumLiteral_20= 'CustomType14' ) | (enumLiteral_21= 'CustomType15' ) | (enumLiteral_22= 'CustomType16' ) | (enumLiteral_23= 'CustomType17' ) | (enumLiteral_24= 'CustomType18' ) | (enumLiteral_25= 'CustomType19' ) | (enumLiteral_26= 'CustomType20' ) | (enumLiteral_27= 'CustomType21' ) | (enumLiteral_28= 'CustomType22' ) | (enumLiteral_29= 'CustomType23' ) | (enumLiteral_30= 'CustomType24' ) | (enumLiteral_31= 'CustomType25' ) | (enumLiteral_32= 'CustomType26' ) | (enumLiteral_33= 'CustomType27' ) | (enumLiteral_34= 'CustomType28' ) | (enumLiteral_35= 'CustomType29' ) | (enumLiteral_36= 'CustomType30' ) | (enumLiteral_37= 'CustomType31' ) | (enumLiteral_38= 'CustomType32' ) | (enumLiteral_39= 'CustomType33' ) | (enumLiteral_40= 'CustomType34' ) | (enumLiteral_41= 'CustomType35' ) | (enumLiteral_42= 'CustomType36' ) | (enumLiteral_43= 'CustomType37' ) | (enumLiteral_44= 'CustomType38' ) | (enumLiteral_45= 'CustomType39' ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1854:28: ( ( (enumLiteral_0= 'Can' ) | (enumLiteral_1= 'Enhanced Local Bus' ) | (enumLiteral_2= 'Ethernet' ) | (enumLiteral_3= 'Analog' ) | (enumLiteral_4= 'Digital' ) | (enumLiteral_5= 'Serial' ) | (enumLiteral_6= 'CustomType0' ) | (enumLiteral_7= 'CustomType1' ) | (enumLiteral_8= 'CustomType2' ) | (enumLiteral_9= 'CustomType3' ) | (enumLiteral_10= 'CustomType4' ) | (enumLiteral_11= 'CustomType5' ) | (enumLiteral_12= 'CustomType6' ) | (enumLiteral_13= 'CustomType7' ) | (enumLiteral_14= 'CustomType8' ) | (enumLiteral_15= 'CustomType9' ) | (enumLiteral_16= 'CustomType10' ) | (enumLiteral_17= 'CustomType11' ) | (enumLiteral_18= 'CustomType12' ) | (enumLiteral_19= 'CustomType13' ) | (enumLiteral_20= 'CustomType14' ) | (enumLiteral_21= 'CustomType15' ) | (enumLiteral_22= 'CustomType16' ) | (enumLiteral_23= 'CustomType17' ) | (enumLiteral_24= 'CustomType18' ) | (enumLiteral_25= 'CustomType19' ) | (enumLiteral_26= 'CustomType20' ) | (enumLiteral_27= 'CustomType21' ) | (enumLiteral_28= 'CustomType22' ) | (enumLiteral_29= 'CustomType23' ) | (enumLiteral_30= 'CustomType24' ) | (enumLiteral_31= 'CustomType25' ) | (enumLiteral_32= 'CustomType26' ) | (enumLiteral_33= 'CustomType27' ) | (enumLiteral_34= 'CustomType28' ) | (enumLiteral_35= 'CustomType29' ) | (enumLiteral_36= 'CustomType30' ) | (enumLiteral_37= 'CustomType31' ) | (enumLiteral_38= 'CustomType32' ) | (enumLiteral_39= 'CustomType33' ) | (enumLiteral_40= 'CustomType34' ) | (enumLiteral_41= 'CustomType35' ) | (enumLiteral_42= 'CustomType36' ) | (enumLiteral_43= 'CustomType37' ) | (enumLiteral_44= 'CustomType38' ) | (enumLiteral_45= 'CustomType39' ) ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1855:1: ( (enumLiteral_0= 'Can' ) | (enumLiteral_1= 'Enhanced Local Bus' ) | (enumLiteral_2= 'Ethernet' ) | (enumLiteral_3= 'Analog' ) | (enumLiteral_4= 'Digital' ) | (enumLiteral_5= 'Serial' ) | (enumLiteral_6= 'CustomType0' ) | (enumLiteral_7= 'CustomType1' ) | (enumLiteral_8= 'CustomType2' ) | (enumLiteral_9= 'CustomType3' ) | (enumLiteral_10= 'CustomType4' ) | (enumLiteral_11= 'CustomType5' ) | (enumLiteral_12= 'CustomType6' ) | (enumLiteral_13= 'CustomType7' ) | (enumLiteral_14= 'CustomType8' ) | (enumLiteral_15= 'CustomType9' ) | (enumLiteral_16= 'CustomType10' ) | (enumLiteral_17= 'CustomType11' ) | (enumLiteral_18= 'CustomType12' ) | (enumLiteral_19= 'CustomType13' ) | (enumLiteral_20= 'CustomType14' ) | (enumLiteral_21= 'CustomType15' ) | (enumLiteral_22= 'CustomType16' ) | (enumLiteral_23= 'CustomType17' ) | (enumLiteral_24= 'CustomType18' ) | (enumLiteral_25= 'CustomType19' ) | (enumLiteral_26= 'CustomType20' ) | (enumLiteral_27= 'CustomType21' ) | (enumLiteral_28= 'CustomType22' ) | (enumLiteral_29= 'CustomType23' ) | (enumLiteral_30= 'CustomType24' ) | (enumLiteral_31= 'CustomType25' ) | (enumLiteral_32= 'CustomType26' ) | (enumLiteral_33= 'CustomType27' ) | (enumLiteral_34= 'CustomType28' ) | (enumLiteral_35= 'CustomType29' ) | (enumLiteral_36= 'CustomType30' ) | (enumLiteral_37= 'CustomType31' ) | (enumLiteral_38= 'CustomType32' ) | (enumLiteral_39= 'CustomType33' ) | (enumLiteral_40= 'CustomType34' ) | (enumLiteral_41= 'CustomType35' ) | (enumLiteral_42= 'CustomType36' ) | (enumLiteral_43= 'CustomType37' ) | (enumLiteral_44= 'CustomType38' ) | (enumLiteral_45= 'CustomType39' ) )
             {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1808:1: ( (enumLiteral_0= 'Can' ) | (enumLiteral_1= 'Enhanced Local Bus' ) | (enumLiteral_2= 'Ethernet' ) | (enumLiteral_3= 'Analog' ) | (enumLiteral_4= 'Digital' ) | (enumLiteral_5= 'Serial' ) | (enumLiteral_6= 'CustomType0' ) | (enumLiteral_7= 'CustomType1' ) | (enumLiteral_8= 'CustomType2' ) | (enumLiteral_9= 'CustomType3' ) | (enumLiteral_10= 'CustomType4' ) | (enumLiteral_11= 'CustomType5' ) | (enumLiteral_12= 'CustomType6' ) | (enumLiteral_13= 'CustomType7' ) | (enumLiteral_14= 'CustomType8' ) | (enumLiteral_15= 'CustomType9' ) | (enumLiteral_16= 'CustomType10' ) | (enumLiteral_17= 'CustomType11' ) | (enumLiteral_18= 'CustomType12' ) | (enumLiteral_19= 'CustomType13' ) | (enumLiteral_20= 'CustomType14' ) | (enumLiteral_21= 'CustomType15' ) | (enumLiteral_22= 'CustomType16' ) | (enumLiteral_23= 'CustomType17' ) | (enumLiteral_24= 'CustomType18' ) | (enumLiteral_25= 'CustomType19' ) | (enumLiteral_26= 'CustomType20' ) | (enumLiteral_27= 'CustomType21' ) | (enumLiteral_28= 'CustomType22' ) | (enumLiteral_29= 'CustomType23' ) | (enumLiteral_30= 'CustomType24' ) | (enumLiteral_31= 'CustomType25' ) | (enumLiteral_32= 'CustomType26' ) | (enumLiteral_33= 'CustomType27' ) | (enumLiteral_34= 'CustomType28' ) | (enumLiteral_35= 'CustomType29' ) | (enumLiteral_36= 'CustomType30' ) | (enumLiteral_37= 'CustomType31' ) | (enumLiteral_38= 'CustomType32' ) | (enumLiteral_39= 'CustomType33' ) | (enumLiteral_40= 'CustomType34' ) | (enumLiteral_41= 'CustomType35' ) | (enumLiteral_42= 'CustomType36' ) | (enumLiteral_43= 'CustomType37' ) | (enumLiteral_44= 'CustomType38' ) | (enumLiteral_45= 'CustomType39' ) )
-            int alt21=46;
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1855:1: ( (enumLiteral_0= 'Can' ) | (enumLiteral_1= 'Enhanced Local Bus' ) | (enumLiteral_2= 'Ethernet' ) | (enumLiteral_3= 'Analog' ) | (enumLiteral_4= 'Digital' ) | (enumLiteral_5= 'Serial' ) | (enumLiteral_6= 'CustomType0' ) | (enumLiteral_7= 'CustomType1' ) | (enumLiteral_8= 'CustomType2' ) | (enumLiteral_9= 'CustomType3' ) | (enumLiteral_10= 'CustomType4' ) | (enumLiteral_11= 'CustomType5' ) | (enumLiteral_12= 'CustomType6' ) | (enumLiteral_13= 'CustomType7' ) | (enumLiteral_14= 'CustomType8' ) | (enumLiteral_15= 'CustomType9' ) | (enumLiteral_16= 'CustomType10' ) | (enumLiteral_17= 'CustomType11' ) | (enumLiteral_18= 'CustomType12' ) | (enumLiteral_19= 'CustomType13' ) | (enumLiteral_20= 'CustomType14' ) | (enumLiteral_21= 'CustomType15' ) | (enumLiteral_22= 'CustomType16' ) | (enumLiteral_23= 'CustomType17' ) | (enumLiteral_24= 'CustomType18' ) | (enumLiteral_25= 'CustomType19' ) | (enumLiteral_26= 'CustomType20' ) | (enumLiteral_27= 'CustomType21' ) | (enumLiteral_28= 'CustomType22' ) | (enumLiteral_29= 'CustomType23' ) | (enumLiteral_30= 'CustomType24' ) | (enumLiteral_31= 'CustomType25' ) | (enumLiteral_32= 'CustomType26' ) | (enumLiteral_33= 'CustomType27' ) | (enumLiteral_34= 'CustomType28' ) | (enumLiteral_35= 'CustomType29' ) | (enumLiteral_36= 'CustomType30' ) | (enumLiteral_37= 'CustomType31' ) | (enumLiteral_38= 'CustomType32' ) | (enumLiteral_39= 'CustomType33' ) | (enumLiteral_40= 'CustomType34' ) | (enumLiteral_41= 'CustomType35' ) | (enumLiteral_42= 'CustomType36' ) | (enumLiteral_43= 'CustomType37' ) | (enumLiteral_44= 'CustomType38' ) | (enumLiteral_45= 'CustomType39' ) )
+            int alt22=46;
             switch ( input.LA(1) ) {
-            case 44:
-                {
-                alt21=1;
-                }
-                break;
-            case 45:
-                {
-                alt21=2;
-                }
-                break;
             case 46:
                 {
-                alt21=3;
+                alt22=1;
                 }
                 break;
             case 47:
                 {
-                alt21=4;
+                alt22=2;
                 }
                 break;
             case 48:
                 {
-                alt21=5;
+                alt22=3;
                 }
                 break;
             case 49:
                 {
-                alt21=6;
+                alt22=4;
                 }
                 break;
             case 50:
                 {
-                alt21=7;
+                alt22=5;
                 }
                 break;
             case 51:
                 {
-                alt21=8;
+                alt22=6;
                 }
                 break;
             case 52:
                 {
-                alt21=9;
+                alt22=7;
                 }
                 break;
             case 53:
                 {
-                alt21=10;
+                alt22=8;
                 }
                 break;
             case 54:
                 {
-                alt21=11;
+                alt22=9;
                 }
                 break;
             case 55:
                 {
-                alt21=12;
+                alt22=10;
                 }
                 break;
             case 56:
                 {
-                alt21=13;
+                alt22=11;
                 }
                 break;
             case 57:
                 {
-                alt21=14;
+                alt22=12;
                 }
                 break;
             case 58:
                 {
-                alt21=15;
+                alt22=13;
                 }
                 break;
             case 59:
                 {
-                alt21=16;
+                alt22=14;
                 }
                 break;
             case 60:
                 {
-                alt21=17;
+                alt22=15;
                 }
                 break;
             case 61:
                 {
-                alt21=18;
+                alt22=16;
                 }
                 break;
             case 62:
                 {
-                alt21=19;
+                alt22=17;
                 }
                 break;
             case 63:
                 {
-                alt21=20;
+                alt22=18;
                 }
                 break;
             case 64:
                 {
-                alt21=21;
+                alt22=19;
                 }
                 break;
             case 65:
                 {
-                alt21=22;
+                alt22=20;
                 }
                 break;
             case 66:
                 {
-                alt21=23;
+                alt22=21;
                 }
                 break;
             case 67:
                 {
-                alt21=24;
+                alt22=22;
                 }
                 break;
             case 68:
                 {
-                alt21=25;
+                alt22=23;
                 }
                 break;
             case 69:
                 {
-                alt21=26;
+                alt22=24;
                 }
                 break;
             case 70:
                 {
-                alt21=27;
+                alt22=25;
                 }
                 break;
             case 71:
                 {
-                alt21=28;
+                alt22=26;
                 }
                 break;
             case 72:
                 {
-                alt21=29;
+                alt22=27;
                 }
                 break;
             case 73:
                 {
-                alt21=30;
+                alt22=28;
                 }
                 break;
             case 74:
                 {
-                alt21=31;
+                alt22=29;
                 }
                 break;
             case 75:
                 {
-                alt21=32;
+                alt22=30;
                 }
                 break;
             case 76:
                 {
-                alt21=33;
+                alt22=31;
                 }
                 break;
             case 77:
                 {
-                alt21=34;
+                alt22=32;
                 }
                 break;
             case 78:
                 {
-                alt21=35;
+                alt22=33;
                 }
                 break;
             case 79:
                 {
-                alt21=36;
+                alt22=34;
                 }
                 break;
             case 80:
                 {
-                alt21=37;
+                alt22=35;
                 }
                 break;
             case 81:
                 {
-                alt21=38;
+                alt22=36;
                 }
                 break;
             case 82:
                 {
-                alt21=39;
+                alt22=37;
                 }
                 break;
             case 83:
                 {
-                alt21=40;
+                alt22=38;
                 }
                 break;
             case 84:
                 {
-                alt21=41;
+                alt22=39;
                 }
                 break;
             case 85:
                 {
-                alt21=42;
+                alt22=40;
                 }
                 break;
             case 86:
                 {
-                alt21=43;
+                alt22=41;
                 }
                 break;
             case 87:
                 {
-                alt21=44;
+                alt22=42;
                 }
                 break;
             case 88:
                 {
-                alt21=45;
+                alt22=43;
                 }
                 break;
             case 89:
                 {
-                alt21=46;
+                alt22=44;
+                }
+                break;
+            case 90:
+                {
+                alt22=45;
+                }
+                break;
+            case 91:
+                {
+                alt22=46;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 21, 0, input);
+                    new NoViableAltException("", 22, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt21) {
+            switch (alt22) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1808:2: (enumLiteral_0= 'Can' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1855:2: (enumLiteral_0= 'Can' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1808:2: (enumLiteral_0= 'Can' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1808:4: enumLiteral_0= 'Can'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1855:2: (enumLiteral_0= 'Can' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1855:4: enumLiteral_0= 'Can'
                     {
-                    enumLiteral_0=(Token)match(input,44,FOLLOW_44_in_ruleEqInterfaceType4367); 
+                    enumLiteral_0=(Token)match(input,46,FOLLOW_46_in_ruleEqInterfaceType4516); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCANEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getEqInterfaceTypeAccess().getCANEnumLiteralDeclaration_0()); 
@@ -4493,12 +4629,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1814:6: (enumLiteral_1= 'Enhanced Local Bus' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1861:6: (enumLiteral_1= 'Enhanced Local Bus' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1814:6: (enumLiteral_1= 'Enhanced Local Bus' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1814:8: enumLiteral_1= 'Enhanced Local Bus'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1861:6: (enumLiteral_1= 'Enhanced Local Bus' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1861:8: enumLiteral_1= 'Enhanced Local Bus'
                     {
-                    enumLiteral_1=(Token)match(input,45,FOLLOW_45_in_ruleEqInterfaceType4384); 
+                    enumLiteral_1=(Token)match(input,47,FOLLOW_47_in_ruleEqInterfaceType4533); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getELBEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getEqInterfaceTypeAccess().getELBEnumLiteralDeclaration_1()); 
@@ -4510,12 +4646,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1820:6: (enumLiteral_2= 'Ethernet' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1867:6: (enumLiteral_2= 'Ethernet' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1820:6: (enumLiteral_2= 'Ethernet' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1820:8: enumLiteral_2= 'Ethernet'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1867:6: (enumLiteral_2= 'Ethernet' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1867:8: enumLiteral_2= 'Ethernet'
                     {
-                    enumLiteral_2=(Token)match(input,46,FOLLOW_46_in_ruleEqInterfaceType4401); 
+                    enumLiteral_2=(Token)match(input,48,FOLLOW_48_in_ruleEqInterfaceType4550); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getETHEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getEqInterfaceTypeAccess().getETHEnumLiteralDeclaration_2()); 
@@ -4527,12 +4663,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1826:6: (enumLiteral_3= 'Analog' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1873:6: (enumLiteral_3= 'Analog' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1826:6: (enumLiteral_3= 'Analog' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1826:8: enumLiteral_3= 'Analog'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1873:6: (enumLiteral_3= 'Analog' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1873:8: enumLiteral_3= 'Analog'
                     {
-                    enumLiteral_3=(Token)match(input,47,FOLLOW_47_in_ruleEqInterfaceType4418); 
+                    enumLiteral_3=(Token)match(input,49,FOLLOW_49_in_ruleEqInterfaceType4567); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getANALOGEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getEqInterfaceTypeAccess().getANALOGEnumLiteralDeclaration_3()); 
@@ -4544,12 +4680,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1832:6: (enumLiteral_4= 'Digital' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1879:6: (enumLiteral_4= 'Digital' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1832:6: (enumLiteral_4= 'Digital' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1832:8: enumLiteral_4= 'Digital'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1879:6: (enumLiteral_4= 'Digital' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1879:8: enumLiteral_4= 'Digital'
                     {
-                    enumLiteral_4=(Token)match(input,48,FOLLOW_48_in_ruleEqInterfaceType4435); 
+                    enumLiteral_4=(Token)match(input,50,FOLLOW_50_in_ruleEqInterfaceType4584); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getDIGITALEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_4, grammarAccess.getEqInterfaceTypeAccess().getDIGITALEnumLiteralDeclaration_4()); 
@@ -4561,12 +4697,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1838:6: (enumLiteral_5= 'Serial' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1885:6: (enumLiteral_5= 'Serial' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1838:6: (enumLiteral_5= 'Serial' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1838:8: enumLiteral_5= 'Serial'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1885:6: (enumLiteral_5= 'Serial' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1885:8: enumLiteral_5= 'Serial'
                     {
-                    enumLiteral_5=(Token)match(input,49,FOLLOW_49_in_ruleEqInterfaceType4452); 
+                    enumLiteral_5=(Token)match(input,51,FOLLOW_51_in_ruleEqInterfaceType4601); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getSERIALEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_5, grammarAccess.getEqInterfaceTypeAccess().getSERIALEnumLiteralDeclaration_5()); 
@@ -4578,12 +4714,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1844:6: (enumLiteral_6= 'CustomType0' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1891:6: (enumLiteral_6= 'CustomType0' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1844:6: (enumLiteral_6= 'CustomType0' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1844:8: enumLiteral_6= 'CustomType0'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1891:6: (enumLiteral_6= 'CustomType0' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1891:8: enumLiteral_6= 'CustomType0'
                     {
-                    enumLiteral_6=(Token)match(input,50,FOLLOW_50_in_ruleEqInterfaceType4469); 
+                    enumLiteral_6=(Token)match(input,52,FOLLOW_52_in_ruleEqInterfaceType4618); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM0EnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_6, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM0EnumLiteralDeclaration_6()); 
@@ -4595,12 +4731,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1850:6: (enumLiteral_7= 'CustomType1' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1897:6: (enumLiteral_7= 'CustomType1' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1850:6: (enumLiteral_7= 'CustomType1' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1850:8: enumLiteral_7= 'CustomType1'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1897:6: (enumLiteral_7= 'CustomType1' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1897:8: enumLiteral_7= 'CustomType1'
                     {
-                    enumLiteral_7=(Token)match(input,51,FOLLOW_51_in_ruleEqInterfaceType4486); 
+                    enumLiteral_7=(Token)match(input,53,FOLLOW_53_in_ruleEqInterfaceType4635); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM1EnumLiteralDeclaration_7().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_7, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM1EnumLiteralDeclaration_7()); 
@@ -4612,12 +4748,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1856:6: (enumLiteral_8= 'CustomType2' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1903:6: (enumLiteral_8= 'CustomType2' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1856:6: (enumLiteral_8= 'CustomType2' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1856:8: enumLiteral_8= 'CustomType2'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1903:6: (enumLiteral_8= 'CustomType2' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1903:8: enumLiteral_8= 'CustomType2'
                     {
-                    enumLiteral_8=(Token)match(input,52,FOLLOW_52_in_ruleEqInterfaceType4503); 
+                    enumLiteral_8=(Token)match(input,54,FOLLOW_54_in_ruleEqInterfaceType4652); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM2EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_8, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM2EnumLiteralDeclaration_8()); 
@@ -4629,12 +4765,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1862:6: (enumLiteral_9= 'CustomType3' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1909:6: (enumLiteral_9= 'CustomType3' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1862:6: (enumLiteral_9= 'CustomType3' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1862:8: enumLiteral_9= 'CustomType3'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1909:6: (enumLiteral_9= 'CustomType3' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1909:8: enumLiteral_9= 'CustomType3'
                     {
-                    enumLiteral_9=(Token)match(input,53,FOLLOW_53_in_ruleEqInterfaceType4520); 
+                    enumLiteral_9=(Token)match(input,55,FOLLOW_55_in_ruleEqInterfaceType4669); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM3EnumLiteralDeclaration_9().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_9, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM3EnumLiteralDeclaration_9()); 
@@ -4646,12 +4782,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1868:6: (enumLiteral_10= 'CustomType4' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1915:6: (enumLiteral_10= 'CustomType4' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1868:6: (enumLiteral_10= 'CustomType4' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1868:8: enumLiteral_10= 'CustomType4'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1915:6: (enumLiteral_10= 'CustomType4' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1915:8: enumLiteral_10= 'CustomType4'
                     {
-                    enumLiteral_10=(Token)match(input,54,FOLLOW_54_in_ruleEqInterfaceType4537); 
+                    enumLiteral_10=(Token)match(input,56,FOLLOW_56_in_ruleEqInterfaceType4686); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM4EnumLiteralDeclaration_10().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_10, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM4EnumLiteralDeclaration_10()); 
@@ -4663,12 +4799,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1874:6: (enumLiteral_11= 'CustomType5' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1921:6: (enumLiteral_11= 'CustomType5' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1874:6: (enumLiteral_11= 'CustomType5' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1874:8: enumLiteral_11= 'CustomType5'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1921:6: (enumLiteral_11= 'CustomType5' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1921:8: enumLiteral_11= 'CustomType5'
                     {
-                    enumLiteral_11=(Token)match(input,55,FOLLOW_55_in_ruleEqInterfaceType4554); 
+                    enumLiteral_11=(Token)match(input,57,FOLLOW_57_in_ruleEqInterfaceType4703); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM5EnumLiteralDeclaration_11().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_11, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM5EnumLiteralDeclaration_11()); 
@@ -4680,12 +4816,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 13 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1880:6: (enumLiteral_12= 'CustomType6' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1927:6: (enumLiteral_12= 'CustomType6' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1880:6: (enumLiteral_12= 'CustomType6' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1880:8: enumLiteral_12= 'CustomType6'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1927:6: (enumLiteral_12= 'CustomType6' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1927:8: enumLiteral_12= 'CustomType6'
                     {
-                    enumLiteral_12=(Token)match(input,56,FOLLOW_56_in_ruleEqInterfaceType4571); 
+                    enumLiteral_12=(Token)match(input,58,FOLLOW_58_in_ruleEqInterfaceType4720); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM6EnumLiteralDeclaration_12().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_12, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM6EnumLiteralDeclaration_12()); 
@@ -4697,12 +4833,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1886:6: (enumLiteral_13= 'CustomType7' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1933:6: (enumLiteral_13= 'CustomType7' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1886:6: (enumLiteral_13= 'CustomType7' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1886:8: enumLiteral_13= 'CustomType7'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1933:6: (enumLiteral_13= 'CustomType7' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1933:8: enumLiteral_13= 'CustomType7'
                     {
-                    enumLiteral_13=(Token)match(input,57,FOLLOW_57_in_ruleEqInterfaceType4588); 
+                    enumLiteral_13=(Token)match(input,59,FOLLOW_59_in_ruleEqInterfaceType4737); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM7EnumLiteralDeclaration_13().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_13, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM7EnumLiteralDeclaration_13()); 
@@ -4714,12 +4850,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 15 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1892:6: (enumLiteral_14= 'CustomType8' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1939:6: (enumLiteral_14= 'CustomType8' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1892:6: (enumLiteral_14= 'CustomType8' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1892:8: enumLiteral_14= 'CustomType8'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1939:6: (enumLiteral_14= 'CustomType8' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1939:8: enumLiteral_14= 'CustomType8'
                     {
-                    enumLiteral_14=(Token)match(input,58,FOLLOW_58_in_ruleEqInterfaceType4605); 
+                    enumLiteral_14=(Token)match(input,60,FOLLOW_60_in_ruleEqInterfaceType4754); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM8EnumLiteralDeclaration_14().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_14, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM8EnumLiteralDeclaration_14()); 
@@ -4731,12 +4867,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 16 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1898:6: (enumLiteral_15= 'CustomType9' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1945:6: (enumLiteral_15= 'CustomType9' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1898:6: (enumLiteral_15= 'CustomType9' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1898:8: enumLiteral_15= 'CustomType9'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1945:6: (enumLiteral_15= 'CustomType9' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1945:8: enumLiteral_15= 'CustomType9'
                     {
-                    enumLiteral_15=(Token)match(input,59,FOLLOW_59_in_ruleEqInterfaceType4622); 
+                    enumLiteral_15=(Token)match(input,61,FOLLOW_61_in_ruleEqInterfaceType4771); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM9EnumLiteralDeclaration_15().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_15, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM9EnumLiteralDeclaration_15()); 
@@ -4748,12 +4884,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 17 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1904:6: (enumLiteral_16= 'CustomType10' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1951:6: (enumLiteral_16= 'CustomType10' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1904:6: (enumLiteral_16= 'CustomType10' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1904:8: enumLiteral_16= 'CustomType10'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1951:6: (enumLiteral_16= 'CustomType10' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1951:8: enumLiteral_16= 'CustomType10'
                     {
-                    enumLiteral_16=(Token)match(input,60,FOLLOW_60_in_ruleEqInterfaceType4639); 
+                    enumLiteral_16=(Token)match(input,62,FOLLOW_62_in_ruleEqInterfaceType4788); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM10EnumLiteralDeclaration_16().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_16, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM10EnumLiteralDeclaration_16()); 
@@ -4765,12 +4901,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 18 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1910:6: (enumLiteral_17= 'CustomType11' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1957:6: (enumLiteral_17= 'CustomType11' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1910:6: (enumLiteral_17= 'CustomType11' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1910:8: enumLiteral_17= 'CustomType11'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1957:6: (enumLiteral_17= 'CustomType11' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1957:8: enumLiteral_17= 'CustomType11'
                     {
-                    enumLiteral_17=(Token)match(input,61,FOLLOW_61_in_ruleEqInterfaceType4656); 
+                    enumLiteral_17=(Token)match(input,63,FOLLOW_63_in_ruleEqInterfaceType4805); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM11EnumLiteralDeclaration_17().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_17, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM11EnumLiteralDeclaration_17()); 
@@ -4782,12 +4918,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 19 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1916:6: (enumLiteral_18= 'CustomType12' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1963:6: (enumLiteral_18= 'CustomType12' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1916:6: (enumLiteral_18= 'CustomType12' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1916:8: enumLiteral_18= 'CustomType12'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1963:6: (enumLiteral_18= 'CustomType12' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1963:8: enumLiteral_18= 'CustomType12'
                     {
-                    enumLiteral_18=(Token)match(input,62,FOLLOW_62_in_ruleEqInterfaceType4673); 
+                    enumLiteral_18=(Token)match(input,64,FOLLOW_64_in_ruleEqInterfaceType4822); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM12EnumLiteralDeclaration_18().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_18, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM12EnumLiteralDeclaration_18()); 
@@ -4799,12 +4935,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 20 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1922:6: (enumLiteral_19= 'CustomType13' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1969:6: (enumLiteral_19= 'CustomType13' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1922:6: (enumLiteral_19= 'CustomType13' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1922:8: enumLiteral_19= 'CustomType13'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1969:6: (enumLiteral_19= 'CustomType13' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1969:8: enumLiteral_19= 'CustomType13'
                     {
-                    enumLiteral_19=(Token)match(input,63,FOLLOW_63_in_ruleEqInterfaceType4690); 
+                    enumLiteral_19=(Token)match(input,65,FOLLOW_65_in_ruleEqInterfaceType4839); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM13EnumLiteralDeclaration_19().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_19, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM13EnumLiteralDeclaration_19()); 
@@ -4816,12 +4952,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 21 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1928:6: (enumLiteral_20= 'CustomType14' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1975:6: (enumLiteral_20= 'CustomType14' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1928:6: (enumLiteral_20= 'CustomType14' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1928:8: enumLiteral_20= 'CustomType14'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1975:6: (enumLiteral_20= 'CustomType14' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1975:8: enumLiteral_20= 'CustomType14'
                     {
-                    enumLiteral_20=(Token)match(input,64,FOLLOW_64_in_ruleEqInterfaceType4707); 
+                    enumLiteral_20=(Token)match(input,66,FOLLOW_66_in_ruleEqInterfaceType4856); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM14EnumLiteralDeclaration_20().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_20, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM14EnumLiteralDeclaration_20()); 
@@ -4833,12 +4969,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 22 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1934:6: (enumLiteral_21= 'CustomType15' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1981:6: (enumLiteral_21= 'CustomType15' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1934:6: (enumLiteral_21= 'CustomType15' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1934:8: enumLiteral_21= 'CustomType15'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1981:6: (enumLiteral_21= 'CustomType15' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1981:8: enumLiteral_21= 'CustomType15'
                     {
-                    enumLiteral_21=(Token)match(input,65,FOLLOW_65_in_ruleEqInterfaceType4724); 
+                    enumLiteral_21=(Token)match(input,67,FOLLOW_67_in_ruleEqInterfaceType4873); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM15EnumLiteralDeclaration_21().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_21, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM15EnumLiteralDeclaration_21()); 
@@ -4850,12 +4986,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 23 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1940:6: (enumLiteral_22= 'CustomType16' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1987:6: (enumLiteral_22= 'CustomType16' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1940:6: (enumLiteral_22= 'CustomType16' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1940:8: enumLiteral_22= 'CustomType16'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1987:6: (enumLiteral_22= 'CustomType16' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1987:8: enumLiteral_22= 'CustomType16'
                     {
-                    enumLiteral_22=(Token)match(input,66,FOLLOW_66_in_ruleEqInterfaceType4741); 
+                    enumLiteral_22=(Token)match(input,68,FOLLOW_68_in_ruleEqInterfaceType4890); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM16EnumLiteralDeclaration_22().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_22, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM16EnumLiteralDeclaration_22()); 
@@ -4867,12 +5003,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 24 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1946:6: (enumLiteral_23= 'CustomType17' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1993:6: (enumLiteral_23= 'CustomType17' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1946:6: (enumLiteral_23= 'CustomType17' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1946:8: enumLiteral_23= 'CustomType17'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1993:6: (enumLiteral_23= 'CustomType17' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1993:8: enumLiteral_23= 'CustomType17'
                     {
-                    enumLiteral_23=(Token)match(input,67,FOLLOW_67_in_ruleEqInterfaceType4758); 
+                    enumLiteral_23=(Token)match(input,69,FOLLOW_69_in_ruleEqInterfaceType4907); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM17EnumLiteralDeclaration_23().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_23, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM17EnumLiteralDeclaration_23()); 
@@ -4884,12 +5020,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 25 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1952:6: (enumLiteral_24= 'CustomType18' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1999:6: (enumLiteral_24= 'CustomType18' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1952:6: (enumLiteral_24= 'CustomType18' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1952:8: enumLiteral_24= 'CustomType18'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1999:6: (enumLiteral_24= 'CustomType18' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1999:8: enumLiteral_24= 'CustomType18'
                     {
-                    enumLiteral_24=(Token)match(input,68,FOLLOW_68_in_ruleEqInterfaceType4775); 
+                    enumLiteral_24=(Token)match(input,70,FOLLOW_70_in_ruleEqInterfaceType4924); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM18EnumLiteralDeclaration_24().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_24, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM18EnumLiteralDeclaration_24()); 
@@ -4901,12 +5037,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 26 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1958:6: (enumLiteral_25= 'CustomType19' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2005:6: (enumLiteral_25= 'CustomType19' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1958:6: (enumLiteral_25= 'CustomType19' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1958:8: enumLiteral_25= 'CustomType19'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2005:6: (enumLiteral_25= 'CustomType19' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2005:8: enumLiteral_25= 'CustomType19'
                     {
-                    enumLiteral_25=(Token)match(input,69,FOLLOW_69_in_ruleEqInterfaceType4792); 
+                    enumLiteral_25=(Token)match(input,71,FOLLOW_71_in_ruleEqInterfaceType4941); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM19EnumLiteralDeclaration_25().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_25, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM19EnumLiteralDeclaration_25()); 
@@ -4918,12 +5054,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 27 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1964:6: (enumLiteral_26= 'CustomType20' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2011:6: (enumLiteral_26= 'CustomType20' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1964:6: (enumLiteral_26= 'CustomType20' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1964:8: enumLiteral_26= 'CustomType20'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2011:6: (enumLiteral_26= 'CustomType20' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2011:8: enumLiteral_26= 'CustomType20'
                     {
-                    enumLiteral_26=(Token)match(input,70,FOLLOW_70_in_ruleEqInterfaceType4809); 
+                    enumLiteral_26=(Token)match(input,72,FOLLOW_72_in_ruleEqInterfaceType4958); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM20EnumLiteralDeclaration_26().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_26, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM20EnumLiteralDeclaration_26()); 
@@ -4935,12 +5071,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 28 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1970:6: (enumLiteral_27= 'CustomType21' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2017:6: (enumLiteral_27= 'CustomType21' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1970:6: (enumLiteral_27= 'CustomType21' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1970:8: enumLiteral_27= 'CustomType21'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2017:6: (enumLiteral_27= 'CustomType21' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2017:8: enumLiteral_27= 'CustomType21'
                     {
-                    enumLiteral_27=(Token)match(input,71,FOLLOW_71_in_ruleEqInterfaceType4826); 
+                    enumLiteral_27=(Token)match(input,73,FOLLOW_73_in_ruleEqInterfaceType4975); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM21EnumLiteralDeclaration_27().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_27, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM21EnumLiteralDeclaration_27()); 
@@ -4952,12 +5088,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 29 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1976:6: (enumLiteral_28= 'CustomType22' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2023:6: (enumLiteral_28= 'CustomType22' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1976:6: (enumLiteral_28= 'CustomType22' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1976:8: enumLiteral_28= 'CustomType22'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2023:6: (enumLiteral_28= 'CustomType22' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2023:8: enumLiteral_28= 'CustomType22'
                     {
-                    enumLiteral_28=(Token)match(input,72,FOLLOW_72_in_ruleEqInterfaceType4843); 
+                    enumLiteral_28=(Token)match(input,74,FOLLOW_74_in_ruleEqInterfaceType4992); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM22EnumLiteralDeclaration_28().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_28, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM22EnumLiteralDeclaration_28()); 
@@ -4969,12 +5105,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 30 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1982:6: (enumLiteral_29= 'CustomType23' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2029:6: (enumLiteral_29= 'CustomType23' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1982:6: (enumLiteral_29= 'CustomType23' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1982:8: enumLiteral_29= 'CustomType23'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2029:6: (enumLiteral_29= 'CustomType23' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2029:8: enumLiteral_29= 'CustomType23'
                     {
-                    enumLiteral_29=(Token)match(input,73,FOLLOW_73_in_ruleEqInterfaceType4860); 
+                    enumLiteral_29=(Token)match(input,75,FOLLOW_75_in_ruleEqInterfaceType5009); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM23EnumLiteralDeclaration_29().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_29, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM23EnumLiteralDeclaration_29()); 
@@ -4986,12 +5122,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 31 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1988:6: (enumLiteral_30= 'CustomType24' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2035:6: (enumLiteral_30= 'CustomType24' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1988:6: (enumLiteral_30= 'CustomType24' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1988:8: enumLiteral_30= 'CustomType24'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2035:6: (enumLiteral_30= 'CustomType24' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2035:8: enumLiteral_30= 'CustomType24'
                     {
-                    enumLiteral_30=(Token)match(input,74,FOLLOW_74_in_ruleEqInterfaceType4877); 
+                    enumLiteral_30=(Token)match(input,76,FOLLOW_76_in_ruleEqInterfaceType5026); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM24EnumLiteralDeclaration_30().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_30, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM24EnumLiteralDeclaration_30()); 
@@ -5003,12 +5139,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 32 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1994:6: (enumLiteral_31= 'CustomType25' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2041:6: (enumLiteral_31= 'CustomType25' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1994:6: (enumLiteral_31= 'CustomType25' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1994:8: enumLiteral_31= 'CustomType25'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2041:6: (enumLiteral_31= 'CustomType25' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2041:8: enumLiteral_31= 'CustomType25'
                     {
-                    enumLiteral_31=(Token)match(input,75,FOLLOW_75_in_ruleEqInterfaceType4894); 
+                    enumLiteral_31=(Token)match(input,77,FOLLOW_77_in_ruleEqInterfaceType5043); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM25EnumLiteralDeclaration_31().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_31, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM25EnumLiteralDeclaration_31()); 
@@ -5020,12 +5156,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 33 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2000:6: (enumLiteral_32= 'CustomType26' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2047:6: (enumLiteral_32= 'CustomType26' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2000:6: (enumLiteral_32= 'CustomType26' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2000:8: enumLiteral_32= 'CustomType26'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2047:6: (enumLiteral_32= 'CustomType26' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2047:8: enumLiteral_32= 'CustomType26'
                     {
-                    enumLiteral_32=(Token)match(input,76,FOLLOW_76_in_ruleEqInterfaceType4911); 
+                    enumLiteral_32=(Token)match(input,78,FOLLOW_78_in_ruleEqInterfaceType5060); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM26EnumLiteralDeclaration_32().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_32, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM26EnumLiteralDeclaration_32()); 
@@ -5037,12 +5173,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 34 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2006:6: (enumLiteral_33= 'CustomType27' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2053:6: (enumLiteral_33= 'CustomType27' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2006:6: (enumLiteral_33= 'CustomType27' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2006:8: enumLiteral_33= 'CustomType27'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2053:6: (enumLiteral_33= 'CustomType27' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2053:8: enumLiteral_33= 'CustomType27'
                     {
-                    enumLiteral_33=(Token)match(input,77,FOLLOW_77_in_ruleEqInterfaceType4928); 
+                    enumLiteral_33=(Token)match(input,79,FOLLOW_79_in_ruleEqInterfaceType5077); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM27EnumLiteralDeclaration_33().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_33, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM27EnumLiteralDeclaration_33()); 
@@ -5054,12 +5190,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 35 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2012:6: (enumLiteral_34= 'CustomType28' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2059:6: (enumLiteral_34= 'CustomType28' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2012:6: (enumLiteral_34= 'CustomType28' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2012:8: enumLiteral_34= 'CustomType28'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2059:6: (enumLiteral_34= 'CustomType28' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2059:8: enumLiteral_34= 'CustomType28'
                     {
-                    enumLiteral_34=(Token)match(input,78,FOLLOW_78_in_ruleEqInterfaceType4945); 
+                    enumLiteral_34=(Token)match(input,80,FOLLOW_80_in_ruleEqInterfaceType5094); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM28EnumLiteralDeclaration_34().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_34, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM28EnumLiteralDeclaration_34()); 
@@ -5071,12 +5207,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 36 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2018:6: (enumLiteral_35= 'CustomType29' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2065:6: (enumLiteral_35= 'CustomType29' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2018:6: (enumLiteral_35= 'CustomType29' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2018:8: enumLiteral_35= 'CustomType29'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2065:6: (enumLiteral_35= 'CustomType29' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2065:8: enumLiteral_35= 'CustomType29'
                     {
-                    enumLiteral_35=(Token)match(input,79,FOLLOW_79_in_ruleEqInterfaceType4962); 
+                    enumLiteral_35=(Token)match(input,81,FOLLOW_81_in_ruleEqInterfaceType5111); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM29EnumLiteralDeclaration_35().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_35, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM29EnumLiteralDeclaration_35()); 
@@ -5088,12 +5224,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 37 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2024:6: (enumLiteral_36= 'CustomType30' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2071:6: (enumLiteral_36= 'CustomType30' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2024:6: (enumLiteral_36= 'CustomType30' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2024:8: enumLiteral_36= 'CustomType30'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2071:6: (enumLiteral_36= 'CustomType30' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2071:8: enumLiteral_36= 'CustomType30'
                     {
-                    enumLiteral_36=(Token)match(input,80,FOLLOW_80_in_ruleEqInterfaceType4979); 
+                    enumLiteral_36=(Token)match(input,82,FOLLOW_82_in_ruleEqInterfaceType5128); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM30EnumLiteralDeclaration_36().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_36, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM30EnumLiteralDeclaration_36()); 
@@ -5105,12 +5241,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 38 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2030:6: (enumLiteral_37= 'CustomType31' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2077:6: (enumLiteral_37= 'CustomType31' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2030:6: (enumLiteral_37= 'CustomType31' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2030:8: enumLiteral_37= 'CustomType31'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2077:6: (enumLiteral_37= 'CustomType31' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2077:8: enumLiteral_37= 'CustomType31'
                     {
-                    enumLiteral_37=(Token)match(input,81,FOLLOW_81_in_ruleEqInterfaceType4996); 
+                    enumLiteral_37=(Token)match(input,83,FOLLOW_83_in_ruleEqInterfaceType5145); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM31EnumLiteralDeclaration_37().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_37, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM31EnumLiteralDeclaration_37()); 
@@ -5122,12 +5258,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 39 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2036:6: (enumLiteral_38= 'CustomType32' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2083:6: (enumLiteral_38= 'CustomType32' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2036:6: (enumLiteral_38= 'CustomType32' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2036:8: enumLiteral_38= 'CustomType32'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2083:6: (enumLiteral_38= 'CustomType32' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2083:8: enumLiteral_38= 'CustomType32'
                     {
-                    enumLiteral_38=(Token)match(input,82,FOLLOW_82_in_ruleEqInterfaceType5013); 
+                    enumLiteral_38=(Token)match(input,84,FOLLOW_84_in_ruleEqInterfaceType5162); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM32EnumLiteralDeclaration_38().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_38, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM32EnumLiteralDeclaration_38()); 
@@ -5139,12 +5275,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 40 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2042:6: (enumLiteral_39= 'CustomType33' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2089:6: (enumLiteral_39= 'CustomType33' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2042:6: (enumLiteral_39= 'CustomType33' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2042:8: enumLiteral_39= 'CustomType33'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2089:6: (enumLiteral_39= 'CustomType33' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2089:8: enumLiteral_39= 'CustomType33'
                     {
-                    enumLiteral_39=(Token)match(input,83,FOLLOW_83_in_ruleEqInterfaceType5030); 
+                    enumLiteral_39=(Token)match(input,85,FOLLOW_85_in_ruleEqInterfaceType5179); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM33EnumLiteralDeclaration_39().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_39, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM33EnumLiteralDeclaration_39()); 
@@ -5156,12 +5292,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 41 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2048:6: (enumLiteral_40= 'CustomType34' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2095:6: (enumLiteral_40= 'CustomType34' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2048:6: (enumLiteral_40= 'CustomType34' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2048:8: enumLiteral_40= 'CustomType34'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2095:6: (enumLiteral_40= 'CustomType34' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2095:8: enumLiteral_40= 'CustomType34'
                     {
-                    enumLiteral_40=(Token)match(input,84,FOLLOW_84_in_ruleEqInterfaceType5047); 
+                    enumLiteral_40=(Token)match(input,86,FOLLOW_86_in_ruleEqInterfaceType5196); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM34EnumLiteralDeclaration_40().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_40, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM34EnumLiteralDeclaration_40()); 
@@ -5173,12 +5309,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 42 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2054:6: (enumLiteral_41= 'CustomType35' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2101:6: (enumLiteral_41= 'CustomType35' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2054:6: (enumLiteral_41= 'CustomType35' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2054:8: enumLiteral_41= 'CustomType35'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2101:6: (enumLiteral_41= 'CustomType35' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2101:8: enumLiteral_41= 'CustomType35'
                     {
-                    enumLiteral_41=(Token)match(input,85,FOLLOW_85_in_ruleEqInterfaceType5064); 
+                    enumLiteral_41=(Token)match(input,87,FOLLOW_87_in_ruleEqInterfaceType5213); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM35EnumLiteralDeclaration_41().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_41, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM35EnumLiteralDeclaration_41()); 
@@ -5190,12 +5326,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 43 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2060:6: (enumLiteral_42= 'CustomType36' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2107:6: (enumLiteral_42= 'CustomType36' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2060:6: (enumLiteral_42= 'CustomType36' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2060:8: enumLiteral_42= 'CustomType36'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2107:6: (enumLiteral_42= 'CustomType36' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2107:8: enumLiteral_42= 'CustomType36'
                     {
-                    enumLiteral_42=(Token)match(input,86,FOLLOW_86_in_ruleEqInterfaceType5081); 
+                    enumLiteral_42=(Token)match(input,88,FOLLOW_88_in_ruleEqInterfaceType5230); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM36EnumLiteralDeclaration_42().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_42, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM36EnumLiteralDeclaration_42()); 
@@ -5207,12 +5343,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 44 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2066:6: (enumLiteral_43= 'CustomType37' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2113:6: (enumLiteral_43= 'CustomType37' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2066:6: (enumLiteral_43= 'CustomType37' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2066:8: enumLiteral_43= 'CustomType37'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2113:6: (enumLiteral_43= 'CustomType37' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2113:8: enumLiteral_43= 'CustomType37'
                     {
-                    enumLiteral_43=(Token)match(input,87,FOLLOW_87_in_ruleEqInterfaceType5098); 
+                    enumLiteral_43=(Token)match(input,89,FOLLOW_89_in_ruleEqInterfaceType5247); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM37EnumLiteralDeclaration_43().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_43, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM37EnumLiteralDeclaration_43()); 
@@ -5224,12 +5360,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 45 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2072:6: (enumLiteral_44= 'CustomType38' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2119:6: (enumLiteral_44= 'CustomType38' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2072:6: (enumLiteral_44= 'CustomType38' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2072:8: enumLiteral_44= 'CustomType38'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2119:6: (enumLiteral_44= 'CustomType38' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2119:8: enumLiteral_44= 'CustomType38'
                     {
-                    enumLiteral_44=(Token)match(input,88,FOLLOW_88_in_ruleEqInterfaceType5115); 
+                    enumLiteral_44=(Token)match(input,90,FOLLOW_90_in_ruleEqInterfaceType5264); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM38EnumLiteralDeclaration_44().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_44, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM38EnumLiteralDeclaration_44()); 
@@ -5241,12 +5377,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 46 :
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2078:6: (enumLiteral_45= 'CustomType39' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2125:6: (enumLiteral_45= 'CustomType39' )
                     {
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2078:6: (enumLiteral_45= 'CustomType39' )
-                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2078:8: enumLiteral_45= 'CustomType39'
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2125:6: (enumLiteral_45= 'CustomType39' )
+                    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2125:8: enumLiteral_45= 'CustomType39'
                     {
-                    enumLiteral_45=(Token)match(input,89,FOLLOW_89_in_ruleEqInterfaceType5132); 
+                    enumLiteral_45=(Token)match(input,91,FOLLOW_91_in_ruleEqInterfaceType5281); 
 
                             current = grammarAccess.getEqInterfaceTypeAccess().getCUSTOM39EnumLiteralDeclaration_45().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_45, grammarAccess.getEqInterfaceTypeAccess().getCUSTOM39EnumLiteralDeclaration_45()); 
@@ -5286,22 +5422,22 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
     static final String DFA6_eofS =
         "\10\uffff";
     static final String DFA6_minS =
-        "\1\5\1\uffff\1\36\2\uffff\1\5\1\uffff\1\36";
+        "\1\5\1\uffff\1\36\1\uffff\1\5\2\uffff\1\36";
     static final String DFA6_maxS =
-        "\1\53\1\uffff\1\52\2\uffff\1\5\1\uffff\1\52";
+        "\1\53\1\uffff\1\52\1\uffff\1\5\2\uffff\1\52";
     static final String DFA6_acceptS =
-        "\1\uffff\1\4\1\uffff\1\3\1\1\1\uffff\1\2\1\uffff";
+        "\1\uffff\1\4\1\uffff\1\3\1\uffff\1\2\1\1\1\uffff";
     static final String DFA6_specialS =
         "\10\uffff}>";
     static final String[] DFA6_transitionS = {
             "\1\2\12\uffff\1\1\32\uffff\1\3",
             "",
-            "\1\5\12\uffff\1\4\1\6",
-            "",
+            "\1\4\12\uffff\1\6\1\5",
             "",
             "\1\7",
             "",
-            "\1\5\12\uffff\1\4\1\6"
+            "",
+            "\1\4\12\uffff\1\6\1\5"
     };
 
     static final short[] DFA6_eot = DFA.unpackEncodedString(DFA6_eotS);
@@ -5517,8 +5653,8 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRuleConnector1907 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_28_in_ruleConnector1944 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleConnector1961 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleConnector1978 = new BitSet(new long[]{0xFFFFF00000010000L,0x0000000003FFFFFFL});
-    public static final BitSet FOLLOW_ruleAvailableEqInterface_in_ruleConnector1999 = new BitSet(new long[]{0xFFFFF00000010000L,0x0000000003FFFFFFL});
+    public static final BitSet FOLLOW_12_in_ruleConnector1978 = new BitSet(new long[]{0xFFFFC00000010000L,0x000000000FFFFFFFL});
+    public static final BitSet FOLLOW_ruleAvailableEqInterface_in_ruleConnector1999 = new BitSet(new long[]{0xFFFFC00000010000L,0x000000000FFFFFFFL});
     public static final BitSet FOLLOW_16_in_ruleConnector2012 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAvailableEqInterface_in_entryRuleAvailableEqInterface2048 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleAvailableEqInterface2058 = new BitSet(new long[]{0x0000000000000002L});
@@ -5577,7 +5713,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_STRING_in_ruleEqInterface3450 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleEqInterface3467 = new BitSet(new long[]{0x000001FF04010000L});
     public static final BitSet FOLLOW_26_in_ruleEqInterface3535 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleEqInterface3547 = new BitSet(new long[]{0xFFFFF00000000000L,0x0000000003FFFFFFL});
+    public static final BitSet FOLLOW_14_in_ruleEqInterface3547 = new BitSet(new long[]{0xFFFFC00000000000L,0x000000000FFFFFFFL});
     public static final BitSet FOLLOW_ruleEqInterfaceType_in_ruleEqInterface3568 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleEqInterface3580 = new BitSet(new long[]{0x000001FF04010000L});
     public static final BitSet FOLLOW_16_in_ruleEqInterface3633 = new BitSet(new long[]{0x0000000000000002L});
@@ -5601,63 +5737,69 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleValidDeployment_in_entryRuleValidDeployment4041 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleValidDeployment4051 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_43_in_ruleValidDeployment4088 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleValidDeployment4108 = new BitSet(new long[]{0x0000000040004000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleValidDeployment4108 = new BitSet(new long[]{0x0000100040000000L});
     public static final BitSet FOLLOW_30_in_ruleValidDeployment4121 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleValidDeployment4141 = new BitSet(new long[]{0x0000000040004000L});
-    public static final BitSet FOLLOW_14_in_ruleValidDeployment4155 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleValidDeployment4141 = new BitSet(new long[]{0x0000100040000000L});
+    public static final BitSet FOLLOW_44_in_ruleValidDeployment4155 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_ruleValidDeployment4167 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleValidDeployment4187 = new BitSet(new long[]{0x0000000040010000L});
-    public static final BitSet FOLLOW_30_in_ruleValidDeployment4200 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleValidDeployment4220 = new BitSet(new long[]{0x0000000040010000L});
-    public static final BitSet FOLLOW_16_in_ruleValidDeployment4234 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_ruleHardwareArchitectureLevelType4288 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_ruleHardwareArchitectureLevelType4305 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_ruleHardwareArchitectureLevelType4322 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleEqInterfaceType4367 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleEqInterfaceType4384 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleEqInterfaceType4401 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleEqInterfaceType4418 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleEqInterfaceType4435 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleEqInterfaceType4452 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleEqInterfaceType4469 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleEqInterfaceType4486 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleEqInterfaceType4503 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleEqInterfaceType4520 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleEqInterfaceType4537 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleEqInterfaceType4554 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleEqInterfaceType4571 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_ruleEqInterfaceType4588 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_ruleEqInterfaceType4605 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_ruleEqInterfaceType4622 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_ruleEqInterfaceType4639 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_61_in_ruleEqInterfaceType4656 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_ruleEqInterfaceType4673 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_ruleEqInterfaceType4690 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_ruleEqInterfaceType4707 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_ruleEqInterfaceType4724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_66_in_ruleEqInterfaceType4741 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_67_in_ruleEqInterfaceType4758 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_68_in_ruleEqInterfaceType4775 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_69_in_ruleEqInterfaceType4792 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_70_in_ruleEqInterfaceType4809 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_71_in_ruleEqInterfaceType4826 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_72_in_ruleEqInterfaceType4843 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_73_in_ruleEqInterfaceType4860 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_74_in_ruleEqInterfaceType4877 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_75_in_ruleEqInterfaceType4894 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_ruleEqInterfaceType4911 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_77_in_ruleEqInterfaceType4928 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_78_in_ruleEqInterfaceType4945 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_79_in_ruleEqInterfaceType4962 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_80_in_ruleEqInterfaceType4979 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_81_in_ruleEqInterfaceType4996 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_82_in_ruleEqInterfaceType5013 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_83_in_ruleEqInterfaceType5030 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_84_in_ruleEqInterfaceType5047 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_85_in_ruleEqInterfaceType5064 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_86_in_ruleEqInterfaceType5081 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_87_in_ruleEqInterfaceType5098 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_88_in_ruleEqInterfaceType5115 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_89_in_ruleEqInterfaceType5132 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleValidDeployment4190 = new BitSet(new long[]{0x0000000040010000L});
+    public static final BitSet FOLLOW_30_in_ruleValidDeployment4203 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleValidDeployment4226 = new BitSet(new long[]{0x0000000040010000L});
+    public static final BitSet FOLLOW_16_in_ruleValidDeployment4240 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleValidDeployment4252 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName4291 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName4302 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName4342 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_45_in_ruleQualifiedName4361 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName4376 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_20_in_ruleHardwareArchitectureLevelType4437 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleHardwareArchitectureLevelType4454 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_ruleHardwareArchitectureLevelType4471 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleEqInterfaceType4516 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleEqInterfaceType4533 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleEqInterfaceType4550 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleEqInterfaceType4567 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleEqInterfaceType4584 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleEqInterfaceType4601 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleEqInterfaceType4618 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleEqInterfaceType4635 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleEqInterfaceType4652 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleEqInterfaceType4669 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleEqInterfaceType4686 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_ruleEqInterfaceType4703 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_ruleEqInterfaceType4720 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_ruleEqInterfaceType4737 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_ruleEqInterfaceType4754 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_ruleEqInterfaceType4771 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_ruleEqInterfaceType4788 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_ruleEqInterfaceType4805 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_ruleEqInterfaceType4822 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleEqInterfaceType4839 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_66_in_ruleEqInterfaceType4856 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_67_in_ruleEqInterfaceType4873 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_68_in_ruleEqInterfaceType4890 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_69_in_ruleEqInterfaceType4907 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_70_in_ruleEqInterfaceType4924 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_71_in_ruleEqInterfaceType4941 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_72_in_ruleEqInterfaceType4958 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_ruleEqInterfaceType4975 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_74_in_ruleEqInterfaceType4992 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_75_in_ruleEqInterfaceType5009 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_ruleEqInterfaceType5026 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_77_in_ruleEqInterfaceType5043 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_78_in_ruleEqInterfaceType5060 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_79_in_ruleEqInterfaceType5077 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_80_in_ruleEqInterfaceType5094 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_81_in_ruleEqInterfaceType5111 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_82_in_ruleEqInterfaceType5128 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_83_in_ruleEqInterfaceType5145 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_84_in_ruleEqInterfaceType5162 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_85_in_ruleEqInterfaceType5179 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_86_in_ruleEqInterfaceType5196 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_87_in_ruleEqInterfaceType5213 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_88_in_ruleEqInterfaceType5230 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_89_in_ruleEqInterfaceType5247 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_90_in_ruleEqInterfaceType5264 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_91_in_ruleEqInterfaceType5281 = new BitSet(new long[]{0x0000000000000002L});
 
 }

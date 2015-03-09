@@ -8,6 +8,7 @@ import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
 import ch.hilbri.assist.mapping.solver.constraints.OneRouteForEachConnector
+import ch.hilbri.assist.mapping.solver.constraints.RestrictValidDeploymentsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor
@@ -66,6 +67,7 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new OneRouteForEachConnector(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 
 		/* Create a new constraint that restricts the applications to their specified hardware elements */
 //		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, solver, solverVariables))
