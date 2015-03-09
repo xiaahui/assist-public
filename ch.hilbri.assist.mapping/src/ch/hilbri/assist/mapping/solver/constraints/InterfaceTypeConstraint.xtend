@@ -37,11 +37,13 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 					var sum = VF.integer("Sum-" + t + "-" + cIdx, 0, interfaceSupplyPerConnector.get(cIdx), solver)
 					solver.post(ICF.sum(solverVariables.interfaceConnectorIndicatorVariables.get(cIdx), sum))
 					
-					try { solver.propagate
-					} catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, t) }
 				}
 
+				try { solver.propagate } 
+				catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, t) }
+
 			}
+
 		}
 
 		return true

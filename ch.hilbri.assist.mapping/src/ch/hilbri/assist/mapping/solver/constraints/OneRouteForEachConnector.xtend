@@ -19,11 +19,11 @@ class OneRouteForEachConnector extends AbstractMappingConstraint {
 		
 		// 1. Liste aller Routen der Interfaces besorgen (routes should be case-insensitive!)
 		val listOfAllRoutes = model.allEqInterfaces.map[route.toUpperCase].toSet.toList.sort		
-		if (listOfAllRoutes.length < 1) return true
+		if (listOfAllRoutes.empty) return false
 				
 		// 2. Domain mit den Indizes der obigen Liste anlegen
 		// 3. Für jeden Connector eine Variable, die die "Route" des Connectors speichert (Domain = siehe voriger Schritt)
-		val listOfAllRouteVariablesForEachConnector = model.allConnectors.map[VF.enumerated("RouteVarFor" + name, 0, listOfAllRoutes.length-1, solver)]
+		val listOfAllRouteVariablesForEachConnector = model.allConnectors.map[VF.enumerated("RouteVarFor" + it.name, 0, listOfAllRoutes.length-1, solver)]
 		
 		// 4. Indikatorvariablen für die Connectoren und die belegten Routen bauen
 		// -> für jeden Connector gibt es ein Array von BoolVars (bzw. eine Matrix für alle Connectoren)

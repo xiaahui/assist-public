@@ -2,6 +2,7 @@ package ch.hilbri.assist.mappingdsl.serializer;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
+import ch.hilbri.assist.datamodel.model.ColocalityRelation;
 import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.DislocalityRelation;
@@ -42,6 +43,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case ModelPackage.AVAILABLE_EQ_INTERFACE:
 				if(context == grammarAccess.getAvailableEqInterfaceRule()) {
 					sequence_AvailableEqInterface(context, (AvailableEqInterface) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.COLOCALITY_RELATION:
+				if(context == grammarAccess.getColocalityRelationRule()) {
+					sequence_ColocalityRelation(context, (ColocalityRelation) semanticObject); 
 					return; 
 				}
 				else break;
@@ -98,7 +105,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         compartments+=Compartment? 
 	 *         eqInterfaces+=EqInterface* 
 	 *         eqInterfaceGroups+=EqInterfaceGroup* 
-	 *         dislocalityRelations+=DislocalityRelation*
+	 *         (dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation)*
 	 *     )
 	 */
 	protected void sequence_AssistModel(EObject context, AssistModel semanticObject) {
@@ -127,13 +134,22 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
+	 *     (eqInterfaceGroups+=[EqInterfaceGroup|ID] eqInterfaceGroups+=[EqInterfaceGroup|ID]* hardwareLevel=HardwareArchitectureLevelType)
+	 */
+	protected void sequence_ColocalityRelation(EObject context, ColocalityRelation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         name=ID 
 	 *         manufacturer=STRING? 
 	 *         powerSupply=STRING? 
 	 *         side=STRING? 
 	 *         zone=STRING? 
-	 *         rdcs+=RDC*
+	 *         rdcs+=RDC+
 	 *     )
 	 */
 	protected void sequence_Compartment(EObject context, Compartment semanticObject) {
@@ -191,8 +207,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         route=STRING? 
 	 *         pwSup1=STRING? 
 	 *         emhZone1=STRING? 
-	 *         ioType=EqInterfaceType? 
-	 *         metricParameters+=MetricParameter*
+	 *         ioType=EqInterfaceType?
 	 *     )
 	 */
 	protected void sequence_EqInterface(EObject context, EqInterface semanticObject) {
@@ -227,8 +242,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         powerSupply=STRING? 
 	 *         rdcType=STRING? 
 	 *         ess=STRING? 
-	 *         connectors+=Connector+ 
-	 *         metricParameters+=MetricParameter*
+	 *         connectors+=Connector+
 	 *     )
 	 */
 	protected void sequence_RDC(EObject context, RDC semanticObject) {

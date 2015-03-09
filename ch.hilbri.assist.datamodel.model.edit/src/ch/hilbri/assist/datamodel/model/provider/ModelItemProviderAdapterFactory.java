@@ -302,6 +302,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ColocalityRelation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ColocalityRelationItemProvider colocalityRelationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ColocalityRelation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createColocalityRelationAdapter() {
+		if (colocalityRelationItemProvider == null) {
+			colocalityRelationItemProvider = new ColocalityRelationItemProvider(this);
+		}
+
+		return colocalityRelationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -410,6 +433,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (eqInterfaceGroupItemProvider != null) eqInterfaceGroupItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
+		if (colocalityRelationItemProvider != null) colocalityRelationItemProvider.dispose();
 	}
 
 }

@@ -21,6 +21,7 @@ class AssistModel {
 	contains EqInterface[0..*]				eqInterfaces
 	contains EqInterfaceGroup[0..*]			eqInterfaceGroups
 	contains DislocalityRelation[0..*]		dislocalityRelations
+	contains ColocalityRelation[0..*]		colocalityRelations
 	
 	op EqInterface[] getAllEqInterfaces() {
 		return eqInterfaces
@@ -186,6 +187,11 @@ class DislocalityRelation{
 	HardwareArchitectureLevelType hardwareLevel
 }
 
+class ColocalityRelation {
+	refers EqInterfaceGroup[0..*] eqInterfaceGroups
+	refers EqInterface[0..*] eqInterfaces
+	HardwareArchitectureLevelType hardwareLevel
+}
 
 /* class DissimilarityRelation {
 	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups

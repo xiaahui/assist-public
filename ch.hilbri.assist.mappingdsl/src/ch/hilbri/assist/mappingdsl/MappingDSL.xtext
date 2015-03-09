@@ -18,7 +18,11 @@ AssistModel:
 	'}')?
 	
 	('Restrictions' '{'
-		(dislocalityRelations+=DislocalityRelation)*
+		( 
+			dislocalityRelations+=DislocalityRelation |
+			colocalityRelations+=ColocalityRelation
+		)*
+		
 	'}')?
 ;
 
@@ -91,6 +95,11 @@ enum HardwareArchitectureLevelType :
 DislocalityRelation:
 	eqInterfaceGroup=[EqInterfaceGroup] 'dislocal up to' hardwareLevel=HardwareArchitectureLevelType ';';
 	
+	
+ColocalityRelation:
+	eqInterfaceGroups+=[EqInterfaceGroup] (',' eqInterfaceGroups+=[EqInterfaceGroup])* 'on same' hardwareLevel=HardwareArchitectureLevelType ';'
+;	
+
 /*ProximityRelation:
 	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'on same' hardwareLevel=HardwareArchitectureLevelType ';'; 
 
