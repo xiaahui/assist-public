@@ -243,9 +243,28 @@ ruleAssistModel returns [EObject current=null]
 	    }
 
 )
-))*	otherlv_20='}' 
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAssistModelAccess().getValidDeploymentsValidDeploymentParserRuleCall_10_2_2_0()); 
+	    }
+		lv_validDeployments_20_0=ruleValidDeployment		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAssistModelRule());
+	        }
+       		add(
+       			$current, 
+       			"validDeployments",
+        		lv_validDeployments_20_0, 
+        		"ValidDeployment");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*	otherlv_21='}' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_10_3());
+    	newLeafNode(otherlv_21, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_10_3());
     }
 )?)
 ;
@@ -1648,6 +1667,86 @@ ruleColocalityRelation returns [EObject current=null]
 )	otherlv_5=';' 
     {
     	newLeafNode(otherlv_5, grammarAccess.getColocalityRelationAccess().getSemicolonKeyword_4());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleValidDeployment
+entryRuleValidDeployment returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getValidDeploymentRule()); }
+	 iv_ruleValidDeployment=ruleValidDeployment 
+	 { $current=$iv_ruleValidDeployment.current; } 
+	 EOF 
+;
+
+// Rule ValidDeployment
+ruleValidDeployment returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='Valid for' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getValidDeploymentAccess().getValidForKeyword_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getValidDeploymentRule());
+	        }
+        }
+	otherlv_1=RULE_ID
+	{
+		newLeafNode(otherlv_1, grammarAccess.getValidDeploymentAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_0()); 
+	}
+
+)
+)(	otherlv_2=',' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getValidDeploymentAccess().getCommaKeyword_2_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getValidDeploymentRule());
+	        }
+        }
+	otherlv_3=RULE_ID
+	{
+		newLeafNode(otherlv_3, grammarAccess.getValidDeploymentAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_2_1_0()); 
+	}
+
+)
+))*	otherlv_4='=' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getValidDeploymentAccess().getEqualsSignKeyword_3());
+    }
+	otherlv_5='{' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getValidDeploymentAccess().getLeftCurlyBracketKeyword_4());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getValidDeploymentRule());
+	        }
+        }
+	otherlv_6=RULE_ID
+	{
+		newLeafNode(otherlv_6, grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_5_0()); 
+	}
+
+)
+)+	otherlv_7='}' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getValidDeploymentAccess().getRightCurlyBracketKeyword_6());
     }
 )
 ;

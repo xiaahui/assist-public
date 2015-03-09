@@ -3,80 +3,46 @@
  */
 package ch.hilbri.assist.mappingdsl.scoping
 
+import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.Compartment
+import ch.hilbri.assist.datamodel.model.Connector
+import ch.hilbri.assist.datamodel.model.RDC
+import javax.inject.Inject
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 
 /**
  * This class contains custom scoping description.
  */
 class MappingDSLScopeProvider extends AbstractDeclarativeScopeProvider {
-//	@Inject IQualifiedNameProvider nameprovider
+	@Inject IQualifiedNameProvider nameprovider
 
 	/* 
-	 * Referenzen auf ein HardwareElement (FixedDeployment) soll es nur 
-	 * fuer Compartments, Boxen, Boards, Prozessoren und Cores geben;
-	 * daher bauen wir uns hier einen eigenen Scope zusammen.
+	 * Referenzen auf ein HardwareElement 
 	 * 
 	 * Der QualifiedNameProvider ist wichtig, denn damit koennen auch gleichnamige
 	 * Boxen in unterschiedlichen Compartments referenziert werden.
 	 */
-/* 	def scope_HardwareElement(AssistModel ctx, EReference ref) {
-
-		if (ctx.hardwareContainer.get(0) instanceof Compartment) {
-			val list = newArrayList()
-			for (cont : ctx.hardwareContainer) {
-				val compartment = cont as Compartment;
-				list.add(compartment)
-				for (box : compartment.boxes) {
-					list.add(box)
-					for (board : box.boards) {
-						list.add(board)
-						for (processor : board.processors) {
-							list.add(processor)
-							for (core : processor.cores) {
-								list.add(core)
-							}
-						}
-					}
-				}
+ 	def scope_HardwareElement(AssistModel ctx, EReference ref) {
+		val list = newArrayList()
+		for (comp : ctx.compartments) {
+			val compartment = comp as Compartment
+			list.add(compartment)
+			
+			for (r : compartment.rdcs) {
+				val rdc = r as RDC
+				list.add(rdc)
+				
+				for (c : rdc.connectors) {
+					val connector = c as Connector
+					list.add(connector)
+				} 
 			}
-			return Scopes::scopeFor(list,nameprovider,IScope.NULLSCOPE)
-		} 
-		
-		else if (ctx.hardwareContainer.get(0) instanceof Box) {
-			val list = newArrayList()
-			for (cont : ctx.hardwareContainer) {
-				val box = cont as Box;
-				list.add(box)
-				for (board : box.boards) {
-					list.add(board)
-					for (processor : board.processors) {
-						list.add(processor)
-						for (core : processor.cores) {
-								list.add(core)
-							}
-					}
-				}
-			}
-			return Scopes::scopeFor(list,nameprovider,IScope.NULLSCOPE)
-		} 
-		
-		else if (ctx.hardwareContainer.get(0) instanceof Board) {
-			val list = newArrayList()
-			for (cont : ctx.hardwareContainer) {
-				val board = cont as Board;
-				list.add(board)
-				for (processor : board.processors) {
-					list.add(processor)
-					for (core : processor.cores) {
-								list.add(core)
-							}
-				}
-			}
-			return Scopes::scopeFor(list,nameprovider,IScope.NULLSCOPE)
 		}
-		
-		else return IScope.NULLSCOPE
-	}
-	* 
-	*/
+	
+		return Scopes::scopeFor(list,nameprovider,IScope.NULLSCOPE)
+	} 
 }

@@ -11,6 +11,7 @@ import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
 import ch.hilbri.assist.datamodel.model.MetricParameter;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.model.RDC;
+import ch.hilbri.assist.datamodel.model.ValidDeployment;
 import ch.hilbri.assist.mappingdsl.services.MappingDSLGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -94,6 +95,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case ModelPackage.VALID_DEPLOYMENT:
+				if(context == grammarAccess.getValidDeploymentRule()) {
+					sequence_ValidDeployment(context, (ValidDeployment) semanticObject); 
+					return; 
+				}
+				else break;
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
@@ -105,7 +112,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         compartments+=Compartment+ 
 	 *         eqInterfaces+=EqInterface* 
 	 *         eqInterfaceGroups+=EqInterfaceGroup* 
-	 *         (dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation)*
+	 *         (dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation | validDeployments+=ValidDeployment)*
 	 *     )
 	 */
 	protected void sequence_AssistModel(EObject context, AssistModel semanticObject) {
@@ -239,6 +246,15 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     )
 	 */
 	protected void sequence_RDC(EObject context, RDC semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID]* hardwareElements+=[HardwareElement|ID]+)
+	 */
+	protected void sequence_ValidDeployment(EObject context, ValidDeployment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

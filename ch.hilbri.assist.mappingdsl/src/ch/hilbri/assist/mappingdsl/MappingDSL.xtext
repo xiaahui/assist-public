@@ -19,8 +19,9 @@ AssistModel:
 	
 	('Restrictions' '{'
 		( 
-			dislocalityRelations+=DislocalityRelation |
-			colocalityRelations+=ColocalityRelation
+			dislocalityRelations+=DislocalityRelation 	|
+			colocalityRelations+=ColocalityRelation		|
+			validDeployments+=ValidDeployment
 		)*
 		
 	'}')?
@@ -103,6 +104,13 @@ DislocalityRelation:
 ColocalityRelation:
 	eqInterfaceGroups+=[EqInterfaceGroup] (',' eqInterfaceGroups+=[EqInterfaceGroup])* 'on same' hardwareLevel=HardwareArchitectureLevelType ';'
 ;	
+
+ValidDeployment:
+	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* '=' '{' hardwareElements+=[HardwareElement]+ '}' 
+;
+
+
+
 
 /*ProximityRelation:
 	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'on same' hardwareLevel=HardwareArchitectureLevelType ';'; 
