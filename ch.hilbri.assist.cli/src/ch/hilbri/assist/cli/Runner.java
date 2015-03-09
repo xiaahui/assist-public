@@ -1,6 +1,5 @@
 package ch.hilbri.assist.cli;
 
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Map.Entry;
 
@@ -8,7 +7,12 @@ import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.Options;
-import org.apache.commons.io.IOUtils;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
@@ -40,7 +44,29 @@ public class Runner {
 		new MappingDSLInjectorProvider().getInjector().injectMembers(runner);
 
 		for (String arg: cmd.getArgs()) {
-			final AssistModel model = runner.parser.parse(IOUtils.toString(new FileReader(arg)));
+			URI uri = URI.createFileURI(arg);
+			ResourceSet rs = new ResourceSetImpl();
+			Resource resource = rs.getResource(uri, true);
+			
+			/* Searching for errors inside the document? */
+			/* 1) Error with the syntax of the dsl */
+			if (!resource.getErrors().isEmpty()) {
+				System.err.println("Could not parse " + arg + ".");
+				for (Resource.Diagnostic error:  resource.getErrors()) {
+					System.err.println(error.getMessage());
+				}
+				continue;
+			}
+			if (resource.getContents().size() == 0) { 
+				System.err.println(arg + " has no usable data.");
+				continue;
+			}
+			final AssistModel model = (AssistModel) resource.getContents().get(0);
+			/* 2) Custom validation rule errors */
+			if (Diagnostician.INSTANCE.validate(model).getSeverity() == Diagnostic.ERROR) { 
+				System.err.println("Errors on validating " + arg + ".");
+				continue;
+			}
 			final AssistSolver solver = new AssistSolver(model);
 			solver.setSolverSearchStrategy(SearchType.CONSECUTIVE);
 			solver.setSolverMaxSolutions(numSolutions);
