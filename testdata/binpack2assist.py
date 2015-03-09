@@ -21,7 +21,7 @@ Global {
 Compartment Compartment%s {
     RDC RDC%s {
         Connector Connector%s {
-            %s interface with type CustomType0;
+            CustomType0 = %s;
         }
     }
 }""" % (i, i, i, intCap), file=w)
@@ -32,7 +32,7 @@ Compartment Compartment%s {
             items.append(input.readline().split())
             for j in range(int(float(items[-1][1]))):
                 print("""\
-    Interface I%s.%s {
+    Interface I%s_%s {
         Type = CustomType0;
     }""" % (items[-1][0], j), file=w)
 
@@ -74,7 +74,7 @@ Global {
 Compartment Compartment%s {
     RDC RDC%s {
         Connector Connector%s {
-            %s interface with type CustomType0;
+            CustomType0 = %s;
         }
     }
 }""" % (i, i, i, intCap), file=w)
@@ -84,7 +84,7 @@ Compartment Compartment%s {
             for i in range(int(numItems)):
                 for j in range(int(float(input.readline()))):
                     print("""\
-    Interface I%s.%s {
+    Interface I%s_%s {
         Type = CustomType0;
     }""" % (i, j), file=w)
 
@@ -92,11 +92,14 @@ Compartment Compartment%s {
     return w.name
 
 def runAssist(inputs, args):
+    java = "java"
+    if "JAVA_HOME" in os.environ:
+        java = os.path.join(os.environ["JAVA_HOME"].strip('"'), "bin", java)
     procs = []
     for i in inputs:
         if not i:
             continue
-        procs.append(subprocess.Popen(["java", "-jar", args.jar, i, "-s", str(args.solutions)],
+        procs.append(subprocess.Popen([java, "-jar", args.jar, i, "-s", str(args.solutions)],
                                       stdout=open(i+".log", 'w'), stderr=subprocess.STDOUT))
         if len(procs) == args.instances:
             if args.timeout == 0:
