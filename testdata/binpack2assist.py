@@ -27,24 +27,27 @@ Compartment Compartment%s {
 }""" % (i, i, i, intCap), file=w)
 
         print("\n\nInterfaces {", file=w)
-
+        interfaces = {}
         for i in range(int(numItems)):
             items.append(input.readline().split())
+            interfaces[i] = []
             for j in range(int(float(items[-1][1]))):
+                interfaces[i].append("I%s_%s" % (items[-1][0], j))
                 print("""\
-    Interface I%s_%s {
+    Interface %s {
         Type = CustomType0;
-    }""" % (items[-1][0], j), file=w)
+    }""" % interfaces[i][-1], file=w)
 
         print("}\n\nInterfaceGroups {", file=w)
-        for item in items:
-            for conflict in item[2:]:
-                print("    I%s.0,I%s dislocal up to Connector;" % (item[0], conflict), file=w)
+        for i in range(int(numItems)):
+            print("    Group G%s { %s };" % (i, ",".join(interfaces[i])), file=w)
 
         print("}\n\nRestrictions {", file=w)
+        for i in range(int(numItems)):
+            print("    G%s on same Connector;" % i, file=w)
         for item in items:
             for conflict in item[2:]:
-                print("    I%s.0,I%s dislocal up to Connector;" % (item[0], conflict), file=w)
+                print("    I%s_0,I%s_0 dislocal up to Connector;" % (item[0], conflict), file=w)
 
         print("}\n\n", file=w)
     return [w.name]
@@ -55,7 +58,7 @@ def readFile(input):
     try:
         f0 = int(first[0])
     except:
-        return None
+        return [None]
     if len(first) == 2:
         return readBPPC(f0, float(first[1]), input, bound)
     print("Converting %s problems from %s" % (f0, f))
@@ -81,13 +84,23 @@ Compartment Compartment%s {
 }""" % (i, i, i, intCap), file=w)
 
             print("\n\nInterfaces {", file=w)
-
+            interfaces = {}
             for i in range(int(numItems)):
+                interfaces[i] = []
                 for j in range(int(float(input.readline()))):
+                    interfaces[i].append("I%s_%s" % (i, j))
                     print("""\
-    Interface I%s_%s {
+    Interface %s {
         Type = CustomType0;
-    }""" % (i, j), file=w)
+    }""" % interfaces[i][-1], file=w)
+
+            print("}\n\nInterfaceGroups {", file=w)
+            for i in range(int(numItems)):
+                print("    Group G%s { %s };" % (i, ",".join(interfaces[i])), file=w)
+
+            print("}\n\nRestrictions {", file=w)
+            for i in range(int(numItems)):
+                print("    G%s on same Connector;" % i, file=w)
 
             print("}\n", file=w)
             result.append(w.name)
