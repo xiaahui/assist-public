@@ -3720,7 +3720,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     
             otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleColocalityRelation3937); 
 
-            		newLeafNode(otherlv_0, grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupCrossReference_0_0()); 
+            		newLeafNode(otherlv_0, grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_0_0()); 
             	
 
             }
@@ -3760,7 +3760,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	            
             	    otherlv_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleColocalityRelation3970); 
 
-            	    		newLeafNode(otherlv_2, grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupCrossReference_1_1_0()); 
+            	    		newLeafNode(otherlv_2, grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_1_0()); 
             	    	
 
             	    }

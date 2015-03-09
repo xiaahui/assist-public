@@ -201,8 +201,7 @@ class DislocalityRelation{
 }
 
 class ColocalityRelation {
-	refers EqInterfaceGroup[0..*] eqInterfaceGroups
-	refers EqInterface[0..*] eqInterfaces
+	refers EqInterfaceOrGroup[1..*] eqInterfaceOrGroups
 	HardwareArchitectureLevelType hardwareLevel
 }
 

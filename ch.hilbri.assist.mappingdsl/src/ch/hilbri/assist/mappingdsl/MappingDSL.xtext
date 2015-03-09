@@ -102,7 +102,7 @@ DislocalityRelation:
 	
 	
 ColocalityRelation:
-	eqInterfaceGroups+=[EqInterfaceGroup] (',' eqInterfaceGroups+=[EqInterfaceGroup])* 'on same' hardwareLevel=HardwareArchitectureLevelType ';'
+	eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])*  'on same' hardwareLevel=HardwareArchitectureLevelType ';'
 ;	
 
 ValidDeployment:

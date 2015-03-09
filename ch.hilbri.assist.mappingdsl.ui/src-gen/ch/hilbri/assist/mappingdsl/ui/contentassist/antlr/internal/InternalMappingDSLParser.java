@@ -14334,26 +14334,26 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5236:1: rule__ColocalityRelation__Group__0__Impl : ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5236:1: rule__ColocalityRelation__Group__0__Impl : ( ( rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0 ) ) ;
     public final void rule__ColocalityRelation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5240:1: ( ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5241:1: ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5240:1: ( ( ( rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5241:1: ( ( rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5241:1: ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5242:1: ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5241:1: ( ( rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5242:1: ( rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsAssignment_0()); 
+               before(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsAssignment_0()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5243:1: ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5243:2: rule__ColocalityRelation__EqInterfaceGroupsAssignment_0
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5243:1: ( rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5243:2: rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0
             {
-            pushFollow(FOLLOW_rule__ColocalityRelation__EqInterfaceGroupsAssignment_0_in_rule__ColocalityRelation__Group__0__Impl10619);
-            rule__ColocalityRelation__EqInterfaceGroupsAssignment_0();
+            pushFollow(FOLLOW_rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0_in_rule__ColocalityRelation__Group__0__Impl10619);
+            rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14361,7 +14361,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsAssignment_0()); 
+               after(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsAssignment_0()); 
             }
 
             }
@@ -14846,26 +14846,26 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ColocalityRelation__Group_1__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5424:1: rule__ColocalityRelation__Group_1__1__Impl : ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5424:1: rule__ColocalityRelation__Group_1__1__Impl : ( ( rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1 ) ) ;
     public final void rule__ColocalityRelation__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5428:1: ( ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5429:1: ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5428:1: ( ( ( rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5429:1: ( ( rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5429:1: ( ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5430:1: ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5429:1: ( ( rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5430:1: ( rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsAssignment_1_1()); 
+               before(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsAssignment_1_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5431:1: ( rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5431:2: rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5431:1: ( rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:5431:2: rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1_in_rule__ColocalityRelation__Group_1__1__Impl10990);
-            rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1();
+            pushFollow(FOLLOW_rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1_in_rule__ColocalityRelation__Group_1__1__Impl10990);
+            rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14873,7 +14873,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsAssignment_1_1()); 
+               after(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsAssignment_1_1()); 
             }
 
             }
@@ -20541,9 +20541,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__DislocalityRelation__HardwareLevelAssignment_2"
 
 
-    // $ANTLR start "rule__ColocalityRelation__EqInterfaceGroupsAssignment_0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7368:1: rule__ColocalityRelation__EqInterfaceGroupsAssignment_0 : ( ( RULE_ID ) ) ;
-    public final void rule__ColocalityRelation__EqInterfaceGroupsAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7368:1: rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0 : ( ( RULE_ID ) ) ;
+    public final void rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -20555,23 +20555,23 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7374:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupCrossReference_0_0()); 
+               before(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_0_0()); 
             }
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7375:1: ( RULE_ID )
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7376:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupIDTerminalRuleCall_0_0_1()); 
+               before(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_0_0_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceGroupsAssignment_016082); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_016082); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupIDTerminalRuleCall_0_0_1()); 
+               after(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_0_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupCrossReference_0_0()); 
+               after(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_0_0()); 
             }
 
             }
@@ -20591,12 +20591,12 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ColocalityRelation__EqInterfaceGroupsAssignment_0"
+    // $ANTLR end "rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0"
 
 
-    // $ANTLR start "rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7387:1: rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1 : ( ( RULE_ID ) ) ;
-    public final void rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1() throws RecognitionException {
+    // $ANTLR start "rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7387:1: rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1 : ( ( RULE_ID ) ) ;
+    public final void rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -20608,23 +20608,23 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7393:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupCrossReference_1_1_0()); 
+               before(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_1_0()); 
             }
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7394:1: ( RULE_ID )
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:7395:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupIDTerminalRuleCall_1_1_0_1()); 
+               before(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_1_1_0_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_116121); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_116121); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupIDTerminalRuleCall_1_1_0_1()); 
+               after(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_1_1_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupCrossReference_1_1_0()); 
+               after(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_1_0()); 
             }
 
             }
@@ -20644,7 +20644,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1"
+    // $ANTLR end "rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1"
 
 
     // $ANTLR start "rule__ColocalityRelation__HardwareLevelAssignment_3"
@@ -22806,7 +22806,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1_in_rule__DislocalityRelation__Group_0_1_1__1__Impl10555 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ColocalityRelation__Group__0__Impl_in_rule__ColocalityRelation__Group__010589 = new BitSet(new long[]{0x0000000000000000L,0x0000000001001000L});
     public static final BitSet FOLLOW_rule__ColocalityRelation__Group__1_in_rule__ColocalityRelation__Group__010592 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__EqInterfaceGroupsAssignment_0_in_rule__ColocalityRelation__Group__0__Impl10619 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0_in_rule__ColocalityRelation__Group__0__Impl10619 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ColocalityRelation__Group__1__Impl_in_rule__ColocalityRelation__Group__110649 = new BitSet(new long[]{0x0000000000000000L,0x0000000001001000L});
     public static final BitSet FOLLOW_rule__ColocalityRelation__Group__2_in_rule__ColocalityRelation__Group__110652 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ColocalityRelation__Group_1__0_in_rule__ColocalityRelation__Group__1__Impl10679 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
@@ -22822,7 +22822,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__ColocalityRelation__Group_1__1_in_rule__ColocalityRelation__Group_1__010904 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_76_in_rule__ColocalityRelation__Group_1__0__Impl10932 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ColocalityRelation__Group_1__1__Impl_in_rule__ColocalityRelation__Group_1__110963 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1_in_rule__ColocalityRelation__Group_1__1__Impl10990 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1_in_rule__ColocalityRelation__Group_1__1__Impl10990 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ValidDeployment__Group__0__Impl_in_rule__ValidDeployment__Group__011024 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__ValidDeployment__Group__1_in_rule__ValidDeployment__Group__011027 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_89_in_rule__ValidDeployment__Group__0__Impl11055 = new BitSet(new long[]{0x0000000000000002L});
@@ -22972,8 +22972,8 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_RULE_ID_in_rule__DislocalityRelation__EqInterfacesAssignment_0_1_015973 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_116012 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleHardwareArchitectureLevelType_in_rule__DislocalityRelation__HardwareLevelAssignment_216047 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceGroupsAssignment_016082 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_116121 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_016082 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_116121 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleHardwareArchitectureLevelType_in_rule__ColocalityRelation__HardwareLevelAssignment_316156 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_116191 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_116230 = new BitSet(new long[]{0x0000000000000002L});

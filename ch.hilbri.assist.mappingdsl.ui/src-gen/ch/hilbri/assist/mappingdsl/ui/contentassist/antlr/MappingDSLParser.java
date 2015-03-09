@@ -122,8 +122,8 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDislocalityRelationAccess().getEqInterfacesAssignment_0_1_0(), "rule__DislocalityRelation__EqInterfacesAssignment_0_1_0");
 					put(grammarAccess.getDislocalityRelationAccess().getEqInterfacesAssignment_0_1_1_1(), "rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1");
 					put(grammarAccess.getDislocalityRelationAccess().getHardwareLevelAssignment_2(), "rule__DislocalityRelation__HardwareLevelAssignment_2");
-					put(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsAssignment_0(), "rule__ColocalityRelation__EqInterfaceGroupsAssignment_0");
-					put(grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsAssignment_1_1(), "rule__ColocalityRelation__EqInterfaceGroupsAssignment_1_1");
+					put(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsAssignment_0(), "rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0");
+					put(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsAssignment_1_1(), "rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1");
 					put(grammarAccess.getColocalityRelationAccess().getHardwareLevelAssignment_3(), "rule__ColocalityRelation__HardwareLevelAssignment_3");
 					put(grammarAccess.getValidDeploymentAccess().getEqInterfaceOrGroupsAssignment_1(), "rule__ValidDeployment__EqInterfaceOrGroupsAssignment_1");
 					put(grammarAccess.getValidDeploymentAccess().getEqInterfaceOrGroupsAssignment_2_1(), "rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1");

@@ -970,51 +970,51 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	public class ColocalityRelationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ColocalityRelation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cEqInterfaceGroupsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cEqInterfaceGroupsEqInterfaceGroupCrossReference_0_0 = (CrossReference)cEqInterfaceGroupsAssignment_0.eContents().get(0);
-		private final RuleCall cEqInterfaceGroupsEqInterfaceGroupIDTerminalRuleCall_0_0_1 = (RuleCall)cEqInterfaceGroupsEqInterfaceGroupCrossReference_0_0.eContents().get(1);
+		private final Assignment cEqInterfaceOrGroupsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_0_0 = (CrossReference)cEqInterfaceOrGroupsAssignment_0.eContents().get(0);
+		private final RuleCall cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_0_0_1 = (RuleCall)cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_0_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cEqInterfaceGroupsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final CrossReference cEqInterfaceGroupsEqInterfaceGroupCrossReference_1_1_0 = (CrossReference)cEqInterfaceGroupsAssignment_1_1.eContents().get(0);
-		private final RuleCall cEqInterfaceGroupsEqInterfaceGroupIDTerminalRuleCall_1_1_0_1 = (RuleCall)cEqInterfaceGroupsEqInterfaceGroupCrossReference_1_1_0.eContents().get(1);
+		private final Assignment cEqInterfaceOrGroupsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_1_0 = (CrossReference)cEqInterfaceOrGroupsAssignment_1_1.eContents().get(0);
+		private final RuleCall cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_1_1_0_1 = (RuleCall)cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_1_0.eContents().get(1);
 		private final Keyword cOnSameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cHardwareLevelAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_3_0 = (RuleCall)cHardwareLevelAssignment_3.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ColocalityRelation:
-		//	eqInterfaceGroups+=[EqInterfaceGroup] ("," eqInterfaceGroups+=[EqInterfaceGroup])* "on same"
+		//	eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "on same"
 		//	hardwareLevel=HardwareArchitectureLevelType ";";
 		public ParserRule getRule() { return rule; }
 
-		//eqInterfaceGroups+=[EqInterfaceGroup] ("," eqInterfaceGroups+=[EqInterfaceGroup])* "on same"
+		//eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "on same"
 		//hardwareLevel=HardwareArchitectureLevelType ";"
 		public Group getGroup() { return cGroup; }
 
-		//eqInterfaceGroups+=[EqInterfaceGroup]
-		public Assignment getEqInterfaceGroupsAssignment_0() { return cEqInterfaceGroupsAssignment_0; }
+		//eqInterfaceOrGroups+=[EqInterfaceOrGroup]
+		public Assignment getEqInterfaceOrGroupsAssignment_0() { return cEqInterfaceOrGroupsAssignment_0; }
 
-		//[EqInterfaceGroup]
-		public CrossReference getEqInterfaceGroupsEqInterfaceGroupCrossReference_0_0() { return cEqInterfaceGroupsEqInterfaceGroupCrossReference_0_0; }
+		//[EqInterfaceOrGroup]
+		public CrossReference getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_0_0() { return cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_0_0; }
 
 		//ID
-		public RuleCall getEqInterfaceGroupsEqInterfaceGroupIDTerminalRuleCall_0_0_1() { return cEqInterfaceGroupsEqInterfaceGroupIDTerminalRuleCall_0_0_1; }
+		public RuleCall getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_0_0_1() { return cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_0_0_1; }
 
-		//("," eqInterfaceGroups+=[EqInterfaceGroup])*
+		//("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//","
 		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
 
-		//eqInterfaceGroups+=[EqInterfaceGroup]
-		public Assignment getEqInterfaceGroupsAssignment_1_1() { return cEqInterfaceGroupsAssignment_1_1; }
+		//eqInterfaceOrGroups+=[EqInterfaceOrGroup]
+		public Assignment getEqInterfaceOrGroupsAssignment_1_1() { return cEqInterfaceOrGroupsAssignment_1_1; }
 
-		//[EqInterfaceGroup]
-		public CrossReference getEqInterfaceGroupsEqInterfaceGroupCrossReference_1_1_0() { return cEqInterfaceGroupsEqInterfaceGroupCrossReference_1_1_0; }
+		//[EqInterfaceOrGroup]
+		public CrossReference getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_1_0() { return cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_1_0; }
 
 		//ID
-		public RuleCall getEqInterfaceGroupsEqInterfaceGroupIDTerminalRuleCall_1_1_0_1() { return cEqInterfaceGroupsEqInterfaceGroupIDTerminalRuleCall_1_1_0_1; }
+		public RuleCall getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_1_1_0_1() { return cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_1_1_0_1; }
 
 		//"on same"
 		public Keyword getOnSameKeyword_2() { return cOnSameKeyword_2; }
@@ -1845,7 +1845,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ColocalityRelation:
-	//	eqInterfaceGroups+=[EqInterfaceGroup] ("," eqInterfaceGroups+=[EqInterfaceGroup])* "on same"
+	//	eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "on same"
 	//	hardwareLevel=HardwareArchitectureLevelType ";";
 	public ColocalityRelationElements getColocalityRelationAccess() {
 		return pColocalityRelation;

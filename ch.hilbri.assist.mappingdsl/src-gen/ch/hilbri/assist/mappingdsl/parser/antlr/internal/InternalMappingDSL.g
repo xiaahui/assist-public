@@ -1625,7 +1625,7 @@ ruleColocalityRelation returns [EObject current=null]
         }
 	otherlv_0=RULE_ID
 	{
-		newLeafNode(otherlv_0, grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupCrossReference_0_0()); 
+		newLeafNode(otherlv_0, grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_0_0()); 
 	}
 
 )
@@ -1642,7 +1642,7 @@ ruleColocalityRelation returns [EObject current=null]
         }
 	otherlv_2=RULE_ID
 	{
-		newLeafNode(otherlv_2, grammarAccess.getColocalityRelationAccess().getEqInterfaceGroupsEqInterfaceGroupCrossReference_1_1_0()); 
+		newLeafNode(otherlv_2, grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_1_0()); 
 	}
 
 )
