@@ -94,9 +94,10 @@ enum HardwareArchitectureLevelType :
 
 DislocalityRelation:
 	(
-		eqInterfaceGroup=[EqInterfaceGroup] |
-		eqInterfaces+=[EqInterface] (',' eqInterfaces+=[EqInterface])+)
-		 'dislocal up to' hardwareLevel=HardwareArchitectureLevelType ';';
+		eqInterfaceGroup=[EqInterfaceGroup] 							|
+		eqInterfaces+=[EqInterface] (',' eqInterfaces+=[EqInterface])+
+	)
+		'dislocal up to' hardwareLevel=HardwareArchitectureLevelType ';';
 	
 	
 ColocalityRelation:
