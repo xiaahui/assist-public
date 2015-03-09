@@ -404,9 +404,12 @@ public class InfoSheetView {
 		metricBarChart.setCategoryGap(10);
 		metricBarChart.legendVisibleProperty().set(false);
 		
-
-		Result r = model.getObservableResultsList().get(index);
-
+		Result r; 
+		if (model.getObservableResultsList().size() > index)
+			r = model.getObservableResultsList().get(index);
+		else
+			return;
+		
 		// Das Feld muss fuer jede verwendete Metrik den eigenen Score beinhalten
 		Double[] scores = new Double[r.getEvaluation().getScaledScores().keySet().size()];
 		int metricCounter = 0;
