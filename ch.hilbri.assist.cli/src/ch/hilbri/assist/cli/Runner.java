@@ -7,12 +7,10 @@ import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.Options;
-import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
@@ -62,11 +60,11 @@ public class Runner {
 				continue;
 			}
 			final AssistModel model = (AssistModel) resource.getContents().get(0);
-			/* 2) Custom validation rule errors */
+			/* 2) Custom validation rule errors // enabling those leads to an invalid jar, for a possible workaround see http://zarnekow.blogspot.de/2010/06/how-to-deploy-xtext-standalone.html?showComment=1279241626077#c7153662425903347274
 			if (Diagnostician.INSTANCE.validate(model).getSeverity() == Diagnostic.ERROR) { 
 				System.err.println("Errors on validating " + arg + ".");
 				continue;
-			}
+			}*/
 			final AssistSolver solver = new AssistSolver(model);
 			solver.setSolverSearchStrategy(SearchType.CONSECUTIVE);
 			solver.setSolverMaxSolutions(numSolutions);

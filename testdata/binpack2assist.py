@@ -47,9 +47,10 @@ Compartment Compartment%s {
                 print("    I%s.0,I%s dislocal up to Connector;" % (item[0], conflict), file=w)
 
         print("}\n\n", file=w)
-    return w.name
+    return [w.name]
 
 def readFile(input):
+    result = []
     first = input.readline().split()
     try:
         f0 = int(first[0])
@@ -89,7 +90,8 @@ Compartment Compartment%s {
     }""" % (i, j), file=w)
 
             print("}\n", file=w)
-    return w.name
+            result.append(w.name)
+    return result
 
 def runAssist(inputs, args):
     java = "java"
@@ -146,9 +148,9 @@ if __name__ == "__main__":
         if zipfile.is_zipfile(f):
             zipf = zipfile.ZipFile(f)
             for z in zipf.namelist():
-                mdsls.append(readFile(zipf.open(z)))
+                mdsls += readFile(zipf.open(z))
         else:
-            mdsls.append(readFile(open(f)))
+            mdsls += readFile(open(f))
 
     if args.instances > 0:
         runAssist(mdsls, args)
