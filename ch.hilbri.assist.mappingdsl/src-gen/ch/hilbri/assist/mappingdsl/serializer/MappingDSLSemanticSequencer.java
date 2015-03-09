@@ -252,7 +252,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID]* hardwareElements+=[HardwareElement|ID]+)
+	 *     (
+	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] 
+	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID]* 
+	 *         hardwareElements+=[HardwareElement|ID] 
+	 *         hardwareElements+=[HardwareElement|ID]*
+	 *     )
 	 */
 	protected void sequence_ValidDeployment(EObject context, ValidDeployment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

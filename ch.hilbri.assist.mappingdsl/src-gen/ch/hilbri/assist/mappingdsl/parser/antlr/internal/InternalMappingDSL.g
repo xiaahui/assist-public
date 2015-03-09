@@ -1744,9 +1744,26 @@ ruleValidDeployment returns [EObject current=null]
 	}
 
 )
-)+	otherlv_7='}' 
+)(	otherlv_7=',' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getValidDeploymentAccess().getRightCurlyBracketKeyword_6());
+    	newLeafNode(otherlv_7, grammarAccess.getValidDeploymentAccess().getCommaKeyword_6_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getValidDeploymentRule());
+	        }
+        }
+	otherlv_8=RULE_ID
+	{
+		newLeafNode(otherlv_8, grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_1_0()); 
+	}
+
+)
+))*	otherlv_9='}' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getValidDeploymentAccess().getRightCurlyBracketKeyword_7());
     }
 )
 ;

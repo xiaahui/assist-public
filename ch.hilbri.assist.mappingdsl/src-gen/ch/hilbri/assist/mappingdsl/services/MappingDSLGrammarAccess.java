@@ -1042,15 +1042,20 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cHardwareElementsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final CrossReference cHardwareElementsHardwareElementCrossReference_5_0 = (CrossReference)cHardwareElementsAssignment_5.eContents().get(0);
 		private final RuleCall cHardwareElementsHardwareElementIDTerminalRuleCall_5_0_1 = (RuleCall)cHardwareElementsHardwareElementCrossReference_5_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cHardwareElementsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final CrossReference cHardwareElementsHardwareElementCrossReference_6_1_0 = (CrossReference)cHardwareElementsAssignment_6_1.eContents().get(0);
+		private final RuleCall cHardwareElementsHardwareElementIDTerminalRuleCall_6_1_0_1 = (RuleCall)cHardwareElementsHardwareElementCrossReference_6_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//ValidDeployment:
 		//	"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "=" "{"
-		//	hardwareElements+=[HardwareElement]+ "}";
+		//	hardwareElements+=[HardwareElement] ("," hardwareElements+=[HardwareElement])* "}";
 		public ParserRule getRule() { return rule; }
 
 		//"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "=" "{"
-		//hardwareElements+=[HardwareElement]+ "}"
+		//hardwareElements+=[HardwareElement] ("," hardwareElements+=[HardwareElement])* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Valid for"
@@ -1086,7 +1091,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 
-		//hardwareElements+=[HardwareElement]+
+		//hardwareElements+=[HardwareElement]
 		public Assignment getHardwareElementsAssignment_5() { return cHardwareElementsAssignment_5; }
 
 		//[HardwareElement]
@@ -1095,8 +1100,23 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getHardwareElementsHardwareElementIDTerminalRuleCall_5_0_1() { return cHardwareElementsHardwareElementIDTerminalRuleCall_5_0_1; }
 
+		//("," hardwareElements+=[HardwareElement])*
+		public Group getGroup_6() { return cGroup_6; }
+
+		//","
+		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
+
+		//hardwareElements+=[HardwareElement]
+		public Assignment getHardwareElementsAssignment_6_1() { return cHardwareElementsAssignment_6_1; }
+
+		//[HardwareElement]
+		public CrossReference getHardwareElementsHardwareElementCrossReference_6_1_0() { return cHardwareElementsHardwareElementCrossReference_6_1_0; }
+
+		//ID
+		public RuleCall getHardwareElementsHardwareElementIDTerminalRuleCall_6_1_0_1() { return cHardwareElementsHardwareElementIDTerminalRuleCall_6_1_0_1; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 
 	public class MetricParameterElements extends AbstractParserRuleElementFinder {
@@ -1829,7 +1849,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ValidDeployment:
 	//	"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "=" "{"
-	//	hardwareElements+=[HardwareElement]+ "}";
+	//	hardwareElements+=[HardwareElement] ("," hardwareElements+=[HardwareElement])* "}";
 	public ValidDeploymentElements getValidDeploymentAccess() {
 		return pValidDeployment;
 	}
