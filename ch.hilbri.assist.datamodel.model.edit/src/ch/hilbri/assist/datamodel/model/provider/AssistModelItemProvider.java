@@ -108,6 +108,7 @@ public class AssistModelItemProvider
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COLOCALITY_RELATIONS);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__VALID_DEPLOYMENTS);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__INVALID_DEPLOYMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -172,6 +173,7 @@ public class AssistModelItemProvider
 			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
 			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
 			case ModelPackage.ASSIST_MODEL__VALID_DEPLOYMENTS:
+			case ModelPackage.ASSIST_MODEL__INVALID_DEPLOYMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -218,6 +220,11 @@ public class AssistModelItemProvider
 			(createChildParameter
 				(ModelPackage.Literals.ASSIST_MODEL__VALID_DEPLOYMENTS,
 				 ModelFactory.eINSTANCE.createValidDeployment()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL__INVALID_DEPLOYMENTS,
+				 ModelFactory.eINSTANCE.createInvalidDeployment()));
 	}
 
 	/**

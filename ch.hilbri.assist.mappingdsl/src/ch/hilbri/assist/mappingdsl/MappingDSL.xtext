@@ -21,7 +21,8 @@ AssistModel:
 		( 
 			dislocalityRelations+=DislocalityRelation 	|
 			colocalityRelations+=ColocalityRelation		|
-			validDeployments+=ValidDeployment
+			validDeployments+=ValidDeployment			|
+			invalidDeployments+=InvalidDeployment
 		)*
 		
 	'}')?
@@ -112,6 +113,12 @@ ValidDeployment:
 	'}' ';'
 ;
 
+InvalidDeployment:
+	'Invalid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
+	'is' '{'
+		  hardwareElements+=[HardwareElement|QualifiedName] (',' hardwareElements+=[HardwareElement|QualifiedName])* 
+	'}' ';'
+;
 
 
 

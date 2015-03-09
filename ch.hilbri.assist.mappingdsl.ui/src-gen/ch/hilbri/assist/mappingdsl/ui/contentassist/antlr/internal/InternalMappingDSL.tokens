@@ -1,5 +1,5 @@
 ','=76
-'.'=91
+'.'=92
 ';'=64
 '='=63
 'Analog'=17
@@ -58,6 +58,7 @@
 'InterfaceGroups'=67
 'InterfaceSystem'=78
 'Interfaces'=66
+'Invalid for'=91
 'LineName'=81
 'Manufacturer'=69
 'PowerSupply'=70
@@ -167,3 +168,4 @@ T__88=88
 T__89=89
 T__90=90
 T__91=91
+T__92=92

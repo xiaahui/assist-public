@@ -8,6 +8,7 @@ import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.DislocalityRelation;
 import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
+import ch.hilbri.assist.datamodel.model.InvalidDeployment;
 import ch.hilbri.assist.datamodel.model.MetricParameter;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.model.RDC;
@@ -83,6 +84,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case ModelPackage.INVALID_DEPLOYMENT:
+				if(context == grammarAccess.getInvalidDeploymentRule()) {
+					sequence_InvalidDeployment(context, (InvalidDeployment) semanticObject); 
+					return; 
+				}
+				else break;
 			case ModelPackage.METRIC_PARAMETER:
 				if(context == grammarAccess.getMetricParameterRule()) {
 					sequence_MetricParameter(context, (MetricParameter) semanticObject); 
@@ -112,7 +119,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         compartments+=Compartment+ 
 	 *         eqInterfaces+=EqInterface* 
 	 *         eqInterfaceGroups+=EqInterfaceGroup* 
-	 *         (dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation | validDeployments+=ValidDeployment)*
+	 *         (
+	 *             dislocalityRelations+=DislocalityRelation | 
+	 *             colocalityRelations+=ColocalityRelation | 
+	 *             validDeployments+=ValidDeployment | 
+	 *             invalidDeployments+=InvalidDeployment
+	 *         )*
 	 *     )
 	 */
 	protected void sequence_AssistModel(EObject context, AssistModel semanticObject) {
@@ -211,6 +223,20 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     )
 	 */
 	protected void sequence_EqInterface(EObject context, EqInterface semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] 
+	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID]* 
+	 *         hardwareElements+=[HardwareElement|QualifiedName] 
+	 *         hardwareElements+=[HardwareElement|QualifiedName]*
+	 *     )
+	 */
+	protected void sequence_InvalidDeployment(EObject context, InvalidDeployment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

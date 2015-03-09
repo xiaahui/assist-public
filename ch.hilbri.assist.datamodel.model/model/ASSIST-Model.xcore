@@ -23,6 +23,7 @@ class AssistModel {
 	contains DislocalityRelation[0..*]		dislocalityRelations
 	contains ColocalityRelation[0..*]		colocalityRelations
 	contains ValidDeployment[0..*]			validDeployments
+	contains InvalidDeployment[0..*]		invalidDeployments
 	
 	op EqInterface[] getAllEqInterfaces() {
 		return eqInterfaces
@@ -210,75 +211,7 @@ class ValidDeployment {
 	refers HardwareElement[1..*] hardwareElements
 }
 
-/* class DissimilarityRelation {
-	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
-	contains DissimilarityClause[1] dissimilarityClause
+class InvalidDeployment {
+	refers EqInterfaceOrGroup[1..*] eqInterfaceOrGroups
+	refers HardwareElement[1..*] hardwareElements
 }
-
-class DissimilarityClause {}
-
-// OR
-class DissimilarityDisjunction extends DissimilarityClause {
-	contains DissimilarityClause[2..*] dissimilarityClauses
-}
-
-// AND
-class DissimilarityConjunction extends DissimilarityClause  {
-	contains DissimilarityClause[2..*] dissimilarityClauses
-}
-
-class DissimilarityEntry extends DissimilarityClause {
-	
-	derived HardwareArchitectureLevelType level get {
-		if (compartmentAttribute != CompartmentAttributes.NONE)  HardwareArchitectureLevelType.COMPARTMENT
-		else if (boxAttribute != BoxAttributes.NONE) 			 HardwareArchitectureLevelType.BOX
-		else if (boardAttribute != BoardAttributes.NONE)		 HardwareArchitectureLevelType.BOARD
-		else if (processorAttribute != ProcessorAttributes.NONE) HardwareArchitectureLevelType.PROCESSOR
-		else null
-	}
-	
-	CompartmentAttributes 	compartmentAttribute 	= "None"
-	BoxAttributes 			boxAttribute			= "None"
-	BoardAttributes 		boardAttribute			= "None"
-	ProcessorAttributes 	processorAttribute		= "None"
-}
-
-enum CompartmentAttributes{
-	NONE 			as "None"
-	MANUFACTURER	as "Manufacturer"
-	POWERSUPPLY		as "PowerSupply"
-	SIDE			as "Side"
-	ZONE			as "Zone"
-}
-
-enum BoxAttributes{
-	NONE			as "None"
-	MANUFACTURER	as "Manufacturer"	
-}
-
-enum BoardAttributes{
-	NONE			as "None"
-	MANUFACTURER	as "Manufacturer"
-	POWERSUPPLY		as "PowerSupply"
-	ASSURANCELEVEL	as "AssuranceLevel"
-	BOARDTYPE		as "BoardType"
-	SIDE			as "Side"
-	ESS				as "ESS"
-}
-
-enum ProcessorAttributes{
-	NONE			as "None"
-	MANUFACTURER	as "Manufacturer"
-	PROCESSORTYPE	as "ProcessorType"
-}
-
-
-
-class ProximityRelation{
-	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
-	HardwareArchitectureLevelType hardwareLevel
-}
-
-*/
-
-
