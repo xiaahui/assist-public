@@ -178,10 +178,10 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 	      _builder.append("Connector Connector1 {");
 	      _builder.newLine();
 	      _builder.append("\t\t\t");
-	      _builder.append("1 interface with type CustomType0;");
+	      _builder.append("CustomType0 = 2;");
 	      _builder.newLine();
 	      _builder.append("\t\t\t");
-	      _builder.append("3 interface with type CustomType13;");
+	      _builder.append("CustomType13 = 3;");
 	      _builder.newLine();
 	      _builder.append("\t\t");
 	      _builder.append("}");
@@ -191,7 +191,7 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 	      _builder.append("Connector Connector2 {");
 	      _builder.newLine();
 	      _builder.append("\t\t\t");
-	      _builder.append("1 interface with type CustomType4;");
+	      _builder.append("CustomType4 = 2;");
 	      _builder.newLine();
 	      _builder.append("\t\t");
 	      _builder.append("}");

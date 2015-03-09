@@ -183,7 +183,8 @@ enum HardwareArchitectureLevelType {
 }
 
 class DislocalityRelation{
-	refers EqInterfaceGroup[1] eqInterfaceGroup
+	refers EqInterfaceGroup[0..1] eqInterfaceGroup
+	refers EqInterface[0..*] eqInterfaces
 	HardwareArchitectureLevelType hardwareLevel
 }
 

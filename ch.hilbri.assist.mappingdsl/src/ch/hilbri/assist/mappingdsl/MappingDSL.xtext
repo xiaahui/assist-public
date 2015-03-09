@@ -7,7 +7,7 @@ AssistModel:
 		'System name' '=' systemName=STRING ';' 
 	'}'
 
-	((compartments+=Compartment)+)?
+	compartments+=Compartment+
 
 	('Interfaces' '{'
 		(eqInterfaces+=EqInterface)+ 
@@ -57,7 +57,7 @@ Connector:
 ;
 
 AvailableEqInterface:
-	count=INT 'with type' eqInterfaceType=EqInterfaceType ';'
+	eqInterfaceType=EqInterfaceType '=' count=INT ';'
 ;
 
 
@@ -93,7 +93,10 @@ enum HardwareArchitectureLevelType :
 ;
 
 DislocalityRelation:
-	eqInterfaceGroup=[EqInterfaceGroup] 'dislocal up to' hardwareLevel=HardwareArchitectureLevelType ';';
+	(
+		eqInterfaceGroup=[EqInterfaceGroup] |
+		eqInterfaces+=[EqInterface] (',' eqInterfaces+=[EqInterface])+)
+		 'dislocal up to' hardwareLevel=HardwareArchitectureLevelType ';';
 	
 	
 ColocalityRelation:

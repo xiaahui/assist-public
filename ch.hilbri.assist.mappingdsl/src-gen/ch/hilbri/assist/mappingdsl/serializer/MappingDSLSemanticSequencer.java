@@ -102,7 +102,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Constraint:
 	 *     (
 	 *         systemName=STRING 
-	 *         compartments+=Compartment? 
+	 *         compartments+=Compartment+ 
 	 *         eqInterfaces+=EqInterface* 
 	 *         eqInterfaceGroups+=EqInterfaceGroup* 
 	 *         (dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation)*
@@ -115,7 +115,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (count=INT eqInterfaceType=EqInterfaceType)
+	 *     (eqInterfaceType=EqInterfaceType count=INT)
 	 */
 	protected void sequence_AvailableEqInterface(EObject context, AvailableEqInterface semanticObject) {
 		if(errorAcceptor != null) {
@@ -126,8 +126,8 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getCountINTTerminalRuleCall_0_0(), semanticObject.getCount());
-		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getEqInterfaceTypeEqInterfaceTypeEnumRuleCall_2_0(), semanticObject.getEqInterfaceType());
+		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getEqInterfaceTypeEqInterfaceTypeEnumRuleCall_0_0(), semanticObject.getEqInterfaceType());
+		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getCountINTTerminalRuleCall_2_0(), semanticObject.getCount());
 		feeder.finish();
 	}
 	
@@ -168,20 +168,13 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (eqInterfaceGroup=[EqInterfaceGroup|ID] hardwareLevel=HardwareArchitectureLevelType)
+	 *     (
+	 *         (eqInterfaceGroup=[EqInterfaceGroup|ID] | (eqInterfaces+=[EqInterface|ID] eqInterfaces+=[EqInterface|ID]+)) 
+	 *         hardwareLevel=HardwareArchitectureLevelType
+	 *     )
 	 */
 	protected void sequence_DislocalityRelation(EObject context, DislocalityRelation semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.DISLOCALITY_RELATION__EQ_INTERFACE_GROUP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.DISLOCALITY_RELATION__EQ_INTERFACE_GROUP));
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.DISLOCALITY_RELATION__HARDWARE_LEVEL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.DISLOCALITY_RELATION__HARDWARE_LEVEL));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDislocalityRelationAccess().getEqInterfaceGroupEqInterfaceGroupIDTerminalRuleCall_0_0_1(), semanticObject.getEqInterfaceGroup());
-		feeder.accept(grammarAccess.getDislocalityRelationAccess().getHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_2_0(), semanticObject.getHardwareLevel());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
