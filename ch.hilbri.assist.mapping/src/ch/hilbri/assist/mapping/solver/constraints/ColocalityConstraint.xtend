@@ -9,8 +9,7 @@ import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 
-class ApplicationProximityConstraint extends AbstractMappingConstraint {
-	
+class ColocalityConstraint extends AbstractMappingConstraint {
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
 		super("application proximity (on same)", model, solver, solverVariables)
 	}
@@ -35,7 +34,4 @@ class ApplicationProximityConstraint extends AbstractMappingConstraint {
 			catch (ContradictionException e) { throw new BasicConstraintsException(this) }
 		}
 		return true
-	}
-	
-	
-}
+	}}

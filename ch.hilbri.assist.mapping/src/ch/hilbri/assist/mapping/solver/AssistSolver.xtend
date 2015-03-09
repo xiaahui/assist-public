@@ -4,8 +4,10 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
+import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
+import ch.hilbri.assist.mapping.solver.constraints.OneRouteForEachConnector
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor
@@ -23,7 +25,6 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.constraints.OneRouteForEachConnector
 
 class AssistSolver {
 	
@@ -64,6 +65,7 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))				
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new OneRouteForEachConnector(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 
 		/* Create a new constraint that restricts the applications to their specified hardware elements */
 //		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, solver, solverVariables))
