@@ -210,6 +210,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.EqInterfaceOrGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EqInterfaceOrGroupItemProvider eqInterfaceOrGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.EqInterfaceOrGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEqInterfaceOrGroupAdapter() {
+		if (eqInterfaceOrGroupItemProvider == null) {
+			eqInterfaceOrGroupItemProvider = new EqInterfaceOrGroupItemProvider(this);
+		}
+
+		return eqInterfaceOrGroupItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.EqInterface} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -325,6 +348,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ValidDeployment} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValidDeploymentItemProvider validDeploymentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ValidDeployment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValidDeploymentAdapter() {
+		if (validDeploymentItemProvider == null) {
+			validDeploymentItemProvider = new ValidDeploymentItemProvider(this);
+		}
+
+		return validDeploymentItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -429,11 +475,13 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (rdcItemProvider != null) rdcItemProvider.dispose();
 		if (connectorItemProvider != null) connectorItemProvider.dispose();
 		if (availableEqInterfaceItemProvider != null) availableEqInterfaceItemProvider.dispose();
+		if (eqInterfaceOrGroupItemProvider != null) eqInterfaceOrGroupItemProvider.dispose();
 		if (eqInterfaceItemProvider != null) eqInterfaceItemProvider.dispose();
 		if (eqInterfaceGroupItemProvider != null) eqInterfaceGroupItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
 		if (colocalityRelationItemProvider != null) colocalityRelationItemProvider.dispose();
+		if (validDeploymentItemProvider != null) validDeploymentItemProvider.dispose();
 	}
 
 }

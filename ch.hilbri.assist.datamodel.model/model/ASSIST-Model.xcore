@@ -22,6 +22,7 @@ class AssistModel {
 	contains EqInterfaceGroup[0..*]			eqInterfaceGroups
 	contains DislocalityRelation[0..*]		dislocalityRelations
 	contains ColocalityRelation[0..*]		colocalityRelations
+	contains ValidDeployment[0..*]			validDeployments
 	
 	op EqInterface[] getAllEqInterfaces() {
 		return eqInterfaces
@@ -142,7 +143,9 @@ enum EqInterfaceType {
 	CUSTOM39	as "Custom Type 39"
 }
 
-class EqInterface {
+class EqInterfaceOrGroup {}
+
+class EqInterface extends EqInterfaceOrGroup {
 	String name			= ""
 	String system		= ""
 	String subAta		= ""
@@ -163,7 +166,7 @@ class EqInterface {
 	op String toString() { name }	
 }
 
-class EqInterfaceGroup {
+class EqInterfaceGroup extends EqInterfaceOrGroup {
 	String name = ""
 	refers EqInterface[0..*] eqInterfaces
 }
@@ -192,6 +195,11 @@ class ColocalityRelation {
 	refers EqInterfaceGroup[0..*] eqInterfaceGroups
 	refers EqInterface[0..*] eqInterfaces
 	HardwareArchitectureLevelType hardwareLevel
+}
+
+class ValidDeployment {
+	refers EqInterfaceOrGroup[1..*] eqInterfaceOrGroups
+	refers HardwareElement[1..*] hardwareElements
 }
 
 /* class DissimilarityRelation {
