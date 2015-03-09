@@ -78,6 +78,9 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getValidDeploymentAccess().getGroup(), "rule__ValidDeployment__Group__0");
 					put(grammarAccess.getValidDeploymentAccess().getGroup_2(), "rule__ValidDeployment__Group_2__0");
 					put(grammarAccess.getValidDeploymentAccess().getGroup_6(), "rule__ValidDeployment__Group_6__0");
+					put(grammarAccess.getInvalidDeploymentAccess().getGroup(), "rule__InvalidDeployment__Group__0");
+					put(grammarAccess.getInvalidDeploymentAccess().getGroup_2(), "rule__InvalidDeployment__Group_2__0");
+					put(grammarAccess.getInvalidDeploymentAccess().getGroup_6(), "rule__InvalidDeployment__Group_6__0");
 					put(grammarAccess.getMetricParameterAccess().getGroup(), "rule__MetricParameter__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
@@ -88,6 +91,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAssistModelAccess().getDislocalityRelationsAssignment_10_2_0(), "rule__AssistModel__DislocalityRelationsAssignment_10_2_0");
 					put(grammarAccess.getAssistModelAccess().getColocalityRelationsAssignment_10_2_1(), "rule__AssistModel__ColocalityRelationsAssignment_10_2_1");
 					put(grammarAccess.getAssistModelAccess().getValidDeploymentsAssignment_10_2_2(), "rule__AssistModel__ValidDeploymentsAssignment_10_2_2");
+					put(grammarAccess.getAssistModelAccess().getInvalidDeploymentsAssignment_10_2_3(), "rule__AssistModel__InvalidDeploymentsAssignment_10_2_3");
 					put(grammarAccess.getCompartmentAccess().getNameAssignment_1(), "rule__Compartment__NameAssignment_1");
 					put(grammarAccess.getCompartmentAccess().getManufacturerAssignment_3_0_2(), "rule__Compartment__ManufacturerAssignment_3_0_2");
 					put(grammarAccess.getCompartmentAccess().getPowerSupplyAssignment_3_1_2(), "rule__Compartment__PowerSupplyAssignment_3_1_2");
@@ -129,6 +133,10 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getValidDeploymentAccess().getEqInterfaceOrGroupsAssignment_2_1(), "rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1");
 					put(grammarAccess.getValidDeploymentAccess().getHardwareElementsAssignment_5(), "rule__ValidDeployment__HardwareElementsAssignment_5");
 					put(grammarAccess.getValidDeploymentAccess().getHardwareElementsAssignment_6_1(), "rule__ValidDeployment__HardwareElementsAssignment_6_1");
+					put(grammarAccess.getInvalidDeploymentAccess().getEqInterfaceOrGroupsAssignment_1(), "rule__InvalidDeployment__EqInterfaceOrGroupsAssignment_1");
+					put(grammarAccess.getInvalidDeploymentAccess().getEqInterfaceOrGroupsAssignment_2_1(), "rule__InvalidDeployment__EqInterfaceOrGroupsAssignment_2_1");
+					put(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsAssignment_5(), "rule__InvalidDeployment__HardwareElementsAssignment_5");
+					put(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsAssignment_6_1(), "rule__InvalidDeployment__HardwareElementsAssignment_6_1");
 					put(grammarAccess.getMetricParameterAccess().getNameAssignment_0(), "rule__MetricParameter__NameAssignment_0");
 					put(grammarAccess.getMetricParameterAccess().getValueAssignment_2(), "rule__MetricParameter__ValueAssignment_2");
 					put(grammarAccess.getCompartmentAccess().getUnorderedGroup_3(), "rule__Compartment__UnorderedGroup_3");

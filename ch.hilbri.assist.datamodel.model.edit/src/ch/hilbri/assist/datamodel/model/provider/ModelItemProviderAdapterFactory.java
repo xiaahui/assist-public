@@ -371,6 +371,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.InvalidDeployment} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InvalidDeploymentItemProvider invalidDeploymentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.InvalidDeployment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInvalidDeploymentAdapter() {
+		if (invalidDeploymentItemProvider == null) {
+			invalidDeploymentItemProvider = new InvalidDeploymentItemProvider(this);
+		}
+
+		return invalidDeploymentItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -482,6 +505,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
 		if (colocalityRelationItemProvider != null) colocalityRelationItemProvider.dispose();
 		if (validDeploymentItemProvider != null) validDeploymentItemProvider.dispose();
+		if (invalidDeploymentItemProvider != null) invalidDeploymentItemProvider.dispose();
 	}
 
 }
