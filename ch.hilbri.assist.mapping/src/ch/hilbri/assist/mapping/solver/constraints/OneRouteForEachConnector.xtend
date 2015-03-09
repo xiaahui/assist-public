@@ -12,14 +12,14 @@ import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 class OneRouteForEachConnector extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("dissimilarity", model, solver, solverVariables)	
+		super("one route for each connector", model, solver, solverVariables)	
 	}
 	
 	override generate() {
 		
 		// 1. Liste aller Routen der Interfaces besorgen (routes should be case-insensitive!)
 		val listOfAllRoutes = model.allEqInterfaces.map[route.toUpperCase].toSet.toList.sort		
-		if (listOfAllRoutes.empty) return false
+		if (listOfAllRoutes.length <= 1) return false
 				
 		// 2. Domain mit den Indizes der obigen Liste anlegen
 		// 3. Für jeden Connector eine Variable, die die "Route" des Connectors speichert (Domain = siehe voriger Schritt)
