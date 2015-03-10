@@ -134,7 +134,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (eqInterfaceType=EqInterfaceType count=INT)
+	 *     (eqInterfaceType=STRING count=INT)
 	 */
 	protected void sequence_AvailableEqInterface(EObject context, AvailableEqInterface semanticObject) {
 		if(errorAcceptor != null) {
@@ -145,7 +145,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getEqInterfaceTypeEqInterfaceTypeEnumRuleCall_0_0(), semanticObject.getEqInterfaceType());
+		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getEqInterfaceTypeSTRINGTerminalRuleCall_0_0(), semanticObject.getEqInterfaceType());
 		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getCountINTTerminalRuleCall_2_0(), semanticObject.getCount());
 		feeder.finish();
 	}
@@ -219,7 +219,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         route=STRING? 
 	 *         pwSup1=STRING? 
 	 *         emhZone1=STRING? 
-	 *         ioType=EqInterfaceType?
+	 *         ioType=STRING?
 	 *     )
 	 */
 	protected void sequence_EqInterface(EObject context, EqInterface semanticObject) {

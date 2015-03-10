@@ -1,7 +1,6 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.EqInterfaceType
 import ch.hilbri.assist.mapping.solver.exceptions.InterfaceTypeCouldNotBeMapped
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
@@ -15,14 +14,23 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 	}
 
 	override generate() {
-
-		for (t : EqInterfaceType.values) {
+		// 1. Generate a list of all ioTypes used in this specification
+		//    - we collect all types from available connectors and interfaces, remove duplicates and sort them
+		val ioTypesList = (
+							model.allConnectors.map[it.availableEqInterfaces.map[it.eqInterfaceType]].flatten +	
+			          	   	model.eqInterfaces.map[it.ioType]
+			          	   )
+			          	   	.toSet.toList
+							.sort
+		
+		// 2. Generate the constraints
+		for (t : ioTypesList) {
 			
-			val totalInterfaceDemand 		= model.eqInterfaces.filter[ioType == t].length
+			val totalInterfaceDemand 		= model.eqInterfaces.filter[ioType.equals(t)].length
 			
 			val interfaceSupplyPerConnector = model.allConnectors.map[
-													if (availableEqInterfaces.filter[eqInterfaceType == t].length > 0)
-														availableEqInterfaces.filter[eqInterfaceType == t].map[count].reduce[p1, p2|p1 + p2]
+													if (availableEqInterfaces.filter[eqInterfaceType.equals(t)].length > 0)
+														availableEqInterfaces.filter[eqInterfaceType.equals(t)].map[count].reduce[p1, p2|p1 + p2]
 													else 
 														0 
 											  ]

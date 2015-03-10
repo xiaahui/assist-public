@@ -508,24 +508,24 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AvailableEqInterface");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cEqInterfaceTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cEqInterfaceTypeEqInterfaceTypeEnumRuleCall_0_0 = (RuleCall)cEqInterfaceTypeAssignment_0.eContents().get(0);
+		private final RuleCall cEqInterfaceTypeSTRINGTerminalRuleCall_0_0 = (RuleCall)cEqInterfaceTypeAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cCountAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cCountINTTerminalRuleCall_2_0 = (RuleCall)cCountAssignment_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//AvailableEqInterface:
-		//	eqInterfaceType=EqInterfaceType "=" count=INT ";";
+		//	eqInterfaceType=STRING "=" count=INT ";";
 		public ParserRule getRule() { return rule; }
 
-		//eqInterfaceType=EqInterfaceType "=" count=INT ";"
+		//eqInterfaceType=STRING "=" count=INT ";"
 		public Group getGroup() { return cGroup; }
 
-		//eqInterfaceType=EqInterfaceType
+		//eqInterfaceType=STRING
 		public Assignment getEqInterfaceTypeAssignment_0() { return cEqInterfaceTypeAssignment_0; }
 
-		//EqInterfaceType
-		public RuleCall getEqInterfaceTypeEqInterfaceTypeEnumRuleCall_0_0() { return cEqInterfaceTypeEqInterfaceTypeEnumRuleCall_0_0; }
+		//STRING
+		public RuleCall getEqInterfaceTypeSTRINGTerminalRuleCall_0_0() { return cEqInterfaceTypeSTRINGTerminalRuleCall_0_0; }
 
 		//"="
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
@@ -674,7 +674,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTypeKeyword_3_9_0 = (Keyword)cGroup_3_9.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_3_9_1 = (Keyword)cGroup_3_9.eContents().get(1);
 		private final Assignment cIoTypeAssignment_3_9_2 = (Assignment)cGroup_3_9.eContents().get(2);
-		private final RuleCall cIoTypeEqInterfaceTypeEnumRuleCall_3_9_2_0 = (RuleCall)cIoTypeAssignment_3_9_2.eContents().get(0);
+		private final RuleCall cIoTypeSTRINGTerminalRuleCall_3_9_2_0 = (RuleCall)cIoTypeAssignment_3_9_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3_9_3 = (Keyword)cGroup_3_9.eContents().get(3);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
@@ -682,13 +682,13 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//	"Interface" name=ID "{" (("InterfaceSystem" "=" system=STRING ";")? & ("SubAta" "=" subAta=STRING ";")? & ("Resource"
 		//	"=" resource=STRING ";")? & ("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? &
 		//	("GrpInfo" "=" grpInfo=STRING ";")? & ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? &
-		//	("EmhZone1" "=" emhZone1=STRING ";")? & ("Type" "=" ioType=EqInterfaceType ";")?) "}";
+		//	("EmhZone1" "=" emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")?) "}";
 		public ParserRule getRule() { return rule; }
 
 		//"Interface" name=ID "{" (("InterfaceSystem" "=" system=STRING ";")? & ("SubAta" "=" subAta=STRING ";")? & ("Resource"
 		//"=" resource=STRING ";")? & ("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? &
 		//("GrpInfo" "=" grpInfo=STRING ";")? & ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? &
-		//("EmhZone1" "=" emhZone1=STRING ";")? & ("Type" "=" ioType=EqInterfaceType ";")?) "}"
+		//("EmhZone1" "=" emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")?) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Interface"
@@ -706,7 +706,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//("InterfaceSystem" "=" system=STRING ";")? & ("SubAta" "=" subAta=STRING ";")? & ("Resource" "=" resource=STRING ";")? &
 		//("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? & ("GrpInfo" "=" grpInfo=STRING
 		//";")? & ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? & ("EmhZone1" "=" emhZone1=STRING ";")? &
-		//("Type" "=" ioType=EqInterfaceType ";")?
+		//("Type" "=" ioType=STRING ";")?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
 		//("InterfaceSystem" "=" system=STRING ";")?
@@ -871,7 +871,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_3_8_3() { return cSemicolonKeyword_3_8_3; }
 
-		//("Type" "=" ioType=EqInterfaceType ";")?
+		//("Type" "=" ioType=STRING ";")?
 		public Group getGroup_3_9() { return cGroup_3_9; }
 
 		//"Type"
@@ -880,11 +880,11 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_3_9_1() { return cEqualsSignKeyword_3_9_1; }
 
-		//ioType=EqInterfaceType
+		//ioType=STRING
 		public Assignment getIoTypeAssignment_3_9_2() { return cIoTypeAssignment_3_9_2; }
 
-		//EqInterfaceType
-		public RuleCall getIoTypeEqInterfaceTypeEnumRuleCall_3_9_2_0() { return cIoTypeEqInterfaceTypeEnumRuleCall_3_9_2_0; }
+		//STRING
+		public RuleCall getIoTypeSTRINGTerminalRuleCall_3_9_2_0() { return cIoTypeSTRINGTerminalRuleCall_3_9_2_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_3_9_3() { return cSemicolonKeyword_3_9_3; }
@@ -1327,6 +1327,53 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
+		/// * ENUMS * / //enum EqInterfaceType:
+		////	CAN 		= 'Can'					|
+		////	ELB			= 'Enhanced Local Bus'	|
+		////	ETH			= 'Ethernet'			|
+		////	ANALOG 		= 'Analog'				|
+		////	DIGITAL		= 'Digital'				|
+		////	SERIAL		= 'Serial'			|
+		////	CUSTOM0		= 'CustomType0'		|
+		////	CUSTOM1		= 'CustomType1'		|
+		////	CUSTOM2		= 'CustomType2'		|
+		////	CUSTOM3		= 'CustomType3'		|
+		////	CUSTOM4		= 'CustomType4'		|
+		////	CUSTOM5		= 'CustomType5'		|
+		////	CUSTOM6		= 'CustomType6'		|		
+		////	CUSTOM7		= 'CustomType7'		|
+		////	CUSTOM8		= 'CustomType8'		|
+		////	CUSTOM9		= 'CustomType9'		|
+		////	CUSTOM10	= 'CustomType10'	|
+		////	CUSTOM11	= 'CustomType11'	|
+		////	CUSTOM12	= 'CustomType12'	|
+		////	CUSTOM13	= 'CustomType13'	|
+		////	CUSTOM14	= 'CustomType14'	|
+		////	CUSTOM15	= 'CustomType15'	|
+		////	CUSTOM16	= 'CustomType16'	|
+		////	CUSTOM17	= 'CustomType17'	|
+		////	CUSTOM18	= 'CustomType18'	|
+		////	CUSTOM19	= 'CustomType19'	|
+		////	CUSTOM20	= 'CustomType20'	|
+		////	CUSTOM21	= 'CustomType21'	|
+		////	CUSTOM22	= 'CustomType22'	|
+		////	CUSTOM23	= 'CustomType23'	|
+		////	CUSTOM24	= 'CustomType24'	|
+		////	CUSTOM25	= 'CustomType25'	|
+		////	CUSTOM26	= 'CustomType26'	|
+		////	CUSTOM27	= 'CustomType27'	|
+		////	CUSTOM28	= 'CustomType28'	|
+		////	CUSTOM29	= 'CustomType29'	|
+		////	CUSTOM30	= 'CustomType30'	|
+		////	CUSTOM31	= 'CustomType31'	|
+		////	CUSTOM32	= 'CustomType32'	|
+		////	CUSTOM33	= 'CustomType33'	|
+		////	CUSTOM34	= 'CustomType34'	|
+		////	CUSTOM35	= 'CustomType35'	|
+		////	CUSTOM36	= 'CustomType36'	|
+		////	CUSTOM37	= 'CustomType37'	|
+		////	CUSTOM38	= 'CustomType38'	|
+		////	CUSTOM39	= 'CustomType39';
 		//QualifiedName:
 		//	ID ("." ID)*;
 		public ParserRule getRule() { return rule; }
@@ -1383,406 +1430,6 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Connector"
 		public Keyword getCONNECTORConnectorKeyword_2_0() { return cCONNECTORConnectorKeyword_2_0; }
 	}
-
-	public class EqInterfaceTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "EqInterfaceType");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cCANEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cCANCanKeyword_0_0 = (Keyword)cCANEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cELBEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cELBEnhancedLocalBusKeyword_1_0 = (Keyword)cELBEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cETHEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cETHEthernetKeyword_2_0 = (Keyword)cETHEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cANALOGEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cANALOGAnalogKeyword_3_0 = (Keyword)cANALOGEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cDIGITALEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cDIGITALDigitalKeyword_4_0 = (Keyword)cDIGITALEnumLiteralDeclaration_4.eContents().get(0);
-		private final EnumLiteralDeclaration cSERIALEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
-		private final Keyword cSERIALSerialKeyword_5_0 = (Keyword)cSERIALEnumLiteralDeclaration_5.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM0EnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
-		private final Keyword cCUSTOM0CustomType0Keyword_6_0 = (Keyword)cCUSTOM0EnumLiteralDeclaration_6.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM1EnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
-		private final Keyword cCUSTOM1CustomType1Keyword_7_0 = (Keyword)cCUSTOM1EnumLiteralDeclaration_7.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM2EnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
-		private final Keyword cCUSTOM2CustomType2Keyword_8_0 = (Keyword)cCUSTOM2EnumLiteralDeclaration_8.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM3EnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
-		private final Keyword cCUSTOM3CustomType3Keyword_9_0 = (Keyword)cCUSTOM3EnumLiteralDeclaration_9.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM4EnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
-		private final Keyword cCUSTOM4CustomType4Keyword_10_0 = (Keyword)cCUSTOM4EnumLiteralDeclaration_10.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM5EnumLiteralDeclaration_11 = (EnumLiteralDeclaration)cAlternatives.eContents().get(11);
-		private final Keyword cCUSTOM5CustomType5Keyword_11_0 = (Keyword)cCUSTOM5EnumLiteralDeclaration_11.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM6EnumLiteralDeclaration_12 = (EnumLiteralDeclaration)cAlternatives.eContents().get(12);
-		private final Keyword cCUSTOM6CustomType6Keyword_12_0 = (Keyword)cCUSTOM6EnumLiteralDeclaration_12.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM7EnumLiteralDeclaration_13 = (EnumLiteralDeclaration)cAlternatives.eContents().get(13);
-		private final Keyword cCUSTOM7CustomType7Keyword_13_0 = (Keyword)cCUSTOM7EnumLiteralDeclaration_13.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM8EnumLiteralDeclaration_14 = (EnumLiteralDeclaration)cAlternatives.eContents().get(14);
-		private final Keyword cCUSTOM8CustomType8Keyword_14_0 = (Keyword)cCUSTOM8EnumLiteralDeclaration_14.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM9EnumLiteralDeclaration_15 = (EnumLiteralDeclaration)cAlternatives.eContents().get(15);
-		private final Keyword cCUSTOM9CustomType9Keyword_15_0 = (Keyword)cCUSTOM9EnumLiteralDeclaration_15.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM10EnumLiteralDeclaration_16 = (EnumLiteralDeclaration)cAlternatives.eContents().get(16);
-		private final Keyword cCUSTOM10CustomType10Keyword_16_0 = (Keyword)cCUSTOM10EnumLiteralDeclaration_16.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM11EnumLiteralDeclaration_17 = (EnumLiteralDeclaration)cAlternatives.eContents().get(17);
-		private final Keyword cCUSTOM11CustomType11Keyword_17_0 = (Keyword)cCUSTOM11EnumLiteralDeclaration_17.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM12EnumLiteralDeclaration_18 = (EnumLiteralDeclaration)cAlternatives.eContents().get(18);
-		private final Keyword cCUSTOM12CustomType12Keyword_18_0 = (Keyword)cCUSTOM12EnumLiteralDeclaration_18.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM13EnumLiteralDeclaration_19 = (EnumLiteralDeclaration)cAlternatives.eContents().get(19);
-		private final Keyword cCUSTOM13CustomType13Keyword_19_0 = (Keyword)cCUSTOM13EnumLiteralDeclaration_19.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM14EnumLiteralDeclaration_20 = (EnumLiteralDeclaration)cAlternatives.eContents().get(20);
-		private final Keyword cCUSTOM14CustomType14Keyword_20_0 = (Keyword)cCUSTOM14EnumLiteralDeclaration_20.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM15EnumLiteralDeclaration_21 = (EnumLiteralDeclaration)cAlternatives.eContents().get(21);
-		private final Keyword cCUSTOM15CustomType15Keyword_21_0 = (Keyword)cCUSTOM15EnumLiteralDeclaration_21.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM16EnumLiteralDeclaration_22 = (EnumLiteralDeclaration)cAlternatives.eContents().get(22);
-		private final Keyword cCUSTOM16CustomType16Keyword_22_0 = (Keyword)cCUSTOM16EnumLiteralDeclaration_22.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM17EnumLiteralDeclaration_23 = (EnumLiteralDeclaration)cAlternatives.eContents().get(23);
-		private final Keyword cCUSTOM17CustomType17Keyword_23_0 = (Keyword)cCUSTOM17EnumLiteralDeclaration_23.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM18EnumLiteralDeclaration_24 = (EnumLiteralDeclaration)cAlternatives.eContents().get(24);
-		private final Keyword cCUSTOM18CustomType18Keyword_24_0 = (Keyword)cCUSTOM18EnumLiteralDeclaration_24.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM19EnumLiteralDeclaration_25 = (EnumLiteralDeclaration)cAlternatives.eContents().get(25);
-		private final Keyword cCUSTOM19CustomType19Keyword_25_0 = (Keyword)cCUSTOM19EnumLiteralDeclaration_25.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM20EnumLiteralDeclaration_26 = (EnumLiteralDeclaration)cAlternatives.eContents().get(26);
-		private final Keyword cCUSTOM20CustomType20Keyword_26_0 = (Keyword)cCUSTOM20EnumLiteralDeclaration_26.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM21EnumLiteralDeclaration_27 = (EnumLiteralDeclaration)cAlternatives.eContents().get(27);
-		private final Keyword cCUSTOM21CustomType21Keyword_27_0 = (Keyword)cCUSTOM21EnumLiteralDeclaration_27.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM22EnumLiteralDeclaration_28 = (EnumLiteralDeclaration)cAlternatives.eContents().get(28);
-		private final Keyword cCUSTOM22CustomType22Keyword_28_0 = (Keyword)cCUSTOM22EnumLiteralDeclaration_28.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM23EnumLiteralDeclaration_29 = (EnumLiteralDeclaration)cAlternatives.eContents().get(29);
-		private final Keyword cCUSTOM23CustomType23Keyword_29_0 = (Keyword)cCUSTOM23EnumLiteralDeclaration_29.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM24EnumLiteralDeclaration_30 = (EnumLiteralDeclaration)cAlternatives.eContents().get(30);
-		private final Keyword cCUSTOM24CustomType24Keyword_30_0 = (Keyword)cCUSTOM24EnumLiteralDeclaration_30.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM25EnumLiteralDeclaration_31 = (EnumLiteralDeclaration)cAlternatives.eContents().get(31);
-		private final Keyword cCUSTOM25CustomType25Keyword_31_0 = (Keyword)cCUSTOM25EnumLiteralDeclaration_31.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM26EnumLiteralDeclaration_32 = (EnumLiteralDeclaration)cAlternatives.eContents().get(32);
-		private final Keyword cCUSTOM26CustomType26Keyword_32_0 = (Keyword)cCUSTOM26EnumLiteralDeclaration_32.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM27EnumLiteralDeclaration_33 = (EnumLiteralDeclaration)cAlternatives.eContents().get(33);
-		private final Keyword cCUSTOM27CustomType27Keyword_33_0 = (Keyword)cCUSTOM27EnumLiteralDeclaration_33.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM28EnumLiteralDeclaration_34 = (EnumLiteralDeclaration)cAlternatives.eContents().get(34);
-		private final Keyword cCUSTOM28CustomType28Keyword_34_0 = (Keyword)cCUSTOM28EnumLiteralDeclaration_34.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM29EnumLiteralDeclaration_35 = (EnumLiteralDeclaration)cAlternatives.eContents().get(35);
-		private final Keyword cCUSTOM29CustomType29Keyword_35_0 = (Keyword)cCUSTOM29EnumLiteralDeclaration_35.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM30EnumLiteralDeclaration_36 = (EnumLiteralDeclaration)cAlternatives.eContents().get(36);
-		private final Keyword cCUSTOM30CustomType30Keyword_36_0 = (Keyword)cCUSTOM30EnumLiteralDeclaration_36.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM31EnumLiteralDeclaration_37 = (EnumLiteralDeclaration)cAlternatives.eContents().get(37);
-		private final Keyword cCUSTOM31CustomType31Keyword_37_0 = (Keyword)cCUSTOM31EnumLiteralDeclaration_37.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM32EnumLiteralDeclaration_38 = (EnumLiteralDeclaration)cAlternatives.eContents().get(38);
-		private final Keyword cCUSTOM32CustomType32Keyword_38_0 = (Keyword)cCUSTOM32EnumLiteralDeclaration_38.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM33EnumLiteralDeclaration_39 = (EnumLiteralDeclaration)cAlternatives.eContents().get(39);
-		private final Keyword cCUSTOM33CustomType33Keyword_39_0 = (Keyword)cCUSTOM33EnumLiteralDeclaration_39.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM34EnumLiteralDeclaration_40 = (EnumLiteralDeclaration)cAlternatives.eContents().get(40);
-		private final Keyword cCUSTOM34CustomType34Keyword_40_0 = (Keyword)cCUSTOM34EnumLiteralDeclaration_40.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM35EnumLiteralDeclaration_41 = (EnumLiteralDeclaration)cAlternatives.eContents().get(41);
-		private final Keyword cCUSTOM35CustomType35Keyword_41_0 = (Keyword)cCUSTOM35EnumLiteralDeclaration_41.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM36EnumLiteralDeclaration_42 = (EnumLiteralDeclaration)cAlternatives.eContents().get(42);
-		private final Keyword cCUSTOM36CustomType36Keyword_42_0 = (Keyword)cCUSTOM36EnumLiteralDeclaration_42.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM37EnumLiteralDeclaration_43 = (EnumLiteralDeclaration)cAlternatives.eContents().get(43);
-		private final Keyword cCUSTOM37CustomType37Keyword_43_0 = (Keyword)cCUSTOM37EnumLiteralDeclaration_43.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM38EnumLiteralDeclaration_44 = (EnumLiteralDeclaration)cAlternatives.eContents().get(44);
-		private final Keyword cCUSTOM38CustomType38Keyword_44_0 = (Keyword)cCUSTOM38EnumLiteralDeclaration_44.eContents().get(0);
-		private final EnumLiteralDeclaration cCUSTOM39EnumLiteralDeclaration_45 = (EnumLiteralDeclaration)cAlternatives.eContents().get(45);
-		private final Keyword cCUSTOM39CustomType39Keyword_45_0 = (Keyword)cCUSTOM39EnumLiteralDeclaration_45.eContents().get(0);
-		
-		/// * ENUMS * / enum EqInterfaceType:
-		//	CAN="Can" | ELB="Enhanced Local Bus" | ETH="Ethernet" | ANALOG="Analog" | DIGITAL="Digital" | SERIAL="Serial" |
-		//	CUSTOM0="CustomType0" | CUSTOM1="CustomType1" | CUSTOM2="CustomType2" | CUSTOM3="CustomType3" | CUSTOM4="CustomType4"
-		//	| CUSTOM5="CustomType5" | CUSTOM6="CustomType6" | CUSTOM7="CustomType7" | CUSTOM8="CustomType8" |
-		//	CUSTOM9="CustomType9" | CUSTOM10="CustomType10" | CUSTOM11="CustomType11" | CUSTOM12="CustomType12" |
-		//	CUSTOM13="CustomType13" | CUSTOM14="CustomType14" | CUSTOM15="CustomType15" | CUSTOM16="CustomType16" |
-		//	CUSTOM17="CustomType17" | CUSTOM18="CustomType18" | CUSTOM19="CustomType19" | CUSTOM20="CustomType20" |
-		//	CUSTOM21="CustomType21" | CUSTOM22="CustomType22" | CUSTOM23="CustomType23" | CUSTOM24="CustomType24" |
-		//	CUSTOM25="CustomType25" | CUSTOM26="CustomType26" | CUSTOM27="CustomType27" | CUSTOM28="CustomType28" |
-		//	CUSTOM29="CustomType29" | CUSTOM30="CustomType30" | CUSTOM31="CustomType31" | CUSTOM32="CustomType32" |
-		//	CUSTOM33="CustomType33" | CUSTOM34="CustomType34" | CUSTOM35="CustomType35" | CUSTOM36="CustomType36" |
-		//	CUSTOM37="CustomType37" | CUSTOM38="CustomType38" | CUSTOM39="CustomType39";
-		public EnumRule getRule() { return rule; }
-
-		//CAN="Can" | ELB="Enhanced Local Bus" | ETH="Ethernet" | ANALOG="Analog" | DIGITAL="Digital" | SERIAL="Serial" |
-		//CUSTOM0="CustomType0" | CUSTOM1="CustomType1" | CUSTOM2="CustomType2" | CUSTOM3="CustomType3" | CUSTOM4="CustomType4"
-		//| CUSTOM5="CustomType5" | CUSTOM6="CustomType6" | CUSTOM7="CustomType7" | CUSTOM8="CustomType8" |
-		//CUSTOM9="CustomType9" | CUSTOM10="CustomType10" | CUSTOM11="CustomType11" | CUSTOM12="CustomType12" |
-		//CUSTOM13="CustomType13" | CUSTOM14="CustomType14" | CUSTOM15="CustomType15" | CUSTOM16="CustomType16" |
-		//CUSTOM17="CustomType17" | CUSTOM18="CustomType18" | CUSTOM19="CustomType19" | CUSTOM20="CustomType20" |
-		//CUSTOM21="CustomType21" | CUSTOM22="CustomType22" | CUSTOM23="CustomType23" | CUSTOM24="CustomType24" |
-		//CUSTOM25="CustomType25" | CUSTOM26="CustomType26" | CUSTOM27="CustomType27" | CUSTOM28="CustomType28" |
-		//CUSTOM29="CustomType29" | CUSTOM30="CustomType30" | CUSTOM31="CustomType31" | CUSTOM32="CustomType32" |
-		//CUSTOM33="CustomType33" | CUSTOM34="CustomType34" | CUSTOM35="CustomType35" | CUSTOM36="CustomType36" |
-		//CUSTOM37="CustomType37" | CUSTOM38="CustomType38" | CUSTOM39="CustomType39"
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//CAN="Can"
-		public EnumLiteralDeclaration getCANEnumLiteralDeclaration_0() { return cCANEnumLiteralDeclaration_0; }
-
-		//"Can"
-		public Keyword getCANCanKeyword_0_0() { return cCANCanKeyword_0_0; }
-
-		//ELB="Enhanced Local Bus"
-		public EnumLiteralDeclaration getELBEnumLiteralDeclaration_1() { return cELBEnumLiteralDeclaration_1; }
-
-		//"Enhanced Local Bus"
-		public Keyword getELBEnhancedLocalBusKeyword_1_0() { return cELBEnhancedLocalBusKeyword_1_0; }
-
-		//ETH="Ethernet"
-		public EnumLiteralDeclaration getETHEnumLiteralDeclaration_2() { return cETHEnumLiteralDeclaration_2; }
-
-		//"Ethernet"
-		public Keyword getETHEthernetKeyword_2_0() { return cETHEthernetKeyword_2_0; }
-
-		//ANALOG="Analog"
-		public EnumLiteralDeclaration getANALOGEnumLiteralDeclaration_3() { return cANALOGEnumLiteralDeclaration_3; }
-
-		//"Analog"
-		public Keyword getANALOGAnalogKeyword_3_0() { return cANALOGAnalogKeyword_3_0; }
-
-		//DIGITAL="Digital"
-		public EnumLiteralDeclaration getDIGITALEnumLiteralDeclaration_4() { return cDIGITALEnumLiteralDeclaration_4; }
-
-		//"Digital"
-		public Keyword getDIGITALDigitalKeyword_4_0() { return cDIGITALDigitalKeyword_4_0; }
-
-		//SERIAL="Serial"
-		public EnumLiteralDeclaration getSERIALEnumLiteralDeclaration_5() { return cSERIALEnumLiteralDeclaration_5; }
-
-		//"Serial"
-		public Keyword getSERIALSerialKeyword_5_0() { return cSERIALSerialKeyword_5_0; }
-
-		//CUSTOM0="CustomType0"
-		public EnumLiteralDeclaration getCUSTOM0EnumLiteralDeclaration_6() { return cCUSTOM0EnumLiteralDeclaration_6; }
-
-		//"CustomType0"
-		public Keyword getCUSTOM0CustomType0Keyword_6_0() { return cCUSTOM0CustomType0Keyword_6_0; }
-
-		//CUSTOM1="CustomType1"
-		public EnumLiteralDeclaration getCUSTOM1EnumLiteralDeclaration_7() { return cCUSTOM1EnumLiteralDeclaration_7; }
-
-		//"CustomType1"
-		public Keyword getCUSTOM1CustomType1Keyword_7_0() { return cCUSTOM1CustomType1Keyword_7_0; }
-
-		//CUSTOM2="CustomType2"
-		public EnumLiteralDeclaration getCUSTOM2EnumLiteralDeclaration_8() { return cCUSTOM2EnumLiteralDeclaration_8; }
-
-		//"CustomType2"
-		public Keyword getCUSTOM2CustomType2Keyword_8_0() { return cCUSTOM2CustomType2Keyword_8_0; }
-
-		//CUSTOM3="CustomType3"
-		public EnumLiteralDeclaration getCUSTOM3EnumLiteralDeclaration_9() { return cCUSTOM3EnumLiteralDeclaration_9; }
-
-		//"CustomType3"
-		public Keyword getCUSTOM3CustomType3Keyword_9_0() { return cCUSTOM3CustomType3Keyword_9_0; }
-
-		//CUSTOM4="CustomType4"
-		public EnumLiteralDeclaration getCUSTOM4EnumLiteralDeclaration_10() { return cCUSTOM4EnumLiteralDeclaration_10; }
-
-		//"CustomType4"
-		public Keyword getCUSTOM4CustomType4Keyword_10_0() { return cCUSTOM4CustomType4Keyword_10_0; }
-
-		//CUSTOM5="CustomType5"
-		public EnumLiteralDeclaration getCUSTOM5EnumLiteralDeclaration_11() { return cCUSTOM5EnumLiteralDeclaration_11; }
-
-		//"CustomType5"
-		public Keyword getCUSTOM5CustomType5Keyword_11_0() { return cCUSTOM5CustomType5Keyword_11_0; }
-
-		//CUSTOM6="CustomType6"
-		public EnumLiteralDeclaration getCUSTOM6EnumLiteralDeclaration_12() { return cCUSTOM6EnumLiteralDeclaration_12; }
-
-		//"CustomType6"
-		public Keyword getCUSTOM6CustomType6Keyword_12_0() { return cCUSTOM6CustomType6Keyword_12_0; }
-
-		//CUSTOM7="CustomType7"
-		public EnumLiteralDeclaration getCUSTOM7EnumLiteralDeclaration_13() { return cCUSTOM7EnumLiteralDeclaration_13; }
-
-		//"CustomType7"
-		public Keyword getCUSTOM7CustomType7Keyword_13_0() { return cCUSTOM7CustomType7Keyword_13_0; }
-
-		//CUSTOM8="CustomType8"
-		public EnumLiteralDeclaration getCUSTOM8EnumLiteralDeclaration_14() { return cCUSTOM8EnumLiteralDeclaration_14; }
-
-		//"CustomType8"
-		public Keyword getCUSTOM8CustomType8Keyword_14_0() { return cCUSTOM8CustomType8Keyword_14_0; }
-
-		//CUSTOM9="CustomType9"
-		public EnumLiteralDeclaration getCUSTOM9EnumLiteralDeclaration_15() { return cCUSTOM9EnumLiteralDeclaration_15; }
-
-		//"CustomType9"
-		public Keyword getCUSTOM9CustomType9Keyword_15_0() { return cCUSTOM9CustomType9Keyword_15_0; }
-
-		//CUSTOM10="CustomType10"
-		public EnumLiteralDeclaration getCUSTOM10EnumLiteralDeclaration_16() { return cCUSTOM10EnumLiteralDeclaration_16; }
-
-		//"CustomType10"
-		public Keyword getCUSTOM10CustomType10Keyword_16_0() { return cCUSTOM10CustomType10Keyword_16_0; }
-
-		//CUSTOM11="CustomType11"
-		public EnumLiteralDeclaration getCUSTOM11EnumLiteralDeclaration_17() { return cCUSTOM11EnumLiteralDeclaration_17; }
-
-		//"CustomType11"
-		public Keyword getCUSTOM11CustomType11Keyword_17_0() { return cCUSTOM11CustomType11Keyword_17_0; }
-
-		//CUSTOM12="CustomType12"
-		public EnumLiteralDeclaration getCUSTOM12EnumLiteralDeclaration_18() { return cCUSTOM12EnumLiteralDeclaration_18; }
-
-		//"CustomType12"
-		public Keyword getCUSTOM12CustomType12Keyword_18_0() { return cCUSTOM12CustomType12Keyword_18_0; }
-
-		//CUSTOM13="CustomType13"
-		public EnumLiteralDeclaration getCUSTOM13EnumLiteralDeclaration_19() { return cCUSTOM13EnumLiteralDeclaration_19; }
-
-		//"CustomType13"
-		public Keyword getCUSTOM13CustomType13Keyword_19_0() { return cCUSTOM13CustomType13Keyword_19_0; }
-
-		//CUSTOM14="CustomType14"
-		public EnumLiteralDeclaration getCUSTOM14EnumLiteralDeclaration_20() { return cCUSTOM14EnumLiteralDeclaration_20; }
-
-		//"CustomType14"
-		public Keyword getCUSTOM14CustomType14Keyword_20_0() { return cCUSTOM14CustomType14Keyword_20_0; }
-
-		//CUSTOM15="CustomType15"
-		public EnumLiteralDeclaration getCUSTOM15EnumLiteralDeclaration_21() { return cCUSTOM15EnumLiteralDeclaration_21; }
-
-		//"CustomType15"
-		public Keyword getCUSTOM15CustomType15Keyword_21_0() { return cCUSTOM15CustomType15Keyword_21_0; }
-
-		//CUSTOM16="CustomType16"
-		public EnumLiteralDeclaration getCUSTOM16EnumLiteralDeclaration_22() { return cCUSTOM16EnumLiteralDeclaration_22; }
-
-		//"CustomType16"
-		public Keyword getCUSTOM16CustomType16Keyword_22_0() { return cCUSTOM16CustomType16Keyword_22_0; }
-
-		//CUSTOM17="CustomType17"
-		public EnumLiteralDeclaration getCUSTOM17EnumLiteralDeclaration_23() { return cCUSTOM17EnumLiteralDeclaration_23; }
-
-		//"CustomType17"
-		public Keyword getCUSTOM17CustomType17Keyword_23_0() { return cCUSTOM17CustomType17Keyword_23_0; }
-
-		//CUSTOM18="CustomType18"
-		public EnumLiteralDeclaration getCUSTOM18EnumLiteralDeclaration_24() { return cCUSTOM18EnumLiteralDeclaration_24; }
-
-		//"CustomType18"
-		public Keyword getCUSTOM18CustomType18Keyword_24_0() { return cCUSTOM18CustomType18Keyword_24_0; }
-
-		//CUSTOM19="CustomType19"
-		public EnumLiteralDeclaration getCUSTOM19EnumLiteralDeclaration_25() { return cCUSTOM19EnumLiteralDeclaration_25; }
-
-		//"CustomType19"
-		public Keyword getCUSTOM19CustomType19Keyword_25_0() { return cCUSTOM19CustomType19Keyword_25_0; }
-
-		//CUSTOM20="CustomType20"
-		public EnumLiteralDeclaration getCUSTOM20EnumLiteralDeclaration_26() { return cCUSTOM20EnumLiteralDeclaration_26; }
-
-		//"CustomType20"
-		public Keyword getCUSTOM20CustomType20Keyword_26_0() { return cCUSTOM20CustomType20Keyword_26_0; }
-
-		//CUSTOM21="CustomType21"
-		public EnumLiteralDeclaration getCUSTOM21EnumLiteralDeclaration_27() { return cCUSTOM21EnumLiteralDeclaration_27; }
-
-		//"CustomType21"
-		public Keyword getCUSTOM21CustomType21Keyword_27_0() { return cCUSTOM21CustomType21Keyword_27_0; }
-
-		//CUSTOM22="CustomType22"
-		public EnumLiteralDeclaration getCUSTOM22EnumLiteralDeclaration_28() { return cCUSTOM22EnumLiteralDeclaration_28; }
-
-		//"CustomType22"
-		public Keyword getCUSTOM22CustomType22Keyword_28_0() { return cCUSTOM22CustomType22Keyword_28_0; }
-
-		//CUSTOM23="CustomType23"
-		public EnumLiteralDeclaration getCUSTOM23EnumLiteralDeclaration_29() { return cCUSTOM23EnumLiteralDeclaration_29; }
-
-		//"CustomType23"
-		public Keyword getCUSTOM23CustomType23Keyword_29_0() { return cCUSTOM23CustomType23Keyword_29_0; }
-
-		//CUSTOM24="CustomType24"
-		public EnumLiteralDeclaration getCUSTOM24EnumLiteralDeclaration_30() { return cCUSTOM24EnumLiteralDeclaration_30; }
-
-		//"CustomType24"
-		public Keyword getCUSTOM24CustomType24Keyword_30_0() { return cCUSTOM24CustomType24Keyword_30_0; }
-
-		//CUSTOM25="CustomType25"
-		public EnumLiteralDeclaration getCUSTOM25EnumLiteralDeclaration_31() { return cCUSTOM25EnumLiteralDeclaration_31; }
-
-		//"CustomType25"
-		public Keyword getCUSTOM25CustomType25Keyword_31_0() { return cCUSTOM25CustomType25Keyword_31_0; }
-
-		//CUSTOM26="CustomType26"
-		public EnumLiteralDeclaration getCUSTOM26EnumLiteralDeclaration_32() { return cCUSTOM26EnumLiteralDeclaration_32; }
-
-		//"CustomType26"
-		public Keyword getCUSTOM26CustomType26Keyword_32_0() { return cCUSTOM26CustomType26Keyword_32_0; }
-
-		//CUSTOM27="CustomType27"
-		public EnumLiteralDeclaration getCUSTOM27EnumLiteralDeclaration_33() { return cCUSTOM27EnumLiteralDeclaration_33; }
-
-		//"CustomType27"
-		public Keyword getCUSTOM27CustomType27Keyword_33_0() { return cCUSTOM27CustomType27Keyword_33_0; }
-
-		//CUSTOM28="CustomType28"
-		public EnumLiteralDeclaration getCUSTOM28EnumLiteralDeclaration_34() { return cCUSTOM28EnumLiteralDeclaration_34; }
-
-		//"CustomType28"
-		public Keyword getCUSTOM28CustomType28Keyword_34_0() { return cCUSTOM28CustomType28Keyword_34_0; }
-
-		//CUSTOM29="CustomType29"
-		public EnumLiteralDeclaration getCUSTOM29EnumLiteralDeclaration_35() { return cCUSTOM29EnumLiteralDeclaration_35; }
-
-		//"CustomType29"
-		public Keyword getCUSTOM29CustomType29Keyword_35_0() { return cCUSTOM29CustomType29Keyword_35_0; }
-
-		//CUSTOM30="CustomType30"
-		public EnumLiteralDeclaration getCUSTOM30EnumLiteralDeclaration_36() { return cCUSTOM30EnumLiteralDeclaration_36; }
-
-		//"CustomType30"
-		public Keyword getCUSTOM30CustomType30Keyword_36_0() { return cCUSTOM30CustomType30Keyword_36_0; }
-
-		//CUSTOM31="CustomType31"
-		public EnumLiteralDeclaration getCUSTOM31EnumLiteralDeclaration_37() { return cCUSTOM31EnumLiteralDeclaration_37; }
-
-		//"CustomType31"
-		public Keyword getCUSTOM31CustomType31Keyword_37_0() { return cCUSTOM31CustomType31Keyword_37_0; }
-
-		//CUSTOM32="CustomType32"
-		public EnumLiteralDeclaration getCUSTOM32EnumLiteralDeclaration_38() { return cCUSTOM32EnumLiteralDeclaration_38; }
-
-		//"CustomType32"
-		public Keyword getCUSTOM32CustomType32Keyword_38_0() { return cCUSTOM32CustomType32Keyword_38_0; }
-
-		//CUSTOM33="CustomType33"
-		public EnumLiteralDeclaration getCUSTOM33EnumLiteralDeclaration_39() { return cCUSTOM33EnumLiteralDeclaration_39; }
-
-		//"CustomType33"
-		public Keyword getCUSTOM33CustomType33Keyword_39_0() { return cCUSTOM33CustomType33Keyword_39_0; }
-
-		//CUSTOM34="CustomType34"
-		public EnumLiteralDeclaration getCUSTOM34EnumLiteralDeclaration_40() { return cCUSTOM34EnumLiteralDeclaration_40; }
-
-		//"CustomType34"
-		public Keyword getCUSTOM34CustomType34Keyword_40_0() { return cCUSTOM34CustomType34Keyword_40_0; }
-
-		//CUSTOM35="CustomType35"
-		public EnumLiteralDeclaration getCUSTOM35EnumLiteralDeclaration_41() { return cCUSTOM35EnumLiteralDeclaration_41; }
-
-		//"CustomType35"
-		public Keyword getCUSTOM35CustomType35Keyword_41_0() { return cCUSTOM35CustomType35Keyword_41_0; }
-
-		//CUSTOM36="CustomType36"
-		public EnumLiteralDeclaration getCUSTOM36EnumLiteralDeclaration_42() { return cCUSTOM36EnumLiteralDeclaration_42; }
-
-		//"CustomType36"
-		public Keyword getCUSTOM36CustomType36Keyword_42_0() { return cCUSTOM36CustomType36Keyword_42_0; }
-
-		//CUSTOM37="CustomType37"
-		public EnumLiteralDeclaration getCUSTOM37EnumLiteralDeclaration_43() { return cCUSTOM37EnumLiteralDeclaration_43; }
-
-		//"CustomType37"
-		public Keyword getCUSTOM37CustomType37Keyword_43_0() { return cCUSTOM37CustomType37Keyword_43_0; }
-
-		//CUSTOM38="CustomType38"
-		public EnumLiteralDeclaration getCUSTOM38EnumLiteralDeclaration_44() { return cCUSTOM38EnumLiteralDeclaration_44; }
-
-		//"CustomType38"
-		public Keyword getCUSTOM38CustomType38Keyword_44_0() { return cCUSTOM38CustomType38Keyword_44_0; }
-
-		//CUSTOM39="CustomType39"
-		public EnumLiteralDeclaration getCUSTOM39EnumLiteralDeclaration_45() { return cCUSTOM39EnumLiteralDeclaration_45; }
-
-		//"CustomType39"
-		public Keyword getCUSTOM39CustomType39Keyword_45_0() { return cCUSTOM39CustomType39Keyword_45_0; }
-	}
 	
 	private final AssistModelElements pAssistModel;
 	private final CompartmentElements pCompartment;
@@ -1798,7 +1445,6 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	private final InvalidDeploymentElements pInvalidDeployment;
 	private final MetricParameterElements pMetricParameter;
 	private final QualifiedNameElements pQualifiedName;
-	private final EqInterfaceTypeElements unknownRuleEqInterfaceType;
 	
 	private final Grammar grammar;
 
@@ -1823,7 +1469,6 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pInvalidDeployment = new InvalidDeploymentElements();
 		this.pMetricParameter = new MetricParameterElements();
 		this.pQualifiedName = new QualifiedNameElements();
-		this.unknownRuleEqInterfaceType = new EqInterfaceTypeElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1899,7 +1544,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AvailableEqInterface:
-	//	eqInterfaceType=EqInterfaceType "=" count=INT ";";
+	//	eqInterfaceType=STRING "=" count=INT ";";
 	public AvailableEqInterfaceElements getAvailableEqInterfaceAccess() {
 		return pAvailableEqInterface;
 	}
@@ -1922,7 +1567,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"Interface" name=ID "{" (("InterfaceSystem" "=" system=STRING ";")? & ("SubAta" "=" subAta=STRING ";")? & ("Resource"
 	//	"=" resource=STRING ";")? & ("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? &
 	//	("GrpInfo" "=" grpInfo=STRING ";")? & ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? &
-	//	("EmhZone1" "=" emhZone1=STRING ";")? & ("Type" "=" ioType=EqInterfaceType ";")?) "}";
+	//	("EmhZone1" "=" emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")?) "}";
 	public EqInterfaceElements getEqInterfaceAccess() {
 		return pEqInterface;
 	}
@@ -2045,6 +1690,53 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getMetricParameterAccess().getRule();
 	}
 
+	/// * ENUMS * / //enum EqInterfaceType:
+	////	CAN 		= 'Can'					|
+	////	ELB			= 'Enhanced Local Bus'	|
+	////	ETH			= 'Ethernet'			|
+	////	ANALOG 		= 'Analog'				|
+	////	DIGITAL		= 'Digital'				|
+	////	SERIAL		= 'Serial'			|
+	////	CUSTOM0		= 'CustomType0'		|
+	////	CUSTOM1		= 'CustomType1'		|
+	////	CUSTOM2		= 'CustomType2'		|
+	////	CUSTOM3		= 'CustomType3'		|
+	////	CUSTOM4		= 'CustomType4'		|
+	////	CUSTOM5		= 'CustomType5'		|
+	////	CUSTOM6		= 'CustomType6'		|		
+	////	CUSTOM7		= 'CustomType7'		|
+	////	CUSTOM8		= 'CustomType8'		|
+	////	CUSTOM9		= 'CustomType9'		|
+	////	CUSTOM10	= 'CustomType10'	|
+	////	CUSTOM11	= 'CustomType11'	|
+	////	CUSTOM12	= 'CustomType12'	|
+	////	CUSTOM13	= 'CustomType13'	|
+	////	CUSTOM14	= 'CustomType14'	|
+	////	CUSTOM15	= 'CustomType15'	|
+	////	CUSTOM16	= 'CustomType16'	|
+	////	CUSTOM17	= 'CustomType17'	|
+	////	CUSTOM18	= 'CustomType18'	|
+	////	CUSTOM19	= 'CustomType19'	|
+	////	CUSTOM20	= 'CustomType20'	|
+	////	CUSTOM21	= 'CustomType21'	|
+	////	CUSTOM22	= 'CustomType22'	|
+	////	CUSTOM23	= 'CustomType23'	|
+	////	CUSTOM24	= 'CustomType24'	|
+	////	CUSTOM25	= 'CustomType25'	|
+	////	CUSTOM26	= 'CustomType26'	|
+	////	CUSTOM27	= 'CustomType27'	|
+	////	CUSTOM28	= 'CustomType28'	|
+	////	CUSTOM29	= 'CustomType29'	|
+	////	CUSTOM30	= 'CustomType30'	|
+	////	CUSTOM31	= 'CustomType31'	|
+	////	CUSTOM32	= 'CustomType32'	|
+	////	CUSTOM33	= 'CustomType33'	|
+	////	CUSTOM34	= 'CustomType34'	|
+	////	CUSTOM35	= 'CustomType35'	|
+	////	CUSTOM36	= 'CustomType36'	|
+	////	CUSTOM37	= 'CustomType37'	|
+	////	CUSTOM38	= 'CustomType38'	|
+	////	CUSTOM39	= 'CustomType39';
 	//QualifiedName:
 	//	ID ("." ID)*;
 	public QualifiedNameElements getQualifiedNameAccess() {
@@ -2053,26 +1745,6 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getQualifiedNameRule() {
 		return getQualifiedNameAccess().getRule();
-	}
-
-	/// * ENUMS * / enum EqInterfaceType:
-	//	CAN="Can" | ELB="Enhanced Local Bus" | ETH="Ethernet" | ANALOG="Analog" | DIGITAL="Digital" | SERIAL="Serial" |
-	//	CUSTOM0="CustomType0" | CUSTOM1="CustomType1" | CUSTOM2="CustomType2" | CUSTOM3="CustomType3" | CUSTOM4="CustomType4"
-	//	| CUSTOM5="CustomType5" | CUSTOM6="CustomType6" | CUSTOM7="CustomType7" | CUSTOM8="CustomType8" |
-	//	CUSTOM9="CustomType9" | CUSTOM10="CustomType10" | CUSTOM11="CustomType11" | CUSTOM12="CustomType12" |
-	//	CUSTOM13="CustomType13" | CUSTOM14="CustomType14" | CUSTOM15="CustomType15" | CUSTOM16="CustomType16" |
-	//	CUSTOM17="CustomType17" | CUSTOM18="CustomType18" | CUSTOM19="CustomType19" | CUSTOM20="CustomType20" |
-	//	CUSTOM21="CustomType21" | CUSTOM22="CustomType22" | CUSTOM23="CustomType23" | CUSTOM24="CustomType24" |
-	//	CUSTOM25="CustomType25" | CUSTOM26="CustomType26" | CUSTOM27="CustomType27" | CUSTOM28="CustomType28" |
-	//	CUSTOM29="CustomType29" | CUSTOM30="CustomType30" | CUSTOM31="CustomType31" | CUSTOM32="CustomType32" |
-	//	CUSTOM33="CustomType33" | CUSTOM34="CustomType34" | CUSTOM35="CustomType35" | CUSTOM36="CustomType36" |
-	//	CUSTOM37="CustomType37" | CUSTOM38="CustomType38" | CUSTOM39="CustomType39";
-	public EqInterfaceTypeElements getEqInterfaceTypeAccess() {
-		return unknownRuleEqInterfaceType;
-	}
-	
-	public EnumRule getEqInterfaceTypeRule() {
-		return getEqInterfaceTypeAccess().getRule();
 	}
 
 	//terminal ID returns ecore::EString:
