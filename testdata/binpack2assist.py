@@ -43,14 +43,15 @@ Hardware {""" % base, file=w)
                 print("    A%s,A%s dislocal up to Board;" % (item[0], conflict), file=w)
 
         print("}\n\n", file=w)
-    return w.name
+    return [w.name]
 
 def readFile(input):
+    result = []
     first = input.readline().split()
     try:
         f0 = int(first[0])
     except:
-        return None
+        return [None]
     if len(first) == 2:
         return readBPPC(f0, float(first[1]), input, bound)
     print("Converting %s problems from %s" % (f0, f))
@@ -86,14 +87,18 @@ Hardware {""" % desc, file=w)
         }""" % (i, int(float(input.readline()))), file=w)
 
             print("}\n", file=w)
-    return w.name
+            result.append(w.name)
+    return result
 
 def runAssist(inputs, args):
+    java = "java"
+    if "JAVA_HOME" in os.environ:
+        java = os.path.join(os.environ["JAVA_HOME"].strip('"'), "bin", java)
     procs = []
     for i in inputs:
         if not i:
             continue
-        procs.append(subprocess.Popen(["java", "-jar", args.jar, i, "-s", str(args.solutions)],
+        procs.append(subprocess.Popen([java, "-jar", args.jar, i, "-s", str(args.solutions)],
                                       stdout=open(i+".log", 'w'), stderr=subprocess.STDOUT))
         if len(procs) == args.instances:
             if args.timeout == 0:
@@ -140,9 +145,9 @@ if __name__ == "__main__":
         if zipfile.is_zipfile(f):
             zipf = zipfile.ZipFile(f)
             for z in zipf.namelist():
-                mdsls.append(readFile(zipf.open(z)))
+                mdsls += readFile(zipf.open(z))
         else:
-            mdsls.append(readFile(open(f)))
+            mdsls += readFile(open(f))
 
     if args.instances > 0:
         runAssist(mdsls, args)
