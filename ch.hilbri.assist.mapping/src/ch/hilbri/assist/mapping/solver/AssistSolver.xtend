@@ -107,7 +107,9 @@ class AssistSolver {
 		logger.info("Starting to generate constraints for the choco-solver");
 		for (constraint : mappingConstraintsList) {
 			logger.info('''Starting to generate constraints for "«constraint.name»"...''')
-			constraint.generate();
+			if (!constraint.generate()) {
+	            logger.info(''' no effective constraints found''')
+            }
 			logger.info('''done.''')
 		}
 	}
