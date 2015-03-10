@@ -90,25 +90,39 @@ Hardware {""" % desc, file=w)
             result.append(w.name)
     return result
 
+def waitForRemaining(procs, args):
+    initialSize = len(procs)
+    if args.timeout == 0:
+        for p in list(procs.keys()):
+            p.wait()
+            del procs[p]
+    else:
+        while len(procs) == initialSize:
+            timeout = min(procs.values() + [10])
+            time.sleep(timeout)
+            for p in list(procs.keys()):
+                procs[p] -= timeout
+                if p.poll() is None:
+                    if procs[p] <= 0:
+                        p.kill()
+                        del procs[p]
+                else:
+                    del procs[p]
+
 def runAssist(inputs, args):
     java = "java"
     if "JAVA_HOME" in os.environ:
         java = os.path.join(os.environ["JAVA_HOME"].strip('"'), "bin", java)
-    procs = []
+    procs = {}
     for i in inputs:
         if not i:
             continue
-        procs.append(subprocess.Popen([java, "-jar", args.jar, i, "-s", str(args.solutions)],
-                                      stdout=open(i+".log", 'w'), stderr=subprocess.STDOUT))
+        procs[subprocess.Popen([java, "-jar", args.jar, i, "-s", str(args.solutions)],
+                               stdout=open(i+".log", 'w'), stderr=subprocess.STDOUT)] = args.timeout
         if len(procs) == args.instances:
-            if args.timeout == 0:
-                for p in procs:
-                    p.wait()
-            else:
-                time.sleep(args.timeout)
-                for p in procs:
-                    p.kill()
-            procs = []
+            waitForRemaining(procs, args)
+    while(procs):
+        waitForRemaining(procs, args)
 
 def getEntry(line):
     return line.split(">")[1].split("<")[0]
