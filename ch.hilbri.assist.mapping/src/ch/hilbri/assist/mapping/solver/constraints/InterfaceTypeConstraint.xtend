@@ -15,13 +15,8 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 
 	override generate() {
 		// 1. Generate a list of all ioTypes used in this specification
-		//    - we collect all types from available connectors and interfaces, remove duplicates and sort them
-		val ioTypesList = (
-							model.allConnectors.map[it.availableEqInterfaces.map[it.eqInterfaceType]].flatten +	
-			          	   	model.eqInterfaces.map[it.ioType]
-			          	   )
-			          	   	.toSet.toList
-							.sort
+		//    - we collect all types from the interfaces in the spec, remove duplicates and sort them
+		val ioTypesList = model.eqInterfaces.map[it.ioType].toSet.toList.sort
 		
 		// 2. Generate the constraints
 		for (t : ioTypesList) {
