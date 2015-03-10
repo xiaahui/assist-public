@@ -6,11 +6,17 @@ package ch.hilbri.assist.mappingdsl.ui.labeling
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.Compartment
 import ch.hilbri.assist.datamodel.model.Connector
+import ch.hilbri.assist.datamodel.model.DislocalityRelation
 import ch.hilbri.assist.datamodel.model.EqInterface
+import ch.hilbri.assist.datamodel.model.InvalidDeployment
 import ch.hilbri.assist.datamodel.model.RDC
+import ch.hilbri.assist.datamodel.model.ValidDeployment
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import ch.hilbri.assist.datamodel.model.ColocalityRelation
+import ch.hilbri.assist.datamodel.model.AvailableEqInterface
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 
 /**
  * Provides labels for a EObjects.
@@ -29,7 +35,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def image(AssistModel model) {
-		'outline_view_system_16x16.png'
+		'outlineview_system_16x16.png'
 	}
 
 	def text(Compartment comp) {
@@ -37,7 +43,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def image(Compartment comp) {
-		'outline_view_compartment_16x16.png'
+		'outlineview_compartment_16x16.png'
 	}
 
 	def text(RDC b) {
@@ -45,7 +51,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def image(RDC b) {
-		'outline_view_board_16x16.png'
+		'outlineview_rdc_16x16.png'
 	}
 
 	def text(Connector c) {
@@ -53,99 +59,62 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def image(Connector c) {
-		'outline_view_core_16x16.png'
+		'outlineview_connector_16x16.png'
 	}
 
 	def text(EqInterface a) {
-		'Interface ' + a.name
+		'Interface ' + a.name + '(type: "' + a.ioType + '")'
 	}
 
-//	def image(Application a) {
-//		'outline_view_application2_16x16.png'
-//	}
+	def image(EqInterface a) {
+		'outlineview_interface_16x16.png'
+	}
 
-//	def text(DislocalityRelation r) {
-//		val output = new StringBuilder()
-//		
-//		output.append("[")
-//		for (aog : r.applicationsOrGroups) {
-//			if (aog instanceof Application) output.append((aog as Application).name)
-//			if (aog instanceof ApplicationGroup) output.append((aog as ApplicationGroup).name)
-//			if (r.applicationsOrGroups.last != aog) output.append(", ")
-//		}
-//		output.append("]")
-//		output.append(" dislocal up to ")
-//		output.append(r.hardwareLevel)
-//		output.append("-level ")
-//		
-//		return output.toString
-//	}
-//
-//	def image(DislocalityRelation r) {
-//		'outline_view_relation_16x16.png'
-//	}
-//
-//	def text(DissimilarityRelation r) {
-//		val output = new StringBuilder()
-//		
-//		output.append("[")
-//		for (aog : r.applicationsOrGroups) {
-//			if (aog instanceof Application) output.append((aog as Application).name)
-//			if (aog instanceof ApplicationGroup) output.append((aog as ApplicationGroup).name)
-//			if (r.applicationsOrGroups.last != aog) output.append(", ")
-//		}
-//		output.append("]")
-//		output.append(" dissimilar ")
-//		
-//		return output.toString
-//	}
-//
-//	def image(DissimilarityRelation r) {
-//		'outline_view_relation_16x16.png'
-//	}
-//
-//	def text(ProximityRelation r) {
-//		val output = new StringBuilder()
-//		
-//		output.append("[")
-//		for (aog : r.applicationsOrGroups) {
-//			if (aog instanceof Application) output.append((aog as Application).name)
-//			if (aog instanceof ApplicationGroup) output.append((aog as ApplicationGroup).name)
-//			if (r.applicationsOrGroups.last != aog) output.append(", ")
-//		}
-//		output.append("]")
-//		output.append(" on same ")
-//		output.append(r.hardwareLevel)
-//		output.append(" ")
-//		
-//		return output.toString
-//	}
-//
-//	def image(ProximityRelation r) {
-//		'outline_view_relation_16x16.png'
-//	}
-//
-//	def text(CommunicationRelation r) {
-//		r.applicationsOrGroups + " with bandwidth " + r.bandwidthUtilization
-//	}
-//
-//	def image(CommunicationRelation r) {
-//		'outline_view_communication_16x16.png'
-//	}
-//	
-//	def text(Network n) {
-//		n.name + " connects " + n.boards 
-//	}
-//	
-//	def image(Network n) {
-//		'outline_view_network_16x16.png'
-//	}
-//	
-//	def text(ApplicationGroup g) {
-//		g.name + " contains " + g.applicationsOrGroups
-//	}
-//	
-//	def image(ApplicationGroup g) {
-//		'outline_view_application_group_16x16.png'
-//	}
+	def String text(DislocalityRelation r) {
+		'''Dislocality - «IF r.eqInterfaceGroup == null»Interfaces: «r.eqInterfaces»«ELSE»Interface-Group: «r.eqInterfaceGroup.name»«ENDIF»''' 
+	}
+
+	def image(DislocalityRelation r) {
+		'outlineview_specification_16x16.png'
+	}
+	
+	def String text(ValidDeployment s) {
+		'''Valid deployment for [«s.allEqInterfaceOrGroupNames»]'''
+	}
+	
+	def image(ValidDeployment s) {
+		'outlineview_specification_16x16.png'
+	}
+	
+	def String text(InvalidDeployment s) {
+		'''Invalid deployment for [«s.allEqInterfaceOrGroupNames»]'''
+	}
+	
+	def image(InvalidDeployment s) {
+		'outlineview_specification_16x16.png'
+	}
+	
+	def String text(ColocalityRelation r) {
+		'''Colocality - [«r.allEqInterfaceOrGroupNames»]'''
+	}
+	
+	def image(ColocalityRelation r) {
+		'outlineview_specification_16x16.png'
+	}
+	
+	def String text(AvailableEqInterface i) {
+		'''Interface of type: "«i.eqInterfaceType»" count: "«i.count»"'''
+	}
+	
+	def image(AvailableEqInterface i) {
+		'outlineview_interface_16x16.png'
+	}
+	
+	def String text(EqInterfaceGroup g) {
+		'''Group "«g.name»"'''
+	}
+	
+	def image(EqInterfaceGroup g) {
+		'outlineview_connector_16x16.png'
+	}
 }

@@ -22,8 +22,8 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	def _createChildren(IOutlineNode parentNode, AssistModel model) {
 		
 		val bundle = Platform.getBundle("ch.hilbri.assist.mappingdsl.ui");
-		val imgfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outline_view_folder_16x16.png"), null));
-//		val imgsubfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outline_view_subfolder_16x16.png"), null));
+		val imgfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_folder_16x16.png"), null));
+		val imgsubfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_subfolder_16x16.png"), null));
 		
 		/* ---------- HARDWARE ------------- */
 		val compartmentsNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Compartments", false)
@@ -41,46 +41,30 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 				createNode(interfaceGroupNode, group)
 		}
 		
-		/* --------- SAFETY CONSTRAINTS -------------- */
-//		if (!model.dislocalityRelations.empty || !model.dissimilarityRelations.empty) {
-//			val safetyRelationNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Safety", false)
-//
-//			if (!model.dislocalityRelations.empty) {		
-//				val dislocalRelationNode = new VirtualOutlineNode(safetyRelationNode, imgsubfolderDesc, "Dislocality Constraints", false)
-//				for (r : model.dislocalityRelations) createNode(dislocalRelationNode, r)
-//			}
-//
-//			if (!model.dissimilarityRelations.empty) {		
-//				val dissimRelationNode = new VirtualOutlineNode(safetyRelationNode, imgsubfolderDesc, "Dissimilarity Constraints", false)
-//				for (r : model.dissimilarityRelations) createNode(dissimRelationNode, r)
-//			}
-//		}
-		
-		/* --------- NETWORKING ---------------------- */
-//		if (!model.networks.empty || !model.communicationRelations.empty) {
-//			val networkNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Networks and Communication", false)
-//
-//			if (!model.networks.empty) {
-//				val physNetworksNode = new VirtualOutlineNode(networkNode, imgsubfolderDesc, "Physical Networks", false)
-//				for (n : model.networks) createNode(physNetworksNode, n)
-//			}
-//
-//			if (!model.communicationRelations.empty) {
-//				val commRelationNode = new VirtualOutlineNode(networkNode, imgsubfolderDesc, "Logical Communication", false)
-//				for (r : model.communicationRelations) createNode(commRelationNode, r)
-//			}
-//		}
+		/* --------- RESTRICTION CONSTRAINTS -------------- */
+		if (!model.dislocalityRelations.empty || !model.colocalityRelations.empty || !model.validDeployments.empty || !model.invalidDeployments.empty) {
+			val restrictionsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Restrictions", false)
 
-		/* ---------- PROXIMITY REQUIREMENTS --------- */
-//		if (!model.proximityRelations.empty) {
-//			val proximityRelationNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Proximity", false)
-//			for (r : model.proximityRelations) createNode(proximityRelationNode, r)
-//		}
-		
-		
-		
-		
+			if (!model.dislocalityRelations.empty) {		
+				val dislocalRelationNode = new VirtualOutlineNode(restrictionsNode, imgsubfolderDesc, "Dislocality", false)
+				for (r : model.dislocalityRelations) createNode(dislocalRelationNode, r)
+			}
+			
+			if (!model.colocalityRelations.empty) {		
+				val dissimRelationNode = new VirtualOutlineNode(restrictionsNode, imgsubfolderDesc, "Colocality", false)
+				for (r : model.colocalityRelations) createNode(dissimRelationNode, r)
+			}
+			
+			if (!model.validDeployments.empty) {		
+				val validDeploymentsNode = new VirtualOutlineNode(restrictionsNode, imgsubfolderDesc, "Valid deployments", false)
+				for (r : model.validDeployments) createNode(validDeploymentsNode, r)
+			}
+			
+			if (!model.invalidDeployments.empty) {		
+				val invalidDeploymentsNode = new VirtualOutlineNode(restrictionsNode, imgsubfolderDesc, "Invalid deployments", false)
+				for (r : model.invalidDeployments) createNode(invalidDeploymentsNode, r)
+			}
+		}
 	}
-	
 }
 

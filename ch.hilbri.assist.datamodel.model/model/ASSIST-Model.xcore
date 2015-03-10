@@ -153,10 +153,12 @@ enum EqInterfaceType {
 	CUSTOM39	as "Custom Type 39"
 }
 
-class EqInterfaceOrGroup {}
+class EqInterfaceOrGroup {
+	String name = ""
+	op String toString() { name }
+}
 
 class EqInterface extends EqInterfaceOrGroup {
-	String name			= ""
 	String system		= ""
 	String subAta		= ""
 	String resource		= ""
@@ -170,15 +172,13 @@ class EqInterface extends EqInterfaceOrGroup {
 	EqInterfaceType ioType
 
 	refers Connector[0..1] 	mappedConnector
-		
 	contains MetricParameter[0..*] metricParameters
-	
 	op String toString() { name }	
 }
 
 class EqInterfaceGroup extends EqInterfaceOrGroup {
-	String name = ""
 	refers EqInterface[0..*] eqInterfaces
+	op String toString() { name }
 }
 
 class MetricParameter {
@@ -204,14 +204,59 @@ class DislocalityRelation{
 class ColocalityRelation {
 	refers EqInterfaceOrGroup[1..*] eqInterfaceOrGroups
 	HardwareArchitectureLevelType hardwareLevel
+	
+	op String getAllEqInterfaceOrGroupNames() {
+		var String result = ""
+		var boolean first = true
+		
+		for (e : eqInterfaceOrGroups) {
+			if (!first) result += ", "
+			else first = false
+			
+			if (e instanceof EqInterface) 		result += e.name
+			if (e instanceof EqInterfaceGroup) 	result += e.name
+		}	
+		
+		return result
+	}
 }
 
 class ValidDeployment {
 	refers EqInterfaceOrGroup[1..*] eqInterfaceOrGroups
 	refers HardwareElement[1..*] hardwareElements
+	
+	op String getAllEqInterfaceOrGroupNames() {
+		var String result = ""
+		var boolean first = true
+		
+		for (e : eqInterfaceOrGroups) {
+			if (!first) result += ", "
+			else first = false
+			
+			if (e instanceof EqInterface) 		result += e.name
+			if (e instanceof EqInterfaceGroup) 	result += e.name
+		}	
+		
+		return result
+	}
 }
 
 class InvalidDeployment {
 	refers EqInterfaceOrGroup[1..*] eqInterfaceOrGroups
 	refers HardwareElement[1..*] hardwareElements
+	
+	op String getAllEqInterfaceOrGroupNames() {
+		var String result = ""
+		var boolean first = true
+		
+		for (e : eqInterfaceOrGroups) {
+			if (!first) result += ", "
+			else first = false
+			
+			if (e instanceof EqInterface) 		result += e.name
+			if (e instanceof EqInterfaceGroup) 	result += e.name
+		}	
+		
+		return result
+	}
 }

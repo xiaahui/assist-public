@@ -339,8 +339,8 @@ public class ResultsViewController extends AnchorPane{
 	private void drawHardwareNodes(EObject obj, TreeItem<TreeObject> rootNode, Result result) {
 		Image i;
 		if (obj instanceof Compartment) 	i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_compartment_16x16.png"));
-		else if (obj instanceof RDC)		i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_processor_16x16.png"));
-		else if (obj instanceof Connector)	i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_core_16x16.png"));
+		else if (obj instanceof RDC)		i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_rdc_16x16.png"));
+		else if (obj instanceof Connector)	i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_connector_16x16.png"));
 		else return;
 		
 		ImageView iv = new ImageView(i);
@@ -362,7 +362,7 @@ public class ResultsViewController extends AnchorPane{
 	}
 
 	private void drawInterfaceNodes(EqInterface iface, TreeItem<TreeObject> rootNode) {
-		Image i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_application_16x16.png"));
+		Image i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_interface_16x16.png"));
 		ImageView iv = new ImageView(i);
 		TreeItem<TreeObject> newNode = new TreeItem<TreeObject>(new TreeObject(iface), iv);
 		rootNode.getChildren().add(newNode);

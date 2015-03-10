@@ -45,7 +45,6 @@ public class EqInterfaceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 			addSystemPropertyDescriptor(object);
 			addSubAtaPropertyDescriptor(object);
 			addResourcePropertyDescriptor(object);
@@ -59,28 +58,6 @@ public class EqInterfaceItemProvider
 			addMappedConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EqInterface_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_name_feature", "_UI_EqInterface_type"),
-				 ModelPackage.Literals.EQ_INTERFACE__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -393,7 +370,6 @@ public class EqInterfaceItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EqInterface.class)) {
-			case ModelPackage.EQ_INTERFACE__NAME:
 			case ModelPackage.EQ_INTERFACE__SYSTEM:
 			case ModelPackage.EQ_INTERFACE__SUB_ATA:
 			case ModelPackage.EQ_INTERFACE__RESOURCE:
