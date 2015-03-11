@@ -1,0 +1,538 @@
+Global {
+    System name = "Random instance random.mdsl";
+}
+Compartment Comp0 {
+    RDC RDC0 {
+        Connector Conn0 {
+            "T16" = 7;
+            "T6" = 5;
+            "T38" = 4;
+        }
+        Connector Conn1 {
+            "T16" = 9;
+            "T23" = 6;
+            "T30" = 1;
+        }
+    }
+    RDC RDC1 {
+        Connector Conn0 {
+            "T23" = 3;
+            "T33" = 5;
+            "T4" = 8;
+        }
+        Connector Conn1 {
+            "T18" = 14;
+            "T25" = 2;
+        }
+    }
+}
+Compartment Comp1 {
+    RDC RDC0 {
+        Connector Conn0 {
+            "T28" = 9;
+            "T23" = 3;
+            "T27" = 4;
+        }
+        Connector Conn1 {
+            "T23" = 12;
+            "T18" = 2;
+            "T11" = 2;
+        }
+    }
+    RDC RDC1 {
+        Connector Conn0 {
+            "T1" = 16;
+        }
+        Connector Conn1 {
+            "T0" = 16;
+        }
+    }
+}
+
+Interfaces {
+    Interface I0 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I1 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I2 {
+        Type = "T18";
+        Route = "R3";
+    }
+    Interface I3 {
+        Type = "T27";
+        Route = "R0";
+    }
+    Interface I4 {
+        Type = "T18";
+        Route = "R3";
+    }
+    Interface I5 {
+        Type = "T28";
+        Route = "R0";
+    }
+    Interface I6 {
+        Type = "T16";
+        Route = "R1";
+    }
+    Interface I7 {
+        Type = "T23";
+        Route = "R4";
+    }
+    Interface I8 {
+        Type = "T4";
+        Route = "R3";
+    }
+    Interface I9 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I10 {
+        Type = "T16";
+        Route = "R1";
+    }
+    Interface I11 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I12 {
+        Type = "T23";
+        Route = "R4";
+    }
+    Interface I13 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I14 {
+        Type = "T27";
+        Route = "R0";
+    }
+    Interface I15 {
+        Type = "T23";
+        Route = "R4";
+    }
+    Interface I16 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I17 {
+        Type = "T18";
+        Route = "R3";
+    }
+    Interface I18 {
+        Type = "T16";
+        Route = "R1";
+    }
+    Interface I19 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I20 {
+        Type = "T18";
+        Route = "R3";
+    }
+    Interface I21 {
+        Type = "T23";
+        Route = "R1";
+    }
+    Interface I22 {
+        Type = "T6";
+        Route = "R1";
+    }
+    Interface I23 {
+        Type = "T18";
+        Route = "R3";
+    }
+    Interface I24 {
+        Type = "T23";
+        Route = "R4";
+    }
+    Interface I25 {
+        Type = "T27";
+        Route = "R0";
+    }
+    Interface I26 {
+        Type = "T6";
+        Route = "R1";
+    }
+    Interface I27 {
+        Type = "T23";
+        Route = "R0";
+    }
+    Interface I28 {
+        Type = "T23";
+        Route = "R3";
+    }
+    Interface I29 {
+        Type = "T18";
+        Route = "R3";
+    }
+    Interface I30 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I31 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I32 {
+        Type = "T4";
+        Route = "R3";
+    }
+    Interface I33 {
+        Type = "T18";
+        Route = "R3";
+    }
+    Interface I34 {
+        Type = "T23";
+        Route = "R1";
+    }
+    Interface I35 {
+        Type = "T18";
+        Route = "R3";
+    }
+    Interface I36 {
+        Type = "T23";
+        Route = "R3";
+    }
+    Interface I37 {
+        Type = "T23";
+        Route = "R0";
+    }
+    Interface I38 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I39 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I40 {
+        Type = "T33";
+        Route = "R3";
+    }
+    Interface I41 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I42 {
+        Type = "T6";
+        Route = "R1";
+    }
+    Interface I43 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I44 {
+        Type = "T18";
+        Route = "R3";
+    }
+    Interface I45 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I46 {
+        Type = "T38";
+        Route = "R1";
+    }
+    Interface I47 {
+        Type = "T30";
+        Route = "R1";
+    }
+    Interface I48 {
+        Type = "T23";
+        Route = "R4";
+    }
+    Interface I49 {
+        Type = "T16";
+        Route = "R1";
+    }
+    Interface I50 {
+        Type = "T28";
+        Route = "R0";
+    }
+    Interface I51 {
+        Type = "T27";
+        Route = "R0";
+    }
+    Interface I52 {
+        Type = "T4";
+        Route = "R3";
+    }
+    Interface I53 {
+        Type = "T23";
+        Route = "R1";
+    }
+    Interface I54 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I55 {
+        Type = "T16";
+        Route = "R1";
+    }
+    Interface I56 {
+        Type = "T16";
+        Route = "R1";
+    }
+    Interface I57 {
+        Type = "T28";
+        Route = "R0";
+    }
+    Interface I58 {
+        Type = "T6";
+        Route = "R1";
+    }
+    Interface I59 {
+        Type = "T4";
+        Route = "R3";
+    }
+    Interface I60 {
+        Type = "T16";
+        Route = "R1";
+    }
+    Interface I61 {
+        Type = "T18";
+        Route = "R3";
+    }
+    Interface I62 {
+        Type = "T33";
+        Route = "R3";
+    }
+    Interface I63 {
+        Type = "T28";
+        Route = "R0";
+    }
+    Interface I64 {
+        Type = "T16";
+        Route = "R1";
+    }
+    Interface I65 {
+        Type = "T11";
+        Route = "R4";
+    }
+    Interface I66 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I67 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I68 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I69 {
+        Type = "T16";
+        Route = "R1";
+    }
+    Interface I70 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I71 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I72 {
+        Type = "T28";
+        Route = "R0";
+    }
+    Interface I73 {
+        Type = "T25";
+        Route = "R3";
+    }
+    Interface I74 {
+        Type = "T28";
+        Route = "R0";
+    }
+    Interface I75 {
+        Type = "T11";
+        Route = "R4";
+    }
+    Interface I76 {
+        Type = "T23";
+        Route = "R4";
+    }
+    Interface I77 {
+        Type = "T28";
+        Route = "R0";
+    }
+    Interface I78 {
+        Type = "T23";
+        Route = "R1";
+    }
+    Interface I79 {
+        Type = "T23";
+        Route = "R4";
+    }
+    Interface I80 {
+        Type = "T18";
+        Route = "R4";
+    }
+    Interface I81 {
+        Type = "T4";
+        Route = "R3";
+    }
+    Interface I82 {
+        Type = "T23";
+        Route = "R4";
+    }
+    Interface I83 {
+        Type = "T18";
+        Route = "R3";
+    }
+    Interface I84 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I85 {
+        Type = "T23";
+        Route = "R4";
+    }
+    Interface I86 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I87 {
+        Type = "T16";
+        Route = "R1";
+    }
+    Interface I88 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I89 {
+        Type = "T38";
+        Route = "R1";
+    }
+    Interface I90 {
+        Type = "T18";
+        Route = "R3";
+    }
+    Interface I91 {
+        Type = "T28";
+        Route = "R0";
+    }
+    Interface I92 {
+        Type = "T23";
+        Route = "R4";
+    }
+    Interface I93 {
+        Type = "T23";
+        Route = "R1";
+    }
+    Interface I94 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I95 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I96 {
+        Type = "T28";
+        Route = "R0";
+    }
+    Interface I97 {
+        Type = "T16";
+        Route = "R1";
+    }
+    Interface I98 {
+        Type = "T4";
+        Route = "R3";
+    }
+    Interface I99 {
+        Type = "T38";
+        Route = "R1";
+    }
+    Interface I100 {
+        Type = "T38";
+        Route = "R1";
+    }
+    Interface I101 {
+        Type = "T23";
+        Route = "R0";
+    }
+    Interface I102 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I103 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I104 {
+        Type = "T4";
+        Route = "R3";
+    }
+    Interface I105 {
+        Type = "T18";
+        Route = "R4";
+    }
+    Interface I106 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I107 {
+        Type = "T16";
+        Route = "R1";
+    }
+    Interface I108 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I109 {
+        Type = "T23";
+        Route = "R3";
+    }
+    Interface I110 {
+        Type = "T1";
+        Route = "R3";
+    }
+    Interface I111 {
+        Type = "T18";
+        Route = "R3";
+    }
+    Interface I112 {
+        Type = "T0";
+        Route = "R2";
+    }
+    Interface I113 {
+        Type = "T4";
+        Route = "R3";
+    }
+    Interface I114 {
+        Type = "T33";
+        Route = "R3";
+    }
+}
+
+Restrictions {
+    I70,I72,I6,I90 dislocal up to RDC;
+    I94,I4,I60 dislocal up to RDC;
+    I80,I78,I61 dislocal up to RDC;
+    I20,I94,I14 dislocal up to RDC;
+    I29,I34 dislocal up to RDC;
+    I107,I114,I88 dislocal up to RDC;
+    I2,I89,I112 dislocal up to RDC;
+    I55,I11 dislocal up to RDC;
+    I39,I42,I109,I85 dislocal up to RDC;
+    I37,I88,I6 dislocal up to RDC;
+    I85,I107,I10,I44,I91,I31 dislocal up to Compartment;
+    I65,I17,I51,I53 dislocal up to Compartment;
+    I84,I64,I28,I76 dislocal up to Compartment;
+    I62,I35,I107,I43 dislocal up to Compartment;
+    I82,I113,I108,I35,I74 dislocal up to Compartment;
+    I48,I2,I47,I104 dislocal up to Compartment;
+    I78,I108,I80,I59 dislocal up to Compartment;
+    I64,I54,I86,I14 dislocal up to Compartment;
+    I1,I34,I113,I4 dislocal up to Compartment;
+    I48,I91,I30,I68,I73 dislocal up to Compartment;
+}
+
+

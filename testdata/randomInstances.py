@@ -55,7 +55,7 @@ if __name__ == "__main__":
                         t = random.choice(types)
                         types.remove(t)
                         if s > 0:
-                            print((12*" ") + "CustomType%s = %s;" % (t, s), file=w)
+                            print((12*" ") + '"T%s" = %s;' % (t, s), file=w)
                             for n in range(s):
                                 availInterfaces.append([i,j,k,t])
                     print("        }", file=w)
@@ -77,7 +77,7 @@ if __name__ == "__main__":
         for idx, iface in enumerate(usedInterfaces):
             print("""\
     Interface I%s {
-        Type = CustomType%s;
+        Type = "T%s";
         Route = "R%s";
     }""" % (idx, iface[3], routes[(iface[0], iface[1], iface[2])]), file=w)
 
