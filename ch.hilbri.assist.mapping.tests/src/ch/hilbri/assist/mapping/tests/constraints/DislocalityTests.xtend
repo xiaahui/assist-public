@@ -19,12 +19,11 @@ Compartment C1 {
 		ESS = "Ess";
 	
 		Connector Connector1 {
-			"CustomType0" = 2;
-			"CustomType13" = 3;
+			"CustomType0" = 20;
 		}
 
 		Connector Connector2 {
-			"CustomType4" = 2;
+			"CustomType0" = 20;
 		}
 	}
 }
@@ -40,7 +39,7 @@ Interfaces {
 	}
 	
 	Interface Iface3 {
-		Type = "CustomType4";
+		Type = "CustomType0";
 	}
 }
 
@@ -57,6 +56,6 @@ Restrictions {
 	
 	@Test
 	def void testResultCount() {
-		assertEquals(1, allResults.size)
+		assertEquals(2, allResults.size)
 	}
 }

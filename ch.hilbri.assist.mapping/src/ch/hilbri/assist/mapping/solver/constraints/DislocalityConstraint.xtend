@@ -4,22 +4,23 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.mapping.solver.exceptions.InterfaceGroupCannotBeMappedDislocally
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.List
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 
 class DislocalityConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("dislocality", model, solver, solverVariables)
+		super("dislocality (improved, but w/o setvars)", model, solver, solverVariables)
 	}
 	
 	override generate() {
 
 		for (r : model.dislocalityRelations) {
-
 						
 			var int level
 			if (r.hardwareLevel == HardwareArchitectureLevelType.CONNECTOR) 		level = 0
@@ -28,55 +29,35 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			
 			val l = level
 
-			val pureIfaceList  = r.eqInterfaceOrGroups.filter[it instanceof EqInterface]
-			if (pureIfaceList.size == r.eqInterfaceOrGroups.size) {
-				val intVars = pureIfaceList.map[solverVariables.getEqInterfaceLocationVariable(it as EqInterface, l)]
-				solver.post(ICF.alldifferent(intVars))
-				return true
-			}
-			val List<List<EqInterface>> ifaceList  = r.eqInterfaceOrGroups.map[
-																			if (it instanceof EqInterface) #[it]
-																			else if (it instanceof EqInterfaceGroup) it.eqInterfaces								
-																		]
-			val List<List<IntVar>> intVarList = ifaceList.map[it.map[solverVariables.getEqInterfaceLocationVariable(it, l)]]
-			
-			
-			solver.post(ICF.allDifferent(intVarList))
+			// Case 0: Nothing is mentioned - prevented by the input language grammar
 
-//			solver.post(ICF.allDifferent(r.allEqInterfaceOrGroupNames.map[
-//				if (it instanceof EqInterface) 				#[solverVariables.getEqInterfaceLocationVariable(it, 0)]
-//				else if (it instanceof EqInterfaceGroup)	it.map[solverVariables.eqInterfaceLocationVariables(it, 0)]
-//			]))
-//			
+			// Case 1: Only EqInterfaces mentioned
+			if (r.eqInterfaceOrGroups.filter[it instanceof EqInterface].length == r.eqInterfaceOrGroups.length) {
+				val intVars = r.eqInterfaceOrGroups.map[solverVariables.getEqInterfaceLocationVariable(it as EqInterface, l)]
+				solver.post(ICF.alldifferent(intVars))
+			} 
 			
-//			
-//			/* level needs to be final */
-//			val l = level
-//			
-//			/* Retrieve the list of all location variables for this level */
-//			var List<IntVar> varList 
-//			if (r.eqInterfaceGroup != null)
-//			 	varList = r.eqInterfaceGroup.eqInterfaces.map[solverVariables.getEqInterfaceLocationVariable(it, l)]
-//			 else
-//			 	varList = r.eqInterfaces.map[solverVariables.getEqInterfaceLocationVariable(it, l)]
-//			
-//			/* Only post if there are actually elements in it */
-//			if (varList.size > 1) {
-//				solver.post(ICF.alldifferent(varList))
-//				
-//				try { solver.propagate }
-//				catch (ContradictionException e) {
-//					if (r.eqInterfaceGroup != null)
-//						throw new InterfaceGroupCannotBeMappedDislocally(this, r.eqInterfaceGroup.name)
-//					else
-//						throw new InterfaceGroupCannotBeMappedDislocally(this, r.eqInterfaces.toString)
-//				}
-//			} 
-//			else
-//				return false
+			// Case 2: Only a single group is mentioned
+			else if (r.eqInterfaceOrGroups.length == 1 && r.eqInterfaceOrGroups.get(0) instanceof EqInterfaceGroup) {
+				val intVars = (r.eqInterfaceOrGroups.get(0) as EqInterfaceGroup).eqInterfaces.map[solverVariables.getEqInterfaceLocationVariable(it, l)]
+				solver.post(ICF.alldifferent(intVars))
+			}
 			
+			// Case 3: A mix of groups and interfaces is specified
+			else {
+				val List<List<EqInterface>> ifaceList  = r.eqInterfaceOrGroups.map[ if (it instanceof EqInterface) #[it]
+																				    else if (it instanceof EqInterfaceGroup) it.eqInterfaces]
+				val List<List<IntVar>> intVarList = ifaceList.map[it.map[solverVariables.getEqInterfaceLocationVariable(it, l)]]
+			
+				solver.post(ICF.allDifferent(intVarList))
+			}
+
+			try { solver.propagate }
+			catch (ContradictionException e) { throw new InterfaceGroupCannotBeMappedDislocally(this, r.allEqInterfaceOrGroupNames)	}
+
+			return true
+
 		}
 
-		return true
 	}
 }

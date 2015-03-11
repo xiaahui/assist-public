@@ -12,7 +12,7 @@ class InterfaceGroupCannotBeMappedDislocally extends BasicConstraintsException {
 	}
 	
 	override def String getExplanation() {
-		'''The group «groupName» could not be mapped dislocally.'''
+		'''The following groups and/or interfaces «groupName» could not be mapped dislocally.'''
 	}
 	
 }
