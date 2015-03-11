@@ -28,6 +28,12 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			
 			val l = level
 
+			val pureIfaceList  = r.eqInterfaceOrGroups.filter[it instanceof EqInterface]
+			if (pureIfaceList.size == r.eqInterfaceOrGroups.size) {
+				val intVars = pureIfaceList.map[solverVariables.getEqInterfaceLocationVariable(it as EqInterface, l)]
+				solver.post(ICF.alldifferent(intVars))
+				return true
+			}
 			val List<List<EqInterface>> ifaceList  = r.eqInterfaceOrGroups.map[
 																			if (it instanceof EqInterface) #[it]
 																			else if (it instanceof EqInterfaceGroup) it.eqInterfaces								
