@@ -98,59 +98,8 @@ class Connector extends HardwareElement {
 }
 
 class AvailableEqInterface {
-	EqInterfaceType eqInterfaceType
-	int count = "0"
-}
-
-
-enum EqInterfaceType {
-	NONE		as "None"
-	CAN 		as "Can"
-	ELB			as "Enhanced Local Bus"
-	ETH			as "Ethernet"
-	ANALOG 		as "Analog"
-	DIGITAL		as "Digital"
-	SERIAL		as "Serial"
-	CUSTOM0		as "Custom Type 0"	
-	CUSTOM1		as "Custom Type 1"
-	CUSTOM2		as "Custom Type 2"
-	CUSTOM3		as "Custom Type 3"
-	CUSTOM4		as "Custom Type 4"
-	CUSTOM5		as "Custom Type 5"	
-	CUSTOM6		as "Custom Type 6"
-	CUSTOM7		as "Custom Type 7"
-	CUSTOM8		as "Custom Type 8"
-	CUSTOM9		as "Custom Type 9"
-	CUSTOM10	as "Custom Type 10"	
-	CUSTOM11	as "Custom Type 11"
-	CUSTOM12	as "Custom Type 12"
-	CUSTOM13	as "Custom Type 13"
-	CUSTOM14	as "Custom Type 14"
-	CUSTOM15	as "Custom Type 15"	
-	CUSTOM16	as "Custom Type 16"
-	CUSTOM17	as "Custom Type 17"
-	CUSTOM18	as "Custom Type 18"
-	CUSTOM19	as "Custom Type 19"
-	CUSTOM20	as "Custom Type 20"	
-	CUSTOM21	as "Custom Type 21"
-	CUSTOM22	as "Custom Type 22"
-	CUSTOM23	as "Custom Type 23"
-	CUSTOM24	as "Custom Type 24"
-	CUSTOM25	as "Custom Type 25"	
-	CUSTOM26	as "Custom Type 26"
-	CUSTOM27	as "Custom Type 27"
-	CUSTOM28	as "Custom Type 28"
-	CUSTOM29	as "Custom Type 29"
-	CUSTOM30	as "Custom Type 30"	
-	CUSTOM31	as "Custom Type 31"
-	CUSTOM32	as "Custom Type 32"
-	CUSTOM33	as "Custom Type 33"
-	CUSTOM34	as "Custom Type 34"
-	CUSTOM35	as "Custom Type 35"	
-	CUSTOM36	as "Custom Type 36"
-	CUSTOM37	as "Custom Type 37"
-	CUSTOM38	as "Custom Type 38"
-	CUSTOM39	as "Custom Type 39"
+	String eqInterfaceType 	= ""
+	int count 				= "0"
 }
 
 class EqInterfaceOrGroup {
@@ -168,8 +117,7 @@ class EqInterface extends EqInterfaceOrGroup {
 	String route		= ""
 	String pwSup1		= ""
 	String emhZone1		= ""
-	
-	EqInterfaceType ioType
+	String ioType		= ""
 
 	refers Connector[0..1] 	mappedConnector
 	contains MetricParameter[0..*] metricParameters

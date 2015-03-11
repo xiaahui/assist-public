@@ -40,7 +40,6 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAssistModelAccess().getAlternatives_10_2(), "rule__AssistModel__Alternatives_10_2");
 					put(grammarAccess.getDislocalityRelationAccess().getAlternatives_0(), "rule__DislocalityRelation__Alternatives_0");
 					put(grammarAccess.getHardwareArchitectureLevelTypeAccess().getAlternatives(), "rule__HardwareArchitectureLevelType__Alternatives");
-					put(grammarAccess.getEqInterfaceTypeAccess().getAlternatives(), "rule__EqInterfaceType__Alternatives");
 					put(grammarAccess.getAssistModelAccess().getGroup(), "rule__AssistModel__Group__0");
 					put(grammarAccess.getAssistModelAccess().getGroup_8(), "rule__AssistModel__Group_8__0");
 					put(grammarAccess.getAssistModelAccess().getGroup_9(), "rule__AssistModel__Group_9__0");

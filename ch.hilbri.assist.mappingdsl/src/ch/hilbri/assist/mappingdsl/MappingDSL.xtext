@@ -59,7 +59,7 @@ Connector:
 ;
 
 AvailableEqInterface:
-	eqInterfaceType=EqInterfaceType '=' count=INT ';'
+	eqInterfaceType=STRING '=' count=INT ';'
 ;
 
 
@@ -72,16 +72,16 @@ EqInterfaceGroup:
 EqInterface:
 	'Interface' name=ID '{'
 		(
-			('InterfaceSystem' 	'=' system=STRING ';')?				&
-			('SubAta' 			'=' subAta=STRING ';')?				&
-			('Resource'			'=' resource=STRING ';')?			&
-			('LineName'			'=' lineName=STRING ';')?			&
-			('WiringLane'		'=' wiringLane=STRING ';')?			&
-			('GrpInfo'			'=' grpInfo=STRING ';')?			&
-			('Route'			'=' route=STRING ';')?				&
-			('PwSup1'			'=' pwSup1=STRING ';')?				&
-			('EmhZone1'			'=' emhZone1=STRING ';')?			&
-			('Type'				'=' ioType=EqInterfaceType ';')?
+			('InterfaceSystem' 	'=' system=STRING 		';')?			&
+			('SubAta' 			'=' subAta=STRING 		';')?			&
+			('Resource'			'=' resource=STRING 	';')?			&
+			('LineName'			'=' lineName=STRING 	';')?			&
+			('WiringLane'		'=' wiringLane=STRING 	';')?			&
+			('GrpInfo'			'=' grpInfo=STRING 		';')?			&
+			('Route'			'=' route=STRING 		';')?			&
+			('PwSup1'			'=' pwSup1=STRING 		';')?			&
+			('EmhZone1'			'=' emhZone1=STRING 	';')?			&
+			('Type'				'=' ioType=STRING 		';')?
 		)
 	'}';
 
@@ -180,54 +180,3 @@ MetricParameter:
 QualifiedName:
 	ID ('.' ID)*
 ;
-
-/* ENUMS */
-
-enum EqInterfaceType:
-	CAN 		= 'Can'					|
-	ELB			= 'Enhanced Local Bus'	|
-	ETH			= 'Ethernet'			|
-	ANALOG 		= 'Analog'				|
-	DIGITAL		= 'Digital'				|
-	SERIAL		= 'Serial'			|
-	CUSTOM0		= 'CustomType0'		|
-	CUSTOM1		= 'CustomType1'		|
-	CUSTOM2		= 'CustomType2'		|
-	CUSTOM3		= 'CustomType3'		|
-	CUSTOM4		= 'CustomType4'		|
-	CUSTOM5		= 'CustomType5'		|
-	CUSTOM6		= 'CustomType6'		|		
-	CUSTOM7		= 'CustomType7'		|
-	CUSTOM8		= 'CustomType8'		|
-	CUSTOM9		= 'CustomType9'		|
-	CUSTOM10	= 'CustomType10'	|
-	CUSTOM11	= 'CustomType11'	|
-	CUSTOM12	= 'CustomType12'	|
-	CUSTOM13	= 'CustomType13'	|
-	CUSTOM14	= 'CustomType14'	|
-	CUSTOM15	= 'CustomType15'	|
-	CUSTOM16	= 'CustomType16'	|
-	CUSTOM17	= 'CustomType17'	|
-	CUSTOM18	= 'CustomType18'	|
-	CUSTOM19	= 'CustomType19'	|
-	CUSTOM20	= 'CustomType20'	|
-	CUSTOM21	= 'CustomType21'	|
-	CUSTOM22	= 'CustomType22'	|
-	CUSTOM23	= 'CustomType23'	|
-	CUSTOM24	= 'CustomType24'	|
-	CUSTOM25	= 'CustomType25'	|
-	CUSTOM26	= 'CustomType26'	|
-	CUSTOM27	= 'CustomType27'	|
-	CUSTOM28	= 'CustomType28'	|
-	CUSTOM29	= 'CustomType29'	|
-	CUSTOM30	= 'CustomType30'	|
-	CUSTOM31	= 'CustomType31'	|
-	CUSTOM32	= 'CustomType32'	|
-	CUSTOM33	= 'CustomType33'	|
-	CUSTOM34	= 'CustomType34'	|
-	CUSTOM35	= 'CustomType35'	|
-	CUSTOM36	= 'CustomType36'	|
-	CUSTOM37	= 'CustomType37'	|
-	CUSTOM38	= 'CustomType38'	|
-	CUSTOM39	= 'CustomType39';
-
