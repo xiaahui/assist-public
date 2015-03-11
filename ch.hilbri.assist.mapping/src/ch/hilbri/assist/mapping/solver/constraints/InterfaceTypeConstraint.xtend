@@ -6,6 +6,7 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
+import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.VF
 
 class InterfaceTypeConstraint extends AbstractMappingConstraint {
@@ -24,7 +25,7 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 			val totalInterfaceDemand 		= model.eqInterfaces.filter[ioType.equals(t)].length
 			
 			val interfaceSupplyPerConnector = model.allConnectors.map[
-													if (availableEqInterfaces.filter[eqInterfaceType.equals(t)].length > 0)
+													if (!availableEqInterfaces.filter[eqInterfaceType.equals(t)].isNullOrEmpty)
 														availableEqInterfaces.filter[eqInterfaceType.equals(t)].map[count].reduce[p1, p2|p1 + p2]
 													else 
 														0 
@@ -37,13 +38,20 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 				for (int cIdx : 0 ..< model.allConnectors.length) {
 
 					// constraint for each connector the sum of the attached interfaces
-					var sum = VF.integer("Sum-" + t + "-" + cIdx, 0, interfaceSupplyPerConnector.get(cIdx), solver)
-					solver.post(ICF.sum(solverVariables.interfaceConnectorIndicatorVariables.get(cIdx), sum))
+					var sum = VF.enumerated("Sum-" + t + "-" + cIdx, 0, interfaceSupplyPerConnector.get(cIdx), solver)
 					
+					// which variables correspond to this type?
+					val int[] indexListOfAffectedInterfaces = model.eqInterfaces.filter[ioType.equals(t)].map[model.eqInterfaces.indexOf(it)]
+									  
+					val BoolVar[] indicatorVariableList = indexListOfAffectedInterfaces.map[solverVariables.interfaceConnectorIndicatorVariables.get(cIdx).get(it)]					
+					
+					solver.post(ICF.sum(indicatorVariableList, sum))
+					
+					try { solver.propagate } 
+					catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, t, model.allConnectors.get(cIdx).name) }
 				}
 
-				try { solver.propagate } 
-				catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, t) }
+				
 
 			}
 
