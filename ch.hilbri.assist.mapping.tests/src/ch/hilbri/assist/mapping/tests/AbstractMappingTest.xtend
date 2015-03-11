@@ -47,7 +47,6 @@ class AbstractMappingTest {
 		model = parser.parse(input) as AssistModel
 		
 		/* Fix the model */
-//		PostProcessor.createMissingThreads(model);
 		assertNotNull(model) 
 
 		/* Create the job to search for new solutions */

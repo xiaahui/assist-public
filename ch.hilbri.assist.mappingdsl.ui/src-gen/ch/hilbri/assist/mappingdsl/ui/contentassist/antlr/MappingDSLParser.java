@@ -38,7 +38,6 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getAssistModelAccess().getAlternatives_10_2(), "rule__AssistModel__Alternatives_10_2");
-					put(grammarAccess.getDislocalityRelationAccess().getAlternatives_0(), "rule__DislocalityRelation__Alternatives_0");
 					put(grammarAccess.getHardwareArchitectureLevelTypeAccess().getAlternatives(), "rule__HardwareArchitectureLevelType__Alternatives");
 					put(grammarAccess.getAssistModelAccess().getGroup(), "rule__AssistModel__Group__0");
 					put(grammarAccess.getAssistModelAccess().getGroup_8(), "rule__AssistModel__Group_8__0");
@@ -70,8 +69,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEqInterfaceAccess().getGroup_3_8(), "rule__EqInterface__Group_3_8__0");
 					put(grammarAccess.getEqInterfaceAccess().getGroup_3_9(), "rule__EqInterface__Group_3_9__0");
 					put(grammarAccess.getDislocalityRelationAccess().getGroup(), "rule__DislocalityRelation__Group__0");
-					put(grammarAccess.getDislocalityRelationAccess().getGroup_0_1(), "rule__DislocalityRelation__Group_0_1__0");
-					put(grammarAccess.getDislocalityRelationAccess().getGroup_0_1_1(), "rule__DislocalityRelation__Group_0_1_1__0");
+					put(grammarAccess.getDislocalityRelationAccess().getGroup_1(), "rule__DislocalityRelation__Group_1__0");
 					put(grammarAccess.getColocalityRelationAccess().getGroup(), "rule__ColocalityRelation__Group__0");
 					put(grammarAccess.getColocalityRelationAccess().getGroup_1(), "rule__ColocalityRelation__Group_1__0");
 					put(grammarAccess.getValidDeploymentAccess().getGroup(), "rule__ValidDeployment__Group__0");
@@ -121,10 +119,9 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEqInterfaceAccess().getPwSup1Assignment_3_7_2(), "rule__EqInterface__PwSup1Assignment_3_7_2");
 					put(grammarAccess.getEqInterfaceAccess().getEmhZone1Assignment_3_8_2(), "rule__EqInterface__EmhZone1Assignment_3_8_2");
 					put(grammarAccess.getEqInterfaceAccess().getIoTypeAssignment_3_9_2(), "rule__EqInterface__IoTypeAssignment_3_9_2");
-					put(grammarAccess.getDislocalityRelationAccess().getEqInterfaceGroupAssignment_0_0(), "rule__DislocalityRelation__EqInterfaceGroupAssignment_0_0");
-					put(grammarAccess.getDislocalityRelationAccess().getEqInterfacesAssignment_0_1_0(), "rule__DislocalityRelation__EqInterfacesAssignment_0_1_0");
-					put(grammarAccess.getDislocalityRelationAccess().getEqInterfacesAssignment_0_1_1_1(), "rule__DislocalityRelation__EqInterfacesAssignment_0_1_1_1");
-					put(grammarAccess.getDislocalityRelationAccess().getHardwareLevelAssignment_2(), "rule__DislocalityRelation__HardwareLevelAssignment_2");
+					put(grammarAccess.getDislocalityRelationAccess().getEqInterfaceOrGroupsAssignment_0(), "rule__DislocalityRelation__EqInterfaceOrGroupsAssignment_0");
+					put(grammarAccess.getDislocalityRelationAccess().getEqInterfaceOrGroupsAssignment_1_1(), "rule__DislocalityRelation__EqInterfaceOrGroupsAssignment_1_1");
+					put(grammarAccess.getDislocalityRelationAccess().getHardwareLevelAssignment_3(), "rule__DislocalityRelation__HardwareLevelAssignment_3");
 					put(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsAssignment_0(), "rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_0");
 					put(grammarAccess.getColocalityRelationAccess().getEqInterfaceOrGroupsAssignment_1_1(), "rule__ColocalityRelation__EqInterfaceOrGroupsAssignment_1_1");
 					put(grammarAccess.getColocalityRelationAccess().getHardwareLevelAssignment_3(), "rule__ColocalityRelation__HardwareLevelAssignment_3");

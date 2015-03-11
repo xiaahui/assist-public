@@ -48,7 +48,7 @@ import org.chocosolver.solver.variables.BoolVar
 		}
 		
 		/* Initialize the board indicator variables */
-		interfaceConnectorIndicatorVariables = VF.boolMatrix("d", model.allConnectors.size, model.allEqInterfaces.size, solver)
+		interfaceConnectorIndicatorVariables = VF.boolMatrix("d", model.allConnectors.size, model.eqInterfaces.size, solver)
 
 	}
 	

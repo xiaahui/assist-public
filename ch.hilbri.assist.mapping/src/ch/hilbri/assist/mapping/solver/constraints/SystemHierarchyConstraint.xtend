@@ -17,8 +17,8 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 
 		// channeling for connectors
 		val connectorIndicators = solverVariables.getInterfaceConnectorIndicatorVariables()
-		for (int i : 0 ..< model.allEqInterfaces.length) {
-			val intVar = solverVariables.getEqInterfaceLocationVariable(model.allEqInterfaces.get(i), 0)
+		for (int i : 0 ..< model.eqInterfaces.length) {
+			val intVar = solverVariables.getEqInterfaceLocationVariable(model.eqInterfaces.get(i), 0)
 			solver.post(ICF.boolean_channeling(ArrayUtils.getColumn(connectorIndicators, i), intVar, 0));
 		}
 

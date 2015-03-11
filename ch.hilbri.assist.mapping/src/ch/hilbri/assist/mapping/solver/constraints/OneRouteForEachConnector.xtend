@@ -18,7 +18,7 @@ class OneRouteForEachConnector extends AbstractMappingConstraint {
 	override generate() {
 		
 		// 1. Liste aller Routen der Interfaces besorgen (routes should be case-insensitive!)
-		val listOfAllRoutes = model.allEqInterfaces.map[route.toUpperCase].toSet.toList.sort		
+		val listOfAllRoutes = model.eqInterfaces.map[route.toUpperCase].toSet.toList.sort		
 		if (listOfAllRoutes.length <= 1) return false
 				
 		// 2. Domain mit den Indizes der obigen Liste anlegen
@@ -38,9 +38,9 @@ class OneRouteForEachConnector extends AbstractMappingConstraint {
 		//					p = LocationIndicatorVariables(iface).get(connector_idx)
 		//					q = RoutenIndicatorVariables(connector).get(iface_route_idx)  --> siehe 4.
 		for (int connIdx : 0 ..< model.allConnectors.size)
-			for (int ifaceIdx : 0 ..< model.allEqInterfaces.size) {
+			for (int ifaceIdx : 0 ..< model.eqInterfaces.size) {
 				val BoolVar p = solverVariables.getInterfaceConnectorIndicatorVariables.get(connIdx).get(ifaceIdx) 
-				val BoolVar q = routeIndicatorVariablesForEachConnector.get(connIdx).get(listOfAllRoutes.indexOf(model.allEqInterfaces.get(ifaceIdx).route.toUpperCase)) 
+				val BoolVar q = routeIndicatorVariablesForEachConnector.get(connIdx).get(listOfAllRoutes.indexOf(model.eqInterfaces.get(ifaceIdx).route.toUpperCase)) 
 				solver.post(ICF.arithm(p, "<=", q))
 			}
 	

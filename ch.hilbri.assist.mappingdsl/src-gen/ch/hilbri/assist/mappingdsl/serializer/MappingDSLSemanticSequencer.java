@@ -187,10 +187,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         (eqInterfaceGroup=[EqInterfaceGroup|ID] | (eqInterfaces+=[EqInterface|ID] eqInterfaces+=[EqInterface|ID]+)) 
-	 *         hardwareLevel=HardwareArchitectureLevelType
-	 *     )
+	 *     (eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID]* hardwareLevel=HardwareArchitectureLevelType)
 	 */
 	protected void sequence_DislocalityRelation(EObject context, DislocalityRelation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

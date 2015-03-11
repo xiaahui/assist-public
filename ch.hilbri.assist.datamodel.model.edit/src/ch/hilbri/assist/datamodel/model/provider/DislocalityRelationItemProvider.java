@@ -61,49 +61,26 @@ public class DislocalityRelationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addEqInterfaceGroupPropertyDescriptor(object);
-			addEqInterfacesPropertyDescriptor(object);
+			addEqInterfaceOrGroupsPropertyDescriptor(object);
 			addHardwareLevelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Eq Interface Group feature.
+	 * This adds a property descriptor for the Eq Interface Or Groups feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addEqInterfaceGroupPropertyDescriptor(Object object) {
+	protected void addEqInterfaceOrGroupsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DislocalityRelation_eqInterfaceGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DislocalityRelation_eqInterfaceGroup_feature", "_UI_DislocalityRelation_type"),
-				 ModelPackage.Literals.DISLOCALITY_RELATION__EQ_INTERFACE_GROUP,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Eq Interfaces feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEqInterfacesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DislocalityRelation_eqInterfaces_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DislocalityRelation_eqInterfaces_feature", "_UI_DislocalityRelation_type"),
-				 ModelPackage.Literals.DISLOCALITY_RELATION__EQ_INTERFACES,
+				 getString("_UI_DislocalityRelation_eqInterfaceOrGroups_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DislocalityRelation_eqInterfaceOrGroups_feature", "_UI_DislocalityRelation_type"),
+				 ModelPackage.Literals.DISLOCALITY_RELATION__EQ_INTERFACE_OR_GROUPS,
 				 true,
 				 false,
 				 true,

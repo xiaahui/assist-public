@@ -28,6 +28,8 @@
  */
 package org.chocosolver.solver.constraints.nary.alldifferent;
 
+import java.util.List;
+
 import org.chocosolver.solver.constraints.Constraint;
 import org.chocosolver.solver.constraints.Propagator;
 import org.chocosolver.solver.constraints.binary.PropNotEqualX_Y;
@@ -44,6 +46,10 @@ public class AllDifferent extends Constraint {
 		AC, BC, FC, NEQS, DEFAULT
 	}
 
+	public AllDifferent(IntVar[][] vars, IntVar[] flatVars) {
+		super("AllDifferent", new Propagator[]{new PropAllDiffListsOfListsInst(vars, flatVars)});
+	}
+	
 	public AllDifferent(IntVar[] vars, String type) {
 		super("AllDifferent",createPropagators(vars, type));
 	}

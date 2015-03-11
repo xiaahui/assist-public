@@ -31,13 +31,34 @@ package org.chocosolver.solver.constraints;
 import gnu.trove.list.array.TIntArrayList;
 import gnu.trove.set.TIntSet;
 import gnu.trove.set.hash.TIntHashSet;
+
+import java.util.Arrays;
+import java.util.List;
+
 import org.chocosolver.solver.Settings;
 import org.chocosolver.solver.Solver;
-import org.chocosolver.solver.constraints.binary.*;
+import org.chocosolver.solver.constraints.binary.DistanceXYC;
+import org.chocosolver.solver.constraints.binary.PropAbsolute;
+import org.chocosolver.solver.constraints.binary.PropElement;
+import org.chocosolver.solver.constraints.binary.PropEqualXY_C;
+import org.chocosolver.solver.constraints.binary.PropEqualX_Y;
+import org.chocosolver.solver.constraints.binary.PropScale;
+import org.chocosolver.solver.constraints.binary.PropSquare;
 import org.chocosolver.solver.constraints.extension.Tuples;
 import org.chocosolver.solver.constraints.extension.TuplesFactory;
-import org.chocosolver.solver.constraints.extension.binary.*;
-import org.chocosolver.solver.constraints.extension.nary.*;
+import org.chocosolver.solver.constraints.extension.binary.PropBinAC2001;
+import org.chocosolver.solver.constraints.extension.binary.PropBinAC3;
+import org.chocosolver.solver.constraints.extension.binary.PropBinAC3bitrm;
+import org.chocosolver.solver.constraints.extension.binary.PropBinAC3rm;
+import org.chocosolver.solver.constraints.extension.binary.PropBinFC;
+import org.chocosolver.solver.constraints.extension.nary.PropLargeFC;
+import org.chocosolver.solver.constraints.extension.nary.PropLargeGAC2001;
+import org.chocosolver.solver.constraints.extension.nary.PropLargeGAC2001Positive;
+import org.chocosolver.solver.constraints.extension.nary.PropLargeGAC3rm;
+import org.chocosolver.solver.constraints.extension.nary.PropLargeGAC3rmPositive;
+import org.chocosolver.solver.constraints.extension.nary.PropLargeGACSTRPos;
+import org.chocosolver.solver.constraints.extension.nary.PropLargeMDDC;
+import org.chocosolver.solver.constraints.extension.nary.PropTableStr2;
 import org.chocosolver.solver.constraints.nary.PropDiffN;
 import org.chocosolver.solver.constraints.nary.PropKLoops;
 import org.chocosolver.solver.constraints.nary.PropKnapsack;
@@ -48,15 +69,22 @@ import org.chocosolver.solver.constraints.nary.alldifferent.conditions.PropCondA
 import org.chocosolver.solver.constraints.nary.alldifferent.conditions.PropCondAllDiff_AC;
 import org.chocosolver.solver.constraints.nary.among.PropAmongGAC_GoodImpl;
 import org.chocosolver.solver.constraints.nary.automata.CostRegular;
-import org.chocosolver.solver.constraints.nary.automata.FA.IAutomaton;
-import org.chocosolver.solver.constraints.nary.automata.FA.ICostAutomaton;
 import org.chocosolver.solver.constraints.nary.automata.PropMultiCostRegular;
 import org.chocosolver.solver.constraints.nary.automata.PropRegular;
+import org.chocosolver.solver.constraints.nary.automata.FA.IAutomaton;
+import org.chocosolver.solver.constraints.nary.automata.FA.ICostAutomaton;
 import org.chocosolver.solver.constraints.nary.channeling.PropBitChanneling;
 import org.chocosolver.solver.constraints.nary.channeling.PropEnumDomainChanneling;
 import org.chocosolver.solver.constraints.nary.channeling.PropInverseChannelAC;
 import org.chocosolver.solver.constraints.nary.channeling.PropInverseChannelBC;
-import org.chocosolver.solver.constraints.nary.circuit.*;
+import org.chocosolver.solver.constraints.nary.circuit.CircuitConf;
+import org.chocosolver.solver.constraints.nary.circuit.PropCircuitSCC;
+import org.chocosolver.solver.constraints.nary.circuit.PropCircuit_AntiArboFiltering;
+import org.chocosolver.solver.constraints.nary.circuit.PropCircuit_ArboFiltering;
+import org.chocosolver.solver.constraints.nary.circuit.PropNoSubtour;
+import org.chocosolver.solver.constraints.nary.circuit.PropSubCircuitSCC;
+import org.chocosolver.solver.constraints.nary.circuit.PropSubcircuit;
+import org.chocosolver.solver.constraints.nary.circuit.PropSubcircuit_AntiArboFiltering;
 import org.chocosolver.solver.constraints.nary.count.PropCountVar;
 import org.chocosolver.solver.constraints.nary.count.PropCount_AC;
 import org.chocosolver.solver.constraints.nary.cumulative.Cumulative;
@@ -82,16 +110,22 @@ import org.chocosolver.solver.constraints.nary.sum.PropBoolSumCoarse;
 import org.chocosolver.solver.constraints.nary.sum.PropBoolSumIncremental;
 import org.chocosolver.solver.constraints.nary.sum.ScalarFactory;
 import org.chocosolver.solver.constraints.nary.tree.PropAntiArborescences;
-import org.chocosolver.solver.constraints.ternary.*;
+import org.chocosolver.solver.constraints.ternary.DistanceXYZ;
+import org.chocosolver.solver.constraints.ternary.PropDivXYZ;
+import org.chocosolver.solver.constraints.ternary.PropMaxBC;
+import org.chocosolver.solver.constraints.ternary.PropMinBC;
+import org.chocosolver.solver.constraints.ternary.Times;
 import org.chocosolver.solver.constraints.unary.Member;
 import org.chocosolver.solver.constraints.unary.NotMember;
 import org.chocosolver.solver.exception.SolverException;
-import org.chocosolver.solver.variables.*;
+import org.chocosolver.solver.variables.BoolVar;
+import org.chocosolver.solver.variables.IntVar;
+import org.chocosolver.solver.variables.Task;
+import org.chocosolver.solver.variables.VF;
+import org.chocosolver.solver.variables.VariableFactory;
 import org.chocosolver.util.objects.graphs.MultivaluedDecisionDiagram;
 import org.chocosolver.util.tools.ArrayUtils;
 import org.chocosolver.util.tools.StringUtils;
-
-import java.util.Arrays;
 
 /**
  * A Factory to declare constraint based on integer variables (only).
@@ -476,6 +510,26 @@ public class IntConstraintFactory {
         return alldifferent(VARS, "DEFAULT");
     }
 
+    public static Constraint allDifferent(List<List<IntVar>> VARS) {
+    	
+    	IntVar[][] array = VARS.stream()
+    						.map(l -> l.stream().toArray(IntVar[]::new))
+    						.toArray(IntVar[][]::new);
+    	
+    	
+    	int elements = VARS.stream().map(l -> l.size()).reduce(0, (a,b) -> a+b);
+
+    	IntVar[] flatArray = new IntVar[elements];
+    	
+    	int elemCtr = 0;
+    	
+    	for (int i = 0; i < array.length; i++)
+    		for (int j = 0; j < array[i].length; j++)
+    			flatArray[elemCtr++] = array[i][j];
+    	
+    	return new AllDifferent(array, flatArray);
+    }
+    
     /**
      * Ensures that all variables from VARS take a different value.
      * The consistency level should be chosen among "BC", "AC" and "DEFAULT".

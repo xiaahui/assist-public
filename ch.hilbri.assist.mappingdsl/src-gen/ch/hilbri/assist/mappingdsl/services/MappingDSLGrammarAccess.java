@@ -896,83 +896,63 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	public class DislocalityRelationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DislocalityRelation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Assignment cEqInterfaceGroupAssignment_0_0 = (Assignment)cAlternatives_0.eContents().get(0);
-		private final CrossReference cEqInterfaceGroupEqInterfaceGroupCrossReference_0_0_0 = (CrossReference)cEqInterfaceGroupAssignment_0_0.eContents().get(0);
-		private final RuleCall cEqInterfaceGroupEqInterfaceGroupIDTerminalRuleCall_0_0_0_1 = (RuleCall)cEqInterfaceGroupEqInterfaceGroupCrossReference_0_0_0.eContents().get(1);
-		private final Group cGroup_0_1 = (Group)cAlternatives_0.eContents().get(1);
-		private final Assignment cEqInterfacesAssignment_0_1_0 = (Assignment)cGroup_0_1.eContents().get(0);
-		private final CrossReference cEqInterfacesEqInterfaceCrossReference_0_1_0_0 = (CrossReference)cEqInterfacesAssignment_0_1_0.eContents().get(0);
-		private final RuleCall cEqInterfacesEqInterfaceIDTerminalRuleCall_0_1_0_0_1 = (RuleCall)cEqInterfacesEqInterfaceCrossReference_0_1_0_0.eContents().get(1);
-		private final Group cGroup_0_1_1 = (Group)cGroup_0_1.eContents().get(1);
-		private final Keyword cCommaKeyword_0_1_1_0 = (Keyword)cGroup_0_1_1.eContents().get(0);
-		private final Assignment cEqInterfacesAssignment_0_1_1_1 = (Assignment)cGroup_0_1_1.eContents().get(1);
-		private final CrossReference cEqInterfacesEqInterfaceCrossReference_0_1_1_1_0 = (CrossReference)cEqInterfacesAssignment_0_1_1_1.eContents().get(0);
-		private final RuleCall cEqInterfacesEqInterfaceIDTerminalRuleCall_0_1_1_1_0_1 = (RuleCall)cEqInterfacesEqInterfaceCrossReference_0_1_1_1_0.eContents().get(1);
-		private final Keyword cDislocalUpToKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cHardwareLevelAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_2_0 = (RuleCall)cHardwareLevelAssignment_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cEqInterfaceOrGroupsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_0_0 = (CrossReference)cEqInterfaceOrGroupsAssignment_0.eContents().get(0);
+		private final RuleCall cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_0_0_1 = (RuleCall)cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_0_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cEqInterfaceOrGroupsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_1_0 = (CrossReference)cEqInterfaceOrGroupsAssignment_1_1.eContents().get(0);
+		private final RuleCall cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_1_1_0_1 = (RuleCall)cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_1_0.eContents().get(1);
+		private final Keyword cDislocalUpToKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cHardwareLevelAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_3_0 = (RuleCall)cHardwareLevelAssignment_3.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//DislocalityRelation:
-		//	(eqInterfaceGroup=[EqInterfaceGroup] | eqInterfaces+=[EqInterface] ("," eqInterfaces+=[EqInterface])+)
-		//	"dislocal up to" hardwareLevel=HardwareArchitectureLevelType ";";
+		//	eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "dislocal up to"
+		//	hardwareLevel=HardwareArchitectureLevelType ";";
 		public ParserRule getRule() { return rule; }
 
-		//(eqInterfaceGroup=[EqInterfaceGroup] | eqInterfaces+=[EqInterface] ("," eqInterfaces+=[EqInterface])+) "dislocal up to"
+		//eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "dislocal up to"
 		//hardwareLevel=HardwareArchitectureLevelType ";"
 		public Group getGroup() { return cGroup; }
 
-		//eqInterfaceGroup=[EqInterfaceGroup] | eqInterfaces+=[EqInterface] ("," eqInterfaces+=[EqInterface])+
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		//eqInterfaceOrGroups+=[EqInterfaceOrGroup]
+		public Assignment getEqInterfaceOrGroupsAssignment_0() { return cEqInterfaceOrGroupsAssignment_0; }
 
-		//eqInterfaceGroup=[EqInterfaceGroup]
-		public Assignment getEqInterfaceGroupAssignment_0_0() { return cEqInterfaceGroupAssignment_0_0; }
-
-		//[EqInterfaceGroup]
-		public CrossReference getEqInterfaceGroupEqInterfaceGroupCrossReference_0_0_0() { return cEqInterfaceGroupEqInterfaceGroupCrossReference_0_0_0; }
+		//[EqInterfaceOrGroup]
+		public CrossReference getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_0_0() { return cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_0_0; }
 
 		//ID
-		public RuleCall getEqInterfaceGroupEqInterfaceGroupIDTerminalRuleCall_0_0_0_1() { return cEqInterfaceGroupEqInterfaceGroupIDTerminalRuleCall_0_0_0_1; }
+		public RuleCall getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_0_0_1() { return cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_0_0_1; }
 
-		//eqInterfaces+=[EqInterface] ("," eqInterfaces+=[EqInterface])+
-		public Group getGroup_0_1() { return cGroup_0_1; }
-
-		//eqInterfaces+=[EqInterface]
-		public Assignment getEqInterfacesAssignment_0_1_0() { return cEqInterfacesAssignment_0_1_0; }
-
-		//[EqInterface]
-		public CrossReference getEqInterfacesEqInterfaceCrossReference_0_1_0_0() { return cEqInterfacesEqInterfaceCrossReference_0_1_0_0; }
-
-		//ID
-		public RuleCall getEqInterfacesEqInterfaceIDTerminalRuleCall_0_1_0_0_1() { return cEqInterfacesEqInterfaceIDTerminalRuleCall_0_1_0_0_1; }
-
-		//("," eqInterfaces+=[EqInterface])+
-		public Group getGroup_0_1_1() { return cGroup_0_1_1; }
+		//("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])*
+		public Group getGroup_1() { return cGroup_1; }
 
 		//","
-		public Keyword getCommaKeyword_0_1_1_0() { return cCommaKeyword_0_1_1_0; }
+		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
 
-		//eqInterfaces+=[EqInterface]
-		public Assignment getEqInterfacesAssignment_0_1_1_1() { return cEqInterfacesAssignment_0_1_1_1; }
+		//eqInterfaceOrGroups+=[EqInterfaceOrGroup]
+		public Assignment getEqInterfaceOrGroupsAssignment_1_1() { return cEqInterfaceOrGroupsAssignment_1_1; }
 
-		//[EqInterface]
-		public CrossReference getEqInterfacesEqInterfaceCrossReference_0_1_1_1_0() { return cEqInterfacesEqInterfaceCrossReference_0_1_1_1_0; }
+		//[EqInterfaceOrGroup]
+		public CrossReference getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_1_0() { return cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_1_0; }
 
 		//ID
-		public RuleCall getEqInterfacesEqInterfaceIDTerminalRuleCall_0_1_1_1_0_1() { return cEqInterfacesEqInterfaceIDTerminalRuleCall_0_1_1_1_0_1; }
+		public RuleCall getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_1_1_0_1() { return cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_1_1_0_1; }
 
 		//"dislocal up to"
-		public Keyword getDislocalUpToKeyword_1() { return cDislocalUpToKeyword_1; }
+		public Keyword getDislocalUpToKeyword_2() { return cDislocalUpToKeyword_2; }
 
 		//hardwareLevel=HardwareArchitectureLevelType
-		public Assignment getHardwareLevelAssignment_2() { return cHardwareLevelAssignment_2; }
+		public Assignment getHardwareLevelAssignment_3() { return cHardwareLevelAssignment_3; }
 
 		//HardwareArchitectureLevelType
-		public RuleCall getHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_2_0() { return cHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_2_0; }
+		public RuleCall getHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_3_0() { return cHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_3_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 
 	public class ColocalityRelationElements extends AbstractParserRuleElementFinder {
@@ -1327,53 +1307,6 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
-		/// * ENUMS * / //enum EqInterfaceType:
-		////	CAN 		= 'Can'					|
-		////	ELB			= 'Enhanced Local Bus'	|
-		////	ETH			= 'Ethernet'			|
-		////	ANALOG 		= 'Analog'				|
-		////	DIGITAL		= 'Digital'				|
-		////	SERIAL		= 'Serial'			|
-		////	CUSTOM0		= 'CustomType0'		|
-		////	CUSTOM1		= 'CustomType1'		|
-		////	CUSTOM2		= 'CustomType2'		|
-		////	CUSTOM3		= 'CustomType3'		|
-		////	CUSTOM4		= 'CustomType4'		|
-		////	CUSTOM5		= 'CustomType5'		|
-		////	CUSTOM6		= 'CustomType6'		|		
-		////	CUSTOM7		= 'CustomType7'		|
-		////	CUSTOM8		= 'CustomType8'		|
-		////	CUSTOM9		= 'CustomType9'		|
-		////	CUSTOM10	= 'CustomType10'	|
-		////	CUSTOM11	= 'CustomType11'	|
-		////	CUSTOM12	= 'CustomType12'	|
-		////	CUSTOM13	= 'CustomType13'	|
-		////	CUSTOM14	= 'CustomType14'	|
-		////	CUSTOM15	= 'CustomType15'	|
-		////	CUSTOM16	= 'CustomType16'	|
-		////	CUSTOM17	= 'CustomType17'	|
-		////	CUSTOM18	= 'CustomType18'	|
-		////	CUSTOM19	= 'CustomType19'	|
-		////	CUSTOM20	= 'CustomType20'	|
-		////	CUSTOM21	= 'CustomType21'	|
-		////	CUSTOM22	= 'CustomType22'	|
-		////	CUSTOM23	= 'CustomType23'	|
-		////	CUSTOM24	= 'CustomType24'	|
-		////	CUSTOM25	= 'CustomType25'	|
-		////	CUSTOM26	= 'CustomType26'	|
-		////	CUSTOM27	= 'CustomType27'	|
-		////	CUSTOM28	= 'CustomType28'	|
-		////	CUSTOM29	= 'CustomType29'	|
-		////	CUSTOM30	= 'CustomType30'	|
-		////	CUSTOM31	= 'CustomType31'	|
-		////	CUSTOM32	= 'CustomType32'	|
-		////	CUSTOM33	= 'CustomType33'	|
-		////	CUSTOM34	= 'CustomType34'	|
-		////	CUSTOM35	= 'CustomType35'	|
-		////	CUSTOM36	= 'CustomType36'	|
-		////	CUSTOM37	= 'CustomType37'	|
-		////	CUSTOM38	= 'CustomType38'	|
-		////	CUSTOM39	= 'CustomType39';
 		//QualifiedName:
 		//	ID ("." ID)*;
 		public ParserRule getRule() { return rule; }
@@ -1587,8 +1520,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//DislocalityRelation:
-	//	(eqInterfaceGroup=[EqInterfaceGroup] | eqInterfaces+=[EqInterface] ("," eqInterfaces+=[EqInterface])+)
-	//	"dislocal up to" hardwareLevel=HardwareArchitectureLevelType ";";
+	//	eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "dislocal up to"
+	//	hardwareLevel=HardwareArchitectureLevelType ";";
 	public DislocalityRelationElements getDislocalityRelationAccess() {
 		return pDislocalityRelation;
 	}
@@ -1690,53 +1623,6 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getMetricParameterAccess().getRule();
 	}
 
-	/// * ENUMS * / //enum EqInterfaceType:
-	////	CAN 		= 'Can'					|
-	////	ELB			= 'Enhanced Local Bus'	|
-	////	ETH			= 'Ethernet'			|
-	////	ANALOG 		= 'Analog'				|
-	////	DIGITAL		= 'Digital'				|
-	////	SERIAL		= 'Serial'			|
-	////	CUSTOM0		= 'CustomType0'		|
-	////	CUSTOM1		= 'CustomType1'		|
-	////	CUSTOM2		= 'CustomType2'		|
-	////	CUSTOM3		= 'CustomType3'		|
-	////	CUSTOM4		= 'CustomType4'		|
-	////	CUSTOM5		= 'CustomType5'		|
-	////	CUSTOM6		= 'CustomType6'		|		
-	////	CUSTOM7		= 'CustomType7'		|
-	////	CUSTOM8		= 'CustomType8'		|
-	////	CUSTOM9		= 'CustomType9'		|
-	////	CUSTOM10	= 'CustomType10'	|
-	////	CUSTOM11	= 'CustomType11'	|
-	////	CUSTOM12	= 'CustomType12'	|
-	////	CUSTOM13	= 'CustomType13'	|
-	////	CUSTOM14	= 'CustomType14'	|
-	////	CUSTOM15	= 'CustomType15'	|
-	////	CUSTOM16	= 'CustomType16'	|
-	////	CUSTOM17	= 'CustomType17'	|
-	////	CUSTOM18	= 'CustomType18'	|
-	////	CUSTOM19	= 'CustomType19'	|
-	////	CUSTOM20	= 'CustomType20'	|
-	////	CUSTOM21	= 'CustomType21'	|
-	////	CUSTOM22	= 'CustomType22'	|
-	////	CUSTOM23	= 'CustomType23'	|
-	////	CUSTOM24	= 'CustomType24'	|
-	////	CUSTOM25	= 'CustomType25'	|
-	////	CUSTOM26	= 'CustomType26'	|
-	////	CUSTOM27	= 'CustomType27'	|
-	////	CUSTOM28	= 'CustomType28'	|
-	////	CUSTOM29	= 'CustomType29'	|
-	////	CUSTOM30	= 'CustomType30'	|
-	////	CUSTOM31	= 'CustomType31'	|
-	////	CUSTOM32	= 'CustomType32'	|
-	////	CUSTOM33	= 'CustomType33'	|
-	////	CUSTOM34	= 'CustomType34'	|
-	////	CUSTOM35	= 'CustomType35'	|
-	////	CUSTOM36	= 'CustomType36'	|
-	////	CUSTOM37	= 'CustomType37'	|
-	////	CUSTOM38	= 'CustomType38'	|
-	////	CUSTOM39	= 'CustomType39';
 	//QualifiedName:
 	//	ID ("." ID)*;
 	public QualifiedNameElements getQualifiedNameAccess() {

@@ -24,10 +24,7 @@ class AssistModel {
 	contains ColocalityRelation[0..*]		colocalityRelations
 	contains ValidDeployment[0..*]			validDeployments
 	contains InvalidDeployment[0..*]		invalidDeployments
-	
-	op EqInterface[] getAllEqInterfaces() {
-		return eqInterfaces
-	}
+
 	
 	op Compartment[] getAllCompartments() {
 		return compartments
@@ -144,9 +141,23 @@ enum HardwareArchitectureLevelType {
 }
 
 class DislocalityRelation{
-	refers EqInterfaceGroup[0..1] eqInterfaceGroup
-	refers EqInterface[0..*] eqInterfaces
+	refers EqInterfaceOrGroup[1..*] eqInterfaceOrGroups
 	HardwareArchitectureLevelType hardwareLevel
+	
+	op String getAllEqInterfaceOrGroupNames() {
+		var String result = ""
+		var boolean first = true
+		
+		for (e : eqInterfaceOrGroups) {
+			if (!first) result += ", "
+			else first = false
+			
+			if (e instanceof EqInterface) 		result += e.name
+			if (e instanceof EqInterfaceGroup) 	result += e.name
+		}	
+		
+		return result
+	}
 }
 
 class ColocalityRelation {

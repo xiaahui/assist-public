@@ -71,7 +71,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def String text(DislocalityRelation r) {
-		'''Dislocality - «IF r.eqInterfaceGroup == null»Interfaces: «r.eqInterfaces»«ELSE»Interface-Group: «r.eqInterfaceGroup.name»«ENDIF»''' 
+		'''Dislocality for [«r.allEqInterfaceOrGroupNames»]''' 
 	}
 
 	def image(DislocalityRelation r) {

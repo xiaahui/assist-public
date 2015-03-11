@@ -1544,7 +1544,7 @@ ruleDislocalityRelation returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(((
+((
 (
 		{
 			if ($current==null) {
@@ -1553,27 +1553,13 @@ ruleDislocalityRelation returns [EObject current=null]
         }
 	otherlv_0=RULE_ID
 	{
-		newLeafNode(otherlv_0, grammarAccess.getDislocalityRelationAccess().getEqInterfaceGroupEqInterfaceGroupCrossReference_0_0_0()); 
+		newLeafNode(otherlv_0, grammarAccess.getDislocalityRelationAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_0_0()); 
 	}
 
 )
-)
-    |((
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDislocalityRelationRule());
-	        }
-        }
-	otherlv_1=RULE_ID
-	{
-		newLeafNode(otherlv_1, grammarAccess.getDislocalityRelationAccess().getEqInterfacesEqInterfaceCrossReference_0_1_0_0()); 
-	}
-
-)
-)(	otherlv_2=',' 
+)(	otherlv_1=',' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getDislocalityRelationAccess().getCommaKeyword_0_1_1_0());
+    	newLeafNode(otherlv_1, grammarAccess.getDislocalityRelationAccess().getCommaKeyword_1_0());
     }
 (
 (
@@ -1582,37 +1568,37 @@ ruleDislocalityRelation returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getDislocalityRelationRule());
 	        }
         }
-	otherlv_3=RULE_ID
+	otherlv_2=RULE_ID
 	{
-		newLeafNode(otherlv_3, grammarAccess.getDislocalityRelationAccess().getEqInterfacesEqInterfaceCrossReference_0_1_1_1_0()); 
+		newLeafNode(otherlv_2, grammarAccess.getDislocalityRelationAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_1_0()); 
 	}
 
 )
-))+))	otherlv_4='dislocal up to' 
+))*	otherlv_3='dislocal up to' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getDislocalityRelationAccess().getDislocalUpToKeyword_1());
+    	newLeafNode(otherlv_3, grammarAccess.getDislocalityRelationAccess().getDislocalUpToKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDislocalityRelationAccess().getHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getDislocalityRelationAccess().getHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_3_0()); 
 	    }
-		lv_hardwareLevel_5_0=ruleHardwareArchitectureLevelType		{
+		lv_hardwareLevel_4_0=ruleHardwareArchitectureLevelType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDislocalityRelationRule());
 	        }
        		set(
        			$current, 
        			"hardwareLevel",
-        		lv_hardwareLevel_5_0, 
+        		lv_hardwareLevel_4_0, 
         		"HardwareArchitectureLevelType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_6=';' 
+)	otherlv_5=';' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getDislocalityRelationAccess().getSemicolonKeyword_3());
+    	newLeafNode(otherlv_5, grammarAccess.getDislocalityRelationAccess().getSemicolonKeyword_4());
     }
 )
 ;

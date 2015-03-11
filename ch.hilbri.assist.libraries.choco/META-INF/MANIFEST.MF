@@ -11,7 +11,11 @@ Require-Bundle: org.eclipse.ui,
  ch.hilbri.assist.libraries.jgrapht;bundle-version="0.9.0",
  ch.hilbri.assist.libraries.math;bundle-version="3.2.0",
  ch.hilbri.assist.libraries.trove4j;bundle-version="3.0.22",
- ch.hilbri.assist.libraries.logback
+ ch.hilbri.assist.libraries.logback,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: org.chocosolver.memory,
@@ -115,3 +119,4 @@ Export-Package: org.chocosolver.memory,
  org.chocosolver.util.procedure,
  org.chocosolver.util.sort,
  org.chocosolver.util.tools
+
