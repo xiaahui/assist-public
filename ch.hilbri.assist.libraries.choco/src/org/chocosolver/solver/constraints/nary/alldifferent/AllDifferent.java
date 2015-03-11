@@ -46,8 +46,8 @@ public class AllDifferent extends Constraint {
 		AC, BC, FC, NEQS, DEFAULT
 	}
 
-	public AllDifferent(IntVar[][] vars, IntVar[] flatVars) {
-		super("AllDifferent", new Propagator[]{new PropAllDiffListsOfListsInst(vars, flatVars)});
+	public AllDifferent(int[] cumulLengths, IntVar[] flatVars) {
+		super("AllDifferent", new Propagator[]{new PropAllDiffListsOfListsInst(cumulLengths, flatVars)});
 	}
 	
 	public AllDifferent(IntVar[] vars, String type) {

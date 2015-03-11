@@ -512,22 +512,21 @@ public class IntConstraintFactory {
 
     public static Constraint allDifferent(List<List<IntVar>> VARS) {
     	
-    	IntVar[][] array = VARS.stream()
-    						.map(l -> l.stream().toArray(IntVar[]::new))
-    						.toArray(IntVar[][]::new);
-    	
-    	
     	int elements = VARS.stream().map(l -> l.size()).reduce(0, (a,b) -> a+b);
 
     	IntVar[] flatArray = new IntVar[elements];
-    	
+    	int[] cumulLengths = new int[VARS.size()];
     	int elemCtr = 0;
     	
-    	for (int i = 0; i < array.length; i++)
-    		for (int j = 0; j < array[i].length; j++)
-    			flatArray[elemCtr++] = array[i][j];
-    	
-    	return new AllDifferent(array, flatArray);
+    	for (int i = 0; i < VARS.size(); i++) {
+    		final List<IntVar> subList = VARS.get(i);
+    		final int subListSize = subList.size();
+    		cumulLengths[i] = i == 0 ? subListSize : subListSize + cumulLengths[i-1];
+    		for (int j = 0; j < subListSize; j++) {
+    			flatArray[elemCtr++] = subList.get(j);
+    		}
+    	}
+    	return new AllDifferent(cumulLengths, flatArray);
     }
     
     /**

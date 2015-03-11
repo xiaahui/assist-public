@@ -17,7 +17,7 @@ import org.chocosolver.util.ESat;
 public class PropAllDiffListsOfListsInst extends Propagator<IntVar> {
 
 	protected TIntArrayStack toCheck = new TIntArrayStack();
-	private IntVar[][] variables = null;
+	private int[] cumulLengths = null;
 	
 	
 	//***********************************************************************************
@@ -25,9 +25,10 @@ public class PropAllDiffListsOfListsInst extends Propagator<IntVar> {
     //***********************************************************************************
 
 	
-	public PropAllDiffListsOfListsInst(IntVar[][] variables, IntVar[] flatVariablesList) {
-		super(flatVariablesList, PropagatorPriority.UNARY, true);
-		this.variables = variables;
+	public PropAllDiffListsOfListsInst(int[] cumulLengths, IntVar[] flatVariablesList) {
+		super(flatVariablesList, PropagatorPriority.LINEAR, true);
+		// cumulLengths needs to be strictly monotone increasing (no empty lists) and the last entry must be equal to the number of vars, maybe we should check here
+		this.cumulLengths = cumulLengths;
 	}
 	
 	//***********************************************************************************
@@ -45,15 +46,9 @@ public class PropAllDiffListsOfListsInst extends Propagator<IntVar> {
 
     @Override
     public void propagate(int evtmask) throws ContradictionException {
-        toCheck.clear();
-        
-        for (int i = 0; i < variables.length; i++) {
-        	for (int j = 0; j < variables[i].length; j++) { 
-        		if (variables[i][j].isInstantiated()) {
-                	// order of instructions matters!
-        			toCheck.push(i);
-        			toCheck.push(j);
-        		}
+        for (int i = 0; i < vars.length; i++) {
+    		if (vars[i].isInstantiated()) {
+    			toCheck.push(i);
             }
         }
         fixpoint();
@@ -61,7 +56,8 @@ public class PropAllDiffListsOfListsInst extends Propagator<IntVar> {
     
     @Override
     public void propagate(int varIdx, int mask) throws ContradictionException {
-        
+		toCheck.push(varIdx);
+/*        
     	int ctr = 0;
     	
     	outerloop:
@@ -76,35 +72,33 @@ public class PropAllDiffListsOfListsInst extends Propagator<IntVar> {
     			}
     		}
     	}
-    	        
+*/    	        
         fixpoint();
     }
 
     protected void fixpoint() throws ContradictionException {
         try {
             while (toCheck.size() > 0) {
-                
-            	// order of instructions matters!
-            	int vidx_j = toCheck.pop();
-            	int vidx_i = toCheck.pop();
-            	
-            	int val = variables[vidx_i][vidx_j].getValue();
+            	final int vIdx = toCheck.pop();
+            	final int val = vars[vIdx].getValue();
                 
                 // Remove that value from all other vars in all other sets
-                for (int i = 0; i < variables.length; i++) {
-                	for (int j = 0; j < variables[i].length; j++) {
-                    	// Am I in a different list than vidx?
-                		if (i != vidx_i) {
-                    		if (variables[i][j].removeValue(val, aCause)) {
-                    			if (variables[i][j].isInstantiated()) {
-                    				toCheck.push(i);
-                    				toCheck.push(j);
-                    			}
-                    		}
-                    	}
+            	int lIdx = 0;
+            	final boolean inList = (vIdx < cumulLengths[0]);
+                for (int i = inList ? cumulLengths[0] : 0; i < vars.length; i++) {
+                	if (i == cumulLengths[lIdx]) {
+                		lIdx++;
+                		if (vIdx >= cumulLengths[lIdx-1] && vIdx < cumulLengths[lIdx]) {
+                			i = cumulLengths[lIdx] - 1;
+                			continue;
+                		}
+                	}
+            		if (vars[i].removeValue(val, aCause)) {
+            			if (vars[i].isInstantiated()) {
+            				toCheck.push(i);
+                		}
                 	}
                 }
-        
             }
         }
         catch (ContradictionException cex) {
@@ -116,25 +110,21 @@ public class PropAllDiffListsOfListsInst extends Propagator<IntVar> {
     
 	@Override
 	public ESat isEntailed() {
-		 int nbInst = 0;
-	     for (int i = 0; i < variables.length; i++) {
-	    	 for (int j = 0; j < variables[i].length; j++) {
-	    		 if (variables[i][j].isInstantiated()) {
-	    			 nbInst++;
-	    			 
-	    			 // Check if any other variable in any other set is instantiated to the same value
-	    			 for (int x = i+1; x < variables.length; x++) {
-	    				 for (int y = 0; y < variables[x].length; y++) {
-	    					if (variables[x][y].isInstantiatedTo(variables[i][j].getValue())) return ESat.FALSE; 
-	    				 }
-	    			 }
-	    				 
-	    		 }
-	    	 }
-	     }
-	     
-	     if (nbInst == vars.length) return ESat.TRUE;
-	     
-	     return ESat.UNDEFINED;
+        ESat ret = ESat.TRUE;
+     	int lIdx = 0;
+	    for (int i = 0; i < vars.length; i++) {
+        	if (i == cumulLengths[lIdx]) {
+        		lIdx++;
+        	}
+            if (vars[i].isInstantiated()) {
+            	final int val = vars[i].getValue();
+                for (int j = cumulLengths[lIdx]; j < vars.length; j++) {
+					if (vars[j].isInstantiatedTo(val)) return ESat.FALSE; 
+                }
+            } else {
+            	ret = ESat.UNDEFINED;
+            }
+        }
+        return ret;
 	}
 }
