@@ -9,6 +9,7 @@ Export-Package: ch.hilbri.assist.cli
 Require-Bundle: ch.hilbri.assist.datamodel.model,
  ch.hilbri.assist.datamodel.result.mapping,
  ch.hilbri.assist.mapping,
+ ch.hilbri.assist.mapping.tests,
  ch.hilbri.assist.mappingdsl.tests,
  com.google.inject,
  org.apache.commons.cli,
