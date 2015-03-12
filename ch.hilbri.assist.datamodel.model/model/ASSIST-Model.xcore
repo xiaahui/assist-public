@@ -122,7 +122,7 @@ class EqInterface extends EqInterfaceOrGroup {
 }
 
 class EqInterfaceGroup extends EqInterfaceOrGroup {
-	refers EqInterface[0..*] eqInterfaces
+	refers EqInterface[1..*] eqInterfaces
 	op String toString() { name }
 }
 

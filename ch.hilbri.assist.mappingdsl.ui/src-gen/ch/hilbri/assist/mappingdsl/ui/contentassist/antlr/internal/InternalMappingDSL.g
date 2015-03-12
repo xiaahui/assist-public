@@ -3018,16 +3018,9 @@ rule__EqInterfaceGroup__Group__4__Impl
     }
 :
 (
-(
-{ before(grammarAccess.getEqInterfaceGroupAccess().getGroup_4()); }
-(rule__EqInterfaceGroup__Group_4__0)
-{ after(grammarAccess.getEqInterfaceGroupAccess().getGroup_4()); }
-)
-(
 { before(grammarAccess.getEqInterfaceGroupAccess().getGroup_4()); }
 (rule__EqInterfaceGroup__Group_4__0)*
 { after(grammarAccess.getEqInterfaceGroupAccess().getGroup_4()); }
-)
 )
 
 ;

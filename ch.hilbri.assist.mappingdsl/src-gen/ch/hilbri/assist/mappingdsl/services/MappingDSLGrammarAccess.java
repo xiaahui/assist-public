@@ -559,10 +559,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		/// * SOFTWARE * / EqInterfaceGroup:
-		//	"Group" name=ID "{" eqInterfaces+=[EqInterface] ("," eqInterfaces+=[EqInterface])+ "}" ";";
+		//	"Group" name=ID "{" eqInterfaces+=[EqInterface] ("," eqInterfaces+=[EqInterface])* "}" ";";
 		public ParserRule getRule() { return rule; }
 
-		//"Group" name=ID "{" eqInterfaces+=[EqInterface] ("," eqInterfaces+=[EqInterface])+ "}" ";"
+		//"Group" name=ID "{" eqInterfaces+=[EqInterface] ("," eqInterfaces+=[EqInterface])* "}" ";"
 		public Group getGroup() { return cGroup; }
 
 		//"Group"
@@ -586,7 +586,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getEqInterfacesEqInterfaceIDTerminalRuleCall_3_0_1() { return cEqInterfacesEqInterfaceIDTerminalRuleCall_3_0_1; }
 
-		//("," eqInterfaces+=[EqInterface])+
+		//("," eqInterfaces+=[EqInterface])*
 		public Group getGroup_4() { return cGroup_4; }
 
 		//","
@@ -1487,7 +1487,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// * SOFTWARE * / EqInterfaceGroup:
-	//	"Group" name=ID "{" eqInterfaces+=[EqInterface] ("," eqInterfaces+=[EqInterface])+ "}" ";";
+	//	"Group" name=ID "{" eqInterfaces+=[EqInterface] ("," eqInterfaces+=[EqInterface])* "}" ";";
 	public EqInterfaceGroupElements getEqInterfaceGroupAccess() {
 		return pEqInterfaceGroup;
 	}
