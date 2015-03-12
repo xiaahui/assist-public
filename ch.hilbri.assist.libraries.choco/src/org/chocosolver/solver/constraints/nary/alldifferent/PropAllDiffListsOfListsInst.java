@@ -26,7 +26,7 @@ public class PropAllDiffListsOfListsInst extends Propagator<IntVar> {
 
 	
 	public PropAllDiffListsOfListsInst(int[] cumulLengths, IntVar[] flatVariablesList) {
-		super(flatVariablesList, PropagatorPriority.LINEAR, true);
+		super(flatVariablesList, PropagatorPriority.UNARY, true);
 		// cumulLengths needs to be strictly monotone increasing (no empty lists) and the last entry must be equal to the number of vars, maybe we should check here
 		this.cumulLengths = cumulLengths;
 	}
@@ -83,13 +83,20 @@ public class PropAllDiffListsOfListsInst extends Propagator<IntVar> {
             	final int val = vars[vIdx].getValue();
                 
                 // Remove that value from all other vars in all other sets
-            	int lIdx = 0;
+            	int lIdx = 0; // counter for the sub-lists
+            	
+            	// Can we skip the first sub-list?
             	final boolean inList = (vIdx < cumulLengths[0]);
-                for (int i = inList ? cumulLengths[0] : 0; i < vars.length; i++) {
-                	if (i == cumulLengths[lIdx]) {
-                		lIdx++;
+                
+            	// Go through all variables
+            	for (int i = (inList ? cumulLengths[0] : 0); i < vars.length; i++) {
+                	// Are we at the end of a sub-list?
+            		if (i == cumulLengths[lIdx]) {
+                		lIdx++;  // go to the next sub-list
+                		// is the variable in the now current sub-list
                 		if (vIdx >= cumulLengths[lIdx-1] && vIdx < cumulLengths[lIdx]) {
-                			i = cumulLengths[lIdx] - 1;
+                			// Skip this sub-list
+                			i = cumulLengths[lIdx] - 1; // because of the i++ in the for loop
                 			continue;
                 		}
                 	}
