@@ -14,7 +14,6 @@ import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor
 import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
 import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor
-import ch.hilbri.assist.mapping.solver.strategies.FirstFailWithProgressionOutput
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Settings
@@ -24,6 +23,7 @@ import org.chocosolver.solver.explanations.strategies.ConflictBasedBackjumping
 import org.chocosolver.solver.search.loop.monitors.SMF
 import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
+import org.chocosolver.solver.search.strategy.selectors.variables.FirstFail
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -84,7 +84,7 @@ class AssistSolver {
 	def setSolverSearchStrategy(SearchType strategy) {
 		if (strategy == SearchType.CONSECUTIVE) {
 			logger.info("Setting choco-solver search strategy to minDomainSize + minValue")
-			solver.set(ISF.custom(new FirstFailWithProgressionOutput(solverVariables, model),
+			solver.set(ISF.custom(new FirstFail(),
 								  ISF.min_value_selector,
 								  solverVariables.getLocationVariables))
 		} else

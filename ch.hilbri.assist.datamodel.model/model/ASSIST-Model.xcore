@@ -12,6 +12,7 @@ package ch.hilbri.assist.datamodel.model
 
 import org.eclipse.emf.common.util.BasicEList
 
+
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 class AssistModel {
@@ -143,6 +144,28 @@ enum HardwareArchitectureLevelType {
 class DislocalityRelation{
 	refers EqInterfaceOrGroup[1..*] eqInterfaceOrGroups
 	HardwareArchitectureLevelType hardwareLevel
+	
+	op EqInterface[] getAllInterfaces() {
+		val list = new BasicEList<EqInterface>
+		
+		for (e : eqInterfaceOrGroups) {
+			if (e instanceof EqInterface) 				list.add(e)
+			else if (e instanceof EqInterfaceGroup) 	list.addAll(e.eqInterfaces)
+		}
+
+		return list
+	}
+	
+	op int getTotalInterfaceCount() {
+		var counter = 0
+		
+		for (e : eqInterfaceOrGroups) {
+			if (e instanceof EqInterface) 				counter += 1
+			else if (e instanceof EqInterfaceGroup) 	counter += e.eqInterfaces.length
+		}
+		
+		return counter
+	}
 	
 	op String getAllEqInterfaceOrGroupNames() {
 		var String result = ""
