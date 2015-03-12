@@ -8,11 +8,58 @@ import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.VF
 import org.chocosolver.solver.exception.ContradictionException
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
+import org.chocosolver.solver.constraints.Propagator
+import org.chocosolver.solver.variables.IntVar
+import org.chocosolver.solver.constraints.PropagatorPriority
+import org.chocosolver.solver.variables.events.IntEventType
+import org.chocosolver.solver.constraints.Constraint
+import org.chocosolver.util.ESat
 
 class OneRouteForEachConnector extends AbstractMappingConstraint {
 	
+	private static class ValueImplication extends Propagator<IntVar> {
+
+		private int[] table
+
+		new(IntVar[] varList, int[] table) {
+			super(varList, PropagatorPriority.BINARY, true);
+			this.table = table;
+		}
+		
+	    override getPropagationConditions(int vIdx) {
+	        return IntEventType.instantiation();
+	    }
+	
+	    override propagate(int evtmask) throws ContradictionException {
+	    	if (vars.get(0).isInstantiated()) {
+	    		vars.get(1).instantiateTo(table.get(vars.get(0).value), aCause)
+	    	}
+	    }
+	    
+	    override propagate(int varIdx, int mask) throws ContradictionException {
+	    	if (varIdx == 0) {
+	    		vars.get(1).instantiateTo(table.get(vars.get(0).value), aCause)
+	    	}
+	    }
+					
+		override isEntailed() {
+	    	if (vars.get(0).isInstantiated() && vars.get(1).isInstantiated()) {
+	    		if (vars.get(1).value == table.get(vars.get(0).value)) {
+	    			return ESat.TRUE
+	    		}
+	    		return ESat.FALSE
+		    }
+			return ESat.UNDEFINED
+		}	
+			
+	} 
+	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
 		super("one route for each connector", model, solver, solverVariables)	
+	}
+	
+	def getConstraint(IntVar p, IntVar q, int[] table) {
+		return new Constraint("ValueImplication", new ValueImplication(#[p, q], table))
 	}
 	
 	override generate() {
