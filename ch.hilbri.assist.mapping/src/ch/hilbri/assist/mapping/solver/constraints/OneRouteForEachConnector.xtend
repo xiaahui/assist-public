@@ -31,19 +31,29 @@ class OneRouteForEachConnector extends AbstractMappingConstraint {
 	    }
 	
 	    override propagate(int evtmask) throws ContradictionException {
-	    	if (vars.get(0).isInstantiated()) {
-	    		vars.get(1).instantiateTo(table.get(vars.get(0).value), aCause)
+	    	if (vars.get(0).instantiated) {
+	    		propagate(0, 0)
+	    	}
+	    	if (vars.get(1).instantiated) {
+	    		propagate(1, 0)
 	    	}
 	    }
 	    
 	    override propagate(int varIdx, int mask) throws ContradictionException {
 	    	if (varIdx == 0) {
 	    		vars.get(1).instantiateTo(table.get(vars.get(0).value), aCause)
+	    	} else {
+	    		val value = vars.get(1).value
+	    		for (int idx: 0..<table.length) {
+	    			if (table.get(idx) != value) {
+	    				vars.get(0).removeValue(idx, aCause)
+	    			}
+	    		}
 	    	}
 	    }
 					
 		override isEntailed() {
-	    	if (vars.get(0).isInstantiated() && vars.get(1).isInstantiated()) {
+	    	if (vars.get(0).instantiated && vars.get(1).instantiated) {
 	    		if (vars.get(1).value == table.get(vars.get(0).value)) {
 	    			return ESat.TRUE
 	    		}
