@@ -3,7 +3,7 @@
 # to assist instances
 
 from __future__ import print_function
-import os, sys, argparse, random, collections
+import sys, argparse, random, collections
 
 def parseAbbrevList(s, n):
     l = [int(e) for e in s.split(",")]
@@ -21,13 +21,13 @@ if __name__ == "__main__":
     parser.add_argument("-t", "--types", type=int, default=40, help="set fixed number of types")
     parser.add_argument("-y", "--max-types-per-connector", type=int, default=6, help="set maximum number of types per connector")
     parser.add_argument("-i", "--interfaces-per-connector", type=int, default=16, help="set fixed number of interfaces per connector")
-    parser.add_argument("-n", "--interfaces", type=float, default=0.9, help="set either used fraction (value < 1) or total number of interfaces needed")
-    parser.add_argument("-d", "--dislocalities", default="0,10,10", help="set number of dislocalities per level")
-    parser.add_argument("-g", "--dislocality-groups", default="0,10,10", help="set number of dislocality groups per level")
+    parser.add_argument("-n", "--interfaces", type=float, default=1.0, help="set either used fraction (value < 1) or total number of interfaces needed")
+    parser.add_argument("-d", "--dislocalities", default="0,0,0", help="set number of dislocalities per level")
+    parser.add_argument("-g", "--dislocality-groups", default="0,10,0", help="set number of dislocality groups per level")
     parser.add_argument("-l", "--colocalities", default="0,10,10", help="set number of colocalities per level")
     parser.add_argument("-p", "--max-interfaces-per-dislocality", default="6", help="set maximum number of interfaces per dislocality on level")
-    parser.add_argument("-m", "--max-sets-per-dislocality-group", default="4", help="set maximum number of sets per dislocality group on level")
-    parser.add_argument("-k", "--max-interfaces-per-dislocality-group-set", default="6", help="set maximum number of interfaces per dislocality group set on level")
+    parser.add_argument("-m", "--max-sets-per-dislocality-group", default="15", help="set maximum number of sets per dislocality group on level")
+    parser.add_argument("-k", "--max-interfaces-per-dislocality-group-set", default="20", help="set maximum number of interfaces per dislocality group set on level")
     parser.add_argument("-q", "--max-interfaces-per-colocality", default="6", help="set maximum number of interfaces per colocality on level")
     parser.add_argument("-o", "--output", default="random.mdsl", help="name of the output file")
     args = parser.parse_args()
@@ -65,7 +65,7 @@ if __name__ == "__main__":
                 print("    }", file=w)
             print("}", file=w)
 
-        if args.interfaces >= 1:
+        if args.interfaces > 1:
             numUsedInterfaces = int(args.interfaces)
         else:
             numUsedInterfaces = int(args.interfaces * len(availInterfaces))
