@@ -3,10 +3,10 @@
 # to assist instances
 
 from __future__ import print_function
-import os, sys, argparse, zipfile, subprocess, time
+import os, argparse, zipfile, subprocess, time
 
-def readBPPC(numItems, cap, input, bound):
-    base = os.path.basename(input.name)
+def readBPPC(numItems, cap, inFile, bound):
+    base = os.path.basename(inFile.name)
     intCap = int(cap * args.capacity_scale)
     numBoards = args.number if args.number else int(bound[base] * args.bin_scale)
     items = []
@@ -29,7 +29,7 @@ Compartment Compartment%s {
         print("\n\nInterfaces {", file=w)
         interfaces = {}
         for i in range(int(numItems)):
-            items.append(input.readline().split())
+            items.append(inFile.readline().split())
             interfaces[i] = []
             for j in range(int(float(items[-1][1]))):
                 interfaces[i].append("I%s_%s" % (items[-1][0], j))
@@ -52,19 +52,19 @@ Compartment Compartment%s {
         print("}\n\n", file=w)
     return [w.name]
 
-def readFile(input):
+def readFile(inFile):
     result = []
-    first = input.readline().split()
+    first = inFile.readline().split()
     try:
         f0 = int(first[0])
     except:
         return [None]
     if len(first) == 2:
-        return readBPPC(f0, float(first[1]), input, bound)
+        return readBPPC(f0, float(first[1]), inFile, bound)
     print("Converting %s problems from %s" % (f0, f))
-    for p in range(f0):
-        desc = input.readline().strip()
-        cap, numItems, numBins = [float(x) for x in input.readline().split()]
+    for _ in xrange(f0):
+        desc = inFile.readline().strip()
+        cap, numItems, numBins = [float(x) for x in inFile.readline().split()]
         intCap = int(cap * args.capacity_scale)
         numBoards = args.number if args.number else int(numBins * args.bin_scale)
         with open(desc + ".mdsl", 'w') as w:
@@ -87,7 +87,7 @@ Compartment Compartment%s {
             interfaces = {}
             for i in range(int(numItems)):
                 interfaces[i] = []
-                for j in range(int(float(input.readline()))):
+                for j in range(int(float(inFile.readline()))):
                     interfaces[i].append("I%s_%s" % (i, j))
                     print("""\
     Interface %s {
@@ -133,6 +133,7 @@ def runAssist(inputs, args):
     for i in inputs:
         if not i:
             continue
+        print([java, "-jar", args.jar, i, "-s", str(args.solutions)])
         procs[subprocess.Popen([java, "-jar", args.jar, i, "-s", str(args.solutions)],
                                stdout=open(i+".log", 'w'), stderr=subprocess.STDOUT)] = args.timeout
         if len(procs) == args.instances:
@@ -143,6 +144,12 @@ def runAssist(inputs, args):
 def getEntry(line):
     return line.split(">")[1].split("<")[0]
 
+def addArgs(parser):
+    parser.add_argument("-j", "--jar", default=os.path.join(os.path.dirname(__file__), '..', 'ch.hilbri.assist.cli', 'assist_cli.jar'), help="jar file to start")
+    parser.add_argument("-i", "--instances", type=int, default=0, help="number of parallel instances to start")
+    parser.add_argument("-t", "--timeout", type=int, default=0, help="timeout in seconds")
+    parser.add_argument("-s", "--solutions", type=int, default=1, help="number of solutions to find")
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('files', metavar='<file>', nargs='+',
@@ -151,10 +158,7 @@ if __name__ == "__main__":
     parser.add_argument("-b", "--bin-scale", type=float, default=1.0, help="scale number of bins/boards")
     parser.add_argument("-c", "--capacity-scale", type=float, default=1.0, help="scale capacity of bins/boards")
     parser.add_argument("-r", "--bppc-results", help="results file for BPPC to read the bin number from")
-    parser.add_argument("-j", "--jar", default=os.path.join(os.path.dirname(__file__), '..', 'ch.hilbri.assist.cli', 'assist_cli.jar'), help="jar file to start")
-    parser.add_argument("-i", "--instances", type=int, default=0, help="number of parallel instances to start")
-    parser.add_argument("-t", "--timeout", type=int, default=0, help="timeout in seconds")
-    parser.add_argument("-s", "--solutions", type=int, default=1, help="number of solutions to find")
+    addArgs(parser)
     args = parser.parse_args()
 
     bound = {}
