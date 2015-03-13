@@ -3,7 +3,7 @@
 # to assist instances
 
 from __future__ import print_function
-import sys, argparse, random, collections
+import sys, argparse, random, collections, datetime
 
 def parseAbbrevList(s, n):
     l = [int(e) for e in s.split(",")]
@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     random.seed(args.seed)
     with open(args.output, 'w') as w:
-        print('Global {\n    System name = "Random instance %s";\n}' % args.output, file=w)
+        print('Global {\n    System name = "Random instance with args %s at %s";\n}' % (args, datetime.datetime.now()), file=w)
         availInterfaces = []
         routes = {}
         # build hardware
