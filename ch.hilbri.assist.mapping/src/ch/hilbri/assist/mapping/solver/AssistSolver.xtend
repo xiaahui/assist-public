@@ -26,6 +26,7 @@ import org.chocosolver.solver.search.strategy.ISF
 import org.chocosolver.solver.search.strategy.selectors.variables.FirstFail
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.strategies.FirstFailWithProgressionOutput
 
 class AssistSolver {
 	
@@ -84,7 +85,7 @@ class AssistSolver {
 	def setSolverSearchStrategy(SearchType strategy) {
 		if (strategy == SearchType.CONSECUTIVE) {
 			logger.info("Setting choco-solver search strategy to minDomainSize + minValue")
-			solver.set(ISF.custom(new FirstFail(),
+			solver.set(ISF.custom(new FirstFailWithProgressionOutput(),
 								  ISF.min_value_selector,
 								  solverVariables.getLocationVariables))
 		} else
