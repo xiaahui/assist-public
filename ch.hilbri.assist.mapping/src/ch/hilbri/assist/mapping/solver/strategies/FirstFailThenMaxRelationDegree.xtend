@@ -14,12 +14,11 @@ import org.chocosolver.solver.variables.IntVar
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-class HardestDislocalitiesFirst implements VariableSelector<IntVar>, IntValueSelector {
-	
+class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntValueSelector {
 	private Logger logger
 	private SolverVariablesContainer solverVariables
 	private AssistModel model
-	private FirstFail ff 
+	private FirstFail firstFail 
 	private Map<IntVar, Integer> map = new HashMap
 	private List<IntVar> varList = null
 	
@@ -29,7 +28,7 @@ class HardestDislocalitiesFirst implements VariableSelector<IntVar>, IntValueSel
 		this.logger = LoggerFactory.getLogger(this.class)
 		this.solverVariables = solverVariables
 		this.model = model
-		this.ff = new FirstFail
+		this.firstFail = new FirstFail
 		
 		
 		for (iface : model.eqInterfaces) {
@@ -80,46 +79,32 @@ class HardestDislocalitiesFirst implements VariableSelector<IntVar>, IntValueSel
 			// save the score for this variable
 			val variable = solverVariables.getEqInterfaceLocationVariable(iface, 0)
 			map.put(variable, score)
-			logger.info('''Putting variable «variable.name» with score «score»''')
+			logger.info('''Assigning variable «variable.name» score «score»''')
 		}
 	}
 	
 	override IntVar getVariable(IntVar[] variables) {
 		if (varList == null)
 		 	varList = variables.sortBy[-map.get(it)]
-		
-		val instantiatedVarCount = variables.filter[isInstantiated].size
-		val currentProgress = instantiatedVarCount * 100 / variables.size
-		
+
 		if (printVariablesInSortedOrder) {
 			logger.debug('''Unsorted variables list: [«FOR v : variables»«v.name» («map.get(v)»), «ENDFOR»]''')
 			logger.debug('''Sorting variables according to their partner application count in dislocality relations (increasing order), then MinDomain first.''')
 			logger.debug('''Sorted variables list:   [«FOR v : varList»«v.name» («map.get(v)»), «ENDFOR»]''')
 			printVariablesInSortedOrder = false
 		}
-		
-		// select the first variable which is instantiated
-//		if (newList.filter[!isInstantiated].isNullOrEmpty) return null
-//		else {
-//			val v = newList.filter[!isInstantiated].get(0)
-//			logger.info('''Selecting variable «v.name» with tag «map.get(v)» («currentProgress»% instantiated)''')
-//			
-//			
-//			
-//			return v
-//		}
 
-
+		val instantiatedVarCount = variables.filter[isInstantiated].size
+		val currentProgress = instantiatedVarCount * 100 / variables.size
 		
-		val v2 = ff.getVariable(varList)
-		if (v2 != null)
-			logger.info('''Selecting variable «v2.name» with score «map.get(v2)» («currentProgress»% instantiated)''')
-		return v2
+		val variable = firstFail.getVariable(varList)
+		if (variable != null)
+			logger.info('''Selecting variable «variable.name» with score «map.get(variable)» («currentProgress»% instantiated)''')
+		return variable
 	}
 	
 	 
     override int selectValue(IntVar variable) {
-//    	logger.info('''Selecting value «variable.getLB()» from variable «variable.name»''')
         return variable.getLB();
     }
 	
