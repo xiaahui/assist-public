@@ -83,8 +83,8 @@ class AssistSolver {
 	
 	def setSolverSearchStrategy(SearchType strategy) {
 		if (strategy == SearchType.CONSECUTIVE) {
-			logger.info("Setting choco-solver search strategy to minDomainSize + minValue")
 			val heuristic = new FirstFailThenMaxRelationDegree(solverVariables, model)
+			logger.info("Setting choco-solver search strategy to: " + heuristic.class.name)
 			solver.set(ISF.custom(heuristic, heuristic, solverVariables.getLocationVariables))
 		} else
 			logger.info("Unknown search strategy supplied")

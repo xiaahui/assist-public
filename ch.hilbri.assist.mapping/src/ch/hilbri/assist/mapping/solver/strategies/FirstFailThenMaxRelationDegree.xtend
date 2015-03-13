@@ -30,7 +30,7 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 		this.model = model
 		this.firstFail = new FirstFail
 		
-		
+		logger.info('''Computing the scores for all variables''')
 		for (iface : model.eqInterfaces) {
 			var score = 0
 			
