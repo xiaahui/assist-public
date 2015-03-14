@@ -53,9 +53,6 @@ public class GuiSolverJob extends Job {
 	
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
-
-		long start = System.currentTimeMillis();
-		
 		try {
 			monitor.beginTask("Propagating all constraints", 1);
 			solver.propagation();
@@ -101,14 +98,6 @@ public class GuiSolverJob extends Job {
 			showMessageInUI(constraintName, message);
 			resetView();
 		}
-	
-		finally {
-			long stop = System.currentTimeMillis();
-			logger.info("Elapsed total time (in ms): " + (stop - start)) ;
-			logger.info("");
-			logger.info("");
-		}
-				
 		return Status.OK_STATUS;
 	}
 		
