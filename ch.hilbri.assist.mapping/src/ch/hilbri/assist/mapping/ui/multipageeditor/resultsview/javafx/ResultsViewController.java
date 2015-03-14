@@ -2,6 +2,8 @@ package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collections;
+import java.util.List;
 
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
@@ -350,8 +352,10 @@ public class ResultsViewController extends AnchorPane{
 		
 		if (obj instanceof Connector) { 
 			/* draw interfaces */
+			List<EqInterface> resultList = result.getAllMappedEqInterfacesForConnector((Connector) obj);
+			Collections.sort(resultList, new EqInterfaceComparator());
 			
-			for (EqInterface iface : result.getAllMappedEqInterfacesForConnector((Connector) obj)) 
+			for (EqInterface iface : resultList) 
 				drawInterfaceNodes(iface, newNode);
 		}
 		else { 	
