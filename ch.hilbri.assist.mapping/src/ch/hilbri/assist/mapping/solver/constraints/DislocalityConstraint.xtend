@@ -4,6 +4,7 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.mapping.solver.constraints.choco.ACF
 import ch.hilbri.assist.mapping.solver.exceptions.InterfaceGroupCannotBeMappedDislocally
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.List
@@ -49,7 +50,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 																				    else if (it instanceof EqInterfaceGroup) it.eqInterfaces]
 				val List<List<IntVar>> intVarList = ifaceList.map[it.map[solverVariables.getEqInterfaceLocationVariable(it, l)]]
 			
-				solver.post(ICF.allDifferent(intVarList))
+				solver.post(ACF.allDifferent(intVarList))
 			}
 
 			try { solver.propagate }

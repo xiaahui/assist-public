@@ -1,12 +1,7 @@
-package org.chocosolver.solver.constraints.nary.alldifferent;
+package ch.hilbri.assist.mapping.solver.constraints.choco;
 
-import gnu.trove.map.hash.THashMap;
 import gnu.trove.stack.array.TIntArrayStack;
 
-import java.util.Arrays;
-import java.util.List;
-
-import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.Propagator;
 import org.chocosolver.solver.constraints.PropagatorPriority;
 import org.chocosolver.solver.exception.ContradictionException;
@@ -15,6 +10,8 @@ import org.chocosolver.solver.variables.events.IntEventType;
 import org.chocosolver.util.ESat;
 
 public class PropAllDiffListsOfListsInst extends Propagator<IntVar> {
+
+	private static final long serialVersionUID = -6081383872070187008L;
 
 	protected TIntArrayStack toCheck = new TIntArrayStack();
 	private int[] cumulLengths = null;

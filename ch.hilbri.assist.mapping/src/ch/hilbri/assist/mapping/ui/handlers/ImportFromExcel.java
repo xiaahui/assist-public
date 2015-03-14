@@ -40,8 +40,7 @@ public class ImportFromExcel {
 	/**
 	 */
 	@Execute
-	public Object execute(MApplication application, EModelService service,
-			IProgressMonitor monitor) {
+	public Object execute(MApplication application, EModelService service,	IProgressMonitor monitor) {
 
 		IEditorPart editorPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 		
