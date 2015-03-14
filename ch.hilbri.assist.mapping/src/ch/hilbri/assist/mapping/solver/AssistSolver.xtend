@@ -49,7 +49,12 @@ class AssistSolver {
 		this.model = model
 		
 		/* Pre-process the model and create the implicitly defined groups */
+		/* This could be moved to some dedicated "mode preprocessing section" */
+		logger.info("Preprocessing the data model")
+		
+		logger.info(" - Creating implicitly defined groups")
 		for (g : model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithImplicitDefinition]) {
+			logger.info("    . Creating implicitly defined group " + g.name)
 			var List<EqInterface> interfaceList = model.eqInterfaces	
 			for (definition : (g as EqInterfaceGroupWithImplicitDefinition).definitions) {
 				switch (definition.attribute) {
@@ -67,9 +72,9 @@ class AssistSolver {
 			}
 			g.eqInterfaces.addAll(interfaceList)
 			if (g.eqInterfaces.length > 0)
-				logger.info('''Successfully created implicitly defined group "«g.name»" with «g.eqInterfaces.length» interfaces: «g.eqInterfaces».''')
+				logger.info('''      Successfully created with «g.eqInterfaces.length» interfaces: «g.eqInterfaces».''')
 			else {
-				logger.info('''Warning: implicitly defined group "«g.name»" contains «g.eqInterfaces.length» interfaces! This may be unintended.''')
+				logger.info('''      WARNING: Implicitly defined group "«g.name»" contains «g.eqInterfaces.length» interfaces. This may be unintended.''')
 			}
 		}
 		
@@ -128,11 +133,11 @@ class AssistSolver {
 	def propagation() throws BasicConstraintsException {
 		logger.info("Starting to generate constraints for the choco-solver");
 		for (constraint : mappingConstraintsList) {
-			logger.info('''Starting to generate constraints for "«constraint.name»"...''')
+			logger.info(''' - Starting to generate constraints for "«constraint.name»"...''')
 			if (!constraint.generate()) {
-	            logger.info(''' no effective constraints found''')
+	            logger.info('''      No effective constraints found''')
             }
-			logger.info('''done.''')
+			logger.info('''   done.''')
 		}
 	}
 	

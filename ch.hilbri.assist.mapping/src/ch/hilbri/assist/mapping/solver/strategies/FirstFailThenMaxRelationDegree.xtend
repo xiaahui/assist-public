@@ -79,7 +79,7 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 			// save the score for this variable
 			val variable = solverVariables.getEqInterfaceLocationVariable(iface, 0)
 			map.put(variable, score)
-			logger.info('''Assigning variable «variable.name» score «score»''')
+			logger.info(''' - Assigning variable «variable.name» score «score»''')
 		}
 	}
 	
@@ -88,9 +88,9 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 		 	varList = variables.sortBy[-map.get(it)]
 
 		if (printVariablesInSortedOrder) {
-			logger.debug('''Unsorted variables list: [«FOR v : variables»«v.name» («map.get(v)»), «ENDFOR»]''')
+			logger.debug('''Unsorted variables list: [«FOR v : variables»«v.name»(«map.get(v)»)«IF v != variables.last», «ENDIF»«ENDFOR»]''')
 			logger.debug('''Sorting variables according to their partner application count in dislocality relations (increasing order), then MinDomain first.''')
-			logger.debug('''Sorted variables list:   [«FOR v : varList»«v.name» («map.get(v)»), «ENDFOR»]''')
+			logger.debug('''Sorted variables list:   [«FOR v : varList»«v.name» («map.get(v)»)«IF v != variables.last», «ENDIF»«ENDFOR»]''')
 			printVariablesInSortedOrder = false
 		}
 
@@ -100,7 +100,7 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 		
 		val variable = firstFail.getVariable(varList)
 		if (variable != null)
-			logger.info('''Selecting variable «variable.name» with score «map.get(variable)» («currentProgress»% instantiated)''')
+			logger.info('''Selecting variable «variable.name» with score «map.get(variable)» («currentProgress»% of all variables instantiated)''')
 		return variable
 	}
 	

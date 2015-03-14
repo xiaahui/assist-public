@@ -71,10 +71,10 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 										 .length  
 				
 				if (r.eqInterfaceOrGroups.length - emptyGroupCounter <= 1) {
-					logger.info('''... A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction remained with «r.eqInterfaceOrGroups.length - emptyGroupCounter» element(s). It is ineffective and skipped.''')
+					logger.info('''      WARNING: A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction remained with «r.eqInterfaceOrGroups.length - emptyGroupCounter» element(s). It is ineffective and skipped.''')
 				} else {
 					if (emptyGroupCounter > 0) {
-						logger.info('''... A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction remained with «r.eqInterfaceOrGroups.length - emptyGroupCounter» elements.''')
+						logger.info('''      WARNING: A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction was generated with «r.eqInterfaceOrGroups.length - emptyGroupCounter» non-empty elements. (Restriction contained «r.eqInterfaceOrGroups.length» elements in total.)''')
 					}
 					solver.post(ACF.allDifferent(intVarList))
 				}
