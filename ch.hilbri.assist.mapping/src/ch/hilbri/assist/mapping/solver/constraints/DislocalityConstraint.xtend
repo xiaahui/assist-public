@@ -13,6 +13,7 @@ import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 import org.slf4j.LoggerFactory
+import org.chocosolver.solver.variables.VF
 
 class DislocalityConstraint extends AbstractMappingConstraint {
 	
@@ -76,9 +77,10 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 					if (emptyGroupCounter > 0) {
 						logger.info('''      WARNING: A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction was generated with «r.eqInterfaceOrGroups.length - emptyGroupCounter» non-empty elements. (Restriction contained «r.eqInterfaceOrGroups.length» elements in total.)''')
 					}
-					solver.post(ACF.allDifferent(intVarList))
+				    // this could be optimized by using the variable itself for groups containing only one element 
+					val domainUnionVars = intVarList.map[VF.enumerated("DomainVarForGroup" + it, 0, model.getAllHardwareElements(l).size-1, solver)]
+					solver.post(ACF.allDifferent(intVarList, domainUnionVars))
 				}
-				
 			}
 
 			try { solver.propagate }

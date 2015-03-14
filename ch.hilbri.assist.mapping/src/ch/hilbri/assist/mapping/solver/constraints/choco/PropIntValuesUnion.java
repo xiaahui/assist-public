@@ -26,61 +26,70 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.chocosolver.solver.constraints.nary.alldifferent;
+package ch.hilbri.assist.mapping.solver.constraints.choco;
 
-import org.chocosolver.solver.constraints.Constraint;
 import org.chocosolver.solver.constraints.Propagator;
-import org.chocosolver.solver.constraints.binary.PropNotEqualX_Y;
-import org.chocosolver.solver.constraints.nary.cnf.PropTrue;
+import org.chocosolver.solver.constraints.PropagatorPriority;
+import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.variables.IntVar;
+import org.chocosolver.util.ESat;
+import org.chocosolver.util.tools.ArrayUtils;
 
 /**
- * Ensures that all variables from VARS take a different value.
- * The consistency level should be chosen among "AC", "BC", "FC" and "DEFAULT".
+ * Maintain a link between a integer variable and the union of values taken by
+ * an array of integer variables.
+ * Inspired by PropSetIntValuesUnion.
+ *
+ * @author Jean-Guillaume Fages
+ * @author Michael Behrisch
  */
-public class AllDifferent extends Constraint {
+public class PropIntValuesUnion extends Propagator<IntVar> {
 
-	public static enum Type {
-		AC, BC, FC, NEQS, DEFAULT
+	private static final long serialVersionUID = 1318758300478761372L;
+
+	public PropIntValuesUnion(IntVar[] X, IntVar union) {
+		super(ArrayUtils.append(new IntVar[] { union }, X),
+				PropagatorPriority.LINEAR, false);
 	}
 
-	public AllDifferent(IntVar[] vars, String type) {
-		super("AllDifferent", createPropagators(vars, type));
-	}
-
-	private static Propagator[] createPropagators(IntVar[] VARS, String consistency) {
-		if(VARS.length<=1){
-			return new Propagator[]{new PropTrue(VARS[0].getSolver().ONE)};
-		}
-		switch (AllDifferent.Type.valueOf(consistency)) {
-			case NEQS: {
-				int s = VARS.length;
-				int k = 0;
-				Propagator[] props = new Propagator[(s * s - s) / 2];
-				for (int i = 0; i < s - 1; i++) {
-					for (int j = i + 1; j < s; j++) {
-						props[k++] = new PropNotEqualX_Y(VARS[i], VARS[j]);
-					}
+	@Override
+	public void propagate(int evtmask) throws ContradictionException {
+		IntVar union = vars[0];
+		for (int v = union.getLB(); v <= union.getUB(); v = union.nextValue(v)) {
+			int i;
+			for (i = 1; i < vars.length; i++) {
+				if (vars[i].contains(v)) {
+					break;
 				}
-				return props;
 			}
-			case FC: return new Propagator[]{new PropAllDiffInst(VARS)};
-			case BC: return new Propagator[]{new PropAllDiffInst(VARS), new PropAllDiffBC(VARS)};
-			case AC: return new Propagator[]{new PropAllDiffInst(VARS), new PropAllDiffAC(VARS)};
-			case DEFAULT:
-			default:
-				// adds a Probabilistic AC (only if at least some variables have an enumerated domain)
-				boolean enumDom = false;
-				for (int i = 0; i < VARS.length && !enumDom; i++) {
-					if (VARS[i].hasEnumeratedDomain()) {
-						enumDom = true;
-					}
-				}
-				if (enumDom) {
-					return new Propagator[]{new PropAllDiffInst(VARS), new PropAllDiffBC(VARS), new PropAllDiffAdaptative(VARS)};
-				} else {
-					return createPropagators(VARS,"BC");
-				}
+			if (i == vars.length) {
+				union.removeValue(v, aCause);
+			}
 		}
+		for (int i = 1; i < vars.length; i++) {
+			for (int v = vars[i].getLB(); v <= vars[i].getUB(); v = vars[i].nextValue(v)) {
+				if (!union.contains(v)) {
+					vars[i].removeValue(v, aCause);
+				}
+			}
+		}
+	}
+
+	@Override
+	public ESat isEntailed() {
+		IntVar union = vars[0];
+		int instCount = 0;
+		for (int i = 1; i < vars.length; i++) {
+			if (vars[i].isInstantiated()) {
+				instCount++;
+				if (!union.contains(vars[i].getValue())) {
+					return ESat.FALSE;
+				}
+			}
+		}
+		if (instCount == vars.length - 1) {
+			return ESat.TRUE;
+		}
+		return ESat.UNDEFINED;
 	}
 }
