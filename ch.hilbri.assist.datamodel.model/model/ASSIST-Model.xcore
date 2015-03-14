@@ -83,9 +83,9 @@ class RDC extends HardwareElement {
 	String manufacturer	= ""
 	String powerSupply		= ""
 	String side				= ""
-	container Compartment compartment opposite rdcs
 	String rdcType	 		= ""
 	String ess				= ""
+	container Compartment compartment opposite rdcs
 	contains Connector[0..*] connectors opposite rdc
 	op String toString() 			{ name }
 }
@@ -123,8 +123,30 @@ class EqInterface extends EqInterfaceOrGroup {
 }
 
 class EqInterfaceGroup extends EqInterfaceOrGroup {
-	refers EqInterface[1..*] eqInterfaces
+	refers EqInterface[0..*] eqInterfaces
 	op String toString() { name }
+}
+
+class EqInterfaceGroupWithImplicitDefinition extends EqInterfaceGroup {
+	contains ImplicitEqInterfaceGroupDefinition [1..*] definitions
+}
+
+class ImplicitEqInterfaceGroupDefinition {
+	ImplicitEqInterfaceGroupDefinitionAttribute attribute
+	String					 			value
+}
+
+enum ImplicitEqInterfaceGroupDefinitionAttribute {
+	SYSTEM 		as 	"System"
+	SUBATA		as 	"SubAta"
+	RESOURCE	as 	"Resource"
+	LINENAME	as 	"LineName"
+	WIRINGLANE	as 	"WiringLane"
+	GRPINFO		as 	"GrpInfo"
+	ROUTE		as 	"Route"
+	PWSUP1		as 	"PwSup1"
+	EMHZONE1	as 	"EmhZone1"
+	IOTYPE		as 	"IoType"
 }
 
 class MetricParameter {

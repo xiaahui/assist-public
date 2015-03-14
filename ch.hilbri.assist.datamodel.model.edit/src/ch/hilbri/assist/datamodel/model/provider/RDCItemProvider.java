@@ -51,9 +51,9 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 			addManufacturerPropertyDescriptor(object);
 			addPowerSupplyPropertyDescriptor(object);
 			addSidePropertyDescriptor(object);
-			addCompartmentPropertyDescriptor(object);
 			addRdcTypePropertyDescriptor(object);
 			addEssPropertyDescriptor(object);
+			addCompartmentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

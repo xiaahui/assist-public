@@ -12,11 +12,13 @@ import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
+import org.slf4j.LoggerFactory
 
 class DislocalityConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
 		super("dislocality (improved, but w/o setvars)", model, solver, solverVariables)
+		this.logger = LoggerFactory.getLogger(this.class)
 	}
 	
 	override generate() {
@@ -40,17 +42,43 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			
 			// Case 2: Only a single group is mentioned
 			else if (r.eqInterfaceOrGroups.length == 1 && r.eqInterfaceOrGroups.get(0) instanceof EqInterfaceGroup) {
-				val intVars = (r.eqInterfaceOrGroups.get(0) as EqInterfaceGroup).eqInterfaces.map[solverVariables.getEqInterfaceLocationVariable(it, l)]
-				solver.post(ICF.alldifferent(intVars))
+
+				val group = r.eqInterfaceOrGroups.get(0) as EqInterfaceGroup
+				
+				// The group should not be empty
+				if (group.eqInterfaces.length > 0) { 
+					val intVars = (r.eqInterfaceOrGroups.get(0) as EqInterfaceGroup).eqInterfaces.map[solverVariables.getEqInterfaceLocationVariable(it, l)]
+					solver.post(ICF.alldifferent(intVars))
+				} else {
+					logger.info('''... Skipping dislocality constraint with empty group «group.name»''')
+				}
+				
 			}
 			
 			// Case 3: A mix of groups and interfaces is specified
 			else {
-				val List<List<EqInterface>> ifaceList  = r.eqInterfaceOrGroups.map[ if (it instanceof EqInterface) #[it]
-																				    else if (it instanceof EqInterfaceGroup) it.eqInterfaces]
+				val List<List<EqInterface>> ifaceList  = r.eqInterfaceOrGroups
+														  .filter[(it instanceof EqInterface) || 
+																	(it instanceof EqInterfaceGroup && (it as EqInterfaceGroup).eqInterfaces.length > 0)]
+					  									  .toList
+														  .map[ if (it instanceof EqInterface) #[it]
+															    else if (it instanceof EqInterfaceGroup) it.eqInterfaces]
+				
 				val List<List<IntVar>> intVarList = ifaceList.map[it.map[solverVariables.getEqInterfaceLocationVariable(it, l)]]
 			
-				solver.post(ACF.allDifferent(intVarList))
+				val emptyGroupCounter = r.eqInterfaceOrGroups.filter[it instanceof EqInterfaceGroup]
+										 .filter[(it as EqInterfaceGroup).eqInterfaces.length < 1]
+										 .length  
+				
+				if (r.eqInterfaceOrGroups.length - emptyGroupCounter <= 1) {
+					logger.info('''... A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction remained with «r.eqInterfaceOrGroups.length - emptyGroupCounter» element(s). It is ineffective and skipped.''')
+				} else {
+					if (emptyGroupCounter > 0) {
+						logger.info('''... A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction remained with «r.eqInterfaceOrGroups.length - emptyGroupCounter» elements.''')
+					}
+					solver.post(ACF.allDifferent(intVarList))
+				}
+				
 			}
 
 			try { solver.propagate }

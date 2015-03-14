@@ -279,6 +279,52 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithImplicitDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EqInterfaceGroupWithImplicitDefinitionItemProvider eqInterfaceGroupWithImplicitDefinitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithImplicitDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEqInterfaceGroupWithImplicitDefinitionAdapter() {
+		if (eqInterfaceGroupWithImplicitDefinitionItemProvider == null) {
+			eqInterfaceGroupWithImplicitDefinitionItemProvider = new EqInterfaceGroupWithImplicitDefinitionItemProvider(this);
+		}
+
+		return eqInterfaceGroupWithImplicitDefinitionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ImplicitEqInterfaceGroupDefinitionItemProvider implicitEqInterfaceGroupDefinitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createImplicitEqInterfaceGroupDefinitionAdapter() {
+		if (implicitEqInterfaceGroupDefinitionItemProvider == null) {
+			implicitEqInterfaceGroupDefinitionItemProvider = new ImplicitEqInterfaceGroupDefinitionItemProvider(this);
+		}
+
+		return implicitEqInterfaceGroupDefinitionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.MetricParameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -501,6 +547,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (eqInterfaceOrGroupItemProvider != null) eqInterfaceOrGroupItemProvider.dispose();
 		if (eqInterfaceItemProvider != null) eqInterfaceItemProvider.dispose();
 		if (eqInterfaceGroupItemProvider != null) eqInterfaceGroupItemProvider.dispose();
+		if (eqInterfaceGroupWithImplicitDefinitionItemProvider != null) eqInterfaceGroupWithImplicitDefinitionItemProvider.dispose();
+		if (implicitEqInterfaceGroupDefinitionItemProvider != null) implicitEqInterfaceGroupDefinitionItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
 		if (colocalityRelationItemProvider != null) colocalityRelationItemProvider.dispose();

@@ -14,7 +14,10 @@ AssistModel:
 	'}')?
 	
 	('InterfaceGroups' '{'
-		(eqInterfaceGroups+=EqInterfaceGroup)+
+		(
+			eqInterfaceGroups+=EqInterfaceGroup 						|
+			eqInterfaceGroups+=EqInterfaceGroupWithImplicitDefinition
+		)*		
 	'}')?
 	
 	('Restrictions' '{'
@@ -66,8 +69,29 @@ AvailableEqInterface:
 /* SOFTWARE */
 
 EqInterfaceGroup: 
-	'Group' name=ID '{' eqInterfaces+=[EqInterface] (',' eqInterfaces+=[EqInterface])* '}' ';'
+	'Group' name=ID '{' eqInterfaces+=[EqInterface] (',' eqInterfaces+=[EqInterface])* '}' ';';
+
+EqInterfaceGroupWithImplicitDefinition: 
+	'Group' name=ID 'based on' definitions+=ImplicitEqInterfaceGroupDefinition ('and' definitions+=ImplicitEqInterfaceGroupDefinition)* ';'
 ;
+
+ImplicitEqInterfaceGroupDefinition: 
+	attribute=ImplicitEqInterfaceGroupDefinitionAttribute '=' value=STRING
+;
+
+enum ImplicitEqInterfaceGroupDefinitionAttribute:
+	SYSTEM	 	= 'System'		|
+	SUBATA 	 	= 'SubAta'		|
+	RESOURCE	= 'Resource'	|
+	LINENAME	= 'LineName'	|
+	WIRINGLANE	= 'WiringLane'	|
+	GRPINFO		= 'GrpInfo'		|
+	ROUTE		= 'Route'		|
+	PWSUP1		= 'PwSup1'		|
+	EMHZONE1	= 'EmhZone1'	|
+	IOTYPE		= 'Type'
+;
+
 
 EqInterface:
 	'Interface' name=ID '{'

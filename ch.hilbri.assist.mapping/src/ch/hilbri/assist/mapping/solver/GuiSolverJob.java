@@ -105,6 +105,8 @@ public class GuiSolverJob extends Job {
 		finally {
 			long stop = System.currentTimeMillis();
 			logger.info("Elapsed total time (in ms): " + (stop - start)) ;
+			logger.info("");
+			logger.info("");
 		}
 				
 		return Status.OK_STATUS;

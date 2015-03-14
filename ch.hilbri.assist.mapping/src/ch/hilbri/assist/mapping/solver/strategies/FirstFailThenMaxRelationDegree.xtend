@@ -95,7 +95,8 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 		}
 
 		val instantiatedVarCount = variables.filter[isInstantiated].size
-		val currentProgress = instantiatedVarCount * 100 / variables.size
+		var currentProgress = 0
+		if (variables.size > 0) currentProgress = instantiatedVarCount * 100 / variables.size
 		
 		val variable = firstFail.getVariable(varList)
 		if (variable != null)

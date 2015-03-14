@@ -1,6 +1,8 @@
 package ch.hilbri.assist.mapping.solver
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.EqInterface
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithImplicitDefinition
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
@@ -17,6 +19,7 @@ import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor
 import ch.hilbri.assist.mapping.solver.strategies.FirstFailThenMaxRelationDegree
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
+import java.util.List
 import org.chocosolver.solver.Settings
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.explanations.RecorderExplanationEngine
@@ -38,8 +41,38 @@ class AssistSolver {
 	private Logger logger
 	
 	new (AssistModel model) {
-		this.model = model
 		this.logger = LoggerFactory.getLogger(this.class)
+
+		logger.info(">>>> Creating a new AssistSolver instance <<<<")
+		
+		/* Get the model */
+		this.model = model
+		
+		/* Pre-process the model and create the implicitly defined groups */
+		for (g : model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithImplicitDefinition]) {
+			var List<EqInterface> interfaceList = model.eqInterfaces	
+			for (definition : (g as EqInterfaceGroupWithImplicitDefinition).definitions) {
+				switch (definition.attribute) {
+					case SYSTEM: 		{ interfaceList = interfaceList.filter[it.system.equals(definition.value)].toList }
+					case SUBATA: 		{ interfaceList = interfaceList.filter[it.subAta.equals(definition.value)].toList }
+					case RESOURCE: 		{ interfaceList = interfaceList.filter[it.resource.equals(definition.value)].toList}
+					case LINENAME: 		{ interfaceList = interfaceList.filter[it.lineName.equals(definition.value)].toList }
+					case WIRINGLANE:	{ interfaceList = interfaceList.filter[it.wiringLane.equals(definition.value)].toList }
+					case GRPINFO: 		{ interfaceList = interfaceList.filter[it.grpInfo.equals(definition.value)].toList }
+					case ROUTE: 		{ interfaceList = interfaceList.filter[it.route.equals(definition.value)].toList }
+					case PWSUP1: 		{ interfaceList = interfaceList.filter[it.pwSup1.equals(definition.value)].toList }
+					case EMHZONE1: 		{ interfaceList = interfaceList.filter[it.emhZone1.equals(definition.value)].toList }
+					case IOTYPE: 		{ interfaceList = interfaceList.filter[it.ioType.equals(definition.value)].toList }
+				}
+			}
+			g.eqInterfaces.addAll(interfaceList)
+			if (g.eqInterfaces.length > 0)
+				logger.info('''Successfully created implicitly defined group "«g.name»" with «g.eqInterfaces.length» interfaces: «g.eqInterfaces».''')
+			else {
+				logger.info('''Warning: implicitly defined group "«g.name»" contains «g.eqInterfaces.length» interfaces! This may be unintended.''')
+			}
+		}
+		
 
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>()  
@@ -65,10 +98,12 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))				
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new OneRouteForEachConnector(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
+
+//		this.mappingConstraintsList.add(new OneRouteForEachConnector(model, solver, solverVariables))
+
 	}
 	
 	def setSolverTimeLimit(long timeInMs) {
