@@ -29,6 +29,7 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.constraints.PowerSupplyConstraint
 
 class AssistSolver {
 	
@@ -112,6 +113,7 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new PowerSupplyConstraint(model, solver, solverVariables))
 
 //		this.mappingConstraintsList.add(new OneRouteForEachConnector(model, solver, solverVariables))
 
