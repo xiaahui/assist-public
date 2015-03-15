@@ -134,7 +134,7 @@ def runAssist(inputs, args):
         if not i:
             continue
         print([java, "-jar", args.jar, i, "-s", str(args.solutions)])
-        procs[subprocess.Popen([java, "-jar", args.jar, i, "-s", str(args.solutions)],
+        procs[subprocess.Popen([java, "-jar", args.jar, i, "-s", str(args.solutions), "-l", str(args.level)],
                                stdout=open(i+".log", 'w'), stderr=subprocess.STDOUT)] = args.timeout
         if len(procs) == args.instances:
             waitForRemaining(procs, args)
@@ -149,6 +149,7 @@ def addArgs(parser):
     parser.add_argument("-i", "--instances", type=int, default=0, help="number of parallel instances to start")
     parser.add_argument("-t", "--timeout", type=int, default=0, help="timeout in seconds")
     parser.add_argument("-s", "--solutions", type=int, default=1, help="number of solutions to find")
+    parser.add_argument("-l", "--level", type=int, default=0, help="hardware level(s) to use for location variables")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

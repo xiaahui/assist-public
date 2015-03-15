@@ -11,6 +11,38 @@ def parseAbbrevList(s, n):
         l.append(l[-1])
     return l
 
+def writeInterfacesAndRestrictions(w, usedInterfaces, routes, allGroups, groupDislocs, dislocs, colocs, printAll=False):
+    usedInRestrictions = set()
+    if not printAll:
+        for _, ifaces in allGroups:
+            usedInRestrictions.update(set(ifaces))
+        for ifaces, _ in dislocs + colocs:
+            usedInRestrictions.update(set(ifaces))
+    
+    print("\nInterfaces {", file=w)
+
+    for iface, name in usedInterfaces:
+        if printAll or name in usedInRestrictions:
+            print("""\
+    Interface %s {
+        Type = "T%02i";
+        Route = "R%02i";
+    }""" % (name, iface[3], routes[(iface[0], iface[1], iface[2])]), file=w)
+
+    print("}\n\nInterfaceGroups {", file=w)
+    for gname, s in allGroups:
+        print("    Group %s { %s };" % (gname, ",".join(s)), file=w)
+
+    print("}\n\nRestrictions {", file=w)
+    for groups, name in groupDislocs:
+        print("    %s dislocal up to %s;" % (",".join(groups), name), file=w)
+    for ifaces, name in dislocs:
+        print("    %s dislocal up to %s;" % (",".join(ifaces), name), file=w)
+    for ifaces, name in colocs:
+        print("    %s on same %s;" % (",".join(ifaces), name), file=w)
+
+    print("}\n\n", file=w)
+    
 def generate(args, filename):
     with open(filename, 'w') as w:
         print('Global {\n    System name = "Random instance %s with args %s at %s";\n}' % (filename, args, datetime.datetime.now()), file=w)
@@ -43,6 +75,7 @@ def generate(args, filename):
                 print("    }", file=w)
             print("}", file=w)
 
+        # determining used interfaces
         if args.interfaces > 1:
             numUsedInterfaces = int(args.interfaces)
         else:
@@ -58,18 +91,12 @@ def generate(args, filename):
             for i in range(3):
                 locations[i][tuple(iface[:i+1])].append(iname)
             availInterfaces.remove(iface)
-        print("\nInterfaces {", file=w)
-        for iface, name in usedInterfaces:
-            print("""\
-    Interface %s {
-        Type = "T%02i";
-        Route = "R%02i";
-    }""" % (name, iface[3], routes[(iface[0], iface[1], iface[2])]), file=w)
 
-        print("}\n\nInterfaceGroups {", file=w)
+        #determining group dislocalities
         numGroupDisloc = parseAbbrevList(args.dislocality_groups, 3)
         maxSetDislocGroup = parseAbbrevList(args.max_sets_per_dislocality_group, 3)
         maxIFaceDislocSet = parseAbbrevList(args.max_interfaces_per_dislocality_group_set, 3)
+        allGroups = []
         groupDislocs = []
         for level, (name, count) in enumerate(zip(["Connector", "RDC", "Compartment"], numGroupDisloc)):
             for j in range(count):
@@ -89,18 +116,17 @@ def generate(args, filename):
                         print("Warning! Skipping empty set on group dislocality.")
                     else:
                         gname = "G%s_%s_%s" % (level, j, idx)
-                        print("    Group %s { %s };" % (gname, ",".join(s)), file=w)
                         groups.append(gname)
+                        allGroups.append((gname, s))
                 if len(groups) <= 1:
                     print("Warning! Skipping underspecified group dislocality.")
                 else:
                     groupDislocs.append((groups, name))
-
-        print("}\n\nRestrictions {", file=w)
-        for groups, name in groupDislocs:
-            print("    %s dislocal up to %s;" % (",".join(groups), name), file=w)
+        
+        #determining individual interface dislocalities
         numDisloc = parseAbbrevList(args.dislocalities, 3)
         maxIFaceDisloc = parseAbbrevList(args.max_interfaces_per_dislocality, 3)
+        dislocs = []
         for level, (name, count) in enumerate(zip(["Connector", "RDC", "Compartment"], numDisloc)):
             for j in range(count):
                 locs = list(locations[level].keys())
@@ -112,10 +138,12 @@ def generate(args, filename):
                 for i in range(numIFaces):
                     loc = locs.pop(random.randrange(len(locs)))
                     ifaces.append(random.choice(locations[level][loc]))
-                print("    %s dislocal up to %s;" % (",".join(ifaces), name), file=w)
+                dislocs.append((ifaces, name))
 
+        #determining colocalities
         numColoc = parseAbbrevList(args.colocalities, 3)
         maxIFaceColoc = parseAbbrevList(args.max_interfaces_per_colocality, 3)
+        colocs = []
         for level, (name, count) in enumerate(zip(["Connector", "RDC", "Compartment"], numColoc)):
             for j in range(count):
                 numIFaces = random.randint(2, maxIFaceColoc[level])
@@ -124,9 +152,9 @@ def generate(args, filename):
                     ifaces = list(random.choice(locations[level].values()))
                 while len(ifaces) > numIFaces:
                     ifaces.pop(random.randrange(len(ifaces)))
-                print("    %s on same %s;" % (",".join(ifaces), name), file=w)
+                colocs.append((ifaces, name))
 
-        print("}\n\n", file=w)
+        writeInterfacesAndRestrictions(w, usedInterfaces, routes, allGroups, groupDislocs, dislocs, colocs)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -141,7 +169,7 @@ if __name__ == "__main__":
     parser.add_argument("-n", "--interfaces", type=float, default=1.0, help="set either used fraction (value < 1) or total number of interfaces needed")
     parser.add_argument("-d", "--dislocalities", default="0,0,0", help="set number of dislocalities per level")
     parser.add_argument("-g", "--dislocality-groups", default="0,10,0", help="set number of dislocality groups per level")
-    parser.add_argument("-l", "--colocalities", default="0,10,10", help="set number of colocalities per level")
+    parser.add_argument("-L", "--colocalities", default="0,10,10", help="set number of colocalities per level")
     parser.add_argument("-p", "--max-interfaces-per-dislocality", default="6", help="set maximum number of interfaces per dislocality on level")
     parser.add_argument("-m", "--max-sets-per-dislocality-group", default="15", help="set maximum number of sets per dislocality group on level")
     parser.add_argument("-k", "--max-interfaces-per-dislocality-group-set", default="20", help="set maximum number of interfaces per dislocality group set on level")
