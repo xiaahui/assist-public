@@ -40,20 +40,20 @@ class AssistSolver {
 	private ArrayList<AbstractMappingConstraint> mappingConstraintsList
 	private ArrayList<Result> mappingResults
 	private Logger logger
-	private int[] levels
+	private int[] locationVariableLevels // do we work with just the LocVars on connector level or other levels as well?
 	
-	new (AssistModel model, int... levels) {
-		this(model, levels as List<Integer>)
+	new (AssistModel model, int... locationVariableLevels) {
+		this(model, locationVariableLevels as List<Integer>)
 	}
 
-	new (AssistModel model, List<Integer> levels) {
+	new (AssistModel model, List<Integer> locationVariableLevels) {
 		this.logger = LoggerFactory.getLogger(this.class)
 
 		logger.info(">>>> Creating a new AssistSolver instance <<<<")
 		
 		/* Get the model */
 		this.model = model
-		this.levels = levels
+		this.locationVariableLevels = locationVariableLevels
 		
 		/* Pre-process the model and create the implicitly defined groups */
 		/* This could be moved to some dedicated "mode preprocessing section" */
@@ -131,9 +131,9 @@ class AssistSolver {
 	
 	def setSolverSearchStrategy(SearchType strategy) {
 		if (strategy == SearchType.CONSECUTIVE) {
-			val heuristic = new FirstFailThenMaxRelationDegree(solverVariables, model, levels)
+			val heuristic = new FirstFailThenMaxRelationDegree(solverVariables, model, locationVariableLevels)
 			logger.info("Setting choco-solver search strategy to: " + heuristic.class.name)
-			solver.set(ISF.custom(heuristic, heuristic, solverVariables.getLocationVariables(levels)))
+			solver.set(ISF.custom(heuristic, heuristic, solverVariables.getLocationVariables(locationVariableLevels)))
 		} else
 			logger.info("Unknown search strategy supplied")
 	}
