@@ -1,6 +1,7 @@
 package ch.hilbri.assist.cli;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map.Entry;
 
 import org.apache.commons.cli.BasicParser;
@@ -32,10 +33,24 @@ public class Runner {
 
 	public static void main(String[] args) throws Exception {
 		final Options options = new Options();
-		options.addOption("s", "solutions", true, "the number of solution to find");
+		options.addOption("s", "solutions", true, "number of solution to find");
+		options.addOption("l", "level", true, "hardware level(s) to use for location variables");
 		final CommandLineParser parser = new BasicParser();
 		final CommandLine cmd = parser.parse(options, args);
 		final int numSolutions = Integer.parseInt(cmd.getOptionValue("solutions", "1"));
+		final int level = Integer.parseInt(cmd.getOptionValue("level", "0"));
+		List<Integer> levels = new ArrayList<Integer>();
+		switch (level) {
+		case 2:
+		case 21:
+			levels.add(2);
+		case 1:
+			if (level == 21) {
+				levels.add(1);
+			}
+		case 0:
+			levels.add(0);
+		}
 		
 	    ModelPackage.eINSTANCE.eClass();
 		final Runner runner = new Runner();
@@ -65,7 +80,7 @@ public class Runner {
 				System.err.println("Errors on validating " + arg + ".");
 				continue;
 			}*/
-			final AssistSolver solver = new AssistSolver(model);
+			final AssistSolver solver = new AssistSolver(model, levels);
 			solver.setSolverSearchStrategy(SearchType.CONSECUTIVE);
 			solver.setSolverMaxSolutions(numSolutions);
 			try {

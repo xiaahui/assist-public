@@ -52,11 +52,12 @@ import org.chocosolver.solver.variables.BoolVar
 
 	}
 	
-	def IntVar[] getLocationVariables() {
+	def IntVar[] getLocationVariables(int... levels) {
 		val list = new ArrayList<IntVar>
 
-		for (iface : eqInterfaceLocationVariables.keySet.sortBy[name])
-			list.add(eqInterfaceLocationVariables.get(iface).get(0))
+		for (l: levels)
+			for (iface : eqInterfaceLocationVariables.keySet.sortBy[name])
+				list.add(eqInterfaceLocationVariables.get(iface).get(l))
 
 		return list	
 	}

@@ -5,30 +5,29 @@ import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.HashMap
-import java.util.List
 import java.util.Map
 import org.chocosolver.solver.search.strategy.selectors.IntValueSelector
 import org.chocosolver.solver.search.strategy.selectors.VariableSelector
-import org.chocosolver.solver.search.strategy.selectors.variables.FirstFail
 import org.chocosolver.solver.variables.IntVar
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import java.util.List
 
 class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntValueSelector {
 	private Logger logger
 	private SolverVariablesContainer solverVariables
 	private AssistModel model
-	private FirstFail firstFail 
-	private Map<IntVar, Integer> map = new HashMap
-	private List<IntVar> varList = null
+	private List<List<IntVar>> varList
+	private int[] levels
 	
 	private boolean printVariablesInSortedOrder = true
 	
-	new(SolverVariablesContainer solverVariables, AssistModel model) {
+	new(SolverVariablesContainer solverVariables, AssistModel model, int... levels) {
 		this.logger = LoggerFactory.getLogger(this.class)
 		this.solverVariables = solverVariables
 		this.model = model
-		this.firstFail = new FirstFail
+		this.levels = levels
+		val Map<IntVar, Integer> map = new HashMap
 		
 		logger.info('''Computing the scores for all variables''')
 		for (iface : model.eqInterfaces) {
@@ -78,30 +77,48 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 			
 			// save the score for this variable
 			val variable = solverVariables.getEqInterfaceLocationVariable(iface, 0)
-			map.put(variable, score)
-			logger.info(''' - Assigning variable «variable.name» score «score»''')
+			if (score != 0)
+				map.put(variable, score)
+				map.put(solverVariables.getEqInterfaceLocationVariable(iface, 1), score)
+				map.put(solverVariables.getEqInterfaceLocationVariable(iface, 2), score)
+				logger.info(''' - Assigning variable «variable.name» score «score»''')
+			varList = levels.map[l|solverVariables.getLocationVariables(l).sortBy[-map.getOrDefault(it, 0)]]
 		}
 	}
 	
-	override IntVar getVariable(IntVar[] variables) {
-		if (varList == null)
-		 	varList = variables.sortBy[-map.get(it)]
+    def IntVar getFirstFail(IntVar[] variables) {
+        var IntVar small = null
+        var small_dsize = Integer.MAX_VALUE
+        for (v : variables) {
+            val dsize = v.domainSize
+            if (dsize > 1 && dsize < small_dsize) {
+            	if (dsize == 2) {
+            		return v
+            	}
+                small = v
+                small_dsize = dsize
+            }
+        }
+        return small;
+    }
 
+	override IntVar getVariable(IntVar[] variables) {
 		if (printVariablesInSortedOrder) {
-			logger.debug('''Unsorted variables list: [«FOR v : variables»«v.name»(«map.get(v)»)«IF v != variables.last», «ENDIF»«ENDFOR»]''')
+			logger.debug('''Unsorted variables list: [«FOR v : variables»«v.name»«IF v != variables.last», «ENDIF»«ENDFOR»]''')
 			logger.debug('''Sorting variables according to their partner application count in dislocality relations (increasing order), then MinDomain first.''')
-			logger.debug('''Sorted variables list:   [«FOR v : varList»«v.name» («map.get(v)»)«IF v != variables.last», «ENDIF»«ENDFOR»]''')
+			logger.debug('''Sorted variables list:   [«FOR v : varList.get(0)»«v.name»«IF v != variables.last», «ENDIF»«ENDFOR»]''')
 			printVariablesInSortedOrder = false
 		}
 
 		val instantiatedVarCount = variables.filter[isInstantiated].size
 		var currentProgress = 0
 		if (variables.size > 0) currentProgress = instantiatedVarCount * 100 / variables.size
-		
-		val variable = firstFail.getVariable(varList)
-		if (variable != null)
-			logger.info('''Selecting variable «variable.name» with score «map.get(variable)» («currentProgress»% of all variables instantiated)''')
-		return variable
+		for (list : varList) {
+			val variable = getFirstFail(list)
+			if (variable != null)
+				logger.info('''Selecting variable «variable.name» («currentProgress»% of all variables instantiated)''')
+				return variable
+		}
 	}
 	
 	 

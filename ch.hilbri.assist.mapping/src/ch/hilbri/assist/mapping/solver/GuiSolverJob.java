@@ -47,7 +47,7 @@ public class GuiSolverJob extends Job {
 			detailedResultsViewUiModel.setEditor(multiPageEditor);
 		}
 
-		this.solver = new AssistSolver(model);
+		this.solver = new AssistSolver(model, 0);
 	}
 			
 	
