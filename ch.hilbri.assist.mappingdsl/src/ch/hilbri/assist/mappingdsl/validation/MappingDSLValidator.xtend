@@ -1,11 +1,79 @@
 package ch.hilbri.assist.mappingdsl.validation
 
+import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.EqInterface
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithImplicitDefinition
+import ch.hilbri.assist.datamodel.model.InvalidDeploymentImplicit
+import ch.hilbri.assist.datamodel.model.ModelPackage
+import ch.hilbri.assist.datamodel.model.RDC
+import ch.hilbri.assist.datamodel.model.ValidDeploymentImplicit
+import org.eclipse.xtext.validation.Check
+
 /**
  * Custom validation rules. 
  *
  * see http://www.eclipse.org/Xtext/documentation.html#validation
  */
 class MappingDSLValidator extends AbstractMappingDSLValidator {
+	
+	@Check
+	def checkImplicitlyDefinedInterfaceGroupsAreNotEmpty(AssistModel model) {
+		for (g : model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithImplicitDefinition]) {
+				var Iterable<EqInterface> interfaceList = model.eqInterfaces	
+				for (definition : (g as EqInterfaceGroupWithImplicitDefinition).definitions) {
+						switch (definition.attribute) {
+						case SYSTEM: 		{ interfaceList = interfaceList.filter[it.system.equals(definition.value)] }
+						case SUBATA: 		{ interfaceList = interfaceList.filter[it.subAta.equals(definition.value)] }
+						case RESOURCE: 		{ interfaceList = interfaceList.filter[it.resource.equals(definition.value)]}
+						case LINENAME: 		{ interfaceList = interfaceList.filter[it.lineName.equals(definition.value)]}
+						case WIRINGLANE:	{ interfaceList = interfaceList.filter[it.wiringLane.equals(definition.value)]}
+						case GRPINFO: 		{ interfaceList = interfaceList.filter[it.grpInfo.equals(definition.value)]}
+						case ROUTE: 		{ interfaceList = interfaceList.filter[it.route.equals(definition.value)]}
+						case PWSUP1: 		{ interfaceList = interfaceList.filter[it.pwSup1.equals(definition.value)]}
+						case EMHZONE1: 		{ interfaceList = interfaceList.filter[it.emhZone1.equals(definition.value)]}
+						case IOTYPE: 		{ interfaceList = interfaceList.filter[it.ioType.equals(definition.value)]}
+					}
+				}
+				if (interfaceList.isNullOrEmpty)
+					warning("This group is currently empty.", g, ModelPackage.Literals::EQ_INTERFACE_GROUP_WITH_IMPLICIT_DEFINITION__DEFINITIONS)
+			}	
+	}
+	
+	@Check
+	def checkImplicitlyDefinedValidDeploymentsAreNotEmpty(AssistModel model) {
+		for (s : model.validDeployments.filter[it instanceof ValidDeploymentImplicit]) {
+			var Iterable<RDC> rdcList = model.allRDCs
+			for (definition : (s as ValidDeploymentImplicit).definitions) {
+				switch (definition.attribute) {
+					case RDC_MANUFACTURER: 	{ rdcList = rdcList.filter[manufacturer.equals(definition.value)] 	}
+					case RDC_POWERSUPPLY: 	{ rdcList = rdcList.filter[powerSupply.equals(definition.value)] 	}
+					case RDC_SIDE: 			{ rdcList = rdcList.filter[side.equals(definition.value)] 			}
+					case RDC_TYPE: 			{ rdcList = rdcList.filter[rdcType.equals(definition.value)] 		}
+					case RDC_ESS: 			{ rdcList = rdcList.filter[ess.equals(definition.value)] 			}
+				}
+			}
+			if (rdcList.isNullOrEmpty)
+				warning("The list of RDCs for this specification is currently empty.", s, ModelPackage.Literals::VALID_DEPLOYMENT_IMPLICIT__DEFINITIONS)		
+		}
+	}
+	
+	@Check
+	def checkImplicitlyDefinedInvalidDeploymentsAreNotEmpty(AssistModel model) {
+		for (s : model.invalidDeployments.filter[it instanceof InvalidDeploymentImplicit]) {
+			var Iterable<RDC> rdcList = model.allRDCs
+			for (definition : (s as InvalidDeploymentImplicit).definitions) {
+				switch (definition.attribute) {
+					case RDC_MANUFACTURER: 	{ rdcList = rdcList.filter[manufacturer.equals(definition.value)] 	}
+					case RDC_POWERSUPPLY: 	{ rdcList = rdcList.filter[powerSupply.equals(definition.value)] 	}
+					case RDC_SIDE: 			{ rdcList = rdcList.filter[side.equals(definition.value)] 			}
+					case RDC_TYPE: 			{ rdcList = rdcList.filter[rdcType.equals(definition.value)] 		}
+					case RDC_ESS: 			{ rdcList = rdcList.filter[ess.equals(definition.value)] 			}
+				}
+			}
+			if (rdcList.isNullOrEmpty)
+				warning("The list of RDCs for this specification is currently empty.", s, ModelPackage.Literals::INVALID_DEPLOYMENT_IMPLICIT__DEFINITIONS)		
+		}
+	}
 	
 	// FIXME: TASK
 	/*
