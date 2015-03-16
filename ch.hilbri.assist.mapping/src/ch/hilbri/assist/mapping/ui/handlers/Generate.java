@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
@@ -46,9 +47,14 @@ public class Generate {
 					ResourceSet rs = new ResourceSetImpl();
 					Resource resource = rs.getResource(uri, true);
 					
+					// Resolve all proxies
+					EcoreUtil.resolveAll(resource);
+					
+					
 					/* Searching for errors inside the document? */
 					/* 1) Error with the syntax of the dsl */
 					if (resource.getErrors().size() > 0) {	return false; } 
+					
 					if (resource.getContents().size() == 0) { return false;	}
 					/* 2) Custom validation rule errors */
 					Diagnostic diagnostic = Diagnostician.INSTANCE.validate(resource.getContents().get(0));
@@ -86,6 +92,10 @@ public class Generate {
 					URI uri = URI.createFileURI(path.toOSString());
 					ResourceSet rs = new ResourceSetImpl();
 					Resource resource = rs.getResource(uri, true);
+					
+					// Resolve all proxies
+					EcoreUtil.resolveAll(resource);
+					
 					
 					/* Searching for errors inside the document? */
 					/* 1) Error with the syntax of the dsl */
