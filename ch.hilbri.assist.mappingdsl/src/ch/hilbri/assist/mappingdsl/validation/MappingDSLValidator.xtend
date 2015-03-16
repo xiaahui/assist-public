@@ -2,6 +2,7 @@ package ch.hilbri.assist.mappingdsl.validation
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.EqInterface
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithImplicitDefinition
 import ch.hilbri.assist.datamodel.model.InvalidDeploymentImplicit
 import ch.hilbri.assist.datamodel.model.ModelPackage
@@ -35,7 +36,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 					}
 				}
 				if (interfaceList.isNullOrEmpty)
-					warning("This group is currently empty.", g, ModelPackage.Literals::EQ_INTERFACE_GROUP_WITH_IMPLICIT_DEFINITION__DEFINITIONS)
+					warning("This group is currently empty.", g, ModelPackage.Literals::EQ_INTERFACE_OR_GROUP__NAME)
 			}	
 	}
 	
@@ -74,6 +75,54 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 				warning("The list of RDCs for this specification is currently empty.", s, ModelPackage.Literals::INVALID_DEPLOYMENT_IMPLICIT__DEFINITIONS)		
 		}
 	}
+	
+	@Check
+	def checkCombinedGroupsDoNotContainCombinedGroups(AssistModel model) {
+		for (g : model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithCombinedDefinition]) {
+			for (combinedGroup : (g as EqInterfaceGroupWithCombinedDefinition).combinedGroups.filter[it instanceof EqInterfaceGroupWithCombinedDefinition]) {
+				error("The group '" + g.name + "' contains the group '" + combinedGroup.name + "' which was also defined by using a 'combines' specification. This is not allowed.",
+					combinedGroup, ModelPackage.Literals::EQ_INTERFACE_OR_GROUP__NAME)	
+			}		
+		}
+	}
+	
+	@Check 
+	def checkCombinedGroupIsNotEmpty(AssistModel model) {
+		for (g : model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithCombinedDefinition]) {
+			var boolean foundAtLeastOneInterface = false
+			
+			for (combinedGroup : (g as EqInterfaceGroupWithCombinedDefinition).combinedGroups) {
+				if (combinedGroup.eqInterfaces.length > 0) 
+					foundAtLeastOneInterface = true
+					
+				else 
+					if (combinedGroup instanceof EqInterfaceGroupWithImplicitDefinition) {
+						var Iterable<EqInterface> interfaceList = model.eqInterfaces	
+						for (definition : (combinedGroup as EqInterfaceGroupWithImplicitDefinition).definitions) {
+							switch (definition.attribute) {
+								case SYSTEM: 		{ interfaceList = interfaceList.filter[it.system.equals(definition.value)] }
+								case SUBATA: 		{ interfaceList = interfaceList.filter[it.subAta.equals(definition.value)] }
+								case RESOURCE: 		{ interfaceList = interfaceList.filter[it.resource.equals(definition.value)]}
+								case LINENAME: 		{ interfaceList = interfaceList.filter[it.lineName.equals(definition.value)]}
+								case WIRINGLANE:	{ interfaceList = interfaceList.filter[it.wiringLane.equals(definition.value)]}
+								case GRPINFO: 		{ interfaceList = interfaceList.filter[it.grpInfo.equals(definition.value)]}
+								case ROUTE: 		{ interfaceList = interfaceList.filter[it.route.equals(definition.value)]}
+								case PWSUP1: 		{ interfaceList = interfaceList.filter[it.pwSup1.equals(definition.value)]}
+								case EMHZONE1: 		{ interfaceList = interfaceList.filter[it.emhZone1.equals(definition.value)]}
+								case IOTYPE: 		{ interfaceList = interfaceList.filter[it.ioType.equals(definition.value)]}
+							}
+						}
+						if (interfaceList.length > 0)
+							foundAtLeastOneInterface = true
+					}
+			}
+			
+			if (!foundAtLeastOneInterface)
+				warning("This group is currently empty.", g, ModelPackage.Literals::EQ_INTERFACE_OR_GROUP__NAME)
+		}
+	
+	}
+	
 	
 	// FIXME: TASK
 	/*

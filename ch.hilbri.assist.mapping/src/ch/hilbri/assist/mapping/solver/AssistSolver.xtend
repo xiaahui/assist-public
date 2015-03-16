@@ -32,6 +32,7 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition
 
 class AssistSolver {
 	
@@ -85,6 +86,26 @@ class AssistSolver {
 					logger.info('''      Successfully created with «g.eqInterfaces.length» interfaces: «g.eqInterfaces».''')
 				else {
 					logger.info('''      WARNING: Implicitly defined group "«g.name»" contains «g.eqInterfaces.length» interfaces. This may be unintended.''')
+				}
+			}
+		}
+		
+		/* Combined Interface groups have to be processed after implicitly defined groups, because combined 
+		 * groups can also contain implicitly defined groups */
+		if (!model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithCombinedDefinition].isNullOrEmpty) {
+			logger.info(" - Creating interface groups which combine other interface groups")
+			for (g : model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithCombinedDefinition]) {
+				logger.info("    . Creating group " + g.name)
+				val List<EqInterface> interfaceList = new ArrayList
+				for (combinedGroup : (g as EqInterfaceGroupWithCombinedDefinition).combinedGroups) {
+					interfaceList.addAll(combinedGroup.eqInterfaces)
+				}
+				g.eqInterfaces.addAll(interfaceList.toSet.toList)
+
+				if (g.eqInterfaces.length > 0)
+					logger.info('''      Successfully created with «g.eqInterfaces.length» interfaces: «g.eqInterfaces».''')
+				else {
+					logger.info('''      WARNING: Group "«g.name»" contains «g.eqInterfaces.length» interfaces. This may be unintended.''')
 				}
 			}
 		}

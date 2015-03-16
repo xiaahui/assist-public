@@ -127,6 +127,10 @@ class EqInterfaceGroup extends EqInterfaceOrGroup {
 	op String toString() { name }
 }
 
+class EqInterfaceGroupWithCombinedDefinition extends EqInterfaceGroup {
+	refers EqInterfaceGroup [1..*] combinedGroups
+}
+
 class EqInterfaceGroupWithImplicitDefinition extends EqInterfaceGroup {
 	contains ImplicitEqInterfaceGroupDefinition [1..*] definitions
 }

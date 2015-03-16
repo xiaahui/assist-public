@@ -279,6 +279,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EqInterfaceGroupWithCombinedDefinitionItemProvider eqInterfaceGroupWithCombinedDefinitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEqInterfaceGroupWithCombinedDefinitionAdapter() {
+		if (eqInterfaceGroupWithCombinedDefinitionItemProvider == null) {
+			eqInterfaceGroupWithCombinedDefinitionItemProvider = new EqInterfaceGroupWithCombinedDefinitionItemProvider(this);
+		}
+
+		return eqInterfaceGroupWithCombinedDefinitionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithImplicitDefinition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -639,6 +662,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (eqInterfaceOrGroupItemProvider != null) eqInterfaceOrGroupItemProvider.dispose();
 		if (eqInterfaceItemProvider != null) eqInterfaceItemProvider.dispose();
 		if (eqInterfaceGroupItemProvider != null) eqInterfaceGroupItemProvider.dispose();
+		if (eqInterfaceGroupWithCombinedDefinitionItemProvider != null) eqInterfaceGroupWithCombinedDefinitionItemProvider.dispose();
 		if (eqInterfaceGroupWithImplicitDefinitionItemProvider != null) eqInterfaceGroupWithImplicitDefinitionItemProvider.dispose();
 		if (implicitEqInterfaceGroupDefinitionItemProvider != null) implicitEqInterfaceGroupDefinitionItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();

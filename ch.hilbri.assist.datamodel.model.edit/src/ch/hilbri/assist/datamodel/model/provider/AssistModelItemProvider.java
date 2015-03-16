@@ -209,6 +209,11 @@ public class AssistModelItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACE_GROUPS,
+				 ModelFactory.eINSTANCE.createEqInterfaceGroupWithCombinedDefinition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACE_GROUPS,
 				 ModelFactory.eINSTANCE.createEqInterfaceGroupWithImplicitDefinition()));
 
 		newChildDescriptors.add

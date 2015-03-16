@@ -16,7 +16,8 @@ AssistModel:
 	('InterfaceGroups' '{'
 		(
 			eqInterfaceGroups+=EqInterfaceGroup 						|
-			eqInterfaceGroups+=EqInterfaceGroupWithImplicitDefinition
+			eqInterfaceGroups+=EqInterfaceGroupWithImplicitDefinition	|
+			eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition
 		)*		
 	'}')?
 	
@@ -83,6 +84,10 @@ EqInterfaceGroupWithImplicitDefinition:
 	'Group' name=ID 'based on' definitions+=ImplicitEqInterfaceGroupDefinition ('and' definitions+=ImplicitEqInterfaceGroupDefinition)* ';'
 ;
 
+EqInterfaceGroupWithCombinedDefinition: 
+	'Group' name=ID 'combines' combinedGroups+=[EqInterfaceGroup] ('and' combinedGroups+=[EqInterfaceGroup])* ';'	
+;
+
 ImplicitEqInterfaceGroupDefinition: 
 	attribute=ImplicitEqInterfaceGroupDefinitionAttribute '=' value=STRING
 ;
@@ -99,6 +104,8 @@ enum ImplicitEqInterfaceGroupDefinitionAttribute:
 	EMHZONE1	= 'EmhZone1'	|
 	IOTYPE		= 'Type'
 ;
+
+
 
 
 EqInterface:

@@ -9,6 +9,7 @@ import ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinition;
 import ch.hilbri.assist.datamodel.model.DislocalityRelation;
 import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition;
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithImplicitDefinition;
 import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinition;
 import ch.hilbri.assist.datamodel.model.InvalidDeployment;
@@ -95,6 +96,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case ModelPackage.EQ_INTERFACE_GROUP_WITH_COMBINED_DEFINITION:
+				if(context == grammarAccess.getEqInterfaceGroupWithCombinedDefinitionRule()) {
+					sequence_EqInterfaceGroupWithCombinedDefinition(context, (EqInterfaceGroupWithCombinedDefinition) semanticObject); 
+					return; 
+				}
+				else break;
 			case ModelPackage.EQ_INTERFACE_GROUP_WITH_IMPLICIT_DEFINITION:
 				if(context == grammarAccess.getEqInterfaceGroupWithImplicitDefinitionRule()) {
 					sequence_EqInterfaceGroupWithImplicitDefinition(context, (EqInterfaceGroupWithImplicitDefinition) semanticObject); 
@@ -153,7 +160,11 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         systemName=STRING 
 	 *         compartments+=Compartment+ 
 	 *         eqInterfaces+=EqInterface* 
-	 *         (eqInterfaceGroups+=EqInterfaceGroup | eqInterfaceGroups+=EqInterfaceGroupWithImplicitDefinition)* 
+	 *         (
+	 *             eqInterfaceGroups+=EqInterfaceGroup | 
+	 *             eqInterfaceGroups+=EqInterfaceGroupWithImplicitDefinition | 
+	 *             eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition
+	 *         )* 
 	 *         (
 	 *             dislocalityRelations+=DislocalityRelation | 
 	 *             colocalityRelations+=ColocalityRelation | 
@@ -246,6 +257,15 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID]* hardwareLevel=HardwareArchitectureLevelType)
 	 */
 	protected void sequence_DislocalityRelation(EObject context, DislocalityRelation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID combinedGroups+=[EqInterfaceGroup|ID] combinedGroups+=[EqInterfaceGroup|ID]*)
+	 */
+	protected void sequence_EqInterfaceGroupWithCombinedDefinition(EObject context, EqInterfaceGroupWithCombinedDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
