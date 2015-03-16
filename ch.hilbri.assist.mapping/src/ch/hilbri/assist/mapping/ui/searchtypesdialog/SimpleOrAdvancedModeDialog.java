@@ -33,7 +33,7 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 	private int searchTimeUnit = 0;
 	private String searchTimeItem = null;
 	private int maxSolutions = 1;
-	private SearchType selectedMode = SearchType.CONSECUTIVE;
+	private SearchType selectedMode = SearchType.DEFAULT;
 	private boolean retrieveExplanations = false;
 	
 	/**
@@ -93,7 +93,7 @@ public class SimpleOrAdvancedModeDialog extends TitleAreaDialog {
 		btnSimpleMode.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				selectedMode = SearchType.CONSECUTIVE;
+				selectedMode = SearchType.DEFAULT;
 				maxSolutions = Integer.parseInt(solNrSimpleMode.getText());
 				solNrSimpleMode.setEditable(true);
 				solNrAdvancedMode.setEditable(false);

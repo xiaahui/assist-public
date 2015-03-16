@@ -150,6 +150,7 @@ def addArgs(parser):
     parser.add_argument("-t", "--timeout", type=int, default=0, help="timeout in seconds")
     parser.add_argument("-s", "--solutions", type=int, default=1, help="number of solutions to find")
     parser.add_argument("-l", "--level", type=int, default=0, help="hardware level(s) to use for location variables")
+    parser.add_argument("-a", "--strategy", default="default", help="variable selection strategy")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

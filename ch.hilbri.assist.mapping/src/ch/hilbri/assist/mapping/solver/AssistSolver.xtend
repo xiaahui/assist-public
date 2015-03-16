@@ -2,6 +2,7 @@ package ch.hilbri.assist.mapping.solver
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.EqInterface
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithImplicitDefinition
 import ch.hilbri.assist.datamodel.model.InvalidDeploymentImplicit
 import ch.hilbri.assist.datamodel.model.RDC
@@ -20,6 +21,9 @@ import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor
 import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
 import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor
 import ch.hilbri.assist.mapping.solver.strategies.FirstFailThenMaxRelationDegree
+import ch.hilbri.assist.mapping.solver.strategies.HardestDislocalitiesFirst
+import ch.hilbri.assist.mapping.solver.strategies.ScarcestIoTypeFirst
+import ch.hilbri.assist.mapping.solver.strategies.VariablesInMostDislocalityRelationsFirst
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.List
@@ -30,9 +34,10 @@ import org.chocosolver.solver.explanations.strategies.ConflictBasedBackjumping
 import org.chocosolver.solver.search.loop.monitors.SMF
 import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
+import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy
+import org.chocosolver.solver.variables.IntVar
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition
 
 class AssistSolver {
 	
@@ -201,12 +206,44 @@ class AssistSolver {
 	}
 	
 	def setSolverSearchStrategy(SearchType strategy) {
-		if (strategy == SearchType.CONSECUTIVE) {
-			val heuristic = new FirstFailThenMaxRelationDegree(solverVariables, model, locationVariableLevels)
-			logger.info("Setting choco-solver search strategy to: " + heuristic.class.name)
-			solver.set(ISF.custom(heuristic, heuristic, solverVariables.getLocationVariables(locationVariableLevels)))
-		} else
-			logger.info("Unknown search strategy supplied")
+		var AbstractStrategy<IntVar> heuristic
+		val seed = 23432
+		val vars = solverVariables.getLocationVariables(locationVariableLevels)
+		switch (strategy) {
+			case SearchType.FIRST_FAIL: {
+				heuristic = ISF.minDom_LB()
+			}
+			case strategy == SearchType.FIRST_FAIL_MAX_DEGREE || strategy == SearchType.DEFAULT: {
+				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model, locationVariableLevels)
+				heuristic = ISF.custom(selector, selector, vars)				
+			}
+			case SearchType.HARDEST_DISLOC: {
+				val selector = new HardestDislocalitiesFirst(solverVariables, model)
+				heuristic = ISF.custom(selector, selector, vars)				
+			}
+			case SearchType.SCARCEST_TYPE: {
+				val selector = new ScarcestIoTypeFirst(solverVariables, model)
+				heuristic = ISF.custom(selector, ISF.min_value_selector, vars)	
+			}
+			case SearchType.VARS_IN_MOST_DISLOC: {
+				val selector = new VariablesInMostDislocalityRelationsFirst(solverVariables, model)
+				heuristic = ISF.custom(selector, ISF.min_value_selector, vars)				
+			}
+			case SearchType.DOM_OVER_WDEG: {
+				heuristic = ISF.domOverWDeg(vars, seed)
+			}
+			case SearchType.ACTIVITY: {
+				heuristic = ISF.activity(vars, seed)
+			}
+			case SearchType.IMPACT: {
+				heuristic = ISF.impact(vars, seed)
+			}
+			default: {
+				logger.info("Unknown search strategy supplied")
+			}
+		}	
+		logger.info("Setting choco-solver search strategy to: " + heuristic)
+		solver.set(heuristic)
 	}
 
 	def propagation() throws BasicConstraintsException {

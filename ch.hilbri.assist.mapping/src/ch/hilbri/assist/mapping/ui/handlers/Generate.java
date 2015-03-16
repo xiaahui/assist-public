@@ -23,7 +23,6 @@ import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.application.helpers.Helpers;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.mapping.solver.GuiSolverJob;
-import ch.hilbri.assist.mapping.solver.SearchType;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.searchtypesdialog.SimpleOrAdvancedModeDialog;
 
@@ -129,15 +128,10 @@ public class Generate {
 							/* Create a new background Job for finding all solutions */
 							GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", inputModel, (MultiPageEditor)editor);
 							findSolutionsJob.setUser(true);
-							switch (soamd.getMode()) {
-							case CONSECUTIVE:
-								findSolutionsJob.setKindOfSolutions(SearchType.CONSECUTIVE);
-								findSolutionsJob.setMaxSolutions(soamd.getNumberOfSolutions());
-								findSolutionsJob.setMaxTimeOfCalculationInmsec(soamd.getSearchTime());
-								findSolutionsJob.setRetrieveExplanation(soamd.getRetrieveExplanation());
-								break;
-							}
-
+							findSolutionsJob.setKindOfSolutions(soamd.getMode());
+							findSolutionsJob.setMaxSolutions(soamd.getNumberOfSolutions());
+							findSolutionsJob.setMaxTimeOfCalculationInmsec(soamd.getSearchTime());
+							findSolutionsJob.setRetrieveExplanation(soamd.getRetrieveExplanation());
 							findSolutionsJob.schedule();
 						} 						
 					} 

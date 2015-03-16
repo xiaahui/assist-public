@@ -35,6 +35,7 @@ public class Runner {
 		final Options options = new Options();
 		options.addOption("s", "solutions", true, "number of solution to find");
 		options.addOption("l", "level", true, "hardware level(s) to use for location variables");
+		options.addOption("a", "strategy", true, "strategy to use");
 		final CommandLineParser parser = new BasicParser();
 		final CommandLine cmd = parser.parse(options, args);
 		final int numSolutions = Integer.parseInt(cmd.getOptionValue("solutions", "1"));
@@ -81,7 +82,19 @@ public class Runner {
 				continue;
 			}*/
 			final AssistSolver solver = new AssistSolver(model, levels);
-			solver.setSolverSearchStrategy(SearchType.CONSECUTIVE);
+			SearchType heuristic = SearchType.DEFAULT;
+			switch (cmd.getOptionValue("strategy", "")) {
+				case "ff": heuristic = SearchType.FIRST_FAIL; break;
+				case "ffmd": heuristic = SearchType.FIRST_FAIL_MAX_DEGREE; break;
+				case "hd": heuristic = SearchType.HARDEST_DISLOC; break;
+				case "st": heuristic = SearchType.SCARCEST_TYPE; break;
+				case "md": heuristic = SearchType.VARS_IN_MOST_DISLOC; break;
+				case "domwd": heuristic = SearchType.DOM_OVER_WDEG; break;
+				case "act": heuristic = SearchType.ACTIVITY; break;
+				case "imp": heuristic = SearchType.IMPACT; break;
+				default: heuristic = SearchType.DEFAULT; break;
+			}	
+			solver.setSolverSearchStrategy(heuristic);
 			solver.setSolverMaxSolutions(numSolutions);
 			try {
 				solver.propagation();
