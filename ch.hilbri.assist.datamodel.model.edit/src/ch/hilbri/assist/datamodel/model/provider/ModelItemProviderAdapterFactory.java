@@ -394,6 +394,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.DeploymentSpecification} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DeploymentSpecificationItemProvider deploymentSpecificationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.DeploymentSpecification}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDeploymentSpecificationAdapter() {
+		if (deploymentSpecificationItemProvider == null) {
+			deploymentSpecificationItemProvider = new DeploymentSpecificationItemProvider(this);
+		}
+
+		return deploymentSpecificationItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ValidDeployment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -417,6 +440,52 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ValidDeploymentImplicit} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValidDeploymentImplicitItemProvider validDeploymentImplicitItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ValidDeploymentImplicit}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValidDeploymentImplicitAdapter() {
+		if (validDeploymentImplicitItemProvider == null) {
+			validDeploymentImplicitItemProvider = new ValidDeploymentImplicitItemProvider(this);
+		}
+
+		return validDeploymentImplicitItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DeploymentImplicitDefinitionItemProvider deploymentImplicitDefinitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDeploymentImplicitDefinitionAdapter() {
+		if (deploymentImplicitDefinitionItemProvider == null) {
+			deploymentImplicitDefinitionItemProvider = new DeploymentImplicitDefinitionItemProvider(this);
+		}
+
+		return deploymentImplicitDefinitionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.InvalidDeployment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -437,6 +506,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		}
 
 		return invalidDeploymentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.InvalidDeploymentImplicit} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InvalidDeploymentImplicitItemProvider invalidDeploymentImplicitItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.InvalidDeploymentImplicit}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInvalidDeploymentImplicitAdapter() {
+		if (invalidDeploymentImplicitItemProvider == null) {
+			invalidDeploymentImplicitItemProvider = new InvalidDeploymentImplicitItemProvider(this);
+		}
+
+		return invalidDeploymentImplicitItemProvider;
 	}
 
 	/**
@@ -552,8 +644,12 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
 		if (colocalityRelationItemProvider != null) colocalityRelationItemProvider.dispose();
+		if (deploymentSpecificationItemProvider != null) deploymentSpecificationItemProvider.dispose();
 		if (validDeploymentItemProvider != null) validDeploymentItemProvider.dispose();
+		if (validDeploymentImplicitItemProvider != null) validDeploymentImplicitItemProvider.dispose();
 		if (invalidDeploymentItemProvider != null) invalidDeploymentItemProvider.dispose();
+		if (invalidDeploymentImplicitItemProvider != null) invalidDeploymentImplicitItemProvider.dispose();
+		if (deploymentImplicitDefinitionItemProvider != null) deploymentImplicitDefinitionItemProvider.dispose();
 	}
 
 }

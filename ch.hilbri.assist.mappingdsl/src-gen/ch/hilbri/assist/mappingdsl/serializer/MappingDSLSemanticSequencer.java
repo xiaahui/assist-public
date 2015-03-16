@@ -5,16 +5,19 @@ import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
 import ch.hilbri.assist.datamodel.model.ColocalityRelation;
 import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.Connector;
+import ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinition;
 import ch.hilbri.assist.datamodel.model.DislocalityRelation;
 import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithImplicitDefinition;
 import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinition;
 import ch.hilbri.assist.datamodel.model.InvalidDeployment;
+import ch.hilbri.assist.datamodel.model.InvalidDeploymentImplicit;
 import ch.hilbri.assist.datamodel.model.MetricParameter;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.model.RDC;
 import ch.hilbri.assist.datamodel.model.ValidDeployment;
+import ch.hilbri.assist.datamodel.model.ValidDeploymentImplicit;
 import ch.hilbri.assist.mappingdsl.services.MappingDSLGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -68,6 +71,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case ModelPackage.DEPLOYMENT_IMPLICIT_DEFINITION:
+				if(context == grammarAccess.getDeploymentImplicitDefinitionRule()) {
+					sequence_DeploymentImplicitDefinition(context, (DeploymentImplicitDefinition) semanticObject); 
+					return; 
+				}
+				else break;
 			case ModelPackage.DISLOCALITY_RELATION:
 				if(context == grammarAccess.getDislocalityRelationRule()) {
 					sequence_DislocalityRelation(context, (DislocalityRelation) semanticObject); 
@@ -104,6 +113,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case ModelPackage.INVALID_DEPLOYMENT_IMPLICIT:
+				if(context == grammarAccess.getInvalidDeploymentImplicitRule()) {
+					sequence_InvalidDeploymentImplicit(context, (InvalidDeploymentImplicit) semanticObject); 
+					return; 
+				}
+				else break;
 			case ModelPackage.METRIC_PARAMETER:
 				if(context == grammarAccess.getMetricParameterRule()) {
 					sequence_MetricParameter(context, (MetricParameter) semanticObject); 
@@ -122,6 +137,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case ModelPackage.VALID_DEPLOYMENT_IMPLICIT:
+				if(context == grammarAccess.getValidDeploymentImplicitRule()) {
+					sequence_ValidDeploymentImplicit(context, (ValidDeploymentImplicit) semanticObject); 
+					return; 
+				}
+				else break;
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
@@ -137,7 +158,9 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *             dislocalityRelations+=DislocalityRelation | 
 	 *             colocalityRelations+=ColocalityRelation | 
 	 *             validDeployments+=ValidDeployment | 
-	 *             invalidDeployments+=InvalidDeployment
+	 *             validDeployments+=ValidDeploymentImplicit | 
+	 *             invalidDeployments+=InvalidDeployment | 
+	 *             invalidDeployments+=InvalidDeploymentImplicit
 	 *         )*
 	 *     )
 	 */
@@ -196,6 +219,25 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Connector(EObject context, Connector semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (attribute=DeploymentImplicitDefinitionAttribute value=STRING)
+	 */
+	protected void sequence_DeploymentImplicitDefinition(EObject context, DeploymentImplicitDefinition semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.DEPLOYMENT_IMPLICIT_DEFINITION__ATTRIBUTE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.DEPLOYMENT_IMPLICIT_DEFINITION__ATTRIBUTE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.DEPLOYMENT_IMPLICIT_DEFINITION__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.DEPLOYMENT_IMPLICIT_DEFINITION__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getDeploymentImplicitDefinitionAccess().getAttributeDeploymentImplicitDefinitionAttributeEnumRuleCall_0_0(), semanticObject.getAttribute());
+		feeder.accept(grammarAccess.getDeploymentImplicitDefinitionAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
@@ -271,6 +313,20 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (
 	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] 
 	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID]* 
+	 *         definitions+=DeploymentImplicitDefinition 
+	 *         definitions+=DeploymentImplicitDefinition*
+	 *     )
+	 */
+	protected void sequence_InvalidDeploymentImplicit(EObject context, InvalidDeploymentImplicit semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] 
+	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID]* 
 	 *         hardwareElements+=[HardwareElement|QualifiedName] 
 	 *         hardwareElements+=[HardwareElement|QualifiedName]*
 	 *     )
@@ -311,6 +367,20 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     )
 	 */
 	protected void sequence_RDC(EObject context, RDC semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] 
+	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID]* 
+	 *         definitions+=DeploymentImplicitDefinition 
+	 *         definitions+=DeploymentImplicitDefinition*
+	 *     )
+	 */
+	protected void sequence_ValidDeploymentImplicit(EObject context, ValidDeploymentImplicit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

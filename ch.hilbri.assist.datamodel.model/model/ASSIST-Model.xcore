@@ -236,9 +236,10 @@ class ColocalityRelation {
 	}
 }
 
-class ValidDeployment {
+
+class DeploymentSpecification {
 	refers EqInterfaceOrGroup[1..*] eqInterfaceOrGroups
-	refers HardwareElement[1..*] hardwareElements
+	refers HardwareElement[0..*] hardwareElements
 	
 	op String getAllEqInterfaceOrGroupNames() {
 		var String result = ""
@@ -256,22 +257,28 @@ class ValidDeployment {
 	}
 }
 
-class InvalidDeployment {
-	refers EqInterfaceOrGroup[1..*] eqInterfaceOrGroups
-	refers HardwareElement[1..*] hardwareElements
-	
-	op String getAllEqInterfaceOrGroupNames() {
-		var String result = ""
-		var boolean first = true
-		
-		for (e : eqInterfaceOrGroups) {
-			if (!first) result += ", "
-			else first = false
-			
-			if (e instanceof EqInterface) 		result += e.name
-			if (e instanceof EqInterfaceGroup) 	result += e.name
-		}	
-		
-		return result
-	}
+
+class ValidDeployment extends DeploymentSpecification {}
+
+class ValidDeploymentImplicit extends ValidDeployment {
+	contains DeploymentImplicitDefinition [1..*] definitions
+}
+
+class InvalidDeployment extends DeploymentSpecification {}
+
+class InvalidDeploymentImplicit extends InvalidDeployment {
+	contains DeploymentImplicitDefinition [1..*] definitions
+}
+
+class DeploymentImplicitDefinition {
+	DeploymentImplicitDefinitionAttribute 	attribute
+	String					 					value
+}
+
+enum DeploymentImplicitDefinitionAttribute {
+	RDC_MANUFACTURER	as 	"RDC_MANUFACTURER"
+	RDC_POWERSUPPLY		as 	"RDC_POWERSUPPLY"
+	RDC_SIDE			as 	"RDC_SIDE"
+	RDC_TYPE			as 	"RDC_TYPE"
+	RDC_ESS				as 	"RDC_ESS"
 }

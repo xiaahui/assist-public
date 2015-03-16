@@ -22,10 +22,18 @@ AssistModel:
 	
 	('Restrictions' '{'
 		( 
-			dislocalityRelations+=DislocalityRelation 	|
-			colocalityRelations+=ColocalityRelation		|
-			validDeployments+=ValidDeployment			|
-			invalidDeployments+=InvalidDeployment
+			dislocalityRelations+=DislocalityRelation 			|
+			colocalityRelations+=ColocalityRelation				|
+			
+			(	
+				validDeployments+=ValidDeployment 			| 
+				validDeployments+=ValidDeploymentImplicit
+			) 													
+																|
+			(	
+				invalidDeployments+=InvalidDeployment 			| 
+				invalidDeployments+=InvalidDeploymentImplicit
+			) 			
 		)*
 		
 	'}')?
@@ -126,20 +134,47 @@ ColocalityRelation:
 	eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])*  'on same' hardwareLevel=HardwareArchitectureLevelType ';'
 ;	
 
+/* VALID DEPLOYMENTS */
 ValidDeployment:
 	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
-	'is' '{'
+	('is'|'are') '{'
 		  hardwareElements+=[HardwareElement|QualifiedName] (',' hardwareElements+=[HardwareElement|QualifiedName])* 
 	'}' ';'
 ;
+
+ValidDeploymentImplicit: 
+	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
+	'are RDCs with' definitions+=DeploymentImplicitDefinition ('and' definitions+=DeploymentImplicitDefinition)* ';'
+;
+
+
+
+/* INVALID DEPLOYMENTS */
 
 InvalidDeployment:
 	'Invalid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
-	'is' '{'
+	('is'|'are') '{'
 		  hardwareElements+=[HardwareElement|QualifiedName] (',' hardwareElements+=[HardwareElement|QualifiedName])* 
 	'}' ';'
 ;
 
+InvalidDeploymentImplicit: 
+	'Invalid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
+	'are RDCs with' definitions+=DeploymentImplicitDefinition ('and' definitions+=DeploymentImplicitDefinition)* ';'
+;
+
+
+DeploymentImplicitDefinition:
+	attribute=DeploymentImplicitDefinitionAttribute '=' value=STRING 
+;
+
+enum DeploymentImplicitDefinitionAttribute:
+	RDC_MANUFACTURER 	= 'RDC.Manufacturer'	|
+	RDC_POWERSUPPLY 	= 'RDC.PowerSupply'		|
+	RDC_SIDE 			= 'RDC.Side'			|
+	RDC_TYPE 			= 'RDC.Type'			|
+	RDC_ESS	 			= 'RDC.ESS'						 
+;
 
 
 /*ProximityRelation:

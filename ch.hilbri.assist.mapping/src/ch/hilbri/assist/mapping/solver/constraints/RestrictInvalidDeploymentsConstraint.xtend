@@ -19,9 +19,9 @@ class RestrictInvalidDeploymentsConstraint extends AbstractMappingConstraint {
 	}
 	
 	override generate() {
-		if (model.validDeployments.empty) return false
+		if (model.invalidDeployments.empty) return false
 	
-		for (spec : model.validDeployments) {
+		for (spec : model.invalidDeployments) {
 		
 			// which are the valid connectors?
 			val list = new ArrayList<Connector>

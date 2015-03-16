@@ -263,10 +263,10 @@ ruleAssistModel returns [EObject current=null]
 
 )
 )
-    |(
+    |((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAssistModelAccess().getValidDeploymentsValidDeploymentParserRuleCall_10_2_2_0()); 
+	        newCompositeNode(grammarAccess.getAssistModelAccess().getValidDeploymentsValidDeploymentParserRuleCall_10_2_2_0_0()); 
 	    }
 		lv_validDeployments_21_0=ruleValidDeployment		{
 	        if ($current==null) {
@@ -285,24 +285,62 @@ ruleAssistModel returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAssistModelAccess().getInvalidDeploymentsInvalidDeploymentParserRuleCall_10_2_3_0()); 
+	        newCompositeNode(grammarAccess.getAssistModelAccess().getValidDeploymentsValidDeploymentImplicitParserRuleCall_10_2_2_1_0()); 
 	    }
-		lv_invalidDeployments_22_0=ruleInvalidDeployment		{
+		lv_validDeployments_22_0=ruleValidDeploymentImplicit		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAssistModelRule());
+	        }
+       		add(
+       			$current, 
+       			"validDeployments",
+        		lv_validDeployments_22_0, 
+        		"ValidDeploymentImplicit");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+    |((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAssistModelAccess().getInvalidDeploymentsInvalidDeploymentParserRuleCall_10_2_3_0_0()); 
+	    }
+		lv_invalidDeployments_23_0=ruleInvalidDeployment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAssistModelRule());
 	        }
        		add(
        			$current, 
        			"invalidDeployments",
-        		lv_invalidDeployments_22_0, 
+        		lv_invalidDeployments_23_0, 
         		"InvalidDeployment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_23='}' 
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAssistModelAccess().getInvalidDeploymentsInvalidDeploymentImplicitParserRuleCall_10_2_3_1_0()); 
+	    }
+		lv_invalidDeployments_24_0=ruleInvalidDeploymentImplicit		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAssistModelRule());
+	        }
+       		add(
+       			$current, 
+       			"invalidDeployments",
+        		lv_invalidDeployments_24_0, 
+        		"InvalidDeploymentImplicit");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)))*	otherlv_25='}' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_10_3());
+    	newLeafNode(otherlv_25, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_10_3());
     }
 )?)
 ;
@@ -1903,13 +1941,18 @@ ruleValidDeployment returns [EObject current=null]
 	}
 
 )
-))*	otherlv_4='is' 
+))*(	otherlv_4='is' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getValidDeploymentAccess().getIsKeyword_3());
+    	newLeafNode(otherlv_4, grammarAccess.getValidDeploymentAccess().getIsKeyword_3_0());
     }
-	otherlv_5='{' 
+
+    |	otherlv_5='are' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getValidDeploymentAccess().getLeftCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_5, grammarAccess.getValidDeploymentAccess().getAreKeyword_3_1());
+    }
+)	otherlv_6='{' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getValidDeploymentAccess().getLeftCurlyBracketKeyword_4());
     }
 (
 (
@@ -1926,9 +1969,9 @@ ruleValidDeployment returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_7=',' 
+)(	otherlv_8=',' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getValidDeploymentAccess().getCommaKeyword_6_0());
+    	newLeafNode(otherlv_8, grammarAccess.getValidDeploymentAccess().getCommaKeyword_6_0());
     }
 (
 (
@@ -1945,13 +1988,116 @@ ruleValidDeployment returns [EObject current=null]
 	    }
 
 )
-))*	otherlv_9='}' 
+))*	otherlv_10='}' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getValidDeploymentAccess().getRightCurlyBracketKeyword_7());
+    	newLeafNode(otherlv_10, grammarAccess.getValidDeploymentAccess().getRightCurlyBracketKeyword_7());
     }
-	otherlv_10=';' 
+	otherlv_11=';' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getValidDeploymentAccess().getSemicolonKeyword_8());
+    	newLeafNode(otherlv_11, grammarAccess.getValidDeploymentAccess().getSemicolonKeyword_8());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleValidDeploymentImplicit
+entryRuleValidDeploymentImplicit returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getValidDeploymentImplicitRule()); }
+	 iv_ruleValidDeploymentImplicit=ruleValidDeploymentImplicit 
+	 { $current=$iv_ruleValidDeploymentImplicit.current; } 
+	 EOF 
+;
+
+// Rule ValidDeploymentImplicit
+ruleValidDeploymentImplicit returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='Valid for' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getValidDeploymentImplicitAccess().getValidForKeyword_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getValidDeploymentImplicitRule());
+	        }
+        }
+	otherlv_1=RULE_ID
+	{
+		newLeafNode(otherlv_1, grammarAccess.getValidDeploymentImplicitAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_0()); 
+	}
+
+)
+)(	otherlv_2=',' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getValidDeploymentImplicitAccess().getCommaKeyword_2_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getValidDeploymentImplicitRule());
+	        }
+        }
+	otherlv_3=RULE_ID
+	{
+		newLeafNode(otherlv_3, grammarAccess.getValidDeploymentImplicitAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_2_1_0()); 
+	}
+
+)
+))*	otherlv_4='are RDCs with' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getValidDeploymentImplicitAccess().getAreRDCsWithKeyword_3());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getValidDeploymentImplicitAccess().getDefinitionsDeploymentImplicitDefinitionParserRuleCall_4_0()); 
+	    }
+		lv_definitions_5_0=ruleDeploymentImplicitDefinition		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getValidDeploymentImplicitRule());
+	        }
+       		add(
+       			$current, 
+       			"definitions",
+        		lv_definitions_5_0, 
+        		"DeploymentImplicitDefinition");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_6='and' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getValidDeploymentImplicitAccess().getAndKeyword_5_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getValidDeploymentImplicitAccess().getDefinitionsDeploymentImplicitDefinitionParserRuleCall_5_1_0()); 
+	    }
+		lv_definitions_7_0=ruleDeploymentImplicitDefinition		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getValidDeploymentImplicitRule());
+	        }
+       		add(
+       			$current, 
+       			"definitions",
+        		lv_definitions_7_0, 
+        		"DeploymentImplicitDefinition");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*	otherlv_8=';' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getValidDeploymentImplicitAccess().getSemicolonKeyword_6());
     }
 )
 ;
@@ -2008,13 +2154,18 @@ ruleInvalidDeployment returns [EObject current=null]
 	}
 
 )
-))*	otherlv_4='is' 
+))*(	otherlv_4='is' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getInvalidDeploymentAccess().getIsKeyword_3());
+    	newLeafNode(otherlv_4, grammarAccess.getInvalidDeploymentAccess().getIsKeyword_3_0());
     }
-	otherlv_5='{' 
+
+    |	otherlv_5='are' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getInvalidDeploymentAccess().getLeftCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_5, grammarAccess.getInvalidDeploymentAccess().getAreKeyword_3_1());
+    }
+)	otherlv_6='{' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getInvalidDeploymentAccess().getLeftCurlyBracketKeyword_4());
     }
 (
 (
@@ -2031,9 +2182,9 @@ ruleInvalidDeployment returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_7=',' 
+)(	otherlv_8=',' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getInvalidDeploymentAccess().getCommaKeyword_6_0());
+    	newLeafNode(otherlv_8, grammarAccess.getInvalidDeploymentAccess().getCommaKeyword_6_0());
     }
 (
 (
@@ -2050,15 +2201,179 @@ ruleInvalidDeployment returns [EObject current=null]
 	    }
 
 )
-))*	otherlv_9='}' 
+))*	otherlv_10='}' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getInvalidDeploymentAccess().getRightCurlyBracketKeyword_7());
+    	newLeafNode(otherlv_10, grammarAccess.getInvalidDeploymentAccess().getRightCurlyBracketKeyword_7());
     }
-	otherlv_10=';' 
+	otherlv_11=';' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getInvalidDeploymentAccess().getSemicolonKeyword_8());
+    	newLeafNode(otherlv_11, grammarAccess.getInvalidDeploymentAccess().getSemicolonKeyword_8());
     }
 )
+;
+
+
+
+
+
+// Entry rule entryRuleInvalidDeploymentImplicit
+entryRuleInvalidDeploymentImplicit returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getInvalidDeploymentImplicitRule()); }
+	 iv_ruleInvalidDeploymentImplicit=ruleInvalidDeploymentImplicit 
+	 { $current=$iv_ruleInvalidDeploymentImplicit.current; } 
+	 EOF 
+;
+
+// Rule InvalidDeploymentImplicit
+ruleInvalidDeploymentImplicit returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='Invalid for' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getInvalidDeploymentImplicitAccess().getInvalidForKeyword_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInvalidDeploymentImplicitRule());
+	        }
+        }
+	otherlv_1=RULE_ID
+	{
+		newLeafNode(otherlv_1, grammarAccess.getInvalidDeploymentImplicitAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_1_0()); 
+	}
+
+)
+)(	otherlv_2=',' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getInvalidDeploymentImplicitAccess().getCommaKeyword_2_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInvalidDeploymentImplicitRule());
+	        }
+        }
+	otherlv_3=RULE_ID
+	{
+		newLeafNode(otherlv_3, grammarAccess.getInvalidDeploymentImplicitAccess().getEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_2_1_0()); 
+	}
+
+)
+))*	otherlv_4='are RDCs with' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getInvalidDeploymentImplicitAccess().getAreRDCsWithKeyword_3());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getInvalidDeploymentImplicitAccess().getDefinitionsDeploymentImplicitDefinitionParserRuleCall_4_0()); 
+	    }
+		lv_definitions_5_0=ruleDeploymentImplicitDefinition		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getInvalidDeploymentImplicitRule());
+	        }
+       		add(
+       			$current, 
+       			"definitions",
+        		lv_definitions_5_0, 
+        		"DeploymentImplicitDefinition");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_6='and' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getInvalidDeploymentImplicitAccess().getAndKeyword_5_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getInvalidDeploymentImplicitAccess().getDefinitionsDeploymentImplicitDefinitionParserRuleCall_5_1_0()); 
+	    }
+		lv_definitions_7_0=ruleDeploymentImplicitDefinition		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getInvalidDeploymentImplicitRule());
+	        }
+       		add(
+       			$current, 
+       			"definitions",
+        		lv_definitions_7_0, 
+        		"DeploymentImplicitDefinition");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*	otherlv_8=';' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getInvalidDeploymentImplicitAccess().getSemicolonKeyword_6());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleDeploymentImplicitDefinition
+entryRuleDeploymentImplicitDefinition returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getDeploymentImplicitDefinitionRule()); }
+	 iv_ruleDeploymentImplicitDefinition=ruleDeploymentImplicitDefinition 
+	 { $current=$iv_ruleDeploymentImplicitDefinition.current; } 
+	 EOF 
+;
+
+// Rule DeploymentImplicitDefinition
+ruleDeploymentImplicitDefinition returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDeploymentImplicitDefinitionAccess().getAttributeDeploymentImplicitDefinitionAttributeEnumRuleCall_0_0()); 
+	    }
+		lv_attribute_0_0=ruleDeploymentImplicitDefinitionAttribute		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDeploymentImplicitDefinitionRule());
+	        }
+       		set(
+       			$current, 
+       			"attribute",
+        		lv_attribute_0_0, 
+        		"DeploymentImplicitDefinitionAttribute");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_1='=' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getDeploymentImplicitDefinitionAccess().getEqualsSignKeyword_1());
+    }
+(
+(
+		lv_value_2_0=RULE_STRING
+		{
+			newLeafNode(lv_value_2_0, grammarAccess.getDeploymentImplicitDefinitionAccess().getValueSTRINGTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDeploymentImplicitDefinitionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"value",
+        		lv_value_2_0, 
+        		"STRING");
+	    }
+
+)
+))
 ;
 
 
@@ -2195,6 +2510,43 @@ ruleHardwareArchitectureLevelType returns [Enumerator current=null]
 	{
         $current = grammarAccess.getHardwareArchitectureLevelTypeAccess().getCONNECTOREnumLiteralDeclaration_2().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_2, grammarAccess.getHardwareArchitectureLevelTypeAccess().getCONNECTOREnumLiteralDeclaration_2()); 
+    }
+));
+
+
+
+// Rule DeploymentImplicitDefinitionAttribute
+ruleDeploymentImplicitDefinitionAttribute returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+((	enumLiteral_0='RDC.Manufacturer' 
+	{
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_MANUFACTUREREnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_MANUFACTUREREnumLiteralDeclaration_0()); 
+    }
+)
+    |(	enumLiteral_1='RDC.PowerSupply' 
+	{
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_POWERSUPPLYEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_POWERSUPPLYEnumLiteralDeclaration_1()); 
+    }
+)
+    |(	enumLiteral_2='RDC.Side' 
+	{
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_SIDEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_SIDEEnumLiteralDeclaration_2()); 
+    }
+)
+    |(	enumLiteral_3='RDC.Type' 
+	{
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_TYPEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_3, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_TYPEEnumLiteralDeclaration_3()); 
+    }
+)
+    |(	enumLiteral_4='RDC.ESS' 
+	{
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_ESSEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_4, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_ESSEnumLiteralDeclaration_4()); 
     }
 ));
 
