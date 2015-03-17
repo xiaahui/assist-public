@@ -5,12 +5,14 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 import ch.hilbri.assist.mapping.tests.constraints.DislocalityTests;
+import ch.hilbri.assist.mapping.tests.constraints.DislocalityPropagationTests;
 import ch.hilbri.assist.mapping.tests.results.BasicResultTests;
 
 @RunWith(Suite.class)
 @SuiteClasses({
 	BasicResultTests.class,
-	DislocalityTests.class
+	DislocalityTests.class,
+	DislocalityPropagationTests.class
 })  
 
 public class TestSuiteAllMappingTests {}

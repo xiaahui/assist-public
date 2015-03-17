@@ -185,14 +185,11 @@ class AssistSolver {
 		
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))				
-		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
 //		this.mappingConstraintsList.add(new PowerSupplyConstraint(model, solver, solverVariables))
-
-//		this.mappingConstraintsList.add(new OneRouteForEachConnector(model, solver, solverVariables))
-
 	}
 	
 	def setSolverTimeLimit(long timeInMs) {
@@ -301,5 +298,6 @@ class AssistSolver {
 
 	def ArrayList<Result> getResults() 	{ mappingResults 			}
 	def hasReachedLimit() 				{ solver.hasReachedLimit 	}
+	def IntVar[] getLocationVariables() 	{ solverVariables.getLocationVariables(0) }
 	
 }
