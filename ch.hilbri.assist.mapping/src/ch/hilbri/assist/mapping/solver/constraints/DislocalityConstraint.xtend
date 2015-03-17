@@ -14,6 +14,7 @@ import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 import org.slf4j.LoggerFactory
 import org.chocosolver.solver.variables.VF
+import java.util.ArrayList
 
 class DislocalityConstraint extends AbstractMappingConstraint {
 	
@@ -25,7 +26,6 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 	override generate() {
 
 		for (r : model.dislocalityRelations) {
-						
 			var int level
 			if (r.hardwareLevel == HardwareArchitectureLevelType.CONNECTOR) 		level = 0
 			else if (r.hardwareLevel == HardwareArchitectureLevelType.RDC)			level = 1
@@ -38,7 +38,8 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			// Case 1: Only EqInterfaces mentioned
 			if (r.eqInterfaceOrGroups.filter[it instanceof EqInterface].length == r.eqInterfaceOrGroups.length) {
 				val intVars = r.eqInterfaceOrGroups.map[solverVariables.getEqInterfaceLocationVariable(it as EqInterface, l)]
-				solver.post(ICF.alldifferent(intVars))
+				if (intVars.length > 1)
+					solver.post(ICF.alldifferent(intVars))
 			} 
 			
 			// Case 2: Only a single group is mentioned
@@ -47,11 +48,11 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				val group = r.eqInterfaceOrGroups.get(0) as EqInterfaceGroup
 				
 				// The group should not be empty
-				if (group.eqInterfaces.length > 0) { 
-					val intVars = (r.eqInterfaceOrGroups.get(0) as EqInterfaceGroup).eqInterfaces.map[solverVariables.getEqInterfaceLocationVariable(it, l)]
+				if (group.eqInterfaces.length > 1) { 
+					val intVars = group.eqInterfaces.map[solverVariables.getEqInterfaceLocationVariable(it, l)]
 					solver.post(ICF.alldifferent(intVars))
 				} else {
-					logger.info('''... Skipping dislocality constraint with empty group «group.name»''')
+					logger.info('''... Skipping dislocality constraint with empty or one element group «group.name»''')
 				}
 				
 			}
@@ -77,18 +78,37 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 					if (emptyGroupCounter > 0) {
 						logger.info('''      WARNING: A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction was generated with «r.eqInterfaceOrGroups.length - emptyGroupCounter» non-empty elements. (Restriction contained «r.eqInterfaceOrGroups.length» elements in total.)''')
 					}
-				    // this could be optimized by using the variable itself for groups containing only one element 
-					val domainUnionVars = intVarList.map[VF.enumerated("DomainVarForGroup" + it, 0, model.getAllHardwareElements(l).size-1, solver)]
-					solver.post(ACF.allDifferent(intVarList, domainUnionVars))
+					val crossProductSize = intVarList.map[length as long].reduce(p,q|p*q)
+					if (crossProductSize < 50000) {
+						recursiveConstraintBuild(intVarList, 0, new ArrayList<IntVar>)
+					} else {
+					    // this could be optimized by using the variable itself for groups containing only one element 
+						val domainUnionVars = intVarList.map[VF.enumerated("DomainVarForGroup" + it, 0, model.getAllHardwareElements(l).size-1, solver)]
+						solver.post(ACF.allDifferent(intVarList, domainUnionVars))					
+					}
 				}
 			}
 
 			try { solver.propagate }
 			catch (ContradictionException e) { throw new InterfaceGroupCannotBeMappedDislocally(this, r.allEqInterfaceOrGroupNames)	}
 
-			return true
-
 		}
 
+		return true
+
+	}
+	
+	def void recursiveConstraintBuild(List<List<IntVar>> intVarList, int idx, List<IntVar> conflict) {
+		val curList = intVarList.get(idx)
+		for (l: curList) {
+			conflict.add(l)
+			if (idx == intVarList.size - 1) {
+				solver.post(ICF.alldifferent(conflict))				
+			} else {
+				recursiveConstraintBuild(intVarList, idx+1, conflict)
+			}
+			conflict.remove(conflict.size-1)
+		}
+		
 	}
 }

@@ -135,7 +135,7 @@ def runAssist(inputs, args):
             continue
         print([java, "-jar", args.jar, i, "-s", str(args.solutions)])
         procs[subprocess.Popen([java, "-jar", args.jar, i, "-s", str(args.solutions),
-                                "-l", str(args.level)], "-a", str(args.strategy)],
+                                "-l", str(args.level), "-a", str(args.strategy)],
                                stdout=open(i+".log", 'w'), stderr=subprocess.STDOUT)] = args.timeout
         if len(procs) == args.instances:
             waitForRemaining(procs, args)

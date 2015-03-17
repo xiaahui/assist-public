@@ -116,13 +116,16 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 		for (list : varList) {
 			val variable = getFirstFail(list)
 			if (variable != null)
-				logger.info('''Selecting variable «variable.name» («currentProgress»% of all variables instantiated)''')
+				logger.info('''Selecting variable «variable» («currentProgress»% of all variables instantiated)''')
+//				logger.debug('''Instantiated variables list: [«FOR v : variables»«IF v.instantiated»«v.name»«IF v != variables.last», «ENDIF»«ENDIF»«ENDFOR»]''')
 				return variable
 		}
 	}
 	
 	 
     override int selectValue(IntVar variable) {
+    	val conn = model.allConnectors.get(variable.LB)
+		logger.info('''Setting variable «variable.name» to «conn.rdc.compartment.name».«conn.rdc.name».«conn.name».''')
         return variable.getLB();
     }
 	
