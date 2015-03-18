@@ -81,7 +81,7 @@ EqInterfaceGroup:
 	'Group' name=ID '{' eqInterfaces+=[EqInterface] (',' eqInterfaces+=[EqInterface])* '}' ';';
 
 EqInterfaceGroupWithImplicitDefinition: 
-	'Group' name=ID 'based on' definitions+=ImplicitEqInterfaceGroupDefinition ('and' definitions+=ImplicitEqInterfaceGroupDefinition)* ';'
+	'Group' name=ID 'based on' (definitions+=ImplicitEqInterfaceGroupDefinition|eqInterfaces+=[EqInterface]) ('and' (definitions+=ImplicitEqInterfaceGroupDefinition|eqInterfaces+=[EqInterface]))* ';'
 ;
 
 EqInterfaceGroupWithCombinedDefinition: 
@@ -152,7 +152,7 @@ ValidDeployment:
 
 ValidDeploymentImplicit: 
 	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
-	'are RDCs with' definitions+=DeploymentImplicitDefinition ('and' definitions+=DeploymentImplicitDefinition)* ';'
+	'are RDCs' (definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]) ('and' (definitions+=DeploymentImplicitDefinition|hardwareElements+=[HardwareElement|QualifiedName]))* ';'
 ;
 
 
@@ -168,7 +168,7 @@ InvalidDeployment:
 
 InvalidDeploymentImplicit: 
 	'Invalid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
-	'are RDCs with' definitions+=DeploymentImplicitDefinition ('and' definitions+=DeploymentImplicitDefinition)* ';'
+	'are RDCs' (definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]) ('and' (definitions+=DeploymentImplicitDefinition|hardwareElements+=[HardwareElement|QualifiedName]))* ';'
 ;
 
 

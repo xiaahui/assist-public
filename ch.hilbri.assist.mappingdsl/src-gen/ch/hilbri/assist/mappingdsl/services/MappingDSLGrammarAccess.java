@@ -669,21 +669,29 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cBasedOnKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cDefinitionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_3_0 = (RuleCall)cDefinitionsAssignment_3.eContents().get(0);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Assignment cDefinitionsAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
+		private final RuleCall cDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_3_0_0 = (RuleCall)cDefinitionsAssignment_3_0.eContents().get(0);
+		private final Assignment cEqInterfacesAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
+		private final CrossReference cEqInterfacesEqInterfaceCrossReference_3_1_0 = (CrossReference)cEqInterfacesAssignment_3_1.eContents().get(0);
+		private final RuleCall cEqInterfacesEqInterfaceIDTerminalRuleCall_3_1_0_1 = (RuleCall)cEqInterfacesEqInterfaceCrossReference_3_1_0.eContents().get(1);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cAndKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cDefinitionsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_4_1_0 = (RuleCall)cDefinitionsAssignment_4_1.eContents().get(0);
+		private final Alternatives cAlternatives_4_1 = (Alternatives)cGroup_4.eContents().get(1);
+		private final Assignment cDefinitionsAssignment_4_1_0 = (Assignment)cAlternatives_4_1.eContents().get(0);
+		private final RuleCall cDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_4_1_0_0 = (RuleCall)cDefinitionsAssignment_4_1_0.eContents().get(0);
+		private final Assignment cEqInterfacesAssignment_4_1_1 = (Assignment)cAlternatives_4_1.eContents().get(1);
+		private final CrossReference cEqInterfacesEqInterfaceCrossReference_4_1_1_0 = (CrossReference)cEqInterfacesAssignment_4_1_1.eContents().get(0);
+		private final RuleCall cEqInterfacesEqInterfaceIDTerminalRuleCall_4_1_1_0_1 = (RuleCall)cEqInterfacesEqInterfaceCrossReference_4_1_1_0.eContents().get(1);
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//EqInterfaceGroupWithImplicitDefinition:
-		//	"Group" name=ID "based on" definitions+=ImplicitEqInterfaceGroupDefinition ("and"
-		//	definitions+=ImplicitEqInterfaceGroupDefinition)* ";";
+		//	"Group" name=ID "based on" (definitions+=ImplicitEqInterfaceGroupDefinition | eqInterfaces+=[EqInterface]) ("and"
+		//	(definitions+=ImplicitEqInterfaceGroupDefinition | eqInterfaces+=[EqInterface]))* ";";
 		public ParserRule getRule() { return rule; }
 
-		//"Group" name=ID "based on" definitions+=ImplicitEqInterfaceGroupDefinition ("and"
-		//definitions+=ImplicitEqInterfaceGroupDefinition)* ";"
+		//"Group" name=ID "based on" (definitions+=ImplicitEqInterfaceGroupDefinition | eqInterfaces+=[EqInterface]) ("and"
+		//(definitions+=ImplicitEqInterfaceGroupDefinition | eqInterfaces+=[EqInterface]))* ";"
 		public Group getGroup() { return cGroup; }
 
 		//"Group"
@@ -698,23 +706,47 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"based on"
 		public Keyword getBasedOnKeyword_2() { return cBasedOnKeyword_2; }
 
+		//definitions+=ImplicitEqInterfaceGroupDefinition | eqInterfaces+=[EqInterface]
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+
 		//definitions+=ImplicitEqInterfaceGroupDefinition
-		public Assignment getDefinitionsAssignment_3() { return cDefinitionsAssignment_3; }
+		public Assignment getDefinitionsAssignment_3_0() { return cDefinitionsAssignment_3_0; }
 
 		//ImplicitEqInterfaceGroupDefinition
-		public RuleCall getDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_3_0() { return cDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_3_0; }
+		public RuleCall getDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_3_0_0() { return cDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_3_0_0; }
 
-		//("and" definitions+=ImplicitEqInterfaceGroupDefinition)*
+		//eqInterfaces+=[EqInterface]
+		public Assignment getEqInterfacesAssignment_3_1() { return cEqInterfacesAssignment_3_1; }
+
+		//[EqInterface]
+		public CrossReference getEqInterfacesEqInterfaceCrossReference_3_1_0() { return cEqInterfacesEqInterfaceCrossReference_3_1_0; }
+
+		//ID
+		public RuleCall getEqInterfacesEqInterfaceIDTerminalRuleCall_3_1_0_1() { return cEqInterfacesEqInterfaceIDTerminalRuleCall_3_1_0_1; }
+
+		//("and" (definitions+=ImplicitEqInterfaceGroupDefinition | eqInterfaces+=[EqInterface]))*
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"and"
 		public Keyword getAndKeyword_4_0() { return cAndKeyword_4_0; }
 
+		//definitions+=ImplicitEqInterfaceGroupDefinition | eqInterfaces+=[EqInterface]
+		public Alternatives getAlternatives_4_1() { return cAlternatives_4_1; }
+
 		//definitions+=ImplicitEqInterfaceGroupDefinition
-		public Assignment getDefinitionsAssignment_4_1() { return cDefinitionsAssignment_4_1; }
+		public Assignment getDefinitionsAssignment_4_1_0() { return cDefinitionsAssignment_4_1_0; }
 
 		//ImplicitEqInterfaceGroupDefinition
-		public RuleCall getDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_4_1_0() { return cDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_4_1_0; }
+		public RuleCall getDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_4_1_0_0() { return cDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_4_1_0_0; }
+
+		//eqInterfaces+=[EqInterface]
+		public Assignment getEqInterfacesAssignment_4_1_1() { return cEqInterfacesAssignment_4_1_1; }
+
+		//[EqInterface]
+		public CrossReference getEqInterfacesEqInterfaceCrossReference_4_1_1_0() { return cEqInterfacesEqInterfaceCrossReference_4_1_1_0; }
+
+		//ID
+		public RuleCall getEqInterfacesEqInterfaceIDTerminalRuleCall_4_1_1_0_1() { return cEqInterfacesEqInterfaceIDTerminalRuleCall_4_1_1_0_1; }
 
 		//";"
 		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
@@ -1344,22 +1376,32 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cEqInterfaceOrGroupsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final CrossReference cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_2_1_0 = (CrossReference)cEqInterfaceOrGroupsAssignment_2_1.eContents().get(0);
 		private final RuleCall cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_2_1_0_1 = (RuleCall)cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cAreRDCsWithKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cDefinitionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDefinitionsDeploymentImplicitDefinitionParserRuleCall_4_0 = (RuleCall)cDefinitionsAssignment_4.eContents().get(0);
+		private final Keyword cAreRDCsKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Assignment cDefinitionsAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
+		private final RuleCall cDefinitionsDeploymentImplicitDefinitionParserRuleCall_4_0_0 = (RuleCall)cDefinitionsAssignment_4_0.eContents().get(0);
+		private final Assignment cHardwareElementsAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
+		private final CrossReference cHardwareElementsHardwareElementCrossReference_4_1_0 = (CrossReference)cHardwareElementsAssignment_4_1.eContents().get(0);
+		private final RuleCall cHardwareElementsHardwareElementQualifiedNameParserRuleCall_4_1_0_1 = (RuleCall)cHardwareElementsHardwareElementCrossReference_4_1_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cAndKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cDefinitionsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cDefinitionsDeploymentImplicitDefinitionParserRuleCall_5_1_0 = (RuleCall)cDefinitionsAssignment_5_1.eContents().get(0);
+		private final Alternatives cAlternatives_5_1 = (Alternatives)cGroup_5.eContents().get(1);
+		private final Assignment cDefinitionsAssignment_5_1_0 = (Assignment)cAlternatives_5_1.eContents().get(0);
+		private final RuleCall cDefinitionsDeploymentImplicitDefinitionParserRuleCall_5_1_0_0 = (RuleCall)cDefinitionsAssignment_5_1_0.eContents().get(0);
+		private final Assignment cHardwareElementsAssignment_5_1_1 = (Assignment)cAlternatives_5_1.eContents().get(1);
+		private final CrossReference cHardwareElementsHardwareElementCrossReference_5_1_1_0 = (CrossReference)cHardwareElementsAssignment_5_1_1.eContents().get(0);
+		private final RuleCall cHardwareElementsHardwareElementQualifiedNameParserRuleCall_5_1_1_0_1 = (RuleCall)cHardwareElementsHardwareElementCrossReference_5_1_1_0.eContents().get(1);
 		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//ValidDeploymentImplicit:
-		//	"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])*
-		//	"are RDCs with" definitions+=DeploymentImplicitDefinition ("and" definitions+=DeploymentImplicitDefinition)* ";";
+		//	"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "are RDCs"
+		//	(definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]) ("and"
+		//	(definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]))* ";";
 		public ParserRule getRule() { return rule; }
 
-		//"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "are RDCs with"
-		//definitions+=DeploymentImplicitDefinition ("and" definitions+=DeploymentImplicitDefinition)* ";"
+		//"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "are RDCs"
+		//(definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]) ("and"
+		//(definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]))* ";"
 		public Group getGroup() { return cGroup; }
 
 		//"Valid for"
@@ -1389,26 +1431,50 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_2_1_0_1() { return cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_2_1_0_1; }
 
-		//"are RDCs with"
-		public Keyword getAreRDCsWithKeyword_3() { return cAreRDCsWithKeyword_3; }
+		//"are RDCs"
+		public Keyword getAreRDCsKeyword_3() { return cAreRDCsKeyword_3; }
+
+		//definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
 		//definitions+=DeploymentImplicitDefinition
-		public Assignment getDefinitionsAssignment_4() { return cDefinitionsAssignment_4; }
+		public Assignment getDefinitionsAssignment_4_0() { return cDefinitionsAssignment_4_0; }
 
 		//DeploymentImplicitDefinition
-		public RuleCall getDefinitionsDeploymentImplicitDefinitionParserRuleCall_4_0() { return cDefinitionsDeploymentImplicitDefinitionParserRuleCall_4_0; }
+		public RuleCall getDefinitionsDeploymentImplicitDefinitionParserRuleCall_4_0_0() { return cDefinitionsDeploymentImplicitDefinitionParserRuleCall_4_0_0; }
 
-		//("and" definitions+=DeploymentImplicitDefinition)*
+		//hardwareElements+=[HardwareElement|QualifiedName]
+		public Assignment getHardwareElementsAssignment_4_1() { return cHardwareElementsAssignment_4_1; }
+
+		//[HardwareElement|QualifiedName]
+		public CrossReference getHardwareElementsHardwareElementCrossReference_4_1_0() { return cHardwareElementsHardwareElementCrossReference_4_1_0; }
+
+		//QualifiedName
+		public RuleCall getHardwareElementsHardwareElementQualifiedNameParserRuleCall_4_1_0_1() { return cHardwareElementsHardwareElementQualifiedNameParserRuleCall_4_1_0_1; }
+
+		//("and" (definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]))*
 		public Group getGroup_5() { return cGroup_5; }
 
 		//"and"
 		public Keyword getAndKeyword_5_0() { return cAndKeyword_5_0; }
 
+		//definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]
+		public Alternatives getAlternatives_5_1() { return cAlternatives_5_1; }
+
 		//definitions+=DeploymentImplicitDefinition
-		public Assignment getDefinitionsAssignment_5_1() { return cDefinitionsAssignment_5_1; }
+		public Assignment getDefinitionsAssignment_5_1_0() { return cDefinitionsAssignment_5_1_0; }
 
 		//DeploymentImplicitDefinition
-		public RuleCall getDefinitionsDeploymentImplicitDefinitionParserRuleCall_5_1_0() { return cDefinitionsDeploymentImplicitDefinitionParserRuleCall_5_1_0; }
+		public RuleCall getDefinitionsDeploymentImplicitDefinitionParserRuleCall_5_1_0_0() { return cDefinitionsDeploymentImplicitDefinitionParserRuleCall_5_1_0_0; }
+
+		//hardwareElements+=[HardwareElement|QualifiedName]
+		public Assignment getHardwareElementsAssignment_5_1_1() { return cHardwareElementsAssignment_5_1_1; }
+
+		//[HardwareElement|QualifiedName]
+		public CrossReference getHardwareElementsHardwareElementCrossReference_5_1_1_0() { return cHardwareElementsHardwareElementCrossReference_5_1_1_0; }
+
+		//QualifiedName
+		public RuleCall getHardwareElementsHardwareElementQualifiedNameParserRuleCall_5_1_1_0_1() { return cHardwareElementsHardwareElementQualifiedNameParserRuleCall_5_1_1_0_1; }
 
 		//";"
 		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
@@ -1533,22 +1599,32 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cEqInterfaceOrGroupsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final CrossReference cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_2_1_0 = (CrossReference)cEqInterfaceOrGroupsAssignment_2_1.eContents().get(0);
 		private final RuleCall cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_2_1_0_1 = (RuleCall)cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cAreRDCsWithKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cDefinitionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDefinitionsDeploymentImplicitDefinitionParserRuleCall_4_0 = (RuleCall)cDefinitionsAssignment_4.eContents().get(0);
+		private final Keyword cAreRDCsKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Assignment cDefinitionsAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
+		private final RuleCall cDefinitionsDeploymentImplicitDefinitionParserRuleCall_4_0_0 = (RuleCall)cDefinitionsAssignment_4_0.eContents().get(0);
+		private final Assignment cHardwareElementsAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
+		private final CrossReference cHardwareElementsHardwareElementCrossReference_4_1_0 = (CrossReference)cHardwareElementsAssignment_4_1.eContents().get(0);
+		private final RuleCall cHardwareElementsHardwareElementQualifiedNameParserRuleCall_4_1_0_1 = (RuleCall)cHardwareElementsHardwareElementCrossReference_4_1_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cAndKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cDefinitionsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cDefinitionsDeploymentImplicitDefinitionParserRuleCall_5_1_0 = (RuleCall)cDefinitionsAssignment_5_1.eContents().get(0);
+		private final Alternatives cAlternatives_5_1 = (Alternatives)cGroup_5.eContents().get(1);
+		private final Assignment cDefinitionsAssignment_5_1_0 = (Assignment)cAlternatives_5_1.eContents().get(0);
+		private final RuleCall cDefinitionsDeploymentImplicitDefinitionParserRuleCall_5_1_0_0 = (RuleCall)cDefinitionsAssignment_5_1_0.eContents().get(0);
+		private final Assignment cHardwareElementsAssignment_5_1_1 = (Assignment)cAlternatives_5_1.eContents().get(1);
+		private final CrossReference cHardwareElementsHardwareElementCrossReference_5_1_1_0 = (CrossReference)cHardwareElementsAssignment_5_1_1.eContents().get(0);
+		private final RuleCall cHardwareElementsHardwareElementQualifiedNameParserRuleCall_5_1_1_0_1 = (RuleCall)cHardwareElementsHardwareElementCrossReference_5_1_1_0.eContents().get(1);
 		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//InvalidDeploymentImplicit:
-		//	"Invalid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])*
-		//	"are RDCs with" definitions+=DeploymentImplicitDefinition ("and" definitions+=DeploymentImplicitDefinition)* ";";
+		//	"Invalid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "are RDCs"
+		//	(definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]) ("and"
+		//	(definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]))* ";";
 		public ParserRule getRule() { return rule; }
 
-		//"Invalid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "are RDCs with"
-		//definitions+=DeploymentImplicitDefinition ("and" definitions+=DeploymentImplicitDefinition)* ";"
+		//"Invalid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "are RDCs"
+		//(definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]) ("and"
+		//(definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]))* ";"
 		public Group getGroup() { return cGroup; }
 
 		//"Invalid for"
@@ -1578,26 +1654,50 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_2_1_0_1() { return cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_2_1_0_1; }
 
-		//"are RDCs with"
-		public Keyword getAreRDCsWithKeyword_3() { return cAreRDCsWithKeyword_3; }
+		//"are RDCs"
+		public Keyword getAreRDCsKeyword_3() { return cAreRDCsKeyword_3; }
+
+		//definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
 		//definitions+=DeploymentImplicitDefinition
-		public Assignment getDefinitionsAssignment_4() { return cDefinitionsAssignment_4; }
+		public Assignment getDefinitionsAssignment_4_0() { return cDefinitionsAssignment_4_0; }
 
 		//DeploymentImplicitDefinition
-		public RuleCall getDefinitionsDeploymentImplicitDefinitionParserRuleCall_4_0() { return cDefinitionsDeploymentImplicitDefinitionParserRuleCall_4_0; }
+		public RuleCall getDefinitionsDeploymentImplicitDefinitionParserRuleCall_4_0_0() { return cDefinitionsDeploymentImplicitDefinitionParserRuleCall_4_0_0; }
 
-		//("and" definitions+=DeploymentImplicitDefinition)*
+		//hardwareElements+=[HardwareElement|QualifiedName]
+		public Assignment getHardwareElementsAssignment_4_1() { return cHardwareElementsAssignment_4_1; }
+
+		//[HardwareElement|QualifiedName]
+		public CrossReference getHardwareElementsHardwareElementCrossReference_4_1_0() { return cHardwareElementsHardwareElementCrossReference_4_1_0; }
+
+		//QualifiedName
+		public RuleCall getHardwareElementsHardwareElementQualifiedNameParserRuleCall_4_1_0_1() { return cHardwareElementsHardwareElementQualifiedNameParserRuleCall_4_1_0_1; }
+
+		//("and" (definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]))*
 		public Group getGroup_5() { return cGroup_5; }
 
 		//"and"
 		public Keyword getAndKeyword_5_0() { return cAndKeyword_5_0; }
 
+		//definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]
+		public Alternatives getAlternatives_5_1() { return cAlternatives_5_1; }
+
 		//definitions+=DeploymentImplicitDefinition
-		public Assignment getDefinitionsAssignment_5_1() { return cDefinitionsAssignment_5_1; }
+		public Assignment getDefinitionsAssignment_5_1_0() { return cDefinitionsAssignment_5_1_0; }
 
 		//DeploymentImplicitDefinition
-		public RuleCall getDefinitionsDeploymentImplicitDefinitionParserRuleCall_5_1_0() { return cDefinitionsDeploymentImplicitDefinitionParserRuleCall_5_1_0; }
+		public RuleCall getDefinitionsDeploymentImplicitDefinitionParserRuleCall_5_1_0_0() { return cDefinitionsDeploymentImplicitDefinitionParserRuleCall_5_1_0_0; }
+
+		//hardwareElements+=[HardwareElement|QualifiedName]
+		public Assignment getHardwareElementsAssignment_5_1_1() { return cHardwareElementsAssignment_5_1_1; }
+
+		//[HardwareElement|QualifiedName]
+		public CrossReference getHardwareElementsHardwareElementCrossReference_5_1_1_0() { return cHardwareElementsHardwareElementCrossReference_5_1_1_0; }
+
+		//QualifiedName
+		public RuleCall getHardwareElementsHardwareElementQualifiedNameParserRuleCall_5_1_1_0_1() { return cHardwareElementsHardwareElementQualifiedNameParserRuleCall_5_1_1_0_1; }
 
 		//";"
 		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
@@ -2102,8 +2202,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EqInterfaceGroupWithImplicitDefinition:
-	//	"Group" name=ID "based on" definitions+=ImplicitEqInterfaceGroupDefinition ("and"
-	//	definitions+=ImplicitEqInterfaceGroupDefinition)* ";";
+	//	"Group" name=ID "based on" (definitions+=ImplicitEqInterfaceGroupDefinition | eqInterfaces+=[EqInterface]) ("and"
+	//	(definitions+=ImplicitEqInterfaceGroupDefinition | eqInterfaces+=[EqInterface]))* ";";
 	public EqInterfaceGroupWithImplicitDefinitionElements getEqInterfaceGroupWithImplicitDefinitionAccess() {
 		return pEqInterfaceGroupWithImplicitDefinition;
 	}
@@ -2201,8 +2301,9 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ValidDeploymentImplicit:
-	//	"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])*
-	//	"are RDCs with" definitions+=DeploymentImplicitDefinition ("and" definitions+=DeploymentImplicitDefinition)* ";";
+	//	"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "are RDCs"
+	//	(definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]) ("and"
+	//	(definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]))* ";";
 	public ValidDeploymentImplicitElements getValidDeploymentImplicitAccess() {
 		return pValidDeploymentImplicit;
 	}
@@ -2224,8 +2325,9 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//InvalidDeploymentImplicit:
-	//	"Invalid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])*
-	//	"are RDCs with" definitions+=DeploymentImplicitDefinition ("and" definitions+=DeploymentImplicitDefinition)* ";";
+	//	"Invalid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "are RDCs"
+	//	(definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]) ("and"
+	//	(definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]))* ";";
 	public InvalidDeploymentImplicitElements getInvalidDeploymentImplicitAccess() {
 		return pInvalidDeploymentImplicit;
 	}

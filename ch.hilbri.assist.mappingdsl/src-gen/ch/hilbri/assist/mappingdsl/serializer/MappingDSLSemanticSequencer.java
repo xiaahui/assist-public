@@ -272,7 +272,11 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID definitions+=ImplicitEqInterfaceGroupDefinition definitions+=ImplicitEqInterfaceGroupDefinition*)
+	 *     (
+	 *         name=ID 
+	 *         (definitions+=ImplicitEqInterfaceGroupDefinition | eqInterfaces+=[EqInterface|ID]) 
+	 *         (definitions+=ImplicitEqInterfaceGroupDefinition | eqInterfaces+=[EqInterface|ID])*
+	 *     )
 	 */
 	protected void sequence_EqInterfaceGroupWithImplicitDefinition(EObject context, EqInterfaceGroupWithImplicitDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -333,8 +337,8 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (
 	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] 
 	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID]* 
-	 *         definitions+=DeploymentImplicitDefinition 
-	 *         definitions+=DeploymentImplicitDefinition*
+	 *         (definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]) 
+	 *         (definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName])*
 	 *     )
 	 */
 	protected void sequence_InvalidDeploymentImplicit(EObject context, InvalidDeploymentImplicit semanticObject) {
@@ -396,8 +400,8 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (
 	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] 
 	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID]* 
-	 *         definitions+=DeploymentImplicitDefinition 
-	 *         definitions+=DeploymentImplicitDefinition*
+	 *         (definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]) 
+	 *         (definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName])*
 	 *     )
 	 */
 	protected void sequence_ValidDeploymentImplicit(EObject context, ValidDeploymentImplicit semanticObject) {
