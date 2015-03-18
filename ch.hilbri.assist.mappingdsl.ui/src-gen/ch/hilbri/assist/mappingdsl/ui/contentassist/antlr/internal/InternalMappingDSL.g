@@ -784,73 +784,80 @@ rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives
     }
 :
 (
-{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_0()); }
+{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getNAMEEnumLiteralDeclaration_0()); }
+(	'Name' 
+)
+{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getNAMEEnumLiteralDeclaration_0()); }
+)
+
+    |(
+{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_1()); }
 (	'System' 
 )
-{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_0()); }
+{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_1()); }
 )
 
     |(
-{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_1()); }
+{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2()); }
 (	'SubAta' 
 )
-{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_1()); }
+{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2()); }
 )
 
     |(
-{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_2()); }
+{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_3()); }
 (	'Resource' 
 )
-{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_2()); }
+{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_3()); }
 )
 
     |(
-{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_3()); }
+{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_4()); }
 (	'LineName' 
 )
-{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_3()); }
+{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_4()); }
 )
 
     |(
-{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_4()); }
+{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_5()); }
 (	'WiringLane' 
 )
-{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_4()); }
+{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_5()); }
 )
 
     |(
-{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_5()); }
+{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_6()); }
 (	'GrpInfo' 
 )
-{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_5()); }
+{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_6()); }
 )
 
     |(
-{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_6()); }
+{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_7()); }
 (	'Route' 
 )
-{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_6()); }
+{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_7()); }
 )
 
     |(
-{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_7()); }
+{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_8()); }
 (	'PwSup1' 
 )
-{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_7()); }
+{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_8()); }
 )
 
     |(
-{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_8()); }
+{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_9()); }
 (	'EmhZone1' 
 )
-{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_8()); }
+{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_9()); }
 )
 
     |(
-{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_9()); }
+{ before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_10()); }
 (	'Type' 
 )
-{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_9()); }
+{ after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_10()); }
 )
 
 ;
@@ -895,38 +902,45 @@ rule__DeploymentImplicitDefinitionAttribute__Alternatives
     }
 :
 (
-{ before(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_MANUFACTUREREnumLiteralDeclaration_0()); }
+{ before(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_NAMEEnumLiteralDeclaration_0()); }
+(	'RDC.Name' 
+)
+{ after(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_NAMEEnumLiteralDeclaration_0()); }
+)
+
+    |(
+{ before(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_MANUFACTUREREnumLiteralDeclaration_1()); }
 (	'RDC.Manufacturer' 
 )
-{ after(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_MANUFACTUREREnumLiteralDeclaration_0()); }
+{ after(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_MANUFACTUREREnumLiteralDeclaration_1()); }
 )
 
     |(
-{ before(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_POWERSUPPLYEnumLiteralDeclaration_1()); }
+{ before(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_POWERSUPPLYEnumLiteralDeclaration_2()); }
 (	'RDC.PowerSupply' 
 )
-{ after(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_POWERSUPPLYEnumLiteralDeclaration_1()); }
+{ after(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_POWERSUPPLYEnumLiteralDeclaration_2()); }
 )
 
     |(
-{ before(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_SIDEEnumLiteralDeclaration_2()); }
+{ before(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_SIDEEnumLiteralDeclaration_3()); }
 (	'RDC.Side' 
 )
-{ after(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_SIDEEnumLiteralDeclaration_2()); }
+{ after(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_SIDEEnumLiteralDeclaration_3()); }
 )
 
     |(
-{ before(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_TYPEEnumLiteralDeclaration_3()); }
+{ before(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_TYPEEnumLiteralDeclaration_4()); }
 (	'RDC.Type' 
 )
-{ after(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_TYPEEnumLiteralDeclaration_3()); }
+{ after(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_TYPEEnumLiteralDeclaration_4()); }
 )
 
     |(
-{ before(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_ESSEnumLiteralDeclaration_4()); }
+{ before(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_ESSEnumLiteralDeclaration_5()); }
 (	'RDC.ESS' 
 )
-{ after(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_ESSEnumLiteralDeclaration_4()); }
+{ after(grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_ESSEnumLiteralDeclaration_5()); }
 )
 
 ;

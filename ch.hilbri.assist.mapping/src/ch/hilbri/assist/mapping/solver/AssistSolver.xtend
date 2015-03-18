@@ -74,16 +74,17 @@ class AssistSolver {
 				var Iterable<EqInterface> interfaceList = model.eqInterfaces	
 				for (definition : (g as EqInterfaceGroupWithImplicitDefinition).definitions) {
 						switch (definition.attribute) {
-						case SYSTEM: 		{ interfaceList = interfaceList.filter[it.system.equals(definition.value)] }
-						case SUBATA: 		{ interfaceList = interfaceList.filter[it.subAta.equals(definition.value)] }
-						case RESOURCE: 		{ interfaceList = interfaceList.filter[it.resource.equals(definition.value)]}
-						case LINENAME: 		{ interfaceList = interfaceList.filter[it.lineName.equals(definition.value)]}
-						case WIRINGLANE:	{ interfaceList = interfaceList.filter[it.wiringLane.equals(definition.value)]}
-						case GRPINFO: 		{ interfaceList = interfaceList.filter[it.grpInfo.equals(definition.value)]}
-						case ROUTE: 		{ interfaceList = interfaceList.filter[it.route.equals(definition.value)]}
-						case PWSUP1: 		{ interfaceList = interfaceList.filter[it.pwSup1.equals(definition.value)]}
-						case EMHZONE1: 		{ interfaceList = interfaceList.filter[it.emhZone1.equals(definition.value)]}
-						case IOTYPE: 		{ interfaceList = interfaceList.filter[it.ioType.equals(definition.value)]}
+						case NAME:			{ interfaceList = interfaceList.filter[it.name.equals(definition.value)			]}
+						case SYSTEM: 		{ interfaceList = interfaceList.filter[it.system.equals(definition.value)		]}
+						case SUBATA: 		{ interfaceList = interfaceList.filter[it.subAta.equals(definition.value)		]}
+						case RESOURCE: 		{ interfaceList = interfaceList.filter[it.resource.equals(definition.value)		]}
+						case LINENAME: 		{ interfaceList = interfaceList.filter[it.lineName.equals(definition.value)		]}
+						case WIRINGLANE:	{ interfaceList = interfaceList.filter[it.wiringLane.equals(definition.value)	]}
+						case GRPINFO: 		{ interfaceList = interfaceList.filter[it.grpInfo.equals(definition.value)		]}
+						case ROUTE: 		{ interfaceList = interfaceList.filter[it.route.equals(definition.value)		]}
+						case PWSUP1: 		{ interfaceList = interfaceList.filter[it.pwSup1.equals(definition.value)		]}
+						case EMHZONE1: 		{ interfaceList = interfaceList.filter[it.emhZone1.equals(definition.value)		]}
+						case IOTYPE: 		{ interfaceList = interfaceList.filter[it.ioType.equals(definition.value)		]}
 					}
 				}
 				g.eqInterfaces.addAll(interfaceList)
@@ -123,11 +124,12 @@ class AssistSolver {
 				var Iterable<RDC> rdcList = model.allRDCs
 				for (definition : (s as ValidDeploymentImplicit).definitions) {
 					switch (definition.attribute) {
-						case RDC_MANUFACTURER: 	{ rdcList = rdcList.filter[manufacturer.equals(definition.value)] 	}
-						case RDC_POWERSUPPLY: 	{ rdcList = rdcList.filter[powerSupply.equals(definition.value)] 	}
-						case RDC_SIDE: 			{ rdcList = rdcList.filter[side.equals(definition.value)] 			}
-						case RDC_TYPE: 			{ rdcList = rdcList.filter[rdcType.equals(definition.value)] 		}
-						case RDC_ESS: 			{ rdcList = rdcList.filter[ess.equals(definition.value)] 			}
+						case RDC_NAME:			{ rdcList = rdcList.filter[name.equals(definition.value)			]}
+						case RDC_MANUFACTURER: 	{ rdcList = rdcList.filter[manufacturer.equals(definition.value)	]}
+						case RDC_POWERSUPPLY: 	{ rdcList = rdcList.filter[powerSupply.equals(definition.value)		]}
+						case RDC_SIDE: 			{ rdcList = rdcList.filter[side.equals(definition.value)			]}
+						case RDC_TYPE: 			{ rdcList = rdcList.filter[rdcType.equals(definition.value)			]}
+						case RDC_ESS: 			{ rdcList = rdcList.filter[ess.equals(definition.value)				]}
 					}
 				}
 				s.hardwareElements.addAll(rdcList)
@@ -146,11 +148,12 @@ class AssistSolver {
 				var Iterable<RDC> rdcList = model.allRDCs
 				for (definition : (s as InvalidDeploymentImplicit).definitions) {
 					switch (definition.attribute) {
-						case RDC_MANUFACTURER: 	{ rdcList = rdcList.filter[manufacturer.equals(definition.value)] 	}
-						case RDC_POWERSUPPLY: 	{ rdcList = rdcList.filter[powerSupply.equals(definition.value)] 	}
-						case RDC_SIDE: 			{ rdcList = rdcList.filter[side.equals(definition.value)] 			}
-						case RDC_TYPE: 			{ rdcList = rdcList.filter[rdcType.equals(definition.value)] 		}
-						case RDC_ESS: 			{ rdcList = rdcList.filter[ess.equals(definition.value)] 			}
+						case RDC_NAME:			{ rdcList = rdcList.filter[name.equals(definition.value)			]}
+						case RDC_MANUFACTURER: 	{ rdcList = rdcList.filter[manufacturer.equals(definition.value)	]}
+						case RDC_POWERSUPPLY: 	{ rdcList = rdcList.filter[powerSupply.equals(definition.value)		]}
+						case RDC_SIDE: 			{ rdcList = rdcList.filter[side.equals(definition.value)			]}
+						case RDC_TYPE: 			{ rdcList = rdcList.filter[rdcType.equals(definition.value)			]}
+						case RDC_ESS: 			{ rdcList = rdcList.filter[ess.equals(definition.value)				]}
 					}
 				}
 				s.hardwareElements.addAll(rdcList)

@@ -23,6 +23,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 				var Iterable<EqInterface> interfaceList = model.eqInterfaces	
 				for (definition : (g as EqInterfaceGroupWithImplicitDefinition).definitions) {
 						switch (definition.attribute) {
+						case NAME:			{ interfaceList = interfaceList.filter[it.name.equals(definition.value)] }
 						case SYSTEM: 		{ interfaceList = interfaceList.filter[it.system.equals(definition.value)] }
 						case SUBATA: 		{ interfaceList = interfaceList.filter[it.subAta.equals(definition.value)] }
 						case RESOURCE: 		{ interfaceList = interfaceList.filter[it.resource.equals(definition.value)]}
@@ -33,6 +34,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 						case PWSUP1: 		{ interfaceList = interfaceList.filter[it.pwSup1.equals(definition.value)]}
 						case EMHZONE1: 		{ interfaceList = interfaceList.filter[it.emhZone1.equals(definition.value)]}
 						case IOTYPE: 		{ interfaceList = interfaceList.filter[it.ioType.equals(definition.value)]}
+						
 					}
 				}
 				if (interfaceList.isNullOrEmpty)
@@ -46,6 +48,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 			var Iterable<RDC> rdcList = model.allRDCs
 			for (definition : (s as ValidDeploymentImplicit).definitions) {
 				switch (definition.attribute) {
+					case RDC_NAME: 			{ rdcList = rdcList.filter[name.equals(definition.value)] 			}
 					case RDC_MANUFACTURER: 	{ rdcList = rdcList.filter[manufacturer.equals(definition.value)] 	}
 					case RDC_POWERSUPPLY: 	{ rdcList = rdcList.filter[powerSupply.equals(definition.value)] 	}
 					case RDC_SIDE: 			{ rdcList = rdcList.filter[side.equals(definition.value)] 			}
@@ -64,6 +67,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 			var Iterable<RDC> rdcList = model.allRDCs
 			for (definition : (s as InvalidDeploymentImplicit).definitions) {
 				switch (definition.attribute) {
+					case RDC_NAME: 			{ rdcList = rdcList.filter[manufacturer.equals(definition.value)] 	}					
 					case RDC_MANUFACTURER: 	{ rdcList = rdcList.filter[manufacturer.equals(definition.value)] 	}
 					case RDC_POWERSUPPLY: 	{ rdcList = rdcList.filter[powerSupply.equals(definition.value)] 	}
 					case RDC_SIDE: 			{ rdcList = rdcList.filter[side.equals(definition.value)] 			}
@@ -100,6 +104,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 						var Iterable<EqInterface> interfaceList = model.eqInterfaces	
 						for (definition : (combinedGroup as EqInterfaceGroupWithImplicitDefinition).definitions) {
 							switch (definition.attribute) {
+								case NAME:			{ interfaceList = interfaceList.filter[it.name.equals(definition.value)] }
 								case SYSTEM: 		{ interfaceList = interfaceList.filter[it.system.equals(definition.value)] }
 								case SUBATA: 		{ interfaceList = interfaceList.filter[it.subAta.equals(definition.value)] }
 								case RESOURCE: 		{ interfaceList = interfaceList.filter[it.resource.equals(definition.value)]}

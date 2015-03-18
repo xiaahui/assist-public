@@ -1753,95 +1753,103 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	public class ImplicitEqInterfaceGroupDefinitionAttributeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "ImplicitEqInterfaceGroupDefinitionAttribute");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cSYSTEMEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cSYSTEMSystemKeyword_0_0 = (Keyword)cSYSTEMEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cSUBATAEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cSUBATASubAtaKeyword_1_0 = (Keyword)cSUBATAEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cRESOURCEEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cRESOURCEResourceKeyword_2_0 = (Keyword)cRESOURCEEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cLINENAMEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cLINENAMELineNameKeyword_3_0 = (Keyword)cLINENAMEEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cWIRINGLANEEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cWIRINGLANEWiringLaneKeyword_4_0 = (Keyword)cWIRINGLANEEnumLiteralDeclaration_4.eContents().get(0);
-		private final EnumLiteralDeclaration cGRPINFOEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
-		private final Keyword cGRPINFOGrpInfoKeyword_5_0 = (Keyword)cGRPINFOEnumLiteralDeclaration_5.eContents().get(0);
-		private final EnumLiteralDeclaration cROUTEEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
-		private final Keyword cROUTERouteKeyword_6_0 = (Keyword)cROUTEEnumLiteralDeclaration_6.eContents().get(0);
-		private final EnumLiteralDeclaration cPWSUP1EnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
-		private final Keyword cPWSUP1PwSup1Keyword_7_0 = (Keyword)cPWSUP1EnumLiteralDeclaration_7.eContents().get(0);
-		private final EnumLiteralDeclaration cEMHZONE1EnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
-		private final Keyword cEMHZONE1EmhZone1Keyword_8_0 = (Keyword)cEMHZONE1EnumLiteralDeclaration_8.eContents().get(0);
-		private final EnumLiteralDeclaration cIOTYPEEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
-		private final Keyword cIOTYPETypeKeyword_9_0 = (Keyword)cIOTYPEEnumLiteralDeclaration_9.eContents().get(0);
+		private final EnumLiteralDeclaration cNAMEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cNAMENameKeyword_0_0 = (Keyword)cNAMEEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cSYSTEMEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cSYSTEMSystemKeyword_1_0 = (Keyword)cSYSTEMEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cSUBATAEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cSUBATASubAtaKeyword_2_0 = (Keyword)cSUBATAEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cRESOURCEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cRESOURCEResourceKeyword_3_0 = (Keyword)cRESOURCEEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cLINENAMEEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cLINENAMELineNameKeyword_4_0 = (Keyword)cLINENAMEEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cWIRINGLANEEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cWIRINGLANEWiringLaneKeyword_5_0 = (Keyword)cWIRINGLANEEnumLiteralDeclaration_5.eContents().get(0);
+		private final EnumLiteralDeclaration cGRPINFOEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
+		private final Keyword cGRPINFOGrpInfoKeyword_6_0 = (Keyword)cGRPINFOEnumLiteralDeclaration_6.eContents().get(0);
+		private final EnumLiteralDeclaration cROUTEEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
+		private final Keyword cROUTERouteKeyword_7_0 = (Keyword)cROUTEEnumLiteralDeclaration_7.eContents().get(0);
+		private final EnumLiteralDeclaration cPWSUP1EnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
+		private final Keyword cPWSUP1PwSup1Keyword_8_0 = (Keyword)cPWSUP1EnumLiteralDeclaration_8.eContents().get(0);
+		private final EnumLiteralDeclaration cEMHZONE1EnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
+		private final Keyword cEMHZONE1EmhZone1Keyword_9_0 = (Keyword)cEMHZONE1EnumLiteralDeclaration_9.eContents().get(0);
+		private final EnumLiteralDeclaration cIOTYPEEnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
+		private final Keyword cIOTYPETypeKeyword_10_0 = (Keyword)cIOTYPEEnumLiteralDeclaration_10.eContents().get(0);
 		
 		//enum ImplicitEqInterfaceGroupDefinitionAttribute:
-		//	SYSTEM="System" | SUBATA="SubAta" | RESOURCE="Resource" | LINENAME="LineName" | WIRINGLANE="WiringLane" |
-		//	GRPINFO="GrpInfo" | ROUTE="Route" | PWSUP1="PwSup1" | EMHZONE1="EmhZone1" | IOTYPE="Type";
+		//	NAME="Name" | SYSTEM="System" | SUBATA="SubAta" | RESOURCE="Resource" | LINENAME="LineName" | WIRINGLANE="WiringLane"
+		//	| GRPINFO="GrpInfo" | ROUTE="Route" | PWSUP1="PwSup1" | EMHZONE1="EmhZone1" | IOTYPE="Type";
 		public EnumRule getRule() { return rule; }
 
-		//SYSTEM="System" | SUBATA="SubAta" | RESOURCE="Resource" | LINENAME="LineName" | WIRINGLANE="WiringLane" |
+		//NAME="Name" | SYSTEM="System" | SUBATA="SubAta" | RESOURCE="Resource" | LINENAME="LineName" | WIRINGLANE="WiringLane" |
 		//GRPINFO="GrpInfo" | ROUTE="Route" | PWSUP1="PwSup1" | EMHZONE1="EmhZone1" | IOTYPE="Type"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
+		//NAME="Name"
+		public EnumLiteralDeclaration getNAMEEnumLiteralDeclaration_0() { return cNAMEEnumLiteralDeclaration_0; }
+
+		//"Name"
+		public Keyword getNAMENameKeyword_0_0() { return cNAMENameKeyword_0_0; }
+
 		//SYSTEM="System"
-		public EnumLiteralDeclaration getSYSTEMEnumLiteralDeclaration_0() { return cSYSTEMEnumLiteralDeclaration_0; }
+		public EnumLiteralDeclaration getSYSTEMEnumLiteralDeclaration_1() { return cSYSTEMEnumLiteralDeclaration_1; }
 
 		//"System"
-		public Keyword getSYSTEMSystemKeyword_0_0() { return cSYSTEMSystemKeyword_0_0; }
+		public Keyword getSYSTEMSystemKeyword_1_0() { return cSYSTEMSystemKeyword_1_0; }
 
 		//SUBATA="SubAta"
-		public EnumLiteralDeclaration getSUBATAEnumLiteralDeclaration_1() { return cSUBATAEnumLiteralDeclaration_1; }
+		public EnumLiteralDeclaration getSUBATAEnumLiteralDeclaration_2() { return cSUBATAEnumLiteralDeclaration_2; }
 
 		//"SubAta"
-		public Keyword getSUBATASubAtaKeyword_1_0() { return cSUBATASubAtaKeyword_1_0; }
+		public Keyword getSUBATASubAtaKeyword_2_0() { return cSUBATASubAtaKeyword_2_0; }
 
 		//RESOURCE="Resource"
-		public EnumLiteralDeclaration getRESOURCEEnumLiteralDeclaration_2() { return cRESOURCEEnumLiteralDeclaration_2; }
+		public EnumLiteralDeclaration getRESOURCEEnumLiteralDeclaration_3() { return cRESOURCEEnumLiteralDeclaration_3; }
 
 		//"Resource"
-		public Keyword getRESOURCEResourceKeyword_2_0() { return cRESOURCEResourceKeyword_2_0; }
+		public Keyword getRESOURCEResourceKeyword_3_0() { return cRESOURCEResourceKeyword_3_0; }
 
 		//LINENAME="LineName"
-		public EnumLiteralDeclaration getLINENAMEEnumLiteralDeclaration_3() { return cLINENAMEEnumLiteralDeclaration_3; }
+		public EnumLiteralDeclaration getLINENAMEEnumLiteralDeclaration_4() { return cLINENAMEEnumLiteralDeclaration_4; }
 
 		//"LineName"
-		public Keyword getLINENAMELineNameKeyword_3_0() { return cLINENAMELineNameKeyword_3_0; }
+		public Keyword getLINENAMELineNameKeyword_4_0() { return cLINENAMELineNameKeyword_4_0; }
 
 		//WIRINGLANE="WiringLane"
-		public EnumLiteralDeclaration getWIRINGLANEEnumLiteralDeclaration_4() { return cWIRINGLANEEnumLiteralDeclaration_4; }
+		public EnumLiteralDeclaration getWIRINGLANEEnumLiteralDeclaration_5() { return cWIRINGLANEEnumLiteralDeclaration_5; }
 
 		//"WiringLane"
-		public Keyword getWIRINGLANEWiringLaneKeyword_4_0() { return cWIRINGLANEWiringLaneKeyword_4_0; }
+		public Keyword getWIRINGLANEWiringLaneKeyword_5_0() { return cWIRINGLANEWiringLaneKeyword_5_0; }
 
 		//GRPINFO="GrpInfo"
-		public EnumLiteralDeclaration getGRPINFOEnumLiteralDeclaration_5() { return cGRPINFOEnumLiteralDeclaration_5; }
+		public EnumLiteralDeclaration getGRPINFOEnumLiteralDeclaration_6() { return cGRPINFOEnumLiteralDeclaration_6; }
 
 		//"GrpInfo"
-		public Keyword getGRPINFOGrpInfoKeyword_5_0() { return cGRPINFOGrpInfoKeyword_5_0; }
+		public Keyword getGRPINFOGrpInfoKeyword_6_0() { return cGRPINFOGrpInfoKeyword_6_0; }
 
 		//ROUTE="Route"
-		public EnumLiteralDeclaration getROUTEEnumLiteralDeclaration_6() { return cROUTEEnumLiteralDeclaration_6; }
+		public EnumLiteralDeclaration getROUTEEnumLiteralDeclaration_7() { return cROUTEEnumLiteralDeclaration_7; }
 
 		//"Route"
-		public Keyword getROUTERouteKeyword_6_0() { return cROUTERouteKeyword_6_0; }
+		public Keyword getROUTERouteKeyword_7_0() { return cROUTERouteKeyword_7_0; }
 
 		//PWSUP1="PwSup1"
-		public EnumLiteralDeclaration getPWSUP1EnumLiteralDeclaration_7() { return cPWSUP1EnumLiteralDeclaration_7; }
+		public EnumLiteralDeclaration getPWSUP1EnumLiteralDeclaration_8() { return cPWSUP1EnumLiteralDeclaration_8; }
 
 		//"PwSup1"
-		public Keyword getPWSUP1PwSup1Keyword_7_0() { return cPWSUP1PwSup1Keyword_7_0; }
+		public Keyword getPWSUP1PwSup1Keyword_8_0() { return cPWSUP1PwSup1Keyword_8_0; }
 
 		//EMHZONE1="EmhZone1"
-		public EnumLiteralDeclaration getEMHZONE1EnumLiteralDeclaration_8() { return cEMHZONE1EnumLiteralDeclaration_8; }
+		public EnumLiteralDeclaration getEMHZONE1EnumLiteralDeclaration_9() { return cEMHZONE1EnumLiteralDeclaration_9; }
 
 		//"EmhZone1"
-		public Keyword getEMHZONE1EmhZone1Keyword_8_0() { return cEMHZONE1EmhZone1Keyword_8_0; }
+		public Keyword getEMHZONE1EmhZone1Keyword_9_0() { return cEMHZONE1EmhZone1Keyword_9_0; }
 
 		//IOTYPE="Type"
-		public EnumLiteralDeclaration getIOTYPEEnumLiteralDeclaration_9() { return cIOTYPEEnumLiteralDeclaration_9; }
+		public EnumLiteralDeclaration getIOTYPEEnumLiteralDeclaration_10() { return cIOTYPEEnumLiteralDeclaration_10; }
 
 		//"Type"
-		public Keyword getIOTYPETypeKeyword_9_0() { return cIOTYPETypeKeyword_9_0; }
+		public Keyword getIOTYPETypeKeyword_10_0() { return cIOTYPETypeKeyword_10_0; }
 	}
 
 	public class HardwareArchitectureLevelTypeElements extends AbstractEnumRuleElementFinder {
@@ -1883,55 +1891,63 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	public class DeploymentImplicitDefinitionAttributeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "DeploymentImplicitDefinitionAttribute");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cRDC_MANUFACTUREREnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cRDC_MANUFACTURERRDCManufacturerKeyword_0_0 = (Keyword)cRDC_MANUFACTUREREnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cRDC_POWERSUPPLYEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cRDC_POWERSUPPLYRDCPowerSupplyKeyword_1_0 = (Keyword)cRDC_POWERSUPPLYEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cRDC_SIDEEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cRDC_SIDERDCSideKeyword_2_0 = (Keyword)cRDC_SIDEEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cRDC_TYPEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cRDC_TYPERDCTypeKeyword_3_0 = (Keyword)cRDC_TYPEEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cRDC_ESSEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cRDC_ESSRDCESSKeyword_4_0 = (Keyword)cRDC_ESSEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cRDC_NAMEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cRDC_NAMERDCNameKeyword_0_0 = (Keyword)cRDC_NAMEEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cRDC_MANUFACTUREREnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cRDC_MANUFACTURERRDCManufacturerKeyword_1_0 = (Keyword)cRDC_MANUFACTUREREnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cRDC_POWERSUPPLYEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cRDC_POWERSUPPLYRDCPowerSupplyKeyword_2_0 = (Keyword)cRDC_POWERSUPPLYEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cRDC_SIDEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cRDC_SIDERDCSideKeyword_3_0 = (Keyword)cRDC_SIDEEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cRDC_TYPEEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cRDC_TYPERDCTypeKeyword_4_0 = (Keyword)cRDC_TYPEEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cRDC_ESSEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cRDC_ESSRDCESSKeyword_5_0 = (Keyword)cRDC_ESSEnumLiteralDeclaration_5.eContents().get(0);
 		
 		//enum DeploymentImplicitDefinitionAttribute:
-		//	RDC_MANUFACTURER="RDC.Manufacturer" | RDC_POWERSUPPLY="RDC.PowerSupply" | RDC_SIDE="RDC.Side" | RDC_TYPE="RDC.Type" |
-		//	RDC_ESS="RDC.ESS";
+		//	RDC_NAME="RDC.Name" | RDC_MANUFACTURER="RDC.Manufacturer" | RDC_POWERSUPPLY="RDC.PowerSupply" | RDC_SIDE="RDC.Side" |
+		//	RDC_TYPE="RDC.Type" | RDC_ESS="RDC.ESS";
 		public EnumRule getRule() { return rule; }
 
-		//RDC_MANUFACTURER="RDC.Manufacturer" | RDC_POWERSUPPLY="RDC.PowerSupply" | RDC_SIDE="RDC.Side" | RDC_TYPE="RDC.Type" |
-		//RDC_ESS="RDC.ESS"
+		//RDC_NAME="RDC.Name" | RDC_MANUFACTURER="RDC.Manufacturer" | RDC_POWERSUPPLY="RDC.PowerSupply" | RDC_SIDE="RDC.Side" |
+		//RDC_TYPE="RDC.Type" | RDC_ESS="RDC.ESS"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
+		//RDC_NAME="RDC.Name"
+		public EnumLiteralDeclaration getRDC_NAMEEnumLiteralDeclaration_0() { return cRDC_NAMEEnumLiteralDeclaration_0; }
+
+		//"RDC.Name"
+		public Keyword getRDC_NAMERDCNameKeyword_0_0() { return cRDC_NAMERDCNameKeyword_0_0; }
+
 		//RDC_MANUFACTURER="RDC.Manufacturer"
-		public EnumLiteralDeclaration getRDC_MANUFACTUREREnumLiteralDeclaration_0() { return cRDC_MANUFACTUREREnumLiteralDeclaration_0; }
+		public EnumLiteralDeclaration getRDC_MANUFACTUREREnumLiteralDeclaration_1() { return cRDC_MANUFACTUREREnumLiteralDeclaration_1; }
 
 		//"RDC.Manufacturer"
-		public Keyword getRDC_MANUFACTURERRDCManufacturerKeyword_0_0() { return cRDC_MANUFACTURERRDCManufacturerKeyword_0_0; }
+		public Keyword getRDC_MANUFACTURERRDCManufacturerKeyword_1_0() { return cRDC_MANUFACTURERRDCManufacturerKeyword_1_0; }
 
 		//RDC_POWERSUPPLY="RDC.PowerSupply"
-		public EnumLiteralDeclaration getRDC_POWERSUPPLYEnumLiteralDeclaration_1() { return cRDC_POWERSUPPLYEnumLiteralDeclaration_1; }
+		public EnumLiteralDeclaration getRDC_POWERSUPPLYEnumLiteralDeclaration_2() { return cRDC_POWERSUPPLYEnumLiteralDeclaration_2; }
 
 		//"RDC.PowerSupply"
-		public Keyword getRDC_POWERSUPPLYRDCPowerSupplyKeyword_1_0() { return cRDC_POWERSUPPLYRDCPowerSupplyKeyword_1_0; }
+		public Keyword getRDC_POWERSUPPLYRDCPowerSupplyKeyword_2_0() { return cRDC_POWERSUPPLYRDCPowerSupplyKeyword_2_0; }
 
 		//RDC_SIDE="RDC.Side"
-		public EnumLiteralDeclaration getRDC_SIDEEnumLiteralDeclaration_2() { return cRDC_SIDEEnumLiteralDeclaration_2; }
+		public EnumLiteralDeclaration getRDC_SIDEEnumLiteralDeclaration_3() { return cRDC_SIDEEnumLiteralDeclaration_3; }
 
 		//"RDC.Side"
-		public Keyword getRDC_SIDERDCSideKeyword_2_0() { return cRDC_SIDERDCSideKeyword_2_0; }
+		public Keyword getRDC_SIDERDCSideKeyword_3_0() { return cRDC_SIDERDCSideKeyword_3_0; }
 
 		//RDC_TYPE="RDC.Type"
-		public EnumLiteralDeclaration getRDC_TYPEEnumLiteralDeclaration_3() { return cRDC_TYPEEnumLiteralDeclaration_3; }
+		public EnumLiteralDeclaration getRDC_TYPEEnumLiteralDeclaration_4() { return cRDC_TYPEEnumLiteralDeclaration_4; }
 
 		//"RDC.Type"
-		public Keyword getRDC_TYPERDCTypeKeyword_3_0() { return cRDC_TYPERDCTypeKeyword_3_0; }
+		public Keyword getRDC_TYPERDCTypeKeyword_4_0() { return cRDC_TYPERDCTypeKeyword_4_0; }
 
 		//RDC_ESS="RDC.ESS"
-		public EnumLiteralDeclaration getRDC_ESSEnumLiteralDeclaration_4() { return cRDC_ESSEnumLiteralDeclaration_4; }
+		public EnumLiteralDeclaration getRDC_ESSEnumLiteralDeclaration_5() { return cRDC_ESSEnumLiteralDeclaration_5; }
 
 		//"RDC.ESS"
-		public Keyword getRDC_ESSRDCESSKeyword_4_0() { return cRDC_ESSRDCESSKeyword_4_0; }
+		public Keyword getRDC_ESSRDCESSKeyword_5_0() { return cRDC_ESSRDCESSKeyword_5_0; }
 	}
 	
 	private final AssistModelElements pAssistModel;
@@ -2117,8 +2133,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum ImplicitEqInterfaceGroupDefinitionAttribute:
-	//	SYSTEM="System" | SUBATA="SubAta" | RESOURCE="Resource" | LINENAME="LineName" | WIRINGLANE="WiringLane" |
-	//	GRPINFO="GrpInfo" | ROUTE="Route" | PWSUP1="PwSup1" | EMHZONE1="EmhZone1" | IOTYPE="Type";
+	//	NAME="Name" | SYSTEM="System" | SUBATA="SubAta" | RESOURCE="Resource" | LINENAME="LineName" | WIRINGLANE="WiringLane"
+	//	| GRPINFO="GrpInfo" | ROUTE="Route" | PWSUP1="PwSup1" | EMHZONE1="EmhZone1" | IOTYPE="Type";
 	public ImplicitEqInterfaceGroupDefinitionAttributeElements getImplicitEqInterfaceGroupDefinitionAttributeAccess() {
 		return unknownRuleImplicitEqInterfaceGroupDefinitionAttribute;
 	}
@@ -2229,8 +2245,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum DeploymentImplicitDefinitionAttribute:
-	//	RDC_MANUFACTURER="RDC.Manufacturer" | RDC_POWERSUPPLY="RDC.PowerSupply" | RDC_SIDE="RDC.Side" | RDC_TYPE="RDC.Type" |
-	//	RDC_ESS="RDC.ESS";
+	//	RDC_NAME="RDC.Name" | RDC_MANUFACTURER="RDC.Manufacturer" | RDC_POWERSUPPLY="RDC.PowerSupply" | RDC_SIDE="RDC.Side" |
+	//	RDC_TYPE="RDC.Type" | RDC_ESS="RDC.ESS";
 	public DeploymentImplicitDefinitionAttributeElements getDeploymentImplicitDefinitionAttributeAccess() {
 		return unknownRuleDeploymentImplicitDefinitionAttribute;
 	}

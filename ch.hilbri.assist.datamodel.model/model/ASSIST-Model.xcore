@@ -141,6 +141,7 @@ class ImplicitEqInterfaceGroupDefinition {
 }
 
 enum ImplicitEqInterfaceGroupDefinitionAttribute {
+	NAME		as 	"Name"
 	SYSTEM 		as 	"System"
 	SUBATA		as 	"SubAta"
 	RESOURCE	as 	"Resource"
@@ -280,6 +281,7 @@ class DeploymentImplicitDefinition {
 }
 
 enum DeploymentImplicitDefinitionAttribute {
+	RDC_NAME			as 	"RDC_NAME"
 	RDC_MANUFACTURER	as 	"RDC_MANUFACTURER"
 	RDC_POWERSUPPLY		as 	"RDC_POWERSUPPLY"
 	RDC_SIDE			as 	"RDC_SIDE"

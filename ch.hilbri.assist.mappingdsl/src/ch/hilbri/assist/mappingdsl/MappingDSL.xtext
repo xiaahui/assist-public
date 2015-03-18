@@ -93,6 +93,7 @@ ImplicitEqInterfaceGroupDefinition:
 ;
 
 enum ImplicitEqInterfaceGroupDefinitionAttribute:
+	NAME		= 'Name'		|
 	SYSTEM	 	= 'System'		|
 	SUBATA 	 	= 'SubAta'		|
 	RESOURCE	= 'Resource'	|
@@ -176,6 +177,7 @@ DeploymentImplicitDefinition:
 ;
 
 enum DeploymentImplicitDefinitionAttribute:
+	RDC_NAME			= 'RDC.Name'			|
 	RDC_MANUFACTURER 	= 'RDC.Manufacturer'	|
 	RDC_POWERSUPPLY 	= 'RDC.PowerSupply'		|
 	RDC_SIDE 			= 'RDC.Side'			|

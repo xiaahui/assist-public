@@ -2527,64 +2527,70 @@ ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
 ruleImplicitEqInterfaceGroupDefinitionAttribute returns [Enumerator current=null] 
     @init { enterRule(); }
     @after { leaveRule(); }:
-((	enumLiteral_0='System' 
+((	enumLiteral_0='Name' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_0()); 
+        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getNAMEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getNAMEEnumLiteralDeclaration_0()); 
     }
 )
-    |(	enumLiteral_1='SubAta' 
+    |(	enumLiteral_1='System' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_1()); 
+        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_1()); 
     }
 )
-    |(	enumLiteral_2='Resource' 
+    |(	enumLiteral_2='SubAta' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_2, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_2()); 
+        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2()); 
     }
 )
-    |(	enumLiteral_3='LineName' 
+    |(	enumLiteral_3='Resource' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_3, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_3()); 
+        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_3, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_3()); 
     }
 )
-    |(	enumLiteral_4='WiringLane' 
+    |(	enumLiteral_4='LineName' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_4, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_4()); 
+        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_4, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_4()); 
     }
 )
-    |(	enumLiteral_5='GrpInfo' 
+    |(	enumLiteral_5='WiringLane' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_5, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_5()); 
+        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_5, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_5()); 
     }
 )
-    |(	enumLiteral_6='Route' 
+    |(	enumLiteral_6='GrpInfo' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_6, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_6()); 
+        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_6, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_6()); 
     }
 )
-    |(	enumLiteral_7='PwSup1' 
+    |(	enumLiteral_7='Route' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_7, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_7()); 
+        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_7, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_7()); 
     }
 )
-    |(	enumLiteral_8='EmhZone1' 
+    |(	enumLiteral_8='PwSup1' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_8, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_8()); 
+        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_8, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_8()); 
     }
 )
-    |(	enumLiteral_9='Type' 
+    |(	enumLiteral_9='EmhZone1' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_9, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_9()); 
+        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_9().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_9, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_9()); 
+    }
+)
+    |(	enumLiteral_10='Type' 
+	{
+        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_10, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_10()); 
     }
 ));
 
@@ -2619,34 +2625,40 @@ ruleHardwareArchitectureLevelType returns [Enumerator current=null]
 ruleDeploymentImplicitDefinitionAttribute returns [Enumerator current=null] 
     @init { enterRule(); }
     @after { leaveRule(); }:
-((	enumLiteral_0='RDC.Manufacturer' 
+((	enumLiteral_0='RDC.Name' 
 	{
-        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_MANUFACTUREREnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_MANUFACTUREREnumLiteralDeclaration_0()); 
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_NAMEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_NAMEEnumLiteralDeclaration_0()); 
     }
 )
-    |(	enumLiteral_1='RDC.PowerSupply' 
+    |(	enumLiteral_1='RDC.Manufacturer' 
 	{
-        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_POWERSUPPLYEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_POWERSUPPLYEnumLiteralDeclaration_1()); 
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_MANUFACTUREREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_MANUFACTUREREnumLiteralDeclaration_1()); 
     }
 )
-    |(	enumLiteral_2='RDC.Side' 
+    |(	enumLiteral_2='RDC.PowerSupply' 
 	{
-        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_SIDEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_2, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_SIDEEnumLiteralDeclaration_2()); 
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_POWERSUPPLYEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_POWERSUPPLYEnumLiteralDeclaration_2()); 
     }
 )
-    |(	enumLiteral_3='RDC.Type' 
+    |(	enumLiteral_3='RDC.Side' 
 	{
-        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_TYPEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_3, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_TYPEEnumLiteralDeclaration_3()); 
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_SIDEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_3, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_SIDEEnumLiteralDeclaration_3()); 
     }
 )
-    |(	enumLiteral_4='RDC.ESS' 
+    |(	enumLiteral_4='RDC.Type' 
 	{
-        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_ESSEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_4, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_ESSEnumLiteralDeclaration_4()); 
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_TYPEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_4, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_TYPEEnumLiteralDeclaration_4()); 
+    }
+)
+    |(	enumLiteral_5='RDC.ESS' 
+	{
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_ESSEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_5, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_ESSEnumLiteralDeclaration_5()); 
     }
 ));
 
