@@ -24,16 +24,8 @@ AssistModel:
 		( 
 			dislocalityRelations+=DislocalityRelation 			|
 			colocalityRelations+=ColocalityRelation				|
-			
-			(	
-				validDeployments+=ValidDeployment 			| 
-				validDeployments+=ValidDeploymentImplicit
-			) 													
-																|
-			(	
-				invalidDeployments+=InvalidDeployment 			| 
-				invalidDeployments+=InvalidDeploymentImplicit
-			) 			
+			validDeployments+=ValidDeployment					|		 
+			invalidDeployments+=InvalidDeployment 			 
 		)*
 		
 	'}')?
@@ -113,15 +105,9 @@ enum ImplicitEqInterfaceGroupDefinitionAttribute:
 	IOTYPE		= 'Type'
 ;
 
-
-
 EqInterfaceGroupWithCombinedDefinition: 
 	'Group' name=ID 'combines' combinedGroups+=[EqInterfaceGroup] ('and' combinedGroups+=[EqInterfaceGroup])* ';'	
 ;
-
-
-
-
 
 EqInterface:
 	'Interface' name=ID '{'
@@ -156,56 +142,55 @@ ColocalityRelation:
 	eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])*  'on same' hardwareLevel=HardwareArchitectureLevelType ';'
 ;	
 
-/* VALID DEPLOYMENTS */
 ValidDeployment:
 	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
 	('is'|'are') '{'
-		  hardwareElements+=[HardwareElement|QualifiedName] (',' hardwareElements+=[HardwareElement|QualifiedName])* 
+		  ( 	hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
+		  (',' 	hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition)* 
 	'}' ';'
 ;
-
-ValidDeploymentImplicit: 
-	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
-	'are RDCs' (definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]) ('and' (definitions+=DeploymentImplicitDefinition|hardwareElements+=[HardwareElement|QualifiedName]))* ';'
-;
-
-
-
-/* INVALID DEPLOYMENTS */
 
 InvalidDeployment:
 	'Invalid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
 	('is'|'are') '{'
-		  hardwareElements+=[HardwareElement|QualifiedName] (',' hardwareElements+=[HardwareElement|QualifiedName])* 
+		  ( 	hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
+		  (',' 	hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition)* 
 	'}' ';'
 ;
 
-InvalidDeploymentImplicit: 
-	'Invalid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
-	'are RDCs' (definitions+=DeploymentImplicitDefinition | hardwareElements+=[HardwareElement|QualifiedName]) ('and' (definitions+=DeploymentImplicitDefinition|hardwareElements+=[HardwareElement|QualifiedName]))* ';'
+DeploymentImplicitDefinition:
+	'connectors with' entries+=DeploymentImplicitDefinitionAttributeAndValue ('and' entries+=DeploymentImplicitDefinitionAttributeAndValue)*
 ;
 
-
-DeploymentImplicitDefinition:
-	attribute=DeploymentImplicitDefinitionAttribute '=' value=STRING 
+DeploymentImplicitDefinitionAttributeAndValue:
+   attribute=DeploymentImplicitDefinitionAttribute '=' value=STRING	 
 ;
 
 enum DeploymentImplicitDefinitionAttribute:
-	RDC_NAME			= 'RDC.Name'			|
-	RDC_MANUFACTURER 	= 'RDC.Manufacturer'	|
-	RDC_POWERSUPPLY 	= 'RDC.PowerSupply'		|
-	RDC_SIDE 			= 'RDC.Side'			|
-	RDC_TYPE 			= 'RDC.Type'			|
-	RDC_ESS	 			= 'RDC.ESS'						 
+	COMPARTMENT_NAME			= 'Compartment.Name'			|
+	COMPARTMENT_MANUFACTURER 	= 'Compartment.Manufacturer' 	|
+	RDC_NAME					= 'RDC.Name'					|
+	RDC_MANUFACTURER 			= 'RDC.Manufacturer'			|
+	RDC_POWERSUPPLY 			= 'RDC.PowerSupply'				|
+	RDC_SIDE 					= 'RDC.Side'					|
+	RDC_TYPE 					= 'RDC.Type'					|
+	RDC_ESS	 					= 'RDC.ESS'						|
+	CONNECTOR_NAME				= 'Connector.Name'
+;
+
+/* MISC */
+MetricParameter:  
+	name=STRING '=' value=INT ';'
+;
+
+QualifiedName:
+	ID ('.' ID)*
 ;
 
 
-/*ProximityRelation:
-	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'on same' hardwareLevel=HardwareArchitectureLevelType ';'; 
+/* OLD STUFF */
 
-CommunicationRelation: 
-	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'require' bandwidthUtilization=INT 'bandwidth' ';';
-	
+/* 
 DissimilarityRelation: 
 	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
 	'dissimilar based on'
@@ -251,10 +236,3 @@ enum ProcessorAttributes:
 	PROCESSORTYPE	= 'ProcessorType' 
 ;
 */
-MetricParameter:  
-	name=STRING '=' value=INT ';'
-;
-
-QualifiedName:
-	ID ('.' ID)*
-;

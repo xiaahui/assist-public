@@ -1,40 +1,47 @@
 package ch.hilbri.assist.mapping.solver.preprocessors
 
 import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.InvalidDeploymentImplicit
-import ch.hilbri.assist.datamodel.model.RDC
+import ch.hilbri.assist.datamodel.model.Connector
 
 class InvalidDeploymentHardwareElements extends AbstractModelPreprocessor {
 	
 	new(AssistModel model) { super(model, "hardware elements for invalid deployments") }
 	
 	override execute() {
-		if (!model.invalidDeployments.filter[it instanceof InvalidDeploymentImplicit].isNullOrEmpty) {
-			for (s : model.invalidDeployments.filter[it instanceof InvalidDeploymentImplicit]) {
-				logger.info("    . Creating implicitly defined RDC group for interfaces/groups " + s.eqInterfaceOrGroups)
-				var Iterable<RDC> rdcList = model.allRDCs
-				for (definition : (s as InvalidDeploymentImplicit).definitions) {
-					switch (definition.attribute) {
-						case RDC_NAME:			{ rdcList = rdcList.filter[name.equals(definition.value)			]}
-						case RDC_MANUFACTURER: 	{ rdcList = rdcList.filter[manufacturer.equals(definition.value)	]}
-						case RDC_POWERSUPPLY: 	{ rdcList = rdcList.filter[powerSupply.equals(definition.value)		]}
-						case RDC_SIDE: 			{ rdcList = rdcList.filter[side.equals(definition.value)			]}
-						case RDC_TYPE: 			{ rdcList = rdcList.filter[rdcType.equals(definition.value)			]}
-						case RDC_ESS: 			{ rdcList = rdcList.filter[ess.equals(definition.value)				]}
+			for (s : model.invalidDeployments.filter[it.implicitHardwareElements.length > 0]) {
+			
+				logger.info("    . Processing invalid deployment for interfaces/groups " + s.eqInterfaceOrGroups)
+			
+				for (definition : s.implicitHardwareElements) {
+					var Iterable<Connector> connectorList = model.allConnectors
+	
+					for (entry : definition.entries) {
+						switch (entry.attribute) {
+							case COMPARTMENT_NAME:			{ connectorList = connectorList.filter[it.rdc.compartment.name.equals(entry.value)			]}
+							case COMPARTMENT_MANUFACTURER:	{ connectorList = connectorList.filter[it.rdc.compartment.manufacturer.equals(entry.value)	]}
+							case RDC_NAME:					{ connectorList = connectorList.filter[it.rdc.name.equals(entry.value)						]}
+							case RDC_MANUFACTURER: 			{ connectorList = connectorList.filter[it.rdc.manufacturer.equals(entry.value)				]}
+							case RDC_POWERSUPPLY: 			{ connectorList = connectorList.filter[it.rdc.powerSupply.equals(entry.value)				]}
+							case RDC_SIDE: 					{ connectorList = connectorList.filter[it.rdc.side.equals(entry.value)						]}
+							case RDC_TYPE: 					{ connectorList = connectorList.filter[it.rdc.rdcType.equals(entry.value)					]}
+							case RDC_ESS: 					{ connectorList = connectorList.filter[it.rdc.ess.equals(entry.value)						]}
+							case CONNECTOR_NAME:			{ connectorList = connectorList.filter[it.name.equals(entry.value)							]}
+						}
 					}
+					s.hardwareElements.addAll(connectorList)
 				}
-				s.hardwareElements.addAll(rdcList)
+				
+				// We do not need to remove duplicate entries - this will be already done in the constraint
+				
+				// Check the result
 				if (s.hardwareElements.length > 0)
-					logger.info('''      Successfully created with «s.hardwareElements.length» RDCs: «s.hardwareElements».''')
-				else {
-					logger.info('''      WARNING: Implicitly defined deployment contains «s.hardwareElements.length» RDCs. This may be unintended.''')
-				}
-			}
-			return true
+					logger.info('''      Successfully created with «s.hardwareElements.length» hardware elements: «s.hardwareElements».''')
+				else 
+					logger.info('''      WARNING: invalid deployment specification contains «s.hardwareElements.length» hardware elements. This may be unintended.''')
+				
 		}
-		else {
-			return false
-		}
+			
+		return true 
 	}
 	
 }

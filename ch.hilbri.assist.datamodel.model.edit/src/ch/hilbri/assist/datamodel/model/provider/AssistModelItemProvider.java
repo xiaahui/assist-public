@@ -228,18 +228,8 @@ public class AssistModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__VALID_DEPLOYMENTS,
-				 ModelFactory.eINSTANCE.createValidDeploymentImplicit()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(ModelPackage.Literals.ASSIST_MODEL__INVALID_DEPLOYMENTS,
 				 ModelFactory.eINSTANCE.createInvalidDeployment()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__INVALID_DEPLOYMENTS,
-				 ModelFactory.eINSTANCE.createInvalidDeploymentImplicit()));
 	}
 
 	/**

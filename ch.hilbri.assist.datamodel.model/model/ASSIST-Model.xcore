@@ -250,6 +250,8 @@ class ColocalityRelation {
 class DeploymentSpecification {
 	refers EqInterfaceOrGroup[1..*] eqInterfaceOrGroups
 	refers HardwareElement[0..*] hardwareElements
+	contains DeploymentImplicitDefinition [1..*] implicitHardwareElements
+	
 	
 	op String getAllEqInterfaceOrGroupNames() {
 		var String result = ""
@@ -267,29 +269,28 @@ class DeploymentSpecification {
 	}
 }
 
-
-class ValidDeployment extends DeploymentSpecification {}
-
-class ValidDeploymentImplicit extends ValidDeployment {
-	contains DeploymentImplicitDefinition [1..*] definitions
-}
-
-class InvalidDeployment extends DeploymentSpecification {}
-
-class InvalidDeploymentImplicit extends InvalidDeployment {
-	contains DeploymentImplicitDefinition [1..*] definitions
-}
-
 class DeploymentImplicitDefinition {
+	contains DeploymentImplicitDefinitionAttributeAndValue [1..*] entries
+}
+
+class DeploymentImplicitDefinitionAttributeAndValue {
 	DeploymentImplicitDefinitionAttribute 	attribute
 	String					 					value
 }
 
 enum DeploymentImplicitDefinitionAttribute {
-	RDC_NAME			as 	"RDC_NAME"
-	RDC_MANUFACTURER	as 	"RDC_MANUFACTURER"
-	RDC_POWERSUPPLY		as 	"RDC_POWERSUPPLY"
-	RDC_SIDE			as 	"RDC_SIDE"
-	RDC_TYPE			as 	"RDC_TYPE"
-	RDC_ESS				as 	"RDC_ESS"
+	RDC_NAME					as 	"RDC.Name"
+	RDC_MANUFACTURER			as 	"RDC.Manufacturer"
+	RDC_POWERSUPPLY				as 	"RDC.PowerSupply"
+	RDC_SIDE					as 	"RDC.Side"
+	RDC_TYPE					as 	"RDC.Type"
+	RDC_ESS						as 	"RDC.ESS"
+	CONNECTOR_NAME				as	"Connector.Name"
+	COMPARTMENT_NAME			as  "Compartment.Name"
+	COMPARTMENT_MANUFACTURER 	as  "Compartment.Manufacturer"
 }
+
+class ValidDeployment extends DeploymentSpecification {}
+
+class InvalidDeployment extends DeploymentSpecification {}
+
