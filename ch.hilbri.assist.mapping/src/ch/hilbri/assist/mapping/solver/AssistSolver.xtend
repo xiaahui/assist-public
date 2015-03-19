@@ -1,12 +1,6 @@
 package ch.hilbri.assist.mapping.solver
 
 import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.EqInterface
-import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition
-import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithImplicitDefinition
-import ch.hilbri.assist.datamodel.model.InvalidDeploymentImplicit
-import ch.hilbri.assist.datamodel.model.RDC
-import ch.hilbri.assist.datamodel.model.ValidDeploymentImplicit
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
@@ -20,6 +14,7 @@ import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor
 import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
 import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor
+import ch.hilbri.assist.mapping.solver.preprocessors.AbstractModelPreprocessor
 import ch.hilbri.assist.mapping.solver.strategies.FirstFailThenMaxRelationDegree
 import ch.hilbri.assist.mapping.solver.strategies.HardestDislocalitiesFirst
 import ch.hilbri.assist.mapping.solver.strategies.ScarcestIoTypeFirst
@@ -38,6 +33,10 @@ import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy
 import org.chocosolver.solver.variables.IntVar
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupDefinitions
+import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupCombinations
+import ch.hilbri.assist.mapping.solver.preprocessors.ValidDeploymentHardwareElements
+import ch.hilbri.assist.mapping.solver.preprocessors.InvalidDeploymentHardwareElements
 
 class AssistSolver {
 	
@@ -47,6 +46,7 @@ class AssistSolver {
 	private SolverVariablesContainer solverVariables
 	private ArrayList<AbstractMappingConstraint> mappingConstraintsList
 	private ArrayList<Result> mappingResults
+	private ArrayList<AbstractModelPreprocessor> modelPreprocessors
 	private Logger logger
 	private int[] locationVariableLevels // do we work with just the LocVars on connector level or other levels as well?
 	
@@ -56,121 +56,18 @@ class AssistSolver {
 
 	new (AssistModel model, List<Integer> locationVariableLevels) {
 		this.logger = LoggerFactory.getLogger(this.class)
-
 		logger.info(">>>> Creating a new AssistSolver instance <<<<")
 		
 		/* Get the model */
 		this.model = model
-		this.locationVariableLevels = locationVariableLevels
-		
-		/* Pre-process the model and create the implicitly defined groups */
-		/* This could be moved to some dedicated "mode preprocessing section" */
-		logger.info("Preprocessing the data model")
-		
-		if (!model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithImplicitDefinition].isNullOrEmpty) {
-			logger.info(" - Creating implicitly defined interface groups")
-			for (g : model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithImplicitDefinition]) {
-				logger.info("    . Creating implicitly defined group " + g.name)
-				var Iterable<EqInterface> interfaceList = model.eqInterfaces	
-				for (definition : (g as EqInterfaceGroupWithImplicitDefinition).definitions) {
-						switch (definition.attribute) {
-						case NAME:			{ interfaceList = interfaceList.filter[it.name.equals(definition.value)			]}
-						case SYSTEM: 		{ interfaceList = interfaceList.filter[it.system.equals(definition.value)		]}
-						case SUBATA: 		{ interfaceList = interfaceList.filter[it.subAta.equals(definition.value)		]}
-						case RESOURCE: 		{ interfaceList = interfaceList.filter[it.resource.equals(definition.value)		]}
-						case LINENAME: 		{ interfaceList = interfaceList.filter[it.lineName.equals(definition.value)		]}
-						case WIRINGLANE:	{ interfaceList = interfaceList.filter[it.wiringLane.equals(definition.value)	]}
-						case GRPINFO: 		{ interfaceList = interfaceList.filter[it.grpInfo.equals(definition.value)		]}
-						case ROUTE: 		{ interfaceList = interfaceList.filter[it.route.equals(definition.value)		]}
-						case PWSUP1: 		{ interfaceList = interfaceList.filter[it.pwSup1.equals(definition.value)		]}
-						case EMHZONE1: 		{ interfaceList = interfaceList.filter[it.emhZone1.equals(definition.value)		]}
-						case IOTYPE: 		{ interfaceList = interfaceList.filter[it.ioType.equals(definition.value)		]}
-					}
-				}
-				g.eqInterfaces.addAll(interfaceList)
-				if (g.eqInterfaces.length > 0)
-					logger.info('''      Successfully created with «g.eqInterfaces.length» interfaces: «g.eqInterfaces».''')
-				else {
-					logger.info('''      WARNING: Implicitly defined group "«g.name»" contains «g.eqInterfaces.length» interfaces. This may be unintended.''')
-				}
-			}
-		}
-		
-		/* Combined Interface groups have to be processed after implicitly defined groups, because combined 
-		 * groups can also contain implicitly defined groups */
-		if (!model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithCombinedDefinition].isNullOrEmpty) {
-			logger.info(" - Creating interface groups which combine other interface groups")
-			for (g : model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithCombinedDefinition]) {
-				logger.info("    . Creating group " + g.name)
-				val List<EqInterface> interfaceList = new ArrayList
-				for (combinedGroup : (g as EqInterfaceGroupWithCombinedDefinition).combinedGroups) {
-					interfaceList.addAll(combinedGroup.eqInterfaces)
-				}
-				g.eqInterfaces.addAll(interfaceList.toSet.toList)
 
-				if (g.eqInterfaces.length > 0)
-					logger.info('''      Successfully created with «g.eqInterfaces.length» interfaces: «g.eqInterfaces».''')
-				else {
-					logger.info('''      WARNING: Group "«g.name»" contains «g.eqInterfaces.length» interfaces. This may be unintended.''')
-				}
-			}
-		}
-		
-		
-		if (!model.validDeployments.filter[it instanceof ValidDeploymentImplicit].isNullOrEmpty) {
-			logger.info(" - Creating implicitly defined groups of RDCs for valid deployments")
-			for (s : model.validDeployments.filter[it instanceof ValidDeploymentImplicit]) {
-				logger.info("    . Creating implicitly defined RDC group for interfaces/groups " + s.eqInterfaceOrGroups)
-				var Iterable<RDC> rdcList = model.allRDCs
-				for (definition : (s as ValidDeploymentImplicit).definitions) {
-					switch (definition.attribute) {
-						case RDC_NAME:			{ rdcList = rdcList.filter[name.equals(definition.value)			]}
-						case RDC_MANUFACTURER: 	{ rdcList = rdcList.filter[manufacturer.equals(definition.value)	]}
-						case RDC_POWERSUPPLY: 	{ rdcList = rdcList.filter[powerSupply.equals(definition.value)		]}
-						case RDC_SIDE: 			{ rdcList = rdcList.filter[side.equals(definition.value)			]}
-						case RDC_TYPE: 			{ rdcList = rdcList.filter[rdcType.equals(definition.value)			]}
-						case RDC_ESS: 			{ rdcList = rdcList.filter[ess.equals(definition.value)				]}
-					}
-				}
-				s.hardwareElements.addAll(rdcList)
-				if (s.hardwareElements.length > 0)
-					logger.info('''      Successfully created with «s.hardwareElements.length» RDCs: «s.hardwareElements».''')
-				else {
-					logger.info('''      WARNING: Implicitly defined deployment contains «s.hardwareElements.length» RDCs. This may be unintended.''')
-				}
-			}
-		}
-
-		if (!model.invalidDeployments.filter[it instanceof InvalidDeploymentImplicit].isNullOrEmpty) {
-			logger.info(" - Creating implicitly defined groups of RDCs for invalid deployments")
-			for (s : model.invalidDeployments.filter[it instanceof InvalidDeploymentImplicit]) {
-				logger.info("    . Creating implicitly defined RDC group for interfaces/groups " + s.eqInterfaceOrGroups)
-				var Iterable<RDC> rdcList = model.allRDCs
-				for (definition : (s as InvalidDeploymentImplicit).definitions) {
-					switch (definition.attribute) {
-						case RDC_NAME:			{ rdcList = rdcList.filter[name.equals(definition.value)			]}
-						case RDC_MANUFACTURER: 	{ rdcList = rdcList.filter[manufacturer.equals(definition.value)	]}
-						case RDC_POWERSUPPLY: 	{ rdcList = rdcList.filter[powerSupply.equals(definition.value)		]}
-						case RDC_SIDE: 			{ rdcList = rdcList.filter[side.equals(definition.value)			]}
-						case RDC_TYPE: 			{ rdcList = rdcList.filter[rdcType.equals(definition.value)			]}
-						case RDC_ESS: 			{ rdcList = rdcList.filter[ess.equals(definition.value)				]}
-					}
-				}
-				s.hardwareElements.addAll(rdcList)
-				if (s.hardwareElements.length > 0)
-					logger.info('''      Successfully created with «s.hardwareElements.length» RDCs: «s.hardwareElements».''')
-				else {
-					logger.info('''      WARNING: Implicitly defined deployment contains «s.hardwareElements.length» RDCs. This may be unintended.''')
-				}
-			}
-		}
-
-		/* Create a list for the results */ 
-		this.mappingResults = new ArrayList<Result>()  
-	
-		/* Create an empty set of constraints that will be used */
-		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
-		
+		/* Create all preprocessors */
+		this.modelPreprocessors = new ArrayList
+		this.modelPreprocessors.add(new EqInterfaceGroupDefinitions(model))
+		this.modelPreprocessors.add(new EqInterfaceGroupCombinations(model))
+		this.modelPreprocessors.add(new ValidDeploymentHardwareElements(model))
+		this.modelPreprocessors.add(new InvalidDeploymentHardwareElements(model))
+			
 		/* Create a new Solver object */
 		this.solver = new Solver()
 		
@@ -179,12 +76,18 @@ class AssistSolver {
 		this.solver.searchLoop.plugSearchMonitor(new BacktrackingMonitor)
 		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 		
+		/* Get the list of locationVariableLevels which will be used */
+		this.locationVariableLevels = locationVariableLevels
+
 		/* Create a new recorder for our solutions */
 		this.recorder = new AllSolutionsRecorder(solver)
 		solver.set(recorder)
 		
 		/* Create the container for variables which are needed in the solver */
  		this.solverVariables = new SolverVariablesContainer(this.model, solver)
+	
+		/* Create an empty set of constraints that will be used */
+		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
 		
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))				
@@ -193,8 +96,23 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
 //		this.mappingConstraintsList.add(new PowerSupplyConstraint(model, solver, solverVariables))
+
+		/* Create a list for the results */ 
+		this.mappingResults = new ArrayList<Result>()  
 	}
 	
+
+	def runModelPreprocessors() {
+		logger.info("Running preprocessors")
+		for (p : this.modelPreprocessors) { 
+			logger.info(" - Processing " + p.name)
+			if (!p.execute) {
+				logger.info('''      There is nothing to be done.''')
+			}
+		}
+	}
+	
+
 	def setSolverTimeLimit(long timeInMs) {
 		SMF.limitTime(solver, timeInMs);
 		logger.info("Setting choco-solver search time limit to " + timeInMs + "ms");
@@ -242,7 +160,7 @@ class AssistSolver {
 				logger.info("Unknown search strategy supplied")
 			}
 		}	
-		logger.info("Setting choco-solver search strategy to: " + heuristic)
+		logger.info("Setting choco-solver search strategy to: " + strategy.toString)
 		solver.set(heuristic)
 	}
 

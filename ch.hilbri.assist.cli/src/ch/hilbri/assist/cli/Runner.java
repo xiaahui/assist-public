@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
@@ -62,6 +63,9 @@ public class Runner {
 			ResourceSet rs = new ResourceSetImpl();
 			Resource resource = rs.getResource(uri, true);
 			
+			// This may fix some lazy binding issues which are not yet recognized as errors
+			EcoreUtil.resolveAll(resource);
+			
 			/* Searching for errors inside the document? */
 			/* 1) Error with the syntax of the dsl */
 			if (!resource.getErrors().isEmpty()) {
@@ -97,6 +101,7 @@ public class Runner {
 			solver.setSolverSearchStrategy(heuristic);
 			solver.setSolverMaxSolutions(numSolutions);
 			try {
+				solver.runModelPreprocessors();
 				solver.propagation();
 				solver.solutionSearch();
 				final ArrayList<Result> results = solver.getResults();

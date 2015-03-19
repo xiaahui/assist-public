@@ -54,6 +54,10 @@ public class GuiSolverJob extends Job {
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
 		try {
+			monitor.beginTask("Executing model preprocessors", 1);
+			solver.runModelPreprocessors();
+			monitor.worked(1);
+			
 			monitor.beginTask("Propagating all constraints", 1);
 			solver.propagation();
 			monitor.worked(1);

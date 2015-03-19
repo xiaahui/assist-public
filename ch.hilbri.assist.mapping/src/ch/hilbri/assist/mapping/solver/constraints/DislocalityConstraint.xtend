@@ -52,7 +52,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 					val intVars = group.eqInterfaces.map[solverVariables.getEqInterfaceLocationVariable(it, l)]
 					solver.post(ICF.alldifferent(intVars))
 				} else {
-					logger.info('''... Skipping dislocality constraint with empty or one element group «group.name»''')
+					logger.info('''       Skipping dislocality constraint with empty or one element group «group.name»''')
 				}
 				
 			}
