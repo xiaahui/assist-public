@@ -77,13 +77,14 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 			
 			// save the score for this variable
 			val variable = solverVariables.getEqInterfaceLocationVariable(iface, 0)
-			if (score != 0)
+			if (score != 0) {
 				map.put(variable, score)
 				map.put(solverVariables.getEqInterfaceLocationVariable(iface, 1), score)
 				map.put(solverVariables.getEqInterfaceLocationVariable(iface, 2), score)
 				logger.info(''' - Assigning variable «variable.name» score «score»''')
-			varList = levels.map[l|solverVariables.getLocationVariables(l).sortBy[-map.getOrDefault(it, 0)]]
+			}
 		}
+		varList = levels.map[l|solverVariables.getLocationVariables(l).sortBy[-map.getOrDefault(it, 0)]]
 	}
 	
     def IntVar getFirstFail(IntVar[] variables) {
@@ -115,17 +116,23 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 		if (variables.size > 0) currentProgress = instantiatedVarCount * 100 / variables.size
 		for (list : varList) {
 			val variable = getFirstFail(list)
-			if (variable != null)
+			if (variable != null) {
 				logger.info('''Selecting variable «variable» («currentProgress»% of all variables instantiated)''')
 //				logger.debug('''Instantiated variables list: [«FOR v : variables»«IF v.instantiated»«v.name»«IF v != variables.last», «ENDIF»«ENDIF»«ENDFOR»]''')
 				return variable
+			}
 		}
+		return null
 	}
 	
 	 
     override int selectValue(IntVar variable) {
-    	val conn = model.allConnectors.get(variable.LB)
-		logger.info('''Setting variable «variable.name» to «conn.fullName».''')
+    	if (variable.name.endsWith("-Connector")) {
+	    	val conn = model.allConnectors.get(variable.LB)
+			logger.debug('''Setting variable «variable.name» to «conn.fullName».''')		
+    	} else {
+			logger.debug('''Setting variable «variable.name» to «variable.LB».''')		    		
+    	}
         return variable.getLB();
     }
 	
