@@ -12,22 +12,24 @@ def parseAbbrevList(s, n):
     return l
 
 def writeInterfacesAndRestrictions(w, usedInterfaces, routes, allGroups, groupDislocs, dislocs, colocs, printAll=False):
-    usedInRestrictions = set()
+    usedInRestrictions = collections.defaultdict(int)
     if not printAll:
         for _, ifaces in allGroups:
-            usedInRestrictions.update(set(ifaces))
+            for iface in ifaces:
+                usedInRestrictions[iface] += 1
         for ifaces, _ in dislocs + colocs:
-            usedInRestrictions.update(set(ifaces))
+            for iface in ifaces:
+                usedInRestrictions[iface] += 1
     
     print("\nInterfaces {", file=w)
 
     for iface, name in usedInterfaces:
         if printAll or name in usedInRestrictions:
             print("""\
-    Interface %s {
+    Interface %s { // placement Comp%s.RDC%s.Conn%s
         Type = "T%02i";
         Route = "R%02i";
-    }""" % (name, iface[3], routes[(iface[0], iface[1], iface[2])]), file=w)
+    }""" % (name, iface[2], iface[1], iface[0], iface[3], routes[(iface[0], iface[1], iface[2])]), file=w)
 
     print("}\n\nInterfaceGroups {", file=w)
     for gname, s in allGroups:
@@ -43,6 +45,9 @@ def writeInterfacesAndRestrictions(w, usedInterfaces, routes, allGroups, groupDi
 
     print("}\n\n", file=w)
     
+    print("%s written %.2f%% of supply used, %.2f dislocalities per interface." % (w.name, 100. * len(usedInRestrictions) / len(usedInterfaces),
+                                                                                   sum(usedInRestrictions.values()) / float(len(usedInterfaces))))
+    
 def generate(args, filename):
     with open(filename, 'w') as w:
         print('Global {\n    System name = "Random instance %s with args %s at %s";\n}' % (filename, args, datetime.datetime.now()), file=w)
@@ -55,7 +60,7 @@ def generate(args, filename):
                 print("    RDC RDC%s {" % j, file=w)
                 for k in range(args.connectors):
                     # choose route for connector
-                    routes[(i,j,k)] = random.randint(0, args.routes)
+                    routes[(k,j,i)] = random.randint(0, args.routes)
                     print("        Connector Conn%s {" % k, file=w)
                     numTypes = random.randint(1, args.max_types_per_connector)
                     sizes = []
@@ -70,7 +75,7 @@ def generate(args, filename):
                         types.remove(t)
                         if s > 0:
                             print((12*" ") + '"T%02i" = %s;' % (t, s), file=w)
-                            availInterfaces += s * [(i,j,k,t)]
+                            availInterfaces += s * [(k,j,i,t)]
                     print("        }", file=w)
                 print("    }", file=w)
             print("}", file=w)
@@ -89,7 +94,7 @@ def generate(args, filename):
             iname = "I%04i" % len(usedInterfaces)
             usedInterfaces.append((iface, iname))
             for i in range(3):
-                locations[i][tuple(iface[:i+1])].append(iname)
+                locations[i][tuple(iface[i:3])].append(iname)
             availInterfaces.remove(iface)
 
         #determining group dislocalities
@@ -174,7 +179,7 @@ if __name__ == "__main__":
     parser.add_argument("-m", "--max-sets-per-dislocality-group", default="15", help="set maximum number of sets per dislocality group on level")
     parser.add_argument("-k", "--max-interfaces-per-dislocality-group-set", default="20", help="set maximum number of interfaces per dislocality group set on level")
     parser.add_argument("-q", "--max-interfaces-per-colocality", default="6", help="set maximum number of interfaces per colocality on level")
-    parser.add_argument("-o", "--output", default="random%s.mdsl", help="name of the output file")
+    parser.add_argument("-o", "--output", default="random%03i.mdsl", help="name of the output file")
     parser.add_argument("-N", "--number-instances", type=int, default=1, help="total number of instances to start")
     binpack2assist.addArgs(parser)
     args = parser.parse_args()
@@ -184,6 +189,5 @@ if __name__ == "__main__":
     for i in xrange(args.number_instances):
         mdsls.append(args.output % i)
         generate(args, mdsls[-1])
-    print("generated", mdsls)
     if args.instances > 0:
         binpack2assist.runAssist(mdsls, args)
