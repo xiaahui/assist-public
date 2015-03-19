@@ -40,7 +40,7 @@ def filterInstance(log, mdslIn, mdslOut):
         mdslIn.seek(0)
     print(len(ifaces))
     for line in mdslIn:
-        if "System name" in line:
+        if "Name = " in line:
             mdslOut.write(line)
         elif "Group " in line:
             s = line.split(",")
