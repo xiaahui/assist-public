@@ -2,7 +2,6 @@ package ch.hilbri.assist.cli;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map.Entry;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
@@ -107,8 +106,12 @@ public class Runner {
 				final ArrayList<Result> results = solver.getResults();
 				System.out.println(results.size() + " solutions found.");
 				for (Result r: results) {
-					for (Entry<EqInterface, Connector> e: r.getMapping().entrySet()) {
-						System.out.println(e.getKey().getName() + " -> " + e.getValue().getName());
+					for (Connector c: r.getModel().getAllConnectors()) {
+						System.out.print(c.fullName() + " { ");
+						for (EqInterface i: r.getAllMappedEqInterfacesForConnector(c)) {
+							System.out.print(i.getName()+",");
+						}
+						System.out.println(" } ");
 					}
 					System.out.println();
 				}

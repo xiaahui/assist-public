@@ -125,7 +125,7 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 	 
     override int selectValue(IntVar variable) {
     	val conn = model.allConnectors.get(variable.LB)
-		logger.info('''Setting variable «variable.name» to «conn.rdc.compartment.name».«conn.rdc.name».«conn.name».''')
+		logger.info('''Setting variable «variable.name» to «conn.fullName».''')
         return variable.getLB();
     }
 	
