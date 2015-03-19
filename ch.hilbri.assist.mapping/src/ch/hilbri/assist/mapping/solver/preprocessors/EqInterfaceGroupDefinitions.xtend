@@ -9,7 +9,7 @@ class EqInterfaceGroupDefinitions extends AbstractModelPreprocessor {
 	new(AssistModel model) { super(model, "interface group definitions") }
 	
 	override execute() {
-		for (g : model.eqInterfaceGroups.filter[!(it instanceof EqInterfaceGroupWithCombinedDefinition)]) {
+		for (g : model.eqInterfaceGroups.filter[it.implicitGroupDefinitions.length > 0].filter[!(it instanceof EqInterfaceGroupWithCombinedDefinition)]) {
 				
 				logger.info("    . Processing group " + g.name)
 				
