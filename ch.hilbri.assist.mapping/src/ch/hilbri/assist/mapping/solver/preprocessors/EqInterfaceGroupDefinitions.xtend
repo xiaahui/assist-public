@@ -3,6 +3,7 @@ package ch.hilbri.assist.mapping.solver.preprocessors
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition
+import java.util.ArrayList
 
 class EqInterfaceGroupDefinitions extends AbstractModelPreprocessor {
 	
@@ -34,10 +35,18 @@ class EqInterfaceGroupDefinitions extends AbstractModelPreprocessor {
 					}
 					
 					// Add the remaining interfaces to the interface list of this group
-					g.eqInterfaces.addAll(interfaceList)			
+					g.eqInterfaces.addAll(interfaceList)		
 				}
 			}
 			
+						
+			// Make sure each interface is only added once
+			val helperList = new ArrayList<EqInterface>
+			helperList.addAll(g.eqInterfaces.toSet.toList)
+			g.eqInterfaces.clear
+			g.eqInterfaces.addAll(helperList)
+			
+			// Check the interfaces
 			if (g.eqInterfaces.length > 0)
 				logger.info('''      Successfully created with «g.eqInterfaces.length» interfaces: «g.eqInterfaces».''')
 			else 
