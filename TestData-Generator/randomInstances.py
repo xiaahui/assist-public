@@ -50,7 +50,7 @@ def writeInterfacesAndRestrictions(w, usedInterfaces, routes, allGroups, groupDi
     
 def generate(args, filename):
     with open(filename, 'w') as w:
-        print('Global {\n    System name = "Random instance %s with args %s at %s";\n}' % (filename, args, datetime.datetime.now()), file=w)
+        print('Global {\n    Name = "Random instance %s with args %s at %s";\n}' % (filename, args, datetime.datetime.now()), file=w)
         availInterfaces = []
         routes = {}
         # build hardware

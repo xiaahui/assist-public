@@ -4,7 +4,7 @@ import "ch.hilbri.assist.datamodel.model"
 
 AssistModel: 
 	'Global'  '{' 
-		'System name' '=' systemName=STRING ';' 
+		'Name' '=' name=STRING ';' 
 	'}'
 
 	compartments+=Compartment+
@@ -15,8 +15,7 @@ AssistModel:
 	
 	('InterfaceGroups' '{'
 		(
-			eqInterfaceGroups+=EqInterfaceGroup 						|
-			eqInterfaceGroups+=EqInterfaceGroupWithImplicitDefinition	|
+			eqInterfaceGroups+=EqInterfaceGroup 						|	
 			eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition
 		)*		
 	'}')?
@@ -78,33 +77,48 @@ AvailableEqInterface:
 /* SOFTWARE */
 
 EqInterfaceGroup: 
-	'Group' name=ID '{' eqInterfaces+=[EqInterface] (',' eqInterfaces+=[EqInterface])* '}' ';';
+	'Group' name=ID '{' 
+						(
+							eqInterfaces+=[EqInterface] |
+							implicitGroupDefinitions+=ImplicitEqInterfaceGroupDefinition
+						)	
+						(
+							',' (
+									eqInterfaces+=[EqInterface] |
+									implicitGroupDefinitions+=ImplicitEqInterfaceGroupDefinition
+								)
+						)* 
+						'}' ';';
 
-EqInterfaceGroupWithImplicitDefinition: 
-	'Group' name=ID 'based on' (definitions+=ImplicitEqInterfaceGroupDefinition|eqInterfaces+=[EqInterface]) ('and' (definitions+=ImplicitEqInterfaceGroupDefinition|eqInterfaces+=[EqInterface]))* ';'
+
+ImplicitEqInterfaceGroupDefinition:
+	'interfaces with' entries+=ImplicitEqInterfaceGroupDefinitionAttributesAndValues ('and' entries+=ImplicitEqInterfaceGroupDefinitionAttributesAndValues)*
 ;
+
+ImplicitEqInterfaceGroupDefinitionAttributesAndValues:  
+	attribute=ImplicitEqInterfaceGroupDefinitionAttribute '=' value=STRING
+;
+
+enum ImplicitEqInterfaceGroupDefinitionAttribute:
+	NAME		= 'Name'			|
+	SYSTEM	 	= 'System'			|
+	SUBATA 	 	= 'SubAta'			|
+	RESOURCE	= 'Resource'		|
+	LINENAME	= 'LineName'		|
+	WIRINGLANE	= 'WiringLane'		|
+	GRPINFO		= 'GrpInfo'			|
+	ROUTE		= 'Route'			|
+	PWSUP1		= 'PwSup1'			|
+	EMHZONE1	= 'EmhZone1'		|
+	IOTYPE		= 'Type'
+;
+
+
 
 EqInterfaceGroupWithCombinedDefinition: 
 	'Group' name=ID 'combines' combinedGroups+=[EqInterfaceGroup] ('and' combinedGroups+=[EqInterfaceGroup])* ';'	
 ;
 
-ImplicitEqInterfaceGroupDefinition: 
-	attribute=ImplicitEqInterfaceGroupDefinitionAttribute '=' value=STRING
-;
-
-enum ImplicitEqInterfaceGroupDefinitionAttribute:
-	NAME		= 'Name'		|
-	SYSTEM	 	= 'System'		|
-	SUBATA 	 	= 'SubAta'		|
-	RESOURCE	= 'Resource'	|
-	LINENAME	= 'LineName'	|
-	WIRINGLANE	= 'WiringLane'	|
-	GRPINFO		= 'GrpInfo'		|
-	ROUTE		= 'Route'		|
-	PWSUP1		= 'PwSup1'		|
-	EMHZONE1	= 'EmhZone1'	|
-	IOTYPE		= 'Type'
-;
 
 
 
@@ -112,7 +126,7 @@ enum ImplicitEqInterfaceGroupDefinitionAttribute:
 EqInterface:
 	'Interface' name=ID '{'
 		(
-			('InterfaceSystem' 	'=' system=STRING 		';')?			&
+			('System' 			'=' system=STRING 		';')?			&
 			('SubAta' 			'=' subAta=STRING 		';')?			&
 			('Resource'			'=' resource=STRING 	';')?			&
 			('LineName'			'=' lineName=STRING 	';')?			&

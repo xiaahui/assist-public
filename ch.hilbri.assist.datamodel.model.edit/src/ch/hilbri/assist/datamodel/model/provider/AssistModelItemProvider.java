@@ -63,25 +63,25 @@ public class AssistModelItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSystemNamePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the System Name feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSystemNamePropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssistModel_systemName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_systemName_feature", "_UI_AssistModel_type"),
-				 ModelPackage.Literals.ASSIST_MODEL__SYSTEM_NAME,
+				 getString("_UI_AssistModel_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_name_feature", "_UI_AssistModel_type"),
+				 ModelPackage.Literals.ASSIST_MODEL__NAME,
 				 true,
 				 false,
 				 false,
@@ -145,7 +145,7 @@ public class AssistModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AssistModel)object).getSystemName();
+		String label = ((AssistModel)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AssistModel_type") :
 			getString("_UI_AssistModel_type") + " " + label;
@@ -164,7 +164,7 @@ public class AssistModelItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AssistModel.class)) {
-			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
+			case ModelPackage.ASSIST_MODEL__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
@@ -210,11 +210,6 @@ public class AssistModelItemProvider
 			(createChildParameter
 				(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACE_GROUPS,
 				 ModelFactory.eINSTANCE.createEqInterfaceGroupWithCombinedDefinition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACE_GROUPS,
-				 ModelFactory.eINSTANCE.createEqInterfaceGroupWithImplicitDefinition()));
 
 		newChildDescriptors.add
 			(createChildParameter

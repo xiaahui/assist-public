@@ -13,7 +13,7 @@ def readBPPC(numItems, cap, inFile, bound):
     with open(base[:-4] + ".mdsl", 'w') as w:
         print("""\
 Global {
-    System name = "Binpack with conflicts System %s";
+    Name = "Binpack with conflicts System %s";
 }""" % base, file=w)
 
         for i in range(numBoards):

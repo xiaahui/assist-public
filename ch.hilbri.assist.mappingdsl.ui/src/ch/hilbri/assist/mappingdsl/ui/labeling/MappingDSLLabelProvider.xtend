@@ -31,7 +31,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(AssistModel model) {
-		'System ' + model.systemName
+		'System ' + model.name
 	}
 
 	def image(AssistModel model) {

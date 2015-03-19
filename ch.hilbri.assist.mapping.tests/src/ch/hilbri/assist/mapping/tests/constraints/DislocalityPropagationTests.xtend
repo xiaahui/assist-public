@@ -40,7 +40,7 @@ class DislocalityPropagationTests {
 		input = 
 '''
 Global { 
-	System name = "Example System";
+	Name = "Example System";
 }
 
 Compartment C1 {

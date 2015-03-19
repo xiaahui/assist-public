@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.BasicEList
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 class AssistModel {
-	String 									systemName 				= ""
+	String 									name 				= ""
 
 	contains Compartment[0..*]				compartments
 	contains EqInterface[0..*]				eqInterfaces
@@ -124,25 +124,24 @@ class EqInterface extends EqInterfaceOrGroup {
 
 class EqInterfaceGroup extends EqInterfaceOrGroup {
 	refers EqInterface[0..*] eqInterfaces
+	contains ImplicitEqInterfaceGroupDefinition [0..*] implicitGroupDefinitions
 	op String toString() { name }
 }
 
-class EqInterfaceGroupWithCombinedDefinition extends EqInterfaceGroup {
-	refers EqInterfaceGroup [1..*] combinedGroups
-}
-
-class EqInterfaceGroupWithImplicitDefinition extends EqInterfaceGroup {
-	contains ImplicitEqInterfaceGroupDefinition [1..*] definitions
-}
 
 class ImplicitEqInterfaceGroupDefinition {
+	contains ImplicitEqInterfaceGroupDefinitionAttributesAndValues[1..*] entries
+}
+
+
+class ImplicitEqInterfaceGroupDefinitionAttributesAndValues {
 	ImplicitEqInterfaceGroupDefinitionAttribute attribute
 	String					 			value
 }
 
 enum ImplicitEqInterfaceGroupDefinitionAttribute {
 	NAME		as 	"Name"
-	SYSTEM 		as 	"System"
+	SYSTEM 		as 	"InterfaceSystem"
 	SUBATA		as 	"SubAta"
 	RESOURCE	as 	"Resource"
 	LINENAME	as 	"LineName"
@@ -153,6 +152,11 @@ enum ImplicitEqInterfaceGroupDefinitionAttribute {
 	EMHZONE1	as 	"EmhZone1"
 	IOTYPE		as 	"IoType"
 }
+
+class EqInterfaceGroupWithCombinedDefinition extends EqInterfaceGroup {
+	refers EqInterfaceGroup [1..*] combinedGroups
+}
+
 
 class MetricParameter {
 	String name = ""

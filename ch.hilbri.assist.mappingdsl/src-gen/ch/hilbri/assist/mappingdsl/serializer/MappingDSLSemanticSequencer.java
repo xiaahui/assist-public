@@ -10,8 +10,8 @@ import ch.hilbri.assist.datamodel.model.DislocalityRelation;
 import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition;
-import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithImplicitDefinition;
 import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinition;
+import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinitionAttributesAndValues;
 import ch.hilbri.assist.datamodel.model.InvalidDeployment;
 import ch.hilbri.assist.datamodel.model.InvalidDeploymentImplicit;
 import ch.hilbri.assist.datamodel.model.MetricParameter;
@@ -102,15 +102,15 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
-			case ModelPackage.EQ_INTERFACE_GROUP_WITH_IMPLICIT_DEFINITION:
-				if(context == grammarAccess.getEqInterfaceGroupWithImplicitDefinitionRule()) {
-					sequence_EqInterfaceGroupWithImplicitDefinition(context, (EqInterfaceGroupWithImplicitDefinition) semanticObject); 
-					return; 
-				}
-				else break;
 			case ModelPackage.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION:
 				if(context == grammarAccess.getImplicitEqInterfaceGroupDefinitionRule()) {
 					sequence_ImplicitEqInterfaceGroupDefinition(context, (ImplicitEqInterfaceGroupDefinition) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION_ATTRIBUTES_AND_VALUES:
+				if(context == grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesRule()) {
+					sequence_ImplicitEqInterfaceGroupDefinitionAttributesAndValues(context, (ImplicitEqInterfaceGroupDefinitionAttributesAndValues) semanticObject); 
 					return; 
 				}
 				else break;
@@ -157,14 +157,10 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * Constraint:
 	 *     (
-	 *         systemName=STRING 
+	 *         name=STRING 
 	 *         compartments+=Compartment+ 
 	 *         eqInterfaces+=EqInterface* 
-	 *         (
-	 *             eqInterfaceGroups+=EqInterfaceGroup | 
-	 *             eqInterfaceGroups+=EqInterfaceGroupWithImplicitDefinition | 
-	 *             eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition
-	 *         )* 
+	 *         (eqInterfaceGroups+=EqInterfaceGroup | eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* 
 	 *         (
 	 *             dislocalityRelations+=DislocalityRelation | 
 	 *             colocalityRelations+=ColocalityRelation | 
@@ -274,18 +270,9 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         (definitions+=ImplicitEqInterfaceGroupDefinition | eqInterfaces+=[EqInterface|ID]) 
-	 *         (definitions+=ImplicitEqInterfaceGroupDefinition | eqInterfaces+=[EqInterface|ID])*
+	 *         (eqInterfaces+=[EqInterface|ID] | implicitGroupDefinitions+=ImplicitEqInterfaceGroupDefinition) 
+	 *         (eqInterfaces+=[EqInterface|ID] | implicitGroupDefinitions+=ImplicitEqInterfaceGroupDefinition)*
 	 *     )
-	 */
-	protected void sequence_EqInterfaceGroupWithImplicitDefinition(EObject context, EqInterfaceGroupWithImplicitDefinition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID eqInterfaces+=[EqInterface|ID] eqInterfaces+=[EqInterface|ID]*)
 	 */
 	protected void sequence_EqInterfaceGroup(EObject context, EqInterfaceGroup semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -317,18 +304,27 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Constraint:
 	 *     (attribute=ImplicitEqInterfaceGroupDefinitionAttribute value=STRING)
 	 */
-	protected void sequence_ImplicitEqInterfaceGroupDefinition(EObject context, ImplicitEqInterfaceGroupDefinition semanticObject) {
+	protected void sequence_ImplicitEqInterfaceGroupDefinitionAttributesAndValues(EObject context, ImplicitEqInterfaceGroupDefinitionAttributesAndValues semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION__ATTRIBUTE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION__ATTRIBUTE));
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION__VALUE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION_ATTRIBUTES_AND_VALUES__ATTRIBUTE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION_ATTRIBUTES_AND_VALUES__ATTRIBUTE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION_ATTRIBUTES_AND_VALUES__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION_ATTRIBUTES_AND_VALUES__VALUE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getAttributeImplicitEqInterfaceGroupDefinitionAttributeEnumRuleCall_0_0(), semanticObject.getAttribute());
-		feeder.accept(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getAttributeImplicitEqInterfaceGroupDefinitionAttributeEnumRuleCall_0_0(), semanticObject.getAttribute());
+		feeder.accept(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (entries+=ImplicitEqInterfaceGroupDefinitionAttributesAndValues entries+=ImplicitEqInterfaceGroupDefinitionAttributesAndValues*)
+	 */
+	protected void sequence_ImplicitEqInterfaceGroupDefinition(EObject context, ImplicitEqInterfaceGroupDefinition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
