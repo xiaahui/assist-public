@@ -1790,30 +1790,40 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCOMPARTMENT_NAMECompartmentNameKeyword_0_0 = (Keyword)cCOMPARTMENT_NAMEEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cCOMPARTMENT_MANUFACTUREREnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cCOMPARTMENT_MANUFACTURERCompartmentManufacturerKeyword_1_0 = (Keyword)cCOMPARTMENT_MANUFACTUREREnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cRDC_NAMEEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cRDC_NAMERDCNameKeyword_2_0 = (Keyword)cRDC_NAMEEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cRDC_MANUFACTUREREnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cRDC_MANUFACTURERRDCManufacturerKeyword_3_0 = (Keyword)cRDC_MANUFACTUREREnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cRDC_POWERSUPPLYEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cRDC_POWERSUPPLYRDCPowerSupplyKeyword_4_0 = (Keyword)cRDC_POWERSUPPLYEnumLiteralDeclaration_4.eContents().get(0);
-		private final EnumLiteralDeclaration cRDC_SIDEEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
-		private final Keyword cRDC_SIDERDCSideKeyword_5_0 = (Keyword)cRDC_SIDEEnumLiteralDeclaration_5.eContents().get(0);
-		private final EnumLiteralDeclaration cRDC_TYPEEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
-		private final Keyword cRDC_TYPERDCTypeKeyword_6_0 = (Keyword)cRDC_TYPEEnumLiteralDeclaration_6.eContents().get(0);
-		private final EnumLiteralDeclaration cRDC_ESSEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
-		private final Keyword cRDC_ESSRDCESSKeyword_7_0 = (Keyword)cRDC_ESSEnumLiteralDeclaration_7.eContents().get(0);
-		private final EnumLiteralDeclaration cCONNECTOR_NAMEEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
-		private final Keyword cCONNECTOR_NAMEConnectorNameKeyword_8_0 = (Keyword)cCONNECTOR_NAMEEnumLiteralDeclaration_8.eContents().get(0);
+		private final EnumLiteralDeclaration cCOMPARTMENT_POWERSUPPLYEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cCOMPARTMENT_POWERSUPPLYCompartmentPowerSupplyKeyword_2_0 = (Keyword)cCOMPARTMENT_POWERSUPPLYEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cCOMPARTMENT_SIDEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cCOMPARTMENT_SIDECompartmentSideKeyword_3_0 = (Keyword)cCOMPARTMENT_SIDEEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cCOMPARTMENT_ZONEEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cCOMPARTMENT_ZONECompartmentZoneKeyword_4_0 = (Keyword)cCOMPARTMENT_ZONEEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cRDC_NAMEEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cRDC_NAMERDCNameKeyword_5_0 = (Keyword)cRDC_NAMEEnumLiteralDeclaration_5.eContents().get(0);
+		private final EnumLiteralDeclaration cRDC_MANUFACTUREREnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
+		private final Keyword cRDC_MANUFACTURERRDCManufacturerKeyword_6_0 = (Keyword)cRDC_MANUFACTUREREnumLiteralDeclaration_6.eContents().get(0);
+		private final EnumLiteralDeclaration cRDC_POWERSUPPLYEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
+		private final Keyword cRDC_POWERSUPPLYRDCPowerSupplyKeyword_7_0 = (Keyword)cRDC_POWERSUPPLYEnumLiteralDeclaration_7.eContents().get(0);
+		private final EnumLiteralDeclaration cRDC_SIDEEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
+		private final Keyword cRDC_SIDERDCSideKeyword_8_0 = (Keyword)cRDC_SIDEEnumLiteralDeclaration_8.eContents().get(0);
+		private final EnumLiteralDeclaration cRDC_TYPEEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
+		private final Keyword cRDC_TYPERDCTypeKeyword_9_0 = (Keyword)cRDC_TYPEEnumLiteralDeclaration_9.eContents().get(0);
+		private final EnumLiteralDeclaration cRDC_ESSEnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
+		private final Keyword cRDC_ESSRDCESSKeyword_10_0 = (Keyword)cRDC_ESSEnumLiteralDeclaration_10.eContents().get(0);
+		private final EnumLiteralDeclaration cCONNECTOR_NAMEEnumLiteralDeclaration_11 = (EnumLiteralDeclaration)cAlternatives.eContents().get(11);
+		private final Keyword cCONNECTOR_NAMEConnectorNameKeyword_11_0 = (Keyword)cCONNECTOR_NAMEEnumLiteralDeclaration_11.eContents().get(0);
 		
 		//enum DeploymentImplicitDefinitionAttribute:
-		//	COMPARTMENT_NAME="Compartment.Name" | COMPARTMENT_MANUFACTURER="Compartment.Manufacturer" | RDC_NAME="RDC.Name" |
-		//	RDC_MANUFACTURER="RDC.Manufacturer" | RDC_POWERSUPPLY="RDC.PowerSupply" | RDC_SIDE="RDC.Side" | RDC_TYPE="RDC.Type" |
-		//	RDC_ESS="RDC.ESS" | CONNECTOR_NAME="Connector.Name";
+		//	COMPARTMENT_NAME="Compartment.Name" | COMPARTMENT_MANUFACTURER="Compartment.Manufacturer" |
+		//	COMPARTMENT_POWERSUPPLY="Compartment.PowerSupply" | COMPARTMENT_SIDE="Compartment.Side" |
+		//	COMPARTMENT_ZONE="Compartment.Zone" | RDC_NAME="RDC.Name" | RDC_MANUFACTURER="RDC.Manufacturer" |
+		//	RDC_POWERSUPPLY="RDC.PowerSupply" | RDC_SIDE="RDC.Side" | RDC_TYPE="RDC.Type" | RDC_ESS="RDC.ESS" |
+		//	CONNECTOR_NAME="Connector.Name";
 		public EnumRule getRule() { return rule; }
 
-		//COMPARTMENT_NAME="Compartment.Name" | COMPARTMENT_MANUFACTURER="Compartment.Manufacturer" | RDC_NAME="RDC.Name" |
-		//RDC_MANUFACTURER="RDC.Manufacturer" | RDC_POWERSUPPLY="RDC.PowerSupply" | RDC_SIDE="RDC.Side" | RDC_TYPE="RDC.Type" |
-		//RDC_ESS="RDC.ESS" | CONNECTOR_NAME="Connector.Name"
+		//COMPARTMENT_NAME="Compartment.Name" | COMPARTMENT_MANUFACTURER="Compartment.Manufacturer" |
+		//COMPARTMENT_POWERSUPPLY="Compartment.PowerSupply" | COMPARTMENT_SIDE="Compartment.Side" |
+		//COMPARTMENT_ZONE="Compartment.Zone" | RDC_NAME="RDC.Name" | RDC_MANUFACTURER="RDC.Manufacturer" |
+		//RDC_POWERSUPPLY="RDC.PowerSupply" | RDC_SIDE="RDC.Side" | RDC_TYPE="RDC.Type" | RDC_ESS="RDC.ESS" |
+		//CONNECTOR_NAME="Connector.Name"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//COMPARTMENT_NAME="Compartment.Name"
@@ -1828,47 +1838,65 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Compartment.Manufacturer"
 		public Keyword getCOMPARTMENT_MANUFACTURERCompartmentManufacturerKeyword_1_0() { return cCOMPARTMENT_MANUFACTURERCompartmentManufacturerKeyword_1_0; }
 
+		//COMPARTMENT_POWERSUPPLY="Compartment.PowerSupply"
+		public EnumLiteralDeclaration getCOMPARTMENT_POWERSUPPLYEnumLiteralDeclaration_2() { return cCOMPARTMENT_POWERSUPPLYEnumLiteralDeclaration_2; }
+
+		//"Compartment.PowerSupply"
+		public Keyword getCOMPARTMENT_POWERSUPPLYCompartmentPowerSupplyKeyword_2_0() { return cCOMPARTMENT_POWERSUPPLYCompartmentPowerSupplyKeyword_2_0; }
+
+		//COMPARTMENT_SIDE="Compartment.Side"
+		public EnumLiteralDeclaration getCOMPARTMENT_SIDEEnumLiteralDeclaration_3() { return cCOMPARTMENT_SIDEEnumLiteralDeclaration_3; }
+
+		//"Compartment.Side"
+		public Keyword getCOMPARTMENT_SIDECompartmentSideKeyword_3_0() { return cCOMPARTMENT_SIDECompartmentSideKeyword_3_0; }
+
+		//COMPARTMENT_ZONE="Compartment.Zone"
+		public EnumLiteralDeclaration getCOMPARTMENT_ZONEEnumLiteralDeclaration_4() { return cCOMPARTMENT_ZONEEnumLiteralDeclaration_4; }
+
+		//"Compartment.Zone"
+		public Keyword getCOMPARTMENT_ZONECompartmentZoneKeyword_4_0() { return cCOMPARTMENT_ZONECompartmentZoneKeyword_4_0; }
+
 		//RDC_NAME="RDC.Name"
-		public EnumLiteralDeclaration getRDC_NAMEEnumLiteralDeclaration_2() { return cRDC_NAMEEnumLiteralDeclaration_2; }
+		public EnumLiteralDeclaration getRDC_NAMEEnumLiteralDeclaration_5() { return cRDC_NAMEEnumLiteralDeclaration_5; }
 
 		//"RDC.Name"
-		public Keyword getRDC_NAMERDCNameKeyword_2_0() { return cRDC_NAMERDCNameKeyword_2_0; }
+		public Keyword getRDC_NAMERDCNameKeyword_5_0() { return cRDC_NAMERDCNameKeyword_5_0; }
 
 		//RDC_MANUFACTURER="RDC.Manufacturer"
-		public EnumLiteralDeclaration getRDC_MANUFACTUREREnumLiteralDeclaration_3() { return cRDC_MANUFACTUREREnumLiteralDeclaration_3; }
+		public EnumLiteralDeclaration getRDC_MANUFACTUREREnumLiteralDeclaration_6() { return cRDC_MANUFACTUREREnumLiteralDeclaration_6; }
 
 		//"RDC.Manufacturer"
-		public Keyword getRDC_MANUFACTURERRDCManufacturerKeyword_3_0() { return cRDC_MANUFACTURERRDCManufacturerKeyword_3_0; }
+		public Keyword getRDC_MANUFACTURERRDCManufacturerKeyword_6_0() { return cRDC_MANUFACTURERRDCManufacturerKeyword_6_0; }
 
 		//RDC_POWERSUPPLY="RDC.PowerSupply"
-		public EnumLiteralDeclaration getRDC_POWERSUPPLYEnumLiteralDeclaration_4() { return cRDC_POWERSUPPLYEnumLiteralDeclaration_4; }
+		public EnumLiteralDeclaration getRDC_POWERSUPPLYEnumLiteralDeclaration_7() { return cRDC_POWERSUPPLYEnumLiteralDeclaration_7; }
 
 		//"RDC.PowerSupply"
-		public Keyword getRDC_POWERSUPPLYRDCPowerSupplyKeyword_4_0() { return cRDC_POWERSUPPLYRDCPowerSupplyKeyword_4_0; }
+		public Keyword getRDC_POWERSUPPLYRDCPowerSupplyKeyword_7_0() { return cRDC_POWERSUPPLYRDCPowerSupplyKeyword_7_0; }
 
 		//RDC_SIDE="RDC.Side"
-		public EnumLiteralDeclaration getRDC_SIDEEnumLiteralDeclaration_5() { return cRDC_SIDEEnumLiteralDeclaration_5; }
+		public EnumLiteralDeclaration getRDC_SIDEEnumLiteralDeclaration_8() { return cRDC_SIDEEnumLiteralDeclaration_8; }
 
 		//"RDC.Side"
-		public Keyword getRDC_SIDERDCSideKeyword_5_0() { return cRDC_SIDERDCSideKeyword_5_0; }
+		public Keyword getRDC_SIDERDCSideKeyword_8_0() { return cRDC_SIDERDCSideKeyword_8_0; }
 
 		//RDC_TYPE="RDC.Type"
-		public EnumLiteralDeclaration getRDC_TYPEEnumLiteralDeclaration_6() { return cRDC_TYPEEnumLiteralDeclaration_6; }
+		public EnumLiteralDeclaration getRDC_TYPEEnumLiteralDeclaration_9() { return cRDC_TYPEEnumLiteralDeclaration_9; }
 
 		//"RDC.Type"
-		public Keyword getRDC_TYPERDCTypeKeyword_6_0() { return cRDC_TYPERDCTypeKeyword_6_0; }
+		public Keyword getRDC_TYPERDCTypeKeyword_9_0() { return cRDC_TYPERDCTypeKeyword_9_0; }
 
 		//RDC_ESS="RDC.ESS"
-		public EnumLiteralDeclaration getRDC_ESSEnumLiteralDeclaration_7() { return cRDC_ESSEnumLiteralDeclaration_7; }
+		public EnumLiteralDeclaration getRDC_ESSEnumLiteralDeclaration_10() { return cRDC_ESSEnumLiteralDeclaration_10; }
 
 		//"RDC.ESS"
-		public Keyword getRDC_ESSRDCESSKeyword_7_0() { return cRDC_ESSRDCESSKeyword_7_0; }
+		public Keyword getRDC_ESSRDCESSKeyword_10_0() { return cRDC_ESSRDCESSKeyword_10_0; }
 
 		//CONNECTOR_NAME="Connector.Name"
-		public EnumLiteralDeclaration getCONNECTOR_NAMEEnumLiteralDeclaration_8() { return cCONNECTOR_NAMEEnumLiteralDeclaration_8; }
+		public EnumLiteralDeclaration getCONNECTOR_NAMEEnumLiteralDeclaration_11() { return cCONNECTOR_NAMEEnumLiteralDeclaration_11; }
 
 		//"Connector.Name"
-		public Keyword getCONNECTOR_NAMEConnectorNameKeyword_8_0() { return cCONNECTOR_NAMEConnectorNameKeyword_8_0; }
+		public Keyword getCONNECTOR_NAMEConnectorNameKeyword_11_0() { return cCONNECTOR_NAMEConnectorNameKeyword_11_0; }
 	}
 	
 	private final AssistModelElements pAssistModel;
@@ -2153,9 +2181,11 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum DeploymentImplicitDefinitionAttribute:
-	//	COMPARTMENT_NAME="Compartment.Name" | COMPARTMENT_MANUFACTURER="Compartment.Manufacturer" | RDC_NAME="RDC.Name" |
-	//	RDC_MANUFACTURER="RDC.Manufacturer" | RDC_POWERSUPPLY="RDC.PowerSupply" | RDC_SIDE="RDC.Side" | RDC_TYPE="RDC.Type" |
-	//	RDC_ESS="RDC.ESS" | CONNECTOR_NAME="Connector.Name";
+	//	COMPARTMENT_NAME="Compartment.Name" | COMPARTMENT_MANUFACTURER="Compartment.Manufacturer" |
+	//	COMPARTMENT_POWERSUPPLY="Compartment.PowerSupply" | COMPARTMENT_SIDE="Compartment.Side" |
+	//	COMPARTMENT_ZONE="Compartment.Zone" | RDC_NAME="RDC.Name" | RDC_MANUFACTURER="RDC.Manufacturer" |
+	//	RDC_POWERSUPPLY="RDC.PowerSupply" | RDC_SIDE="RDC.Side" | RDC_TYPE="RDC.Type" | RDC_ESS="RDC.ESS" |
+	//	CONNECTOR_NAME="Connector.Name";
 	public DeploymentImplicitDefinitionAttributeElements getDeploymentImplicitDefinitionAttributeAccess() {
 		return unknownRuleDeploymentImplicitDefinitionAttribute;
 	}

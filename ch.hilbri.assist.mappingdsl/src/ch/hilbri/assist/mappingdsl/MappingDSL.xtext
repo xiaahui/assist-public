@@ -169,6 +169,9 @@ DeploymentImplicitDefinitionAttributeAndValue:
 enum DeploymentImplicitDefinitionAttribute:
 	COMPARTMENT_NAME			= 'Compartment.Name'			|
 	COMPARTMENT_MANUFACTURER 	= 'Compartment.Manufacturer' 	|
+	COMPARTMENT_POWERSUPPLY 	= 'Compartment.PowerSupply' 	|
+	COMPARTMENT_SIDE		 	= 'Compartment.Side'		 	|
+	COMPARTMENT_ZONE		 	= 'Compartment.Zone'		 	|
 	RDC_NAME					= 'RDC.Name'					|
 	RDC_MANUFACTURER 			= 'RDC.Manufacturer'			|
 	RDC_POWERSUPPLY 			= 'RDC.PowerSupply'				|

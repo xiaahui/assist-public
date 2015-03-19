@@ -18,6 +18,9 @@ class ValidDeploymentHardwareElements extends AbstractModelPreprocessor {
 						switch (entry.attribute) {
 							case COMPARTMENT_NAME:			{ connectorList = connectorList.filter[it.rdc.compartment.name.equals(entry.value)			]}
 							case COMPARTMENT_MANUFACTURER:	{ connectorList = connectorList.filter[it.rdc.compartment.manufacturer.equals(entry.value)	]}
+							case COMPARTMENT_POWERSUPPLY: 	{ connectorList = connectorList.filter[it.rdc.compartment.powerSupply.equals(entry.value)	]}
+							case COMPARTMENT_SIDE: 			{ connectorList = connectorList.filter[it.rdc.compartment.side.equals(entry.value)			]}
+							case COMPARTMENT_ZONE: 			{ connectorList = connectorList.filter[it.rdc.compartment.zone.equals(entry.value)			]}
 							case RDC_NAME:					{ connectorList = connectorList.filter[it.rdc.name.equals(entry.value)						]}
 							case RDC_MANUFACTURER: 			{ connectorList = connectorList.filter[it.rdc.manufacturer.equals(entry.value)				]}
 							case RDC_POWERSUPPLY: 			{ connectorList = connectorList.filter[it.rdc.powerSupply.equals(entry.value)				]}
@@ -25,6 +28,7 @@ class ValidDeploymentHardwareElements extends AbstractModelPreprocessor {
 							case RDC_TYPE: 					{ connectorList = connectorList.filter[it.rdc.rdcType.equals(entry.value)					]}
 							case RDC_ESS: 					{ connectorList = connectorList.filter[it.rdc.ess.equals(entry.value)						]}
 							case CONNECTOR_NAME:			{ connectorList = connectorList.filter[it.name.equals(entry.value)							]}
+							
 						}
 					}
 					s.hardwareElements.addAll(connectorList)

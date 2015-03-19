@@ -93,7 +93,7 @@ class RDC extends HardwareElement {
 class Connector extends HardwareElement {
 	container RDC rdc opposite connectors
 	contains AvailableEqInterface[0..*] 	availableEqInterfaces
-	op String fullName() 			{ rdc.compartment.name + "." + rdc.name + "." + name }
+	op String fullName() 					{ rdc.compartment.name + "." + rdc.name + "." + name }
 }
 
 class AvailableEqInterface {
@@ -279,15 +279,22 @@ class DeploymentImplicitDefinitionAttributeAndValue {
 }
 
 enum DeploymentImplicitDefinitionAttribute {
+	COMPARTMENT_NAME			as  "Compartment.Name"
+	COMPARTMENT_MANUFACTURER 	as  "Compartment.Manufacturer"
+	COMPARTMENT_POWERSUPPLY		as	"Compartment.PowerSupply"
+	COMPARTMENT_SIDE			as	"Compartment.Side"
+	COMPARTMENT_ZONE			as	"Compartment.Zone"
+
 	RDC_NAME					as 	"RDC.Name"
 	RDC_MANUFACTURER			as 	"RDC.Manufacturer"
 	RDC_POWERSUPPLY				as 	"RDC.PowerSupply"
 	RDC_SIDE					as 	"RDC.Side"
 	RDC_TYPE					as 	"RDC.Type"
 	RDC_ESS						as 	"RDC.ESS"
+
 	CONNECTOR_NAME				as	"Connector.Name"
-	COMPARTMENT_NAME			as  "Compartment.Name"
-	COMPARTMENT_MANUFACTURER 	as  "Compartment.Manufacturer"
+	
+	
 }
 
 class ValidDeployment extends DeploymentSpecification {}
