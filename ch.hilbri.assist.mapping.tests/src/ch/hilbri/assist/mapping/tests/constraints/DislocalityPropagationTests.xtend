@@ -5,7 +5,6 @@ import ch.hilbri.assist.datamodel.model.ModelPackage
 import ch.hilbri.assist.mapping.solver.AssistSolver
 import ch.hilbri.assist.mapping.solver.SearchType
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
-import ch.hilbri.assist.mapping.tests.AbstractMappingTest
 import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider
 import com.google.inject.Inject
 import org.eclipse.xtext.junit4.InjectWith

@@ -1,7 +1,7 @@
 package ch.hilbri.assist.mapping.tests.results
 
 import ch.hilbri.assist.datamodel.model.Compartment
-import ch.hilbri.assist.mapping.tests.AbstractMappingTest
+import ch.hilbri.assist.mapping.tests.constraints.AbstractMappingTest
 import org.junit.Test
 
 import static org.junit.Assert.assertEquals

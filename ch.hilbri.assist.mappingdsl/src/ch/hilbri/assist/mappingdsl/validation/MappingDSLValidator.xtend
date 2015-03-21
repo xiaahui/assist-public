@@ -2,7 +2,6 @@ package ch.hilbri.assist.mappingdsl.validation
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.Connector
-import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition
 import ch.hilbri.assist.datamodel.model.ModelPackage
 import java.util.ArrayList
@@ -16,37 +15,13 @@ import org.eclipse.xtext.validation.Check
 class MappingDSLValidator extends AbstractMappingDSLValidator {
 	
 	@Check
-	def checkImplicitlyDefinedInterfaceGroupsAreNotEmpty(AssistModel model) {
+	def checkGroupsAreNotEmpty(AssistModel model) {
 		
 		// Check the groups that have no explicitly added eq interfaces
-		for (g : model.eqInterfaceGroups.filter[!(it instanceof EqInterfaceGroupWithCombinedDefinition)].filter[eqInterfaces.length == 0]) {
-	
-				val listOfImplicitlyDefinedInterface = new ArrayList<EqInterface>
-	
-				// We have to explode all implicit group definitions
-				for (implicitDefinitionElement : g.implicitGroupDefinitions) {
-					var Iterable<EqInterface> interfaceList = model.eqInterfaces	
-				
-					// Go through all entries (they are concatenated by AND)
-					for (entry : implicitDefinitionElement.entries) {
-						switch (entry.attribute) {
-						case NAME:			{ interfaceList = interfaceList.filter[it.name.equals(entry.value)			]}
-						case SYSTEM: 		{ interfaceList = interfaceList.filter[it.system.equals(entry.value)		]}
-						case SUBATA: 		{ interfaceList = interfaceList.filter[it.subAta.equals(entry.value)		]}
-						case RESOURCE: 		{ interfaceList = interfaceList.filter[it.resource.equals(entry.value)		]}
-						case LINENAME: 		{ interfaceList = interfaceList.filter[it.lineName.equals(entry.value)		]}
-						case WIRINGLANE:	{ interfaceList = interfaceList.filter[it.wiringLane.equals(entry.value)	]}
-						case GRPINFO: 		{ interfaceList = interfaceList.filter[it.grpInfo.equals(entry.value)		]}
-						case ROUTE: 		{ interfaceList = interfaceList.filter[it.route.equals(entry.value)			]}
-						case PWSUP1: 		{ interfaceList = interfaceList.filter[it.pwSup1.equals(entry.value)		]}
-						case EMHZONE1: 		{ interfaceList = interfaceList.filter[it.emhZone1.equals(entry.value)		]}
-						case IOTYPE: 		{ interfaceList = interfaceList.filter[it.ioType.equals(entry.value)		]}
-					}
-				}
-				
-				listOfImplicitlyDefinedInterface.addAll(interfaceList)
-			}
-			if ((g.eqInterfaces.length == 0) && (listOfImplicitlyDefinedInterface.length == 0))
+		for (g : model.eqInterfaceGroups.filter[!(it instanceof EqInterfaceGroupWithCombinedDefinition)]
+										.filter[eqInterfaces.length == 0]) 
+		{
+			if (g.implicitlyDefinedEqInterfaces.length == 0)
 				warning("The group " + g.name + " contains no interfaces. It is empty. This may be unintended.", g, ModelPackage.Literals::EQ_INTERFACE_OR_GROUP__NAME)		
 								
 		} // for loop over all group

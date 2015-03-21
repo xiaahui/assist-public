@@ -1,7 +1,7 @@
 package ch.hilbri.assist.mapping.tests.constraints
 
-import ch.hilbri.assist.mapping.tests.AbstractMappingTest
 import org.junit.Test
+
 import static org.junit.Assert.assertEquals
 
 class DislocalityTests extends AbstractMappingTest {

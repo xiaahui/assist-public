@@ -126,7 +126,42 @@ class EqInterface extends EqInterfaceOrGroup {
 class EqInterfaceGroup extends EqInterfaceOrGroup {
 	refers EqInterface[0..*] eqInterfaces
 	contains ImplicitEqInterfaceGroupDefinition [0..*] implicitGroupDefinitions
+	
 	op String toString() { name }
+
+	op EqInterface[] getImplicitlyDefinedEqInterfaces() {
+		val list = new BasicEList<EqInterface>
+		val model = this.eContainer as AssistModel
+		
+		// We have to explode all implicit group definitions
+		for (implicitDefinitionElement : this.implicitGroupDefinitions) {
+			
+			// contains the interfaces discovered for a single implicit definition element
+			var Iterable<EqInterface> interfaceList = model.eqInterfaces	
+					
+			// Go through all entries (they are concatenated by AND)
+			for (entry : implicitDefinitionElement.entries) {
+				switch (entry.attribute) {
+					case NAME:			{ interfaceList = interfaceList.filter[it.name.equals(entry.value)			]}
+					case SYSTEM: 		{ interfaceList = interfaceList.filter[it.system.equals(entry.value)		]}
+					case SUBATA: 		{ interfaceList = interfaceList.filter[it.subAta.equals(entry.value)		]}
+					case RESOURCE: 		{ interfaceList = interfaceList.filter[it.resource.equals(entry.value)		]}
+					case LINENAME: 		{ interfaceList = interfaceList.filter[it.lineName.equals(entry.value)		]}
+					case WIRINGLANE:	{ interfaceList = interfaceList.filter[it.wiringLane.equals(entry.value)	]}
+					case GRPINFO: 		{ interfaceList = interfaceList.filter[it.grpInfo.equals(entry.value)		]}
+					case ROUTE: 		{ interfaceList = interfaceList.filter[it.route.equals(entry.value)			]}
+					case PWSUP1: 		{ interfaceList = interfaceList.filter[it.pwSup1.equals(entry.value)		]}
+					case EMHZONE1: 		{ interfaceList = interfaceList.filter[it.emhZone1.equals(entry.value)		]}
+					case IOTYPE: 		{ interfaceList = interfaceList.filter[it.ioType.equals(entry.value)		]}
+				} // switch
+			} // for (entry)
+		
+			list.addAll(interfaceList)
+		
+		} // for (implicit group definition elements)
+		
+		return (list.toSet.toList.toEList)
+	}
 }
 
 
