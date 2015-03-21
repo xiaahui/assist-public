@@ -94,6 +94,7 @@ class Connector extends HardwareElement {
 	container RDC rdc opposite connectors
 	contains AvailableEqInterface[0..*] 	availableEqInterfaces
 	op String fullName() 					{ rdc.compartment.name + "." + rdc.name + "." + name }
+	op String toString() 			{ name }
 }
 
 class AvailableEqInterface {

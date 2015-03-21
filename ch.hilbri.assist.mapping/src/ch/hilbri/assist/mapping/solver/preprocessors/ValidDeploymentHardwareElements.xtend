@@ -8,7 +8,7 @@ class ValidDeploymentHardwareElements extends AbstractModelPreprocessor {
 	
 	override execute() {
 		for (s : model.validDeployments.filter[it.implicitHardwareElements.length > 0]) {
-				logger.info("    . Processing valid deployment for interfaces/groups " + s.eqInterfaceOrGroups)
+				logger.info("    . Processing valid deployment for interfaces/groups: [" + s.allEqInterfaceOrGroupNames + "]")
 				
 				s.hardwareElements.addAll(s.implicitlyDefinedConnectors)			
 				
