@@ -73,7 +73,6 @@ class AssistSolver {
 		
 		/* Attach the search monitor */
 		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor)
-		this.solver.searchLoop.plugSearchMonitor(new BacktrackingMonitor)
 		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 		
 		/* Get the list of locationVariableLevels which will be used */
@@ -129,10 +128,11 @@ class AssistSolver {
 		val vars = solverVariables.getLocationVariables(locationVariableLevels)
 		switch (strategy) {
 			case SearchType.FIRST_FAIL: {
-				heuristic = ISF.minDom_LB()
+				heuristic = ISF.minDom_LB(vars)
 			}
 			case strategy == SearchType.FIRST_FAIL_MAX_DEGREE || strategy == SearchType.DEFAULT: {
 				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model, locationVariableLevels)
+				this.solver.searchLoop.plugSearchMonitor(new BacktrackingMonitor)
 				heuristic = ISF.custom(selector, selector, vars)				
 			}
 			case SearchType.HARDEST_DISLOC: {

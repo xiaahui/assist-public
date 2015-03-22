@@ -108,35 +108,24 @@ Compartment Compartment%s {
 
 def waitForRemaining(procs, args):
     initialSize = len(procs)
-    if args.timeout == 0:
-        for p in list(procs.keys()):
-            p.wait()
-            del procs[p]
-    else:
-        while len(procs) == initialSize:
-            timeout = min(procs.values() + [10])
-            time.sleep(timeout)
-            for p in list(procs.keys()):
-                procs[p] -= timeout
-                if p.poll() is None:
-                    if procs[p] <= 0:
-                        p.kill()
-                        del procs[p]
-                else:
-                    del procs[p]
+    while len(procs) == initialSize:
+        time.sleep(10)
+        for p in list(procs):
+            if p.poll() is not None:
+                procs.remove(p)
 
 def runAssist(inputs, args):
     java = "java"
     if "JAVA_HOME" in os.environ:
         java = os.path.join(os.environ["JAVA_HOME"].strip('"'), "bin", java)
-    procs = {}
+    procs = set()
     for i in inputs:
         if not i:
             continue
         print([java, "-jar", args.jar, i, "-s", str(args.solutions)])
-        procs[subprocess.Popen([java, "-jar", args.jar, i, "-s", str(args.solutions),
-                                "-l", str(args.level), "-a", str(args.strategy)],
-                               stdout=open(i+".log", 'w'), stderr=subprocess.STDOUT)] = args.timeout
+        procs.add(subprocess.Popen([java, "-jar", args.jar, i, "-s", str(args.solutions),
+                                    "-l", str(args.level), "-a", str(args.strategy), "-t", str(args.timeout)],
+                                   stdout=open(i+".log", 'w'), stderr=subprocess.STDOUT))
         if len(procs) == args.instances:
             waitForRemaining(procs, args)
     while(procs):

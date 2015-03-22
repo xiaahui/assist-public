@@ -36,6 +36,7 @@ public class Runner {
 		options.addOption("s", "solutions", true, "number of solution to find");
 		options.addOption("l", "level", true, "hardware level(s) to use for location variables");
 		options.addOption("a", "strategy", true, "strategy to use");
+		options.addOption("t", "timeout", true, "timeout in seconds");
 		final CommandLineParser parser = new BasicParser();
 		final CommandLine cmd = parser.parse(options, args);
 		final int numSolutions = Integer.parseInt(cmd.getOptionValue("solutions", "1"));
@@ -99,6 +100,10 @@ public class Runner {
 			}	
 			solver.setSolverSearchStrategy(heuristic);
 			solver.setSolverMaxSolutions(numSolutions);
+			final int timeout = Integer.parseInt(cmd.getOptionValue("timeout", "0"));
+			if (timeout > 0) {
+				solver.setSolverTimeLimit(timeout * 1000);
+			}
 			try {
 				solver.runModelPreprocessors();
 				solver.propagation();

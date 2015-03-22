@@ -7,14 +7,15 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.solver.constraints.choco.ACF
 import ch.hilbri.assist.mapping.solver.exceptions.InterfaceGroupCannotBeMappedDislocally
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
+import java.util.ArrayList
+import java.util.BitSet
 import java.util.List
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
-import org.slf4j.LoggerFactory
 import org.chocosolver.solver.variables.VF
-import java.util.ArrayList
+import org.slf4j.LoggerFactory
 
 class DislocalityConstraint extends AbstractMappingConstraint {
 	
@@ -108,5 +109,48 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			conflict.remove(conflict.size-1)
 		}
 		
+	}
+	
+	def void addToConflictGraph(List<List<EqInterface>> ifaceList, List<BitSet> graph) {
+		for (sublistIdx : 0..<ifaceList.size) {
+			for (iface : ifaceList.get(sublistIdx)) {
+				val idx = model.eqInterfaces.indexOf(iface)
+				while (idx >= graph.size) {
+					graph.add(new BitSet)
+				} 
+				for (conflictListIdx : sublistIdx+1..<ifaceList.size) {
+					for (conflict : ifaceList.get(conflictListIdx)) {
+						val conflictIdx = model.eqInterfaces.indexOf(iface)
+						while (conflictIdx >= graph.size) {
+							graph.add(new BitSet)
+						} 
+						graph.get(idx).set(conflictIdx)
+						graph.get(conflictIdx).set(idx)
+					}	
+				}
+			}
+		}
+	}
+	
+	def void cliqueCoverConstraintBuild(List<IntVar> intVarList, List<BitSet> graph) {
+		val List<BitSet> uncovered = new ArrayList<BitSet>(graph.size)
+		for (node:graph) {
+			uncovered.add(node.clone() as BitSet)
+		}
+		var BitSet maxNode = null
+		var int maxCard = 0
+		for (node:uncovered) {
+			val card = node.cardinality
+			if (card > maxCard) {
+				maxNode = node
+				maxCard = card
+			}
+		}
+		if (maxCard == 0) {
+			return
+		}
+		for (var int idx = maxNode.nextSetBit(0); idx != -1; idx = maxNode.nextSetBit(idx)) {
+			
+		}
 	}
 }
