@@ -3,8 +3,8 @@
 package ch.hilbri.assist.datamodel.model.provider;
 
 
-import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinitionAttribute;
-import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinitionAttributesAndValues;
+import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttribute;
+import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttributesAndValues;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 
 import java.util.Collection;
@@ -27,12 +27,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinitionAttributesAndValues} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttributesAndValues} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ImplicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider 
+public class ImplicitEqInterfaceMemberDefinitionAttributesAndValuesItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -46,7 +46,7 @@ public class ImplicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImplicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider(AdapterFactory adapterFactory) {
+	public ImplicitEqInterfaceMemberDefinitionAttributesAndValuesItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -78,9 +78,9 @@ public class ImplicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ImplicitEqInterfaceGroupDefinitionAttributesAndValues_attribute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ImplicitEqInterfaceGroupDefinitionAttributesAndValues_attribute_feature", "_UI_ImplicitEqInterfaceGroupDefinitionAttributesAndValues_type"),
-				 ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION_ATTRIBUTES_AND_VALUES__ATTRIBUTE,
+				 getString("_UI_ImplicitEqInterfaceMemberDefinitionAttributesAndValues_attribute_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ImplicitEqInterfaceMemberDefinitionAttributesAndValues_attribute_feature", "_UI_ImplicitEqInterfaceMemberDefinitionAttributesAndValues_type"),
+				 ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTES_AND_VALUES__ATTRIBUTE,
 				 true,
 				 false,
 				 false,
@@ -100,9 +100,9 @@ public class ImplicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ImplicitEqInterfaceGroupDefinitionAttributesAndValues_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ImplicitEqInterfaceGroupDefinitionAttributesAndValues_value_feature", "_UI_ImplicitEqInterfaceGroupDefinitionAttributesAndValues_type"),
-				 ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION_ATTRIBUTES_AND_VALUES__VALUE,
+				 getString("_UI_ImplicitEqInterfaceMemberDefinitionAttributesAndValues_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ImplicitEqInterfaceMemberDefinitionAttributesAndValues_value_feature", "_UI_ImplicitEqInterfaceMemberDefinitionAttributesAndValues_type"),
+				 ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTES_AND_VALUES__VALUE,
 				 true,
 				 false,
 				 false,
@@ -112,14 +112,14 @@ public class ImplicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider
 	}
 
 	/**
-	 * This returns ImplicitEqInterfaceGroupDefinitionAttributesAndValues.gif.
+	 * This returns ImplicitEqInterfaceMemberDefinitionAttributesAndValues.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImplicitEqInterfaceGroupDefinitionAttributesAndValues"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImplicitEqInterfaceMemberDefinitionAttributesAndValues"));
 	}
 
 	/**
@@ -130,11 +130,11 @@ public class ImplicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ImplicitEqInterfaceGroupDefinitionAttribute labelValue = ((ImplicitEqInterfaceGroupDefinitionAttributesAndValues)object).getAttribute();
+		ImplicitEqInterfaceMemberDefinitionAttribute labelValue = ((ImplicitEqInterfaceMemberDefinitionAttributesAndValues)object).getAttribute();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ImplicitEqInterfaceGroupDefinitionAttributesAndValues_type") :
-			getString("_UI_ImplicitEqInterfaceGroupDefinitionAttributesAndValues_type") + " " + label;
+			getString("_UI_ImplicitEqInterfaceMemberDefinitionAttributesAndValues_type") :
+			getString("_UI_ImplicitEqInterfaceMemberDefinitionAttributesAndValues_type") + " " + label;
 	}
 	
 
@@ -149,9 +149,9 @@ public class ImplicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ImplicitEqInterfaceGroupDefinitionAttributesAndValues.class)) {
-			case ModelPackage.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION_ATTRIBUTES_AND_VALUES__ATTRIBUTE:
-			case ModelPackage.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION_ATTRIBUTES_AND_VALUES__VALUE:
+		switch (notification.getFeatureID(ImplicitEqInterfaceMemberDefinitionAttributesAndValues.class)) {
+			case ModelPackage.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTES_AND_VALUES__ATTRIBUTE:
+			case ModelPackage.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTES_AND_VALUES__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

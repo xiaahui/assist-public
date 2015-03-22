@@ -1034,17 +1034,17 @@ ruleEqInterfaceGroup returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEqInterfaceGroupAccess().getImplicitGroupDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_3_1_0()); 
+	        newCompositeNode(grammarAccess.getEqInterfaceGroupAccess().getImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_3_1_0()); 
 	    }
-		lv_implicitGroupDefinitions_4_0=ruleImplicitEqInterfaceGroupDefinition		{
+		lv_implicitMemberDefinitions_4_0=ruleImplicitEqInterfaceMemberDefinition		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEqInterfaceGroupRule());
 	        }
        		add(
        			$current, 
-       			"implicitGroupDefinitions",
-        		lv_implicitGroupDefinitions_4_0, 
-        		"ImplicitEqInterfaceGroupDefinition");
+       			"implicitMemberDefinitions",
+        		lv_implicitMemberDefinitions_4_0, 
+        		"ImplicitEqInterfaceMemberDefinition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1070,17 +1070,17 @@ ruleEqInterfaceGroup returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEqInterfaceGroupAccess().getImplicitGroupDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_4_1_1_0()); 
+	        newCompositeNode(grammarAccess.getEqInterfaceGroupAccess().getImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_4_1_1_0()); 
 	    }
-		lv_implicitGroupDefinitions_7_0=ruleImplicitEqInterfaceGroupDefinition		{
+		lv_implicitMemberDefinitions_7_0=ruleImplicitEqInterfaceMemberDefinition		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEqInterfaceGroupRule());
 	        }
        		add(
        			$current, 
-       			"implicitGroupDefinitions",
-        		lv_implicitGroupDefinitions_7_0, 
-        		"ImplicitEqInterfaceGroupDefinition");
+       			"implicitMemberDefinitions",
+        		lv_implicitMemberDefinitions_7_0, 
+        		"ImplicitEqInterfaceMemberDefinition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1100,60 +1100,60 @@ ruleEqInterfaceGroup returns [EObject current=null]
 
 
 
-// Entry rule entryRuleImplicitEqInterfaceGroupDefinition
-entryRuleImplicitEqInterfaceGroupDefinition returns [EObject current=null] 
+// Entry rule entryRuleImplicitEqInterfaceMemberDefinition
+entryRuleImplicitEqInterfaceMemberDefinition returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getImplicitEqInterfaceGroupDefinitionRule()); }
-	 iv_ruleImplicitEqInterfaceGroupDefinition=ruleImplicitEqInterfaceGroupDefinition 
-	 { $current=$iv_ruleImplicitEqInterfaceGroupDefinition.current; } 
+	{ newCompositeNode(grammarAccess.getImplicitEqInterfaceMemberDefinitionRule()); }
+	 iv_ruleImplicitEqInterfaceMemberDefinition=ruleImplicitEqInterfaceMemberDefinition 
+	 { $current=$iv_ruleImplicitEqInterfaceMemberDefinition.current; } 
 	 EOF 
 ;
 
-// Rule ImplicitEqInterfaceGroupDefinition
-ruleImplicitEqInterfaceGroupDefinition returns [EObject current=null] 
+// Rule ImplicitEqInterfaceMemberDefinition
+ruleImplicitEqInterfaceMemberDefinition returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (	otherlv_0='interfaces with' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getInterfacesWithKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getInterfacesWithKeyword_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getEntriesImplicitEqInterfaceGroupDefinitionAttributesAndValuesParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getEntriesImplicitEqInterfaceMemberDefinitionAttributesAndValuesParserRuleCall_1_0()); 
 	    }
-		lv_entries_1_0=ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues		{
+		lv_entries_1_0=ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getImplicitEqInterfaceGroupDefinitionRule());
+	            $current = createModelElementForParent(grammarAccess.getImplicitEqInterfaceMemberDefinitionRule());
 	        }
        		add(
        			$current, 
        			"entries",
         		lv_entries_1_0, 
-        		"ImplicitEqInterfaceGroupDefinitionAttributesAndValues");
+        		"ImplicitEqInterfaceMemberDefinitionAttributesAndValues");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )(	otherlv_2='and' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getAndKeyword_2_0());
+    	newLeafNode(otherlv_2, grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getAndKeyword_2_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getEntriesImplicitEqInterfaceGroupDefinitionAttributesAndValuesParserRuleCall_2_1_0()); 
+	        newCompositeNode(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getEntriesImplicitEqInterfaceMemberDefinitionAttributesAndValuesParserRuleCall_2_1_0()); 
 	    }
-		lv_entries_3_0=ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues		{
+		lv_entries_3_0=ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getImplicitEqInterfaceGroupDefinitionRule());
+	            $current = createModelElementForParent(grammarAccess.getImplicitEqInterfaceMemberDefinitionRule());
 	        }
        		add(
        			$current, 
        			"entries",
         		lv_entries_3_0, 
-        		"ImplicitEqInterfaceGroupDefinitionAttributesAndValues");
+        		"ImplicitEqInterfaceMemberDefinitionAttributesAndValues");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1165,51 +1165,51 @@ ruleImplicitEqInterfaceGroupDefinition returns [EObject current=null]
 
 
 
-// Entry rule entryRuleImplicitEqInterfaceGroupDefinitionAttributesAndValues
-entryRuleImplicitEqInterfaceGroupDefinitionAttributesAndValues returns [EObject current=null] 
+// Entry rule entryRuleImplicitEqInterfaceMemberDefinitionAttributesAndValues
+entryRuleImplicitEqInterfaceMemberDefinitionAttributesAndValues returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesRule()); }
-	 iv_ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues=ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues 
-	 { $current=$iv_ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues.current; } 
+	{ newCompositeNode(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesRule()); }
+	 iv_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues=ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues 
+	 { $current=$iv_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues.current; } 
 	 EOF 
 ;
 
-// Rule ImplicitEqInterfaceGroupDefinitionAttributesAndValues
-ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues returns [EObject current=null] 
+// Rule ImplicitEqInterfaceMemberDefinitionAttributesAndValues
+ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getAttributeImplicitEqInterfaceGroupDefinitionAttributeEnumRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getAttributeImplicitEqInterfaceMemberDefinitionAttributeEnumRuleCall_0_0()); 
 	    }
-		lv_attribute_0_0=ruleImplicitEqInterfaceGroupDefinitionAttribute		{
+		lv_attribute_0_0=ruleImplicitEqInterfaceMemberDefinitionAttribute		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesRule());
+	            $current = createModelElementForParent(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesRule());
 	        }
        		set(
        			$current, 
        			"attribute",
         		lv_attribute_0_0, 
-        		"ImplicitEqInterfaceGroupDefinitionAttribute");
+        		"ImplicitEqInterfaceMemberDefinitionAttribute");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )	otherlv_1='=' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getEqualsSignKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getEqualsSignKeyword_1());
     }
 (
 (
 		lv_value_2_0=RULE_STRING
 		{
-			newLeafNode(lv_value_2_0, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getValueSTRINGTerminalRuleCall_2_0()); 
+			newLeafNode(lv_value_2_0, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getValueSTRINGTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesRule());
+	            $current = createModelElement(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -2413,74 +2413,74 @@ ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
 
 
 
-// Rule ImplicitEqInterfaceGroupDefinitionAttribute
-ruleImplicitEqInterfaceGroupDefinitionAttribute returns [Enumerator current=null] 
+// Rule ImplicitEqInterfaceMemberDefinitionAttribute
+ruleImplicitEqInterfaceMemberDefinitionAttribute returns [Enumerator current=null] 
     @init { enterRule(); }
     @after { leaveRule(); }:
 ((	enumLiteral_0='Name' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getNAMEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getNAMEEnumLiteralDeclaration_0()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getNAMEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getNAMEEnumLiteralDeclaration_0()); 
     }
 )
     |(	enumLiteral_1='System' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_1()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_1()); 
     }
 )
     |(	enumLiteral_2='SubAta' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_2, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2()); 
     }
 )
     |(	enumLiteral_3='Resource' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_3, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_3()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_3, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_3()); 
     }
 )
     |(	enumLiteral_4='LineName' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_4, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_4()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_4, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_4()); 
     }
 )
     |(	enumLiteral_5='WiringLane' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_5, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_5()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_5, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_5()); 
     }
 )
     |(	enumLiteral_6='GrpInfo' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_6, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_6()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_6, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_6()); 
     }
 )
     |(	enumLiteral_7='Route' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_7, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_7()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_7, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_7()); 
     }
 )
     |(	enumLiteral_8='PwSup1' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_8, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_8()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_8, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_8()); 
     }
 )
     |(	enumLiteral_9='EmhZone1' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_9().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_9, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_9()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_9().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_9, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_9()); 
     }
 )
     |(	enumLiteral_10='Type' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_10, grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_10()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_10, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_10()); 
     }
 ));
 

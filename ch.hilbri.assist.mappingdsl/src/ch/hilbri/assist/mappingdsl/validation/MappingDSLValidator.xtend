@@ -55,44 +55,26 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 		}
 	}
 	
-//	@Check 
-//	def checkCombinedGroupIsNotEmpty(AssistModel model) {
-//		for (g : model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithCombinedDefinition]) {
-//			var boolean foundAtLeastOneInterface = false
-//			
-//			for (combinedGroup : (g as EqInterfaceGroupWithCombinedDefinition).combinedGroups) {
-//				if (combinedGroup.eqInterfaces.length > 0) 
-//					foundAtLeastOneInterface = true
-//					
-//				else 
-//					if (combinedGroup instanceof EqInterfaceGroupWithImplicitDefinition) {
-//						var Iterable<EqInterface> interfaceList = model.eqInterfaces	
-//						for (definition : (combinedGroup as EqInterfaceGroupWithImplicitDefinition).definitions) {
-//							switch (definition.attribute) {
-//								case NAME:			{ interfaceList = interfaceList.filter[it.name.equals(definition.value)] }
-//								case SYSTEM: 		{ interfaceList = interfaceList.filter[it.system.equals(definition.value)] }
-//								case SUBATA: 		{ interfaceList = interfaceList.filter[it.subAta.equals(definition.value)] }
-//								case RESOURCE: 		{ interfaceList = interfaceList.filter[it.resource.equals(definition.value)]}
-//								case LINENAME: 		{ interfaceList = interfaceList.filter[it.lineName.equals(definition.value)]}
-//								case WIRINGLANE:	{ interfaceList = interfaceList.filter[it.wiringLane.equals(definition.value)]}
-//								case GRPINFO: 		{ interfaceList = interfaceList.filter[it.grpInfo.equals(definition.value)]}
-//								case ROUTE: 		{ interfaceList = interfaceList.filter[it.route.equals(definition.value)]}
-//								case PWSUP1: 		{ interfaceList = interfaceList.filter[it.pwSup1.equals(definition.value)]}
-//								case EMHZONE1: 		{ interfaceList = interfaceList.filter[it.emhZone1.equals(definition.value)]}
-//								case IOTYPE: 		{ interfaceList = interfaceList.filter[it.ioType.equals(definition.value)]}
-//							}
-//						}
-//						if (interfaceList.length > 0)
-//							foundAtLeastOneInterface = true
-//					}
-//			}
-//			
-//			if (!foundAtLeastOneInterface)
-//				warning("This group is currently empty.", g, ModelPackage.Literals::EQ_INTERFACE_OR_GROUP__NAME)
-//		}
-//	
-//	}
-//	
+	@Check 
+	def checkCombinedGroupIsNotEmpty(AssistModel model) {
+		for (g : model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithCombinedDefinition]) {
+			
+			var boolean foundAtLeastOneInterface = false
+			
+			for (subGroup : (g as EqInterfaceGroupWithCombinedDefinition).combinedGroups) {
+				if (subGroup.eqInterfaces.length > 0) 
+					foundAtLeastOneInterface = true
+				
+				else if (subGroup.implicitlyDefinedEqInterfaces.length > 0)
+					foundAtLeastOneInterface = true 
+			}
+			
+			if (!foundAtLeastOneInterface)
+				warning("This group is currently empty.", g, ModelPackage.Literals::EQ_INTERFACE_OR_GROUP__NAME)
+		}
+	
+	}
+	
 	
 	// FIXME: TASK
 	/*

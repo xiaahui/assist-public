@@ -3,15 +3,20 @@
 package ch.hilbri.assist.datamodel.model.provider;
 
 
-import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinition;
+import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinition;
 import ch.hilbri.assist.datamodel.model.ModelFactory;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -22,12 +27,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinition} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinition} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ImplicitEqInterfaceGroupDefinitionItemProvider 
+public class ImplicitEqInterfaceMemberDefinitionItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -41,7 +46,7 @@ public class ImplicitEqInterfaceGroupDefinitionItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImplicitEqInterfaceGroupDefinitionItemProvider(AdapterFactory adapterFactory) {
+	public ImplicitEqInterfaceMemberDefinitionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -72,7 +77,7 @@ public class ImplicitEqInterfaceGroupDefinitionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION__ENTRIES);
+			childrenFeatures.add(ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION__ENTRIES);
 		}
 		return childrenFeatures;
 	}
@@ -91,14 +96,14 @@ public class ImplicitEqInterfaceGroupDefinitionItemProvider
 	}
 
 	/**
-	 * This returns ImplicitEqInterfaceGroupDefinition.gif.
+	 * This returns ImplicitEqInterfaceMemberDefinition.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImplicitEqInterfaceGroupDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImplicitEqInterfaceMemberDefinition"));
 	}
 
 	/**
@@ -109,7 +114,7 @@ public class ImplicitEqInterfaceGroupDefinitionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ImplicitEqInterfaceGroupDefinition_type");
+		return getString("_UI_ImplicitEqInterfaceMemberDefinition_type");
 	}
 	
 
@@ -124,8 +129,8 @@ public class ImplicitEqInterfaceGroupDefinitionItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ImplicitEqInterfaceGroupDefinition.class)) {
-			case ModelPackage.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION__ENTRIES:
+		switch (notification.getFeatureID(ImplicitEqInterfaceMemberDefinition.class)) {
+			case ModelPackage.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION__ENTRIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -145,8 +150,8 @@ public class ImplicitEqInterfaceGroupDefinitionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION__ENTRIES,
-				 ModelFactory.eINSTANCE.createImplicitEqInterfaceGroupDefinitionAttributesAndValues()));
+				(ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION__ENTRIES,
+				 ModelFactory.eINSTANCE.createImplicitEqInterfaceMemberDefinitionAttributesAndValues()));
 	}
 
 	/**

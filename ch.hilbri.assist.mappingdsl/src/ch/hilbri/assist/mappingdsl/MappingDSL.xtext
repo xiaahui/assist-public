@@ -72,26 +72,26 @@ EqInterfaceGroup:
 	'Group' name=ID '{' 
 						(
 							eqInterfaces+=[EqInterface] |
-							implicitGroupDefinitions+=ImplicitEqInterfaceGroupDefinition
+							implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition
 						)	
 						(
 							',' (
 									eqInterfaces+=[EqInterface] |
-									implicitGroupDefinitions+=ImplicitEqInterfaceGroupDefinition
+									implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition
 								)
 						)* 
 						'}' ';';
 
 
-ImplicitEqInterfaceGroupDefinition:
-	'interfaces with' entries+=ImplicitEqInterfaceGroupDefinitionAttributesAndValues ('and' entries+=ImplicitEqInterfaceGroupDefinitionAttributesAndValues)*
+ImplicitEqInterfaceMemberDefinition:
+	'interfaces with' entries+=ImplicitEqInterfaceMemberDefinitionAttributesAndValues ('and' entries+=ImplicitEqInterfaceMemberDefinitionAttributesAndValues)*
 ;
 
-ImplicitEqInterfaceGroupDefinitionAttributesAndValues:  
-	attribute=ImplicitEqInterfaceGroupDefinitionAttribute '=' value=STRING
+ImplicitEqInterfaceMemberDefinitionAttributesAndValues:  
+	attribute=ImplicitEqInterfaceMemberDefinitionAttribute '=' value=STRING
 ;
 
-enum ImplicitEqInterfaceGroupDefinitionAttribute:
+enum ImplicitEqInterfaceMemberDefinitionAttribute:
 	NAME		= 'Name'			|
 	SYSTEM	 	= 'System'			|
 	SUBATA 	 	= 'SubAta'			|

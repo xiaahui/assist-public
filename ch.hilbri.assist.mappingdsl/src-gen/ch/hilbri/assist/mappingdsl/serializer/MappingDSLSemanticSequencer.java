@@ -11,8 +11,8 @@ import ch.hilbri.assist.datamodel.model.DislocalityRelation;
 import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition;
-import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinition;
-import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinitionAttributesAndValues;
+import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinition;
+import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttributesAndValues;
 import ch.hilbri.assist.datamodel.model.InvalidDeployment;
 import ch.hilbri.assist.datamodel.model.MetricParameter;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
@@ -107,15 +107,15 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
-			case ModelPackage.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION:
-				if(context == grammarAccess.getImplicitEqInterfaceGroupDefinitionRule()) {
-					sequence_ImplicitEqInterfaceGroupDefinition(context, (ImplicitEqInterfaceGroupDefinition) semanticObject); 
+			case ModelPackage.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION:
+				if(context == grammarAccess.getImplicitEqInterfaceMemberDefinitionRule()) {
+					sequence_ImplicitEqInterfaceMemberDefinition(context, (ImplicitEqInterfaceMemberDefinition) semanticObject); 
 					return; 
 				}
 				else break;
-			case ModelPackage.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION_ATTRIBUTES_AND_VALUES:
-				if(context == grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesRule()) {
-					sequence_ImplicitEqInterfaceGroupDefinitionAttributesAndValues(context, (ImplicitEqInterfaceGroupDefinitionAttributesAndValues) semanticObject); 
+			case ModelPackage.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTES_AND_VALUES:
+				if(context == grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesRule()) {
+					sequence_ImplicitEqInterfaceMemberDefinitionAttributesAndValues(context, (ImplicitEqInterfaceMemberDefinitionAttributesAndValues) semanticObject); 
 					return; 
 				}
 				else break;
@@ -270,8 +270,8 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         (eqInterfaces+=[EqInterface|ID] | implicitGroupDefinitions+=ImplicitEqInterfaceGroupDefinition) 
-	 *         (eqInterfaces+=[EqInterface|ID] | implicitGroupDefinitions+=ImplicitEqInterfaceGroupDefinition)*
+	 *         (eqInterfaces+=[EqInterface|ID] | implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition) 
+	 *         (eqInterfaces+=[EqInterface|ID] | implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition)*
 	 *     )
 	 */
 	protected void sequence_EqInterfaceGroup(EObject context, EqInterfaceGroup semanticObject) {
@@ -302,28 +302,28 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (attribute=ImplicitEqInterfaceGroupDefinitionAttribute value=STRING)
+	 *     (attribute=ImplicitEqInterfaceMemberDefinitionAttribute value=STRING)
 	 */
-	protected void sequence_ImplicitEqInterfaceGroupDefinitionAttributesAndValues(EObject context, ImplicitEqInterfaceGroupDefinitionAttributesAndValues semanticObject) {
+	protected void sequence_ImplicitEqInterfaceMemberDefinitionAttributesAndValues(EObject context, ImplicitEqInterfaceMemberDefinitionAttributesAndValues semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION_ATTRIBUTES_AND_VALUES__ATTRIBUTE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION_ATTRIBUTES_AND_VALUES__ATTRIBUTE));
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION_ATTRIBUTES_AND_VALUES__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_GROUP_DEFINITION_ATTRIBUTES_AND_VALUES__VALUE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTES_AND_VALUES__ATTRIBUTE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTES_AND_VALUES__ATTRIBUTE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTES_AND_VALUES__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTES_AND_VALUES__VALUE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getAttributeImplicitEqInterfaceGroupDefinitionAttributeEnumRuleCall_0_0(), semanticObject.getAttribute());
-		feeder.accept(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getAttributeImplicitEqInterfaceMemberDefinitionAttributeEnumRuleCall_0_0(), semanticObject.getAttribute());
+		feeder.accept(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (entries+=ImplicitEqInterfaceGroupDefinitionAttributesAndValues entries+=ImplicitEqInterfaceGroupDefinitionAttributesAndValues*)
+	 *     (entries+=ImplicitEqInterfaceMemberDefinitionAttributesAndValues entries+=ImplicitEqInterfaceMemberDefinitionAttributesAndValues*)
 	 */
-	protected void sequence_ImplicitEqInterfaceGroupDefinition(EObject context, ImplicitEqInterfaceGroupDefinition semanticObject) {
+	protected void sequence_ImplicitEqInterfaceMemberDefinition(EObject context, ImplicitEqInterfaceMemberDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

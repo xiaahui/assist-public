@@ -634,25 +634,25 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "ruleEqInterfaceGroup"
 
 
-    // $ANTLR start "entryRuleImplicitEqInterfaceGroupDefinition"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:228:1: entryRuleImplicitEqInterfaceGroupDefinition : ruleImplicitEqInterfaceGroupDefinition EOF ;
-    public final void entryRuleImplicitEqInterfaceGroupDefinition() throws RecognitionException {
+    // $ANTLR start "entryRuleImplicitEqInterfaceMemberDefinition"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:228:1: entryRuleImplicitEqInterfaceMemberDefinition : ruleImplicitEqInterfaceMemberDefinition EOF ;
+    public final void entryRuleImplicitEqInterfaceMemberDefinition() throws RecognitionException {
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:229:1: ( ruleImplicitEqInterfaceGroupDefinition EOF )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:230:1: ruleImplicitEqInterfaceGroupDefinition EOF
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:229:1: ( ruleImplicitEqInterfaceMemberDefinition EOF )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:230:1: ruleImplicitEqInterfaceMemberDefinition EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionRule()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionRule()); 
             }
-            pushFollow(FOLLOW_ruleImplicitEqInterfaceGroupDefinition_in_entryRuleImplicitEqInterfaceGroupDefinition421);
-            ruleImplicitEqInterfaceGroupDefinition();
+            pushFollow(FOLLOW_ruleImplicitEqInterfaceMemberDefinition_in_entryRuleImplicitEqInterfaceMemberDefinition421);
+            ruleImplicitEqInterfaceMemberDefinition();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionRule()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionRule()); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleImplicitEqInterfaceGroupDefinition428); if (state.failed) return ;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleImplicitEqInterfaceMemberDefinition428); if (state.failed) return ;
 
             }
 
@@ -665,30 +665,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "entryRuleImplicitEqInterfaceGroupDefinition"
+    // $ANTLR end "entryRuleImplicitEqInterfaceMemberDefinition"
 
 
-    // $ANTLR start "ruleImplicitEqInterfaceGroupDefinition"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:237:1: ruleImplicitEqInterfaceGroupDefinition : ( ( rule__ImplicitEqInterfaceGroupDefinition__Group__0 ) ) ;
-    public final void ruleImplicitEqInterfaceGroupDefinition() throws RecognitionException {
+    // $ANTLR start "ruleImplicitEqInterfaceMemberDefinition"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:237:1: ruleImplicitEqInterfaceMemberDefinition : ( ( rule__ImplicitEqInterfaceMemberDefinition__Group__0 ) ) ;
+    public final void ruleImplicitEqInterfaceMemberDefinition() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:241:2: ( ( ( rule__ImplicitEqInterfaceGroupDefinition__Group__0 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:242:1: ( ( rule__ImplicitEqInterfaceGroupDefinition__Group__0 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:241:2: ( ( ( rule__ImplicitEqInterfaceMemberDefinition__Group__0 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:242:1: ( ( rule__ImplicitEqInterfaceMemberDefinition__Group__0 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:242:1: ( ( rule__ImplicitEqInterfaceGroupDefinition__Group__0 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:243:1: ( rule__ImplicitEqInterfaceGroupDefinition__Group__0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:242:1: ( ( rule__ImplicitEqInterfaceMemberDefinition__Group__0 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:243:1: ( rule__ImplicitEqInterfaceMemberDefinition__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getGroup()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getGroup()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:244:1: ( rule__ImplicitEqInterfaceGroupDefinition__Group__0 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:244:2: rule__ImplicitEqInterfaceGroupDefinition__Group__0
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:244:1: ( rule__ImplicitEqInterfaceMemberDefinition__Group__0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:244:2: rule__ImplicitEqInterfaceMemberDefinition__Group__0
             {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group__0_in_ruleImplicitEqInterfaceGroupDefinition454);
-            rule__ImplicitEqInterfaceGroupDefinition__Group__0();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group__0_in_ruleImplicitEqInterfaceMemberDefinition454);
+            rule__ImplicitEqInterfaceMemberDefinition__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -696,7 +696,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getGroup()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getGroup()); 
             }
 
             }
@@ -716,28 +716,28 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "ruleImplicitEqInterfaceGroupDefinition"
+    // $ANTLR end "ruleImplicitEqInterfaceMemberDefinition"
 
 
-    // $ANTLR start "entryRuleImplicitEqInterfaceGroupDefinitionAttributesAndValues"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:256:1: entryRuleImplicitEqInterfaceGroupDefinitionAttributesAndValues : ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues EOF ;
-    public final void entryRuleImplicitEqInterfaceGroupDefinitionAttributesAndValues() throws RecognitionException {
+    // $ANTLR start "entryRuleImplicitEqInterfaceMemberDefinitionAttributesAndValues"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:256:1: entryRuleImplicitEqInterfaceMemberDefinitionAttributesAndValues : ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues EOF ;
+    public final void entryRuleImplicitEqInterfaceMemberDefinitionAttributesAndValues() throws RecognitionException {
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:257:1: ( ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues EOF )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:258:1: ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues EOF
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:257:1: ( ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues EOF )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:258:1: ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesRule()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesRule()); 
             }
-            pushFollow(FOLLOW_ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues_in_entryRuleImplicitEqInterfaceGroupDefinitionAttributesAndValues481);
-            ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues();
+            pushFollow(FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues_in_entryRuleImplicitEqInterfaceMemberDefinitionAttributesAndValues481);
+            ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesRule()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesRule()); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleImplicitEqInterfaceGroupDefinitionAttributesAndValues488); if (state.failed) return ;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleImplicitEqInterfaceMemberDefinitionAttributesAndValues488); if (state.failed) return ;
 
             }
 
@@ -750,30 +750,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "entryRuleImplicitEqInterfaceGroupDefinitionAttributesAndValues"
+    // $ANTLR end "entryRuleImplicitEqInterfaceMemberDefinitionAttributesAndValues"
 
 
-    // $ANTLR start "ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:265:1: ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues : ( ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0 ) ) ;
-    public final void ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues() throws RecognitionException {
+    // $ANTLR start "ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:265:1: ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues : ( ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0 ) ) ;
+    public final void ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:269:2: ( ( ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:270:1: ( ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:269:2: ( ( ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:270:1: ( ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:270:1: ( ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:271:1: ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:270:1: ( ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:271:1: ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getGroup()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getGroup()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:272:1: ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:272:2: rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:272:1: ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:272:2: rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0
             {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0_in_ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues514);
-            rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0_in_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues514);
+            rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -781,7 +781,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getGroup()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getGroup()); 
             }
 
             }
@@ -801,7 +801,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues"
+    // $ANTLR end "ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues"
 
 
     // $ANTLR start "entryRuleEqInterfaceGroupWithCombinedDefinition"
@@ -1569,27 +1569,27 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "ruleQualifiedName"
 
 
-    // $ANTLR start "ruleImplicitEqInterfaceGroupDefinitionAttribute"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:539:1: ruleImplicitEqInterfaceGroupDefinitionAttribute : ( ( rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives ) ) ;
-    public final void ruleImplicitEqInterfaceGroupDefinitionAttribute() throws RecognitionException {
+    // $ANTLR start "ruleImplicitEqInterfaceMemberDefinitionAttribute"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:539:1: ruleImplicitEqInterfaceMemberDefinitionAttribute : ( ( rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives ) ) ;
+    public final void ruleImplicitEqInterfaceMemberDefinitionAttribute() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:543:1: ( ( ( rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:544:1: ( ( rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:543:1: ( ( ( rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:544:1: ( ( rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:544:1: ( ( rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:545:1: ( rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:544:1: ( ( rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:545:1: ( rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getAlternatives()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getAlternatives()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:546:1: ( rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:546:2: rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:546:1: ( rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:546:2: rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives
             {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives_in_ruleImplicitEqInterfaceGroupDefinitionAttribute1093);
-            rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives_in_ruleImplicitEqInterfaceMemberDefinitionAttribute1093);
+            rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives();
 
             state._fsp--;
             if (state.failed) return ;
@@ -1597,7 +1597,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getAlternatives()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getAlternatives()); 
             }
 
             }
@@ -1617,7 +1617,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "ruleImplicitEqInterfaceGroupDefinitionAttribute"
+    // $ANTLR end "ruleImplicitEqInterfaceMemberDefinitionAttribute"
 
 
     // $ANTLR start "ruleHardwareArchitectureLevelType"
@@ -1989,13 +1989,13 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterfaceGroup__Alternatives_3"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:651:1: rule__EqInterfaceGroup__Alternatives_3 : ( ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_3_0 ) ) | ( ( rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_1 ) ) );
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:651:1: rule__EqInterfaceGroup__Alternatives_3 : ( ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_3_0 ) ) | ( ( rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1 ) ) );
     public final void rule__EqInterfaceGroup__Alternatives_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:655:1: ( ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_3_0 ) ) | ( ( rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:655:1: ( ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_3_0 ) ) | ( ( rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1 ) ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -2043,19 +2043,19 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:662:6: ( ( rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_1 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:662:6: ( ( rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1 ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:662:6: ( ( rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_1 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:663:1: ( rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_1 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:662:6: ( ( rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:663:1: ( rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getEqInterfaceGroupAccess().getImplicitGroupDefinitionsAssignment_3_1()); 
+                       before(grammarAccess.getEqInterfaceGroupAccess().getImplicitMemberDefinitionsAssignment_3_1()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:664:1: ( rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_1 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:664:2: rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_1
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:664:1: ( rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:664:2: rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1
                     {
-                    pushFollow(FOLLOW_rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_1_in_rule__EqInterfaceGroup__Alternatives_31356);
-                    rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_1();
+                    pushFollow(FOLLOW_rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1_in_rule__EqInterfaceGroup__Alternatives_31356);
+                    rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -2063,7 +2063,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getEqInterfaceGroupAccess().getImplicitGroupDefinitionsAssignment_3_1()); 
+                       after(grammarAccess.getEqInterfaceGroupAccess().getImplicitMemberDefinitionsAssignment_3_1()); 
                     }
 
                     }
@@ -2089,13 +2089,13 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EqInterfaceGroup__Alternatives_4_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:673:1: rule__EqInterfaceGroup__Alternatives_4_1 : ( ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1_0 ) ) | ( ( rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_1 ) ) );
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:673:1: rule__EqInterfaceGroup__Alternatives_4_1 : ( ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1_0 ) ) | ( ( rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1 ) ) );
     public final void rule__EqInterfaceGroup__Alternatives_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:677:1: ( ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1_0 ) ) | ( ( rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:677:1: ( ( ( rule__EqInterfaceGroup__EqInterfacesAssignment_4_1_0 ) ) | ( ( rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1 ) ) )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -2143,19 +2143,19 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:684:6: ( ( rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_1 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:684:6: ( ( rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1 ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:684:6: ( ( rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_1 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:685:1: ( rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_1 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:684:6: ( ( rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:685:1: ( rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getEqInterfaceGroupAccess().getImplicitGroupDefinitionsAssignment_4_1_1()); 
+                       before(grammarAccess.getEqInterfaceGroupAccess().getImplicitMemberDefinitionsAssignment_4_1_1()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:686:1: ( rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_1 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:686:2: rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_1
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:686:1: ( rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:686:2: rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1
                     {
-                    pushFollow(FOLLOW_rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_1_in_rule__EqInterfaceGroup__Alternatives_4_11407);
-                    rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_1();
+                    pushFollow(FOLLOW_rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1_in_rule__EqInterfaceGroup__Alternatives_4_11407);
+                    rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -2163,7 +2163,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getEqInterfaceGroupAccess().getImplicitGroupDefinitionsAssignment_4_1_1()); 
+                       after(grammarAccess.getEqInterfaceGroupAccess().getImplicitMemberDefinitionsAssignment_4_1_1()); 
                     }
 
                     }
@@ -2748,9 +2748,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__InvalidDeployment__Alternatives_6"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:835:1: rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives : ( ( ( 'Name' ) ) | ( ( 'System' ) ) | ( ( 'SubAta' ) ) | ( ( 'Resource' ) ) | ( ( 'LineName' ) ) | ( ( 'WiringLane' ) ) | ( ( 'GrpInfo' ) ) | ( ( 'Route' ) ) | ( ( 'PwSup1' ) ) | ( ( 'EmhZone1' ) ) | ( ( 'Type' ) ) );
-    public final void rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:835:1: rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives : ( ( ( 'Name' ) ) | ( ( 'System' ) ) | ( ( 'SubAta' ) ) | ( ( 'Resource' ) ) | ( ( 'LineName' ) ) | ( ( 'WiringLane' ) ) | ( ( 'GrpInfo' ) ) | ( ( 'Route' ) ) | ( ( 'PwSup1' ) ) | ( ( 'EmhZone1' ) ) | ( ( 'Type' ) ) );
+    public final void rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -2829,17 +2829,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:841:1: ( 'Name' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getNAMEEnumLiteralDeclaration_0()); 
+                       before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getNAMEEnumLiteralDeclaration_0()); 
                     }
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:842:1: ( 'Name' )
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:842:3: 'Name'
                     {
-                    match(input,13,FOLLOW_13_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1755); if (state.failed) return ;
+                    match(input,13,FOLLOW_13_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1755); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getNAMEEnumLiteralDeclaration_0()); 
+                       after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getNAMEEnumLiteralDeclaration_0()); 
                     }
 
                     }
@@ -2854,17 +2854,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:848:1: ( 'System' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_1()); 
+                       before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_1()); 
                     }
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:849:1: ( 'System' )
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:849:3: 'System'
                     {
-                    match(input,14,FOLLOW_14_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1776); if (state.failed) return ;
+                    match(input,14,FOLLOW_14_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1776); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_1()); 
+                       after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_1()); 
                     }
 
                     }
@@ -2879,17 +2879,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:855:1: ( 'SubAta' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2()); 
+                       before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2()); 
                     }
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:856:1: ( 'SubAta' )
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:856:3: 'SubAta'
                     {
-                    match(input,15,FOLLOW_15_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1797); if (state.failed) return ;
+                    match(input,15,FOLLOW_15_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1797); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2()); 
+                       after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2()); 
                     }
 
                     }
@@ -2904,17 +2904,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:862:1: ( 'Resource' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_3()); 
+                       before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_3()); 
                     }
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:863:1: ( 'Resource' )
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:863:3: 'Resource'
                     {
-                    match(input,16,FOLLOW_16_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1818); if (state.failed) return ;
+                    match(input,16,FOLLOW_16_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1818); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_3()); 
+                       after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_3()); 
                     }
 
                     }
@@ -2929,17 +2929,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:869:1: ( 'LineName' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_4()); 
+                       before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_4()); 
                     }
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:870:1: ( 'LineName' )
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:870:3: 'LineName'
                     {
-                    match(input,17,FOLLOW_17_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1839); if (state.failed) return ;
+                    match(input,17,FOLLOW_17_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1839); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_4()); 
+                       after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_4()); 
                     }
 
                     }
@@ -2954,17 +2954,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:876:1: ( 'WiringLane' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_5()); 
+                       before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_5()); 
                     }
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:877:1: ( 'WiringLane' )
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:877:3: 'WiringLane'
                     {
-                    match(input,18,FOLLOW_18_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1860); if (state.failed) return ;
+                    match(input,18,FOLLOW_18_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1860); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_5()); 
+                       after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_5()); 
                     }
 
                     }
@@ -2979,17 +2979,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:883:1: ( 'GrpInfo' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_6()); 
+                       before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_6()); 
                     }
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:884:1: ( 'GrpInfo' )
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:884:3: 'GrpInfo'
                     {
-                    match(input,19,FOLLOW_19_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1881); if (state.failed) return ;
+                    match(input,19,FOLLOW_19_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1881); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_6()); 
+                       after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_6()); 
                     }
 
                     }
@@ -3004,17 +3004,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:890:1: ( 'Route' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_7()); 
+                       before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_7()); 
                     }
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:891:1: ( 'Route' )
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:891:3: 'Route'
                     {
-                    match(input,20,FOLLOW_20_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1902); if (state.failed) return ;
+                    match(input,20,FOLLOW_20_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1902); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_7()); 
+                       after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_7()); 
                     }
 
                     }
@@ -3029,17 +3029,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:897:1: ( 'PwSup1' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_8()); 
+                       before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_8()); 
                     }
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:898:1: ( 'PwSup1' )
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:898:3: 'PwSup1'
                     {
-                    match(input,21,FOLLOW_21_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1923); if (state.failed) return ;
+                    match(input,21,FOLLOW_21_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1923); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_8()); 
+                       after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_8()); 
                     }
 
                     }
@@ -3054,17 +3054,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:904:1: ( 'EmhZone1' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_9()); 
+                       before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_9()); 
                     }
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:905:1: ( 'EmhZone1' )
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:905:3: 'EmhZone1'
                     {
-                    match(input,22,FOLLOW_22_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1944); if (state.failed) return ;
+                    match(input,22,FOLLOW_22_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1944); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_9()); 
+                       after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_9()); 
                     }
 
                     }
@@ -3079,17 +3079,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:911:1: ( 'Type' )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_10()); 
+                       before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_10()); 
                     }
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:912:1: ( 'Type' )
                     // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:912:3: 'Type'
                     {
-                    match(input,23,FOLLOW_23_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1965); if (state.failed) return ;
+                    match(input,23,FOLLOW_23_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1965); if (state.failed) return ;
 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_10()); 
+                       after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_10()); 
                     }
 
                     }
@@ -3111,7 +3111,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives"
 
 
     // $ANTLR start "rule__HardwareArchitectureLevelType__Alternatives"
@@ -10582,23 +10582,23 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__EqInterfaceGroup__Group_4__1__Impl"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinition__Group__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3728:1: rule__ImplicitEqInterfaceGroupDefinition__Group__0 : rule__ImplicitEqInterfaceGroupDefinition__Group__0__Impl rule__ImplicitEqInterfaceGroupDefinition__Group__1 ;
-    public final void rule__ImplicitEqInterfaceGroupDefinition__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinition__Group__0"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3728:1: rule__ImplicitEqInterfaceMemberDefinition__Group__0 : rule__ImplicitEqInterfaceMemberDefinition__Group__0__Impl rule__ImplicitEqInterfaceMemberDefinition__Group__1 ;
+    public final void rule__ImplicitEqInterfaceMemberDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3732:1: ( rule__ImplicitEqInterfaceGroupDefinition__Group__0__Impl rule__ImplicitEqInterfaceGroupDefinition__Group__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3733:2: rule__ImplicitEqInterfaceGroupDefinition__Group__0__Impl rule__ImplicitEqInterfaceGroupDefinition__Group__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3732:1: ( rule__ImplicitEqInterfaceMemberDefinition__Group__0__Impl rule__ImplicitEqInterfaceMemberDefinition__Group__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3733:2: rule__ImplicitEqInterfaceMemberDefinition__Group__0__Impl rule__ImplicitEqInterfaceMemberDefinition__Group__1
             {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group__0__Impl_in_rule__ImplicitEqInterfaceGroupDefinition__Group__07586);
-            rule__ImplicitEqInterfaceGroupDefinition__Group__0__Impl();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group__0__Impl_in_rule__ImplicitEqInterfaceMemberDefinition__Group__07586);
+            rule__ImplicitEqInterfaceMemberDefinition__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group__1_in_rule__ImplicitEqInterfaceGroupDefinition__Group__07589);
-            rule__ImplicitEqInterfaceGroupDefinition__Group__1();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group__1_in_rule__ImplicitEqInterfaceMemberDefinition__Group__07589);
+            rule__ImplicitEqInterfaceMemberDefinition__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -10617,12 +10617,12 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinition__Group__0"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinition__Group__0"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinition__Group__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3740:1: rule__ImplicitEqInterfaceGroupDefinition__Group__0__Impl : ( 'interfaces with' ) ;
-    public final void rule__ImplicitEqInterfaceGroupDefinition__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinition__Group__0__Impl"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3740:1: rule__ImplicitEqInterfaceMemberDefinition__Group__0__Impl : ( 'interfaces with' ) ;
+    public final void rule__ImplicitEqInterfaceMemberDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -10634,11 +10634,11 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3746:1: 'interfaces with'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getInterfacesWithKeyword_0()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getInterfacesWithKeyword_0()); 
             }
-            match(input,54,FOLLOW_54_in_rule__ImplicitEqInterfaceGroupDefinition__Group__0__Impl7617); if (state.failed) return ;
+            match(input,54,FOLLOW_54_in_rule__ImplicitEqInterfaceMemberDefinition__Group__0__Impl7617); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getInterfacesWithKeyword_0()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getInterfacesWithKeyword_0()); 
             }
 
             }
@@ -10658,110 +10658,26 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinition__Group__0__Impl"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinition__Group__0__Impl"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinition__Group__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3759:1: rule__ImplicitEqInterfaceGroupDefinition__Group__1 : rule__ImplicitEqInterfaceGroupDefinition__Group__1__Impl rule__ImplicitEqInterfaceGroupDefinition__Group__2 ;
-    public final void rule__ImplicitEqInterfaceGroupDefinition__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3763:1: ( rule__ImplicitEqInterfaceGroupDefinition__Group__1__Impl rule__ImplicitEqInterfaceGroupDefinition__Group__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3764:2: rule__ImplicitEqInterfaceGroupDefinition__Group__1__Impl rule__ImplicitEqInterfaceGroupDefinition__Group__2
-            {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group__1__Impl_in_rule__ImplicitEqInterfaceGroupDefinition__Group__17648);
-            rule__ImplicitEqInterfaceGroupDefinition__Group__1__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group__2_in_rule__ImplicitEqInterfaceGroupDefinition__Group__17651);
-            rule__ImplicitEqInterfaceGroupDefinition__Group__2();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinition__Group__1"
-
-
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinition__Group__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3771:1: rule__ImplicitEqInterfaceGroupDefinition__Group__1__Impl : ( ( rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_1 ) ) ;
-    public final void rule__ImplicitEqInterfaceGroupDefinition__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinition__Group__1"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3759:1: rule__ImplicitEqInterfaceMemberDefinition__Group__1 : rule__ImplicitEqInterfaceMemberDefinition__Group__1__Impl rule__ImplicitEqInterfaceMemberDefinition__Group__2 ;
+    public final void rule__ImplicitEqInterfaceMemberDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3775:1: ( ( ( rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_1 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3776:1: ( ( rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3763:1: ( rule__ImplicitEqInterfaceMemberDefinition__Group__1__Impl rule__ImplicitEqInterfaceMemberDefinition__Group__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3764:2: rule__ImplicitEqInterfaceMemberDefinition__Group__1__Impl rule__ImplicitEqInterfaceMemberDefinition__Group__2
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3776:1: ( ( rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_1 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3777:1: ( rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_1 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getEntriesAssignment_1()); 
-            }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3778:1: ( rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3778:2: rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_1
-            {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_1_in_rule__ImplicitEqInterfaceGroupDefinition__Group__1__Impl7678);
-            rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_1();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group__1__Impl_in_rule__ImplicitEqInterfaceMemberDefinition__Group__17648);
+            rule__ImplicitEqInterfaceMemberDefinition__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getEntriesAssignment_1()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinition__Group__1__Impl"
-
-
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinition__Group__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3788:1: rule__ImplicitEqInterfaceGroupDefinition__Group__2 : rule__ImplicitEqInterfaceGroupDefinition__Group__2__Impl ;
-    public final void rule__ImplicitEqInterfaceGroupDefinition__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3792:1: ( rule__ImplicitEqInterfaceGroupDefinition__Group__2__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3793:2: rule__ImplicitEqInterfaceGroupDefinition__Group__2__Impl
-            {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group__2__Impl_in_rule__ImplicitEqInterfaceGroupDefinition__Group__27708);
-            rule__ImplicitEqInterfaceGroupDefinition__Group__2__Impl();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group__2_in_rule__ImplicitEqInterfaceMemberDefinition__Group__17651);
+            rule__ImplicitEqInterfaceMemberDefinition__Group__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -10780,26 +10696,110 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinition__Group__2"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinition__Group__1"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinition__Group__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3799:1: rule__ImplicitEqInterfaceGroupDefinition__Group__2__Impl : ( ( rule__ImplicitEqInterfaceGroupDefinition__Group_2__0 )* ) ;
-    public final void rule__ImplicitEqInterfaceGroupDefinition__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinition__Group__1__Impl"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3771:1: rule__ImplicitEqInterfaceMemberDefinition__Group__1__Impl : ( ( rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1 ) ) ;
+    public final void rule__ImplicitEqInterfaceMemberDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3803:1: ( ( ( rule__ImplicitEqInterfaceGroupDefinition__Group_2__0 )* ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3804:1: ( ( rule__ImplicitEqInterfaceGroupDefinition__Group_2__0 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3775:1: ( ( ( rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3776:1: ( ( rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3804:1: ( ( rule__ImplicitEqInterfaceGroupDefinition__Group_2__0 )* )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3805:1: ( rule__ImplicitEqInterfaceGroupDefinition__Group_2__0 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3776:1: ( ( rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3777:1: ( rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getGroup_2()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getEntriesAssignment_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3806:1: ( rule__ImplicitEqInterfaceGroupDefinition__Group_2__0 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3778:1: ( rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3778:2: rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1
+            {
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1_in_rule__ImplicitEqInterfaceMemberDefinition__Group__1__Impl7678);
+            rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getEntriesAssignment_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinition__Group__1__Impl"
+
+
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinition__Group__2"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3788:1: rule__ImplicitEqInterfaceMemberDefinition__Group__2 : rule__ImplicitEqInterfaceMemberDefinition__Group__2__Impl ;
+    public final void rule__ImplicitEqInterfaceMemberDefinition__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3792:1: ( rule__ImplicitEqInterfaceMemberDefinition__Group__2__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3793:2: rule__ImplicitEqInterfaceMemberDefinition__Group__2__Impl
+            {
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group__2__Impl_in_rule__ImplicitEqInterfaceMemberDefinition__Group__27708);
+            rule__ImplicitEqInterfaceMemberDefinition__Group__2__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinition__Group__2"
+
+
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinition__Group__2__Impl"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3799:1: rule__ImplicitEqInterfaceMemberDefinition__Group__2__Impl : ( ( rule__ImplicitEqInterfaceMemberDefinition__Group_2__0 )* ) ;
+    public final void rule__ImplicitEqInterfaceMemberDefinition__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3803:1: ( ( ( rule__ImplicitEqInterfaceMemberDefinition__Group_2__0 )* ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3804:1: ( ( rule__ImplicitEqInterfaceMemberDefinition__Group_2__0 )* )
+            {
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3804:1: ( ( rule__ImplicitEqInterfaceMemberDefinition__Group_2__0 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3805:1: ( rule__ImplicitEqInterfaceMemberDefinition__Group_2__0 )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getGroup_2()); 
+            }
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3806:1: ( rule__ImplicitEqInterfaceMemberDefinition__Group_2__0 )*
             loop23:
             do {
                 int alt23=2;
@@ -10812,10 +10812,10 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
                 switch (alt23) {
             	case 1 :
-            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3806:2: rule__ImplicitEqInterfaceGroupDefinition__Group_2__0
+            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3806:2: rule__ImplicitEqInterfaceMemberDefinition__Group_2__0
             	    {
-            	    pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group_2__0_in_rule__ImplicitEqInterfaceGroupDefinition__Group__2__Impl7735);
-            	    rule__ImplicitEqInterfaceGroupDefinition__Group_2__0();
+            	    pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group_2__0_in_rule__ImplicitEqInterfaceMemberDefinition__Group__2__Impl7735);
+            	    rule__ImplicitEqInterfaceMemberDefinition__Group_2__0();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -10829,7 +10829,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getGroup_2()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getGroup_2()); 
             }
 
             }
@@ -10849,26 +10849,26 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinition__Group__2__Impl"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinition__Group__2__Impl"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinition__Group_2__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3822:1: rule__ImplicitEqInterfaceGroupDefinition__Group_2__0 : rule__ImplicitEqInterfaceGroupDefinition__Group_2__0__Impl rule__ImplicitEqInterfaceGroupDefinition__Group_2__1 ;
-    public final void rule__ImplicitEqInterfaceGroupDefinition__Group_2__0() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinition__Group_2__0"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3822:1: rule__ImplicitEqInterfaceMemberDefinition__Group_2__0 : rule__ImplicitEqInterfaceMemberDefinition__Group_2__0__Impl rule__ImplicitEqInterfaceMemberDefinition__Group_2__1 ;
+    public final void rule__ImplicitEqInterfaceMemberDefinition__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3826:1: ( rule__ImplicitEqInterfaceGroupDefinition__Group_2__0__Impl rule__ImplicitEqInterfaceGroupDefinition__Group_2__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3827:2: rule__ImplicitEqInterfaceGroupDefinition__Group_2__0__Impl rule__ImplicitEqInterfaceGroupDefinition__Group_2__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3826:1: ( rule__ImplicitEqInterfaceMemberDefinition__Group_2__0__Impl rule__ImplicitEqInterfaceMemberDefinition__Group_2__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3827:2: rule__ImplicitEqInterfaceMemberDefinition__Group_2__0__Impl rule__ImplicitEqInterfaceMemberDefinition__Group_2__1
             {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group_2__0__Impl_in_rule__ImplicitEqInterfaceGroupDefinition__Group_2__07772);
-            rule__ImplicitEqInterfaceGroupDefinition__Group_2__0__Impl();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group_2__0__Impl_in_rule__ImplicitEqInterfaceMemberDefinition__Group_2__07772);
+            rule__ImplicitEqInterfaceMemberDefinition__Group_2__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group_2__1_in_rule__ImplicitEqInterfaceGroupDefinition__Group_2__07775);
-            rule__ImplicitEqInterfaceGroupDefinition__Group_2__1();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group_2__1_in_rule__ImplicitEqInterfaceMemberDefinition__Group_2__07775);
+            rule__ImplicitEqInterfaceMemberDefinition__Group_2__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -10887,12 +10887,12 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinition__Group_2__0"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinition__Group_2__0"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinition__Group_2__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3834:1: rule__ImplicitEqInterfaceGroupDefinition__Group_2__0__Impl : ( 'and' ) ;
-    public final void rule__ImplicitEqInterfaceGroupDefinition__Group_2__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinition__Group_2__0__Impl"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3834:1: rule__ImplicitEqInterfaceMemberDefinition__Group_2__0__Impl : ( 'and' ) ;
+    public final void rule__ImplicitEqInterfaceMemberDefinition__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -10904,11 +10904,11 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3840:1: 'and'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getAndKeyword_2_0()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getAndKeyword_2_0()); 
             }
-            match(input,55,FOLLOW_55_in_rule__ImplicitEqInterfaceGroupDefinition__Group_2__0__Impl7803); if (state.failed) return ;
+            match(input,55,FOLLOW_55_in_rule__ImplicitEqInterfaceMemberDefinition__Group_2__0__Impl7803); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getAndKeyword_2_0()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getAndKeyword_2_0()); 
             }
 
             }
@@ -10928,21 +10928,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinition__Group_2__0__Impl"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinition__Group_2__0__Impl"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinition__Group_2__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3853:1: rule__ImplicitEqInterfaceGroupDefinition__Group_2__1 : rule__ImplicitEqInterfaceGroupDefinition__Group_2__1__Impl ;
-    public final void rule__ImplicitEqInterfaceGroupDefinition__Group_2__1() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinition__Group_2__1"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3853:1: rule__ImplicitEqInterfaceMemberDefinition__Group_2__1 : rule__ImplicitEqInterfaceMemberDefinition__Group_2__1__Impl ;
+    public final void rule__ImplicitEqInterfaceMemberDefinition__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3857:1: ( rule__ImplicitEqInterfaceGroupDefinition__Group_2__1__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3858:2: rule__ImplicitEqInterfaceGroupDefinition__Group_2__1__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3857:1: ( rule__ImplicitEqInterfaceMemberDefinition__Group_2__1__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3858:2: rule__ImplicitEqInterfaceMemberDefinition__Group_2__1__Impl
             {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group_2__1__Impl_in_rule__ImplicitEqInterfaceGroupDefinition__Group_2__17834);
-            rule__ImplicitEqInterfaceGroupDefinition__Group_2__1__Impl();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group_2__1__Impl_in_rule__ImplicitEqInterfaceMemberDefinition__Group_2__17834);
+            rule__ImplicitEqInterfaceMemberDefinition__Group_2__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -10961,119 +10961,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinition__Group_2__1"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinition__Group_2__1"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinition__Group_2__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3864:1: rule__ImplicitEqInterfaceGroupDefinition__Group_2__1__Impl : ( ( rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_1 ) ) ;
-    public final void rule__ImplicitEqInterfaceGroupDefinition__Group_2__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3868:1: ( ( ( rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_1 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3869:1: ( ( rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_1 ) )
-            {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3869:1: ( ( rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_1 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3870:1: ( rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_1 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getEntriesAssignment_2_1()); 
-            }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3871:1: ( rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3871:2: rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_1
-            {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_1_in_rule__ImplicitEqInterfaceGroupDefinition__Group_2__1__Impl7861);
-            rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_1();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getEntriesAssignment_2_1()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinition__Group_2__1__Impl"
-
-
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3885:1: rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0 : rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0__Impl rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1 ;
-    public final void rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinition__Group_2__1__Impl"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3864:1: rule__ImplicitEqInterfaceMemberDefinition__Group_2__1__Impl : ( ( rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1 ) ) ;
+    public final void rule__ImplicitEqInterfaceMemberDefinition__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3889:1: ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0__Impl rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3890:2: rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0__Impl rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3868:1: ( ( ( rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3869:1: ( ( rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1 ) )
             {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0__Impl_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__07895);
-            rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__07898);
-            rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0"
-
-
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3897:1: rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0__Impl : ( ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_0 ) ) ;
-    public final void rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3901:1: ( ( ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_0 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3902:1: ( ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_0 ) )
-            {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3902:1: ( ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_0 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3903:1: ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3869:1: ( ( rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3870:1: ( rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getAttributeAssignment_0()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getEntriesAssignment_2_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3904:1: ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_0 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3904:2: rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_0
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3871:1: ( rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3871:2: rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1
             {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_0_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0__Impl7925);
-            rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_0();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1_in_rule__ImplicitEqInterfaceMemberDefinition__Group_2__1__Impl7861);
+            rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11081,7 +10992,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getAttributeAssignment_0()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getEntriesAssignment_2_1()); 
             }
 
             }
@@ -11101,26 +11012,26 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0__Impl"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinition__Group_2__1__Impl"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3914:1: rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1 : rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1__Impl rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2 ;
-    public final void rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3885:1: rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0 : rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0__Impl rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1 ;
+    public final void rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3918:1: ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1__Impl rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3919:2: rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1__Impl rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3889:1: ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0__Impl rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3890:2: rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0__Impl rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1
             {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1__Impl_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__17955);
-            rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1__Impl();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0__Impl_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__07895);
+            rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__17958);
-            rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__07898);
+            rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11139,12 +11050,101 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3926:1: rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1__Impl : ( '=' ) ;
-    public final void rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0__Impl"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3897:1: rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0__Impl : ( ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0 ) ) ;
+    public final void rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3901:1: ( ( ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3902:1: ( ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0 ) )
+            {
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3902:1: ( ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3903:1: ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getAttributeAssignment_0()); 
+            }
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3904:1: ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3904:2: rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0
+            {
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0__Impl7925);
+            rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getAttributeAssignment_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0__Impl"
+
+
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3914:1: rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1 : rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1__Impl rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2 ;
+    public final void rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3918:1: ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1__Impl rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3919:2: rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1__Impl rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2
+            {
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1__Impl_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__17955);
+            rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__17958);
+            rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1"
+
+
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1__Impl"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3926:1: rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1__Impl : ( '=' ) ;
+    public final void rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -11156,11 +11156,11 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3932:1: '='
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getEqualsSignKeyword_1()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getEqualsSignKeyword_1()); 
             }
-            match(input,41,FOLLOW_41_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1__Impl7986); if (state.failed) return ;
+            match(input,41,FOLLOW_41_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1__Impl7986); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getEqualsSignKeyword_1()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getEqualsSignKeyword_1()); 
             }
 
             }
@@ -11180,21 +11180,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1__Impl"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1__Impl"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3945:1: rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2 : rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2__Impl ;
-    public final void rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3945:1: rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2 : rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2__Impl ;
+    public final void rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3949:1: ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3950:2: rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3949:1: ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3950:2: rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2__Impl_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__28017);
-            rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2__Impl();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2__Impl_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__28017);
+            rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11213,30 +11213,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3956:1: rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2__Impl : ( ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_2 ) ) ;
-    public final void rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2__Impl"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3956:1: rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2__Impl : ( ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_2 ) ) ;
+    public final void rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3960:1: ( ( ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_2 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3961:1: ( ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3960:1: ( ( ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_2 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3961:1: ( ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_2 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3961:1: ( ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_2 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3962:1: ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3961:1: ( ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_2 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3962:1: ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getValueAssignment_2()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getValueAssignment_2()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3963:1: ( rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_2 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3963:2: rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_2
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3963:1: ( rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_2 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:3963:2: rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_2
             {
-            pushFollow(FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_2_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2__Impl8044);
-            rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_2();
+            pushFollow(FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_2_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2__Impl8044);
+            rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11244,7 +11244,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getValueAssignment_2()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getValueAssignment_2()); 
             }
 
             }
@@ -11264,7 +11264,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2__Impl"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2__Impl"
 
 
     // $ANTLR start "rule__EqInterfaceGroupWithCombinedDefinition__Group__0"
@@ -23589,29 +23589,29 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__EqInterfaceGroup__EqInterfacesAssignment_3_0"
 
 
-    // $ANTLR start "rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8483:1: rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_1 : ( ruleImplicitEqInterfaceGroupDefinition ) ;
-    public final void rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_1() throws RecognitionException {
+    // $ANTLR start "rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8483:1: rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1 : ( ruleImplicitEqInterfaceMemberDefinition ) ;
+    public final void rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8487:1: ( ( ruleImplicitEqInterfaceGroupDefinition ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8488:1: ( ruleImplicitEqInterfaceGroupDefinition )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8487:1: ( ( ruleImplicitEqInterfaceMemberDefinition ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8488:1: ( ruleImplicitEqInterfaceMemberDefinition )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8488:1: ( ruleImplicitEqInterfaceGroupDefinition )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8489:1: ruleImplicitEqInterfaceGroupDefinition
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8488:1: ( ruleImplicitEqInterfaceMemberDefinition )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8489:1: ruleImplicitEqInterfaceMemberDefinition
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getEqInterfaceGroupAccess().getImplicitGroupDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_3_1_0()); 
+               before(grammarAccess.getEqInterfaceGroupAccess().getImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_3_1_0()); 
             }
-            pushFollow(FOLLOW_ruleImplicitEqInterfaceGroupDefinition_in_rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_118163);
-            ruleImplicitEqInterfaceGroupDefinition();
+            pushFollow(FOLLOW_ruleImplicitEqInterfaceMemberDefinition_in_rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_118163);
+            ruleImplicitEqInterfaceMemberDefinition();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getEqInterfaceGroupAccess().getImplicitGroupDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_3_1_0()); 
+               after(grammarAccess.getEqInterfaceGroupAccess().getImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_3_1_0()); 
             }
 
             }
@@ -23631,7 +23631,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_1"
+    // $ANTLR end "rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1"
 
 
     // $ANTLR start "rule__EqInterfaceGroup__EqInterfacesAssignment_4_1_0"
@@ -23687,29 +23687,29 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__EqInterfaceGroup__EqInterfacesAssignment_4_1_0"
 
 
-    // $ANTLR start "rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8517:1: rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_1 : ( ruleImplicitEqInterfaceGroupDefinition ) ;
-    public final void rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_1() throws RecognitionException {
+    // $ANTLR start "rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8517:1: rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1 : ( ruleImplicitEqInterfaceMemberDefinition ) ;
+    public final void rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8521:1: ( ( ruleImplicitEqInterfaceGroupDefinition ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8522:1: ( ruleImplicitEqInterfaceGroupDefinition )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8521:1: ( ( ruleImplicitEqInterfaceMemberDefinition ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8522:1: ( ruleImplicitEqInterfaceMemberDefinition )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8522:1: ( ruleImplicitEqInterfaceGroupDefinition )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8523:1: ruleImplicitEqInterfaceGroupDefinition
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8522:1: ( ruleImplicitEqInterfaceMemberDefinition )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8523:1: ruleImplicitEqInterfaceMemberDefinition
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getEqInterfaceGroupAccess().getImplicitGroupDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_4_1_1_0()); 
+               before(grammarAccess.getEqInterfaceGroupAccess().getImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_4_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleImplicitEqInterfaceGroupDefinition_in_rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_118233);
-            ruleImplicitEqInterfaceGroupDefinition();
+            pushFollow(FOLLOW_ruleImplicitEqInterfaceMemberDefinition_in_rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_118233);
+            ruleImplicitEqInterfaceMemberDefinition();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getEqInterfaceGroupAccess().getImplicitGroupDefinitionsImplicitEqInterfaceGroupDefinitionParserRuleCall_4_1_1_0()); 
+               after(grammarAccess.getEqInterfaceGroupAccess().getImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_4_1_1_0()); 
             }
 
             }
@@ -23729,32 +23729,32 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_1"
+    // $ANTLR end "rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8532:1: rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_1 : ( ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues ) ;
-    public final void rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8532:1: rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1 : ( ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues ) ;
+    public final void rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8536:1: ( ( ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8537:1: ( ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8536:1: ( ( ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8537:1: ( ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8537:1: ( ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8538:1: ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8537:1: ( ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8538:1: ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getEntriesImplicitEqInterfaceGroupDefinitionAttributesAndValuesParserRuleCall_1_0()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getEntriesImplicitEqInterfaceMemberDefinitionAttributesAndValuesParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues_in_rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_118264);
-            ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues();
+            pushFollow(FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues_in_rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_118264);
+            ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getEntriesImplicitEqInterfaceGroupDefinitionAttributesAndValuesParserRuleCall_1_0()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getEntriesImplicitEqInterfaceMemberDefinitionAttributesAndValuesParserRuleCall_1_0()); 
             }
 
             }
@@ -23774,32 +23774,32 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_1"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8547:1: rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_1 : ( ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues ) ;
-    public final void rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_1() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8547:1: rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1 : ( ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues ) ;
+    public final void rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8551:1: ( ( ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8552:1: ( ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8551:1: ( ( ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8552:1: ( ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8552:1: ( ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8553:1: ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8552:1: ( ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8553:1: ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getEntriesImplicitEqInterfaceGroupDefinitionAttributesAndValuesParserRuleCall_2_1_0()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getEntriesImplicitEqInterfaceMemberDefinitionAttributesAndValuesParserRuleCall_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues_in_rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_118295);
-            ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues();
+            pushFollow(FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues_in_rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_118295);
+            ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAccess().getEntriesImplicitEqInterfaceGroupDefinitionAttributesAndValuesParserRuleCall_2_1_0()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getEntriesImplicitEqInterfaceMemberDefinitionAttributesAndValuesParserRuleCall_2_1_0()); 
             }
 
             }
@@ -23819,32 +23819,32 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_1"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8562:1: rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_0 : ( ruleImplicitEqInterfaceGroupDefinitionAttribute ) ;
-    public final void rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8562:1: rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0 : ( ruleImplicitEqInterfaceMemberDefinitionAttribute ) ;
+    public final void rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8566:1: ( ( ruleImplicitEqInterfaceGroupDefinitionAttribute ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8567:1: ( ruleImplicitEqInterfaceGroupDefinitionAttribute )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8566:1: ( ( ruleImplicitEqInterfaceMemberDefinitionAttribute ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8567:1: ( ruleImplicitEqInterfaceMemberDefinitionAttribute )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8567:1: ( ruleImplicitEqInterfaceGroupDefinitionAttribute )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8568:1: ruleImplicitEqInterfaceGroupDefinitionAttribute
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8567:1: ( ruleImplicitEqInterfaceMemberDefinitionAttribute )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8568:1: ruleImplicitEqInterfaceMemberDefinitionAttribute
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getAttributeImplicitEqInterfaceGroupDefinitionAttributeEnumRuleCall_0_0()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getAttributeImplicitEqInterfaceMemberDefinitionAttributeEnumRuleCall_0_0()); 
             }
-            pushFollow(FOLLOW_ruleImplicitEqInterfaceGroupDefinitionAttribute_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_018326);
-            ruleImplicitEqInterfaceGroupDefinitionAttribute();
+            pushFollow(FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttribute_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_018326);
+            ruleImplicitEqInterfaceMemberDefinitionAttribute();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getAttributeImplicitEqInterfaceGroupDefinitionAttributeEnumRuleCall_0_0()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getAttributeImplicitEqInterfaceMemberDefinitionAttributeEnumRuleCall_0_0()); 
             }
 
             }
@@ -23864,12 +23864,12 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_0"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0"
 
 
-    // $ANTLR start "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_2"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8577:1: rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_2 : ( RULE_STRING ) ;
-    public final void rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_2"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8577:1: rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_2 : ( RULE_STRING ) ;
+    public final void rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -23881,11 +23881,11 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8583:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getValueSTRINGTerminalRuleCall_2_0()); 
+               before(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getValueSTRINGTerminalRuleCall_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_218357); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_218357); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getImplicitEqInterfaceGroupDefinitionAttributesAndValuesAccess().getValueSTRINGTerminalRuleCall_2_0()); 
+               after(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getValueSTRINGTerminalRuleCall_2_0()); 
             }
 
             }
@@ -23905,7 +23905,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_2"
+    // $ANTLR end "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_2"
 
 
     // $ANTLR start "rule__EqInterfaceGroupWithCombinedDefinition__NameAssignment_1"
@@ -27509,12 +27509,12 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_ruleEqInterfaceGroup_in_entryRuleEqInterfaceGroup361 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleEqInterfaceGroup368 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group__0_in_ruleEqInterfaceGroup394 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImplicitEqInterfaceGroupDefinition_in_entryRuleImplicitEqInterfaceGroupDefinition421 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleImplicitEqInterfaceGroupDefinition428 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group__0_in_ruleImplicitEqInterfaceGroupDefinition454 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues_in_entryRuleImplicitEqInterfaceGroupDefinitionAttributesAndValues481 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleImplicitEqInterfaceGroupDefinitionAttributesAndValues488 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0_in_ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues514 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImplicitEqInterfaceMemberDefinition_in_entryRuleImplicitEqInterfaceMemberDefinition421 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleImplicitEqInterfaceMemberDefinition428 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group__0_in_ruleImplicitEqInterfaceMemberDefinition454 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues_in_entryRuleImplicitEqInterfaceMemberDefinitionAttributesAndValues481 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleImplicitEqInterfaceMemberDefinitionAttributesAndValues488 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0_in_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues514 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleEqInterfaceGroupWithCombinedDefinition_in_entryRuleEqInterfaceGroupWithCombinedDefinition541 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleEqInterfaceGroupWithCombinedDefinition548 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__EqInterfaceGroupWithCombinedDefinition__Group__0_in_ruleEqInterfaceGroupWithCombinedDefinition574 = new BitSet(new long[]{0x0000000000000002L});
@@ -27542,7 +27542,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName1023 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName1030 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__QualifiedName__Group__0_in_ruleQualifiedName1056 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives_in_ruleImplicitEqInterfaceGroupDefinitionAttribute1093 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives_in_ruleImplicitEqInterfaceMemberDefinitionAttribute1093 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__HardwareArchitectureLevelType__Alternatives_in_ruleHardwareArchitectureLevelType1129 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DeploymentImplicitDefinitionAttribute__Alternatives_in_ruleDeploymentImplicitDefinitionAttribute1165 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__AssistModel__EqInterfaceGroupsAssignment_9_2_0_in_rule__AssistModel__Alternatives_9_21200 = new BitSet(new long[]{0x0000000000000002L});
@@ -27552,9 +27552,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__AssistModel__ValidDeploymentsAssignment_10_2_2_in_rule__AssistModel__Alternatives_10_21287 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__AssistModel__InvalidDeploymentsAssignment_10_2_3_in_rule__AssistModel__Alternatives_10_21305 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__EqInterfaceGroup__EqInterfacesAssignment_3_0_in_rule__EqInterfaceGroup__Alternatives_31338 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_1_in_rule__EqInterfaceGroup__Alternatives_31356 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1_in_rule__EqInterfaceGroup__Alternatives_31356 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__EqInterfaceGroup__EqInterfacesAssignment_4_1_0_in_rule__EqInterfaceGroup__Alternatives_4_11389 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_1_in_rule__EqInterfaceGroup__Alternatives_4_11407 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1_in_rule__EqInterfaceGroup__Alternatives_4_11407 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_11_in_rule__ValidDeployment__Alternatives_31441 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_12_in_rule__ValidDeployment__Alternatives_31461 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ValidDeployment__HardwareElementsAssignment_5_0_in_rule__ValidDeployment__Alternatives_51495 = new BitSet(new long[]{0x0000000000000002L});
@@ -27567,17 +27567,17 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__InvalidDeployment__ImplicitHardwareElementsAssignment_5_1_in_rule__InvalidDeployment__Alternatives_51670 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__InvalidDeployment__Group_6_0__0_in_rule__InvalidDeployment__Alternatives_61703 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_in_rule__InvalidDeployment__Alternatives_61721 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1755 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1776 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1797 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1818 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1839 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1860 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1881 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1902 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1923 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1944 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_rule__ImplicitEqInterfaceGroupDefinitionAttribute__Alternatives1965 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1755 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1776 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1797 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1818 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1839 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1860 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1881 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1902 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1923 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1944 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1965 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_24_in_rule__HardwareArchitectureLevelType__Alternatives2001 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_25_in_rule__HardwareArchitectureLevelType__Alternatives2022 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_26_in_rule__HardwareArchitectureLevelType__Alternatives2043 = new BitSet(new long[]{0x0000000000000002L});
@@ -27826,27 +27826,27 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_53_in_rule__EqInterfaceGroup__Group_4__0__Impl7494 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__EqInterfaceGroup__Group_4__1__Impl_in_rule__EqInterfaceGroup__Group_4__17525 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__EqInterfaceGroup__Alternatives_4_1_in_rule__EqInterfaceGroup__Group_4__1__Impl7552 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group__0__Impl_in_rule__ImplicitEqInterfaceGroupDefinition__Group__07586 = new BitSet(new long[]{0x0000000000FFE000L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group__1_in_rule__ImplicitEqInterfaceGroupDefinition__Group__07589 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_rule__ImplicitEqInterfaceGroupDefinition__Group__0__Impl7617 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group__1__Impl_in_rule__ImplicitEqInterfaceGroupDefinition__Group__17648 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group__2_in_rule__ImplicitEqInterfaceGroupDefinition__Group__17651 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_1_in_rule__ImplicitEqInterfaceGroupDefinition__Group__1__Impl7678 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group__2__Impl_in_rule__ImplicitEqInterfaceGroupDefinition__Group__27708 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group_2__0_in_rule__ImplicitEqInterfaceGroupDefinition__Group__2__Impl7735 = new BitSet(new long[]{0x0080000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group_2__0__Impl_in_rule__ImplicitEqInterfaceGroupDefinition__Group_2__07772 = new BitSet(new long[]{0x0000000000FFE000L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group_2__1_in_rule__ImplicitEqInterfaceGroupDefinition__Group_2__07775 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_rule__ImplicitEqInterfaceGroupDefinition__Group_2__0__Impl7803 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__Group_2__1__Impl_in_rule__ImplicitEqInterfaceGroupDefinition__Group_2__17834 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_1_in_rule__ImplicitEqInterfaceGroupDefinition__Group_2__1__Impl7861 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0__Impl_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__07895 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__07898 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_0_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__0__Impl7925 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1__Impl_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__17955 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__17958 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__1__Impl7986 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2__Impl_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__28017 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_2_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__Group__2__Impl8044 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group__0__Impl_in_rule__ImplicitEqInterfaceMemberDefinition__Group__07586 = new BitSet(new long[]{0x0000000000FFE000L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group__1_in_rule__ImplicitEqInterfaceMemberDefinition__Group__07589 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_rule__ImplicitEqInterfaceMemberDefinition__Group__0__Impl7617 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group__1__Impl_in_rule__ImplicitEqInterfaceMemberDefinition__Group__17648 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group__2_in_rule__ImplicitEqInterfaceMemberDefinition__Group__17651 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1_in_rule__ImplicitEqInterfaceMemberDefinition__Group__1__Impl7678 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group__2__Impl_in_rule__ImplicitEqInterfaceMemberDefinition__Group__27708 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group_2__0_in_rule__ImplicitEqInterfaceMemberDefinition__Group__2__Impl7735 = new BitSet(new long[]{0x0080000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group_2__0__Impl_in_rule__ImplicitEqInterfaceMemberDefinition__Group_2__07772 = new BitSet(new long[]{0x0000000000FFE000L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group_2__1_in_rule__ImplicitEqInterfaceMemberDefinition__Group_2__07775 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_rule__ImplicitEqInterfaceMemberDefinition__Group_2__0__Impl7803 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__Group_2__1__Impl_in_rule__ImplicitEqInterfaceMemberDefinition__Group_2__17834 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1_in_rule__ImplicitEqInterfaceMemberDefinition__Group_2__1__Impl7861 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0__Impl_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__07895 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__07898 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0__Impl7925 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1__Impl_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__17955 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__17958 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__1__Impl7986 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2__Impl_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__28017 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_2_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__2__Impl8044 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__EqInterfaceGroupWithCombinedDefinition__Group__0__Impl_in_rule__EqInterfaceGroupWithCombinedDefinition__Group__08080 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__EqInterfaceGroupWithCombinedDefinition__Group__1_in_rule__EqInterfaceGroupWithCombinedDefinition__Group__08083 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_52_in_rule__EqInterfaceGroupWithCombinedDefinition__Group__0__Impl8111 = new BitSet(new long[]{0x0000000000000002L});
@@ -28223,13 +28223,13 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_RULE_INT_in_rule__AvailableEqInterface__CountAssignment_218062 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__NameAssignment_118093 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__EqInterfacesAssignment_3_018128 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImplicitEqInterfaceGroupDefinition_in_rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_3_118163 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImplicitEqInterfaceMemberDefinition_in_rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_118163 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__EqInterfaceGroup__EqInterfacesAssignment_4_1_018198 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImplicitEqInterfaceGroupDefinition_in_rule__EqInterfaceGroup__ImplicitGroupDefinitionsAssignment_4_1_118233 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues_in_rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_118264 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImplicitEqInterfaceGroupDefinitionAttributesAndValues_in_rule__ImplicitEqInterfaceGroupDefinition__EntriesAssignment_2_118295 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImplicitEqInterfaceGroupDefinitionAttribute_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__AttributeAssignment_018326 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__ImplicitEqInterfaceGroupDefinitionAttributesAndValues__ValueAssignment_218357 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImplicitEqInterfaceMemberDefinition_in_rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_118233 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues_in_rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_118264 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues_in_rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_118295 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttribute_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_018326 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__ValueAssignment_218357 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__EqInterfaceGroupWithCombinedDefinition__NameAssignment_118388 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__EqInterfaceGroupWithCombinedDefinition__CombinedGroupsAssignment_318423 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__EqInterfaceGroupWithCombinedDefinition__CombinedGroupsAssignment_4_118462 = new BitSet(new long[]{0x0000000000000002L});

@@ -279,6 +279,52 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ImplicitEqInterfaceMemberDefinitionItemProvider implicitEqInterfaceMemberDefinitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createImplicitEqInterfaceMemberDefinitionAdapter() {
+		if (implicitEqInterfaceMemberDefinitionItemProvider == null) {
+			implicitEqInterfaceMemberDefinitionItemProvider = new ImplicitEqInterfaceMemberDefinitionItemProvider(this);
+		}
+
+		return implicitEqInterfaceMemberDefinitionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttributesAndValues} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ImplicitEqInterfaceMemberDefinitionAttributesAndValuesItemProvider implicitEqInterfaceMemberDefinitionAttributesAndValuesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttributesAndValues}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createImplicitEqInterfaceMemberDefinitionAttributesAndValuesAdapter() {
+		if (implicitEqInterfaceMemberDefinitionAttributesAndValuesItemProvider == null) {
+			implicitEqInterfaceMemberDefinitionAttributesAndValuesItemProvider = new ImplicitEqInterfaceMemberDefinitionAttributesAndValuesItemProvider(this);
+		}
+
+		return implicitEqInterfaceMemberDefinitionAttributesAndValuesItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -299,52 +345,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		}
 
 		return eqInterfaceGroupWithCombinedDefinitionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinition} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ImplicitEqInterfaceGroupDefinitionItemProvider implicitEqInterfaceGroupDefinitionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createImplicitEqInterfaceGroupDefinitionAdapter() {
-		if (implicitEqInterfaceGroupDefinitionItemProvider == null) {
-			implicitEqInterfaceGroupDefinitionItemProvider = new ImplicitEqInterfaceGroupDefinitionItemProvider(this);
-		}
-
-		return implicitEqInterfaceGroupDefinitionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinitionAttributesAndValues} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ImplicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider implicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceGroupDefinitionAttributesAndValues}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createImplicitEqInterfaceGroupDefinitionAttributesAndValuesAdapter() {
-		if (implicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider == null) {
-			implicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider = new ImplicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider(this);
-		}
-
-		return implicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider;
 	}
 
 	/**
@@ -639,8 +639,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (eqInterfaceOrGroupItemProvider != null) eqInterfaceOrGroupItemProvider.dispose();
 		if (eqInterfaceItemProvider != null) eqInterfaceItemProvider.dispose();
 		if (eqInterfaceGroupItemProvider != null) eqInterfaceGroupItemProvider.dispose();
-		if (implicitEqInterfaceGroupDefinitionItemProvider != null) implicitEqInterfaceGroupDefinitionItemProvider.dispose();
-		if (implicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider != null) implicitEqInterfaceGroupDefinitionAttributesAndValuesItemProvider.dispose();
+		if (implicitEqInterfaceMemberDefinitionItemProvider != null) implicitEqInterfaceMemberDefinitionItemProvider.dispose();
+		if (implicitEqInterfaceMemberDefinitionAttributesAndValuesItemProvider != null) implicitEqInterfaceMemberDefinitionAttributesAndValuesItemProvider.dispose();
 		if (eqInterfaceGroupWithCombinedDefinitionItemProvider != null) eqInterfaceGroupWithCombinedDefinitionItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();

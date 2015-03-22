@@ -126,7 +126,7 @@ class EqInterface extends EqInterfaceOrGroup {
 
 class EqInterfaceGroup extends EqInterfaceOrGroup {
 	refers EqInterface[0..*] eqInterfaces
-	contains ImplicitEqInterfaceGroupDefinition [0..*] implicitGroupDefinitions
+	contains ImplicitEqInterfaceMemberDefinition [0..*] implicitMemberDefinitions
 	
 	op String toString() { name }
 
@@ -135,7 +135,7 @@ class EqInterfaceGroup extends EqInterfaceOrGroup {
 		val model = this.eContainer as AssistModel
 		
 		// We have to explode all implicit group definitions
-		for (implicitDefinitionElement : this.implicitGroupDefinitions) {
+		for (implicitDefinitionElement : this.implicitMemberDefinitions) {
 			
 			// contains the interfaces discovered for a single implicit definition element
 			var Iterable<EqInterface> interfaceList = model.eqInterfaces	
@@ -166,17 +166,17 @@ class EqInterfaceGroup extends EqInterfaceOrGroup {
 }
 
 
-class ImplicitEqInterfaceGroupDefinition {
-	contains ImplicitEqInterfaceGroupDefinitionAttributesAndValues[1..*] entries
+class ImplicitEqInterfaceMemberDefinition {
+	contains ImplicitEqInterfaceMemberDefinitionAttributesAndValues[1..*] entries
 }
 
 
-class ImplicitEqInterfaceGroupDefinitionAttributesAndValues {
-	ImplicitEqInterfaceGroupDefinitionAttribute attribute
+class ImplicitEqInterfaceMemberDefinitionAttributesAndValues {
+	ImplicitEqInterfaceMemberDefinitionAttribute attribute
 	String					 			value
 }
 
-enum ImplicitEqInterfaceGroupDefinitionAttribute {
+enum ImplicitEqInterfaceMemberDefinitionAttribute {
 	NAME		as 	"Name"
 	SYSTEM 		as 	"InterfaceSystem"
 	SUBATA		as 	"SubAta"

@@ -83,7 +83,7 @@ public class EqInterfaceGroupItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.EQ_INTERFACE_GROUP__IMPLICIT_GROUP_DEFINITIONS);
+			childrenFeatures.add(ModelPackage.Literals.EQ_INTERFACE_GROUP__IMPLICIT_MEMBER_DEFINITIONS);
 		}
 		return childrenFeatures;
 	}
@@ -139,7 +139,7 @@ public class EqInterfaceGroupItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EqInterfaceGroup.class)) {
-			case ModelPackage.EQ_INTERFACE_GROUP__IMPLICIT_GROUP_DEFINITIONS:
+			case ModelPackage.EQ_INTERFACE_GROUP__IMPLICIT_MEMBER_DEFINITIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -159,8 +159,8 @@ public class EqInterfaceGroupItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.EQ_INTERFACE_GROUP__IMPLICIT_GROUP_DEFINITIONS,
-				 ModelFactory.eINSTANCE.createImplicitEqInterfaceGroupDefinition()));
+				(ModelPackage.Literals.EQ_INTERFACE_GROUP__IMPLICIT_MEMBER_DEFINITIONS,
+				 ModelFactory.eINSTANCE.createImplicitEqInterfaceMemberDefinition()));
 	}
 
 }

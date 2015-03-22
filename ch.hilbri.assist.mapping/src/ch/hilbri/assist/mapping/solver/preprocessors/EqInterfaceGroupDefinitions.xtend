@@ -13,7 +13,7 @@ class EqInterfaceGroupDefinitions extends AbstractModelPreprocessor {
 	}
 	
 	override execute() {
-		for (g : model.eqInterfaceGroups.filter[it.implicitGroupDefinitions.length > 0]
+		for (g : model.eqInterfaceGroups.filter[it.implicitMemberDefinitions.length > 0]
 			                			.filter[!(it instanceof EqInterfaceGroupWithCombinedDefinition)]) 
 		{
 			logger.info("    . Processing group " + g.name)
