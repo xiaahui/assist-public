@@ -21,6 +21,8 @@ class DownBranchMonitor implements IMonitorDownBranch {
 	}
 	
 	override afterDownRightBranch() {
+		val currentProgress = solver.vars.filter[instantiated].size * 100 / solver.vars.size
+		logger.info('''Search progress:	«String::format("%3d", currentProgress)»% of all variables are instantiated''')
 	}
 	
 	override beforeDownLeftBranch() {

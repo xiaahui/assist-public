@@ -5,13 +5,13 @@ import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.HashMap
+import java.util.List
 import java.util.Map
 import org.chocosolver.solver.search.strategy.selectors.IntValueSelector
 import org.chocosolver.solver.search.strategy.selectors.VariableSelector
 import org.chocosolver.solver.variables.IntVar
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import java.util.List
 
 class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntValueSelector {
 	private Logger logger
@@ -117,7 +117,7 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 		for (list : varList) {
 			val variable = getFirstFail(list)
 			if (variable != null) {
-				logger.info('''Selecting variable «variable» («currentProgress»% of all variables instantiated)''')
+//				logger.info('''Selecting variable «variable» («currentProgress»% of all variables instantiated)''')
 //				logger.debug('''Instantiated variables list: [«FOR v : variables»«IF v.instantiated»«v.name»«IF v != variables.last», «ENDIF»«ENDIF»«ENDFOR»]''')
 				return variable
 			}
@@ -128,10 +128,10 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 	 
     override int selectValue(IntVar variable) {
     	if (variable.name.endsWith("-Connector")) {
-	    	val conn = model.allConnectors.get(variable.LB)
-			logger.debug('''Setting variable «variable.name» to «conn.fullName».''')		
+//	    	val conn = model.allConnectors.get(variable.LB)
+//			logger.debug('''Setting variable «variable.name» to «conn.fullName».''')		
     	} else {
-			logger.debug('''Setting variable «variable.name» to «variable.LB».''')		    		
+//			logger.debug('''Setting variable «variable.name» to «variable.LB».''')		    		
     	}
         return variable.getLB();
     }
