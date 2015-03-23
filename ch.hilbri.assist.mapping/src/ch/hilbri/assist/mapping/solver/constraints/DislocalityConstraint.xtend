@@ -134,25 +134,64 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 		}
 	}
 	
+	def BitSet findClique(BitSet candidates, List<BitSet> graph) {
+		var BitSet clique = (candidates.clone as BitSet)
+		for (var int outIdx = clique.nextSetBit(0); outIdx != -1; outIdx = clique.nextSetBit(outIdx+1)) {
+			var BitSet maxNode = null
+			var int maxCard = 0
+			for (var int idx = candidates.nextSetBit(outIdx+1); idx != -1; idx = candidates.nextSetBit(idx+1)) {
+				var BitSet nodeClone = (graph.get(idx).clone as BitSet)
+				nodeClone.and(clique)
+				val card = nodeClone.cardinality
+				if (card > maxCard) {
+					maxNode = graph.get(idx)
+					maxCard = card
+				}			
+			}
+			clique.and(maxNode)
+		}
+		return clique
+	}
+
 	def void cliqueCoverConstraintBuild(List<IntVar> intVarList, List<BitSet> graph) {
 		val List<BitSet> uncovered = new ArrayList<BitSet>(graph.size)
 		for (node:graph) {
 			uncovered.add(node.clone() as BitSet)
 		}
-		var BitSet maxNode = null
-		var int maxCard = 0
-		for (node:uncovered) {
-			val card = node.cardinality
-			if (card > maxCard) {
-				maxNode = node
-				maxCard = card
+		while (true) {
+			// find start node with maximum number of uncovered edges
+			var BitSet maxNode = null
+			var int maxCard = 0
+			for (node:uncovered) {
+				val card = node.cardinality
+				if (card > maxCard) {
+					maxNode = node
+					maxCard = card
+				}
 			}
-		}
-		if (maxCard == 0) {
-			return
-		}
-		for (var int idx = maxNode.nextSetBit(0); idx != -1; idx = maxNode.nextSetBit(idx)) {
-			
+			if (maxCard == 0) {
+				return
+			}
+			// find maximum neighbor among the ones reachable via uncovered edges
+			var BitSet maxCovNode = null
+			var int maxCovCard = 0
+			for (var int idx = maxNode.nextSetBit(0); idx != -1; idx = maxNode.nextSetBit(idx+1)) {
+				val card = graph.get(idx).cardinality
+				if (card > maxCovCard) {
+					maxCovNode = graph.get(idx)
+					maxCovCard = card
+				}
+			}
+			// the candidates are the common neighborhood of the first two
+			val BitSet candidates = maxNode.clone as BitSet
+			candidates.and(maxCovNode)
+			val clique = findClique(candidates, graph)
+			val conflict = new ArrayList<IntVar>
+			for (var int idx = clique.nextSetBit(0); idx != -1; idx = clique.nextSetBit(idx+1)) {
+				conflict.add(intVarList.get(idx))
+				uncovered.get(idx).andNot(clique)
+			}
+			solver.post(ICF.alldifferent(conflict))
 		}
 	}
 }
