@@ -153,7 +153,7 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 	      _builder.append("Global { ");
 	      _builder.newLine();
 	      _builder.append("\t");
-	      _builder.append("System name = \"Example System\";");
+	      _builder.append("Name = \"Example System\";");
 	      _builder.newLine();
 	      _builder.append("}");
 	      _builder.newLine();
