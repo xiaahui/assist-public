@@ -130,7 +130,7 @@ class AssistSolver {
 			case SearchType.FIRST_FAIL: {
 				heuristic = ISF.minDom_LB(vars)
 			}
-			case strategy == SearchType.FIRST_FAIL_MAX_DEGREE || strategy == SearchType.DEFAULT: {
+			case SearchType.FIRST_FAIL_MAX_DEGREE: {
 				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model, locationVariableLevels)
 				this.solver.searchLoop.plugSearchMonitor(new BacktrackingMonitor)
 				heuristic = ISF.custom(selector, selector, vars)				
@@ -150,10 +150,11 @@ class AssistSolver {
 			case SearchType.DOM_OVER_WDEG: {
 				heuristic = ISF.domOverWDeg(vars, seed)
 			}
-			case SearchType.ACTIVITY: {
+			case strategy == SearchType.ACTIVITY || strategy == SearchType.DEFAULT: 
+			{
 				heuristic = ISF.activity(vars, seed)
 			}
-			case SearchType.IMPACT: {
+			case SearchType.IMPACT: { // possibly broken
 				heuristic = ISF.impact(vars, seed)
 			}
 			default: {
