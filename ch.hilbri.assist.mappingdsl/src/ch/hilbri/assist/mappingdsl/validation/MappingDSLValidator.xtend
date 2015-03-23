@@ -26,6 +26,19 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 	}
 	
 	@Check
+	def checkImplicitMemberDefinitionsAreNotEmpty(AssistModel model) {
+		for (g : model.eqInterfaceGroups.filter[!(it instanceof EqInterfaceGroupWithCombinedDefinition)]) 
+		{
+			for (definition : g.implicitMemberDefinitions) {
+				if (definition.implicitlyDefinedEqInterfaces.isNullOrEmpty) {
+//					warning("This part of the definition contains no interfaces. It is empty. This may be unintended.", g, ModelPackage.Literals::IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION__ENTRIES)
+				}
+			}
+			
+		}
+	}
+	
+	@Check
 	def checkImplicitlyDefinedValidDeploymentsAreNotEmpty(AssistModel model) {
 		for (s : model.validDeployments.filter[it.implicitHardwareElements.length > 0]
 									   .filter[it.hardwareElements.length == 0]) 

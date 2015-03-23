@@ -2368,18 +2368,18 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__ValidDeployment__Alternatives_5"
 
 
-    // $ANTLR start "rule__ValidDeployment__Alternatives_6"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:743:1: rule__ValidDeployment__Alternatives_6 : ( ( ( rule__ValidDeployment__Group_6_0__0 ) ) | ( ( rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1 ) ) );
-    public final void rule__ValidDeployment__Alternatives_6() throws RecognitionException {
+    // $ANTLR start "rule__ValidDeployment__Alternatives_6_1"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:743:1: rule__ValidDeployment__Alternatives_6_1 : ( ( ( rule__ValidDeployment__HardwareElementsAssignment_6_1_0 ) ) | ( ( rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_1 ) ) );
+    public final void rule__ValidDeployment__Alternatives_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:747:1: ( ( ( rule__ValidDeployment__Group_6_0__0 ) ) | ( ( rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:747:1: ( ( ( rule__ValidDeployment__HardwareElementsAssignment_6_1_0 ) ) | ( ( rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_1 ) ) )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==53) ) {
+            if ( (LA7_0==RULE_ID) ) {
                 alt7=1;
             }
             else if ( (LA7_0==62) ) {
@@ -2394,19 +2394,19 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
             switch (alt7) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:748:1: ( ( rule__ValidDeployment__Group_6_0__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:748:1: ( ( rule__ValidDeployment__HardwareElementsAssignment_6_1_0 ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:748:1: ( ( rule__ValidDeployment__Group_6_0__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:749:1: ( rule__ValidDeployment__Group_6_0__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:748:1: ( ( rule__ValidDeployment__HardwareElementsAssignment_6_1_0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:749:1: ( rule__ValidDeployment__HardwareElementsAssignment_6_1_0 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getValidDeploymentAccess().getGroup_6_0()); 
+                       before(grammarAccess.getValidDeploymentAccess().getHardwareElementsAssignment_6_1_0()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:750:1: ( rule__ValidDeployment__Group_6_0__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:750:2: rule__ValidDeployment__Group_6_0__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:750:1: ( rule__ValidDeployment__HardwareElementsAssignment_6_1_0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:750:2: rule__ValidDeployment__HardwareElementsAssignment_6_1_0
                     {
-                    pushFollow(FOLLOW_rule__ValidDeployment__Group_6_0__0_in_rule__ValidDeployment__Alternatives_61546);
-                    rule__ValidDeployment__Group_6_0__0();
+                    pushFollow(FOLLOW_rule__ValidDeployment__HardwareElementsAssignment_6_1_0_in_rule__ValidDeployment__Alternatives_6_11546);
+                    rule__ValidDeployment__HardwareElementsAssignment_6_1_0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -2414,7 +2414,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getValidDeploymentAccess().getGroup_6_0()); 
+                       after(grammarAccess.getValidDeploymentAccess().getHardwareElementsAssignment_6_1_0()); 
                     }
 
                     }
@@ -2423,19 +2423,19 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:754:6: ( ( rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:754:6: ( ( rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_1 ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:754:6: ( ( rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:755:1: ( rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:754:6: ( ( rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_1 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:755:1: ( rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_1 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getValidDeploymentAccess().getImplicitHardwareElementsAssignment_6_1()); 
+                       before(grammarAccess.getValidDeploymentAccess().getImplicitHardwareElementsAssignment_6_1_1()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:756:1: ( rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:756:2: rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:756:1: ( rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_1 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:756:2: rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_1
                     {
-                    pushFollow(FOLLOW_rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_in_rule__ValidDeployment__Alternatives_61564);
-                    rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1();
+                    pushFollow(FOLLOW_rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_1_in_rule__ValidDeployment__Alternatives_6_11564);
+                    rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_1();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -2443,7 +2443,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getValidDeploymentAccess().getImplicitHardwareElementsAssignment_6_1()); 
+                       after(grammarAccess.getValidDeploymentAccess().getImplicitHardwareElementsAssignment_6_1_1()); 
                     }
 
                     }
@@ -2465,7 +2465,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ValidDeployment__Alternatives_6"
+    // $ANTLR end "rule__ValidDeployment__Alternatives_6_1"
 
 
     // $ANTLR start "rule__InvalidDeployment__Alternatives_3"
@@ -2648,18 +2648,18 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__InvalidDeployment__Alternatives_5"
 
 
-    // $ANTLR start "rule__InvalidDeployment__Alternatives_6"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:813:1: rule__InvalidDeployment__Alternatives_6 : ( ( ( rule__InvalidDeployment__Group_6_0__0 ) ) | ( ( rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1 ) ) );
-    public final void rule__InvalidDeployment__Alternatives_6() throws RecognitionException {
+    // $ANTLR start "rule__InvalidDeployment__Alternatives_6_1"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:813:1: rule__InvalidDeployment__Alternatives_6_1 : ( ( ( rule__InvalidDeployment__HardwareElementsAssignment_6_1_0 ) ) | ( ( rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_1 ) ) );
+    public final void rule__InvalidDeployment__Alternatives_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:817:1: ( ( ( rule__InvalidDeployment__Group_6_0__0 ) ) | ( ( rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:817:1: ( ( ( rule__InvalidDeployment__HardwareElementsAssignment_6_1_0 ) ) | ( ( rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_1 ) ) )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==53) ) {
+            if ( (LA10_0==RULE_ID) ) {
                 alt10=1;
             }
             else if ( (LA10_0==62) ) {
@@ -2674,19 +2674,19 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
             switch (alt10) {
                 case 1 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:818:1: ( ( rule__InvalidDeployment__Group_6_0__0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:818:1: ( ( rule__InvalidDeployment__HardwareElementsAssignment_6_1_0 ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:818:1: ( ( rule__InvalidDeployment__Group_6_0__0 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:819:1: ( rule__InvalidDeployment__Group_6_0__0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:818:1: ( ( rule__InvalidDeployment__HardwareElementsAssignment_6_1_0 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:819:1: ( rule__InvalidDeployment__HardwareElementsAssignment_6_1_0 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getInvalidDeploymentAccess().getGroup_6_0()); 
+                       before(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsAssignment_6_1_0()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:820:1: ( rule__InvalidDeployment__Group_6_0__0 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:820:2: rule__InvalidDeployment__Group_6_0__0
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:820:1: ( rule__InvalidDeployment__HardwareElementsAssignment_6_1_0 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:820:2: rule__InvalidDeployment__HardwareElementsAssignment_6_1_0
                     {
-                    pushFollow(FOLLOW_rule__InvalidDeployment__Group_6_0__0_in_rule__InvalidDeployment__Alternatives_61703);
-                    rule__InvalidDeployment__Group_6_0__0();
+                    pushFollow(FOLLOW_rule__InvalidDeployment__HardwareElementsAssignment_6_1_0_in_rule__InvalidDeployment__Alternatives_6_11703);
+                    rule__InvalidDeployment__HardwareElementsAssignment_6_1_0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -2694,7 +2694,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getInvalidDeploymentAccess().getGroup_6_0()); 
+                       after(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsAssignment_6_1_0()); 
                     }
 
                     }
@@ -2703,19 +2703,19 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:824:6: ( ( rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:824:6: ( ( rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_1 ) )
                     {
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:824:6: ( ( rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1 ) )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:825:1: ( rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:824:6: ( ( rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_1 ) )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:825:1: ( rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_1 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getInvalidDeploymentAccess().getImplicitHardwareElementsAssignment_6_1()); 
+                       before(grammarAccess.getInvalidDeploymentAccess().getImplicitHardwareElementsAssignment_6_1_1()); 
                     }
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:826:1: ( rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1 )
-                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:826:2: rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:826:1: ( rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_1 )
+                    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:826:2: rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_1
                     {
-                    pushFollow(FOLLOW_rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_in_rule__InvalidDeployment__Alternatives_61721);
-                    rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1();
+                    pushFollow(FOLLOW_rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_1_in_rule__InvalidDeployment__Alternatives_6_11721);
+                    rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_1();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -2723,7 +2723,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getInvalidDeploymentAccess().getImplicitHardwareElementsAssignment_6_1()); 
+                       after(grammarAccess.getInvalidDeploymentAccess().getImplicitHardwareElementsAssignment_6_1_1()); 
                     }
 
                     }
@@ -2745,7 +2745,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__InvalidDeployment__Alternatives_6"
+    // $ANTLR end "rule__InvalidDeployment__Alternatives_6_1"
 
 
     // $ANTLR start "rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives"
@@ -3991,26 +3991,26 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AssistModel__Group__4__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1185:1: rule__AssistModel__Group__4__Impl : ( ( rule__AssistModel__NameAssignment_4 ) ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1185:1: rule__AssistModel__Group__4__Impl : ( ( rule__AssistModel__SystemNameAssignment_4 ) ) ;
     public final void rule__AssistModel__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1189:1: ( ( ( rule__AssistModel__NameAssignment_4 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1190:1: ( ( rule__AssistModel__NameAssignment_4 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1189:1: ( ( ( rule__AssistModel__SystemNameAssignment_4 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1190:1: ( ( rule__AssistModel__SystemNameAssignment_4 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1190:1: ( ( rule__AssistModel__NameAssignment_4 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1191:1: ( rule__AssistModel__NameAssignment_4 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1190:1: ( ( rule__AssistModel__SystemNameAssignment_4 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1191:1: ( rule__AssistModel__SystemNameAssignment_4 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAssistModelAccess().getNameAssignment_4()); 
+               before(grammarAccess.getAssistModelAccess().getSystemNameAssignment_4()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1192:1: ( rule__AssistModel__NameAssignment_4 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1192:2: rule__AssistModel__NameAssignment_4
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1192:1: ( rule__AssistModel__SystemNameAssignment_4 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:1192:2: rule__AssistModel__SystemNameAssignment_4
             {
-            pushFollow(FOLLOW_rule__AssistModel__NameAssignment_4_in_rule__AssistModel__Group__4__Impl2621);
-            rule__AssistModel__NameAssignment_4();
+            pushFollow(FOLLOW_rule__AssistModel__SystemNameAssignment_4_in_rule__AssistModel__Group__4__Impl2621);
+            rule__AssistModel__SystemNameAssignment_4();
 
             state._fsp--;
             if (state.failed) return ;
@@ -4018,7 +4018,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAssistModelAccess().getNameAssignment_4()); 
+               after(grammarAccess.getAssistModelAccess().getSystemNameAssignment_4()); 
             }
 
             }
@@ -17340,38 +17340,38 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidDeployment__Group__6__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6315:1: rule__ValidDeployment__Group__6__Impl : ( ( rule__ValidDeployment__Alternatives_6 )* ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6315:1: rule__ValidDeployment__Group__6__Impl : ( ( rule__ValidDeployment__Group_6__0 )* ) ;
     public final void rule__ValidDeployment__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6319:1: ( ( ( rule__ValidDeployment__Alternatives_6 )* ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6320:1: ( ( rule__ValidDeployment__Alternatives_6 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6319:1: ( ( ( rule__ValidDeployment__Group_6__0 )* ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6320:1: ( ( rule__ValidDeployment__Group_6__0 )* )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6320:1: ( ( rule__ValidDeployment__Alternatives_6 )* )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6321:1: ( rule__ValidDeployment__Alternatives_6 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6320:1: ( ( rule__ValidDeployment__Group_6__0 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6321:1: ( rule__ValidDeployment__Group_6__0 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getValidDeploymentAccess().getAlternatives_6()); 
+               before(grammarAccess.getValidDeploymentAccess().getGroup_6()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6322:1: ( rule__ValidDeployment__Alternatives_6 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6322:1: ( rule__ValidDeployment__Group_6__0 )*
             loop28:
             do {
                 int alt28=2;
                 int LA28_0 = input.LA(1);
 
-                if ( (LA28_0==53||LA28_0==62) ) {
+                if ( (LA28_0==53) ) {
                     alt28=1;
                 }
 
 
                 switch (alt28) {
             	case 1 :
-            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6322:2: rule__ValidDeployment__Alternatives_6
+            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6322:2: rule__ValidDeployment__Group_6__0
             	    {
-            	    pushFollow(FOLLOW_rule__ValidDeployment__Alternatives_6_in_rule__ValidDeployment__Group__6__Impl12667);
-            	    rule__ValidDeployment__Alternatives_6();
+            	    pushFollow(FOLLOW_rule__ValidDeployment__Group_6__0_in_rule__ValidDeployment__Group__6__Impl12667);
+            	    rule__ValidDeployment__Group_6__0();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -17385,7 +17385,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getValidDeploymentAccess().getAlternatives_6()); 
+               after(grammarAccess.getValidDeploymentAccess().getGroup_6()); 
             }
 
             }
@@ -17724,23 +17724,23 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__ValidDeployment__Group_2__1__Impl"
 
 
-    // $ANTLR start "rule__ValidDeployment__Group_6_0__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6474:1: rule__ValidDeployment__Group_6_0__0 : rule__ValidDeployment__Group_6_0__0__Impl rule__ValidDeployment__Group_6_0__1 ;
-    public final void rule__ValidDeployment__Group_6_0__0() throws RecognitionException {
+    // $ANTLR start "rule__ValidDeployment__Group_6__0"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6474:1: rule__ValidDeployment__Group_6__0 : rule__ValidDeployment__Group_6__0__Impl rule__ValidDeployment__Group_6__1 ;
+    public final void rule__ValidDeployment__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6478:1: ( rule__ValidDeployment__Group_6_0__0__Impl rule__ValidDeployment__Group_6_0__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6479:2: rule__ValidDeployment__Group_6_0__0__Impl rule__ValidDeployment__Group_6_0__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6478:1: ( rule__ValidDeployment__Group_6__0__Impl rule__ValidDeployment__Group_6__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6479:2: rule__ValidDeployment__Group_6__0__Impl rule__ValidDeployment__Group_6__1
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group_6_0__0__Impl_in_rule__ValidDeployment__Group_6_0__012960);
-            rule__ValidDeployment__Group_6_0__0__Impl();
+            pushFollow(FOLLOW_rule__ValidDeployment__Group_6__0__Impl_in_rule__ValidDeployment__Group_6__012960);
+            rule__ValidDeployment__Group_6__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__ValidDeployment__Group_6_0__1_in_rule__ValidDeployment__Group_6_0__012963);
-            rule__ValidDeployment__Group_6_0__1();
+            pushFollow(FOLLOW_rule__ValidDeployment__Group_6__1_in_rule__ValidDeployment__Group_6__012963);
+            rule__ValidDeployment__Group_6__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -17759,12 +17759,12 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ValidDeployment__Group_6_0__0"
+    // $ANTLR end "rule__ValidDeployment__Group_6__0"
 
 
-    // $ANTLR start "rule__ValidDeployment__Group_6_0__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6486:1: rule__ValidDeployment__Group_6_0__0__Impl : ( ',' ) ;
-    public final void rule__ValidDeployment__Group_6_0__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ValidDeployment__Group_6__0__Impl"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6486:1: rule__ValidDeployment__Group_6__0__Impl : ( ',' ) ;
+    public final void rule__ValidDeployment__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -17776,11 +17776,11 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6492:1: ','
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getValidDeploymentAccess().getCommaKeyword_6_0_0()); 
+               before(grammarAccess.getValidDeploymentAccess().getCommaKeyword_6_0()); 
             }
-            match(input,53,FOLLOW_53_in_rule__ValidDeployment__Group_6_0__0__Impl12991); if (state.failed) return ;
+            match(input,53,FOLLOW_53_in_rule__ValidDeployment__Group_6__0__Impl12991); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getValidDeploymentAccess().getCommaKeyword_6_0_0()); 
+               after(grammarAccess.getValidDeploymentAccess().getCommaKeyword_6_0()); 
             }
 
             }
@@ -17800,21 +17800,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ValidDeployment__Group_6_0__0__Impl"
+    // $ANTLR end "rule__ValidDeployment__Group_6__0__Impl"
 
 
-    // $ANTLR start "rule__ValidDeployment__Group_6_0__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6505:1: rule__ValidDeployment__Group_6_0__1 : rule__ValidDeployment__Group_6_0__1__Impl ;
-    public final void rule__ValidDeployment__Group_6_0__1() throws RecognitionException {
+    // $ANTLR start "rule__ValidDeployment__Group_6__1"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6505:1: rule__ValidDeployment__Group_6__1 : rule__ValidDeployment__Group_6__1__Impl ;
+    public final void rule__ValidDeployment__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6509:1: ( rule__ValidDeployment__Group_6_0__1__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6510:2: rule__ValidDeployment__Group_6_0__1__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6509:1: ( rule__ValidDeployment__Group_6__1__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6510:2: rule__ValidDeployment__Group_6__1__Impl
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__Group_6_0__1__Impl_in_rule__ValidDeployment__Group_6_0__113022);
-            rule__ValidDeployment__Group_6_0__1__Impl();
+            pushFollow(FOLLOW_rule__ValidDeployment__Group_6__1__Impl_in_rule__ValidDeployment__Group_6__113022);
+            rule__ValidDeployment__Group_6__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -17833,30 +17833,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ValidDeployment__Group_6_0__1"
+    // $ANTLR end "rule__ValidDeployment__Group_6__1"
 
 
-    // $ANTLR start "rule__ValidDeployment__Group_6_0__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6516:1: rule__ValidDeployment__Group_6_0__1__Impl : ( ( rule__ValidDeployment__HardwareElementsAssignment_6_0_1 ) ) ;
-    public final void rule__ValidDeployment__Group_6_0__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ValidDeployment__Group_6__1__Impl"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6516:1: rule__ValidDeployment__Group_6__1__Impl : ( ( rule__ValidDeployment__Alternatives_6_1 ) ) ;
+    public final void rule__ValidDeployment__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6520:1: ( ( ( rule__ValidDeployment__HardwareElementsAssignment_6_0_1 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6521:1: ( ( rule__ValidDeployment__HardwareElementsAssignment_6_0_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6520:1: ( ( ( rule__ValidDeployment__Alternatives_6_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6521:1: ( ( rule__ValidDeployment__Alternatives_6_1 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6521:1: ( ( rule__ValidDeployment__HardwareElementsAssignment_6_0_1 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6522:1: ( rule__ValidDeployment__HardwareElementsAssignment_6_0_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6521:1: ( ( rule__ValidDeployment__Alternatives_6_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6522:1: ( rule__ValidDeployment__Alternatives_6_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getValidDeploymentAccess().getHardwareElementsAssignment_6_0_1()); 
+               before(grammarAccess.getValidDeploymentAccess().getAlternatives_6_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6523:1: ( rule__ValidDeployment__HardwareElementsAssignment_6_0_1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6523:2: rule__ValidDeployment__HardwareElementsAssignment_6_0_1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6523:1: ( rule__ValidDeployment__Alternatives_6_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6523:2: rule__ValidDeployment__Alternatives_6_1
             {
-            pushFollow(FOLLOW_rule__ValidDeployment__HardwareElementsAssignment_6_0_1_in_rule__ValidDeployment__Group_6_0__1__Impl13049);
-            rule__ValidDeployment__HardwareElementsAssignment_6_0_1();
+            pushFollow(FOLLOW_rule__ValidDeployment__Alternatives_6_1_in_rule__ValidDeployment__Group_6__1__Impl13049);
+            rule__ValidDeployment__Alternatives_6_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -17864,7 +17864,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getValidDeploymentAccess().getHardwareElementsAssignment_6_0_1()); 
+               after(grammarAccess.getValidDeploymentAccess().getAlternatives_6_1()); 
             }
 
             }
@@ -17884,7 +17884,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ValidDeployment__Group_6_0__1__Impl"
+    // $ANTLR end "rule__ValidDeployment__Group_6__1__Impl"
 
 
     // $ANTLR start "rule__InvalidDeployment__Group__0"
@@ -18458,38 +18458,38 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__InvalidDeployment__Group__6__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6727:1: rule__InvalidDeployment__Group__6__Impl : ( ( rule__InvalidDeployment__Alternatives_6 )* ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6727:1: rule__InvalidDeployment__Group__6__Impl : ( ( rule__InvalidDeployment__Group_6__0 )* ) ;
     public final void rule__InvalidDeployment__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6731:1: ( ( ( rule__InvalidDeployment__Alternatives_6 )* ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6732:1: ( ( rule__InvalidDeployment__Alternatives_6 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6731:1: ( ( ( rule__InvalidDeployment__Group_6__0 )* ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6732:1: ( ( rule__InvalidDeployment__Group_6__0 )* )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6732:1: ( ( rule__InvalidDeployment__Alternatives_6 )* )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6733:1: ( rule__InvalidDeployment__Alternatives_6 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6732:1: ( ( rule__InvalidDeployment__Group_6__0 )* )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6733:1: ( rule__InvalidDeployment__Group_6__0 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getInvalidDeploymentAccess().getAlternatives_6()); 
+               before(grammarAccess.getInvalidDeploymentAccess().getGroup_6()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6734:1: ( rule__InvalidDeployment__Alternatives_6 )*
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6734:1: ( rule__InvalidDeployment__Group_6__0 )*
             loop30:
             do {
                 int alt30=2;
                 int LA30_0 = input.LA(1);
 
-                if ( (LA30_0==53||LA30_0==62) ) {
+                if ( (LA30_0==53) ) {
                     alt30=1;
                 }
 
 
                 switch (alt30) {
             	case 1 :
-            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6734:2: rule__InvalidDeployment__Alternatives_6
+            	    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6734:2: rule__InvalidDeployment__Group_6__0
             	    {
-            	    pushFollow(FOLLOW_rule__InvalidDeployment__Alternatives_6_in_rule__InvalidDeployment__Group__6__Impl13478);
-            	    rule__InvalidDeployment__Alternatives_6();
+            	    pushFollow(FOLLOW_rule__InvalidDeployment__Group_6__0_in_rule__InvalidDeployment__Group__6__Impl13478);
+            	    rule__InvalidDeployment__Group_6__0();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -18503,7 +18503,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getInvalidDeploymentAccess().getAlternatives_6()); 
+               after(grammarAccess.getInvalidDeploymentAccess().getGroup_6()); 
             }
 
             }
@@ -18842,23 +18842,23 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__InvalidDeployment__Group_2__1__Impl"
 
 
-    // $ANTLR start "rule__InvalidDeployment__Group_6_0__0"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6886:1: rule__InvalidDeployment__Group_6_0__0 : rule__InvalidDeployment__Group_6_0__0__Impl rule__InvalidDeployment__Group_6_0__1 ;
-    public final void rule__InvalidDeployment__Group_6_0__0() throws RecognitionException {
+    // $ANTLR start "rule__InvalidDeployment__Group_6__0"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6886:1: rule__InvalidDeployment__Group_6__0 : rule__InvalidDeployment__Group_6__0__Impl rule__InvalidDeployment__Group_6__1 ;
+    public final void rule__InvalidDeployment__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6890:1: ( rule__InvalidDeployment__Group_6_0__0__Impl rule__InvalidDeployment__Group_6_0__1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6891:2: rule__InvalidDeployment__Group_6_0__0__Impl rule__InvalidDeployment__Group_6_0__1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6890:1: ( rule__InvalidDeployment__Group_6__0__Impl rule__InvalidDeployment__Group_6__1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6891:2: rule__InvalidDeployment__Group_6__0__Impl rule__InvalidDeployment__Group_6__1
             {
-            pushFollow(FOLLOW_rule__InvalidDeployment__Group_6_0__0__Impl_in_rule__InvalidDeployment__Group_6_0__013771);
-            rule__InvalidDeployment__Group_6_0__0__Impl();
+            pushFollow(FOLLOW_rule__InvalidDeployment__Group_6__0__Impl_in_rule__InvalidDeployment__Group_6__013771);
+            rule__InvalidDeployment__Group_6__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__InvalidDeployment__Group_6_0__1_in_rule__InvalidDeployment__Group_6_0__013774);
-            rule__InvalidDeployment__Group_6_0__1();
+            pushFollow(FOLLOW_rule__InvalidDeployment__Group_6__1_in_rule__InvalidDeployment__Group_6__013774);
+            rule__InvalidDeployment__Group_6__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -18877,12 +18877,12 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__InvalidDeployment__Group_6_0__0"
+    // $ANTLR end "rule__InvalidDeployment__Group_6__0"
 
 
-    // $ANTLR start "rule__InvalidDeployment__Group_6_0__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6898:1: rule__InvalidDeployment__Group_6_0__0__Impl : ( ',' ) ;
-    public final void rule__InvalidDeployment__Group_6_0__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__InvalidDeployment__Group_6__0__Impl"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6898:1: rule__InvalidDeployment__Group_6__0__Impl : ( ',' ) ;
+    public final void rule__InvalidDeployment__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -18894,11 +18894,11 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6904:1: ','
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getInvalidDeploymentAccess().getCommaKeyword_6_0_0()); 
+               before(grammarAccess.getInvalidDeploymentAccess().getCommaKeyword_6_0()); 
             }
-            match(input,53,FOLLOW_53_in_rule__InvalidDeployment__Group_6_0__0__Impl13802); if (state.failed) return ;
+            match(input,53,FOLLOW_53_in_rule__InvalidDeployment__Group_6__0__Impl13802); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getInvalidDeploymentAccess().getCommaKeyword_6_0_0()); 
+               after(grammarAccess.getInvalidDeploymentAccess().getCommaKeyword_6_0()); 
             }
 
             }
@@ -18918,21 +18918,21 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__InvalidDeployment__Group_6_0__0__Impl"
+    // $ANTLR end "rule__InvalidDeployment__Group_6__0__Impl"
 
 
-    // $ANTLR start "rule__InvalidDeployment__Group_6_0__1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6917:1: rule__InvalidDeployment__Group_6_0__1 : rule__InvalidDeployment__Group_6_0__1__Impl ;
-    public final void rule__InvalidDeployment__Group_6_0__1() throws RecognitionException {
+    // $ANTLR start "rule__InvalidDeployment__Group_6__1"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6917:1: rule__InvalidDeployment__Group_6__1 : rule__InvalidDeployment__Group_6__1__Impl ;
+    public final void rule__InvalidDeployment__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6921:1: ( rule__InvalidDeployment__Group_6_0__1__Impl )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6922:2: rule__InvalidDeployment__Group_6_0__1__Impl
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6921:1: ( rule__InvalidDeployment__Group_6__1__Impl )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6922:2: rule__InvalidDeployment__Group_6__1__Impl
             {
-            pushFollow(FOLLOW_rule__InvalidDeployment__Group_6_0__1__Impl_in_rule__InvalidDeployment__Group_6_0__113833);
-            rule__InvalidDeployment__Group_6_0__1__Impl();
+            pushFollow(FOLLOW_rule__InvalidDeployment__Group_6__1__Impl_in_rule__InvalidDeployment__Group_6__113833);
+            rule__InvalidDeployment__Group_6__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -18951,30 +18951,30 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__InvalidDeployment__Group_6_0__1"
+    // $ANTLR end "rule__InvalidDeployment__Group_6__1"
 
 
-    // $ANTLR start "rule__InvalidDeployment__Group_6_0__1__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6928:1: rule__InvalidDeployment__Group_6_0__1__Impl : ( ( rule__InvalidDeployment__HardwareElementsAssignment_6_0_1 ) ) ;
-    public final void rule__InvalidDeployment__Group_6_0__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__InvalidDeployment__Group_6__1__Impl"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6928:1: rule__InvalidDeployment__Group_6__1__Impl : ( ( rule__InvalidDeployment__Alternatives_6_1 ) ) ;
+    public final void rule__InvalidDeployment__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6932:1: ( ( ( rule__InvalidDeployment__HardwareElementsAssignment_6_0_1 ) ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6933:1: ( ( rule__InvalidDeployment__HardwareElementsAssignment_6_0_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6932:1: ( ( ( rule__InvalidDeployment__Alternatives_6_1 ) ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6933:1: ( ( rule__InvalidDeployment__Alternatives_6_1 ) )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6933:1: ( ( rule__InvalidDeployment__HardwareElementsAssignment_6_0_1 ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6934:1: ( rule__InvalidDeployment__HardwareElementsAssignment_6_0_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6933:1: ( ( rule__InvalidDeployment__Alternatives_6_1 ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6934:1: ( rule__InvalidDeployment__Alternatives_6_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsAssignment_6_0_1()); 
+               before(grammarAccess.getInvalidDeploymentAccess().getAlternatives_6_1()); 
             }
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6935:1: ( rule__InvalidDeployment__HardwareElementsAssignment_6_0_1 )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6935:2: rule__InvalidDeployment__HardwareElementsAssignment_6_0_1
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6935:1: ( rule__InvalidDeployment__Alternatives_6_1 )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:6935:2: rule__InvalidDeployment__Alternatives_6_1
             {
-            pushFollow(FOLLOW_rule__InvalidDeployment__HardwareElementsAssignment_6_0_1_in_rule__InvalidDeployment__Group_6_0__1__Impl13860);
-            rule__InvalidDeployment__HardwareElementsAssignment_6_0_1();
+            pushFollow(FOLLOW_rule__InvalidDeployment__Alternatives_6_1_in_rule__InvalidDeployment__Group_6__1__Impl13860);
+            rule__InvalidDeployment__Alternatives_6_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -18982,7 +18982,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsAssignment_6_0_1()); 
+               after(grammarAccess.getInvalidDeploymentAccess().getAlternatives_6_1()); 
             }
 
             }
@@ -19002,7 +19002,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__InvalidDeployment__Group_6_0__1__Impl"
+    // $ANTLR end "rule__InvalidDeployment__Group_6__1__Impl"
 
 
     // $ANTLR start "rule__DeploymentImplicitDefinition__Group__0"
@@ -22426,9 +22426,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__EqInterface__UnorderedGroup_3__9"
 
 
-    // $ANTLR start "rule__AssistModel__NameAssignment_4"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8074:1: rule__AssistModel__NameAssignment_4 : ( RULE_STRING ) ;
-    public final void rule__AssistModel__NameAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__AssistModel__SystemNameAssignment_4"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8074:1: rule__AssistModel__SystemNameAssignment_4 : ( RULE_STRING ) ;
+    public final void rule__AssistModel__SystemNameAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -22440,11 +22440,11 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8080:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAssistModelAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+               before(grammarAccess.getAssistModelAccess().getSystemNameSTRINGTerminalRuleCall_4_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__AssistModel__NameAssignment_417318); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__AssistModel__SystemNameAssignment_417318); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAssistModelAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+               after(grammarAccess.getAssistModelAccess().getSystemNameSTRINGTerminalRuleCall_4_0()); 
             }
 
             }
@@ -22464,7 +22464,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__AssistModel__NameAssignment_4"
+    // $ANTLR end "rule__AssistModel__SystemNameAssignment_4"
 
 
     // $ANTLR start "rule__AssistModel__CompartmentsAssignment_7"
@@ -25016,9 +25016,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__ValidDeployment__ImplicitHardwareElementsAssignment_5_1"
 
 
-    // $ANTLR start "rule__ValidDeployment__HardwareElementsAssignment_6_0_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8988:1: rule__ValidDeployment__HardwareElementsAssignment_6_0_1 : ( ( ruleQualifiedName ) ) ;
-    public final void rule__ValidDeployment__HardwareElementsAssignment_6_0_1() throws RecognitionException {
+    // $ANTLR start "rule__ValidDeployment__HardwareElementsAssignment_6_1_0"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8988:1: rule__ValidDeployment__HardwareElementsAssignment_6_1_0 : ( ( ruleQualifiedName ) ) ;
+    public final void rule__ValidDeployment__HardwareElementsAssignment_6_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -25030,27 +25030,27 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8994:1: ( ruleQualifiedName )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_0_1_0()); 
+               before(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_1_0_0()); 
             }
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8995:1: ( ruleQualifiedName )
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:8996:1: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementQualifiedNameParserRuleCall_6_0_1_0_1()); 
+               before(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementQualifiedNameParserRuleCall_6_1_0_0_1()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__ValidDeployment__HardwareElementsAssignment_6_0_119208);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__ValidDeployment__HardwareElementsAssignment_6_1_019208);
             ruleQualifiedName();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementQualifiedNameParserRuleCall_6_0_1_0_1()); 
+               after(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementQualifiedNameParserRuleCall_6_1_0_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_0_1_0()); 
+               after(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_1_0_0()); 
             }
 
             }
@@ -25070,12 +25070,12 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ValidDeployment__HardwareElementsAssignment_6_0_1"
+    // $ANTLR end "rule__ValidDeployment__HardwareElementsAssignment_6_1_0"
 
 
-    // $ANTLR start "rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:9007:1: rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1 : ( ruleDeploymentImplicitDefinition ) ;
-    public final void rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1() throws RecognitionException {
+    // $ANTLR start "rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_1"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:9007:1: rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_1 : ( ruleDeploymentImplicitDefinition ) ;
+    public final void rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -25087,15 +25087,15 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:9013:1: ruleDeploymentImplicitDefinition
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getValidDeploymentAccess().getImplicitHardwareElementsDeploymentImplicitDefinitionParserRuleCall_6_1_0()); 
+               before(grammarAccess.getValidDeploymentAccess().getImplicitHardwareElementsDeploymentImplicitDefinitionParserRuleCall_6_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleDeploymentImplicitDefinition_in_rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_119243);
+            pushFollow(FOLLOW_ruleDeploymentImplicitDefinition_in_rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_119243);
             ruleDeploymentImplicitDefinition();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getValidDeploymentAccess().getImplicitHardwareElementsDeploymentImplicitDefinitionParserRuleCall_6_1_0()); 
+               after(grammarAccess.getValidDeploymentAccess().getImplicitHardwareElementsDeploymentImplicitDefinitionParserRuleCall_6_1_1_0()); 
             }
 
             }
@@ -25115,7 +25115,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1"
+    // $ANTLR end "rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_1"
 
 
     // $ANTLR start "rule__InvalidDeployment__EqInterfaceOrGroupsAssignment_1"
@@ -25326,9 +25326,9 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__InvalidDeployment__ImplicitHardwareElementsAssignment_5_1"
 
 
-    // $ANTLR start "rule__InvalidDeployment__HardwareElementsAssignment_6_0_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:9094:1: rule__InvalidDeployment__HardwareElementsAssignment_6_0_1 : ( ( ruleQualifiedName ) ) ;
-    public final void rule__InvalidDeployment__HardwareElementsAssignment_6_0_1() throws RecognitionException {
+    // $ANTLR start "rule__InvalidDeployment__HardwareElementsAssignment_6_1_0"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:9094:1: rule__InvalidDeployment__HardwareElementsAssignment_6_1_0 : ( ( ruleQualifiedName ) ) ;
+    public final void rule__InvalidDeployment__HardwareElementsAssignment_6_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -25340,27 +25340,27 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:9100:1: ( ruleQualifiedName )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_0_1_0()); 
+               before(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_1_0_0()); 
             }
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:9101:1: ( ruleQualifiedName )
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:9102:1: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsHardwareElementQualifiedNameParserRuleCall_6_0_1_0_1()); 
+               before(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsHardwareElementQualifiedNameParserRuleCall_6_1_0_0_1()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__InvalidDeployment__HardwareElementsAssignment_6_0_119426);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__InvalidDeployment__HardwareElementsAssignment_6_1_019426);
             ruleQualifiedName();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsHardwareElementQualifiedNameParserRuleCall_6_0_1_0_1()); 
+               after(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsHardwareElementQualifiedNameParserRuleCall_6_1_0_0_1()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_0_1_0()); 
+               after(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_1_0_0()); 
             }
 
             }
@@ -25380,12 +25380,12 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__InvalidDeployment__HardwareElementsAssignment_6_0_1"
+    // $ANTLR end "rule__InvalidDeployment__HardwareElementsAssignment_6_1_0"
 
 
-    // $ANTLR start "rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:9113:1: rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1 : ( ruleDeploymentImplicitDefinition ) ;
-    public final void rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1() throws RecognitionException {
+    // $ANTLR start "rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_1"
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:9113:1: rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_1 : ( ruleDeploymentImplicitDefinition ) ;
+    public final void rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -25397,15 +25397,15 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
             // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:9119:1: ruleDeploymentImplicitDefinition
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getInvalidDeploymentAccess().getImplicitHardwareElementsDeploymentImplicitDefinitionParserRuleCall_6_1_0()); 
+               before(grammarAccess.getInvalidDeploymentAccess().getImplicitHardwareElementsDeploymentImplicitDefinitionParserRuleCall_6_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleDeploymentImplicitDefinition_in_rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_119461);
+            pushFollow(FOLLOW_ruleDeploymentImplicitDefinition_in_rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_119461);
             ruleDeploymentImplicitDefinition();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getInvalidDeploymentAccess().getImplicitHardwareElementsDeploymentImplicitDefinitionParserRuleCall_6_1_0()); 
+               after(grammarAccess.getInvalidDeploymentAccess().getImplicitHardwareElementsDeploymentImplicitDefinitionParserRuleCall_6_1_1_0()); 
             }
 
             }
@@ -25425,7 +25425,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1"
+    // $ANTLR end "rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_1"
 
 
     // $ANTLR start "rule__DeploymentImplicitDefinition__EntriesAssignment_1"
@@ -27559,14 +27559,14 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_12_in_rule__ValidDeployment__Alternatives_31461 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ValidDeployment__HardwareElementsAssignment_5_0_in_rule__ValidDeployment__Alternatives_51495 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ValidDeployment__ImplicitHardwareElementsAssignment_5_1_in_rule__ValidDeployment__Alternatives_51513 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6_0__0_in_rule__ValidDeployment__Alternatives_61546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_in_rule__ValidDeployment__Alternatives_61564 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__HardwareElementsAssignment_6_1_0_in_rule__ValidDeployment__Alternatives_6_11546 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_1_in_rule__ValidDeployment__Alternatives_6_11564 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_11_in_rule__InvalidDeployment__Alternatives_31598 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_12_in_rule__InvalidDeployment__Alternatives_31618 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__InvalidDeployment__HardwareElementsAssignment_5_0_in_rule__InvalidDeployment__Alternatives_51652 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__InvalidDeployment__ImplicitHardwareElementsAssignment_5_1_in_rule__InvalidDeployment__Alternatives_51670 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InvalidDeployment__Group_6_0__0_in_rule__InvalidDeployment__Alternatives_61703 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_in_rule__InvalidDeployment__Alternatives_61721 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InvalidDeployment__HardwareElementsAssignment_6_1_0_in_rule__InvalidDeployment__Alternatives_6_11703 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_1_in_rule__InvalidDeployment__Alternatives_6_11721 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_13_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1755 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_14_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1776 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_15_in_rule__ImplicitEqInterfaceMemberDefinitionAttribute__Alternatives1797 = new BitSet(new long[]{0x0000000000000002L});
@@ -27607,7 +27607,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_41_in_rule__AssistModel__Group__3__Impl2560 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__AssistModel__Group__4__Impl_in_rule__AssistModel__Group__42591 = new BitSet(new long[]{0x0000040000000000L});
     public static final BitSet FOLLOW_rule__AssistModel__Group__5_in_rule__AssistModel__Group__42594 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AssistModel__NameAssignment_4_in_rule__AssistModel__Group__4__Impl2621 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__AssistModel__SystemNameAssignment_4_in_rule__AssistModel__Group__4__Impl2621 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__AssistModel__Group__5__Impl_in_rule__AssistModel__Group__52651 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__AssistModel__Group__6_in_rule__AssistModel__Group__52654 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_42_in_rule__AssistModel__Group__5__Impl2682 = new BitSet(new long[]{0x0000000000000002L});
@@ -28046,12 +28046,12 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__ValidDeployment__Group__4__Impl_in_rule__ValidDeployment__Group__412515 = new BitSet(new long[]{0x4000000000000010L});
     public static final BitSet FOLLOW_rule__ValidDeployment__Group__5_in_rule__ValidDeployment__Group__412518 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_40_in_rule__ValidDeployment__Group__4__Impl12546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__5__Impl_in_rule__ValidDeployment__Group__512577 = new BitSet(new long[]{0x4020080000000010L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__5__Impl_in_rule__ValidDeployment__Group__512577 = new BitSet(new long[]{0x0020080000000000L});
     public static final BitSet FOLLOW_rule__ValidDeployment__Group__6_in_rule__ValidDeployment__Group__512580 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ValidDeployment__Alternatives_5_in_rule__ValidDeployment__Group__5__Impl12607 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group__6__Impl_in_rule__ValidDeployment__Group__612637 = new BitSet(new long[]{0x4020080000000010L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group__6__Impl_in_rule__ValidDeployment__Group__612637 = new BitSet(new long[]{0x0020080000000000L});
     public static final BitSet FOLLOW_rule__ValidDeployment__Group__7_in_rule__ValidDeployment__Group__612640 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Alternatives_6_in_rule__ValidDeployment__Group__6__Impl12667 = new BitSet(new long[]{0x4020000000000012L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6__0_in_rule__ValidDeployment__Group__6__Impl12667 = new BitSet(new long[]{0x0020000000000002L});
     public static final BitSet FOLLOW_rule__ValidDeployment__Group__7__Impl_in_rule__ValidDeployment__Group__712698 = new BitSet(new long[]{0x0000040000000000L});
     public static final BitSet FOLLOW_rule__ValidDeployment__Group__8_in_rule__ValidDeployment__Group__712701 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_43_in_rule__ValidDeployment__Group__7__Impl12729 = new BitSet(new long[]{0x0000000000000002L});
@@ -28062,11 +28062,11 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_53_in_rule__ValidDeployment__Group_2__0__Impl12868 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ValidDeployment__Group_2__1__Impl_in_rule__ValidDeployment__Group_2__112899 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_1_in_rule__ValidDeployment__Group_2__1__Impl12926 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6_0__0__Impl_in_rule__ValidDeployment__Group_6_0__012960 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6_0__1_in_rule__ValidDeployment__Group_6_0__012963 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_rule__ValidDeployment__Group_6_0__0__Impl12991 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6_0__1__Impl_in_rule__ValidDeployment__Group_6_0__113022 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ValidDeployment__HardwareElementsAssignment_6_0_1_in_rule__ValidDeployment__Group_6_0__1__Impl13049 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6__0__Impl_in_rule__ValidDeployment__Group_6__012960 = new BitSet(new long[]{0x4000000000000010L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6__1_in_rule__ValidDeployment__Group_6__012963 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_rule__ValidDeployment__Group_6__0__Impl12991 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Group_6__1__Impl_in_rule__ValidDeployment__Group_6__113022 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ValidDeployment__Alternatives_6_1_in_rule__ValidDeployment__Group_6__1__Impl13049 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__InvalidDeployment__Group__0__Impl_in_rule__InvalidDeployment__Group__013083 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__InvalidDeployment__Group__1_in_rule__InvalidDeployment__Group__013086 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_61_in_rule__InvalidDeployment__Group__0__Impl13114 = new BitSet(new long[]{0x0000000000000002L});
@@ -28082,12 +28082,12 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__InvalidDeployment__Group__4__Impl_in_rule__InvalidDeployment__Group__413326 = new BitSet(new long[]{0x4000000000000010L});
     public static final BitSet FOLLOW_rule__InvalidDeployment__Group__5_in_rule__InvalidDeployment__Group__413329 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_40_in_rule__InvalidDeployment__Group__4__Impl13357 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InvalidDeployment__Group__5__Impl_in_rule__InvalidDeployment__Group__513388 = new BitSet(new long[]{0x4020080000000010L});
+    public static final BitSet FOLLOW_rule__InvalidDeployment__Group__5__Impl_in_rule__InvalidDeployment__Group__513388 = new BitSet(new long[]{0x0020080000000000L});
     public static final BitSet FOLLOW_rule__InvalidDeployment__Group__6_in_rule__InvalidDeployment__Group__513391 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__InvalidDeployment__Alternatives_5_in_rule__InvalidDeployment__Group__5__Impl13418 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InvalidDeployment__Group__6__Impl_in_rule__InvalidDeployment__Group__613448 = new BitSet(new long[]{0x4020080000000010L});
+    public static final BitSet FOLLOW_rule__InvalidDeployment__Group__6__Impl_in_rule__InvalidDeployment__Group__613448 = new BitSet(new long[]{0x0020080000000000L});
     public static final BitSet FOLLOW_rule__InvalidDeployment__Group__7_in_rule__InvalidDeployment__Group__613451 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InvalidDeployment__Alternatives_6_in_rule__InvalidDeployment__Group__6__Impl13478 = new BitSet(new long[]{0x4020000000000012L});
+    public static final BitSet FOLLOW_rule__InvalidDeployment__Group_6__0_in_rule__InvalidDeployment__Group__6__Impl13478 = new BitSet(new long[]{0x0020000000000002L});
     public static final BitSet FOLLOW_rule__InvalidDeployment__Group__7__Impl_in_rule__InvalidDeployment__Group__713509 = new BitSet(new long[]{0x0000040000000000L});
     public static final BitSet FOLLOW_rule__InvalidDeployment__Group__8_in_rule__InvalidDeployment__Group__713512 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_43_in_rule__InvalidDeployment__Group__7__Impl13540 = new BitSet(new long[]{0x0000000000000002L});
@@ -28098,11 +28098,11 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_53_in_rule__InvalidDeployment__Group_2__0__Impl13679 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__InvalidDeployment__Group_2__1__Impl_in_rule__InvalidDeployment__Group_2__113710 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__InvalidDeployment__EqInterfaceOrGroupsAssignment_2_1_in_rule__InvalidDeployment__Group_2__1__Impl13737 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InvalidDeployment__Group_6_0__0__Impl_in_rule__InvalidDeployment__Group_6_0__013771 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__InvalidDeployment__Group_6_0__1_in_rule__InvalidDeployment__Group_6_0__013774 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_rule__InvalidDeployment__Group_6_0__0__Impl13802 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InvalidDeployment__Group_6_0__1__Impl_in_rule__InvalidDeployment__Group_6_0__113833 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__InvalidDeployment__HardwareElementsAssignment_6_0_1_in_rule__InvalidDeployment__Group_6_0__1__Impl13860 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InvalidDeployment__Group_6__0__Impl_in_rule__InvalidDeployment__Group_6__013771 = new BitSet(new long[]{0x4000000000000010L});
+    public static final BitSet FOLLOW_rule__InvalidDeployment__Group_6__1_in_rule__InvalidDeployment__Group_6__013774 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_rule__InvalidDeployment__Group_6__0__Impl13802 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InvalidDeployment__Group_6__1__Impl_in_rule__InvalidDeployment__Group_6__113833 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__InvalidDeployment__Alternatives_6_1_in_rule__InvalidDeployment__Group_6__1__Impl13860 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DeploymentImplicitDefinition__Group__0__Impl_in_rule__DeploymentImplicitDefinition__Group__013894 = new BitSet(new long[]{0x0000007FF8000000L});
     public static final BitSet FOLLOW_rule__DeploymentImplicitDefinition__Group__1_in_rule__DeploymentImplicitDefinition__Group__013897 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_62_in_rule__DeploymentImplicitDefinition__Group__0__Impl13925 = new BitSet(new long[]{0x0000000000000002L});
@@ -28196,7 +28196,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__817242 = new BitSet(new long[]{0x0000000000FFC002L});
     public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__9_in_rule__EqInterface__UnorderedGroup_3__817245 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__EqInterface__UnorderedGroup_3__Impl_in_rule__EqInterface__UnorderedGroup_3__917270 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__AssistModel__NameAssignment_417318 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__AssistModel__SystemNameAssignment_417318 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCompartment_in_rule__AssistModel__CompartmentsAssignment_717349 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleEqInterface_in_rule__AssistModel__EqInterfacesAssignment_8_217380 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleEqInterfaceGroup_in_rule__AssistModel__EqInterfaceGroupsAssignment_9_2_017411 = new BitSet(new long[]{0x0000000000000002L});
@@ -28254,14 +28254,14 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_RULE_ID_in_rule__ValidDeployment__EqInterfaceOrGroupsAssignment_2_119099 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleQualifiedName_in_rule__ValidDeployment__HardwareElementsAssignment_5_019138 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_rule__ValidDeployment__ImplicitHardwareElementsAssignment_5_119173 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__ValidDeployment__HardwareElementsAssignment_6_0_119208 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_119243 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__ValidDeployment__HardwareElementsAssignment_6_1_019208 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_rule__ValidDeployment__ImplicitHardwareElementsAssignment_6_1_119243 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__InvalidDeployment__EqInterfaceOrGroupsAssignment_119278 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__InvalidDeployment__EqInterfaceOrGroupsAssignment_2_119317 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleQualifiedName_in_rule__InvalidDeployment__HardwareElementsAssignment_5_019356 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_rule__InvalidDeployment__ImplicitHardwareElementsAssignment_5_119391 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__InvalidDeployment__HardwareElementsAssignment_6_0_119426 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_119461 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__InvalidDeployment__HardwareElementsAssignment_6_1_019426 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_rule__InvalidDeployment__ImplicitHardwareElementsAssignment_6_1_119461 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDeploymentImplicitDefinitionAttributeAndValue_in_rule__DeploymentImplicitDefinition__EntriesAssignment_119492 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDeploymentImplicitDefinitionAttributeAndValue_in_rule__DeploymentImplicitDefinition__EntriesAssignment_2_119523 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDeploymentImplicitDefinitionAttribute_in_rule__DeploymentImplicitDefinitionAttributeAndValue__AttributeAssignment_019554 = new BitSet(new long[]{0x0000000000000002L});

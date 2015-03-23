@@ -161,7 +161,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAssistModel"
-    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:77:1: ruleAssistModel returns [EObject current=null] : (otherlv_0= 'Global' otherlv_1= '{' otherlv_2= 'Name' otherlv_3= '=' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= ';' otherlv_6= '}' ( (lv_compartments_7_0= ruleCompartment ) )+ (otherlv_8= 'Interfaces' otherlv_9= '{' ( (lv_eqInterfaces_10_0= ruleEqInterface ) )+ otherlv_11= '}' )? (otherlv_12= 'InterfaceGroups' otherlv_13= '{' ( ( (lv_eqInterfaceGroups_14_0= ruleEqInterfaceGroup ) ) | ( (lv_eqInterfaceGroups_15_0= ruleEqInterfaceGroupWithCombinedDefinition ) ) )* otherlv_16= '}' )? (otherlv_17= 'Restrictions' otherlv_18= '{' ( ( (lv_dislocalityRelations_19_0= ruleDislocalityRelation ) ) | ( (lv_colocalityRelations_20_0= ruleColocalityRelation ) ) | ( (lv_validDeployments_21_0= ruleValidDeployment ) ) | ( (lv_invalidDeployments_22_0= ruleInvalidDeployment ) ) )* otherlv_23= '}' )? ) ;
+    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:77:1: ruleAssistModel returns [EObject current=null] : (otherlv_0= 'Global' otherlv_1= '{' otherlv_2= 'Name' otherlv_3= '=' ( (lv_systemName_4_0= RULE_STRING ) ) otherlv_5= ';' otherlv_6= '}' ( (lv_compartments_7_0= ruleCompartment ) )+ (otherlv_8= 'Interfaces' otherlv_9= '{' ( (lv_eqInterfaces_10_0= ruleEqInterface ) )+ otherlv_11= '}' )? (otherlv_12= 'InterfaceGroups' otherlv_13= '{' ( ( (lv_eqInterfaceGroups_14_0= ruleEqInterfaceGroup ) ) | ( (lv_eqInterfaceGroups_15_0= ruleEqInterfaceGroupWithCombinedDefinition ) ) )* otherlv_16= '}' )? (otherlv_17= 'Restrictions' otherlv_18= '{' ( ( (lv_dislocalityRelations_19_0= ruleDislocalityRelation ) ) | ( (lv_colocalityRelations_20_0= ruleColocalityRelation ) ) | ( (lv_validDeployments_21_0= ruleValidDeployment ) ) | ( (lv_invalidDeployments_22_0= ruleInvalidDeployment ) ) )* otherlv_23= '}' )? ) ;
     public final EObject ruleAssistModel() throws RecognitionException {
         EObject current = null;
 
@@ -169,7 +169,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
         Token otherlv_1=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
-        Token lv_name_4_0=null;
+        Token lv_systemName_4_0=null;
         Token otherlv_5=null;
         Token otherlv_6=null;
         Token otherlv_8=null;
@@ -201,11 +201,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:80:28: ( (otherlv_0= 'Global' otherlv_1= '{' otherlv_2= 'Name' otherlv_3= '=' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= ';' otherlv_6= '}' ( (lv_compartments_7_0= ruleCompartment ) )+ (otherlv_8= 'Interfaces' otherlv_9= '{' ( (lv_eqInterfaces_10_0= ruleEqInterface ) )+ otherlv_11= '}' )? (otherlv_12= 'InterfaceGroups' otherlv_13= '{' ( ( (lv_eqInterfaceGroups_14_0= ruleEqInterfaceGroup ) ) | ( (lv_eqInterfaceGroups_15_0= ruleEqInterfaceGroupWithCombinedDefinition ) ) )* otherlv_16= '}' )? (otherlv_17= 'Restrictions' otherlv_18= '{' ( ( (lv_dislocalityRelations_19_0= ruleDislocalityRelation ) ) | ( (lv_colocalityRelations_20_0= ruleColocalityRelation ) ) | ( (lv_validDeployments_21_0= ruleValidDeployment ) ) | ( (lv_invalidDeployments_22_0= ruleInvalidDeployment ) ) )* otherlv_23= '}' )? ) )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:81:1: (otherlv_0= 'Global' otherlv_1= '{' otherlv_2= 'Name' otherlv_3= '=' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= ';' otherlv_6= '}' ( (lv_compartments_7_0= ruleCompartment ) )+ (otherlv_8= 'Interfaces' otherlv_9= '{' ( (lv_eqInterfaces_10_0= ruleEqInterface ) )+ otherlv_11= '}' )? (otherlv_12= 'InterfaceGroups' otherlv_13= '{' ( ( (lv_eqInterfaceGroups_14_0= ruleEqInterfaceGroup ) ) | ( (lv_eqInterfaceGroups_15_0= ruleEqInterfaceGroupWithCombinedDefinition ) ) )* otherlv_16= '}' )? (otherlv_17= 'Restrictions' otherlv_18= '{' ( ( (lv_dislocalityRelations_19_0= ruleDislocalityRelation ) ) | ( (lv_colocalityRelations_20_0= ruleColocalityRelation ) ) | ( (lv_validDeployments_21_0= ruleValidDeployment ) ) | ( (lv_invalidDeployments_22_0= ruleInvalidDeployment ) ) )* otherlv_23= '}' )? )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:80:28: ( (otherlv_0= 'Global' otherlv_1= '{' otherlv_2= 'Name' otherlv_3= '=' ( (lv_systemName_4_0= RULE_STRING ) ) otherlv_5= ';' otherlv_6= '}' ( (lv_compartments_7_0= ruleCompartment ) )+ (otherlv_8= 'Interfaces' otherlv_9= '{' ( (lv_eqInterfaces_10_0= ruleEqInterface ) )+ otherlv_11= '}' )? (otherlv_12= 'InterfaceGroups' otherlv_13= '{' ( ( (lv_eqInterfaceGroups_14_0= ruleEqInterfaceGroup ) ) | ( (lv_eqInterfaceGroups_15_0= ruleEqInterfaceGroupWithCombinedDefinition ) ) )* otherlv_16= '}' )? (otherlv_17= 'Restrictions' otherlv_18= '{' ( ( (lv_dislocalityRelations_19_0= ruleDislocalityRelation ) ) | ( (lv_colocalityRelations_20_0= ruleColocalityRelation ) ) | ( (lv_validDeployments_21_0= ruleValidDeployment ) ) | ( (lv_invalidDeployments_22_0= ruleInvalidDeployment ) ) )* otherlv_23= '}' )? ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:81:1: (otherlv_0= 'Global' otherlv_1= '{' otherlv_2= 'Name' otherlv_3= '=' ( (lv_systemName_4_0= RULE_STRING ) ) otherlv_5= ';' otherlv_6= '}' ( (lv_compartments_7_0= ruleCompartment ) )+ (otherlv_8= 'Interfaces' otherlv_9= '{' ( (lv_eqInterfaces_10_0= ruleEqInterface ) )+ otherlv_11= '}' )? (otherlv_12= 'InterfaceGroups' otherlv_13= '{' ( ( (lv_eqInterfaceGroups_14_0= ruleEqInterfaceGroup ) ) | ( (lv_eqInterfaceGroups_15_0= ruleEqInterfaceGroupWithCombinedDefinition ) ) )* otherlv_16= '}' )? (otherlv_17= 'Restrictions' otherlv_18= '{' ( ( (lv_dislocalityRelations_19_0= ruleDislocalityRelation ) ) | ( (lv_colocalityRelations_20_0= ruleColocalityRelation ) ) | ( (lv_validDeployments_21_0= ruleValidDeployment ) ) | ( (lv_invalidDeployments_22_0= ruleInvalidDeployment ) ) )* otherlv_23= '}' )? )
             {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:81:1: (otherlv_0= 'Global' otherlv_1= '{' otherlv_2= 'Name' otherlv_3= '=' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= ';' otherlv_6= '}' ( (lv_compartments_7_0= ruleCompartment ) )+ (otherlv_8= 'Interfaces' otherlv_9= '{' ( (lv_eqInterfaces_10_0= ruleEqInterface ) )+ otherlv_11= '}' )? (otherlv_12= 'InterfaceGroups' otherlv_13= '{' ( ( (lv_eqInterfaceGroups_14_0= ruleEqInterfaceGroup ) ) | ( (lv_eqInterfaceGroups_15_0= ruleEqInterfaceGroupWithCombinedDefinition ) ) )* otherlv_16= '}' )? (otherlv_17= 'Restrictions' otherlv_18= '{' ( ( (lv_dislocalityRelations_19_0= ruleDislocalityRelation ) ) | ( (lv_colocalityRelations_20_0= ruleColocalityRelation ) ) | ( (lv_validDeployments_21_0= ruleValidDeployment ) ) | ( (lv_invalidDeployments_22_0= ruleInvalidDeployment ) ) )* otherlv_23= '}' )? )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:81:3: otherlv_0= 'Global' otherlv_1= '{' otherlv_2= 'Name' otherlv_3= '=' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= ';' otherlv_6= '}' ( (lv_compartments_7_0= ruleCompartment ) )+ (otherlv_8= 'Interfaces' otherlv_9= '{' ( (lv_eqInterfaces_10_0= ruleEqInterface ) )+ otherlv_11= '}' )? (otherlv_12= 'InterfaceGroups' otherlv_13= '{' ( ( (lv_eqInterfaceGroups_14_0= ruleEqInterfaceGroup ) ) | ( (lv_eqInterfaceGroups_15_0= ruleEqInterfaceGroupWithCombinedDefinition ) ) )* otherlv_16= '}' )? (otherlv_17= 'Restrictions' otherlv_18= '{' ( ( (lv_dislocalityRelations_19_0= ruleDislocalityRelation ) ) | ( (lv_colocalityRelations_20_0= ruleColocalityRelation ) ) | ( (lv_validDeployments_21_0= ruleValidDeployment ) ) | ( (lv_invalidDeployments_22_0= ruleInvalidDeployment ) ) )* otherlv_23= '}' )?
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:81:1: (otherlv_0= 'Global' otherlv_1= '{' otherlv_2= 'Name' otherlv_3= '=' ( (lv_systemName_4_0= RULE_STRING ) ) otherlv_5= ';' otherlv_6= '}' ( (lv_compartments_7_0= ruleCompartment ) )+ (otherlv_8= 'Interfaces' otherlv_9= '{' ( (lv_eqInterfaces_10_0= ruleEqInterface ) )+ otherlv_11= '}' )? (otherlv_12= 'InterfaceGroups' otherlv_13= '{' ( ( (lv_eqInterfaceGroups_14_0= ruleEqInterfaceGroup ) ) | ( (lv_eqInterfaceGroups_15_0= ruleEqInterfaceGroupWithCombinedDefinition ) ) )* otherlv_16= '}' )? (otherlv_17= 'Restrictions' otherlv_18= '{' ( ( (lv_dislocalityRelations_19_0= ruleDislocalityRelation ) ) | ( (lv_colocalityRelations_20_0= ruleColocalityRelation ) ) | ( (lv_validDeployments_21_0= ruleValidDeployment ) ) | ( (lv_invalidDeployments_22_0= ruleInvalidDeployment ) ) )* otherlv_23= '}' )? )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:81:3: otherlv_0= 'Global' otherlv_1= '{' otherlv_2= 'Name' otherlv_3= '=' ( (lv_systemName_4_0= RULE_STRING ) ) otherlv_5= ';' otherlv_6= '}' ( (lv_compartments_7_0= ruleCompartment ) )+ (otherlv_8= 'Interfaces' otherlv_9= '{' ( (lv_eqInterfaces_10_0= ruleEqInterface ) )+ otherlv_11= '}' )? (otherlv_12= 'InterfaceGroups' otherlv_13= '{' ( ( (lv_eqInterfaceGroups_14_0= ruleEqInterfaceGroup ) ) | ( (lv_eqInterfaceGroups_15_0= ruleEqInterfaceGroupWithCombinedDefinition ) ) )* otherlv_16= '}' )? (otherlv_17= 'Restrictions' otherlv_18= '{' ( ( (lv_dislocalityRelations_19_0= ruleDislocalityRelation ) ) | ( (lv_colocalityRelations_20_0= ruleColocalityRelation ) ) | ( (lv_validDeployments_21_0= ruleValidDeployment ) ) | ( (lv_invalidDeployments_22_0= ruleInvalidDeployment ) ) )* otherlv_23= '}' )?
             {
             otherlv_0=(Token)match(input,11,FOLLOW_11_in_ruleAssistModel122); 
 
@@ -223,15 +223,15 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_3, grammarAccess.getAssistModelAccess().getEqualsSignKeyword_3());
                 
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:97:1: ( (lv_name_4_0= RULE_STRING ) )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:98:1: (lv_name_4_0= RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:97:1: ( (lv_systemName_4_0= RULE_STRING ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:98:1: (lv_systemName_4_0= RULE_STRING )
             {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:98:1: (lv_name_4_0= RULE_STRING )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:99:3: lv_name_4_0= RULE_STRING
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:98:1: (lv_systemName_4_0= RULE_STRING )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:99:3: lv_systemName_4_0= RULE_STRING
             {
-            lv_name_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleAssistModel175); 
+            lv_systemName_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleAssistModel175); 
 
-            			newLeafNode(lv_name_4_0, grammarAccess.getAssistModelAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+            			newLeafNode(lv_systemName_4_0, grammarAccess.getAssistModelAccess().getSystemNameSTRINGTerminalRuleCall_4_0()); 
             		
 
             	        if (current==null) {
@@ -239,8 +239,8 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	        }
                    		setWithLastConsumed(
                    			current, 
-                   			"name",
-                    		lv_name_4_0, 
+                   			"systemName",
+                    		lv_systemName_4_0, 
                     		"STRING");
             	    
 
@@ -4470,7 +4470,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValidDeployment"
-    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1961:1: ruleValidDeployment returns [EObject current=null] : (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) ( (otherlv_9= ',' ( ( ruleQualifiedName ) ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )* otherlv_12= '}' otherlv_13= ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1961:1: ruleValidDeployment returns [EObject current=null] : (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) (otherlv_9= ',' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) ) )* otherlv_12= '}' otherlv_13= ';' ) ;
     public final EObject ruleValidDeployment() throws RecognitionException {
         EObject current = null;
 
@@ -4492,11 +4492,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1964:28: ( (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) ( (otherlv_9= ',' ( ( ruleQualifiedName ) ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )* otherlv_12= '}' otherlv_13= ';' ) )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1965:1: (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) ( (otherlv_9= ',' ( ( ruleQualifiedName ) ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )* otherlv_12= '}' otherlv_13= ';' )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1964:28: ( (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) (otherlv_9= ',' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) ) )* otherlv_12= '}' otherlv_13= ';' ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1965:1: (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) (otherlv_9= ',' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) ) )* otherlv_12= '}' otherlv_13= ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1965:1: (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) ( (otherlv_9= ',' ( ( ruleQualifiedName ) ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )* otherlv_12= '}' otherlv_13= ';' )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1965:3: otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) ( (otherlv_9= ',' ( ( ruleQualifiedName ) ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )* otherlv_12= '}' otherlv_13= ';'
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1965:1: (otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) (otherlv_9= ',' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) ) )* otherlv_12= '}' otherlv_13= ';' )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1965:3: otherlv_0= 'Valid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) (otherlv_9= ',' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) ) )* otherlv_12= '}' otherlv_13= ';'
             {
             otherlv_0=(Token)match(input,46,FOLLOW_46_in_ruleValidDeployment4636); 
 
@@ -4707,96 +4707,113 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2046:3: ( (otherlv_9= ',' ( ( ruleQualifiedName ) ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )*
-            loop24:
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2046:3: (otherlv_9= ',' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) ) )*
+            loop25:
             do {
-                int alt24=3;
-                int LA24_0 = input.LA(1);
+                int alt25=2;
+                int LA25_0 = input.LA(1);
 
-                if ( (LA24_0==30) ) {
-                    alt24=1;
-                }
-                else if ( (LA24_0==50) ) {
-                    alt24=2;
+                if ( (LA25_0==30) ) {
+                    alt25=1;
                 }
 
 
-                switch (alt24) {
+                switch (alt25) {
             	case 1 :
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2046:4: (otherlv_9= ',' ( ( ruleQualifiedName ) ) )
+            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2046:5: otherlv_9= ',' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )
             	    {
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2046:4: (otherlv_9= ',' ( ( ruleQualifiedName ) ) )
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2046:6: otherlv_9= ',' ( ( ruleQualifiedName ) )
-            	    {
-            	    otherlv_9=(Token)match(input,30,FOLLOW_30_in_ruleValidDeployment4801); 
+            	    otherlv_9=(Token)match(input,30,FOLLOW_30_in_ruleValidDeployment4800); 
 
-            	        	newLeafNode(otherlv_9, grammarAccess.getValidDeploymentAccess().getCommaKeyword_6_0_0());
+            	        	newLeafNode(otherlv_9, grammarAccess.getValidDeploymentAccess().getCommaKeyword_6_0());
             	        
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2050:1: ( ( ruleQualifiedName ) )
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2051:1: ( ruleQualifiedName )
-            	    {
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2051:1: ( ruleQualifiedName )
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2052:3: ruleQualifiedName
-            	    {
+            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2050:1: ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )
+            	    int alt24=2;
+            	    int LA24_0 = input.LA(1);
 
-            	    			if (current==null) {
-            	    	            current = createModelElement(grammarAccess.getValidDeploymentRule());
-            	    	        }
-            	            
-            	     
-            	    	        newCompositeNode(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_0_1_0()); 
-            	    	    
-            	    pushFollow(FOLLOW_ruleQualifiedName_in_ruleValidDeployment4824);
-            	    ruleQualifiedName();
-
-            	    state._fsp--;
-
-            	     
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
+            	    if ( (LA24_0==RULE_ID) ) {
+            	        alt24=1;
             	    }
-
-
+            	    else if ( (LA24_0==50) ) {
+            	        alt24=2;
             	    }
+            	    else {
+            	        NoViableAltException nvae =
+            	            new NoViableAltException("", 24, 0, input);
 
-
+            	        throw nvae;
             	    }
+            	    switch (alt24) {
+            	        case 1 :
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2050:2: ( ( ruleQualifiedName ) )
+            	            {
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2050:2: ( ( ruleQualifiedName ) )
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2051:1: ( ruleQualifiedName )
+            	            {
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2051:1: ( ruleQualifiedName )
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2052:3: ruleQualifiedName
+            	            {
+
+            	            			if (current==null) {
+            	            	            current = createModelElement(grammarAccess.getValidDeploymentRule());
+            	            	        }
+            	                    
+            	             
+            	            	        newCompositeNode(grammarAccess.getValidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_1_0_0()); 
+            	            	    
+            	            pushFollow(FOLLOW_ruleQualifiedName_in_ruleValidDeployment4824);
+            	            ruleQualifiedName();
+
+            	            state._fsp--;
+
+            	             
+            	            	        afterParserOrEnumRuleCall();
+            	            	    
+
+            	            }
 
 
-            	    }
-            	    break;
-            	case 2 :
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2066:6: ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) )
-            	    {
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2066:6: ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) )
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2067:1: (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition )
-            	    {
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2067:1: (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition )
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2068:3: lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getValidDeploymentAccess().getImplicitHardwareElementsDeploymentImplicitDefinitionParserRuleCall_6_1_0()); 
-            	    	    
-            	    pushFollow(FOLLOW_ruleDeploymentImplicitDefinition_in_ruleValidDeployment4852);
-            	    lv_implicitHardwareElements_11_0=ruleDeploymentImplicitDefinition();
-
-            	    state._fsp--;
+            	            }
 
 
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getValidDeploymentRule());
-            	    	        }
-            	           		add(
-            	           			current, 
-            	           			"implicitHardwareElements",
-            	            		lv_implicitHardwareElements_11_0, 
-            	            		"DeploymentImplicitDefinition");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
+            	            }
+            	            break;
+            	        case 2 :
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2066:6: ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) )
+            	            {
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2066:6: ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) )
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2067:1: (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition )
+            	            {
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2067:1: (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition )
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2068:3: lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition
+            	            {
+            	             
+            	            	        newCompositeNode(grammarAccess.getValidDeploymentAccess().getImplicitHardwareElementsDeploymentImplicitDefinitionParserRuleCall_6_1_1_0()); 
+            	            	    
+            	            pushFollow(FOLLOW_ruleDeploymentImplicitDefinition_in_ruleValidDeployment4851);
+            	            lv_implicitHardwareElements_11_0=ruleDeploymentImplicitDefinition();
 
-            	    }
+            	            state._fsp--;
 
+
+            	            	        if (current==null) {
+            	            	            current = createModelElementForParent(grammarAccess.getValidDeploymentRule());
+            	            	        }
+            	                   		add(
+            	                   			current, 
+            	                   			"implicitHardwareElements",
+            	                    		lv_implicitHardwareElements_11_0, 
+            	                    		"DeploymentImplicitDefinition");
+            	            	        afterParserOrEnumRuleCall();
+            	            	    
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+            	            break;
 
             	    }
 
@@ -4805,7 +4822,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop24;
+            	    break loop25;
                 }
             } while (true);
 
@@ -4874,7 +4891,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInvalidDeployment"
-    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2109:1: ruleInvalidDeployment returns [EObject current=null] : (otherlv_0= 'Invalid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) ( (otherlv_9= ',' ( ( ruleQualifiedName ) ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )* otherlv_12= '}' otherlv_13= ';' ) ;
+    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2109:1: ruleInvalidDeployment returns [EObject current=null] : (otherlv_0= 'Invalid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) (otherlv_9= ',' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) ) )* otherlv_12= '}' otherlv_13= ';' ) ;
     public final EObject ruleInvalidDeployment() throws RecognitionException {
         EObject current = null;
 
@@ -4896,11 +4913,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2112:28: ( (otherlv_0= 'Invalid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) ( (otherlv_9= ',' ( ( ruleQualifiedName ) ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )* otherlv_12= '}' otherlv_13= ';' ) )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2113:1: (otherlv_0= 'Invalid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) ( (otherlv_9= ',' ( ( ruleQualifiedName ) ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )* otherlv_12= '}' otherlv_13= ';' )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2112:28: ( (otherlv_0= 'Invalid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) (otherlv_9= ',' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) ) )* otherlv_12= '}' otherlv_13= ';' ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2113:1: (otherlv_0= 'Invalid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) (otherlv_9= ',' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) ) )* otherlv_12= '}' otherlv_13= ';' )
             {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2113:1: (otherlv_0= 'Invalid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) ( (otherlv_9= ',' ( ( ruleQualifiedName ) ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )* otherlv_12= '}' otherlv_13= ';' )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2113:3: otherlv_0= 'Invalid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) ( (otherlv_9= ',' ( ( ruleQualifiedName ) ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )* otherlv_12= '}' otherlv_13= ';'
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2113:1: (otherlv_0= 'Invalid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) (otherlv_9= ',' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) ) )* otherlv_12= '}' otherlv_13= ';' )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2113:3: otherlv_0= 'Invalid for' ( (otherlv_1= RULE_ID ) ) (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )* (otherlv_4= 'is' | otherlv_5= 'are' ) otherlv_6= '{' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) ) (otherlv_9= ',' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) ) )* otherlv_12= '}' otherlv_13= ';'
             {
             otherlv_0=(Token)match(input,49,FOLLOW_49_in_ruleInvalidDeployment4961); 
 
@@ -4928,17 +4945,17 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2130:2: (otherlv_2= ',' ( (otherlv_3= RULE_ID ) ) )*
-            loop25:
+            loop26:
             do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
+                int alt26=2;
+                int LA26_0 = input.LA(1);
 
-                if ( (LA25_0==30) ) {
-                    alt25=1;
+                if ( (LA26_0==30) ) {
+                    alt26=1;
                 }
 
 
-                switch (alt25) {
+                switch (alt26) {
             	case 1 :
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2130:4: otherlv_2= ',' ( (otherlv_3= RULE_ID ) )
             	    {
@@ -4972,27 +4989,27 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop25;
+            	    break loop26;
                 }
             } while (true);
 
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2147:4: (otherlv_4= 'is' | otherlv_5= 'are' )
-            int alt26=2;
-            int LA26_0 = input.LA(1);
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            if ( (LA26_0==47) ) {
-                alt26=1;
+            if ( (LA27_0==47) ) {
+                alt27=1;
             }
-            else if ( (LA26_0==48) ) {
-                alt26=2;
+            else if ( (LA27_0==48) ) {
+                alt27=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 26, 0, input);
+                    new NoViableAltException("", 27, 0, input);
 
                 throw nvae;
             }
-            switch (alt26) {
+            switch (alt27) {
                 case 1 :
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2147:6: otherlv_4= 'is'
                     {
@@ -5021,22 +5038,22 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                 	newLeafNode(otherlv_6, grammarAccess.getInvalidDeploymentAccess().getLeftCurlyBracketKeyword_4());
                 
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2160:1: ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_8_0= ruleDeploymentImplicitDefinition ) ) )
-            int alt27=2;
-            int LA27_0 = input.LA(1);
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            if ( (LA27_0==RULE_ID) ) {
-                alt27=1;
+            if ( (LA28_0==RULE_ID) ) {
+                alt28=1;
             }
-            else if ( (LA27_0==50) ) {
-                alt27=2;
+            else if ( (LA28_0==50) ) {
+                alt28=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 27, 0, input);
+                    new NoViableAltException("", 28, 0, input);
 
                 throw nvae;
             }
-            switch (alt27) {
+            switch (alt28) {
                 case 1 :
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2160:2: ( ( ruleQualifiedName ) )
                     {
@@ -5111,96 +5128,113 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2194:3: ( (otherlv_9= ',' ( ( ruleQualifiedName ) ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )*
-            loop28:
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2194:3: (otherlv_9= ',' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) ) )*
+            loop30:
             do {
-                int alt28=3;
-                int LA28_0 = input.LA(1);
+                int alt30=2;
+                int LA30_0 = input.LA(1);
 
-                if ( (LA28_0==30) ) {
-                    alt28=1;
-                }
-                else if ( (LA28_0==50) ) {
-                    alt28=2;
+                if ( (LA30_0==30) ) {
+                    alt30=1;
                 }
 
 
-                switch (alt28) {
+                switch (alt30) {
             	case 1 :
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2194:4: (otherlv_9= ',' ( ( ruleQualifiedName ) ) )
+            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2194:5: otherlv_9= ',' ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )
             	    {
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2194:4: (otherlv_9= ',' ( ( ruleQualifiedName ) ) )
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2194:6: otherlv_9= ',' ( ( ruleQualifiedName ) )
-            	    {
-            	    otherlv_9=(Token)match(input,30,FOLLOW_30_in_ruleInvalidDeployment5126); 
+            	    otherlv_9=(Token)match(input,30,FOLLOW_30_in_ruleInvalidDeployment5125); 
 
-            	        	newLeafNode(otherlv_9, grammarAccess.getInvalidDeploymentAccess().getCommaKeyword_6_0_0());
+            	        	newLeafNode(otherlv_9, grammarAccess.getInvalidDeploymentAccess().getCommaKeyword_6_0());
             	        
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2198:1: ( ( ruleQualifiedName ) )
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2199:1: ( ruleQualifiedName )
-            	    {
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2199:1: ( ruleQualifiedName )
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2200:3: ruleQualifiedName
-            	    {
+            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2198:1: ( ( ( ruleQualifiedName ) ) | ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) ) )
+            	    int alt29=2;
+            	    int LA29_0 = input.LA(1);
 
-            	    			if (current==null) {
-            	    	            current = createModelElement(grammarAccess.getInvalidDeploymentRule());
-            	    	        }
-            	            
-            	     
-            	    	        newCompositeNode(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_0_1_0()); 
-            	    	    
-            	    pushFollow(FOLLOW_ruleQualifiedName_in_ruleInvalidDeployment5149);
-            	    ruleQualifiedName();
-
-            	    state._fsp--;
-
-            	     
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
+            	    if ( (LA29_0==RULE_ID) ) {
+            	        alt29=1;
             	    }
-
-
+            	    else if ( (LA29_0==50) ) {
+            	        alt29=2;
             	    }
+            	    else {
+            	        NoViableAltException nvae =
+            	            new NoViableAltException("", 29, 0, input);
 
-
+            	        throw nvae;
             	    }
+            	    switch (alt29) {
+            	        case 1 :
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2198:2: ( ( ruleQualifiedName ) )
+            	            {
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2198:2: ( ( ruleQualifiedName ) )
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2199:1: ( ruleQualifiedName )
+            	            {
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2199:1: ( ruleQualifiedName )
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2200:3: ruleQualifiedName
+            	            {
+
+            	            			if (current==null) {
+            	            	            current = createModelElement(grammarAccess.getInvalidDeploymentRule());
+            	            	        }
+            	                    
+            	             
+            	            	        newCompositeNode(grammarAccess.getInvalidDeploymentAccess().getHardwareElementsHardwareElementCrossReference_6_1_0_0()); 
+            	            	    
+            	            pushFollow(FOLLOW_ruleQualifiedName_in_ruleInvalidDeployment5149);
+            	            ruleQualifiedName();
+
+            	            state._fsp--;
+
+            	             
+            	            	        afterParserOrEnumRuleCall();
+            	            	    
+
+            	            }
 
 
-            	    }
-            	    break;
-            	case 2 :
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2214:6: ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) )
-            	    {
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2214:6: ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) )
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2215:1: (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition )
-            	    {
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2215:1: (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition )
-            	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2216:3: lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getInvalidDeploymentAccess().getImplicitHardwareElementsDeploymentImplicitDefinitionParserRuleCall_6_1_0()); 
-            	    	    
-            	    pushFollow(FOLLOW_ruleDeploymentImplicitDefinition_in_ruleInvalidDeployment5177);
-            	    lv_implicitHardwareElements_11_0=ruleDeploymentImplicitDefinition();
-
-            	    state._fsp--;
+            	            }
 
 
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getInvalidDeploymentRule());
-            	    	        }
-            	           		add(
-            	           			current, 
-            	           			"implicitHardwareElements",
-            	            		lv_implicitHardwareElements_11_0, 
-            	            		"DeploymentImplicitDefinition");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
+            	            }
+            	            break;
+            	        case 2 :
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2214:6: ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) )
+            	            {
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2214:6: ( (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition ) )
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2215:1: (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition )
+            	            {
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2215:1: (lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition )
+            	            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2216:3: lv_implicitHardwareElements_11_0= ruleDeploymentImplicitDefinition
+            	            {
+            	             
+            	            	        newCompositeNode(grammarAccess.getInvalidDeploymentAccess().getImplicitHardwareElementsDeploymentImplicitDefinitionParserRuleCall_6_1_1_0()); 
+            	            	    
+            	            pushFollow(FOLLOW_ruleDeploymentImplicitDefinition_in_ruleInvalidDeployment5176);
+            	            lv_implicitHardwareElements_11_0=ruleDeploymentImplicitDefinition();
 
-            	    }
+            	            state._fsp--;
 
+
+            	            	        if (current==null) {
+            	            	            current = createModelElementForParent(grammarAccess.getInvalidDeploymentRule());
+            	            	        }
+            	                   		add(
+            	                   			current, 
+            	                   			"implicitHardwareElements",
+            	                    		lv_implicitHardwareElements_11_0, 
+            	                    		"DeploymentImplicitDefinition");
+            	            	        afterParserOrEnumRuleCall();
+            	            	    
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+            	            break;
 
             	    }
 
@@ -5209,7 +5243,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop28;
+            	    break loop30;
                 }
             } while (true);
 
@@ -5334,17 +5368,17 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2283:2: (otherlv_2= 'and' ( (lv_entries_3_0= ruleDeploymentImplicitDefinitionAttributeAndValue ) ) )*
-            loop29:
+            loop31:
             do {
-                int alt29=2;
-                int LA29_0 = input.LA(1);
+                int alt31=2;
+                int LA31_0 = input.LA(1);
 
-                if ( (LA29_0==32) ) {
-                    alt29=1;
+                if ( (LA31_0==32) ) {
+                    alt31=1;
                 }
 
 
-                switch (alt29) {
+                switch (alt31) {
             	case 1 :
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2283:4: otherlv_2= 'and' ( (lv_entries_3_0= ruleDeploymentImplicitDefinitionAttributeAndValue ) )
             	    {
@@ -5388,7 +5422,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop29;
+            	    break loop31;
                 }
             } while (true);
 
@@ -5610,17 +5644,17 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                 newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
                 
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2396:1: (kw= '.' this_ID_2= RULE_ID )*
-            loop30:
+            loop32:
             do {
-                int alt30=2;
-                int LA30_0 = input.LA(1);
+                int alt32=2;
+                int LA32_0 = input.LA(1);
 
-                if ( (LA30_0==51) ) {
-                    alt30=1;
+                if ( (LA32_0==51) ) {
+                    alt32=1;
                 }
 
 
-                switch (alt30) {
+                switch (alt32) {
             	case 1 :
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2397:2: kw= '.' this_ID_2= RULE_ID
             	    {
@@ -5641,7 +5675,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop30;
+            	    break loop32;
                 }
             } while (true);
 
@@ -5688,71 +5722,71 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2420:1: ( (enumLiteral_0= 'Name' ) | (enumLiteral_1= 'System' ) | (enumLiteral_2= 'SubAta' ) | (enumLiteral_3= 'Resource' ) | (enumLiteral_4= 'LineName' ) | (enumLiteral_5= 'WiringLane' ) | (enumLiteral_6= 'GrpInfo' ) | (enumLiteral_7= 'Route' ) | (enumLiteral_8= 'PwSup1' ) | (enumLiteral_9= 'EmhZone1' ) | (enumLiteral_10= 'Type' ) )
             {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2420:1: ( (enumLiteral_0= 'Name' ) | (enumLiteral_1= 'System' ) | (enumLiteral_2= 'SubAta' ) | (enumLiteral_3= 'Resource' ) | (enumLiteral_4= 'LineName' ) | (enumLiteral_5= 'WiringLane' ) | (enumLiteral_6= 'GrpInfo' ) | (enumLiteral_7= 'Route' ) | (enumLiteral_8= 'PwSup1' ) | (enumLiteral_9= 'EmhZone1' ) | (enumLiteral_10= 'Type' ) )
-            int alt31=11;
+            int alt33=11;
             switch ( input.LA(1) ) {
             case 13:
                 {
-                alt31=1;
+                alt33=1;
                 }
                 break;
             case 35:
                 {
-                alt31=2;
+                alt33=2;
                 }
                 break;
             case 36:
                 {
-                alt31=3;
+                alt33=3;
                 }
                 break;
             case 37:
                 {
-                alt31=4;
+                alt33=4;
                 }
                 break;
             case 38:
                 {
-                alt31=5;
+                alt33=5;
                 }
                 break;
             case 39:
                 {
-                alt31=6;
+                alt33=6;
                 }
                 break;
             case 40:
                 {
-                alt31=7;
+                alt33=7;
                 }
                 break;
             case 41:
                 {
-                alt31=8;
+                alt33=8;
                 }
                 break;
             case 42:
                 {
-                alt31=9;
+                alt33=9;
                 }
                 break;
             case 43:
                 {
-                alt31=10;
+                alt33=10;
                 }
                 break;
             case 26:
                 {
-                alt31=11;
+                alt33=11;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 31, 0, input);
+                    new NoViableAltException("", 33, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt31) {
+            switch (alt33) {
                 case 1 :
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2420:2: (enumLiteral_0= 'Name' )
                     {
@@ -5975,31 +6009,31 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2493:1: ( (enumLiteral_0= 'Compartment' ) | (enumLiteral_1= 'RDC' ) | (enumLiteral_2= 'Connector' ) )
             {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2493:1: ( (enumLiteral_0= 'Compartment' ) | (enumLiteral_1= 'RDC' ) | (enumLiteral_2= 'Connector' ) )
-            int alt32=3;
+            int alt34=3;
             switch ( input.LA(1) ) {
             case 20:
                 {
-                alt32=1;
+                alt34=1;
                 }
                 break;
             case 25:
                 {
-                alt32=2;
+                alt34=2;
                 }
                 break;
             case 28:
                 {
-                alt32=3;
+                alt34=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 32, 0, input);
+                    new NoViableAltException("", 34, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt32) {
+            switch (alt34) {
                 case 1 :
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2493:2: (enumLiteral_0= 'Compartment' )
                     {
@@ -6095,76 +6129,76 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2518:1: ( (enumLiteral_0= 'Compartment.Name' ) | (enumLiteral_1= 'Compartment.Manufacturer' ) | (enumLiteral_2= 'Compartment.PowerSupply' ) | (enumLiteral_3= 'Compartment.Side' ) | (enumLiteral_4= 'Compartment.Zone' ) | (enumLiteral_5= 'RDC.Name' ) | (enumLiteral_6= 'RDC.Manufacturer' ) | (enumLiteral_7= 'RDC.PowerSupply' ) | (enumLiteral_8= 'RDC.Side' ) | (enumLiteral_9= 'RDC.Type' ) | (enumLiteral_10= 'RDC.ESS' ) | (enumLiteral_11= 'Connector.Name' ) )
             {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2518:1: ( (enumLiteral_0= 'Compartment.Name' ) | (enumLiteral_1= 'Compartment.Manufacturer' ) | (enumLiteral_2= 'Compartment.PowerSupply' ) | (enumLiteral_3= 'Compartment.Side' ) | (enumLiteral_4= 'Compartment.Zone' ) | (enumLiteral_5= 'RDC.Name' ) | (enumLiteral_6= 'RDC.Manufacturer' ) | (enumLiteral_7= 'RDC.PowerSupply' ) | (enumLiteral_8= 'RDC.Side' ) | (enumLiteral_9= 'RDC.Type' ) | (enumLiteral_10= 'RDC.ESS' ) | (enumLiteral_11= 'Connector.Name' ) )
-            int alt33=12;
+            int alt35=12;
             switch ( input.LA(1) ) {
             case 52:
                 {
-                alt33=1;
+                alt35=1;
                 }
                 break;
             case 53:
                 {
-                alt33=2;
+                alt35=2;
                 }
                 break;
             case 54:
                 {
-                alt33=3;
+                alt35=3;
                 }
                 break;
             case 55:
                 {
-                alt33=4;
+                alt35=4;
                 }
                 break;
             case 56:
                 {
-                alt33=5;
+                alt35=5;
                 }
                 break;
             case 57:
                 {
-                alt33=6;
+                alt35=6;
                 }
                 break;
             case 58:
                 {
-                alt33=7;
+                alt35=7;
                 }
                 break;
             case 59:
                 {
-                alt33=8;
+                alt35=8;
                 }
                 break;
             case 60:
                 {
-                alt33=9;
+                alt35=9;
                 }
                 break;
             case 61:
                 {
-                alt33=10;
+                alt35=10;
                 }
                 break;
             case 62:
                 {
-                alt33=11;
+                alt35=11;
                 }
                 break;
             case 63:
                 {
-                alt33=12;
+                alt35=12;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 33, 0, input);
+                    new NoViableAltException("", 35, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt33) {
+            switch (alt35) {
                 case 1 :
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2518:2: (enumLiteral_0= 'Compartment.Name' )
                     {
@@ -6744,11 +6778,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_47_in_ruleValidDeployment4704 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_48_in_ruleValidDeployment4722 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_ruleValidDeployment4735 = new BitSet(new long[]{0x0004000000000020L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleValidDeployment4759 = new BitSet(new long[]{0x0004000040010020L});
-    public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_ruleValidDeployment4786 = new BitSet(new long[]{0x0004000040010020L});
-    public static final BitSet FOLLOW_30_in_ruleValidDeployment4801 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleValidDeployment4824 = new BitSet(new long[]{0x0004000040010020L});
-    public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_ruleValidDeployment4852 = new BitSet(new long[]{0x0004000040010020L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleValidDeployment4759 = new BitSet(new long[]{0x0000000040010000L});
+    public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_ruleValidDeployment4786 = new BitSet(new long[]{0x0000000040010000L});
+    public static final BitSet FOLLOW_30_in_ruleValidDeployment4800 = new BitSet(new long[]{0x0004000000000020L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleValidDeployment4824 = new BitSet(new long[]{0x0000000040010000L});
+    public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_ruleValidDeployment4851 = new BitSet(new long[]{0x0000000040010000L});
     public static final BitSet FOLLOW_16_in_ruleValidDeployment4866 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleValidDeployment4878 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleInvalidDeployment_in_entryRuleInvalidDeployment4914 = new BitSet(new long[]{0x0000000000000000L});
@@ -6760,11 +6794,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_47_in_ruleInvalidDeployment5029 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_48_in_ruleInvalidDeployment5047 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_ruleInvalidDeployment5060 = new BitSet(new long[]{0x0004000000000020L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleInvalidDeployment5084 = new BitSet(new long[]{0x0004000040010020L});
-    public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_ruleInvalidDeployment5111 = new BitSet(new long[]{0x0004000040010020L});
-    public static final BitSet FOLLOW_30_in_ruleInvalidDeployment5126 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleInvalidDeployment5149 = new BitSet(new long[]{0x0004000040010020L});
-    public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_ruleInvalidDeployment5177 = new BitSet(new long[]{0x0004000040010020L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleInvalidDeployment5084 = new BitSet(new long[]{0x0000000040010000L});
+    public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_ruleInvalidDeployment5111 = new BitSet(new long[]{0x0000000040010000L});
+    public static final BitSet FOLLOW_30_in_ruleInvalidDeployment5125 = new BitSet(new long[]{0x0004000000000020L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleInvalidDeployment5149 = new BitSet(new long[]{0x0000000040010000L});
+    public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_ruleInvalidDeployment5176 = new BitSet(new long[]{0x0000000040010000L});
     public static final BitSet FOLLOW_16_in_ruleInvalidDeployment5191 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleInvalidDeployment5203 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDeploymentImplicitDefinition_in_entryRuleDeploymentImplicitDefinition5239 = new BitSet(new long[]{0x0000000000000000L});

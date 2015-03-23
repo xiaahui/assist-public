@@ -4,7 +4,7 @@ import "ch.hilbri.assist.datamodel.model"
 
 AssistModel: 
 	'Global'  '{' 
-		'Name' '=' name=STRING ';' 
+		'Name' '=' systemName=STRING ';' 
 	'}'
 
 	compartments+=Compartment+
@@ -145,8 +145,8 @@ ColocalityRelation:
 ValidDeployment:
 	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
 	('is'|'are') '{'
-		  ( 	hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
-		  (',' 	hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition)* 
+		  ( 	 hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
+		  (',' 	(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) )* 
 	'}' ';'
 ;
 
@@ -154,7 +154,7 @@ InvalidDeployment:
 	'Invalid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
 	('is'|'are') '{'
 		  ( 	hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
-		  (',' 	hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition)* 
+		  (',' (hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) )* 
 	'}' ';'
 ;
 
