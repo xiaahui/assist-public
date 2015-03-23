@@ -1,6 +1,8 @@
 package ch.hilbri.assist.mappingdsl.validation
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.DeploymentSpecification
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition
 import ch.hilbri.assist.datamodel.model.ModelPackage
 import org.eclipse.xtext.validation.Check
@@ -26,15 +28,16 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 	}
 	
 	@Check
-	def checkImplicitMemberDefinitionsAreNotEmpty(AssistModel model) {
-		for (g : model.eqInterfaceGroups.filter[!(it instanceof EqInterfaceGroupWithCombinedDefinition)]) 
-		{
-			for (definition : g.implicitMemberDefinitions) {
-				if (definition.implicitlyDefinedEqInterfaces.isNullOrEmpty) {
-//					warning("This part of the definition contains no interfaces. It is empty. This may be unintended.", g, ModelPackage.Literals::IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION__ENTRIES)
-				}
-			}
-			
+	def checkImplicitMemberDefinitionsAreNotEmpty(EqInterfaceGroup group) {
+		for (definition : group.implicitMemberDefinitions) {
+			if (definition.implicitlyDefinedEqInterfaces.isNullOrEmpty) {
+				warning(
+					"This part of the definition matches no interfaces. This may be unintended.",
+					group,
+					ModelPackage.Literals::EQ_INTERFACE_GROUP__IMPLICIT_MEMBER_DEFINITIONS,
+					group.implicitMemberDefinitions.indexOf(definition)
+				)
+			}	
 		}
 	}
 	
@@ -47,6 +50,21 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 				warning("The list of hardware elements for this specification is currently empty.", s, ModelPackage.Literals::DEPLOYMENT_SPECIFICATION__IMPLICIT_HARDWARE_ELEMENTS)		
 		}
 	}
+	
+	@Check
+	def checkImplicitDeploymentDefinitionsAreNotEmpty(DeploymentSpecification specification) {
+		for (definition : specification.implicitHardwareElements) {
+			if (definition.implicitlyDefinedConnectors.isNullOrEmpty) {
+				warning(
+					"This part of the specification matches no connectors. This may be unintended.",
+					specification,
+					ModelPackage.Literals::DEPLOYMENT_SPECIFICATION__IMPLICIT_HARDWARE_ELEMENTS,
+					specification.implicitHardwareElements.indexOf(definition)
+				)
+			}
+		}
+	}
+	
 	
 	@Check
 	def checkImplicitlyDefinedInvalidDeploymentsAreNotEmpty(AssistModel model) {
