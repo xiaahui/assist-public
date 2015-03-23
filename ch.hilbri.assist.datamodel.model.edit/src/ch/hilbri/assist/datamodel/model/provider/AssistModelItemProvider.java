@@ -63,25 +63,25 @@ public class AssistModelItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
+			addSystemNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the System Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addSystemNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssistModel_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_name_feature", "_UI_AssistModel_type"),
-				 ModelPackage.Literals.ASSIST_MODEL__NAME,
+				 getString("_UI_AssistModel_systemName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_systemName_feature", "_UI_AssistModel_type"),
+				 ModelPackage.Literals.ASSIST_MODEL__SYSTEM_NAME,
 				 true,
 				 false,
 				 false,
@@ -145,7 +145,7 @@ public class AssistModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AssistModel)object).getName();
+		String label = ((AssistModel)object).getSystemName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AssistModel_type") :
 			getString("_UI_AssistModel_type") + " " + label;
@@ -164,7 +164,7 @@ public class AssistModelItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AssistModel.class)) {
-			case ModelPackage.ASSIST_MODEL__NAME:
+			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:

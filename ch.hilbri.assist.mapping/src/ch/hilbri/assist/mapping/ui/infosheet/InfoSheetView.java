@@ -307,7 +307,7 @@ public class InfoSheetView {
 		tableComponentProperties.removeAll();
 
 		if (obj != null) if (obj instanceof Result)
-			addRowToTableComponentProperties("System Name", ((Result) obj).getModel().getName());
+			addRowToTableComponentProperties("System Name", ((Result) obj).getModel().getSystemName());
 
 		else if (obj instanceof HardwareElement) {
 

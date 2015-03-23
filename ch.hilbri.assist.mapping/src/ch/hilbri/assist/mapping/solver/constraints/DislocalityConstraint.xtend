@@ -20,11 +20,13 @@ import org.slf4j.LoggerFactory
 class DislocalityConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("dislocality (improved, but w/o setvars)", model, solver, solverVariables)
+		super("interface dislocality", model, solver, solverVariables)
 		this.logger = LoggerFactory.getLogger(this.class)
 	}
 	
 	override generate() {
+		
+		if (model.dislocalityRelations.isNullOrEmpty) return false
 
 		for (r : model.dislocalityRelations) {
 			var int level

@@ -155,5 +155,78 @@ InterfaceGroups {
 	
 	}
 
+
+	@Test
+	def complexImplicitlyDefinedGroups2() {
+		input = 
+'''Global { 
+	Name = "Example System";
+}
+
+Compartment C1 {
+	RDC RDC1 {
+		Manufacturer = "Manu";
+		Type = "Type";
+		ESS = "Ess";
+	
+		Connector Connector1 {
+			"CustomType0" = 20;
+		}
+
+		Connector Connector2 {
+			"CustomType0" = 20;
+		}
+	}
+}
+
+
+Interfaces {
+	Interface Iface1 {
+		SubAta = "Ata2";
+		System = "A";
+		Resource = "R1";
+		Route = "M1";
+		Type = "CustomType0";
+	}
+	
+	Interface Iface2 {
+		System = "B";
+		Resource = "R2";
+		Route = "M1";
+		Type = "CustomType0";
+	}
+	
+	Interface Iface3 {
+		SubAta = "Ata1"
+		System = "C";
+		Resource = "R3";
+		Route = "M2";
+		Type = "CustomType0";
+	}
+	
+	Interface Iface4 {
+		SubAta = "Ata2";
+		System = "C";
+		Resource = "R4";
+		Route = "M2";
+		Type = "CustomType0";
+	}
+}
+
+InterfaceGroups {
+	Group G1 { interfaces with System="C" and Resource ="R3", interfaces with Name = "Iface4", interfaces with SubAta = "Ata2", Iface4 };
+}'''
+		
+		/* Parse the input */
+		model = parser.parse(input) as AssistModel
+		val solver = new AssistSolver(model, 0)
+		solver.runModelPreprocessors
+
+		assertEquals(model.eqInterfaceGroups.length, 1)
+		assertEquals(model.eqInterfaceGroups.get(0).eqInterfaces.length, 3)
+		assertEquals(model.eqInterfaceGroups.get(0).eqInterfaces.sortBy[it.name].get(0).name, "Iface1")
+		assertEquals(model.eqInterfaceGroups.get(0).eqInterfaces.sortBy[it.name].get(1).name, "Iface3")
+		assertEquals(model.eqInterfaceGroups.get(0).eqInterfaces.sortBy[it.name].get(2).name, "Iface4")
+	}
 	
 }

@@ -13,10 +13,12 @@ import org.chocosolver.solver.exception.ContradictionException
 
 class ColocalityConstraint extends AbstractMappingConstraint {
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("application proximity (on same)", model, solver, solverVariables)
+		super("interface colocality (on same)", model, solver, solverVariables)
 	}
 	
 	override generate() {
+		if (model.colocalityRelations.isNullOrEmpty) return false
+		
 		for (r : model.colocalityRelations) {
 			
 			var int level

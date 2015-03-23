@@ -7,6 +7,9 @@ class ValidDeploymentHardwareElements extends AbstractModelPreprocessor {
 	new(AssistModel model) { super(model, "hardware elements for valid deployments") }
 	
 	override execute() {
+		
+		if (model.validDeployments.filter[it.implicitHardwareElements.length > 0].isNullOrEmpty) return false
+		
 		for (s : model.validDeployments.filter[it.implicitHardwareElements.length > 0]) {
 				logger.info("    . Processing valid deployment for interfaces/groups: [" + s.allEqInterfaceOrGroupNames + "]")
 				

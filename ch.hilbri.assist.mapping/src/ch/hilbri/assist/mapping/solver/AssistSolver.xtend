@@ -37,6 +37,7 @@ import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupDefinitions
 import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupCombinations
 import ch.hilbri.assist.mapping.solver.preprocessors.ValidDeploymentHardwareElements
 import ch.hilbri.assist.mapping.solver.preprocessors.InvalidDeploymentHardwareElements
+import ch.hilbri.assist.mapping.solver.monitors.DownBranchMonitor
 
 class AssistSolver {
 	
@@ -73,6 +74,7 @@ class AssistSolver {
 		
 		/* Attach the search monitor */
 		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor)
+		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solver))
 		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 		
 		/* Get the list of locationVariableLevels which will be used */
@@ -102,7 +104,7 @@ class AssistSolver {
 	
 
 	def runModelPreprocessors() {
-		logger.info("Running preprocessors")
+		logger.info("Running pre-processors")
 		for (p : this.modelPreprocessors) { 
 			logger.info(" - Processing " + p.name)
 			if (!p.execute) {

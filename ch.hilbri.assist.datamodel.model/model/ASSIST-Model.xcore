@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.BasicEList
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 class AssistModel {
-	String 									name 				= ""
+	String 									systemName 	= ""
 
 	contains Compartment[0..*]				compartments
 	contains EqInterface[0..*]				eqInterfaces
@@ -132,34 +132,11 @@ class EqInterfaceGroup extends EqInterfaceOrGroup {
 
 	op EqInterface[] getImplicitlyDefinedEqInterfaces() {
 		val list = new BasicEList<EqInterface>
-		val model = this.eContainer as AssistModel
 		
 		// We have to explode all implicit group definitions
 		for (implicitDefinitionElement : this.implicitMemberDefinitions) {
-			
-			// contains the interfaces discovered for a single implicit definition element
-			var Iterable<EqInterface> interfaceList = model.eqInterfaces	
-					
-			// Go through all entries (they are concatenated by AND)
-			for (entry : implicitDefinitionElement.entries) {
-				switch (entry.attribute) {
-					case NAME:			{ interfaceList = interfaceList.filter[it.name.equals(entry.value)			]}
-					case SYSTEM: 		{ interfaceList = interfaceList.filter[it.system.equals(entry.value)		]}
-					case SUBATA: 		{ interfaceList = interfaceList.filter[it.subAta.equals(entry.value)		]}
-					case RESOURCE: 		{ interfaceList = interfaceList.filter[it.resource.equals(entry.value)		]}
-					case LINENAME: 		{ interfaceList = interfaceList.filter[it.lineName.equals(entry.value)		]}
-					case WIRINGLANE:	{ interfaceList = interfaceList.filter[it.wiringLane.equals(entry.value)	]}
-					case GRPINFO: 		{ interfaceList = interfaceList.filter[it.grpInfo.equals(entry.value)		]}
-					case ROUTE: 		{ interfaceList = interfaceList.filter[it.route.equals(entry.value)			]}
-					case PWSUP1: 		{ interfaceList = interfaceList.filter[it.pwSup1.equals(entry.value)		]}
-					case EMHZONE1: 		{ interfaceList = interfaceList.filter[it.emhZone1.equals(entry.value)		]}
-					case IOTYPE: 		{ interfaceList = interfaceList.filter[it.ioType.equals(entry.value)		]}
-				} // switch
-			} // for (entry)
-		
-			list.addAll(interfaceList)
-		
-		} // for (implicit group definition elements)
+			list.addAll(implicitDefinitionElement.implicitlyDefinedEqInterfaces)
+		} 
 		
 		return (list.toSet.toList.toEList)
 	}
@@ -168,6 +145,35 @@ class EqInterfaceGroup extends EqInterfaceOrGroup {
 
 class ImplicitEqInterfaceMemberDefinition {
 	contains ImplicitEqInterfaceMemberDefinitionAttributesAndValues[1..*] entries
+
+	op EqInterface[] getImplicitlyDefinedEqInterfaces() {
+		val list = new BasicEList<EqInterface>
+		val model = this.eContainer.eContainer as AssistModel
+		
+		// contains the interfaces discovered for a single implicit definition element
+		var Iterable<EqInterface> interfaceList = model.eqInterfaces	
+					
+		// Go through all entries (they are concatenated by AND)
+		for (entry : entries) {
+			switch (entry.attribute) {
+				case NAME:			{ interfaceList = interfaceList.filter[it.name.equals(entry.value)			]}
+				case SYSTEM: 		{ interfaceList = interfaceList.filter[it.system.equals(entry.value)		]}
+				case SUBATA: 		{ interfaceList = interfaceList.filter[it.subAta.equals(entry.value)		]}
+				case RESOURCE: 		{ interfaceList = interfaceList.filter[it.resource.equals(entry.value)		]}
+				case LINENAME: 		{ interfaceList = interfaceList.filter[it.lineName.equals(entry.value)		]}
+				case WIRINGLANE:	{ interfaceList = interfaceList.filter[it.wiringLane.equals(entry.value)	]}
+				case GRPINFO: 		{ interfaceList = interfaceList.filter[it.grpInfo.equals(entry.value)		]}
+				case ROUTE: 		{ interfaceList = interfaceList.filter[it.route.equals(entry.value)			]}
+				case PWSUP1: 		{ interfaceList = interfaceList.filter[it.pwSup1.equals(entry.value)		]}
+				case EMHZONE1: 		{ interfaceList = interfaceList.filter[it.emhZone1.equals(entry.value)		]}
+				case IOTYPE: 		{ interfaceList = interfaceList.filter[it.ioType.equals(entry.value)		]}
+			} // switch
+		} // for (entry)
+		
+		list.addAll(interfaceList)
+		
+		return (list.toSet.toList.toEList)
+	}
 }
 
 
@@ -284,9 +290,9 @@ class ColocalityRelation {
 
 
 class DeploymentSpecification {
-	refers EqInterfaceOrGroup[1..*] eqInterfaceOrGroups
-	refers HardwareElement[0..*] hardwareElements
-	contains DeploymentImplicitDefinition [1..*] implicitHardwareElements
+	refers EqInterfaceOrGroup[1..*] 				eqInterfaceOrGroups
+	refers HardwareElement[0..*] 					hardwareElements
+	contains DeploymentImplicitDefinition[0..*] 	implicitHardwareElements
 	
 	
 	op String getAllEqInterfaceOrGroupNames() {
@@ -306,30 +312,9 @@ class DeploymentSpecification {
 	
 	op Connector[] getImplicitlyDefinedConnectors() {
 		val list = new BasicEList<Connector>
-		val model = this.eContainer as AssistModel
 		
 		for (definition : this.implicitHardwareElements) {
-			var Iterable<Connector> connectorList = model.allConnectors
-	
-			for (entry : definition.entries) {
-				switch (entry.attribute) {
-					case COMPARTMENT_NAME:			{ connectorList = connectorList.filter[it.rdc.compartment.name.equals(entry.value)			]}
-					case COMPARTMENT_MANUFACTURER:	{ connectorList = connectorList.filter[it.rdc.compartment.manufacturer.equals(entry.value)	]}
-					case COMPARTMENT_POWERSUPPLY:	{ connectorList = connectorList.filter[it.rdc.compartment.powerSupply.equals(entry.value)	]}
-					case COMPARTMENT_SIDE:			{ connectorList = connectorList.filter[it.rdc.compartment.side.equals(entry.value)			]}
-					case COMPARTMENT_ZONE:			{ connectorList = connectorList.filter[it.rdc.compartment.zone.equals(entry.value)			]}
-					case RDC_NAME:					{ connectorList = connectorList.filter[it.rdc.name.equals(entry.value)						]}
-					case RDC_MANUFACTURER: 			{ connectorList = connectorList.filter[it.rdc.manufacturer.equals(entry.value)				]}
-					case RDC_POWERSUPPLY: 			{ connectorList = connectorList.filter[it.rdc.powerSupply.equals(entry.value)				]}
-					case RDC_SIDE: 					{ connectorList = connectorList.filter[it.rdc.side.equals(entry.value)						]}
-					case RDC_TYPE: 					{ connectorList = connectorList.filter[it.rdc.rdcType.equals(entry.value)					]}
-					case RDC_ESS: 					{ connectorList = connectorList.filter[it.rdc.ess.equals(entry.value)						]}
-					case CONNECTOR_NAME:			{ connectorList = connectorList.filter[it.name.equals(entry.value)							]}
-				} // switch
-			} // for (entry)
-			
-			list.addAll(connectorList)
-			
+			list.addAll(definition.implicitlyDefinedConnectors)
 		} // for (implicit definition)
 	
 		return (list.toSet.toList.toEList)
@@ -338,6 +323,33 @@ class DeploymentSpecification {
 
 class DeploymentImplicitDefinition {
 	contains DeploymentImplicitDefinitionAttributeAndValue [1..*] entries
+
+	op Connector[] getImplicitlyDefinedConnectors() {
+		val list = new BasicEList<Connector>
+		val model = this.eContainer.eContainer as AssistModel
+		var Iterable<Connector> connectorList = model.allConnectors
+	
+		for (entry : entries) {
+			switch (entry.attribute) {
+				case COMPARTMENT_NAME:			{ connectorList = connectorList.filter[it.rdc.compartment.name.equals(entry.value)			]}
+				case COMPARTMENT_MANUFACTURER:	{ connectorList = connectorList.filter[it.rdc.compartment.manufacturer.equals(entry.value)	]}
+				case COMPARTMENT_POWERSUPPLY:	{ connectorList = connectorList.filter[it.rdc.compartment.powerSupply.equals(entry.value)	]}
+				case COMPARTMENT_SIDE:			{ connectorList = connectorList.filter[it.rdc.compartment.side.equals(entry.value)			]}
+				case COMPARTMENT_ZONE:			{ connectorList = connectorList.filter[it.rdc.compartment.zone.equals(entry.value)			]}
+				case RDC_NAME:					{ connectorList = connectorList.filter[it.rdc.name.equals(entry.value)						]}
+				case RDC_MANUFACTURER: 			{ connectorList = connectorList.filter[it.rdc.manufacturer.equals(entry.value)				]}
+				case RDC_POWERSUPPLY: 			{ connectorList = connectorList.filter[it.rdc.powerSupply.equals(entry.value)				]}
+				case RDC_SIDE: 					{ connectorList = connectorList.filter[it.rdc.side.equals(entry.value)						]}
+				case RDC_TYPE: 					{ connectorList = connectorList.filter[it.rdc.rdcType.equals(entry.value)					]}
+				case RDC_ESS: 					{ connectorList = connectorList.filter[it.rdc.ess.equals(entry.value)						]}
+				case CONNECTOR_NAME:			{ connectorList = connectorList.filter[it.name.equals(entry.value)							]}
+			} // switch
+		} // for (entry)
+			
+		list.addAll(connectorList)
+				
+		return (list.toSet.toList.toEList)
+	}
 }
 
 class DeploymentImplicitDefinitionAttributeAndValue {
