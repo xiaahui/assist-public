@@ -12,7 +12,7 @@ class BasicResultTests extends AbstractMappingTest{
 	new() {
 		input = '''
 Global { 
-	System name = "Example System";
+	Name = "Example System";
 }
 
 Compartment C1 {
@@ -35,7 +35,7 @@ Compartment C1 {
 
 Interfaces {
 	Interface Iface1 {
-		InterfaceSystem = "System";
+		System = "System";
 		SubAta = "SubATA";
 		Resource = "Resource";
 		LineName = "LineName";
@@ -48,7 +48,7 @@ Interfaces {
 	}
 	
 	Interface Iface2 {
-		InterfaceSystem = "System";
+		System = "System";
 		SubAta = "SubATA";
 		Resource = "Resource";
 		LineName = "LineName";
