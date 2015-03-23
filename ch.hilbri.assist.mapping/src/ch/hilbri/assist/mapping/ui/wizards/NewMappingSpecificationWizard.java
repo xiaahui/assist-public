@@ -209,7 +209,7 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 	      _builder.append("Interface Iface1 {");
 	      _builder.newLine();
 	      _builder.append("\t\t");
-	      _builder.append("InterfaceSystem = \"System\";");
+	      _builder.append("System = \"System\";");
 	      _builder.newLine();
 	      _builder.append("\t\t");
 	      _builder.append("SubAta = \"SubATA\";");
@@ -247,7 +247,7 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 	      _builder.append("Interface Iface2 {");
 	      _builder.newLine();
 	      _builder.append("\t\t");
-	      _builder.append("InterfaceSystem = \"System\";");
+	      _builder.append("System = \"System\";");
 	      _builder.newLine();
 	      _builder.append("\t\t");
 	      _builder.append("SubAta = \"SubATA\";");
