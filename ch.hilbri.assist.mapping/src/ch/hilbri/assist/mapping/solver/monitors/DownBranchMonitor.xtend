@@ -9,6 +9,7 @@ class DownBranchMonitor implements IMonitorDownBranch {
 	
 	private Solver solver
 	private Logger logger
+	private int lastProgressOutput
 	
 	new(Solver solver) {
 		this.solver = solver
@@ -17,12 +18,22 @@ class DownBranchMonitor implements IMonitorDownBranch {
 	
 	override afterDownLeftBranch() {
 		val currentProgress = solver.vars.filter[instantiated].size * 100 / solver.vars.size
-		logger.info('''Search progress:	«String::format("%3d", currentProgress)»% of all variables are instantiated''')
+		
+		/* Only report progress if it actually changes by at least 1% */
+		if (Math.abs(currentProgress - lastProgressOutput) >= 1) {
+			logger.info('''Search progress:	«String::format("%3d", currentProgress)»% of all variables are instantiated''')
+			lastProgressOutput = currentProgress	
+		}
 	}
 	
 	override afterDownRightBranch() {
 		val currentProgress = solver.vars.filter[instantiated].size * 100 / solver.vars.size
-		logger.info('''Search progress:	«String::format("%3d", currentProgress)»% of all variables are instantiated''')
+		
+		/* Only report progress if it actually changes by at least 1% */
+		if (Math.abs(currentProgress - lastProgressOutput) >= 1) {
+			logger.info('''Search progress:	«String::format("%3d", currentProgress)»% of all variables are instantiated''')
+			lastProgressOutput = currentProgress
+		}
 	}
 	
 	override beforeDownLeftBranch() {

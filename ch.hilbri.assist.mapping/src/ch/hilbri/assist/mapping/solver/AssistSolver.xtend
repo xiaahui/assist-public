@@ -38,6 +38,7 @@ import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupCombination
 import ch.hilbri.assist.mapping.solver.preprocessors.ValidDeploymentHardwareElements
 import ch.hilbri.assist.mapping.solver.preprocessors.InvalidDeploymentHardwareElements
 import ch.hilbri.assist.mapping.solver.monitors.DownBranchMonitor
+import ch.hilbri.assist.mapping.solver.monitors.RestartMonitor
 
 class AssistSolver {
 	
@@ -55,7 +56,7 @@ class AssistSolver {
 		this(model, locationVariableLevels as List<Integer>)
 	}
 
-	new (AssistModel model, List<Integer> locationVariableLevels) {
+	new (AssistModel model, List<Integer> locationVariableLvls) {
 		this.logger = LoggerFactory.getLogger(this.class)
 		logger.info(">>>> Creating a new AssistSolver instance <<<<")
 		
@@ -80,12 +81,14 @@ class AssistSolver {
  		this.solverVariables = new SolverVariablesContainer(this.model, solver)
 
 		/* Get the list of locationVariableLevels which will be used */
-		this.locationVariableLevels = locationVariableLevels
+		this.locationVariableLevels = locationVariableLvls
 
 		/* Attach the search monitor */
 		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solver, solverVariables, recorder, locationVariableLevels))
 		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solver))
 		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
+		this.solver.searchLoop.plugSearchMonitor(new RestartMonitor)
+		
 	
 		/* Create an empty set of constraints that will be used */
 		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
