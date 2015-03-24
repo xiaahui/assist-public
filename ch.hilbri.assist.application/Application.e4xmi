@@ -20,15 +20,12 @@
           <children xsi:type="basic:PartSashContainer" xmi:id="_bTQ1YNS2EeGBn6dQ9VPexA" elementId="" containerData="10000">
             <children xsi:type="basic:PartSashContainer" xmi:id="_kFPOwJADEeOQo6tDvRavuA" elementId="ch.hilbri.assist.application.partsashcontainer.0" containerData="10000" horizontal="true">
               <children xsi:type="advanced:Placeholder" xmi:id="_hP-EYNS2EeGBn6dQ9VPexA" elementId="org.eclipse.ui.editorss" containerData="8000" ref="_Hmg4kNSjEeGwXp2p959l3w"/>
-              <children xsi:type="basic:PartStack" xmi:id="_1GtywJADEeOQo6tDvRavuA" elementId="ch.hilbri.assist.application.partstack.infopart" containerData="3500">
-                <children xsi:type="advanced:Placeholder" xmi:id="_l2Ao0JADEeOQo6tDvRavuA" elementId="ch.hilbri.assist.application.placeholder.0" containerData="" ref="_EIla0I_VEeOw76RO1YIBAw" closeable="true"/>
-              </children>
+              <children xsi:type="basic:PartStack" xmi:id="_1GtywJADEeOQo6tDvRavuA" elementId="ch.hilbri.assist.application.partstack.infopart" containerData="3500"/>
             </children>
             <children xsi:type="basic:PartStack" xmi:id="_qAHrYNS2EeGBn6dQ9VPexA" elementId="org.eclipse.ui.views.PropertySheetMStack" containerData="3400">
               <tags>newtablook</tags>
               <tags>org.eclipse.e4.secondaryDataStack</tags>
               <children xsi:type="advanced:Placeholder" xmi:id="_M62NkN2PEeKSVtbcGi64NA" elementId="org.eclipse.ui.console.ConsoleView" ref="_U07vQN2PEeKSVtbcGi64NA"/>
-              <children xsi:type="advanced:Placeholder" xmi:id="_xiQZ4N2QEeKSVtbcGi64NA" elementId="org.eclipse.ui.views.PropertySheet" ref="_WqRGcNS1EeGBn6dQ9VPexA"/>
             </children>
           </children>
         </children>
