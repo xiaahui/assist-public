@@ -95,7 +95,7 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables, false))
 //		this.mappingConstraintsList.add(new PowerSupplyConstraint(model, solver, solverVariables))
 
 		/* Create a list for the results */ 
