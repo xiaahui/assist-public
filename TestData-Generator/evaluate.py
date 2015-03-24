@@ -11,6 +11,7 @@ class MDSL:
         self.ifaceGroups = {}
         self.coloc = []
         self.disloc = []
+        self.masterSol = {}
 
 def readFile(inFile, out):
     maxInst = 0
@@ -100,6 +101,8 @@ def parseMDSL(mdslIn):
             current = None
         elif "Interface " in line:
             curIface = line.split()[1]
+            if " placement " in line:
+                mdsl.masterSol[curIface] = line.split()[-1].split(".") 
         elif "Type = " in line:
             mdsl.ifaces[curIface] = line.split()[2][:-1]
         elif "Group " in line:
@@ -123,15 +126,19 @@ def checkSolution(mdsl, sol):
         if "solutions found" in line:
             numSol = int(line.split()[0])
             if numSol == 0:
+                print("No solution found in %s!" % sol.name)
                 return False
         elif numSol:
             if not "{" in line:
                 break
-            s = line.split(",")[:-1]
-            s[0] = s[0].split("{ ")[1]
-            solution[line.split()[0]] = s
+            if "," in line:
+                s = line.split(",")[:-1]
+                s[0] = s[0].split("{ ")[1]
+                solution[line.split()[0]] = s
     if numSol is None:
+        print("No solution found in %s!" % sol.name)
         return False
+    masterOverlap = 0
     # check types and multiple assignment
     count = {}
     assigned = {}
@@ -143,13 +150,19 @@ def checkSolution(mdsl, sol):
                 print("Multiple assignments of interface %s!" % iface)
                 return False
             assigned[iface] = hw.split(".")
+            if assigned[iface] == mdsl.masterSol.get(iface, None):
+                masterOverlap += 1
             key = "%s.%s" % (hw, t)
             if key not in count:
-                count[key] = mdsl.hardware[comp][rdc][conn][t]
+                count[key] = mdsl.hardware[comp][rdc][conn].get(t, 0)
             count[key] -= 1
             if count[key] < 0:
-                print("Assigned too many interfaces to %s!" % key)
+                print("No space for interface %s on %s!" % (iface, key))
                 return False
+    unassigned = set(mdsl.ifaces).difference(assigned.keys())
+    if unassigned:
+        print("The following interfaces were not assigned: %s!" % ",".join(unassigned))
+        return False
     # check colocalities
     for s, level in mdsl.coloc:
         assignedTo = assigned[s[0]][:3-level]
@@ -167,6 +180,8 @@ def checkSolution(mdsl, sol):
                         if assigned[if2][:3-level] == assignedTo:
                             print("(%s,%s) in groups (%s,%s) violate dislocation %s on level %s" % (if1, if2, g1, g2, s, level))
                             return False
+    if mdsl.masterSol:
+        print("%.2f%% overlap with master solution." % (100. * masterOverlap / len(mdsl.masterSol)))
     return True
 
 if __name__ == "__main__":
@@ -196,4 +211,3 @@ if __name__ == "__main__":
                         readFile(open(z), out)
                 else:
                     readFile(open(f), out)
-    
