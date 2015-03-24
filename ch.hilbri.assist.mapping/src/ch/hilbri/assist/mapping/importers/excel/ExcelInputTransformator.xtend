@@ -237,10 +237,6 @@ Compartment CompartmentName1 {
 			e.printStackTrace();
 		}
 		
-		val allGrpInfoEntries 		= allInterfaces.map[grpInfo].toSet.toList
-		val allWiringLaneEntries	= allInterfaces.map[wiringLane].toSet.toList
-		val allSystemEntries 		= allInterfaces.map[system].toSet.toList
-		
 		return '''
  
 /* **********************************
@@ -273,32 +269,29 @@ Interfaces {
 InterfaceGroups {
 
 	
-	«IF !allSystemEntries.isNullOrEmpty && !allWiringLaneEntries.isNullOrEmpty»
+	«IF !allInterfaces.map[system].toSet.toList.isNullOrEmpty»
 	/* 
 	 * Groups for SYSTEM and WIRING_LANE 
 	 */
 	«ENDIF»
-	«FOR system : allSystemEntries.sort»
+	«FOR system : allInterfaces.map[system].toSet.toList.sort»
 	
 	// System: «system»
-	«FOR wiringLane : allWiringLaneEntries.sort»
+	«FOR wiringLane : allInterfaces.filter[it.system == system].map[wiringLane].toSet.toList.sort»
 	Group «(clear(system) + "__" + clear(wiringLane))» { interfaces with System = "«system»" and WiringLane = "«wiringLane»" };
 	«ENDFOR»
 	
 	«ENDFOR»
  
-	«IF !allSystemEntries.isNullOrEmpty && !allWiringLaneEntries.isNullOrEmpty»
+	«IF !allInterfaces.map[grpInfo].toSet.toList.isNullOrEmpty»
 	/* 
 	 * Groups for GRPINFO and WIRING_LANE 
 	 */
 	«ENDIF»
-	«FOR grpInfo : allGrpInfoEntries.filter[!isNullOrEmpty].sort»
-	
-	// GrpInfo: «grpInfo»
-	«FOR wiringLane : allWiringLaneEntries.sort»
+	«FOR grpInfo : allInterfaces.map[grpInfo].toSet.toList.filter[!isNullOrEmpty].sort»
+	«FOR wiringLane : allInterfaces.filter[it.grpInfo == grpInfo].map[wiringLane].toSet.toList.sort»
 	Group «(clear(grpInfo) + "__" + clear(wiringLane))» { interfaces with GrpInfo = "«grpInfo»" and WiringLane = "«wiringLane»" };
 	«ENDFOR»
-	
 	«ENDFOR»
 }
 ''';	
