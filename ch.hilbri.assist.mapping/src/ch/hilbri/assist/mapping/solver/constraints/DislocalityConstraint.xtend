@@ -19,11 +19,15 @@ import org.slf4j.LoggerFactory
 
 class DislocalityConstraint extends AbstractMappingConstraint {
 	
-	private List<BitSet>[] conflictGraph = #[new ArrayList<BitSet>, new ArrayList<BitSet>, new ArrayList<BitSet>]
+	private List<ArrayList<BitSet>> conflictGraph 
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables, boolean buildConflictGraph) {
 		super("interface dislocality", model, solver, solverVariables)
+	
 		this.logger = LoggerFactory.getLogger(this.class)
+	
+		conflictGraph = #[new ArrayList<BitSet>, new ArrayList<BitSet>, new ArrayList<BitSet>]
+	
 		if (buildConflictGraph) {
 			for (iface:model.eqInterfaces) {
 				val node = new BitSet
