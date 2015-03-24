@@ -72,20 +72,20 @@ class AssistSolver {
 		/* Create a new Solver object */
 		this.solver = new Solver()
 		
-		/* Attach the search monitor */
-		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor)
-		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solver))
-		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
-		
-		/* Get the list of locationVariableLevels which will be used */
-		this.locationVariableLevels = locationVariableLevels
-
 		/* Create a new recorder for our solutions */
 		this.recorder = new AllSolutionsRecorder(solver)
 		solver.set(recorder)
 		
 		/* Create the container for variables which are needed in the solver */
  		this.solverVariables = new SolverVariablesContainer(this.model, solver)
+
+		/* Get the list of locationVariableLevels which will be used */
+		this.locationVariableLevels = locationVariableLevels
+
+		/* Attach the search monitor */
+		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solver, solverVariables, recorder, locationVariableLevels))
+		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solver))
+		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 	
 		/* Create an empty set of constraints that will be used */
 		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
@@ -96,7 +96,6 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables, false))
-//		this.mappingConstraintsList.add(new PowerSupplyConstraint(model, solver, solverVariables))
 
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>()  
@@ -132,7 +131,7 @@ class AssistSolver {
 			case SearchType.FIRST_FAIL: {
 				heuristic = ISF.minDom_LB(vars)
 			}
-			case strategy == SearchType.FIRST_FAIL_MAX_DEGREE || strategy == SearchType.DEFAULT: {
+			case strategy == SearchType.FIRST_FAIL_MAX_DEGREE : {
 				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model, locationVariableLevels)
 				this.solver.searchLoop.plugSearchMonitor(new BacktrackingMonitor)
 				heuristic = ISF.custom(selector, selector, vars)				
@@ -152,7 +151,7 @@ class AssistSolver {
 			case SearchType.DOM_OVER_WDEG: {
 				heuristic = ISF.domOverWDeg(vars, seed)
 			}
-			case  SearchType.ACTIVITY : 
+			case  strategy == SearchType.ACTIVITY || strategy == SearchType.DEFAULT  : 
 			{
 				heuristic = ISF.activity(vars, seed)
 			}
