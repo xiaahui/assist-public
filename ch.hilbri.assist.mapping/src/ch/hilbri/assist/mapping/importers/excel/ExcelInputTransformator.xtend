@@ -237,10 +237,9 @@ Compartment CompartmentName1 {
 			e.printStackTrace();
 		}
 		
-//		val allGrpInfoEntries 		= allInterfaces.map[grpInfo].toSet.toList
-//		val allWiringLaneEntries	= allInterfaces.map[wiringLane].toSet.toList
-//		val allSystemEntries 		= allInterfaces.map[system].toSet.toList
-//		val allResourceEntries		= allInterfaces.map[resource].toSet.toList
+		val allGrpInfoEntries 		= allInterfaces.map[grpInfo].toSet.toList
+		val allWiringLaneEntries	= allInterfaces.map[wiringLane].toSet.toList
+		val allSystemEntries 		= allInterfaces.map[system].toSet.toList
 		
 		return '''
  
@@ -273,26 +272,36 @@ Interfaces {
  
 InterfaceGroups {
 
-	// put groups here
-
+	
+	«IF !allSystemEntries.isNullOrEmpty && !allWiringLaneEntries.isNullOrEmpty»
+	/* 
+	 * Groups for SYSTEM and WIRING_LANE 
+	 */
+	«ENDIF»
+	«FOR system : allSystemEntries.sort»
+	
+	// System: «system»
+	«FOR wiringLane : allWiringLaneEntries.sort»
+	Group «(clear(system) + "__" + clear(wiringLane))» { interfaces with System = "«system»" and WiringLane = "«wiringLane»" };
+	«ENDFOR»
+	
+	«ENDFOR»
+ 
+	«IF !allSystemEntries.isNullOrEmpty && !allWiringLaneEntries.isNullOrEmpty»
+	/* 
+	 * Groups for GRPINFO and WIRING_LANE 
+	 */
+	«ENDIF»
+	«FOR grpInfo : allGrpInfoEntries.filter[!isNullOrEmpty].sort»
+	
+	// GrpInfo: «grpInfo»
+	«FOR wiringLane : allWiringLaneEntries.sort»
+	Group «(clear(grpInfo) + "__" + clear(wiringLane))» { interfaces with GrpInfo = "«grpInfo»" and WiringLane = "«wiringLane»" };
+	«ENDFOR»
+	
+	«ENDFOR»
 }
 ''';	
-//	«IF !allGrpInfoEntries.isNullOrEmpty && !allWiringLaneEntries.isNullOrEmpty»// GrpInfo and Wiring Lane Groups«ENDIF»
-//	«FOR grpInfo : allGrpInfoEntries»
-//	«FOR wiringLane : allWiringLaneEntries»
-//	Group «grpInfo + "_" + wiringLane»	{ interfaces with GrpInfo = "«grpInfo»" and WiringLane = "«wiringLane»" };
-//	«ENDFOR»
-//	«ENDFOR»
-//	
-//	«IF !allSystemEntries.isNullOrEmpty && !allWiringLaneEntries.isNullOrEmpty && !allResourceEntries.isNullOrEmpty»// System and Wiring Lane and Resource Groups«ENDIF»
-//	«FOR system : allSystemEntries»
-//	«FOR wiringLane : allWiringLaneEntries»
-//	«FOR resource : allResourceEntries»
-//	Group «system + "_" + wiringLane + "_" + resource» { interfaces with System = "«system»" and WiringLane = "«wiringLane»" and Resource = "«resource»" };
-//	«ENDFOR»
-//	«ENDFOR»
-//	«ENDFOR»
-	
 	}
 	
 	def static createRestrictions() {

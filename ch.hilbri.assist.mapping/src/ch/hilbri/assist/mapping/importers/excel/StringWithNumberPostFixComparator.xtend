@@ -2,6 +2,7 @@ package ch.hilbri.assist.mapping.importers.excel
 
 import java.util.Comparator
 
+/* This should help to properly sort Cabinet1, Cabinet2, ..., Cabinet10, Cabinet11, ... */
 class StringWithNumberPostFixComparator implements Comparator<String> {
 	
 	override compare(String o1, String o2) {
