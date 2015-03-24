@@ -14,4 +14,7 @@ import org.eclipse.xtend.lib.annotations.Data
 	String pwSup1
 	String ioType
 	String emhZone1
+	String resourceX
+	String resourceY
+	String resourceZ
 }

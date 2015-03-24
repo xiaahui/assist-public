@@ -292,7 +292,10 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         route=STRING? 
 	 *         pwSup1=STRING? 
 	 *         emhZone1=STRING? 
-	 *         ioType=STRING?
+	 *         ioType=STRING? 
+	 *         resourceX=STRING? 
+	 *         resourceY=STRING? 
+	 *         resourceZ=STRING?
 	 *     )
 	 */
 	protected void sequence_EqInterface(EObject context, EqInterface semanticObject) {
@@ -369,6 +372,9 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         powerSupply=STRING? 
 	 *         rdcType=STRING? 
 	 *         ess=STRING? 
+	 *         resourceX=STRING? 
+	 *         resourceY=STRING? 
+	 *         resourceZ=STRING? 
 	 *         connectors+=Connector+
 	 *     )
 	 */

@@ -53,6 +53,9 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 			addSidePropertyDescriptor(object);
 			addRdcTypePropertyDescriptor(object);
 			addEssPropertyDescriptor(object);
+			addResourceXPropertyDescriptor(object);
+			addResourceYPropertyDescriptor(object);
+			addResourceZPropertyDescriptor(object);
 			addCompartmentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -191,6 +194,72 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Resource X feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResourceXPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RDC_resourceX_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_resourceX_feature", "_UI_RDC_type"),
+				 ModelPackage.Literals.RDC__RESOURCE_X,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Resource Y feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResourceYPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RDC_resourceY_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_resourceY_feature", "_UI_RDC_type"),
+				 ModelPackage.Literals.RDC__RESOURCE_Y,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Resource Z feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResourceZPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RDC_resourceZ_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_resourceZ_feature", "_UI_RDC_type"),
+				 ModelPackage.Literals.RDC__RESOURCE_Z,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -263,6 +332,9 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 			case ModelPackage.RDC__SIDE:
 			case ModelPackage.RDC__RDC_TYPE:
 			case ModelPackage.RDC__ESS:
+			case ModelPackage.RDC__RESOURCE_X:
+			case ModelPackage.RDC__RESOURCE_Y:
+			case ModelPackage.RDC__RESOURCE_Z:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.RDC__CONNECTORS:

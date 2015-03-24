@@ -799,19 +799,145 @@ ruleRDC returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 4);
 	 				}
+					({true}?=>(	otherlv_20='ResourceX' 
+    {
+    	newLeafNode(otherlv_20, grammarAccess.getRDCAccess().getResourceXKeyword_3_4_0());
+    }
+	otherlv_21='=' 
+    {
+    	newLeafNode(otherlv_21, grammarAccess.getRDCAccess().getEqualsSignKeyword_3_4_1());
+    }
+(
+(
+		lv_resourceX_22_0=RULE_STRING
+		{
+			newLeafNode(lv_resourceX_22_0, grammarAccess.getRDCAccess().getResourceXSTRINGTerminalRuleCall_3_4_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRDCRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"resourceX",
+        		lv_resourceX_22_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_23=';' 
+    {
+    	newLeafNode(otherlv_23, grammarAccess.getRDCAccess().getSemicolonKeyword_3_4_3());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getRDCAccess().getUnorderedGroup_3());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 5)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 5);
+	 				}
+					({true}?=>(	otherlv_24='ResourceY' 
+    {
+    	newLeafNode(otherlv_24, grammarAccess.getRDCAccess().getResourceYKeyword_3_5_0());
+    }
+	otherlv_25='=' 
+    {
+    	newLeafNode(otherlv_25, grammarAccess.getRDCAccess().getEqualsSignKeyword_3_5_1());
+    }
+(
+(
+		lv_resourceY_26_0=RULE_STRING
+		{
+			newLeafNode(lv_resourceY_26_0, grammarAccess.getRDCAccess().getResourceYSTRINGTerminalRuleCall_3_5_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRDCRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"resourceY",
+        		lv_resourceY_26_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_27=';' 
+    {
+    	newLeafNode(otherlv_27, grammarAccess.getRDCAccess().getSemicolonKeyword_3_5_3());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getRDCAccess().getUnorderedGroup_3());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 6)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 6);
+	 				}
+					({true}?=>(	otherlv_28='ResourceZ' 
+    {
+    	newLeafNode(otherlv_28, grammarAccess.getRDCAccess().getResourceZKeyword_3_6_0());
+    }
+	otherlv_29='=' 
+    {
+    	newLeafNode(otherlv_29, grammarAccess.getRDCAccess().getEqualsSignKeyword_3_6_1());
+    }
+(
+(
+		lv_resourceZ_30_0=RULE_STRING
+		{
+			newLeafNode(lv_resourceZ_30_0, grammarAccess.getRDCAccess().getResourceZSTRINGTerminalRuleCall_3_6_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRDCRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"resourceZ",
+        		lv_resourceZ_30_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_31=';' 
+    {
+    	newLeafNode(otherlv_31, grammarAccess.getRDCAccess().getSemicolonKeyword_3_6_3());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getRDCAccess().getUnorderedGroup_3());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 7)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 7);
+	 				}
 					({true}?=>(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRDCAccess().getConnectorsConnectorParserRuleCall_3_4_0()); 
+	        newCompositeNode(grammarAccess.getRDCAccess().getConnectorsConnectorParserRuleCall_3_7_0()); 
 	    }
-		lv_connectors_20_0=ruleConnector		{
+		lv_connectors_32_0=ruleConnector		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRDCRule());
 	        }
        		add(
        			$current, 
        			"connectors",
-        		lv_connectors_20_0, 
+        		lv_connectors_32_0, 
         		"Connector");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -832,9 +958,9 @@ ruleRDC returns [EObject current=null]
 	  getUnorderedGroupHelper().leave(grammarAccess.getRDCAccess().getUnorderedGroup_3());
 	}
 
-)	otherlv_21='}' 
+)	otherlv_33='}' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getRDCAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_33, grammarAccess.getRDCAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;
@@ -1774,6 +1900,132 @@ ruleEqInterface returns [EObject current=null]
 	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3());
 	 				}
  				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 10)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 10);
+	 				}
+					({true}?=>(	otherlv_44='ResourceX' 
+    {
+    	newLeafNode(otherlv_44, grammarAccess.getEqInterfaceAccess().getResourceXKeyword_3_10_0());
+    }
+	otherlv_45='=' 
+    {
+    	newLeafNode(otherlv_45, grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_10_1());
+    }
+(
+(
+		lv_resourceX_46_0=RULE_STRING
+		{
+			newLeafNode(lv_resourceX_46_0, grammarAccess.getEqInterfaceAccess().getResourceXSTRINGTerminalRuleCall_3_10_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"resourceX",
+        		lv_resourceX_46_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_47=';' 
+    {
+    	newLeafNode(otherlv_47, grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_10_3());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 11)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 11);
+	 				}
+					({true}?=>(	otherlv_48='ResourceY' 
+    {
+    	newLeafNode(otherlv_48, grammarAccess.getEqInterfaceAccess().getResourceYKeyword_3_11_0());
+    }
+	otherlv_49='=' 
+    {
+    	newLeafNode(otherlv_49, grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_11_1());
+    }
+(
+(
+		lv_resourceY_50_0=RULE_STRING
+		{
+			newLeafNode(lv_resourceY_50_0, grammarAccess.getEqInterfaceAccess().getResourceYSTRINGTerminalRuleCall_3_11_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"resourceY",
+        		lv_resourceY_50_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_51=';' 
+    {
+    	newLeafNode(otherlv_51, grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_11_3());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 12)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3(), 12);
+	 				}
+					({true}?=>(	otherlv_52='ResourceZ' 
+    {
+    	newLeafNode(otherlv_52, grammarAccess.getEqInterfaceAccess().getResourceZKeyword_3_12_0());
+    }
+	otherlv_53='=' 
+    {
+    	newLeafNode(otherlv_53, grammarAccess.getEqInterfaceAccess().getEqualsSignKeyword_3_12_1());
+    }
+(
+(
+		lv_resourceZ_54_0=RULE_STRING
+		{
+			newLeafNode(lv_resourceZ_54_0, grammarAccess.getEqInterfaceAccess().getResourceZSTRINGTerminalRuleCall_3_12_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"resourceZ",
+        		lv_resourceZ_54_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_55=';' 
+    {
+    	newLeafNode(otherlv_55, grammarAccess.getEqInterfaceAccess().getSemicolonKeyword_3_12_3());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3());
+	 				}
+ 				)
 			)  
 
 		)*	
@@ -1783,9 +2035,9 @@ ruleEqInterface returns [EObject current=null]
 	  getUnorderedGroupHelper().leave(grammarAccess.getEqInterfaceAccess().getUnorderedGroup_3());
 	}
 
-)	otherlv_44='}' 
+)	otherlv_56='}' 
     {
-    	newLeafNode(otherlv_44, grammarAccess.getEqInterfaceAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_56, grammarAccess.getEqInterfaceAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;
@@ -2435,52 +2687,70 @@ ruleImplicitEqInterfaceMemberDefinitionAttribute returns [Enumerator current=nul
         newLeafNode(enumLiteral_2, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2()); 
     }
 )
-    |(	enumLiteral_3='Resource' 
+    |(	enumLiteral_3='LineName' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_3, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_3()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_3, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_3()); 
     }
 )
-    |(	enumLiteral_4='LineName' 
+    |(	enumLiteral_4='WiringLane' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_4, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_4()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_4, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_4()); 
     }
 )
-    |(	enumLiteral_5='WiringLane' 
+    |(	enumLiteral_5='GrpInfo' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_5, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_5()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_5, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_5()); 
     }
 )
-    |(	enumLiteral_6='GrpInfo' 
+    |(	enumLiteral_6='Route' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_6, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_6()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_6, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_6()); 
     }
 )
-    |(	enumLiteral_7='Route' 
+    |(	enumLiteral_7='PwSup1' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_7, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_7()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_7, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_7()); 
     }
 )
-    |(	enumLiteral_8='PwSup1' 
+    |(	enumLiteral_8='EmhZone1' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_8, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_8()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_8, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_8()); 
     }
 )
-    |(	enumLiteral_9='EmhZone1' 
+    |(	enumLiteral_9='Type' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_9().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_9, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_9()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_9, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_9()); 
     }
 )
-    |(	enumLiteral_10='Type' 
+    |(	enumLiteral_10='Resource' 
 	{
-        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_10, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_10()); 
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_10, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_10()); 
+    }
+)
+    |(	enumLiteral_11='ResourceX' 
+	{
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCE_XEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_11, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCE_XEnumLiteralDeclaration_11()); 
+    }
+)
+    |(	enumLiteral_12='ResourceY' 
+	{
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCE_YEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_12, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCE_YEnumLiteralDeclaration_12()); 
+    }
+)
+    |(	enumLiteral_13='ResourceZ' 
+	{
+        $current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCE_ZEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_13, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCE_ZEnumLiteralDeclaration_13()); 
     }
 ));
 
@@ -2581,10 +2851,28 @@ ruleDeploymentImplicitDefinitionAttribute returns [Enumerator current=null]
         newLeafNode(enumLiteral_10, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_ESSEnumLiteralDeclaration_10()); 
     }
 )
-    |(	enumLiteral_11='Connector.Name' 
+    |(	enumLiteral_11='RDC.ResourceX' 
 	{
-        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCONNECTOR_NAMEEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_11, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCONNECTOR_NAMEEnumLiteralDeclaration_11()); 
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_RESOURCE_XEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_11, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_RESOURCE_XEnumLiteralDeclaration_11()); 
+    }
+)
+    |(	enumLiteral_12='RDC.ResourceY' 
+	{
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_RESOURCE_YEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_12, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_RESOURCE_YEnumLiteralDeclaration_12()); 
+    }
+)
+    |(	enumLiteral_13='RDC.ResourceZ' 
+	{
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_RESOURCE_ZEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_13, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_RESOURCE_ZEnumLiteralDeclaration_13()); 
+    }
+)
+    |(	enumLiteral_14='Connector.Name' 
+	{
+        $current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCONNECTOR_NAMEEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_14, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCONNECTOR_NAMEEnumLiteralDeclaration_14()); 
     }
 ));
 

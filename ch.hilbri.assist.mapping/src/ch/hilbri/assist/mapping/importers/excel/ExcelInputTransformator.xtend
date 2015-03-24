@@ -24,6 +24,7 @@ class ExcelInputTransformator {
 			createHeader(filePath) 
 			+ createCompartmentsRDCsAndConnectors(filePath) 
 			+ createInterfacesAndGroups(filePath) 
+			+ createRestrictions()
 	}
 
 	def static createHeader(String filePath) {
@@ -149,9 +150,30 @@ Global {
 // 
 //'''
 		return '''
-Compartment C1 {
-	RDC RDC1 {
-		Connector C1 {}
+ 
+/* **********************************
+ * COMPARTMENTS, RDCs, CONNECTORS
+ * ********************************** */
+ 
+Compartment CompartmentName1 {
+	Manufacturer = "";
+	PowerSupply  = "";
+	Side         = "";
+	Zone         = "";
+	
+	RDC RDCName1 {
+		Manufacturer = "";
+		PowerSupply  = "";
+		Type         = "";
+		ESS          = "";
+		ResourceX    = "";
+		ResourceY    = "";
+		ResourceZ    = "";
+		
+		Connector ConnectorName1 {
+			"ExampleIOType" 	= 10;
+			"ExampleIOType2"	= 5;
+		}
 	}
 }		
 '''
@@ -168,22 +190,26 @@ Compartment C1 {
 			workbook = Workbook.getWorkbook(inputWorkbook);
 
 			// Get the first sheet
-			var Sheet sheet = workbook.getSheet("Interfaces")
+			var Sheet sheet = workbook.getSheet("Wiring part V2")
 
 			// Retrieve the data from all applications
 			for (row : 4 ..< sheet.rows) {
 
 				// Retrieve raw data from excel and clean it
-				val system 				= sheet.getCell(2, row).contents  		// Spalte: C
 				val subAta				= sheet.getCell(1, row).contents		// Spalte: B
-				val resource			= sheet.getCell(25, row).contents		// Spalte: Z
-				val lineName			= sheet.getCell(12, row).contents		// Spalte: M
-				val wiringLane			= sheet.getCell(17, row).contents		// Spalte: R
-				val grpInfo				= sheet.getCell(20, row).contents		// Spalte: U
-				val route				= sheet.getCell(8, row).contents		// Spalte: I
-				val pwSup1				= sheet.getCell(9, row).contents		// Spalte: J
+				val system 				= sheet.getCell(2, row).contents  		// Spalte: C
 				val ioType				= sheet.getCell(5, row).contents		// Spalte: F
 				val emhZone1			= sheet.getCell(6, row).contents		// Spalte: G
+				val route				= sheet.getCell(8, row).contents		// Spalte: I
+				val pwSup1				= sheet.getCell(9, row).contents		// Spalte: J
+				val lineName			= sheet.getCell(12, row).contents		// Spalte: M
+				val wiringLane			= sheet.getCell(13, row).contents		// Spalte: N
+				val grpInfo				= sheet.getCell(14, row).contents		// Spalte: O
+				val resource			= sheet.getCell(19, row).contents		// Spalte: T
+				val resourceX			= sheet.getCell(21, row).contents		// Spalte: V
+				val resourceY			= sheet.getCell(22, row).contents		// Spalte: W
+				val resourceZ			= sheet.getCell(23, row).contents		// Spalte: X
+
 //				val restricDeploymentTo = sheet.getCell(3, row).contents		// Spalte: D
 
 
@@ -191,8 +217,7 @@ Compartment C1 {
 	
 					val interfacename = clear(lineName) + "__" + clear(wiringLane)
 				
-				
-					val iface = new ImportInterface(interfacename, system, subAta, resource, lineName, wiringLane, grpInfo, route, pwSup1, ioType, emhZone1)				
+					val iface = new ImportInterface(interfacename, system, subAta, resource, lineName, wiringLane, grpInfo, route, pwSup1, ioType, emhZone1, resourceX, resourceY, resourceZ)				
 
 //					 ****** GRUPPEN ****************
 //					 Create the Group-entry for SubSystem Groups
@@ -211,10 +236,20 @@ Compartment C1 {
 		} catch (BiffException e) {
 			e.printStackTrace();
 		}
-
+		
+//		val allGrpInfoEntries 		= allInterfaces.map[grpInfo].toSet.toList
+//		val allWiringLaneEntries	= allInterfaces.map[wiringLane].toSet.toList
+//		val allSystemEntries 		= allInterfaces.map[system].toSet.toList
+//		val allResourceEntries		= allInterfaces.map[resource].toSet.toList
+		
 		return '''
+ 
+/* **********************************
+ * INTERFACES
+ * ********************************** */
+
 Interfaces {
-	«FOR iface : allInterfaces»
+	«FOR iface : allInterfaces.sortBy[name]»
 	Interface «iface.name» {
 		«IF !iface.system.isNullOrEmpty		»System     = "«iface.system»";«	ENDIF»
 		«IF !iface.subAta.isNullOrEmpty		»SubAta     = "«iface.subAta»";«	ENDIF»
@@ -230,7 +265,48 @@ Interfaces {
 	
 	«ENDFOR»
 }
+
  
-		''';
+/* **********************************
+ * INTERFACE GROUPS
+ * ********************************** */
+ 
+InterfaceGroups {
+
+	// put groups here
+
+}
+''';	
+//	«IF !allGrpInfoEntries.isNullOrEmpty && !allWiringLaneEntries.isNullOrEmpty»// GrpInfo and Wiring Lane Groups«ENDIF»
+//	«FOR grpInfo : allGrpInfoEntries»
+//	«FOR wiringLane : allWiringLaneEntries»
+//	Group «grpInfo + "_" + wiringLane»	{ interfaces with GrpInfo = "«grpInfo»" and WiringLane = "«wiringLane»" };
+//	«ENDFOR»
+//	«ENDFOR»
+//	
+//	«IF !allSystemEntries.isNullOrEmpty && !allWiringLaneEntries.isNullOrEmpty && !allResourceEntries.isNullOrEmpty»// System and Wiring Lane and Resource Groups«ENDIF»
+//	«FOR system : allSystemEntries»
+//	«FOR wiringLane : allWiringLaneEntries»
+//	«FOR resource : allResourceEntries»
+//	Group «system + "_" + wiringLane + "_" + resource» { interfaces with System = "«system»" and WiringLane = "«wiringLane»" and Resource = "«resource»" };
+//	«ENDFOR»
+//	«ENDFOR»
+//	«ENDFOR»
+	
 	}
+	
+	def static createRestrictions() {
+return '''
+ 
+/* *************************************************
+ * RESTRICTIONS (DISLOCALITIES, COLOCALITIES, ...) 
+ * ************************************************* */
+  
+Restrictions {
+	
+	// put restrictions here
+	
+}
+'''}
+
 }

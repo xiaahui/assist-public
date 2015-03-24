@@ -50,6 +50,9 @@ RDC:
 			('PowerSupply' 				'=' powerSupply=STRING ';')?					&
 			('Type' 					'=' rdcType=STRING ';')?						&
 			('ESS'		 				'=' ess=STRING ';')?							&
+			('ResourceX'				'=' resourceX=STRING ';')?						&
+			('ResourceY'				'=' resourceY=STRING ';')?						&
+			('ResourceZ'				'=' resourceZ=STRING ';')?						&
 			connectors+=Connector+
 		)													
 	'}'
@@ -95,14 +98,17 @@ enum ImplicitEqInterfaceMemberDefinitionAttribute:
 	NAME		= 'Name'			|
 	SYSTEM	 	= 'System'			|
 	SUBATA 	 	= 'SubAta'			|
-	RESOURCE	= 'Resource'		|
 	LINENAME	= 'LineName'		|
 	WIRINGLANE	= 'WiringLane'		|
 	GRPINFO		= 'GrpInfo'			|
 	ROUTE		= 'Route'			|
 	PWSUP1		= 'PwSup1'			|
 	EMHZONE1	= 'EmhZone1'		|
-	IOTYPE		= 'Type'
+	IOTYPE		= 'Type'			|
+	RESOURCE	= 'Resource'		|
+	RESOURCE_X  = 'ResourceX'		|
+	RESOURCE_Y  = 'ResourceY'		|
+	RESOURCE_Z  = 'ResourceZ'		
 ;
 
 EqInterfaceGroupWithCombinedDefinition: 
@@ -121,7 +127,10 @@ EqInterface:
 			('Route'			'=' route=STRING 		';')?			&
 			('PwSup1'			'=' pwSup1=STRING 		';')?			&
 			('EmhZone1'			'=' emhZone1=STRING 	';')?			&
-			('Type'				'=' ioType=STRING 		';')?
+			('Type'				'=' ioType=STRING 		';')?			&
+			('ResourceX'		'=' resourceX=STRING	';')?			&
+			('ResourceY'		'=' resourceY=STRING	';')?			&
+			('ResourceZ'		'=' resourceZ=STRING	';')?			
 		)
 	'}';
 
@@ -172,12 +181,17 @@ enum DeploymentImplicitDefinitionAttribute:
 	COMPARTMENT_POWERSUPPLY 	= 'Compartment.PowerSupply' 	|
 	COMPARTMENT_SIDE		 	= 'Compartment.Side'		 	|
 	COMPARTMENT_ZONE		 	= 'Compartment.Zone'		 	|
+	
 	RDC_NAME					= 'RDC.Name'					|
 	RDC_MANUFACTURER 			= 'RDC.Manufacturer'			|
 	RDC_POWERSUPPLY 			= 'RDC.PowerSupply'				|
 	RDC_SIDE 					= 'RDC.Side'					|
 	RDC_TYPE 					= 'RDC.Type'					|
 	RDC_ESS	 					= 'RDC.ESS'						|
+	RDC_RESOURCE_X				= 'RDC.ResourceX'				|
+	RDC_RESOURCE_Y				= 'RDC.ResourceY'				|
+	RDC_RESOURCE_Z				= 'RDC.ResourceZ'				|
+	
 	CONNECTOR_NAME				= 'Connector.Name'
 ;
 

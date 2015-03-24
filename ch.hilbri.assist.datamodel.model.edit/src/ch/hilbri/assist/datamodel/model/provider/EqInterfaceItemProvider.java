@@ -47,7 +47,6 @@ public class EqInterfaceItemProvider
 
 			addSystemPropertyDescriptor(object);
 			addSubAtaPropertyDescriptor(object);
-			addResourcePropertyDescriptor(object);
 			addLineNamePropertyDescriptor(object);
 			addWiringLanePropertyDescriptor(object);
 			addGrpInfoPropertyDescriptor(object);
@@ -55,6 +54,10 @@ public class EqInterfaceItemProvider
 			addPwSup1PropertyDescriptor(object);
 			addEmhZone1PropertyDescriptor(object);
 			addIoTypePropertyDescriptor(object);
+			addResourcePropertyDescriptor(object);
+			addResourceXPropertyDescriptor(object);
+			addResourceYPropertyDescriptor(object);
+			addResourceZPropertyDescriptor(object);
 			addMappedConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -281,6 +284,72 @@ public class EqInterfaceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Resource X feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResourceXPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EqInterface_resourceX_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_resourceX_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__RESOURCE_X,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Resource Y feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResourceYPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EqInterface_resourceY_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_resourceY_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__RESOURCE_Y,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Resource Z feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResourceZPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EqInterface_resourceZ_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_resourceZ_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__RESOURCE_Z,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Mapped Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -372,7 +441,6 @@ public class EqInterfaceItemProvider
 		switch (notification.getFeatureID(EqInterface.class)) {
 			case ModelPackage.EQ_INTERFACE__SYSTEM:
 			case ModelPackage.EQ_INTERFACE__SUB_ATA:
-			case ModelPackage.EQ_INTERFACE__RESOURCE:
 			case ModelPackage.EQ_INTERFACE__LINE_NAME:
 			case ModelPackage.EQ_INTERFACE__WIRING_LANE:
 			case ModelPackage.EQ_INTERFACE__GRP_INFO:
@@ -380,6 +448,10 @@ public class EqInterfaceItemProvider
 			case ModelPackage.EQ_INTERFACE__PW_SUP1:
 			case ModelPackage.EQ_INTERFACE__EMH_ZONE1:
 			case ModelPackage.EQ_INTERFACE__IO_TYPE:
+			case ModelPackage.EQ_INTERFACE__RESOURCE:
+			case ModelPackage.EQ_INTERFACE__RESOURCE_X:
+			case ModelPackage.EQ_INTERFACE__RESOURCE_Y:
+			case ModelPackage.EQ_INTERFACE__RESOURCE_Z:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.EQ_INTERFACE__METRIC_PARAMETERS:

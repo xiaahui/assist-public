@@ -80,11 +80,14 @@ class Compartment extends HardwareElement {
 }
 
 class RDC extends HardwareElement {
-	String manufacturer	= ""
+	String manufacturer		= ""
 	String powerSupply		= ""
 	String side				= ""
 	String rdcType	 		= ""
 	String ess				= ""
+	String resourceX		= ""
+	String resourceY		= ""
+	String resourceZ		= ""
 	container Compartment compartment opposite rdcs
 	contains Connector[0..*] connectors opposite rdc
 	op String toString() 			{ name }
@@ -110,7 +113,6 @@ class EqInterfaceOrGroup {
 class EqInterface extends EqInterfaceOrGroup {
 	String system		= ""
 	String subAta		= ""
-	String resource		= ""
 	String lineName		= ""
 	String wiringLane	= ""
 	String grpInfo		= ""
@@ -118,7 +120,10 @@ class EqInterface extends EqInterfaceOrGroup {
 	String pwSup1		= ""
 	String emhZone1		= ""
 	String ioType		= ""
-
+	String resource		= ""
+	String resourceX	= ""
+	String resourceY	= ""
+	String resourceZ	= ""
 	refers Connector[0..1] 	mappedConnector
 	contains MetricParameter[0..*] metricParameters
 	op String toString() { name }	
@@ -167,6 +172,9 @@ class ImplicitEqInterfaceMemberDefinition {
 				case PWSUP1: 		{ interfaceList = interfaceList.filter[it.pwSup1.equals(entry.value)		]}
 				case EMHZONE1: 		{ interfaceList = interfaceList.filter[it.emhZone1.equals(entry.value)		]}
 				case IOTYPE: 		{ interfaceList = interfaceList.filter[it.ioType.equals(entry.value)		]}
+				case RESOURCE_X: 	{ interfaceList = interfaceList.filter[it.resourceX.equals(entry.value)		]}
+				case RESOURCE_Y: 	{ interfaceList = interfaceList.filter[it.resourceY.equals(entry.value)		]}
+				case RESOURCE_Z: 	{ interfaceList = interfaceList.filter[it.resourceZ.equals(entry.value)		]}
 			} // switch
 		} // for (entry)
 		
@@ -194,6 +202,9 @@ enum ImplicitEqInterfaceMemberDefinitionAttribute {
 	PWSUP1		as 	"PwSup1"
 	EMHZONE1	as 	"EmhZone1"
 	IOTYPE		as 	"IoType"
+	RESOURCE_X	as	"ResourceX"
+	RESOURCE_Y	as	"ResourceY"
+	RESOURCE_Z	as	"ResourceZ"
 }
 
 class EqInterfaceGroupWithCombinedDefinition extends EqInterfaceGroup {
@@ -336,12 +347,17 @@ class DeploymentImplicitDefinition {
 				case COMPARTMENT_POWERSUPPLY:	{ connectorList = connectorList.filter[it.rdc.compartment.powerSupply.equals(entry.value)	]}
 				case COMPARTMENT_SIDE:			{ connectorList = connectorList.filter[it.rdc.compartment.side.equals(entry.value)			]}
 				case COMPARTMENT_ZONE:			{ connectorList = connectorList.filter[it.rdc.compartment.zone.equals(entry.value)			]}
+				
 				case RDC_NAME:					{ connectorList = connectorList.filter[it.rdc.name.equals(entry.value)						]}
 				case RDC_MANUFACTURER: 			{ connectorList = connectorList.filter[it.rdc.manufacturer.equals(entry.value)				]}
 				case RDC_POWERSUPPLY: 			{ connectorList = connectorList.filter[it.rdc.powerSupply.equals(entry.value)				]}
 				case RDC_SIDE: 					{ connectorList = connectorList.filter[it.rdc.side.equals(entry.value)						]}
 				case RDC_TYPE: 					{ connectorList = connectorList.filter[it.rdc.rdcType.equals(entry.value)					]}
 				case RDC_ESS: 					{ connectorList = connectorList.filter[it.rdc.ess.equals(entry.value)						]}
+				case RDC_RESOURCE_X:			{ connectorList = connectorList.filter[it.rdc.resourceX.equals(entry.value)					]}
+				case RDC_RESOURCE_Y:			{ connectorList = connectorList.filter[it.rdc.resourceY.equals(entry.value)					]}
+				case RDC_RESOURCE_Z:			{ connectorList = connectorList.filter[it.rdc.resourceZ.equals(entry.value)					]}
+				
 				case CONNECTOR_NAME:			{ connectorList = connectorList.filter[it.name.equals(entry.value)							]}
 			} // switch
 		} // for (entry)
@@ -370,6 +386,9 @@ enum DeploymentImplicitDefinitionAttribute {
 	RDC_SIDE					as 	"RDC.Side"
 	RDC_TYPE					as 	"RDC.Type"
 	RDC_ESS						as 	"RDC.ESS"
+	RDC_RESOURCE_X				as  "RDC.ResourceX"
+	RDC_RESOURCE_Y				as  "RDC.ResourceY"
+	RDC_RESOURCE_Z				as  "RDC.ResourceZ"
 
 	CONNECTOR_NAME				as	"Connector.Name"
 	
