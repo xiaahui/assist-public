@@ -109,7 +109,7 @@ Restrictions {
  	Invalid for Iface1, Iface5 is { C1.RDC1.Connector4 };
 }
 '''
-		logger = LoggerFactory.getLogger(AbstractMappingTest)
+		logger = LoggerFactory.getLogger(this.class)
 	}
 
 	@Before
@@ -121,7 +121,7 @@ Restrictions {
 		assertNotNull(model) 
 
 		/* Create the job to search for new solutions */
-		solver = new AssistSolver(model, 0)
+		solver = new AssistSolver(model, #[0], true)
 		solver.solverSearchStrategy = SearchType.DEFAULT
 		solver.solverMaxSolutions = 1000
 		assertNotNull(solver)

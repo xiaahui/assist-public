@@ -30,11 +30,10 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 	
 		if (buildConflictGraph) {
 			for (iface:model.eqInterfaces) {
-				val node = new BitSet
-				node.set(conflictGraph.get(0).size)
-				conflictGraph.get(0).add(node)
-				conflictGraph.get(1).add(node.clone as BitSet)
-				conflictGraph.get(2).add(node.clone as BitSet)
+				// we build one conflict matrix for each level
+				conflictGraph.get(0).add(new BitSet)
+				conflictGraph.get(1).add(new BitSet)
+				conflictGraph.get(2).add(new BitSet)
 			}	
 		}
 	}
@@ -144,7 +143,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				val idx = model.eqInterfaces.indexOf(iface)
 				for (conflictListIdx : sublistIdx+1..<ifaceList.size) {
 					for (conflict : ifaceList.get(conflictListIdx)) {
-						val conflictIdx = model.eqInterfaces.indexOf(iface)
+						val conflictIdx = model.eqInterfaces.indexOf(conflict)
 						graph.get(idx).set(conflictIdx)
 						graph.get(conflictIdx).set(idx)
 					}	
@@ -154,20 +153,21 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 	}
 	
 	def BitSet findClique(BitSet candidates, List<BitSet> graph) {
-		var BitSet clique = (candidates.clone as BitSet)
-		for (var int outIdx = clique.nextSetBit(0); outIdx != -1; outIdx = clique.nextSetBit(outIdx+1)) {
-			var BitSet maxNode = null
-			var int maxCard = 0
-			for (var int idx = candidates.nextSetBit(outIdx+1); idx != -1; idx = candidates.nextSetBit(idx+1)) {
+		val clique = new BitSet
+		while (!candidates.empty) {
+			var int maxIdx = -1
+			var int maxCard = -1
+			for (var int idx = candidates.nextSetBit(0); idx != -1; idx = candidates.nextSetBit(idx+1)) {
 				var BitSet nodeClone = (graph.get(idx).clone as BitSet)
-				nodeClone.and(clique)
+				nodeClone.and(candidates)
 				val card = nodeClone.cardinality
 				if (card > maxCard) {
-					maxNode = graph.get(idx)
+					maxIdx = idx
 					maxCard = card
 				}			
 			}
-			clique.and(maxNode)
+			candidates.and(graph.get(maxIdx))
+			clique.set(maxIdx)			
 		}
 		return clique
 	}
@@ -179,32 +179,22 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 		}
 		while (true) {
 			// find start node with maximum number of uncovered edges
-			var BitSet maxNode = null
+			var int maxIdx = -1
 			var int maxCard = 0
-			for (node:uncovered) {
-				val card = node.cardinality
+			for (idx : 0..<uncovered.size) {
+				val card = uncovered.get(idx).cardinality
 				if (card > maxCard) {
-					maxNode = node
+					maxIdx = idx
 					maxCard = card
 				}
 			}
 			if (maxCard == 0) {
 				return
 			}
-			// find maximum neighbor among the ones reachable via uncovered edges
-			var BitSet maxCovNode = null
-			var int maxCovCard = 0
-			for (var int idx = maxNode.nextSetBit(0); idx != -1; idx = maxNode.nextSetBit(idx+1)) {
-				val card = graph.get(idx).cardinality
-				if (card > maxCovCard) {
-					maxCovNode = graph.get(idx)
-					maxCovCard = card
-				}
-			}
-			// the candidates are the common neighborhood of the first two
-			val BitSet candidates = maxNode.clone as BitSet
-			candidates.and(maxCovNode)
+			// the candidates are the uncovered neighborhood of the first
+			val candidates = uncovered.get(maxIdx).clone as BitSet
 			val clique = findClique(candidates, graph)
+			clique.set(maxIdx)
 			val conflict = new ArrayList<IntVar>
 			for (var int idx = clique.nextSetBit(0); idx != -1; idx = clique.nextSetBit(idx+1)) {
 				conflict.add(intVarList.get(idx))
