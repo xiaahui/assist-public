@@ -58,7 +58,6 @@ public class EqInterfaceItemProvider
 			addResourceXPropertyDescriptor(object);
 			addResourceYPropertyDescriptor(object);
 			addResourceZPropertyDescriptor(object);
-			addMappedConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -345,28 +344,6 @@ public class EqInterfaceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Mapped Connector feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMappedConnectorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EqInterface_mappedConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_mappedConnector_feature", "_UI_EqInterface_type"),
-				 ModelPackage.Literals.EQ_INTERFACE__MAPPED_CONNECTOR,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

@@ -124,7 +124,6 @@ class EqInterface extends EqInterfaceOrGroup {
 	String resourceX	= ""
 	String resourceY	= ""
 	String resourceZ	= ""
-	refers Connector[0..1] 	mappedConnector
 	contains MetricParameter[0..*] metricParameters
 	op String toString() { name }	
 }

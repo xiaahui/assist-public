@@ -63,7 +63,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(EqInterface a) {
-		'Interface ' + a.name + '(type: "' + a.ioType + '")'
+		'Interface ' + a.name + ' (type: "' + a.ioType + '")'
 	}
 
 	def image(EqInterface a) {

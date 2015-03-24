@@ -25,12 +25,12 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		val imgfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_folder_16x16.png"), null));
 		val imgsubfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_subfolder_16x16.png"), null));
 		
-		/* ---------- HARDWARE ------------- */
+		/* ---------- COMPARTMENTS ------------- */
 		val compartmentsNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Compartments", false)
 		for (compartment : model.compartments)
 			createNode(compartmentsNode, compartment)
 		
-		/* ---------- APPLICATIONS AND GROUPS --------- */
+		/* ---------- INTERFACES AND GROUPS --------- */
 		val interfaceNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Interfaces", false)
 		for (iface : model.eqInterfaces) 
 			createNode(interfaceNode, iface)
