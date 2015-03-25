@@ -85,9 +85,9 @@ class RDC extends HardwareElement {
 	String side				= ""
 	String rdcType	 		= ""
 	String ess				= ""
-	String resourceX		= ""
-	String resourceY		= ""
-	String resourceZ		= ""
+	int resourceX			= "0"
+	int resourceY			= "0"
+	int resourceZ			= "0"
 	container Compartment compartment opposite rdcs
 	contains Connector[0..*] connectors opposite rdc
 	op String toString() 			{ name }
@@ -121,9 +121,9 @@ class EqInterface extends EqInterfaceOrGroup {
 	String emhZone1		= ""
 	String ioType		= ""
 	String resource		= ""
-	String resourceX	= ""
-	String resourceY	= ""
-	String resourceZ	= ""
+	int resourceX		= "0"
+	int resourceY		= "0"
+	int resourceZ		= "0"
 	contains MetricParameter[0..*] metricParameters
 	op String toString() { name }	
 }

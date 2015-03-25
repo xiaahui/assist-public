@@ -330,9 +330,9 @@ public class InfoSheetView {
 				addRowToTableComponentProperties("Side", b.getSide());
 				addRowToTableComponentProperties("Type", b.getRdcType());
 				addRowToTableComponentProperties("ESS", b.getEss());
-				addRowToTableComponentProperties("Resource X", b.getResourceX());
-				addRowToTableComponentProperties("Resource Y", b.getResourceY());
-				addRowToTableComponentProperties("Resource Z", b.getResourceZ());
+				addRowToTableComponentProperties("Resource X", ""+b.getResourceX());
+				addRowToTableComponentProperties("Resource Y", ""+b.getResourceY());
+				addRowToTableComponentProperties("Resource Z", ""+b.getResourceZ());
 				addRowToTableComponentProperties("Contains connectors", b.getConnectors().toString());
 	
 			} else if (obj instanceof Compartment) {
@@ -361,9 +361,9 @@ public class InfoSheetView {
 			addRowToTableComponentProperties("EmhZone1", iface.getEmhZone1());
 			addRowToTableComponentProperties("IOType", iface.getIoType());
 			addRowToTableComponentProperties("Resource", iface.getResource());
-			addRowToTableComponentProperties("Resource X", iface.getResourceX());
-			addRowToTableComponentProperties("Resource Y", iface.getResourceY());
-			addRowToTableComponentProperties("Resource Z", iface.getResourceZ());
+			addRowToTableComponentProperties("Resource X", ""+iface.getResourceX());
+			addRowToTableComponentProperties("Resource Y", ""+iface.getResourceY());
+			addRowToTableComponentProperties("Resource Z", ""+iface.getResourceZ());
 		}
 	}
 

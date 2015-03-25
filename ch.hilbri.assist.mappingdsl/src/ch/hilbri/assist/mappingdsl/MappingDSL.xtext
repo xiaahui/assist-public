@@ -1,6 +1,7 @@
 grammar ch.hilbri.assist.mappingdsl.MappingDSL with org.eclipse.xtext.common.Terminals
 
 import "ch.hilbri.assist.datamodel.model"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 AssistModel: 
 	'Global'  '{' 
@@ -50,9 +51,9 @@ RDC:
 			('PowerSupply' 				'=' powerSupply=STRING ';')?					&
 			('Type' 					'=' rdcType=STRING ';')?						&
 			('ESS'		 				'=' ess=STRING ';')?							&
-			('ResourceX'				'=' resourceX=STRING ';')?						&
-			('ResourceY'				'=' resourceY=STRING ';')?						&
-			('ResourceZ'				'=' resourceZ=STRING ';')?						&
+			('ResourceX'				'=' resourceX=SIGNEDINT ';')?						&
+			('ResourceY'				'=' resourceY=SIGNEDINT ';')?						&
+			('ResourceZ'				'=' resourceZ=SIGNEDINT ';')?						&
 			connectors+=Connector+
 		)													
 	'}'
@@ -128,9 +129,9 @@ EqInterface:
 			('PwSup1'			'=' pwSup1=STRING 		';')?			&
 			('EmhZone1'			'=' emhZone1=STRING 	';')?			&
 			('Type'				'=' ioType=STRING 		';')?			&
-			('ResourceX'		'=' resourceX=STRING	';')?			&
-			('ResourceY'		'=' resourceY=STRING	';')?			&
-			('ResourceZ'		'=' resourceZ=STRING	';')?			
+			('ResourceX'		'=' resourceX=SIGNEDINT	';')?			&
+			('ResourceY'		'=' resourceY=SIGNEDINT	';')?			&
+			('ResourceZ'		'=' resourceZ=SIGNEDINT	';')?			
 		)
 	'}';
 
@@ -204,6 +205,8 @@ QualifiedName:
 	ID ('.' ID)*
 ;
 
+SIGNEDINT returns ecore::EInt:
+  '-'? INT;
 
 /* OLD STUFF */
 

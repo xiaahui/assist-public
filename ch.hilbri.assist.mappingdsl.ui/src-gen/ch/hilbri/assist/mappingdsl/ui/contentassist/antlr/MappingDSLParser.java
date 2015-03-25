@@ -106,6 +106,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMetricParameterAccess().getGroup(), "rule__MetricParameter__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
+					put(grammarAccess.getSIGNEDINTAccess().getGroup(), "rule__SIGNEDINT__Group__0");
 					put(grammarAccess.getAssistModelAccess().getSystemNameAssignment_4(), "rule__AssistModel__SystemNameAssignment_4");
 					put(grammarAccess.getAssistModelAccess().getCompartmentsAssignment_7(), "rule__AssistModel__CompartmentsAssignment_7");
 					put(grammarAccess.getAssistModelAccess().getEqInterfacesAssignment_8_2(), "rule__AssistModel__EqInterfacesAssignment_8_2");

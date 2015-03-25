@@ -166,9 +166,9 @@ Compartment CompartmentName1 {
 		PowerSupply  = "";
 		Type         = "";
 		ESS          = "";
-		ResourceX    = "";
-		ResourceY    = "";
-		ResourceZ    = "";
+		ResourceX    = 0;
+		ResourceY    = 0;
+		ResourceZ    = 0;
 		
 		Connector ConnectorName1 {
 			"ExampleIOType" 	= 10;
@@ -246,16 +246,19 @@ Compartment CompartmentName1 {
 Interfaces {
 	«FOR iface : allInterfaces.sortBy[name]»
 	Interface «iface.name» {
-		«IF !iface.system.isNullOrEmpty		»System     = "«iface.system»";«	ENDIF»
-		«IF !iface.subAta.isNullOrEmpty		»SubAta     = "«iface.subAta»";«	ENDIF»
-		«IF !iface.resource.isNullOrEmpty	»Resource   = "«iface.resource»";«	ENDIF»
-		«IF !iface.lineName.isNullOrEmpty	»LineName   = "«iface.lineName»";«	ENDIF»
-		«IF !iface.wiringLane.isNullOrEmpty	»WiringLane = "«iface.wiringLane»";«ENDIF»
-		«IF !iface.grpInfo.isNullOrEmpty	»GrpInfo    = "«iface.grpInfo»";«	ENDIF»
-		«IF !iface.route.isNullOrEmpty		»Route      = "«iface.route»";«		ENDIF»
-		«IF !iface.pwSup1.isNullOrEmpty		»PwSup1     = "«iface.pwSup1»";«	ENDIF»
-		«IF !iface.emhZone1.isNullOrEmpty	»EmhZone1   = "«iface.emhZone1»";«	ENDIF»
-		«IF !iface.ioType.isNullOrEmpty		»Type       = "«iface.ioType»";«	ENDIF»
+		«IF !iface.system.isNullOrEmpty		»System     = "«iface.system.trim»";«	ENDIF»
+		«IF !iface.subAta.isNullOrEmpty		»SubAta     = "«iface.subAta.trim»";«	ENDIF»
+		«IF !iface.resource.isNullOrEmpty	»Resource   = "«iface.resource.trim»";«	ENDIF»
+		«IF !iface.lineName.isNullOrEmpty	»LineName   = "«iface.lineName.trim»";«	ENDIF»
+		«IF !iface.wiringLane.isNullOrEmpty	»WiringLane = "«iface.wiringLane.trim»";«ENDIF»
+		«IF !iface.grpInfo.isNullOrEmpty	»GrpInfo    = "«iface.grpInfo.trim»";«	ENDIF»
+		«IF !iface.route.isNullOrEmpty		»Route      = "«iface.route.trim»";«	ENDIF»
+		«IF !iface.pwSup1.isNullOrEmpty		»PwSup1     = "«iface.pwSup1.trim»";«	ENDIF»
+		«IF !iface.emhZone1.isNullOrEmpty	»EmhZone1   = "«iface.emhZone1.trim»";«	ENDIF»
+		«IF !iface.ioType.isNullOrEmpty		»Type       = "«iface.ioType.trim»";«	ENDIF»
+		«IF !iface.resourceX.isNullOrEmpty	»ResourceX  =  «iface.resourceX.trim»;«	ENDIF»
+		«IF !iface.resourceY.isNullOrEmpty	»ResourceY  =  «iface.resourceY.trim»;«	ENDIF»
+		«IF !iface.resourceZ.isNullOrEmpty	»ResourceZ  =  «iface.resourceZ.trim»;«	ENDIF»
 	}
 	
 	«ENDFOR»

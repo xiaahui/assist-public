@@ -809,19 +809,19 @@ ruleRDC returns [EObject current=null]
     }
 (
 (
-		lv_resourceX_22_0=RULE_STRING
-		{
-			newLeafNode(lv_resourceX_22_0, grammarAccess.getRDCAccess().getResourceXSTRINGTerminalRuleCall_3_4_2_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getRDCAccess().getResourceXSIGNEDINTParserRuleCall_3_4_2_0()); 
+	    }
+		lv_resourceX_22_0=ruleSIGNEDINT		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getRDCRule());
+	            $current = createModelElementForParent(grammarAccess.getRDCRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"resourceX",
         		lv_resourceX_22_0, 
-        		"STRING");
+        		"SIGNEDINT");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -851,19 +851,19 @@ ruleRDC returns [EObject current=null]
     }
 (
 (
-		lv_resourceY_26_0=RULE_STRING
-		{
-			newLeafNode(lv_resourceY_26_0, grammarAccess.getRDCAccess().getResourceYSTRINGTerminalRuleCall_3_5_2_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getRDCAccess().getResourceYSIGNEDINTParserRuleCall_3_5_2_0()); 
+	    }
+		lv_resourceY_26_0=ruleSIGNEDINT		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getRDCRule());
+	            $current = createModelElementForParent(grammarAccess.getRDCRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"resourceY",
         		lv_resourceY_26_0, 
-        		"STRING");
+        		"SIGNEDINT");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -893,19 +893,19 @@ ruleRDC returns [EObject current=null]
     }
 (
 (
-		lv_resourceZ_30_0=RULE_STRING
-		{
-			newLeafNode(lv_resourceZ_30_0, grammarAccess.getRDCAccess().getResourceZSTRINGTerminalRuleCall_3_6_2_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getRDCAccess().getResourceZSIGNEDINTParserRuleCall_3_6_2_0()); 
+	    }
+		lv_resourceZ_30_0=ruleSIGNEDINT		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getRDCRule());
+	            $current = createModelElementForParent(grammarAccess.getRDCRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"resourceZ",
         		lv_resourceZ_30_0, 
-        		"STRING");
+        		"SIGNEDINT");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -1917,19 +1917,19 @@ ruleEqInterface returns [EObject current=null]
     }
 (
 (
-		lv_resourceX_46_0=RULE_STRING
-		{
-			newLeafNode(lv_resourceX_46_0, grammarAccess.getEqInterfaceAccess().getResourceXSTRINGTerminalRuleCall_3_10_2_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getEqInterfaceAccess().getResourceXSIGNEDINTParserRuleCall_3_10_2_0()); 
+	    }
+		lv_resourceX_46_0=ruleSIGNEDINT		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
+	            $current = createModelElementForParent(grammarAccess.getEqInterfaceRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"resourceX",
         		lv_resourceX_46_0, 
-        		"STRING");
+        		"SIGNEDINT");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -1959,19 +1959,19 @@ ruleEqInterface returns [EObject current=null]
     }
 (
 (
-		lv_resourceY_50_0=RULE_STRING
-		{
-			newLeafNode(lv_resourceY_50_0, grammarAccess.getEqInterfaceAccess().getResourceYSTRINGTerminalRuleCall_3_11_2_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getEqInterfaceAccess().getResourceYSIGNEDINTParserRuleCall_3_11_2_0()); 
+	    }
+		lv_resourceY_50_0=ruleSIGNEDINT		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
+	            $current = createModelElementForParent(grammarAccess.getEqInterfaceRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"resourceY",
         		lv_resourceY_50_0, 
-        		"STRING");
+        		"SIGNEDINT");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -2001,19 +2001,19 @@ ruleEqInterface returns [EObject current=null]
     }
 (
 (
-		lv_resourceZ_54_0=RULE_STRING
-		{
-			newLeafNode(lv_resourceZ_54_0, grammarAccess.getEqInterfaceAccess().getResourceZSTRINGTerminalRuleCall_3_12_2_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getEqInterfaceAccess().getResourceZSIGNEDINTParserRuleCall_3_12_2_0()); 
+	    }
+		lv_resourceZ_54_0=ruleSIGNEDINT		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getEqInterfaceRule());
+	            $current = createModelElementForParent(grammarAccess.getEqInterfaceRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"resourceZ",
         		lv_resourceZ_54_0, 
-        		"STRING");
+        		"SIGNEDINT");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -2659,6 +2659,40 @@ ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
     newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
     }
 )*)
+    ;
+
+
+
+
+
+// Entry rule entryRuleSIGNEDINT
+entryRuleSIGNEDINT returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getSIGNEDINTRule()); } 
+	 iv_ruleSIGNEDINT=ruleSIGNEDINT 
+	 { $current=$iv_ruleSIGNEDINT.current.getText(); }  
+	 EOF 
+;
+
+// Rule SIGNEDINT
+ruleSIGNEDINT returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+	kw='-' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getSIGNEDINTAccess().getHyphenMinusKeyword_0()); 
+    }
+)?    this_INT_1=RULE_INT    {
+		$current.merge(this_INT_1);
+    }
+
+    { 
+    newLeafNode(this_INT_1, grammarAccess.getSIGNEDINTAccess().getINTTerminalRuleCall_1()); 
+    }
+)
     ;
 
 

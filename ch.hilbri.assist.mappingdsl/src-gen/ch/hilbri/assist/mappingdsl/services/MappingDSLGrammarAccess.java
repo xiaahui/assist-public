@@ -372,19 +372,19 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cResourceXKeyword_3_4_0 = (Keyword)cGroup_3_4.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_3_4_1 = (Keyword)cGroup_3_4.eContents().get(1);
 		private final Assignment cResourceXAssignment_3_4_2 = (Assignment)cGroup_3_4.eContents().get(2);
-		private final RuleCall cResourceXSTRINGTerminalRuleCall_3_4_2_0 = (RuleCall)cResourceXAssignment_3_4_2.eContents().get(0);
+		private final RuleCall cResourceXSIGNEDINTParserRuleCall_3_4_2_0 = (RuleCall)cResourceXAssignment_3_4_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3_4_3 = (Keyword)cGroup_3_4.eContents().get(3);
 		private final Group cGroup_3_5 = (Group)cUnorderedGroup_3.eContents().get(5);
 		private final Keyword cResourceYKeyword_3_5_0 = (Keyword)cGroup_3_5.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_3_5_1 = (Keyword)cGroup_3_5.eContents().get(1);
 		private final Assignment cResourceYAssignment_3_5_2 = (Assignment)cGroup_3_5.eContents().get(2);
-		private final RuleCall cResourceYSTRINGTerminalRuleCall_3_5_2_0 = (RuleCall)cResourceYAssignment_3_5_2.eContents().get(0);
+		private final RuleCall cResourceYSIGNEDINTParserRuleCall_3_5_2_0 = (RuleCall)cResourceYAssignment_3_5_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3_5_3 = (Keyword)cGroup_3_5.eContents().get(3);
 		private final Group cGroup_3_6 = (Group)cUnorderedGroup_3.eContents().get(6);
 		private final Keyword cResourceZKeyword_3_6_0 = (Keyword)cGroup_3_6.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_3_6_1 = (Keyword)cGroup_3_6.eContents().get(1);
 		private final Assignment cResourceZAssignment_3_6_2 = (Assignment)cGroup_3_6.eContents().get(2);
-		private final RuleCall cResourceZSTRINGTerminalRuleCall_3_6_2_0 = (RuleCall)cResourceZAssignment_3_6_2.eContents().get(0);
+		private final RuleCall cResourceZSIGNEDINTParserRuleCall_3_6_2_0 = (RuleCall)cResourceZAssignment_3_6_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3_6_3 = (Keyword)cGroup_3_6.eContents().get(3);
 		private final Assignment cConnectorsAssignment_3_7 = (Assignment)cUnorderedGroup_3.eContents().get(7);
 		private final RuleCall cConnectorsConnectorParserRuleCall_3_7_0 = (RuleCall)cConnectorsAssignment_3_7.eContents().get(0);
@@ -392,13 +392,14 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//RDC:
 		//	"RDC" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING ";")? &
-		//	("Type" "=" rdcType=STRING ";")? & ("ESS" "=" ess=STRING ";")? & ("ResourceX" "=" resourceX=STRING ";")? &
-		//	("ResourceY" "=" resourceY=STRING ";")? & ("ResourceZ" "=" resourceZ=STRING ";")? & connectors+=Connector+) "}";
+		//	("Type" "=" rdcType=STRING ";")? & ("ESS" "=" ess=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? &
+		//	("ResourceY" "=" resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")? & connectors+=Connector+)
+		//	"}";
 		public ParserRule getRule() { return rule; }
 
 		//"RDC" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING ";")? & ("Type"
-		//"=" rdcType=STRING ";")? & ("ESS" "=" ess=STRING ";")? & ("ResourceX" "=" resourceX=STRING ";")? & ("ResourceY" "="
-		//resourceY=STRING ";")? & ("ResourceZ" "=" resourceZ=STRING ";")? & connectors+=Connector+) "}"
+		//"=" rdcType=STRING ";")? & ("ESS" "=" ess=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? & ("ResourceY" "="
+		//resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")? & connectors+=Connector+) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"RDC"
@@ -414,8 +415,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
 		//("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING ";")? & ("Type" "=" rdcType=STRING
-		//";")? & ("ESS" "=" ess=STRING ";")? & ("ResourceX" "=" resourceX=STRING ";")? & ("ResourceY" "=" resourceY=STRING
-		//";")? & ("ResourceZ" "=" resourceZ=STRING ";")? & connectors+=Connector+
+		//";")? & ("ESS" "=" ess=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? & ("ResourceY" "="
+		//resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")? & connectors+=Connector+
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
 		//("Manufacturer" "=" manufacturer=STRING ";")?
@@ -490,7 +491,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_3_3_3() { return cSemicolonKeyword_3_3_3; }
 
-		//("ResourceX" "=" resourceX=STRING ";")?
+		//("ResourceX" "=" resourceX=SIGNEDINT ";")?
 		public Group getGroup_3_4() { return cGroup_3_4; }
 
 		//"ResourceX"
@@ -499,16 +500,16 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_3_4_1() { return cEqualsSignKeyword_3_4_1; }
 
-		//resourceX=STRING
+		//resourceX=SIGNEDINT
 		public Assignment getResourceXAssignment_3_4_2() { return cResourceXAssignment_3_4_2; }
 
-		//STRING
-		public RuleCall getResourceXSTRINGTerminalRuleCall_3_4_2_0() { return cResourceXSTRINGTerminalRuleCall_3_4_2_0; }
+		//SIGNEDINT
+		public RuleCall getResourceXSIGNEDINTParserRuleCall_3_4_2_0() { return cResourceXSIGNEDINTParserRuleCall_3_4_2_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_3_4_3() { return cSemicolonKeyword_3_4_3; }
 
-		//("ResourceY" "=" resourceY=STRING ";")?
+		//("ResourceY" "=" resourceY=SIGNEDINT ";")?
 		public Group getGroup_3_5() { return cGroup_3_5; }
 
 		//"ResourceY"
@@ -517,16 +518,16 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_3_5_1() { return cEqualsSignKeyword_3_5_1; }
 
-		//resourceY=STRING
+		//resourceY=SIGNEDINT
 		public Assignment getResourceYAssignment_3_5_2() { return cResourceYAssignment_3_5_2; }
 
-		//STRING
-		public RuleCall getResourceYSTRINGTerminalRuleCall_3_5_2_0() { return cResourceYSTRINGTerminalRuleCall_3_5_2_0; }
+		//SIGNEDINT
+		public RuleCall getResourceYSIGNEDINTParserRuleCall_3_5_2_0() { return cResourceYSIGNEDINTParserRuleCall_3_5_2_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_3_5_3() { return cSemicolonKeyword_3_5_3; }
 
-		//("ResourceZ" "=" resourceZ=STRING ";")?
+		//("ResourceZ" "=" resourceZ=SIGNEDINT ";")?
 		public Group getGroup_3_6() { return cGroup_3_6; }
 
 		//"ResourceZ"
@@ -535,11 +536,11 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_3_6_1() { return cEqualsSignKeyword_3_6_1; }
 
-		//resourceZ=STRING
+		//resourceZ=SIGNEDINT
 		public Assignment getResourceZAssignment_3_6_2() { return cResourceZAssignment_3_6_2; }
 
-		//STRING
-		public RuleCall getResourceZSTRINGTerminalRuleCall_3_6_2_0() { return cResourceZSTRINGTerminalRuleCall_3_6_2_0; }
+		//SIGNEDINT
+		public RuleCall getResourceZSIGNEDINTParserRuleCall_3_6_2_0() { return cResourceZSIGNEDINTParserRuleCall_3_6_2_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_3_6_3() { return cSemicolonKeyword_3_6_3; }
@@ -934,19 +935,19 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cResourceXKeyword_3_10_0 = (Keyword)cGroup_3_10.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_3_10_1 = (Keyword)cGroup_3_10.eContents().get(1);
 		private final Assignment cResourceXAssignment_3_10_2 = (Assignment)cGroup_3_10.eContents().get(2);
-		private final RuleCall cResourceXSTRINGTerminalRuleCall_3_10_2_0 = (RuleCall)cResourceXAssignment_3_10_2.eContents().get(0);
+		private final RuleCall cResourceXSIGNEDINTParserRuleCall_3_10_2_0 = (RuleCall)cResourceXAssignment_3_10_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3_10_3 = (Keyword)cGroup_3_10.eContents().get(3);
 		private final Group cGroup_3_11 = (Group)cUnorderedGroup_3.eContents().get(11);
 		private final Keyword cResourceYKeyword_3_11_0 = (Keyword)cGroup_3_11.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_3_11_1 = (Keyword)cGroup_3_11.eContents().get(1);
 		private final Assignment cResourceYAssignment_3_11_2 = (Assignment)cGroup_3_11.eContents().get(2);
-		private final RuleCall cResourceYSTRINGTerminalRuleCall_3_11_2_0 = (RuleCall)cResourceYAssignment_3_11_2.eContents().get(0);
+		private final RuleCall cResourceYSIGNEDINTParserRuleCall_3_11_2_0 = (RuleCall)cResourceYAssignment_3_11_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3_11_3 = (Keyword)cGroup_3_11.eContents().get(3);
 		private final Group cGroup_3_12 = (Group)cUnorderedGroup_3.eContents().get(12);
 		private final Keyword cResourceZKeyword_3_12_0 = (Keyword)cGroup_3_12.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_3_12_1 = (Keyword)cGroup_3_12.eContents().get(1);
 		private final Assignment cResourceZAssignment_3_12_2 = (Assignment)cGroup_3_12.eContents().get(2);
-		private final RuleCall cResourceZSTRINGTerminalRuleCall_3_12_2_0 = (RuleCall)cResourceZAssignment_3_12_2.eContents().get(0);
+		private final RuleCall cResourceZSIGNEDINTParserRuleCall_3_12_2_0 = (RuleCall)cResourceZAssignment_3_12_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3_12_3 = (Keyword)cGroup_3_12.eContents().get(3);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
@@ -954,15 +955,15 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//	"Interface" name=ID "{" (("System" "=" system=STRING ";")? & ("SubAta" "=" subAta=STRING ";")? & ("Resource" "="
 		//	resource=STRING ";")? & ("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? &
 		//	("GrpInfo" "=" grpInfo=STRING ";")? & ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? &
-		//	("EmhZone1" "=" emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=STRING ";")? &
-		//	("ResourceY" "=" resourceY=STRING ";")? & ("ResourceZ" "=" resourceZ=STRING ";")?) "}";
+		//	("EmhZone1" "=" emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")?
+		//	& ("ResourceY" "=" resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")?) "}";
 		public ParserRule getRule() { return rule; }
 
 		//"Interface" name=ID "{" (("System" "=" system=STRING ";")? & ("SubAta" "=" subAta=STRING ";")? & ("Resource" "="
 		//resource=STRING ";")? & ("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? & ("GrpInfo"
 		//"=" grpInfo=STRING ";")? & ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? & ("EmhZone1" "="
-		//emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=STRING ";")? & ("ResourceY" "="
-		//resourceY=STRING ";")? & ("ResourceZ" "=" resourceZ=STRING ";")?) "}"
+		//emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? & ("ResourceY"
+		//"=" resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")?) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Interface"
@@ -980,8 +981,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//("System" "=" system=STRING ";")? & ("SubAta" "=" subAta=STRING ";")? & ("Resource" "=" resource=STRING ";")? &
 		//("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? & ("GrpInfo" "=" grpInfo=STRING
 		//";")? & ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? & ("EmhZone1" "=" emhZone1=STRING ";")? &
-		//("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=STRING ";")? & ("ResourceY" "=" resourceY=STRING ";")? &
-		//("ResourceZ" "=" resourceZ=STRING ";")?
+		//("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? & ("ResourceY" "=" resourceY=SIGNEDINT
+		//";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
 		//("System" "=" system=STRING ";")?
@@ -1164,7 +1165,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_3_9_3() { return cSemicolonKeyword_3_9_3; }
 
-		//("ResourceX" "=" resourceX=STRING ";")?
+		//("ResourceX" "=" resourceX=SIGNEDINT ";")?
 		public Group getGroup_3_10() { return cGroup_3_10; }
 
 		//"ResourceX"
@@ -1173,16 +1174,16 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_3_10_1() { return cEqualsSignKeyword_3_10_1; }
 
-		//resourceX=STRING
+		//resourceX=SIGNEDINT
 		public Assignment getResourceXAssignment_3_10_2() { return cResourceXAssignment_3_10_2; }
 
-		//STRING
-		public RuleCall getResourceXSTRINGTerminalRuleCall_3_10_2_0() { return cResourceXSTRINGTerminalRuleCall_3_10_2_0; }
+		//SIGNEDINT
+		public RuleCall getResourceXSIGNEDINTParserRuleCall_3_10_2_0() { return cResourceXSIGNEDINTParserRuleCall_3_10_2_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_3_10_3() { return cSemicolonKeyword_3_10_3; }
 
-		//("ResourceY" "=" resourceY=STRING ";")?
+		//("ResourceY" "=" resourceY=SIGNEDINT ";")?
 		public Group getGroup_3_11() { return cGroup_3_11; }
 
 		//"ResourceY"
@@ -1191,16 +1192,16 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_3_11_1() { return cEqualsSignKeyword_3_11_1; }
 
-		//resourceY=STRING
+		//resourceY=SIGNEDINT
 		public Assignment getResourceYAssignment_3_11_2() { return cResourceYAssignment_3_11_2; }
 
-		//STRING
-		public RuleCall getResourceYSTRINGTerminalRuleCall_3_11_2_0() { return cResourceYSTRINGTerminalRuleCall_3_11_2_0; }
+		//SIGNEDINT
+		public RuleCall getResourceYSIGNEDINTParserRuleCall_3_11_2_0() { return cResourceYSIGNEDINTParserRuleCall_3_11_2_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_3_11_3() { return cSemicolonKeyword_3_11_3; }
 
-		//("ResourceZ" "=" resourceZ=STRING ";")?
+		//("ResourceZ" "=" resourceZ=SIGNEDINT ";")?
 		public Group getGroup_3_12() { return cGroup_3_12; }
 
 		//"ResourceZ"
@@ -1209,11 +1210,11 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_3_12_1() { return cEqualsSignKeyword_3_12_1; }
 
-		//resourceZ=STRING
+		//resourceZ=SIGNEDINT
 		public Assignment getResourceZAssignment_3_12_2() { return cResourceZAssignment_3_12_2; }
 
-		//STRING
-		public RuleCall getResourceZSTRINGTerminalRuleCall_3_12_2_0() { return cResourceZSTRINGTerminalRuleCall_3_12_2_0; }
+		//SIGNEDINT
+		public RuleCall getResourceZSIGNEDINTParserRuleCall_3_12_2_0() { return cResourceZSIGNEDINTParserRuleCall_3_12_2_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_3_12_3() { return cSemicolonKeyword_3_12_3; }
@@ -1730,6 +1731,32 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
+		//QualifiedName:
+		//	ID ("." ID)*;
+		public ParserRule getRule() { return rule; }
+
+		//ID ("." ID)*
+		public Group getGroup() { return cGroup; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+
+		//("." ID)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"."
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+	}
+
+	public class SIGNEDINTElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SIGNEDINT");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		
 		/// * OLD STUFF * / / * 
 		//DissimilarityRelation: 
 		//	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
@@ -1775,24 +1802,108 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//	MANUFACTURER 	= 'Manufacturer' 	| 
 		//	PROCESSORTYPE	= 'ProcessorType' 
 		//;
-		// * / QualifiedName:
-		//	ID ("." ID)*;
+		// * / SIGNEDINT returns ecore::EInt:
+		//	"-"? INT;
 		public ParserRule getRule() { return rule; }
 
-		//ID ("." ID)*
+		//"-"? INT / * OLD STUFF * / / * 
+		//DissimilarityRelation: 
+		//	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
+		//	'dissimilar based on'
+		//	dissimilarityClause=DissimilarityClause ';'
+		//;
+		//
+		//DissimilarityClause:  
+		//	DissimilarityEntry | ( '(' (=>DissimilarityDisjunction | DissimilarityConjunction) ')' ) // Der Pfeil ist wichtig!
+		//;
+		//
+		//DissimilarityDisjunction: 
+		//	dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ ;
+		//
+		//DissimilarityConjunction: 
+		//	dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ ;
+		//
+		//DissimilarityEntry: 
+		//	( 'Compartment.' compartmentAttribute= CompartmentAttributes ) 	|
+		//	( 'Box.' boxAttribute = BoxAttributes) 							|
+		//	( 'Board.' boardAttribute = BoardAttributes)					|
+		//	( 'Processor.' processorAttribute = ProcessorAttributes)
+		//;
+		//
+		//enum CompartmentAttributes :
+		//	MANUFACTURER 	= 'Manufacturer' 	| 
+		//	POWERSUPPLY	 	= 'PowerSupply' 	| 
+		//	SIDE 		 	= 'Side' 			| 
+		//	ZONE		 	= 'Zone';
+		//	
+		//enum BoxAttributes :
+		//	MANUFACTURER 	= 'Manufacturer';
+		//	
+		//enum BoardAttributes:
+		//	MANUFACTURER 	= 'Manufacturer' 			|
+		//	POWERSUPPLY 	= 'PowerSupply'				|
+		//	ASSURANCELEVEL 	= 'DesignAssuranceLevel' 	|
+		//	BOARDTYPE 		= 'Type'	       			|
+		//	ESS				= 'ESS'						|
+		//	SIDE			= 'Side'; 	
+		//
+		//enum ProcessorAttributes:
+		//	MANUFACTURER 	= 'Manufacturer' 	| 
+		//	PROCESSORTYPE	= 'ProcessorType' 
+		//;
+		// * /
 		public Group getGroup() { return cGroup; }
 
-		//ID
-		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		//"-"?
+		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
 
-		//("." ID)*
-		public Group getGroup_1() { return cGroup_1; }
-
-		//"."
-		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
-
-		//ID
-		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+		/// * OLD STUFF * / / * 
+		//DissimilarityRelation: 
+		//	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
+		//	'dissimilar based on'
+		//	dissimilarityClause=DissimilarityClause ';'
+		//;
+		//
+		//DissimilarityClause:  
+		//	DissimilarityEntry | ( '(' (=>DissimilarityDisjunction | DissimilarityConjunction) ')' ) // Der Pfeil ist wichtig!
+		//;
+		//
+		//DissimilarityDisjunction: 
+		//	dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ ;
+		//
+		//DissimilarityConjunction: 
+		//	dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ ;
+		//
+		//DissimilarityEntry: 
+		//	( 'Compartment.' compartmentAttribute= CompartmentAttributes ) 	|
+		//	( 'Box.' boxAttribute = BoxAttributes) 							|
+		//	( 'Board.' boardAttribute = BoardAttributes)					|
+		//	( 'Processor.' processorAttribute = ProcessorAttributes)
+		//;
+		//
+		//enum CompartmentAttributes :
+		//	MANUFACTURER 	= 'Manufacturer' 	| 
+		//	POWERSUPPLY	 	= 'PowerSupply' 	| 
+		//	SIDE 		 	= 'Side' 			| 
+		//	ZONE		 	= 'Zone';
+		//	
+		//enum BoxAttributes :
+		//	MANUFACTURER 	= 'Manufacturer';
+		//	
+		//enum BoardAttributes:
+		//	MANUFACTURER 	= 'Manufacturer' 			|
+		//	POWERSUPPLY 	= 'PowerSupply'				|
+		//	ASSURANCELEVEL 	= 'DesignAssuranceLevel' 	|
+		//	BOARDTYPE 		= 'Type'	       			|
+		//	ESS				= 'ESS'						|
+		//	SIDE			= 'Side'; 	
+		//
+		//enum ProcessorAttributes:
+		//	MANUFACTURER 	= 'Manufacturer' 	| 
+		//	PROCESSORTYPE	= 'ProcessorType' 
+		//;
+		// * / INT
+		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
 	
 	
@@ -2123,6 +2234,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	private final DeploymentImplicitDefinitionAttributeElements unknownRuleDeploymentImplicitDefinitionAttribute;
 	private final MetricParameterElements pMetricParameter;
 	private final QualifiedNameElements pQualifiedName;
+	private final SIGNEDINTElements pSIGNEDINT;
 	
 	private final Grammar grammar;
 
@@ -2154,6 +2266,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.unknownRuleDeploymentImplicitDefinitionAttribute = new DeploymentImplicitDefinitionAttributeElements();
 		this.pMetricParameter = new MetricParameterElements();
 		this.pQualifiedName = new QualifiedNameElements();
+		this.pSIGNEDINT = new SIGNEDINTElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -2210,8 +2323,9 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//RDC:
 	//	"RDC" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING ";")? &
-	//	("Type" "=" rdcType=STRING ";")? & ("ESS" "=" ess=STRING ";")? & ("ResourceX" "=" resourceX=STRING ";")? &
-	//	("ResourceY" "=" resourceY=STRING ";")? & ("ResourceZ" "=" resourceZ=STRING ";")? & connectors+=Connector+) "}";
+	//	("Type" "=" rdcType=STRING ";")? & ("ESS" "=" ess=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? &
+	//	("ResourceY" "=" resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")? & connectors+=Connector+)
+	//	"}";
 	public RDCElements getRDCAccess() {
 		return pRDC;
 	}
@@ -2298,8 +2412,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"Interface" name=ID "{" (("System" "=" system=STRING ";")? & ("SubAta" "=" subAta=STRING ";")? & ("Resource" "="
 	//	resource=STRING ";")? & ("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? &
 	//	("GrpInfo" "=" grpInfo=STRING ";")? & ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? &
-	//	("EmhZone1" "=" emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=STRING ";")? &
-	//	("ResourceY" "=" resourceY=STRING ";")? & ("ResourceZ" "=" resourceZ=STRING ";")?) "}";
+	//	("EmhZone1" "=" emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")?
+	//	& ("ResourceY" "=" resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")?) "}";
 	public EqInterfaceElements getEqInterfaceAccess() {
 		return pEqInterface;
 	}
@@ -2412,6 +2526,16 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getMetricParameterAccess().getRule();
 	}
 
+	//QualifiedName:
+	//	ID ("." ID)*;
+	public QualifiedNameElements getQualifiedNameAccess() {
+		return pQualifiedName;
+	}
+	
+	public ParserRule getQualifiedNameRule() {
+		return getQualifiedNameAccess().getRule();
+	}
+
 	/// * OLD STUFF * / / * 
 	//DissimilarityRelation: 
 	//	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
@@ -2457,14 +2581,14 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	MANUFACTURER 	= 'Manufacturer' 	| 
 	//	PROCESSORTYPE	= 'ProcessorType' 
 	//;
-	// * / QualifiedName:
-	//	ID ("." ID)*;
-	public QualifiedNameElements getQualifiedNameAccess() {
-		return pQualifiedName;
+	// * / SIGNEDINT returns ecore::EInt:
+	//	"-"? INT;
+	public SIGNEDINTElements getSIGNEDINTAccess() {
+		return pSIGNEDINT;
 	}
 	
-	public ParserRule getQualifiedNameRule() {
-		return getQualifiedNameAccess().getRule();
+	public ParserRule getSIGNEDINTRule() {
+		return getSIGNEDINTAccess().getRule();
 	}
 
 	//terminal ID returns ecore::EString:
