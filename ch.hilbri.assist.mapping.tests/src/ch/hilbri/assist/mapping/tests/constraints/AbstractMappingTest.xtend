@@ -52,11 +52,12 @@ class AbstractMappingTest {
 		/* Create the job to search for new solutions */
 		val solver = new AssistSolver(model, 0)
 		solver.solverSearchStrategy = SearchType.DEFAULT
-		solver.solverMaxSolutions = 1000
+		solver.solverMaxSolutions = 10000
 		assertNotNull(solver)
 		
 		/* Execute this job */
 		try {
+			solver.runModelPreprocessors
 			solver.propagation
 			solver.solutionSearch
 		}
