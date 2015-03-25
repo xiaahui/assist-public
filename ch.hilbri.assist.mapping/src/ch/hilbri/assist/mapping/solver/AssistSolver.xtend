@@ -61,9 +61,12 @@ class AssistSolver {
 		logger.info('''******************************''')
 		logger.info(''' Executing a new AssistSolver''')
 		logger.info('''******************************''')
-		logger.info('''    Version : «Platform.getBundle("ch.hilbri.assist.application").getHeaders().get("Bundle-Version")» ''')
-		logger.info('''    Platform: «System.getProperty("os.name") + " " + System.getProperty("sun.arch.data.model") + "bit"»''')
-		logger.info('''******************************''')
+		
+		if (Platform.getBundle("ch.hilbri.assist.application") != null) {
+			logger.info('''    Version : «Platform.getBundle("ch.hilbri.assist.application").getHeaders().get("Bundle-Version")» ''')
+			logger.info('''    Platform: «System.getProperty("os.name") + " " + System.getProperty("sun.arch.data.model") + "bit"»''')
+			logger.info('''******************************''')
+		}
 			
 		/* Get the model */
 		this.model = model
