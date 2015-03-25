@@ -19,9 +19,9 @@ class DownBranchMonitor implements IMonitorDownBranch {
 	override afterDownLeftBranch() {
 		val currentProgress = solver.vars.filter[instantiated].size * 100 / solver.vars.size
 		
-		/* Only report progress if it actually changes by at least 1% */
-		if (Math.abs(currentProgress - lastProgressOutput) >= 1) {
-			logger.info('''Search progress:	«String::format("%3d", currentProgress)»% of all variables are instantiated''')
+		/* Only report progress if it actually changes by at least 5% */
+		if (Math.abs(currentProgress - lastProgressOutput) >= 5) {
+			logger.info('''Status of the search progress: «String::format("%3d", currentProgress)»% of all variables are instantiated''')
 			lastProgressOutput = currentProgress	
 		}
 	}
@@ -29,9 +29,9 @@ class DownBranchMonitor implements IMonitorDownBranch {
 	override afterDownRightBranch() {
 		val currentProgress = solver.vars.filter[instantiated].size * 100 / solver.vars.size
 		
-		/* Only report progress if it actually changes by at least 1% */
-		if (Math.abs(currentProgress - lastProgressOutput) >= 1) {
-			logger.info('''Search progress:	«String::format("%3d", currentProgress)»% of all variables are instantiated''')
+		/* Only report progress if it actually changes by at least 5% */
+		if (Math.abs(currentProgress - lastProgressOutput) >= 5) {
+			logger.info('''Status of the search progress: «String::format("%3d", currentProgress)»% of all variables are instantiated''')
 			lastProgressOutput = currentProgress
 		}
 	}
