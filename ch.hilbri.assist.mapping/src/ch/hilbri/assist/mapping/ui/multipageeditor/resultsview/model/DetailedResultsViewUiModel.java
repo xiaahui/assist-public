@@ -50,9 +50,6 @@ public class DetailedResultsViewUiModel {
 		availableMetricsList.add(new RandomScore());
 		availableMetricsList.add(new MinimizeRequiredCableLength());
 		availableMetricsList.add(new MaximizeUnusedRDCs());
-//		availableMetricsList.add(new UniformCoreLoadDistribution());
-//		availableMetricsList.add(new MaxFreeCoreCapacity());
-//		availableMetricsList.add(new MaxOrgUnitsPerBoard());
 		
 		selectedMetricsList = new CopyOnWriteArrayList<AbstractMetric>();
 	}

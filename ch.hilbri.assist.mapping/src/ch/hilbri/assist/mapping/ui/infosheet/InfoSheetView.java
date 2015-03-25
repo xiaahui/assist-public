@@ -2,21 +2,10 @@ package ch.hilbri.assist.mapping.ui.infosheet;
 
 import java.text.DecimalFormat;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
-import javafx.embed.swt.FXCanvas;
-import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.TreeItem;
-import javafx.scene.paint.Color;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -26,10 +15,6 @@ import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ControlAdapter;
-import org.eclipse.swt.events.ControlEvent;
-import org.eclipse.swt.events.ControlListener;
-import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -69,11 +54,10 @@ public class InfoSheetView {
 	private FormToolkit toolkit;
 	private ChangeListener<Number> drawListener;
 	private ListChangeListener<Result> resultListener;
-	private FXCanvas jfxMetricsCanvas;
-	private Group jfxMetricsCanvasRoot;
-	private BarChart<String, Number> metricBarChart;
 	private Table tableComponentProperties;
+	private Table tableMetricProperties;
 
+	
 	public InfoSheetView() {
 	}
 
@@ -86,7 +70,7 @@ public class InfoSheetView {
 		toolkit = new FormToolkit(parent.getDisplay());
 		
 		form = toolkit.createScrolledForm(parent);
-		form.setBounds(0, 0, 448, 425);
+		form.setBounds(0, 0, 448, 389);
 		form.setText("Current Deployment");
 		toolkit.decorateFormHeading(form.getForm());
 		form.setDelayedReflow(true);
@@ -138,39 +122,33 @@ public class InfoSheetView {
 	    gl_compositeMetricSolution.marginLeft = 10;
 	    compositeMetricSolution.setLayout(gl_compositeMetricSolution);
 	    
-	    jfxMetricsCanvas = new FXCanvas(compositeMetricSolution, SWT.BORDER);
-	    jfxMetricsCanvas.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-	    jfxMetricsCanvas.setLayout(new GridLayout(1, false));
-	    GridData gd_jfxMetricsCanvas = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
-	    gd_jfxMetricsCanvas.minimumHeight = 150;
-	    jfxMetricsCanvas.setLayoutData(gd_jfxMetricsCanvas);
+	    tableMetricProperties = toolkit.createTable(compositeMetricSolution, SWT.NONE);
+	    GridData gd_tableMetricProperties = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+	    gd_tableMetricProperties.heightHint = 128;
+	    tableMetricProperties.setLayoutData(gd_tableMetricProperties);
+	    toolkit.paintBordersFor(tableMetricProperties);
+	    tableMetricProperties.setHeaderVisible(true);
+	    tableMetricProperties.setLinesVisible(true);
 	    
-	    compositeMetricSolution.addControlListener(new ControlAdapter() {
-			public void controlResized(ControlEvent e) {
-				Rectangle r = compositeMetricSolution.getClientArea();
-				jfxMetricsCanvas.setSize(compositeMetricSolution.computeSize(r.width, r.height));
-			}
-		});
-	
-	    /* Create the Scene instance and set the group node as root */
-	    jfxMetricsCanvasRoot = new Group();
-		jfxMetricsCanvas.setScene(new Scene(jfxMetricsCanvasRoot, Color.rgb(compositeMetricSolution.getBackground().getRed(), compositeMetricSolution.getBackground().getGreen(), compositeMetricSolution.getBackground().getBlue())));
-		jfxMetricsCanvas.addControlListener(new ControlListener() {
+	    final TableColumn tcmp1 = new TableColumn(tableMetricProperties, SWT.LEFT);
+	    tcmp1.setWidth(120);
+	    tcmp1.setResizable(true);
+	    tcmp1.setText("Metric");
+	    
+	    final TableColumn tcmp2 = new TableColumn(tableMetricProperties, SWT.RIGHT);
+	    tcmp2.setWidth(50);
+	    tcmp2.setResizable(true);
+	    tcmp2.setText("Weight");
+	    
+	    final TableColumn tcmp3 = new TableColumn(tableMetricProperties, SWT.RIGHT);
+	    tcmp3.setWidth(98);
+	    tcmp3.setResizable(true);
+	    tcmp3.setText("Score (absolute)");
 
-			@Override
-			public void controlMoved(ControlEvent e) {
-				
-			}
-
-			@Override
-			public void controlResized(ControlEvent e) {
-				if (metricBarChart != null) {
-					metricBarChart.prefWidthProperty().set(jfxMetricsCanvas.getClientArea().width);
-					metricBarChart.prefHeightProperty().set(jfxMetricsCanvas.getClientArea().height);
-				}
-			}
-			
-		});
+	    final TableColumn tcmp4 = new TableColumn(tableMetricProperties, SWT.RIGHT);
+	    tcmp4.setWidth(140);
+	    tcmp4.setResizable(true);
+	    tcmp4.setText("Score (weighted, scaled)");
 	    
 	    /* Section Component Properties */
 	    /* **************************** */
@@ -187,7 +165,9 @@ public class InfoSheetView {
 	    compositeComponentInformation.setLayout(gl_compositeComponentInformation);
 	    
 	    tableComponentProperties = toolkit.createTable(compositeComponentInformation, SWT.NONE);
-	    tableComponentProperties.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+	    GridData gd_tableComponentProperties = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+	    gd_tableComponentProperties.heightHint = 128;
+	    tableComponentProperties.setLayoutData(gd_tableComponentProperties);
 	    toolkit.paintBordersFor(tableComponentProperties);
 	    tableComponentProperties.setHeaderVisible(true);
 	    tableComponentProperties.setLinesVisible(true);
@@ -235,8 +215,6 @@ public class InfoSheetView {
 							public void run() {
 								setDeploymentNumberAndScore(model.indexToDrawProperty().get());
 								fillComponentPropertiesTable(newObject.getValue().getObject());
-								if (metricBarChart == null) 
-									setMetricBarChart(model.indexToDrawProperty().get());
 							}
 						});
 					}
@@ -253,7 +231,6 @@ public class InfoSheetView {
 							@Override
 							public void run() {
 								setDeploymentNumberAndScore(index);
-								setMetricBarChart(index);
 							}
 						});
 					}
@@ -272,7 +249,6 @@ public class InfoSheetView {
 									@Override
 									public void run() {
 										setDeploymentNumberAndScore(index);
-										setMetricBarChart(index);
 									}
 								});
 							}
@@ -298,6 +274,39 @@ public class InfoSheetView {
 		tblItem.setText(1, checkedValue);
 		tblItem.setFont(1, SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 	}
+	
+	private void addRowToTableMetricProperties(String category, String value1, String value2, String value3) {
+		String checkedValue1 =  (value1 == null || value1.isEmpty()) ? "n/a" : value1;
+		String checkedValue2 =  (value2 == null || value2.isEmpty()) ? "n/a" : value2;
+		String checkedValue3 =  (value3 == null || value3.isEmpty()) ? "n/a" : value3;
+		TableItem tblItem = new TableItem(tableMetricProperties, SWT.NONE);
+		tblItem.setText(0, category);
+		tblItem.setFont(0, SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
+		tblItem.setText(1, checkedValue1);
+		tblItem.setFont(1, SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
+		tblItem.setText(2, checkedValue2);
+		tblItem.setFont(2, SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		tblItem.setText(3, checkedValue3);
+		tblItem.setFont(3, SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+	}
+
+	private void fillMetricPropertiesTable(Result r) {
+		
+		if (tableMetricProperties != null)
+			tableMetricProperties.removeAll();
+		
+		if (r != null) {
+			for (AbstractMetric m : r.getEvaluation().getMetricsUsed()) {
+				addRowToTableMetricProperties(m.getName(), 
+												""+m.getWeight(),
+												String.format("%.3f", r.getEvaluation().getAbsoluteScores().get(m)), 
+												String.format("%.3f", r.getEvaluation().getScaledScores().get(m))
+										 	);
+			}
+		}
+		
+	}
+	
 
 	/**
 	 * Creates the View for the Info Panel
@@ -374,93 +383,20 @@ public class InfoSheetView {
 		if (index == -1) {
 			lblScore.setText("n/a");
 			lblSolution.setText("n/a");
+			fillMetricPropertiesTable(null);
 		} else {
 			if (index <= model.getObservableResultsList().size()-1) {
 				Result r = model.getObservableResultsList().get(index);
 				DecimalFormat f = new DecimalFormat("#0.00"); 
 				lblScore.setText(f.format(r.getEvaluation().getTotalScaledScore()));
 				lblSolution.setText((index + 1) + " of " + model.getObservableResultsList().size());
+				fillMetricPropertiesTable(r);
 			}
 			else {
 				setDeploymentNumberAndScore(-1);
 			}
 		}
 	}
-
-	private void setMetricBarChart(int index) {
-
-		CategoryAxis metricXAxis = new CategoryAxis();
-		metricXAxis.setLabel("");
-		
-		metricXAxis.setGapStartAndEnd(true);
-		metricXAxis.setStartMargin(10);
-		metricXAxis.setEndMargin(10);
-		
-		NumberAxis metricYAxis = new NumberAxis();
-		metricYAxis.autoRangingProperty().set(false);
-		metricYAxis.setLabel("Score");
-		metricYAxis.setForceZeroInRange(true);
-		
-
-
-		metricBarChart = new BarChart<String, Number>(metricXAxis, metricYAxis);
-		metricBarChart.setCategoryGap(10);
-		metricBarChart.legendVisibleProperty().set(false);
-		
-		Result r; 
-		if (model.getObservableResultsList().size() > index)
-			r = model.getObservableResultsList().get(index);
-		else
-			return;
-		
-		// Das Feld muss fuer jede verwendete Metrik den eigenen Score beinhalten
-		Double[] scores = new Double[r.getEvaluation().getScaledScores().keySet().size()];
-		int metricCounter = 0;
-		for (AbstractMetric key : r.getEvaluation().getScaledScores().keySet()) 
-			scores[metricCounter++] = r.getEvaluation().getScaledScores().get(key);
-		
-		
-		AbstractMetric[] metrics = (AbstractMetric[]) r.getEvaluation().getMetricsUsed().toArray();
-		
-		DoubleProperty maxScore = new SimpleDoubleProperty(0);
-
-		if (metrics != null) {
-			XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
-			
-			for (int i = 0; i < metrics.length; i++) {
-				series.getData().add(new XYChart.Data<String, Number>(""+ (i+1), scores[i]));
-				
-				if (scores[i] > maxScore.get())	maxScore.set(scores[i]);
-			}
-			
-			metricBarChart.getData().clear();
-			metricBarChart.getData().add(series);
-		
-			metricBarChart.prefWidthProperty().set(jfxMetricsCanvas.getClientArea().width);
-			metricBarChart.prefHeightProperty().set(jfxMetricsCanvas.getClientArea().height);
-			
-			metricBarChart.getStylesheets().add(getClass().getResource("/resources/legend.css").toExternalForm());
-			
-			for (int i = 0; i < series.getData().size(); i++) {
-				int j = 0;
-				for (Node node : metricBarChart.lookupAll(".default-color0.chart-bar")) {
-					node.getStyleClass().remove(
-							"default-color0");
-					node.getStyleClass().add(
-							"default-color" + (j % 31));
-					j++;
-				}
-			}
-				
-			metricYAxis.upperBoundProperty().bind(maxScore.multiply(1.1));
-			metricYAxis.tickUnitProperty().bind(maxScore.divide(10.0d));
-			
-			jfxMetricsCanvasRoot.getChildren().clear();
-			jfxMetricsCanvasRoot.getChildren().add(metricBarChart);
-		}
-	}
-	
-	
 	
 	private void clearListeners() {
 		if (clickListener != null) model.clickedObjectProperty().removeListener(clickListener);
@@ -471,9 +407,7 @@ public class InfoSheetView {
 	private void clearForm() {
 			fillComponentPropertiesTable(null);
 			setDeploymentNumberAndScore(-1);
-			jfxMetricsCanvasRoot.getChildren().clear();
-			metricBarChart = null;
-		}
+	}
 
 	@Focus
 	public void setFocus() {

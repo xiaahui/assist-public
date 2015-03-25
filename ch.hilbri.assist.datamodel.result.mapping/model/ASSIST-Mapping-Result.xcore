@@ -60,6 +60,6 @@ class Evaluation {
 		else scaledScores.values.reduce[i1, i2 | i1 + i2]
 	}
 
-	contains AbstractMetric[0..*] 	metricsUsed
+	refers AbstractMetric[0..*] 	metricsUsed
 }
 
