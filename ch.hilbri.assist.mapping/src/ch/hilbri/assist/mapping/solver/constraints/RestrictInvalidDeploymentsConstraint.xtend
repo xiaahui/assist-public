@@ -6,7 +6,7 @@ import ch.hilbri.assist.datamodel.model.Connector
 import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.RDC
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
+import ch.hilbri.assist.mapping.solver.exceptions.RestrictInvalidDeployment
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
@@ -46,7 +46,7 @@ class RestrictInvalidDeploymentsConstraint extends AbstractMappingConstraint {
 				solver.post(ICF.not_member(solverVariables.getEqInterfaceLocationVariable(iface, 0), idxList))
 			
 			try { solver.propagate }
-			catch (ContradictionException e) { throw new BasicConstraintsException(this) }
+			catch (ContradictionException e) { throw new RestrictInvalidDeployment(this, spec.allEqInterfaceOrGroupNames, spec.hardwareElements.toString) }
 			
 		}
 

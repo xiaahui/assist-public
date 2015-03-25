@@ -115,6 +115,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				catch (ContradictionException e) { throw new InterfaceGroupCannotBeMappedDislocally(this, r.allEqInterfaceOrGroupNames)	}
 			}
 		}
+		
 		for (l:#[0,1,2]) {
 			if (!conflictGraph.get(l).empty) {
 				cliqueCoverConstraintBuild(solverVariables.getLocationVariables(l), conflictGraph.get(l))

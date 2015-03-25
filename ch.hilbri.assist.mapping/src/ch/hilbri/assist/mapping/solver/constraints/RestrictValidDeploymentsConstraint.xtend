@@ -6,12 +6,12 @@ import ch.hilbri.assist.datamodel.model.Connector
 import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.RDC
+import ch.hilbri.assist.mapping.solver.exceptions.RestrictValidDeployment
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 class RestrictValidDeploymentsConstraint extends AbstractMappingConstraint {
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
@@ -46,7 +46,7 @@ class RestrictValidDeploymentsConstraint extends AbstractMappingConstraint {
 				solver.post(ICF.member(solverVariables.getEqInterfaceLocationVariable(iface, 0), idxList))
 			
 			try { solver.propagate }
-			catch (ContradictionException e) { throw new BasicConstraintsException(this) }
+			catch (ContradictionException e) { throw new RestrictValidDeployment(this, spec.allEqInterfaceOrGroupNames, spec.hardwareElements.toString) }
 			
 		}
 

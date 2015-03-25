@@ -15,7 +15,7 @@ class InterfaceTypeCouldNotBeMapped extends BasicConstraintsException {
 	}
 	
 	override def String getExplanation()	{
-		'''The interfaces of type "«ifaceType»" could not be mapped to connector "«connName»".'''
+		'''The interfaces of type "«ifaceType»" could not be mapped to any connector.'''
 		
 	}
 }

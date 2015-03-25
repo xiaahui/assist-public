@@ -4,7 +4,7 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
+import ch.hilbri.assist.mapping.solver.exceptions.InterfaceGroupCannotBeMappedColocally
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
@@ -40,7 +40,7 @@ class ColocalityConstraint extends AbstractMappingConstraint {
 					))
 			
 				try { solver.propagate }
-				catch (ContradictionException e) { throw new BasicConstraintsException(this) }
+				catch (ContradictionException e) { throw new InterfaceGroupCannotBeMappedColocally(this, r.allEqInterfaceOrGroupNames, r.hardwareLevel.literal) }
 			}
 		}
 		return true
