@@ -16,10 +16,9 @@ import org.eclipse.ui.part.EditorPart;
 
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
-import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxFreeCoreCapacity;
-import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxOrgUnitsPerBoard;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaximizeUnusedRDCs;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.MinimizeRequiredCableLength;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
-import ch.hilbri.assist.mapping.analysis.metrics.builtin.UniformCoreLoadDistribution;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
 
 public class DetailedResultsViewUiModel {
@@ -49,9 +48,11 @@ public class DetailedResultsViewUiModel {
 		
 		availableMetricsList = new CopyOnWriteArrayList<AbstractMetric>();
 		availableMetricsList.add(new RandomScore());
-		availableMetricsList.add(new UniformCoreLoadDistribution());
-		availableMetricsList.add(new MaxFreeCoreCapacity());
-		availableMetricsList.add(new MaxOrgUnitsPerBoard());
+		availableMetricsList.add(new MinimizeRequiredCableLength());
+		availableMetricsList.add(new MaximizeUnusedRDCs());
+//		availableMetricsList.add(new UniformCoreLoadDistribution());
+//		availableMetricsList.add(new MaxFreeCoreCapacity());
+//		availableMetricsList.add(new MaxOrgUnitsPerBoard());
 		
 		selectedMetricsList = new CopyOnWriteArrayList<AbstractMetric>();
 	}
