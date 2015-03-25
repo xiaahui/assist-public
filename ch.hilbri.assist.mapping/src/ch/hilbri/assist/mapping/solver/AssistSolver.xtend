@@ -11,7 +11,6 @@ import ch.hilbri.assist.mapping.solver.constraints.RestrictInvalidDeploymentsCon
 import ch.hilbri.assist.mapping.solver.constraints.RestrictValidDeploymentsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
-import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor
 import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
 import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor
 import ch.hilbri.assist.mapping.solver.preprocessors.AbstractModelPreprocessor
@@ -53,10 +52,10 @@ class AssistSolver {
 	private int[] locationVariableLevels // do we work with just the LocVars on connector level or other levels as well?
 	
 	new (AssistModel model, int... locationVariableLevels) {
-		this(model, locationVariableLevels as List<Integer>)
+		this(model, locationVariableLevels as List<Integer>, false)
 	}
 
-	new (AssistModel model, List<Integer> locationVariableLvls) {
+	new (AssistModel model, List<Integer> locationVariableLvls, boolean clique) {
 		this.logger = LoggerFactory.getLogger(this.class)
 		logger.info(">>>> Creating a new AssistSolver instance <<<<")
 		
@@ -98,7 +97,7 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables, false))
+		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables, clique))
 
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>()  
@@ -134,28 +133,26 @@ class AssistSolver {
 			case SearchType.FIRST_FAIL: {
 				heuristic = ISF.minDom_LB(vars)
 			}
-			case strategy == SearchType.FIRST_FAIL_MAX_DEGREE : {
+			case SearchType.FIRST_FAIL_MAX_DEGREE: {
 				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model, locationVariableLevels)
-				this.solver.searchLoop.plugSearchMonitor(new BacktrackingMonitor)
 				heuristic = ISF.custom(selector, selector, vars)				
 			}
 			case SearchType.HARDEST_DISLOC: {
 				val selector = new HardestDislocalitiesFirst(solverVariables, model)
-				heuristic = ISF.custom(selector, selector, vars)				
+				heuristic = ISF.custom(selector, selector, vars)
 			}
 			case SearchType.SCARCEST_TYPE: {
 				val selector = new ScarcestIoTypeFirst(solverVariables, model)
-				heuristic = ISF.custom(selector, ISF.min_value_selector, vars)	
+				heuristic = ISF.custom(selector, ISF.min_value_selector, vars)
 			}
 			case SearchType.VARS_IN_MOST_DISLOC: {
 				val selector = new VariablesInMostDislocalityRelationsFirst(solverVariables, model)
-				heuristic = ISF.custom(selector, ISF.min_value_selector, vars)				
+				heuristic = ISF.custom(selector, ISF.min_value_selector, vars)
 			}
 			case SearchType.DOM_OVER_WDEG: {
 				heuristic = ISF.domOverWDeg(vars, seed)
 			}
-			case  strategy == SearchType.ACTIVITY || strategy == SearchType.DEFAULT  : 
-			{
+			case  strategy == SearchType.ACTIVITY || strategy == SearchType.DEFAULT: {
 				heuristic = ISF.activity(vars, seed)
 			}
 			case SearchType.IMPACT: { // possibly broken
@@ -166,7 +163,11 @@ class AssistSolver {
 			}
 		}	
 		logger.info("Setting choco-solver search strategy to: " + strategy.toString)
-		solver.set(heuristic)
+		if (strategy == SearchType.IMPACT) {
+			solver.set(heuristic, ISF.lexico_LB(solver.retrieveIntVars))		
+		} else {
+			solver.set(heuristic)		
+		}
 	}
 
 	def propagation() throws BasicConstraintsException {

@@ -85,7 +85,7 @@ public class Runner {
 				System.err.println("Errors on validating " + arg + ".");
 				continue;
 			}*/
-			final AssistSolver solver = new AssistSolver(model, levels);
+			final AssistSolver solver = new AssistSolver(model, levels, false);
 			SearchType heuristic = SearchType.DEFAULT;
 			switch (cmd.getOptionValue("strategy", "")) {
 				case "ff": heuristic = SearchType.FIRST_FAIL; break;
