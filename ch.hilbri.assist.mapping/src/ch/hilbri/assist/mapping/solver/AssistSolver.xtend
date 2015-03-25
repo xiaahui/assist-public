@@ -12,8 +12,14 @@ import ch.hilbri.assist.mapping.solver.constraints.RestrictValidDeploymentsConst
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
+import ch.hilbri.assist.mapping.solver.monitors.DownBranchMonitor
+import ch.hilbri.assist.mapping.solver.monitors.RestartMonitor
 import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor
 import ch.hilbri.assist.mapping.solver.preprocessors.AbstractModelPreprocessor
+import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupCombinations
+import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupDefinitions
+import ch.hilbri.assist.mapping.solver.preprocessors.InvalidDeploymentHardwareElements
+import ch.hilbri.assist.mapping.solver.preprocessors.ValidDeploymentHardwareElements
 import ch.hilbri.assist.mapping.solver.strategies.FirstFailThenMaxRelationDegree
 import ch.hilbri.assist.mapping.solver.strategies.HardestDislocalitiesFirst
 import ch.hilbri.assist.mapping.solver.strategies.ScarcestIoTypeFirst
@@ -30,14 +36,9 @@ import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy
 import org.chocosolver.solver.variables.IntVar
+import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupDefinitions
-import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupCombinations
-import ch.hilbri.assist.mapping.solver.preprocessors.ValidDeploymentHardwareElements
-import ch.hilbri.assist.mapping.solver.preprocessors.InvalidDeploymentHardwareElements
-import ch.hilbri.assist.mapping.solver.monitors.DownBranchMonitor
-import ch.hilbri.assist.mapping.solver.monitors.RestartMonitor
 
 class AssistSolver {
 	
@@ -57,8 +58,13 @@ class AssistSolver {
 
 	new (AssistModel model, List<Integer> locationVariableLvls, boolean clique) {
 		this.logger = LoggerFactory.getLogger(this.class)
-		logger.info(">>>> Creating a new AssistSolver instance <<<<")
-		
+		logger.info('''******************************''')
+		logger.info(''' Executing a new AssistSolver''')
+		logger.info('''******************************''')
+		logger.info('''    Version : «Platform.getBundle("ch.hilbri.assist.application").getHeaders().get("Bundle-Version")» ''')
+		logger.info('''    Platform: «System.getProperty("os.name") + " " + System.getProperty("sun.arch.data.model") + "bit"»''')
+		logger.info('''******************************''')
+			
 		/* Get the model */
 		this.model = model
 
