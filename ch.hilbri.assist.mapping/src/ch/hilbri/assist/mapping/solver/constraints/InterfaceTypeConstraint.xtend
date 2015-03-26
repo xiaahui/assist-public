@@ -40,12 +40,13 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 			if (totalInterfaceDemand > interfaceSupplyPerConnector.min) {
 
 				// which variables correspond to this type?				
-				val int[] indexListOfAffectedInterfaces = model.eqInterfaces.filter[ioType.equals(t)].map[model.eqInterfaces.indexOf(it)]
+				val int[] indexListOfAffectedInterfaces = model.eqInterfaces.filter[ioType.equals(t)]
+																			.map[model.eqInterfaces.indexOf(it)]
 				
 				for (int cIdx : 0 ..< model.allConnectors.length) {
 
 					// constraint for each connector the sum of the attached interfaces
-					var sum = VF.enumerated("Sum-" + t + "-" + cIdx, 0, interfaceSupplyPerConnector.get(cIdx), solver)
+					val sum = VF.bounded("Sum-" + t + "-" + cIdx, 0, interfaceSupplyPerConnector.get(cIdx), solver)
 									  
 					val BoolVar[] indicatorVariableList = indexListOfAffectedInterfaces.map[solverVariables.interfaceConnectorIndicatorVariables.get(cIdx).get(it)]					
 					
