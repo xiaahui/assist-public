@@ -8,6 +8,7 @@ import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.VF
+import ch.hilbri.assist.mapping.solver.exceptions.InterfaceTypeDemandExceedsSupply
 
 class InterfaceTypeConstraint extends AbstractMappingConstraint {
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
@@ -31,24 +32,27 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 														0 
 											  ]
 
+			if (totalInterfaceDemand > interfaceSupplyPerConnector.reduce[p1, p2|p1+p2])
+				throw new InterfaceTypeDemandExceedsSupply(this, t, totalInterfaceDemand, interfaceSupplyPerConnector.reduce[p1, p2|p1+p2])
+
 			/*  we need no constraints if the "smallest" connector (i.e. every connector!) 
 			    can handle all (this includes the "demand==0" case) */
 			if (totalInterfaceDemand > interfaceSupplyPerConnector.min) {
+
+				// which variables correspond to this type?				
+				val int[] indexListOfAffectedInterfaces = model.eqInterfaces.filter[ioType.equals(t)].map[model.eqInterfaces.indexOf(it)]
 				
 				for (int cIdx : 0 ..< model.allConnectors.length) {
 
 					// constraint for each connector the sum of the attached interfaces
 					var sum = VF.enumerated("Sum-" + t + "-" + cIdx, 0, interfaceSupplyPerConnector.get(cIdx), solver)
-					
-					// which variables correspond to this type?
-					val int[] indexListOfAffectedInterfaces = model.eqInterfaces.filter[ioType.equals(t)].map[model.eqInterfaces.indexOf(it)]
 									  
 					val BoolVar[] indicatorVariableList = indexListOfAffectedInterfaces.map[solverVariables.interfaceConnectorIndicatorVariables.get(cIdx).get(it)]					
 					
 					solver.post(ICF.sum(indicatorVariableList, sum))
 					
 					try { solver.propagate } 
-					catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, t, model.allConnectors.get(cIdx).name) }
+					catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, t) }
 				}
 
 				

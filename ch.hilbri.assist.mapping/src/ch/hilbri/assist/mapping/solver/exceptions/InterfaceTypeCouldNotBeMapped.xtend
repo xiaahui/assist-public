@@ -7,7 +7,7 @@ class InterfaceTypeCouldNotBeMapped extends BasicConstraintsException {
 	private String ifaceType
 	private String connName
 	
-	new(AbstractMappingConstraint constraint, String ifaceType, String connName) {
+	new(AbstractMappingConstraint constraint, String ifaceType) {
 		super(constraint)
 		this.ifaceType = ifaceType
 		this.connName = connName	
