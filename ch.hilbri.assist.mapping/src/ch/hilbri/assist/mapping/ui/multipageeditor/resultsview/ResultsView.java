@@ -39,6 +39,9 @@ public class ResultsView {
 	@Inject
 	public void createPartControl(Composite parent) {
 		
+		// fixed a part-control error bug
+		javafx.application.Platform.setImplicitExit(false);
+		
 		parent.setLayout(new FillLayout(SWT.HORIZONTAL));
 		
 		canvas = new FXCanvas(parent, SWT.NONE);
