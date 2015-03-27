@@ -23,7 +23,7 @@ import org.chocosolver.solver.variables.BoolVar
 	BoolVar[][] interfaceConnectorIndicatorVariables;
 	
 	/* CONSTRUCTOR */
-	new (AssistModel model, Solver solver) {
+	new (AssistModel model, Solver solver, boolean doChanneling) {
 		
 		/* Initialize the hash map for all thread-related location variables */
 		for (iface : model.eqInterfaces) {
@@ -46,10 +46,12 @@ import org.chocosolver.solver.variables.BoolVar
 			
 			eqInterfaceLocationVariables.put(iface, l)
 		}
-		
-		/* Initialize the board indicator variables */
-		interfaceConnectorIndicatorVariables = VF.boolMatrix("d", model.allConnectors.size, model.eqInterfaces.size, solver)
-
+		if (doChanneling) {
+			/* Initialize the board indicator variables */
+			interfaceConnectorIndicatorVariables = VF.boolMatrix("d", model.allConnectors.size, model.eqInterfaces.size, solver)
+		} else {
+			interfaceConnectorIndicatorVariables = null
+		}
 	}
 	
 	def IntVar[] getLocationVariables(int... levels) {

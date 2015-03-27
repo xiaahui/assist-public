@@ -53,10 +53,10 @@ class AssistSolver {
 	private int[] locationVariableLevels // do we work with just the LocVars on connector level or other levels as well?
 	
 	new (AssistModel model, int... locationVariableLevels) {
-		this(model, locationVariableLevels as List<Integer>, false)
+		this(model, locationVariableLevels as List<Integer>, false, false)
 	}
 
-	new (AssistModel model, List<Integer> locationVariableLvls, boolean clique) {
+	new (AssistModel model, List<Integer> locationVariableLvls, boolean clique, boolean pinMatching) {
 		this.logger = LoggerFactory.getLogger(this.class)
 		logger.info('''******************************''')
 		logger.info(''' Executing a new AssistSolver''')
@@ -86,7 +86,7 @@ class AssistSolver {
 		solver.set(recorder)
 		
 		/* Create the container for variables which are needed in the solver */
- 		this.solverVariables = new SolverVariablesContainer(this.model, solver)
+ 		this.solverVariables = new SolverVariablesContainer(this.model, solver, !pinMatching)
 
 		/* Get the list of locationVariableLevels which will be used */
 		this.locationVariableLevels = locationVariableLvls
@@ -101,8 +101,8 @@ class AssistSolver {
 		/* Create an empty set of constraints that will be used */
 		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
 		
-		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))				
+		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables, !pinMatching))
+		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables, pinMatching))				
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
@@ -164,7 +164,7 @@ class AssistSolver {
 			case SearchType.DOM_OVER_WDEG: {
 				heuristic = ISF.domOverWDeg(vars, seed)
 			}
-			case  strategy == SearchType.ACTIVITY || strategy == SearchType.DEFAULT: {
+			case strategy == SearchType.ACTIVITY || strategy == SearchType.DEFAULT: {
 				heuristic = ISF.activity(vars, seed)
 			}
 			case SearchType.IMPACT: { // possibly broken
@@ -237,6 +237,8 @@ class AssistSolver {
 
 	def ArrayList<Result> getResults() 	{ mappingResults 			}
 	def hasReachedLimit() 				{ solver.hasReachedLimit 	}
+
+	// the following methods are for the tests only
 	def IntVar[] getLocationVariables() 	{ solverVariables.getLocationVariables(0) }
-	
+	def Solver getChocoSolver() { solver }
 }

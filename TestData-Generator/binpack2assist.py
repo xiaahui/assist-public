@@ -122,9 +122,11 @@ def runAssist(inputs, args):
     for i in inputs:
         if not i:
             continue
-        print([java, "-jar", args.jar, i, "-s", str(args.solutions)])
-        procs.add(subprocess.Popen([java, "-jar", args.jar, i, "-s", str(args.solutions),
-                                    "-l", str(args.level), "-a", str(args.strategy), "-t", str(args.timeout)],
+        assistArgs = ["-s", str(args.solutions), "-l", str(args.level), "-a", str(args.strategy), "-t", str(args.timeout)]
+        if args.optimized:
+            assistArgs.append("-O")
+        print([java, "-jar", args.jar, i] + assistArgs)
+        procs.add(subprocess.Popen([java, "-jar", args.jar, i] + assistArgs,
                                    stdout=open(i+".log", 'w'), stderr=subprocess.STDOUT))
         if len(procs) == args.instances:
             waitForRemaining(procs, args)
@@ -141,6 +143,7 @@ def addArgs(parser):
     parser.add_argument("-s", "--solutions", type=int, default=1, help="number of solutions to find")
     parser.add_argument("-l", "--level", type=int, default=0, help="hardware level(s) to use for location variables")
     parser.add_argument("-a", "--strategy", default="default", help="variable selection strategy")
+    parser.add_argument("-O", "--optimized", action="store_true", help="switch on all internal optimizations")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

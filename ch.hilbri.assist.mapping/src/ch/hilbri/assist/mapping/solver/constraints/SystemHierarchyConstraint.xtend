@@ -9,19 +9,23 @@ import org.chocosolver.util.tools.ArrayUtils
 
 class SystemHierarchyConstraint extends AbstractMappingConstraint {
 
-	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
+	private boolean doChanneling
+	
+	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables, boolean doChanneling) {
 		super("system hierarchy", model, solver, solverVariables)
+		this.doChanneling = doChanneling
 	}
 
 	override generate() {
 
-		// channeling for connectors
-		val connectorIndicators = solverVariables.getInterfaceConnectorIndicatorVariables()
-		for (int i : 0 ..< model.eqInterfaces.length) {
-			val intVar = solverVariables.getEqInterfaceLocationVariable(model.eqInterfaces.get(i), 0)
-			solver.post(ICF.boolean_channeling(ArrayUtils.getColumn(connectorIndicators, i), intVar, 0));
+		if (doChanneling) {
+			// channeling for connectors
+			val connectorIndicators = solverVariables.getInterfaceConnectorIndicatorVariables()
+			for (int i : 0 ..< model.eqInterfaces.length) {
+				val intVar = solverVariables.getEqInterfaceLocationVariable(model.eqInterfaces.get(i), 0)
+				solver.post(ICF.boolean_channeling(ArrayUtils.getColumn(connectorIndicators, i), intVar, 0));
+			}
 		}
-
 		// building allowed tuples
 		val tuples = new Tuples(true)
 		for (int connIdx : 0 ..< model.allConnectors.length) {

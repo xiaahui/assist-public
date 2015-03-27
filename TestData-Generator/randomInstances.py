@@ -11,25 +11,24 @@ def parseAbbrevList(s, n):
         l.append(l[-1])
     return l
 
-def writeInterfacesAndRestrictions(w, usedInterfaces, routes, allGroups, groupDislocs, dislocs, colocs, printAll=False):
+def writeInterfacesAndRestrictions(w, usedInterfaces, totalAvailInterfaces, allGroups, groupDislocs, dislocs, colocs, printAll=False):
     usedInRestrictions = collections.defaultdict(int)
-    if not printAll:
-        for _, ifaces in allGroups:
-            for iface in ifaces:
-                usedInRestrictions[iface] += 1
-        for ifaces, _ in dislocs + colocs:
-            for iface in ifaces:
-                usedInRestrictions[iface] += 1
+    for _, ifaces in allGroups:
+        for iface in ifaces:
+            usedInRestrictions[iface] += 1
+    for ifaces, _ in dislocs + colocs:
+        for iface in ifaces:
+            usedInRestrictions[iface] += 1
     
     print("\nInterfaces {", file=w)
 
     for iface, name in usedInterfaces:
         if printAll or name in usedInRestrictions:
             print("""\
-    Interface %s { // placement Comp%s.RDC%s.Conn%s
+    Interface %s {
+        // placement Comp%s.RDC%s.Conn%s
         Type = "T%02i";
-        Route = "R%02i";
-    }""" % (name, iface[2], iface[1], iface[0], iface[3], routes[(iface[0], iface[1], iface[2])]), file=w)
+    }""" % (name, iface[2], iface[1], iface[0], iface[3]), file=w)
 
     print("}\n\nInterfaceGroups {", file=w)
     for gname, s in allGroups:
@@ -45,14 +44,18 @@ def writeInterfacesAndRestrictions(w, usedInterfaces, routes, allGroups, groupDi
 
     print("}\n\n", file=w)
     
-    print("%s written %.2f%% of supply used, %.2f dislocalities per interface." % (w.name, 100. * len(usedInRestrictions) / len(usedInterfaces),
+    before = ""
+    percentUsed = 100. * len(usedInterfaces) / totalAvailInterfaces
+    if not printAll:
+        before = " (%.2f before filtering)" % percentUsed
+        percentUsed = 100. * len(usedInRestrictions) / totalAvailInterfaces 
+    print("%s written %.2f%% of supply used%s, %.2f dislocalities per used interface." % (w.name, percentUsed, before,
                                                                                    sum(usedInRestrictions.values()) / float(len(usedInterfaces))))
     
 def generate(args, filename):
     with open(filename, 'w') as w:
         print('Global {\n    Name = "Random instance %s with args %s at %s";\n}' % (filename, args, datetime.datetime.now()), file=w)
         availInterfaces = []
-        routes = {}
         # build hardware
         for i in range(args.compartments):
             print("Compartment Comp%s {" % i, file=w)
@@ -60,7 +63,6 @@ def generate(args, filename):
                 print("    RDC RDC%s {" % j, file=w)
                 for k in range(args.connectors):
                     # choose route for connector
-                    routes[(k,j,i)] = random.randint(0, args.routes)
                     print("        Connector Conn%s {" % k, file=w)
                     numTypes = random.randint(1, args.max_types_per_connector)
                     sizes = []
@@ -81,11 +83,12 @@ def generate(args, filename):
             print("}", file=w)
 
         # determining used interfaces
+        totalAvailInterfaces = len(availInterfaces)
         if args.interfaces > 1:
             numUsedInterfaces = int(args.interfaces)
         else:
-            numUsedInterfaces = int(args.interfaces * len(availInterfaces))
-        if numUsedInterfaces > len(availInterfaces):
+            numUsedInterfaces = int(args.interfaces * totalAvailInterfaces)
+        if numUsedInterfaces > totalAvailInterfaces:
             print("Too many interfaces needed, please adapt --interfaces", file=sys.stderr)
         usedInterfaces = []
         locations = [collections.defaultdict(list), collections.defaultdict(list), collections.defaultdict(list)]
@@ -159,7 +162,7 @@ def generate(args, filename):
                     ifaces.pop(random.randrange(len(ifaces)))
                 colocs.append((ifaces, name))
 
-        writeInterfacesAndRestrictions(w, usedInterfaces, routes, allGroups, groupDislocs, dislocs, colocs, args.all_interfaces)
+        writeInterfacesAndRestrictions(w, usedInterfaces, totalAvailInterfaces, allGroups, groupDislocs, dislocs, colocs, args.all_interfaces)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -167,7 +170,6 @@ if __name__ == "__main__":
     parser.add_argument("-c", "--connectors", type=int, default=6, help="set fixed number of connectors per RDC")
     parser.add_argument("-r", "--rdcs", type=int, default=4, help="set fixed number of RDCs per compartment")
     parser.add_argument("-C", "--compartments", type=int, default=6, help="set fixed number of compartments")
-    parser.add_argument("-R", "--routes", type=int, default=4, help="set fixed number of routes")
     parser.add_argument("-T", "--types", type=int, default=40, help="set fixed number of types")
     parser.add_argument("-y", "--max-types-per-connector", type=int, default=6, help="set maximum number of types per connector")
     parser.add_argument("-I", "--interfaces-per-connector", type=int, default=16, help="set fixed number of interfaces per connector")

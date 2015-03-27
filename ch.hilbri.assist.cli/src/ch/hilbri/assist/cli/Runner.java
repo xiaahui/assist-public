@@ -37,10 +37,12 @@ public class Runner {
 		options.addOption("l", "level", true, "hardware level(s) to use for location variables");
 		options.addOption("a", "strategy", true, "strategy to use");
 		options.addOption("t", "timeout", true, "timeout in seconds");
+		options.addOption("O", "optimized", false, "switch on all internal optimizations");
 		final CommandLineParser parser = new BasicParser();
 		final CommandLine cmd = parser.parse(options, args);
 		final int numSolutions = Integer.parseInt(cmd.getOptionValue("solutions", "1"));
 		final int level = Integer.parseInt(cmd.getOptionValue("level", "0"));
+		final boolean optimized = cmd.hasOption("optimized");
 		List<Integer> levels = new ArrayList<Integer>();
 		switch (level) {
 		case 2:
@@ -85,7 +87,7 @@ public class Runner {
 				System.err.println("Errors on validating " + arg + ".");
 				continue;
 			}*/
-			final AssistSolver solver = new AssistSolver(model, levels, false);
+			final AssistSolver solver = new AssistSolver(model, levels, optimized, optimized);
 			SearchType heuristic = SearchType.DEFAULT;
 			switch (cmd.getOptionValue("strategy", "")) {
 				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST; break;
@@ -96,6 +98,7 @@ public class Runner {
 				case "domwd": heuristic = SearchType.DOM_OVER_WDEG; break;
 				case "act": heuristic = SearchType.ACTIVITY; break;
 				case "imp": heuristic = SearchType.IMPACT; break;
+				case "rand": heuristic = SearchType.RANDOM; break;
 				default: heuristic = SearchType.DEFAULT; break;
 			}	
 			solver.setSolverSearchStrategy(heuristic);

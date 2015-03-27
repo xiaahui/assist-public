@@ -9,10 +9,17 @@ import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.VF
 import ch.hilbri.assist.mapping.solver.exceptions.InterfaceTypeDemandExceedsSupply
+import org.chocosolver.solver.constraints.^extension.Tuples
+import java.util.ArrayList
+import org.chocosolver.solver.variables.IntVar
 
 class InterfaceTypeConstraint extends AbstractMappingConstraint {
-	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
+	
+	private boolean doPinMatching
+	
+	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables, boolean doPinMatching) {
 		super("interface type", model, solver, solverVariables)
+		this.doPinMatching = doPinMatching
 	}
 
 	override generate() {
@@ -23,7 +30,8 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 		// 2. Generate the constraints
 		for (t : ioTypesList) {
 			
-			val totalInterfaceDemand 		= model.eqInterfaces.filter[ioType.equals(t)].length
+			val interfacesOfType 		= model.eqInterfaces.filter[ioType.equals(t)]
+			val totalDemand = interfacesOfType.length
 			
 			val interfaceSupplyPerConnector = model.allConnectors.map[
 													if (!availableEqInterfaces.filter[eqInterfaceType.equals(t)].isNullOrEmpty)
@@ -31,33 +39,54 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 													else 
 														0 
 											  ]
+			val totalSupply = interfaceSupplyPerConnector.reduce[p1, p2|p1+p2]
 
-			if (totalInterfaceDemand > interfaceSupplyPerConnector.reduce[p1, p2|p1+p2])
-				throw new InterfaceTypeDemandExceedsSupply(this, t, totalInterfaceDemand, interfaceSupplyPerConnector.reduce[p1, p2|p1+p2])
+			if (totalDemand > totalSupply)
+				throw new InterfaceTypeDemandExceedsSupply(this, t, totalDemand, totalSupply)
 
 			/*  we need no constraints if the "smallest" connector (i.e. every connector!) 
 			    can handle all (this includes the "demand==0" case) */
-			if (totalInterfaceDemand > interfaceSupplyPerConnector.min) {
-
-				// which variables correspond to this type?				
-				val int[] indexListOfAffectedInterfaces = model.eqInterfaces.filter[ioType.equals(t)]
-																			.map[model.eqInterfaces.indexOf(it)]
+			if (totalDemand > interfaceSupplyPerConnector.min) {
+				// which variables correspond to this type?
+				val int[] indexListOfAffectedInterfaces = interfacesOfType.map[model.eqInterfaces.indexOf(it)]
 				
-				for (int cIdx : 0 ..< model.allConnectors.length) {
-
-					// constraint for each connector the sum of the attached interfaces
-					val sum = VF.bounded("Sum-" + t + "-" + cIdx, 0, interfaceSupplyPerConnector.get(cIdx), solver)
-									  
-					val BoolVar[] indicatorVariableList = indexListOfAffectedInterfaces.map[solverVariables.interfaceConnectorIndicatorVariables.get(cIdx).get(it)]					
-					
-					solver.post(ICF.sum(indicatorVariableList, sum))
-					
+				if (doPinMatching) {
+					// building allowed tuples
+					val tuples = new Tuples(true)
+					var int pinIdx = 0
+					for (int connIdx : 0 ..< model.allConnectors.length) {
+						for (int pin : 0 ..< interfaceSupplyPerConnector.get(connIdx)) {
+							tuples.add(connIdx, pinIdx)
+							pinIdx++						
+						}
+					}
+			
+					val connectorLocationVars = indexListOfAffectedInterfaces.map[solverVariables.getLocationVariables(0).get(it)]
+					val pinLocationVars = new ArrayList<IntVar>
+					// building table constraints reflecting the location hierarchy		
+					for (locVar : connectorLocationVars) {
+						val pinVar = VF.integer("Pin-"+locVar.name, 0, totalSupply-1, solver)
+						solver.post(ICF.table(locVar, pinVar, tuples, ""))
+						pinLocationVars.add(pinVar)
+					}
+	
+					solver.post(ICF.alldifferent(pinLocationVars))
 					try { solver.propagate } 
 					catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, t) }
+				} else {
+					for (int cIdx : 0 ..< model.allConnectors.length) {
+	
+						// constraint for each connector the sum of the attached interfaces
+						val sum = VF.bounded("Sum-" + t + "-" + cIdx, 0, interfaceSupplyPerConnector.get(cIdx), solver)
+										  
+						val BoolVar[] indicatorVariableList = indexListOfAffectedInterfaces.map[solverVariables.interfaceConnectorIndicatorVariables.get(cIdx).get(it)]					
+						
+						solver.post(ICF.sum(indicatorVariableList, sum))
+						
+						try { solver.propagate } 
+						catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, t) }
+					}
 				}
-
-				
-
 			}
 
 		}
