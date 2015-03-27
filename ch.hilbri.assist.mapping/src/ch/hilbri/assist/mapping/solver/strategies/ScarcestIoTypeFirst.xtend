@@ -51,12 +51,12 @@ class ScarcestIoTypeFirst implements VariableSelector<IntVar>  {
 	override IntVar getVariable(IntVar[] variables) {
 		val newList = variables.sortBy[map.get(it)]
 		
-		val instantiatedVarCount = variables.filter[isInstantiated].size
-		val currentProgress = instantiatedVarCount * 100 / variables.size
+//		val instantiatedVarCount = variables.filter[isInstantiated].size
+//		val currentProgress = instantiatedVarCount * 100 / variables.size
 		
 		if (printVariablesInSortedOrder) {
-			logger.debug('''Unsorted variables list: [«FOR v : variables»«v.name» («map.get(v)»), «ENDFOR»]''')
-			logger.debug('''Sorting variables according to their partner application count in dislocality relations (increasing order), then MinDomain first.''')
+//			logger.debug('''Unsorted variables list: [«FOR v : variables»«v.name» («map.get(v)»), «ENDFOR»]''')
+//			logger.debug('''Sorting variables according to their partner application count in dislocality relations (increasing order), then MinDomain first.''')
 			logger.debug('''Sorted variables list:   [«FOR v : newList»«v.name» («map.get(v)»), «ENDFOR»]''')
 			printVariablesInSortedOrder = false
 		}
@@ -67,7 +67,7 @@ class ScarcestIoTypeFirst implements VariableSelector<IntVar>  {
 		if (newList.filter[!isInstantiated].isNullOrEmpty) return null
 		else {
 			val v = newList.filter[!isInstantiated].get(0)
-			logger.info('''Selecting variable with tag «map.get(v)» («currentProgress»% instantiated)''')
+//			logger.info('''Selecting variable with tag «map.get(v)» («currentProgress»% instantiated)''')
 			return v
 		}
 	}

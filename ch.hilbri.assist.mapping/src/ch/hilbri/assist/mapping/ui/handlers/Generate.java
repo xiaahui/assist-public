@@ -24,7 +24,7 @@ import ch.hilbri.assist.application.helpers.Helpers;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.mapping.solver.GuiSolverJob;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
-import ch.hilbri.assist.mapping.ui.searchtypesdialog.SimpleOrAdvancedModeDialog;
+import ch.hilbri.assist.mapping.ui.searchtypesdialog.SearchParametersDialog;
 
 
 @SuppressWarnings("restriction")
@@ -121,17 +121,16 @@ public class Generate {
 					if (editor instanceof MultiPageEditor) {
 						
 						/* Open the dialog to choose between simple and advanced mode for finding solutions */
-						SimpleOrAdvancedModeDialog soamd = new SimpleOrAdvancedModeDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
+						SearchParametersDialog searchParamDlg = new SearchParametersDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
 						
-						if (soamd.open() == org.eclipse.jface.window.Window.OK) {
+						if (searchParamDlg.open() == org.eclipse.jface.window.Window.OK) {
 							// User hat OK geklickt
 							/* Create a new background Job for finding all solutions */
 							GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", inputModel, (MultiPageEditor)editor);
 							findSolutionsJob.setUser(true);
-							findSolutionsJob.setKindOfSolutions(soamd.getMode());
-							findSolutionsJob.setMaxSolutions(soamd.getNumberOfSolutions());
-							findSolutionsJob.setMaxTimeOfCalculationInmsec(soamd.getSearchTime());
-							findSolutionsJob.setRetrieveExplanation(soamd.getRetrieveExplanation());
+							findSolutionsJob.setKindOfSolutions(searchParamDlg.getMode());
+							findSolutionsJob.setMaxSolutions(searchParamDlg.getNumberOfSolutions());
+							findSolutionsJob.setMaxTimeOfCalculationInmsec(searchParamDlg.getSearchTime());
 							findSolutionsJob.schedule();
 						} 						
 					} 

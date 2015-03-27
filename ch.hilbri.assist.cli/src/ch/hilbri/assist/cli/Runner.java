@@ -88,10 +88,10 @@ public class Runner {
 			final AssistSolver solver = new AssistSolver(model, levels, false);
 			SearchType heuristic = SearchType.DEFAULT;
 			switch (cmd.getOptionValue("strategy", "")) {
-				case "ff": heuristic = SearchType.FIRST_FAIL; break;
-				case "ffmd": heuristic = SearchType.FIRST_FAIL_MAX_DEGREE; break;
-				case "hd": heuristic = SearchType.HARDEST_DISLOC; break;
-				case "st": heuristic = SearchType.SCARCEST_TYPE; break;
+				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST; break;
+				case "ffmd": heuristic = SearchType.MAX_DEGREE_FIRST; break;
+				case "hd": heuristic = SearchType.HARDEST_DISLOCALITIES_FIRST; break;
+				case "st": heuristic = SearchType.SCARCEST_IOTYPE_FIRST; break;
 				case "md": heuristic = SearchType.VARS_IN_MOST_DISLOC; break;
 				case "domwd": heuristic = SearchType.DOM_OVER_WDEG; break;
 				case "act": heuristic = SearchType.ACTIVITY; break;

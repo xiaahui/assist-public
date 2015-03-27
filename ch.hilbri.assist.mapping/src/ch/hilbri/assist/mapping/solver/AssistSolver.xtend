@@ -139,18 +139,21 @@ class AssistSolver {
 		val seed = 23432
 		val vars = solverVariables.getLocationVariables(locationVariableLevels)
 		switch (strategy) {
-			case SearchType.FIRST_FAIL: {
+			case SearchType.RANDOM: {
+				heuristic = ISF.custom(ISF.random_var_selector(0), ISF.random_value_selector(0), vars)
+			}
+			case SearchType.MIN_DOMAIN_FIRST: {
 				heuristic = ISF.minDom_LB(vars)
 			}
-			case SearchType.FIRST_FAIL_MAX_DEGREE: {
+			case SearchType.MAX_DEGREE_FIRST: {
 				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model, locationVariableLevels)
 				heuristic = ISF.custom(selector, selector, vars)				
 			}
-			case SearchType.HARDEST_DISLOC: {
+			case SearchType.HARDEST_DISLOCALITIES_FIRST: {
 				val selector = new HardestDislocalitiesFirst(solverVariables, model)
 				heuristic = ISF.custom(selector, selector, vars)
 			}
-			case SearchType.SCARCEST_TYPE: {
+			case SearchType.SCARCEST_IOTYPE_FIRST: {
 				val selector = new ScarcestIoTypeFirst(solverVariables, model)
 				heuristic = ISF.custom(selector, ISF.min_value_selector, vars)
 			}
