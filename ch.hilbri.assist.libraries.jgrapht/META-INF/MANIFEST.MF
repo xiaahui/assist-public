@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.jgrapht
 Bundle-SymbolicName: ch.hilbri.assist.libraries.jgrapht
-Bundle-Version: 1.0
+Bundle-Version: 1.0.1
 Bundle-ClassPath: jgraph-5.13.0.0.jar,
  jgrapht-core-0.9.0.jar,
  jgrapht-demo-0.9.0.jar,
