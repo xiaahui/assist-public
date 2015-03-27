@@ -60,15 +60,13 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 	/** View showing more detailed results */
 	private ResultsView detailedResultsView;
 	
-//	/** View showing the calculated result */
-//	private TreeView treeView;
-
 	/**
 	 * Creates a multi-page editor.
 	 */
 	public MultiPageEditor() {
 		super();
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(this);
+
 	}
 
 	@Override
@@ -110,19 +108,6 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 	}
 
 	/**
-	 * @Important Page one has to be created before this page, else the
-	 *            resultViewUiModel would be null.
-	 */
-//	void createPage2() {
-//
-//		Composite composite = new Composite(getContainer(), SWT.NONE);
-//		treeView = new TreeView(getDetailedResultViewUiModel());
-//		treeView.createPartControl(composite);
-//		int index = addPage(composite);
-//		setPageText(index, "Results (Tree View)");
-//	}
-
-	/**
 	 * Returns the Xtexteditor used in page 0
 	 * 
 	 * @return XtextEditor
@@ -137,7 +122,6 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 	protected void createPages() {
 		createPage0();
 		createPage1();
-//		createPage2();
 
 		openInfoSheetView();
 
@@ -152,20 +136,24 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 		editor.getSite().getPage().addPartListener(new IPartListener2()
         {
            @Override
-           public void partActivated(IWorkbenchPartReference partRef) {}
+           public void partActivated(IWorkbenchPartReference partRef) {
+           }
            
            @Override
-           public void partBroughtToTop(IWorkbenchPartReference partRef) {}
+           public void partBroughtToTop(IWorkbenchPartReference partRef) {
+           }
            
            @Override
-           public void partClosed(IWorkbenchPartReference partRef) {}
+           public void partClosed(IWorkbenchPartReference partRef) {
+           }
            
            @Override
-           public void partDeactivated(IWorkbenchPartReference partRef) { 
-        	    }
+           public void partDeactivated(IWorkbenchPartReference partRef) {
+        	}
 
            @Override
-           public void partOpened(IWorkbenchPartReference partRef) {}
+           public void partOpened(IWorkbenchPartReference partRef) {
+           }
            
            @Override
            public void partHidden(IWorkbenchPartReference partRef) {
@@ -173,7 +161,9 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
            }
            
            @Override
-           public void partVisible(IWorkbenchPartReference partRef) {}
+           public void partVisible(IWorkbenchPartReference partRef) {
+        	   sendModelToContentProviders();
+           }
            
            @Override
            public void partInputChanged(IWorkbenchPartReference partRef) {}
@@ -343,13 +333,11 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 
 	public void resetView() {
 		detailedResultsView.resetView();
-//		treeView.resetView();
 	}
 
 	public void setActiveResultPage() {
 		this.setFocus();
 		this.setActivePage(1);
-		
 	}
 
 	@Override
