@@ -159,13 +159,13 @@ def generate(args, filename):
                     ifaces.pop(random.randrange(len(ifaces)))
                 colocs.append((ifaces, name))
 
-        writeInterfacesAndRestrictions(w, usedInterfaces, routes, allGroups, groupDislocs, dislocs, colocs)
+        writeInterfacesAndRestrictions(w, usedInterfaces, routes, allGroups, groupDislocs, dislocs, colocs, args.all_interfaces)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-S", "--seed", type=int, default=23432, help="random seed")
-    parser.add_argument("-c", "--connectors", type=int, default=6, help="set fixed number of connectors")
-    parser.add_argument("-r", "--rdcs", type=int, default=4, help="set fixed number of RDCs")
+    parser.add_argument("-c", "--connectors", type=int, default=6, help="set fixed number of connectors per RDC")
+    parser.add_argument("-r", "--rdcs", type=int, default=4, help="set fixed number of RDCs per compartment")
     parser.add_argument("-C", "--compartments", type=int, default=6, help="set fixed number of compartments")
     parser.add_argument("-R", "--routes", type=int, default=4, help="set fixed number of routes")
     parser.add_argument("-T", "--types", type=int, default=40, help="set fixed number of types")
@@ -181,6 +181,7 @@ if __name__ == "__main__":
     parser.add_argument("-q", "--max-interfaces-per-colocality", default="6", help="set maximum number of interfaces per colocality on level")
     parser.add_argument("-o", "--output", default="random%03i.mdsl", help="name of the output file")
     parser.add_argument("-N", "--number-instances", type=int, default=1, help="total number of instances to start")
+    parser.add_argument("-A", "--all-interfaces", action="store_true", default=False, help="whether to print all interfaces")
     binpack2assist.addArgs(parser)
     args = parser.parse_args()
 
