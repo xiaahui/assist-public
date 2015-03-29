@@ -171,7 +171,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				}			
 			}
 			candidates.and(graph.get(maxIdx))
-			clique.set(maxIdx)			
+			clique.set(maxIdx)
 		}
 		return clique
 	}
@@ -195,26 +195,39 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			if (maxCard == 0) {
 				return
 			}
-			// find maximum neighbor among the ones reachable via uncovered edges
 			val maxNode = graph.get(maxIdx)
 			val uncoveredNode = uncovered.get(maxIdx)
-			var int maxCovIdx = -1
-			var int maxCovCard = 0
-			for (var int idx = uncoveredNode.nextSetBit(0); idx != -1; idx = uncoveredNode.nextSetBit(idx+1)) {
-				val nodeClone = (graph.get(idx).clone as BitSet)
-				nodeClone.and(maxNode)
-				val card = nodeClone.cardinality
-				if (card > maxCovCard) {
-					maxCovIdx = idx
-					maxCovCard = card
+			var BitSet seed
+			
+			if (true) {
+				/* new version the seed is a clique of uncovered vertices */
+				val uncovCandidates = uncoveredNode.clone as BitSet
+				seed = findClique(uncovCandidates, uncovered)			
+			} else {
+				/* old version: the seed is only one edge */
+				// find maximum neighbor among the ones reachable via uncovered edges
+				var int maxCovIdx = -1
+				var int maxCovCard = 0
+				for (var int idx = uncoveredNode.nextSetBit(0); idx != -1; idx = uncoveredNode.nextSetBit(idx+1)) {
+					val nodeClone = (graph.get(idx).clone as BitSet)
+					nodeClone.and(maxNode)
+					val card = nodeClone.cardinality
+					if (card > maxCovCard) {
+						maxCovIdx = idx
+						maxCovCard = card
+					}
 				}
+				seed = new BitSet
+				seed.set(maxCovIdx)
 			}
-			// the candidates are the common neighborhood of the first two
+			// the candidates are the common neighborhood of the seed
 			val candidates = maxNode.clone as BitSet
-			candidates.and(graph.get(maxCovIdx))
+			for (var int idx = seed.nextSetBit(0); idx != -1; idx = seed.nextSetBit(idx+1)) {
+				candidates.and(graph.get(idx))
+			}
 			val clique = findClique(candidates, graph)
 			clique.set(maxIdx)
-			clique.set(maxCovIdx)
+			clique.or(seed)
 			val conflict = new ArrayList<IntVar>
 			for (var int idx = clique.nextSetBit(0); idx != -1; idx = clique.nextSetBit(idx+1)) {
 				conflict.add(intVarList.get(idx))
