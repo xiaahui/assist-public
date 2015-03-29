@@ -4,6 +4,7 @@
 
 from __future__ import print_function
 import os, argparse, zipfile, subprocess, time
+import evaluate
 
 def readBPPC(numItems, cap, inFile, bound):
     base = os.path.basename(inFile.name)
@@ -110,24 +111,27 @@ def waitForRemaining(procs, args):
     initialSize = len(procs)
     while len(procs) == initialSize:
         time.sleep(10)
-        for p in list(procs):
-            if p.poll() is not None:
-                procs.remove(p)
+        for i in procs.keys():
+            if procs[i].poll() is not None:
+                del procs[i]
+                if args.validate:
+                    instance = evaluate.parseMDSL(open(i))
+                    if evaluate.checkSolution(instance, open(i+".log")):
+                        print("Found valid solution for %s" % i)
 
 def runAssist(inputs, args):
     java = "java"
     if "JAVA_HOME" in os.environ:
         java = os.path.join(os.environ["JAVA_HOME"].strip('"'), "bin", java)
-    procs = set()
+    procs = {}
     for i in inputs:
         if not i:
             continue
-        assistArgs = ["-s", str(args.solutions), "-l", str(args.level), "-a", str(args.strategy), "-t", str(args.timeout)]
-        if args.optimized:
-            assistArgs.append("-O")
+        assistArgs = ["-s", str(args.solutions), "-l", str(args.level), "-a", str(args.strategy),
+                      "-t", str(args.timeout), "-O", str(args.optimize)]
         print([java, "-jar", args.jar, i] + assistArgs)
-        procs.add(subprocess.Popen([java, "-jar", args.jar, i] + assistArgs,
-                                   stdout=open(i+".log", 'w'), stderr=subprocess.STDOUT))
+        procs[i] = subprocess.Popen([java, "-jar", args.jar, i] + assistArgs,
+                                    stdout=open(i+".log", 'w'), stderr=subprocess.STDOUT)
         if len(procs) == args.instances:
             waitForRemaining(procs, args)
     while(procs):
@@ -143,7 +147,8 @@ def addArgs(parser):
     parser.add_argument("-s", "--solutions", type=int, default=1, help="number of solutions to find")
     parser.add_argument("-l", "--level", type=int, default=0, help="hardware level(s) to use for location variables")
     parser.add_argument("-a", "--strategy", default="default", help="variable selection strategy")
-    parser.add_argument("-O", "--optimized", action="store_true", help="switch on all internal optimizations")
+    parser.add_argument("-e", "--validate", action="store_true", help="validate result after running")
+    parser.add_argument("-O", "--optimize", type=int, default=0, help="switch on internal optimizations")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

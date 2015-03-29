@@ -37,12 +37,11 @@ public class Runner {
 		options.addOption("l", "level", true, "hardware level(s) to use for location variables");
 		options.addOption("a", "strategy", true, "strategy to use");
 		options.addOption("t", "timeout", true, "timeout in seconds");
-		options.addOption("O", "optimized", false, "switch on all internal optimizations");
+		options.addOption("O", "optimize", true, "switch on internal optimizations");
 		final CommandLineParser parser = new BasicParser();
 		final CommandLine cmd = parser.parse(options, args);
 		final int numSolutions = Integer.parseInt(cmd.getOptionValue("solutions", "1"));
 		final int level = Integer.parseInt(cmd.getOptionValue("level", "0"));
-		final boolean optimized = cmd.hasOption("optimized");
 		List<Integer> levels = new ArrayList<Integer>();
 		switch (level) {
 		case 2:
@@ -87,7 +86,8 @@ public class Runner {
 				System.err.println("Errors on validating " + arg + ".");
 				continue;
 			}*/
-			final AssistSolver solver = new AssistSolver(model, levels, optimized, optimized);
+			final int optimize = Integer.parseInt(cmd.getOptionValue("optimize", "0"));
+			final AssistSolver solver = new AssistSolver(model, levels, (optimize & 1) > 0, (optimize & 2) > 0);
 			SearchType heuristic = SearchType.DEFAULT;
 			switch (cmd.getOptionValue("strategy", "")) {
 				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST; break;
