@@ -22,7 +22,7 @@ Global {
 Compartment Compartment%s {
     RDC RDC%s {
         Connector Connector%s {
-            CustomType0 = %s;
+            "T0" = %s;
         }
     }
 }""" % (i, i, i, intCap), file=w)
@@ -36,7 +36,7 @@ Compartment Compartment%s {
                 interfaces[i].append("I%s_%s" % (items[-1][0], j))
                 print("""\
     Interface %s {
-        Type = CustomType0;
+        Type = "T0";
     }""" % interfaces[i][-1], file=w)
 
         print("}\n\nInterfaceGroups {", file=w)
@@ -71,7 +71,7 @@ def readFile(inFile):
         with open(desc + ".mdsl", 'w') as w:
             print("""\
 Global {
-        System name = "Binpack System %s";
+        Name = "Binpack System %s";
 }""" % desc, file=w)
 
             for i in range(numBoards):
@@ -79,7 +79,7 @@ Global {
 Compartment Compartment%s {
     RDC RDC%s {
         Connector Connector%s {
-            CustomType0 = %s;
+            "T0" = %s;
         }
     }
 }""" % (i, i, i, intCap), file=w)
@@ -92,7 +92,7 @@ Compartment Compartment%s {
                     interfaces[i].append("I%s_%s" % (i, j))
                     print("""\
     Interface %s {
-        Type = CustomType0;
+        Type = "T0";
     }""" % interfaces[i][-1], file=w)
 
             print("}\n\nInterfaceGroups {", file=w)
