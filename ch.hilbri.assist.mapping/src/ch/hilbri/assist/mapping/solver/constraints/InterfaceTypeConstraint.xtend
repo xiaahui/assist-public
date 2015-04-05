@@ -2,23 +2,27 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.mapping.solver.exceptions.InterfaceTypeCouldNotBeMapped
+import ch.hilbri.assist.mapping.solver.exceptions.InterfaceTypeDemandExceedsSupply
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
+import java.util.ArrayList
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.constraints.^extension.Tuples
 import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.BoolVar
-import org.chocosolver.solver.variables.VF
-import ch.hilbri.assist.mapping.solver.exceptions.InterfaceTypeDemandExceedsSupply
-import org.chocosolver.solver.constraints.^extension.Tuples
-import java.util.ArrayList
 import org.chocosolver.solver.variables.IntVar
+import org.chocosolver.solver.variables.VF
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 class InterfaceTypeConstraint extends AbstractMappingConstraint {
 	
+	private Logger logger
 	private boolean doPinMatching
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables, boolean doPinMatching) {
 		super("interface type", model, solver, solverVariables)
+		this.logger = LoggerFactory.getLogger(this.class)
 		this.doPinMatching = doPinMatching
 	}
 
@@ -51,6 +55,7 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 				val int[] indexListOfAffectedInterfaces = interfacesOfType.map[model.eqInterfaces.indexOf(it)]
 				
 				if (doPinMatching) {
+					logger.debug('''Pin Matching:   «t»''')
 					// building allowed tuples
 					val tuples = new Tuples(true)
 					var int pinIdx = 0
@@ -87,6 +92,8 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 						catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, t) }
 					}
 				}
+				val varList = indexListOfAffectedInterfaces.map[solverVariables.getLocationVariables(0).get(it)]
+				logger.debug('''Variables list:   [«FOR v : varList»«v», «ENDFOR»]''')
 			}
 
 		}
