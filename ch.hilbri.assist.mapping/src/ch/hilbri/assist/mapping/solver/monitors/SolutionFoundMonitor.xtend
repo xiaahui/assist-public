@@ -15,15 +15,13 @@ class SolutionFoundMonitor implements IMonitorSolution {
 	private Logger logger
 	private Solver solver
 	private SolverVariablesContainer solverVariables
-	private int[] locationVariableLevels
 	
-	new(Solver solver, SolverVariablesContainer solverVariables, AllSolutionsRecorder recorder, int[] locationVariableLevels) {
+	new(Solver solver, SolverVariablesContainer solverVariables, AllSolutionsRecorder recorder) {
 		this.logger = LoggerFactory.getLogger(this.class)
 		
 		this.solver = solver
 		this.solverVariables = solverVariables
 		this.recorder = recorder
-		this.locationVariableLevels = locationVariableLevels
 	}
 	
 	override onSolution() {
@@ -31,7 +29,7 @@ class SolutionFoundMonitor implements IMonitorSolution {
 		
 		// This solution is now forbidden in order to allow strategies and heuristics with a restart policy
 		// what are our solution variables?
-		val vars = solverVariables.getLocationVariables(locationVariableLevels)
+		val vars = solverVariables.locationVariables
 
 		// what are the (last found) solutions for these variables?		
 		val tuples = new Tuples(false)

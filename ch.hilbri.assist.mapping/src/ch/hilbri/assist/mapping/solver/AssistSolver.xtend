@@ -50,7 +50,6 @@ class AssistSolver {
 	private ArrayList<Result> mappingResults
 	private ArrayList<AbstractModelPreprocessor> modelPreprocessors
 	private Logger logger
-	private int[] locationVariableLevels // do we work with just the LocVars on connector level or other levels as well?
 	
 	new (AssistModel model, int... locationVariableLevels) {
 		this(model, locationVariableLevels as List<Integer>, false)
@@ -83,17 +82,14 @@ class AssistSolver {
 		
 		/* Create a new recorder for our solutions */
 		this.recorder = new AllSolutionsRecorder(solver)
-		solver.set(recorder)
+		this.solver.set(recorder)
 		
 		/* Create the container for variables which are needed in the solver */
- 		this.solverVariables = new SolverVariablesContainer(this.model, solver)
-
-		/* Get the list of locationVariableLevels which will be used */
-		this.locationVariableLevels = locationVariableLvls
-
+ 		this.solverVariables = new SolverVariablesContainer(this.model, this.solver, locationVariableLvls)
+		
 		/* Attach the search monitor */
-		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solver, solverVariables, recorder, locationVariableLevels))
-		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solver))
+		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solver, solverVariables, recorder))
+		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solver, solverVariables))
 		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 		this.solver.searchLoop.plugSearchMonitor(new RestartMonitor)
 		
@@ -137,7 +133,7 @@ class AssistSolver {
 	def setSolverSearchStrategy(SearchType strategy) {
 		var AbstractStrategy<IntVar> heuristic
 		val seed = 23432
-		val vars = solverVariables.getLocationVariables(locationVariableLevels)
+		val vars = solverVariables.getLocationVariables()
 		switch (strategy) {
 			case SearchType.RANDOM: {
 				heuristic = ISF.custom(ISF.random_var_selector(0), ISF.random_value_selector(0), vars)
@@ -146,7 +142,7 @@ class AssistSolver {
 				heuristic = ISF.minDom_LB(vars)
 			}
 			case SearchType.MAX_DEGREE_FIRST: {
-				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model, locationVariableLevels)
+				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model)
 				heuristic = ISF.custom(selector, selector, vars)				
 			}
 			case SearchType.HARDEST_DISLOCALITIES_FIRST: {
@@ -239,6 +235,6 @@ class AssistSolver {
 	def hasReachedLimit() 				{ solver.hasReachedLimit 	}
 
 	// the following methods are for the tests only
-	def IntVar[] getLocationVariables() 	{ solverVariables.getLocationVariables(0) }
-	def Solver getChocoSolver() { solver }
+	def IntVar[] getLocationVariables() { solverVariables.getLocationVariables(0) }
+	def Solver getChocoSolver() 		{ solver }
 }

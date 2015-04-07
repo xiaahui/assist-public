@@ -19,8 +19,12 @@ import org.chocosolver.solver.variables.BoolVar
 	
 	Map<IntVar, EqInterface> 		locationVarMap = new HashMap
 	
+	int[] locationVariableLevels 
+	
 	/* CONSTRUCTOR */
-	new (AssistModel model, Solver solver) {
+	new (AssistModel model, Solver solver, int[] locationVariableLevels) {
+	
+		this.locationVariableLevels = locationVariableLevels
 		
 		/* Initialize the hash map for all thread-related location variables */
 		for (iface : model.eqInterfaces) {
@@ -43,6 +47,10 @@ import org.chocosolver.solver.variables.BoolVar
 			
 			eqInterfaceLocationVariables.put(iface, l)
 		}
+	}
+	
+	def IntVar[] getLocationVariables() {
+		return getLocationVariables(this.locationVariableLevels)
 	}
 	
 	def IntVar[] getLocationVariables(int... levels) {
