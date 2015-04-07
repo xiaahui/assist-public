@@ -55,7 +55,7 @@ class AssistSolver {
 		this(model, locationVariableLevels as List<Integer>, false)
 	}
 
-	new (AssistModel model, List<Integer> locationVariableLvls, boolean clique) {
+	new (AssistModel model, List<Integer> locationVariableLvls, boolean useCliquesInDislocalities) {
 		this.logger = LoggerFactory.getLogger(this.class)
 		logger.info('''******************************''')
 		logger.info(''' Executing a new AssistSolver''')
@@ -102,23 +102,11 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables, clique))
+		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables, useCliquesInDislocalities))
 
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>()  
 	}
-	
-
-	def runModelPreprocessors() {
-		logger.info("Running pre-processors")
-		for (p : this.modelPreprocessors) { 
-			logger.info(" - Processing " + p.name)
-			if (!p.execute) {
-				logger.info('''      There is nothing to be done.''')
-			}
-		}
-	}
-	
 
 	def setSolverTimeLimit(long timeInMs) {
 		SMF.limitTime(solver, timeInMs);
@@ -178,6 +166,16 @@ class AssistSolver {
 		}
 	}
 
+	def runModelPreprocessors() {
+		logger.info("Running pre-processors")
+		for (p : this.modelPreprocessors) { 
+			logger.info(" - Processing " + p.name)
+			if (!p.execute) {
+				logger.info('''      There is nothing to be done.''')
+			}
+		}
+	}
+	
 	def propagation() throws BasicConstraintsException {
 		logger.info("Starting to generate constraints for the choco-solver");
 		for (constraint : mappingConstraintsList) {
