@@ -5,27 +5,15 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.constraints.^extension.Tuples
-import org.chocosolver.util.tools.ArrayUtils
 
 class SystemHierarchyConstraint extends AbstractMappingConstraint {
 
-	private boolean doChanneling
-	
-	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables, boolean doChanneling) {
+	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
 		super("system hierarchy", model, solver, solverVariables)
-		this.doChanneling = doChanneling
 	}
 
 	override generate() {
 
-		if (doChanneling) {
-			// channeling for connectors
-			val connectorIndicators = solverVariables.getInterfaceConnectorIndicatorVariables()
-			for (int i : 0 ..< model.eqInterfaces.length) {
-				val intVar = solverVariables.getEqInterfaceLocationVariable(model.eqInterfaces.get(i), 0)
-				solver.post(ICF.boolean_channeling(ArrayUtils.getColumn(connectorIndicators, i), intVar, 0));
-			}
-		}
 		// building allowed tuples
 		val tuples = new Tuples(true)
 		for (int connIdx : 0 ..< model.allConnectors.length) {

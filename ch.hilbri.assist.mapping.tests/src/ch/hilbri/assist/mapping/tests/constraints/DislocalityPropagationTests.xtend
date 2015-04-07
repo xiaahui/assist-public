@@ -123,32 +123,10 @@ Restrictions {
 	}
 
 	@Test
-	def void testPropagation() {
-		try {
-			/* Create the job to search for new solutions */
-			solver = new AssistSolver(model, #[0], false, false)
-			solver.solverSearchStrategy = SearchType.DEFAULT
-			solver.solverMaxSolutions = 1000
-			assertNotNull(solver)
-			
-			solver.propagation
-			val v = solver.getLocationVariables
-			assertTrue(v.get(6).instantiated)
-			assertEquals(3, v.get(6).value)
-		}
-		catch (BasicConstraintsException e) {
-			val constraintName = e.getConstraintName
-			val message = e.getExplanation
-			logger.info("Inconsistency found while processing constraint \"" + constraintName + "\"");
-			logger.info("\""+ message + "\"");
-		}
-	}
-
-	@Test
 	def void testCliquePropagation() {
 		try {
 			/* Create the job to search for new solutions */
-			solver = new AssistSolver(model, #[0], true, false)
+			solver = new AssistSolver(model, #[0], true)
 			solver.solverSearchStrategy = SearchType.DEFAULT
 			solver.solverMaxSolutions = 1000
 			assertNotNull(solver)
@@ -170,7 +148,7 @@ Restrictions {
 	def void testMatchingPropagation() {
 		try {
 			/* Create the job to search for new solutions */
-			solver = new AssistSolver(model, #[0], false, true)
+			solver = new AssistSolver(model, #[0], false)
 			solver.solverSearchStrategy = SearchType.DEFAULT
 			solver.solverMaxSolutions = 1000
 			assertNotNull(solver)
@@ -192,7 +170,7 @@ Restrictions {
 	def void testCliqueMatchingPropagation() {
 		try {
 			/* Create the job to search for new solutions */
-			solver = new AssistSolver(model, #[0], true, true)
+			solver = new AssistSolver(model, #[0], true)
 			solver.solverSearchStrategy = SearchType.DEFAULT
 			solver.solverMaxSolutions = 1000
 			assertNotNull(solver)

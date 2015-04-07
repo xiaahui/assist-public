@@ -116,29 +116,12 @@ Restrictions {
 
 	}
 
-	@Test
-	def void testPropagation() {
-		try {
-			/* Create the job to search for new solutions */
-			solver = new AssistSolver(model, #[0], false, false)
-			solver.solverSearchStrategy = SearchType.DEFAULT
-			solver.solverMaxSolutions = 1000
-			assertNotNull(solver)
-			solver.propagation
-		}
-		catch (BasicConstraintsException e) {
-			val constraintName = e.getConstraintName
-			val message = e.getExplanation
-			logger.info("Inconsistency found while processing constraint \"" + constraintName + "\"");
-			logger.info("\""+ message + "\"");
-		}
-	}
-
+	
 	@Test
 	def void testMatchPropagation() {
 		try {
 			/* Create the job to search for new solutions */
-			solver = new AssistSolver(model, #[0], false, true)
+			solver = new AssistSolver(model, #[0], false)
 			solver.solverSearchStrategy = SearchType.DEFAULT
 			solver.solverMaxSolutions = 1000
 			assertNotNull(solver)

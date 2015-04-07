@@ -19,11 +19,8 @@ import org.chocosolver.solver.variables.BoolVar
 	
 	Map<IntVar, EqInterface> 		locationVarMap = new HashMap
 	
-	/** Matrix of indicator variables; first dimension corresponds to the connectors, the second dimension to the interfaces */
-	BoolVar[][] interfaceConnectorIndicatorVariables;
-	
 	/* CONSTRUCTOR */
-	new (AssistModel model, Solver solver, boolean doChanneling) {
+	new (AssistModel model, Solver solver) {
 		
 		/* Initialize the hash map for all thread-related location variables */
 		for (iface : model.eqInterfaces) {
@@ -45,12 +42,6 @@ import org.chocosolver.solver.variables.BoolVar
 			locationVarMap.put(ifaceLocVarCon, iface)
 			
 			eqInterfaceLocationVariables.put(iface, l)
-		}
-		if (doChanneling) {
-			/* Initialize the board indicator variables */
-			interfaceConnectorIndicatorVariables = VF.boolMatrix("d", model.allConnectors.size, model.eqInterfaces.size, solver)
-		} else {
-			interfaceConnectorIndicatorVariables = null
 		}
 	}
 	

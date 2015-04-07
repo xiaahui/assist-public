@@ -53,10 +53,10 @@ class AssistSolver {
 	private int[] locationVariableLevels // do we work with just the LocVars on connector level or other levels as well?
 	
 	new (AssistModel model, int... locationVariableLevels) {
-		this(model, locationVariableLevels as List<Integer>, false, false)
+		this(model, locationVariableLevels as List<Integer>, false)
 	}
 
-	new (AssistModel model, List<Integer> locationVariableLvls, boolean clique, boolean pinMatching) {
+	new (AssistModel model, List<Integer> locationVariableLvls, boolean clique) {
 		this.logger = LoggerFactory.getLogger(this.class)
 		logger.info('''******************************''')
 		logger.info(''' Executing a new AssistSolver''')
@@ -86,7 +86,7 @@ class AssistSolver {
 		solver.set(recorder)
 		
 		/* Create the container for variables which are needed in the solver */
- 		this.solverVariables = new SolverVariablesContainer(this.model, solver, !pinMatching)
+ 		this.solverVariables = new SolverVariablesContainer(this.model, solver)
 
 		/* Get the list of locationVariableLevels which will be used */
 		this.locationVariableLevels = locationVariableLvls
@@ -101,8 +101,8 @@ class AssistSolver {
 		/* Create an empty set of constraints that will be used */
 		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
 		
-		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables, !pinMatching))
-		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables, pinMatching))				
+		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))				
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
