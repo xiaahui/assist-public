@@ -199,27 +199,27 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			val uncoveredNode = uncovered.get(maxIdx)
 			var BitSet seed
 			
-			if (true) {
+//			if (true) {
 				/* new version the seed is a clique of uncovered vertices */
 				val uncovCandidates = uncoveredNode.clone as BitSet
 				seed = findClique(uncovCandidates, uncovered)			
-			} else {
-				/* old version: the seed is only one edge */
-				// find maximum neighbor among the ones reachable via uncovered edges
-				var int maxCovIdx = -1
-				var int maxCovCard = 0
-				for (var int idx = uncoveredNode.nextSetBit(0); idx != -1; idx = uncoveredNode.nextSetBit(idx+1)) {
-					val nodeClone = (graph.get(idx).clone as BitSet)
-					nodeClone.and(maxNode)
-					val card = nodeClone.cardinality
-					if (card > maxCovCard) {
-						maxCovIdx = idx
-						maxCovCard = card
-					}
-				}
-				seed = new BitSet
-				seed.set(maxCovIdx)
-			}
+//			} else {
+//				/* old version: the seed is only one edge */
+//				// find maximum neighbor among the ones reachable via uncovered edges
+//				var int maxCovIdx = -1
+//				var int maxCovCard = 0
+//				for (var int idx = uncoveredNode.nextSetBit(0); idx != -1; idx = uncoveredNode.nextSetBit(idx+1)) {
+//					val nodeClone = (graph.get(idx).clone as BitSet)
+//					nodeClone.and(maxNode)
+//					val card = nodeClone.cardinality
+//					if (card > maxCovCard) {
+//						maxCovIdx = idx
+//						maxCovCard = card
+//					}
+//				}
+//				seed = new BitSet
+//				seed.set(maxCovIdx)
+//			}
 			// the candidates are the common neighborhood of the seed
 			val candidates = maxNode.clone as BitSet
 			for (var int idx = seed.nextSetBit(0); idx != -1; idx = seed.nextSetBit(idx+1)) {
