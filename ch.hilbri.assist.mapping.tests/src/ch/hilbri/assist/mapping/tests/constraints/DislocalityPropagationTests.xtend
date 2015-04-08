@@ -126,7 +126,7 @@ Restrictions {
 	def void testCliquePropagation() {
 		try {
 			/* Create the job to search for new solutions */
-			solver = new AssistSolver(model, #[0], true)
+			solver = new AssistSolver(model, #[0], true, false)
 			solver.solverSearchStrategy = SearchType.getDefaultSearchType
 			solver.solverMaxSolutions = 1000
 			assertNotNull(solver)
@@ -148,7 +148,7 @@ Restrictions {
 	def void testMatchingPropagation() {
 		try {
 			/* Create the job to search for new solutions */
-			solver = new AssistSolver(model, #[0], false)
+			solver = new AssistSolver(model, #[0], false, false)
 			solver.solverSearchStrategy = SearchType.getDefaultSearchType
 			solver.solverMaxSolutions = 1000
 			assertNotNull(solver)
@@ -170,7 +170,7 @@ Restrictions {
 	def void testCliqueMatchingPropagation() {
 		try {
 			/* Create the job to search for new solutions */
-			solver = new AssistSolver(model, #[0], true)
+			solver = new AssistSolver(model, #[0], true, true)
 			solver.solverSearchStrategy = SearchType.getDefaultSearchType
 			solver.solverMaxSolutions = 1000
 			assertNotNull(solver)

@@ -87,7 +87,7 @@ public class Runner {
 				continue;
 			}*/
 			final int optimize = Integer.parseInt(cmd.getOptionValue("optimize", "0"));
-			final AssistSolver solver = new AssistSolver(model, levels, (optimize & 1) > 0);
+			final AssistSolver solver = new AssistSolver(model, levels, (optimize & 1) > 0, (optimize & 2) > 0);
 			SearchType heuristic = SearchType.getDefaultSearchType();
 			switch (cmd.getOptionValue("strategy", "")) {
 				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST; break;

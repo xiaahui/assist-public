@@ -1,7 +1,10 @@
 package ch.hilbri.assist.mapping.solver.variables
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.ColocalityRelation
 import ch.hilbri.assist.datamodel.model.EqInterface
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import java.util.ArrayList
 import java.util.HashMap
 import java.util.List
@@ -18,9 +21,11 @@ import org.eclipse.xtend.lib.annotations.Data
 	
 	Map<IntVar, EqInterface> 		locationVarMap = new HashMap
 	
-	IntVar                          optVar
+	int[]                           locationVariableLevels 
 	
-	int[] locationVariableLevels 
+	List<IntVar>                    colocationVariables = new ArrayList<IntVar>
+	
+	IntVar                          optVar
 	
 	/* CONSTRUCTOR */
 	new (AssistModel model, Solver solver, int[] locationVariableLevels) {
@@ -48,6 +53,15 @@ import org.eclipse.xtend.lib.annotations.Data
 			
 			eqInterfaceLocationVariables.put(iface, l)
 		}
+
+		for (r : model.colocalityRelations) {
+			for (v: getColocationVariables(r)) {
+				if (!colocationVariables.contains(v)) {
+					colocationVariables.add(v)
+				}
+			}
+		}
+
 		this.optVar = VF.enumerated("N", 0, model.allRDCs.length, solver)
 	}
 	
@@ -67,13 +81,35 @@ import org.eclipse.xtend.lib.annotations.Data
 		for (iface : eqInterfaceLocationVariables.keySet.sortBy[name])
 			list.add(eqInterfaceLocationVariables.get(iface).get(level))
 
-		return list	
+		return list
 	}
 	
 	def int[] getLevels() {
 		this.locationVariableLevels
 	}
 
+	def List<IntVar> getColocationVariables() {
+		colocationVariables
+	}
+	
+	def List<IntVar> getColocationVariables(ColocalityRelation r) {
+		var int level
+		if (r.hardwareLevel == HardwareArchitectureLevelType.CONNECTOR) 		level = 0
+		else if (r.hardwareLevel == HardwareArchitectureLevelType.RDC)			level = 1
+		else if (r.hardwareLevel == HardwareArchitectureLevelType.COMPARTMENT)	level = 2
+		val l = level
+		
+		val list = new ArrayList<IntVar>
+		for (ifaceOrGroup : r.eqInterfaceOrGroups) {
+			if (ifaceOrGroup instanceof EqInterface) {
+				list.add(getEqInterfaceLocationVariable(ifaceOrGroup, l))
+			} else if (ifaceOrGroup instanceof EqInterfaceGroup) {
+				list.addAll(ifaceOrGroup.eqInterfaces.map[getEqInterfaceLocationVariable(it, l)])
+			}
+		}
+		return list
+	}
+	
 	/** Returns the optimization variable */
 	def IntVar getOptimizationVariable() {
 		return optVar
