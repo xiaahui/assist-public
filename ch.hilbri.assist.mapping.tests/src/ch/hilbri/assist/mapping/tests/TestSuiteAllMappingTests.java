@@ -11,6 +11,7 @@ import ch.hilbri.assist.mapping.tests.constraints.DislocalityTests;
 import ch.hilbri.assist.mapping.tests.constraints.RestrictValidDeploymentTest;
 import ch.hilbri.assist.mapping.tests.constraints.RestrictValidDeploymentTest2;
 import ch.hilbri.assist.mapping.tests.groups.ImplicitlyDefinedGroups;
+import ch.hilbri.assist.mapping.tests.misc.SearchTypeTests;
 import ch.hilbri.assist.mapping.tests.results.BasicResultTests;
 
 @RunWith(Suite.class)
@@ -22,7 +23,8 @@ import ch.hilbri.assist.mapping.tests.results.BasicResultTests;
 	ImplicitlyDefinedGroups.class,
 	ColocalityTest.class,
 	RestrictValidDeploymentTest.class,
-	RestrictValidDeploymentTest2.class
+	RestrictValidDeploymentTest2.class,
+	SearchTypeTests.class
 })  
 
 public class TestSuiteAllMappingTests {}
