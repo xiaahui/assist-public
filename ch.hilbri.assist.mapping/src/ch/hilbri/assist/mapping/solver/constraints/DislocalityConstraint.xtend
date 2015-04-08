@@ -57,7 +57,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			if (r.eqInterfaceOrGroups.filter[it instanceof EqInterface].length == r.eqInterfaceOrGroups.length) {
 				val intVars = r.eqInterfaceOrGroups.map[solverVariables.getEqInterfaceLocationVariable(it as EqInterface, l)]
 				if (intVars.length > 1)
-					solver.post(ICF.alldifferent(intVars))
+					solver.post(ICF.alldifferent(intVars, "AC"))
 			} 
 			
 			// Case 2: Only a single group is mentioned
@@ -68,7 +68,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				// The group should not be empty
 				if (group.eqInterfaces.length > 1) { 
 					val intVars = group.eqInterfaces.map[solverVariables.getEqInterfaceLocationVariable(it, l)]
-					solver.post(ICF.alldifferent(intVars))
+					solver.post(ICF.alldifferent(intVars, "AC"))
 				} else {
 					logger.info('''       Skipping dislocality constraint with empty or one element group «group.name»''')
 				}
@@ -233,7 +233,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				conflict.add(intVarList.get(idx))
 				uncovered.get(idx).andNot(clique)
 			}
-			solver.post(ICF.alldifferent(conflict))
+			solver.post(ICF.alldifferent(conflict, "AC"))
 		}
 	}
 }
