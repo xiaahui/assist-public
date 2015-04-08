@@ -53,12 +53,14 @@ class AssistSolver {
 	private ArrayList<AbstractModelPreprocessor> modelPreprocessors
 	private boolean optimize = false
 	private Logger logger
+	private boolean colocsFirst
 	
 	new (AssistModel model, int... locationVariableLevels) {
-		this(model, locationVariableLevels as List<Integer>, false)
+		this(model, locationVariableLevels as List<Integer>, false, false)
 	}
 
-	new (AssistModel model, List<Integer> locationVariableLvls, boolean useCliquesInDislocalities) {
+	new (AssistModel model, List<Integer> locationVariableLvls, boolean useCliquesInDislocalities, boolean colocsFirst) {
+		this.colocsFirst = colocsFirst && !model.colocalityRelations.empty
 		this.logger = LoggerFactory.getLogger(this.class)
 		logger.info('''******************************''')
 		logger.info(''' Executing a new AssistSolver''')
@@ -122,51 +124,57 @@ class AssistSolver {
 	}
 	
 	def setSolverSearchStrategy(SearchType strategy) {
-		var AbstractStrategy<IntVar> heuristic
+		val List<AbstractStrategy<IntVar>> heuristics = new ArrayList<AbstractStrategy<IntVar>>
 		val seed = 23432
-		val vars = solverVariables.getLocationVariables()
+		val colocs = solverVariables.colocationVariables
+		val vars = solverVariables.locationVariables
 		switch (strategy) {
 			case SearchType.RANDOM: {
-				heuristic = ISF.custom(ISF.random_var_selector(0), ISF.random_value_selector(0), vars)
+				if (colocsFirst) heuristics.add(ISF.custom(ISF.random_var_selector(0), ISF.random_value_selector(0), colocs))
+				heuristics.add(ISF.custom(ISF.random_var_selector(0), ISF.random_value_selector(0), vars))
 			}
 			case SearchType.MIN_DOMAIN_FIRST: {
-				heuristic = ISF.minDom_LB(vars)
+				if (colocsFirst) heuristics.add(ISF.minDom_LB(colocs))
+				heuristics.add(ISF.minDom_LB(vars))
 			}
 			case SearchType.MAX_DEGREE_FIRST: {
 				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model)
-				heuristic = ISF.custom(selector, selector, vars)				
+				if (colocsFirst) heuristics.add(ISF.custom(selector, selector, colocs))				
+				heuristics.add(ISF.custom(selector, selector, vars))				
 			}
 			case SearchType.HARDEST_DISLOCALITIES_FIRST: {
 				val selector = new HardestDislocalitiesFirst(solverVariables, model)
-				heuristic = ISF.custom(selector, selector, vars)
+				if (colocsFirst) heuristics.add(ISF.custom(selector, selector, colocs))
+				heuristics.add(ISF.custom(selector, selector, vars))
 			}
 			case SearchType.SCARCEST_IOTYPE_FIRST: {
 				val selector = new ScarcestIoTypeFirst(solverVariables, model)
-				heuristic = ISF.custom(selector, ISF.min_value_selector, vars)
+				if (colocsFirst) heuristics.add(ISF.custom(selector, ISF.min_value_selector, colocs))
+				heuristics.add(ISF.custom(selector, ISF.min_value_selector, vars))
 			}
 			case SearchType.VARS_IN_MOST_DISLOC: {
 				val selector = new VariablesInMostDislocalityRelationsFirst(solverVariables, model)
-				heuristic = ISF.custom(selector, ISF.min_value_selector, vars)
+				if (colocsFirst) heuristics.add(ISF.custom(selector, ISF.min_value_selector, colocs))
+				heuristics.add(ISF.custom(selector, ISF.min_value_selector, vars))
 			}
 			case SearchType.DOM_OVER_WDEG: {
-				heuristic = ISF.domOverWDeg(vars, seed)
+				if (colocsFirst) heuristics.add(ISF.domOverWDeg(colocs, seed))
+				heuristics.add(ISF.domOverWDeg(vars, seed))
 			}
 			case strategy == SearchType.ACTIVITY || strategy == SearchType.DEFAULT: {
-				heuristic = ISF.activity(vars, seed)
+				if (colocsFirst) heuristics.add(ISF.activity(colocs, seed))
+				heuristics.add(ISF.activity(vars, seed))
 			}
 			case SearchType.IMPACT: { // possibly broken
-				heuristic = ISF.impact(vars, seed)
+				if (colocsFirst) heuristics.add(ISF.impact(colocs, seed))
+				heuristics.add(ISF.impact(vars, seed))
 			}
 			default: {
 				logger.info("Unknown search strategy supplied")
 			}
 		}	
 		logger.info("Setting choco-solver search strategy to: " + strategy.toString)
-		if (strategy == SearchType.IMPACT) {
-			solver.set(heuristic, ISF.lexico_LB(solver.retrieveIntVars))		
-		} else {
-			solver.set(heuristic)		
-		}
+		solver.set(heuristics)		
 	}
 
 	def runModelPreprocessors() {
