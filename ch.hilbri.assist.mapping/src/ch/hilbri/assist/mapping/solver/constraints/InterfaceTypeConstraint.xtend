@@ -83,7 +83,7 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 					pinLocationVars.add(pinVar)
 				}
 	
-				solver.post(ICF.alldifferent(pinLocationVars)) // Pins must not share a single type offered --> this realizes the sum constraint for each connector
+				solver.post(ICF.alldifferent(pinLocationVars, "AC")) // Pins must not share a single type offered --> this realizes the sum constraint for each connector
 				
 				try { solver.propagate } 
 				catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, t) }

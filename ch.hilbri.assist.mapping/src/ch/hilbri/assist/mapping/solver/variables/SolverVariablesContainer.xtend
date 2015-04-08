@@ -10,7 +10,6 @@ import org.chocosolver.solver.Solver
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
 import org.eclipse.xtend.lib.annotations.Data
-import org.chocosolver.solver.variables.BoolVar
 
 @Data class SolverVariablesContainer {
 	
@@ -18,6 +17,8 @@ import org.chocosolver.solver.variables.BoolVar
 	Map<EqInterface, List<IntVar>> 	eqInterfaceLocationVariables	= new HashMap 
 	
 	Map<IntVar, EqInterface> 		locationVarMap = new HashMap
+	
+	IntVar                          optVar
 	
 	int[] locationVariableLevels 
 	
@@ -47,26 +48,35 @@ import org.chocosolver.solver.variables.BoolVar
 			
 			eqInterfaceLocationVariables.put(iface, l)
 		}
+		this.optVar = VF.enumerated("N", 0, model.allRDCs.length, solver)
 	}
 	
 	def IntVar[] getLocationVariables() {
-		return getLocationVariables(this.locationVariableLevels)
-	}
-	
-	def IntVar[] getLocationVariables(int... levels) {
 		val list = new ArrayList<IntVar>
 
-		for (l: levels)
+		for (l: this.locationVariableLevels)
 			for (iface : eqInterfaceLocationVariables.keySet.sortBy[name])
 				list.add(eqInterfaceLocationVariables.get(iface).get(l))
 
 		return list	
 	}
 	
+	def IntVar[] getLocationVariables(int level) {
+		val list = new ArrayList<IntVar>
+
+		for (iface : eqInterfaceLocationVariables.keySet.sortBy[name])
+			list.add(eqInterfaceLocationVariables.get(iface).get(level))
+
+		return list	
+	}
 	
-	/** Returns the indicator variables */
-	def BoolVar[][] getInterfaceConnectorIndicatorVariables() {
-		return interfaceConnectorIndicatorVariables
+	def int[] getLevels() {
+		this.locationVariableLevels
+	}
+
+	/** Returns the optimization variable */
+	def IntVar getOptimizationVariable() {
+		return optVar
 	}
 
 	/** Returns the location variable for a given thread and a given hardware level */

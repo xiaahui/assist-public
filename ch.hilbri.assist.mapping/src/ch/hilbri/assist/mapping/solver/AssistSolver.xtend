@@ -27,8 +27,10 @@ import ch.hilbri.assist.mapping.solver.strategies.VariablesInMostDislocalityRela
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.List
+import org.chocosolver.solver.ResolutionPolicy
 import org.chocosolver.solver.Settings
 import org.chocosolver.solver.Solver
+import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.explanations.RecorderExplanationEngine
 import org.chocosolver.solver.explanations.strategies.ConflictBasedBackjumping
 import org.chocosolver.solver.search.loop.monitors.SMF
@@ -49,6 +51,7 @@ class AssistSolver {
 	private ArrayList<AbstractMappingConstraint> mappingConstraintsList
 	private ArrayList<Result> mappingResults
 	private ArrayList<AbstractModelPreprocessor> modelPreprocessors
+	private boolean optimize = false
 	private Logger logger
 	
 	new (AssistModel model, int... locationVariableLevels) {
@@ -187,9 +190,16 @@ class AssistSolver {
 		}
 	}
 	
-	def solutionSearch() throws BasicConstraintsException {		
-		logger.info("Initiating choco-solver - searching for a solution")
-		solver.findAllSolutions
+	def solutionSearch() throws BasicConstraintsException {
+		if (optimize) {
+			val optVar = solverVariables.optimizationVariable
+			solver.post(ICF.atmost_nvalues(solverVariables.getLocationVariables(1), optVar, false))
+			logger.info("Initiating choco-solver - searching for the optimal solution using " + optVar)
+			solver.findOptimalSolution(ResolutionPolicy.MINIMIZE, optVar)
+		} else {	
+			logger.info("Initiating choco-solver - searching for a solution")
+			solver.findAllSolutions
+		}
 		logger.info('''Solutions found: «recorder.solutions.size»''') 
 		
 		logger.info('''Internal solver statistics: «solver.measures.toOneLineString»''')

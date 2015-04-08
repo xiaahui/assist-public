@@ -18,15 +18,13 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 	private SolverVariablesContainer solverVariables
 	private AssistModel model
 	private List<List<IntVar>> varList
-	private int[] levels
 	
 	private boolean printVariablesInSortedOrder = true
 	
-	new(SolverVariablesContainer solverVariables, AssistModel model, int... levels) {
+	new(SolverVariablesContainer solverVariables, AssistModel model) {
 		this.logger = LoggerFactory.getLogger(this.class)
 		this.solverVariables = solverVariables
 		this.model = model
-		this.levels = levels
 		val Map<IntVar, Integer> map = new HashMap
 		
 		logger.info('''Computing the scores for all variables''')
@@ -84,7 +82,7 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 				logger.info(''' - Assigning variable «variable.name» score «score»''')
 			}
 		}
-		varList = levels.map[l|solverVariables.getLocationVariables(l).sortBy[-map.getOrDefault(it, 0)]]
+		varList = solverVariables.levels.map[l|solverVariables.getLocationVariables(l).sortBy[-map.getOrDefault(it, 0)]]
 	}
 	
     def IntVar getFirstFail(IntVar[] variables) {
