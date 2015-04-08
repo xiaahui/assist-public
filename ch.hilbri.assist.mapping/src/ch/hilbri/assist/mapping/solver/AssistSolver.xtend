@@ -125,6 +125,9 @@ class AssistSolver {
 		var AbstractStrategy<IntVar> heuristic
 		val seed = 23432
 		val vars = solverVariables.getLocationVariables()
+		
+		logger.info("Setting choco-solver search strategy to '" + strategy.humanReadableName + "'")
+		
 		switch (strategy) {
 			case SearchType.RANDOM: {
 				heuristic = ISF.custom(ISF.random_var_selector(0), ISF.random_value_selector(0), vars)
@@ -151,22 +154,17 @@ class AssistSolver {
 			case SearchType.DOM_OVER_WDEG: {
 				heuristic = ISF.domOverWDeg(vars, seed)
 			}
-			case strategy == SearchType.ACTIVITY || strategy == SearchType.DEFAULT: {
+			case SearchType.ACTIVITY: {
 				heuristic = ISF.activity(vars, seed)
 			}
 			case SearchType.IMPACT: { // possibly broken
 				heuristic = ISF.impact(vars, seed)
 			}
-			default: {
-				logger.info("Unknown search strategy supplied")
-			}
 		}	
-		logger.info("Setting choco-solver search strategy to: " + strategy.toString)
-		if (strategy == SearchType.IMPACT) {
-			solver.set(heuristic, ISF.lexico_LB(solver.retrieveIntVars))		
-		} else {
-			solver.set(heuristic)		
-		}
+		
+		if (strategy != SearchType.IMPACT) solver.set(heuristic)
+		else 							   solver.set(heuristic, ISF.lexico_LB(solver.retrieveIntVars))		
+		
 	}
 
 	def runModelPreprocessors() {

@@ -14,6 +14,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
@@ -25,13 +26,12 @@ public class SearchParametersDialog extends TitleAreaDialog {
 	private Text editMaxSolutions;
 	private Text editMaxSearchTime;
 	private Combo cbxMaxSearchTimeUnit;
-	private Button btnStandardSearch;
-	private Button btnRandomSearch;
 	
 	private long searchTime = 60;
 	private String searchTimeItem = null;
 	private int maxSolutions = 1;
-	private SearchType selectedMode = SearchType.DEFAULT;
+	private SearchType selectedSearchType = SearchType.getDefaultSearchType();
+	private Label lblExplanationText;
 	
 	/**
 	 * Create the dialog.
@@ -55,15 +55,21 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		
 		
 		Composite composite_1 = new Composite(container, SWT.NONE);
-		composite_1.setBounds(0, 0, 336, 225);
+		composite_1.setBounds(0, 0, 392, 351);
+		
+		/* selection */
+		
+		Group grpSolverLimits = new Group(composite_1, SWT.NONE);
+		grpSolverLimits.setText("Limits");
+		grpSolverLimits.setBounds(10, 153, 372, 81);
 		
 		
-		Label lblMaxSolutions = new Label(composite_1, SWT.NONE);
-		lblMaxSolutions.setLocation(10, 10);
-		lblMaxSolutions.setSize(94, 15);
+		Label lblMaxSolutions = new Label(grpSolverLimits, SWT.NONE);
+		lblMaxSolutions.setBounds(22, 23, 82, 15);
 		lblMaxSolutions.setText("Max. solutions:");
 		
-		editMaxSolutions = new Text(composite_1, SWT.BORDER | SWT.RIGHT);
+		editMaxSolutions = new Text(grpSolverLimits, SWT.BORDER | SWT.RIGHT);
+		editMaxSolutions.setBounds(110, 20, 55, 21);
 		editMaxSolutions.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -75,17 +81,13 @@ public class SearchParametersDialog extends TitleAreaDialog {
 				}
 			}
 		});
-		editMaxSolutions.setLocation(110, 10);
-		editMaxSolutions.setSize(55, 21);
 		editMaxSolutions.setText("" + maxSolutions);
+		Label lblMaxSearchTime = new Label(grpSolverLimits, SWT.NONE);
+		lblMaxSearchTime.setBounds(22, 50, 82, 15);
+		lblMaxSearchTime.setText("Time out:");
 		
-		/* selection */
-		Label lblMaxSearchTime = new Label(composite_1, SWT.NONE);
-		lblMaxSearchTime.setLocation(10, 41);
-		lblMaxSearchTime.setSize(94, 15);
-		lblMaxSearchTime.setText("Max. search time:");
-		
-		editMaxSearchTime = new Text(composite_1, SWT.BORDER | SWT.RIGHT);
+		editMaxSearchTime = new Text(grpSolverLimits, SWT.BORDER | SWT.RIGHT);
+		editMaxSearchTime.setBounds(110, 47, 55, 21);
 		editMaxSearchTime.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -97,11 +99,10 @@ public class SearchParametersDialog extends TitleAreaDialog {
 				}
 			}
 		});
-		editMaxSearchTime.setLocation(110, 38);
-		editMaxSearchTime.setSize(55, 21);
 		editMaxSearchTime.setText("" + searchTime);
 		
-		cbxMaxSearchTimeUnit = new Combo(composite_1, SWT.NONE);
+		cbxMaxSearchTimeUnit = new Combo(grpSolverLimits, SWT.READ_ONLY);
+		cbxMaxSearchTimeUnit.setBounds(171, 47, 55, 23);
 		cbxMaxSearchTimeUnit.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -109,79 +110,57 @@ public class SearchParametersDialog extends TitleAreaDialog {
 				searchTimeItem = cbxMaxSearchTimeUnit.getItem(index);
 			}
 		});
-		cbxMaxSearchTimeUnit.setLocation(171, 38);
-		cbxMaxSearchTimeUnit.setSize(55, 23);
 		cbxMaxSearchTimeUnit.setItems(new String[] {"sec", "min"});
 		cbxMaxSearchTimeUnit.select(0);
+		
+		Group grpStrategy = new Group(composite_1, SWT.NONE);
+		grpStrategy.setText("Strategy");
+		grpStrategy.setBounds(10, 10, 372, 137);
+		
+		Label lblSearchHeuristic = new Label(grpStrategy, SWT.NONE);
+		lblSearchHeuristic.setBounds(22, 28, 82, 15);
+		lblSearchHeuristic.setText("Heuristic:");
+		
+		Combo cbxSearchHeuristics = new Combo(grpStrategy, SWT.READ_ONLY);
+		cbxSearchHeuristics.setBounds(110, 25, 247, 23);
+		cbxSearchHeuristics.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				selectedSearchType = SearchType.getSortedValues().get(cbxSearchHeuristics.getSelectionIndex());
+				lblExplanationText.setText(selectedSearchType.getHumanReadableExplanation());
+			}
+		});
+		String[] items = new String[SearchType.getSortedValues().size()];
+		for (int i = 0; i < SearchType.getSortedValues().size(); i++) items[i] = SearchType.getSortedValues().get(i).getHumanReadableName();
+		cbxSearchHeuristics.setItems(items);		
+		cbxSearchHeuristics.select(0);
+		
+		Label lblExplanation = new Label(grpStrategy, SWT.NONE);
+		lblExplanation.setBounds(22, 59, 82, 15);
+		lblExplanation.setText("Explanation:");
+		
+		lblExplanationText = new Label(grpStrategy, SWT.WRAP | SWT.SHADOW_IN);
+		lblExplanationText.setBounds(110, 59, 247, 68);
+		lblExplanationText.setText(selectedSearchType.getHumanReadableExplanation());
+		
+		Group grpMiscOptions = new Group(composite_1, SWT.NONE);
+		grpMiscOptions.setText("Miscellaneous");
+		grpMiscOptions.setBounds(10, 245, 372, 96);
+		
+		Button btnGenerateSolutions = new Button(grpMiscOptions, SWT.CHECK);
+		btnGenerateSolutions.setEnabled(false);
+		btnGenerateSolutions.setBounds(42, 43, 223, 16);
+		btnGenerateSolutions.setText("Generate explanations");
+		
+		Button btnCheckButton = new Button(grpMiscOptions, SWT.CHECK);
+		btnCheckButton.setEnabled(false);
+		btnCheckButton.setBounds(42, 65, 223, 16);
+		btnCheckButton.setText("Save the best partial solution");
+		
+		Label lblIfNoSolutions = new Label(grpMiscOptions, SWT.NONE);
+		lblIfNoSolutions.setBounds(27, 22, 335, 15);
+		lblIfNoSolutions.setText("When no solutions are found during the specified time limit:");
 		searchTimeItem = cbxMaxSearchTimeUnit.getItem(0);
-		
-		Label lblSearchHeuristic = new Label(composite_1, SWT.NONE);
-		lblSearchHeuristic.setBounds(10, 74, 94, 15);
-		lblSearchHeuristic.setText("Search heuristic:");
-		btnStandardSearch = new Button(composite_1, SWT.RADIO);
-		btnStandardSearch.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				selectedMode = SearchType.DEFAULT;
-			}
-		});
-		btnStandardSearch.setLocation(110, 74);
-		btnStandardSearch.setSize(216, 16);
-		btnStandardSearch.setSelection(true);
-		btnStandardSearch.setText("Standard Search (Activity-based)");
-		
-		/* search time */
-		
-		/* selection */
-		btnRandomSearch = new Button(composite_1, SWT.RADIO);
-		btnRandomSearch.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				selectedMode = SearchType.RANDOM;
-			}
-		});
-		btnRandomSearch.setBounds(110, 96, 190, 16);
-		btnRandomSearch.setText("Random Search");
-		
-		Button btnMinDomainFirst = new Button(composite_1, SWT.RADIO);
-		btnMinDomainFirst.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				selectedMode = SearchType.MIN_DOMAIN_FIRST;
-			}
-		});
-		btnMinDomainFirst.setBounds(110, 119, 216, 16);
-		btnMinDomainFirst.setText("Min. Domain first");
-		
-		Button btnMaxDegreeFirst = new Button(composite_1, SWT.RADIO);
-		btnMaxDegreeFirst.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				selectedMode = SearchType.MAX_DEGREE_FIRST;
-			}
-		});
-		btnMaxDegreeFirst.setBounds(110, 141, 216, 16);
-		btnMaxDegreeFirst.setText("Max Degree first");
-		
-		Button btnHardestDislocalitiesFirst = new Button(composite_1, SWT.RADIO);
-		btnHardestDislocalitiesFirst.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				selectedMode = SearchType.HARDEST_DISLOCALITIES_FIRST;
-			}
-		});
-		btnHardestDislocalitiesFirst.setBounds(110, 164, 216, 16);
-		btnHardestDislocalitiesFirst.setText("Hardest Dislocalities first");
-		
-		Button btnScarcestInterfaceTypesFirst = new Button(composite_1, SWT.RADIO);
-		btnScarcestInterfaceTypesFirst.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				selectedMode = SearchType.SCARCEST_IOTYPE_FIRST;
-			}
-		});
-		btnScarcestInterfaceTypesFirst.setBounds(110, 186, 216, 16);
-		btnScarcestInterfaceTypesFirst.setText("Scarcest Interface Types first");
 
 		return area;
 	}
@@ -202,7 +181,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(342, 374);
+		return new Point(397, 498);
 	}
 	
 	protected DataBindingContext initDataBindings() {
@@ -215,7 +194,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 	 * @return mode of the search, returns null, if a not defined/no mode is marked.
 	 */
 	public SearchType getMode() {
-		return selectedMode;
+		return selectedSearchType;
 	}
 	
 	
@@ -235,5 +214,4 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		}
 		return 0;
 	}
-	
 }

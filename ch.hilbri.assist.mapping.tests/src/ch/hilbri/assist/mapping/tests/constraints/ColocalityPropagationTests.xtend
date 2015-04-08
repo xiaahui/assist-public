@@ -122,7 +122,7 @@ Restrictions {
 		try {
 			/* Create the job to search for new solutions */
 			solver = new AssistSolver(model, #[0], false)
-			solver.solverSearchStrategy = SearchType.DEFAULT
+			solver.solverSearchStrategy = SearchType.getDefaultSearchType
 			solver.solverMaxSolutions = 1000
 			assertNotNull(solver)
 			solver.propagation

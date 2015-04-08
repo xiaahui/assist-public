@@ -88,7 +88,7 @@ public class Runner {
 			}*/
 			final int optimize = Integer.parseInt(cmd.getOptionValue("optimize", "0"));
 			final AssistSolver solver = new AssistSolver(model, levels, (optimize & 1) > 0);
-			SearchType heuristic = SearchType.DEFAULT;
+			SearchType heuristic = SearchType.getDefaultSearchType();
 			switch (cmd.getOptionValue("strategy", "")) {
 				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST; break;
 				case "ffmd": heuristic = SearchType.MAX_DEGREE_FIRST; break;
@@ -99,7 +99,7 @@ public class Runner {
 				case "act": heuristic = SearchType.ACTIVITY; break;
 				case "imp": heuristic = SearchType.IMPACT; break;
 				case "rand": heuristic = SearchType.RANDOM; break;
-				default: heuristic = SearchType.DEFAULT; break;
+				default: heuristic = SearchType.getDefaultSearchType(); break;
 			}	
 			solver.setSolverSearchStrategy(heuristic);
 			solver.setSolverMaxSolutions(numSolutions);
