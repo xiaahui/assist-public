@@ -9,7 +9,7 @@ public enum SearchType {
 	MIN_DOMAIN_FIRST			("Min domain first", 				
 								 "The interface with the minimal amount of available connectors is chosen first. " +
 	                             "Connectors with lower index values are picked first.", 
-								 false),
+								 true),
 								 
 	MAX_DEGREE_FIRST			("Max degree first", 				
 								 "Empty", 
@@ -34,11 +34,17 @@ public enum SearchType {
 								 "Interfaces and the connectors are randomly chosen.", 
 								 false),
 	                             
-	DOM_OVER_WDEG				("Domain over weighted degree", 	"This is black magic.", true),
+	DOM_OVER_WDEG				("Domain over weighted degree", 	
+								 "This is black magic.", 
+								 false),
 	
-	ACTIVITY					("Activity", 						"This is black magic.", false),
+	ACTIVITY					("Activity", 						
+								 "This is black magic.", 
+								 false),
 	
-	IMPACT						("Impact", 							"This is possibly broken. Be wary!", false);
+	IMPACT						("Impact",
+								 "This is possibly broken. Be wary!", 
+								 false);
 	
 	
 	private final String humanReadableName;
