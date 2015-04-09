@@ -112,7 +112,7 @@ class HardestDislocalitiesFirst implements VariableSelector<IntVar>, IntValueSel
 
 		
 		val v2 = ff.getVariable(varList)
-		if (v2 != null)
+//		if (v2 != null)
 //			logger.info('''Selecting variable «v2.name» with score «map.get(v2)» («currentProgress»% instantiated)''')
 		return v2
 	}
