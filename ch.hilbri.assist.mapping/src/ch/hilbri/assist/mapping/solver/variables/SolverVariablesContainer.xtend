@@ -6,6 +6,7 @@ import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import java.util.ArrayList
+import java.util.BitSet
 import java.util.HashMap
 import java.util.List
 import java.util.Map
@@ -21,14 +22,16 @@ import org.eclipse.xtend.lib.annotations.Data
 	
 	Map<IntVar, EqInterface> 		locationVarMap = new HashMap
 	
-	int[]                           locationVariableLevels 
+	private int[]                   locationVariableLevels 
 	
-	List<IntVar>                    colocationVariables = new ArrayList<IntVar>
+	private List<IntVar>            colocationVariables = new ArrayList<IntVar>
 	
-	IntVar                          optVar
+	private List<ArrayList<BitSet>> conflictGraph 
+	
+	private IntVar                  optVar
 	
 	/* CONSTRUCTOR */
-	new (AssistModel model, Solver solver, int[] locationVariableLevels) {
+	new (AssistModel model, Solver solver, boolean buildConflictGraph, int[] locationVariableLevels) {
 	
 		this.locationVariableLevels = locationVariableLevels
 		
@@ -62,6 +65,18 @@ import org.eclipse.xtend.lib.annotations.Data
 			}
 		}
 
+	
+		conflictGraph = #[new ArrayList<BitSet>, new ArrayList<BitSet>, new ArrayList<BitSet>]
+	
+		if (buildConflictGraph) {
+			for (iface:model.eqInterfaces) {
+				// we build one conflict matrix for each level
+				conflictGraph.get(0).add(new BitSet)
+				conflictGraph.get(1).add(new BitSet)
+				conflictGraph.get(2).add(new BitSet)
+			}	
+		}
+
 		this.optVar = VF.enumerated("N", 0, model.allRDCs.length, solver)
 	}
 	
@@ -88,17 +103,21 @@ import org.eclipse.xtend.lib.annotations.Data
 		this.locationVariableLevels
 	}
 
+	def int getLevelIndex(HardwareArchitectureLevelType hwLevel) {
+		switch (hwLevel) {
+			case HardwareArchitectureLevelType.CONNECTOR: return 0
+			case HardwareArchitectureLevelType.RDC: return 1
+			case HardwareArchitectureLevelType.COMPARTMENT: return 2
+			default: return -1
+		}		
+	}
+
 	def List<IntVar> getColocationVariables() {
 		colocationVariables
 	}
 	
 	def List<IntVar> getColocationVariables(ColocalityRelation r) {
-		var int level
-		if (r.hardwareLevel == HardwareArchitectureLevelType.CONNECTOR) 		level = 0
-		else if (r.hardwareLevel == HardwareArchitectureLevelType.RDC)			level = 1
-		else if (r.hardwareLevel == HardwareArchitectureLevelType.COMPARTMENT)	level = 2
-		val l = level
-		
+		val l = getLevelIndex(r.hardwareLevel)
 		val list = new ArrayList<IntVar>
 		for (ifaceOrGroup : r.eqInterfaceOrGroups) {
 			if (ifaceOrGroup instanceof EqInterface) {
@@ -108,6 +127,10 @@ import org.eclipse.xtend.lib.annotations.Data
 			}
 		}
 		return list
+	}
+	
+	def List<BitSet> getConflictGraph(int level) {
+		return conflictGraph.get(level)
 	}
 	
 	/** Returns the optimization variable */
@@ -122,12 +145,7 @@ import org.eclipse.xtend.lib.annotations.Data
 		
 	
 	def EqInterface getInterfaceForLocationVariable(IntVar variable) {
-		val t = locationVarMap.get(variable)
-		
-		if (t != null)
-			return t
-		else
-			return null
+		return locationVarMap.get(variable)
 	}
 	
 }

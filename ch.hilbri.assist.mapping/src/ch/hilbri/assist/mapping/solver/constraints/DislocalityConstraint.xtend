@@ -3,7 +3,6 @@ package ch.hilbri.assist.mapping.solver.constraints
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
-import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.solver.constraints.choco.ACF
 import ch.hilbri.assist.mapping.solver.exceptions.InterfaceGroupCannotBeMappedDislocally
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
@@ -15,28 +14,11 @@ import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
-import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 class DislocalityConstraint extends AbstractMappingConstraint {
 	
-	private List<ArrayList<BitSet>> conflictGraph 
-	
-	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables, boolean buildConflictGraph) {
+	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
 		super("interface dislocality", model, solver, solverVariables)
-	
-		this.logger = LoggerFactory.getLogger(this.class)
-	
-		conflictGraph = #[new ArrayList<BitSet>, new ArrayList<BitSet>, new ArrayList<BitSet>]
-	
-		if (buildConflictGraph) {
-			for (iface:model.eqInterfaces) {
-				// we build one conflict matrix for each level
-				conflictGraph.get(0).add(new BitSet)
-				conflictGraph.get(1).add(new BitSet)
-				conflictGraph.get(2).add(new BitSet)
-			}	
-		}
 	}
 	
 	override generate() {
@@ -44,12 +26,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 		if (model.dislocalityRelations.isNullOrEmpty) return false
 
 		for (r : model.dislocalityRelations) {
-			var int level
-			if (r.hardwareLevel == HardwareArchitectureLevelType.CONNECTOR) 		level = 0
-			else if (r.hardwareLevel == HardwareArchitectureLevelType.RDC)			level = 1
-			else if (r.hardwareLevel == HardwareArchitectureLevelType.COMPARTMENT)	level = 2
-			
-			val l = level
+			val l = solverVariables.getLevelIndex(r.hardwareLevel)
 			
 			// Case 0: Nothing is mentioned - prevented by the input language grammar
 
@@ -84,7 +61,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 														  .map[ if (it instanceof EqInterface) #[it]
 															    else if (it instanceof EqInterfaceGroup) it.eqInterfaces]
 				
-				if (conflictGraph.get(l).empty) {
+				if (solverVariables.getConflictGraph(l).empty) {
 					val List<List<IntVar>> intVarList = ifaceList.map[it.map[solverVariables.getEqInterfaceLocationVariable(it, l)]]
 				
 					val emptyGroupCounter = r.eqInterfaceOrGroups.length - ifaceList.length
@@ -105,22 +82,14 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 						}
 					}
 				} else {
-					addToConflictGraph(ifaceList, conflictGraph.get(l))					
+					addToConflictGraph(ifaceList, solverVariables.getConflictGraph(l))					
 				}
 	
 			}
 
-			if (conflictGraph.get(l).empty) {
+			if (solverVariables.getConflictGraph(l).empty) {
 				try { solver.propagate }
 				catch (ContradictionException e) { throw new InterfaceGroupCannotBeMappedDislocally(this, r.allEqInterfaceOrGroupNames)	}
-			}
-		}
-		
-		for (l:#[0,1,2]) {
-			if (!conflictGraph.get(l).empty) {
-				cliqueCoverConstraintBuild(solverVariables.getLocationVariables(l), conflictGraph.get(l))
-				try { solver.propagate }
-				catch (ContradictionException e) { throw new BasicConstraintsException(this)	}
 			}
 		}
 		return true
@@ -153,87 +122,6 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 					}	
 				}
 			}
-		}
-	}
-	
-	def BitSet findClique(BitSet candidates, List<BitSet> graph) {
-		val clique = new BitSet
-		while (!candidates.empty) {
-			var int maxIdx = -1
-			var int maxCard = -1
-			for (var int idx = candidates.nextSetBit(0); idx != -1; idx = candidates.nextSetBit(idx+1)) {
-				val nodeClone = (graph.get(idx).clone as BitSet)
-				nodeClone.and(candidates)
-				val card = nodeClone.cardinality
-				if (card > maxCard) {
-					maxIdx = idx
-					maxCard = card
-				}			
-			}
-			candidates.and(graph.get(maxIdx))
-			clique.set(maxIdx)
-		}
-		return clique
-	}
-
-	def void cliqueCoverConstraintBuild(List<IntVar> intVarList, List<BitSet> graph) {
-		val List<BitSet> uncovered = new ArrayList<BitSet>(graph.size)
-		for (node:graph) {
-			uncovered.add(node.clone() as BitSet)
-		}
-		while (true) {
-			// find start node with maximum number of uncovered edges
-			var int maxIdx = -1
-			var int maxCard = 0
-			for (idx : 0..<uncovered.size) {
-				val card = uncovered.get(idx).cardinality
-				if (card > maxCard) {
-					maxIdx = idx
-					maxCard = card
-				}
-			}
-			if (maxCard == 0) {
-				return
-			}
-			val maxNode = graph.get(maxIdx)
-			val uncoveredNode = uncovered.get(maxIdx)
-			var BitSet seed
-			
-//			if (true) {
-				/* new version the seed is a clique of uncovered vertices */
-				val uncovCandidates = uncoveredNode.clone as BitSet
-				seed = findClique(uncovCandidates, uncovered)			
-//			} else {
-//				/* old version: the seed is only one edge */
-//				// find maximum neighbor among the ones reachable via uncovered edges
-//				var int maxCovIdx = -1
-//				var int maxCovCard = 0
-//				for (var int idx = uncoveredNode.nextSetBit(0); idx != -1; idx = uncoveredNode.nextSetBit(idx+1)) {
-//					val nodeClone = (graph.get(idx).clone as BitSet)
-//					nodeClone.and(maxNode)
-//					val card = nodeClone.cardinality
-//					if (card > maxCovCard) {
-//						maxCovIdx = idx
-//						maxCovCard = card
-//					}
-//				}
-//				seed = new BitSet
-//				seed.set(maxCovIdx)
-//			}
-			// the candidates are the common neighborhood of the seed
-			val candidates = maxNode.clone as BitSet
-			for (var int idx = seed.nextSetBit(0); idx != -1; idx = seed.nextSetBit(idx+1)) {
-				candidates.and(graph.get(idx))
-			}
-			val clique = findClique(candidates, graph)
-			clique.set(maxIdx)
-			clique.or(seed)
-			val conflict = new ArrayList<IntVar>
-			for (var int idx = clique.nextSetBit(0); idx != -1; idx = clique.nextSetBit(idx+1)) {
-				conflict.add(intVarList.get(idx))
-				uncovered.get(idx).andNot(clique)
-			}
-			solver.post(ICF.alldifferent(conflict, "AC"))
 		}
 	}
 }
