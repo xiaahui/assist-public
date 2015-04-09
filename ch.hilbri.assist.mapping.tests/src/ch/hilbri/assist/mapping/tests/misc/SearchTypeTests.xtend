@@ -16,4 +16,9 @@ class SearchTypeTests {
 	def checkAvailableStrategieCount() {
 		assertTrue(SearchType.values.length >= 1)
 	}
+	
+	@Test
+	def checkStaticDefaultIsDefault() {
+		assertTrue(SearchType.getDefaultSearchType.isDefault)
+	}
 }
