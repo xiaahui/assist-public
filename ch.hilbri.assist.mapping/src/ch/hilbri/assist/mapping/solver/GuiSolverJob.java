@@ -78,6 +78,8 @@ public class GuiSolverJob extends Job {
 				if (monitor.isCanceled()) return Status.CANCEL_STATUS;
 			}
 			
+			
+			
 			if (assistSolver.getResults().size() > 0) {
 				monitor.beginTask("Presenting the results", 1);
 				showResults(assistSolver.getResults());
@@ -93,8 +95,9 @@ public class GuiSolverJob extends Job {
 					public void run() {MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Result", message);}
 				});
 				
-//				detailedResultsViewUiModel.setNewResultsList(new ArrayList<Result>());
-//				detailedResultsViewUiModel.indexToDrawProperty().set(0);
+				detailedResultsViewUiModel.indexToDrawProperty().set(-1);
+				
+				
 			}
 		}
 		catch (BasicConstraintsException e) {
@@ -140,7 +143,7 @@ public class GuiSolverJob extends Job {
 		
 		detailedResultsViewUiModel.setNewResultsList(allResults);
 		detailedResultsViewUiModel.indexToDrawProperty().set(0);
-	
+		
 		if (multiPageEditor != null) {
 			Display.getDefault().asyncExec(new Runnable() {
 				@Override

@@ -325,66 +325,69 @@ public class InfoSheetView {
 	private void fillComponentPropertiesTable(Object obj) {
 
 		/* Clear table */
-		tableComponentProperties.removeAll();
+		if (tableComponentProperties != null) 
+			tableComponentProperties.removeAll();
 
-		if (obj != null) if (obj instanceof Result)
-			addRowToTableComponentProperties("System Name", ((Result) obj).getModel().getSystemName());
+		if (obj != null) {
+			if (obj instanceof Result)
+				addRowToTableComponentProperties("System Name", ((Result) obj).getModel().getSystemName());
 
-		else if (obj instanceof HardwareElement) {
+			else if (obj instanceof HardwareElement) {
 
-			if (obj instanceof Connector) {
-				Connector c = (Connector) obj;
-				addRowToTableComponentProperties("Component type", "Connector");
-				addRowToTableComponentProperties("Name", c.getName());
+				if (obj instanceof Connector) {
+					Connector c = (Connector) obj;
+					addRowToTableComponentProperties("Component type", "Connector");
+					addRowToTableComponentProperties("Name", c.getName());
 
-				for (AvailableEqInterface iface : c.getAvailableEqInterfaces()) {
-					addRowToTableComponentProperties("Available of type '" + iface.getEqInterfaceType() + "'", ""+ iface.getCount());
+					for (AvailableEqInterface iface : c.getAvailableEqInterfaces()) {
+						addRowToTableComponentProperties("Available of type '" + iface.getEqInterfaceType() + "'", ""+ iface.getCount());
+					}
+				
+				} else if (obj instanceof RDC) {
+					RDC b = (RDC) obj;
+					addRowToTableComponentProperties("Component type", "RDC");
+					addRowToTableComponentProperties("Name", b.getName());
+					addRowToTableComponentProperties("Manufacturer", b.getManufacturer());
+					addRowToTableComponentProperties("Power supply", b.getPowerSupply());
+					addRowToTableComponentProperties("Side", b.getSide());
+					addRowToTableComponentProperties("Type", b.getRdcType());
+					addRowToTableComponentProperties("ESS", b.getEss());
+					addRowToTableComponentProperties("Resource X", ""+b.getResourceX());
+					addRowToTableComponentProperties("Resource Y", ""+b.getResourceY());
+					addRowToTableComponentProperties("Resource Z", ""+b.getResourceZ());
+					addRowToTableComponentProperties("Contains connectors", b.getConnectors().toString());
+					
+				} else if (obj instanceof Compartment) {
+					Compartment c = (Compartment) obj;
+					addRowToTableComponentProperties("Component Type", "Compartment");
+					addRowToTableComponentProperties("Name", c.getName());
+					addRowToTableComponentProperties("Manufacturer", c.getManufacturer());
+					addRowToTableComponentProperties("Power supply", c.getPowerSupply());
+					addRowToTableComponentProperties("Side", c.getSide());
+					addRowToTableComponentProperties("Zone", c.getZone());
+					addRowToTableComponentProperties("Contains RDCs", c.getRdcs().toString());
 				}
-				
-			} else if (obj instanceof RDC) {
-				RDC b = (RDC) obj;
-				addRowToTableComponentProperties("Component type", "RDC");
-				addRowToTableComponentProperties("Name", b.getName());
-				addRowToTableComponentProperties("Manufacturer", b.getManufacturer());
-				addRowToTableComponentProperties("Power supply", b.getPowerSupply());
-				addRowToTableComponentProperties("Side", b.getSide());
-				addRowToTableComponentProperties("Type", b.getRdcType());
-				addRowToTableComponentProperties("ESS", b.getEss());
-				addRowToTableComponentProperties("Resource X", ""+b.getResourceX());
-				addRowToTableComponentProperties("Resource Y", ""+b.getResourceY());
-				addRowToTableComponentProperties("Resource Z", ""+b.getResourceZ());
-				addRowToTableComponentProperties("Contains connectors", b.getConnectors().toString());
-	
-			} else if (obj instanceof Compartment) {
-				Compartment c = (Compartment) obj;
-				addRowToTableComponentProperties("Component Type", "Compartment");
-				addRowToTableComponentProperties("Name", c.getName());
-				addRowToTableComponentProperties("Manufacturer", c.getManufacturer());
-				addRowToTableComponentProperties("Power supply", c.getPowerSupply());
-				addRowToTableComponentProperties("Side", c.getSide());
-				addRowToTableComponentProperties("Zone", c.getZone());
-				
-				addRowToTableComponentProperties("Contains RDCs", c.getRdcs().toString());
-				
-				
+			} /* Hardware element */
+			
+			else if (obj instanceof EqInterface) {
+				EqInterface iface  = (EqInterface) obj;
+				addRowToTableComponentProperties("Component Type", "Interface");
+				addRowToTableComponentProperties("Name", iface.getName());
+				addRowToTableComponentProperties("System", iface.getSystem());
+				addRowToTableComponentProperties("SubAta", iface.getSubAta());
+				addRowToTableComponentProperties("LineName", iface.getLineName());
+				addRowToTableComponentProperties("GrpInfo", iface.getGrpInfo());
+				addRowToTableComponentProperties("Route", iface.getRoute());
+				addRowToTableComponentProperties("PwSup1", iface.getPwSup1());
+				addRowToTableComponentProperties("EmhZone1", iface.getEmhZone1());
+				addRowToTableComponentProperties("IOType", iface.getIoType());
+				addRowToTableComponentProperties("Resource", iface.getResource());
+				addRowToTableComponentProperties("Resource X", ""+iface.getResourceX());
+				addRowToTableComponentProperties("Resource Y", ""+iface.getResourceY());
+				addRowToTableComponentProperties("Resource Z", ""+iface.getResourceZ());
 			}
-		} else if (obj instanceof EqInterface) {
-			EqInterface iface  = (EqInterface) obj;
-			addRowToTableComponentProperties("Component Type", "Interface");
-			addRowToTableComponentProperties("Name", iface.getName());
-			addRowToTableComponentProperties("System", iface.getSystem());
-			addRowToTableComponentProperties("SubAta", iface.getSubAta());
-			addRowToTableComponentProperties("LineName", iface.getLineName());
-			addRowToTableComponentProperties("GrpInfo", iface.getGrpInfo());
-			addRowToTableComponentProperties("Route", iface.getRoute());
-			addRowToTableComponentProperties("PwSup1", iface.getPwSup1());
-			addRowToTableComponentProperties("EmhZone1", iface.getEmhZone1());
-			addRowToTableComponentProperties("IOType", iface.getIoType());
-			addRowToTableComponentProperties("Resource", iface.getResource());
-			addRowToTableComponentProperties("Resource X", ""+iface.getResourceX());
-			addRowToTableComponentProperties("Resource Y", ""+iface.getResourceY());
-			addRowToTableComponentProperties("Resource Z", ""+iface.getResourceZ());
-		}
+		
+		} // != null
 	}
 
 	/**
@@ -392,10 +395,17 @@ public class InfoSheetView {
 	 */
 	private void setDeploymentNumberAndScore(int index) {
 		if (index == -1) {
-			lblScore.setText("n/a");
-			lblSolution.setText("n/a");
-			lblCompleteSolution.setText("n/a");
-			fillMetricPropertiesTable(null);
+			Display.getDefault().syncExec(new Runnable() {
+			    public void run() {
+			    	lblScore.setText("n/a");
+					lblSolution.setText("n/a");
+					lblCompleteSolution.setText("n/a");
+					fillMetricPropertiesTable(null);
+					fillComponentPropertiesTable(null);
+					
+			    }
+			});
+			
 		} else {
 			if (index <= model.getObservableResultsList().size()-1) {
 				Result r = model.getObservableResultsList().get(index);
