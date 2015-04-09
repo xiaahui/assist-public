@@ -7,11 +7,34 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.HashMap
 import java.util.List
+import java.util.Map
 import org.chocosolver.solver.search.solution.Solution
+import org.chocosolver.solver.variables.IntVar
 
 class ResultFactoryFromSolverSolutions {
 	
 	static MappingFactory f
+	
+	/* for partial solutions */
+	static def ArrayList<Result> createPartialResult(AssistModel model, SolverVariablesContainer solverVariables, Map<IntVar, Integer> partialSolution) {
+		f = MappingFactory.eINSTANCE
+		val results = new ArrayList<Result>
+		
+		val result = createBasicResult(model, "Best partial solution")
+		
+		for (iface : result.model.eqInterfaces)
+		{
+			val locVar = solverVariables.getEqInterfaceLocationVariable(iface, 0)
+			
+			if (partialSolution.keySet.contains(locVar)) {
+				val connectorIndex 	= partialSolution.get(locVar)
+				val connector 		= result.model.allConnectors.get(connectorIndex)
+				result.mapping.put(iface, connector)	
+			}
+		}
+		results.add(result)
+		return results
+	}
 	
 	static def ArrayList<Result> create(AssistModel model, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {
 		f = MappingFactory.eINSTANCE

@@ -13,6 +13,7 @@ import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
 import ch.hilbri.assist.mapping.solver.monitors.DownBranchMonitor
+import ch.hilbri.assist.mapping.solver.monitors.PartialSolutionSaveMonitor
 import ch.hilbri.assist.mapping.solver.monitors.RestartMonitor
 import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor
 import ch.hilbri.assist.mapping.solver.preprocessors.AbstractModelPreprocessor
@@ -54,6 +55,8 @@ class AssistSolver {
 	private boolean optimize = false
 	private Logger logger
 	private boolean colocsFirst
+	private boolean savePartialSolution = false
+	private PartialSolutionSaveMonitor partialSolutionSaveMonitor
 	
 	new (AssistModel model, int... locationVariableLevels) {
 		this(model, locationVariableLevels as List<Integer>, false, false)
@@ -97,7 +100,6 @@ class AssistSolver {
 		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solver, solverVariables))
 		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 		this.solver.searchLoop.plugSearchMonitor(new RestartMonitor)
-		
 	
 		/* Create an empty set of constraints that will be used */
 		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
@@ -111,6 +113,19 @@ class AssistSolver {
 
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>()  
+	}
+
+	def setSavePartialSolution(boolean value) {
+		this.savePartialSolution = value
+		
+		if (value) {
+			logger.info("Enabled saving of partial solutions if no solutions are found")
+			this.partialSolutionSaveMonitor = new PartialSolutionSaveMonitor(solver, solverVariables)
+			this.solver.searchLoop.plugSearchMonitor(partialSolutionSaveMonitor)		
+		}
+		else {
+			logger.info("Disabled saving of partial solutions if no solutions are found")
+		}		
 	}
 
 	def setSolverTimeLimit(long timeInMs) {
@@ -199,6 +214,10 @@ class AssistSolver {
 	}
 	
 	def solutionSearch() throws BasicConstraintsException {
+
+		// Clear old results
+		mappingResults.clear
+		
 		if (optimize) {
 			val optVar = solverVariables.optimizationVariable
 			solver.post(ICF.atmost_nvalues(solverVariables.getLocationVariables(1), optVar, false))
@@ -220,9 +239,13 @@ class AssistSolver {
 		if (recorder.solutions.size > 0) {
 			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions)
 			logger.info('''Results created:  «mappingResults.size»''')
-		} else {
-			mappingResults.clear
-		}
+		} 
+		
+		// should we save a partial solution?
+		else if (savePartialSolution) {
+			mappingResults = ResultFactoryFromSolverSolutions.createPartialResult(model, solverVariables, partialSolutionSaveMonitor.partialSolution)			
+			logger.info('''Created «mappingResults.size» partial solution''')
+		} 
 	}
 	
 	def getExplanation() {

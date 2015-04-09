@@ -26,12 +26,13 @@ public class SearchParametersDialog extends TitleAreaDialog {
 	private Text editMaxSolutions;
 	private Text editMaxSearchTime;
 	private Combo cbxMaxSearchTimeUnit;
-	
-	private long searchTime = 60;
-	private String searchTimeItem = null;
-	private int maxSolutions = 1;
-	private SearchType selectedSearchType = SearchType.getDefaultSearchType();
 	private Label lblExplanationText;
+	
+	private long 		searchTime 			= 60;
+	private String 		searchTimeItem 		= null;
+	private int 		maxSolutions 		= 1;
+	private SearchType 	selectedSearchType 	= SearchType.getDefaultSearchType();
+	private boolean		savePartialSolution = true;
 	
 	/**
 	 * Create the dialog.
@@ -152,10 +153,16 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		btnGenerateSolutions.setBounds(42, 43, 223, 16);
 		btnGenerateSolutions.setText("Generate explanations");
 		
-		Button btnCheckButton = new Button(grpMiscOptions, SWT.CHECK);
-		btnCheckButton.setEnabled(false);
-		btnCheckButton.setBounds(42, 65, 223, 16);
-		btnCheckButton.setText("Save the best partial solution");
+		Button btnSavePartialSolution = new Button(grpMiscOptions, SWT.CHECK);
+		btnSavePartialSolution.setSelection(true);
+		btnSavePartialSolution.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				savePartialSolution = btnSavePartialSolution.getSelection();
+			}
+		});
+		btnSavePartialSolution.setBounds(42, 65, 223, 16);
+		btnSavePartialSolution.setText("Save the best partial solution");
 		
 		Label lblIfNoSolutions = new Label(grpMiscOptions, SWT.NONE);
 		lblIfNoSolutions.setBounds(27, 22, 335, 15);
@@ -193,7 +200,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 	 * 
 	 * @return mode of the search, returns null, if a not defined/no mode is marked.
 	 */
-	public SearchType getMode() {
+	public SearchType getSearchType() {
 		return selectedSearchType;
 	}
 	
@@ -201,7 +208,10 @@ public class SearchParametersDialog extends TitleAreaDialog {
 	public int getNumberOfSolutions() {
 		return maxSolutions;
 	}
-	
+		
+	public boolean getSavePartialSolution() {
+		return savePartialSolution;
+	}
 	
 	public long getSearchTime() {
 		switch (searchTimeItem) {

@@ -20,7 +20,7 @@ import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedRes
 
 public class GuiSolverJob extends Job {
 
-	private AssistSolver solver;
+	private AssistSolver assistSolver;
 
 	private DetailedResultsViewUiModel detailedResultsViewUiModel;
 		
@@ -47,7 +47,7 @@ public class GuiSolverJob extends Job {
 			detailedResultsViewUiModel.setEditor(multiPageEditor);
 		}
 
-		this.solver = new AssistSolver(model, 0);
+		this.assistSolver = new AssistSolver(model, 0);
 	}
 			
 	
@@ -55,43 +55,46 @@ public class GuiSolverJob extends Job {
 	protected IStatus run(IProgressMonitor monitor) {
 		try {
 			monitor.beginTask("Executing model preprocessors", 1);
-			solver.runModelPreprocessors();
+			assistSolver.runModelPreprocessors();
 			monitor.worked(1);
 			
 			monitor.beginTask("Propagating all constraints", 1);
-			solver.propagation();
+			assistSolver.propagation();
 			monitor.worked(1);
 
 			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
 			
 			monitor.beginTask("Searching for solutions", 1);
-			solver.solutionSearch();
+			assistSolver.solutionSearch();
 			monitor.worked(1);
 			
 			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
 			
 			if (retrieveExplanation) {
 				monitor.beginTask("Trying to get an explanation", 1);
-				solver.getExplanation();
+				assistSolver.getExplanation();
 				monitor.worked(1);
 				
 				if (monitor.isCanceled()) return Status.CANCEL_STATUS;
 			}
 			
-			if (solver.getResults().size() > 0) {
+			if (assistSolver.getResults().size() > 0) {
 				monitor.beginTask("Presenting the results", 1);
-				showResults(solver.getResults());
+				showResults(assistSolver.getResults());
 				monitor.worked(1);
 			} 
 			else {
 				String message;
 				
-				if (solver.hasReachedLimit()) message = "No solutions were found during the maximum allowed search time.";
-				else						  message = "There are no solutions for this deployment specification.";
-
+				if (assistSolver.hasReachedLimit()) message = "No solutions were found during the maximum allowed search time.";
+				else						  		message = "There are no solutions for this deployment specification.";
+				
 				Display.getDefault().asyncExec(new Runnable() {
 					public void run() {MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Result", message);}
 				});
+				
+//				detailedResultsViewUiModel.setNewResultsList(new ArrayList<Result>());
+//				detailedResultsViewUiModel.indexToDrawProperty().set(0);
 			}
 		}
 		catch (BasicConstraintsException e) {
@@ -122,9 +125,7 @@ public class GuiSolverJob extends Job {
 		if (multiPageEditor != null) {
 			Display.getDefault().asyncExec(new Runnable() {
 				@Override
-				public void run() {
-					multiPageEditor.resetView();
-				}
+				public void run() {	multiPageEditor.resetView(); }
 			});
 		}
 	}
@@ -149,40 +150,11 @@ public class GuiSolverJob extends Job {
 		
 	}
 
-	/**
-	 * Sets the maximum number of solution.
-	 * @param maxSolutions
-	 */
-	public void setMaxSolutions(int maxSolutions) {
-		solver.setSolverMaxSolutions(maxSolutions);
-	}
-
-	/**
-	 * Sets the searching mode. See {@link SolutionGenerator.KindOfSolutions}
-	 * @param kindOfSolutions
-	 */
-	public void setKindOfSolutions(SearchType searchStrategy) {
-		solver.setSolverSearchStrategy(searchStrategy);
-	}
-
-	/**
-	 * Sets the maximum time for the search in advanced mode.
-	 * @param maxTimeOfCalculationInmsec
-	 */
-	public void setMaxTimeOfCalculationInmsec(long maxTimeOfCalculationInmsec) {
-		solver.setSolverTimeLimit(maxTimeOfCalculationInmsec);
-	}
-
-	/**
-	 * @return the newMappingResults
-	 */
-	public ArrayList<Result> getNewMappingResults() {
-		return solver.getResults();
-	}
+	public void	setMaxSolutions(int maxSolutions) 			 { assistSolver.setSolverMaxSolutions(maxSolutions); 		}
+	public void	setSearchStrategy(SearchType searchStrategy) { assistSolver.setSolverSearchStrategy(searchStrategy);	}
+	public void setMaxSearchTime(long maxTimeInmsec) 		 { assistSolver.setSolverTimeLimit(maxTimeInmsec); 			}
+	public void	setRetrieveExplanation(boolean value) 		 { retrieveExplanation = value;								}
+	public void setSavePartialSolution(boolean value)		 { assistSolver.setSavePartialSolution(value);    			}
 	
-	public void setRetrieveExplanation(boolean value) {
-		retrieveExplanation = value;
-	}
-	
-	
+	public ArrayList<Result> getNewMappingResults()			 { return assistSolver.getResults();						}
 }

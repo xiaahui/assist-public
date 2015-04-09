@@ -125,12 +125,14 @@ public class Generate {
 						
 						if (searchParamDlg.open() == org.eclipse.jface.window.Window.OK) {
 							// User hat OK geklickt
+							
 							/* Create a new background Job for finding all solutions */
 							GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", inputModel, (MultiPageEditor)editor);
 							findSolutionsJob.setUser(true);
-							findSolutionsJob.setKindOfSolutions(searchParamDlg.getMode());
+							findSolutionsJob.setSearchStrategy(searchParamDlg.getSearchType());
 							findSolutionsJob.setMaxSolutions(searchParamDlg.getNumberOfSolutions());
-							findSolutionsJob.setMaxTimeOfCalculationInmsec(searchParamDlg.getSearchTime());
+							findSolutionsJob.setMaxSearchTime(searchParamDlg.getSearchTime());
+							findSolutionsJob.setSavePartialSolution(searchParamDlg.getSavePartialSolution());
 							findSolutionsJob.schedule();
 						} 						
 					} 

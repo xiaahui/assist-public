@@ -325,6 +325,19 @@ public class ResultsViewController extends AnchorPane{
 		for (Compartment compartment : r.getModel().getCompartments())
 			drawHardwareNodes(compartment, systemNode, r);
 		
+		/* Draw unmapped interfaces if it is only a partial solution */
+		if (r.isPartialSolution()) {
+			Image j = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_folder_16x16.png"));
+			ImageView jv = new ImageView(j);
+			TreeItem<TreeObject> unmappedInterfacesNode = new TreeItem<TreeObject>(new TreeObject("Unmapped interfaces"), jv);
+			systemNode.getChildren().add(unmappedInterfacesNode);
+			unmappedInterfacesNode.setExpanded(true);
+			
+			for (EqInterface iface : r.getAllUnmappedEqInterfaces()) {
+				drawInterfaceNodes(iface, unmappedInterfacesNode);
+			}
+		}
+		
 		if (detailedResultsViewUiModel.clickedObjectProperty().get() == null) {
 			resultTreeView.getSelectionModel().select(0);
 			Platform.runLater(new Runnable() {
@@ -337,6 +350,8 @@ public class ResultsViewController extends AnchorPane{
 			resultTreeView.getSelectionModel().select(detailedResultsViewUiModel.clickedObjectProperty().get());
 		}
 	}
+	
+	
 	
 	private void drawHardwareNodes(EObject obj, TreeItem<TreeObject> rootNode, Result result) {
 		Image i;

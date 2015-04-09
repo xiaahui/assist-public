@@ -56,6 +56,7 @@ public class InfoSheetView {
 	private ListChangeListener<Result> resultListener;
 	private Table tableComponentProperties;
 	private Table tableMetricProperties;
+	private Label lblCompleteSolution;
 
 	
 	public InfoSheetView() {
@@ -107,6 +108,14 @@ public class InfoSheetView {
 	    lblScore.setLayoutData(gd_lblScore);
 	    lblScore.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 	    
+	    toolkit.createLabel(compositeDeploymentSolution, "Solution is complete:", SWT.NONE);
+	    	    
+	    lblCompleteSolution = toolkit.createLabel(compositeDeploymentSolution, "", SWT.NONE);
+	    GridData gd_lblComSolution = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+	    gd_lblComSolution.minimumWidth = 100;
+	    lblCompleteSolution.setLayoutData(gd_lblComSolution);
+	    lblCompleteSolution.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+	    	    
 	    setDeploymentNumberAndScore(-1);
 	    
 	    /* Section Metric Information */
@@ -251,6 +260,8 @@ public class InfoSheetView {
 										setDeploymentNumberAndScore(index);
 									}
 								});
+							} else {
+								setDeploymentNumberAndScore(-1);
 							}
 						}
 					}
@@ -383,13 +394,19 @@ public class InfoSheetView {
 		if (index == -1) {
 			lblScore.setText("n/a");
 			lblSolution.setText("n/a");
+			lblCompleteSolution.setText("n/a");
 			fillMetricPropertiesTable(null);
 		} else {
 			if (index <= model.getObservableResultsList().size()-1) {
 				Result r = model.getObservableResultsList().get(index);
 				DecimalFormat f = new DecimalFormat("#0.00"); 
+				
 				lblScore.setText(f.format(r.getEvaluation().getTotalScaledScore()));
 				lblSolution.setText((index + 1) + " of " + model.getObservableResultsList().size());
+				
+				if (!r.isPartialSolution()) lblCompleteSolution.setText("Yes");
+				else						lblCompleteSolution.setText("No (" + (new DecimalFormat("#0.00").format(r.getCompletenessAsPercentage())) + "%)");
+				
 				fillMetricPropertiesTable(r);
 			}
 			else {

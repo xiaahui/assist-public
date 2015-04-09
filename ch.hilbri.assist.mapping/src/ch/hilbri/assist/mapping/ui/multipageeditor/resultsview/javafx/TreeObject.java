@@ -23,7 +23,9 @@ public class TreeObject{
 		if (object instanceof HardwareElement) 	return ((HardwareElement)object).getName();
 		if (object instanceof Connector)		return ((Connector) object).getName();
 		else if (object instanceof EqInterface) return ((EqInterface)object).getName();
-		else 									return ((Result)object).getModel().getSystemName();
+		else if (object instanceof Result)		return ((Result)object).getModel().getSystemName();
+		else if (object instanceof String)		return ((String)object);
+		else return "";
 	}
 	
 	public Object getObject() {
