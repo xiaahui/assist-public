@@ -23,6 +23,7 @@ import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupDefinitions
 import ch.hilbri.assist.mapping.solver.preprocessors.InvalidDeploymentHardwareElements
 import ch.hilbri.assist.mapping.solver.preprocessors.ValidDeploymentHardwareElements
 import ch.hilbri.assist.mapping.solver.strategies.FirstFailThenMaxRelationDegree
+import ch.hilbri.assist.mapping.solver.strategies.HardestColocalitiesFirst
 import ch.hilbri.assist.mapping.solver.strategies.HardestDislocalitiesFirst
 import ch.hilbri.assist.mapping.solver.strategies.ScarcestIoTypeFirst
 import ch.hilbri.assist.mapping.solver.strategies.VariablesInMostDislocalityRelationsFirst
@@ -165,6 +166,11 @@ class AssistSolver {
 			}
 			case SearchType.HARDEST_DISLOCALITIES_FIRST: {
 				val selector = new HardestDislocalitiesFirst(solverVariables, model)
+				if (colocsFirst) heuristics.add(ISF.custom(selector, selector, colocs))
+				heuristics.add(ISF.custom(selector, selector, vars))
+			}
+			case SearchType.HARDEST_COLOCALITIES_FIRST: {
+				val selector = new HardestColocalitiesFirst(solverVariables, model)
 				if (colocsFirst) heuristics.add(ISF.custom(selector, selector, colocs))
 				heuristics.add(ISF.custom(selector, selector, vars))
 			}

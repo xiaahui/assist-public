@@ -19,7 +19,11 @@ public enum SearchType {
 								 "The interface which affects the highest number of other interfaces due to its dislocality relations is chosen first. " +
 								 "Connectors with lower index values are picked first.", 
 								 false),
-								 
+											 
+	HARDEST_COLOCALITIES_FIRST	("Hardest colocalities first", 	
+								 "The interface and the connector in the colocality relation with the highest demand/supply ratio for the connector are chosen first.", 
+								 false),
+														 
 	SCARCEST_IOTYPE_FIRST		("Scarcest interface type first", 	
 								 "The interface with the scarcest interface type and the smallest domain is chosen first. " + 
 								 "Connectors with lower index values are picked first.", 
