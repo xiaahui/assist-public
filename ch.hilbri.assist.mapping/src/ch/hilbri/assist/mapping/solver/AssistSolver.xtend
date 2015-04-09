@@ -5,6 +5,7 @@ import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
+import ch.hilbri.assist.mapping.solver.constraints.DerivedAllDifferentConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictInvalidDeploymentsConstraint
@@ -93,7 +94,7 @@ class AssistSolver {
 		this.solver.set(recorder)
 		
 		/* Create the container for variables which are needed in the solver */
- 		this.solverVariables = new SolverVariablesContainer(this.model, this.solver, locationVariableLvls)
+ 		this.solverVariables = new SolverVariablesContainer(this.model, this.solver, useCliquesInDislocalities, locationVariableLvls)
 		
 		/* Attach the search monitor */
 		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solver, solverVariables, recorder))
@@ -109,7 +110,8 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables, useCliquesInDislocalities))
+		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new DerivedAllDifferentConstraint(model, solver, solverVariables))
 
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>()  
@@ -145,6 +147,7 @@ class AssistSolver {
 		val vars = solverVariables.locationVariables
 		
 		logger.info("Setting choco-solver search strategy to '" + strategy.humanReadableName + "'")
+		logger.info('''Location variables: «vars.size» Colocation variables: «colocs.size»''') 
 		
 		switch (strategy) {
 			case SearchType.RANDOM: {
@@ -188,8 +191,7 @@ class AssistSolver {
 				heuristics.add(ISF.impact(vars, seed))
 			}
 		}	
-		
-		solver.set(heuristics)		
+		solver.set(heuristics)
 	}
 
 	def runModelPreprocessors() {
@@ -203,7 +205,7 @@ class AssistSolver {
 	}
 	
 	def propagation() throws BasicConstraintsException {
-		logger.info("Starting to generate constraints for the choco-solver");
+		logger.info("Starting to generate constraints for the choco-solver")
 		for (constraint : mappingConstraintsList) {
 			logger.info(''' - Starting to generate constraints for "«constraint.name»"...''')
 			if (!constraint.generate()) {
