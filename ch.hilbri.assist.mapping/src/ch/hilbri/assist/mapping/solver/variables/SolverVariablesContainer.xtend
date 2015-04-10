@@ -18,7 +18,7 @@ import org.eclipse.xtend.lib.annotations.Data
 @Data class SolverVariablesContainer {
 	
 	/** A list of location variables for each interface (and each system layer) */
-	Map<EqInterface, List<IntVar>> 	eqInterfaceLocationVariables	= new HashMap 
+	Map<EqInterface, List<IntVar>>  eqInterfaceLocationVariables = new HashMap 
 	
 	Map<IntVar, EqInterface> 		locationVarMap = new HashMap
 	
@@ -28,7 +28,7 @@ import org.eclipse.xtend.lib.annotations.Data
 	
 	private List<ArrayList<BitSet>> conflictGraph 
 	
-	private IntVar                  optVar
+	private IntVar[]                optVars
 	
 	/* CONSTRUCTOR */
 	new (AssistModel model, Solver solver, boolean buildConflictGraph, int[] locationVariableLevels) {
@@ -77,7 +77,8 @@ import org.eclipse.xtend.lib.annotations.Data
 			}	
 		}
 
-		this.optVar = VF.enumerated("N", 0, model.allRDCs.length, solver)
+		this.optVars = #[VF.bounded("UsedRDCCount", 0, model.allRDCs.length, solver),
+						 VF.bounded("TotalCableLength", 0, Integer.MAX_VALUE / 2, solver)]
 	}
 	
 	def IntVar[] getLocationVariables() {
@@ -134,8 +135,8 @@ import org.eclipse.xtend.lib.annotations.Data
 	}
 	
 	/** Returns the optimization variable */
-	def IntVar getOptimizationVariable() {
-		return optVar
+	def IntVar[] getOptimizationVariables() {
+		return optVars
 	}
 
 	/** Returns the location variable for a given thread and a given hardware level */

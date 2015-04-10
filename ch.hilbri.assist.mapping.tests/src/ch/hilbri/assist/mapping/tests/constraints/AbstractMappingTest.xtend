@@ -50,7 +50,7 @@ class AbstractMappingTest {
 		assertNotNull(model) 
 
 		/* Create the job to search for new solutions */
-		val solver = new AssistSolver(model, 0)
+		val solver = new AssistSolver(model)
 //		val solver = new AssistSolver(model, #[0], true, false)
 		solver.solverSearchStrategy = SearchType.getDefaultSearchType
 		solver.solverMaxSolutions = 10000

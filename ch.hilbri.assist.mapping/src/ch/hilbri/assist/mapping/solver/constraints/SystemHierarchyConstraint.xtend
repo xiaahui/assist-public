@@ -2,9 +2,12 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
+import java.util.ArrayList
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.constraints.^extension.Tuples
+import org.chocosolver.solver.variables.IntVar
+import org.chocosolver.solver.variables.VF
 
 class SystemHierarchyConstraint extends AbstractMappingConstraint {
 
@@ -28,6 +31,29 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 
 			solver.post(ICF.table(varList, tuples, ""))
 		}
+
+		solver.post(ICF.atmost_nvalues(solverVariables.getLocationVariables(1), solverVariables.optimizationVariables.get(0), false))
+
+		val cableVars = new ArrayList<IntVar>
+		for (iface: model.eqInterfaces) {
+			val cableTuples = new Tuples(true)
+			val ifaceVar = solverVariables.getEqInterfaceLocationVariable(iface, 1)
+			var maxLength = 0
+			for (rdcIdx: 0..<model.allRDCs.size) {
+				val rdc = model.allRDCs.get(rdcIdx)
+				val cableLength = Math.abs(iface.resourceX - rdc.resourceX) +
+ 							      Math.abs(iface.resourceY - rdc.resourceY) +
+								  Math.abs(iface.resourceZ - rdc.resourceZ)
+				if (cableLength > maxLength) {
+					maxLength = cableLength
+				}
+				cableTuples.add(rdcIdx, cableLength)
+			}
+			val cableVar = VF.bounded("Cable-" + iface.name, 0, maxLength, solver)
+			solver.post(ICF.table(ifaceVar, cableVar, cableTuples, ""))
+			cableVars.add(cableVar)
+		}
+		solver.post(ICF.sum(cableVars, solverVariables.optimizationVariables.get(1)))
 
 		propagate()
 

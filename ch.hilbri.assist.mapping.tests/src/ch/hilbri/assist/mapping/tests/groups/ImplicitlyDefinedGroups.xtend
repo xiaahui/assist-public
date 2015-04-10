@@ -80,7 +80,7 @@ InterfaceGroups {
 		
 		/* Parse the input */
 		model = parser.parse(input) as AssistModel
-		val solver = new AssistSolver(model, 0)
+		val solver = new AssistSolver(model)
 		solver.runModelPreprocessors
 
 		assertEquals(model.eqInterfaceGroups.length, 1)
@@ -145,7 +145,7 @@ InterfaceGroups {
 		
 		/* Parse the input */
 		model = parser.parse(input) as AssistModel
-		val solver = new AssistSolver(model, 0)
+		val solver = new AssistSolver(model)
 		solver.runModelPreprocessors
 
 		assertEquals(model.eqInterfaceGroups.length, 1)
@@ -219,7 +219,7 @@ InterfaceGroups {
 		
 		/* Parse the input */
 		model = parser.parse(input) as AssistModel
-		val solver = new AssistSolver(model, 0)
+		val solver = new AssistSolver(model)
 		solver.runModelPreprocessors
 
 		assertEquals(model.eqInterfaceGroups.length, 1)

@@ -149,6 +149,7 @@ def addArgs(parser):
     parser.add_argument("-a", "--strategy", default="default", help="variable selection strategy")
     parser.add_argument("-e", "--validate", action="store_true", help="validate result after running")
     parser.add_argument("-O", "--optimize", type=int, default=0, help="switch on internal optimizations")
+    parser.add_argument("-m", "--minimize", type=int, default=0, help="solve the minimization problem on the variable")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

@@ -38,9 +38,9 @@ public class Runner {
 		options.addOption("a", "strategy", true, "strategy to use");
 		options.addOption("t", "timeout", true, "timeout in seconds");
 		options.addOption("O", "optimize", true, "switch on internal optimizations");
+		options.addOption("m", "minimize", true, "solve the minimization problem on the variable");
 		final CommandLineParser parser = new BasicParser();
 		final CommandLine cmd = parser.parse(options, args);
-		final int numSolutions = Integer.parseInt(cmd.getOptionValue("solutions", "1"));
 		final int level = Integer.parseInt(cmd.getOptionValue("level", "0"));
 		List<Integer> levels = new ArrayList<Integer>();
 		switch (level) {
@@ -87,7 +87,8 @@ public class Runner {
 				continue;
 			}*/
 			final int optimize = Integer.parseInt(cmd.getOptionValue("optimize", "0"));
-			final AssistSolver solver = new AssistSolver(model, levels, (optimize & 1) > 0, (optimize & 2) > 0);
+			final int minimize = Integer.parseInt(cmd.getOptionValue("minimize", "0"));
+			final AssistSolver solver = new AssistSolver(model, levels, minimize, (optimize & 1) > 0, (optimize & 2) > 0);
 			SearchType heuristic = SearchType.getDefaultSearchType();
 			switch (cmd.getOptionValue("strategy", "")) {
 				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST; break;
@@ -103,6 +104,7 @@ public class Runner {
 				default: heuristic = SearchType.getDefaultSearchType(); break;
 			}	
 			solver.setSolverSearchStrategy(heuristic);
+			final int numSolutions = Integer.parseInt(cmd.getOptionValue("solutions", minimize == 0 ? "1" : "100"));
 			solver.setSolverMaxSolutions(numSolutions);
 			final int timeout = Integer.parseInt(cmd.getOptionValue("timeout", "0"));
 			if (timeout > 0) {

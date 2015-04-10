@@ -178,7 +178,7 @@ if __name__ == "__main__":
     parser.add_argument("-g", "--dislocality-groups", default="15,15,0", help="set number of dislocality groups per level")
     parser.add_argument("-L", "--colocalities", default="60,0,0", help="set number of colocalities per level")
     parser.add_argument("-p", "--max-interfaces-per-dislocality", default="6", help="set maximum number of interfaces per dislocality on level")
-    parser.add_argument("-m", "--max-sets-per-dislocality-group", default="15", help="set maximum number of sets per dislocality group on level")
+    parser.add_argument("-M", "--max-sets-per-dislocality-group", default="15", help="set maximum number of sets per dislocality group on level")
     parser.add_argument("-k", "--max-interfaces-per-dislocality-group-set", default="20", help="set maximum number of interfaces per dislocality group set on level")
     parser.add_argument("-q", "--max-interfaces-per-colocality", default="6", help="set maximum number of interfaces per colocality on level")
     parser.add_argument("-o", "--output", default="random%03i.mdsl", help="name of the output file")

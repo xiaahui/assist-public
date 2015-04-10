@@ -33,7 +33,6 @@ import java.util.List
 import org.chocosolver.solver.ResolutionPolicy
 import org.chocosolver.solver.Settings
 import org.chocosolver.solver.Solver
-import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.explanations.RecorderExplanationEngine
 import org.chocosolver.solver.explanations.strategies.ConflictBasedBackjumping
 import org.chocosolver.solver.search.loop.monitors.SMF
@@ -54,18 +53,19 @@ class AssistSolver {
 	private ArrayList<AbstractMappingConstraint> mappingConstraintsList
 	private ArrayList<Result> mappingResults
 	private ArrayList<AbstractModelPreprocessor> modelPreprocessors
-	private boolean optimize = false
+	private int minimize
 	private Logger logger
 	private boolean colocsFirst
 	private boolean savePartialSolution = false
 	private PartialSolutionSaveMonitor partialSolutionSaveMonitor
 	
-	new (AssistModel model, int... locationVariableLevels) {
-		this(model, locationVariableLevels as List<Integer>, false, false)
+	new (AssistModel model) {
+		this(model, #[0], 0, false, false)
 	}
 
-	new (AssistModel model, List<Integer> locationVariableLvls, boolean useCliquesInDislocalities, boolean colocsFirst) {
+	new (AssistModel model, List<Integer> locationVariableLvls, int minimize, boolean useCliquesInDislocalities, boolean colocsFirst) {
 		this.colocsFirst = colocsFirst && !model.colocalityRelations.empty
+		this.minimize = minimize - 1
 		this.logger = LoggerFactory.getLogger(this.class)
 		logger.info('''******************************''')
 		logger.info(''' Executing a new AssistSolver''')
@@ -233,11 +233,15 @@ class AssistSolver {
 		// Clear old results
 		mappingResults.clear
 		
-		if (optimize) {
-			val optVar = solverVariables.optimizationVariable
-			solver.post(ICF.atmost_nvalues(solverVariables.getLocationVariables(1), optVar, false))
-			logger.info("Initiating choco-solver - searching for the optimal solution using " + optVar)
-			solver.findOptimalSolution(ResolutionPolicy.MINIMIZE, optVar)
+		if (minimize >= 0) {
+			if (minimize < 2) {
+				val optVar = solverVariables.optimizationVariables.get(minimize)
+				logger.info("Initiating choco-solver - searching for the optimal solution using " + optVar)
+				solver.findOptimalSolution(ResolutionPolicy.MINIMIZE, optVar)
+			} else {
+				logger.info("Initiating choco-solver - searching for the pareto optimal solutions")
+				solver.findParetoFront(ResolutionPolicy.MINIMIZE, solverVariables.optimizationVariables)
+			}
 		} else {	
 			logger.info("Initiating choco-solver - searching for a solution")
 			solver.findAllSolutions

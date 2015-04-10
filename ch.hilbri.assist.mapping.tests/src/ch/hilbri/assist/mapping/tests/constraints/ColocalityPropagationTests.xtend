@@ -121,7 +121,7 @@ Restrictions {
 	def void testMatchPropagation() {
 		try {
 			/* Create the job to search for new solutions */
-			solver = new AssistSolver(model, #[0], false, false)
+			solver = new AssistSolver(model)
 			solver.solverSearchStrategy = SearchType.getDefaultSearchType
 			solver.solverMaxSolutions = 1000
 			assertNotNull(solver)
