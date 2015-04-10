@@ -51,6 +51,7 @@ class HardestColocalitiesFirst implements VariableSelector<IntVar>, IntValueSele
 					var totalSupply = 0
 					for (ioType: demand.keySet) {
 						totalNeed += demand.get(ioType)
+						// this should be dynamic i.e. not the total available interfaces but the ones not used yet 
 						for (supply : connector.availableEqInterfaces) {
 							if (supply.eqInterfaceType.equals(ioType)) {
 								totalSupply += supply.count

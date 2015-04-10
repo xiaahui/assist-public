@@ -99,7 +99,7 @@ class AssistSolver {
 		
 		/* Attach the search monitor */
 		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solver, solverVariables, recorder))
-		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solver, solverVariables))
+		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solverVariables))
 		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 		this.solver.searchLoop.plugSearchMonitor(new RestartMonitor)
 	
@@ -148,7 +148,6 @@ class AssistSolver {
 		val vars = solverVariables.locationVariables
 		
 		logger.info("Setting choco-solver search strategy to '" + strategy.humanReadableName + "'")
-		logger.info('''Location variables: «vars.size» Colocation variables: «colocs.size»''') 
 		
 		switch (strategy) {
 			case SearchType.RANDOM: {
@@ -219,6 +218,11 @@ class AssistSolver {
             }
 			logger.info('''   done.''')
 		}
+		val colocs = solverVariables.colocationVariables
+		val vars = solverVariables.locationVariables
+		logger.info('''After initial propagation:''') 
+		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location variables instantiated''') 
+		logger.info('''      «colocs.filter[instantiated].size» / «colocs.size» colocation variables instantiated''') 
 	}
 	
 	def solutionSearch() throws BasicConstraintsException {
