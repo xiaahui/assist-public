@@ -10,6 +10,7 @@ import java.util.Map
 import jxl.Sheet
 import jxl.Workbook
 import jxl.read.biff.BiffException
+import jxl.WorkbookSettings
 
 class ExcelInputTransformator {
 
@@ -85,7 +86,10 @@ Compartment CompartmentName1 {
 		interfaceDeploymentRestrictions = new HashMap<ImportInterface, String>
 
 		try {
-			workbook = Workbook.getWorkbook(inputWorkbook);
+			val workbookSettings = new WorkbookSettings()
+			workbookSettings.suppressWarnings = true
+			
+			workbook = Workbook.getWorkbook(inputWorkbook, workbookSettings);
 
 			// Get the first sheet
 			var Sheet sheet = workbook.getSheet("Wiring part V2")
