@@ -47,12 +47,12 @@ import org.eclipse.xtend.lib.annotations.Data
 			// RDC Level (index 1)
 			val ifaceLocVarRDC = VF.enumerated("Loc-" + iface.name + "-RDC", 0, model.allRDCs.length-1, solver) 
 			l.add(ifaceLocVarRDC)
-			locationVarMap.put(ifaceLocVarCon, iface)
+			locationVarMap.put(ifaceLocVarRDC, iface)
 			
 			// Compartment Level (index 2)
 			val ifaceLocVarComp = VF.enumerated("Loc-" + iface.name + "-Compartment", 0, model.allCompartments.length-1, solver)
 			l.add(ifaceLocVarComp)
-			locationVarMap.put(ifaceLocVarCon, iface)
+			locationVarMap.put(ifaceLocVarComp, iface)
 			
 			eqInterfaceLocationVariables.put(iface, l)
 		}
