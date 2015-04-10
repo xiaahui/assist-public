@@ -178,7 +178,7 @@ class DerivedAllDifferentConstraint extends AbstractMappingConstraint {
 				/* do very many cliques: the seed is only one edge */
 				// find maximum neighbor among the ones reachable via uncovered edges
 				var int maxCovIdx = -1
-				var int maxCovCard = 0
+				var int maxCovCard = -1
 				for (var int idx = uncoveredNode.nextSetBit(0); idx != -1; idx = uncoveredNode.nextSetBit(idx+1)) {
 					val nodeClone = (graph.get(idx).clone as BitSet)
 					nodeClone.and(maxNode)
