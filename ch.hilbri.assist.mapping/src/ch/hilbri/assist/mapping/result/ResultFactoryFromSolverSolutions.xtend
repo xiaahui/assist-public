@@ -45,7 +45,7 @@ class ResultFactoryFromSolverSolutions {
 		
 		for (solution : solverSolutions) {
 			/* Create the basic result (hardware architecture, software architecture, ...) */
-			val result = createBasicResult(model, "Result-"+ solverSolutions.indexOf(solution))
+			val result = createBasicResult(model, "Solution "+ solverSolutions.indexOf(solution))
 			
 			/* Add the deployment information */
 			addMappingFromSolution(result, solverVariables, solution)

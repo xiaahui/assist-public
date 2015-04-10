@@ -48,7 +48,7 @@ public class InfoSheetView {
 	
 	private DetailedResultsViewUiModel model;
 	
-	private Label lblScore, lblSolution;
+	private Label lblSolutionScore, lblSolutionIndex, lblSolutionName, lblSolutionComplete;
 	private ChangeListener<TreeItem<TreeObject>> clickListener;
 	private ScrolledForm form;
 	private FormToolkit toolkit;
@@ -56,7 +56,7 @@ public class InfoSheetView {
 	private ListChangeListener<Result> resultListener;
 	private Table tableComponentProperties;
 	private Table tableMetricProperties;
-	private Label lblCompleteSolution;
+	
 
 	
 	public InfoSheetView() {
@@ -72,7 +72,7 @@ public class InfoSheetView {
 		
 		form = toolkit.createScrolledForm(parent);
 		form.setBounds(0, 0, 448, 389);
-		form.setText("Current Deployment");
+		form.setText("Current Solution");
 		toolkit.decorateFormHeading(form.getForm());
 		form.setDelayedReflow(true);
 	    GridLayout gridLayout = new GridLayout(1, false);
@@ -86,35 +86,45 @@ public class InfoSheetView {
 	    sectionDeploymentSolution.setText("General Information");
 	    
 	    Composite compositeDeploymentSolution = toolkit.createComposite(form.getBody(), SWT.WRAP);
-	    compositeDeploymentSolution.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+	    GridData gd_compositeDeploymentSolution = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
+	    gd_compositeDeploymentSolution.widthHint = 427;
+	    compositeDeploymentSolution.setLayoutData(gd_compositeDeploymentSolution);
 	    GridLayout gl_compositeDeploymentSolution = new GridLayout(2, false);
 	    gl_compositeDeploymentSolution.marginBottom = 5;
 	    gl_compositeDeploymentSolution.marginLeft = 10;
 	    compositeDeploymentSolution.setLayout(gl_compositeDeploymentSolution);
 	    
-	    toolkit.createLabel(compositeDeploymentSolution, "Deployment Number:", SWT.NONE);
+	    toolkit.createLabel(compositeDeploymentSolution, "Solution Name:", SWT.NONE);
 	    
-	    lblSolution = toolkit.createLabel(compositeDeploymentSolution, "", SWT.NONE);
+	    lblSolutionName = toolkit.createLabel(compositeDeploymentSolution, "", SWT.NONE);
+	    GridData gd_lblSolutionName = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+	    gd_lblSolutionName.minimumWidth = 250;
+	    lblSolutionName.setLayoutData(gd_lblSolutionName);
+	    lblSolutionName.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+	    
+	    toolkit.createLabel(compositeDeploymentSolution, "Solution Number:", SWT.NONE);
+	    
+	    lblSolutionIndex = toolkit.createLabel(compositeDeploymentSolution, "", SWT.NONE);
 	    GridData gd_lblSolution = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
-	    gd_lblSolution.minimumWidth = 100;
-	    lblSolution.setLayoutData(gd_lblSolution);
-	    lblSolution.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+	    gd_lblSolution.minimumWidth = 250;
+	    lblSolutionIndex.setLayoutData(gd_lblSolution);
+	    lblSolutionIndex.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 	    
-	    toolkit.createLabel(compositeDeploymentSolution, "Deployment Score:", SWT.NONE);
+	    toolkit.createLabel(compositeDeploymentSolution, "Solution Score:", SWT.NONE);
 	    
-	    lblScore = toolkit.createLabel(compositeDeploymentSolution, "", SWT.NONE);
+	    lblSolutionScore = toolkit.createLabel(compositeDeploymentSolution, "", SWT.NONE);
 	    GridData gd_lblScore = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-	    gd_lblScore.minimumWidth = 100;
-	    lblScore.setLayoutData(gd_lblScore);
-	    lblScore.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+	    gd_lblScore.minimumWidth = 250;
+	    lblSolutionScore.setLayoutData(gd_lblScore);
+	    lblSolutionScore.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 	    
 	    toolkit.createLabel(compositeDeploymentSolution, "Solution is complete:", SWT.NONE);
 	    	    
-	    lblCompleteSolution = toolkit.createLabel(compositeDeploymentSolution, "", SWT.NONE);
+	    lblSolutionComplete = toolkit.createLabel(compositeDeploymentSolution, "", SWT.NONE);
 	    GridData gd_lblComSolution = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-	    gd_lblComSolution.minimumWidth = 100;
-	    lblCompleteSolution.setLayoutData(gd_lblComSolution);
-	    lblCompleteSolution.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+	    gd_lblComSolution.minimumWidth = 250;
+	    lblSolutionComplete.setLayoutData(gd_lblComSolution);
+	    lblSolutionComplete.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 	    	    
 	    setDeploymentNumberAndScore(-1);
 	    
@@ -397,9 +407,10 @@ public class InfoSheetView {
 		if (index == -1) {
 			Display.getDefault().syncExec(new Runnable() {
 			    public void run() {
-			    	lblScore.setText("n/a");
-					lblSolution.setText("n/a");
-					lblCompleteSolution.setText("n/a");
+			    	lblSolutionName.setText("n/a");
+			    	lblSolutionScore.setText("n/a");
+					lblSolutionIndex.setText("n/a");
+					lblSolutionComplete.setText("n/a");
 					fillMetricPropertiesTable(null);
 					fillComponentPropertiesTable(null);
 					
@@ -411,11 +422,12 @@ public class InfoSheetView {
 				Result r = model.getObservableResultsList().get(index);
 				DecimalFormat f = new DecimalFormat("#0.00"); 
 				
-				lblScore.setText(f.format(r.getEvaluation().getTotalScaledScore()));
-				lblSolution.setText((index + 1) + " of " + model.getObservableResultsList().size());
+				lblSolutionName.setText(r.getName());
+				lblSolutionScore.setText(f.format(r.getEvaluation().getTotalScaledScore()));
+				lblSolutionIndex.setText((index + 1) + " of " + model.getObservableResultsList().size());
 				
-				if (!r.isPartialSolution()) lblCompleteSolution.setText("Yes");
-				else						lblCompleteSolution.setText("No (" + (new DecimalFormat("#0.00").format(r.getCompletenessAsPercentage())) + "%)");
+				if (!r.isPartialSolution()) lblSolutionComplete.setText("Yes");
+				else						lblSolutionComplete.setText("No (" + (new DecimalFormat("#0.00").format(r.getCompletenessAsPercentage())) + "%)");
 				
 				fillMetricPropertiesTable(r);
 			}

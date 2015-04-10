@@ -8,8 +8,8 @@
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_AMLgQA_cEeOdg7LCSWH6eQ" featurename="commands" parentElementId="ch.hilbri.assist.application">
     <elements xsi:type="commands:Command" xmi:id="_G7-ZEA_cEeOdg7LCSWH6eQ" elementId="ch.hilbri.assist.command.mapping.generate" commandName="Generate mappings"/>
-    <elements xsi:type="commands:Command" xmi:id="_k49dwI5uEeOJBOmJqpLcrw" elementId="ch.hilbri.assist.command.mapping.export.text" commandName="Export mapping to text file"/>
-    <elements xsi:type="commands:Command" xmi:id="_FXL1MP1gEeO5XfAAZEIvRg" elementId="ch.hilbri.assist.command.mapping.import.excel" commandName="Import mapping specification from Excel"/>
+    <elements xsi:type="commands:Command" xmi:id="_k49dwI5uEeOJBOmJqpLcrw" elementId="ch.hilbri.assist.command.mapping.export.text" commandName="Export current solution to text file"/>
+    <elements xsi:type="commands:Command" xmi:id="_FXL1MP1gEeO5XfAAZEIvRg" elementId="ch.hilbri.assist.command.mapping.import.excel" commandName="Import specification from Excel"/>
     <elements xsi:type="commands:Command" xmi:id="_eIlJYN9IEeSvYMb1JLDg9Q" elementId="ch.hilbri.assist.command.mapping.export.excel" commandName="Export current solution to Excel"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_joYvoA_bEeOdg7LCSWH6eQ" featurename="children" parentElementId="ch.hilbri.assist.application.main.menu" positionInList="after:edit">
