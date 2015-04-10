@@ -95,10 +95,9 @@ class AssistSolver {
 		this.solver.set(recorder)
 		
 		/* Create the container for variables which are needed in the solver */
- 		this.solverVariables = new SolverVariablesContainer(this.model, this.solver, useCliquesInDislocalities, locationVariableLvls)
+ 		this.solverVariables = new SolverVariablesContainer(model, solver, useCliquesInDislocalities, locationVariableLvls)
 		
 		/* Attach the search monitor */
-		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solver, solverVariables, recorder))
 		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solverVariables))
 		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 		this.solver.searchLoop.plugSearchMonitor(new RestartMonitor)
@@ -190,12 +189,16 @@ class AssistSolver {
 			case SearchType.ACTIVITY: {
 				if (colocsFirst) heuristics.add(ISF.activity(colocs, seed))
 				heuristics.add(ISF.activity(vars, seed))
+				solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solverVariables.getLocationVariables(0)))
 			}
 			case SearchType.IMPACT: { // possibly broken
 				if (colocsFirst) heuristics.add(ISF.impact(colocs, seed))
 				heuristics.add(ISF.impact(vars, seed))
 			}
-		}	
+		}
+		if (strategy != SearchType.ACTIVITY) {
+			solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(null))
+		}
 		solver.set(heuristics)
 	}
 

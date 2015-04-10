@@ -11,6 +11,7 @@ import ch.hilbri.assist.mapping.tests.constraints.DislocalityTests;
 import ch.hilbri.assist.mapping.tests.constraints.RestrictValidDeploymentTest;
 import ch.hilbri.assist.mapping.tests.constraints.RestrictValidDeploymentTest2;
 import ch.hilbri.assist.mapping.tests.groups.ImplicitlyDefinedGroups;
+import ch.hilbri.assist.mapping.tests.misc.ChocoSolverTests;
 import ch.hilbri.assist.mapping.tests.misc.SearchTypeTests;
 import ch.hilbri.assist.mapping.tests.results.BasicResultTests;
 
@@ -24,7 +25,8 @@ import ch.hilbri.assist.mapping.tests.results.BasicResultTests;
 	ColocalityTest.class,
 	RestrictValidDeploymentTest.class,
 	RestrictValidDeploymentTest2.class,
-	SearchTypeTests.class
+	SearchTypeTests.class,
+	ChocoSolverTests.class
 })  
 
 public class TestSuiteAllMappingTests {}
