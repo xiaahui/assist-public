@@ -1,5 +1,5 @@
 Global {
-    System name = "Random instance random.mdsl";
+    Name = "Random instance random.mdsl";
 }
 Compartment Comp0 {
     RDC RDC0 {
@@ -10062,5 +10062,3 @@ Restrictions {
     I0912,I1235,I1988,I1996,I2217 on same Compartment;
     I0019,I1090 on same Compartment;
 }
-
-
