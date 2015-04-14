@@ -105,7 +105,7 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 		if (printVariablesInSortedOrder) {
 //			logger.debug('''Unsorted variables list: [«FOR v : variables»«v.name»«IF v != variables.last», «ENDIF»«ENDFOR»]''')
 //			logger.debug('''Sorting variables according to their partner application count in dislocality relations (increasing order), then MinDomain first.''')
-			logger.debug('''Sorted variables list:   [«FOR v : varList.get(0)»«v.name»«IF v != variables.last», «ENDIF»«ENDFOR»]''')
+			logger.debug('''Sorted variables list:   [«FOR v : varList.get(0)»«v.name»«IF v != varList.get(0).last», «ENDIF»«ENDFOR»]''')
 			printVariablesInSortedOrder = false
 		}
 

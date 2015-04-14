@@ -14,6 +14,7 @@ import ch.hilbri.assist.mapping.tests.groups.ImplicitlyDefinedGroups;
 import ch.hilbri.assist.mapping.tests.misc.ChocoSolverTests;
 import ch.hilbri.assist.mapping.tests.misc.SearchTypeTests;
 import ch.hilbri.assist.mapping.tests.results.BasicResultTests;
+import ch.hilbri.assist.mapping.tests.strategies.BasicStrategyTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({
@@ -26,7 +27,8 @@ import ch.hilbri.assist.mapping.tests.results.BasicResultTests;
 	RestrictValidDeploymentTest.class,
 	RestrictValidDeploymentTest2.class,
 	SearchTypeTests.class,
-	ChocoSolverTests.class
+	ChocoSolverTests.class,
+	BasicStrategyTest.class
 })  
 
 public class TestSuiteAllMappingTests {}

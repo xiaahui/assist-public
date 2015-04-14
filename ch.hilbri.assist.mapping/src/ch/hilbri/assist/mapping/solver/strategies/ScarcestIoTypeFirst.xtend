@@ -44,7 +44,7 @@ class ScarcestIoTypeFirst implements VariableSelector<IntVar>  {
 		for (iface : model.eqInterfaces) {
 			map.put(solverVariables.getEqInterfaceLocationVariable(iface, 0),
 					availIoTypes.get(iface.ioType) - requestedIoTypes.get(iface.ioType))
-			logger.info('''Putting «iface.name» with «availIoTypes.get(iface.ioType) - requestedIoTypes.get(iface.ioType)»''')
+			logger.info('''Putting «iface.name» with score «availIoTypes.get(iface.ioType) - requestedIoTypes.get(iface.ioType)»''')
 		}
 	}
 	

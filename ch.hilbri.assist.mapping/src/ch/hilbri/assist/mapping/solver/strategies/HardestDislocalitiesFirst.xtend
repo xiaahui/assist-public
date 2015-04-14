@@ -75,7 +75,7 @@ class HardestDislocalitiesFirst implements VariableSelector<IntVar>, IntValueSel
 			logger.info('''Putting variable «variable.name» with score «score»''')
 		}
 		varList = solverVariables.getLocationVariables().sortBy[-map.getOrDefault(it, 0)]
-		logger.debug('''Sorted variables list:   [«FOR v : varList»«v.name» («map.get(v)»), «ENDFOR»]''')
+		logger.debug('''Sorted variables list:   [«FOR v : varList»«v.name» («map.get(v)»)«IF v != varList.last», «ENDIF»«ENDFOR»]''')
 	}
 	
 	override IntVar getVariable(IntVar[] variables) {

@@ -49,9 +49,8 @@ class VariablesInMostDislocalityRelationsFirst implements VariableSelector<IntVa
 		val currentProgress = instantiatedVarCount * 100 / variables.size
 		
 		if (printVariablesInSortedOrder) {
-			logger.debug('''Unsorted variables list: [«FOR v : variables»«v.name» («map.get(v)»), «ENDFOR»]''')
-			logger.debug('''Sorting variables according to their partner application count in dislocality relations (increasing order), then MinDomain first.''')
-			logger.debug('''Sorted variables list:   [«FOR v : newList»«v.name» («map.get(v)»), «ENDFOR»]''')
+//			logger.debug('''Unsorted variables list: [«FOR v : variables»«v.name» («map.get(v)»)«IF v != variables.last», «ENDIF»«ENDFOR»]''')
+			logger.debug('''Sorted variables list:   [«FOR v : newList»«v.name» («map.get(v)»)«IF v != newList.last», «ENDIF»«ENDFOR»]''')
 			printVariablesInSortedOrder = false
 		}
 		
