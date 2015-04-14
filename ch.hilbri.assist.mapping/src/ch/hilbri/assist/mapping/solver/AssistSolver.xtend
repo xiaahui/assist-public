@@ -159,6 +159,7 @@ class AssistSolver {
 			}
 			case SearchType.MAX_DEGREE_FIRST: {
 				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model)
+				//val valueChooser = new ConnectorWithDislocalityFriends(solverVariables, model) // not used yet, still needs to prove its usefulness
 				if (colocsFirst) heuristics.add(ISF.custom(selector, selector, colocs))				
 				heuristics.add(ISF.custom(selector, selector, vars))				
 			}
@@ -183,8 +184,9 @@ class AssistSolver {
 				heuristics.add(ISF.custom(selector, ISF.min_value_selector, vars))
 			}
 			case SearchType.DOM_OVER_WDEG: {
-				if (colocsFirst) heuristics.add(ISF.domOverWDeg(colocs, seed))
-				heuristics.add(ISF.domOverWDeg(vars, seed))
+				val valueChooser = ISF.min_value_selector//new ConnectorWithDislocalityFriends(solverVariables, model)
+				if (colocsFirst) heuristics.add(ISF.domOverWDeg(colocs, seed, valueChooser))
+				heuristics.add(ISF.domOverWDeg(vars, seed, valueChooser))
 			}
 			case SearchType.ACTIVITY: {
 				if (colocsFirst) heuristics.add(ISF.activity(colocs, seed))
