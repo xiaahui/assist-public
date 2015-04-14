@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.automaton
 Bundle-SymbolicName: ch.hilbri.assist.libraries.automaton
-Bundle-Version: 1.11.8
+Bundle-Version: 1.21.8
 Bundle-ClassPath: automaton.jar
 Export-Package: dk.brics.automaton;version="1.11.8"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

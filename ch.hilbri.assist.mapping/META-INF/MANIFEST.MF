@@ -3,7 +3,7 @@ Eclipse-RegisterBuddy: ch.hilbri.assist.libraries.logback
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.mapping
 Bundle-SymbolicName: ch.hilbri.assist.mapping;singleton:=true
-Bundle-Version: 1.1
+Bundle-Version: 1.2
 Bundle-Vendor: Robert Hilbrich
 Export-Package: ch.hilbri.assist.mapping.solver,
  ch.hilbri.assist.mapping.solver.exceptions,

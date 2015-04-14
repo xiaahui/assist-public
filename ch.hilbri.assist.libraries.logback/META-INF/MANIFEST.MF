@@ -3,7 +3,7 @@ Eclipse-BuddyPolicy: registered
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.logback
 Bundle-SymbolicName: ch.hilbri.assist.libraries.logback
-Bundle-Version: 1.1.2
+Bundle-Version: 1.2.2
 Bundle-ClassPath: slf4j-api-1.7.7.jar,
  logback-classic-1.1.2.jar,
  logback-core-1.1.2.jar,
