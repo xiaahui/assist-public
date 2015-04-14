@@ -150,7 +150,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		
 		Button btnGenerateSolutions = new Button(grpMiscOptions, SWT.CHECK);
 		btnGenerateSolutions.setEnabled(false);
-		btnGenerateSolutions.setBounds(42, 43, 223, 16);
+		btnGenerateSolutions.setBounds(49, 65, 223, 16);
 		btnGenerateSolutions.setText("Generate explanations");
 		
 		Button btnSavePartialSolution = new Button(grpMiscOptions, SWT.CHECK);
@@ -161,7 +161,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 				savePartialSolution = btnSavePartialSolution.getSelection();
 			}
 		});
-		btnSavePartialSolution.setBounds(42, 65, 223, 16);
+		btnSavePartialSolution.setBounds(49, 43, 223, 16);
 		btnSavePartialSolution.setText("Save the best partial solution");
 		
 		Label lblIfNoSolutions = new Label(grpMiscOptions, SWT.NONE);
