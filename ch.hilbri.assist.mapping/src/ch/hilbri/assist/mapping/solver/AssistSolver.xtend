@@ -5,6 +5,7 @@ import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
+import ch.hilbri.assist.mapping.solver.constraints.DerivedAllDifferentConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictInvalidDeploymentsConstraint
@@ -110,8 +111,7 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
-
-//	Removed for 1.1 delivery to dietmar:	this.mappingConstraintsList.add(new DerivedAllDifferentConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new DerivedAllDifferentConstraint(model, solver, solverVariables))
 
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>()  
