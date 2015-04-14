@@ -13,6 +13,10 @@ import org.junit.runner.RunWith
 @RunWith(XtextRunner)
 class ChocoSolverTests {
 		
+	/* This test fails, because this functionality is still broken in Choco
+	 * -> posting constraints for valid solutions (in order to get different solutions with restart strategies) 
+	 *    leads to a null pointer error in domWd strategy
+	 */
 	@Test
 	def void testDomWD() {
 		val solver = new Solver
