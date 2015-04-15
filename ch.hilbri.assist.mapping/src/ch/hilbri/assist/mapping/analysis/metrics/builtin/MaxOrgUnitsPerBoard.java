@@ -1,9 +1,5 @@
 package ch.hilbri.assist.mapping.analysis.metrics.builtin;
 
-import java.util.ArrayList;
-
-import ch.hilbri.assist.datamodel.result.mapping.Application;
-import ch.hilbri.assist.datamodel.result.mapping.Board;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
 
@@ -33,27 +29,27 @@ public class MaxOrgUnitsPerBoard extends AbstractMetricImpl {
 		double maxOrgCount = 0;
 		
 		/* Gehe durch jedes Board */
-		for (Board board : result.getAllBoards()) {
-				
-			/* Diese Liste enthaelt die Bezeichnungen 
-			 * aller OrgUnits fuer das aktuelle Board */
-			ArrayList<String> orgUnits = new ArrayList<String>();
-			
-			/* Gehe durch all Applications auf diesm Board */
-			for (Application app : board.getAllApplications()) {
-				String orgUnit = app.getDevelopedBy();
-				
-				/* Falls die Liste noch nicht die Org.-Einheit der App
-				 * enthaelt, dann hinzufuegen */
-				if (!orgUnits.contains(orgUnit)) orgUnits.add(orgUnit);
-			}
-			
-			/* Wir sind durch alle Prozessoren und Kerne auf dem Board durch;
-			 * orgUnits enthaelt nun die Menge von allen OrgUnits.
-			 * Nun muss nur noch das Maximum entsprechend gesetzt bzw. erhoeht werden.
-			 */
-			if ( maxOrgCount < orgUnits.size() ) maxOrgCount = orgUnits.size();
-		}
+//		for (Board board : result.getAllBoards()) {
+//				
+//			/* Diese Liste enthaelt die Bezeichnungen 
+//			 * aller OrgUnits fuer das aktuelle Board */
+//			ArrayList<String> orgUnits = new ArrayList<String>();
+//			
+//			/* Gehe durch all Applications auf diesm Board */
+//			for (Application app : board.getAllApplications()) {
+//				String orgUnit = app.getDevelopedBy();
+//				
+//				/* Falls die Liste noch nicht die Org.-Einheit der App
+//				 * enthaelt, dann hinzufuegen */
+//				if (!orgUnits.contains(orgUnit)) orgUnits.add(orgUnit);
+//			}
+//			
+//			/* Wir sind durch alle Prozessoren und Kerne auf dem Board durch;
+//			 * orgUnits enthaelt nun die Menge von allen OrgUnits.
+//			 * Nun muss nur noch das Maximum entsprechend gesetzt bzw. erhoeht werden.
+//			 */
+//			if ( maxOrgCount < orgUnits.size() ) maxOrgCount = orgUnits.size();
+//		}
 	
 		return maxOrgCount;
 	}

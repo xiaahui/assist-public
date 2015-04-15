@@ -2,6 +2,8 @@ package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collections;
+import java.util.List;
 
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
@@ -31,14 +33,11 @@ import javafx.scene.shape.Circle;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.EObject;
 
-import ch.hilbri.assist.datamodel.result.mapping.Board;
-import ch.hilbri.assist.datamodel.result.mapping.Box;
-import ch.hilbri.assist.datamodel.result.mapping.Compartment;
-import ch.hilbri.assist.datamodel.result.mapping.Core;
-import ch.hilbri.assist.datamodel.result.mapping.HardwareElement;
-import ch.hilbri.assist.datamodel.result.mapping.Processor;
+import ch.hilbri.assist.datamodel.model.Compartment;
+import ch.hilbri.assist.datamodel.model.Connector;
+import ch.hilbri.assist.datamodel.model.EqInterface;
+import ch.hilbri.assist.datamodel.model.RDC;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
-import ch.hilbri.assist.datamodel.result.mapping.Thread;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.GotoSolutionDialog;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 
@@ -323,8 +322,21 @@ public class ResultsViewController extends AnchorPane{
 		resultTreeView.edit(systemNode);
 		resultTreeView.setEditable(false);
 		
-		for (HardwareElement child : r.getRootHardwareElements())
-			drawHardwareNodes(child, systemNode, r);
+		for (Compartment compartment : r.getModel().getCompartments())
+			drawHardwareNodes(compartment, systemNode, r);
+		
+		/* Draw unmapped interfaces if it is only a partial solution */
+		if (r.isPartialSolution()) {
+			Image j = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_folder_16x16.png"));
+			ImageView jv = new ImageView(j);
+			TreeItem<TreeObject> unmappedInterfacesNode = new TreeItem<TreeObject>(new TreeObject("Unmapped interfaces"), jv);
+			systemNode.getChildren().add(unmappedInterfacesNode);
+			unmappedInterfacesNode.setExpanded(true);
+			
+			for (EqInterface iface : r.getAllUnmappedEqInterfaces()) {
+				drawInterfaceNodes(iface, unmappedInterfacesNode);
+			}
+		}
 		
 		if (detailedResultsViewUiModel.clickedObjectProperty().get() == null) {
 			resultTreeView.getSelectionModel().select(0);
@@ -339,13 +351,13 @@ public class ResultsViewController extends AnchorPane{
 		}
 	}
 	
+	
+	
 	private void drawHardwareNodes(EObject obj, TreeItem<TreeObject> rootNode, Result result) {
 		Image i;
 		if (obj instanceof Compartment) 	i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_compartment_16x16.png"));
-		else if (obj instanceof Box) 		i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_box_16x16.png"));
-		else if (obj instanceof Board) 		i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_board_16x16.png"));
-		else if (obj instanceof Processor)	i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_processor_16x16.png"));
-		else if (obj instanceof Core)		i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_core_16x16.png"));
+		else if (obj instanceof RDC)		i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_rdc_16x16.png"));
+		else if (obj instanceof Connector)	i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_connector_16x16.png"));
 		else return;
 		
 		ImageView iv = new ImageView(i);
@@ -353,10 +365,13 @@ public class ResultsViewController extends AnchorPane{
 		rootNode.getChildren().add(newNode);
 		newNode.setExpanded(true);
 		
-		if (obj instanceof Core) { 
-			/* draw applications */
-			for (Thread thread : ((Core)obj).getThreads()) 
-				drawSoftwareNodes(thread, newNode);
+		if (obj instanceof Connector) { 
+			/* draw interfaces */
+			List<EqInterface> resultList = result.getAllMappedEqInterfacesForConnector((Connector) obj);
+			Collections.sort(resultList, new EqInterfaceComparator());
+			
+			for (EqInterface iface : resultList) 
+				drawInterfaceNodes(iface, newNode);
 		}
 		else { 	
 			/* draw lower level hardware architecture */
@@ -365,10 +380,10 @@ public class ResultsViewController extends AnchorPane{
 		}
 	}
 
-	private void drawSoftwareNodes(Thread thread, TreeItem<TreeObject> rootNode) {
-		Image i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_application_16x16.png"));
+	private void drawInterfaceNodes(EqInterface iface, TreeItem<TreeObject> rootNode) {
+		Image i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_interface_16x16.png"));
 		ImageView iv = new ImageView(i);
-		TreeItem<TreeObject> newNode = new TreeItem<TreeObject>(new TreeObject(thread), iv);
+		TreeItem<TreeObject> newNode = new TreeItem<TreeObject>(new TreeObject(iface), iv);
 		rootNode.getChildren().add(newNode);
 	}
 	

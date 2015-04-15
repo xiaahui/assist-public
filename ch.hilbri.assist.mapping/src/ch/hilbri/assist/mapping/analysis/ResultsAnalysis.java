@@ -16,6 +16,7 @@ public class ResultsAnalysis  {
 		for (Result result : results) {
 			result.getEvaluation().getAbsoluteScores().clear();
 			result.getEvaluation().getMetricsUsed().clear();
+			result.getEvaluation().getMetricsUsed().addAll(metrics);
 			result.getEvaluation().getScaledScores().clear();
 		}
 		
@@ -31,7 +32,7 @@ public class ResultsAnalysis  {
 			}
 			
 			/* 2. Schritt: fuer jedes Result den skalierten Score berechnen */
-			for (Result result : results)
+			for (Result result : results) {
 				if (statistics.getMax() - statistics.getMin() != 0) {
 					double absoluteScore = result.getEvaluation().getAbsoluteScores().get(metric);
 					double scaledScore = (absoluteScore - statistics.getMin()) / (statistics.getMax() - statistics.getMin());
@@ -51,8 +52,7 @@ public class ResultsAnalysis  {
 				 * Sortierung und wir setzen den Beitrag dieser Metrik auf Null
 				 */
 					result.getEvaluation().getScaledScores().put(metric, 0.0);
-				
-			
+			}
 		}
 	}
 }

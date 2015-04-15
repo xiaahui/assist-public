@@ -3,12 +3,11 @@ Eclipse-RegisterBuddy: ch.hilbri.assist.libraries.logback
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.mapping
 Bundle-SymbolicName: ch.hilbri.assist.mapping;singleton:=true
-Bundle-Version: 0.6
+Bundle-Version: 1.2
 Bundle-Vendor: Robert Hilbrich
-Export-Package: ch.hilbri.assist.mapping.datamodel,
- ch.hilbri.assist.mapping.solver,
+Export-Package: ch.hilbri.assist.mapping.solver,
  ch.hilbri.assist.mapping.solver.exceptions,
- ch.hilbri.assist.mapping.solver.exceptions.allapplicationthreadsonsameboard
+ ch.hilbri.assist.mapping.solver.monitors
 Require-Bundle: ch.hilbri.assist.application,
  ch.hilbri.assist.datamodel.model,
  ch.hilbri.assist.datamodel.model.edit,
@@ -33,5 +32,6 @@ Require-Bundle: ch.hilbri.assist.application,
  org.eclipse.zest.core;bundle-version="1.5.100",
  org.eclipse.zest.layouts;bundle-version="1.1.100",
  org.eclipse.xtext.ui,
- org.eclipse.ui.workbench
+ org.eclipse.ui.workbench,
+ ch.hilbri.assist.libraries.trove4j;bundle-version="3.0.22"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

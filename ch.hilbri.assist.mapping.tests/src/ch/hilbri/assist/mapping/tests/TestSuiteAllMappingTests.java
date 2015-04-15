@@ -4,31 +4,31 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import ch.hilbri.assist.mapping.tests.constraints.AllApplicationThreadsOnSameBoardTests;
-import ch.hilbri.assist.mapping.tests.constraints.CoreCapacityTests;
-import ch.hilbri.assist.mapping.tests.constraints.DesignAssuranceLevelComplexTests;
-import ch.hilbri.assist.mapping.tests.constraints.DesignAssuranceLevelTests;
-import ch.hilbri.assist.mapping.tests.constraints.DesignAssuranceLevelTestsInvalid;
-import ch.hilbri.assist.mapping.tests.constraints.NoPermutationsAdvancedTests;
-import ch.hilbri.assist.mapping.tests.constraints.NoPermutationsTests;
-import ch.hilbri.assist.mapping.tests.constraints.RAMCapacityTests;
-import ch.hilbri.assist.mapping.tests.constraints.ROMCapacityTests;
+import ch.hilbri.assist.mapping.tests.constraints.ColocalityTest;
+import ch.hilbri.assist.mapping.tests.constraints.DislocalityPropagationTests;
+import ch.hilbri.assist.mapping.tests.constraints.DislocalityTest2;
+import ch.hilbri.assist.mapping.tests.constraints.DislocalityTests;
+import ch.hilbri.assist.mapping.tests.constraints.RestrictValidDeploymentTest;
+import ch.hilbri.assist.mapping.tests.constraints.RestrictValidDeploymentTest2;
+import ch.hilbri.assist.mapping.tests.groups.ImplicitlyDefinedGroups;
+import ch.hilbri.assist.mapping.tests.misc.ChocoSolverTests;
+import ch.hilbri.assist.mapping.tests.misc.SearchTypeTests;
 import ch.hilbri.assist.mapping.tests.results.BasicResultTests;
-import ch.hilbri.assist.mapping.tests.results.MultipleResultsTests;
+import ch.hilbri.assist.mapping.tests.strategies.BasicStrategyTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({
 	BasicResultTests.class,
-	MultipleResultsTests.class,
-	CoreCapacityTests.class,
-	RAMCapacityTests.class,
-	ROMCapacityTests.class,
-	NoPermutationsTests.class,
-	NoPermutationsAdvancedTests.class,
-	AllApplicationThreadsOnSameBoardTests.class,
-	DesignAssuranceLevelTestsInvalid.class,
-	DesignAssuranceLevelTests.class,
-	DesignAssuranceLevelComplexTests.class
+	DislocalityTests.class,
+	DislocalityPropagationTests.class,
+	DislocalityTest2.class,
+	ImplicitlyDefinedGroups.class,
+	ColocalityTest.class,
+	RestrictValidDeploymentTest.class,
+	RestrictValidDeploymentTest2.class,
+	SearchTypeTests.class,
+	ChocoSolverTests.class,
+	BasicStrategyTest.class
 })  
 
 public class TestSuiteAllMappingTests {}

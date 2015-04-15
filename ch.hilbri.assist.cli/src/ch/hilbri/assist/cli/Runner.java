@@ -1,6 +1,7 @@
 package ch.hilbri.assist.cli;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
@@ -10,12 +11,12 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
-import ch.hilbri.assist.mapping.datamodel.PostProcessor;
 import ch.hilbri.assist.mapping.solver.AssistSolver;
 import ch.hilbri.assist.mapping.solver.SearchType;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
@@ -30,10 +31,27 @@ public class Runner {
 
 	public static void main(String[] args) throws Exception {
 		final Options options = new Options();
-		options.addOption("s", "solutions", true, "the number of solution to find");
+		options.addOption("s", "solutions", true, "number of solution to find");
+		options.addOption("l", "level", true, "hardware level(s) to use for location variables");
+		options.addOption("a", "strategy", true, "strategy to use");
+		options.addOption("t", "timeout", true, "timeout in seconds");
+		options.addOption("O", "optimize", true, "switch on internal optimizations");
+		options.addOption("m", "minimize", true, "solve the minimization problem on the variable");
 		final CommandLineParser parser = new BasicParser();
 		final CommandLine cmd = parser.parse(options, args);
-		final int numSolutions = Integer.parseInt(cmd.getOptionValue("solutions", "1"));
+		final int level = Integer.parseInt(cmd.getOptionValue("level", "0"));
+		List<Integer> levels = new ArrayList<Integer>();
+		switch (level) {
+		case 2:
+		case 21:
+			levels.add(2);
+		case 1:
+			if (level == 21) {
+				levels.add(1);
+			}
+		case 0:
+			levels.add(0);
+		}
 		
 	    ModelPackage.eINSTANCE.eClass();
 		final Runner runner = new Runner();
@@ -43,6 +61,9 @@ public class Runner {
 			URI uri = URI.createFileURI(arg);
 			ResourceSet rs = new ResourceSetImpl();
 			Resource resource = rs.getResource(uri, true);
+			
+			// This may fix some lazy binding issues which are not yet recognized as errors
+			EcoreUtil.resolveAll(resource);
 			
 			/* Searching for errors inside the document? */
 			/* 1) Error with the syntax of the dsl */
@@ -63,18 +84,39 @@ public class Runner {
 				System.err.println("Errors on validating " + arg + ".");
 				continue;
 			}*/
-			PostProcessor.createMissingThreads(model);
-			final AssistSolver solver = new AssistSolver(model);
-			solver.setSolverSearchStrategy(SearchType.CONSECUTIVE);
+			final int optimize = Integer.parseInt(cmd.getOptionValue("optimize", "0"));
+			final int minimize = Integer.parseInt(cmd.getOptionValue("minimize", "0"));
+			final AssistSolver solver = new AssistSolver(model, levels, minimize, (optimize & 1) > 0, (optimize & 2) > 0);
+			SearchType heuristic = SearchType.getDefaultSearchType();
+			switch (cmd.getOptionValue("strategy", "")) {
+				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST; break;
+				case "ffmd": heuristic = SearchType.MAX_DEGREE_FIRST; break;
+				case "domwd": heuristic = SearchType.DOM_OVER_WDEG; break;
+				case "act": heuristic = SearchType.ACTIVITY; break;
+				case "imp": heuristic = SearchType.IMPACT; break;
+				case "rand": heuristic = SearchType.RANDOM; break;
+				default: heuristic = SearchType.getDefaultSearchType(); break;
+			}	
+			solver.setSolverSearchStrategy(heuristic);
+			final int numSolutions = Integer.parseInt(cmd.getOptionValue("solutions", minimize == 0 ? "1" : "100"));
 			solver.setSolverMaxSolutions(numSolutions);
+			final int timeout = Integer.parseInt(cmd.getOptionValue("timeout", "0"));
+			if (timeout > 0) {
+				solver.setSolverTimeLimit(timeout * 1000);
+			}
 			try {
+				solver.runModelPreprocessors();
 				solver.propagation();
 				solver.solutionSearch();
 				final ArrayList<Result> results = solver.getResults();
 				System.out.println(results.size() + " solutions found.");
 				for (Result r: results) {
-					for (ch.hilbri.assist.datamodel.result.mapping.Thread t: r.getAllThreads()) {
-						System.out.println(t.getApplication().getName() + " -> " + t.getCore().getName());
+					for (Connector c: r.getModel().getAllConnectors()) {
+						System.out.print(c.fullName() + " { ");
+						for (EqInterface i: r.getAllMappedEqInterfacesForConnector(c)) {
+							System.out.print(i.getName()+",");
+						}
+						System.out.println(" } ");
 					}
 					System.out.println();
 				}

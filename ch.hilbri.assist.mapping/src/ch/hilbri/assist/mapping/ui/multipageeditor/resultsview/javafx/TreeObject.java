@@ -1,7 +1,8 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx;
 
-import ch.hilbri.assist.datamodel.result.mapping.HardwareElement;
-import ch.hilbri.assist.datamodel.result.mapping.Thread;
+import ch.hilbri.assist.datamodel.model.Connector;
+import ch.hilbri.assist.datamodel.model.EqInterface;
+import ch.hilbri.assist.datamodel.model.HardwareElement;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 
 /**
@@ -20,8 +21,11 @@ public class TreeObject{
 	@Override
 	public String toString() {
 		if (object instanceof HardwareElement) 	return ((HardwareElement)object).getName();
-		else if (object instanceof Thread) 		return ((Thread)object).getName();
-		else 									return ((Result)object).getSystemName();
+		if (object instanceof Connector)		return ((Connector) object).getName();
+		else if (object instanceof EqInterface) return ((EqInterface)object).getName();
+		else if (object instanceof Result)		return ((Result)object).getModel().getSystemName();
+		else if (object instanceof String)		return ((String)object);
+		else return "";
 	}
 	
 	public Object getObject() {

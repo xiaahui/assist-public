@@ -1,15 +1,15 @@
 package ch.hilbri.assist.mapping.solver.variables
 
-import ch.hilbri.assist.datamodel.model.Application
 import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.Board
-import ch.hilbri.assist.datamodel.model.CommunicationRelation
-import ch.hilbri.assist.datamodel.model.Core
+import ch.hilbri.assist.datamodel.model.ColocalityRelation
+import ch.hilbri.assist.datamodel.model.EqInterface
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.datamodel.model.Network
-import ch.hilbri.assist.datamodel.model.Thread
 import java.util.ArrayList
+import java.util.BitSet
 import java.util.HashMap
+import java.util.List
+import java.util.Map
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
@@ -17,7 +17,6 @@ import org.eclipse.xtend.lib.annotations.Data
 import org.chocosolver.solver.variables.BoolVar
 
 @Data class SolverVariablesContainer {
-
 	/** A list of location variables for each thread (and each system layer) */
 	HashMap<Thread, HashMap<Integer, IntVar>> threadLocationVariablesList = new HashMap
 
@@ -43,7 +42,6 @@ import org.chocosolver.solver.variables.BoolVar
 
 	/* CONSTRUCTOR */
 	new(AssistModel model, Solver solver) {
-
 		/* Initialize the hash map for all thread-related location variables */
 		for (t : model.allThreads) {
 			val m = new HashMap<Integer, IntVar>
@@ -59,7 +57,6 @@ import org.chocosolver.solver.variables.BoolVar
 				/* Add this solver variable to the map, so we can find corresponding thread quickly	 */
 				locationVarMap.put(newVar, t)
 			}
-			threadLocationVariablesList.put(t, m)
 		}
 
 		/* Initialize the board indicator variables */
@@ -137,5 +134,4 @@ import org.chocosolver.solver.variables.BoolVar
 		else
 			return null
 	}
-
 }

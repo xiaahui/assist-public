@@ -26,6 +26,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.wizards.newresource.BasicNewResourceWizard;
+import org.eclipse.xtend2.lib.StringConcatenation;
 
 import ch.hilbri.assist.application.helpers.PathProvider;
 
@@ -147,27 +148,149 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 	 */
 
 	private InputStream openContentStream() {
-		String contents =
-			"Global { \n"
-			+ "\tSystem name = \"Example System\";\n"
-			+ "}\n"
-			+ "\n"
-			+ "Hardware {\n"
-			+ "\tBoard Board1 {\n"
-			+ "\t\tProcessor Processor1 {\n"
-			+ "\t\t\tCore Core1 {\n"
-			+ "\t\t\t\tCapacity = 100;\n"
-			+ "\t\t\t}\n"
-			+ "\t\t}\n"
-			+ "\t}\n"
-			+ "}\n"
-			+ "\n"
-			+ "Software {\n"
-			+ "\tApplication A1 {\n"
-			+ "\t\tCore-utilization = 10;\n"
-			+ "\t}\n"
-			+ "}\n";
-		return new ByteArrayInputStream(contents.getBytes());
+		
+		StringConcatenation _builder = new StringConcatenation();
+	      _builder.append("Global { ");
+	      _builder.newLine();
+	      _builder.append("\t");
+	      _builder.append("Name = \"Example System\";");
+	      _builder.newLine();
+	      _builder.append("}");
+	      _builder.newLine();
+	      _builder.newLine();
+	      _builder.append("Compartment C1 {");
+	      _builder.newLine();
+	      _builder.append("\t");
+	      _builder.append("RDC RDC1 {");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("Manufacturer = \"Manu\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("Type = \"Type\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("ESS = \"Ess\";");
+	      _builder.newLine();
+	      _builder.append("\t");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("Connector Connector1 {");
+	      _builder.newLine();
+	      _builder.append("\t\t\t");
+	      _builder.append("\"CustomType0\" = 2;");
+	      _builder.newLine();
+	      _builder.append("\t\t\t");
+	      _builder.append("\"CustomType13\" = 3;");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("}");
+	      _builder.newLine();
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("Connector Connector2 {");
+	      _builder.newLine();
+	      _builder.append("\t\t\t");
+	      _builder.append("\"CustomType4\" = 2;");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("}");
+	      _builder.newLine();
+	      _builder.append("\t");
+	      _builder.append("}");
+	      _builder.newLine();
+	      _builder.append("}");
+	      _builder.newLine();
+	      _builder.newLine();
+	      _builder.newLine();
+	      _builder.append("Interfaces {");
+	      _builder.newLine();
+	      _builder.append("\t");
+	      _builder.append("Interface Iface1 {");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("System = \"System\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("SubAta = \"SubATA\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("Resource = \"Resource\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("LineName = \"LineName\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("WiringLane = \"WiringLane\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("GrpInfo = \"GrpInfo\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("Route = \"Route\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("PwSup1 = \"PWSup1\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("EmhZone1 = \"MyZone\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("Type = \"CustomType0\";");
+	      _builder.newLine();
+	      _builder.append("\t");
+	      _builder.append("}");
+	      _builder.newLine();
+	      _builder.append("\t");
+	      _builder.newLine();
+	      _builder.append("\t");
+	      _builder.append("Interface Iface2 {");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("System = \"System\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("SubAta = \"SubATA\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("Resource = \"Resource\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("LineName = \"LineName\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("WiringLane = \"WiringLane\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("GrpInfo = \"GrpInfo\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("Route = \"Route\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("PwSup1 = \"PWSup1\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("EmhZone1 = \"MyZone\";");
+	      _builder.newLine();
+	      _builder.append("\t\t");
+	      _builder.append("Type = \"CustomType0\";");
+	      _builder.newLine();
+	      _builder.append("\t");
+	      _builder.append("}");
+	      _builder.newLine();
+	      _builder.append("}");
+	      _builder.newLine();
+	      _builder.newLine();
+	      _builder.append("InterfaceGroups {");
+	      _builder.newLine();
+	      _builder.append("\t");
+	      _builder.append("Group G1 { Iface1, Iface2 };");
+	      _builder.newLine();
+	      _builder.append("}");
+	      _builder.newLine();
+		
+	      return new ByteArrayInputStream(_builder.toString().getBytes());
 	}
 
 	private void throwCoreException(String message) throws CoreException {

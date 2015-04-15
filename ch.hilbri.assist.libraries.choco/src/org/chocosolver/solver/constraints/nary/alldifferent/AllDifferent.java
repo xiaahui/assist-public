@@ -45,7 +45,7 @@ public class AllDifferent extends Constraint {
 	}
 
 	public AllDifferent(IntVar[] vars, String type) {
-		super("AllDifferent",createPropagators(vars, type));
+		super("AllDifferent", createPropagators(vars, type));
 	}
 
 	private static Propagator[] createPropagators(IntVar[] VARS, String consistency) {

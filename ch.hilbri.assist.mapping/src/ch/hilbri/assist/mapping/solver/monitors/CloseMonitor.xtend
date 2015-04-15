@@ -11,7 +11,7 @@ class CloseMonitor implements IMonitorClose {
 		this.logger = LoggerFactory.getLogger(this.class) 
 	}
 	override afterClose() {
-		logger.info('''Closing the search.''')
+		logger.info('''Closing the search. Either a configured solver limit was reached or the entire solution space has been explored.''')
 	}
 	
 	override beforeClose() {

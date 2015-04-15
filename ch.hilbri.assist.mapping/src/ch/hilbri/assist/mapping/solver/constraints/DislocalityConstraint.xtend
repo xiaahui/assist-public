@@ -1,111 +1,127 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
-import ch.hilbri.assist.datamodel.model.Application
-import ch.hilbri.assist.datamodel.model.ApplicationGroup
 import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.mapping.solver.exceptions.dislocality.ApplicationsCannotBeMappedDislocal
+import ch.hilbri.assist.datamodel.model.EqInterface
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
+import ch.hilbri.assist.mapping.solver.constraints.choco.ACF
+import ch.hilbri.assist.mapping.solver.exceptions.InterfaceGroupCannotBeMappedDislocally
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
+import java.util.BitSet
+import java.util.List
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
+import org.chocosolver.solver.variables.VF
 
 class DislocalityConstraint extends AbstractMappingConstraint {
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("dislocality", model, solver, solverVariables)
+		super("interface dislocality", model, solver, solverVariables)
 	}
 	
 	override generate() {
 		
-		/*
-		 * A dislocality relation can be specified for applications and applicationGroups;
-		 * 
-		 * The tricky thing is:
-		 *    - dislocality has to be requested for threads
-		 *    - it must not affect threads from the same application
-		 *    - it must not affect threads from the same applicationGroup
-		 * 
-		 * Dislocality can only be requested for threads of different application / applicationGroups
-		 * 
-		 * Approach: 
-		 * 
-		 * 1) Create thread sets
-		 * 
-		 * A1, Group1, A2 --> {{t1},{t2,t3,t4}, {t5}}   <- get all threads from each "entry"
-		 *    
-		 * 2) Create disjoint sets
-		 * 
-		 * {{t1,t2,t5}, {t1,t3,t5}, {t1,t4,t5}}
-		 * 
-		 * 3) Create an Alldifferent constraint for each set
-		 */
-		
-		for (r : model.dislocalityRelations) {
-			
-			val varList = new ArrayList<ArrayList<IntVar>>()
-			
-			for (aog : r.applicationsOrGroups) {
-				val aogList = new ArrayList<IntVar>()
-				
-				if (aog instanceof Application) 
-					for (t : (aog as Application).threads) 
-						aogList.add(solverVariables.getThreadLocationVariable(t, r.hardwareLevel.value))
-				
-				else if (aog instanceof ApplicationGroup)
-					for (t : (aog as ApplicationGroup).allThreads)
-						aogList.add(solverVariables.getThreadLocationVariable(t, r.hardwareLevel.value))
-	 			
-	 			else return false
-				
-				varList.add(aogList)
-			}			
-			
-			val varSetForAllDifferentConstraint = createDisjointVariableSets(varList)
-			
-			for (list : varSetForAllDifferentConstraint) {
-				solver.post(ICF.alldifferent(list, "AC"))
-			}
-			
-			try { solver.propagate }
-			catch (ContradictionException e) {
-				throw new ApplicationsCannotBeMappedDislocal(this, r.applicationsOrGroups, r.hardwareLevel)
-			}
-		}
+		if (model.dislocalityRelations.isNullOrEmpty) return false
 
+		for (r : model.dislocalityRelations) {
+			val l = solverVariables.getLevelIndex(r.hardwareLevel)
+			
+			// Case 0: Nothing is mentioned - prevented by the input language grammar
+
+			// Case 1: Only EqInterfaces mentioned
+			if (r.eqInterfaceOrGroups.filter[it instanceof EqInterface].length == r.eqInterfaceOrGroups.length) {
+				val intVars = r.eqInterfaceOrGroups.map[solverVariables.getEqInterfaceLocationVariable(it as EqInterface, l)]
+				if (intVars.length > 1)
+					solver.post(ICF.alldifferent(intVars, "AC"))
+			} 
+			
+			// Case 2: Only a single group is mentioned
+			else if (r.eqInterfaceOrGroups.length == 1 && r.eqInterfaceOrGroups.get(0) instanceof EqInterfaceGroup) {
+
+				val group = r.eqInterfaceOrGroups.get(0) as EqInterfaceGroup
+				
+				// The group should not be empty
+				if (group.eqInterfaces.length > 1) { 
+					val intVars = group.eqInterfaces.map[solverVariables.getEqInterfaceLocationVariable(it, l)]
+					solver.post(ICF.alldifferent(intVars, "AC"))
+				} else {
+					logger.info('''       Skipping dislocality constraint with empty or one element group «group.name»''')
+				}
+				
+			}
+			
+			// Case 3: A mix of groups and interfaces is specified
+			else {
+				val List<List<EqInterface>> ifaceList  = r.eqInterfaceOrGroups
+														  .filter[(it instanceof EqInterface) || 
+																	(it instanceof EqInterfaceGroup && (it as EqInterfaceGroup).eqInterfaces.length > 0)]
+					  									  .toList
+														  .map[ if (it instanceof EqInterface) #[it]
+															    else if (it instanceof EqInterfaceGroup) it.eqInterfaces]
+				
+				if (solverVariables.getConflictGraph(l).empty) {
+					val List<List<IntVar>> intVarList = ifaceList.map[it.map[solverVariables.getEqInterfaceLocationVariable(it, l)]]
+				
+					val emptyGroupCounter = r.eqInterfaceOrGroups.length - ifaceList.length
+					
+					if (ifaceList.length <= 1) {
+						logger.info('''      WARNING: A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction remained with «ifaceList.length» element(s). It is ineffective and skipped.''')
+					} else {
+						if (emptyGroupCounter > 0) {
+							logger.info('''      WARNING: A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction was generated with «ifaceList.length» non-empty elements. (Restriction contained «r.eqInterfaceOrGroups.length» elements in total.)''')
+						}
+						val crossProductSize = intVarList.map[length as long].reduce(p,q|p*q)
+						if (crossProductSize < 8) {
+							recursiveConstraintBuild(intVarList, 0, new ArrayList<IntVar>)
+						} else {
+						    // this could be optimized by using the variable itself for groups containing only one element 
+							val domainUnionVars = intVarList.map[VF.enumerated("DomainVarForGroup" + it, 0, model.getAllHardwareElements(l).size-1, solver)]
+							solver.post(ACF.allDifferent(intVarList, domainUnionVars))					
+						}
+					}
+				} else {
+					addToConflictGraph(ifaceList, solverVariables.getConflictGraph(l))					
+				}
+	
+			}
+
+			if (solverVariables.getConflictGraph(l).empty) {
+				try { solver.propagate }
+				catch (ContradictionException e) { throw new InterfaceGroupCannotBeMappedDislocally(this, r.allEqInterfaceOrGroupNames)	}
+			}
+		}
 		return true
+
 	}
 	
-	
-	def ArrayList<ArrayList<IntVar>> createDisjointVariableSets(ArrayList<ArrayList<IntVar>> locationVariables) {
-		
-		if (locationVariables.size == 1) {
-			val newList = new ArrayList<ArrayList<IntVar>>()
-			for (v : locationVariables.get(0)) { 
-				val l = new ArrayList<IntVar>()
-				l.add(v)
-				newList.add(l)
+	def void recursiveConstraintBuild(List<List<IntVar>> intVarList, int idx, List<IntVar> conflict) {
+		val curList = intVarList.get(idx)
+		for (l: curList) {
+			conflict.add(l)
+			if (idx == intVarList.size - 1) {
+				solver.post(ICF.alldifferent(conflict))				
+			} else {
+				recursiveConstraintBuild(intVarList, idx+1, conflict)
 			}
-			return newList
-		} 
+			conflict.remove(conflict.size-1)
+		}
 		
-		else {
-			val tmpList = new ArrayList<ArrayList<IntVar>>(locationVariables)
-			tmpList.remove(0)
-			val returnList = createDisjointVariableSets(tmpList);
-		
-			val newList = new ArrayList<ArrayList<IntVar>>();
-			for (v : locationVariables.get(0)) 
-				for (list : returnList) {	
-					val l = new ArrayList<IntVar>();
-					l.add(v);
-					l.addAll(list);
-					newList.add(l);
+	}
+	
+	def void addToConflictGraph(List<List<EqInterface>> ifaceList, List<BitSet> graph) {
+		for (sublistIdx : 0..<ifaceList.size) {
+			for (iface : ifaceList.get(sublistIdx)) {
+				val idx = model.eqInterfaces.indexOf(iface)
+				for (conflictListIdx : sublistIdx+1..<ifaceList.size) {
+					for (conflict : ifaceList.get(conflictListIdx)) {
+						val conflictIdx = model.eqInterfaces.indexOf(conflict)
+						graph.get(idx).set(conflictIdx)
+						graph.get(conflictIdx).set(idx)
+					}	
 				}
-			
-			return newList;
+			}
 		}
 	}
-	
 }
