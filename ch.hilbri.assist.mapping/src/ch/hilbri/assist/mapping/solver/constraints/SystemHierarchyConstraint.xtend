@@ -5,50 +5,52 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.util.tools.ArrayUtils
+import org.chocosolver.solver.constraints.^extension.Tuples
+import org.eclipse.emf.ecore.EObject
 
 /**
  * Ziel: Zwischen allen Abstraktionsebenen im Modell muessen Verbindungen hergestellt werden.
  */
 class SystemHierarchyConstraint extends AbstractMappingConstraint {
-	
+
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
 		super("system hierarchy", model, solver, solverVariables)
 	}
-	
-	override generate() {
-		
-		/* Wir brauchen einen "Link" zwischen allen Hardware-Ebenen */
-		for (levelCtr : HardwareArchitectureLevelType.CORE_VALUE .. model.hardwareLevelCount - 1) {
 
-			/* HardwareLevelLink ist ein Feld von Indizes der Parent-Komponenten 		
-			 * hardwareLevelLink[KindIndex] = Parent_Index
-			 *
-			 * Beispiel: 
-			 * - für die Verknüpfung von Cores und Prozessoren wird ein Link zwischen Ebene 1 und 2 benötigt
-			 * - die liste hardwareLevelLink enthaelt so viele Element, wie es Cores im Modell gibt
-			 * - für jeden Core wird der Index des Parents (= Prozessor) eingetragen
-			 */ 
-			
-			val hardwareLevelLink = model.getAllHardwareElements(levelCtr)
-										.map[eContainer]   											// get the parent object
-										.map[model.getAllHardwareElements(levelCtr+1).indexOf(it)] 	// get the parent index 
-			
-			
-			/*
-			 * Nun werden die Location Variablen eines Threads zwischen den Ebenen mit einem Element Constraint verknüpft;
-			 * Sollte damit beispielweise ein Prozessor als Lösung ausfallen, so werden automatisch auch die Kerne des 
-			 * Prozessors aus dem Lösungsraum entfernt (und umgedreht)
-			 */
-			for (t : model.allThreads) {
-				var index  = solverVariables.getThreadLocationVariable(t, levelCtr)
-				var values = solverVariables.getThreadLocationVariable(t, levelCtr + 1)
-				solver.post(ICF.element(values, hardwareLevelLink, index))
-			}			
-		} 
-		
+	override generate() {
+
+		// channeling for boards
+		val boardIndicators = solverVariables.getThreadBoardIndicatorVariables()
+		for (var i = 0; i < model.allThreads.size; i++) {
+			val intVar = solverVariables.getThreadLocationVariable(model.allThreads.get(i),
+				HardwareArchitectureLevelType.BOARD_VALUE)
+			solver.post(ICF.boolean_channeling(ArrayUtils.getColumn(boardIndicators, i), intVar, 0));
+		}
+
+		// building allowed tuples
+		val tuples = new Tuples(true)
+		val cores = model.getAllHardwareElements(HardwareArchitectureLevelType.CORE_VALUE)
+		for (int coreIdx : 0 ..< cores.length) {
+			var elem = cores.get(coreIdx) as EObject
+			var index = newArrayList(coreIdx)
+			for (levelCtr : HardwareArchitectureLevelType.CORE_VALUE + 1 .. model.hardwareLevelCount) {
+				index.add(model.getAllHardwareElements(levelCtr).indexOf(elem.eContainer))
+				elem = elem.eContainer
+			}
+			tuples.add(index)
+		}
+
+		// building table constraints reflecting the location hierarchy		
+		val levels = HardwareArchitectureLevelType.CORE_VALUE .. model.hardwareLevelCount
+		for (t : model.allThreads) {
+			val varList = levels.map(l|solverVariables.getThreadLocationVariable(t, l))
+			solver.post(ICF.table(varList, tuples, ""))
+		}
+
 		propagate()
-		
+
 		return true
 	}
-	
+
 }

@@ -12,6 +12,7 @@ import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
+import ch.hilbri.assist.mapping.solver.exceptions.romcapacity.InsufficientTotalROMException
 
 class ROMUtilizationConstraint extends AbstractMappingConstraint {
 	
@@ -25,24 +26,24 @@ class ROMUtilizationConstraint extends AbstractMappingConstraint {
 		/* How much ROM capacity does each board offer? */
 		val int[] allRomCapacities = model.allBoards.map[romCapacity]
 		
-			
-		/* Create a set of variables - for each thread a variable which contains the power capabilties of all cores	 */
+		val totalRomUtilization = model.allThreads.map[application.romUtilization].reduce[p1, p2 | p1 + p2]
+		
+		if (totalRomUtilization <= allRomCapacities.min) {
+			return false
+		}
+		
+		/* Create a set of variables - for each thread a variable which contains the ROM capacities of all cores	 */
 		val IntVar[] romCapacities = model.allThreads.map[VF.enumerated("RomCap", allRomCapacities.sort, solver)]
 		
 		/* **** Preparing the constraints **** */	 
 		
 		/* 0. The total sum of all application's rom utilizations should
-		 *    be less than the total sum of all rom capacities
+		 *    be less than the total sum of all ram capacities
 		 */
 		
-		// - create the total sum of rom utilizations of all applications (threads!)
-		val totalRomUtilizationFromAllApplicationsVar = VF.fixed("TotalRomUtil", model.allThreads.map[application.romUtilization].reduce[p1, p2 | p1 + p2], solver)
-		
-		// - create the total sum of all rom capacities
-		val totalRomCapacityVar = VF.fixed("TotalRomCap", model.allBoards.map[romCapacity].reduce[p1, p2 | p1 + p2], solver)
-		
-		// - enforce that the capacity is always larger than the demand
-		solver.post(ICF.arithm(totalRomCapacityVar, ">=", totalRomUtilizationFromAllApplicationsVar))
+		if (totalRomUtilization > allRomCapacities.reduce[p1, p2 | p1 + p2]) {
+			throw new InsufficientTotalROMException(this)
+		}
 		
 		/* 1. If an application requires more rom than a board offers, 
 		 *    the application (thread) cannot be mapped to this board

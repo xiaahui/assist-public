@@ -42,8 +42,7 @@ class FirstFailWithProgressionOutput extends FirstFail {
 	
 	override IntVar getVariable(IntVar[] variables) {
 		
-		val instantiatedVarCount = variables.filter[isInstantiated].size
-		val currentProgress = instantiatedVarCount * 100 / variables.size
+		val currentProgress = variables.filter[isInstantiated].size * 100 / variables.size
 		
 		val newList = variables.sortBy[map.get(it)]
 	

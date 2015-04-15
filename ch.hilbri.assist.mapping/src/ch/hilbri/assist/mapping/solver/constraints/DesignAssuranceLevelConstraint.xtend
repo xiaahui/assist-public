@@ -11,6 +11,7 @@ import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
 import org.chocosolver.solver.exception.ContradictionException
 import ch.hilbri.assist.mapping.solver.exceptions.designassurancelevel.NoBoardWithSufficientDALFound
+import ch.hilbri.assist.datamodel.model.DesignAssuranceLevelType
 
 class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 	
@@ -20,6 +21,9 @@ class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 	
 	override generate() {
 		
+		if (model.allThreads.filter[application.criticalityLevel > DesignAssuranceLevelType.NONE].empty) {
+			return false
+		}
 		/* 1. Create a value list for each thread which contains its demand for a given type */
 		// allDesignAssuranceLevelRequests[thread] = demand as integer (NONE = 0, QS = 1, ..., A=5)
 		var allDesignAssuranceLevelRequests = new HashMap<Thread, Integer>()
