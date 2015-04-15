@@ -1,12 +1,5 @@
 package ch.hilbri.assist.mappingdsl.validation
 
-import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.DeploymentSpecification
-import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
-import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition
-import ch.hilbri.assist.datamodel.model.ModelPackage
-import org.eclipse.xtext.validation.Check
-
 /**
  * Custom validation rules. 
  *

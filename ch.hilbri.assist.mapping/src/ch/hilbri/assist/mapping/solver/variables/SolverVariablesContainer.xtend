@@ -1,20 +1,20 @@
 package ch.hilbri.assist.mapping.solver.variables
 
+import ch.hilbri.assist.datamodel.model.Application
 import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.ColocalityRelation
-import ch.hilbri.assist.datamodel.model.EqInterface
-import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
+import ch.hilbri.assist.datamodel.model.Board
+import ch.hilbri.assist.datamodel.model.CommunicationRelation
+import ch.hilbri.assist.datamodel.model.Core
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.datamodel.model.Network
+import ch.hilbri.assist.datamodel.model.Thread
 import java.util.ArrayList
-import java.util.BitSet
 import java.util.HashMap
-import java.util.List
-import java.util.Map
 import org.chocosolver.solver.Solver
+import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
 import org.eclipse.xtend.lib.annotations.Data
-import org.chocosolver.solver.variables.BoolVar
 
 @Data class SolverVariablesContainer {
 	/** A list of location variables for each thread (and each system layer) */

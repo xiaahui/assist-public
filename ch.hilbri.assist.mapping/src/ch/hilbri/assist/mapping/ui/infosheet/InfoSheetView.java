@@ -28,14 +28,17 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
-import ch.hilbri.assist.datamodel.model.Compartment;
-import ch.hilbri.assist.datamodel.model.Connector;
-import ch.hilbri.assist.datamodel.model.EqInterface;
-import ch.hilbri.assist.datamodel.model.HardwareElement;
-import ch.hilbri.assist.datamodel.model.RDC;
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
+import ch.hilbri.assist.datamodel.result.mapping.Board;
+import ch.hilbri.assist.datamodel.result.mapping.Box;
+import ch.hilbri.assist.datamodel.result.mapping.Compartment;
+import ch.hilbri.assist.datamodel.result.mapping.Core;
+import ch.hilbri.assist.datamodel.result.mapping.HardwareElement;
+import ch.hilbri.assist.datamodel.result.mapping.IOAdapter;
+import ch.hilbri.assist.datamodel.result.mapping.Network;
+import ch.hilbri.assist.datamodel.result.mapping.Processor;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
+import ch.hilbri.assist.datamodel.result.mapping.Thread;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
@@ -340,64 +343,77 @@ public class InfoSheetView {
 
 		if (obj != null) {
 			if (obj instanceof Result)
-				addRowToTableComponentProperties("System Name", ((Result) obj).getModel().getSystemName());
+				addRowToTableComponentProperties("System Name", ((Result) obj).getSystemName());
 
 			else if (obj instanceof HardwareElement) {
 
-				if (obj instanceof Connector) {
-					Connector c = (Connector) obj;
-					addRowToTableComponentProperties("Component type", "Connector");
+				if (obj instanceof Core) {
+					Core c = (Core) obj;
+					DecimalFormat f = new DecimalFormat("#0.00");
+					addRowToTableComponentProperties("Component type", "Core");
 					addRowToTableComponentProperties("Name", c.getName());
-
-					for (AvailableEqInterface iface : c.getAvailableEqInterfaces()) {
-						addRowToTableComponentProperties("Available of type '" + iface.getEqInterfaceType() + "'", ""+ iface.getCount());
-					}
+					addRowToTableComponentProperties("Architecture", c.getArchitecture());
+					addRowToTableComponentProperties("Max. capacity", "" + c.getCapacity());
+					addRowToTableComponentProperties("Current load", (c.getCapacity() > 0 ? f.format(new Double(c.getUtilization()) * 100 / new Double(c.getCapacity())) : "0") + "%");
+				} 
 				
-				} else if (obj instanceof RDC) {
-					RDC b = (RDC) obj;
-					addRowToTableComponentProperties("Component type", "RDC");
+				else if (obj instanceof Processor) {
+					Processor p = (Processor) obj;
+					addRowToTableComponentProperties("Component type", "Processor");
+					addRowToTableComponentProperties("Name", p.getName());
+					addRowToTableComponentProperties("Manufacturer", p.getManufacturer());
+					addRowToTableComponentProperties("Type", p.getProcessorType());
+					addRowToTableComponentProperties("# Cores", "" + p.getCores().size());
+				} 
+				
+				else if (obj instanceof Board) {
+					Board b = (Board) obj;
+					DecimalFormat f = new DecimalFormat("#0.00");
+					addRowToTableComponentProperties("Component type", "Board");
 					addRowToTableComponentProperties("Name", b.getName());
 					addRowToTableComponentProperties("Manufacturer", b.getManufacturer());
-					addRowToTableComponentProperties("Power supply", b.getPowerSupply());
-					addRowToTableComponentProperties("Side", b.getSide());
-					addRowToTableComponentProperties("Type", b.getRdcType());
-					addRowToTableComponentProperties("ESS", b.getEss());
-					addRowToTableComponentProperties("Resource X", ""+b.getResourceX());
-					addRowToTableComponentProperties("Resource Y", ""+b.getResourceY());
-					addRowToTableComponentProperties("Resource Z", ""+b.getResourceZ());
-					addRowToTableComponentProperties("Contains connectors", b.getConnectors().toString());
+					addRowToTableComponentProperties("Power suppy", b.getPowerSupply());
+					addRowToTableComponentProperties("DAL", b.getAssuranceLevel().toString());
+					addRowToTableComponentProperties("RAM", b.getRamUtilization() + " of " + b.getRamCapacity() + " (" + ((b.getRomCapacity() > 0) ? f.format(new Double(b.getRamUtilization()) * 100 / new Double(b.getRamCapacity())) : "0") + "%)");
+					addRowToTableComponentProperties("ROM", b.getRomUtilization() + " of " + b.getRomCapacity() + " (" + ((b.getRomCapacity() > 0) ? f.format(new Double(b.getRomUtilization()) * 100 / new Double(b.getRomCapacity())) : "0") + "%)");
 					
+					for (IOAdapter a : b.getIoAdapters()) 
+						addRowToTableComponentProperties("I/O adapters '" + a.getAdapterType() + "'", ""+a.getTotalUnitCount());
+					
+					for (Network n : b.getNetworks()) {
+						/* Do not show "virtual" networks on each board */
+						if (n.isIsBoardLocalNetwork()) continue;
+						addRowToTableComponentProperties("Network '" + n.getName() + "'", "Capacity: " + n.getBandwidthCapacity());	
+					}
+					
+					
+				} else if (obj instanceof Box) {
+					Box b = (Box) obj;
+					addRowToTableComponentProperties("Component Type", "Box");
+					addRowToTableComponentProperties("Name", b.getName());
+					addRowToTableComponentProperties("Manufacturer", b.getManufacturer());
 				} else if (obj instanceof Compartment) {
 					Compartment c = (Compartment) obj;
 					addRowToTableComponentProperties("Component Type", "Compartment");
 					addRowToTableComponentProperties("Name", c.getName());
 					addRowToTableComponentProperties("Manufacturer", c.getManufacturer());
-					addRowToTableComponentProperties("Power supply", c.getPowerSupply());
 					addRowToTableComponentProperties("Side", c.getSide());
 					addRowToTableComponentProperties("Zone", c.getZone());
-					addRowToTableComponentProperties("Contains RDCs", c.getRdcs().toString());
+					addRowToTableComponentProperties("Power Suppy", c.getPowerSupply());
 				}
-			} /* Hardware element */
-			
-			else if (obj instanceof EqInterface) {
-				EqInterface iface  = (EqInterface) obj;
-				addRowToTableComponentProperties("Component Type", "Interface");
-				addRowToTableComponentProperties("Name", iface.getName());
-				addRowToTableComponentProperties("System", iface.getSystem());
-				addRowToTableComponentProperties("SubAta", iface.getSubAta());
-				addRowToTableComponentProperties("LineName", iface.getLineName());
-				addRowToTableComponentProperties("GrpInfo", iface.getGrpInfo());
-				addRowToTableComponentProperties("Route", iface.getRoute());
-				addRowToTableComponentProperties("PwSup1", iface.getPwSup1());
-				addRowToTableComponentProperties("EmhZone1", iface.getEmhZone1());
-				addRowToTableComponentProperties("IOType", iface.getIoType());
-				addRowToTableComponentProperties("Resource", iface.getResource());
-				addRowToTableComponentProperties("Resource X", ""+iface.getResourceX());
-				addRowToTableComponentProperties("Resource Y", ""+iface.getResourceY());
-				addRowToTableComponentProperties("Resource Z", ""+iface.getResourceZ());
+			} else if (obj instanceof Thread) {
+				Thread t = (Thread) obj;
+				addRowToTableComponentProperties("Component Type", "Thread");
+				addRowToTableComponentProperties("Application Name", t.getApplication().getName());
+				addRowToTableComponentProperties("Thread ID", t.getName());
+				addRowToTableComponentProperties("Criticality", t.getApplication().getCriticalityLevel().getLiteral());
+				addRowToTableComponentProperties("IO Adapter Protection", t.getApplication().getIoAdapterProtectionLevel().getLiteral());
+				addRowToTableComponentProperties("Core utilization", "" + t.getApplication().getCoreUtilization());
+				addRowToTableComponentProperties("RAM utilization", "" + t.getApplication().getRamUtilization());
+				addRowToTableComponentProperties("ROM utilization", "" + t.getApplication().getRomUtilization());
+				addRowToTableComponentProperties("Developed by", t.getApplication().getDevelopedBy());
 			}
-		
-		} // != null
+		}
 	}
 
 	/**
@@ -426,8 +442,7 @@ public class InfoSheetView {
 				lblSolutionScore.setText(f.format(r.getEvaluation().getTotalScaledScore()));
 				lblSolutionIndex.setText((index + 1) + " of " + model.getObservableResultsList().size());
 				
-				if (!r.isPartialSolution()) lblSolutionComplete.setText("Yes");
-				else						lblSolutionComplete.setText("No (" + (new DecimalFormat("#0.00").format(r.getCompletenessAsPercentage())) + "%)");
+				lblSolutionComplete.setText("Yes");
 				
 				fillMetricPropertiesTable(r);
 			}

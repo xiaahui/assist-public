@@ -4,12 +4,18 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
-import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
-import ch.hilbri.assist.mapping.solver.constraints.DerivedAllDifferentConstraint
+import ch.hilbri.assist.mapping.solver.constraints.AllApplicationThreadsOnSameBoard
+import ch.hilbri.assist.mapping.solver.constraints.ApplicationProximityConstraint
+import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint
+import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
-import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
-import ch.hilbri.assist.mapping.solver.constraints.RestrictInvalidDeploymentsConstraint
-import ch.hilbri.assist.mapping.solver.constraints.RestrictValidDeploymentsConstraint
+import ch.hilbri.assist.mapping.solver.constraints.DissimilarityConstraint
+import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint
+import ch.hilbri.assist.mapping.solver.constraints.NetworkConstraints
+import ch.hilbri.assist.mapping.solver.constraints.NoPermutationsConstraint
+import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint
+import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint
+import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
@@ -18,19 +24,9 @@ import ch.hilbri.assist.mapping.solver.monitors.PartialSolutionSaveMonitor
 import ch.hilbri.assist.mapping.solver.monitors.RestartMonitor
 import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor
 import ch.hilbri.assist.mapping.solver.preprocessors.AbstractModelPreprocessor
-import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupCombinations
-import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupDefinitions
-import ch.hilbri.assist.mapping.solver.preprocessors.InvalidDeploymentHardwareElements
-import ch.hilbri.assist.mapping.solver.preprocessors.ValidDeploymentHardwareElements
-import ch.hilbri.assist.mapping.solver.strategies.FirstFailThenMaxRelationDegree
-import ch.hilbri.assist.mapping.solver.strategies.HardestColocalitiesFirst
-import ch.hilbri.assist.mapping.solver.strategies.HardestDislocalitiesFirst
-import ch.hilbri.assist.mapping.solver.strategies.ScarcestIoTypeFirst
-import ch.hilbri.assist.mapping.solver.strategies.VariablesInMostDislocalityRelationsFirst
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.List
-import org.chocosolver.solver.ResolutionPolicy
 import org.chocosolver.solver.Settings
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.explanations.RecorderExplanationEngine
@@ -46,26 +42,18 @@ import org.slf4j.LoggerFactory
 
 class AssistSolver {
 	
-	private AssistModel model
-	private Solver solver
-	private AllSolutionsRecorder recorder
-	private SolverVariablesContainer solverVariables
-	private ArrayList<AbstractMappingConstraint> mappingConstraintsList
-	private ArrayList<Result> mappingResults
-	private ArrayList<AbstractModelPreprocessor> modelPreprocessors
-	private int minimize
-	private Logger logger
-	private boolean colocsFirst
-	private boolean savePartialSolution = false
-	private PartialSolutionSaveMonitor partialSolutionSaveMonitor
+	private AssistModel 							model
+	private Solver 									solver
+	private AllSolutionsRecorder 					recorder
+	private SolverVariablesContainer 				solverVariables
+	private ArrayList<AbstractMappingConstraint> 	mappingConstraintsList
+	private ArrayList<Result> 						mappingResults
+	private ArrayList<AbstractModelPreprocessor> 	modelPreprocessors
+	private Logger 									logger
+	private boolean 								savePartialSolution 		= false
+	private PartialSolutionSaveMonitor 				partialSolutionSaveMonitor
 	
 	new (AssistModel model) {
-		this(model, #[0], 0, false, false)
-	}
-
-	new (AssistModel model, List<Integer> locationVariableLvls, int minimize, boolean useCliquesInDislocalities, boolean colocsFirst) {
-		this.colocsFirst = colocsFirst && !model.colocalityRelations.empty
-		this.minimize = minimize - 1
 		this.logger = LoggerFactory.getLogger(this.class)
 		logger.info('''******************************''')
 		logger.info(''' Executing a new AssistSolver''')
@@ -82,11 +70,8 @@ class AssistSolver {
 
 		/* Create all preprocessors */
 		this.modelPreprocessors = new ArrayList
-		this.modelPreprocessors.add(new EqInterfaceGroupDefinitions(model))
-		this.modelPreprocessors.add(new EqInterfaceGroupCombinations(model))
-		this.modelPreprocessors.add(new ValidDeploymentHardwareElements(model))
-		this.modelPreprocessors.add(new InvalidDeploymentHardwareElements(model))
-			
+		// FIXME: add create missing threads preprocessor
+					
 		/* Create a new Solver object */
 		this.solver = new Solver()
 		
@@ -95,7 +80,7 @@ class AssistSolver {
 		this.solver.set(recorder)
 		
 		/* Create the container for variables which are needed in the solver */
- 		this.solverVariables = new SolverVariablesContainer(model, solver, useCliquesInDislocalities, locationVariableLvls)
+ 		this.solverVariables = new SolverVariablesContainer(model, solver)
 		
 		/* Attach the search monitor */
 		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solverVariables))
@@ -104,15 +89,21 @@ class AssistSolver {
 	
 		/* Create an empty set of constraints that will be used */
 		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
-		
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))				
-		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new CoreUtilizationConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new RAMUtilizationConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new ROMUtilizationConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new NoPermutationsConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new AllApplicationThreadsOnSameBoard(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new IOAdapterConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new DesignAssuranceLevelConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new DerivedAllDifferentConstraint(model, solver, solverVariables))
-
+		this.mappingConstraintsList.add(new DissimilarityConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new NetworkConstraints(model, solver, solverVariables))
+		
+		
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>()  
 	}
@@ -143,58 +134,26 @@ class AssistSolver {
 	def setSolverSearchStrategy(SearchType strategy) {
 		val List<AbstractStrategy<IntVar>> heuristics = new ArrayList<AbstractStrategy<IntVar>>
 		val seed = 23432
-		val colocs = solverVariables.colocationVariables
 		val vars = solverVariables.locationVariables
 		
 		logger.info("Setting choco-solver search strategy to '" + strategy.humanReadableName + "'")
 		
 		switch (strategy) {
 			case SearchType.RANDOM: {
-				if (colocsFirst) heuristics.add(ISF.custom(ISF.random_var_selector(0), ISF.random_value_selector(0), colocs))
 				heuristics.add(ISF.custom(ISF.random_var_selector(0), ISF.random_value_selector(0), vars))
 			}
 			case SearchType.MIN_DOMAIN_FIRST: {
-				if (colocsFirst) heuristics.add(ISF.minDom_LB(colocs))
 				heuristics.add(ISF.minDom_LB(vars))
 			}
-			case SearchType.MAX_DEGREE_FIRST: {
-				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model)
-				//val valueChooser = new ConnectorWithDislocalityFriends(solverVariables, model) // not used yet, still needs to prove its usefulness
-				if (colocsFirst) heuristics.add(ISF.custom(selector, selector, colocs))				
-				heuristics.add(ISF.custom(selector, selector, vars))				
-			}
-			case SearchType.HARDEST_DISLOCALITIES_FIRST: {
-				val selector = new HardestDislocalitiesFirst(solverVariables, model)
-				if (colocsFirst) heuristics.add(ISF.custom(selector, selector, colocs))
-				heuristics.add(ISF.custom(selector, selector, vars))
-			}
-			case SearchType.HARDEST_COLOCALITIES_FIRST: {
-				val selector = new HardestColocalitiesFirst(solverVariables, model)
-				if (colocsFirst) heuristics.add(ISF.custom(selector, selector, colocs))
-				heuristics.add(ISF.custom(selector, selector, vars))
-			}
-			case SearchType.SCARCEST_IOTYPE_FIRST: {
-				val selector = new ScarcestIoTypeFirst(solverVariables, model)
-				if (colocsFirst) heuristics.add(ISF.custom(selector, ISF.min_value_selector, colocs))
-				heuristics.add(ISF.custom(selector, ISF.min_value_selector, vars))
-			}
-			case SearchType.VARS_IN_MOST_DISLOC: {
-				val selector = new VariablesInMostDislocalityRelationsFirst(solverVariables, model)
-				if (colocsFirst) heuristics.add(ISF.custom(selector, ISF.min_value_selector, colocs))
-				heuristics.add(ISF.custom(selector, ISF.min_value_selector, vars))
-			}
 			case SearchType.DOM_OVER_WDEG: {
-				val valueChooser = ISF.min_value_selector//new ConnectorWithDislocalityFriends(solverVariables, model)
-				if (colocsFirst) heuristics.add(ISF.domOverWDeg(colocs, seed, valueChooser))
+				val valueChooser = ISF.min_value_selector
 				heuristics.add(ISF.domOverWDeg(vars, seed, valueChooser))
 			}
 			case SearchType.ACTIVITY: {
-				if (colocsFirst) heuristics.add(ISF.activity(colocs, seed))
 				heuristics.add(ISF.activity(vars, seed))
-				solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solverVariables.getLocationVariables(0)))
+				solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solverVariables.getLocationVariables()))
 			}
 			case SearchType.IMPACT: { // possibly broken
-				if (colocsFirst) heuristics.add(ISF.impact(colocs, seed))
 				heuristics.add(ISF.impact(vars, seed))
 			}
 		}
@@ -204,16 +163,7 @@ class AssistSolver {
 		solver.set(heuristics)
 	}
 
-<<<<<<< HEAD
-	def propagation() throws BasicConstraintsException {
-		logger.info("Starting to generate constraints for the choco-solver");
-		for (constraint : mappingConstraintsList) {
-			logger.info('''Starting to generate constraints for "«constraint.name»"...''')
-			if (!constraint.generate()) {
-				logger.info(''' no effective constraints found''')
-			}
-			logger.info('''done.''')
-=======
+
 	def runModelPreprocessors() {
 		logger.info("Running pre-processors")
 		for (p : this.modelPreprocessors) { 
@@ -221,7 +171,6 @@ class AssistSolver {
 			if (!p.execute) {
 				logger.info('''      There is nothing to be done.''')
 			}
->>>>>>> refs/heads/airbus-rdc
 		}
 	}
 	
@@ -234,11 +183,9 @@ class AssistSolver {
             }
 			logger.info('''   done.''')
 		}
-		val colocs = solverVariables.colocationVariables
 		val vars = solverVariables.locationVariables
 		logger.info('''After initial propagation:''') 
 		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location variables instantiated''') 
-		logger.info('''      «colocs.filter[instantiated].size» / «colocs.size» colocation variables instantiated''') 
 	}
 	
 	def solutionSearch() throws BasicConstraintsException {
@@ -246,23 +193,12 @@ class AssistSolver {
 		// Clear old results
 		mappingResults.clear
 		
-		if (minimize >= 0) {
-			if (minimize < 2) {
-				val optVar = solverVariables.optimizationVariables.get(minimize)
-				logger.info("Initiating choco-solver - searching for the optimal solution using " + optVar)
-				solver.findOptimalSolution(ResolutionPolicy.MINIMIZE, optVar)
-			} else {
-				logger.info("Initiating choco-solver - searching for the pareto optimal solutions")
-				solver.findParetoFront(ResolutionPolicy.MINIMIZE, solverVariables.optimizationVariables)
-			}
-		} else {	
-			logger.info("Initiating choco-solver - searching for a solution")
-			solver.findAllSolutions
-		}
+		logger.info("Initiating choco-solver - searching for a solution")
+		solver.findAllSolutions
+		
 		logger.info('''Solutions found: «recorder.solutions.size»''') 
 		
 		logger.info('''Internal solver statistics: «solver.measures.toOneLineString»''')
-		
 			
 		if (solver.hasReachedLimit)
 			logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)")
@@ -306,6 +242,6 @@ class AssistSolver {
 	def hasReachedLimit() 				{ solver.hasReachedLimit 	}
 
 	// the following methods are for the tests only
-	def IntVar[] getLocationVariables() { solverVariables.getLocationVariables(0) }
+	def IntVar[] getLocationVariables() { solverVariables.getLocationVariables() }
 	def Solver getChocoSolver() 		{ solver }
 }

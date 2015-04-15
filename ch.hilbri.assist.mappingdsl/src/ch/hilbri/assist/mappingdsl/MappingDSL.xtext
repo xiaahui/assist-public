@@ -1,216 +1,138 @@
 grammar ch.hilbri.assist.mappingdsl.MappingDSL with org.eclipse.xtext.common.Terminals
 
 import "ch.hilbri.assist.datamodel.model"
-import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 AssistModel: 
-	'Global'  '{' 
-		'Name' '=' systemName=STRING ';' 
+	'Global' 	'{' 
+					'System name' '=' systemName=STRING ';' 
 	'}'
 
-	compartments+=Compartment+
+	'Hardware' 	'{'	
+					(hardwareContainer+=HardwareElementContainer)+
+					(networks+=Network)* 
+	'}'
 
-	('Interfaces' '{'
-		(eqInterfaces+=EqInterface)+ 
-	'}')?
-	
-	('InterfaceGroups' '{'
-		(
-			eqInterfaceGroups+=EqInterfaceGroup 						|	
-			eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition
-		)*		
-	'}')?
-	
+	'Software' '{'
+					(applications+=Application)+ 
+					(applicationGroups+=ApplicationGroup)*
+	'}'
+
 	('Restrictions' '{'
-		( 
-			dislocalityRelations+=DislocalityRelation 			|
-			colocalityRelations+=ColocalityRelation				|
-			validDeployments+=ValidDeployment					|		 
-			invalidDeployments+=InvalidDeployment 			 
-		)*
-		
+					(dissimilarityRelations+=DissimilarityRelation)*
+					(dislocalityRelations+=DislocalityRelation)*
+					(proximityRelations+=ProximityRelation)*
+					(communicationRelations+=CommunicationRelation)*
 	'}')?
+;
+
+HardwareElementContainer: 
+	Compartment | Box | Board
 ;
 
 Compartment: 
 	'Compartment' name=ID '{'
-		(
-			('Manufacturer' 			'=' manufacturer=STRING ';')?  					&
-			('PowerSupply' 				'=' powerSupply=STRING ';')?					&
-			('Side' 					'=' side=STRING ';')?							&
-			('Zone' 					'=' zone=STRING ';')?							&
-			rdcs+=RDC+															
-		)
+		('Manufacturer' 			'=' manufacturer=STRING ';')?
+		('PowerSupply' 				'=' powerSupply=STRING ';')?
+		('Side' 					'=' side=STRING ';')?
+		('Zone' 					'=' zone=STRING ';')?
+		(boxes+=Box)+
+		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}'
 ;
 
-RDC:
-	'RDC' name=ID '{'
-		(
-			('Manufacturer' 			'=' manufacturer=STRING ';')?					&
-			('PowerSupply' 				'=' powerSupply=STRING ';')?					&
-			('Type' 					'=' rdcType=STRING ';')?						&
-			('ESS'		 				'=' ess=STRING ';')?							&
-			('ResourceX'				'=' resourceX=SIGNEDINT ';')?						&
-			('ResourceY'				'=' resourceY=SIGNEDINT ';')?						&
-			('ResourceZ'				'=' resourceZ=SIGNEDINT ';')?						&
-			connectors+=Connector+
-		)													
+
+Box:
+	'Box' name=ID '{'
+		('Manufacturer' 			'=' manufacturer=STRING ';')?
+		(boards+=Board)+
+		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+	'}'
+;
+	
+Board:
+	'Board' name=ID '{'
+		('Manufacturer' 			'=' manufacturer=STRING ';')?
+		('Type' 					'=' boardType=STRING ';')?
+		('PowerSupply' 				'=' powerSupply=STRING ';')?
+	    ('DesignAssuranceLevel' 	'=' assuranceLevel=DesignAssuranceLevelType';')?
+	    ('Side'						'=' side=STRING ';')?
+	    ('ESS'						'=' ess=STRING ';')?
+		('RAM capacity'  			'=' ramCapacity=INT ';')?
+		('ROM capacity'  			'=' romCapacity=INT ';')?
+		(processors+=Processor)+
+		(ioAdapters+=IOAdapter)*
+		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}'
 ;
 
-Connector:
-	'Connector' name=ID '{'
-		(availableEqInterfaces+=AvailableEqInterface)*
-	'}'
+Processor:
+	'Processor' name=ID '{'
+	    ('Manufacturer' 			'=' manufacturer=STRING ';')?
+	    ('Type'         			'=' processorType=STRING ';')?
+		(cores+=Core)+
+		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+	'}';
+
+Core:
+	'Core' name=ID '{' 
+		('Capacity' 					'=' capacity=INT ';')?
+		('Architecture' 				'=' architecture=STRING ';')?
+		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+	'}';
+
+IOAdapter:
+	'I/O adapter' '{' 	
+	 				 'type' '=' adapterType=IOAdapterType ';'
+	 				'count' '=' totalCount=INT ';'
+					 ('protection-level' '=' protectionLevel=IOAdapterProtectionLevelType ';')?
+					'}' 
 ;
 
-AvailableEqInterface:
-	eqInterfaceType=STRING '=' count=INT ';'
-;
-
+Network:
+	'Network' name=ID '{'
+		'Bandwidth' 				'=' bandwidthCapacity=INT ';'
+		'Connects' boards+=[Board|QualifiedName] ',' boards+=[Board|QualifiedName] (',' boards+=[Board|QualifiedName])* ';'
+		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+	'}';
 
 /* SOFTWARE */
 
-EqInterfaceGroup: 
-	'Group' name=ID '{' 
-						(
-							eqInterfaces+=[EqInterface] |
-							implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition
-						)	
-						(
-							',' (
-									eqInterfaces+=[EqInterface] |
-									implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition
-								)
-						)* 
-						'}' ';';
-
-
-ImplicitEqInterfaceMemberDefinition:
-	'interfaces with' entries+=ImplicitEqInterfaceMemberDefinitionAttributesAndValues ('and' entries+=ImplicitEqInterfaceMemberDefinitionAttributesAndValues)*
+ApplicationGroup: 
+	'Group' name=ID '{' applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+ '}'
 ;
 
-ImplicitEqInterfaceMemberDefinitionAttributesAndValues:  
-	attribute=ImplicitEqInterfaceMemberDefinitionAttribute '=' value=STRING
-;
-
-enum ImplicitEqInterfaceMemberDefinitionAttribute:
-	NAME		= 'Name'			|
-	SYSTEM	 	= 'System'			|
-	SUBATA 	 	= 'SubAta'			|
-	LINENAME	= 'LineName'		|
-	WIRINGLANE	= 'WiringLane'		|
-	GRPINFO		= 'GrpInfo'			|
-	ROUTE		= 'Route'			|
-	PWSUP1		= 'PwSup1'			|
-	EMHZONE1	= 'EmhZone1'		|
-	IOTYPE		= 'Type'			|
-	RESOURCE	= 'Resource'		|
-	RESOURCE_X  = 'ResourceX'		|
-	RESOURCE_Y  = 'ResourceY'		|
-	RESOURCE_Z  = 'ResourceZ'		
-;
-
-EqInterfaceGroupWithCombinedDefinition: 
-	'Group' name=ID 'combines' combinedGroups+=[EqInterfaceGroup] ('and' combinedGroups+=[EqInterfaceGroup])* ';'	
-;
-
-EqInterface:
-	'Interface' name=ID '{'
-		(
-			('System' 			'=' system=STRING 		';')?			&
-			('SubAta' 			'=' subAta=STRING 		';')?			&
-			('Resource'			'=' resource=STRING 	';')?			&
-			('LineName'			'=' lineName=STRING 	';')?			&
-			('WiringLane'		'=' wiringLane=STRING 	';')?			&
-			('GrpInfo'			'=' grpInfo=STRING 		';')?			&
-			('Route'			'=' route=STRING 		';')?			&
-			('PwSup1'			'=' pwSup1=STRING 		';')?			&
-			('EmhZone1'			'=' emhZone1=STRING 	';')?			&
-			('Type'				'=' ioType=STRING 		';')?			&
-			('ResourceX'		'=' resourceX=SIGNEDINT	';')?			&
-			('ResourceY'		'=' resourceY=SIGNEDINT	';')?			&
-			('ResourceZ'		'=' resourceZ=SIGNEDINT	';')?			
-		)
+Application:
+	'Application' name=ID '{'
+		('Core-utilization' 			'=' coreUtilization=INT ';')? 
+ 		('Required RAM capacity' 		'=' ramUtilization=INT ';')? 
+		('Required ROM capacity' 		'=' romUtilization=INT ';')? 
+	    ('Criticality level' 			'=' criticalityLevel=DesignAssuranceLevelType ';')?
+	    ('Required IO protection' 		'=' ioAdapterProtectionLevel=IOAdapterProtectionLevelType ';')?
+		('Identical parallel threads' 	'=' parallelThreads=INT ';')?
+		('Developed by' 				'=' developedBy=STRING ';')?
+		(ioAdapterRequirements+=IOAdapterRequirement)*
+		('Restrict deployment to' 		'{' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* '}' ';')? 
+		('Generic properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
 	'}';
 
+IOAdapterRequirement: 
+	'Requires' 	requiredAdapterCount=INT 
+				adapterType=IOAdapterType 'adapter' 
+				 (isExclusiveOnly?='exclusive' | isSharedAllowed?='shared') 
+	';' 
+;
 
 /* RELATIONEN */
 
-enum HardwareArchitectureLevelType :
-	COMPARTMENT = 'Compartment' |
-	RDC			= 'RDC'			|
-	CONNECTOR	= 'Connector'
-;
-
 DislocalityRelation:
-	eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 'dislocal up to' hardwareLevel=HardwareArchitectureLevelType ';';
+	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'dislocal up to' hardwareLevel=HardwareArchitectureLevelType ';';
 	
+ProximityRelation:
+	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'on same' hardwareLevel=HardwareArchitectureLevelType ';'; 
+
+CommunicationRelation: 
+	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'require' bandwidthUtilization=INT 'bandwidth' ';';
 	
-ColocalityRelation:
-	eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])*  'on same' hardwareLevel=HardwareArchitectureLevelType ';'
-;	
-
-ValidDeployment:
-	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
-	('is'|'are') '{'
-		  ( 	 hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
-		  (',' 	(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) )* 
-	'}' ';'
-;
-
-InvalidDeployment:
-	'Invalid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
-	('is'|'are') '{'
-		  ( 	hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
-		  (',' (hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) )* 
-	'}' ';'
-;
-
-DeploymentImplicitDefinition:
-	'connectors with' entries+=DeploymentImplicitDefinitionAttributeAndValue ('and' entries+=DeploymentImplicitDefinitionAttributeAndValue)*
-;
-
-DeploymentImplicitDefinitionAttributeAndValue:
-   attribute=DeploymentImplicitDefinitionAttribute '=' value=STRING	 
-;
-
-enum DeploymentImplicitDefinitionAttribute:
-	COMPARTMENT_NAME			= 'Compartment.Name'			|
-	COMPARTMENT_MANUFACTURER 	= 'Compartment.Manufacturer' 	|
-	COMPARTMENT_POWERSUPPLY 	= 'Compartment.PowerSupply' 	|
-	COMPARTMENT_SIDE		 	= 'Compartment.Side'		 	|
-	COMPARTMENT_ZONE		 	= 'Compartment.Zone'		 	|
-	
-	RDC_NAME					= 'RDC.Name'					|
-	RDC_MANUFACTURER 			= 'RDC.Manufacturer'			|
-	RDC_POWERSUPPLY 			= 'RDC.PowerSupply'				|
-	RDC_SIDE 					= 'RDC.Side'					|
-	RDC_TYPE 					= 'RDC.Type'					|
-	RDC_ESS	 					= 'RDC.ESS'						|
-	RDC_RESOURCE_X				= 'RDC.ResourceX'				|
-	RDC_RESOURCE_Y				= 'RDC.ResourceY'				|
-	RDC_RESOURCE_Z				= 'RDC.ResourceZ'				|
-	
-	CONNECTOR_NAME				= 'Connector.Name'
-;
-
-/* MISC */
-MetricParameter:  
-	name=STRING '=' value=INT ';'
-;
-
-QualifiedName:
-	ID ('.' ID)*
-;
-
-SIGNEDINT returns ecore::EInt:
-  '-'? INT;
-
-/* OLD STUFF */
-
-/* 
 DissimilarityRelation: 
 	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
 	'dissimilar based on'
@@ -255,4 +177,90 @@ enum ProcessorAttributes:
 	MANUFACTURER 	= 'Manufacturer' 	| 
 	PROCESSORTYPE	= 'ProcessorType' 
 ;
-*/
+
+MetricParameter:  
+	name=STRING '=' value=INT ';'
+;
+
+QualifiedName:
+	ID ('.' ID)*
+;
+
+/* ENUMS */
+enum HardwareArchitectureLevelType:
+	CORE 		= 'Core'		|
+	PROCESSOR 	= 'Processor'	|
+	BOARD		= 'Board'		|
+	BOX			= 'Box'			|
+	COMPARTMENT	= 'Compartment'
+;
+
+enum DesignAssuranceLevelType: 
+	NONE= 'None' 	|
+	QS	= 'QS'	 	|
+	D	= 'D'		|
+	C	= 'C'		|
+	B	= 'B'		|
+	A 	= 'A'  
+;
+
+enum IOAdapterProtectionLevelType:
+	NONE 		= 'None' 		|
+	LEVEL_1 	= 'L1'		|
+	LEVEL_2 	= 'L2'		|
+	LEVEL_3 	= 'L3'		|
+	LEVEL_4 	= 'L4'		|
+	LEVEL_5 	= 'L5'		|
+	LEVEL_6 	= 'L6'		|
+	LEVEL_7 	= 'L7'		|
+	LEVEL_8 	= 'L8'		
+;
+
+enum IOAdapterType:
+	CAN 		= 'Can'					|
+	ELB			= 'Enhanced Local Bus'	|
+	ETH			= 'Ethernet'			|
+	ANALOG 		= 'Analog'				|
+	DIGITAL		= 'Digital'				|
+	SERIAL		= 'Serial'			|
+	CUSTOM0		= 'CustomType0'		|
+	CUSTOM1		= 'CustomType1'		|
+	CUSTOM2		= 'CustomType2'		|
+	CUSTOM3		= 'CustomType3'		|
+	CUSTOM4		= 'CustomType4'		|
+	CUSTOM5		= 'CustomType5'		|
+	CUSTOM6		= 'CustomType6'		|		
+	CUSTOM7		= 'CustomType7'		|
+	CUSTOM8		= 'CustomType8'		|
+	CUSTOM9		= 'CustomType9'		|
+	CUSTOM10	= 'CustomType10'	|
+	CUSTOM11	= 'CustomType11'	|
+	CUSTOM12	= 'CustomType12'	|
+	CUSTOM13	= 'CustomType13'	|
+	CUSTOM14	= 'CustomType14'	|
+	CUSTOM15	= 'CustomType15'	|
+	CUSTOM16	= 'CustomType16'	|
+	CUSTOM17	= 'CustomType17'	|
+	CUSTOM18	= 'CustomType18'	|
+	CUSTOM19	= 'CustomType19'	|
+	CUSTOM20	= 'CustomType20'	|
+	CUSTOM21	= 'CustomType21'	|
+	CUSTOM22	= 'CustomType22'	|
+	CUSTOM23	= 'CustomType23'	|
+	CUSTOM24	= 'CustomType24'	|
+	CUSTOM25	= 'CustomType25'	|
+	CUSTOM26	= 'CustomType26'	|
+	CUSTOM27	= 'CustomType27'	|
+	CUSTOM28	= 'CustomType28'	|
+	CUSTOM29	= 'CustomType29'	|
+	CUSTOM30	= 'CustomType30'	|
+	CUSTOM31	= 'CustomType31'	|
+	CUSTOM32	= 'CustomType32'	|
+	CUSTOM33	= 'CustomType33'	|
+	CUSTOM34	= 'CustomType34'	|
+	CUSTOM35	= 'CustomType35'	|
+	CUSTOM36	= 'CustomType36'	|
+	CUSTOM37	= 'CustomType37'	|
+	CUSTOM38	= 'CustomType38'	|
+	CUSTOM39	= 'CustomType39';
+

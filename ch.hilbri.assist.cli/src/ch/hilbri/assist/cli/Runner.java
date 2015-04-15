@@ -84,13 +84,10 @@ public class Runner {
 				System.err.println("Errors on validating " + arg + ".");
 				continue;
 			}*/
-			final int optimize = Integer.parseInt(cmd.getOptionValue("optimize", "0"));
-			final int minimize = Integer.parseInt(cmd.getOptionValue("minimize", "0"));
-			final AssistSolver solver = new AssistSolver(model, levels, minimize, (optimize & 1) > 0, (optimize & 2) > 0);
+			final AssistSolver solver = new AssistSolver(model);
 			SearchType heuristic = SearchType.getDefaultSearchType();
 			switch (cmd.getOptionValue("strategy", "")) {
 				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST; break;
-				case "ffmd": heuristic = SearchType.MAX_DEGREE_FIRST; break;
 				case "domwd": heuristic = SearchType.DOM_OVER_WDEG; break;
 				case "act": heuristic = SearchType.ACTIVITY; break;
 				case "imp": heuristic = SearchType.IMPACT; break;
@@ -98,7 +95,7 @@ public class Runner {
 				default: heuristic = SearchType.getDefaultSearchType(); break;
 			}	
 			solver.setSolverSearchStrategy(heuristic);
-			final int numSolutions = Integer.parseInt(cmd.getOptionValue("solutions", minimize == 0 ? "1" : "100"));
+			final int numSolutions = Integer.parseInt(cmd.getOptionValue("solutions", "100"));
 			solver.setSolverMaxSolutions(numSolutions);
 			final int timeout = Integer.parseInt(cmd.getOptionValue("timeout", "0"));
 			if (timeout > 0) {
@@ -110,16 +107,7 @@ public class Runner {
 				solver.solutionSearch();
 				final ArrayList<Result> results = solver.getResults();
 				System.out.println(results.size() + " solutions found.");
-				for (Result r: results) {
-					for (Connector c: r.getModel().getAllConnectors()) {
-						System.out.print(c.fullName() + " { ");
-						for (EqInterface i: r.getAllMappedEqInterfacesForConnector(c)) {
-							System.out.print(i.getName()+",");
-						}
-						System.out.println(" } ");
-					}
-					System.out.println();
-				}
+				// FIXME: print results
 			}
 			catch (BasicConstraintsException e) {
 				System.err.println("Inconsistency found while processing constraint \"" + e.getConstraintName() + "\"");
