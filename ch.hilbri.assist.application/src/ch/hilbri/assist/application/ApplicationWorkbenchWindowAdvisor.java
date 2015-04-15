@@ -1,5 +1,7 @@
 package ch.hilbri.assist.application;
 
+import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
@@ -31,6 +33,19 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 	public void postWindowCreate() {
 //		Do not show the cheat sheet automatically after start up
 //		new OpenCheatSheetAction(PathProvider.APP_CHEAT_SHEET_ID).run();
+		
+		// Open the Info view on the right side
+		Object objApp = PlatformUI.getWorkbench().getService(MApplication.class);
+		Object objModel = PlatformUI.getWorkbench().getService(EModelService.class);
+		if (objApp instanceof MApplication && objModel instanceof EModelService) {
+			MApplication application = (MApplication) objApp;
+			EModelService modelService = (EModelService) objModel;
+			Helpers.addViewToInfofield(
+					"ch.hilbri.assist.mapping.infosheet",
+					"Information",
+					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView",
+					application, modelService, true);
+		}
 	}
 
 	@Override

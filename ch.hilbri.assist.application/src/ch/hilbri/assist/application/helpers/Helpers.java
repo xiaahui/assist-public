@@ -179,9 +179,7 @@ public class Helpers {
 	 * @param label
 	 *            Label that is shown on top of the editor (usually for filename)
 	 * @param uri
-	 *            The uri for the class that is linked with this part(for example:
-	 *            "bundleclass://de.fraunhofer.fokus.precisionpro.application/de.fraunhofer.fokus.precisionpro.application.parts.SchedulingFXMainView"
-	 *            )
+	 *            The uri for the class that is linked with this part
 	 * @param application
 	 *            Obtained through injection
 	 * @param modelService
@@ -211,7 +209,6 @@ public class Helpers {
 			mpart.setSelectedElement(part);
 			return part;
 		} else {
-			ConsoleCommands.writeErrorLineToConsole("Couldn't find Bottom Viewpart!");
 			return null;
 		}
 	}

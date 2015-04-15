@@ -284,9 +284,6 @@ The GNU General Public License does not permit incorporating your program into p
       <plugin id="ch.hilbri.assist.mapping"/>
       <plugin id="ch.hilbri.assist.mappingdsl"/>
       <plugin id="ch.hilbri.assist.mappingdsl.ui"/>
-      <plugin id="ch.hilbri.assist.scheduling"/>
-      <plugin id="ch.hilbri.assist.schedulingdsl"/>
-      <plugin id="ch.hilbri.assist.schedulingdsl.ui"/>
       <plugin id="com.google.guava"/>
       <plugin id="com.google.inject"/>
       <plugin id="com.ibm.icu"/>
