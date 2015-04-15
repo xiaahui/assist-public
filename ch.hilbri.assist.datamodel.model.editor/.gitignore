@@ -1,2 +1,5 @@
 /bin/
+!/src
 /src/*
+!/ch/hilbri/assist/datamodel/model/presentation/ModelEditorAssist.java
+
