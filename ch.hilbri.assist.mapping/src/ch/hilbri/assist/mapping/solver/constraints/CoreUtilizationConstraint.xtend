@@ -2,11 +2,11 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.mapping.solver.exceptions.coreutilization.TotalProcessingPowerRequestExceedsAvailableProcessingPower
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 class CoreUtilizationConstraint extends AbstractMappingConstraint {
 
@@ -36,7 +36,7 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 		 *    (This is a valid approach, because each applications core utilization is specified independently from the core)
 		 */
 		if (totalCoreUtilization > allCoreCapacities.reduce[p1, p2|p1 + p2]) {
-			throw new TotalProcessingPowerRequestExceedsAvailableProcessingPower(this)
+			throw new BasicConstraintsException(this)
 		}
 
 		/*
@@ -51,7 +51,7 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 		try {
 			solver.propagate
 		} catch (ContradictionException e) {
-			throw new TotalProcessingPowerRequestExceedsAvailableProcessingPower(this)
+			throw new BasicConstraintsException(this)
 		}
 
 		return true

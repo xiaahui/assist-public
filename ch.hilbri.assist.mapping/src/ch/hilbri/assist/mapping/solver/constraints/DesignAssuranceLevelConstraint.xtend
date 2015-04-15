@@ -1,17 +1,17 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.DesignAssuranceLevelType
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.model.Thread
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.HashMap
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
-import org.chocosolver.solver.exception.ContradictionException
-import ch.hilbri.assist.mapping.solver.exceptions.designassurancelevel.NoBoardWithSufficientDALFound
-import ch.hilbri.assist.datamodel.model.DesignAssuranceLevelType
 
 class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 	
@@ -54,7 +54,7 @@ class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 
 			try { solver.propagate }
 			catch (ContradictionException e) {
-				throw new NoBoardWithSufficientDALFound(this, t.application)
+				throw new BasicConstraintsException(this)
 			}
 		}
 		

@@ -2,17 +2,16 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
+import ch.hilbri.assist.mapping.solver.exceptions.InsufficientTotalRAMException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
-import org.chocosolver.solver.exception.ContradictionException
-import ch.hilbri.assist.mapping.solver.exceptions.ramcapacity.NoBoardHasEnoughRAMForThisApplication
-import ch.hilbri.assist.mapping.solver.exceptions.ramcapacity.BoardHasInsufficientRAMForAllItsApplications
-import ch.hilbri.assist.mapping.solver.exceptions.ramcapacity.InsufficientTotalRAMException
 
 class RAMUtilizationConstraint extends AbstractMappingConstraint {
 	
@@ -64,7 +63,7 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 			solver.post(ICF.arithm(threadAvailableRamCapacitiesVar, ">=", thread.application.ramUtilization))
 			
 			try { solver.propagate }
-			catch (ContradictionException e) { throw new NoBoardHasEnoughRAMForThisApplication(this, thread.application)}
+			catch (ContradictionException e) { throw new BasicConstraintsException(this)}
 		}
 		
 		/*
@@ -90,7 +89,7 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteRamUtilizationVariable(board)))
 			
 			try { solver.propagate }
-			catch (ContradictionException e) { throw new BoardHasInsufficientRAMForAllItsApplications(this, board)}	
+			catch (ContradictionException e) { throw new BasicConstraintsException(this)}	
 		}
 		
 		propagate()

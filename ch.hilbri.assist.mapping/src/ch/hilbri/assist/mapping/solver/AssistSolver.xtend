@@ -4,18 +4,12 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
-import ch.hilbri.assist.mapping.solver.constraints.AllApplicationThreadsOnSameBoard
-import ch.hilbri.assist.mapping.solver.constraints.ApplicationProximityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
-import ch.hilbri.assist.mapping.solver.constraints.DissimilarityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint
-import ch.hilbri.assist.mapping.solver.constraints.NetworkConstraints
-import ch.hilbri.assist.mapping.solver.constraints.NoPermutationsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint
-import ch.hilbri.assist.mapping.solver.constraints.RestrictedDeploymentConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
@@ -93,15 +87,15 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new CoreUtilizationConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RAMUtilizationConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ROMUtilizationConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new NoPermutationsConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new AllApplicationThreadsOnSameBoard(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new NoPermutationsConstraint(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new AllApplicationThreadsOnSameBoard(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new IOAdapterConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new DesignAssuranceLevelConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new DissimilarityConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new NetworkConstraints(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new DissimilarityConstraint(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new NetworkConstraints(model, solver, solverVariables))
 		
 		
 		/* Create a list for the results */ 

@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.solver.exceptions.allapplicationthreadsonsameboard
+package ch.hilbri.assist.mapping.solver.exceptions
 
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
