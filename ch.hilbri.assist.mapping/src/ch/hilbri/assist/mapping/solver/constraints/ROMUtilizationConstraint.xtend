@@ -2,8 +2,8 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.mapping.solver.exceptions.romcapacity.BoardHasInsufficientROMForAllItsApplications
-import ch.hilbri.assist.mapping.solver.exceptions.romcapacity.NoBoardHasEnoughROMForThisApplication
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
+import ch.hilbri.assist.mapping.solver.exceptions.InsufficientTotalROMException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
@@ -12,7 +12,6 @@ import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
-import ch.hilbri.assist.mapping.solver.exceptions.romcapacity.InsufficientTotalROMException
 
 class ROMUtilizationConstraint extends AbstractMappingConstraint {
 	
@@ -64,7 +63,7 @@ class ROMUtilizationConstraint extends AbstractMappingConstraint {
 			solver.post(ICF.arithm(threadAvailableRomCapacitiesVar, ">=", thread.application.romUtilization))
 			
 			try { solver.propagate }
-			catch (ContradictionException e) { throw new NoBoardHasEnoughROMForThisApplication(this, thread.application)}
+			catch (ContradictionException e) { throw new BasicConstraintsException(this)}
 		}
 		
 		/*
@@ -90,7 +89,7 @@ class ROMUtilizationConstraint extends AbstractMappingConstraint {
 			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteRomUtilizationVariable(board)))
 			
 			try { solver.propagate }
-			catch (ContradictionException e) { throw new BoardHasInsufficientROMForAllItsApplications(this, board)}		
+			catch (ContradictionException e) { throw new BasicConstraintsException(this)}		
 		}
 		
 		propagate()

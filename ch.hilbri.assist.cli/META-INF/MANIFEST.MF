@@ -3,7 +3,7 @@ Eclipse-RegisterBuddy: ch.hilbri.assist.libraries.logback
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.cli
 Bundle-SymbolicName: ch.hilbri.assist.cli;singleton:=true
-Bundle-Version: 0.6
+Bundle-Version: 1.2
 Bundle-Vendor: Robert Hilbrich
 Export-Package: ch.hilbri.assist.cli
 Require-Bundle: ch.hilbri.assist.datamodel.model,

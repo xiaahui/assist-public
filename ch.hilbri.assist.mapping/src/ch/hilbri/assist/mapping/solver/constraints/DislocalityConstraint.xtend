@@ -3,7 +3,7 @@ package ch.hilbri.assist.mapping.solver.constraints
 import ch.hilbri.assist.datamodel.model.Application
 import ch.hilbri.assist.datamodel.model.ApplicationGroup
 import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.mapping.solver.exceptions.dislocality.ApplicationsCannotBeMappedDislocal
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
@@ -70,7 +70,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			
 			try { solver.propagate }
 			catch (ContradictionException e) {
-				throw new ApplicationsCannotBeMappedDislocal(this, r.applicationsOrGroups, r.hardwareLevel)
+				throw new BasicConstraintsException(this)
 			}
 		}
 

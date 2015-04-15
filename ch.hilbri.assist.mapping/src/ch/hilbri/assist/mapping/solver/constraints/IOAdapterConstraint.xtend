@@ -4,8 +4,7 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.model.IOAdapterProtectionLevelType
 import ch.hilbri.assist.datamodel.model.IOAdapterType
-import ch.hilbri.assist.mapping.solver.exceptions.ioadapter.NoBoardOffersSufficientIOAdaptersForSingleApplication
-import ch.hilbri.assist.mapping.solver.exceptions.ioadapter.SingleBoardDoesNotOfferSufficientIOAdaptersForMultipleApplications
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
@@ -61,8 +60,7 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 					try {
 						solver.propagate
 					} catch (ContradictionException e) {
-						throw new SingleBoardDoesNotOfferSufficientIOAdaptersForMultipleApplications(this, b, type,
-							level)
+						throw new BasicConstraintsException(this)
 					}
 
 				}
@@ -101,8 +99,7 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 				try {
 					solver.propagate
 				} catch (ContradictionException e) {
-					throw new NoBoardOffersSufficientIOAdaptersForSingleApplication(this, t.application,
-						exReq.adapterType, t.application.ioAdapterProtectionLevel, exReq.requiredAdapterCount)
+					throw new BasicConstraintsException(this)
 				}
 			}
 		}
