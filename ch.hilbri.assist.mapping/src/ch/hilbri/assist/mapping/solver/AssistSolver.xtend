@@ -101,7 +101,7 @@ class AssistSolver {
 		this.solver.set(recorder)
 		
 		/* Create the container for variables which are needed in the solver */
- 		this.solverVariables = new SolverVariablesContainer(model, solver, useCliquesInDislocalities, locationVariableLvls)
+ 		this.solverVariables = new SolverVariablesContainer(model, solver, locationVariableLvls)
 		
 		/* Attach the search monitor */
 		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solverVariables))
@@ -117,7 +117,9 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new DerivedAllDifferentConstraint(model, solver, solverVariables))
+		
+		if (useCliquesInDislocalities)
+			this.mappingConstraintsList.add(new DerivedAllDifferentConstraint(model, solver, solverVariables))
 
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>()  
