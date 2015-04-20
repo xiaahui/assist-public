@@ -1,8 +1,10 @@
 package ch.hilbri.assist.mapping.exporters.excel
 
+import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import java.io.File
 import java.io.FileNotFoundException
+import java.util.HashMap
 import jxl.Workbook
 import jxl.WorkbookSettings
 import jxl.read.biff.BiffException
@@ -11,13 +13,24 @@ import jxl.write.WritableWorkbook
 import org.eclipse.jface.dialogs.MessageDialog
 import org.eclipse.swt.widgets.Display
 import org.eclipse.ui.PlatformUI
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 class ExcelOutputTransformator {
+	
+	private static Logger logger = LoggerFactory.getLogger(ExcelOutputTransformator)
 	
 	def static String createExcelOutput(String file, Result result) {
 		val inputExcelFile = new File(file)
 		val outputExcelFileName = file.substring(0, file.length - 4) + " -- ASSIST " + result.name + ".xls"
 		val outputExcelFile = new File(outputExcelFileName)
+		
+		var exportedInterfaceCount = 0 // how many interfaces where exported?
+		val exportedInterfaceMap = new HashMap<EqInterface, Boolean>  // which interfaces where exported?
+		for (iface : result.model.eqInterfaces)
+			exportedInterfaceMap.put(iface, false)
+		var exportedNotFoundInterfaceCount = 0
+		
 		
 		var WritableWorkbook wWorkbook
 		var Workbook rWorkbook
@@ -48,7 +61,12 @@ class ExcelOutputTransformator {
 						if (mappedRDCName != null) {
 							val label = new Label(3,row, mappedRDCName)
 							sheet.addCell(label)
+							
+							exportedInterfaceCount++
+							exportedInterfaceMap.put(eqInterface, true)
 						}
+					} else {
+						exportedNotFoundInterfaceCount++
 					}
 				}
 			}	// for (rows)
@@ -67,6 +85,16 @@ class ExcelOutputTransformator {
 			wWorkbook?.close
 		}
 		
+		logger.info('''Exported «exportedInterfaceCount» interfaces to '«outputExcelFileName»'. ''')
+		if (exportedInterfaceMap.values.filter[it == false].length > 0 || exportedNotFoundInterfaceCount > 0) {
+			logger.info('''Please note: ''')
+			
+			if (exportedInterfaceMap.values.filter[it == false].length > 0) 
+				logger.info('''    - There are «exportedInterfaceMap.values.filter[it == false].length» interfaces in the ASSIST specification which are NOT part of the excel file '«outputExcelFileName»' ''')
+			
+			if (exportedNotFoundInterfaceCount > 0)
+				logger.info('''    - There are «exportedNotFoundInterfaceCount» interfaces in the excel file '«outputExcelFileName»' which are not part of the ASSIST specification''')
+		}
 		return outputExcelFileName
 	}
 	

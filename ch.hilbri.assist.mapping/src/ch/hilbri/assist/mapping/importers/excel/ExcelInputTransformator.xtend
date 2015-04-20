@@ -9,14 +9,17 @@ import java.util.HashMap
 import java.util.Map
 import jxl.Sheet
 import jxl.Workbook
-import jxl.read.biff.BiffException
 import jxl.WorkbookSettings
+import jxl.read.biff.BiffException
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 class ExcelInputTransformator {
 
 	// Stores the restricted deployment entries which are read when all interfaces are read	
 	private static Map<ImportInterface, String> interfaceDeploymentRestrictions
 
+	private static Logger logger = LoggerFactory.getLogger(ExcelInputTransformator)
 
 	def static createMDSLFileInput(String filePath) {
 		return
@@ -130,6 +133,8 @@ Compartment CompartmentName1 {
 		} catch (BiffException e) {
 			e.printStackTrace();
 		}
+		
+		logger.info('''Successfully imported «allInterfaces.length» interfaces from excel file '«filePath»' ''')
 		
 		return '''
  

@@ -1,6 +1,8 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.EqInterface
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
@@ -14,11 +16,38 @@ import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 
 class DerivedAllDifferentConstraint extends AbstractMappingConstraint {
+	
+	private List<ArrayList<BitSet>> conflictGraph 
+	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
 		super("derived all different", model, solver, solverVariables)
+		
+		conflictGraph = #[new ArrayList<BitSet>, new ArrayList<BitSet>, new ArrayList<BitSet>]
+	
+		for (iface:model.eqInterfaces) {
+			// we build one conflict matrix for each level
+			conflictGraph.get(0).add(new BitSet)
+			conflictGraph.get(1).add(new BitSet)
+			conflictGraph.get(2).add(new BitSet)
+		}
 	}
 	
 	override generate() {
+		
+		for (r : model.dislocalityRelations) {
+			val List<List<EqInterface>> ifaceList  = r.eqInterfaceOrGroups
+														  .filter[(it instanceof EqInterface) || 
+																	(it instanceof EqInterfaceGroup && (it as EqInterfaceGroup).eqInterfaces.length > 0)]
+					  									  .toList
+														  .map[ if (it instanceof EqInterface) #[it]
+															    else if (it instanceof EqInterfaceGroup) it.eqInterfaces]
+		
+			val l = solverVariables.getLevelIndex(r.hardwareLevel)
+			
+		 	addToConflictGraph(ifaceList, this.conflictGraph.get(l)) 
+		}
+		
+		
 		// generating all differents for pairs of colocalities which do not fit on the same connector
 		// this is only useful if both colocality groups are not fixed to a connector yet
 		// because otherwise the type pin matching should handle this case
@@ -26,7 +55,7 @@ class DerivedAllDifferentConstraint extends AbstractMappingConstraint {
 		val Map<IntVar, Map<String,Integer>> colocDemand = new HashMap
 		for (r : model.colocalityRelations) {
 			val l = solverVariables.getLevelIndex(r.hardwareLevel)
-			if (!solverVariables.getConflictGraph(l).empty) {
+			if (!this.conflictGraph.get(l).empty) {
 				val list = solverVariables.getColocationVariables(r)
 				val demand = new HashMap<String, Integer>
 				for (v: list) {
@@ -70,7 +99,7 @@ class DerivedAllDifferentConstraint extends AbstractMappingConstraint {
 								}
 							}
 							if (!haveCommonConnector) {
-								addToConflictGraph(list, other, solverVariables.getConflictGraph(l))
+								addToConflictGraph(list, other, this.conflictGraph.get(l))
 							}
 						}
 					}
@@ -81,9 +110,9 @@ class DerivedAllDifferentConstraint extends AbstractMappingConstraint {
 		
 		var boolean hadGraph = false
 		for (l:#[0,1,2]) {
-			if (!solverVariables.getConflictGraph(l).empty) {
+			if (!this.conflictGraph.get(l).empty) {
 				hadGraph = true
-				cliqueCoverConstraintBuild(solverVariables.getLocationVariables(l), solverVariables.getConflictGraph(l))
+				cliqueCoverConstraintBuild(solverVariables.getLocationVariables(l), this.conflictGraph.get(l))
 				try { solver.propagate }
 				catch (ContradictionException e) { throw new BasicConstraintsException(this)	}
 			}
@@ -205,6 +234,21 @@ class DerivedAllDifferentConstraint extends AbstractMappingConstraint {
 				uncovered.get(idx).andNot(clique)
 			}
 			solver.post(ICF.alldifferent(conflict, "AC"))
+		}
+	}
+	
+	def void addToConflictGraph(List<List<EqInterface>> ifaceList, List<BitSet> graph) {
+		for (sublistIdx : 0..<ifaceList.size) {
+			for (iface : ifaceList.get(sublistIdx)) {
+				val idx = model.eqInterfaces.indexOf(iface)
+				for (conflictListIdx : sublistIdx+1..<ifaceList.size) {
+					for (conflict : ifaceList.get(conflictListIdx)) {
+						val conflictIdx = model.eqInterfaces.indexOf(conflict)
+						graph.get(idx).set(conflictIdx)
+						graph.get(conflictIdx).set(idx)
+					}	
+				}
+			}
 		}
 	}
 }

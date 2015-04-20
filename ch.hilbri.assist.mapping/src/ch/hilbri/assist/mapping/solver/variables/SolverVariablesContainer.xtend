@@ -6,7 +6,6 @@ import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import java.util.ArrayList
-import java.util.BitSet
 import java.util.HashMap
 import java.util.List
 import java.util.Map
@@ -26,12 +25,12 @@ import org.eclipse.xtend.lib.annotations.Data
 	
 	private List<IntVar>            colocationVariables = new ArrayList<IntVar>
 	
-	private List<ArrayList<BitSet>> conflictGraph 
+	
 	
 	private IntVar[]                optVars
 	
 	/* CONSTRUCTOR */
-	new (AssistModel model, Solver solver, boolean buildConflictGraph, int[] locationVariableLevels) {
+	new (AssistModel model, Solver solver, int[] locationVariableLevels) {
 	
 		this.locationVariableLevels = locationVariableLevels
 		
@@ -63,18 +62,6 @@ import org.eclipse.xtend.lib.annotations.Data
 					colocationVariables.add(v)
 				}
 			}
-		}
-
-	
-		conflictGraph = #[new ArrayList<BitSet>, new ArrayList<BitSet>, new ArrayList<BitSet>]
-	
-		if (buildConflictGraph) {
-			for (iface:model.eqInterfaces) {
-				// we build one conflict matrix for each level
-				conflictGraph.get(0).add(new BitSet)
-				conflictGraph.get(1).add(new BitSet)
-				conflictGraph.get(2).add(new BitSet)
-			}	
 		}
 
 		this.optVars = #[VF.bounded("UsedRDCCount", 0, model.allRDCs.length, solver),
@@ -128,10 +115,6 @@ import org.eclipse.xtend.lib.annotations.Data
 			}
 		}
 		return list
-	}
-	
-	def List<BitSet> getConflictGraph(int level) {
-		return conflictGraph.get(level)
 	}
 	
 	/** Returns the optimization variable */

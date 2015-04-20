@@ -7,7 +7,6 @@ import ch.hilbri.assist.mapping.solver.constraints.choco.ACF
 import ch.hilbri.assist.mapping.solver.exceptions.InterfaceGroupCannotBeMappedDislocally
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
-import java.util.BitSet
 import java.util.List
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
@@ -61,36 +60,35 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 														  .map[ if (it instanceof EqInterface) #[it]
 															    else if (it instanceof EqInterfaceGroup) it.eqInterfaces]
 				
-				if (solverVariables.getConflictGraph(l).empty) {
-					val List<List<IntVar>> intVarList = ifaceList.map[it.map[solverVariables.getEqInterfaceLocationVariable(it, l)]]
+				val List<List<IntVar>> intVarList = ifaceList.map[it.map[solverVariables.getEqInterfaceLocationVariable(it, l)]]
 				
-					val emptyGroupCounter = r.eqInterfaceOrGroups.length - ifaceList.length
+				val emptyGroupCounter = r.eqInterfaceOrGroups.length - ifaceList.length
 					
-					if (ifaceList.length <= 1) {
-						logger.info('''      WARNING: A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction remained with «ifaceList.length» element(s). It is ineffective and skipped.''')
-					} else {
-						if (emptyGroupCounter > 0) {
-							logger.info('''      WARNING: A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction was generated with «ifaceList.length» non-empty elements. (Restriction contained «r.eqInterfaceOrGroups.length» elements in total.)''')
-						}
-						val crossProductSize = intVarList.map[length as long].reduce(p,q|p*q)
-						if (crossProductSize < 8) {
-							recursiveConstraintBuild(intVarList, 0, new ArrayList<IntVar>)
-						} else {
-						    // this could be optimized by using the variable itself for groups containing only one element 
-							val domainUnionVars = intVarList.map[VF.enumerated("DomainVarForGroup" + it, 0, model.getAllHardwareElements(l).size-1, solver)]
-							solver.post(ACF.allDifferent(intVarList, domainUnionVars))					
-						}
+				if (ifaceList.length <= 1) {
+					logger.info('''      WARNING: A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction remained with «ifaceList.length» element(s). It is ineffective and skipped.''')
+				} 
+				
+				else {
+					if (emptyGroupCounter > 0) {
+						logger.info('''      WARNING: A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction was generated with «ifaceList.length» non-empty elements. (Restriction contained «r.eqInterfaceOrGroups.length» elements in total.)''')
 					}
-				} else {
-					addToConflictGraph(ifaceList, solverVariables.getConflictGraph(l))					
+				
+					val crossProductSize = intVarList.map[length as long].reduce(p,q|p*q)
+					if (crossProductSize < 8) {
+						recursiveConstraintBuild(intVarList, 0, new ArrayList<IntVar>)
+					} 
+					else {
+					    // this could be optimized by using the variable itself for groups containing only one element 
+						val domainUnionVars = intVarList.map[VF.enumerated("DomainVarForGroup" + it, 0, model.getAllHardwareElements(l).size-1, solver)]
+						solver.post(ACF.allDifferent(intVarList, domainUnionVars))					
+					}
 				}
-	
 			}
 
-			if (solverVariables.getConflictGraph(l).empty) {
-				try { solver.propagate }
-				catch (ContradictionException e) { throw new InterfaceGroupCannotBeMappedDislocally(this, r.allEqInterfaceOrGroupNames)	}
-			}
+		
+			try { solver.propagate }
+			catch (ContradictionException e) { throw new InterfaceGroupCannotBeMappedDislocally(this, r.allEqInterfaceOrGroupNames)	}
+			
 		}
 		return true
 
@@ -110,18 +108,5 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 		
 	}
 	
-	def void addToConflictGraph(List<List<EqInterface>> ifaceList, List<BitSet> graph) {
-		for (sublistIdx : 0..<ifaceList.size) {
-			for (iface : ifaceList.get(sublistIdx)) {
-				val idx = model.eqInterfaces.indexOf(iface)
-				for (conflictListIdx : sublistIdx+1..<ifaceList.size) {
-					for (conflict : ifaceList.get(conflictListIdx)) {
-						val conflictIdx = model.eqInterfaces.indexOf(conflict)
-						graph.get(idx).set(conflictIdx)
-						graph.get(conflictIdx).set(idx)
-					}	
-				}
-			}
-		}
-	}
+	
 }
