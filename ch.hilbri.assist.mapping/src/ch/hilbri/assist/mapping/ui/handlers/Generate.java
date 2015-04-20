@@ -18,6 +18,7 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor;
+import org.eclipse.core.runtime.jobs.Job;
 
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.application.helpers.Helpers;
@@ -128,6 +129,7 @@ public class Generate {
 							
 							/* Create a new background Job for finding all solutions */
 							GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", inputModel, (MultiPageEditor)editor);
+							findSolutionsJob.setPriority(Job.LONG);
 							findSolutionsJob.setUser(true);
 							findSolutionsJob.setSearchStrategy(searchParamDlg.getSearchType());
 							findSolutionsJob.setMaxSolutions(searchParamDlg.getNumberOfSolutions());
