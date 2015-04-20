@@ -10,9 +10,12 @@ import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
 
 class SystemHierarchyConstraint extends AbstractMappingConstraint {
+	
+	boolean isMinimizeEnabled
 
-	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
+	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables, boolean isMinimizeEnabled) {
 		super("system hierarchy", model, solver, solverVariables)
+		this.isMinimizeEnabled = isMinimizeEnabled
 	}
 
 	override generate() {
@@ -32,29 +35,35 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 			solver.post(ICF.table(varList, tuples, ""))
 		}
 
-		solver.post(ICF.atmost_nvalues(solverVariables.getLocationVariables(1), solverVariables.optimizationVariables.get(0), false))
+		if (isMinimizeEnabled) {
 
-		val cableVars = new ArrayList<IntVar>
-		for (iface: model.eqInterfaces) {
-			val cableTuples = new Tuples(true)
-			val ifaceVar = solverVariables.getEqInterfaceLocationVariable(iface, 1)
-			var maxLength = 0
-			for (rdcIdx: 0..<model.allRDCs.size) {
-				val rdc = model.allRDCs.get(rdcIdx)
-				val cableLength = Math.abs(iface.resourceX - rdc.resourceX) +
- 							      Math.abs(iface.resourceY - rdc.resourceY) +
-								  Math.abs(iface.resourceZ - rdc.resourceZ)
-				if (cableLength > maxLength) {
-					maxLength = cableLength
+			solver.post(ICF.atmost_nvalues(solverVariables.getLocationVariables(1), solverVariables.optimizationVariables.get(0), false))
+
+			val cableVars = new ArrayList<IntVar>
+
+			for (iface : model.eqInterfaces) {
+				val cableTuples = new Tuples(true)
+				val ifaceVar = solverVariables.getEqInterfaceLocationVariable(iface, 1)
+				var maxLength = 0
+
+				for (rdcIdx : 0 ..< model.allRDCs.size) {
+					val rdc = model.allRDCs.get(rdcIdx)
+					val cableLength = Math.abs(iface.resourceX - rdc.resourceX) +
+						Math.abs(iface.resourceY - rdc.resourceY) + Math.abs(iface.resourceZ - rdc.resourceZ)
+					if (cableLength > maxLength) {
+						maxLength = cableLength
+					}
+					cableTuples.add(rdcIdx, cableLength)
 				}
-				cableTuples.add(rdcIdx, cableLength)
+				val cableVar = VF.bounded("Cable-" + iface.name, 0, maxLength, solver)
+				solver.post(ICF.table(ifaceVar, cableVar, cableTuples, ""))
+				cableVars.add(cableVar)
 			}
-			val cableVar = VF.bounded("Cable-" + iface.name, 0, maxLength, solver)
-			solver.post(ICF.table(ifaceVar, cableVar, cableTuples, ""))
-			cableVars.add(cableVar)
-		}
-		solver.post(ICF.sum(cableVars, solverVariables.optimizationVariables.get(1)))
 
+			solver.post(ICF.sum(cableVars, solverVariables.optimizationVariables.get(1)))
+		
+		} // isMinimizeEnabled?
+	
 		propagate()
 
 		return true

@@ -52,7 +52,6 @@ class AssistSolver {
 	private SolverVariablesContainer solverVariables
 	private ArrayList<AbstractMappingConstraint> mappingConstraintsList
 	private ArrayList<Result> mappingResults
-	private ArrayList<AbstractModelPreprocessor> modelPreprocessors
 	private int minimize
 	private Logger logger
 	private boolean colocsFirst
@@ -81,11 +80,18 @@ class AssistSolver {
 		this.model = model
 
 		/* Create all preprocessors */
-		this.modelPreprocessors = new ArrayList
-		this.modelPreprocessors.add(new EqInterfaceGroupDefinitions(model))
-		this.modelPreprocessors.add(new EqInterfaceGroupCombinations(model))
-		this.modelPreprocessors.add(new ValidDeploymentHardwareElements(model))
-		this.modelPreprocessors.add(new InvalidDeploymentHardwareElements(model))
+		val modelPreprocessors = new ArrayList<AbstractModelPreprocessor> 
+		modelPreprocessors.add(new EqInterfaceGroupDefinitions(model))
+		modelPreprocessors.add(new EqInterfaceGroupCombinations(model))
+		modelPreprocessors.add(new ValidDeploymentHardwareElements(model))
+		modelPreprocessors.add(new InvalidDeploymentHardwareElements(model))
+		
+		/* Run all preprocessors */
+		logger.info("Running pre-processors")
+		for (p : modelPreprocessors) { 
+			logger.info(" - Processing " + p.name)
+			if (!p.execute) logger.info('''      There is nothing to be done.''')
+		}
 			
 		/* Create a new Solver object */
 		this.solver = new Solver()
@@ -105,7 +111,7 @@ class AssistSolver {
 		/* Create an empty set of constraints that will be used */
 		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
 		
-		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables, this.minimize >= 0))
 		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))				
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
@@ -204,16 +210,6 @@ class AssistSolver {
 		solver.set(heuristics)
 	}
 
-	def runModelPreprocessors() {
-		logger.info("Running pre-processors")
-		for (p : this.modelPreprocessors) { 
-			logger.info(" - Processing " + p.name)
-			if (!p.execute) {
-				logger.info('''      There is nothing to be done.''')
-			}
-		}
-	}
-	
 	def propagation() throws BasicConstraintsException {
 		logger.info("Starting to generate constraints for the choco-solver")
 		for (constraint : mappingConstraintsList) {

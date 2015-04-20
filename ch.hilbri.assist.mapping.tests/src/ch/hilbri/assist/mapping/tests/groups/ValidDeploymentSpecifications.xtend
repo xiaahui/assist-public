@@ -68,8 +68,7 @@ Restrictions {
 '''
 		/* Parse the input */
 		model = parser.parse(input) as AssistModel
-		val solver = new AssistSolver(model)
-		solver.runModelPreprocessors
+		new AssistSolver(model)
 		
 		/* Assertions */
 		assertEquals(model.validDeployments.length, 1)

@@ -111,7 +111,6 @@ public class Runner {
 				solver.setSolverTimeLimit(timeout * 1000);
 			}
 			try {
-				solver.runModelPreprocessors();
 				solver.propagation();
 				solver.solutionSearch();
 				final ArrayList<Result> results = solver.getResults();

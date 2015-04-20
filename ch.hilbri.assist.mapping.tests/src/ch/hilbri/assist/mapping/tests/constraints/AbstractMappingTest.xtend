@@ -58,7 +58,6 @@ class AbstractMappingTest {
 		
 		/* Execute this job */
 		try {
-			solver.runModelPreprocessors
 			solver.propagation
 			solver.solutionSearch
 		}

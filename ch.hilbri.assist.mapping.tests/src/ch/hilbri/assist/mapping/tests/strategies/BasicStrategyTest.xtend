@@ -106,7 +106,6 @@ Restrictions {
 			assertNotNull(solver)
 		
 			/* Execute this job */
-			solver.runModelPreprocessors
 			solver.propagation
 			solver.solutionSearch
 
