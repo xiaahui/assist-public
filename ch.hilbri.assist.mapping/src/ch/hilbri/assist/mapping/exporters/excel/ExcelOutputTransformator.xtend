@@ -51,13 +51,18 @@ class ExcelOutputTransformator {
 				val restrictDeploymentTo = sheet.getCell(3, row).contents		// Spalte: D
 			
 				// We need to have a line with an interface in it and an empty "result field"
-				if (!lineName.nullOrEmpty && !wiringLane.nullOrEmpty && restrictDeploymentTo.nullOrEmpty) {
-					val interfacename = clear(lineName) + "__" + clear(wiringLane)
+				if (!lineName.nullOrEmpty && restrictDeploymentTo.nullOrEmpty) {
+	
+					var ifacename = clear(lineName) 
+					if (!wiringLane.nullOrEmpty) ifacename += "__" + clear(wiringLane)
+				
+					val interfacename = ifacename // needs to be final
 				
 					// Try to locate that interface in our model
 					if (result.model.eqInterfaces.filter[it.name.equals(interfacename)].length == 1) {
 						val eqInterface = result.model.eqInterfaces.filter[it.name.equals(interfacename)].get(0)
 						val mappedRDCName = result.mapping.get(eqInterface).rdc.name
+						
 						if (mappedRDCName != null) {
 							val label = new Label(3,row, mappedRDCName)
 							sheet.addCell(label)

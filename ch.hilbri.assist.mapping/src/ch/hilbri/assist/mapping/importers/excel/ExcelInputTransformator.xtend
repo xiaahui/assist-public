@@ -117,9 +117,11 @@ Compartment CompartmentName1 {
 				val restrictDeploymentTo = sheet.getCell(3, row).contents		// Spalte: D
 
 
-				if (!lineName.nullOrEmpty && !wiringLane.nullOrEmpty) {
+				if (!lineName.nullOrEmpty) {
 	
-					val interfacename = clear(lineName) + "__" + clear(wiringLane)
+					var interfacename = clear(lineName) 
+					
+					if (!wiringLane.nullOrEmpty) interfacename += "__" + clear(wiringLane)
 				
 					val iface = new ImportInterface(interfacename, system, subAta, resource, lineName, wiringLane, grpInfo, route, pwSup1, ioType, emhZone1, resourceX, resourceY, resourceZ)				
 					allInterfaces.add(iface)
@@ -179,7 +181,7 @@ InterfaceGroups {
 	«FOR system : allInterfaces.map[system].toSet.toList.sort»
 	
 	// System: «system»
-	«FOR wiringLane : allInterfaces.filter[it.system == system].map[wiringLane].toSet.toList.sort»
+	«FOR wiringLane : allInterfaces.filter[it.system == system].map[wiringLane].filter[!empty].toSet.toList.sort»
 	Group «(clear(system) + "__" + clear(wiringLane))» { interfaces with System = "«system»" and WiringLane = "«wiringLane»" };
 	«ENDFOR»
 	
@@ -191,7 +193,7 @@ InterfaceGroups {
 	 */
 	«ENDIF»
 	«FOR grpInfo : allInterfaces.map[grpInfo].toSet.toList.filter[!isNullOrEmpty].sort»
-	«FOR wiringLane : allInterfaces.filter[it.grpInfo == grpInfo].map[wiringLane].toSet.toList.sort»
+	«FOR wiringLane : allInterfaces.filter[it.grpInfo == grpInfo].map[wiringLane].filter[!empty].toSet.toList.sort»
 	Group «(clear(grpInfo) + "__" + clear(wiringLane))» { interfaces with GrpInfo = "«grpInfo»" and WiringLane = "«wiringLane»" };
 	«ENDFOR»
 	«ENDFOR»
