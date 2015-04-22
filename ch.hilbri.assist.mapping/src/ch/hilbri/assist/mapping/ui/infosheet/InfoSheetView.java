@@ -339,9 +339,12 @@ public class InfoSheetView {
 			tableComponentProperties.removeAll();
 
 		if (obj != null) {
-			if (obj instanceof Result)
+			if (obj instanceof Result) {
 				addRowToTableComponentProperties("System Name", ((Result) obj).getModel().getSystemName());
-
+				addRowToTableComponentProperties("Mapped interfaces", "" + ((Result) obj).getMapping().keySet().size());
+				if (((Result) obj).isPartialSolution()) 
+					addRowToTableComponentProperties("Unmapped interfaces", "" + ((Result) obj).getAllUnmappedEqInterfaces().size());
+			}
 			else if (obj instanceof HardwareElement) {
 
 				if (obj instanceof Connector) {

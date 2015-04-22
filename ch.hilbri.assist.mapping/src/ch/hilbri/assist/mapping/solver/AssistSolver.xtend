@@ -265,7 +265,7 @@ class AssistSolver {
 		// should we save a partial solution?
 		else if (savePartialSolution) {
 			mappingResults = ResultFactoryFromSolverSolutions.createPartialResult(model, solverVariables, partialSolutionSaveMonitor.partialSolution)			
-			logger.info('''Created «mappingResults.size» partial solution''')
+			logger.info('''Created «mappingResults.size» partial solution with «mappingResults.get(0).mapping.keySet.size» mapped interfaces''')
 		} 
 	}
 	
