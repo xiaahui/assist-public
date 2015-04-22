@@ -61,9 +61,10 @@ class ExcelOutputTransformator {
 					// Try to locate that interface in our model
 					if (result.model.eqInterfaces.filter[it.name.equals(interfacename)].length == 1) {
 						val eqInterface = result.model.eqInterfaces.filter[it.name.equals(interfacename)].get(0)
-						val mappedRDCName = result.mapping.get(eqInterface).rdc.name
 						
-						if (mappedRDCName != null) {
+						if (result.mapping.get(eqInterface) != null) {
+
+							val mappedRDCName = result.mapping.get(eqInterface).rdc.name + "__" + result.mapping.get(eqInterface).name
 							val label = new Label(3,row, mappedRDCName)
 							sheet.addCell(label)
 							
