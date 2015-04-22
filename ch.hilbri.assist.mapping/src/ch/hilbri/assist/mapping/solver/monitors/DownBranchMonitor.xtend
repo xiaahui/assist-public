@@ -32,14 +32,13 @@ class DownBranchMonitor implements IMonitorDownBranch {
 	}
 	
 	override afterDownLeftBranch() {
-		calculateProgress
 	}
 	
 	override afterDownRightBranch() {
-		calculateProgress
 	}
 	
 	override beforeDownLeftBranch() {
+		calculateProgress
 	}
 	
 	override beforeDownRightBranch() {
