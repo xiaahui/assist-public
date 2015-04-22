@@ -21,6 +21,7 @@ type EqInterfaceConnectorMapType wraps HashMap<EqInterface, Connector>
 class Result extends Comparable {
 	String								name
 
+
 	refers AssistModel					model
 	EqInterfaceConnectorMapType 		mapping
 	contains Evaluation[0..1] 			evaluation
@@ -39,9 +40,9 @@ class Result extends Comparable {
 				list.add(iface)
 		return list
 	}
+
+	boolean 			partialSolution 		= "false"
 	
-	/* for partial solutions */
-	op boolean 			isPartialSolution() 			{ return allUnmappedEqInterfaces.length > 0 										}
 	op EqInterface[] 	getAllUnmappedEqInterfaces() 	{ return model.eqInterfaces.filter[!mapping.keySet.contains(it)].toEList 			}
 	op double			getCompletenessAsPercentage()	{ return 100 - allUnmappedEqInterfaces.length * 100 / model.eqInterfaces.length 	}
 }
