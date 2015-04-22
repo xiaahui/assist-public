@@ -77,6 +77,22 @@ class Compartment extends HardwareElement {
 		return list
 	}
 	
+	op int[] getAvailableEqInterfaces(String[] eqInterfaceTypes) {
+		val allAvailableEqInterfaces = allConnectors.map[availableEqInterfaces].flatten
+		
+		eqInterfaceTypes.map[
+			val typeName = it
+			// if this rdc does have some interfaces of this type, retrieve their total count
+			if (!allAvailableEqInterfaces.filter[it.eqInterfaceType.equals(typeName)].isNullOrEmpty)
+				allAvailableEqInterfaces.filter[it.eqInterfaceType.equals(typeName)]
+								 .map[it.count]
+								 .reduce[p1, p2|p1+p2]
+			// if this rdc does not have any fitting interfaces for this type, return 0
+			else
+				0
+		]
+	}
+	
 }
 
 class RDC extends HardwareElement {
@@ -91,13 +107,45 @@ class RDC extends HardwareElement {
 	container Compartment compartment opposite rdcs
 	contains Connector[0..*] connectors opposite rdc
 	op String toString() 			{ name }
+	
+	op int[] getAvailableEqInterfaces(String[] eqInterfaceTypes) {
+		val allAvailableEqInterfaces = connectors.map[availableEqInterfaces].flatten
+		
+		eqInterfaceTypes.map[
+			val typeName = it
+			// if this rdc does have some interfaces of this type, retrieve their total count
+			if (!allAvailableEqInterfaces.filter[it.eqInterfaceType.equals(typeName)].isNullOrEmpty)
+				allAvailableEqInterfaces.filter[it.eqInterfaceType.equals(typeName)]
+								 .map[it.count]
+								 .reduce[p1, p2|p1+p2]
+			// if this rdc does not have any fitting interfaces for this type, return 0
+			else
+				0
+		]
+	}
 }
 
 class Connector extends HardwareElement {
 	container RDC rdc opposite connectors
 	contains AvailableEqInterface[0..*] 	availableEqInterfaces
+	
 	op String fullName() 					{ rdc.compartment.name + "." + rdc.name + "." + name }
-	op String toString() 			{ name }
+	
+	op String toString() 					{ name }
+	
+	op int[] getAvailableEqInterfaces(String[] eqInterfaceTypes) {
+		eqInterfaceTypes.map[
+			val typeName = it
+			// if this connector does have some interfaces of this type, retrieve their total count
+			if (!availableEqInterfaces.filter[it.eqInterfaceType.equals(typeName)].isNullOrEmpty)
+				availableEqInterfaces.filter[it.eqInterfaceType.equals(typeName)]
+								 .map[it.count]
+								 .reduce[p1, p2|p1+p2]
+			// if this connector does not have any fitting interfaces for this type, return 0
+			else
+				0
+		]
+	}
 }
 
 class AvailableEqInterface {

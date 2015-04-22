@@ -7,6 +7,7 @@ import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DerivedAllDifferentConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
+import ch.hilbri.assist.mapping.solver.constraints.ImprovedColocalitiesConstraint
 import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictInvalidDeploymentsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictValidDeploymentsConstraint
@@ -116,6 +117,7 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new ImprovedColocalitiesConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
 		
 		if (useCliquesInDislocalities)
