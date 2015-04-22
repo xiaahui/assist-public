@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ASSIST
 Bundle-SymbolicName: ch.hilbri.assist.application;singleton:=true
-Bundle-Version: 1.3
+Bundle-Version: 1.4
 Bundle-Vendor: Robert Hilbrich
 Export-Package: ch.hilbri.assist.application.helpers,
  org.eclipse.wb.swt
