@@ -21,6 +21,7 @@ class ResultFactoryFromSolverSolutions {
 		val results = new ArrayList<Result>
 		
 		val result = createBasicResult(model, "Best partial solution")
+		result.partialSolution = true
 		
 		for (iface : result.model.eqInterfaces)
 		{
