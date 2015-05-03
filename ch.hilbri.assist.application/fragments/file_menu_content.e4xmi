@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_GzwU0AEZEeSTlPOe0qW7tA">
+  <imports xsi:type="commands:Command" xmi:id="_lt_YYAEZEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.command.opencommand"/>
+  <imports xsi:type="commands:Command" xmi:id="_oZYnoAEZEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.command.exit"/>
+  <imports xsi:type="commands:Command" xmi:id="_JxGpgA58EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.command.newFile"/>
+  <imports xsi:type="commands:Command" xmi:id="_bE9-AA58EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.command.newProject"/>
+  <imports xsi:type="commands:Command" xmi:id="_bkLCgA58EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.command.newFolder"/>
+  <imports xsi:type="commands:Command" xmi:id="_g4Cv4A58EeSelv1Zem0g8g" elementId="org.eclipse.ui.newWizard"/>
+  <imports xsi:type="commands:Command" xmi:id="_jbwp0A58EeSelv1Zem0g8g" elementId="org.eclipse.ui.file.close"/>
+  <imports xsi:type="commands:Command" xmi:id="_kK1WUA58EeSelv1Zem0g8g" elementId="org.eclipse.ui.file.closeAll"/>
+  <imports xsi:type="commands:Command" xmi:id="_k_efUA58EeSelv1Zem0g8g" elementId="org.eclipse.ui.file.save"/>
+  <imports xsi:type="commands:Command" xmi:id="_ltZVQA58EeSelv1Zem0g8g" elementId="org.eclipse.ui.file.saveAs"/>
+  <imports xsi:type="commands:Command" xmi:id="_mWShQA58EeSelv1Zem0g8g" elementId="org.eclipse.ui.file.saveAll"/>
+  <imports xsi:type="commands:Command" xmi:id="_nGqOQA58EeSelv1Zem0g8g" elementId="org.eclipse.ui.file.revert"/>
+  <imports xsi:type="commands:Command" xmi:id="__YrVcBJSEeS0b7yzu71Zvg" elementId="org.eclipse.ui.file.print"/>
+  <imports xsi:type="commands:Command" xmi:id="_oXLjMBJnEeS0b7yzu71Zvg" elementId="org.eclipse.ui.file.import"/>
+  <imports xsi:type="commands:Command" xmi:id="_pOHLMBJnEeS0b7yzu71Zvg" elementId="org.eclipse.ui.file.export"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_PprXMAEaEeSTlPOe0qW7tA" featurename="children" parentElementId="file">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_qD7RUId1EeSc37Dto09M8A" elementId="ch.hilbri.assist.application.handledmenuitem.new" label="&amp;New ..." iconURI="platform:/plugin/ch.hilbri.assist.application/icons/new_wiz.gif" command="_g4Cv4A58EeSelv1Zem0g8g"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_E2eGwId2EeSc37Dto09M8A" elementId="ch.hilbri.assist.application.menuseparator.1"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_UIz08AEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.open" label="&amp;Open File ..." command="_lt_YYAEZEeSTlPOe0qW7tA"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_W6JUIAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.menuseparator.0"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_1YQasA5zEeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.close" label="Close" mnemonics="C" command="_jbwp0A58EeSelv1Zem0g8g"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_AqiDYA54EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.closeAll" label="&amp;Close All" command="_kK1WUA58EeSelv1Zem0g8g"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_AYnw0A50EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.menuseparator.3"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_k33qMA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.save" label="&amp;Save" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/save.png" command="_k_efUA58EeSelv1Zem0g8g"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_ldyasA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.saveAs" label="&amp;Save As..." iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/saveas.png" command="_ltZVQA58EeSelv1Zem0g8g"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_ltlxQA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.saveAll" label="&amp;Save All" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/saveAll.png" command="_mWShQA58EeSelv1Zem0g8g"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_l7ecQA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledmenuitem.revert" label="&amp;Revert" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/undo.png" command="_nGqOQA58EeSelv1Zem0g8g"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_mr2JQA52EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.menuseparator.4"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_mLnQEBJSEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.print" label="&amp;Print" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/print.png" command="__YrVcBJSEeS0b7yzu71Zvg"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_kSvp8BJSEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.menuseparator.5"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="__yGyABJmEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.import" label="&amp;Import" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/import.png" command="_oXLjMBJnEeS0b7yzu71Zvg"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_1YvVABJnEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.export" label="&amp;Export" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/export.png" command="_pOHLMBJnEeS0b7yzu71Zvg"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_9ta9cBJmEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.menuseparator.6"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_YIZ3AAEaEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.quit" label="&amp;Exit" command="_oZYnoAEZEeSTlPOe0qW7tA"/>
+  </fragments>
+</fragment:ModelFragments>

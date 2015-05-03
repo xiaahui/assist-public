@@ -1,0 +1,588 @@
+@GenModel(
+	modelPluginID="ch.hilbri.assist.datamodel.model",
+	editDirectory="/ch.hilbri.assist.datamodel.model.edit/src", 
+	editPluginID="ch.hilbri.assist.datamodel.model.edit",
+	editorDirectory="/ch.hilbri.assist.datamodel.model.editor/src", 
+	editorPluginID="ch.hilbri.assist.datamodel.model.editor",
+	generateModelWizard="false", 
+	generateExampleClass="false" 
+ )
+
+package ch.hilbri.assist.datamodel.model
+
+import org.eclipse.emf.common.util.BasicEList
+
+annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
+
+class AssistModel {
+	String 									systemName 				= ""
+	int										changeDelay				= "0" 	/* Scheduling */
+	
+	contains HardwareElementContainer[1..*] hardwareContainer
+	contains Network[0..*] 					networks
+	contains Application[1..*] 				applications
+	contains ApplicationGroup[0..*] 		applicationGroups
+	contains DissimilarityRelation[0..*] 	dissimilarityRelations
+	contains DislocalityRelation[0..*] 		dislocalityRelations
+	contains ProximityRelation[0..*] 		proximityRelations
+	contains CommunicationRelation[0..*] 	communicationRelations
+	
+	contains SchedulingRelation[0..*]		schedulingRelations				/* Scheduling */
+
+	derived HardwareArchitectureLevelType topHardwareLevel get {
+		if (!hardwareContainer.empty) {
+			switch hardwareContainer.get(0)  {
+				Compartment : 	HardwareArchitectureLevelType.COMPARTMENT
+				Box: 			HardwareArchitectureLevelType.BOX
+				Board: 			HardwareArchitectureLevelType.BOARD
+				Processor: 		HardwareArchitectureLevelType.PROCESSOR
+				Core: 			HardwareArchitectureLevelType.CORE
+			}
+		}
+	}
+	
+	derived HardwareArchitectureLevelType bottomHardwareLevel get { HardwareArchitectureLevelType.CORE }
+		
+	derived int hardwareLevelCount get { 
+		switch topHardwareLevel {
+			case COMPARTMENT 	: 5
+			case BOX			: 4
+			case BOARD			: 3
+			case PROCESSOR		: 2
+			case CORE			: 1
+			default: 0			
+		}
+	}
+
+	
+
+	op Compartment[] getAllCompartments() {
+		if (topHardwareLevel == HardwareArchitectureLevelType.COMPARTMENT) return hardwareContainer.map(elem | elem as Compartment)
+		else return new BasicEList<Compartment>
+	}
+	
+	op Box[] getAllBoxes() {
+		val list = new BasicEList<Box>
+		switch topHardwareLevel {
+			case COMPARTMENT 	:	for (c : hardwareContainer)	list.addAll((c as Compartment).boxes)
+			case BOX 			: 	list.addAll(hardwareContainer.map(elem | elem as Box) )
+			default			  	: 	{} 		
+		}
+		return list
+	}
+	
+	op Board[] getAllBoards() {
+		val list = new BasicEList<Board>
+		switch topHardwareLevel {
+			case COMPARTMENT	:	for (c : hardwareContainer) list.addAll((c as Compartment).allBoards)
+			case BOX			:	for (b : hardwareContainer) list.addAll((b as Box).boards)
+			case BOARD			:	list.addAll(hardwareContainer.map(elem | elem as Board))
+			default				: 	{}
+		}
+		return list
+	}
+	
+	op Processor[] getAllProcessors() {
+		val list = new BasicEList<Processor>
+		switch topHardwareLevel {
+			case COMPARTMENT	: 	for (c : hardwareContainer) list.addAll((c as Compartment).allProcessors)
+			case BOX			:	for (b : hardwareContainer) list.addAll((b as Box).allProcessors)
+			case BOARD			: 	for (b : hardwareContainer) list.addAll((b as Board).processors)
+			default				:	{}
+		}
+		return list
+	}
+	
+	op Core[] getAllCores() {
+		val list = new BasicEList<Core>
+		switch topHardwareLevel {
+			case COMPARTMENT	: 	for (c : hardwareContainer) list.addAll((c as Compartment).allCores)
+			case BOX			:	for (b : hardwareContainer) list.addAll((b as Box).allCores)
+			case BOARD			: 	for (b : hardwareContainer) list.addAll((b as Board).allCores)
+			default				:	{}
+		}
+		return list
+	}
+	
+	
+	op HardwareElement[] getAllHardwareElements(HardwareArchitectureLevelType level) {
+		switch level {
+			case COMPARTMENT	: 	return allCompartments.map(elem | elem as HardwareElement)
+			case BOX			:	return allBoxes.map(elem | elem as HardwareElement)
+			case BOARD			: 	return allBoards.map(elem | elem as HardwareElement)
+			case PROCESSOR		: 	return allProcessors.map(elem | elem as HardwareElement)
+			case CORE			: 	return allCores.map(elem | elem as HardwareElement)
+			default				:	return null
+		}
+	}
+	
+	op HardwareElement[] getAllHardwareElements(int level) {
+		if (level <= 0)	return null
+		if (level > hardwareLevelCount) return null
+		 
+		if (level == 1) return allCores.map(elem | elem as HardwareElement)
+		if (level == 2)	return allProcessors.map(elem | elem as HardwareElement)
+		if (level == 3)	return allBoards.map(elem | elem as HardwareElement)
+		if (level == 4)	return allBoxes.map(elem | elem as HardwareElement)
+		if (level == 5)	return allCompartments.map(elem | elem as HardwareElement)
+	}
+	
+	op Thread[] getAllThreads() {
+		val list = new BasicEList<Thread>
+		for (a : applications) list.addAll(a.threads)
+		return list
+	}
+	
+	op DislocalityRelation[] getAllDislocalityRelations(Application app) {
+		
+		val list = new BasicEList<DislocalityRelation>
+		
+		for (relation : dislocalityRelations) {
+			var found = false
+			for (aog : relation.applicationsOrGroups) {
+				if (aog == app) {
+					found = true
+				}
+				else if (aog instanceof ApplicationGroup) {
+					if (aog.allApplications.contains(app)) 
+						found = true
+				}
+			}
+			if (found) list.add(relation)
+		}
+		
+		return list
+	}
+}
+
+
+enum HardwareArchitectureLevelType {
+	CORE 		as "Core" 			= 1 
+	PROCESSOR 	as "Processor"		= 2
+	BOARD		as "Board"			= 3
+	BOX			as "Box"			= 4
+	COMPARTMENT	as "Compartment"	= 5
+}
+
+enum IOAdapterProtectionLevelType {
+	NONE		as "None"
+	LEVEL_1		as "Level 1"
+	LEVEL_2		as "Level 2"
+	LEVEL_3		as "Level 3"
+	LEVEL_4		as "Level 4"
+	LEVEL_5		as "Level 5"
+	LEVEL_6		as "Level 6"
+	LEVEL_7		as "Level 7"
+	LEVEL_8		as "Level 8"
+}
+
+enum DesignAssuranceLevelType {
+	NONE 		as "None"
+	QS 			as "QS"
+	D 			as "D"
+	C 			as "C"
+	B 			as "B"
+	A 			as "A"
+}
+
+class HardwareElement {
+	 String name = ""
+	 contains MetricParameter[0..*] metricParameters
+}
+
+class HardwareElementContainer extends HardwareElement {}
+
+class Compartment extends HardwareElementContainer {
+	String manufacturer	= ""
+	String powerSupply	= ""
+	String side			= ""
+	String zone			= ""
+	contains Box[1..*] boxes opposite compartment
+	
+	op Board[] getAllBoards() {
+		val list = new BasicEList<Board>
+		for (b : boxes) list.addAll(b.boards)
+		return list
+	}
+	
+	op Processor[] getAllProcessors() {
+		val list = new BasicEList<Processor>
+		for (b : boxes) list.addAll(b.allProcessors)
+		return list
+	}
+	
+	op Core[] getAllCores() {
+		val list = new BasicEList<Core>
+		for (b : boxes) list.addAll(b.allCores)
+		return list
+	}
+}
+
+class Box extends HardwareElementContainer {
+	String manufacturer	= ""
+	container Compartment compartment opposite boxes
+	contains Board[1..*] boards opposite box
+		
+	op Processor[] getAllProcessors() {
+		val list = new BasicEList<Processor>
+		for (b: boards) list.addAll(b.processors)
+		return list
+	}
+	
+	op Core[] getAllCores() {
+		val list = new BasicEList<Core>
+		for (b: boards) list.addAll(b.allCores)
+		return list
+	}
+}
+
+class Board extends HardwareElementContainer {
+	String 							manufacturer	= ""
+	String 							boardType		= ""
+	String 							powerSupply		= ""
+	String							side			= ""
+	String							ess				= ""
+	DesignAssuranceLevelType 		assuranceLevel 	= "None"
+	int 							ramCapacity 	= "0"
+	int 							romCapacity 	= "0"
+	container Box 					box opposite boards
+	contains Processor[1..*] 		processors opposite board
+	contains IOAdapter[0..*] 		ioAdapters
+		
+	op String toString() 			{ name }
+	
+	op Core[] getAllCores() {
+		val list = new BasicEList<Core>
+		for (p : processors) list.addAll(p.cores)
+		return list
+	}
+	
+	op int getSuitableAdapterCount(IOAdapterType paramAdapterType, IOAdapterProtectionLevelType paramMinProtectionLevel) {
+		
+		// the type has to match
+		val suitableTypeAdapters = ioAdapters.filter[adapterType == paramAdapterType]
+		if (suitableTypeAdapters == null) return 0
+		
+		// the protection level of the adapter is at least ...
+		val suiteableTypeAndProtectionLevel = suitableTypeAdapters.filter[protectionLevel.ordinal >= paramMinProtectionLevel.ordinal]
+		if (suiteableTypeAndProtectionLevel == null) return 0
+		
+		// we want the total count and then the sum of all suitable adapters on this board
+		val suiteableTypeAndProtectionLevelCount = suiteableTypeAndProtectionLevel.map[totalCount]
+		if (suiteableTypeAndProtectionLevelCount.length > 1) return suiteableTypeAndProtectionLevelCount.reduce[p1, p2| p1+p2]
+		else if (suiteableTypeAndProtectionLevelCount.length == 1) return suiteableTypeAndProtectionLevelCount.get(0)
+		else if (suiteableTypeAndProtectionLevelCount.length == 0) return 0
+		else return -1 
+	}
+}
+
+class Processor extends HardwareElement {
+	String manufacturer  = ""
+	String processorType = ""
+	container Board board opposite processors
+	contains Core[1..*] cores opposite processor 
+}
+
+class Core extends HardwareElement {
+	String architecture = ""
+	int capacity = "0"
+	container Processor processor opposite cores
+}
+
+enum IOAdapterType {
+	NONE		as "None"
+	CAN 		as "Can"
+	ELB			as "Enhanced Local Bus"
+	ETH			as "Ethernet"
+	ANALOG 		as "Analog"
+	DIGITAL		as "Digital"
+	SERIAL		as "Serial"
+	CUSTOM0		as "Custom Type 0"	
+	CUSTOM1		as "Custom Type 1"
+	CUSTOM2		as "Custom Type 2"
+	CUSTOM3		as "Custom Type 3"
+	CUSTOM4		as "Custom Type 4"
+	CUSTOM5		as "Custom Type 5"	
+	CUSTOM6		as "Custom Type 6"
+	CUSTOM7		as "Custom Type 7"
+	CUSTOM8		as "Custom Type 8"
+	CUSTOM9		as "Custom Type 9"
+	CUSTOM10	as "Custom Type 10"	
+	CUSTOM11	as "Custom Type 11"
+	CUSTOM12	as "Custom Type 12"
+	CUSTOM13	as "Custom Type 13"
+	CUSTOM14	as "Custom Type 14"
+	CUSTOM15	as "Custom Type 15"	
+	CUSTOM16	as "Custom Type 16"
+	CUSTOM17	as "Custom Type 17"
+	CUSTOM18	as "Custom Type 18"
+	CUSTOM19	as "Custom Type 19"
+	CUSTOM20	as "Custom Type 20"	
+	CUSTOM21	as "Custom Type 21"
+	CUSTOM22	as "Custom Type 22"
+	CUSTOM23	as "Custom Type 23"
+	CUSTOM24	as "Custom Type 24"
+	CUSTOM25	as "Custom Type 25"	
+	CUSTOM26	as "Custom Type 26"
+	CUSTOM27	as "Custom Type 27"
+	CUSTOM28	as "Custom Type 28"
+	CUSTOM29	as "Custom Type 29"
+	CUSTOM30	as "Custom Type 30"	
+	CUSTOM31	as "Custom Type 31"
+	CUSTOM32	as "Custom Type 32"
+	CUSTOM33	as "Custom Type 33"
+	CUSTOM34	as "Custom Type 34"
+	CUSTOM35	as "Custom Type 35"	
+	CUSTOM36	as "Custom Type 36"
+	CUSTOM37	as "Custom Type 37"
+	CUSTOM38	as "Custom Type 38"
+	CUSTOM39	as "Custom Type 39"
+}
+
+class IOAdapter {
+	String name = ""
+	int totalCount = "0"
+	int sharedUnitCount = "0" /* Scheduling */
+	IOAdapterType adapterType = "None"
+	IOAdapterProtectionLevelType protectionLevel = "None"
+}
+
+class Network {
+	String name 				= ""
+	int bandwidthCapacity 		= "0"
+	refers Board[1..*] boards 
+	contains MetricParameter[0..*] metricParameters
+	
+	derived boolean isBoardLocal get {
+		if (boards.size == 1) return true
+		else return false
+	}
+}
+
+class ApplicationOrApplicationGroup {
+	String name = ""
+	
+	op String toString() {
+		name
+	}
+}
+
+class ApplicationGroup extends ApplicationOrApplicationGroup {
+	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
+	
+	op Application[] getAllApplications() {
+		var list = new BasicEList<Application>
+		
+		for (aog : this.applicationsOrGroups) 
+			if (aog instanceof Application) 			list.add(aog)
+			else if (aog instanceof ApplicationGroup)	list.addAll(aog.allApplications)
+		
+		return list
+	}
+	
+	op Thread[] getAllThreads() {
+		var list = new BasicEList<Thread>
+		
+		for (app : this.allApplications) {
+			list.addAll(app.threads)
+		}
+		
+		return list
+	}
+	
+	op String toString() {
+		name
+	}
+}
+
+class Application extends ApplicationOrApplicationGroup {
+	int coreUtilization 									= "0"
+	int ramUtilization 										= "0"
+	int romUtilization										= "0"
+	DesignAssuranceLevelType criticalityLevel 				= "None"
+	IOAdapterProtectionLevelType ioAdapterProtectionLevel 	= "None"
+	int parallelThreads 									= "1"
+	String developedBy										= ""
+	contains IOAdapterRequirement[0..*] ioAdapterRequirements
+	refers HardwareElement[0..*] restrictMappingToHardwareElements
+	contains Thread[0..*] threads opposite application
+	contains MetricParameter[0..*] metricParameters
+	
+	op String toString() {
+		name
+	}
+}
+
+class Thread {
+	derived String 	name get 			{ application.name + '_' + (application.threads.indexOf(this)+1) }
+	derived int	   	coreUtilization get { application.coreUtilization }
+	container Application application opposite threads
+	
+	/* Scheduling BEGIN */
+	int duration 			= "0"
+	int period	 			= "0"
+	int earlyTolerance 		= "0"
+	int lateTolerance  		= "0"
+	int latestStartTime 	= "0"
+	int latestEndTime 		= "0"
+	int initTime			= "0"
+	int maxSlices			= "0"
+	int minSliceDuration 	= "0"
+	refers Core[0..1] location
+	/* Scheduling END */
+	
+	op int getExclusiveAdapterRequestCount(IOAdapterType paramAdapterType, IOAdapterProtectionLevelType paramMinProtectionLevel) {
+		
+		// check that this application (thread) requires at least the given protectionLevel
+		if (application.ioAdapterProtectionLevel.ordinal < paramMinProtectionLevel.ordinal) return 0
+		
+		// we are looking for exclusive requirements only
+		val exRequests = application.ioAdapterRequirements.filter[isIsExclusiveOnly]
+		if (exRequests == null) return 0
+		
+		// we are looking for exclusive requirements of the given type
+		val exRequestsWithCorrectType = exRequests.filter[adapterType == paramAdapterType]
+		if (exRequestsWithCorrectType == null) return 0		
+		
+		// we are looking for the count of desired adapters
+		val exRequestsWithCorrectTypeAdapterCount = exRequestsWithCorrectType.map[requiredAdapterCount]
+		
+		if (exRequestsWithCorrectTypeAdapterCount.length > 1) return exRequestsWithCorrectTypeAdapterCount.reduce[p1, p2 | p1+p2]
+		else if (exRequestsWithCorrectTypeAdapterCount.length == 1) return exRequestsWithCorrectTypeAdapterCount.get(0)
+		else if (exRequestsWithCorrectTypeAdapterCount.length == 0) return 0
+		else return -1
+	}
+	
+}
+
+class IOAdapterRequirement {	
+	IOAdapterType 					adapterType				= "None"
+	int 							requiredAdapterCount 	= "0"
+	boolean 						isSharedAllowed 		= "false"
+	boolean 						isExclusiveOnly 		= "false"
+}
+
+
+/*** RELATIONS  ****/
+
+
+class DissimilarityRelation {
+	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
+	contains DissimilarityClause[1] dissimilarityClause
+}
+
+class DissimilarityClause {}
+
+// OR
+class DissimilarityDisjunction extends DissimilarityClause {
+	contains DissimilarityClause[2..*] dissimilarityClauses
+}
+
+// AND
+class DissimilarityConjunction extends DissimilarityClause  {
+	contains DissimilarityClause[2..*] dissimilarityClauses
+}
+
+class DissimilarityEntry extends DissimilarityClause {
+	
+	derived HardwareArchitectureLevelType level get {
+		if (compartmentAttribute != CompartmentAttributes.NONE)  HardwareArchitectureLevelType.COMPARTMENT
+		else if (boxAttribute != BoxAttributes.NONE) 			 HardwareArchitectureLevelType.BOX
+		else if (boardAttribute != BoardAttributes.NONE)		 HardwareArchitectureLevelType.BOARD
+		else if (processorAttribute != ProcessorAttributes.NONE) HardwareArchitectureLevelType.PROCESSOR
+		else null
+	}
+	
+	CompartmentAttributes 	compartmentAttribute 	= "None"
+	BoxAttributes 			boxAttribute			= "None"
+	BoardAttributes 		boardAttribute			= "None"
+	ProcessorAttributes 	processorAttribute		= "None"
+}
+
+enum CompartmentAttributes{
+	NONE 			as "None"
+	MANUFACTURER	as "Manufacturer"
+	POWERSUPPLY		as "PowerSupply"
+	SIDE			as "Side"
+	ZONE			as "Zone"
+}
+
+enum BoxAttributes{
+	NONE			as "None"
+	MANUFACTURER	as "Manufacturer"	
+}
+
+enum BoardAttributes{
+	NONE			as "None"
+	MANUFACTURER	as "Manufacturer"
+	POWERSUPPLY		as "PowerSupply"
+	ASSURANCELEVEL	as "AssuranceLevel"
+	BOARDTYPE		as "BoardType"
+	SIDE			as "Side"
+	ESS				as "ESS"
+}
+
+enum ProcessorAttributes{
+	NONE			as "None"
+	MANUFACTURER	as "Manufacturer"
+	PROCESSORTYPE	as "ProcessorType"
+}
+
+
+class DislocalityRelation{
+	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
+	HardwareArchitectureLevelType hardwareLevel
+	
+	op int getApplicationCount() {
+		var ctr = 0
+		for (aog : applicationsOrGroups) {
+			if (aog instanceof Application) ctr++
+			if (aog instanceof ApplicationGroup) ctr += aog.allApplications.size
+		}
+		
+		return ctr
+	}
+}
+
+class ProximityRelation{
+	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
+	HardwareArchitectureLevelType hardwareLevel
+}
+
+class CommunicationRelation{
+	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
+	int bandwidthUtilization = "0"
+	
+	op Thread[] getAllThreads() {
+		var list = new BasicEList<Thread>
+		
+		for (aog : applicationsOrGroups) {
+			if (aog instanceof ApplicationGroup) list.addAll(aog.allThreads)
+			else if (aog instanceof Application) list.addAll(aog.threads)
+		}
+			
+		return list
+	}
+	
+}
+
+/* Scheduling BEGIN */
+enum ReferencePointType{
+	START			as "Start"
+	END				as "End"
+}
+
+class SchedulingRelation{
+	ReferencePointType refBefore
+	ReferencePointType refAfter
+	refers Thread[1] threadBefore
+	refers Thread[1] threadAfter
+	int delay = "0"	
+}
+/* Scheduling END */
+
+class MetricParameter {
+	String name = ""
+	int value = "0"
+}
+

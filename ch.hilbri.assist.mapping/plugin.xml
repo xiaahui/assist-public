@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="id1"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            apply="always"
+            uri="fragment.e4xmi">
+      </fragment>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor"
+            contributorClass="ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditorContributor"
+            default="true"
+            extensions="mdsl"
+            icon="icons/icon-mapping-specification-16x16.png"
+            id="ch.hilbri.assist.mapping.editors.mappingeditor"
+            name="Mapping Specification">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            canFinishEarly="false"
+            category="ch.hilbri.assist.categories.main"
+            class="ch.hilbri.assist.mapping.ui.wizards.NewMappingSpecificationWizard"
+            icon="icons/icon-mapping-specification-16x16.png"
+            id="ch.hilbri.assist.mapping.wizards.newMappingSpecification"
+            name="Mapping - Deployment Specification"
+            project="false">
+         <description>
+            This wizard creates a new mapping specification file with *.mdsl extension.
+         </description>
+      </wizard>
+      <wizard
+            canFinishEarly="true"
+            category="ch.hilbri.assist.categories.main"
+            class="ch.hilbri.assist.mapping.ui.wizards.NewMetricWizard"
+            hasPages="true"
+            icon="icons/generic-file.gif"
+            id="ch.hilbri.assist.mapping.wizards.newMetric"
+            name="Mapping - Evaluation Metric"
+            project="false">
+         <description>
+            Add a custom metric class
+         </description>
+      </wizard>
+   </extension>
+
+</plugin>

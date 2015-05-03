@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension id="assist_product" point="org.eclipse.core.runtime.products">
+		<product application="ch.hilbri.assist.application.application" name="ASSIST">
+			<property name="appName" value="ASSIST"> </property>
+		    <property name="applicationXMI" value="ch.hilbri.assist.application/Application.e4xmi"> </property>
+			<property name="cssTheme" value="ch.hilbri.assist.theme.default"> </property>
+			<property name="applicationCSSResources" value="platform:/plugin/org.eclipse.platform/images/"> </property>
+     		<property name="preferenceCustomization" value="plugin_customization.ini"> </property>
+		    <property name="version" value="0.1"></property>
+      <property
+            name="windowImages"
+            value="icons/ASSIST-icon-16x16.png,icons/ASSIST-icon-32x32.png,icons/ASSIST-icon-48x48.png,icons/ASSIST-icon-64x64.png,icons/ASSIST-icon-128x128.png,icons/ASSIST-icon-256x256.png">
+      </property>
+		</product>
+	</extension>
+ 
+ 	<extension id="ch.hilbri.assist.application.application" point="org.eclipse.core.runtime.applications">
+    	<application icon="icons/ASSIST-icon-64x64.png" cardinality="singleton-global" thread="main" visible="true">
+       		<run class="ch.hilbri.assist.application.Activator"> </run>
+    	</application>
+ 	</extension>
+ 
+	
+	<extension id="id1" point="org.eclipse.e4.workbench.model">
+    <processor
+          apply="always"
+          beforefragment="true"
+          class="ch.hilbri.assist.application.processors.MainMenuProcessor">
+    </processor>
+    <processor
+          apply="always"
+          beforefragment="false"
+          class="ch.hilbri.assist.application.processors.ToolbarDisabledIconProcessor">
+    </processor>
+    <fragment
+          apply="always"
+          uri="fragments/file_menu_content.e4xmi">
+    </fragment>
+    <fragment
+          apply="always"
+          uri="fragments/help_menu_content.e4xmi">
+    </fragment>
+    <fragment
+          apply="always"
+          uri="fragments/edit_menu_content.e4xmi">
+    </fragment>
+    <fragment
+          apply="always"
+          uri="fragments/toolbar_file.e4xmi">
+    </fragment>
+   	</extension>
+   
+   	<extension point="org.eclipse.e4.ui.css.swt.theme">
+   		<theme basestylesheeturi="css/e4_classic_win7.css" id="ch.hilbri.assist.theme.default" label="Default theme" os="win32" os_version="6.1"></theme>
+	</extension>
+
+ 	<extension point="org.eclipse.ui.activities"> <!-- This is used to disable unwanted wizards and perspectives -->
+		<activity id="ch.hilbri.assist.application.activity.disable" name="disable">
+			<enabledWhen><with variable="true"><equals value="false"></equals></with></enabledWhen>
+		</activity>
+	
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.emf.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.pde.ui.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.debug.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.jdt.debug.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.jdt.junit.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.jdt.ui.wizards.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.ant.*"></activityPatternBinding>
+ 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/ch.hilbri.assist.datamodel.model.editor*"></activityPatternBinding>
+   <activityPatternBinding
+         activityId="ch.hilbri.assist.application.activity.disable"
+         pattern=".*/org.eclipse.ui.ide.*">
+   </activityPatternBinding>
+ 	</extension>
+ 
+ 	<extension point="org.eclipse.ui.cheatsheets.cheatSheetContent">
+    	<category id="ch.hilbri.assist.application.category1000716887" name="ASSIST"></category>
+    	<cheatsheet category="ch.hilbri.assist.application.category1000716887" composite="true" contentFile="$nl$/cheatsheets/main.xml" id="ch.hilbri.assist.application.cheatsheet42421446" name="ASSIST - Information"></cheatsheet>
+    	<cheatsheet category="ch.hilbri.assist.application.category1000716887" composite="false" contentFile="$nl$/cheatsheets/mapping-hardware-resource-specification.xml" id="ch.hilbri.assist.application.cheatsheet583307111" name="Specification of Hardware Resources"></cheatsheet>
+    	<cheatsheet category="ch.hilbri.assist.application.category1000716887" composite="false" contentFile="$nl$/cheatsheets/mapping-safety-relation-specification.xml" id="ch.hilbri.assist.application.cheatsheet1958237773" name="Specification of Safety Relations"></cheatsheet>
+    	<cheatsheet category="ch.hilbri.assist.application.category1000716887" composite="false" contentFile="$nl$/cheatsheets/mapping-software-component-specification.xml" id="ch.hilbri.assist.application.cheatsheet553270619" name="Title"></cheatsheet>
+    	<cheatsheet category="ch.hilbri.assist.application.category1000716887" composite="false" contentFile="$nl$/cheatsheets/mapping-global-properties-specification.xml" id="ch.hilbri.assist.application.cheatsheet388828927" name="Global Properties"></cheatsheet>
+ 	</extension>
+ 
+ 	<extension point="org.eclipse.ui.splashHandlers">
+    	<splashHandler class="ch.hilbri.assist.application.splashHandlers.SplashHandler" id="ch.hilbri.assist.application.splashHandler"></splashHandler>
+    	<splashHandlerProductBinding productId="ch.hilbri.assist.application.assist_product" splashId="ch.hilbri.assist.application.splashHandler"></splashHandlerProductBinding>
+ 	</extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <category
+           id="ch.hilbri.assist.categories.main"
+           name="ASSIST">
+     </category>
+     <wizard
+           canFinishEarly="false"
+           category="ch.hilbri.assist.categories.main"
+           class="ch.hilbri.assist.application.ui.wizards.NewAssistProjectWizard"
+           hasPages="true"
+           icon="icons/newprj_wiz.png"
+           id="ch.hilbri.assist.application.wizards.newproject"
+           name="ASSIST Project"
+           project="true">
+     </wizard>
+  </extension>
+  <extension
+        point="org.eclipse.jdt.ui.classpathContainerPage">
+     <classpathContainerPage
+           class="ch.hilbri.assist.application.classpath.ASSISTClasspathContainerPage"
+           id="ch.hilbri.assist.application.classpathContainer"
+           name="ASSIST Libraries">
+     </classpathContainerPage>
+  </extension>
+  <extension
+        point="org.eclipse.jdt.core.classpathContainerInitializer">
+     <classpathContainerInitializer
+           class="ch.hilbri.assist.application.classpath.ASSISTClasspathContainerInitializer"
+           id="ch.hilbri.assist.application.classpathContainer">
+     </classpathContainerInitializer>
+  </extension>
+</plugin>

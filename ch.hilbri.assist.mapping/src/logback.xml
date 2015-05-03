@@ -1,0 +1,18 @@
+<configuration debug="false">
+
+   <!-- <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> -->
+   <appender name="STDOUT" class="ch.hilbri.assist.libraries.logback.AssistConsoleAppender"> 
+        <encoder>
+            <pattern>[%date{HH:mm:ss.SSS}] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <timestamp key="bySecond" datePattern="yyyyMMdd_HHmmss"/>
+
+    <logger name="ch.hilbri.assist" level="debug"/>
+    <logger name="org.chocosolver" level="off"/>
+    
+    <root level="off">
+        <appender-ref ref="STDOUT"/>
+    </root> 
+</configuration>
