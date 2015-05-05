@@ -9,9 +9,17 @@ import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
 import org.eclipse.emf.common.util.BasicEList
 
+/**
+ * This constraint tries to improve the handling of single on-same-relations 
+ * by reducing the number of possible connectors / RDCs / Compartments
+ * 
+ * It aggregates the resources required by single on-same-relation-group and checks, which
+ * connectors or RDCs or compartments are valid options for deployment
+ * 
+ */
 class ImprovedColocalitiesConstraint extends AbstractMappingConstraint {
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("improved interface colocality (on same)", model, solver, solverVariables)
+		super("improved interface colocality (single on-same relation)", model, solver, solverVariables)
 	}
 	
 	override generate() {
