@@ -9,6 +9,7 @@ import java.util.List
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
 import org.eclipse.emf.common.util.BasicEList
+import org.slf4j.LoggerFactory
 
 class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
@@ -18,6 +19,8 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 	override generate() {
 		
 		var atLeastOneConstraintWasPosted = false
+		
+		this.logger = LoggerFactory.getLogger(this.class)
 		
 		// Iterate over all pairs of colocality relations for each hardware level
 		val connectorRelations = model.colocalityRelations.filter[hardwareLevel == HardwareArchitectureLevelType.CONNECTOR] 
@@ -70,10 +73,14 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 			} // for	
 		} // for
 		
+		logger.info('''     . successfully checked all «connectorRelations.length» on-same relations (connector level)''')
+		logger.info('''       (resulting graph contained «connectorRelationsGraph.length» nodes and «connectorRelationsGraph.map[it.cardinality].reduce[p1, p2|p1+p2] / 2» edges)''')
+		
 		// Now we have a connectorRelationsGraph with conflicting on-same relations
 
 		// Retrieve the set of cliques so that all conflict-edges are covered
 		val listOfAllCliques = cliqueCoverConstraintBuild(connectorRelationsGraph)
+		logger.info('''     . successfully created a list of «listOfAllCliques.length» cliques''')
 		
 		for (clique : listOfAllCliques) {
 			
@@ -99,7 +106,8 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 			atLeastOneConstraintWasPosted = true    			
  		
  		} // for clique
-		
+				
+		logger.info('''     . successfully posted constraints for all cliques''')
 		
 		return atLeastOneConstraintWasPosted	
 	}
