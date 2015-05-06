@@ -30,10 +30,15 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 	
 		// Go through all pairs of relations	
 		for (var rel1Idx = 0; rel1Idx < connectorRelations.length; rel1Idx++) {
-			for (var rel2Idx = rel1Idx+1; rel2Idx < connectorRelations.length; rel2Idx++) {
-				val rel1 = connectorRelations.get(rel1Idx)
-				val rel2 = connectorRelations.get(rel2Idx)
+ 			for (var rel2Idx = rel1Idx+1; rel2Idx < connectorRelations.length; rel2Idx++) {
+ 			  val rel1 = connectorRelations.get(rel1Idx)
+			  val rel2 = connectorRelations.get(rel2Idx)
 				
+			  val combinedRel1Rel2 = (rel1.allInterfaces + rel2.allInterfaces)
+				
+				// Rel1 and rel2 should not share an interface
+			  if (combinedRel1Rel2.toSet.toList.length == combinedRel1Rel2.length) {
+					
 				// Which io types are requested by all interfaces in these relations? 
 				val requestedIoTypes =  (rel1.allInterfaces.map[it.ioType] +
 										 rel2.allInterfaces.map[it.ioType])
@@ -42,8 +47,7 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 				
 				// How many interfaces of these types would be required 
 				// if both relations were placed on a single connector?
-				val reqCapacitiesPerIoType = requestedIoTypes.map[
-					val typeIter = it
+				val reqCapacitiesPerIoType = requestedIoTypes.map[ typeIter |
 					rel1.allInterfaces.filter[ioType.equals(typeIter)].length + 
 					rel2.allInterfaces.filter[ioType.equals(typeIter)].length
 				]		
@@ -69,6 +73,9 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 					connectorRelationsGraph.get(rel1Idx).set(rel2Idx)
 					connectorRelationsGraph.get(rel2Idx).set(rel1Idx)
 				}
+				
+				
+			  } // if
 				
 			} // for	
 		} // for
@@ -153,6 +160,10 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 			clique.set(maxIdx)
 			clique.or(seed)
 			
+			for (var int idx = clique.nextSetBit(0); idx != -1; idx = clique.nextSetBit(idx+1)) {
+				uncovered.get(idx).andNot(clique)
+			}
+ 			
  			returnCliques.add(clique)
 			
 		}
