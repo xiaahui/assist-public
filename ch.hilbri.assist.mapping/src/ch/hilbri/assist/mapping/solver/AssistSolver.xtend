@@ -44,6 +44,7 @@ import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.constraints.ImprovedPairOfColocalitiesConstraint
 
 class AssistSolver {
 	
@@ -118,6 +119,7 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ImprovedColocalitiesConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new ImprovedPairOfColocalitiesConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
 		
 		if (useCliquesInDislocalities)
