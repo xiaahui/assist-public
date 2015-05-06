@@ -10,6 +10,8 @@ import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
 import org.eclipse.emf.common.util.BasicEList
 import org.slf4j.LoggerFactory
+import org.chocosolver.solver.exception.ContradictionException
+import ch.hilbri.assist.mapping.solver.exceptions.NotEnoughResourcesForColocalityRelations
 
 class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
@@ -110,7 +112,10 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 			solver.post(ICF.alldifferent(listOfOnSameRelationsIfacesVar, "AC"))
 			
 			// Set the effect flag of this constraint
-			atLeastOneConstraintWasPosted = true    			
+			atLeastOneConstraintWasPosted = true
+			
+			try { solver.propagate }
+			catch (ContradictionException e) { throw new NotEnoughResourcesForColocalityRelations(this, listOfOnSameRelations) }    			
  		
  		} // for clique
 				
