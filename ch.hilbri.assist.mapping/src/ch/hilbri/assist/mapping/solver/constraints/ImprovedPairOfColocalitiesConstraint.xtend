@@ -2,93 +2,125 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.mapping.solver.exceptions.NotEnoughResourcesForColocalityRelations
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.BitSet
 import java.util.List
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.exception.ContradictionException
 import org.eclipse.emf.common.util.BasicEList
 import org.slf4j.LoggerFactory
-import org.chocosolver.solver.exception.ContradictionException
-import ch.hilbri.assist.mapping.solver.exceptions.NotEnoughResourcesForColocalityRelations
 
 class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
 		super("improved interface colocality (pairs of on-same relations)", model, solver, solverVariables)
+		this.logger = LoggerFactory.getLogger(this.class)
 	}
 	
 	override generate() {
+		val retCon = generateRelations(HardwareArchitectureLevelType.CONNECTOR)
+		val retRDC = generateRelations(HardwareArchitectureLevelType.RDC)
+		val retCom = generateRelations(HardwareArchitectureLevelType.COMPARTMENT)
+		
+		return retCon || retRDC || retCom
+	}
+	
+	def boolean generateRelations(HardwareArchitectureLevelType level) {
+		
+		logger.info('''     . begin processing «level» level on-same relations''')
 		
 		var atLeastOneConstraintWasPosted = false
 		
-		this.logger = LoggerFactory.getLogger(this.class)
-		
 		// Iterate over all pairs of colocality relations for each hardware level
-		val connectorRelations = model.colocalityRelations.filter[hardwareLevel == HardwareArchitectureLevelType.CONNECTOR] 
+		val relations = model.colocalityRelations.filter[hardwareLevel == level] 
 		
 		// Create an adjacency matrix for all connector on-same relations
-		val connectorRelationsGraph = connectorRelations.map[new BitSet].toList
+		val relationsGraph = relations.map[new BitSet].toList
 	
 		// Go through all pairs of relations	
-		for (var rel1Idx = 0; rel1Idx < connectorRelations.length; rel1Idx++) {
- 			for (var rel2Idx = rel1Idx+1; rel2Idx < connectorRelations.length; rel2Idx++) {
- 			  val rel1 = connectorRelations.get(rel1Idx)
-			  val rel2 = connectorRelations.get(rel2Idx)
+		for (var rel1Idx = 0; rel1Idx < relations.length; rel1Idx++) {
+ 			for (var rel2Idx = rel1Idx+1; rel2Idx < relations.length; rel2Idx++) {
+ 			  	val rel1 = relations.get(rel1Idx)
+			  	val rel2 = relations.get(rel2Idx)
 				
-			  val combinedRel1Rel2 = (rel1.allInterfaces + rel2.allInterfaces)
+			  	val combinedRel1Rel2 = (rel1.allInterfaces + rel2.allInterfaces)
 				
 				// Rel1 and rel2 should not share an interface
-			  if (combinedRel1Rel2.toSet.toList.length == combinedRel1Rel2.length) {
+			  	if (combinedRel1Rel2.toSet.toList.length == combinedRel1Rel2.length) {
 					
-				// Which io types are requested by all interfaces in these relations? 
-				val requestedIoTypes =  (rel1.allInterfaces.map[it.ioType] +
-										 rel2.allInterfaces.map[it.ioType])
-										 .toSet   // make it unique
-										 .toList 
+					// Which io types are requested by all interfaces in these relations? 
+					val requestedIoTypes =  (rel1.allInterfaces.map[it.ioType] +
+											 rel2.allInterfaces.map[it.ioType])
+											 .toSet   // make it unique
+											 .toList 
 				
-				// How many interfaces of these types would be required 
-				// if both relations were placed on a single connector?
-				val reqCapacitiesPerIoType = requestedIoTypes.map[ typeIter |
-					rel1.allInterfaces.filter[ioType.equals(typeIter)].length + 
-					rel2.allInterfaces.filter[ioType.equals(typeIter)].length
-				]		
+					// How many interfaces of these types would be required 
+					// if both relations were placed on a single connector?
+					val reqCapacitiesPerIoType = requestedIoTypes.map[ typeIter | rel1.allInterfaces.filter[ioType.equals(typeIter)].length + 
+																			  	  rel2.allInterfaces.filter[ioType.equals(typeIter)].length	]		
 				
-				// Get a list of connectors having sufficient IO interfaces
-				val validConnectors = model.allConnectors.filter[
-					// go through every connector; how many interfaces does this connector offer for these io types?
-					val availCapacitiesPerIoType = it.getAvailableEqInterfaces(new BasicEList<String>(requestedIoTypes)).toList
+					// Get a list of hardwareElements having sufficient IO interfaces
+					if (level == HardwareArchitectureLevelType.CONNECTOR) {
+						if (model.allConnectors
+								.filter[ // go through every Connector; how many interfaces does this Connector offer for these io types?
+										val availCapacitiesPerIoType = it.getAvailableEqInterfaces(new BasicEList<String>(requestedIoTypes)).toList
 					
-					// how much capacity remains after removing the capacity for the on-same relations?
-					val remainingCapacitiesPerIoType = availCapacitiesPerIoType.map[it - reqCapacitiesPerIoType.get(availCapacitiesPerIoType.indexOf(it))]	
+										// how much capacity remains after removing the capacity for the on-same relations?
+										val remainingCapacitiesPerIoType = availCapacitiesPerIoType.map[it - reqCapacitiesPerIoType.get(availCapacitiesPerIoType.indexOf(it))]	
 					
-					// a connector is only valid if it offers sufficient resources 
-					// (so that at least 0 unused interfaces would remain) 
-					if (remainingCapacitiesPerIoType.min >= 0) 	true
-					else 										false 					
-				]							
-				
-				// If there is no connector capable of handling both groups, then the interfaces
-				// in both relations can never share a connector; we make this explicit by marking
-				// them as "conflicting" in the graph
-				if (validConnectors.empty) {
-					connectorRelationsGraph.get(rel1Idx).set(rel2Idx)
-					connectorRelationsGraph.get(rel2Idx).set(rel1Idx)
-				}
-				
-				
-			  } // if
-				
+										// a connector is only valid if it offers sufficient resources (so that at least 0 unused interfaces would remain) 
+										remainingCapacitiesPerIoType.min >= 0]
+								.empty) 
+						{
+							
+							// If there is no connector capable of handling both groups, then the interfaces
+							// in both relations can never share a connector; we make this explicit by marking
+							// them as "conflicting" in the graph
+							relationsGraph.get(rel1Idx).set(rel2Idx)
+							relationsGraph.get(rel2Idx).set(rel1Idx)
+							
+						} // if empty
+					} // if level == Connector				
+
+					// same as above
+					else if (level == HardwareArchitectureLevelType.RDC) {
+						if (model.allRDCs
+								.filter[ val availCapacitiesPerIoType = it.getAvailableEqInterfaces(new BasicEList<String>(requestedIoTypes)).toList
+										 val remainingCapacitiesPerIoType = availCapacitiesPerIoType.map[it - reqCapacitiesPerIoType.get(availCapacitiesPerIoType.indexOf(it))]	
+										 remainingCapacitiesPerIoType.min >= 0]
+								.empty) 
+						{
+							relationsGraph.get(rel1Idx).set(rel2Idx)
+							relationsGraph.get(rel2Idx).set(rel1Idx)
+						} // if empty
+					} // if level == RDC				
+					
+					// same as above
+					else if (level == HardwareArchitectureLevelType.COMPARTMENT) {
+						if (model.allCompartments
+								.filter[ val availCapacitiesPerIoType = it.getAvailableEqInterfaces(new BasicEList<String>(requestedIoTypes)).toList
+										 val remainingCapacitiesPerIoType = availCapacitiesPerIoType.map[it - reqCapacitiesPerIoType.get(availCapacitiesPerIoType.indexOf(it))]	
+										 remainingCapacitiesPerIoType.min >= 0]
+								.empty) 
+						{
+							relationsGraph.get(rel1Idx).set(rel2Idx)
+							relationsGraph.get(rel2Idx).set(rel1Idx)
+						} // if empty
+					} // if level == COMPARTMENT
+								
+				} // if relations do not share an interface
 			} // for	
 		} // for
 		
-		logger.info('''     . successfully checked all «connectorRelations.length» on-same relations (connector level)''')
-		logger.info('''       (resulting graph contained «connectorRelationsGraph.length» nodes and «connectorRelationsGraph.map[it.cardinality].reduce[p1, p2|p1+p2] / 2» edges)''')
+		logger.info('''     . successfully checked all «relations.length» on-same relations («level» level)''')
+		logger.info('''       (resulting graph contained «relationsGraph.length» nodes and «relationsGraph.map[it.cardinality].reduce[p1, p2|p1+p2] / 2» edges)''')
 		
-		// Now we have a connectorRelationsGraph with conflicting on-same relations
+		// Now we have a relationsGraph with conflicting on-same relations
 
 		// Retrieve the set of cliques so that all conflict-edges are covered
-		val listOfAllCliques = cliqueCoverConstraintBuild(connectorRelationsGraph)
+		val listOfAllCliques = cliqueCoverConstraintBuild(relationsGraph)
 		logger.info('''     . successfully created a list of «listOfAllCliques.length» cliques''')
 		
 		for (clique : listOfAllCliques) {
@@ -100,7 +132,7 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 			}
 			
 			// Retrieve the on same relations (connector level) for these indizes in this clique
-			val listOfOnSameRelations = listOfOnSameRelationIndizes.map[connectorRelations.get(it)]
+			val listOfOnSameRelations = listOfOnSameRelationIndizes.map[relations.get(it)]
 			 
 			// Get an interface representant from each relation
 			val listOfOnSameRelationsIfaces = listOfOnSameRelations.map[it.allInterfaces.get(0)]
@@ -123,7 +155,11 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 		
 		return atLeastOneConstraintWasPosted	
 	}
+
 	
+	/*
+	 * ************* Helper functions  *********
+	 */
 	
 	// Code contribution thanks to Micha
 	def List<BitSet> cliqueCoverConstraintBuild(List<BitSet> graph) {
