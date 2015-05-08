@@ -29,7 +29,7 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 	
 	def boolean generateRelations(HardwareArchitectureLevelType level) {
 		
-		logger.info('''     . begin processing «level» level on-same relations''')
+		logger.info('''     * begin processing «level» level on-same relations''')
 		
 		var atLeastOneConstraintWasPosted = false
 		
@@ -38,7 +38,7 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 		
 		// Create an adjacency matrix for all connector on-same relations
 		val relationsGraph = relations.map[new BitSet].toList
-	
+		
 		// Go through all pairs of relations	
 		for (var rel1Idx = 0; rel1Idx < relations.length; rel1Idx++) {
  			for (var rel2Idx = rel1Idx+1; rel2Idx < relations.length; rel2Idx++) {
@@ -114,14 +114,14 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 			} // for	
 		} // for
 		
-		logger.info('''     . successfully checked all «relations.length» on-same relations («level» level)''')
-		logger.info('''       (resulting graph contained «relationsGraph.length» nodes and «relationsGraph.map[it.cardinality].reduce[p1, p2|p1+p2] / 2» edges)''')
+		logger.info('''        . successfully checked all «IF !relations.nullOrEmpty»«relations.length»«ELSE»0«ENDIF» on-same relations («level» level)''')
+		logger.info('''        . conflict graph contained «IF !relationsGraph.nullOrEmpty»«relationsGraph.length»  nodes and «relationsGraph.map[it.cardinality].reduce[p1, p2|p1+p2] / 2» edges)«ELSE»0 nodes and 0 edges«ENDIF»''')
 		
 		// Now we have a relationsGraph with conflicting on-same relations
 
 		// Retrieve the set of cliques so that all conflict-edges are covered
 		val listOfAllCliques = cliqueCoverConstraintBuild(relationsGraph)
-		logger.info('''     . successfully created a list of «listOfAllCliques.length» cliques''')
+		logger.info('''        . successfully created a list of «IF !listOfAllCliques.nullOrEmpty»«listOfAllCliques.length»«ELSE»0«ENDIF» cliques''')
 		
 		for (clique : listOfAllCliques) {
 			
@@ -151,8 +151,6 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
  		
  		} // for clique
 				
-		logger.info('''     . successfully posted constraints for all cliques''')
-		
 		return atLeastOneConstraintWasPosted	
 	}
 
