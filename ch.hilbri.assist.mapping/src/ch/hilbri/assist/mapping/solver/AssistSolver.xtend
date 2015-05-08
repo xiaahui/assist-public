@@ -8,6 +8,7 @@ import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DerivedAllDifferentConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ImprovedColocalitiesConstraint
+import ch.hilbri.assist.mapping.solver.constraints.ImprovedPairOfColocalitiesConstraint
 import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictInvalidDeploymentsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictValidDeploymentsConstraint
@@ -44,7 +45,6 @@ import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.constraints.ImprovedPairOfColocalitiesConstraint
 
 class AssistSolver {
 	
