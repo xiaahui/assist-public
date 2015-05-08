@@ -128,6 +128,15 @@ import org.eclipse.xtend.lib.annotations.Data
 	}
 		
 	
+	def IntVar getEqInterfaceLocationVariable(EqInterface iface, HardwareArchitectureLevelType level) {
+		switch (level) {
+			case CONNECTOR: 	{ return getEqInterfaceLocationVariable(iface, 0)	}
+			case RDC: 			{ return getEqInterfaceLocationVariable(iface, 1)	}
+			case COMPARTMENT: 	{ return getEqInterfaceLocationVariable(iface, 2)	}
+		}
+		return null
+	}
+	
 	def EqInterface getInterfaceForLocationVariable(IntVar variable) {
 		return locationVarMap.get(variable)
 	}

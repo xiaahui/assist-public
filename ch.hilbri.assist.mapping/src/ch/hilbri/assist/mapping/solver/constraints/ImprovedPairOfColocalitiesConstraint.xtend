@@ -138,7 +138,7 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 			val listOfOnSameRelationsIfaces = listOfOnSameRelations.map[it.allInterfaces.get(0)]
 			
 			// Get the interface variables for each representant
-			val listOfOnSameRelationsIfacesVar = listOfOnSameRelationsIfaces.map[solverVariables.getEqInterfaceLocationVariable(it, 0)]
+			val listOfOnSameRelationsIfacesVar = listOfOnSameRelationsIfaces.map[solverVariables.getEqInterfaceLocationVariable(it, level)]
 			
 			// Post the alldifferent for these vars
 			solver.post(ICF.alldifferent(listOfOnSameRelationsIfacesVar, "AC"))
