@@ -20,16 +20,14 @@ class SolutionFoundMonitor implements IMonitorSolution {
 	
 	override onSolution() {
 		logger.info("Solution found.")
-		if (vars != null) {
-			// This solution is now forbidden in order to allow strategies and heuristics with a restart policy
-	
-			// what are the (last found) solutions for these variables?		
-			val tuples = new Tuples(false)
-			tuples.add(vars.map[it.LB])
-			
-			// post a constraint to forbid this solutions during a restart
-			vars.get(0).solver.post(ICF.table(vars, tuples, "FC")) // FC was the only algo working properly
-		}
+		// This solution is now forbidden in order to allow strategies and heuristics with a restart policy
+
+		// what are the (last found) solutions for these variables?		
+		val tuples = new Tuples(false)
+		tuples.add(vars.map[LB])
+		
+		// post a constraint to forbid this solutions during a restart
+		vars.get(0).solver.post(ICF.table(vars, tuples, "FC")) // FC was the only algo working properly
 	}
 	
 }

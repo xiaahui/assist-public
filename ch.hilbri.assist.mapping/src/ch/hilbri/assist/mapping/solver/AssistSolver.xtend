@@ -203,16 +203,13 @@ class AssistSolver {
 			case SearchType.ACTIVITY: {
 				if (colocsFirst) heuristics.add(ISF.activity(colocs, seed))
 				heuristics.add(ISF.activity(vars, seed))
-				solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solverVariables.getLocationVariables(0)))
 			}
 			case SearchType.IMPACT: { // possibly broken
 				if (colocsFirst) heuristics.add(ISF.impact(colocs, seed))
 				heuristics.add(ISF.impact(vars, seed))
 			}
 		}
-		if (strategy != SearchType.ACTIVITY) {
-			solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(null))
-		}
+		solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solverVariables.getLocationVariables(0)))
 		solver.set(heuristics)
 	}
 
