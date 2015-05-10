@@ -7,6 +7,7 @@ import org.chocosolver.solver.constraints.nary.alldifferent.PropAllDiffAC
 import org.chocosolver.solver.variables.IntVar
 
 class AssistConstraintFactory {
+	
 	def static Constraint allDifferent(List<List<IntVar>> VARS, IntVar[] domainUnionVars) {
 		val cumulLengths = new ArrayList<Integer>
     	for (var i = 0; i < VARS.size(); i++) {
@@ -29,5 +30,9 @@ class AssistConstraintFactory {
 			props.add(new PropIntValuesUnion(VARS.get(i), domainUnionVars.get(i)));
 		}
 		return new Constraint("AllDifferent", props)
+    }
+    
+    def static Constraint element(IntVar VALUE, int[] TABLE, IntVar INDEX){
+    	return new Constraint("Element", new PropElement(VALUE, TABLE, INDEX))
     }
 }
