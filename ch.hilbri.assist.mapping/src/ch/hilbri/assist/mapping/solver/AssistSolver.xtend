@@ -44,6 +44,7 @@ import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.strategies.RDCWithShortestDistanceSelector
 
 class AssistSolver {
 	
@@ -155,7 +156,7 @@ class AssistSolver {
 		
 		switch (strategy) {
 			case DIETMAR_1: {
-				
+				heuristics.add(ISF.domOverWDeg(vars, seed, new RDCWithShortestDistanceSelector(solverVariables, model)))
 			}
 			case SearchType.RANDOM: {
 				heuristics.add(ISF.custom(ISF.random_var_selector(0), ISF.random_value_selector(0), vars))
