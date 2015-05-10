@@ -86,9 +86,8 @@ public class Runner {
 				System.err.println("Errors on validating " + arg + ".");
 				continue;
 			}*/
-			final int optimize = Integer.parseInt(cmd.getOptionValue("optimize", "0"));
 			final int minimize = Integer.parseInt(cmd.getOptionValue("minimize", "0"));
-			final AssistSolver solver = new AssistSolver(model, levels, minimize, (optimize & 1) > 0, (optimize & 2) > 0);
+			final AssistSolver solver = new AssistSolver(model, levels, minimize);
 			SearchType heuristic = SearchType.getDefaultSearchType();
 			switch (cmd.getOptionValue("strategy", "")) {
 				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST; break;

@@ -5,7 +5,6 @@ import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
-import ch.hilbri.assist.mapping.solver.constraints.DerivedAllDifferentConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ImprovedColocalitiesConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ImprovedPairOfColocalitiesConstraint
@@ -56,16 +55,14 @@ class AssistSolver {
 	private ArrayList<Result> mappingResults
 	private int minimize
 	private Logger logger
-	private boolean colocsFirst
 	private boolean savePartialSolution = false
 	private PartialSolutionSaveMonitor partialSolutionSaveMonitor
 	
 	new (AssistModel model) {
-		this(model, #[0], 0, false, false)
+		this(model, #[0], 0)
 	}
 
-	new (AssistModel model, List<Integer> locationVariableLvls, int minimize, boolean useCliquesInDislocalities, boolean colocsFirst) {
-		this.colocsFirst = colocsFirst && !model.colocalityRelations.empty
+	new (AssistModel model, List<Integer> locationVariableLvls, int minimize) {
 		this.minimize = minimize - 1
 		this.logger = LoggerFactory.getLogger(this.class)
 		logger.info('''******************************''')
@@ -121,9 +118,6 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new ImprovedColocalitiesConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ImprovedPairOfColocalitiesConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
-		
-		if (useCliquesInDislocalities)
-			this.mappingConstraintsList.add(new DerivedAllDifferentConstraint(model, solver, solverVariables))
 
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>()  
@@ -155,59 +149,52 @@ class AssistSolver {
 	def setSolverSearchStrategy(SearchType strategy) {
 		val List<AbstractStrategy<IntVar>> heuristics = new ArrayList<AbstractStrategy<IntVar>>
 		val seed = 23432
-		val colocs = solverVariables.colocationVariables
 		val vars = solverVariables.locationVariables
 		
 		logger.info("Setting choco-solver search strategy to '" + strategy.humanReadableName + "'")
 		
 		switch (strategy) {
+			case DIETMAR_1: {
+				
+			}
 			case SearchType.RANDOM: {
-				if (colocsFirst) heuristics.add(ISF.custom(ISF.random_var_selector(0), ISF.random_value_selector(0), colocs))
 				heuristics.add(ISF.custom(ISF.random_var_selector(0), ISF.random_value_selector(0), vars))
 			}
 			case SearchType.MIN_DOMAIN_FIRST: {
-				if (colocsFirst) heuristics.add(ISF.minDom_LB(colocs))
 				heuristics.add(ISF.minDom_LB(vars))
 			}
 			case SearchType.MAX_DEGREE_FIRST: {
 				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model)
 				//val valueChooser = new ConnectorWithDislocalityFriends(solverVariables, model) // not used yet, still needs to prove its usefulness
-				if (colocsFirst) heuristics.add(ISF.custom(selector, selector, colocs))				
 				heuristics.add(ISF.custom(selector, selector, vars))				
 			}
 			case SearchType.HARDEST_DISLOCALITIES_FIRST: {
 				val selector = new HardestDislocalitiesFirst(solverVariables, model)
-				if (colocsFirst) heuristics.add(ISF.custom(selector, selector, colocs))
 				heuristics.add(ISF.custom(selector, selector, vars))
 			}
 			case SearchType.HARDEST_COLOCALITIES_FIRST: {
 				val selector = new HardestColocalitiesFirst(solverVariables, model)
-				if (colocsFirst) heuristics.add(ISF.custom(selector, selector, colocs))
 				heuristics.add(ISF.custom(selector, selector, vars))
 			}
 			case SearchType.SCARCEST_IOTYPE_FIRST: {
 				val selector = new ScarcestIoTypeFirst(solverVariables, model)
-				if (colocsFirst) heuristics.add(ISF.custom(selector, ISF.min_value_selector, colocs))
 				heuristics.add(ISF.custom(selector, ISF.min_value_selector, vars))
 			}
 			case SearchType.VARS_IN_MOST_DISLOC: {
 				val selector = new VariablesInMostDislocalityRelationsFirst(solverVariables, model)
-				if (colocsFirst) heuristics.add(ISF.custom(selector, ISF.min_value_selector, colocs))
 				heuristics.add(ISF.custom(selector, ISF.min_value_selector, vars))
 			}
 			case SearchType.DOM_OVER_WDEG: {
 				val valueChooser = ISF.min_value_selector//new ConnectorWithDislocalityFriends(solverVariables, model)
-				if (colocsFirst) heuristics.add(ISF.domOverWDeg(colocs, seed, valueChooser))
 				heuristics.add(ISF.domOverWDeg(vars, seed, valueChooser))
 			}
 			case SearchType.ACTIVITY: {
-				if (colocsFirst) heuristics.add(ISF.activity(colocs, seed))
 				heuristics.add(ISF.activity(vars, seed))
 			}
 			case SearchType.IMPACT: { // possibly broken
-				if (colocsFirst) heuristics.add(ISF.impact(colocs, seed))
 				heuristics.add(ISF.impact(vars, seed))
 			}
+			
 		}
 		solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solverVariables.getLocationVariables(0)))
 		solver.set(heuristics)

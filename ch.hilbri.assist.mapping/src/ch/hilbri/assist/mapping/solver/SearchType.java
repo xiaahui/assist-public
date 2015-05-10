@@ -6,10 +6,15 @@ import java.util.Comparator;
 import java.util.List;
 
 public enum SearchType {
+	DIETMAR_1					("Dietmar 1",
+								 "Interfaces are selected based on domain over weighted degree; " +
+								 "connectors are selected based on minimum shortest distance",
+								 true),
+	
 	MIN_DOMAIN_FIRST			("Min domain first", 				
 								 "The interface with the minimal amount of available connectors is chosen first. " +
 	                             "Connectors with lower index values are picked first.", 
-								 true),
+								 false),
 								 
 	MAX_DEGREE_FIRST			("Max degree first", 				
 								 "Empty", 
