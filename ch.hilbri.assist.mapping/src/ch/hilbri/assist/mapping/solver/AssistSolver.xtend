@@ -149,7 +149,7 @@ class AssistSolver {
 	
 	def setSolverSearchStrategy(SearchType strategy) {
 		val List<AbstractStrategy<IntVar>> heuristics = new ArrayList<AbstractStrategy<IntVar>>
-		val seed = 23432
+		val seed = 12345
 		val vars = solverVariables.locationVariables
 		
 		logger.info("Setting choco-solver search strategy to '" + strategy.humanReadableName + "'")
@@ -159,7 +159,7 @@ class AssistSolver {
 				heuristics.add(ISF.domOverWDeg(vars, seed, new RDCWithShortestDistanceSelector(solverVariables, model)))
 			}
 			case SearchType.RANDOM: {
-				heuristics.add(ISF.custom(ISF.random_var_selector(0), ISF.random_value_selector(0), vars))
+				heuristics.add(ISF.custom(ISF.random_var_selector(seed), ISF.random_value_selector(seed), vars))
 			}
 			case SearchType.MIN_DOMAIN_FIRST: {
 				heuristics.add(ISF.minDom_LB(vars))
