@@ -56,13 +56,13 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		
 		
 		Composite composite_1 = new Composite(container, SWT.NONE);
-		composite_1.setBounds(0, 0, 392, 351);
+		composite_1.setBounds(0, 0, 514, 351);
 		
 		/* selection */
 		
 		Group grpSolverLimits = new Group(composite_1, SWT.NONE);
 		grpSolverLimits.setText("Limits");
-		grpSolverLimits.setBounds(10, 153, 372, 81);
+		grpSolverLimits.setBounds(10, 153, 494, 81);
 		
 		
 		Label lblMaxSolutions = new Label(grpSolverLimits, SWT.NONE);
@@ -116,14 +116,14 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		
 		Group grpStrategy = new Group(composite_1, SWT.NONE);
 		grpStrategy.setText("Strategy");
-		grpStrategy.setBounds(10, 10, 372, 137);
+		grpStrategy.setBounds(10, 10, 494, 137);
 		
 		Label lblSearchHeuristic = new Label(grpStrategy, SWT.NONE);
 		lblSearchHeuristic.setBounds(22, 28, 82, 15);
 		lblSearchHeuristic.setText("Heuristic:");
 		
 		Combo cbxSearchHeuristics = new Combo(grpStrategy, SWT.READ_ONLY);
-		cbxSearchHeuristics.setBounds(110, 25, 247, 23);
+		cbxSearchHeuristics.setBounds(110, 25, 374, 23);
 		cbxSearchHeuristics.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -141,17 +141,12 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		lblExplanation.setText("Explanation:");
 		
 		lblExplanationText = new Label(grpStrategy, SWT.WRAP | SWT.SHADOW_IN);
-		lblExplanationText.setBounds(110, 59, 247, 68);
+		lblExplanationText.setBounds(110, 59, 374, 68);
 		lblExplanationText.setText(selectedSearchType.getHumanReadableExplanation());
 		
 		Group grpMiscOptions = new Group(composite_1, SWT.NONE);
 		grpMiscOptions.setText("Miscellaneous");
-		grpMiscOptions.setBounds(10, 245, 372, 96);
-		
-		Button btnGenerateSolutions = new Button(grpMiscOptions, SWT.CHECK);
-		btnGenerateSolutions.setEnabled(false);
-		btnGenerateSolutions.setBounds(49, 65, 223, 16);
-		btnGenerateSolutions.setText("Generate explanations");
+		grpMiscOptions.setBounds(10, 245, 494, 96);
 		
 		Button btnSavePartialSolution = new Button(grpMiscOptions, SWT.CHECK);
 		btnSavePartialSolution.setSelection(true);
@@ -188,7 +183,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(397, 498);
+		return new Point(520, 498);
 	}
 	
 	protected DataBindingContext initDataBindings() {

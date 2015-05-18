@@ -6,54 +6,81 @@ import java.util.Comparator;
 import java.util.List;
 
 public enum SearchType {
-	DIETMAR_1					("Dietmar 1",
-								 "Interfaces are selected based on domain over weighted degree; " +
+	MIN_DOMAIN_FIRST_AND_SHORTEST_DISTANCE
+								("Min Domainsize First + Closest Connector First",
+								 "Interfaces are selected based on min domainsize first strategy; " +
 								 "connectors are selected based on minimum shortest distance",
 								 true),
 	
-	MIN_DOMAIN_FIRST			("Min domain first", 				
-								 "The interface with the minimal amount of available connectors is chosen first. " +
-	                             "Connectors with lower index values are picked first.", 
+	MIN_DOMAIN_FIRST_AND_RANDOM_CONNECTORS
+								("Min Domainsize First + Random Connector", 				
+								 "Interfaces are selected based on min domainsize first strategy; " +
+	                             "connectors are selected randomly.", 
+								 false),
+
+	MIN_DOMAIN_FIRST_AND_MIN_VALUE_CONNECTORS
+								("Min Domainsize First + Min Connector Index First", 				
+								 "Interfaces are selected based on min domainsize first strategy; " +
+		                         "connectors are selected based on lowest index first.", 
+								 false),
+
+								 
+	MAX_DEGREE_FIRST			("Max Relation Degree First + Min Connector Index First", 				
+								 "Interfaces are selected based on their appearance in co-locality and dislocality groups; " + 
+								 "connectors are selected based on lowest index first", 
 								 false),
 								 
-	MAX_DEGREE_FIRST			("Max degree first", 				
-								 "Empty", 
-								 false),
-								 
-	HARDEST_DISLOCALITIES_FIRST	("Hardest dislocalities first", 	
+	HARDEST_DISLOCALITIES_FIRST	("Hardest Dislocalities First", 	
 								 "The interface which affects the highest number of other interfaces due to its dislocality relations is chosen first. " +
 								 "Connectors with lower index values are picked first.", 
 								 false),
 											 
-	HARDEST_COLOCALITIES_FIRST	("Hardest colocalities first", 	
-								 "The interface and the connector in the colocality relation with the highest demand/supply ratio for the connector are chosen first.", 
+	HARDEST_COLOCALITIES_FIRST	("Hardest Colocalities First", 	
+								 "The interface and the connector in the colocality relation with the highest demand/supply ratio for the connector are chosen first. ", 
 								 false),
 														 
-	SCARCEST_IOTYPE_FIRST		("Scarcest interface type first", 	
+	SCARCEST_IOTYPE_FIRST		("Scarcest Interface Type First", 	
 								 "The interface with the scarcest interface type and the smallest domain is chosen first. " + 
 								 "Connectors with lower index values are picked first.", 
 								 false),
 								 
-	VARS_IN_MOST_DISLOC			("Most dislocalities first", 		
+	VARS_IN_MOST_DISLOC			("Most Dislocalities First", 		
 								 "The interface which is part of the highest number of dislocality relations is chosen first. " + 
 	                             "Connectors with lower index values are picked first.", 
 	                             false),
 	
-	RANDOM						("Random", 							
+	RANDOM_RANDOM				("Fully Random", 							
 								 "Interfaces and the connectors are randomly chosen.", 
 								 false),
 	                             
-	DOM_OVER_WDEG				("Domain over weighted degree", 	
-								 "This is black magic.", 
+	DOM_OVER_WDEG_MIN_VAL_FIRST	("Domain over weighted degree + Min Value First", 	
+								 "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
+								 "connectors are chosen by minimum available index first", 
 								 false),
-	
+								 
+								 
+	DOM_OVER_WDEG_MIN_VAL_FIRST_VER_1_3	
+								("Domain over weighted degree + Min Value First (ASSIST 1.3)", 	
+							     "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
+								 "connectors are chosen by minimum available index first; " + 
+							     "improved co-locality handling for pairs of on-same relations is disabled", 
+								 false),
+			
+	DOM_OVER_WDEG_CLOSEST_DISTANCE 
+								("Domain over weighted degree + Closest Connector First",
+								 "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
+								 "connectors are selected based on minimum shortest distance",
+								 false),
+								 
 	ACTIVITY					("Activity", 						
-								 "This is black magic.", 
+								 "See: 'Activity-Based Search for Black-Box Constraint Programming Solvers', L. Michel and P. Van Hentenryck, 2012.", 
 								 false),
 	
 	IMPACT						("Impact",
+								 "See: 'Impact-Based Search Strategies for Constraint Programming', Philippe Refalo, 2004. " +
 								 "This is possibly broken. Be wary!", 
-								 false);
+								 false)
+	;
 	
 	
 	private final String humanReadableName;

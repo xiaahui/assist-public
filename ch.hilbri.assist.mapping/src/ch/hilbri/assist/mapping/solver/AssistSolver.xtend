@@ -155,40 +155,75 @@ class AssistSolver {
 		logger.info("Setting choco-solver search strategy to '" + strategy.humanReadableName + "'")
 		
 		switch (strategy) {
-			case DIETMAR_1: {
-				heuristics.add(ISF.domOverWDeg(vars, seed, new RDCWithShortestDistanceSelector(solverVariables, model)))
+			
+			case MIN_DOMAIN_FIRST_AND_SHORTEST_DISTANCE: {
+				heuristics.add(ISF.custom(
+									ISF.minDomainSize_var_selector, 
+									new RDCWithShortestDistanceSelector(solverVariables, model), 
+									vars))
 			}
-			case SearchType.RANDOM: {
-				heuristics.add(ISF.custom(ISF.random_var_selector(seed), ISF.random_value_selector(seed), vars))
+			
+			case MIN_DOMAIN_FIRST_AND_RANDOM_CONNECTORS: {
+				heuristics.add(ISF.custom(
+									ISF.minDomainSize_var_selector, 
+									ISF.random_value_selector(seed),
+									vars))
 			}
-			case SearchType.MIN_DOMAIN_FIRST: {
-				heuristics.add(ISF.minDom_LB(vars))
+			
+			case MIN_DOMAIN_FIRST_AND_MIN_VALUE_CONNECTORS: {
+				heuristics.add(ISF.custom(
+									ISF.minDomainSize_var_selector, 
+									ISF.min_value_selector,
+									vars))
 			}
+			
 			case SearchType.MAX_DEGREE_FIRST: {
 				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model)
-				//val valueChooser = new ConnectorWithDislocalityFriends(solverVariables, model) // not used yet, still needs to prove its usefulness
 				heuristics.add(ISF.custom(selector, selector, vars))				
 			}
+			
 			case SearchType.HARDEST_DISLOCALITIES_FIRST: {
 				val selector = new HardestDislocalitiesFirst(solverVariables, model)
 				heuristics.add(ISF.custom(selector, selector, vars))
 			}
+
 			case SearchType.HARDEST_COLOCALITIES_FIRST: {
 				val selector = new HardestColocalitiesFirst(solverVariables, model)
 				heuristics.add(ISF.custom(selector, selector, vars))
 			}
+
 			case SearchType.SCARCEST_IOTYPE_FIRST: {
 				val selector = new ScarcestIoTypeFirst(solverVariables, model)
 				heuristics.add(ISF.custom(selector, ISF.min_value_selector, vars))
 			}
+
 			case SearchType.VARS_IN_MOST_DISLOC: {
 				val selector = new VariablesInMostDislocalityRelationsFirst(solverVariables, model)
 				heuristics.add(ISF.custom(selector, ISF.min_value_selector, vars))
 			}
-			case SearchType.DOM_OVER_WDEG: {
-				val valueChooser = ISF.min_value_selector//new ConnectorWithDislocalityFriends(solverVariables, model)
-				heuristics.add(ISF.domOverWDeg(vars, seed, valueChooser))
+				
+			case SearchType.RANDOM_RANDOM: {
+				heuristics.add(ISF.random_value(vars, seed))
 			}
+			
+			case SearchType.DOM_OVER_WDEG_MIN_VAL_FIRST: {
+				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))	
+			}
+			
+			case SearchType.DOM_OVER_WDEG_MIN_VAL_FIRST_VER_1_3: {
+				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))
+				
+				// Remove handling of co-locality pairs to mimic 1.3 behavior
+				for (absCons : this.mappingConstraintsList) {
+					if (absCons instanceof ImprovedPairOfColocalitiesConstraint)
+						this.mappingConstraintsList.remove(absCons)
+				}
+			}
+		
+			case SearchType.DOM_OVER_WDEG_CLOSEST_DISTANCE: {
+				heuristics.add(ISF.domOverWDeg(vars, seed, new RDCWithShortestDistanceSelector(solverVariables, model)))	
+			}
+		
 			case SearchType.ACTIVITY: {
 				heuristics.add(ISF.activity(vars, seed))
 			}

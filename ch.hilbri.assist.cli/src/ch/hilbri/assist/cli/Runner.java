@@ -90,16 +90,16 @@ public class Runner {
 			final AssistSolver solver = new AssistSolver(model, levels, minimize);
 			SearchType heuristic = SearchType.getDefaultSearchType();
 			switch (cmd.getOptionValue("strategy", "")) {
-				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST; break;
+				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST_AND_SHORTEST_DISTANCE; break;
 				case "ffmd": heuristic = SearchType.MAX_DEGREE_FIRST; break;
 				case "hd": heuristic = SearchType.HARDEST_DISLOCALITIES_FIRST; break;
 				case "hc": heuristic = SearchType.HARDEST_COLOCALITIES_FIRST; break;
 				case "st": heuristic = SearchType.SCARCEST_IOTYPE_FIRST; break;
 				case "md": heuristic = SearchType.VARS_IN_MOST_DISLOC; break;
-				case "domwd": heuristic = SearchType.DOM_OVER_WDEG; break;
+				case "domwd": heuristic = SearchType.DOM_OVER_WDEG_CLOSEST_DISTANCE; break;
 				case "act": heuristic = SearchType.ACTIVITY; break;
 				case "imp": heuristic = SearchType.IMPACT; break;
-				case "rand": heuristic = SearchType.RANDOM; break;
+				case "rand": heuristic = SearchType.RANDOM_RANDOM; break;
 				default: heuristic = SearchType.getDefaultSearchType(); break;
 			}	
 			solver.setSolverSearchStrategy(heuristic);
