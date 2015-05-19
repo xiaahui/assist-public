@@ -11,20 +11,21 @@ class SolutionFoundMonitor implements IMonitorSolution {
 	
 	private Logger logger
 	private IntVar[] vars
+	private int counter
 	
 	new(IntVar[] vars) {
 		this.logger = LoggerFactory.getLogger(this.class)
-		
 		this.vars = vars
+		this.counter = 1
 	}
 	
 	override onSolution() {
-		logger.info("Solution found.")
+		logger.info('''Solution No. «counter++» found.''')
 		// This solution is now forbidden in order to allow strategies and heuristics with a restart policy
 
 		// what are the (last found) solutions for these variables?		
 		val tuples = new Tuples(false)
-		tuples.add(vars.map[LB])
+		tuples.add(vars.map[value])
 		
 		// post a constraint to forbid this solutions during a restart
 		vars.get(0).solver.post(ICF.table(vars, tuples, "FC")) // FC was the only algo working properly
