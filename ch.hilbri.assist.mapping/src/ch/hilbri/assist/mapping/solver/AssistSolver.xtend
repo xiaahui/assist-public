@@ -178,40 +178,40 @@ class AssistSolver {
 									vars))
 			}
 			
-			case SearchType.MAX_DEGREE_FIRST: {
+			case MAX_DEGREE_FIRST: {
 				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model)
 				heuristics.add(ISF.custom(selector, selector, vars))				
 			}
 			
-			case SearchType.HARDEST_DISLOCALITIES_FIRST: {
+			case HARDEST_DISLOCALITIES_FIRST: {
 				val selector = new HardestDislocalitiesFirst(solverVariables, model)
 				heuristics.add(ISF.custom(selector, selector, vars))
 			}
 
-			case SearchType.HARDEST_COLOCALITIES_FIRST: {
+			case HARDEST_COLOCALITIES_FIRST: {
 				val selector = new HardestColocalitiesFirst(solverVariables, model)
 				heuristics.add(ISF.custom(selector, selector, vars))
 			}
 
-			case SearchType.SCARCEST_IOTYPE_FIRST: {
+			case SCARCEST_IOTYPE_FIRST: {
 				val selector = new ScarcestIoTypeFirst(solverVariables, model)
 				heuristics.add(ISF.custom(selector, ISF.min_value_selector, vars))
 			}
 
-			case SearchType.VARS_IN_MOST_DISLOC: {
+			case VARS_IN_MOST_DISLOC: {
 				val selector = new VariablesInMostDislocalityRelationsFirst(solverVariables, model)
 				heuristics.add(ISF.custom(selector, ISF.min_value_selector, vars))
 			}
 				
-			case SearchType.RANDOM_RANDOM: {
+			case RANDOM_RANDOM: {
 				heuristics.add(ISF.random_value(vars, seed))
 			}
 			
-			case SearchType.DOM_OVER_WDEG_MIN_VAL_FIRST: {
+			case DOM_OVER_WDEG_MIN_VAL_FIRST: {
 				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))	
 			}
 			
-			case SearchType.DOM_OVER_WDEG_MIN_VAL_FIRST_VER_1_3: {
+			case DOM_OVER_WDEG_MIN_VAL_FIRST_VER_1_3: {
 				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))
 				
 				// Remove handling of co-locality pairs to mimic 1.3 behavior
@@ -221,14 +221,14 @@ class AssistSolver {
 				}
 			}
 		
-			case SearchType.DOM_OVER_WDEG_CLOSEST_DISTANCE: {
+			case DOM_OVER_WDEG_CLOSEST_DISTANCE: {
 				heuristics.add(ISF.domOverWDeg(vars, seed, new RDCWithShortestDistanceSelector(solverVariables, model)))	
 			}
 		
-			case SearchType.ACTIVITY: {
+			case ACTIVITY: {
 				heuristics.add(ISF.activity(vars, seed))
 			}
-			case SearchType.IMPACT: { // possibly broken
+			case IMPACT: { // possibly broken
 				heuristics.add(ISF.impact(vars, seed))
 			}
 			

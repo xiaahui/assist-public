@@ -72,6 +72,13 @@ public enum SearchType {
 								 "connectors are selected based on minimum shortest distance",
 								 false),
 								 
+//	DOM_OVER_WDEG_CLOSEST_DISTANCE_IMPROVED 
+//								("Domain over weighted degree + Closest Connector First (improved)",
+//								 "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
+//								 "connectors are selected based on minimum shortest distance and their capacity for the entire colocation relation",
+//								 false),
+								 
+								 
 	ACTIVITY					("Activity", 						
 								 "See: 'Activity-Based Search for Black-Box Constraint Programming Solvers', L. Michel and P. Van Hentenryck, 2012.", 
 								 false),
