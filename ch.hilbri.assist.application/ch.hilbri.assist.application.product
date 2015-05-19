@@ -9,6 +9,7 @@
    <launcherArgs>
       <vmArgs>-Xms1024m
 -Xmx8172m
+-XX:+UseG1GC
       </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
