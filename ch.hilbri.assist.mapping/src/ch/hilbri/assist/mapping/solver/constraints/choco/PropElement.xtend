@@ -98,7 +98,7 @@ class PropElement extends Propagator<IntVar> {
 		// go through all values in valueVar
 		val vit = valueVar.getValueIterator(true)
  		while(vit.hasNext()) {
-     		val value = vit.next
+//     		val value = vit.next
 			
 			// for each value, there should be a corresponding
 			// index in the indexVar
