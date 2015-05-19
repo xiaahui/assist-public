@@ -10,9 +10,11 @@ import java.util.List
 import java.util.Map
 import org.chocosolver.solver.search.solution.Solution
 import org.chocosolver.solver.variables.IntVar
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 class ResultFactoryFromSolverSolutions {
-	
+	private static Logger logger = LoggerFactory.getLogger(ResultFactoryFromSolverSolutions)
 	static MappingFactory f
 	
 	/* for partial solutions */
@@ -46,7 +48,12 @@ class ResultFactoryFromSolverSolutions {
 		
 		for (solution : solverSolutions) {
 			/* Create the basic result (hardware architecture, software architecture, ...) */
-			val result = createBasicResult(model, "Solution "+ solverSolutions.indexOf(solution))
+			val solNumber = solverSolutions.indexOf(solution) + 1
+			val solTotalCount  = solverSolutions.length
+			
+			val result = createBasicResult(model, "Solution "+ solNumber + " of " + solTotalCount)
+			
+			logger.info('''Created an ASSIST solution from solver solution «solNumber» / «solTotalCount»''')
 			
 			/* Add the deployment information */
 			addMappingFromSolution(result, solverVariables, solution)

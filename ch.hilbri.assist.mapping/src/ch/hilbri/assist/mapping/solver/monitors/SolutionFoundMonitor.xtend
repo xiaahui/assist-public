@@ -15,7 +15,8 @@ class SolutionFoundMonitor implements IMonitorSolution {
 	}
 	
 	override onSolution() {
-		logger.info('''Solution No. «counter++» found.''')
+		logger.info('''Solution «counter» found.''')
+		counter++
 	}
 	
 }
