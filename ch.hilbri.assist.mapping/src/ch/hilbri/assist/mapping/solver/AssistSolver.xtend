@@ -100,14 +100,17 @@ class AssistSolver {
 		/* Create the container for variables which are needed in the solver */
  		this.solverVariables = new SolverVariablesContainer(model, solver, locationVariableLvls)
 		
-		/* Attach the search monitor */
+		/* The same solution should not be found twice */
+		SMF.nogoodRecordingOnSolution(solverVariables.locationVariables)
+		
+		/* Attach the search monitors */
 		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solverVariables))
 		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 		this.solver.searchLoop.plugSearchMonitor(new RestartMonitor)
+		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor())
 	
 		/* Create an empty set of constraints that will be used */
 		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
-		
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables, this.minimize >= 0))
 		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))				
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
@@ -120,6 +123,7 @@ class AssistSolver {
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>()  
 	}
+
 
 	def setSavePartialSolution(boolean value) {
 		this.savePartialSolution = value
@@ -229,8 +233,9 @@ class AssistSolver {
 			}
 			
 		}
-		solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solverVariables.getLocationVariables(0)))
+		
 		solver.set(heuristics)
+		
 	}
 
 	def propagation() throws BasicConstraintsException {

@@ -23,7 +23,7 @@ class ChocoSolverTests {
 		val vars = new ArrayList<IntVar>
 		vars.add(VF.integer("Test1", 0, 1, solver))
 		solver.set(ISF.domOverWDeg(vars, 23432))
-		solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(vars))
+		solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor())
 		solver.findAllSolutions
 	}
 
