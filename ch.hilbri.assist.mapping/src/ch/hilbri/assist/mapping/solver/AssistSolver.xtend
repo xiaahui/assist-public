@@ -26,16 +26,14 @@ import ch.hilbri.assist.mapping.solver.preprocessors.ValidDeploymentHardwareElem
 import ch.hilbri.assist.mapping.solver.strategies.FirstFailThenMaxRelationDegree
 import ch.hilbri.assist.mapping.solver.strategies.HardestColocalitiesFirst
 import ch.hilbri.assist.mapping.solver.strategies.HardestDislocalitiesFirst
+import ch.hilbri.assist.mapping.solver.strategies.RDCWithShortestDistanceSelector
 import ch.hilbri.assist.mapping.solver.strategies.ScarcestIoTypeFirst
 import ch.hilbri.assist.mapping.solver.strategies.VariablesInMostDislocalityRelationsFirst
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.List
 import org.chocosolver.solver.ResolutionPolicy
-import org.chocosolver.solver.Settings
 import org.chocosolver.solver.Solver
-import org.chocosolver.solver.explanations.RecorderExplanationEngine
-import org.chocosolver.solver.explanations.strategies.ConflictBasedBackjumping
 import org.chocosolver.solver.search.loop.monitors.SMF
 import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
@@ -44,7 +42,6 @@ import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.strategies.RDCWithShortestDistanceSelector
 
 class AssistSolver {
 	
@@ -290,28 +287,7 @@ class AssistSolver {
 			logger.info('''Created «mappingResults.size» partial solution with «mappingResults.get(0).mapping.keySet.size» mapped interfaces''')
 		} 
 	}
-	
-	def getExplanation() {
-		logger.info("Trying to get an explanation")
-		solver.set(new Settings(){ public override boolean enablePropagatorInExplanation() { return true; }})
-		solver.searchLoop.reset
-		solver.engine.flush
-				
-		// Conflicts explained
-		solver.set(new RecorderExplanationEngine(solver))
-		val cbj = new ConflictBasedBackjumping(solver.getExplainer())
-		cbj.activeUserExplanation(true)
-		solver.findSolution
-	
-		logger.debug("Solver contents: ")
-		logger.debug(solver.toString)
 
-		if (cbj.getUserExplanation == null) {
-			logger.info("No explanation available, because at least one solution was found.")
-		} else {
-			logger.info('''Explanation: >>«cbj.userExplanation.toString»<<''')
-		}
-	}
 
 	def ArrayList<Result> getResults() 	{ mappingResults 			}
 	def hasReachedLimit() 				{ solver.hasReachedLimit 	}
