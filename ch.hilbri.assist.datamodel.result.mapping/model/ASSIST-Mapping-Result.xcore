@@ -20,8 +20,6 @@ type EqInterfaceConnectorMapType wraps HashMap<EqInterface, Connector>
 
 class Result extends Comparable {
 	String								name
-
-
 	refers AssistModel					model
 	EqInterfaceConnectorMapType 		mapping
 	contains Evaluation[0..1] 			evaluation
