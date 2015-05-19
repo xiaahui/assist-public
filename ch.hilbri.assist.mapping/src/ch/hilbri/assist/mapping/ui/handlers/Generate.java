@@ -127,6 +127,9 @@ public class Generate {
 						if (searchParamDlg.open() == org.eclipse.jface.window.Window.OK) {
 							// User hat OK geklickt
 							
+							/* Do some garbage collecting to conserve memory */
+							System.gc();
+							
 							/* Create a new background Job for finding all solutions */
 							GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", inputModel, (MultiPageEditor)editor);
 							findSolutionsJob.setPriority(Job.LONG);
