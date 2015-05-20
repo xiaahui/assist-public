@@ -211,16 +211,6 @@ class AssistSolver {
 				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))	
 			}
 			
-			case DOM_OVER_WDEG_MIN_VAL_FIRST_VER_1_3: {
-				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))
-				
-				// Remove handling of co-locality pairs to mimic 1.3 behavior
-				for (absCons : this.mappingConstraintsList) {
-					if (absCons instanceof ImprovedPairOfColocalitiesConstraint)
-						this.mappingConstraintsList.remove(absCons)
-				}
-			}
-		
 			case DOM_OVER_WDEG_CLOSEST_DISTANCE: {
 				heuristics.add(ISF.domOverWDeg(vars, seed, new RDCWithShortestDistanceSelector(solverVariables, model)))	
 			}

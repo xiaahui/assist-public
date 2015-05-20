@@ -59,12 +59,12 @@ public enum SearchType {
 								 false),
 								 
 								 
-	DOM_OVER_WDEG_MIN_VAL_FIRST_VER_1_3	
-								("Domain over weighted degree + Min Value First (ASSIST 1.3)", 	
-							     "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
-								 "connectors are chosen by minimum available index first; " + 
-							     "improved co-locality handling for pairs of on-same relations is disabled", 
-								 false),
+//	DOM_OVER_WDEG_MIN_VAL_FIRST_VER_1_3	
+//								("Domain over weighted degree + Min Value First (ASSIST 1.3)", 	
+//							     "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
+//								 "connectors are chosen by minimum available index first; " + 
+//							     "improved co-locality handling for pairs of on-same relations is disabled", 
+//								 false),
 			
 	DOM_OVER_WDEG_CLOSEST_DISTANCE 
 								("Domain over weighted degree + Closest Connector First",
