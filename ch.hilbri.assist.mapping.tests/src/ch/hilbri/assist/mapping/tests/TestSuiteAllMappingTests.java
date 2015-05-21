@@ -4,6 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import ch.hilbri.assist.mapping.tests.constraints.AssistElementConstraintTests;
 import ch.hilbri.assist.mapping.tests.constraints.ColocalityTest;
 import ch.hilbri.assist.mapping.tests.constraints.DislocalityPropagationTests;
 import ch.hilbri.assist.mapping.tests.constraints.DislocalityTest2;
@@ -28,7 +29,8 @@ import ch.hilbri.assist.mapping.tests.strategies.BasicStrategyTest;
 	RestrictValidDeploymentTest2.class,
 	SearchTypeTests.class,
 	ChocoSolverTests.class,
-	BasicStrategyTest.class
+	BasicStrategyTest.class,
+	AssistElementConstraintTests.class
 })  
 
 public class TestSuiteAllMappingTests {}

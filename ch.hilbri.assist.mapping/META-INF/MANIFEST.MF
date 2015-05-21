@@ -5,9 +5,21 @@ Bundle-Name: ch.hilbri.assist.mapping
 Bundle-SymbolicName: ch.hilbri.assist.mapping;singleton:=true
 Bundle-Version: 1.6
 Bundle-Vendor: Robert Hilbrich
-Export-Package: ch.hilbri.assist.mapping.solver,
+Export-Package: ch.hilbri.assist.mapping.analysis,
+ ch.hilbri.assist.mapping.analysis.metrics.builtin,
+ ch.hilbri.assist.mapping.solver,
+ ch.hilbri.assist.mapping.solver.constraints.choco,
  ch.hilbri.assist.mapping.solver.exceptions,
- ch.hilbri.assist.mapping.solver.monitors
+ ch.hilbri.assist.mapping.solver.monitors,
+ ch.hilbri.assist.mapping.ui.handlers,
+ ch.hilbri.assist.mapping.ui.infosheet,
+ ch.hilbri.assist.mapping.ui.metrics,
+ ch.hilbri.assist.mapping.ui.multipageeditor,
+ ch.hilbri.assist.mapping.ui.multipageeditor.resultsview,
+ ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx,
+ ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model,
+ ch.hilbri.assist.mapping.ui.searchtypesdialog,
+ ch.hilbri.assist.mapping.ui.wizards
 Require-Bundle: ch.hilbri.assist.application,
  ch.hilbri.assist.datamodel.model,
  ch.hilbri.assist.datamodel.model.edit,

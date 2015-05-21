@@ -1,10 +1,12 @@
 package ch.hilbri.assist.mapping.solver.constraints.choco
 
+import java.util.ArrayList
 import org.chocosolver.solver.constraints.Propagator
 import org.chocosolver.solver.constraints.PropagatorPriority
 import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.events.IntEventType
+import org.chocosolver.util.ESat
 
 class PropElement extends Propagator<IntVar> {
 	
@@ -22,7 +24,17 @@ class PropElement extends Propagator<IntVar> {
 	}
 
 	override isEntailed() {
-		// TODO: Implement me!
+		// Check satisfaction, if all is instantiated
+		if (isCompletelyInstantiated) {
+			if (valueVar.isInstantiatedTo(table.get(indexVar.value)))
+				return ESat.TRUE
+			else
+				return ESat.FALSE
+		} 
+		else {
+			return ESat.UNDEFINED
+		}
+			
 	}	
 	
 	// Initial propagation
@@ -32,12 +44,11 @@ class PropElement extends Propagator<IntVar> {
 		indexVar.updateUpperBound(table.length - 1, aCause)
 		
 		// Trigger an initial filtering
-		filter(false)
+		filter
 	}
 	
 	// "Regular" propagation 
 	override propagate(int varIdx, int mask) throws ContradictionException {
-		// TODO: Implement me!
 		
 		// Do some stuff special, if one of the variables got instantiated
 		if (IntEventType.isInstantiate(mask)) {
@@ -69,44 +80,43 @@ class PropElement extends Propagator<IntVar> {
 		
 		// it wasn't an instantiation event
 		else {
-			if (varIdx == 0) filter(true)
-			else			 filter(false)
+			filter
 		}
 	}
 
-	def filter(boolean startWithIndex) throws ContradictionException {
-       	var boolean dirtyFlag
-        var boolean updateIndexFromValue = startWithIndex
+	def filter() throws ContradictionException {
+       	
+       	// Retrieve all values from indexVar 
+       	val indexVarValues = new ArrayList<Integer>
+       	val indexIter = indexVar.getValueIterator(true)
+       	while (indexIter.hasNext) indexVarValues.add(indexIter.next)
+       	
+       	// Retrieve all values from valueVar
+       	val valueVarValues = new ArrayList<Integer>
+       	val valueIter = valueVar.getValueIterator(true)
+       	while (valueIter.hasNext) valueVarValues.add(valueIter.next)
+       	
+       	// All values of both vars are now contained in valueVarValues and indexVarValues
+       	
+       	// Now we try to find the values, which can be removed from the valueVar
+       	val removeableValueVarValues = valueVarValues
+       									.filter[value |							   	// filter the existing values
+       											indexVarValues.map[table.get(it)]  
+       											.filter[value.equals(it)]
+       											.length == 0]						// there is no index value which references this value
 
-		// Run until nothing changed
-        do {
-            if (startWithIndex) dirtyFlag = updateIndexFromValue()
-            else 				dirtyFlag = updateValueFromIndex()
+		// Remove the values which have no corresponding index       											
+       	for (v : removeableValueVarValues)
+       		valueVar.removeValue(v, aCause)
+       		
+        
+        // Now we try to find the values, which can be removed from the indexVar
+        // (Is there a value for every index?)
+        val removeableIndexVarValues = indexVarValues.filter[index | valueVarValues.filter[it.equals(table.get(index))]
+        																		   .length == 0]
 
-			// Next run, start with the other "mode" (toggle)
-            updateIndexFromValue = updateIndexFromValue.xor(true)
-        } while (dirtyFlag);
-	}
-
-	def boolean updateIndexFromValue() throws ContradictionException {
-		false
-	}
-	
-	def boolean updateValueFromIndex() throws ContradictionException {
-		var hasChanged = false
-		
-		// go through all values in valueVar
-		val vit = valueVar.getValueIterator(true)
- 		while(vit.hasNext()) {
-//     		val value = vit.next
-			
-			// for each value, there should be a corresponding
-			// index in the indexVar
-//			table.     	
-		}
-		return hasChanged
-	}
-	
-
-		
+		// Remove the indizes which have no corresponding value
+		for (v : removeableIndexVarValues)
+			indexVar.removeValue(v, aCause)    
+    }
 }
