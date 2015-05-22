@@ -34,7 +34,10 @@ import java.util.ArrayList
 import java.util.List
 import org.chocosolver.solver.ResolutionPolicy
 import org.chocosolver.solver.Solver
+import org.chocosolver.solver.search.limits.NodeCounter
+import org.chocosolver.solver.search.loop.monitors.RestartManager
 import org.chocosolver.solver.search.loop.monitors.SMF
+import org.chocosolver.solver.search.restart.GeometricalRestartStrategy
 import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy
@@ -210,6 +213,27 @@ class AssistSolver {
 			case DOM_OVER_WDEG_MIN_VAL_FIRST: {
 				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))	
 			}
+			
+			case DOM_OVER_WDEG_MIN_VAL_FIRST_VER_1_3: {
+				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))	
+				for (c : this.mappingConstraintsList) {
+					if (c instanceof ImprovedPairOfColocalitiesConstraint) 
+						this.mappingConstraintsList.remove(c)
+				}
+			}
+
+			case DOM_OVER_WDEG_MIN_VAL_FIRST_RESTARTS: {
+				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))
+				
+				val s = new GeometricalRestartStrategy(1000, 1.25)
+				val rm = new RestartManager( s, 	
+                								new NodeCounter(100000),       // Go to initially 5000 nodes max
+                								solver.getSearchLoop(), 
+                								30)								// # Restarts
+        		
+				solver.plugMonitor(rm)
+			}
+
 			
 			case DOM_OVER_WDEG_CLOSEST_DISTANCE: {
 				heuristics.add(ISF.domOverWDeg(vars, seed, new RDCWithShortestDistanceSelector(solverVariables, model)))	

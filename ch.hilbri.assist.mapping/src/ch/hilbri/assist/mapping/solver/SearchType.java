@@ -59,12 +59,12 @@ public enum SearchType {
 								 false),
 								 
 								 
-//	DOM_OVER_WDEG_MIN_VAL_FIRST_VER_1_3	
-//								("Domain over weighted degree + Min Value First (ASSIST 1.3)", 	
-//							     "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
-//								 "connectors are chosen by minimum available index first; " + 
-//							     "improved co-locality handling for pairs of on-same relations is disabled", 
-//								 false),
+	DOM_OVER_WDEG_MIN_VAL_FIRST_VER_1_3	
+								("Domain over weighted degree + Min Value First (ASSIST 1.3)", 	
+							     "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
+								 "connectors are chosen by minimum available index first; " + 
+							     "improved co-locality handling for pairs of on-same relations is disabled", 
+								 false),
 			
 	DOM_OVER_WDEG_CLOSEST_DISTANCE 
 								("Domain over weighted degree + Closest Connector First",
@@ -72,12 +72,12 @@ public enum SearchType {
 								 "connectors are selected based on minimum shortest distance",
 								 false),
 								 
-//	DOM_OVER_WDEG_CLOSEST_DISTANCE_IMPROVED 
-//								("Domain over weighted degree + Closest Connector First (improved)",
-//								 "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
-//								 "connectors are selected based on minimum shortest distance and their capacity for the entire colocation relation",
-//								 false),
-								 
+	DOM_OVER_WDEG_MIN_VAL_FIRST_RESTARTS
+								("Domain over weighted degree + Min Value First + Restarts", 	
+								 "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
+								 "connectors are chosen by minimum available index first; " + 
+								 "the search is restarted to provide some learning experience for the algorithms", 
+								 false),
 								 
 	ACTIVITY					("Activity", 						
 								 "See: 'Activity-Based Search for Black-Box Constraint Programming Solvers', L. Michel and P. Van Hentenryck, 2012.", 
