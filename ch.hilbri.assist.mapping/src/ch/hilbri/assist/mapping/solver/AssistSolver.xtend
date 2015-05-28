@@ -33,6 +33,7 @@ import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.preprocessors.CreateMissingThreads
 
 class AssistSolver {
 	
@@ -64,7 +65,8 @@ class AssistSolver {
 
 		/* Create all preprocessors */
 		this.modelPreprocessors = new ArrayList
-		// FIXME: add create missing threads preprocessor
+		this.modelPreprocessors.add(new CreateMissingThreads(model))
+		// FIXME: add board local networks
 					
 		/* Create a new Solver object */
 		this.solver = new Solver()
