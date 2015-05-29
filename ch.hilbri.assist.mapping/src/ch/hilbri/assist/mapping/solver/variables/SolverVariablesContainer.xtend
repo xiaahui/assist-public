@@ -105,16 +105,16 @@ import org.eclipse.xtend.lib.annotations.Data
 	}
 	
 	def List<IntVar> getColocationVariables(ColocalityRelation r) {
-		val l = getLevelIndex(r.hardwareLevel)
 		val list = new ArrayList<IntVar>
 		for (ifaceOrGroup : r.eqInterfaceOrGroups) {
 			if (ifaceOrGroup instanceof EqInterface) {
-				list.add(getEqInterfaceLocationVariable(ifaceOrGroup, l))
+				list.add(getEqInterfaceLocationVariable(ifaceOrGroup, r.hardwareLevel))
 			} else if (ifaceOrGroup instanceof EqInterfaceGroup) {
-				list.addAll(ifaceOrGroup.eqInterfaces.map[getEqInterfaceLocationVariable(it, l)])
+				list.addAll(ifaceOrGroup.eqInterfaces.map[getEqInterfaceLocationVariable(it, r.hardwareLevel)])
 			}
 		}
-		return list
+		// Return a list of unique interfaces
+		return list.toSet.toList
 	}
 	
 	/** Returns the optimization variable */
