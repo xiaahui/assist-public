@@ -227,7 +227,7 @@ class AssistSolver {
 				
 				val s = new GeometricalRestartStrategy(1000, 1.25)
 				val rm = new RestartManager( s, 	
-                								new NodeCounter(100000),       // Go to initially 5000 nodes max
+                								new NodeCounter(100000),       // Go to 100000 nodes max
                 								solver.getSearchLoop(), 
                 								30)								// # Restarts
         		
