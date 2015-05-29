@@ -212,7 +212,7 @@ Restrictions {
 	
 	// Generated restrictions for valid deployments ("restrict deployment to")
 	«FOR iface : interfaceDeploymentRestrictions.keySet»
-	Valid for «iface.name» is { connectors with RDC.Name = "«interfaceDeploymentRestrictions.get(iface)»" };
+	Valid for «iface.name» is { connectors with RDC.Name = "«IF !interfaceDeploymentRestrictions.get(iface).contains("__")»«interfaceDeploymentRestrictions.get(iface)»"«ELSE»«interfaceDeploymentRestrictions.get(iface).split("__").get(0)»" and Connector.Name = "«interfaceDeploymentRestrictions.get(iface).split("__").get(1)»"«ENDIF» };
 	«ENDFOR»
 	
 }
