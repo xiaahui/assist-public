@@ -112,6 +112,7 @@ public class Runner {
 			try {
 				solver.propagation();
 				solver.solutionSearch();
+				solver.createSolutions();
 				final ArrayList<Result> results = solver.getResults();
 				System.out.println(results.size() + " solutions found.");
 				for (Result r: results) {
