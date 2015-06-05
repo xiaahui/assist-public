@@ -95,7 +95,7 @@ class AssistSolver {
 			
 		/* Create a new Solver object */
 		this.solver = new Solver()
-		
+				
 		/* Create a new recorder for our solutions */
 		this.recorder = new AllSolutionsRecorder(solver)
 		this.solver.set(recorder)
@@ -289,8 +289,11 @@ class AssistSolver {
 		logger.info('''Solutions found: «recorder.solutions.size»''') 
 		
 		logger.info('''Internal solver statistics: «solver.measures.toOneLineString»''')
-		
 			
+	}
+	
+	def createSolutions() {
+
 		if (solver.hasReachedLimit)
 			logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)")
 

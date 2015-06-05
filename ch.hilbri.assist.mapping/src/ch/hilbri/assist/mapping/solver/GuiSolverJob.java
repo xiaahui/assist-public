@@ -28,6 +28,7 @@ public class GuiSolverJob extends Job {
 	
 	private Logger logger;
 	
+	
 	/**
 	 * Constructor
 	 * 
@@ -52,23 +53,39 @@ public class GuiSolverJob extends Job {
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
 		try {
-			monitor.beginTask("Propagating all constraints", 1);
+			
+			monitor.beginTask("Generating Mappings", 4);
+			
+			
+			monitor.subTask("Propagating all constraints");
 			assistSolver.propagation();
 			monitor.worked(1);
 
 			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
 			
-			monitor.beginTask("Searching for solutions", 1);
+			monitor.subTask("Searching for solutions");
+			GuiSolverJobCancelChecker t = new GuiSolverJobCancelChecker(monitor, assistSolver.getChocoSolver());
+			t.start();
 			assistSolver.solutionSearch();
+			t.shutdown();
 			monitor.worked(1);
 			
 			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
 			
+			monitor.subTask("Creating solutions");
+			assistSolver.createSolutions();
+			monitor.worked(1);
+			
+			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
+			
+			
 			if (assistSolver.getResults().size() > 0) {
-				monitor.beginTask("Presenting the results", 1);
+				monitor.subTask("Presenting the results");
 				showResults(assistSolver.getResults());
 				monitor.worked(1);
 			} 
+
+			
 			else {
 				String message;
 				
