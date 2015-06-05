@@ -60,6 +60,7 @@ class AbstractMappingTest {
 		try {
 			solver.propagation
 			solver.solutionSearch
+			solver.createSolutions
 		}
 		catch (BasicConstraintsException e) {
 			val constraintName = e.getConstraintName

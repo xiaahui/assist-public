@@ -108,6 +108,7 @@ Restrictions {
 			/* Execute this job */
 			solver.propagation
 			solver.solutionSearch
+			solver.createSolutions
 
 			/* Store the results */
 			allResults = solver.results
