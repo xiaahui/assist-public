@@ -10,9 +10,9 @@ import org.chocosolver.util.ESat
 
 class PropElement extends Propagator<IntVar> {
 	
-	private int[] table
-	private IntVar indexVar
-	private IntVar valueVar
+	private val int[] table
+	private val IntVar indexVar
+	private val IntVar valueVar
 	
 	new(IntVar value, int[] table, IntVar index) {
 		// vars.get(0) --> value
@@ -25,7 +25,7 @@ class PropElement extends Propagator<IntVar> {
 
 	override isEntailed() {
 		// Check satisfaction, if all is instantiated
-		if (isCompletelyInstantiated) {
+		if (indexVar.isInstantiated) {
 			if (valueVar.isInstantiatedTo(table.get(indexVar.value)))
 				return ESat.TRUE
 			else
@@ -68,6 +68,9 @@ class PropElement extends Propagator<IntVar> {
   					if (table.get(index) != value)
   						indexVar.removeValue(index, aCause)   
  				}
+ 				
+ 				if (indexVar.isInstantiated)
+ 					setPassive
 			}
 			
 			// index var got instantiated
@@ -103,7 +106,7 @@ class PropElement extends Propagator<IntVar> {
        									.filter[value |							   	// filter the existing values
        											indexVarValues.map[table.get(it)]  
        											.filter[value.equals(it)]
-       											.length == 0]						// there is no index value which references this value
+       											.empty]						// there is no index value which references this value
 
 		// Remove the values which have no corresponding index       											
        	for (v : removeableValueVarValues)
@@ -113,7 +116,7 @@ class PropElement extends Propagator<IntVar> {
         // Now we try to find the values, which can be removed from the indexVar
         // (Is there a value for every index?)
         val removeableIndexVarValues = indexVarValues.filter[index | valueVarValues.filter[it.equals(table.get(index))]
-        																		   .length == 0]
+        																		   .empty]
 
 		// Remove the indizes which have no corresponding value
 		for (v : removeableIndexVarValues)
