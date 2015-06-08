@@ -296,6 +296,103 @@ class AssistElementConstraintTests {
 		solver.propagate
 	}
 		
+	@Test
+	def void unsortedValueListe() {
+		val solver = new Solver
+		
+		val recorder = new AllSolutionsRecorder(solver)
+		solver.set(recorder)
+		
+		val table = #[13,11,12,11]
+		val indexVar = VF.enumerated("index", 0, 3, solver)
+		val valueVar = VF.enumerated("value", 10, 13, solver)
+		
+		solver.post(ACF.element(valueVar, table, indexVar))
+		
+		
+		solver.post(ICF.member(valueVar, #[12, 13]))
+		
+		solver.set(ISF.lexico_LB(#[indexVar, valueVar]))
+		solver.findAllSolutions
+		
+		assertEquals(2, recorder.solutions.length)
+		
+		assertEquals(0, recorder.solutions.get(0).getIntVal(indexVar))
+		assertEquals(13, recorder.solutions.get(0).getIntVal(valueVar))
+		
+		assertEquals(2, recorder.solutions.get(1).getIntVal(indexVar))
+		assertEquals(12, recorder.solutions.get(1).getIntVal(valueVar))
+	}
 	
 		
+	@Test
+	def void instantiationTest1() {	
+		
+		val solver = new Solver
+		val recorder = new AllSolutionsRecorder(solver)
+		solver.set(recorder)
+		
+		val table = #[13,11,12,11]
+		val indexVar = VF.enumerated("index", 0, 3, solver)
+		val valueVar = VF.enumerated("value", 10, 13, solver)
+		
+		solver.post(ACF.element(valueVar, table, indexVar))
+		
+		solver.post(ICF.member(valueVar, #[12]))
+		
+		solver.set(ISF.lexico_LB(#[indexVar, valueVar]))
+		solver.findAllSolutions
+		
+		assertEquals(1, recorder.solutions.length)
+		
+		assertEquals(2, recorder.solutions.get(0).getIntVal(indexVar))
+		assertEquals(12, recorder.solutions.get(0).getIntVal(valueVar))
+	}
+	
+	@Test
+	def void instantiationTest2() {	
+		
+		val solver = new Solver
+		val recorder = new AllSolutionsRecorder(solver)
+		solver.set(recorder)
+		
+		val table = #[13,11,12,11]
+		val indexVar = VF.enumerated("index", 0, 3, solver)
+		val valueVar = VF.enumerated("value", 10, 13, solver)
+		
+		solver.post(ACF.element(valueVar, table, indexVar))
+		
+		solver.post(ICF.member(valueVar, #[11]))
+		
+		solver.propagate
+		
+		var iterator = indexVar.getValueIterator(true)
+		assertEquals(1, iterator.next)
+		assertEquals(3, iterator.next)
+		
+		assertFalse(iterator.hasNext)
+	}
+	
+	@Test
+	def void instantiationTest3() {	
+		
+		val solver = new Solver
+		val recorder = new AllSolutionsRecorder(solver)
+		solver.set(recorder)
+		
+		val table = #[13,11,12,11]
+		val indexVar = VF.enumerated("index", 0, 3, solver)
+		val valueVar = VF.enumerated("value", 10, 13, solver)
+		
+		solver.post(ACF.element(valueVar, table, indexVar))
+		
+		solver.post(ICF.member(valueVar, #[13]))
+		
+		solver.propagate
+		
+		var iterator = indexVar.getValueIterator(true)
+		assertEquals(0, iterator.next)
+		
+		assertFalse(iterator.hasNext)
+	}
 }
