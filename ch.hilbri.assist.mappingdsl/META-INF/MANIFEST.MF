@@ -26,10 +26,10 @@ Import-Package: org.apache.log4j,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ch.hilbri.assist.mappingdsl,
  ch.hilbri.assist.mappingdsl.services,
- ch.hilbri.assist.mappingdsl.serializer,
  ch.hilbri.assist.mappingdsl.parser.antlr,
  ch.hilbri.assist.mappingdsl.parser.antlr.internal,
  ch.hilbri.assist.mappingdsl.validation,
  ch.hilbri.assist.mappingdsl.scoping,
  ch.hilbri.assist.mappingdsl.generator,
- ch.hilbri.assist.mappingdsl.formatting
+ ch.hilbri.assist.mappingdsl.formatting,
+ ch.hilbri.assist.mappingdsl.serializer
