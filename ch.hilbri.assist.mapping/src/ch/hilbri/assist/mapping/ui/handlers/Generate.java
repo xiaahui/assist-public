@@ -83,7 +83,7 @@ public class Generate {
 			CompatibilityEditor compEditor = (CompatibilityEditor) editorPart.getObject();
 			if (compEditor.getEditor() instanceof MultiPageEditor) {
 				MultiPageEditor editor = (MultiPageEditor) compEditor.getEditor();
-				editor.resetView();
+				
 				editor.doSave(monitor);
 				IEditorInput input = editor.getEditorInput();
 				if (input instanceof IFileEditorInput) {
@@ -126,6 +126,8 @@ public class Generate {
 						
 						if (searchParamDlg.open() == org.eclipse.jface.window.Window.OK) {
 							// User hat OK geklickt
+							
+							editor.resetView();
 							
 							/* Do some garbage collecting to conserve memory */
 							System.gc();
