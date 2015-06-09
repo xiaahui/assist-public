@@ -1,5 +1,6 @@
 package ch.hilbri.assist.mapping.ui.handlers
 
+import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.ModelFactory
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor
 import java.io.ByteArrayInputStream
@@ -14,15 +15,16 @@ import org.eclipse.e4.ui.workbench.modeling.EModelService
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.jface.dialogs.MessageDialog
+import org.eclipse.jface.window.Window
 import org.eclipse.swt.widgets.Display
 import org.eclipse.ui.IFileEditorInput
 import org.eclipse.ui.PlatformUI
+import org.eclipse.ui.dialogs.ElementListSelectionDialog
 import org.eclipse.xtext.resource.SaveOptions
 
 class SavePartialSolution {
 	
-	
-	
+
 	@CanExecute
 	def boolean canExecute(MApplication application, EModelService service) {
 		
@@ -75,8 +77,6 @@ class SavePartialSolution {
 						})
 						return null
 					}
-					
-					newFile.create(new ByteArrayInputStream("".bytes), IResource.NONE, null)
 
 					// We have to update the current model with the valid restrictions; 
 					// if we do a copy of the model, then all comments are lost
@@ -84,9 +84,19 @@ class SavePartialSolution {
 					// thats why we add some valid restrictions, persist to the disk and take them back afterwards					
 					val model = detailedResultsViewUiModel.currentResult.model
 					
-					val f = ModelFactory.eINSTANCE
+					val selDialog = new ElementListSelectionDialog(editor.getSite().getShell(), new InterfaceLabelProvider(detailedResultsViewUiModel.currentResult));
+					selDialog.elements = detailedResultsViewUiModel.currentResult.mapping.keySet
+					selDialog.title = "Which interface mappings should be saved?"
+					selDialog.message = "Select the generated interface mappings for saving (* = any string, ? = any char)"
+					selDialog.multipleSelection = true
+					selDialog.initialSelections = detailedResultsViewUiModel.currentResult.mapping.keySet
+					
+					if (selDialog.open != Window.OK) return false
+
+					val selection = selDialog.result.map[it as EqInterface]
 
 					// Update model
+					val f = ModelFactory.eINSTANCE
 					val vd = f.createValidDeployment
 					vd.eqInterfaceOrGroups.add(model.eqInterfaceGroups.get(0))
 					vd.hardwareElements.add(model.allRDCs.get(0))
@@ -94,6 +104,7 @@ class SavePartialSolution {
 					model.validDeployments.add(vd)
 					
 					// Persist updated model
+					newFile.create(new ByteArrayInputStream("".bytes), IResource.NONE, null)
 					val resSet = new ResourceSetImpl
 					val resource = resSet.createResource(URI.createFileURI(newFile.fullPath.toPortableString))
 					resource.contents.clear
