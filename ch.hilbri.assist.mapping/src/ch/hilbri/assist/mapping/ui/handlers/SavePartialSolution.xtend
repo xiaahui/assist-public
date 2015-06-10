@@ -1,26 +1,20 @@
 package ch.hilbri.assist.mapping.ui.handlers
 
-import ch.hilbri.assist.datamodel.model.EqInterface
-import ch.hilbri.assist.datamodel.model.ModelFactory
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor
-import java.io.ByteArrayInputStream
-import java.io.IOException
-import org.eclipse.core.resources.IResource
+import ch.hilbri.assist.mapping.ui.wizards.SaveSolutionToSpecificationWizard
+import javax.inject.Named
 import org.eclipse.core.resources.ResourcesPlugin
-import org.eclipse.core.runtime.IProgressMonitor
 import org.eclipse.e4.core.di.annotations.CanExecute
 import org.eclipse.e4.core.di.annotations.Execute
+import org.eclipse.e4.core.di.annotations.Optional
 import org.eclipse.e4.ui.model.application.MApplication
+import org.eclipse.e4.ui.services.IServiceConstants
 import org.eclipse.e4.ui.workbench.modeling.EModelService
-import org.eclipse.emf.common.util.URI
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
-import org.eclipse.jface.dialogs.MessageDialog
-import org.eclipse.jface.window.Window
-import org.eclipse.swt.widgets.Display
+import org.eclipse.jface.viewers.IStructuredSelection
+import org.eclipse.jface.viewers.StructuredSelection
+import org.eclipse.jface.wizard.WizardDialog
 import org.eclipse.ui.IFileEditorInput
 import org.eclipse.ui.PlatformUI
-import org.eclipse.ui.dialogs.ElementListSelectionDialog
-import org.eclipse.xtext.resource.SaveOptions
 
 class SavePartialSolution {
 	
@@ -44,7 +38,7 @@ class SavePartialSolution {
 	}
 	
 	@Execute
-	def Object execute(MApplication application, EModelService service, IProgressMonitor monitor) {
+	def Object execute(@Optional @Named(IServiceConstants.ACTIVE_SELECTION) IStructuredSelection selection) {
 		
 		val editor = PlatformUI.getWorkbench.activeWorkbenchWindow.activePage.activeEditor
 		if (editor == null) return null
@@ -58,10 +52,8 @@ class SavePartialSolution {
 
 			val input = editor.getEditorInput
 			if (input instanceof IFileEditorInput) {
-
-					val detailedResultsViewUiModel = editor.getDetailedResultViewUiModel() 
-				
 					val inputFile = input as IFileEditorInput
+					val detailedResultsViewUiModel = editor.getDetailedResultViewUiModel() 
 					val newfilename = inputFile.file.name.substring(0, inputFile.file.name.length - (inputFile.file.fileExtension.length + 1)) + 
 								   " - " + 
 								   detailedResultsViewUiModel.currentResult.name + 
@@ -69,60 +61,19 @@ class SavePartialSolution {
 					
 					val root = ResourcesPlugin.getWorkspace.getRoot
 					val folder = root.getFolder(inputFile.file.parent.fullPath)
-					val newFile = folder.getFile(newfilename)
-					
-					if (newFile.exists) {
-						Display.getDefault().asyncExec(new Runnable() {
-							override run() {MessageDialog.openError(PlatformUI.workbench.activeWorkbenchWindow.shell, "Error", "The file: '" + newfilename + "' already exists.")}
-						})
-						return null
-					}
-
-					// We have to update the current model with the valid restrictions; 
-					// if we do a copy of the model, then all comments are lost
-					// other option: make comments explicit in the grammar - but this is a bit overkill
-					// thats why we add some valid restrictions, persist to the disk and take them back afterwards					
 					val model = detailedResultsViewUiModel.currentResult.model
 					
-					val selDialog = new ElementListSelectionDialog(editor.getSite().getShell(), new InterfaceLabelProvider(detailedResultsViewUiModel.currentResult));
-					selDialog.elements = detailedResultsViewUiModel.currentResult.mapping.keySet
-					selDialog.title = "Which interface mappings should be saved?"
-					selDialog.message = "Select the generated interface mappings for saving (* = any string, ? = any char)"
-					selDialog.multipleSelection = true
-					selDialog.initialSelections = detailedResultsViewUiModel.currentResult.mapping.keySet
+					val solutionWizard = new SaveSolutionToSpecificationWizard(newfilename, detailedResultsViewUiModel.currentResult.mapping, model)
 					
-					if (selDialog.open != Window.OK) return false
-
-					val selection = selDialog.result.map[it as EqInterface]
-
-					// Update model
-					val f = ModelFactory.eINSTANCE
-					val vd = f.createValidDeployment
-					vd.eqInterfaceOrGroups.add(model.eqInterfaceGroups.get(0))
-					vd.hardwareElements.add(model.allRDCs.get(0))
-										
-					model.validDeployments.add(vd)
-					
-					// Persist updated model
-					newFile.create(new ByteArrayInputStream("".bytes), IResource.NONE, null)
-					val resSet = new ResourceSetImpl
-					val resource = resSet.createResource(URI.createFileURI(newFile.fullPath.toPortableString))
-					resource.contents.clear
-					resource.contents.add(model)
-					
-					try {
-						resource.save(SaveOptions.newBuilder.format.options.toOptionsMap)
-					} catch (IOException e) {
-						e.printStackTrace
+					if (selection != null)
+						solutionWizard.init(PlatformUI.getWorkbench, selection)
+					else {
+						val sselection = new StructuredSelection(folder)
+						solutionWizard.init(PlatformUI.getWorkbench, sselection)
 					}
-					
-					// restore old model
-					model.validDeployments.remove(vd)
+					val dialogSolutionWizard = new WizardDialog(editor.getSite.getShell, solutionWizard)
+					dialogSolutionWizard.open
 			}
-			
-			
-
-					
 		}			
 		return null
 	}
