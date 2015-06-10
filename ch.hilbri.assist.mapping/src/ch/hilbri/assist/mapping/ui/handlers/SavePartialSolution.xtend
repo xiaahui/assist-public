@@ -1,7 +1,7 @@
 package ch.hilbri.assist.mapping.ui.handlers
 
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor
-import ch.hilbri.assist.mapping.ui.wizards.SaveSolutionToSpecificationWizard
+import ch.hilbri.assist.mapping.ui.wizards.SaveGeneratedMappingsInSpecificationWizard
 import javax.inject.Named
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.e4.core.di.annotations.CanExecute
@@ -56,14 +56,14 @@ class SavePartialSolution {
 					val detailedResultsViewUiModel = editor.getDetailedResultViewUiModel() 
 					val newfilename = inputFile.file.name.substring(0, inputFile.file.name.length - (inputFile.file.fileExtension.length + 1)) + 
 								   " - " + 
-								   detailedResultsViewUiModel.currentResult.name + 
-								   ".mdsl"
+								   detailedResultsViewUiModel.currentResult.name 
+								   
 					
 					val root = ResourcesPlugin.getWorkspace.getRoot
 					val folder = root.getFolder(inputFile.file.parent.fullPath)
 					val model = detailedResultsViewUiModel.currentResult.model
 					
-					val solutionWizard = new SaveSolutionToSpecificationWizard(newfilename, detailedResultsViewUiModel.currentResult.mapping, model)
+					val solutionWizard = new SaveGeneratedMappingsInSpecificationWizard(newfilename, detailedResultsViewUiModel.currentResult.mapping, model)
 					
 					if (selection != null)
 						solutionWizard.init(PlatformUI.getWorkbench, selection)
