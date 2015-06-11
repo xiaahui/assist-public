@@ -4,6 +4,7 @@ import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
 import ch.hilbri.assist.datamodel.model.ColocalityRelation;
 import ch.hilbri.assist.datamodel.model.Compartment;
+import ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry;
 import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinition;
 import ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinitionAttributeAndValue;
@@ -62,6 +63,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case ModelPackage.COMPARTMENT:
 				if(context == grammarAccess.getCompartmentRule()) {
 					sequence_Compartment(context, (Compartment) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.COMPATIBLE_IO_TYPE_ENTRY:
+				if(context == grammarAccess.getCompatibleIoTypeEntryRule()) {
+					sequence_CompatibleIoTypeEntry(context, (CompatibleIoTypeEntry) semanticObject); 
 					return; 
 				}
 				else break;
@@ -150,7 +157,8 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * Constraint:
 	 *     (
-	 *         systemName=STRING 
+	 *         systemName=STRING? 
+	 *         compatibleIoTypes+=CompatibleIoTypeEntry? 
 	 *         compartments+=Compartment+ 
 	 *         eqInterfaces+=EqInterface* 
 	 *         (eqInterfaceGroups+=EqInterfaceGroup | eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* 
@@ -207,6 +215,15 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     )
 	 */
 	protected void sequence_Compartment(EObject context, Compartment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (eqInterfaceIoType=STRING pinInterfaceIoTypes+=STRING pinInterfaceIoTypes+=STRING*)
+	 */
+	protected void sequence_CompatibleIoTypeEntry(EObject context, CompatibleIoTypeEntry semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

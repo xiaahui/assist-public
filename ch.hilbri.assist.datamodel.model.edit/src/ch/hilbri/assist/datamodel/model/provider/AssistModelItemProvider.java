@@ -102,6 +102,7 @@ public class AssistModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPATIBLE_IO_TYPES);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACES);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACE_GROUPS);
@@ -167,6 +168,7 @@ public class AssistModelItemProvider
 			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case ModelPackage.ASSIST_MODEL__COMPATIBLE_IO_TYPES:
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
 			case ModelPackage.ASSIST_MODEL__EQ_INTERFACES:
 			case ModelPackage.ASSIST_MODEL__EQ_INTERFACE_GROUPS:
@@ -190,6 +192,11 @@ public class AssistModelItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL__COMPATIBLE_IO_TYPES,
+				 ModelFactory.eINSTANCE.createCompatibleIoTypeEntry()));
 
 		newChildDescriptors.add
 			(createChildParameter

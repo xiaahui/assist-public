@@ -15,6 +15,27 @@ import org.eclipse.xtext.validation.Check
 class MappingDSLValidator extends AbstractMappingDSLValidator {
 	
 	@Check
+	def checkCompatibleTypes(AssistModel model) {
+		for (entry : model.compatibleIoTypes) {
+			val eqInterfaceType = entry.eqInterfaceIoType
+			if (model.eqInterfaces.filter[it.ioType.equals(eqInterfaceType)].isEmpty)
+				warning("There is no interface of type '" + eqInterfaceType + "' in this specification. This may be unintended.",
+					entry, ModelPackage.Literals::COMPATIBLE_IO_TYPE_ENTRY__EQ_INTERFACE_IO_TYPE
+				)
+			
+			var i = 0
+			for (pinType : entry.pinInterfaceIoTypes) {
+				if (model.allConnectors.filter[!availableEqInterfaces.filter[it.eqInterfaceType.equals(pinType)].isEmpty].isEmpty) {
+					warning("There is no connector with a pin of io type '" + pinType + "' in this specification. This may be unintended.",
+						entry, ModelPackage.Literals::COMPATIBLE_IO_TYPE_ENTRY__PIN_INTERFACE_IO_TYPES, i
+					)
+				}
+				i++
+			}
+		}
+	}
+	
+	@Check
 	def checkGroupsAreNotEmpty(AssistModel model) {
 		
 		// Check the groups that have no explicitly added eq interfaces
