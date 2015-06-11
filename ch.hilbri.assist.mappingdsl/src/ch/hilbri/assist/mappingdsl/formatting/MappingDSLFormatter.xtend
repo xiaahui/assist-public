@@ -57,18 +57,15 @@ class MappingDSLFormatter extends AbstractDeclarativeFormatter {
 		c.setNoLinewrap.after(invalidDeploymentAccess.leftCurlyBracketKeyword_4)
 		c.setNoLinewrap.before(invalidDeploymentAccess.rightCurlyBracketKeyword_7)
 		
-		// Linewrap after sections in the ASSIST rule
-		c.setLinewrap(2).after(assistModelAccess.rightCurlyBracketKeyword_6)
-		c.setLinewrap(2).after(assistModelAccess.compartmentsAssignment_7)
-		c.setLinewrap(2).after(assistModelAccess.rightCurlyBracketKeyword_8_3)
-		c.setLinewrap(2).after(assistModelAccess.rightCurlyBracketKeyword_9_3)
+		// Double Linewrap after sections in the ASSIST rule
+		c.setLinewrap(2).after(assistModelAccess.rightCurlyBracketKeyword_3)
+		c.setLinewrap(2).after(assistModelAccess.rightCurlyBracketKeyword_5_3)
+		c.setLinewrap(2).after(assistModelAccess.compartmentsAssignment_4)
+		c.setLinewrap(2).after(assistModelAccess.rightCurlyBracketKeyword_6_3)
+		c.setLinewrap(2).after(assistModelAccess.rightCurlyBracketKeyword_7_3)
 		
-	
 		c.setLinewrap(0, 1, 2).before(SL_COMMENTRule)
 		c.setLinewrap(0, 1, 2).before(ML_COMMENTRule)
 		c.setLinewrap(0, 1, 1).after(ML_COMMENTRule)
-		
-		
-		
 	}
 }

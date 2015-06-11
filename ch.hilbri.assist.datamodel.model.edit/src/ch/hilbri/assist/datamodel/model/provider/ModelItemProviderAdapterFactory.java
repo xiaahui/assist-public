@@ -95,6 +95,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompatibleIoTypeEntryItemProvider compatibleIoTypeEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompatibleIoTypeEntryAdapter() {
+		if (compatibleIoTypeEntryItemProvider == null) {
+			compatibleIoTypeEntryItemProvider = new CompatibleIoTypeEntryItemProvider(this);
+		}
+
+		return compatibleIoTypeEntryItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.HardwareElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -631,6 +654,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	 */
 	public void dispose() {
 		if (assistModelItemProvider != null) assistModelItemProvider.dispose();
+		if (compatibleIoTypeEntryItemProvider != null) compatibleIoTypeEntryItemProvider.dispose();
 		if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();
 		if (compartmentItemProvider != null) compartmentItemProvider.dispose();
 		if (rdcItemProvider != null) rdcItemProvider.dispose();
