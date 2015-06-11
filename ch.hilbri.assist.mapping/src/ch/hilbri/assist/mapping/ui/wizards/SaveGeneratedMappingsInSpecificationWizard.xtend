@@ -6,9 +6,7 @@ import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.ModelFactory
 import ch.hilbri.assist.datamodel.model.ValidDeployment
 import java.io.IOException
-import java.text.SimpleDateFormat
 import java.util.ArrayList
-import java.util.Date
 import java.util.List
 import java.util.Map
 import org.eclipse.emf.common.util.URI
@@ -19,7 +17,6 @@ import org.eclipse.ui.INewWizard
 import org.eclipse.ui.IWorkbench
 import org.eclipse.ui.PartInitException
 import org.eclipse.ui.PlatformUI
-import org.eclipse.ui.dialogs.WizardNewFileCreationPage
 import org.eclipse.ui.ide.IDE
 import org.eclipse.xtext.resource.SaveOptions
 
@@ -27,7 +24,7 @@ class SaveGeneratedMappingsInSpecificationWizard extends Wizard implements INewW
 
     private IStructuredSelection selection
     
-    private WizardNewFileCreationPage fileSelectionPage
+    private SaveGeneratedMappingsInSpecificationFileSelectionPage fileSelectionPage
     private SaveGeneratedMappingsInSpecificationIfaceSelectionPage interfaceSelectionPage
     private Map<EqInterface, Connector> mapping
     private AssistModel model
@@ -49,18 +46,9 @@ class SaveGeneratedMappingsInSpecificationWizard extends Wizard implements INewW
 	override void addPages() {
 		
 		interfaceSelectionPage = new SaveGeneratedMappingsInSpecificationIfaceSelectionPage(mapping)
-		
 		addPage(interfaceSelectionPage)
 		
-		fileSelectionPage = new WizardNewFileCreationPage("NewFileSelectionPage", selection)
-		fileSelectionPage.title = "Mapping Specification"
-		fileSelectionPage.description = "Please provide file name for the duplicated specification and selected mappings"
-		
-		
-		fileSelectionPage.fileName = filenameSuggestion + " - " + (new SimpleDateFormat("yyyy-MM-dd HH-mm-ss")).format(new Date)
-		fileSelectionPage.fileExtension = "mdsl"
-		fileSelectionPage.allowExistingResources = false
-		
+		fileSelectionPage = new SaveGeneratedMappingsInSpecificationFileSelectionPage(selection, filenameSuggestion)
 		addPage(fileSelectionPage)
 	}
 	
@@ -130,6 +118,7 @@ class SaveGeneratedMappingsInSpecificationWizard extends Wizard implements INewW
 	override boolean canFinish()
 	{
 		if (container.currentPage == interfaceSelectionPage) return false
-		else return true
+		else if ((container.currentPage == fileSelectionPage) && (container.currentPage.isPageComplete)) return true
+			 else return false
 	}
 }
