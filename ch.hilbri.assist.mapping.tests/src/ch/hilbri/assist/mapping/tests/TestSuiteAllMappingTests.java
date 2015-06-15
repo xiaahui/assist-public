@@ -6,6 +6,8 @@ import org.junit.runners.Suite.SuiteClasses;
 
 import ch.hilbri.assist.mapping.tests.constraints.AssistElementConstraintTests;
 import ch.hilbri.assist.mapping.tests.constraints.ColocalityTest;
+import ch.hilbri.assist.mapping.tests.constraints.ConfigurablePinTests;
+import ch.hilbri.assist.mapping.tests.constraints.ConfigurablePinTests2;
 import ch.hilbri.assist.mapping.tests.constraints.DislocalityPropagationTests;
 import ch.hilbri.assist.mapping.tests.constraints.DislocalityTest2;
 import ch.hilbri.assist.mapping.tests.constraints.DislocalityTests;
@@ -30,7 +32,9 @@ import ch.hilbri.assist.mapping.tests.strategies.BasicStrategyTest;
 	SearchTypeTests.class,
 	ChocoSolverTests.class,
 	BasicStrategyTest.class,
-	AssistElementConstraintTests.class
+	AssistElementConstraintTests.class,
+	ConfigurablePinTests.class,
+	ConfigurablePinTests2.class,
 })  
 
 public class TestSuiteAllMappingTests {}
