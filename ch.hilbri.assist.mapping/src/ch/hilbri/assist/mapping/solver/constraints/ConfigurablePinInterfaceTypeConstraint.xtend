@@ -1,94 +1,131 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.mapping.solver.constraints.choco.ACF
+import ch.hilbri.assist.mapping.solver.exceptions.InterfaceTypeCouldNotBeMapped
+import ch.hilbri.assist.mapping.solver.exceptions.InterfaceTypeDemandExceedsSupply
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
+import java.util.List
+import java.util.Set
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.constraints.^extension.Tuples
+import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
+import org.jgrapht.alg.ConnectivityInspector
+import org.jgrapht.graph.DefaultEdge
+import org.jgrapht.graph.SimpleGraph
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 	private Logger logger
+	private SimpleGraph<String, DefaultEdge> graph
 	
 	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
 		super("interface type with configurable pins", model, solver, solverVariables)
 		this.logger = LoggerFactory.getLogger(this.class)
+		createGraphFromInput
 	}
 	
 	override generate() {
 		
-
-		/*
-		 * Connector C1 {
-		 * 	  "T0" = 2;
-		 *    "T1" = 1;
-		 * }
-		 * 
-		 * Connector C2 {
-		 * 	  "T0" = 1;
-		 *    "T3" = 2;
-		 * }
-		 * 
-		 * -> typeListOfAllAvailablePins = [T0, T0, T1, T0, T3, T3]
-		 * 
-		 */		
-		
-		val typeListOfAllAvailablePins = model.allConnectors.map[ availableEqInterfaces.map[availIfaces |  (1 .. availIfaces.count).map[availIfaces.eqInterfaceType] ]
-								 							     .flatten
-										  ]
-									  .flatten
-		
-		
-		/*
-		 * Connector C1 {
-		 * 	  "T0" = 2;
-		 *    "T1" = 1;
-		 * }
-		 * 
-		 * Connector C2 {
-		 * 	  "T0" = 1;
-		 *    "T3" = 2;
-		 * }
-		 * 
-		 * -> connectorIndexForAllPins  = [0, 0, 0, 1, 1, 1]
-		 * 
-		 */		
-		val connectorIndexForAllPins = model.allConnectors.map[con | con.availableEqInterfaces.map[availIfaces |  (1 .. availIfaces.count).map[ model.allConnectors.indexOf(con)] ]
-								 							     .flatten
-										  ]
-									  .flatten
-
-		val connectorLocationVars = model.eqInterfaces.map[solverVariables.getEqInterfaceLocationVariable(it, HardwareArchitectureLevelType.CONNECTOR)]
-		val pinLocationVars = new ArrayList<IntVar>
-		
-		for (locVar : connectorLocationVars) {
-
-			// "connect" the placement in connector level and pin level
-			val pinVar = VF.enumerated("Pin-"+locVar.name, 0, typeListOfAllAvailablePins.length-1, solver)
-			solver.post(ACF.element(locVar, connectorIndexForAllPins, pinVar))
-		
-			// restrict the pin variable
-			val ifaceType = solverVariables.getInterfaceForLocationVariable(locVar).ioType
+		for (types : allConnectedSetsFromGraph) {
+				val interfaceSupplyPerConnector = model.allConnectors.map[
+													if (!availableEqInterfaces.filter[it.eqInterfaceType.multipleEquals(types)].isNullOrEmpty)
+														 availableEqInterfaces.filter[it.eqInterfaceType.multipleEquals(types)].map[count].reduce[p1, p2|p1 + p2]
+													else 
+														0]
+														
+				// A list of all interfaces of the current type														
+				val interfacesOfType 			= model.eqInterfaces.filter[ioType.multipleEquals(types)]
 			
-			val possiblePins = typeListOfAllAvailablePins.indexed   // turn each entry to (index (=key), value) pair
-														 .filter[value.equals(ifaceType)]
-														 .map[key]
+				// 	How many interfaces of the current type are requested?
+				val totalDemand 				= interfacesOfType.length
 			
-			solver.post(ICF.member(pinVar, possiblePins))
+				// How many interfaces of the current type are available?
+				val totalSupply 				= interfaceSupplyPerConnector.reduce[p1, p2|p1+p2]			
 			
-			// store the pin variable for later (alldifferent)
-			pinLocationVars.add(pinVar)
+				// Check that the supply is sufficient for the demand
+				if (totalDemand > totalSupply)
+					throw new InterfaceTypeDemandExceedsSupply(this, types.toList, totalDemand, totalSupply)
+					
+					
+				/*  We need no constraints if the "smallest" connector (i.e. every connector!) 
+			    can handle all (this includes the "demand==0" case) */
+				if (totalDemand > interfaceSupplyPerConnector.min) {
+
+					// A list of all interface indices with the current type
+					val int[] indexListOfAffectedInterfaces = interfacesOfType.map[model.eqInterfaces.indexOf(it)]
+				
+					// building allowed tuples 
+					val tuples = new Tuples(true) // true = valid tuples
+					var int pinIdx = 0
+					for (int connIdx : 0 ..< model.allConnectors.length) {
+						for (int pin : 0 ..< interfaceSupplyPerConnector.get(connIdx)) {
+							tuples.add(connIdx, pinIdx)
+							pinIdx++						
+						}
+					}
+			
+					val connectorLocationVars = indexListOfAffectedInterfaces.map[solverVariables.getLocationVariables(0).get(it)]
+					val pinLocationVars = new ArrayList<IntVar>
+				
+					// 	building table constraints reflecting the location hierarchy		
+					for (locVar : connectorLocationVars) {
+						val pinVar = VF.enumerated("Pin-"+locVar.name, 0, totalSupply-1, solver) // Pin-variable which is like a connector variables ranging over all pins of this type
+						solver.post(ICF.table(locVar, pinVar, tuples, ""))
+						pinLocationVars.add(pinVar)
+					}
+	
+					solver.post(ICF.alldifferent(pinLocationVars, "AC")) // Pins must not share a single type offered --> this realizes the sum constraint for each connector
+				
+					try { solver.propagate } 
+					catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, types.toList) }
+			}
 		}
 		
-		solver.post(ICF.alldifferent(pinLocationVars, "AC")) // Pins must not share a single type offered --> this realizes the sum constraint for each connector
-
-		propagate
+		true
+	}
+	
+	private def boolean multipleEquals(String value, Set<String> types) {
+		for (type : types)
+			if (value.equals(type)) return true
 		
-		return true
+		return false
+	}
+	
+	
+	private def List<Set<String>> getAllConnectedSetsFromGraph() {
+		val inspector = new ConnectivityInspector(graph)
+		return inspector.connectedSets 
+	}
+	
+	private def void createGraphFromInput() {
+		graph = new SimpleGraph<String, DefaultEdge>(DefaultEdge)
+		
+		val eqInterfaceIoTypes = model.eqInterfaces.map[it.ioType].toSet.toList 
+		
+		// 1. Add all types (no configurable pins yet)
+		for (type : eqInterfaceIoTypes) {
+			graph.addVertex(type)	
+		}
+		
+		// 2. Add all configurable pin types 
+		for (entry : model.compatibleIoTypes) {
+			
+			// Do we already have the left side in our graph?
+			if (!eqInterfaceIoTypes.contains(entry.eqInterfaceIoType)) 
+				graph.addVertex(entry.eqInterfaceIoType)
+				
+			// Go through all right side entries
+			for (compatibleType : entry.pinInterfaceIoTypes) {
+				if (!eqInterfaceIoTypes.contains(compatibleType))
+					graph.addVertex(compatibleType)
+				
+				graph.addEdge(entry.eqInterfaceIoType, compatibleType)
+			}
+		}
 	}
 }

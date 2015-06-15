@@ -5,10 +5,10 @@ import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
+import ch.hilbri.assist.mapping.solver.constraints.ConfigurablePinInterfaceTypeConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ImprovedColocalitiesConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ImprovedPairOfColocalitiesConstraint
-import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictInvalidDeploymentsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictValidDeploymentsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
@@ -45,7 +45,6 @@ import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.constraints.ConfigurablePinInterfaceTypeConstraint
 
 class AssistSolver {
 	
@@ -116,8 +115,8 @@ class AssistSolver {
 		/* Create an empty set of constraints that will be used */
 		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables, this.minimize >= 0))
-		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new ConfigurablePinInterfaceTypeConstraint(model, solver, solverVariables))				
+//		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))
+		this.mappingConstraintsList.add(new ConfigurablePinInterfaceTypeConstraint(model, solver, solverVariables))				
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
