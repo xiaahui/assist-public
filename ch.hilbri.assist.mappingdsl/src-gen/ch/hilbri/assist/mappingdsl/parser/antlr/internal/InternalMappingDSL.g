@@ -168,7 +168,7 @@ ruleAssistModel returns [EObject current=null]
 	    }
 
 )
-)	otherlv_10='}' 
+)*	otherlv_10='}' 
     {
     	newLeafNode(otherlv_10, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_2_1_3());
     }

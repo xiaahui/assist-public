@@ -70,7 +70,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//AssistModel:
 		//	"Global" "{" (("Name" "=" systemName=STRING ";")? & ("Compatible Interface Types" "{"
-		//	compatibleIoTypes+=CompatibleIoTypeEntry "}")?) "}" compartments+=Compartment+ ("Interfaces" "{"
+		//	compatibleIoTypes+=CompatibleIoTypeEntry* "}")?) "}" compartments+=Compartment+ ("Interfaces" "{"
 		//	eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{" (eqInterfaceGroups+=EqInterfaceGroup |
 		//	eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")? ("Restrictions" "{"
 		//	(dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |
@@ -78,7 +78,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public ParserRule getRule() { return rule; }
 
 		//"Global" "{" (("Name" "=" systemName=STRING ";")? & ("Compatible Interface Types" "{"
-		//compatibleIoTypes+=CompatibleIoTypeEntry "}")?) "}" compartments+=Compartment+ ("Interfaces" "{"
+		//compatibleIoTypes+=CompatibleIoTypeEntry* "}")?) "}" compartments+=Compartment+ ("Interfaces" "{"
 		//eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{" (eqInterfaceGroups+=EqInterfaceGroup |
 		//eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")? ("Restrictions" "{"
 		//(dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |
@@ -91,7 +91,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
-		//("Name" "=" systemName=STRING ";")? & ("Compatible Interface Types" "{" compatibleIoTypes+=CompatibleIoTypeEntry "}")?
+		//("Name" "=" systemName=STRING ";")? & ("Compatible Interface Types" "{" compatibleIoTypes+=CompatibleIoTypeEntry* "}")?
 		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
 
 		//("Name" "=" systemName=STRING ";")?
@@ -112,7 +112,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_2_0_3() { return cSemicolonKeyword_2_0_3; }
 
-		//("Compatible Interface Types" "{" compatibleIoTypes+=CompatibleIoTypeEntry "}")?
+		//("Compatible Interface Types" "{" compatibleIoTypes+=CompatibleIoTypeEntry* "}")?
 		public Group getGroup_2_1() { return cGroup_2_1; }
 
 		//"Compatible Interface Types"
@@ -121,7 +121,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2_1_1() { return cLeftCurlyBracketKeyword_2_1_1; }
 
-		//compatibleIoTypes+=CompatibleIoTypeEntry
+		//compatibleIoTypes+=CompatibleIoTypeEntry*
 		public Assignment getCompatibleIoTypesAssignment_2_1_2() { return cCompatibleIoTypesAssignment_2_1_2; }
 
 		//CompatibleIoTypeEntry
@@ -2386,7 +2386,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//AssistModel:
 	//	"Global" "{" (("Name" "=" systemName=STRING ";")? & ("Compatible Interface Types" "{"
-	//	compatibleIoTypes+=CompatibleIoTypeEntry "}")?) "}" compartments+=Compartment+ ("Interfaces" "{"
+	//	compatibleIoTypes+=CompatibleIoTypeEntry* "}")?) "}" compartments+=Compartment+ ("Interfaces" "{"
 	//	eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{" (eqInterfaceGroups+=EqInterfaceGroup |
 	//	eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")? ("Restrictions" "{"
 	//	(dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |

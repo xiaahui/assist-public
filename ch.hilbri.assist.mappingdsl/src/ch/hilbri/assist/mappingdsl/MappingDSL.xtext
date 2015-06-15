@@ -7,7 +7,7 @@ AssistModel:
 	'Global'  '{' 
 		(
 			('Name' '=' systemName=STRING ';'														)?		&
-			( 'Compatible Interface Types' '{' compatibleIoTypes+=CompatibleIoTypeEntry  '}'		)?
+			( 'Compatible Interface Types' '{' (compatibleIoTypes+=CompatibleIoTypeEntry)*  '}'		)?
 		)  
 	'}'
 

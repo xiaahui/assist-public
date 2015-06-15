@@ -158,7 +158,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Constraint:
 	 *     (
 	 *         systemName=STRING? 
-	 *         compatibleIoTypes+=CompatibleIoTypeEntry? 
+	 *         compatibleIoTypes+=CompatibleIoTypeEntry* 
 	 *         compartments+=Compartment+ 
 	 *         eqInterfaces+=EqInterface* 
 	 *         (eqInterfaceGroups+=EqInterfaceGroup | eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* 

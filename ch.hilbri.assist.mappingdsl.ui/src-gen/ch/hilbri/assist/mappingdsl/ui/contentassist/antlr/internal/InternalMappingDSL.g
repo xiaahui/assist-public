@@ -1614,7 +1614,7 @@ rule__AssistModel__Group_2_1__2__Impl
 :
 (
 { before(grammarAccess.getAssistModelAccess().getCompatibleIoTypesAssignment_2_1_2()); }
-(rule__AssistModel__CompatibleIoTypesAssignment_2_1_2)
+(rule__AssistModel__CompatibleIoTypesAssignment_2_1_2)*
 { after(grammarAccess.getAssistModelAccess().getCompatibleIoTypesAssignment_2_1_2()); }
 )
 
