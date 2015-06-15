@@ -225,6 +225,10 @@ public class Helpers {
 		IWizardCategory[] categories = PlatformUI.getWorkbench().getNewWizardRegistry().getRootCategory().getCategories();
 		for(IWizardDescriptor wizard : getAllWizards(categories)){
 		    if(wizard.getCategory().getId().matches("org.eclipse.ui.Basic")){
+
+		    	// But we want to keep the new folder wizard
+		    	if (wizard.getId().equals("org.eclipse.ui.wizards.new.folder")) continue;
+		    	
 		        WorkbenchWizardElement wizardElement = (WorkbenchWizardElement) wizard;
 		        wizardRegistry.removeExtension(wizardElement.getConfigurationElement().getDeclaringExtension(), new Object[]{wizardElement});
 		    }
