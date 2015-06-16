@@ -39,6 +39,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getAssistModelAccess().getAlternatives_6_2(), "rule__AssistModel__Alternatives_6_2");
 					put(grammarAccess.getAssistModelAccess().getAlternatives_7_2(), "rule__AssistModel__Alternatives_7_2");
+					put(grammarAccess.getCableWeightEntryAccess().getAlternatives_0(), "rule__CableWeightEntry__Alternatives_0");
 					put(grammarAccess.getEqInterfaceGroupAccess().getAlternatives_3(), "rule__EqInterfaceGroup__Alternatives_3");
 					put(grammarAccess.getEqInterfaceGroupAccess().getAlternatives_4_1(), "rule__EqInterfaceGroup__Alternatives_4_1");
 					put(grammarAccess.getValidDeploymentAccess().getAlternatives_3(), "rule__ValidDeployment__Alternatives_3");
@@ -53,11 +54,13 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAssistModelAccess().getGroup(), "rule__AssistModel__Group__0");
 					put(grammarAccess.getAssistModelAccess().getGroup_2_0(), "rule__AssistModel__Group_2_0__0");
 					put(grammarAccess.getAssistModelAccess().getGroup_2_1(), "rule__AssistModel__Group_2_1__0");
+					put(grammarAccess.getAssistModelAccess().getGroup_2_2(), "rule__AssistModel__Group_2_2__0");
 					put(grammarAccess.getAssistModelAccess().getGroup_5(), "rule__AssistModel__Group_5__0");
 					put(grammarAccess.getAssistModelAccess().getGroup_6(), "rule__AssistModel__Group_6__0");
 					put(grammarAccess.getAssistModelAccess().getGroup_7(), "rule__AssistModel__Group_7__0");
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getGroup(), "rule__CompatibleIoTypeEntry__Group__0");
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getGroup_3(), "rule__CompatibleIoTypeEntry__Group_3__0");
+					put(grammarAccess.getCableWeightEntryAccess().getGroup(), "rule__CableWeightEntry__Group__0");
 					put(grammarAccess.getCompartmentAccess().getGroup(), "rule__Compartment__Group__0");
 					put(grammarAccess.getCompartmentAccess().getGroup_3_0(), "rule__Compartment__Group_3_0__0");
 					put(grammarAccess.getCompartmentAccess().getGroup_3_1(), "rule__Compartment__Group_3_1__0");
@@ -113,6 +116,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSIGNEDINTAccess().getGroup(), "rule__SIGNEDINT__Group__0");
 					put(grammarAccess.getAssistModelAccess().getSystemNameAssignment_2_0_2(), "rule__AssistModel__SystemNameAssignment_2_0_2");
 					put(grammarAccess.getAssistModelAccess().getCompatibleIoTypesAssignment_2_1_2(), "rule__AssistModel__CompatibleIoTypesAssignment_2_1_2");
+					put(grammarAccess.getAssistModelAccess().getCableWeightEntriesAssignment_2_2_2(), "rule__AssistModel__CableWeightEntriesAssignment_2_2_2");
 					put(grammarAccess.getAssistModelAccess().getCompartmentsAssignment_4(), "rule__AssistModel__CompartmentsAssignment_4");
 					put(grammarAccess.getAssistModelAccess().getEqInterfacesAssignment_5_2(), "rule__AssistModel__EqInterfacesAssignment_5_2");
 					put(grammarAccess.getAssistModelAccess().getEqInterfaceGroupsAssignment_6_2_0(), "rule__AssistModel__EqInterfaceGroupsAssignment_6_2_0");
@@ -124,6 +128,9 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getEqInterfaceIoTypeAssignment_0(), "rule__CompatibleIoTypeEntry__EqInterfaceIoTypeAssignment_0");
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getPinInterfaceIoTypesAssignment_2(), "rule__CompatibleIoTypeEntry__PinInterfaceIoTypesAssignment_2");
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getPinInterfaceIoTypesAssignment_3_1(), "rule__CompatibleIoTypeEntry__PinInterfaceIoTypesAssignment_3_1");
+					put(grammarAccess.getCableWeightEntryAccess().getEqInterfaceIoTypeAssignment_0_0(), "rule__CableWeightEntry__EqInterfaceIoTypeAssignment_0_0");
+					put(grammarAccess.getCableWeightEntryAccess().getDefaultEntryAssignment_0_1(), "rule__CableWeightEntry__DefaultEntryAssignment_0_1");
+					put(grammarAccess.getCableWeightEntryAccess().getWeightAssignment_2(), "rule__CableWeightEntry__WeightAssignment_2");
 					put(grammarAccess.getCompartmentAccess().getNameAssignment_1(), "rule__Compartment__NameAssignment_1");
 					put(grammarAccess.getCompartmentAccess().getManufacturerAssignment_3_0_2(), "rule__Compartment__ManufacturerAssignment_3_0_2");
 					put(grammarAccess.getCompartmentAccess().getPowerSupplyAssignment_3_1_2(), "rule__Compartment__PowerSupplyAssignment_3_1_2");

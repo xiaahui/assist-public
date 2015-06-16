@@ -2,6 +2,7 @@ package ch.hilbri.assist.mappingdsl.serializer;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
+import ch.hilbri.assist.datamodel.model.CableWeightEntry;
 import ch.hilbri.assist.datamodel.model.ColocalityRelation;
 import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry;
@@ -51,6 +52,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case ModelPackage.AVAILABLE_EQ_INTERFACE:
 				if(context == grammarAccess.getAvailableEqInterfaceRule()) {
 					sequence_AvailableEqInterface(context, (AvailableEqInterface) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.CABLE_WEIGHT_ENTRY:
+				if(context == grammarAccess.getCableWeightEntryRule()) {
+					sequence_CableWeightEntry(context, (CableWeightEntry) semanticObject); 
 					return; 
 				}
 				else break;
@@ -159,6 +166,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (
 	 *         systemName=STRING? 
 	 *         compatibleIoTypes+=CompatibleIoTypeEntry* 
+	 *         cableWeightEntries+=CableWeightEntry* 
 	 *         compartments+=Compartment+ 
 	 *         eqInterfaces+=EqInterface* 
 	 *         (eqInterfaceGroups+=EqInterfaceGroup | eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* 
@@ -191,6 +199,15 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getEqInterfaceTypeSTRINGTerminalRuleCall_0_0(), semanticObject.getEqInterfaceType());
 		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getCountINTTerminalRuleCall_2_0(), semanticObject.getCount());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((eqInterfaceIoType=STRING | defaultEntry?='default') weight=INT)
+	 */
+	protected void sequence_CableWeightEntry(EObject context, CableWeightEntry semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

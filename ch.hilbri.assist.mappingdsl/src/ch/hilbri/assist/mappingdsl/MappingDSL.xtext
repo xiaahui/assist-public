@@ -7,7 +7,8 @@ AssistModel:
 	'Global'  '{' 
 		(
 			('Name' '=' systemName=STRING ';'														)?		&
-			( 'Compatible Interface Types' '{' (compatibleIoTypes+=CompatibleIoTypeEntry)*  '}'		)?
+			( 'Compatible Interface Types' 	'{'	(compatibleIoTypes+=CompatibleIoTypeEntry)* '}'		)?		&
+			( 'Cable Weights' 				'{'	(cableWeightEntries+=CableWeightEntry)*  	'}'		)?
 		)  
 	'}'
 
@@ -38,6 +39,11 @@ AssistModel:
 CompatibleIoTypeEntry: 
 	eqInterfaceIoType=STRING '->' pinInterfaceIoTypes+=STRING (',' pinInterfaceIoTypes+=STRING)* ';'
 ;
+
+CableWeightEntry:
+	(eqInterfaceIoType=STRING | defaultEntry?='default') '=' weight=INT ';'
+;
+
 
 
 Compartment: 
@@ -215,52 +221,3 @@ QualifiedName:
 
 SIGNEDINT returns ecore::EInt:
   '-'? INT;
-
-/* OLD STUFF */
-
-/* 
-DissimilarityRelation: 
-	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
-	'dissimilar based on'
-	dissimilarityClause=DissimilarityClause ';'
-;
-
-DissimilarityClause:  
-	DissimilarityEntry | ( '(' (=>DissimilarityDisjunction | DissimilarityConjunction) ')' ) // Der Pfeil ist wichtig!
-;
-
-DissimilarityDisjunction: 
-	dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ ;
-
-DissimilarityConjunction: 
-	dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ ;
-
-DissimilarityEntry: 
-	( 'Compartment.' compartmentAttribute= CompartmentAttributes ) 	|
-	( 'Box.' boxAttribute = BoxAttributes) 							|
-	( 'Board.' boardAttribute = BoardAttributes)					|
-	( 'Processor.' processorAttribute = ProcessorAttributes)
-;
-
-enum CompartmentAttributes :
-	MANUFACTURER 	= 'Manufacturer' 	| 
-	POWERSUPPLY	 	= 'PowerSupply' 	| 
-	SIDE 		 	= 'Side' 			| 
-	ZONE		 	= 'Zone';
-	
-enum BoxAttributes :
-	MANUFACTURER 	= 'Manufacturer';
-	
-enum BoardAttributes:
-	MANUFACTURER 	= 'Manufacturer' 			|
-	POWERSUPPLY 	= 'PowerSupply'				|
-	ASSURANCELEVEL 	= 'DesignAssuranceLevel' 	|
-	BOARDTYPE 		= 'Type'	       			|
-	ESS				= 'ESS'						|
-	SIDE			= 'Side'; 	
-
-enum ProcessorAttributes:
-	MANUFACTURER 	= 'Manufacturer' 	| 
-	PROCESSORTYPE	= 'ProcessorType' 
-;
-*/

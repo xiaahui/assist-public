@@ -15,6 +15,44 @@ import org.eclipse.xtext.validation.Check
 class MappingDSLValidator extends AbstractMappingDSLValidator {
 	
 	@Check
+	def checkCableWeightIoTypes(AssistModel model) {
+		for (entry : model.cableWeightEntries) {
+			val eqInterfaceType = entry.eqInterfaceIoType
+			
+			if (entry.isDefaultEntry == false && model.eqInterfaces.filter[ioType.equals(eqInterfaceType)].isEmpty)
+				warning("There is no interface of type '" + eqInterfaceType + "' in this specification. This may be unintended.",
+					entry, ModelPackage.Literals::CABLE_WEIGHT_ENTRY__EQ_INTERFACE_IO_TYPE
+				)
+		}
+	}
+	
+	@Check 
+	def checkCableWeightOnlyOneDefault(AssistModel model) {
+		if (model.cableWeightEntries.filter[isDefaultEntry].length > 1)
+			for (entry : model.cableWeightEntries.filter[isDefaultEntry == true])
+				error("There are multiple default entries for the cable weight in this specification.", 
+				entry, 
+				ModelPackage.Literals::CABLE_WEIGHT_ENTRY__EQ_INTERFACE_IO_TYPE
+				
+			)
+	}
+	
+	@Check
+	def checkCableWeightDoubleEntries(AssistModel model) {
+		for (entry : model.cableWeightEntries) {
+			if (!entry.isDefaultEntry) {
+				if (model.cableWeightEntries.filter[eqInterfaceIoType.equals(entry.eqInterfaceIoType)].length > 1) 
+				{
+					error("The weight for the io type '" + entry.eqInterfaceIoType + "' is defined multiple times",
+							entry, 
+							ModelPackage.Literals::CABLE_WEIGHT_ENTRY__EQ_INTERFACE_IO_TYPE
+					)
+				}
+			}
+		}
+	}
+	
+	@Check
 	def checkCompatibleTypes(AssistModel model) {
 		for (entry : model.compatibleIoTypes) {
 			val eqInterfaceType = entry.eqInterfaceIoType

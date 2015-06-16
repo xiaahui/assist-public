@@ -36,6 +36,12 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCompatibleIoTypesAssignment_2_1_2 = (Assignment)cGroup_2_1.eContents().get(2);
 		private final RuleCall cCompatibleIoTypesCompatibleIoTypeEntryParserRuleCall_2_1_2_0 = (RuleCall)cCompatibleIoTypesAssignment_2_1_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_2_1_3 = (Keyword)cGroup_2_1.eContents().get(3);
+		private final Group cGroup_2_2 = (Group)cUnorderedGroup_2.eContents().get(2);
+		private final Keyword cCableWeightsKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2_2_1 = (Keyword)cGroup_2_2.eContents().get(1);
+		private final Assignment cCableWeightEntriesAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
+		private final RuleCall cCableWeightEntriesCableWeightEntryParserRuleCall_2_2_2_0 = (RuleCall)cCableWeightEntriesAssignment_2_2_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_2_3 = (Keyword)cGroup_2_2.eContents().get(3);
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cCompartmentsAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cCompartmentsCompartmentParserRuleCall_4_0 = (RuleCall)cCompartmentsAssignment_4.eContents().get(0);
@@ -70,18 +76,18 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//AssistModel:
 		//	"Global" "{" (("Name" "=" systemName=STRING ";")? & ("Compatible Interface Types" "{"
-		//	compatibleIoTypes+=CompatibleIoTypeEntry* "}")?) "}" compartments+=Compartment+ ("Interfaces" "{"
-		//	eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{" (eqInterfaceGroups+=EqInterfaceGroup |
-		//	eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")? ("Restrictions" "{"
-		//	(dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |
+		//	compatibleIoTypes+=CompatibleIoTypeEntry* "}")? & ("Cable Weights" "{" cableWeightEntries+=CableWeightEntry* "}")?)
+		//	"}" compartments+=Compartment+ ("Interfaces" "{" eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{"
+		//	(eqInterfaceGroups+=EqInterfaceGroup | eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")?
+		//	("Restrictions" "{" (dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |
 		//	validDeployments+=ValidDeployment | invalidDeployments+=InvalidDeployment)* "}")?;
 		public ParserRule getRule() { return rule; }
 
 		//"Global" "{" (("Name" "=" systemName=STRING ";")? & ("Compatible Interface Types" "{"
-		//compatibleIoTypes+=CompatibleIoTypeEntry* "}")?) "}" compartments+=Compartment+ ("Interfaces" "{"
-		//eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{" (eqInterfaceGroups+=EqInterfaceGroup |
-		//eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")? ("Restrictions" "{"
-		//(dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |
+		//compatibleIoTypes+=CompatibleIoTypeEntry* "}")? & ("Cable Weights" "{" cableWeightEntries+=CableWeightEntry* "}")?)
+		//"}" compartments+=Compartment+ ("Interfaces" "{" eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{"
+		//(eqInterfaceGroups+=EqInterfaceGroup | eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")?
+		//("Restrictions" "{" (dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |
 		//validDeployments+=ValidDeployment | invalidDeployments+=InvalidDeployment)* "}")?
 		public Group getGroup() { return cGroup; }
 
@@ -92,6 +98,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
 		//("Name" "=" systemName=STRING ";")? & ("Compatible Interface Types" "{" compatibleIoTypes+=CompatibleIoTypeEntry* "}")?
+		//& ("Cable Weights" "{" cableWeightEntries+=CableWeightEntry* "}")?
 		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
 
 		//("Name" "=" systemName=STRING ";")?
@@ -129,6 +136,24 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_2_1_3() { return cRightCurlyBracketKeyword_2_1_3; }
+
+		//("Cable Weights" "{" cableWeightEntries+=CableWeightEntry* "}")?
+		public Group getGroup_2_2() { return cGroup_2_2; }
+
+		//"Cable Weights"
+		public Keyword getCableWeightsKeyword_2_2_0() { return cCableWeightsKeyword_2_2_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2_2_1() { return cLeftCurlyBracketKeyword_2_2_1; }
+
+		//cableWeightEntries+=CableWeightEntry*
+		public Assignment getCableWeightEntriesAssignment_2_2_2() { return cCableWeightEntriesAssignment_2_2_2; }
+
+		//CableWeightEntry
+		public RuleCall getCableWeightEntriesCableWeightEntryParserRuleCall_2_2_2_0() { return cCableWeightEntriesCableWeightEntryParserRuleCall_2_2_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2_2_3() { return cRightCurlyBracketKeyword_2_2_3; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
@@ -277,6 +302,54 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//";"
 		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+	}
+
+	public class CableWeightEntryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CableWeightEntry");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Assignment cEqInterfaceIoTypeAssignment_0_0 = (Assignment)cAlternatives_0.eContents().get(0);
+		private final RuleCall cEqInterfaceIoTypeSTRINGTerminalRuleCall_0_0_0 = (RuleCall)cEqInterfaceIoTypeAssignment_0_0.eContents().get(0);
+		private final Assignment cDefaultEntryAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
+		private final Keyword cDefaultEntryDefaultKeyword_0_1_0 = (Keyword)cDefaultEntryAssignment_0_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cWeightAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cWeightINTTerminalRuleCall_2_0 = (RuleCall)cWeightAssignment_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//CableWeightEntry:
+		//	(eqInterfaceIoType=STRING | defaultEntry?="default") "=" weight=INT ";";
+		public ParserRule getRule() { return rule; }
+
+		//(eqInterfaceIoType=STRING | defaultEntry?="default") "=" weight=INT ";"
+		public Group getGroup() { return cGroup; }
+
+		//eqInterfaceIoType=STRING | defaultEntry?="default"
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+
+		//eqInterfaceIoType=STRING
+		public Assignment getEqInterfaceIoTypeAssignment_0_0() { return cEqInterfaceIoTypeAssignment_0_0; }
+
+		//STRING
+		public RuleCall getEqInterfaceIoTypeSTRINGTerminalRuleCall_0_0_0() { return cEqInterfaceIoTypeSTRINGTerminalRuleCall_0_0_0; }
+
+		//defaultEntry?="default"
+		public Assignment getDefaultEntryAssignment_0_1() { return cDefaultEntryAssignment_0_1; }
+
+		//"default"
+		public Keyword getDefaultEntryDefaultKeyword_0_1_0() { return cDefaultEntryDefaultKeyword_0_1_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+
+		//weight=INT
+		public Assignment getWeightAssignment_2() { return cWeightAssignment_2; }
+
+		//INT
+		public RuleCall getWeightINTTerminalRuleCall_2_0() { return cWeightINTTerminalRuleCall_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
 
 	public class CompartmentElements extends AbstractParserRuleElementFinder {
@@ -1843,152 +1916,17 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		/// * OLD STUFF * / / * 
-		//DissimilarityRelation: 
-		//	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
-		//	'dissimilar based on'
-		//	dissimilarityClause=DissimilarityClause ';'
-		//;
-		//
-		//DissimilarityClause:  
-		//	DissimilarityEntry | ( '(' (=>DissimilarityDisjunction | DissimilarityConjunction) ')' ) // Der Pfeil ist wichtig!
-		//;
-		//
-		//DissimilarityDisjunction: 
-		//	dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ ;
-		//
-		//DissimilarityConjunction: 
-		//	dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ ;
-		//
-		//DissimilarityEntry: 
-		//	( 'Compartment.' compartmentAttribute= CompartmentAttributes ) 	|
-		//	( 'Box.' boxAttribute = BoxAttributes) 							|
-		//	( 'Board.' boardAttribute = BoardAttributes)					|
-		//	( 'Processor.' processorAttribute = ProcessorAttributes)
-		//;
-		//
-		//enum CompartmentAttributes :
-		//	MANUFACTURER 	= 'Manufacturer' 	| 
-		//	POWERSUPPLY	 	= 'PowerSupply' 	| 
-		//	SIDE 		 	= 'Side' 			| 
-		//	ZONE		 	= 'Zone';
-		//	
-		//enum BoxAttributes :
-		//	MANUFACTURER 	= 'Manufacturer';
-		//	
-		//enum BoardAttributes:
-		//	MANUFACTURER 	= 'Manufacturer' 			|
-		//	POWERSUPPLY 	= 'PowerSupply'				|
-		//	ASSURANCELEVEL 	= 'DesignAssuranceLevel' 	|
-		//	BOARDTYPE 		= 'Type'	       			|
-		//	ESS				= 'ESS'						|
-		//	SIDE			= 'Side'; 	
-		//
-		//enum ProcessorAttributes:
-		//	MANUFACTURER 	= 'Manufacturer' 	| 
-		//	PROCESSORTYPE	= 'ProcessorType' 
-		//;
-		// * / SIGNEDINT returns ecore::EInt:
+		//SIGNEDINT returns ecore::EInt:
 		//	"-"? INT;
 		public ParserRule getRule() { return rule; }
 
-		//"-"? INT / * OLD STUFF * / / * 
-		//DissimilarityRelation: 
-		//	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
-		//	'dissimilar based on'
-		//	dissimilarityClause=DissimilarityClause ';'
-		//;
-		//
-		//DissimilarityClause:  
-		//	DissimilarityEntry | ( '(' (=>DissimilarityDisjunction | DissimilarityConjunction) ')' ) // Der Pfeil ist wichtig!
-		//;
-		//
-		//DissimilarityDisjunction: 
-		//	dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ ;
-		//
-		//DissimilarityConjunction: 
-		//	dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ ;
-		//
-		//DissimilarityEntry: 
-		//	( 'Compartment.' compartmentAttribute= CompartmentAttributes ) 	|
-		//	( 'Box.' boxAttribute = BoxAttributes) 							|
-		//	( 'Board.' boardAttribute = BoardAttributes)					|
-		//	( 'Processor.' processorAttribute = ProcessorAttributes)
-		//;
-		//
-		//enum CompartmentAttributes :
-		//	MANUFACTURER 	= 'Manufacturer' 	| 
-		//	POWERSUPPLY	 	= 'PowerSupply' 	| 
-		//	SIDE 		 	= 'Side' 			| 
-		//	ZONE		 	= 'Zone';
-		//	
-		//enum BoxAttributes :
-		//	MANUFACTURER 	= 'Manufacturer';
-		//	
-		//enum BoardAttributes:
-		//	MANUFACTURER 	= 'Manufacturer' 			|
-		//	POWERSUPPLY 	= 'PowerSupply'				|
-		//	ASSURANCELEVEL 	= 'DesignAssuranceLevel' 	|
-		//	BOARDTYPE 		= 'Type'	       			|
-		//	ESS				= 'ESS'						|
-		//	SIDE			= 'Side'; 	
-		//
-		//enum ProcessorAttributes:
-		//	MANUFACTURER 	= 'Manufacturer' 	| 
-		//	PROCESSORTYPE	= 'ProcessorType' 
-		//;
-		// * /
+		//"-"? INT
 		public Group getGroup() { return cGroup; }
 
 		//"-"?
 		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
 
-		/// * OLD STUFF * / / * 
-		//DissimilarityRelation: 
-		//	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
-		//	'dissimilar based on'
-		//	dissimilarityClause=DissimilarityClause ';'
-		//;
-		//
-		//DissimilarityClause:  
-		//	DissimilarityEntry | ( '(' (=>DissimilarityDisjunction | DissimilarityConjunction) ')' ) // Der Pfeil ist wichtig!
-		//;
-		//
-		//DissimilarityDisjunction: 
-		//	dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ ;
-		//
-		//DissimilarityConjunction: 
-		//	dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ ;
-		//
-		//DissimilarityEntry: 
-		//	( 'Compartment.' compartmentAttribute= CompartmentAttributes ) 	|
-		//	( 'Box.' boxAttribute = BoxAttributes) 							|
-		//	( 'Board.' boardAttribute = BoardAttributes)					|
-		//	( 'Processor.' processorAttribute = ProcessorAttributes)
-		//;
-		//
-		//enum CompartmentAttributes :
-		//	MANUFACTURER 	= 'Manufacturer' 	| 
-		//	POWERSUPPLY	 	= 'PowerSupply' 	| 
-		//	SIDE 		 	= 'Side' 			| 
-		//	ZONE		 	= 'Zone';
-		//	
-		//enum BoxAttributes :
-		//	MANUFACTURER 	= 'Manufacturer';
-		//	
-		//enum BoardAttributes:
-		//	MANUFACTURER 	= 'Manufacturer' 			|
-		//	POWERSUPPLY 	= 'PowerSupply'				|
-		//	ASSURANCELEVEL 	= 'DesignAssuranceLevel' 	|
-		//	BOARDTYPE 		= 'Type'	       			|
-		//	ESS				= 'ESS'						|
-		//	SIDE			= 'Side'; 	
-		//
-		//enum ProcessorAttributes:
-		//	MANUFACTURER 	= 'Manufacturer' 	| 
-		//	PROCESSORTYPE	= 'ProcessorType' 
-		//;
-		// * / INT
+		//INT
 		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
 	
@@ -2301,6 +2239,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final AssistModelElements pAssistModel;
 	private final CompatibleIoTypeEntryElements pCompatibleIoTypeEntry;
+	private final CableWeightEntryElements pCableWeightEntry;
 	private final CompartmentElements pCompartment;
 	private final RDCElements pRDC;
 	private final ConnectorElements pConnector;
@@ -2334,6 +2273,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pAssistModel = new AssistModelElements();
 		this.pCompatibleIoTypeEntry = new CompatibleIoTypeEntryElements();
+		this.pCableWeightEntry = new CableWeightEntryElements();
 		this.pCompartment = new CompartmentElements();
 		this.pRDC = new RDCElements();
 		this.pConnector = new ConnectorElements();
@@ -2386,10 +2326,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//AssistModel:
 	//	"Global" "{" (("Name" "=" systemName=STRING ";")? & ("Compatible Interface Types" "{"
-	//	compatibleIoTypes+=CompatibleIoTypeEntry* "}")?) "}" compartments+=Compartment+ ("Interfaces" "{"
-	//	eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{" (eqInterfaceGroups+=EqInterfaceGroup |
-	//	eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")? ("Restrictions" "{"
-	//	(dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |
+	//	compatibleIoTypes+=CompatibleIoTypeEntry* "}")? & ("Cable Weights" "{" cableWeightEntries+=CableWeightEntry* "}")?)
+	//	"}" compartments+=Compartment+ ("Interfaces" "{" eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{"
+	//	(eqInterfaceGroups+=EqInterfaceGroup | eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")?
+	//	("Restrictions" "{" (dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |
 	//	validDeployments+=ValidDeployment | invalidDeployments+=InvalidDeployment)* "}")?;
 	public AssistModelElements getAssistModelAccess() {
 		return pAssistModel;
@@ -2407,6 +2347,16 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getCompatibleIoTypeEntryRule() {
 		return getCompatibleIoTypeEntryAccess().getRule();
+	}
+
+	//CableWeightEntry:
+	//	(eqInterfaceIoType=STRING | defaultEntry?="default") "=" weight=INT ";";
+	public CableWeightEntryElements getCableWeightEntryAccess() {
+		return pCableWeightEntry;
+	}
+	
+	public ParserRule getCableWeightEntryRule() {
+		return getCableWeightEntryAccess().getRule();
 	}
 
 	//Compartment:
@@ -2635,52 +2585,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getQualifiedNameAccess().getRule();
 	}
 
-	/// * OLD STUFF * / / * 
-	//DissimilarityRelation: 
-	//	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
-	//	'dissimilar based on'
-	//	dissimilarityClause=DissimilarityClause ';'
-	//;
-	//
-	//DissimilarityClause:  
-	//	DissimilarityEntry | ( '(' (=>DissimilarityDisjunction | DissimilarityConjunction) ')' ) // Der Pfeil ist wichtig!
-	//;
-	//
-	//DissimilarityDisjunction: 
-	//	dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ ;
-	//
-	//DissimilarityConjunction: 
-	//	dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ ;
-	//
-	//DissimilarityEntry: 
-	//	( 'Compartment.' compartmentAttribute= CompartmentAttributes ) 	|
-	//	( 'Box.' boxAttribute = BoxAttributes) 							|
-	//	( 'Board.' boardAttribute = BoardAttributes)					|
-	//	( 'Processor.' processorAttribute = ProcessorAttributes)
-	//;
-	//
-	//enum CompartmentAttributes :
-	//	MANUFACTURER 	= 'Manufacturer' 	| 
-	//	POWERSUPPLY	 	= 'PowerSupply' 	| 
-	//	SIDE 		 	= 'Side' 			| 
-	//	ZONE		 	= 'Zone';
-	//	
-	//enum BoxAttributes :
-	//	MANUFACTURER 	= 'Manufacturer';
-	//	
-	//enum BoardAttributes:
-	//	MANUFACTURER 	= 'Manufacturer' 			|
-	//	POWERSUPPLY 	= 'PowerSupply'				|
-	//	ASSURANCELEVEL 	= 'DesignAssuranceLevel' 	|
-	//	BOARDTYPE 		= 'Type'	       			|
-	//	ESS				= 'ESS'						|
-	//	SIDE			= 'Side'; 	
-	//
-	//enum ProcessorAttributes:
-	//	MANUFACTURER 	= 'Manufacturer' 	| 
-	//	PROCESSORTYPE	= 'ProcessorType' 
-	//;
-	// * / SIGNEDINT returns ecore::EInt:
+	//SIGNEDINT returns ecore::EInt:
 	//	"-"? INT;
 	public SIGNEDINTElements getSIGNEDINTAccess() {
 		return pSIGNEDINT;

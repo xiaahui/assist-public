@@ -18,6 +18,7 @@ import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaximizeUnusedRDCs;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.MinimizeRequiredCableLength;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.MinimizeRequiredCableWeight;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
 
@@ -49,6 +50,7 @@ public class DetailedResultsViewUiModel {
 		availableMetricsList = new CopyOnWriteArrayList<AbstractMetric>();
 		availableMetricsList.add(new RandomScore());
 		availableMetricsList.add(new MinimizeRequiredCableLength());
+		availableMetricsList.add(new MinimizeRequiredCableWeight());
 		availableMetricsList.add(new MaximizeUnusedRDCs());
 		
 		selectedMetricsList = new CopyOnWriteArrayList<AbstractMetric>();
