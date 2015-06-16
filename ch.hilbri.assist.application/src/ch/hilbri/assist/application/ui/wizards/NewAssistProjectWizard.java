@@ -30,8 +30,6 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 	private IStructuredSelection selection;
 
 	private NewJavaProjectWizardPageOne pageOne;
-//	private NewJavaProjectWizardPageTwo pageTwo;
-
 
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
@@ -49,6 +47,7 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 		pageOne = new NewJavaProjectWizardPageOne();
 		pageOne.setTitle("ASSIST Project");
 		pageOne.setDescription("Create a new project");
+
 		this.addPage(pageOne);
 	}
 
@@ -78,7 +77,7 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 
 		// However, it's not enough if we want to add Java source code to the project. We have to set the Java build path:
 		// (1) We first specify the output location of the compiler (the bin folder): 
-		IFolder binFolder = project.getFolder("Compiled-metrics");
+		IFolder binFolder = project.getFolder("Compiled-Metrics");
 		try {
 			binFolder.create(false, true, null);
 			javaProject.setOutputLocation(binFolder.getFullPath(), null);
@@ -101,7 +100,7 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 		} catch (JavaModelException e) { e.printStackTrace(); }
 		
 		// (3) We have not yet the source folder created: 
-		IFolder mappingSourceFolder = project.getFolder("Mapping");
+		IFolder mappingSourceFolder = project.getFolder("Metrics");
 		
 		try {
 			mappingSourceFolder.create(false, true, null);
@@ -122,11 +121,8 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 		} catch (JavaModelException e) { e.printStackTrace(); }
 		
 		// Create packages
-		try {
-			javaProject.getPackageFragmentRoot(mappingSourceFolder).createPackageFragment("metrics", false, null);
-		} catch (JavaModelException e) {
-			e.printStackTrace();
-		}
+		try { javaProject.getPackageFragmentRoot(mappingSourceFolder).createPackageFragment("custom", false, null);	} 
+		catch (JavaModelException e) {	e.printStackTrace(); }
 		
 		return true;
 	}

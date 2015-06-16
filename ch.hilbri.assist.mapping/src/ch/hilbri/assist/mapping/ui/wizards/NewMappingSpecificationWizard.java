@@ -80,7 +80,7 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 		// create a sample file
 		monitor.beginTask("Creating " + fileName, 2);
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		IResource resource = root.findMember(new Path(containerName + "/Mapping"));
+		IResource resource = root.findMember(new Path(containerName));
 		if (!resource.exists() || !(resource instanceof IContainer)) {
 			throwCoreException("Container \"" + containerName + "\" does not exist.");
 		}

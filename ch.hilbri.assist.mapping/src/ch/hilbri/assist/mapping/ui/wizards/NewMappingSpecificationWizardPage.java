@@ -183,7 +183,7 @@ public class NewMappingSpecificationWizardPage extends WizardPage {
 			updateStatus("File name must be valid");
 			return;
 		}
-		IResource temp = ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(getContainerName() + "/Mapping/" + fileName + ".mdsl"));
+		IResource temp = ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(getContainerName() + fileName + ".mdsl"));
 		if (temp !=null) {
 			if (temp.exists()) {
 				updateStatus("File already exists");

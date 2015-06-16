@@ -199,7 +199,7 @@ public class MetricsView {
 				IFileEditorInput input = (IFileEditorInput)currentEditor.getEditorInput() ;
 				IProject activeProject = input.getFile().getProject();
 				IPath activeProjectPath = activeProject.getLocation();
-				IPath metricsPath = activeProjectPath.append("Compiled-metrics/");
+				IPath metricsPath = activeProjectPath.append("Compiled-Metrics/");
 
 				// Triggering a build for this project
 				try { activeProject.build(IncrementalProjectBuilder.FULL_BUILD, null);	} 
@@ -207,12 +207,12 @@ public class MetricsView {
 
 				// Asking the user which metric is to be imported and preselect all entries
 				ListSelectionDialog dialog = new ListSelectionDialog(currentEditor.getSite().getShell(), 
-													metricsPath.append("metrics"), 
+													metricsPath.append("custom"), 
 													new CompiledMetricsProvider(), 
 													new LabelProvider(),
 													"Select the metrics which you want to import:");
 				dialog.setTitle("Metric selection");
-				dialog.setInitialSelections((new CompiledMetricsProvider()).getElements(metricsPath.append("metrics")));
+				dialog.setInitialSelections((new CompiledMetricsProvider()).getElements(metricsPath.append("custom")));
 				if (dialog.open() != Window.OK) return;
 				
 				// Clear old custom metrics in the currentModel
@@ -231,7 +231,7 @@ public class MetricsView {
 						String className = (String) obj;
 						
 						// Get the new class
-						Class<? extends AbstractMetricImpl> metricClass = Class.forName("metrics." + className, true, classLoader).asSubclass(AbstractMetricImpl.class);
+						Class<? extends AbstractMetricImpl> metricClass = Class.forName("custom." + className, true, classLoader).asSubclass(AbstractMetricImpl.class);
 						classLoader.close();
 
 						// Create a new instance of this metric
