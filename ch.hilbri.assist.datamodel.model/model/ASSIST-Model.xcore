@@ -229,7 +229,10 @@ class EqInterface extends EqInterfaceOrGroup {
 
 class EqInterfaceGroup extends EqInterfaceOrGroup {
 	refers EqInterface[0..*] eqInterfaces
+	refers EqInterface[0..*] withoutEqInterfaces
+	
 	contains ImplicitEqInterfaceMemberDefinition [0..*] implicitMemberDefinitions
+	contains ImplicitEqInterfaceMemberDefinition [0..*] withoutImplicitMemberDefinitions
 	
 	op String toString() { name }
 
@@ -238,6 +241,17 @@ class EqInterfaceGroup extends EqInterfaceOrGroup {
 		
 		// We have to explode all implicit group definitions
 		for (implicitDefinitionElement : this.implicitMemberDefinitions) {
+			list.addAll(implicitDefinitionElement.implicitlyDefinedEqInterfaces)
+		} 
+		
+		return (list.toSet.toList.toEList)
+	}
+	
+	op EqInterface[] getWithoutImplicitlyDefinedEqInterfaces() {
+		val list = new BasicEList<EqInterface>
+		
+		// We have to explode all implicit group definitions
+		for (implicitDefinitionElement : this.withoutImplicitMemberDefinitions) {
 			list.addAll(implicitDefinitionElement.implicitlyDefinedEqInterfaces)
 		} 
 		

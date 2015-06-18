@@ -14,12 +14,12 @@ class EqInterfaceGroupDefinitions extends AbstractModelPreprocessor {
 	
 	override execute() {
 		
-		if (model.eqInterfaceGroups.filter[it.implicitMemberDefinitions.length > 0]
+		if (model.eqInterfaceGroups.filter[!implicitMemberDefinitions.nullOrEmpty || !withoutImplicitMemberDefinitions.nullOrEmpty || !withoutEqInterfaces.nullOrEmpty]
 								   .filter[!(it instanceof EqInterfaceGroupWithCombinedDefinition)]
 								   .isNullOrEmpty
 		) return false
 		
-		for (g : model.eqInterfaceGroups.filter[it.implicitMemberDefinitions.length > 0]
+		for (g : model.eqInterfaceGroups.filter[!implicitMemberDefinitions.nullOrEmpty || !withoutImplicitMemberDefinitions.nullOrEmpty || !withoutEqInterfaces.nullOrEmpty ]
 			                			.filter[!(it instanceof EqInterfaceGroupWithCombinedDefinition)]) 
 		{
 			logger.info("    . Processing group " + g.name)
@@ -32,6 +32,10 @@ class EqInterfaceGroupDefinitions extends AbstractModelPreprocessor {
 
 			g.eqInterfaces.clear
 			g.eqInterfaces.addAll(helperList.toSet.toList)		// store only unique elements
+		
+			// Removing elements - if requested
+			g.eqInterfaces.removeAll(g.withoutEqInterfaces)			
+			g.eqInterfaces.removeAll(g.withoutImplicitlyDefinedEqInterfaces)
 		
 			// Check the interfaces - groups should not be empty
 			if (g.eqInterfaces.length > 0)
