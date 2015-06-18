@@ -2,6 +2,7 @@ package ch.hilbri.assist.mappingdsl.serializer;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
+import ch.hilbri.assist.datamodel.model.CableWeightData;
 import ch.hilbri.assist.datamodel.model.CableWeightEntry;
 import ch.hilbri.assist.datamodel.model.ColocalityRelation;
 import ch.hilbri.assist.datamodel.model.Compartment;
@@ -52,6 +53,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case ModelPackage.AVAILABLE_EQ_INTERFACE:
 				if(context == grammarAccess.getAvailableEqInterfaceRule()) {
 					sequence_AvailableEqInterface(context, (AvailableEqInterface) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.CABLE_WEIGHT_DATA:
+				if(context == grammarAccess.getCableWeightDataRule()) {
+					sequence_CableWeightData(context, (CableWeightData) semanticObject); 
 					return; 
 				}
 				else break;
@@ -166,7 +173,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (
 	 *         systemName=STRING? 
 	 *         compatibleIoTypes+=CompatibleIoTypeEntry* 
-	 *         cableWeightEntries+=CableWeightEntry* 
+	 *         cableWeightData=CableWeightData? 
 	 *         compartments+=Compartment+ 
 	 *         eqInterfaces+=EqInterface* 
 	 *         (eqInterfaceGroups+=EqInterfaceGroup | eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* 
@@ -199,6 +206,15 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getEqInterfaceTypeSTRINGTerminalRuleCall_0_0(), semanticObject.getEqInterfaceType());
 		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getCountINTTerminalRuleCall_2_0(), semanticObject.getCount());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     cableWeightEntries+=CableWeightEntry+
+	 */
+	protected void sequence_CableWeightData(EObject context, CableWeightData semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -15,8 +15,25 @@ import org.eclipse.xtext.validation.Check
 class MappingDSLValidator extends AbstractMappingDSLValidator {
 	
 	@Check
+	def checkCableWeightEntryForEveryEqIoType(AssistModel model) {
+		if (model.cableWeightData.cableWeightEntries.nullOrEmpty) 
+			return 
+		
+		else if (model.cableWeightData.cableWeightEntries.filter[isDefaultEntry].length > 0) 
+			return
+		
+		else {
+			for (ioType : model.eqInterfaces.map[ioType].toSet.toList.sort)
+				if (model.cableWeightData.cableWeightEntries.filter[eqInterfaceIoType.equals(ioType)].isNullOrEmpty)
+					warning("There is no cable weight specification for io type '" + ioType + "' and no default value.",
+						model, ModelPackage.Literals::ASSIST_MODEL__CABLE_WEIGHT_DATA
+					)
+		}
+	}
+	
+	@Check
 	def checkCableWeightIoTypes(AssistModel model) {
-		for (entry : model.cableWeightEntries) {
+		for (entry : model.cableWeightData.cableWeightEntries) {
 			val eqInterfaceType = entry.eqInterfaceIoType
 			
 			if (entry.isDefaultEntry == false && model.eqInterfaces.filter[ioType.equals(eqInterfaceType)].isEmpty)
@@ -28,8 +45,8 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 	
 	@Check 
 	def checkCableWeightOnlyOneDefault(AssistModel model) {
-		if (model.cableWeightEntries.filter[isDefaultEntry].length > 1)
-			for (entry : model.cableWeightEntries.filter[isDefaultEntry == true])
+		if (model.cableWeightData.cableWeightEntries.filter[isDefaultEntry].length > 1)
+			for (entry : model.cableWeightData.cableWeightEntries.filter[isDefaultEntry == true])
 				error("There are multiple default entries for the cable weight in this specification.", 
 				entry, 
 				ModelPackage.Literals::CABLE_WEIGHT_ENTRY__EQ_INTERFACE_IO_TYPE
@@ -39,9 +56,9 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 	
 	@Check
 	def checkCableWeightDoubleEntries(AssistModel model) {
-		for (entry : model.cableWeightEntries) {
+		for (entry : model.cableWeightData.cableWeightEntries) {
 			if (!entry.isDefaultEntry) {
-				if (model.cableWeightEntries.filter[eqInterfaceIoType.equals(entry.eqInterfaceIoType)].length > 1) 
+				if (model.cableWeightData.cableWeightEntries.filter[eqInterfaceIoType.equals(entry.eqInterfaceIoType)].length > 1) 
 				{
 					error("The weight for the io type '" + entry.eqInterfaceIoType + "' is defined multiple times",
 							entry, 

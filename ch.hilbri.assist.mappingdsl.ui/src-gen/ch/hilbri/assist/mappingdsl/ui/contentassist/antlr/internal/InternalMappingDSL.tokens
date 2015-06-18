@@ -1,10 +1,10 @@
-','=56
+','=55
 '-'=73
-'->'=55
+'->'=54
 '.'=72
 ';'=49
 '='=48
-'Cable Weights'=51
+'Cable Weights'=56
 'Compartment'=27
 'Compartment.Manufacturer'=31
 'Compartment.Name'=30
@@ -20,8 +20,8 @@
 'Group'=62
 'GrpInfo'=18
 'Interface'=66
-'InterfaceGroups'=53
-'Interfaces'=52
+'InterfaceGroups'=52
+'Interfaces'=51
 'Invalid for'=70
 'LineName'=16
 'Manufacturer'=57
@@ -42,7 +42,7 @@
 'ResourceX'=24
 'ResourceY'=25
 'ResourceZ'=26
-'Restrictions'=54
+'Restrictions'=53
 'Route'=19
 'Side'=59
 'SubAta'=15

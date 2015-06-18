@@ -118,6 +118,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CableWeightData} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CableWeightDataItemProvider cableWeightDataItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.CableWeightData}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCableWeightDataAdapter() {
+		if (cableWeightDataItemProvider == null) {
+			cableWeightDataItemProvider = new CableWeightDataItemProvider(this);
+		}
+
+		return cableWeightDataItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CableWeightEntry} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -678,6 +701,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	public void dispose() {
 		if (assistModelItemProvider != null) assistModelItemProvider.dispose();
 		if (compatibleIoTypeEntryItemProvider != null) compatibleIoTypeEntryItemProvider.dispose();
+		if (cableWeightDataItemProvider != null) cableWeightDataItemProvider.dispose();
 		if (cableWeightEntryItemProvider != null) cableWeightEntryItemProvider.dispose();
 		if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();
 		if (compartmentItemProvider != null) compartmentItemProvider.dispose();

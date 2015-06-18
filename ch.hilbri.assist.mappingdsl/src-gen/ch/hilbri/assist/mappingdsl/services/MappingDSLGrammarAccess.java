@@ -36,12 +36,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCompatibleIoTypesAssignment_2_1_2 = (Assignment)cGroup_2_1.eContents().get(2);
 		private final RuleCall cCompatibleIoTypesCompatibleIoTypeEntryParserRuleCall_2_1_2_0 = (RuleCall)cCompatibleIoTypesAssignment_2_1_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_2_1_3 = (Keyword)cGroup_2_1.eContents().get(3);
-		private final Group cGroup_2_2 = (Group)cUnorderedGroup_2.eContents().get(2);
-		private final Keyword cCableWeightsKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2_2_1 = (Keyword)cGroup_2_2.eContents().get(1);
-		private final Assignment cCableWeightEntriesAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
-		private final RuleCall cCableWeightEntriesCableWeightEntryParserRuleCall_2_2_2_0 = (RuleCall)cCableWeightEntriesAssignment_2_2_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2_2_3 = (Keyword)cGroup_2_2.eContents().get(3);
+		private final Assignment cCableWeightDataAssignment_2_2 = (Assignment)cUnorderedGroup_2.eContents().get(2);
+		private final RuleCall cCableWeightDataCableWeightDataParserRuleCall_2_2_0 = (RuleCall)cCableWeightDataAssignment_2_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cCompartmentsAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cCompartmentsCompartmentParserRuleCall_4_0 = (RuleCall)cCompartmentsAssignment_4.eContents().get(0);
@@ -76,18 +72,18 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//AssistModel:
 		//	"Global" "{" (("Name" "=" systemName=STRING ";")? & ("Compatible Interface Types" "{"
-		//	compatibleIoTypes+=CompatibleIoTypeEntry* "}")? & ("Cable Weights" "{" cableWeightEntries+=CableWeightEntry* "}")?)
-		//	"}" compartments+=Compartment+ ("Interfaces" "{" eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{"
-		//	(eqInterfaceGroups+=EqInterfaceGroup | eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")?
-		//	("Restrictions" "{" (dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |
+		//	compatibleIoTypes+=CompatibleIoTypeEntry* "}")? & cableWeightData=CableWeightData?) "}" compartments+=Compartment+
+		//	("Interfaces" "{" eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{" (eqInterfaceGroups+=EqInterfaceGroup |
+		//	eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")? ("Restrictions" "{"
+		//	(dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |
 		//	validDeployments+=ValidDeployment | invalidDeployments+=InvalidDeployment)* "}")?;
 		public ParserRule getRule() { return rule; }
 
 		//"Global" "{" (("Name" "=" systemName=STRING ";")? & ("Compatible Interface Types" "{"
-		//compatibleIoTypes+=CompatibleIoTypeEntry* "}")? & ("Cable Weights" "{" cableWeightEntries+=CableWeightEntry* "}")?)
-		//"}" compartments+=Compartment+ ("Interfaces" "{" eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{"
-		//(eqInterfaceGroups+=EqInterfaceGroup | eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")?
-		//("Restrictions" "{" (dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |
+		//compatibleIoTypes+=CompatibleIoTypeEntry* "}")? & cableWeightData=CableWeightData?) "}" compartments+=Compartment+
+		//("Interfaces" "{" eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{" (eqInterfaceGroups+=EqInterfaceGroup |
+		//eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")? ("Restrictions" "{"
+		//(dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |
 		//validDeployments+=ValidDeployment | invalidDeployments+=InvalidDeployment)* "}")?
 		public Group getGroup() { return cGroup; }
 
@@ -98,7 +94,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
 		//("Name" "=" systemName=STRING ";")? & ("Compatible Interface Types" "{" compatibleIoTypes+=CompatibleIoTypeEntry* "}")?
-		//& ("Cable Weights" "{" cableWeightEntries+=CableWeightEntry* "}")?
+		//& cableWeightData=CableWeightData?
 		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
 
 		//("Name" "=" systemName=STRING ";")?
@@ -137,23 +133,11 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_2_1_3() { return cRightCurlyBracketKeyword_2_1_3; }
 
-		//("Cable Weights" "{" cableWeightEntries+=CableWeightEntry* "}")?
-		public Group getGroup_2_2() { return cGroup_2_2; }
+		//cableWeightData=CableWeightData?
+		public Assignment getCableWeightDataAssignment_2_2() { return cCableWeightDataAssignment_2_2; }
 
-		//"Cable Weights"
-		public Keyword getCableWeightsKeyword_2_2_0() { return cCableWeightsKeyword_2_2_0; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2_2_1() { return cLeftCurlyBracketKeyword_2_2_1; }
-
-		//cableWeightEntries+=CableWeightEntry*
-		public Assignment getCableWeightEntriesAssignment_2_2_2() { return cCableWeightEntriesAssignment_2_2_2; }
-
-		//CableWeightEntry
-		public RuleCall getCableWeightEntriesCableWeightEntryParserRuleCall_2_2_2_0() { return cCableWeightEntriesCableWeightEntryParserRuleCall_2_2_2_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_2_2_3() { return cRightCurlyBracketKeyword_2_2_3; }
+		//CableWeightData
+		public RuleCall getCableWeightDataCableWeightDataParserRuleCall_2_2_0() { return cCableWeightDataCableWeightDataParserRuleCall_2_2_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
@@ -302,6 +286,38 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//";"
 		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+	}
+
+	public class CableWeightDataElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CableWeightData");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCableWeightsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cCableWeightEntriesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cCableWeightEntriesCableWeightEntryParserRuleCall_2_0 = (RuleCall)cCableWeightEntriesAssignment_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//CableWeightData:
+		//	"Cable Weights" "{" cableWeightEntries+=CableWeightEntry+ "}";
+		public ParserRule getRule() { return rule; }
+
+		//"Cable Weights" "{" cableWeightEntries+=CableWeightEntry+ "}"
+		public Group getGroup() { return cGroup; }
+
+		//"Cable Weights"
+		public Keyword getCableWeightsKeyword_0() { return cCableWeightsKeyword_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
+		//cableWeightEntries+=CableWeightEntry+
+		public Assignment getCableWeightEntriesAssignment_2() { return cCableWeightEntriesAssignment_2; }
+
+		//CableWeightEntry
+		public RuleCall getCableWeightEntriesCableWeightEntryParserRuleCall_2_0() { return cCableWeightEntriesCableWeightEntryParserRuleCall_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 
 	public class CableWeightEntryElements extends AbstractParserRuleElementFinder {
@@ -2239,6 +2255,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final AssistModelElements pAssistModel;
 	private final CompatibleIoTypeEntryElements pCompatibleIoTypeEntry;
+	private final CableWeightDataElements pCableWeightData;
 	private final CableWeightEntryElements pCableWeightEntry;
 	private final CompartmentElements pCompartment;
 	private final RDCElements pRDC;
@@ -2273,6 +2290,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pAssistModel = new AssistModelElements();
 		this.pCompatibleIoTypeEntry = new CompatibleIoTypeEntryElements();
+		this.pCableWeightData = new CableWeightDataElements();
 		this.pCableWeightEntry = new CableWeightEntryElements();
 		this.pCompartment = new CompartmentElements();
 		this.pRDC = new RDCElements();
@@ -2326,10 +2344,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//AssistModel:
 	//	"Global" "{" (("Name" "=" systemName=STRING ";")? & ("Compatible Interface Types" "{"
-	//	compatibleIoTypes+=CompatibleIoTypeEntry* "}")? & ("Cable Weights" "{" cableWeightEntries+=CableWeightEntry* "}")?)
-	//	"}" compartments+=Compartment+ ("Interfaces" "{" eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{"
-	//	(eqInterfaceGroups+=EqInterfaceGroup | eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")?
-	//	("Restrictions" "{" (dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |
+	//	compatibleIoTypes+=CompatibleIoTypeEntry* "}")? & cableWeightData=CableWeightData?) "}" compartments+=Compartment+
+	//	("Interfaces" "{" eqInterfaces+=EqInterface+ "}")? ("InterfaceGroups" "{" (eqInterfaceGroups+=EqInterfaceGroup |
+	//	eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* "}")? ("Restrictions" "{"
+	//	(dislocalityRelations+=DislocalityRelation | colocalityRelations+=ColocalityRelation |
 	//	validDeployments+=ValidDeployment | invalidDeployments+=InvalidDeployment)* "}")?;
 	public AssistModelElements getAssistModelAccess() {
 		return pAssistModel;
@@ -2347,6 +2365,16 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getCompatibleIoTypeEntryRule() {
 		return getCompatibleIoTypeEntryAccess().getRule();
+	}
+
+	//CableWeightData:
+	//	"Cable Weights" "{" cableWeightEntries+=CableWeightEntry+ "}";
+	public CableWeightDataElements getCableWeightDataAccess() {
+		return pCableWeightData;
+	}
+	
+	public ParserRule getCableWeightDataRule() {
+		return getCableWeightDataAccess().getRule();
 	}
 
 	//CableWeightEntry:

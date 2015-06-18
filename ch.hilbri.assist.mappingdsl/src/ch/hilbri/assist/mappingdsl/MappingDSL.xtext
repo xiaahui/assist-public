@@ -8,7 +8,7 @@ AssistModel:
 		(
 			('Name' '=' systemName=STRING ';'														)?		&
 			( 'Compatible Interface Types' 	'{'	(compatibleIoTypes+=CompatibleIoTypeEntry)* '}'		)?		&
-			( 'Cable Weights' 				'{'	(cableWeightEntries+=CableWeightEntry)*  	'}'		)?
+			( cableWeightData=CableWeightData														)?
 		)  
 	'}'
 
@@ -38,6 +38,10 @@ AssistModel:
 
 CompatibleIoTypeEntry: 
 	eqInterfaceIoType=STRING '->' pinInterfaceIoTypes+=STRING (',' pinInterfaceIoTypes+=STRING)* ';'
+;
+
+CableWeightData:
+	'Cable Weights' 				'{'	(cableWeightEntries+=CableWeightEntry)+  	'}'		
 ;
 
 CableWeightEntry:

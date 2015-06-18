@@ -45,6 +45,7 @@ import org.eclipse.wb.swt.ResourceManager;
 import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.MinimizeRequiredCableWeight;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 
@@ -268,6 +269,22 @@ public class MetricsView {
 				if (currentModel != null) {
 
 					if ((currentModel.getResults() != null) && (currentModel.getResults().size() > 0)) {
+						
+						/* Check if the cable weight metric has some input to work on */
+						if ((currentModel.getResults().get(0).getModel().getCableWeightData() == null) || 
+								(currentModel.getResults().get(0).getModel().getCableWeightData().getCableWeightEntries().isEmpty())){
+							for (AbstractMetric m : currentModel.getSelectedMetricsList()) {
+								if (m instanceof MinimizeRequiredCableWeight) {
+									(new MessageDialog(null, "No Cable Weight Data", null, 
+											"The metric '"+ m.getName() + "' was selected, but there is no cable weight data in the specification.", 
+											MessageDialog.ERROR, 
+											new String[] { "OK" }, 0)
+									).open();
+									return;
+								}
+							}
+						}
+						
 						
 						ProgressMonitorDialog progressDialog = new ProgressMonitorDialog(currentEditor.getSite().getShell());
 						try {
