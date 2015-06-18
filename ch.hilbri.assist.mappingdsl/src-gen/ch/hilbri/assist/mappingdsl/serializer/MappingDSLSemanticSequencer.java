@@ -430,7 +430,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (rdcLocation=STRING emhZone1=STRING protectionLevel+=ProtectionLevelType+)
+	 *     (rdcLocation=STRING emhZone1=STRING protectionLevel+=ProtectionLevelType protectionLevel+=ProtectionLevelType*)
 	 */
 	protected void sequence_ProtectionLevelEntry(EObject context, ProtectionLevelEntry semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -44,7 +44,7 @@ ProtectionLevelData:
 ;
 
 ProtectionLevelEntry: 
-	'RDC.Location' '=' rdcLocation=STRING 'And' 'Equipment.EmhZone1' '=' emhZone1=STRING '->' (protectionLevel+=ProtectionLevelType)+ ';'
+	'RDC.Location' '=' rdcLocation=STRING 'And' 'Equipment.EmhZone1' '=' emhZone1=STRING '->' protectionLevel+=ProtectionLevelType (',' protectionLevel+=ProtectionLevelType)* ';'
 ;
 
 
@@ -97,7 +97,7 @@ Connector:
 ;
 
 AvailableEqInterface:
-	eqInterfaceType=STRING '=' count=INT ('with' 'protection' 'level' protectionLevel=ProtectionLevelType)? ';'
+	eqInterfaceType=STRING '=' count=INT ('with protection level' protectionLevel=ProtectionLevelType)? ';'
 ;
 
 enum ProtectionLevelType:

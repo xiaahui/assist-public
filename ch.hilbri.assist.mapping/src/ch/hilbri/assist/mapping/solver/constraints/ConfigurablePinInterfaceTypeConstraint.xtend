@@ -1,6 +1,9 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.EqInterface
+import ch.hilbri.assist.datamodel.model.ProtectionLevelType
+import ch.hilbri.assist.datamodel.model.RDC
 import ch.hilbri.assist.mapping.solver.exceptions.InterfaceTypeCouldNotBeMapped
 import ch.hilbri.assist.mapping.solver.exceptions.InterfaceTypeDemandExceedsSupply
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
@@ -32,62 +35,129 @@ class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 	override generate() {
 		
 		for (types : allConnectedSetsFromGraph) {
-				val interfaceSupplyPerConnector = model.allConnectors.map[
-													if (!availableEqInterfaces.filter[it.eqInterfaceType.multipleEquals(types)].isNullOrEmpty)
-														 availableEqInterfaces.filter[it.eqInterfaceType.multipleEquals(types)].map[count].reduce[p1, p2|p1 + p2]
-													else 
-														0]
+				
+				// How many pins of a compatible io type does each connector offer? (no protection level yet)	
+				val compatiblePinSupplyPerConnector = model.allConnectors.map[
+														if (!availableEqInterfaces.filter[eqInterfaceType.multipleEquals(types)].isNullOrEmpty)
+															 availableEqInterfaces.filter[eqInterfaceType.multipleEquals(types)].map[count].reduce[p1, p2|p1 + p2]
+														else 
+															0]
 														
 				// A list of all interfaces of the current type														
-				val interfacesOfType 			= model.eqInterfaces.filter[ioType.multipleEquals(types)]
+				val interfacesOfTypeIterator 	= model.eqInterfaces.filter[ioType.multipleEquals(types)]
 			
 				// 	How many interfaces of the current type are requested?
-				val totalDemand 				= interfacesOfType.length
+				val totalDemand 				= interfacesOfTypeIterator.length
 			
 				// How many interfaces of the current type are available?
-				val totalSupply 				= interfaceSupplyPerConnector.reduce[p1, p2|p1+p2]			
+				val totalSupply 				= compatiblePinSupplyPerConnector.reduce[p1, p2|p1+p2]			
 			
 				// Check that the supply is sufficient for the demand
 				if (totalDemand > totalSupply)
 					throw new InterfaceTypeDemandExceedsSupply(this, types.toList, totalDemand, totalSupply)
 					
-					
-				/*  We need no constraints if the "smallest" connector (i.e. every connector!) 
-			    can handle all (this includes the "demand==0" case) */
-				if (totalDemand > interfaceSupplyPerConnector.min) {
 
-					// A list of all interface indices with the current type
-					val int[] indexListOfAffectedInterfaces = interfacesOfType.map[model.eqInterfaces.indexOf(it)]
+				// A list of all interface indices with the current type
+				val int[] indexListOfAffectedInterfaces = interfacesOfTypeIterator.map[model.eqInterfaces.indexOf(it)]
 				
-					// building allowed tuples 
-					val tuples = new Tuples(true) // true = valid tuples
-					var int pinIdx = 0
-					for (int connIdx : 0 ..< model.allConnectors.length) {
-						for (int pin : 0 ..< interfaceSupplyPerConnector.get(connIdx)) {
-							tuples.add(connIdx, pinIdx)
-							pinIdx++						
-						}
+				// building allowed tuples 
+				val tuples = new Tuples(true) // true = valid tuples
+				var int pinIdx = 0
+				for (int connIdx : 0 ..< model.allConnectors.length) {
+					for (int pin : 0 ..< compatiblePinSupplyPerConnector.get(connIdx)) {
+						tuples.add(connIdx, pinIdx)
+						pinIdx++						
 					}
+				}
 			
-					val connectorLocationVars = indexListOfAffectedInterfaces.map[solverVariables.getLocationVariables(0).get(it)]
-					val pinLocationVars = new ArrayList<IntVar>
-				
-					// 	building table constraints reflecting the location hierarchy		
-					for (locVar : connectorLocationVars) {
-						val pinVar = VF.enumerated("Pin-"+locVar.name, 0, totalSupply-1, solver) // Pin-variable which is like a connector variables ranging over all pins of this type
-						solver.post(ICF.table(locVar, pinVar, tuples, ""))
-						pinLocationVars.add(pinVar)
+				val connectorLocationVars = indexListOfAffectedInterfaces.map[solverVariables.getLocationVariables(0).get(it)]
+				val pinLocationVars = new ArrayList<IntVar>
+			
+				// 	building table constraints reflecting the location hierarchy		
+				for (locVar : connectorLocationVars) {
+					val pinVar = VF.enumerated("Pin-"+locVar.name, 0, totalSupply-1, solver) // Pin-variable which is like a connector variables ranging over all pins of this type
+					solver.post(ICF.table(locVar, pinVar, tuples, ""))
+					pinLocationVars.add(pinVar)
+					
+					// until now, every compatible eqInterface can be placed on any compatible pin
+						
+					// Now we have to restrict pin variable in order to implement rules for the protection level
+					val validPinIndizes = getValidPinIndizes(solverVariables.getInterfaceForLocationVariable(locVar), types)
+					if (validPinIndizes != null) {
+						solver.post(ICF.member(pinVar, validPinIndizes))
 					}
+				}
 	
-					solver.post(ICF.alldifferent(pinLocationVars, "AC")) // Pins must not share a single type offered --> this realizes the sum constraint for each connector
+				solver.post(ICF.alldifferent(pinLocationVars, "AC")) // Pins must not share a single type offered --> this realizes the sum constraint for each connector
 				
-					try { solver.propagate } 
-					catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, types.toList) }
-			}
+				try { solver.propagate } 
+				catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, types.toList) }
 		}
 		
 		true
 	}
+	
+	private def List<Integer> getValidPinIndizes(EqInterface iface, Set<String> types) {
+		
+		val validPins = model.allConnectors
+								// Retrieve all connectors having at least one type compatible pin
+								.filter[!availableEqInterfaces.filter[eqInterfaceType.multipleEquals(types)].isNullOrEmpty]
+										
+								// Expand all availableEqInterfaces to get a list of all pins
+								.map[ con |
+											con.availableEqInterfaces.filter[eqInterfaceType.multipleEquals(types)]
+																	 .map[ availEqIface |
+																		 	newIntArrayOfSize(availEqIface.count)
+																		 		.map[new Pair<RDC, ProtectionLevelType>(con.rdc, availEqIface.protectionLevel)]
+																		 ]
+																	 .flatten
+									]
+												
+								// for each type compatible pin, we should now have a list of pairs comprising
+								// of its rdc and protection level [<rdc1, level>, <rdc1, level>, ...] 
+								.flatten
+												
+								// No we get the index [<0, <rdc1, level>>, <1, <rdc1, level>>, ...]
+								.indexed		
+
+								// Now we filter for allowed pins
+								.filter[filterPinAccordingToProtectionLevel(iface, value.key, value.value)]
+		
+								// we just want the indizes
+								.map[key]
+								
+								// as a list
+								.toList
+
+		return validPins
+	}
+	
+	private def boolean filterPinAccordingToProtectionLevel(EqInterface iface, RDC rdc, ProtectionLevelType pinProtectionLevel) {
+
+		// no additional pin restrictions?
+		if (model.protectionLevelData == null) 
+			return true 
+		
+		val protLevelRequirements = model.protectionLevelData.protectionLevelEntries.filter[emhZone1.equals(iface.emhZone1) && 
+										      		  										rdcLocation.equals(rdc.location)]
+		
+		// does this mapping require special treatment?
+		if (protLevelRequirements.nullOrEmpty)
+			return true 
+		
+		// we do need to look at the requirements and check the compatibility
+		// of the protection level
+		else {
+			for (req : protLevelRequirements)
+				for (level : req.protectionLevel) {
+					if (level == pinProtectionLevel) return true
+				}			
+		}
+		
+		return false
+		 
+	}
+	
 	
 	private def boolean multipleEquals(String value, Set<String> types) {
 		for (type : types)
@@ -128,4 +198,6 @@ class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 			}
 		}
 	}
+	
+	
 }

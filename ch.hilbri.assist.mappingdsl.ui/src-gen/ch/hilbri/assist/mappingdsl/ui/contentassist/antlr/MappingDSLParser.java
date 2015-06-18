@@ -60,6 +60,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAssistModelAccess().getGroup_7(), "rule__AssistModel__Group_7__0");
 					put(grammarAccess.getProtectionLevelDataAccess().getGroup(), "rule__ProtectionLevelData__Group__0");
 					put(grammarAccess.getProtectionLevelEntryAccess().getGroup(), "rule__ProtectionLevelEntry__Group__0");
+					put(grammarAccess.getProtectionLevelEntryAccess().getGroup_9(), "rule__ProtectionLevelEntry__Group_9__0");
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getGroup(), "rule__CompatibleIoTypeEntry__Group__0");
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getGroup_3(), "rule__CompatibleIoTypeEntry__Group_3__0");
 					put(grammarAccess.getCableWeightDataAccess().getGroup(), "rule__CableWeightData__Group__0");
@@ -135,6 +136,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProtectionLevelEntryAccess().getRdcLocationAssignment_2(), "rule__ProtectionLevelEntry__RdcLocationAssignment_2");
 					put(grammarAccess.getProtectionLevelEntryAccess().getEmhZone1Assignment_6(), "rule__ProtectionLevelEntry__EmhZone1Assignment_6");
 					put(grammarAccess.getProtectionLevelEntryAccess().getProtectionLevelAssignment_8(), "rule__ProtectionLevelEntry__ProtectionLevelAssignment_8");
+					put(grammarAccess.getProtectionLevelEntryAccess().getProtectionLevelAssignment_9_1(), "rule__ProtectionLevelEntry__ProtectionLevelAssignment_9_1");
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getEqInterfaceIoTypeAssignment_0(), "rule__CompatibleIoTypeEntry__EqInterfaceIoTypeAssignment_0");
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getPinInterfaceIoTypesAssignment_2(), "rule__CompatibleIoTypeEntry__PinInterfaceIoTypesAssignment_2");
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getPinInterfaceIoTypesAssignment_3_1(), "rule__CompatibleIoTypeEntry__PinInterfaceIoTypesAssignment_3_1");
@@ -162,7 +164,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConnectorAccess().getAvailableEqInterfacesAssignment_3(), "rule__Connector__AvailableEqInterfacesAssignment_3");
 					put(grammarAccess.getAvailableEqInterfaceAccess().getEqInterfaceTypeAssignment_0(), "rule__AvailableEqInterface__EqInterfaceTypeAssignment_0");
 					put(grammarAccess.getAvailableEqInterfaceAccess().getCountAssignment_2(), "rule__AvailableEqInterface__CountAssignment_2");
-					put(grammarAccess.getAvailableEqInterfaceAccess().getProtectionLevelAssignment_3_3(), "rule__AvailableEqInterface__ProtectionLevelAssignment_3_3");
+					put(grammarAccess.getAvailableEqInterfaceAccess().getProtectionLevelAssignment_3_1(), "rule__AvailableEqInterface__ProtectionLevelAssignment_3_1");
 					put(grammarAccess.getEqInterfaceGroupAccess().getNameAssignment_1(), "rule__EqInterfaceGroup__NameAssignment_1");
 					put(grammarAccess.getEqInterfaceGroupAccess().getEqInterfacesAssignment_3_0(), "rule__EqInterfaceGroup__EqInterfacesAssignment_3_0");
 					put(grammarAccess.getEqInterfaceGroupAccess().getImplicitMemberDefinitionsAssignment_3_1(), "rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1");

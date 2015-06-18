@@ -584,9 +584,31 @@ ruleProtectionLevelEntry returns [EObject current=null]
 	    }
 
 )
-)+	otherlv_9=';' 
+)(	otherlv_9=',' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getProtectionLevelEntryAccess().getSemicolonKeyword_9());
+    	newLeafNode(otherlv_9, grammarAccess.getProtectionLevelEntryAccess().getCommaKeyword_9_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getProtectionLevelEntryAccess().getProtectionLevelProtectionLevelTypeEnumRuleCall_9_1_0()); 
+	    }
+		lv_protectionLevel_10_0=ruleProtectionLevelType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getProtectionLevelEntryRule());
+	        }
+       		add(
+       			$current, 
+       			"protectionLevel",
+        		lv_protectionLevel_10_0, 
+        		"ProtectionLevelType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*	otherlv_11=';' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getProtectionLevelEntryAccess().getSemicolonKeyword_10());
     }
 )
 ;
@@ -1637,39 +1659,31 @@ ruleAvailableEqInterface returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_3='with' 
+)(	otherlv_3='with protection level' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getAvailableEqInterfaceAccess().getWithKeyword_3_0());
-    }
-	otherlv_4='protection' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getAvailableEqInterfaceAccess().getProtectionKeyword_3_1());
-    }
-	otherlv_5='level' 
-    {
-    	newLeafNode(otherlv_5, grammarAccess.getAvailableEqInterfaceAccess().getLevelKeyword_3_2());
+    	newLeafNode(otherlv_3, grammarAccess.getAvailableEqInterfaceAccess().getWithProtectionLevelKeyword_3_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAvailableEqInterfaceAccess().getProtectionLevelProtectionLevelTypeEnumRuleCall_3_3_0()); 
+	        newCompositeNode(grammarAccess.getAvailableEqInterfaceAccess().getProtectionLevelProtectionLevelTypeEnumRuleCall_3_1_0()); 
 	    }
-		lv_protectionLevel_6_0=ruleProtectionLevelType		{
+		lv_protectionLevel_4_0=ruleProtectionLevelType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAvailableEqInterfaceRule());
 	        }
        		set(
        			$current, 
        			"protectionLevel",
-        		lv_protectionLevel_6_0, 
+        		lv_protectionLevel_4_0, 
         		"ProtectionLevelType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?	otherlv_7=';' 
+))?	otherlv_5=';' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getAvailableEqInterfaceAccess().getSemicolonKeyword_4());
+    	newLeafNode(otherlv_5, grammarAccess.getAvailableEqInterfaceAccess().getSemicolonKeyword_4());
     }
 )
 ;

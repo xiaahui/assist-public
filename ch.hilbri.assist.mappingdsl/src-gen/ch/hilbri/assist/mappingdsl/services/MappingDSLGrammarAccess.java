@@ -293,15 +293,19 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cProtectionLevelAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cProtectionLevelProtectionLevelTypeEnumRuleCall_8_0 = (RuleCall)cProtectionLevelAssignment_8.eContents().get(0);
-		private final Keyword cSemicolonKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cCommaKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cProtectionLevelAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cProtectionLevelProtectionLevelTypeEnumRuleCall_9_1_0 = (RuleCall)cProtectionLevelAssignment_9_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//ProtectionLevelEntry:
 		//	"RDC.Location" "=" rdcLocation=STRING "And" "Equipment.EmhZone1" "=" emhZone1=STRING "->"
-		//	protectionLevel+=ProtectionLevelType+ ";";
+		//	protectionLevel+=ProtectionLevelType ("," protectionLevel+=ProtectionLevelType)* ";";
 		public ParserRule getRule() { return rule; }
 
 		//"RDC.Location" "=" rdcLocation=STRING "And" "Equipment.EmhZone1" "=" emhZone1=STRING "->"
-		//protectionLevel+=ProtectionLevelType+ ";"
+		//protectionLevel+=ProtectionLevelType ("," protectionLevel+=ProtectionLevelType)* ";"
 		public Group getGroup() { return cGroup; }
 
 		//"RDC.Location"
@@ -334,14 +338,26 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"->"
 		public Keyword getHyphenMinusGreaterThanSignKeyword_7() { return cHyphenMinusGreaterThanSignKeyword_7; }
 
-		//protectionLevel+=ProtectionLevelType+
+		//protectionLevel+=ProtectionLevelType
 		public Assignment getProtectionLevelAssignment_8() { return cProtectionLevelAssignment_8; }
 
 		//ProtectionLevelType
 		public RuleCall getProtectionLevelProtectionLevelTypeEnumRuleCall_8_0() { return cProtectionLevelProtectionLevelTypeEnumRuleCall_8_0; }
 
+		//("," protectionLevel+=ProtectionLevelType)*
+		public Group getGroup_9() { return cGroup_9; }
+
+		//","
+		public Keyword getCommaKeyword_9_0() { return cCommaKeyword_9_0; }
+
+		//protectionLevel+=ProtectionLevelType
+		public Assignment getProtectionLevelAssignment_9_1() { return cProtectionLevelAssignment_9_1; }
+
+		//ProtectionLevelType
+		public RuleCall getProtectionLevelProtectionLevelTypeEnumRuleCall_9_1_0() { return cProtectionLevelProtectionLevelTypeEnumRuleCall_9_1_0; }
+
 		//";"
-		public Keyword getSemicolonKeyword_9() { return cSemicolonKeyword_9; }
+		public Keyword getSemicolonKeyword_10() { return cSemicolonKeyword_10; }
 	}
 
 	public class CompatibleIoTypeEntryElements extends AbstractParserRuleElementFinder {
@@ -913,18 +929,16 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCountAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cCountINTTerminalRuleCall_2_0 = (RuleCall)cCountAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cWithKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cProtectionKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Keyword cLevelKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		private final Assignment cProtectionLevelAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
-		private final RuleCall cProtectionLevelProtectionLevelTypeEnumRuleCall_3_3_0 = (RuleCall)cProtectionLevelAssignment_3_3.eContents().get(0);
+		private final Keyword cWithProtectionLevelKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cProtectionLevelAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cProtectionLevelProtectionLevelTypeEnumRuleCall_3_1_0 = (RuleCall)cProtectionLevelAssignment_3_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//AvailableEqInterface:
-		//	eqInterfaceType=STRING "=" count=INT ("with" "protection" "level" protectionLevel=ProtectionLevelType)? ";";
+		//	eqInterfaceType=STRING "=" count=INT ("with protection level" protectionLevel=ProtectionLevelType)? ";";
 		public ParserRule getRule() { return rule; }
 
-		//eqInterfaceType=STRING "=" count=INT ("with" "protection" "level" protectionLevel=ProtectionLevelType)? ";"
+		//eqInterfaceType=STRING "=" count=INT ("with protection level" protectionLevel=ProtectionLevelType)? ";"
 		public Group getGroup() { return cGroup; }
 
 		//eqInterfaceType=STRING
@@ -942,23 +956,17 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getCountINTTerminalRuleCall_2_0() { return cCountINTTerminalRuleCall_2_0; }
 
-		//("with" "protection" "level" protectionLevel=ProtectionLevelType)?
+		//("with protection level" protectionLevel=ProtectionLevelType)?
 		public Group getGroup_3() { return cGroup_3; }
 
-		//"with"
-		public Keyword getWithKeyword_3_0() { return cWithKeyword_3_0; }
-
-		//"protection"
-		public Keyword getProtectionKeyword_3_1() { return cProtectionKeyword_3_1; }
-
-		//"level"
-		public Keyword getLevelKeyword_3_2() { return cLevelKeyword_3_2; }
+		//"with protection level"
+		public Keyword getWithProtectionLevelKeyword_3_0() { return cWithProtectionLevelKeyword_3_0; }
 
 		//protectionLevel=ProtectionLevelType
-		public Assignment getProtectionLevelAssignment_3_3() { return cProtectionLevelAssignment_3_3; }
+		public Assignment getProtectionLevelAssignment_3_1() { return cProtectionLevelAssignment_3_1; }
 
 		//ProtectionLevelType
-		public RuleCall getProtectionLevelProtectionLevelTypeEnumRuleCall_3_3_0() { return cProtectionLevelProtectionLevelTypeEnumRuleCall_3_3_0; }
+		public RuleCall getProtectionLevelProtectionLevelTypeEnumRuleCall_3_1_0() { return cProtectionLevelProtectionLevelTypeEnumRuleCall_3_1_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
@@ -2618,7 +2626,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ProtectionLevelEntry:
 	//	"RDC.Location" "=" rdcLocation=STRING "And" "Equipment.EmhZone1" "=" emhZone1=STRING "->"
-	//	protectionLevel+=ProtectionLevelType+ ";";
+	//	protectionLevel+=ProtectionLevelType ("," protectionLevel+=ProtectionLevelType)* ";";
 	public ProtectionLevelEntryElements getProtectionLevelEntryAccess() {
 		return pProtectionLevelEntry;
 	}
@@ -2692,7 +2700,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AvailableEqInterface:
-	//	eqInterfaceType=STRING "=" count=INT ("with" "protection" "level" protectionLevel=ProtectionLevelType)? ";";
+	//	eqInterfaceType=STRING "=" count=INT ("with protection level" protectionLevel=ProtectionLevelType)? ";";
 	public AvailableEqInterfaceElements getAvailableEqInterfaceAccess() {
 		return pAvailableEqInterface;
 	}
