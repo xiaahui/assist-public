@@ -69,6 +69,7 @@ RDC:
 			('PowerSupply' 				'=' powerSupply=STRING ';')?					&
 			('Type' 					'=' rdcType=STRING ';')?						&
 			('ESS'		 				'=' ess=STRING ';')?							&
+			('Location'					'=' location=STRING ';')?						&
 			('ResourceX'				'=' resourceX=SIGNEDINT ';')?					&
 			('ResourceY'				'=' resourceY=SIGNEDINT ';')?					&
 			('ResourceZ'				'=' resourceZ=SIGNEDINT ';')?					&
@@ -84,7 +85,19 @@ Connector:
 ;
 
 AvailableEqInterface:
-	eqInterfaceType=STRING '=' count=INT ';'
+	eqInterfaceType=STRING '=' count=INT ('with' 'protection' 'level' protectionLevel=ProtectionLevelType)? ';'
+;
+
+enum ProtectionLevelType:
+	NONE	= 'None'	|
+	L1		= 'L1'		|
+	L2		= 'L2'		|
+	L3		= 'L3'		|
+	L4		= 'L4'		|
+	L5		= 'L5'		|
+	L6		= 'L6'		|
+	L7		= 'L7'		|
+	L8		= 'L8'		
 ;
 
 

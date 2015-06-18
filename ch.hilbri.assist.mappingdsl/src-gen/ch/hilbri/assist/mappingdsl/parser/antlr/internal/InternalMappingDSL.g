@@ -1118,9 +1118,9 @@ ruleRDC returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 4);
 	 				}
-					({true}?=>(	otherlv_20='ResourceX' 
+					({true}?=>(	otherlv_20='Location' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getRDCAccess().getResourceXKeyword_3_4_0());
+    	newLeafNode(otherlv_20, grammarAccess.getRDCAccess().getLocationKeyword_3_4_0());
     }
 	otherlv_21='=' 
     {
@@ -1128,19 +1128,19 @@ ruleRDC returns [EObject current=null]
     }
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getRDCAccess().getResourceXSIGNEDINTParserRuleCall_3_4_2_0()); 
-	    }
-		lv_resourceX_22_0=ruleSIGNEDINT		{
+		lv_location_22_0=RULE_STRING
+		{
+			newLeafNode(lv_location_22_0, grammarAccess.getRDCAccess().getLocationSTRINGTerminalRuleCall_3_4_2_0()); 
+		}
+		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getRDCRule());
+	            $current = createModelElement(grammarAccess.getRDCRule());
 	        }
-       		set(
+       		setWithLastConsumed(
        			$current, 
-       			"resourceX",
-        		lv_resourceX_22_0, 
-        		"SIGNEDINT");
-	        afterParserOrEnumRuleCall();
+       			"location",
+        		lv_location_22_0, 
+        		"STRING");
 	    }
 
 )
@@ -1160,9 +1160,9 @@ ruleRDC returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 5);
 	 				}
-					({true}?=>(	otherlv_24='ResourceY' 
+					({true}?=>(	otherlv_24='ResourceX' 
     {
-    	newLeafNode(otherlv_24, grammarAccess.getRDCAccess().getResourceYKeyword_3_5_0());
+    	newLeafNode(otherlv_24, grammarAccess.getRDCAccess().getResourceXKeyword_3_5_0());
     }
 	otherlv_25='=' 
     {
@@ -1171,16 +1171,16 @@ ruleRDC returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRDCAccess().getResourceYSIGNEDINTParserRuleCall_3_5_2_0()); 
+	        newCompositeNode(grammarAccess.getRDCAccess().getResourceXSIGNEDINTParserRuleCall_3_5_2_0()); 
 	    }
-		lv_resourceY_26_0=ruleSIGNEDINT		{
+		lv_resourceX_26_0=ruleSIGNEDINT		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRDCRule());
 	        }
        		set(
        			$current, 
-       			"resourceY",
-        		lv_resourceY_26_0, 
+       			"resourceX",
+        		lv_resourceX_26_0, 
         		"SIGNEDINT");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1202,9 +1202,9 @@ ruleRDC returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 6);
 	 				}
-					({true}?=>(	otherlv_28='ResourceZ' 
+					({true}?=>(	otherlv_28='ResourceY' 
     {
-    	newLeafNode(otherlv_28, grammarAccess.getRDCAccess().getResourceZKeyword_3_6_0());
+    	newLeafNode(otherlv_28, grammarAccess.getRDCAccess().getResourceYKeyword_3_6_0());
     }
 	otherlv_29='=' 
     {
@@ -1213,16 +1213,16 @@ ruleRDC returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRDCAccess().getResourceZSIGNEDINTParserRuleCall_3_6_2_0()); 
+	        newCompositeNode(grammarAccess.getRDCAccess().getResourceYSIGNEDINTParserRuleCall_3_6_2_0()); 
 	    }
-		lv_resourceZ_30_0=ruleSIGNEDINT		{
+		lv_resourceY_30_0=ruleSIGNEDINT		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRDCRule());
 	        }
        		set(
        			$current, 
-       			"resourceZ",
-        		lv_resourceZ_30_0, 
+       			"resourceY",
+        		lv_resourceY_30_0, 
         		"SIGNEDINT");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1244,19 +1244,61 @@ ruleRDC returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 7);
 	 				}
+					({true}?=>(	otherlv_32='ResourceZ' 
+    {
+    	newLeafNode(otherlv_32, grammarAccess.getRDCAccess().getResourceZKeyword_3_7_0());
+    }
+	otherlv_33='=' 
+    {
+    	newLeafNode(otherlv_33, grammarAccess.getRDCAccess().getEqualsSignKeyword_3_7_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getRDCAccess().getResourceZSIGNEDINTParserRuleCall_3_7_2_0()); 
+	    }
+		lv_resourceZ_34_0=ruleSIGNEDINT		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getRDCRule());
+	        }
+       		set(
+       			$current, 
+       			"resourceZ",
+        		lv_resourceZ_34_0, 
+        		"SIGNEDINT");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_35=';' 
+    {
+    	newLeafNode(otherlv_35, grammarAccess.getRDCAccess().getSemicolonKeyword_3_7_3());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getRDCAccess().getUnorderedGroup_3());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 8)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 8);
+	 				}
 					({true}?=>(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRDCAccess().getConnectorsConnectorParserRuleCall_3_7_0()); 
+	        newCompositeNode(grammarAccess.getRDCAccess().getConnectorsConnectorParserRuleCall_3_8_0()); 
 	    }
-		lv_connectors_32_0=ruleConnector		{
+		lv_connectors_36_0=ruleConnector		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRDCRule());
 	        }
        		add(
        			$current, 
        			"connectors",
-        		lv_connectors_32_0, 
+        		lv_connectors_36_0, 
         		"Connector");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1277,9 +1319,9 @@ ruleRDC returns [EObject current=null]
 	  getUnorderedGroupHelper().leave(grammarAccess.getRDCAccess().getUnorderedGroup_3());
 	}
 
-)	otherlv_33='}' 
+)	otherlv_37='}' 
     {
-    	newLeafNode(otherlv_33, grammarAccess.getRDCAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_37, grammarAccess.getRDCAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;
@@ -1411,9 +1453,39 @@ ruleAvailableEqInterface returns [EObject current=null]
 	    }
 
 )
-)	otherlv_3=';' 
+)(	otherlv_3='with' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getAvailableEqInterfaceAccess().getSemicolonKeyword_3());
+    	newLeafNode(otherlv_3, grammarAccess.getAvailableEqInterfaceAccess().getWithKeyword_3_0());
+    }
+	otherlv_4='protection' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getAvailableEqInterfaceAccess().getProtectionKeyword_3_1());
+    }
+	otherlv_5='level' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getAvailableEqInterfaceAccess().getLevelKeyword_3_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAvailableEqInterfaceAccess().getProtectionLevelProtectionLevelTypeEnumRuleCall_3_3_0()); 
+	    }
+		lv_protectionLevel_6_0=ruleProtectionLevelType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAvailableEqInterfaceRule());
+	        }
+       		set(
+       			$current, 
+       			"protectionLevel",
+        		lv_protectionLevel_6_0, 
+        		"ProtectionLevelType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?	otherlv_7=';' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getAvailableEqInterfaceAccess().getSemicolonKeyword_4());
     }
 )
 ;
@@ -3015,6 +3087,67 @@ ruleSIGNEDINT returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken
     ;
 
 
+
+
+
+// Rule ProtectionLevelType
+ruleProtectionLevelType returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+((	enumLiteral_0='None' 
+	{
+        $current = grammarAccess.getProtectionLevelTypeAccess().getNONEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getProtectionLevelTypeAccess().getNONEEnumLiteralDeclaration_0()); 
+    }
+)
+    |(	enumLiteral_1='L1' 
+	{
+        $current = grammarAccess.getProtectionLevelTypeAccess().getL1EnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getProtectionLevelTypeAccess().getL1EnumLiteralDeclaration_1()); 
+    }
+)
+    |(	enumLiteral_2='L2' 
+	{
+        $current = grammarAccess.getProtectionLevelTypeAccess().getL2EnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getProtectionLevelTypeAccess().getL2EnumLiteralDeclaration_2()); 
+    }
+)
+    |(	enumLiteral_3='L3' 
+	{
+        $current = grammarAccess.getProtectionLevelTypeAccess().getL3EnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_3, grammarAccess.getProtectionLevelTypeAccess().getL3EnumLiteralDeclaration_3()); 
+    }
+)
+    |(	enumLiteral_4='L4' 
+	{
+        $current = grammarAccess.getProtectionLevelTypeAccess().getL4EnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_4, grammarAccess.getProtectionLevelTypeAccess().getL4EnumLiteralDeclaration_4()); 
+    }
+)
+    |(	enumLiteral_5='L5' 
+	{
+        $current = grammarAccess.getProtectionLevelTypeAccess().getL5EnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_5, grammarAccess.getProtectionLevelTypeAccess().getL5EnumLiteralDeclaration_5()); 
+    }
+)
+    |(	enumLiteral_6='L6' 
+	{
+        $current = grammarAccess.getProtectionLevelTypeAccess().getL6EnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_6, grammarAccess.getProtectionLevelTypeAccess().getL6EnumLiteralDeclaration_6()); 
+    }
+)
+    |(	enumLiteral_7='L7' 
+	{
+        $current = grammarAccess.getProtectionLevelTypeAccess().getL7EnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_7, grammarAccess.getProtectionLevelTypeAccess().getL7EnumLiteralDeclaration_7()); 
+    }
+)
+    |(	enumLiteral_8='L8' 
+	{
+        $current = grammarAccess.getProtectionLevelTypeAccess().getL8EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_8, grammarAccess.getProtectionLevelTypeAccess().getL8EnumLiteralDeclaration_8()); 
+    }
+));
 
 
 

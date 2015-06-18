@@ -192,20 +192,10 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (eqInterfaceType=STRING count=INT)
+	 *     (eqInterfaceType=STRING count=INT protectionLevel=ProtectionLevelType?)
 	 */
 	protected void sequence_AvailableEqInterface(EObject context, AvailableEqInterface semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__EQ_INTERFACE_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__EQ_INTERFACE_TYPE));
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__COUNT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__COUNT));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getEqInterfaceTypeSTRINGTerminalRuleCall_0_0(), semanticObject.getEqInterfaceType());
-		feeder.accept(grammarAccess.getAvailableEqInterfaceAccess().getCountINTTerminalRuleCall_2_0(), semanticObject.getCount());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -422,6 +412,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         powerSupply=STRING? 
 	 *         rdcType=STRING? 
 	 *         ess=STRING? 
+	 *         location=STRING? 
 	 *         resourceX=SIGNEDINT? 
 	 *         resourceY=SIGNEDINT? 
 	 *         resourceZ=SIGNEDINT? 

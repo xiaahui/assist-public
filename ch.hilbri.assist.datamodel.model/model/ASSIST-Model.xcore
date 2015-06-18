@@ -19,9 +19,7 @@ class AssistModel {
 	String 									systemName 	= ""
 	
 	contains CableWeightData[0..1]			cableWeightData
-	
 	contains CompatibleIoTypeEntry[0..*] 	compatibleIoTypes
-	
 	
 	contains Compartment[0..*]				compartments
 	contains EqInterface[0..*]				eqInterfaces
@@ -130,6 +128,7 @@ class RDC extends HardwareElement {
 	String side				= ""
 	String rdcType	 		= ""
 	String ess				= ""
+	String location			= ""
 	int resourceX			= "0"
 	int resourceY			= "0"
 	int resourceZ			= "0"
@@ -177,9 +176,22 @@ class Connector extends HardwareElement {
 	}
 }
 
+enum ProtectionLevelType {
+	NONE 	as "None"
+	L1 		as "L1"
+	L2 		as "L2"
+	L3 		as "L3"
+	L4 		as "L4"
+	L5 		as "L5"
+	L6 		as "L6"
+	L7 		as "L7"
+	L8 		as "L8"
+}
+
 class AvailableEqInterface {
-	String eqInterfaceType 	= ""
-	int count 				= "0"
+	String 				eqInterfaceType = ""
+	int 				count 			= "0"
+	ProtectionLevelType protectionLevel = "None"
 }
 
 class EqInterfaceOrGroup {

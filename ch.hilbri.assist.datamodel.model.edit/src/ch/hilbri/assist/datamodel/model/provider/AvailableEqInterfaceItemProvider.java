@@ -58,6 +58,7 @@ public class AvailableEqInterfaceItemProvider
 
 			addEqInterfaceTypePropertyDescriptor(object);
 			addCountPropertyDescriptor(object);
+			addProtectionLevelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -107,6 +108,28 @@ public class AvailableEqInterfaceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Protection Level feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProtectionLevelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AvailableEqInterface_protectionLevel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AvailableEqInterface_protectionLevel_feature", "_UI_AvailableEqInterface_type"),
+				 ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__PROTECTION_LEVEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns AvailableEqInterface.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,6 +169,7 @@ public class AvailableEqInterfaceItemProvider
 		switch (notification.getFeatureID(AvailableEqInterface.class)) {
 			case ModelPackage.AVAILABLE_EQ_INTERFACE__EQ_INTERFACE_TYPE:
 			case ModelPackage.AVAILABLE_EQ_INTERFACE__COUNT:
+			case ModelPackage.AVAILABLE_EQ_INTERFACE__PROTECTION_LEVEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -53,6 +53,7 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 			addSidePropertyDescriptor(object);
 			addRdcTypePropertyDescriptor(object);
 			addEssPropertyDescriptor(object);
+			addLocationPropertyDescriptor(object);
 			addResourceXPropertyDescriptor(object);
 			addResourceYPropertyDescriptor(object);
 			addResourceZPropertyDescriptor(object);
@@ -185,6 +186,28 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 				 getString("_UI_RDC_ess_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_ess_feature", "_UI_RDC_type"),
 				 ModelPackage.Literals.RDC__ESS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Location feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLocationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RDC_location_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_location_feature", "_UI_RDC_type"),
+				 ModelPackage.Literals.RDC__LOCATION,
 				 true,
 				 false,
 				 false,
@@ -332,6 +355,7 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 			case ModelPackage.RDC__SIDE:
 			case ModelPackage.RDC__RDC_TYPE:
 			case ModelPackage.RDC__ESS:
+			case ModelPackage.RDC__LOCATION:
 			case ModelPackage.RDC__RESOURCE_X:
 			case ModelPackage.RDC__RESOURCE_Y:
 			case ModelPackage.RDC__RESOURCE_Z:
