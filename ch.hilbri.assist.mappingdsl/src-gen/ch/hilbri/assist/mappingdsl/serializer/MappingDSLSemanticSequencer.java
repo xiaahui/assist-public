@@ -19,6 +19,8 @@ import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttri
 import ch.hilbri.assist.datamodel.model.InvalidDeployment;
 import ch.hilbri.assist.datamodel.model.MetricParameter;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+import ch.hilbri.assist.datamodel.model.ProtectionLevelData;
+import ch.hilbri.assist.datamodel.model.ProtectionLevelEntry;
 import ch.hilbri.assist.datamodel.model.RDC;
 import ch.hilbri.assist.datamodel.model.ValidDeployment;
 import ch.hilbri.assist.mappingdsl.services.MappingDSLGrammarAccess;
@@ -152,6 +154,18 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case ModelPackage.PROTECTION_LEVEL_DATA:
+				if(context == grammarAccess.getProtectionLevelDataRule()) {
+					sequence_ProtectionLevelData(context, (ProtectionLevelData) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.PROTECTION_LEVEL_ENTRY:
+				if(context == grammarAccess.getProtectionLevelEntryRule()) {
+					sequence_ProtectionLevelEntry(context, (ProtectionLevelEntry) semanticObject); 
+					return; 
+				}
+				else break;
 			case ModelPackage.RDC:
 				if(context == grammarAccess.getRDCRule()) {
 					sequence_RDC(context, (RDC) semanticObject); 
@@ -174,6 +188,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         systemName=STRING? 
 	 *         compatibleIoTypes+=CompatibleIoTypeEntry* 
 	 *         cableWeightData=CableWeightData? 
+	 *         protectionLevelData=ProtectionLevelData? 
 	 *         compartments+=Compartment+ 
 	 *         eqInterfaces+=EqInterface* 
 	 *         (eqInterfaceGroups+=EqInterfaceGroup | eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)* 
@@ -401,6 +416,24 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 		feeder.accept(grammarAccess.getMetricParameterAccess().getNameSTRINGTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getMetricParameterAccess().getValueINTTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     protectionLevelEntries+=ProtectionLevelEntry+
+	 */
+	protected void sequence_ProtectionLevelData(EObject context, ProtectionLevelData semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (rdcLocation=STRING emhZone1=STRING protectionLevel+=ProtectionLevelType+)
+	 */
+	protected void sequence_ProtectionLevelEntry(EObject context, ProtectionLevelEntry semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -103,6 +103,7 @@ public class AssistModelItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__CABLE_WEIGHT_DATA);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__PROTECTION_LEVEL_DATA);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPATIBLE_IO_TYPES);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACES);
@@ -170,6 +171,7 @@ public class AssistModelItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.ASSIST_MODEL__CABLE_WEIGHT_DATA:
+			case ModelPackage.ASSIST_MODEL__PROTECTION_LEVEL_DATA:
 			case ModelPackage.ASSIST_MODEL__COMPATIBLE_IO_TYPES:
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
 			case ModelPackage.ASSIST_MODEL__EQ_INTERFACES:
@@ -199,6 +201,11 @@ public class AssistModelItemProvider
 			(createChildParameter
 				(ModelPackage.Literals.ASSIST_MODEL__CABLE_WEIGHT_DATA,
 				 ModelFactory.eINSTANCE.createCableWeightData()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL__PROTECTION_LEVEL_DATA,
+				 ModelFactory.eINSTANCE.createProtectionLevelData()));
 
 		newChildDescriptors.add
 			(createChildParameter

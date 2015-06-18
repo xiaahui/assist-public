@@ -8,7 +8,9 @@ AssistModel:
 		(
 			('Name' '=' systemName=STRING ';'														)?		&
 			( 'Compatible Interface Types' 	'{'	(compatibleIoTypes+=CompatibleIoTypeEntry)* '}'		)?		&
-			( cableWeightData=CableWeightData														)?
+			( cableWeightData=CableWeightData														)?		&
+			( protectionLevelData=ProtectionLevelData												)?
+			
 		)  
 	'}'
 
@@ -35,6 +37,16 @@ AssistModel:
 		
 	'}')?
 ;
+
+
+ProtectionLevelData: 
+	'Protection Level Definitions'	'{' (protectionLevelEntries+=ProtectionLevelEntry)+	'}'
+;
+
+ProtectionLevelEntry: 
+	'RDC.Location' '=' rdcLocation=STRING 'And' 'Equipment.EmhZone1' '=' emhZone1=STRING '->' (protectionLevel+=ProtectionLevelType)+ ';'
+;
+
 
 CompatibleIoTypeEntry: 
 	eqInterfaceIoType=STRING '->' pinInterfaceIoTypes+=STRING (',' pinInterfaceIoTypes+=STRING)* ';'

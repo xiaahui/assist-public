@@ -118,6 +118,52 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ProtectionLevelData} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProtectionLevelDataItemProvider protectionLevelDataItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ProtectionLevelData}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProtectionLevelDataAdapter() {
+		if (protectionLevelDataItemProvider == null) {
+			protectionLevelDataItemProvider = new ProtectionLevelDataItemProvider(this);
+		}
+
+		return protectionLevelDataItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ProtectionLevelEntry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProtectionLevelEntryItemProvider protectionLevelEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ProtectionLevelEntry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProtectionLevelEntryAdapter() {
+		if (protectionLevelEntryItemProvider == null) {
+			protectionLevelEntryItemProvider = new ProtectionLevelEntryItemProvider(this);
+		}
+
+		return protectionLevelEntryItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CableWeightData} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -701,6 +747,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	public void dispose() {
 		if (assistModelItemProvider != null) assistModelItemProvider.dispose();
 		if (compatibleIoTypeEntryItemProvider != null) compatibleIoTypeEntryItemProvider.dispose();
+		if (protectionLevelDataItemProvider != null) protectionLevelDataItemProvider.dispose();
+		if (protectionLevelEntryItemProvider != null) protectionLevelEntryItemProvider.dispose();
 		if (cableWeightDataItemProvider != null) cableWeightDataItemProvider.dispose();
 		if (cableWeightEntryItemProvider != null) cableWeightEntryItemProvider.dispose();
 		if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();

@@ -58,6 +58,8 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAssistModelAccess().getGroup_5(), "rule__AssistModel__Group_5__0");
 					put(grammarAccess.getAssistModelAccess().getGroup_6(), "rule__AssistModel__Group_6__0");
 					put(grammarAccess.getAssistModelAccess().getGroup_7(), "rule__AssistModel__Group_7__0");
+					put(grammarAccess.getProtectionLevelDataAccess().getGroup(), "rule__ProtectionLevelData__Group__0");
+					put(grammarAccess.getProtectionLevelEntryAccess().getGroup(), "rule__ProtectionLevelEntry__Group__0");
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getGroup(), "rule__CompatibleIoTypeEntry__Group__0");
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getGroup_3(), "rule__CompatibleIoTypeEntry__Group_3__0");
 					put(grammarAccess.getCableWeightDataAccess().getGroup(), "rule__CableWeightData__Group__0");
@@ -120,6 +122,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAssistModelAccess().getSystemNameAssignment_2_0_2(), "rule__AssistModel__SystemNameAssignment_2_0_2");
 					put(grammarAccess.getAssistModelAccess().getCompatibleIoTypesAssignment_2_1_2(), "rule__AssistModel__CompatibleIoTypesAssignment_2_1_2");
 					put(grammarAccess.getAssistModelAccess().getCableWeightDataAssignment_2_2(), "rule__AssistModel__CableWeightDataAssignment_2_2");
+					put(grammarAccess.getAssistModelAccess().getProtectionLevelDataAssignment_2_3(), "rule__AssistModel__ProtectionLevelDataAssignment_2_3");
 					put(grammarAccess.getAssistModelAccess().getCompartmentsAssignment_4(), "rule__AssistModel__CompartmentsAssignment_4");
 					put(grammarAccess.getAssistModelAccess().getEqInterfacesAssignment_5_2(), "rule__AssistModel__EqInterfacesAssignment_5_2");
 					put(grammarAccess.getAssistModelAccess().getEqInterfaceGroupsAssignment_6_2_0(), "rule__AssistModel__EqInterfaceGroupsAssignment_6_2_0");
@@ -128,6 +131,10 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAssistModelAccess().getColocalityRelationsAssignment_7_2_1(), "rule__AssistModel__ColocalityRelationsAssignment_7_2_1");
 					put(grammarAccess.getAssistModelAccess().getValidDeploymentsAssignment_7_2_2(), "rule__AssistModel__ValidDeploymentsAssignment_7_2_2");
 					put(grammarAccess.getAssistModelAccess().getInvalidDeploymentsAssignment_7_2_3(), "rule__AssistModel__InvalidDeploymentsAssignment_7_2_3");
+					put(grammarAccess.getProtectionLevelDataAccess().getProtectionLevelEntriesAssignment_2(), "rule__ProtectionLevelData__ProtectionLevelEntriesAssignment_2");
+					put(grammarAccess.getProtectionLevelEntryAccess().getRdcLocationAssignment_2(), "rule__ProtectionLevelEntry__RdcLocationAssignment_2");
+					put(grammarAccess.getProtectionLevelEntryAccess().getEmhZone1Assignment_6(), "rule__ProtectionLevelEntry__EmhZone1Assignment_6");
+					put(grammarAccess.getProtectionLevelEntryAccess().getProtectionLevelAssignment_8(), "rule__ProtectionLevelEntry__ProtectionLevelAssignment_8");
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getEqInterfaceIoTypeAssignment_0(), "rule__CompatibleIoTypeEntry__EqInterfaceIoTypeAssignment_0");
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getPinInterfaceIoTypesAssignment_2(), "rule__CompatibleIoTypeEntry__PinInterfaceIoTypesAssignment_2");
 					put(grammarAccess.getCompatibleIoTypeEntryAccess().getPinInterfaceIoTypesAssignment_3_1(), "rule__CompatibleIoTypeEntry__PinInterfaceIoTypesAssignment_3_1");
