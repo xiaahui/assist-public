@@ -11,6 +11,10 @@ import ch.hilbri.assist.mapping.tests.constraints.ConfigurablePinTests2;
 import ch.hilbri.assist.mapping.tests.constraints.DislocalityPropagationTests;
 import ch.hilbri.assist.mapping.tests.constraints.DislocalityTest2;
 import ch.hilbri.assist.mapping.tests.constraints.DislocalityTests;
+import ch.hilbri.assist.mapping.tests.constraints.ProtectionLevelTest1;
+import ch.hilbri.assist.mapping.tests.constraints.ProtectionLevelTest2;
+import ch.hilbri.assist.mapping.tests.constraints.ProtectionLevelTest3;
+import ch.hilbri.assist.mapping.tests.constraints.ProtectionLevelTest4;
 import ch.hilbri.assist.mapping.tests.constraints.RestrictValidDeploymentTest;
 import ch.hilbri.assist.mapping.tests.constraints.RestrictValidDeploymentTest2;
 import ch.hilbri.assist.mapping.tests.groups.ImplicitlyDefinedGroups;
@@ -35,6 +39,10 @@ import ch.hilbri.assist.mapping.tests.strategies.BasicStrategyTest;
 	AssistElementConstraintTests.class,
 	ConfigurablePinTests.class,
 	ConfigurablePinTests2.class,
+	ProtectionLevelTest1.class,
+	ProtectionLevelTest2.class,
+	ProtectionLevelTest3.class,
+	ProtectionLevelTest4.class
 })  
 
 public class TestSuiteAllMappingTests {}
