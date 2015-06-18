@@ -455,9 +455,9 @@ ruleProtectionLevelData returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='Protection Level Definitions' 
+(	otherlv_0='Protection Level Restrictions' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getProtectionLevelDataAccess().getProtectionLevelDefinitionsKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getProtectionLevelDataAccess().getProtectionLevelRestrictionsKeyword_0());
     }
 	otherlv_1='{' 
     {

@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalMappingDSLParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'is'", "'are'", "'None'", "'L1'", "'L2'", "'L3'", "'L4'", "'L5'", "'L6'", "'L7'", "'L8'", "'Name'", "'System'", "'SubAta'", "'LineName'", "'WiringLane'", "'GrpInfo'", "'Route'", "'PwSup1'", "'EmhZone1'", "'Type'", "'Resource'", "'ResourceX'", "'ResourceY'", "'ResourceZ'", "'Compartment'", "'RDC'", "'Connector'", "'Compartment.Name'", "'Compartment.Manufacturer'", "'Compartment.PowerSupply'", "'Compartment.Side'", "'Compartment.Zone'", "'RDC.Name'", "'RDC.Manufacturer'", "'RDC.PowerSupply'", "'RDC.Side'", "'RDC.Type'", "'RDC.ESS'", "'RDC.ResourceX'", "'RDC.ResourceY'", "'RDC.ResourceZ'", "'Connector.Name'", "'Global'", "'{'", "'}'", "'='", "';'", "'Compatible Interface Types'", "'Interfaces'", "'InterfaceGroups'", "'Restrictions'", "'Protection Level Definitions'", "'RDC.Location'", "'And'", "'Equipment.EmhZone1'", "'->'", "','", "'Cable Weights'", "'Manufacturer'", "'PowerSupply'", "'Side'", "'Zone'", "'ESS'", "'Location'", "'with protection level'", "'Group'", "'interfaces with'", "'and'", "'combines'", "'Interface'", "'dislocal up to'", "'on same'", "'Valid for'", "'Invalid for'", "'connectors with'", "'.'", "'-'", "'default'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'is'", "'are'", "'None'", "'L1'", "'L2'", "'L3'", "'L4'", "'L5'", "'L6'", "'L7'", "'L8'", "'Name'", "'System'", "'SubAta'", "'LineName'", "'WiringLane'", "'GrpInfo'", "'Route'", "'PwSup1'", "'EmhZone1'", "'Type'", "'Resource'", "'ResourceX'", "'ResourceY'", "'ResourceZ'", "'Compartment'", "'RDC'", "'Connector'", "'Compartment.Name'", "'Compartment.Manufacturer'", "'Compartment.PowerSupply'", "'Compartment.Side'", "'Compartment.Zone'", "'RDC.Name'", "'RDC.Manufacturer'", "'RDC.PowerSupply'", "'RDC.Side'", "'RDC.Type'", "'RDC.ESS'", "'RDC.ResourceX'", "'RDC.ResourceY'", "'RDC.ResourceZ'", "'Connector.Name'", "'Global'", "'{'", "'}'", "'='", "';'", "'Compatible Interface Types'", "'Interfaces'", "'InterfaceGroups'", "'Restrictions'", "'Protection Level Restrictions'", "'RDC.Location'", "'And'", "'Equipment.EmhZone1'", "'->'", "','", "'Cable Weights'", "'Manufacturer'", "'PowerSupply'", "'Side'", "'Zone'", "'ESS'", "'Location'", "'with protection level'", "'Group'", "'interfaces with'", "'and'", "'combines'", "'Interface'", "'dislocal up to'", "'on same'", "'Valid for'", "'Invalid for'", "'connectors with'", "'.'", "'-'", "'default'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -7311,24 +7311,24 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ProtectionLevelData__Group__0__Impl"
-    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:2297:1: rule__ProtectionLevelData__Group__0__Impl : ( 'Protection Level Definitions' ) ;
+    // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:2297:1: rule__ProtectionLevelData__Group__0__Impl : ( 'Protection Level Restrictions' ) ;
     public final void rule__ProtectionLevelData__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:2301:1: ( ( 'Protection Level Definitions' ) )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:2302:1: ( 'Protection Level Definitions' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:2301:1: ( ( 'Protection Level Restrictions' ) )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:2302:1: ( 'Protection Level Restrictions' )
             {
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:2302:1: ( 'Protection Level Definitions' )
-            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:2303:1: 'Protection Level Definitions'
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:2302:1: ( 'Protection Level Restrictions' )
+            // ../ch.hilbri.assist.mappingdsl.ui/src-gen/ch/hilbri/assist/mappingdsl/ui/contentassist/antlr/internal/InternalMappingDSL.g:2303:1: 'Protection Level Restrictions'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getProtectionLevelDataAccess().getProtectionLevelDefinitionsKeyword_0()); 
+               before(grammarAccess.getProtectionLevelDataAccess().getProtectionLevelRestrictionsKeyword_0()); 
             }
             match(input,63,FOLLOW_63_in_rule__ProtectionLevelData__Group__0__Impl4945); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getProtectionLevelDataAccess().getProtectionLevelDefinitionsKeyword_0()); 
+               after(grammarAccess.getProtectionLevelDataAccess().getProtectionLevelRestrictionsKeyword_0()); 
             }
 
             }

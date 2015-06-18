@@ -2300,11 +2300,11 @@ rule__ProtectionLevelData__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getProtectionLevelDataAccess().getProtectionLevelDefinitionsKeyword_0()); }
+{ before(grammarAccess.getProtectionLevelDataAccess().getProtectionLevelRestrictionsKeyword_0()); }
 
-	'Protection Level Definitions' 
+	'Protection Level Restrictions' 
 
-{ after(grammarAccess.getProtectionLevelDataAccess().getProtectionLevelDefinitionsKeyword_0()); }
+{ after(grammarAccess.getProtectionLevelDataAccess().getProtectionLevelRestrictionsKeyword_0()); }
 )
 
 ;

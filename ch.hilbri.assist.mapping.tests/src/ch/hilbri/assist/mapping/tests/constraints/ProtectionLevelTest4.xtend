@@ -10,7 +10,7 @@ class ProtectionLevelTest4 extends AbstractMappingTest {
 Global { 
 	Name = "Example System";
 	
-	Protection Level Definitions {
+	Protection Level Restrictions {
 		RDC.Location = "A" And Equipment.EmhZone1 = "A" -> L8;
 		RDC.Location = "B" And Equipment.EmhZone1 = "A" -> L5;
 	}

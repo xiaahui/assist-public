@@ -324,10 +324,10 @@ public class InternalMappingDSLLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:21:7: ( 'Protection Level Definitions' )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:21:9: 'Protection Level Definitions'
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:21:7: ( 'Protection Level Restrictions' )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:21:9: 'Protection Level Restrictions'
             {
-            match("Protection Level Definitions"); 
+            match("Protection Level Restrictions"); 
 
 
             }
@@ -2975,7 +2975,7 @@ public class InternalMappingDSLLexer extends Lexer {
         "\102\1\103\1\104\1\105\1\uffff\1\12\1\114\1\115\1\116\1\24\2\uffff"+
         "\1\11";
     static final String DFA12_specialS =
-        "\1\1\37\uffff\1\0\1\2\u0157\uffff}>";
+        "\1\2\37\uffff\1\0\1\1\u0157\uffff}>";
     static final String[] DFA12_transitionS = {
             "\11\44\2\43\2\44\1\43\22\44\1\43\1\44\1\40\4\44\1\41\4\44\1"+
             "\16\1\15\1\34\1\42\12\37\1\44\1\5\1\44\1\4\3\44\1\13\1\36\1"+
@@ -3416,6 +3416,16 @@ public class InternalMappingDSLLexer extends Lexer {
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
+                        int LA12_33 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_33>='\u0000' && LA12_33<='\uFFFF')) ) {s = 91;}
+
+                        else s = 36;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA12_0 = input.LA(1);
 
                         s = -1;
@@ -3490,16 +3500,6 @@ public class InternalMappingDSLLexer extends Lexer {
                         else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 35;}
 
                         else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='(' && LA12_0<='+')||LA12_0==':'||LA12_0=='<'||(LA12_0>='>' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 36;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA12_33 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_33>='\u0000' && LA12_33<='\uFFFF')) ) {s = 91;}
-
-                        else s = 36;
 
                         if ( s>=0 ) return s;
                         break;

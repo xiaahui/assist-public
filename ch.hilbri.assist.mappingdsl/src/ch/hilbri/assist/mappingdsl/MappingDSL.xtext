@@ -40,7 +40,7 @@ AssistModel:
 
 
 ProtectionLevelData: 
-	'Protection Level Definitions'	'{' (protectionLevelEntries+=ProtectionLevelEntry)+	'}'
+	'Protection Level Restrictions'	'{' (protectionLevelEntries+=ProtectionLevelEntry)+	'}'
 ;
 
 ProtectionLevelEntry: 

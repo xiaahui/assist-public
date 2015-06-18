@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Global'", "'{'", "'Name'", "'='", "';'", "'Compatible Interface Types'", "'}'", "'Interfaces'", "'InterfaceGroups'", "'Restrictions'", "'Protection Level Definitions'", "'RDC.Location'", "'And'", "'Equipment.EmhZone1'", "'->'", "','", "'Cable Weights'", "'default'", "'Compartment'", "'Manufacturer'", "'PowerSupply'", "'Side'", "'Zone'", "'RDC'", "'Type'", "'ESS'", "'Location'", "'ResourceX'", "'ResourceY'", "'ResourceZ'", "'Connector'", "'with protection level'", "'Group'", "'interfaces with'", "'and'", "'combines'", "'Interface'", "'System'", "'SubAta'", "'Resource'", "'LineName'", "'WiringLane'", "'GrpInfo'", "'Route'", "'PwSup1'", "'EmhZone1'", "'dislocal up to'", "'on same'", "'Valid for'", "'is'", "'are'", "'Invalid for'", "'connectors with'", "'.'", "'-'", "'None'", "'L1'", "'L2'", "'L3'", "'L4'", "'L5'", "'L6'", "'L7'", "'L8'", "'Compartment.Name'", "'Compartment.Manufacturer'", "'Compartment.PowerSupply'", "'Compartment.Side'", "'Compartment.Zone'", "'RDC.Name'", "'RDC.Manufacturer'", "'RDC.PowerSupply'", "'RDC.Side'", "'RDC.Type'", "'RDC.ESS'", "'RDC.ResourceX'", "'RDC.ResourceY'", "'RDC.ResourceZ'", "'Connector.Name'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Global'", "'{'", "'Name'", "'='", "';'", "'Compatible Interface Types'", "'}'", "'Interfaces'", "'InterfaceGroups'", "'Restrictions'", "'Protection Level Restrictions'", "'RDC.Location'", "'And'", "'Equipment.EmhZone1'", "'->'", "','", "'Cable Weights'", "'default'", "'Compartment'", "'Manufacturer'", "'PowerSupply'", "'Side'", "'Zone'", "'RDC'", "'Type'", "'ESS'", "'Location'", "'ResourceX'", "'ResourceY'", "'ResourceZ'", "'Connector'", "'with protection level'", "'Group'", "'interfaces with'", "'and'", "'combines'", "'Interface'", "'System'", "'SubAta'", "'Resource'", "'LineName'", "'WiringLane'", "'GrpInfo'", "'Route'", "'PwSup1'", "'EmhZone1'", "'dislocal up to'", "'on same'", "'Valid for'", "'is'", "'are'", "'Invalid for'", "'connectors with'", "'.'", "'-'", "'None'", "'L1'", "'L2'", "'L3'", "'L4'", "'L5'", "'L6'", "'L7'", "'L8'", "'Compartment.Name'", "'Compartment.Manufacturer'", "'Compartment.PowerSupply'", "'Compartment.Side'", "'Compartment.Zone'", "'RDC.Name'", "'RDC.Manufacturer'", "'RDC.PowerSupply'", "'RDC.Side'", "'RDC.Type'", "'RDC.ESS'", "'RDC.ResourceX'", "'RDC.ResourceY'", "'RDC.ResourceZ'", "'Connector.Name'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -1141,7 +1141,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleProtectionLevelData"
-    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:454:1: ruleProtectionLevelData returns [EObject current=null] : (otherlv_0= 'Protection Level Definitions' otherlv_1= '{' ( (lv_protectionLevelEntries_2_0= ruleProtectionLevelEntry ) )+ otherlv_3= '}' ) ;
+    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:454:1: ruleProtectionLevelData returns [EObject current=null] : (otherlv_0= 'Protection Level Restrictions' otherlv_1= '{' ( (lv_protectionLevelEntries_2_0= ruleProtectionLevelEntry ) )+ otherlv_3= '}' ) ;
     public final EObject ruleProtectionLevelData() throws RecognitionException {
         EObject current = null;
 
@@ -1154,15 +1154,15 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:457:28: ( (otherlv_0= 'Protection Level Definitions' otherlv_1= '{' ( (lv_protectionLevelEntries_2_0= ruleProtectionLevelEntry ) )+ otherlv_3= '}' ) )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:458:1: (otherlv_0= 'Protection Level Definitions' otherlv_1= '{' ( (lv_protectionLevelEntries_2_0= ruleProtectionLevelEntry ) )+ otherlv_3= '}' )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:457:28: ( (otherlv_0= 'Protection Level Restrictions' otherlv_1= '{' ( (lv_protectionLevelEntries_2_0= ruleProtectionLevelEntry ) )+ otherlv_3= '}' ) )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:458:1: (otherlv_0= 'Protection Level Restrictions' otherlv_1= '{' ( (lv_protectionLevelEntries_2_0= ruleProtectionLevelEntry ) )+ otherlv_3= '}' )
             {
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:458:1: (otherlv_0= 'Protection Level Definitions' otherlv_1= '{' ( (lv_protectionLevelEntries_2_0= ruleProtectionLevelEntry ) )+ otherlv_3= '}' )
-            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:458:3: otherlv_0= 'Protection Level Definitions' otherlv_1= '{' ( (lv_protectionLevelEntries_2_0= ruleProtectionLevelEntry ) )+ otherlv_3= '}'
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:458:1: (otherlv_0= 'Protection Level Restrictions' otherlv_1= '{' ( (lv_protectionLevelEntries_2_0= ruleProtectionLevelEntry ) )+ otherlv_3= '}' )
+            // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:458:3: otherlv_0= 'Protection Level Restrictions' otherlv_1= '{' ( (lv_protectionLevelEntries_2_0= ruleProtectionLevelEntry ) )+ otherlv_3= '}'
             {
             otherlv_0=(Token)match(input,21,FOLLOW_21_in_ruleProtectionLevelData955); 
 
-                	newLeafNode(otherlv_0, grammarAccess.getProtectionLevelDataAccess().getProtectionLevelDefinitionsKeyword_0());
+                	newLeafNode(otherlv_0, grammarAccess.getProtectionLevelDataAccess().getProtectionLevelRestrictionsKeyword_0());
                 
             otherlv_1=(Token)match(input,12,FOLLOW_12_in_ruleProtectionLevelData967); 
 

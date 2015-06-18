@@ -249,21 +249,21 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	public class ProtectionLevelDataElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ProtectionLevelData");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cProtectionLevelDefinitionsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cProtectionLevelRestrictionsKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cProtectionLevelEntriesAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cProtectionLevelEntriesProtectionLevelEntryParserRuleCall_2_0 = (RuleCall)cProtectionLevelEntriesAssignment_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//ProtectionLevelData:
-		//	"Protection Level Definitions" "{" protectionLevelEntries+=ProtectionLevelEntry+ "}";
+		//	"Protection Level Restrictions" "{" protectionLevelEntries+=ProtectionLevelEntry+ "}";
 		public ParserRule getRule() { return rule; }
 
-		//"Protection Level Definitions" "{" protectionLevelEntries+=ProtectionLevelEntry+ "}"
+		//"Protection Level Restrictions" "{" protectionLevelEntries+=ProtectionLevelEntry+ "}"
 		public Group getGroup() { return cGroup; }
 
-		//"Protection Level Definitions"
-		public Keyword getProtectionLevelDefinitionsKeyword_0() { return cProtectionLevelDefinitionsKeyword_0; }
+		//"Protection Level Restrictions"
+		public Keyword getProtectionLevelRestrictionsKeyword_0() { return cProtectionLevelRestrictionsKeyword_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
@@ -2615,7 +2615,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ProtectionLevelData:
-	//	"Protection Level Definitions" "{" protectionLevelEntries+=ProtectionLevelEntry+ "}";
+	//	"Protection Level Restrictions" "{" protectionLevelEntries+=ProtectionLevelEntry+ "}";
 	public ProtectionLevelDataElements getProtectionLevelDataAccess() {
 		return pProtectionLevelData;
 	}
