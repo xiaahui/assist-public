@@ -42,6 +42,8 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCableWeightEntryAccess().getAlternatives_0(), "rule__CableWeightEntry__Alternatives_0");
 					put(grammarAccess.getEqInterfaceGroupAccess().getAlternatives_3(), "rule__EqInterfaceGroup__Alternatives_3");
 					put(grammarAccess.getEqInterfaceGroupAccess().getAlternatives_4_1(), "rule__EqInterfaceGroup__Alternatives_4_1");
+					put(grammarAccess.getEqInterfaceGroupAccess().getAlternatives_6_2(), "rule__EqInterfaceGroup__Alternatives_6_2");
+					put(grammarAccess.getEqInterfaceGroupAccess().getAlternatives_6_3_1(), "rule__EqInterfaceGroup__Alternatives_6_3_1");
 					put(grammarAccess.getValidDeploymentAccess().getAlternatives_3(), "rule__ValidDeployment__Alternatives_3");
 					put(grammarAccess.getValidDeploymentAccess().getAlternatives_5(), "rule__ValidDeployment__Alternatives_5");
 					put(grammarAccess.getValidDeploymentAccess().getAlternatives_6_1(), "rule__ValidDeployment__Alternatives_6_1");
@@ -84,6 +86,8 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAvailableEqInterfaceAccess().getGroup_3(), "rule__AvailableEqInterface__Group_3__0");
 					put(grammarAccess.getEqInterfaceGroupAccess().getGroup(), "rule__EqInterfaceGroup__Group__0");
 					put(grammarAccess.getEqInterfaceGroupAccess().getGroup_4(), "rule__EqInterfaceGroup__Group_4__0");
+					put(grammarAccess.getEqInterfaceGroupAccess().getGroup_6(), "rule__EqInterfaceGroup__Group_6__0");
+					put(grammarAccess.getEqInterfaceGroupAccess().getGroup_6_3(), "rule__EqInterfaceGroup__Group_6_3__0");
 					put(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getGroup(), "rule__ImplicitEqInterfaceMemberDefinition__Group__0");
 					put(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getGroup_2(), "rule__ImplicitEqInterfaceMemberDefinition__Group_2__0");
 					put(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getGroup(), "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__Group__0");
@@ -170,6 +174,10 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEqInterfaceGroupAccess().getImplicitMemberDefinitionsAssignment_3_1(), "rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_3_1");
 					put(grammarAccess.getEqInterfaceGroupAccess().getEqInterfacesAssignment_4_1_0(), "rule__EqInterfaceGroup__EqInterfacesAssignment_4_1_0");
 					put(grammarAccess.getEqInterfaceGroupAccess().getImplicitMemberDefinitionsAssignment_4_1_1(), "rule__EqInterfaceGroup__ImplicitMemberDefinitionsAssignment_4_1_1");
+					put(grammarAccess.getEqInterfaceGroupAccess().getWithoutEqInterfacesAssignment_6_2_0(), "rule__EqInterfaceGroup__WithoutEqInterfacesAssignment_6_2_0");
+					put(grammarAccess.getEqInterfaceGroupAccess().getWithoutImplicitMemberDefinitionsAssignment_6_2_1(), "rule__EqInterfaceGroup__WithoutImplicitMemberDefinitionsAssignment_6_2_1");
+					put(grammarAccess.getEqInterfaceGroupAccess().getWithoutEqInterfacesAssignment_6_3_1_0(), "rule__EqInterfaceGroup__WithoutEqInterfacesAssignment_6_3_1_0");
+					put(grammarAccess.getEqInterfaceGroupAccess().getWithoutImplicitMemberDefinitionsAssignment_6_3_1_1(), "rule__EqInterfaceGroup__WithoutImplicitMemberDefinitionsAssignment_6_3_1_1");
 					put(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getEntriesAssignment_1(), "rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_1");
 					put(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getEntriesAssignment_2_1(), "rule__ImplicitEqInterfaceMemberDefinition__EntriesAssignment_2_1");
 					put(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getAttributeAssignment_0(), "rule__ImplicitEqInterfaceMemberDefinitionAttributesAndValues__AttributeAssignment_0");

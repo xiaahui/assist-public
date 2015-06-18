@@ -127,7 +127,26 @@ EqInterfaceGroup:
 									implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition
 								)
 						)* 
-						'}' ';';
+												
+						'}'
+						
+					(
+						'without' '{' 
+						(
+							withoutEqInterfaces+=[EqInterface] |
+							withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition
+						)	
+						(
+							',' (
+									withoutEqInterfaces+=[EqInterface] |
+									withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition
+								)
+						)* 
+												
+						'}'
+					)?	
+						
+				 ';';
 
 
 ImplicitEqInterfaceMemberDefinition:

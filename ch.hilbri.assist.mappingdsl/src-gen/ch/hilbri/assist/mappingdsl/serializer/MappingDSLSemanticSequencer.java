@@ -326,7 +326,11 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (
 	 *         name=ID 
 	 *         (eqInterfaces+=[EqInterface|ID] | implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition) 
-	 *         (eqInterfaces+=[EqInterface|ID] | implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition)*
+	 *         (eqInterfaces+=[EqInterface|ID] | implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition)* 
+	 *         (
+	 *             (withoutEqInterfaces+=[EqInterface|ID] | withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition) 
+	 *             (withoutEqInterfaces+=[EqInterface|ID] | withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition)*
+	 *         )?
 	 *     )
 	 */
 	protected void sequence_EqInterfaceGroup(EObject context, EqInterfaceGroup semanticObject) {

@@ -994,15 +994,39 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cImplicitMemberDefinitionsAssignment_4_1_1 = (Assignment)cAlternatives_4_1.eContents().get(1);
 		private final RuleCall cImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_4_1_1_0 = (RuleCall)cImplicitMemberDefinitionsAssignment_4_1_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cWithoutKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Alternatives cAlternatives_6_2 = (Alternatives)cGroup_6.eContents().get(2);
+		private final Assignment cWithoutEqInterfacesAssignment_6_2_0 = (Assignment)cAlternatives_6_2.eContents().get(0);
+		private final CrossReference cWithoutEqInterfacesEqInterfaceCrossReference_6_2_0_0 = (CrossReference)cWithoutEqInterfacesAssignment_6_2_0.eContents().get(0);
+		private final RuleCall cWithoutEqInterfacesEqInterfaceIDTerminalRuleCall_6_2_0_0_1 = (RuleCall)cWithoutEqInterfacesEqInterfaceCrossReference_6_2_0_0.eContents().get(1);
+		private final Assignment cWithoutImplicitMemberDefinitionsAssignment_6_2_1 = (Assignment)cAlternatives_6_2.eContents().get(1);
+		private final RuleCall cWithoutImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_6_2_1_0 = (RuleCall)cWithoutImplicitMemberDefinitionsAssignment_6_2_1.eContents().get(0);
+		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
+		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
+		private final Alternatives cAlternatives_6_3_1 = (Alternatives)cGroup_6_3.eContents().get(1);
+		private final Assignment cWithoutEqInterfacesAssignment_6_3_1_0 = (Assignment)cAlternatives_6_3_1.eContents().get(0);
+		private final CrossReference cWithoutEqInterfacesEqInterfaceCrossReference_6_3_1_0_0 = (CrossReference)cWithoutEqInterfacesAssignment_6_3_1_0.eContents().get(0);
+		private final RuleCall cWithoutEqInterfacesEqInterfaceIDTerminalRuleCall_6_3_1_0_0_1 = (RuleCall)cWithoutEqInterfacesEqInterfaceCrossReference_6_3_1_0_0.eContents().get(1);
+		private final Assignment cWithoutImplicitMemberDefinitionsAssignment_6_3_1_1 = (Assignment)cAlternatives_6_3_1.eContents().get(1);
+		private final RuleCall cWithoutImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_6_3_1_1_0 = (RuleCall)cWithoutImplicitMemberDefinitionsAssignment_6_3_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
+		private final Keyword cSemicolonKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		/// * SOFTWARE * / EqInterfaceGroup:
 		//	"Group" name=ID "{" (eqInterfaces+=[EqInterface] | implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition)
-		//	("," (eqInterfaces+=[EqInterface] | implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition))* "}" ";";
+		//	("," (eqInterfaces+=[EqInterface] | implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition))* "}" ("without"
+		//	"{" (withoutEqInterfaces+=[EqInterface] | withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition) (","
+		//	(withoutEqInterfaces+=[EqInterface] | withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition))* "}")?
+		//	";";
 		public ParserRule getRule() { return rule; }
 
 		//"Group" name=ID "{" (eqInterfaces+=[EqInterface] | implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition) (","
-		//(eqInterfaces+=[EqInterface] | implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition))* "}" ";"
+		//(eqInterfaces+=[EqInterface] | implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition))* "}" ("without" "{"
+		//(withoutEqInterfaces+=[EqInterface] | withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition) (","
+		//(withoutEqInterfaces+=[EqInterface] | withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition))* "}")?
+		//";"
 		public Group getGroup() { return cGroup; }
 
 		//"Group"
@@ -1062,8 +1086,64 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 
+		//("without" "{" (withoutEqInterfaces+=[EqInterface] |
+		//withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition) ("," (withoutEqInterfaces+=[EqInterface] |
+		//withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition))* "}")?
+		public Group getGroup_6() { return cGroup_6; }
+
+		//"without"
+		public Keyword getWithoutKeyword_6_0() { return cWithoutKeyword_6_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
+
+		//withoutEqInterfaces+=[EqInterface] | withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition
+		public Alternatives getAlternatives_6_2() { return cAlternatives_6_2; }
+
+		//withoutEqInterfaces+=[EqInterface]
+		public Assignment getWithoutEqInterfacesAssignment_6_2_0() { return cWithoutEqInterfacesAssignment_6_2_0; }
+
+		//[EqInterface]
+		public CrossReference getWithoutEqInterfacesEqInterfaceCrossReference_6_2_0_0() { return cWithoutEqInterfacesEqInterfaceCrossReference_6_2_0_0; }
+
+		//ID
+		public RuleCall getWithoutEqInterfacesEqInterfaceIDTerminalRuleCall_6_2_0_0_1() { return cWithoutEqInterfacesEqInterfaceIDTerminalRuleCall_6_2_0_0_1; }
+
+		//withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition
+		public Assignment getWithoutImplicitMemberDefinitionsAssignment_6_2_1() { return cWithoutImplicitMemberDefinitionsAssignment_6_2_1; }
+
+		//ImplicitEqInterfaceMemberDefinition
+		public RuleCall getWithoutImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_6_2_1_0() { return cWithoutImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_6_2_1_0; }
+
+		//("," (withoutEqInterfaces+=[EqInterface] | withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition))*
+		public Group getGroup_6_3() { return cGroup_6_3; }
+
+		//","
+		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
+
+		//withoutEqInterfaces+=[EqInterface] | withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition
+		public Alternatives getAlternatives_6_3_1() { return cAlternatives_6_3_1; }
+
+		//withoutEqInterfaces+=[EqInterface]
+		public Assignment getWithoutEqInterfacesAssignment_6_3_1_0() { return cWithoutEqInterfacesAssignment_6_3_1_0; }
+
+		//[EqInterface]
+		public CrossReference getWithoutEqInterfacesEqInterfaceCrossReference_6_3_1_0_0() { return cWithoutEqInterfacesEqInterfaceCrossReference_6_3_1_0_0; }
+
+		//ID
+		public RuleCall getWithoutEqInterfacesEqInterfaceIDTerminalRuleCall_6_3_1_0_0_1() { return cWithoutEqInterfacesEqInterfaceIDTerminalRuleCall_6_3_1_0_0_1; }
+
+		//withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition
+		public Assignment getWithoutImplicitMemberDefinitionsAssignment_6_3_1_1() { return cWithoutImplicitMemberDefinitionsAssignment_6_3_1_1; }
+
+		//ImplicitEqInterfaceMemberDefinition
+		public RuleCall getWithoutImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_6_3_1_1_0() { return cWithoutImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_6_3_1_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
+
 		//";"
-		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
+		public Keyword getSemicolonKeyword_7() { return cSemicolonKeyword_7; }
 	}
 
 	public class ImplicitEqInterfaceMemberDefinitionElements extends AbstractParserRuleElementFinder {
@@ -2721,7 +2801,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	/// * SOFTWARE * / EqInterfaceGroup:
 	//	"Group" name=ID "{" (eqInterfaces+=[EqInterface] | implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition)
-	//	("," (eqInterfaces+=[EqInterface] | implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition))* "}" ";";
+	//	("," (eqInterfaces+=[EqInterface] | implicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition))* "}" ("without"
+	//	"{" (withoutEqInterfaces+=[EqInterface] | withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition) (","
+	//	(withoutEqInterfaces+=[EqInterface] | withoutImplicitMemberDefinitions+=ImplicitEqInterfaceMemberDefinition))* "}")?
+	//	";";
 	public EqInterfaceGroupElements getEqInterfaceGroupAccess() {
 		return pEqInterfaceGroup;
 	}

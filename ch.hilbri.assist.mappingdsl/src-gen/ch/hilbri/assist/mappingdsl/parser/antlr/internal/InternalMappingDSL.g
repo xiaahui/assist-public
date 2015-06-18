@@ -1804,9 +1804,89 @@ ruleEqInterfaceGroup returns [EObject current=null]
     {
     	newLeafNode(otherlv_8, grammarAccess.getEqInterfaceGroupAccess().getRightCurlyBracketKeyword_5());
     }
-	otherlv_9=';' 
+(	otherlv_9='without' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getEqInterfaceGroupAccess().getSemicolonKeyword_6());
+    	newLeafNode(otherlv_9, grammarAccess.getEqInterfaceGroupAccess().getWithoutKeyword_6_0());
+    }
+	otherlv_10='{' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getEqInterfaceGroupAccess().getLeftCurlyBracketKeyword_6_1());
+    }
+((
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEqInterfaceGroupRule());
+	        }
+        }
+	otherlv_11=RULE_ID
+	{
+		newLeafNode(otherlv_11, grammarAccess.getEqInterfaceGroupAccess().getWithoutEqInterfacesEqInterfaceCrossReference_6_2_0_0()); 
+	}
+
+)
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEqInterfaceGroupAccess().getWithoutImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_6_2_1_0()); 
+	    }
+		lv_withoutImplicitMemberDefinitions_12_0=ruleImplicitEqInterfaceMemberDefinition		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEqInterfaceGroupRule());
+	        }
+       		add(
+       			$current, 
+       			"withoutImplicitMemberDefinitions",
+        		lv_withoutImplicitMemberDefinitions_12_0, 
+        		"ImplicitEqInterfaceMemberDefinition");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))(	otherlv_13=',' 
+    {
+    	newLeafNode(otherlv_13, grammarAccess.getEqInterfaceGroupAccess().getCommaKeyword_6_3_0());
+    }
+((
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEqInterfaceGroupRule());
+	        }
+        }
+	otherlv_14=RULE_ID
+	{
+		newLeafNode(otherlv_14, grammarAccess.getEqInterfaceGroupAccess().getWithoutEqInterfacesEqInterfaceCrossReference_6_3_1_0_0()); 
+	}
+
+)
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEqInterfaceGroupAccess().getWithoutImplicitMemberDefinitionsImplicitEqInterfaceMemberDefinitionParserRuleCall_6_3_1_1_0()); 
+	    }
+		lv_withoutImplicitMemberDefinitions_15_0=ruleImplicitEqInterfaceMemberDefinition		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEqInterfaceGroupRule());
+	        }
+       		add(
+       			$current, 
+       			"withoutImplicitMemberDefinitions",
+        		lv_withoutImplicitMemberDefinitions_15_0, 
+        		"ImplicitEqInterfaceMemberDefinition");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)))*	otherlv_16='}' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getEqInterfaceGroupAccess().getRightCurlyBracketKeyword_6_4());
+    }
+)?	otherlv_17=';' 
+    {
+    	newLeafNode(otherlv_17, grammarAccess.getEqInterfaceGroupAccess().getSemicolonKeyword_7());
     }
 )
 ;

@@ -45,6 +45,7 @@ public class EqInterfaceGroupItemProvider
 			super.getPropertyDescriptors(object);
 
 			addEqInterfacesPropertyDescriptor(object);
+			addWithoutEqInterfacesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -72,6 +73,28 @@ public class EqInterfaceGroupItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Without Eq Interfaces feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addWithoutEqInterfacesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EqInterfaceGroup_withoutEqInterfaces_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterfaceGroup_withoutEqInterfaces_feature", "_UI_EqInterfaceGroup_type"),
+				 ModelPackage.Literals.EQ_INTERFACE_GROUP__WITHOUT_EQ_INTERFACES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -84,6 +107,7 @@ public class EqInterfaceGroupItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModelPackage.Literals.EQ_INTERFACE_GROUP__IMPLICIT_MEMBER_DEFINITIONS);
+			childrenFeatures.add(ModelPackage.Literals.EQ_INTERFACE_GROUP__WITHOUT_IMPLICIT_MEMBER_DEFINITIONS);
 		}
 		return childrenFeatures;
 	}
@@ -140,6 +164,7 @@ public class EqInterfaceGroupItemProvider
 
 		switch (notification.getFeatureID(EqInterfaceGroup.class)) {
 			case ModelPackage.EQ_INTERFACE_GROUP__IMPLICIT_MEMBER_DEFINITIONS:
+			case ModelPackage.EQ_INTERFACE_GROUP__WITHOUT_IMPLICIT_MEMBER_DEFINITIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -161,6 +186,34 @@ public class EqInterfaceGroupItemProvider
 			(createChildParameter
 				(ModelPackage.Literals.EQ_INTERFACE_GROUP__IMPLICIT_MEMBER_DEFINITIONS,
 				 ModelFactory.eINSTANCE.createImplicitEqInterfaceMemberDefinition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.EQ_INTERFACE_GROUP__WITHOUT_IMPLICIT_MEMBER_DEFINITIONS,
+				 ModelFactory.eINSTANCE.createImplicitEqInterfaceMemberDefinition()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == ModelPackage.Literals.EQ_INTERFACE_GROUP__IMPLICIT_MEMBER_DEFINITIONS ||
+			childFeature == ModelPackage.Literals.EQ_INTERFACE_GROUP__WITHOUT_IMPLICIT_MEMBER_DEFINITIONS;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }
