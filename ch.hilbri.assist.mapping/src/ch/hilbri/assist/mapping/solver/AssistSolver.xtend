@@ -115,7 +115,6 @@ class AssistSolver {
 		/* Create an empty set of constraints that will be used */
 		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables, this.minimize >= 0))
-//		this.mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ConfigurablePinInterfaceTypeConstraint(model, solver, solverVariables))				
 		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
@@ -225,12 +224,13 @@ class AssistSolver {
 
 			case DOM_OVER_WDEG_MIN_VAL_FIRST_RESTARTS: {
 				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))
-				
-				val s = new GeometricalRestartStrategy(1000, 1.25)
-				val rm = new RestartManager( s, 	
-                								new NodeCounter(100000),       // Go to 100000 nodes max
-                								solver.getSearchLoop(), 
-                								30)								// # Restarts
+
+				val rm = new RestartManager( 
+											 new GeometricalRestartStrategy(8000, 1),   // 8000 Nodes each time 	
+                							 new NodeCounter(10000),       			    // Go to 10000 nodes max
+                							 solver.getSearchLoop(), 
+                							 40											// # Restarts
+                							)
         		
 				solver.plugMonitor(rm)
 			}
