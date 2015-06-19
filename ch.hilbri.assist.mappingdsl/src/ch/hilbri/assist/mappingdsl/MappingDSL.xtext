@@ -69,7 +69,7 @@ Compartment:
 			('PowerSupply' 				'=' powerSupply=STRING ';')?					&
 			('Side' 					'=' side=STRING ';')?							&
 			('Zone' 					'=' zone=STRING ';')?							&
-			rdcs+=RDC+															
+			(rdcs+=RDC+)															
 		)
 	'}'
 ;
@@ -85,10 +85,16 @@ RDC:
 			('ResourceX'				'=' resourceX=SIGNEDINT ';')?					&
 			('ResourceY'				'=' resourceY=SIGNEDINT ';')?					&
 			('ResourceZ'				'=' resourceZ=SIGNEDINT ';')?					&
-			connectors+=Connector+
+			(connectors+=Connector+)													&
+			('Pins' '{' connectedPins+=InternallyConnectedPinEntry+ '}' )?
 		)													
 	'}'
 ;
+
+InternallyConnectedPinEntry: 
+	pins+=[AvailableEqInterface|QualifiedName] (',' pins+=[AvailableEqInterface|QualifiedName])+ 'are' 'connected' ';'  
+;
+
 
 Connector:
 	'Connector' name=ID '{'
@@ -97,7 +103,7 @@ Connector:
 ;
 
 AvailableEqInterface:
-	eqInterfaceType=STRING '=' count=INT ('with protection level' protectionLevel=ProtectionLevelType)? ';'
+	('Name' '=' name=ID)? eqInterfaceType=STRING '=' count=INT ('with protection level' protectionLevel=ProtectionLevelType)? ';'
 ;
 
 enum ProtectionLevelType:

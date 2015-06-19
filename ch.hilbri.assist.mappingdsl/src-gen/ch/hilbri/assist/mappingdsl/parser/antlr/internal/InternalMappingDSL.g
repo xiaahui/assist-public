@@ -1515,6 +1515,48 @@ ruleRDC returns [EObject current=null]
 	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getRDCAccess().getUnorderedGroup_3());
 	 				}
  				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 9)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getRDCAccess().getUnorderedGroup_3(), 9);
+	 				}
+					({true}?=>(	otherlv_37='Pins' 
+    {
+    	newLeafNode(otherlv_37, grammarAccess.getRDCAccess().getPinsKeyword_3_9_0());
+    }
+	otherlv_38='{' 
+    {
+    	newLeafNode(otherlv_38, grammarAccess.getRDCAccess().getLeftCurlyBracketKeyword_3_9_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getRDCAccess().getConnectedPinsInternallyConnectedPinEntryParserRuleCall_3_9_2_0()); 
+	    }
+		lv_connectedPins_39_0=ruleInternallyConnectedPinEntry		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getRDCRule());
+	        }
+       		add(
+       			$current, 
+       			"connectedPins",
+        		lv_connectedPins_39_0, 
+        		"InternallyConnectedPinEntry");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+	otherlv_40='}' 
+    {
+    	newLeafNode(otherlv_40, grammarAccess.getRDCAccess().getRightCurlyBracketKeyword_3_9_3());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getRDCAccess().getUnorderedGroup_3());
+	 				}
+ 				)
 			)  
 
 		)+
@@ -1525,9 +1567,76 @@ ruleRDC returns [EObject current=null]
 	  getUnorderedGroupHelper().leave(grammarAccess.getRDCAccess().getUnorderedGroup_3());
 	}
 
-)	otherlv_37='}' 
+)	otherlv_41='}' 
     {
-    	newLeafNode(otherlv_37, grammarAccess.getRDCAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_41, grammarAccess.getRDCAccess().getRightCurlyBracketKeyword_4());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleInternallyConnectedPinEntry
+entryRuleInternallyConnectedPinEntry returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getInternallyConnectedPinEntryRule()); }
+	 iv_ruleInternallyConnectedPinEntry=ruleInternallyConnectedPinEntry 
+	 { $current=$iv_ruleInternallyConnectedPinEntry.current; } 
+	 EOF 
+;
+
+// Rule InternallyConnectedPinEntry
+ruleInternallyConnectedPinEntry returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInternallyConnectedPinEntryRule());
+	        }
+        }
+		{ 
+	        newCompositeNode(grammarAccess.getInternallyConnectedPinEntryAccess().getPinsAvailableEqInterfaceCrossReference_0_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_1=',' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getInternallyConnectedPinEntryAccess().getCommaKeyword_1_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInternallyConnectedPinEntryRule());
+	        }
+        }
+		{ 
+	        newCompositeNode(grammarAccess.getInternallyConnectedPinEntryAccess().getPinsAvailableEqInterfaceCrossReference_1_1_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))+	otherlv_3='are' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getInternallyConnectedPinEntryAccess().getAreKeyword_2());
+    }
+	otherlv_4='connected' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getInternallyConnectedPinEntryAccess().getConnectedKeyword_3());
+    }
+	otherlv_5=';' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getInternallyConnectedPinEntryAccess().getSemicolonKeyword_4());
     }
 )
 ;
@@ -1619,11 +1728,37 @@ ruleAvailableEqInterface returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
+((	otherlv_0='Name' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getAvailableEqInterfaceAccess().getNameKeyword_0_0());
+    }
+	otherlv_1='=' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getAvailableEqInterfaceAccess().getEqualsSignKeyword_0_1());
+    }
 (
-		lv_eqInterfaceType_0_0=RULE_STRING
+(
+		lv_name_2_0=RULE_ID
 		{
-			newLeafNode(lv_eqInterfaceType_0_0, grammarAccess.getAvailableEqInterfaceAccess().getEqInterfaceTypeSTRINGTerminalRuleCall_0_0()); 
+			newLeafNode(lv_name_2_0, grammarAccess.getAvailableEqInterfaceAccess().getNameIDTerminalRuleCall_0_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAvailableEqInterfaceRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_2_0, 
+        		"ID");
+	    }
+
+)
+))?(
+(
+		lv_eqInterfaceType_3_0=RULE_STRING
+		{
+			newLeafNode(lv_eqInterfaceType_3_0, grammarAccess.getAvailableEqInterfaceAccess().getEqInterfaceTypeSTRINGTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1632,20 +1767,20 @@ ruleAvailableEqInterface returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"eqInterfaceType",
-        		lv_eqInterfaceType_0_0, 
+        		lv_eqInterfaceType_3_0, 
         		"STRING");
 	    }
 
 )
-)	otherlv_1='=' 
+)	otherlv_4='=' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getAvailableEqInterfaceAccess().getEqualsSignKeyword_1());
+    	newLeafNode(otherlv_4, grammarAccess.getAvailableEqInterfaceAccess().getEqualsSignKeyword_2());
     }
 (
 (
-		lv_count_2_0=RULE_INT
+		lv_count_5_0=RULE_INT
 		{
-			newLeafNode(lv_count_2_0, grammarAccess.getAvailableEqInterfaceAccess().getCountINTTerminalRuleCall_2_0()); 
+			newLeafNode(lv_count_5_0, grammarAccess.getAvailableEqInterfaceAccess().getCountINTTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1654,36 +1789,36 @@ ruleAvailableEqInterface returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"count",
-        		lv_count_2_0, 
+        		lv_count_5_0, 
         		"INT");
 	    }
 
 )
-)(	otherlv_3='with protection level' 
+)(	otherlv_6='with protection level' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getAvailableEqInterfaceAccess().getWithProtectionLevelKeyword_3_0());
+    	newLeafNode(otherlv_6, grammarAccess.getAvailableEqInterfaceAccess().getWithProtectionLevelKeyword_4_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAvailableEqInterfaceAccess().getProtectionLevelProtectionLevelTypeEnumRuleCall_3_1_0()); 
+	        newCompositeNode(grammarAccess.getAvailableEqInterfaceAccess().getProtectionLevelProtectionLevelTypeEnumRuleCall_4_1_0()); 
 	    }
-		lv_protectionLevel_4_0=ruleProtectionLevelType		{
+		lv_protectionLevel_7_0=ruleProtectionLevelType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAvailableEqInterfaceRule());
 	        }
        		set(
        			$current, 
        			"protectionLevel",
-        		lv_protectionLevel_4_0, 
+        		lv_protectionLevel_7_0, 
         		"ProtectionLevelType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?	otherlv_5=';' 
+))?	otherlv_8=';' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getAvailableEqInterfaceAccess().getSemicolonKeyword_4());
+    	newLeafNode(otherlv_8, grammarAccess.getAvailableEqInterfaceAccess().getSemicolonKeyword_5());
     }
 )
 ;

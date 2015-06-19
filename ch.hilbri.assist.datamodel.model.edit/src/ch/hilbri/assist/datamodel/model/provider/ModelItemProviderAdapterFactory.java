@@ -279,6 +279,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InternallyConnectedPinEntryItemProvider internallyConnectedPinEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInternallyConnectedPinEntryAdapter() {
+		if (internallyConnectedPinEntryItemProvider == null) {
+			internallyConnectedPinEntryItemProvider = new InternallyConnectedPinEntryItemProvider(this);
+		}
+
+		return internallyConnectedPinEntryItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Connector} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -754,6 +777,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();
 		if (compartmentItemProvider != null) compartmentItemProvider.dispose();
 		if (rdcItemProvider != null) rdcItemProvider.dispose();
+		if (internallyConnectedPinEntryItemProvider != null) internallyConnectedPinEntryItemProvider.dispose();
 		if (connectorItemProvider != null) connectorItemProvider.dispose();
 		if (availableEqInterfaceItemProvider != null) availableEqInterfaceItemProvider.dispose();
 		if (eqInterfaceOrGroupItemProvider != null) eqInterfaceOrGroupItemProvider.dispose();

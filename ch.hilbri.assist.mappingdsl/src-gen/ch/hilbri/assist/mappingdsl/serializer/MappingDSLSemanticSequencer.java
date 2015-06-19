@@ -16,6 +16,7 @@ import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition;
 import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinition;
 import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttributesAndValues;
+import ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry;
 import ch.hilbri.assist.datamodel.model.InvalidDeployment;
 import ch.hilbri.assist.datamodel.model.MetricParameter;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
@@ -142,6 +143,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case ModelPackage.INTERNALLY_CONNECTED_PIN_ENTRY:
+				if(context == grammarAccess.getInternallyConnectedPinEntryRule()) {
+					sequence_InternallyConnectedPinEntry(context, (InternallyConnectedPinEntry) semanticObject); 
+					return; 
+				}
+				else break;
 			case ModelPackage.INVALID_DEPLOYMENT:
 				if(context == grammarAccess.getInvalidDeploymentRule()) {
 					sequence_InvalidDeployment(context, (InvalidDeployment) semanticObject); 
@@ -207,7 +214,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (eqInterfaceType=STRING count=INT protectionLevel=ProtectionLevelType?)
+	 *     (name=ID? eqInterfaceType=STRING count=INT protectionLevel=ProtectionLevelType?)
 	 */
 	protected void sequence_AvailableEqInterface(EObject context, AvailableEqInterface semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -392,6 +399,15 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
+	 *     (pins+=[AvailableEqInterface|QualifiedName] pins+=[AvailableEqInterface|QualifiedName]+)
+	 */
+	protected void sequence_InternallyConnectedPinEntry(EObject context, InternallyConnectedPinEntry semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] 
 	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID]* 
@@ -453,7 +469,8 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         resourceX=SIGNEDINT? 
 	 *         resourceY=SIGNEDINT? 
 	 *         resourceZ=SIGNEDINT? 
-	 *         connectors+=Connector+
+	 *         connectors+=Connector+ 
+	 *         connectedPins+=InternallyConnectedPinEntry*
 	 *     )
 	 */
 	protected void sequence_RDC(EObject context, RDC semanticObject) {

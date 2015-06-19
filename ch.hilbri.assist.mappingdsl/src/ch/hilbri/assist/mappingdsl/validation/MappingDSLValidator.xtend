@@ -6,6 +6,7 @@ import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition
 import ch.hilbri.assist.datamodel.model.ModelPackage
 import org.eclipse.xtext.validation.Check
+import ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry
 
 /**
  * Custom validation rules. 
@@ -13,6 +14,16 @@ import org.eclipse.xtext.validation.Check
  * see http://www.eclipse.org/Xtext/documentation.html#validation
  */
 class MappingDSLValidator extends AbstractMappingDSLValidator {
+	
+	@Check
+	def checkConnectedPinsHaveCountOfOne(InternallyConnectedPinEntry entry) {
+		for (pin : entry.pins) {
+			if (pin.count != 1)
+				error("Connected pins must a count of 1 to be exactly identifiable.",
+					pin, ModelPackage.Literals::AVAILABLE_EQ_INTERFACE__COUNT
+				)
+		}
+	}
 	
 	@Check
 	def checkCableWeightEntryForEveryEqIoType(AssistModel model) {

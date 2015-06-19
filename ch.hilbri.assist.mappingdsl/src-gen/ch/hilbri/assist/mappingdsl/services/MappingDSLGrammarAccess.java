@@ -693,19 +693,25 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_3_7_3 = (Keyword)cGroup_3_7.eContents().get(3);
 		private final Assignment cConnectorsAssignment_3_8 = (Assignment)cUnorderedGroup_3.eContents().get(8);
 		private final RuleCall cConnectorsConnectorParserRuleCall_3_8_0 = (RuleCall)cConnectorsAssignment_3_8.eContents().get(0);
+		private final Group cGroup_3_9 = (Group)cUnorderedGroup_3.eContents().get(9);
+		private final Keyword cPinsKeyword_3_9_0 = (Keyword)cGroup_3_9.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_9_1 = (Keyword)cGroup_3_9.eContents().get(1);
+		private final Assignment cConnectedPinsAssignment_3_9_2 = (Assignment)cGroup_3_9.eContents().get(2);
+		private final RuleCall cConnectedPinsInternallyConnectedPinEntryParserRuleCall_3_9_2_0 = (RuleCall)cConnectedPinsAssignment_3_9_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_9_3 = (Keyword)cGroup_3_9.eContents().get(3);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//RDC:
 		//	"RDC" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING ";")? &
 		//	("Type" "=" rdcType=STRING ";")? & ("ESS" "=" ess=STRING ";")? & ("Location" "=" location=STRING ";")? & ("ResourceX"
 		//	"=" resourceX=SIGNEDINT ";")? & ("ResourceY" "=" resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT
-		//	";")? & connectors+=Connector+) "}";
+		//	";")? & connectors+=Connector+ & ("Pins" "{" connectedPins+=InternallyConnectedPinEntry+ "}")?) "}";
 		public ParserRule getRule() { return rule; }
 
 		//"RDC" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING ";")? & ("Type"
 		//"=" rdcType=STRING ";")? & ("ESS" "=" ess=STRING ";")? & ("Location" "=" location=STRING ";")? & ("ResourceX" "="
 		//resourceX=SIGNEDINT ";")? & ("ResourceY" "=" resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")? &
-		//connectors+=Connector+) "}"
+		//connectors+=Connector+ & ("Pins" "{" connectedPins+=InternallyConnectedPinEntry+ "}")?) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"RDC"
@@ -723,7 +729,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING ";")? & ("Type" "=" rdcType=STRING
 		//";")? & ("ESS" "=" ess=STRING ";")? & ("Location" "=" location=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT
 		//";")? & ("ResourceY" "=" resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")? &
-		//connectors+=Connector+
+		//connectors+=Connector+ & ("Pins" "{" connectedPins+=InternallyConnectedPinEntry+ "}")?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
 		//("Manufacturer" "=" manufacturer=STRING ";")?
@@ -876,8 +882,82 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//Connector
 		public RuleCall getConnectorsConnectorParserRuleCall_3_8_0() { return cConnectorsConnectorParserRuleCall_3_8_0; }
 
+		//("Pins" "{" connectedPins+=InternallyConnectedPinEntry+ "}")?
+		public Group getGroup_3_9() { return cGroup_3_9; }
+
+		//"Pins"
+		public Keyword getPinsKeyword_3_9_0() { return cPinsKeyword_3_9_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3_9_1() { return cLeftCurlyBracketKeyword_3_9_1; }
+
+		//connectedPins+=InternallyConnectedPinEntry+
+		public Assignment getConnectedPinsAssignment_3_9_2() { return cConnectedPinsAssignment_3_9_2; }
+
+		//InternallyConnectedPinEntry
+		public RuleCall getConnectedPinsInternallyConnectedPinEntryParserRuleCall_3_9_2_0() { return cConnectedPinsInternallyConnectedPinEntryParserRuleCall_3_9_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3_9_3() { return cRightCurlyBracketKeyword_3_9_3; }
+
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class InternallyConnectedPinEntryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "InternallyConnectedPinEntry");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cPinsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cPinsAvailableEqInterfaceCrossReference_0_0 = (CrossReference)cPinsAssignment_0.eContents().get(0);
+		private final RuleCall cPinsAvailableEqInterfaceQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cPinsAvailableEqInterfaceCrossReference_0_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cPinsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cPinsAvailableEqInterfaceCrossReference_1_1_0 = (CrossReference)cPinsAssignment_1_1.eContents().get(0);
+		private final RuleCall cPinsAvailableEqInterfaceQualifiedNameParserRuleCall_1_1_0_1 = (RuleCall)cPinsAvailableEqInterfaceCrossReference_1_1_0.eContents().get(1);
+		private final Keyword cAreKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cConnectedKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//InternallyConnectedPinEntry:
+		//	pins+=[AvailableEqInterface|QualifiedName] ("," pins+=[AvailableEqInterface|QualifiedName])+ "are" "connected" ";";
+		public ParserRule getRule() { return rule; }
+
+		//pins+=[AvailableEqInterface|QualifiedName] ("," pins+=[AvailableEqInterface|QualifiedName])+ "are" "connected" ";"
+		public Group getGroup() { return cGroup; }
+
+		//pins+=[AvailableEqInterface|QualifiedName]
+		public Assignment getPinsAssignment_0() { return cPinsAssignment_0; }
+
+		//[AvailableEqInterface|QualifiedName]
+		public CrossReference getPinsAvailableEqInterfaceCrossReference_0_0() { return cPinsAvailableEqInterfaceCrossReference_0_0; }
+
+		//QualifiedName
+		public RuleCall getPinsAvailableEqInterfaceQualifiedNameParserRuleCall_0_0_1() { return cPinsAvailableEqInterfaceQualifiedNameParserRuleCall_0_0_1; }
+
+		//("," pins+=[AvailableEqInterface|QualifiedName])+
+		public Group getGroup_1() { return cGroup_1; }
+
+		//","
+		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
+
+		//pins+=[AvailableEqInterface|QualifiedName]
+		public Assignment getPinsAssignment_1_1() { return cPinsAssignment_1_1; }
+
+		//[AvailableEqInterface|QualifiedName]
+		public CrossReference getPinsAvailableEqInterfaceCrossReference_1_1_0() { return cPinsAvailableEqInterfaceCrossReference_1_1_0; }
+
+		//QualifiedName
+		public RuleCall getPinsAvailableEqInterfaceQualifiedNameParserRuleCall_1_1_0_1() { return cPinsAvailableEqInterfaceQualifiedNameParserRuleCall_1_1_0_1; }
+
+		//"are"
+		public Keyword getAreKeyword_2() { return cAreKeyword_2; }
+
+		//"connected"
+		public Keyword getConnectedKeyword_3() { return cConnectedKeyword_3; }
+
+		//";"
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 
 	public class ConnectorElements extends AbstractParserRuleElementFinder {
@@ -923,53 +1003,75 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	public class AvailableEqInterfaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AvailableEqInterface");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cEqInterfaceTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cEqInterfaceTypeSTRINGTerminalRuleCall_0_0 = (RuleCall)cEqInterfaceTypeAssignment_0.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cCountAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cCountINTTerminalRuleCall_2_0 = (RuleCall)cCountAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cWithProtectionLevelKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cProtectionLevelAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cProtectionLevelProtectionLevelTypeEnumRuleCall_3_1_0 = (RuleCall)cProtectionLevelAssignment_3_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cNameKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cNameAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_0_2_0 = (RuleCall)cNameAssignment_0_2.eContents().get(0);
+		private final Assignment cEqInterfaceTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cEqInterfaceTypeSTRINGTerminalRuleCall_1_0 = (RuleCall)cEqInterfaceTypeAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cCountAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cCountINTTerminalRuleCall_3_0 = (RuleCall)cCountAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cWithProtectionLevelKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cProtectionLevelAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cProtectionLevelProtectionLevelTypeEnumRuleCall_4_1_0 = (RuleCall)cProtectionLevelAssignment_4_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//AvailableEqInterface:
-		//	eqInterfaceType=STRING "=" count=INT ("with protection level" protectionLevel=ProtectionLevelType)? ";";
+		//	("Name" "=" name=ID)? eqInterfaceType=STRING "=" count=INT ("with protection level"
+		//	protectionLevel=ProtectionLevelType)? ";";
 		public ParserRule getRule() { return rule; }
 
-		//eqInterfaceType=STRING "=" count=INT ("with protection level" protectionLevel=ProtectionLevelType)? ";"
+		//("Name" "=" name=ID)? eqInterfaceType=STRING "=" count=INT ("with protection level"
+		//protectionLevel=ProtectionLevelType)? ";"
 		public Group getGroup() { return cGroup; }
 
-		//eqInterfaceType=STRING
-		public Assignment getEqInterfaceTypeAssignment_0() { return cEqInterfaceTypeAssignment_0; }
+		//("Name" "=" name=ID)?
+		public Group getGroup_0() { return cGroup_0; }
 
-		//STRING
-		public RuleCall getEqInterfaceTypeSTRINGTerminalRuleCall_0_0() { return cEqInterfaceTypeSTRINGTerminalRuleCall_0_0; }
+		//"Name"
+		public Keyword getNameKeyword_0_0() { return cNameKeyword_0_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		public Keyword getEqualsSignKeyword_0_1() { return cEqualsSignKeyword_0_1; }
+
+		//name=ID
+		public Assignment getNameAssignment_0_2() { return cNameAssignment_0_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_2_0() { return cNameIDTerminalRuleCall_0_2_0; }
+
+		//eqInterfaceType=STRING
+		public Assignment getEqInterfaceTypeAssignment_1() { return cEqInterfaceTypeAssignment_1; }
+
+		//STRING
+		public RuleCall getEqInterfaceTypeSTRINGTerminalRuleCall_1_0() { return cEqInterfaceTypeSTRINGTerminalRuleCall_1_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 
 		//count=INT
-		public Assignment getCountAssignment_2() { return cCountAssignment_2; }
+		public Assignment getCountAssignment_3() { return cCountAssignment_3; }
 
 		//INT
-		public RuleCall getCountINTTerminalRuleCall_2_0() { return cCountINTTerminalRuleCall_2_0; }
+		public RuleCall getCountINTTerminalRuleCall_3_0() { return cCountINTTerminalRuleCall_3_0; }
 
 		//("with protection level" protectionLevel=ProtectionLevelType)?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_4() { return cGroup_4; }
 
 		//"with protection level"
-		public Keyword getWithProtectionLevelKeyword_3_0() { return cWithProtectionLevelKeyword_3_0; }
+		public Keyword getWithProtectionLevelKeyword_4_0() { return cWithProtectionLevelKeyword_4_0; }
 
 		//protectionLevel=ProtectionLevelType
-		public Assignment getProtectionLevelAssignment_3_1() { return cProtectionLevelAssignment_3_1; }
+		public Assignment getProtectionLevelAssignment_4_1() { return cProtectionLevelAssignment_4_1; }
 
 		//ProtectionLevelType
-		public RuleCall getProtectionLevelProtectionLevelTypeEnumRuleCall_3_1_0() { return cProtectionLevelProtectionLevelTypeEnumRuleCall_3_1_0; }
+		public RuleCall getProtectionLevelProtectionLevelTypeEnumRuleCall_4_1_0() { return cProtectionLevelProtectionLevelTypeEnumRuleCall_4_1_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class EqInterfaceGroupElements extends AbstractParserRuleElementFinder {
@@ -2591,6 +2693,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	private final CableWeightEntryElements pCableWeightEntry;
 	private final CompartmentElements pCompartment;
 	private final RDCElements pRDC;
+	private final InternallyConnectedPinEntryElements pInternallyConnectedPinEntry;
 	private final ConnectorElements pConnector;
 	private final AvailableEqInterfaceElements pAvailableEqInterface;
 	private final ProtectionLevelTypeElements unknownRuleProtectionLevelType;
@@ -2629,6 +2732,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pCableWeightEntry = new CableWeightEntryElements();
 		this.pCompartment = new CompartmentElements();
 		this.pRDC = new RDCElements();
+		this.pInternallyConnectedPinEntry = new InternallyConnectedPinEntryElements();
 		this.pConnector = new ConnectorElements();
 		this.pAvailableEqInterface = new AvailableEqInterfaceElements();
 		this.unknownRuleProtectionLevelType = new ProtectionLevelTypeElements();
@@ -2760,13 +2864,23 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"RDC" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING ";")? &
 	//	("Type" "=" rdcType=STRING ";")? & ("ESS" "=" ess=STRING ";")? & ("Location" "=" location=STRING ";")? & ("ResourceX"
 	//	"=" resourceX=SIGNEDINT ";")? & ("ResourceY" "=" resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT
-	//	";")? & connectors+=Connector+) "}";
+	//	";")? & connectors+=Connector+ & ("Pins" "{" connectedPins+=InternallyConnectedPinEntry+ "}")?) "}";
 	public RDCElements getRDCAccess() {
 		return pRDC;
 	}
 	
 	public ParserRule getRDCRule() {
 		return getRDCAccess().getRule();
+	}
+
+	//InternallyConnectedPinEntry:
+	//	pins+=[AvailableEqInterface|QualifiedName] ("," pins+=[AvailableEqInterface|QualifiedName])+ "are" "connected" ";";
+	public InternallyConnectedPinEntryElements getInternallyConnectedPinEntryAccess() {
+		return pInternallyConnectedPinEntry;
+	}
+	
+	public ParserRule getInternallyConnectedPinEntryRule() {
+		return getInternallyConnectedPinEntryAccess().getRule();
 	}
 
 	//Connector:
@@ -2780,7 +2894,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AvailableEqInterface:
-	//	eqInterfaceType=STRING "=" count=INT ("with protection level" protectionLevel=ProtectionLevelType)? ";";
+	//	("Name" "=" name=ID)? eqInterfaceType=STRING "=" count=INT ("with protection level"
+	//	protectionLevel=ProtectionLevelType)? ";";
 	public AvailableEqInterfaceElements getAvailableEqInterfaceAccess() {
 		return pAvailableEqInterface;
 	}

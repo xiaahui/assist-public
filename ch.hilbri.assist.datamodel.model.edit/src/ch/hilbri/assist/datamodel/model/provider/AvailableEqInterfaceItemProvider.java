@@ -56,11 +56,34 @@ public class AvailableEqInterfaceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 			addEqInterfaceTypePropertyDescriptor(object);
 			addCountPropertyDescriptor(object);
 			addProtectionLevelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AvailableEqInterface_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AvailableEqInterface_name_feature", "_UI_AvailableEqInterface_type"),
+				 ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -148,7 +171,7 @@ public class AvailableEqInterfaceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AvailableEqInterface)object).getEqInterfaceType();
+		String label = ((AvailableEqInterface)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AvailableEqInterface_type") :
 			getString("_UI_AvailableEqInterface_type") + " " + label;
@@ -167,6 +190,7 @@ public class AvailableEqInterfaceItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AvailableEqInterface.class)) {
+			case ModelPackage.AVAILABLE_EQ_INTERFACE__NAME:
 			case ModelPackage.AVAILABLE_EQ_INTERFACE__EQ_INTERFACE_TYPE:
 			case ModelPackage.AVAILABLE_EQ_INTERFACE__COUNT:
 			case ModelPackage.AVAILABLE_EQ_INTERFACE__PROTECTION_LEVEL:

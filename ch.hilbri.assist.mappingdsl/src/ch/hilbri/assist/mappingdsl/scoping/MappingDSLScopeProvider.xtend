@@ -44,5 +44,10 @@ class MappingDSLScopeProvider extends AbstractDeclarativeScopeProvider {
 		}
 	
 		return Scopes::scopeFor(list,nameprovider,IScope.NULLSCOPE)
+	}
+	
+	def scope_AvailableEqInterface(RDC ctx, EReference ref) {
+		val list = ctx.connectors.map[availableEqInterfaces.filter[!name.isNullOrEmpty]].flatten.toList
+		Scopes::scopeFor(list, nameprovider, IScope.NULLSCOPE)
 	} 
 }

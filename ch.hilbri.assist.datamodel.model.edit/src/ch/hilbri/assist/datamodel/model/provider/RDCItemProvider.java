@@ -295,6 +295,7 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModelPackage.Literals.RDC__CONNECTORS);
+			childrenFeatures.add(ModelPackage.Literals.RDC__CONNECTED_PINS);
 		}
 		return childrenFeatures;
 	}
@@ -362,6 +363,7 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.RDC__CONNECTORS:
+			case ModelPackage.RDC__CONNECTED_PINS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -383,6 +385,11 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 			(createChildParameter
 				(ModelPackage.Literals.RDC__CONNECTORS,
 				 ModelFactory.eINSTANCE.createConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.RDC__CONNECTED_PINS,
+				 ModelFactory.eINSTANCE.createInternallyConnectedPinEntry()));
 	}
 
 }

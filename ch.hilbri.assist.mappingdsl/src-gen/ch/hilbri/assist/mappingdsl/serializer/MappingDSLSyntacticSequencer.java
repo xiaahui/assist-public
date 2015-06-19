@@ -24,6 +24,7 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_AssistModel___RestrictionsKeyword_7_0_LeftCurlyBracketKeyword_7_1_RightCurlyBracketKeyword_7_3__q;
 	protected AbstractElementAlias match_AssistModel___RightCurlyBracketKeyword_2_1_3_CompatibleInterfaceTypesKeyword_2_1_0_LeftCurlyBracketKeyword_2_1_1__a;
 	protected AbstractElementAlias match_InvalidDeployment_AreKeyword_3_1_or_IsKeyword_3_0;
+	protected AbstractElementAlias match_RDC___RightCurlyBracketKeyword_3_9_3_PinsKeyword_3_9_0_LeftCurlyBracketKeyword_3_9_1__q;
 	protected AbstractElementAlias match_ValidDeployment_AreKeyword_3_1_or_IsKeyword_3_0;
 	
 	@Inject
@@ -34,6 +35,7 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_AssistModel___RestrictionsKeyword_7_0_LeftCurlyBracketKeyword_7_1_RightCurlyBracketKeyword_7_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getRestrictionsKeyword_7_0()), new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_7_1()), new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_7_3()));
 		match_AssistModel___RightCurlyBracketKeyword_2_1_3_CompatibleInterfaceTypesKeyword_2_1_0_LeftCurlyBracketKeyword_2_1_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_2_1_3()), new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getCompatibleInterfaceTypesKeyword_2_1_0()), new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_2_1_1()));
 		match_InvalidDeployment_AreKeyword_3_1_or_IsKeyword_3_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getInvalidDeploymentAccess().getAreKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getInvalidDeploymentAccess().getIsKeyword_3_0()));
+		match_RDC___RightCurlyBracketKeyword_3_9_3_PinsKeyword_3_9_0_LeftCurlyBracketKeyword_3_9_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getRDCAccess().getRightCurlyBracketKeyword_3_9_3()), new TokenAlias(false, false, grammarAccess.getRDCAccess().getPinsKeyword_3_9_0()), new TokenAlias(false, false, grammarAccess.getRDCAccess().getLeftCurlyBracketKeyword_3_9_1()));
 		match_ValidDeployment_AreKeyword_3_1_or_IsKeyword_3_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getValidDeploymentAccess().getAreKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getValidDeploymentAccess().getIsKeyword_3_0()));
 	}
 	
@@ -59,6 +61,8 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_AssistModel___RightCurlyBracketKeyword_2_1_3_CompatibleInterfaceTypesKeyword_2_1_0_LeftCurlyBracketKeyword_2_1_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_InvalidDeployment_AreKeyword_3_1_or_IsKeyword_3_0.equals(syntax))
 				emit_InvalidDeployment_AreKeyword_3_1_or_IsKeyword_3_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_RDC___RightCurlyBracketKeyword_3_9_3_PinsKeyword_3_9_0_LeftCurlyBracketKeyword_3_9_1__q.equals(syntax))
+				emit_RDC___RightCurlyBracketKeyword_3_9_3_PinsKeyword_3_9_0_LeftCurlyBracketKeyword_3_9_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ValidDeployment_AreKeyword_3_1_or_IsKeyword_3_0.equals(syntax))
 				emit_ValidDeployment_AreKeyword_3_1_or_IsKeyword_3_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -102,6 +106,14 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'is' | 'are'
 	 */
 	protected void emit_InvalidDeployment_AreKeyword_3_1_or_IsKeyword_3_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ('}' 'Pins' '{')?
+	 */
+	protected void emit_RDC___RightCurlyBracketKeyword_3_9_3_PinsKeyword_3_9_0_LeftCurlyBracketKeyword_3_9_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
