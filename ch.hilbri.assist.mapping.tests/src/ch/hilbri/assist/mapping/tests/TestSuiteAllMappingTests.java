@@ -15,6 +15,7 @@ import ch.hilbri.assist.mapping.tests.constraints.ProtectionLevelTest1;
 import ch.hilbri.assist.mapping.tests.constraints.ProtectionLevelTest2;
 import ch.hilbri.assist.mapping.tests.constraints.ProtectionLevelTest3;
 import ch.hilbri.assist.mapping.tests.constraints.ProtectionLevelTest4;
+import ch.hilbri.assist.mapping.tests.constraints.ProtectionLevelTest5;
 import ch.hilbri.assist.mapping.tests.constraints.RestrictValidDeploymentTest;
 import ch.hilbri.assist.mapping.tests.constraints.RestrictValidDeploymentTest2;
 import ch.hilbri.assist.mapping.tests.groups.ImplicitlyDefinedGroups;
@@ -42,7 +43,8 @@ import ch.hilbri.assist.mapping.tests.strategies.BasicStrategyTest;
 	ProtectionLevelTest1.class,
 	ProtectionLevelTest2.class,
 	ProtectionLevelTest3.class,
-	ProtectionLevelTest4.class
+	ProtectionLevelTest4.class,
+	ProtectionLevelTest5.class
 })  
 
 public class TestSuiteAllMappingTests {}
