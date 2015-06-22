@@ -12,7 +12,7 @@ class MinimizeRequiredCableWeight extends AbstractMetricImpl {
 	
 	override computeAbsoluteScore(Result result) {
 		
-		var sum = 0
+		var double sum = 0
 		
 		for (rdc : result.model.allRDCs) {
 		

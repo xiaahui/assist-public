@@ -454,14 +454,14 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDefaultEntryDefaultKeyword_0_1_0 = (Keyword)cDefaultEntryAssignment_0_1.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cWeightAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cWeightINTTerminalRuleCall_2_0 = (RuleCall)cWeightAssignment_2.eContents().get(0);
+		private final RuleCall cWeightDoubleParserRuleCall_2_0 = (RuleCall)cWeightAssignment_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//CableWeightEntry:
-		//	(eqInterfaceIoType=STRING | defaultEntry?="default") "=" weight=INT ";";
+		//	(eqInterfaceIoType=STRING | defaultEntry?="default") "=" weight=Double ";";
 		public ParserRule getRule() { return rule; }
 
-		//(eqInterfaceIoType=STRING | defaultEntry?="default") "=" weight=INT ";"
+		//(eqInterfaceIoType=STRING | defaultEntry?="default") "=" weight=Double ";"
 		public Group getGroup() { return cGroup; }
 
 		//eqInterfaceIoType=STRING | defaultEntry?="default"
@@ -482,11 +482,11 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 
-		//weight=INT
+		//weight=Double
 		public Assignment getWeightAssignment_2() { return cWeightAssignment_2; }
 
-		//INT
-		public RuleCall getWeightINTTerminalRuleCall_2_0() { return cWeightINTTerminalRuleCall_2_0; }
+		//Double
+		public RuleCall getWeightDoubleParserRuleCall_2_0() { return cWeightDoubleParserRuleCall_2_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -2246,6 +2246,34 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
 
+	public class DoubleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Double");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cINTTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		
+		//Double returns ecore::EDouble:
+		//	"-"? INT? "."? INT;
+		public ParserRule getRule() { return rule; }
+
+		//"-"? INT? "."? INT
+		public Group getGroup() { return cGroup; }
+
+		//"-"?
+		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
+
+		//INT?
+		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
+
+		//"."?
+		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
+
+		//INT
+		public RuleCall getINTTerminalRuleCall_3() { return cINTTerminalRuleCall_3; }
+	}
+
 	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QualifiedName");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -2712,6 +2740,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	private final DeploymentImplicitDefinitionAttributeAndValueElements pDeploymentImplicitDefinitionAttributeAndValue;
 	private final DeploymentImplicitDefinitionAttributeElements unknownRuleDeploymentImplicitDefinitionAttribute;
 	private final MetricParameterElements pMetricParameter;
+	private final DoubleElements pDouble;
 	private final QualifiedNameElements pQualifiedName;
 	private final SIGNEDINTElements pSIGNEDINT;
 	
@@ -2751,6 +2780,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDeploymentImplicitDefinitionAttributeAndValue = new DeploymentImplicitDefinitionAttributeAndValueElements();
 		this.unknownRuleDeploymentImplicitDefinitionAttribute = new DeploymentImplicitDefinitionAttributeElements();
 		this.pMetricParameter = new MetricParameterElements();
+		this.pDouble = new DoubleElements();
 		this.pQualifiedName = new QualifiedNameElements();
 		this.pSIGNEDINT = new SIGNEDINTElements();
 	}
@@ -2840,7 +2870,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CableWeightEntry:
-	//	(eqInterfaceIoType=STRING | defaultEntry?="default") "=" weight=INT ";";
+	//	(eqInterfaceIoType=STRING | defaultEntry?="default") "=" weight=Double ";";
 	public CableWeightEntryElements getCableWeightEntryAccess() {
 		return pCableWeightEntry;
 	}
@@ -3087,6 +3117,16 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getMetricParameterRule() {
 		return getMetricParameterAccess().getRule();
+	}
+
+	//Double returns ecore::EDouble:
+	//	"-"? INT? "."? INT;
+	public DoubleElements getDoubleAccess() {
+		return pDouble;
+	}
+	
+	public ParserRule getDoubleRule() {
+		return getDoubleAccess().getRule();
 	}
 
 	//QualifiedName:

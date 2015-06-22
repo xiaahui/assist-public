@@ -76,12 +76,12 @@ class ProtectionLevelEntry{
 class CableWeightData {
 	contains CableWeightEntry[0..*] 		cableWeightEntries
 	
-	op int getDefaultCableWeight() {
+	op double getDefaultCableWeight() {
 		if (cableWeightEntries.filter[isDefaultEntry].empty) return 0
 		else return cableWeightEntries.filter[isDefaultEntry].get(0).weight
 	}
 	
-	op int getCableWeight(String ioType) {
+	op double getCableWeight(String ioType) {
 		if (cableWeightEntries.filter[eqInterfaceIoType.equals(ioType)].isEmpty) return defaultCableWeight
 		else return cableWeightEntries.filter[eqInterfaceIoType.equals(ioType)].get(0).weight 
 	}
@@ -90,7 +90,7 @@ class CableWeightData {
 class CableWeightEntry {
 	boolean			defaultEntry			= "false"
 	String			eqInterfaceIoType		= ""
-	int 			weight					= "0"
+	double 			weight					= "0.0"
 }
 
 class HardwareElement {

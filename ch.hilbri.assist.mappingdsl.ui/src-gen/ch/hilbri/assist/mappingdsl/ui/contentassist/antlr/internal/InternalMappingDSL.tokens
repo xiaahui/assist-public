@@ -1,7 +1,7 @@
 ','=68
-'-'=91
+'-'=90
 '->'=67
-'.'=90
+'.'=91
 ';'=58
 '='=57
 'And'=65
@@ -81,8 +81,8 @@
 '{'=55
 '}'=56
 RULE_ANY_OTHER=10
-RULE_ID=4
-RULE_INT=5
+RULE_ID=5
+RULE_INT=4
 RULE_ML_COMMENT=7
 RULE_SL_COMMENT=8
 RULE_STRING=6

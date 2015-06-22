@@ -57,7 +57,7 @@ CableWeightData:
 ;
 
 CableWeightEntry:
-	(eqInterfaceIoType=STRING | defaultEntry?='default') '=' weight=INT ';'
+	(eqInterfaceIoType=STRING | defaultEntry?='default') '=' weight=Double ';'
 ;
 
 
@@ -267,6 +267,10 @@ enum DeploymentImplicitDefinitionAttribute:
 /* MISC */
 MetricParameter:  
 	name=STRING '=' value=INT ';'
+;
+
+Double returns ecore::EDouble:
+    '-'? INT? '.'? INT
 ;
 
 QualifiedName:

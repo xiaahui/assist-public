@@ -232,7 +232,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     ((eqInterfaceIoType=STRING | defaultEntry?='default') weight=INT)
+	 *     ((eqInterfaceIoType=STRING | defaultEntry?='default') weight=Double)
 	 */
 	protected void sequence_CableWeightEntry(EObject context, CableWeightEntry semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

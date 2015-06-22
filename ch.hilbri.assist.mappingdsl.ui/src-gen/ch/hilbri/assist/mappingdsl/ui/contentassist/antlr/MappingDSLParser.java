@@ -125,6 +125,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDeploymentImplicitDefinitionAccess().getGroup_2(), "rule__DeploymentImplicitDefinition__Group_2__0");
 					put(grammarAccess.getDeploymentImplicitDefinitionAttributeAndValueAccess().getGroup(), "rule__DeploymentImplicitDefinitionAttributeAndValue__Group__0");
 					put(grammarAccess.getMetricParameterAccess().getGroup(), "rule__MetricParameter__Group__0");
+					put(grammarAccess.getDoubleAccess().getGroup(), "rule__Double__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getSIGNEDINTAccess().getGroup(), "rule__SIGNEDINT__Group__0");
