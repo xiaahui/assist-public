@@ -49,12 +49,20 @@ class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 				// 	How many interfaces of the current type are requested?
 				val totalDemand 				= interfacesOfTypeIterator.length
 			
-				// How many interfaces of the current type are available?
-				val totalSupply 				= compatiblePinSupplyPerConnector.reduce[p1, p2|p1+p2]			
-			
-				// Check that the supply is sufficient for the demand
-				if (totalDemand > totalSupply)
-					throw new InterfaceTypeDemandExceedsSupply(this, types.toList, totalDemand, totalSupply)
+				// How many pins are connected?
+				var connectedPinCount = model.allRDCs.map[connectedPins.filter[pins.get(0).eqInterfaceType.multipleEquals(types)]
+											                   .map[pins.length - 1]]
+															   .flatten
+															   .reduce[p1, p2|p1+p2]
+
+				if (connectedPinCount == null) connectedPinCount = 0;
+				
+				// How many interfaces of the current type are available? (ignoring connected pins)
+				val totalSupply = compatiblePinSupplyPerConnector.reduce[p1, p2|p1+p2] 
+				
+				// Check that the supply is sufficient for the demand (now we check including connected pins)
+				if (totalDemand > totalSupply - connectedPinCount)
+					throw new InterfaceTypeDemandExceedsSupply(this, types.toList, totalDemand, totalSupply - connectedPinCount)
 					
 
 				// A list of all interface indices with the current type
@@ -89,6 +97,36 @@ class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 				}
 	
 				solver.post(ICF.alldifferent(pinLocationVars, "AC")) // Pins must not share a single type offered --> this realizes the sum constraint for each connector
+				
+				
+				// Durchgeschaltete Pins (connected pins) BEGIN
+				for (rdc : model.allRDCs.filter[!connectedPins.nullOrEmpty]) 
+					for (connPinEntry : rdc.connectedPins) {
+						
+						// which pins (indizes) are connected?
+						val indizes = model.allConnectors
+												.filter[!availableEqInterfaces.filter[eqInterfaceType.multipleEquals(types)].isNullOrEmpty]
+												.map[availableEqInterfaces.filter[eqInterfaceType.multipleEquals(types)]
+																		  .map[ availEqIfaces | newArrayOfSize(availEqIfaces.count).map[availEqIfaces]]
+																		  .flatten]
+
+												.flatten
+												.indexed
+												.filter[connPinEntry.pins.contains(value)]
+												.map[key]
+					
+												 	 
+						val occurences = VF.enumeratedArray("Occurences", connPinEntry.pins.length, 0, 1, solver)
+						
+						// for these indices, find out, how often a variable takes one of these as a value 
+						solver.post(ICF.global_cardinality(pinLocationVars, indizes, occurences, false))
+						
+						// The occurence "1" should only occure ONCE - there is only ONE pin location variable
+						// taking a value from the range of connected pin indices
+						val limit = VF.enumerated("", 1,1,solver)
+						solver.post(ICF.count(1, occurences, limit))
+					} 
+				// Durchgeschaltete Pins END
 				
 				try { solver.propagate } 
 				catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, types.toList) }
