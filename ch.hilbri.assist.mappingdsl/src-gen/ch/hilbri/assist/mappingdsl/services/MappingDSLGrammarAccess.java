@@ -910,20 +910,26 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPinsAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cPinsAvailableEqInterfaceCrossReference_0_0 = (CrossReference)cPinsAssignment_0.eContents().get(0);
 		private final RuleCall cPinsAvailableEqInterfaceQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cPinsAvailableEqInterfaceCrossReference_0_0.eContents().get(1);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cPinsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final CrossReference cPinsAvailableEqInterfaceCrossReference_1_1_0 = (CrossReference)cPinsAssignment_1_1.eContents().get(0);
-		private final RuleCall cPinsAvailableEqInterfaceQualifiedNameParserRuleCall_1_1_0_1 = (RuleCall)cPinsAvailableEqInterfaceCrossReference_1_1_0.eContents().get(1);
-		private final Keyword cAreKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cConnectedKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cPinsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cPinsAvailableEqInterfaceCrossReference_2_0 = (CrossReference)cPinsAssignment_2.eContents().get(0);
+		private final RuleCall cPinsAvailableEqInterfaceQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cPinsAvailableEqInterfaceCrossReference_2_0.eContents().get(1);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cPinsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cPinsAvailableEqInterfaceCrossReference_3_1_0 = (CrossReference)cPinsAssignment_3_1.eContents().get(0);
+		private final RuleCall cPinsAvailableEqInterfaceQualifiedNameParserRuleCall_3_1_0_1 = (RuleCall)cPinsAvailableEqInterfaceCrossReference_3_1_0.eContents().get(1);
+		private final Keyword cAreKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cConnectedKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//InternallyConnectedPinEntry:
-		//	pins+=[AvailableEqInterface|QualifiedName] ("," pins+=[AvailableEqInterface|QualifiedName])+ "are" "connected" ";";
+		//	pins+=[AvailableEqInterface|QualifiedName] "," pins+=[AvailableEqInterface|QualifiedName] (","
+		//	pins+=[AvailableEqInterface|QualifiedName])? "are" "connected" ";";
 		public ParserRule getRule() { return rule; }
 
-		//pins+=[AvailableEqInterface|QualifiedName] ("," pins+=[AvailableEqInterface|QualifiedName])+ "are" "connected" ";"
+		//pins+=[AvailableEqInterface|QualifiedName] "," pins+=[AvailableEqInterface|QualifiedName] (","
+		//pins+=[AvailableEqInterface|QualifiedName])? "are" "connected" ";"
 		public Group getGroup() { return cGroup; }
 
 		//pins+=[AvailableEqInterface|QualifiedName]
@@ -935,29 +941,41 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getPinsAvailableEqInterfaceQualifiedNameParserRuleCall_0_0_1() { return cPinsAvailableEqInterfaceQualifiedNameParserRuleCall_0_0_1; }
 
-		//("," pins+=[AvailableEqInterface|QualifiedName])+
-		public Group getGroup_1() { return cGroup_1; }
-
 		//","
-		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
+		public Keyword getCommaKeyword_1() { return cCommaKeyword_1; }
 
 		//pins+=[AvailableEqInterface|QualifiedName]
-		public Assignment getPinsAssignment_1_1() { return cPinsAssignment_1_1; }
+		public Assignment getPinsAssignment_2() { return cPinsAssignment_2; }
 
 		//[AvailableEqInterface|QualifiedName]
-		public CrossReference getPinsAvailableEqInterfaceCrossReference_1_1_0() { return cPinsAvailableEqInterfaceCrossReference_1_1_0; }
+		public CrossReference getPinsAvailableEqInterfaceCrossReference_2_0() { return cPinsAvailableEqInterfaceCrossReference_2_0; }
 
 		//QualifiedName
-		public RuleCall getPinsAvailableEqInterfaceQualifiedNameParserRuleCall_1_1_0_1() { return cPinsAvailableEqInterfaceQualifiedNameParserRuleCall_1_1_0_1; }
+		public RuleCall getPinsAvailableEqInterfaceQualifiedNameParserRuleCall_2_0_1() { return cPinsAvailableEqInterfaceQualifiedNameParserRuleCall_2_0_1; }
+
+		//("," pins+=[AvailableEqInterface|QualifiedName])?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//","
+		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+
+		//pins+=[AvailableEqInterface|QualifiedName]
+		public Assignment getPinsAssignment_3_1() { return cPinsAssignment_3_1; }
+
+		//[AvailableEqInterface|QualifiedName]
+		public CrossReference getPinsAvailableEqInterfaceCrossReference_3_1_0() { return cPinsAvailableEqInterfaceCrossReference_3_1_0; }
+
+		//QualifiedName
+		public RuleCall getPinsAvailableEqInterfaceQualifiedNameParserRuleCall_3_1_0_1() { return cPinsAvailableEqInterfaceQualifiedNameParserRuleCall_3_1_0_1; }
 
 		//"are"
-		public Keyword getAreKeyword_2() { return cAreKeyword_2; }
+		public Keyword getAreKeyword_4() { return cAreKeyword_4; }
 
 		//"connected"
-		public Keyword getConnectedKeyword_3() { return cConnectedKeyword_3; }
+		public Keyword getConnectedKeyword_5() { return cConnectedKeyword_5; }
 
 		//";"
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
 	}
 
 	public class ConnectorElements extends AbstractParserRuleElementFinder {
@@ -2904,7 +2922,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//InternallyConnectedPinEntry:
-	//	pins+=[AvailableEqInterface|QualifiedName] ("," pins+=[AvailableEqInterface|QualifiedName])+ "are" "connected" ";";
+	//	pins+=[AvailableEqInterface|QualifiedName] "," pins+=[AvailableEqInterface|QualifiedName] (","
+	//	pins+=[AvailableEqInterface|QualifiedName])? "are" "connected" ";";
 	public InternallyConnectedPinEntryElements getInternallyConnectedPinEntryAccess() {
 		return pInternallyConnectedPinEntry;
 	}

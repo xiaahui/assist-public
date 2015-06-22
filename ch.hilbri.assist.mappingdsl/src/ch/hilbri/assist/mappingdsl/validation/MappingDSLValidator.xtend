@@ -16,6 +16,13 @@ import ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry
 class MappingDSLValidator extends AbstractMappingDSLValidator {
 	
 	@Check
+	def checkConnectedPinsHaveSameIOType(InternallyConnectedPinEntry entry) {
+		if (entry.pins.map[eqInterfaceType].toSet.length > 1) {
+			error("Connected pins must have an identical io interface type", entry.eContainer, ModelPackage.Literals::RDC__CONNECTED_PINS)
+		}
+	}
+	
+	@Check
 	def checkConnectedPinsHaveCountOfOne(InternallyConnectedPinEntry entry) {
 		for (pin : entry.pins) {
 			if (pin.count != 1)

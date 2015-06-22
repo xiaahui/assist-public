@@ -83,7 +83,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRDCAccess().getGroup_3_7(), "rule__RDC__Group_3_7__0");
 					put(grammarAccess.getRDCAccess().getGroup_3_9(), "rule__RDC__Group_3_9__0");
 					put(grammarAccess.getInternallyConnectedPinEntryAccess().getGroup(), "rule__InternallyConnectedPinEntry__Group__0");
-					put(grammarAccess.getInternallyConnectedPinEntryAccess().getGroup_1(), "rule__InternallyConnectedPinEntry__Group_1__0");
+					put(grammarAccess.getInternallyConnectedPinEntryAccess().getGroup_3(), "rule__InternallyConnectedPinEntry__Group_3__0");
 					put(grammarAccess.getConnectorAccess().getGroup(), "rule__Connector__Group__0");
 					put(grammarAccess.getAvailableEqInterfaceAccess().getGroup(), "rule__AvailableEqInterface__Group__0");
 					put(grammarAccess.getAvailableEqInterfaceAccess().getGroup_0(), "rule__AvailableEqInterface__Group_0__0");
@@ -171,7 +171,8 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRDCAccess().getConnectorsAssignment_3_8(), "rule__RDC__ConnectorsAssignment_3_8");
 					put(grammarAccess.getRDCAccess().getConnectedPinsAssignment_3_9_2(), "rule__RDC__ConnectedPinsAssignment_3_9_2");
 					put(grammarAccess.getInternallyConnectedPinEntryAccess().getPinsAssignment_0(), "rule__InternallyConnectedPinEntry__PinsAssignment_0");
-					put(grammarAccess.getInternallyConnectedPinEntryAccess().getPinsAssignment_1_1(), "rule__InternallyConnectedPinEntry__PinsAssignment_1_1");
+					put(grammarAccess.getInternallyConnectedPinEntryAccess().getPinsAssignment_2(), "rule__InternallyConnectedPinEntry__PinsAssignment_2");
+					put(grammarAccess.getInternallyConnectedPinEntryAccess().getPinsAssignment_3_1(), "rule__InternallyConnectedPinEntry__PinsAssignment_3_1");
 					put(grammarAccess.getConnectorAccess().getNameAssignment_1(), "rule__Connector__NameAssignment_1");
 					put(grammarAccess.getConnectorAccess().getAvailableEqInterfacesAssignment_3(), "rule__Connector__AvailableEqInterfacesAssignment_3");
 					put(grammarAccess.getAvailableEqInterfaceAccess().getNameAssignment_0_2(), "rule__AvailableEqInterface__NameAssignment_0_2");

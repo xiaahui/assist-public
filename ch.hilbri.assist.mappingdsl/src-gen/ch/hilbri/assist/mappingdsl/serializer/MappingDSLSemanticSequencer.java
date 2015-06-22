@@ -399,7 +399,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (pins+=[AvailableEqInterface|QualifiedName] pins+=[AvailableEqInterface|QualifiedName]+)
+	 *     (pins+=[AvailableEqInterface|QualifiedName] pins+=[AvailableEqInterface|QualifiedName] pins+=[AvailableEqInterface|QualifiedName]?)
 	 */
 	protected void sequence_InternallyConnectedPinEntry(EObject context, InternallyConnectedPinEntry semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -1607,9 +1607,9 @@ ruleInternallyConnectedPinEntry returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_1=',' 
+)	otherlv_1=',' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getInternallyConnectedPinEntryAccess().getCommaKeyword_1_0());
+    	newLeafNode(otherlv_1, grammarAccess.getInternallyConnectedPinEntryAccess().getCommaKeyword_1());
     }
 (
 (
@@ -1619,24 +1619,43 @@ ruleInternallyConnectedPinEntry returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getInternallyConnectedPinEntryAccess().getPinsAvailableEqInterfaceCrossReference_1_1_0()); 
+	        newCompositeNode(grammarAccess.getInternallyConnectedPinEntryAccess().getPinsAvailableEqInterfaceCrossReference_2_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))+	otherlv_3='are' 
+)(	otherlv_3=',' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getInternallyConnectedPinEntryAccess().getAreKeyword_2());
+    	newLeafNode(otherlv_3, grammarAccess.getInternallyConnectedPinEntryAccess().getCommaKeyword_3_0());
     }
-	otherlv_4='connected' 
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInternallyConnectedPinEntryRule());
+	        }
+        }
+		{ 
+	        newCompositeNode(grammarAccess.getInternallyConnectedPinEntryAccess().getPinsAvailableEqInterfaceCrossReference_3_1_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?	otherlv_5='are' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getInternallyConnectedPinEntryAccess().getConnectedKeyword_3());
+    	newLeafNode(otherlv_5, grammarAccess.getInternallyConnectedPinEntryAccess().getAreKeyword_4());
     }
-	otherlv_5=';' 
+	otherlv_6='connected' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getInternallyConnectedPinEntryAccess().getSemicolonKeyword_4());
+    	newLeafNode(otherlv_6, grammarAccess.getInternallyConnectedPinEntryAccess().getConnectedKeyword_5());
+    }
+	otherlv_7=';' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getInternallyConnectedPinEntryAccess().getSemicolonKeyword_6());
     }
 )
 ;

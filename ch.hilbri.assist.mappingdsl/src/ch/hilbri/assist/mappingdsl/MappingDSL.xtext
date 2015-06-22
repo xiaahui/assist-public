@@ -92,7 +92,10 @@ RDC:
 ;
 
 InternallyConnectedPinEntry: 
-	pins+=[AvailableEqInterface|QualifiedName] (',' pins+=[AvailableEqInterface|QualifiedName])+ 'are' 'connected' ';'  
+	pins+=[AvailableEqInterface|QualifiedName] 
+	',' pins+=[AvailableEqInterface|QualifiedName] 
+	(',' pins+=[AvailableEqInterface|QualifiedName])? 
+	'are' 'connected' ';'  
 ;
 
 
