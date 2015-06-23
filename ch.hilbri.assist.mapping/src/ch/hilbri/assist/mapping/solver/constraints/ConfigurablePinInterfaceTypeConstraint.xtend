@@ -96,9 +96,6 @@ class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 					}
 				}
 	
-				solver.post(ICF.alldifferent(pinLocationVars, "AC")) // Pins must not share a single type offered --> this realizes the sum constraint for each connector
-				
-				
 				// Durchgeschaltete Pins (connected pins) BEGIN
 				for (rdc : model.allRDCs.filter[!connectedPins.nullOrEmpty]) 
 					for (connPinEntry : rdc.connectedPins) {
@@ -114,19 +111,17 @@ class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 												.indexed
 												.filter[connPinEntry.pins.contains(value)]
 												.map[key]
-					
-												 	 
-						val occurences = VF.enumeratedArray("Occurences", connPinEntry.pins.length, 0, 1, solver)
+	
 						
-						// for these indices, find out, how often a variable takes one of these as a value 
-						solver.post(ICF.global_cardinality(pinLocationVars, indizes, occurences, false))
+						// create n-1 pseudo interfaces
+						val pseudoInterfaces = VF.enumeratedArray("PseudoInterfaces", indizes.length-1, indizes, solver)
 						
-						// The occurence "1" should only occure ONCE - there is only ONE pin location variable
-						// taking a value from the range of connected pin indices
-						val limit = VF.enumerated("", 1,1,solver)
-						solver.post(ICF.count(1, occurences, limit))
-					} 
-				// Durchgeschaltete Pins END
+						// add them to the list of pinLocationVars
+						pinLocationVars.addAll(pseudoInterfaces)
+					}
+				// Durchgeschaltete Pins (connected pins) END
+	
+				solver.post(ICF.alldifferent(pinLocationVars, "AC")) // Pins must not share a single type offered --> this realizes the sum constraint for each connector
 				
 				try { solver.propagate } 
 				catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, types.toList) }
