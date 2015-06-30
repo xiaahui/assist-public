@@ -24,7 +24,7 @@ class MappingDSLFormatter extends AbstractDeclarativeFormatter {
 		
 		val f = getGrammarAccess
 
-		c.autoLinewrap = Integer.MAX_VALUE
+		c.autoLinewrap = 10000 // do not use Integer.MAX_VALUE -> error in formatting
 
     	for (pair : f.findKeywordPairs("(", ")")) {
       		c.setNoSpace.after(pair.getFirst)

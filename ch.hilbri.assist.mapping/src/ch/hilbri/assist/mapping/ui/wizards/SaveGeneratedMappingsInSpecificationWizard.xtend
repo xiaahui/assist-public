@@ -95,7 +95,8 @@ class SaveGeneratedMappingsInSpecificationWizard extends Wizard implements INewW
 		resource.contents.add(model)
 		
 		try {
-			resource.save(SaveOptions.newBuilder.format.options.toOptionsMap)
+			val opt = SaveOptions.newBuilder.format.options.toOptionsMap
+			resource.save(opt)
 		} catch (IOException e) {
 			e.printStackTrace
 		}
