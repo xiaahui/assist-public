@@ -243,9 +243,9 @@ class AssistSolver {
 			case ACTIVITY: {
 				heuristics.add(ISF.activity(vars, seed))
 			}
-			case IMPACT: { // possibly broken
-				heuristics.add(ISF.impact(vars, seed))
-			}
+//			case IMPACT: { // possibly broken
+//				heuristics.add(ISF.impact(vars, seed))
+//			}
 			
 		}
 		

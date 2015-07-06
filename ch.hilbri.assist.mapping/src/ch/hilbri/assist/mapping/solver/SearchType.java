@@ -83,10 +83,10 @@ public enum SearchType {
 								 "See: 'Activity-Based Search for Black-Box Constraint Programming Solvers', L. Michel and P. Van Hentenryck, 2012.", 
 								 false),
 	
-	IMPACT						("Impact",
-								 "See: 'Impact-Based Search Strategies for Constraint Programming', Philippe Refalo, 2004. " +
-								 "This is possibly broken. Be wary!", 
-								 false)
+//	IMPACT						("Impact",
+//								 "See: 'Impact-Based Search Strategies for Constraint Programming', Philippe Refalo, 2004. " +
+//								 "This is possibly broken. Be wary!", 
+//								 false)
 	;
 	
 	
