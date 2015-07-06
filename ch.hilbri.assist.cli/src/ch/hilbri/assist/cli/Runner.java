@@ -98,7 +98,6 @@ public class Runner {
 				case "md": heuristic = SearchType.VARS_IN_MOST_DISLOC; break;
 				case "domwd": heuristic = SearchType.DOM_OVER_WDEG_CLOSEST_DISTANCE; break;
 				case "act": heuristic = SearchType.ACTIVITY; break;
-				case "imp": heuristic = SearchType.IMPACT; break;
 				case "rand": heuristic = SearchType.RANDOM_RANDOM; break;
 				default: heuristic = SearchType.getDefaultSearchType(); break;
 			}	
