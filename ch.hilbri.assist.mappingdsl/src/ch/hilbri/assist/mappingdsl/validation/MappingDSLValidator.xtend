@@ -6,6 +6,7 @@ import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition
 import ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry
 import ch.hilbri.assist.datamodel.model.ModelPackage
+import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.validation.Check
 
 /**
@@ -126,22 +127,23 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 	}
 
 	@Check
-	def checkGroupsAreNotEmpty(AssistModel model) {
+	def checkGroupsAreNotEmpty(EqInterfaceGroup g) {
+		EcoreUtil.resolveAll(g)
 
-		for (g : model.eqInterfaceGroups) {
-			val eqInterfaces = (g.eqInterfaces + g.implicitlyDefinedEqInterfaces).toSet.toList
+		val eqInterfaces = (g.eqInterfaces + g.implicitlyDefinedEqInterfaces).toSet.toList
 
-			eqInterfaces.removeAll(g.withoutEqInterfaces)
-			eqInterfaces.removeAll(g.withoutImplicitlyDefinedEqInterfaces)
+		eqInterfaces.removeAll(g.withoutEqInterfaces + g.withoutImplicitlyDefinedEqInterfaces)
 
-			if (eqInterfaces.nullOrEmpty)
-				warning("The group " + g.name + " contains no interfaces. It is empty. This may be unintended.", g,
-					ModelPackage.Literals::EQ_INTERFACE_OR_GROUP__NAME)
-		}
+		if (eqInterfaces.nullOrEmpty)
+			warning("The group " + g.name + " contains no interfaces. It is empty. This may be unintended.", g,
+				ModelPackage.Literals::EQ_INTERFACE_OR_GROUP__NAME)
+	
 	}
 
 	@Check
 	def checkImplicitMemberDefinitionsAreNotEmpty(EqInterfaceGroup group) {
+		EcoreUtil.resolveAll(group)
+
 		for (definition : group.implicitMemberDefinitions) {
 			if (definition.implicitlyDefinedEqInterfaces.isNullOrEmpty) {
 				warning(
