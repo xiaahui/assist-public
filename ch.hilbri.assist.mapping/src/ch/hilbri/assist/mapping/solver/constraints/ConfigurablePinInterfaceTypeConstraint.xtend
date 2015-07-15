@@ -97,8 +97,13 @@ class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 				}
 	
 				// Durchgeschaltete Pins (connected pins) BEGIN
-				for (rdc : model.allRDCs.filter[!connectedPins.nullOrEmpty]) 
-					for (connPinEntry : rdc.connectedPins) {
+				
+				// Look at RDCs having a connected pins specification only
+				for (rdc : model.allRDCs.filter[!connectedPins.nullOrEmpty])
+					
+					// Look at connected pin specifications which are contained in the current type selection
+					// ASSUMPTION: all pins within the same specification have an identical io type 
+					for (connPinEntry : rdc.connectedPins.filter[pins.get(0).eqInterfaceType.multipleEquals(types)]) {
 						
 						// which pins (indizes) are connected?
 						val indizes = model.allConnectors
