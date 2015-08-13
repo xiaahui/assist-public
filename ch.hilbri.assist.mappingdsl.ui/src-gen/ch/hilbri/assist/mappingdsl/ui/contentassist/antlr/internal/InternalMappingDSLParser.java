@@ -38390,8 +38390,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA64_specialS =
         "\1\0\12\uffff}>";
     static final String[] DFA64_transitionS = {
-            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\37\uffff\1\1\1\2\2\uffff"+
-            "\1\4\1\5\1\12",
+            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\37\uffff\1\1\1\2\2\uffff\1\4\1\5\1\12",
             "",
             "",
             "",
@@ -38484,18 +38483,15 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA63_eofS =
         "\30\uffff";
     static final String DFA63_minS =
-        "\1\37\1\uffff\1\5\1\67\1\6\2\71\1\0\1\5\1\4\1\uffff\1\6\1\72\1"+
-        "\15\1\6\11\72";
+        "\1\37\1\uffff\1\5\1\67\1\6\2\71\1\0\1\5\1\4\1\uffff\1\6\1\72\1\15\1\6\11\72";
     static final String DFA63_maxS =
-        "\1\114\1\uffff\1\5\1\67\1\70\2\71\1\0\1\5\1\4\1\uffff\1\6\1\116"+
-        "\1\25\1\70\11\72";
+        "\1\114\1\uffff\1\5\1\67\1\70\2\71\1\0\1\5\1\4\1\uffff\1\6\1\116\1\25\1\70\11\72";
     static final String DFA63_acceptS =
         "\1\uffff\1\2\10\uffff\1\1\15\uffff";
     static final String DFA63_specialS =
         "\7\uffff\1\0\20\uffff}>";
     static final String[] DFA63_transitionS = {
-            "\1\1\1\uffff\3\1\2\uffff\1\2\21\uffff\1\1\15\uffff\2\1\2\uffff"+
-            "\3\1",
+            "\1\1\1\uffff\3\1\2\uffff\1\2\21\uffff\1\1\15\uffff\2\1\2\uffff\3\1",
             "",
             "\1\3",
             "\1\4",
@@ -38593,8 +38589,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA65_specialS =
         "\1\0\13\uffff}>";
     static final String[] DFA65_transitionS = {
-            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff"+
-            "\1\1\1\2\2\uffff\1\4\1\5\1\12",
+            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff\1\1\1\2\2\uffff\1\4\1\5\1\12",
             "",
             "",
             "",
@@ -38698,8 +38693,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA66_specialS =
         "\1\0\13\uffff}>";
     static final String[] DFA66_transitionS = {
-            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff"+
-            "\1\1\1\2\2\uffff\1\4\1\5\1\12",
+            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff\1\1\1\2\2\uffff\1\4\1\5\1\12",
             "",
             "",
             "",
@@ -38803,8 +38797,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA67_specialS =
         "\1\0\13\uffff}>";
     static final String[] DFA67_transitionS = {
-            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff"+
-            "\1\1\1\2\2\uffff\1\4\1\5\1\12",
+            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff\1\1\1\2\2\uffff\1\4\1\5\1\12",
             "",
             "",
             "",
@@ -38908,8 +38901,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA68_specialS =
         "\1\0\13\uffff}>";
     static final String[] DFA68_transitionS = {
-            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff"+
-            "\1\1\1\2\2\uffff\1\4\1\5\1\12",
+            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff\1\1\1\2\2\uffff\1\4\1\5\1\12",
             "",
             "",
             "",
@@ -39013,8 +39005,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA69_specialS =
         "\1\0\13\uffff}>";
     static final String[] DFA69_transitionS = {
-            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff"+
-            "\1\1\1\2\2\uffff\1\4\1\5\1\12",
+            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff\1\1\1\2\2\uffff\1\4\1\5\1\12",
             "",
             "",
             "",
@@ -39118,8 +39109,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA70_specialS =
         "\1\0\13\uffff}>";
     static final String[] DFA70_transitionS = {
-            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff"+
-            "\1\1\1\2\2\uffff\1\4\1\5\1\12",
+            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff\1\1\1\2\2\uffff\1\4\1\5\1\12",
             "",
             "",
             "",
@@ -39223,8 +39213,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA71_specialS =
         "\1\0\13\uffff}>";
     static final String[] DFA71_transitionS = {
-            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff"+
-            "\1\1\1\2\2\uffff\1\4\1\5\1\12",
+            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff\1\1\1\2\2\uffff\1\4\1\5\1\12",
             "",
             "",
             "",
@@ -39328,8 +39317,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA72_specialS =
         "\1\0\13\uffff}>";
     static final String[] DFA72_transitionS = {
-            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff"+
-            "\1\1\1\2\2\uffff\1\4\1\5\1\12",
+            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff\1\1\1\2\2\uffff\1\4\1\5\1\12",
             "",
             "",
             "",
@@ -39433,8 +39421,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA73_specialS =
         "\1\0\13\uffff}>";
     static final String[] DFA73_transitionS = {
-            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff"+
-            "\1\1\1\2\2\uffff\1\4\1\5\1\12",
+            "\1\3\1\uffff\1\6\1\7\1\10\2\uffff\1\11\21\uffff\1\13\15\uffff\1\1\1\2\2\uffff\1\4\1\5\1\12",
             "",
             "",
             "",
@@ -39538,8 +39525,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA74_specialS =
         "\1\0\16\uffff}>";
     static final String[] DFA74_transitionS = {
-            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15"+
-            "\24\uffff\1\16",
+            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15\24\uffff\1\16",
             "",
             "",
             "",
@@ -39648,8 +39634,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA75_maxS =
         "\1\43\15\uffff";
     static final String DFA75_acceptS =
-        "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1"+
-        "\15";
+        "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15";
     static final String DFA75_specialS =
         "\1\0\15\uffff}>";
     static final String[] DFA75_transitionS = {
@@ -39763,8 +39748,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA76_specialS =
         "\1\0\16\uffff}>";
     static final String[] DFA76_transitionS = {
-            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15"+
-            "\24\uffff\1\16",
+            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15\24\uffff\1\16",
             "",
             "",
             "",
@@ -39877,8 +39861,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA77_specialS =
         "\1\0\16\uffff}>";
     static final String[] DFA77_transitionS = {
-            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15"+
-            "\24\uffff\1\16",
+            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15\24\uffff\1\16",
             "",
             "",
             "",
@@ -39991,8 +39974,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA78_specialS =
         "\1\0\16\uffff}>";
     static final String[] DFA78_transitionS = {
-            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15"+
-            "\24\uffff\1\16",
+            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15\24\uffff\1\16",
             "",
             "",
             "",
@@ -40105,8 +40087,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA79_specialS =
         "\1\0\16\uffff}>";
     static final String[] DFA79_transitionS = {
-            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15"+
-            "\24\uffff\1\16",
+            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15\24\uffff\1\16",
             "",
             "",
             "",
@@ -40219,8 +40200,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA80_specialS =
         "\1\0\16\uffff}>";
     static final String[] DFA80_transitionS = {
-            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15"+
-            "\24\uffff\1\16",
+            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15\24\uffff\1\16",
             "",
             "",
             "",
@@ -40333,8 +40313,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA81_specialS =
         "\1\0\16\uffff}>";
     static final String[] DFA81_transitionS = {
-            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15"+
-            "\24\uffff\1\16",
+            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15\24\uffff\1\16",
             "",
             "",
             "",
@@ -40447,8 +40426,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA82_specialS =
         "\1\0\16\uffff}>";
     static final String[] DFA82_transitionS = {
-            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15"+
-            "\24\uffff\1\16",
+            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15\24\uffff\1\16",
             "",
             "",
             "",
@@ -40561,8 +40539,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA83_specialS =
         "\1\0\16\uffff}>";
     static final String[] DFA83_transitionS = {
-            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15"+
-            "\24\uffff\1\16",
+            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15\24\uffff\1\16",
             "",
             "",
             "",
@@ -40675,8 +40652,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA84_specialS =
         "\1\0\16\uffff}>";
     static final String[] DFA84_transitionS = {
-            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15"+
-            "\24\uffff\1\16",
+            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15\24\uffff\1\16",
             "",
             "",
             "",
@@ -40789,8 +40765,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA85_specialS =
         "\1\0\16\uffff}>";
     static final String[] DFA85_transitionS = {
-            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15"+
-            "\24\uffff\1\16",
+            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15\24\uffff\1\16",
             "",
             "",
             "",
@@ -40903,8 +40878,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA86_specialS =
         "\1\0\16\uffff}>";
     static final String[] DFA86_transitionS = {
-            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15"+
-            "\24\uffff\1\16",
+            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15\24\uffff\1\16",
             "",
             "",
             "",
@@ -41017,8 +40991,7 @@ public class InternalMappingDSLParser extends AbstractInternalContentAssistParse
     static final String DFA87_specialS =
         "\1\0\16\uffff}>";
     static final String[] DFA87_transitionS = {
-            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15"+
-            "\24\uffff\1\16",
+            "\1\1\1\2\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\3\1\13\1\14\1\15\24\uffff\1\16",
             "",
             "",
             "",
