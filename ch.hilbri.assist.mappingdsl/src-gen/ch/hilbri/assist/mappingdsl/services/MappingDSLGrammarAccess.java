@@ -529,8 +529,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Compartment:
-		//	"Compartment" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING
-		//	";")? & ("Side" "=" side=STRING ";")? & ("Zone" "=" zone=STRING ";")? & rdcs+=RDC+) "}";
+		//	"Compartment" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING ";")?
+		//	& ("Side" "=" side=STRING ";")? & ("Zone" "=" zone=STRING ";")? & rdcs+=RDC+) "}";
 		public ParserRule getRule() { return rule; }
 
 		//"Compartment" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING ";")? &
@@ -1494,17 +1494,17 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//EqInterface:
 		//	"Interface" name=ID "{" (("System" "=" system=STRING ";")? & ("SubAta" "=" subAta=STRING ";")? & ("Resource" "="
-		//	resource=STRING ";")? & ("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? &
-		//	("GrpInfo" "=" grpInfo=STRING ";")? & ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? &
-		//	("EmhZone1" "=" emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")?
-		//	& ("ResourceY" "=" resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")?) "}";
+		//	resource=STRING ";")? & ("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? & ("GrpInfo"
+		//	"=" grpInfo=STRING ";")? & ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? & ("EmhZone1" "="
+		//	emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? & ("ResourceY"
+		//	"=" resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")?) "}";
 		public ParserRule getRule() { return rule; }
 
 		//"Interface" name=ID "{" (("System" "=" system=STRING ";")? & ("SubAta" "=" subAta=STRING ";")? & ("Resource" "="
 		//resource=STRING ";")? & ("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? & ("GrpInfo"
 		//"=" grpInfo=STRING ";")? & ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? & ("EmhZone1" "="
-		//emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? & ("ResourceY"
-		//"=" resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")?) "}"
+		//emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? & ("ResourceY" "="
+		//resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")?) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Interface"
@@ -1520,10 +1520,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
 		//("System" "=" system=STRING ";")? & ("SubAta" "=" subAta=STRING ";")? & ("Resource" "=" resource=STRING ";")? &
-		//("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? & ("GrpInfo" "=" grpInfo=STRING
-		//";")? & ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? & ("EmhZone1" "=" emhZone1=STRING ";")? &
-		//("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? & ("ResourceY" "=" resourceY=SIGNEDINT
-		//";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")?
+		//("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? & ("GrpInfo" "=" grpInfo=STRING ";")?
+		//& ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? & ("EmhZone1" "=" emhZone1=STRING ";")? & ("Type"
+		//"=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? & ("ResourceY" "=" resourceY=SIGNEDINT ";")? &
+		//("ResourceZ" "=" resourceZ=SIGNEDINT ";")?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
 		//("System" "=" system=STRING ";")?
@@ -2459,8 +2459,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//enum ImplicitEqInterfaceMemberDefinitionAttribute:
 		//	NAME="Name" | SYSTEM="System" | SUBATA="SubAta" | LINENAME="LineName" | WIRINGLANE="WiringLane" | GRPINFO="GrpInfo" |
-		//	ROUTE="Route" | PWSUP1="PwSup1" | EMHZONE1="EmhZone1" | IOTYPE="Type" | RESOURCE="Resource" | RESOURCE_X="ResourceX"
-		//	| RESOURCE_Y="ResourceY" | RESOURCE_Z="ResourceZ";
+		//	ROUTE="Route" | PWSUP1="PwSup1" | EMHZONE1="EmhZone1" | IOTYPE="Type" | RESOURCE="Resource" | RESOURCE_X="ResourceX" |
+		//	RESOURCE_Y="ResourceY" | RESOURCE_Z="ResourceZ";
 		public EnumRule getRule() { return rule; }
 
 		//NAME="Name" | SYSTEM="System" | SUBATA="SubAta" | LINENAME="LineName" | WIRINGLANE="WiringLane" | GRPINFO="GrpInfo" |
@@ -2898,8 +2898,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Compartment:
-	//	"Compartment" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING
-	//	";")? & ("Side" "=" side=STRING ";")? & ("Zone" "=" zone=STRING ";")? & rdcs+=RDC+) "}";
+	//	"Compartment" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING ";")?
+	//	& ("Side" "=" side=STRING ";")? & ("Zone" "=" zone=STRING ";")? & rdcs+=RDC+) "}";
 	public CompartmentElements getCompartmentAccess() {
 		return pCompartment;
 	}
@@ -3000,8 +3000,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//enum ImplicitEqInterfaceMemberDefinitionAttribute:
 	//	NAME="Name" | SYSTEM="System" | SUBATA="SubAta" | LINENAME="LineName" | WIRINGLANE="WiringLane" | GRPINFO="GrpInfo" |
-	//	ROUTE="Route" | PWSUP1="PwSup1" | EMHZONE1="EmhZone1" | IOTYPE="Type" | RESOURCE="Resource" | RESOURCE_X="ResourceX"
-	//	| RESOURCE_Y="ResourceY" | RESOURCE_Z="ResourceZ";
+	//	ROUTE="Route" | PWSUP1="PwSup1" | EMHZONE1="EmhZone1" | IOTYPE="Type" | RESOURCE="Resource" | RESOURCE_X="ResourceX" |
+	//	RESOURCE_Y="ResourceY" | RESOURCE_Z="ResourceZ";
 	public ImplicitEqInterfaceMemberDefinitionAttributeElements getImplicitEqInterfaceMemberDefinitionAttributeAccess() {
 		return unknownRuleImplicitEqInterfaceMemberDefinitionAttribute;
 	}
@@ -3022,10 +3022,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//EqInterface:
 	//	"Interface" name=ID "{" (("System" "=" system=STRING ";")? & ("SubAta" "=" subAta=STRING ";")? & ("Resource" "="
-	//	resource=STRING ";")? & ("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? &
-	//	("GrpInfo" "=" grpInfo=STRING ";")? & ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? &
-	//	("EmhZone1" "=" emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")?
-	//	& ("ResourceY" "=" resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")?) "}";
+	//	resource=STRING ";")? & ("LineName" "=" lineName=STRING ";")? & ("WiringLane" "=" wiringLane=STRING ";")? & ("GrpInfo"
+	//	"=" grpInfo=STRING ";")? & ("Route" "=" route=STRING ";")? & ("PwSup1" "=" pwSup1=STRING ";")? & ("EmhZone1" "="
+	//	emhZone1=STRING ";")? & ("Type" "=" ioType=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? & ("ResourceY"
+	//	"=" resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")?) "}";
 	public EqInterfaceElements getEqInterfaceAccess() {
 		return pEqInterface;
 	}
