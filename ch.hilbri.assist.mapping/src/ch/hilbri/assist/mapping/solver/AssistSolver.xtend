@@ -119,10 +119,10 @@ class AssistSolver {
 		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 
-		// Bug: this constraint does not work with configurable interface types 
+		// Bug: these constraints do not work with configurable interface types 
 		// this.mappingConstraintsList.add(new ImprovedColocalitiesConstraint(model, solver, solverVariables))
-
-		this.mappingConstraintsList.add(new ImprovedPairOfColocalitiesConstraint(model, solver, solverVariables))
+		// this.mappingConstraintsList.add(new ImprovedPairOfColocalitiesConstraint(model, solver, solverVariables))
+		
 		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
 
 		/* Create a list for the results */ 
