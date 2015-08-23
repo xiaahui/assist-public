@@ -268,10 +268,10 @@ class Board extends HardwareElementContainer {
 		if (suiteableTypeAndProtectionLevel == null) return 0
 		
 		// we want the total count and then the sum of all suitable adapters on this board
-		val suiteableTypeAndProtectionLevelCount = suiteableTypeAndProtectionLevel.map[totalCount]
-		if (suiteableTypeAndProtectionLevelCount.length > 1) return suiteableTypeAndProtectionLevelCount.reduce[p1, p2| p1+p2]
-		else if (suiteableTypeAndProtectionLevelCount.length == 1) return suiteableTypeAndProtectionLevelCount.get(0)
-		else if (suiteableTypeAndProtectionLevelCount.length == 0) return 0
+		val int[] suiteableTypeAndProtectionLevelCount = suiteableTypeAndProtectionLevel.map[totalCount]
+		if (suiteableTypeAndProtectionLevelCount.size > 1) return suiteableTypeAndProtectionLevelCount.reduce[p1, p2| p1+p2]
+		else if (suiteableTypeAndProtectionLevelCount.size == 1) return suiteableTypeAndProtectionLevelCount.get(0)
+		else if (suiteableTypeAndProtectionLevelCount.size == 0) return 0
 		else return -1 
 	}
 }
@@ -445,11 +445,11 @@ class Thread {
 		if (exRequestsWithCorrectType == null) return 0		
 		
 		// we are looking for the count of desired adapters
-		val exRequestsWithCorrectTypeAdapterCount = exRequestsWithCorrectType.map[requiredAdapterCount]
+		val int[] exRequestsWithCorrectTypeAdapterCount = exRequestsWithCorrectType.map[requiredAdapterCount]
 		
-		if (exRequestsWithCorrectTypeAdapterCount.length > 1) return exRequestsWithCorrectTypeAdapterCount.reduce[p1, p2 | p1+p2]
-		else if (exRequestsWithCorrectTypeAdapterCount.length == 1) return exRequestsWithCorrectTypeAdapterCount.get(0)
-		else if (exRequestsWithCorrectTypeAdapterCount.length == 0) return 0
+		if (exRequestsWithCorrectTypeAdapterCount.size > 1) return exRequestsWithCorrectTypeAdapterCount.reduce[p1, p2 | p1+p2]
+		else if (exRequestsWithCorrectTypeAdapterCount.size == 1) return exRequestsWithCorrectTypeAdapterCount.get(0)
+		else if (exRequestsWithCorrectTypeAdapterCount.size == 0) return 0
 		else return -1
 	}
 	
