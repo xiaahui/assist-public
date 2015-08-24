@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.mappingdsl
 Bundle-Vendor: Robert Hilbrich
 Bundle-Version: 1.2
-Bundle-SymbolicName: ch.hilbri.assist.mappingdsl; singleton:=true
+Bundle-SymbolicName: ch.hilbri.assist.mappingdsl;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
