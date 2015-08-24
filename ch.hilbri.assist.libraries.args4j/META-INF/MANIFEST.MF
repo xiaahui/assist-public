@@ -2,8 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.args4j
 Bundle-SymbolicName: ch.hilbri.assist.libraries.args4j
-Bundle-Version: 2.0.21
-Bundle-ClassPath: args4j-2.0.21.jar
+Bundle-Version: 2.0.21.qualifier
 Export-Package: org.kohsuke.args4j,
  org.kohsuke.args4j.spi
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
