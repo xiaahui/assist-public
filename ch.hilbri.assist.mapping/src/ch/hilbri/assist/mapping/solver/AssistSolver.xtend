@@ -52,8 +52,8 @@ class AssistSolver {
 		logger.info('''******************************''')
 		
 		if (Platform.getBundle("ch.hilbri.assist.application") != null) {
-			logger.info('''    Version : «Platform.getBundle("ch.hilbri.assist.application").getHeaders().get("Bundle-Version")» ''')
-			logger.info('''    Platform: «System.getProperty("os.name") + " " + System.getProperty("sun.arch.data.model") + "bit"»''')
+			logger.info('''    Version : Â«Platform.getBundle("ch.hilbri.assist.application").getHeaders().get("Bundle-Version")Â» ''')
+			logger.info('''    Platform: Â«System.getProperty("os.name") + " " + System.getProperty("sun.arch.data.model") + "bit"Â»''')
 			logger.info('''******************************''')
 		}
 			
@@ -170,7 +170,7 @@ class AssistSolver {
 	def propagation() throws BasicConstraintsException {
 		logger.info("Starting to generate constraints for the choco-solver")
 		for (constraint : mappingConstraintsList) {
-			logger.info(''' - Starting to generate constraints for "«constraint.name»"...''')
+			logger.info(''' - Starting to generate constraints for "Â«constraint.nameÂ»"...''')
 			if (!constraint.generate()) {
 	            logger.info('''      No effective constraints found''')
             }
@@ -178,7 +178,7 @@ class AssistSolver {
 		}
 		val vars = solverVariables.locationVariables
 		logger.info('''After initial propagation:''') 
-		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location variables instantiated''') 
+		logger.info('''      Â«vars.filter[instantiated].sizeÂ» / Â«vars.sizeÂ» location variables instantiated''') 
 	}
 	
 	def solutionSearch() throws BasicConstraintsException {
@@ -189,9 +189,9 @@ class AssistSolver {
 		logger.info("Initiating choco-solver - searching for a solution")
 		solver.findAllSolutions
 		
-		logger.info('''Solutions found: «recorder.solutions.size»''') 
+		logger.info('''Solutions found: Â«recorder.solutions.sizeÂ»''') 
 		
-		logger.info('''Internal solver statistics: «solver.measures.toOneLineString»''')
+		logger.info('''Internal solver statistics: Â«solver.measures.toOneLineStringÂ»''')
 			
 		if (solver.hasReachedLimit)
 			logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)")
@@ -199,13 +199,13 @@ class AssistSolver {
 		// Did we find a solution? 
 		if (recorder.solutions.size > 0) {
 			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions)
-			logger.info('''Results created:  «mappingResults.size»''')
+			logger.info('''Results created:  Â«mappingResults.sizeÂ»''')
 		} 
 		
 		// should we save a partial solution?
 		else if (savePartialSolution) {
 			mappingResults = ResultFactoryFromSolverSolutions.createPartialResult(model, solverVariables, partialSolutionSaveMonitor.partialSolution)			
-			logger.info('''Created «mappingResults.size» partial solution''')
+			logger.info('''Created ï¿½mappingResults.sizeï¿½ partial solution''')
 		} 
 	}
 	
