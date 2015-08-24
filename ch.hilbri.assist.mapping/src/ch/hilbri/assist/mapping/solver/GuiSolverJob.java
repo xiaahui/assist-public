@@ -28,8 +28,6 @@ public class GuiSolverJob extends Job {
 	
 	private Logger logger;
 	
-	private boolean retrieveExplanation = false;
-	
 	/**
 	 * Constructor
 	 * 
@@ -69,16 +67,6 @@ public class GuiSolverJob extends Job {
 			monitor.worked(1);
 			
 			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
-			
-			if (retrieveExplanation) {
-				monitor.beginTask("Trying to get an explanation", 1);
-				assistSolver.getExplanation();
-				monitor.worked(1);
-				
-				if (monitor.isCanceled()) return Status.CANCEL_STATUS;
-			}
-			
-			
 			
 			if (assistSolver.getResults().size() > 0) {
 				monitor.beginTask("Presenting the results", 1);
@@ -156,7 +144,6 @@ public class GuiSolverJob extends Job {
 	public void	setMaxSolutions(int maxSolutions) 			 { assistSolver.setSolverMaxSolutions(maxSolutions); 		}
 	public void	setSearchStrategy(SearchType searchStrategy) { assistSolver.setSolverSearchStrategy(searchStrategy);	}
 	public void setMaxSearchTime(long maxTimeInmsec) 		 { assistSolver.setSolverTimeLimit(maxTimeInmsec); 			}
-	public void	setRetrieveExplanation(boolean value) 		 { retrieveExplanation = value;								}
 	public void setSavePartialSolution(boolean value)		 { assistSolver.setSavePartialSolution(value);    			}
 	
 	public ArrayList<Result> getNewMappingResults()			 { return assistSolver.getResults();						}

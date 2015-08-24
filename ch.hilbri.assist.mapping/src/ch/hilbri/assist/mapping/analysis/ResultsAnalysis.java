@@ -2,7 +2,7 @@ package ch.hilbri.assist.mapping.analysis;
 
 import java.util.List;
 
-import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+import org.apache.commons.math4.stat.descriptive.DescriptiveStatistics;
 
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
