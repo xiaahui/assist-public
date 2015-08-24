@@ -10,3 +10,6 @@
 [submodule "ch.hilbri.assist.libraries.automaton/automaton"]
 	path = ch.hilbri.assist.libraries.automaton/automaton
 	url = https://github.com/dweiss/dk.brics.automaton
+[submodule "ch.hilbri.assist.libraries.math/commons-math"]
+	path = ch.hilbri.assist.libraries.math/commons-math
+	url = https://github.com/apache/commons-math

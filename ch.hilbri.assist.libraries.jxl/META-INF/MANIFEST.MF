@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.jxl
 Bundle-SymbolicName: ch.hilbri.assist.libraries.jxl
-Bundle-Version: 2.6.12
+Bundle-Version: 2.6.12.qualifier
 Bundle-ClassPath: jxl.jar
 Export-Package: jxl,
  jxl.biff,

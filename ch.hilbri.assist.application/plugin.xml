@@ -7,7 +7,6 @@
 		    <property name="applicationXMI" value="ch.hilbri.assist.application/Application.e4xmi"> </property>
 			<property name="cssTheme" value="ch.hilbri.assist.theme.default"> </property>
 			<property name="applicationCSSResources" value="platform:/plugin/org.eclipse.platform/images/"> </property>
-     		<property name="preferenceCustomization" value="plugin_customization.ini"> </property>
 		    <property name="version" value="0.1"></property>
       <property
             name="windowImages"

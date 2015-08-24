@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.trove4j
 Bundle-SymbolicName: ch.hilbri.assist.libraries.trove4j
-Bundle-Version: 3.0.22
+Bundle-Version: 3.0.3.qualifier
 Bundle-ClassPath: trove4j-3.0.3.jar
 Export-Package: gnu.trove,
  gnu.trove.decorator,
