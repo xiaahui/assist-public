@@ -11,7 +11,7 @@
 hs_err_pid*
 
 # generated sources
-*/xtend-gen/
+/xtend-gen/*
 
 # build results
 */bin/
