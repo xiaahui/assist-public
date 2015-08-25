@@ -3,7 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.javafx
 Bundle-SymbolicName: ch.hilbri.assist.libraries.javafx
 Bundle-Version: 1.8.60.qualifier
-Bundle-ClassPath: jfxrt-mac.jar,
+Bundle-ClassPath: jfxrt-win.jar,
+ jfxrt-mac.jar,
  jfxswt.jar
 Export-Package: com.sun.deploy.uitoolkit.impl.fx,
  com.sun.deploy.uitoolkit.impl.fx.ui,
