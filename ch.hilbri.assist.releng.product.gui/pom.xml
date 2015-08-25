@@ -34,7 +34,7 @@
 				<configuration>
 					<products>
 						<product>
-							<id>MY_PRODUCT_ID</id>
+							<id>assist</id>
 							<archiveFileName>ASSIST-${project.version}</archiveFileName>
 						</product>
 					</products>
