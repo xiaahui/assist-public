@@ -18,24 +18,24 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/mars/</url>
 		</repository>
-		
+
 		<repository>
 			<id>TMF Updates (for Mars)</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url>
 		</repository>
-		
+
 		<repository>
 			<id>Xcore Updates (for Mars)</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/modeling/emf/emf/updates/2.11.x</url>
 		</repository>
-		
+
 	</repositories>
 
 	<build>
 		<plugins>
-			
+
 
 			<plugin>
 				<!-- enable tycho build extension -->
@@ -50,16 +50,35 @@
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho.version}</version>
 				<configuration>
+					<filters>
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.jdt.core</id>
+							<restrictTo>
+								<version>3.11.0.v20150602-1242</version>
+							</restrictTo>
+						</filter>
+					</filters>
 					<environments>
 						<environment>
 							<os>macosx</os>
 							<ws>cocoa</ws>
 							<arch>x86_64</arch>
 						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
 					</environments>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-compiler-plugin</artifactId>
@@ -93,5 +112,6 @@
 		<module>../ch.hilbri.assist.mappingdsl</module>
 		<module>../ch.hilbri.assist.mappingdsl.tests</module>
 		<module>../ch.hilbri.assist.mappingdsl.ui</module>
+		<module>../ch.hilbri.assist.releng.product.gui</module>
 	</modules>
 </project>
