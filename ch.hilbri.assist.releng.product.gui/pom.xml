@@ -32,12 +32,32 @@
 					</execution>
 				</executions>
 				<configuration>
+					<formats>
+						<win32>zip</win32>
+						<linux>tar.gz</linux>
+						<macosx>tar.gz</macosx>
+					</formats>
 					<products>
 						<product>
 							<id>assist</id>
+							<rootFolders>
+								<macosx>ASSIST.app</macosx>
+							</rootFolders>
 							<archiveFileName>ASSIST-${project.version}</archiveFileName>
 						</product>
 					</products>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-repository-plugin</artifactId>
+				<version>0.23.1</version>
+				<configuration>
+					<includeAllDependencies>true</includeAllDependencies>
+					<profileProperties>
+						<macosx-bundled>true</macosx-bundled>
+					</profileProperties>
 				</configuration>
 			</plugin>
 		</plugins>
