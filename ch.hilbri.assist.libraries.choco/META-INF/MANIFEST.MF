@@ -3,18 +3,12 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.choco
 Bundle-SymbolicName: ch.hilbri.assist.libraries.choco
 Bundle-Version: 3.3.1.qualifier
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- ch.hilbri.assist.libraries.args4j;bundle-version="2.0.21",
- ch.hilbri.assist.libraries.automaton;bundle-version="1.11.8",
- ch.hilbri.assist.libraries.math;bundle-version="3.2.0",
+Require-Bundle: ch.hilbri.assist.libraries.args4j;bundle-version="2.0.21",
+ ch.hilbri.assist.libraries.automaton;bundle-version="1.21.8",
+ ch.hilbri.assist.libraries.math;bundle-version="3.2.1",
  ch.hilbri.assist.libraries.trove4j;bundle-version="3.0.3";visibility:=reexport,
  ch.hilbri.assist.libraries.jgrapht;bundle-version="0.9.1",
- ch.hilbri.assist.libraries.logback,
- com.google.guava,
- org.eclipse.xtext.xbase.lib,
- org.eclipse.xtend.lib,
- org.eclipse.xtend.lib.macro
+ ch.hilbri.assist.libraries.logback;bundle-version="1.1.2"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: org.chocosolver.memory,

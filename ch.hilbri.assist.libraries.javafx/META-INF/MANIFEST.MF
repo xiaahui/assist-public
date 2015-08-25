@@ -137,4 +137,4 @@ Export-Package: com.sun.deploy.uitoolkit.impl.fx,
  com.sun.scenario.effect.impl.sw.java,
  com.sun.scenario.effect.impl.sw.sse
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.eclipse.swt;bundle-version="3.103.1"
+Require-Bundle: org.eclipse.swt;bundle-version="3.104.0"

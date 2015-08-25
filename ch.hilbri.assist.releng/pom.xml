@@ -18,6 +18,19 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/mars/</url>
 		</repository>
+		
+		<repository>
+			<id>TMF Updates (for Mars)</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url>
+		</repository>
+		
+		<repository>
+			<id>Xcore Updates (for Mars)</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/emf/emf/updates/2.11.x</url>
+		</repository>
+		
 	</repositories>
 
 	<build>
