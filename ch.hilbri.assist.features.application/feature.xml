@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="ch.hilbri.assist.features.application"
+      label="Application"
+      version="2.0.0.qualifier"
+      provider-name="Robert Hilbrich"
+      os="linux,macosx,win32"
+      ws="cocoa,gtk,win32"
+      arch="x86_64">
+
+   <license url="">
+      GPL
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.core.resources" version="3.10.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime" version="3.11.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.filesystem" version="1.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.core.commands" version="0.11.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.core.contexts" version="1.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.core.di" version="1.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.core.services" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.ui.di" version="1.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.ui.model.workbench" version="1.1.100" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.ui.services" version="1.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.ui.workbench" version="1.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui" version="3.107.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.cheatsheets" version="3.9.9" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.console" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.11.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.text" version="3.5.400" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt" version="3.11.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.core" version="3.11.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.ui" version="3.11.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.launching" version="3.8.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="ch.hilbri.assist.application"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
