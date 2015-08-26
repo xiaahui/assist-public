@@ -35,7 +35,8 @@
 
 	<build>
 		<plugins>
-
+			
+			
 
 			<plugin>
 				<!-- enable tycho build extension -->
@@ -117,5 +118,6 @@
 		<module>../ch.hilbri.assist.features.datamodel</module>
 		<module>../ch.hilbri.assist.features.libraries</module>
 		<module>../ch.hilbri.assist.features.mapping</module>
+		<module>../ch.hilbri.assist.features.documentation</module>
 	</modules>
 </project>
