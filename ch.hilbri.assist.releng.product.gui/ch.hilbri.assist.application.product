@@ -42,6 +42,7 @@
       <feature id="ch.hilbri.assist.features.libraries" version="2.0.0.qualifier"/>
       <feature id="ch.hilbri.assist.features.mapping" version="2.0.0.qualifier"/>
       <feature id="ch.hilbri.assist.features.documentation" version="2.0.0.qualifier"/>
+      <feature id="ch.hilbri.assist.features.defaults" version="2.0.0.qualifier"/>
    </features>
 
    <configurations>

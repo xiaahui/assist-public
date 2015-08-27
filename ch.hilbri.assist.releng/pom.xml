@@ -119,5 +119,6 @@
 		<module>../ch.hilbri.assist.features.libraries</module>
 		<module>../ch.hilbri.assist.features.mapping</module>
 		<module>../ch.hilbri.assist.features.documentation</module>
+		<module>../ch.hilbri.assist.features.defaults</module>
 	</modules>
 </project>

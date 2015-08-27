@@ -1,0 +1,24 @@
+INDEX VERSION 1.127+C:\Git-Repositories\ASSIST-Public\ch.hilbri.assist.releng.product.gui\target\products\assist\win32\win32\x86_64\workspace\.metadata\.plugins\org.eclipse.jdt.core
+4092373334.index
+3947846909.index
+1332040761.index
+837684362.index
+4286188483.index
+1346744346.index
+111882755.index
+3018053291.index
+3372225314.index
+1359632886.index
+588109342.index
+2425561664.index
+3096636647.index
+2308310617.index
+4229520435.index
+3178440844.index
+18190425.index
+28326637.index
+2814319406.index
+465156977.index
+3805774180.index
+1069151268.index
+424133817.index
