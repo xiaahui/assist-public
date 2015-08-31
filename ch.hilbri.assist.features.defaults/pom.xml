@@ -9,17 +9,4 @@
 		<version>2.0.0-SNAPSHOT</version>
 		<relativePath>../ch.hilbri.assist.releng</relativePath>
 	</parent>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-packaging-plugin</artifactId>
-				<version>0.23.1</version>
-				<configuration>
-					<useDefaultExcludes>false</useDefaultExcludes>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>
