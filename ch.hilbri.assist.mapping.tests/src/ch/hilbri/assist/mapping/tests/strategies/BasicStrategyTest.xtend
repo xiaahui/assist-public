@@ -32,52 +32,25 @@ class BasicStrategyTest {
 		logger = LoggerFactory.getLogger(AbstractMappingTest)
 		input = '''
 Global { 
-	Name = "Example System";
+	System name = "Example System";
 }
 
-Compartment C1 {
-	RDC RDC1 {
-		Connector Connector1 {
-			"CustomType0" = 2;
-			"CustomType1" = 2;
-		}
-
-		Connector Connector2 {
-			"CustomType0" = 2;
+Hardware {
+	Board B1 {
+		Processor P1 {
+			Core C1 {
+				Capacity = 100;
+			}
 		}
 	}
-	
-	RDC RDC2 {
-		Connector Connector1 {
-			"CustomType0" = 2;
-			"CustomType1" = 2;
-		}
+}
 
-		Connector Connector2 {
-			"CustomType2" = 2;
-		}
+Software {
+	Application A1 {
+		Core-utilization = 1;
 	}
+}
 	
-}
-
-
-Interfaces {
-	Interface Iface1 {	Type = "CustomType0";	}
-	Interface Iface2 {	Type = "CustomType0";	}
-	Interface Iface3 {	Type = "CustomType1";	}
-	Interface Iface4 {	Type = "CustomType2";	}
-}
-
-InterfaceGroups {
-	Group G1 { Iface1, Iface2 };
-}
-
-Restrictions {
-	G1 dislocal up to Connector;
-	Iface3, Iface4 dislocal up to RDC;
-	Iface1, Iface3 on same RDC;
-	Iface2, Iface4 on same RDC; 
-}
 '''
 	}
 

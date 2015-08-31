@@ -9,7 +9,6 @@ Export-Package: ch.hilbri.assist.cli
 Require-Bundle: ch.hilbri.assist.datamodel.model;bundle-version="2.0.0",
  ch.hilbri.assist.datamodel.result.mapping;bundle-version="2.0.0",
  ch.hilbri.assist.mapping;bundle-version="2.0.0",
- ch.hilbri.assist.mapping.tests;bundle-version="2.0.0",
  ch.hilbri.assist.mappingdsl.tests;bundle-version="2.0.0",
  com.google.inject;bundle-version="3.0.0",
  org.apache.commons.cli;bundle-version="1.2.0",
