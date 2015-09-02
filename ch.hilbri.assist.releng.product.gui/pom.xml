@@ -43,7 +43,7 @@
 							<rootFolders>
 								<macosx>ASSIST.app</macosx>
 							</rootFolders>
-							<archiveFileName>ASSIST-${project.version}</archiveFileName>
+							<archiveFileName>ASSIST-${unqualifiedVersion}.${buildQualifier}</archiveFileName>
 						</product>
 					</products>
 				</configuration>
