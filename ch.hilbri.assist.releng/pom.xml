@@ -48,6 +48,15 @@
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho.version}</version>
 				<configuration>
+					<dependency-resolution>
+						<extraRequirements>
+							<requirement>
+								<type>eclipse-feature</type>
+								<id>org.eclipse.xtext.sdk</id>
+								<versionRange>2.8.4</versionRange>
+							</requirement>
+						</extraRequirements>
+					</dependency-resolution>
 					<filters>
 						<filter>
 							<type>eclipse-plugin</type>
