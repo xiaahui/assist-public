@@ -50,11 +50,11 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				val aogList = new ArrayList<IntVar>()
 				
 				if (aog instanceof Application) 
-					for (t : (aog as Application).threads) 
+					for (t : aog.threads) 
 						aogList.add(solverVariables.getThreadLocationVariable(t, r.hardwareLevel.value))
 				
 				else if (aog instanceof ApplicationGroup)
-					for (t : (aog as ApplicationGroup).allThreads)
+					for (t : aog.allThreads)
 						aogList.add(solverVariables.getThreadLocationVariable(t, r.hardwareLevel.value))
 	 			
 	 			else return false
