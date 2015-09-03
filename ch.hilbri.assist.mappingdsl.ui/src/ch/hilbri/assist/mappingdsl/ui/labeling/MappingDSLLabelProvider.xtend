@@ -94,8 +94,8 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		
 		output.append("[")
 		for (aog : r.applicationsOrGroups) {
-			if (aog instanceof Application) output.append((aog as Application).name)
-			if (aog instanceof ApplicationGroup) output.append((aog as ApplicationGroup).name)
+			if (aog instanceof Application) output.append(aog.name)
+			if (aog instanceof ApplicationGroup) output.append(aog.name)
 			if (r.applicationsOrGroups.last != aog) output.append(", ")
 		}
 		output.append("]")
@@ -115,8 +115,8 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		
 		output.append("[")
 		for (aog : r.applicationsOrGroups) {
-			if (aog instanceof Application) output.append((aog as Application).name)
-			if (aog instanceof ApplicationGroup) output.append((aog as ApplicationGroup).name)
+			if (aog instanceof Application) output.append(aog.name)
+			if (aog instanceof ApplicationGroup) output.append(aog.name)
 			if (r.applicationsOrGroups.last != aog) output.append(", ")
 		}
 		output.append("]")
@@ -134,8 +134,8 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		
 		output.append("[")
 		for (aog : r.applicationsOrGroups) {
-			if (aog instanceof Application) output.append((aog as Application).name)
-			if (aog instanceof ApplicationGroup) output.append((aog as ApplicationGroup).name)
+			if (aog instanceof Application) output.append(aog.name)
+			if (aog instanceof ApplicationGroup) output.append(aog.name)
 			if (r.applicationsOrGroups.last != aog) output.append(", ")
 		}
 		output.append("]")
