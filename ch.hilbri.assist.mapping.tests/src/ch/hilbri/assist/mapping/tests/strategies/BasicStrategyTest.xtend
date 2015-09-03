@@ -61,7 +61,7 @@ Software {
 		ModelPackage.eINSTANCE.eClass()
 	
 		/* Parse the input */
-		model = parser.parse(input) as AssistModel
+		model = parser.parse(input)
 		
 		/* Fix the model */
 		assertNotNull(model) 

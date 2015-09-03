@@ -44,7 +44,7 @@ class AbstractMappingTest {
 	@Before
 	def void loadModelAndCreateResults() {
 		/* Parse the input */
-		model = parser.parse(input) as AssistModel
+		model = parser.parse(input)
 		
 		/* Fix the model */
 		assertNotNull(model) 
