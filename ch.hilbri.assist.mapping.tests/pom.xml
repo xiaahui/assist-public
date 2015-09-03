@@ -11,7 +11,10 @@
 	</parent>
 
 	<build>
+
+
 		<plugins>
+			
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-surefire-plugin</artifactId>

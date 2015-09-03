@@ -12,8 +12,11 @@ public class SearchTypeTests {
   @Test
   public void checkExactlyOneDefault() {
     SearchType[] _values = SearchType.values();
-    final Function1<SearchType, Boolean> _function = (SearchType it) -> {
-      return Boolean.valueOf(it.isDefault());
+    final Function1<SearchType, Boolean> _function = new Function1<SearchType, Boolean>() {
+      @Override
+      public Boolean apply(final SearchType it) {
+        return Boolean.valueOf(it.isDefault());
+      }
     };
     Iterable<SearchType> _filter = IterableExtensions.<SearchType>filter(((Iterable<SearchType>)Conversions.doWrapArray(_values)), _function);
     int _length = ((Object[])Conversions.unwrapArray(_filter, Object.class)).length;
