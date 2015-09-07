@@ -4,3 +4,6 @@
 [submodule "ch.hilbri.assist.libraries.jgrapht/jgrapht"]
 	path = ch.hilbri.assist.libraries.jgrapht/jgrapht
 	url = https://github.com/jgrapht/jgrapht
+[submodule "ch.hilbri.assist.libraries.args4j/args4j"]
+	path = ch.hilbri.assist.libraries.args4j/args4j
+	url = https://github.com/kohsuke/args4j
