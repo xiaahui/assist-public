@@ -7,3 +7,6 @@
 [submodule "ch.hilbri.assist.libraries.args4j/args4j"]
 	path = ch.hilbri.assist.libraries.args4j/args4j
 	url = https://github.com/kohsuke/args4j
+[submodule "ch.hilbri.assist.libraries.automaton/automaton"]
+	path = ch.hilbri.assist.libraries.automaton/automaton
+	url = https://github.com/dweiss/dk.brics.automaton
