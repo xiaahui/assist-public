@@ -33,10 +33,7 @@ import java.util.ArrayList
 import java.util.List
 import org.chocosolver.solver.ResolutionPolicy
 import org.chocosolver.solver.Solver
-import org.chocosolver.solver.search.limits.NodeCounter
-import org.chocosolver.solver.search.loop.monitors.RestartManager
 import org.chocosolver.solver.search.loop.monitors.SMF
-import org.chocosolver.solver.search.restart.GeometricalRestartStrategy
 import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
 import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy
@@ -70,8 +67,8 @@ class AssistSolver {
 		logger.info('''******************************''')
 		
 		if (Platform.getBundle("ch.hilbri.assist.application") != null) {
-			logger.info('''    Version : «Platform.getBundle("ch.hilbri.assist.application").getHeaders().get("Bundle-Version")» ''')
-			logger.info('''    Platform: «System.getProperty("os.name") + " " + System.getProperty("sun.arch.data.model") + "bit"»''')
+			logger.info('''    Version : Â«Platform.getBundle("ch.hilbri.assist.application").getHeaders().get("Bundle-Version")Â» ''')
+			logger.info('''    Platform: Â«System.getProperty("os.name") + " " + System.getProperty("sun.arch.data.model") + "bit"Â»''')
 			logger.info('''******************************''')
 		}
 			
@@ -227,14 +224,14 @@ class AssistSolver {
 			case DOM_OVER_WDEG_MIN_VAL_FIRST_RESTARTS: {
 				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))
 
-				val rm = new RestartManager( 
-											 new GeometricalRestartStrategy(8000, 1),   // 8000 Nodes each time 	
-                							 new NodeCounter(10000),       			    // Go to 10000 nodes max
-                							 solver.getSearchLoop(), 
-                							 40											// # Restarts
-                							)
-        		
-				solver.plugMonitor(rm)
+//				val rm = new RestartManager( 
+//											 new GeometricalRestartStrategy(8000, 1),   // 8000 Nodes each time 	
+//                							 new NodeCounter(10000),       			    // Go to 10000 nodes max
+//                							 solver.getSearchLoop(), 
+//                							 40											// # Restarts
+//                							)
+//        		
+//				solver.plugMonitor(rm)
 			}
 
 			
@@ -258,7 +255,7 @@ class AssistSolver {
 	def propagation() throws BasicConstraintsException {
 		logger.info("Starting to generate constraints for the choco-solver")
 		for (constraint : mappingConstraintsList) {
-			logger.info(''' - Starting to generate constraints for "«constraint.name»"...''')
+			logger.info(''' - Starting to generate constraints for "Â«constraint.nameÂ»"...''')
 			if (!constraint.generate()) {
 	            logger.info('''      No effective constraints found''')
             }
@@ -267,8 +264,8 @@ class AssistSolver {
 		val colocs = solverVariables.colocationVariables
 		val vars = solverVariables.locationVariables
 		logger.info('''After initial propagation:''') 
-		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location variables instantiated''') 
-		logger.info('''      «colocs.filter[instantiated].size» / «colocs.size» colocation variables instantiated''') 
+		logger.info('''      Â«vars.filter[instantiated].sizeÂ» / Â«vars.sizeÂ» location variables instantiated''') 
+		logger.info('''      Â«colocs.filter[instantiated].sizeÂ» / Â«colocs.sizeÂ» colocation variables instantiated''') 
 	}
 	
 	def solutionSearch() throws BasicConstraintsException {
@@ -289,9 +286,9 @@ class AssistSolver {
 			logger.info("Initiating choco-solver - searching for a solution")
 			solver.findAllSolutions
 		}
-		logger.info('''Solutions found: «recorder.solutions.size»''') 
+		logger.info('''Solutions found: ï¿½recorder.solutions.sizeï¿½''') 
 		
-		logger.info('''Internal solver statistics: «solver.measures.toOneLineString»''')
+		logger.info('''Internal solver statistics: ï¿½solver.measures.toOneLineStringï¿½''')
 			
 	}
 	
@@ -303,13 +300,13 @@ class AssistSolver {
 		// Did we find a solution? 
 		if (recorder.solutions.size > 0) {
 			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions)
-			logger.info('''Results created:  «mappingResults.size»''')
+			logger.info('''Results created:  ï¿½mappingResults.sizeï¿½''')
 		} 
 		
 		// should we save a partial solution?
 		else if (savePartialSolution) {
 			mappingResults = ResultFactoryFromSolverSolutions.createPartialResult(model, solverVariables, partialSolutionSaveMonitor.partialSolution)			
-			logger.info('''Created «mappingResults.size» partial solution with «mappingResults.get(0).mapping.keySet.size» mapped interfaces''')
+			logger.info('''Created ï¿½mappingResults.sizeï¿½ partial solution with ï¿½mappingResults.get(0).mapping.keySet.sizeï¿½ mapped interfaces''')
 		} 
 	}
 

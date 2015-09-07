@@ -119,7 +119,7 @@ class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 	
 						
 						// create n-1 pseudo interfaces
-						val pseudoInterfaces = VF.enumeratedArray("PseudoInterfaces", indizes.length-1, indizes, solver)
+						val pseudoInterfaces = VF.enumeratedArray("PseudoInterfaces", indizes.size-1, indizes, solver)
 						
 						// add them to the list of pinLocationVars
 						pinLocationVars.addAll(pseudoInterfaces)

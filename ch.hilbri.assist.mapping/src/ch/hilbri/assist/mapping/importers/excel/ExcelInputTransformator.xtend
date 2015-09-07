@@ -35,8 +35,8 @@ return '''
 /* 
  * Automatically generated input file for ASSIST
  * 
- *         from file: «filePath»
- *                at: «new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(Calendar.getInstance().getTime())»
+ *         from file: Â«filePathÂ»
+ *                at: Â«new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(Calendar.getInstance().getTime())Â»
  */
  
 Global {
@@ -136,7 +136,7 @@ Compartment CompartmentName1 {
 			e.printStackTrace();
 		}
 		
-		logger.info('''Successfully imported «allInterfaces.length» interfaces from excel file '«filePath»' ''')
+		logger.info('''Successfully imported Â«allInterfaces.lengthÂ» interfaces from excel file 'Â«filePathÂ»' ''')
 		
 		return '''
  
@@ -145,24 +145,24 @@ Compartment CompartmentName1 {
  * ********************************** */
 
 Interfaces {
-	«FOR iface : allInterfaces.sortBy[name]»
-	Interface «iface.name» {
-		«IF !iface.system.isNullOrEmpty		»System     = "«iface.system.trim»";«	ENDIF»
-		«IF !iface.subAta.isNullOrEmpty		»SubAta     = "«iface.subAta.trim»";«	ENDIF»
-		«IF !iface.resource.isNullOrEmpty	»Resource   = "«iface.resource.trim»";«	ENDIF»
-		«IF !iface.lineName.isNullOrEmpty	»LineName   = "«iface.lineName.trim»";«	ENDIF»
-		«IF !iface.wiringLane.isNullOrEmpty	»WiringLane = "«iface.wiringLane.trim»";«ENDIF»
-		«IF !iface.grpInfo.isNullOrEmpty	»GrpInfo    = "«iface.grpInfo.trim»";«	ENDIF»
-		«IF !iface.route.isNullOrEmpty		»Route      = "«iface.route.trim»";«	ENDIF»
-		«IF !iface.pwSup1.isNullOrEmpty		»PwSup1     = "«iface.pwSup1.trim»";«	ENDIF»
-		«IF !iface.emhZone1.isNullOrEmpty	»EmhZone1   = "«iface.emhZone1.trim»";«	ENDIF»
-		«IF !iface.ioType.isNullOrEmpty		»Type       = "«iface.ioType.trim»";«	ENDIF»
-		«IF !iface.resourceX.isNullOrEmpty	»ResourceX  =  «iface.resourceX.trim»;«	ENDIF»
-		«IF !iface.resourceY.isNullOrEmpty	»ResourceY  =  «iface.resourceY.trim»;«	ENDIF»
-		«IF !iface.resourceZ.isNullOrEmpty	»ResourceZ  =  «iface.resourceZ.trim»;«	ENDIF»
+	Â«FOR iface : allInterfaces.sortBy[name]Â»
+	Interface Â«iface.nameÂ» {
+		Â«IF !iface.system.isNullOrEmpty		Â»System     = "Â«iface.system.trimÂ»";Â«	ENDIFÂ»
+		Â«IF !iface.subAta.isNullOrEmpty		Â»SubAta     = "Â«iface.subAta.trimÂ»";Â«	ENDIFÂ»
+		Â«IF !iface.resource.isNullOrEmpty	Â»Resource   = "Â«iface.resource.trimÂ»";Â«	ENDIFÂ»
+		Â«IF !iface.lineName.isNullOrEmpty	Â»LineName   = "Â«iface.lineName.trimÂ»";Â«	ENDIFÂ»
+		Â«IF !iface.wiringLane.isNullOrEmpty	Â»WiringLane = "Â«iface.wiringLane.trimÂ»";Â«ENDIFÂ»
+		Â«IF !iface.grpInfo.isNullOrEmpty	Â»GrpInfo    = "Â«iface.grpInfo.trimÂ»";Â«	ENDIFÂ»
+		Â«IF !iface.route.isNullOrEmpty		Â»Route      = "Â«iface.route.trimÂ»";Â«	ENDIFÂ»
+		Â«IF !iface.pwSup1.isNullOrEmpty		Â»PwSup1     = "Â«iface.pwSup1.trimÂ»";Â«	ENDIFÂ»
+		Â«IF !iface.emhZone1.isNullOrEmpty	Â»EmhZone1   = "Â«iface.emhZone1.trimÂ»";Â«	ENDIFÂ»
+		Â«IF !iface.ioType.isNullOrEmpty		Â»Type       = "Â«iface.ioType.trimÂ»";Â«	ENDIFÂ»
+		Â«IF !iface.resourceX.isNullOrEmpty	Â»ResourceX  =  Â«iface.resourceX.trimÂ»;Â«	ENDIFÂ»
+		Â«IF !iface.resourceY.isNullOrEmpty	Â»ResourceY  =  Â«iface.resourceY.trimÂ»;Â«	ENDIFÂ»
+		Â«IF !iface.resourceZ.isNullOrEmpty	Â»ResourceZ  =  Â«iface.resourceZ.trimÂ»;Â« ENDIFÂ»
 	}
 	
-	«ENDFOR»
+	Â«ENDFORÂ»
 }
 
  
@@ -173,30 +173,30 @@ Interfaces {
 InterfaceGroups {
 
 	
-	«IF !allInterfaces.map[system].toSet.toList.isNullOrEmpty»
+	Â«IF !allInterfaces.map[system].toSet.toList.isNullOrEmptyÂ»
 	/* 
 	 * Groups for SYSTEM and WIRING_LANE 
 	 */
-	«ENDIF»
-	«FOR system : allInterfaces.map[system].toSet.toList.sort»
+	Â«ENDIFÂ»
+	Â«FOR system : allInterfaces.map[system].toSet.toList.sortÂ»
 	
-	// System: «system»
-	«FOR wiringLane : allInterfaces.filter[it.system == system].map[wiringLane].filter[!empty].toSet.toList.sort»
-	Group «(clear(system) + "__" + clear(wiringLane))» { interfaces with System = "«system»" and WiringLane = "«wiringLane»" };
-	«ENDFOR»
+	// System: Â«systemÂ»
+	Â«FOR wiringLane : allInterfaces.filter[it.system == system].map[wiringLane].filter[!empty].toSet.toList.sortÂ»
+	Group Â«(clear(system) + "__" + clear(wiringLane))Â» { interfaces with System = "Â«systemÂ»" and WiringLane = "Â«wiringLaneÂ»" };
+	Â«ENDFORÂ»
 	
-	«ENDFOR»
+	Â«ENDFORÂ»
  
-	«IF !allInterfaces.map[grpInfo].toSet.toList.isNullOrEmpty»
+	Â«IF !allInterfaces.map[grpInfo].toSet.toList.isNullOrEmptyÂ»
 	/* 
 	 * Groups for GRPINFO and WIRING_LANE 
 	 */
-	«ENDIF»
-	«FOR grpInfo : allInterfaces.map[grpInfo].toSet.toList.filter[!isNullOrEmpty].sort»
-	«FOR wiringLane : allInterfaces.filter[it.grpInfo == grpInfo].map[wiringLane].filter[!empty].toSet.toList.sort»
-	Group «(clear(grpInfo) + "__" + clear(wiringLane))» { interfaces with GrpInfo = "«grpInfo»" and WiringLane = "«wiringLane»" };
-	«ENDFOR»
-	«ENDFOR»
+	Â«ENDIFÂ»
+	Â«FOR grpInfo : allInterfaces.map[grpInfo].toSet.toList.filter[!isNullOrEmpty].sortÂ»
+	Â«FOR wiringLane : allInterfaces.filter[it.grpInfo == grpInfo].map[wiringLane].filter[!empty].toSet.toList.sortÂ»
+	Group Â«(clear(grpInfo) + "__" + clear(wiringLane))Â» { interfaces with GrpInfo = "Â«grpInfoÂ»" and WiringLane = "Â«wiringLaneÂ»" };
+	Â«ENDFORÂ»
+	Â«ENDFORÂ»
 }
 ''';	
 	}
@@ -211,9 +211,9 @@ return '''
 Restrictions {
 	
 	// Generated restrictions for valid deployments ("restrict deployment to")
-	«FOR iface : interfaceDeploymentRestrictions.keySet»
-	Valid for «iface.name» is { connectors with RDC.Name = "«IF !interfaceDeploymentRestrictions.get(iface).contains("__")»«interfaceDeploymentRestrictions.get(iface)»"«ELSE»«interfaceDeploymentRestrictions.get(iface).split("__").get(0)»" and Connector.Name = "«interfaceDeploymentRestrictions.get(iface).split("__").get(1)»"«ENDIF» };
-	«ENDFOR»
+	Â«FOR iface : interfaceDeploymentRestrictions.keySetÂ»
+	Valid for Â«iface.nameÂ» is { connectors with RDC.Name = "Â«IF !interfaceDeploymentRestrictions.get(iface).contains("__")Â»Â«interfaceDeploymentRestrictions.get(iface)Â»"Â«ELSEÂ»Â«interfaceDeploymentRestrictions.get(iface).split("__").get(0)Â»" and Connector.Name = "Â«interfaceDeploymentRestrictions.get(iface).split("__").get(1)Â»"Â«ENDIFÂ» };
+	Â«ENDFORÂ»
 	
 }
 '''}

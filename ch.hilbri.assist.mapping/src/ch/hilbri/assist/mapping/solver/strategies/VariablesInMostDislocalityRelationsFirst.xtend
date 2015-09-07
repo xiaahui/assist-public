@@ -25,7 +25,7 @@ class VariablesInMostDislocalityRelationsFirst implements VariableSelector<IntVa
 		this.model = model
 		
 		for (iface : model.eqInterfaces) {
-			// score = anzahl der dislokalitäten * summe der beteiligten Interfaces
+			// score = anzahl der dislokalitaeten * summe der beteiligten Interfaces
 			var score = 0
 			
 			if (!model.dislocalityRelations.filter[allInterfaces.contains(iface)].nullOrEmpty)
@@ -38,8 +38,8 @@ class VariablesInMostDislocalityRelationsFirst implements VariableSelector<IntVa
 			map.put(v, score)
 		}
 		
-		logger.info('''# total variables: «model.eqInterfaces.length»''')
-		logger.info('''# variables with score = 0: «map.keySet.filter[map.get(it) == 0].length»''')
+		logger.info('''# total variables: Â«model.eqInterfaces.lengthÂ»''')
+		logger.info('''# variables with score = 0: Â«map.keySet.filter[map.get(it) == 0].lengthÂ»''')
 	}
 	
 	override IntVar getVariable(IntVar[] variables) {
@@ -49,8 +49,7 @@ class VariablesInMostDislocalityRelationsFirst implements VariableSelector<IntVa
 		val currentProgress = instantiatedVarCount * 100 / variables.size
 		
 		if (printVariablesInSortedOrder) {
-//			logger.debug('''Unsorted variables list: [«FOR v : variables»«v.name» («map.get(v)»)«IF v != variables.last», «ENDIF»«ENDFOR»]''')
-			logger.debug('''Sorted variables list:   [«FOR v : newList»«v.name» («map.get(v)»)«IF v != newList.last», «ENDIF»«ENDFOR»]''')
+			logger.debug('''Sorted variables list:   [Â«FOR v : newListÂ»Â«v.nameÂ» (Â«map.get(v)Â»)Â«IF v != newList.lastÂ», Â«ENDIFÂ»Â«ENDFORÂ»]''')
 			printVariablesInSortedOrder = false
 		}
 		
@@ -60,7 +59,7 @@ class VariablesInMostDislocalityRelationsFirst implements VariableSelector<IntVa
 		if (newList.filter[!isInstantiated].isNullOrEmpty) return null
 		else {
 			val v = newList.filter[!isInstantiated].get(0)
-			logger.info('''Selecting variable with tag «map.get(v)» («currentProgress»% instantiated)''')
+			logger.info('''Selecting variable with tag Â«map.get(v)Â» (Â«currentProgressÂ»% instantiated)''')
 			return v
 		}
 	}

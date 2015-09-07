@@ -26,10 +26,10 @@ class SavePartialSolution {
 		if (editorPart == null) return false;
 		
 		if (editorPart instanceof MultiPageEditor) {
-			/* Wenn wir keine Lösungen haben, dann darf das nicht erlaubt sein. */
+			/* Wenn wir keine Loesungen haben, dann darf das nicht erlaubt sein. */
 			if (editorPart.detailedResultViewUiModel.results.length == 0) return false;
 				
-			/* Nur wenn wir auch wirklich die Ergebnisse *sehen*, dann können wir exportieren */
+			/* Nur wenn wir auch wirklich die Ergebnisse *sehen*, dann koennen wir exportieren */
 			if (editorPart.activePage == 0) return false;
 				
 			return true;
@@ -44,10 +44,10 @@ class SavePartialSolution {
 		if (editor == null) return null
 		
 		if (editor instanceof MultiPageEditor) {
-			/* Wenn wir keine Lösungen haben, dann darf das nicht erlaubt sein. */
+			/* Wenn wir keine Loesungen haben, dann darf das nicht erlaubt sein. */
 			if (editor.detailedResultViewUiModel.results.length == 0) return null
 				
-			/* Nur wenn wir auch wirklich die Ergebnisse *sehen*, dann können wir exportieren */
+			/* Nur wenn wir auch wirklich die Ergebnisse *sehen*, dann koennen wir exportieren */
 			if (editor.activePage == 0) return null
 
 			val input = editor.getEditorInput

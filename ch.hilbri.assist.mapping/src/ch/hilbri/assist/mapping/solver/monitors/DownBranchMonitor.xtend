@@ -26,7 +26,7 @@ class DownBranchMonitor implements IMonitorDownBranch {
 		/* Only report progress if it actually changes by at least 1% */
 		if (Math.abs(currentProgress - bestProgress) >= 1) {
 			val colocProgress = solverVariables.colocationVariables.filter[instantiated].size * 100 / Math.max(solverVariables.colocationVariables.length, 1)
-			logger.info('''Search progress: «String::format("%4d", instantiatedVarCount)» (= «currentProgress»%) of all location variables and «String::format("%3d", colocProgress)»% of the colocation variables are mapped without violating any specification''')
+			logger.info('''Search progress: Â«String::format("%4d", instantiatedVarCount)Â» (= Â«currentProgressÂ»%) of all location variables and Â«String::format("%3d", colocProgress)Â»% of the colocation variables are mapped without violating any specification''')
 			bestProgress = currentProgress
 		}	
 	}
