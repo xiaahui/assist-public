@@ -91,15 +91,15 @@ class ExcelOutputTransformator {
 			wWorkbook?.close
 		}
 		
-		logger.info('''Exported «exportedInterfaceCount» interfaces to '«outputExcelFileName»'. ''')
-		if (exportedInterfaceMap.values.filter[it == false].length > 0 || exportedNotFoundInterfaceCount > 0) {
+		logger.info('''Exported ï¿½exportedInterfaceCountï¿½ interfaces to 'ï¿½outputExcelFileNameï¿½'. ''')
+		if (exportedInterfaceMap.values.filter[it == false].size > 0 || exportedNotFoundInterfaceCount > 0) {
 			logger.info('''Please note: ''')
 			
-			if (exportedInterfaceMap.values.filter[it == false].length > 0) 
-				logger.info('''    - There are «exportedInterfaceMap.values.filter[it == false].length» interfaces in the ASSIST specification which are NOT part of the excel file '«outputExcelFileName»' ''')
+			if (exportedInterfaceMap.values.filter[it == false].size > 0) 
+				logger.info('''    - There are ï¿½exportedInterfaceMap.values.filter[it == false].lengthï¿½ interfaces in the ASSIST specification which are NOT part of the excel file 'ï¿½outputExcelFileNameï¿½' ''')
 			
 			if (exportedNotFoundInterfaceCount > 0)
-				logger.info('''    - There are «exportedNotFoundInterfaceCount» interfaces in the excel file '«outputExcelFileName»' which are not part of the ASSIST specification''')
+				logger.info('''    - There are ï¿½exportedNotFoundInterfaceCountï¿½ interfaces in the excel file 'ï¿½outputExcelFileNameï¿½' which are not part of the ASSIST specification''')
 		}
 		return outputExcelFileName
 	}

@@ -1,17 +1,17 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: ch.hilbri.assist.datamodel.model
 Bundle-SymbolicName: ch.hilbri.assist.datamodel.model;singleton:=true
-Bundle-Version: 1.8
+Bundle-Version: 2.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: %providerName
+Bundle-Vendor: Robert Hilbrich
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ch.hilbri.assist.datamodel.model,
  ch.hilbri.assist.datamodel.model.impl,
  ch.hilbri.assist.datamodel.model.util
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.xtext.xbase.lib;visibility:=reexport,
- org.eclipse.emf.ecore.xcore.lib;visibility:=reexport
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.11.0",
+ org.eclipse.emf.ecore;bundle-version="2.11.1";visibility:=reexport,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.8.4";visibility:=reexport,
+ org.eclipse.emf.ecore.xcore.lib;bundle-version="1.1.100";visibility:=reexport
 Bundle-ActivationPolicy: lazy

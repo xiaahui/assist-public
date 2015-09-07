@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="ch.hilbri.assist.features.mapping"
+      label="Mapping"
+      version="2.0.0.qualifier"
+      os="linux,macosx,win32"
+      ws="cocoa,gtk,win32"
+      arch="x86_64">
+
+   <license url="">
+      GPL
+   </license>
+
+   <requires>
+      <import plugin="ch.hilbri.assist.application" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.datamodel.model" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.datamodel.model.edit" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.datamodel.model.editor" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.datamodel.result.mapping" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.mappingdsl.ui" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.libraries.javafx" version="1.8.60" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.libraries.math" version="3.2.1" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.libraries.jxl" version="2.6.12" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.libraries.choco" version="3.3.1" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.libraries.logback" version="1.1.2" match="greaterOrEqual"/>
+      <import plugin="javax.inject" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.databinding" version="1.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.core.di" version="1.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.core.services" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.ui.di" version="1.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.ui.model.workbench" version="1.1.100" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.ui.workbench" version="1.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.core" version="3.11.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.ui" version="3.11.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.forms" version="3.6.200" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.zest.core" version="1.5.200" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.zest.layouts" version="1.1.200" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui" version="2.8.4" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.workbench" version="3.107.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext" version="2.8.4" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.xcore" version="1.3.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.util" version="2.8.4" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.11.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.common" version="2.11.0" match="greaterOrEqual"/>
+      <import plugin="org.antlr.runtime" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.xtext.common.types" version="2.8.4" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.xbase.lib" version="2.8.4" match="greaterOrEqual"/>
+      <import plugin="org.apache.log4j"/>
+      <import plugin="ch.hilbri.assist.mappingdsl" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime" version="3.11.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.junit4" version="2.8.4" match="greaterOrEqual"/>
+      <import plugin="org.junit" version="4.12.0" match="greaterOrEqual"/>
+      <import plugin="org.hamcrest.core"/>
+      <import plugin="org.eclipse.ui.editors" version="3.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.11.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui.shared" version="2.8.4" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui" version="3.107.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.builder" version="2.8.4" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.common.types.ui" version="2.8.4" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui.codetemplates.ui" version="2.8.4" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.compare" version="3.5.600" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="ch.hilbri.assist.mapping"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.mappingdsl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.mappingdsl.tests"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.mappingdsl.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

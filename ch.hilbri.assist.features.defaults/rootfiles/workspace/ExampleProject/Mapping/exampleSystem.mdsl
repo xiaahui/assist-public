@@ -1,0 +1,20 @@
+Global {
+	System name = "Example System";
+}
+
+Hardware {
+	Board B1 {
+		DesignAssuranceLevel = A;
+		Processor P1 {
+			Core C1{
+				Capacity = 100;
+			}
+		}
+	}
+}
+
+Software {
+	Application A1 {
+		Core-utilization = 50;
+	}
+}

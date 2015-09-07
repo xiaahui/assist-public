@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="ASSIST" uid="assist" id="ch.hilbri.assist.application.assist_product" application="ch.hilbri.assist.application.application" version="2.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgs>-Xms1024m
+-Xmx4096m
+      </vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="/ch.hilbri.assist.application/icons/ASSIST-icon-16x16.png" i32="/ch.hilbri.assist.application/icons/ASSIST-icon-32x32.png" i48="/ch.hilbri.assist.application/icons/ASSIST-icon-48x48.png" i64="/ch.hilbri.assist.application/icons/ASSIST-icon-64x64.png" i128="/ch.hilbri.assist.application/icons/ASSIST-icon-128x128.png" i256="/ch.hilbri.assist.application/icons/ASSIST-icon-256x256.png"/>
+
+   <splash
+      location="ch.hilbri.assist.application" />
+   <launcher name="ASSIST">
+      <linux icon="icons/icon.xpm"/>
+      <solaris/>
+      <win useIco="true">
+         <ico path="icons/launcher.ico"/>
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+      <linux include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</linux>
+      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</macos>
+      <windows include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</windows>
+   </vm>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="ch.hilbri.assist.features.application" version="2.0.0.qualifier"/>
+      <feature id="ch.hilbri.assist.features.datamodel" version="2.0.0.qualifier"/>
+      <feature id="ch.hilbri.assist.features.libraries" version="2.0.0.qualifier"/>
+      <feature id="ch.hilbri.assist.features.mapping" version="2.0.0.qualifier"/>
+      <feature id="ch.hilbri.assist.features.documentation" version="2.0.0.qualifier"/>
+      <feature id="ch.hilbri.assist.features.defaults" version="2.0.0.qualifier"/>
+   </features>
+
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+   </configurations>
+
+   <preferencesInfo>
+      <targetfile overwrite="false"/>
+   </preferencesInfo>
+
+   <cssInfo>
+   </cssInfo>
+
+</product>

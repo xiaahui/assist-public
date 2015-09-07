@@ -17,7 +17,7 @@ class MaximizeUnusedRDCs extends AbstractMetricImpl {
 								 				.reduce[p1, p2|p1+p2] // gets the sum of all interfaces per RDC
 				]
 				.filter[it == 0] // how many rdcs have 0 interfaces
-				.length
+				.size
 		
 		return score
 	}

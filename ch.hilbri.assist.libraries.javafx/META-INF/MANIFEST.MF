@@ -2,17 +2,18 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.javafx
 Bundle-SymbolicName: ch.hilbri.assist.libraries.javafx
-Bundle-Version: 1.8.0.51
-Bundle-ClassPath: jfxrt.jar,
- jfxswt.jar,
- jfxrt-linux.jar
+Bundle-Version: 1.8.60.qualifier
+Bundle-ClassPath: jfxrt-win.jar,
+ jfxrt-mac.jar,
+ jfxswt.jar
 Export-Package: com.sun.deploy.uitoolkit.impl.fx,
  com.sun.deploy.uitoolkit.impl.fx.ui,
  com.sun.deploy.uitoolkit.impl.fx.ui.resources,
  com.sun.glass.events,
+ com.sun.glass.events.mac,
  com.sun.glass.ui,
  com.sun.glass.ui.delegate,
- com.sun.glass.ui.gtk,
+ com.sun.glass.ui.mac,
  com.sun.glass.ui.win,
  com.sun.glass.utils,
  com.sun.javafx,
@@ -80,10 +81,12 @@ Export-Package: com.sun.deploy.uitoolkit.impl.fx,
  com.sun.javafx.scene.web.behavior,
  com.sun.javafx.scene.web.skin,
  com.sun.javafx.sg.prism,
+ com.sun.javafx.sg.prism.web,
  com.sun.javafx.stage,
  com.sun.javafx.text,
  com.sun.javafx.tk,
  com.sun.javafx.tk.quantum,
+ com.sun.javafx.util,
  com.sun.javafx.webkit,
  com.sun.javafx.webkit.drt,
  com.sun.javafx.webkit.prism,
@@ -184,4 +187,4 @@ Export-Package: com.sun.deploy.uitoolkit.impl.fx,
  javafx.util.converter,
  netscape.javascript
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.eclipse.swt;bundle-version="3.103.1"
+Require-Bundle: org.eclipse.swt;bundle-version="3.104.0"
