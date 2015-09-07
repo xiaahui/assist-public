@@ -29,7 +29,7 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 	
 	def boolean generateRelations(HardwareArchitectureLevelType level) {
 		
-		logger.info('''     * begin processing «level» level on-same relations''')
+		logger.info('''     * begin processing Â«levelÂ» level on-same relations''')
 		
 		var atLeastOneConstraintWasPosted = false
 		
@@ -114,14 +114,14 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 			} // for	
 		} // for
 		
-		logger.info('''        . successfully checked all «IF !relations.nullOrEmpty»«relations.length»«ELSE»0«ENDIF» on-same relations («level» level)''')
-		logger.info('''        . conflict graph contained «IF !relationsGraph.nullOrEmpty»«relationsGraph.length»  nodes and «relationsGraph.map[it.cardinality].reduce[p1, p2|p1+p2] / 2» edges)«ELSE»0 nodes and 0 edges«ENDIF»''')
+		logger.info('''        . successfully checked all Â«IF !relations.nullOrEmptyÂ»Â«relations.lengthÂ»Â«ELSEÂ»0Â«ENDIFÂ» on-same relations (Â«levelÂ» level)''')
+		logger.info('''        . conflict graph contained Â«IF !relationsGraph.nullOrEmptyÂ»Â«relationsGraph.lengthÂ»  nodes and Â«relationsGraph.map[it.cardinality].reduce[p1, p2|p1+p2] / 2Â» edges)Â«ELSEÂ»0 nodes and 0 edgesÂ«ENDIFÂ»''')
 		
 		// Now we have a relationsGraph with conflicting on-same relations
 
 		// Retrieve the set of cliques so that all conflict-edges are covered
 		val listOfAllCliques = cliqueCoverConstraintBuild(relationsGraph)
-		logger.info('''        . successfully created a list of «IF !listOfAllCliques.nullOrEmpty»«listOfAllCliques.length»«ELSE»0«ENDIF» cliques''')
+		logger.info('''        . successfully created a list of Â«IF !listOfAllCliques.nullOrEmptyÂ»Â«listOfAllCliques.lengthÂ»Â«ELSEÂ»0Â«ENDIFÂ» cliques''')
 		
 		for (clique : listOfAllCliques) {
 			

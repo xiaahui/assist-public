@@ -79,7 +79,7 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 				map.put(variable, score)
 				map.put(solverVariables.getEqInterfaceLocationVariable(iface, 1), score)
 				map.put(solverVariables.getEqInterfaceLocationVariable(iface, 2), score)
-				logger.info(''' - Assigning variable «variable.name» score «score»''')
+				logger.info(''' - Assigning variable Â«variable.nameÂ» score Â«scoreÂ»''')
 			}
 		}
 		varList = solverVariables.levels.map[l|solverVariables.getLocationVariables(l).sortBy[-map.getOrDefault(it, 0)]]
@@ -103,9 +103,7 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 
 	override IntVar getVariable(IntVar[] variables) {
 		if (printVariablesInSortedOrder) {
-//			logger.debug('''Unsorted variables list: [«FOR v : variables»«v.name»«IF v != variables.last», «ENDIF»«ENDFOR»]''')
-//			logger.debug('''Sorting variables according to their partner application count in dislocality relations (increasing order), then MinDomain first.''')
-			logger.debug('''Sorted variables list:   [«FOR v : varList.get(0)»«v.name»«IF v != varList.get(0).last», «ENDIF»«ENDFOR»]''')
+			logger.debug('''Sorted variables list:   [Â«FOR v : varList.get(0)Â»Â«v.nameÂ»Â«IF v != varList.get(0).lastÂ», Â«ENDIFÂ»Â«ENDFORÂ»]''')
 			printVariablesInSortedOrder = false
 		}
 
@@ -115,8 +113,6 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 		for (list : varList) {
 			val variable = getFirstFail(list)
 			if (variable != null) {
-//				logger.info('''Selecting variable «variable» («currentProgress»% of all variables instantiated)''')
-//				logger.debug('''Instantiated variables list: [«FOR v : variables»«IF v.instantiated»«v.name»«IF v != variables.last», «ENDIF»«ENDIF»«ENDFOR»]''')
 				return variable
 			}
 		}
@@ -125,12 +121,6 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 	
 	 
     override int selectValue(IntVar variable) {
-    	if (variable.name.endsWith("-Connector")) {
-//	    	val conn = model.allConnectors.get(variable.LB)
-//			logger.debug('''Setting variable «variable.name» to «conn.fullName».''')		
-    	} else {
-//			logger.debug('''Setting variable «variable.name» to «variable.LB».''')		    		
-    	}
         return variable.getLB();
     }
 	

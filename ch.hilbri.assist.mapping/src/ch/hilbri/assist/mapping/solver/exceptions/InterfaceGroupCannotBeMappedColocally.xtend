@@ -13,6 +13,6 @@ class InterfaceGroupCannotBeMappedColocally extends BasicConstraintsException {
 	}
 	
 	override def String getExplanation() {
-		'''The following groups and/or interfaces could not be mapped on the same «hardwareLevel»: "«groupName»"'''
+		'''The following groups and/or interfaces could not be mapped on the same Â«hardwareLevelÂ»: "Â«groupNameÂ»"'''
 	}
 }

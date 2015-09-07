@@ -15,8 +15,8 @@ class NotEnoughResourcesForColocalityRelations extends BasicConstraintsException
 	
 	override def String getExplanation() {
 		'''The hardware architecture does not provide sufficient resources for the mapping of the following on-same relations:
-			«FOR rel : relations»
-			- «rel.allEqInterfaceOrGroupNames»
-			«ENDFOR»'''
+			Â«FOR rel : relationsÂ»
+			- Â«rel.allEqInterfaceOrGroupNamesÂ»
+			Â«ENDFORÂ»'''
 	}
 }

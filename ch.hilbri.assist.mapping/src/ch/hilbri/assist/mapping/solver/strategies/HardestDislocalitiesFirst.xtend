@@ -72,10 +72,10 @@ class HardestDislocalitiesFirst implements VariableSelector<IntVar>, IntValueSel
 			// save the score for this variable
 			val variable = solverVariables.getEqInterfaceLocationVariable(iface, 0)
 			map.put(variable, score)
-			logger.info('''Putting variable «variable.name» with score «score»''')
+			logger.info('''Putting variable Â«variable.nameÂ» with score Â«scoreÂ»''')
 		}
 		varList = solverVariables.getLocationVariables().sortBy[-map.getOrDefault(it, 0)]
-		logger.debug('''Sorted variables list:   [«FOR v : varList»«v.name» («map.get(v)»)«IF v != varList.last», «ENDIF»«ENDFOR»]''')
+		logger.debug('''Sorted variables list:   [Â«FOR v : varListÂ»Â«v.nameÂ» (Â«map.get(v)Â»)Â«IF v != varList.lastÂ», Â«ENDIFÂ»Â«ENDFORÂ»]''')
 	}
 	
 	override IntVar getVariable(IntVar[] variables) {

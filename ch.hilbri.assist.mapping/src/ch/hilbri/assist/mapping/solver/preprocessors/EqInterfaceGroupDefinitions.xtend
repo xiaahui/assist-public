@@ -39,9 +39,9 @@ class EqInterfaceGroupDefinitions extends AbstractModelPreprocessor {
 		
 			// Check the interfaces - groups should not be empty
 			if (g.eqInterfaces.length > 0)
-				logger.info('''      Successfully created with «g.eqInterfaces.length» interfaces: «g.eqInterfaces».''')
+				logger.info('''      Successfully created with Â«g.eqInterfaces.lengthÂ» interfaces: Â«g.eqInterfacesÂ».''')
 			else 
-				logger.info('''      [WARNING] Implicitly defined group "«g.name»" contains «g.eqInterfaces.length» interfaces. This may be unintended.''')
+				logger.info('''      [WARNING] Implicitly defined group "Â«g.nameÂ»" contains Â«g.eqInterfaces.lengthÂ» interfaces. This may be unintended.''')
 				
 		} // for loop over all group
 			

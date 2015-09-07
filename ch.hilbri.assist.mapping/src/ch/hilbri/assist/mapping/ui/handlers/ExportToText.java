@@ -23,10 +23,10 @@ public class ExportToText {
 //				
 //				MultiPageEditor editor = (MultiPageEditor) compEditor.getEditor();
 //				
-//				/* Wenn wir keine Lösungen haben, dann darf das nicht erlaubt sein. */
+//				/* Wenn wir keine LÃ¶sungen haben, dann darf das nicht erlaubt sein. */
 //				if (editor.getDetailedResultViewUiModel().getResults().size() == 0) return false;
 //				
-//				/* Nur wenn wir auch wirklich die Ergebnisse sehen, dann können wir exportieren */
+//				/* Nur wenn wir auch wirklich die Ergebnisse sehen, dann kÃ¶nnen wir exportieren */
 //				if (editor.getActivePage() == 0) return false;
 //				
 //				return true;

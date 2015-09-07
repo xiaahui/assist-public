@@ -19,9 +19,9 @@ class ValidDeploymentHardwareElements extends AbstractModelPreprocessor {
 				
 				// Check the result
 				if (s.hardwareElements.length > 0)
-					logger.info('''      Successfully created with «s.hardwareElements.length» hardware elements: «s.hardwareElements».''')
+					logger.info('''      Successfully created with Â«s.hardwareElements.lengthÂ» hardware elements: Â«s.hardwareElementsÂ».''')
 				else 
-					logger.info('''      WARNING: valid deployment specification contains «s.hardwareElements.length» hardware elements. This may be unintended.''')
+					logger.info('''      WARNING: valid deployment specification contains Â«s.hardwareElements.lengthÂ» hardware elements. This may be unintended.''')
 				
 		}
 			

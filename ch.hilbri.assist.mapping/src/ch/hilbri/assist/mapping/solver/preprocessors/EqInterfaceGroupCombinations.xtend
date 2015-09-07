@@ -29,9 +29,9 @@ class EqInterfaceGroupCombinations extends AbstractModelPreprocessor {
 				g.eqInterfaces.addAll(interfaceList.toSet.toList)
 
 				if (g.eqInterfaces.length > 0)
-					logger.info('''      Successfully created with «g.eqInterfaces.length» interfaces: «g.eqInterfaces».''')
+					logger.info('''      Successfully created with Â«g.eqInterfaces.lengthÂ» interfaces: Â«g.eqInterfacesÂ».''')
 				else {
-					logger.info('''      WARNING: Group "«g.name»" contains «g.eqInterfaces.length» interfaces. This may be unintended.''')
+					logger.info('''      WARNING: Group "Â«g.nameÂ»" contains Â«g.eqInterfaces.lengthÂ» interfaces. This may be unintended.''')
 				}
 			}
 			return true

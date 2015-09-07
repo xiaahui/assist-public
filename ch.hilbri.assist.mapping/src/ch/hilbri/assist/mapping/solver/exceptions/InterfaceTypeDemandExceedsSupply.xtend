@@ -22,9 +22,9 @@ class InterfaceTypeDemandExceedsSupply extends BasicConstraintsException {
 	override def String getExplanation()	{
 		
 		if (ifaceTypes.length == 1)
-			'''There are not enough interfaces of type "«ifaceTypes.get(0)»". The total demand is «totalDemand», but there are only «totalSupply» interface pins of this type on all connectors available.'''
+			'''There are not enough interfaces of type "Â«ifaceTypes.get(0)Â»". The total demand is Â«totalDemandÂ», but there are only Â«totalSupplyÂ» interface pins of this type on all connectors available.'''
 		
 		else if (ifaceTypes.length > 1)
-			'''There are not enough interfaces of types "«ifaceTypes»". The total demand is «totalDemand», but there are only «totalSupply» interface pins of these types on all connectors available.'''
+			'''There are not enough interfaces of types "Â«ifaceTypesÂ»". The total demand is Â«totalDemandÂ», but there are only Â«totalSupplyÂ» interface pins of these types on all connectors available.'''
 	}
 }

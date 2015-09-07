@@ -15,7 +15,7 @@ class RestartMonitor implements IMonitorRestart {
 	}
 	
 	override afterRestart() {
-		logger.info('''Triggering the «counter++». restart of the search.''')
+		logger.info('''Triggering the Â«counter++Â». restart of the search.''')
 	}
 	
 	override beforeRestart() {

@@ -46,7 +46,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 					val intVars = group.eqInterfaces.map[solverVariables.getEqInterfaceLocationVariable(it, l)]
 					solver.post(ICF.alldifferent(intVars, "AC"))
 				} else {
-					logger.info('''       Skipping dislocality constraint with empty or one element group «group.name»''')
+					logger.info('''       Skipping dislocality constraint with empty or one element group Â«group.nameÂ»''')
 				}
 				
 			}
@@ -65,12 +65,12 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				val emptyGroupCounter = r.eqInterfaceOrGroups.length - ifaceList.length
 					
 				if (ifaceList.length <= 1) {
-					logger.info('''      WARNING: A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction remained with «ifaceList.length» element(s). It is ineffective and skipped.''')
+					logger.info('''      WARNING: A dislocality restriction contained Â«emptyGroupCounterÂ» empty group(s) which were ignored. Restriction remained with Â«ifaceList.lengthÂ» element(s). It is ineffective and skipped.''')
 				} 
 				
 				else {
 					if (emptyGroupCounter > 0) {
-						logger.info('''      WARNING: A dislocality restriction contained «emptyGroupCounter» empty group(s) which were ignored. Restriction was generated with «ifaceList.length» non-empty elements. (Restriction contained «r.eqInterfaceOrGroups.length» elements in total.)''')
+						logger.info('''      WARNING: A dislocality restriction contained Â«emptyGroupCounterÂ» empty group(s) which were ignored. Restriction was generated with Â«ifaceList.lengthÂ» non-empty elements. (Restriction contained Â«r.eqInterfaceOrGroups.lengthÂ» elements in total.)''')
 					}
 				
 					val crossProductSize = intVarList.map[length as long].reduce(p,q|p*q)

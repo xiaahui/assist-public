@@ -23,16 +23,16 @@ class MinimizeRequiredCableWeight extends AbstractMetricImpl {
 			
 			if (!allMappedInterfacesForRDC.isNullOrEmpty) {
 				
-				// Bestimme die Summe der Kabelgewichte für alle Interfaces auf diesem RDC
+				// Bestimme die Summe der Kabelgewichte fÃ¼r alle Interfaces auf diesem RDC
 				val weightedCableLengthForRDC = allMappedInterfacesForRDC
 											.map[
-												(Math.abs(it.resourceX - rdc.resourceX) +  // Bestimme die Länge
+												(Math.abs(it.resourceX - rdc.resourceX) +  // Bestimme die LÃ¤nge
 											     Math.abs(it.resourceY - rdc.resourceY) +
 												 Math.abs(it.resourceZ - rdc.resourceZ))
 												 
 												 *
 																		 
-												 result.model.cableWeightData.getCableWeight(it.ioType)		// Skaliere die Länge mit dem Gewicht
+												 result.model.cableWeightData.getCableWeight(it.ioType)		// Skaliere die LÃ¤nge mit dem Gewicht
 												 															// dieses Interfaces
 											]
 											.reduce[p1, p2|p1+p2]

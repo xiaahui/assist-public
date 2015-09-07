@@ -13,6 +13,6 @@ class RestrictValidDeployment extends BasicConstraintsException {
 	}
 	
 	override def String getExplanation() {
-		'''The deployment of the groups/interfaces [«interfaces»] could not be restricted to the following (valid) hardware elements: «hardwareElements».'''
+		'''The deployment of the groups/interfaces [Â«interfacesÂ»] could not be restricted to the following (valid) hardware elements: Â«hardwareElementsÂ».'''
 	}
 }

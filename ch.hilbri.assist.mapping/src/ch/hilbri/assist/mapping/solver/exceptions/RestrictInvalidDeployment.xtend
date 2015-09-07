@@ -13,6 +13,6 @@ class RestrictInvalidDeployment extends BasicConstraintsException {
 	}
 	
 	override def String getExplanation() {
-		'''The hardware elements  «hardwareElements» could not be marked as invalid for the deployment of the groups/interfaces [«interfaces»].'''
+		'''The hardware elements  Â«hardwareElementsÂ» could not be marked as invalid for the deployment of the groups/interfaces [Â«interfacesÂ»].'''
 	}
 }

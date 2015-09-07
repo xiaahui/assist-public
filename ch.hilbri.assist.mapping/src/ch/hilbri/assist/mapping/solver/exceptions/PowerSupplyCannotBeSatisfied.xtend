@@ -14,6 +14,6 @@ class PowerSupplyCannotBeSatisfied extends BasicConstraintsException {
 	}
 	
 	override def String getExplanation()	{
-		'''The interface "«iface»" with power supply requirement «powerSupply» could not be mapped.'''
+		'''The interface "Â«ifaceÂ»" with power supply requirement Â«powerSupplyÂ» could not be mapped.'''
 	}
 }

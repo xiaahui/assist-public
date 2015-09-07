@@ -53,7 +53,7 @@ class ResultFactoryFromSolverSolutions {
 			
 			val result = createBasicResult(model, "Solution "+ solNumber + " of " + solTotalCount)
 			
-			logger.info('''Created an ASSIST solution from solver solution «solNumber» / «solTotalCount»''')
+			logger.info('''Created an ASSIST solution from solver solution Â«solNumberÂ» / Â«solTotalCountÂ»''')
 			
 			/* Add the deployment information */
 			addMappingFromSolution(result, solverVariables, solution)

@@ -44,7 +44,7 @@ class ScarcestIoTypeFirst implements VariableSelector<IntVar>  {
 		for (iface : model.eqInterfaces) {
 			map.put(solverVariables.getEqInterfaceLocationVariable(iface, 0),
 					availIoTypes.get(iface.ioType) - requestedIoTypes.get(iface.ioType))
-			logger.info('''Putting «iface.name» with score «availIoTypes.get(iface.ioType) - requestedIoTypes.get(iface.ioType)»''')
+			logger.info('''Putting Â«iface.nameÂ» with score Â«availIoTypes.get(iface.ioType) - requestedIoTypes.get(iface.ioType)Â»''')
 		}
 	}
 	
@@ -55,9 +55,7 @@ class ScarcestIoTypeFirst implements VariableSelector<IntVar>  {
 //		val currentProgress = instantiatedVarCount * 100 / variables.size
 		
 		if (printVariablesInSortedOrder) {
-//			logger.debug('''Unsorted variables list: [«FOR v : variables»«v.name» («map.get(v)»), «ENDFOR»]''')
-//			logger.debug('''Sorting variables according to their partner application count in dislocality relations (increasing order), then MinDomain first.''')
-			logger.debug('''Sorted variables list:   [«FOR v : newList»«v.name» («map.get(v)»), «ENDFOR»]''')
+			logger.debug('''Sorted variables list:   [Â«FOR v : newListÂ»Â«v.nameÂ» (Â«map.get(v)Â»), Â«ENDFORÂ»]''')
 			printVariablesInSortedOrder = false
 		}
 		
@@ -67,7 +65,6 @@ class ScarcestIoTypeFirst implements VariableSelector<IntVar>  {
 		if (newList.filter[!isInstantiated].isNullOrEmpty) return null
 		else {
 			val v = newList.filter[!isInstantiated].get(0)
-//			logger.info('''Selecting variable with tag «map.get(v)» («currentProgress»% instantiated)''')
 			return v
 		}
 	}

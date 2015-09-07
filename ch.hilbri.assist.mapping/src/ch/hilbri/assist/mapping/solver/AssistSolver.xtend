@@ -286,9 +286,9 @@ class AssistSolver {
 			logger.info("Initiating choco-solver - searching for a solution")
 			solver.findAllSolutions
 		}
-		logger.info('''Solutions found: �recorder.solutions.size�''') 
+		logger.info('''Solutions found: «recorder.solutions.size»''') 
 		
-		logger.info('''Internal solver statistics: �solver.measures.toOneLineString�''')
+		logger.info('''Internal solver statistics: «solver.measures.toOneLineString»''')
 			
 	}
 	
@@ -300,13 +300,13 @@ class AssistSolver {
 		// Did we find a solution? 
 		if (recorder.solutions.size > 0) {
 			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions)
-			logger.info('''Results created:  �mappingResults.size�''')
+			logger.info('''Results created:  «mappingResults.size»''')
 		} 
 		
 		// should we save a partial solution?
 		else if (savePartialSolution) {
 			mappingResults = ResultFactoryFromSolverSolutions.createPartialResult(model, solverVariables, partialSolutionSaveMonitor.partialSolution)			
-			logger.info('''Created �mappingResults.size� partial solution with �mappingResults.get(0).mapping.keySet.size� mapped interfaces''')
+			logger.info('''Created «mappingResults.size» partial solution with «mappingResults.get(0).mapping.keySet.size» mapped interfaces''')
 		} 
 	}
 
