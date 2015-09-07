@@ -1,3 +1,6 @@
 [submodule "ch.hilbri.assist.libraries.choco/choco3"]
 	path = ch.hilbri.assist.libraries.choco/choco3
 	url = https://github.com/chocoteam/choco3
+[submodule "ch.hilbri.assist.libraries.jgrapht/jgrapht"]
+	path = ch.hilbri.assist.libraries.jgrapht/jgrapht
+	url = https://github.com/jgrapht/jgrapht
