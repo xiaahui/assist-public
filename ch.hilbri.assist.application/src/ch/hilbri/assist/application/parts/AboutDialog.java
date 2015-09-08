@@ -63,7 +63,7 @@ public class AboutDialog extends TitleAreaDialog {
 	    lblLicense.setText("License:");
 	    
 	    Label label = new Label(container, SWT.NONE);
-	    label.setBounds(100, 266, 55, 15);
+	    label.setBounds(100, 266, 338, 15);
 	    label.setText(Platform.getBundle("ch.hilbri.assist.application").getHeaders().get("Bundle-Version"));
 	    
 	    Label lblHttpassisthilbrich = new Label(container, SWT.NONE);
