@@ -1,0 +1,126 @@
+%
+% This is file `dlrslides.tex',
+% it includes examples for a DLR beamer template.
+%
+%
+% REVISIONS:    2012-03-22 initial release (knob_an)
+%               
+% Contact       Andreas Klöckner,  Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2011 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+\RequirePackage{currfile}
+\documentclass[8pt]{beamer}
+
+% Some defualt packages
+\usepackage[english]{babel}
+\usepackage[ansinew]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+% DLR Layout
+%\usetheme[beamertools={fixblocktitle=false}, professionalfonts]{dlr}
+\usetheme{dlr}
+
+% Some usefull standard beamer layout changes
+\usecolortheme{orchid}
+
+% Titel and author
+\title{DLR Beamer Slides 2012} 
+\subtitle{Simple Documentation and Examples} 
+\date{22.03.2012}
+\author{Andreas Knoblach and Andreas Klöckner}
+\dlrinstitute{RMC-SR}
+
+
+\begin{document}
+
+% Maketitle
+\maketitle
+
+% Motivation
+\section{Motivation}
+\begin{frame}{Motivation}
+	\begin{itemize}
+		\item Do we really need to motivate a great beamer theme?!
+	\end{itemize}
+\end{frame}
+
+% Outline
+\begin{frame}{Outline}
+	\pdfbookmark[2]{Outline}{toc}
+	\tableofcontents
+\end{frame}
+
+% DLR Theme Usage
+\section{DLR Theme Usage}
+\begin{frame}{DLR Theme Usage}
+	\begin{itemize}
+		\item Load the beamer class and the DLR theme: \\
+		      \texttt{\textbackslash documentclass\{beamer\}}\\				
+		      \texttt{\textbackslash usetheme\{dlr\}}	
+		\item This will load the current DLR slide layout
+		\item Note:					
+						\begin{itemize}
+							\item Use \texttt{\textbackslash usetheme[professionalfonts]\{dlr\}} to use the default LaTeX math fonts.
+							\item Use \texttt{\textbackslash usetheme[helvetica]\{dlr\}} to use Helvetica instead of Frutiger.
+							\item To use the old template use \texttt{\textbackslash usetheme\{dlr\_2008\}}.
+						\end{itemize}
+		\item For this document, an additional color theme is used: \texttt{\textbackslash usecolortheme\{orchid\}}.
+		\alert{\item The theme is subject to change, as e.g. fonts will be adapted to the PPT template etc..!}
+		\item For more information: See the beamer documentation at\\
+		      \url{http://www.tex.ac.uk/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf}
+		\item The package beamertools is loaded with DLR beamer:		
+					\begin{itemize}
+						\item To avoid the loading of beamertools use \texttt{\textbackslash usetheme[nobeamertools]\{dlr\}}
+						\item To access beamertools options use \texttt{\textbackslash usetheme[beamertools=\{\dots\}]\{dlr\}}
+					\end{itemize}		
+	\end{itemize}
+\end{frame}
+
+
+% Additional Logo
+\begin{frame}{Additional Logo}
+	\begin{itemize}
+		\item You can add an additional logo next to the DLR Eagle
+		\item Use \texttt{\textbackslash addlogoFL\{xxx\}} to add some content right of the DLR Eagle in the footline
+		\item Use \texttt{\textbackslash addlogoTP\{xxx\}} to add some content right of the DLR Eagle on the title page
+		\item You can use  \texttt{\textbackslash addlogoFL*\{xxx\}} and \texttt{\textbackslash addlogoTP*\{xxx\}} to directly add some TikZ code. The node (DLReagleTP) and (DLReagleTP) refers to the DLR Eagle in the footline and title page, respectively.
+	\end{itemize}
+\end{frame}
+
+% Example Frame
+\section{Examples}
+\begin{frame}{Example Frame with Blocks and Equations}
+	\begin{columns}[onlytextwidth]
+		\column{.30\textwidth}
+			\begin{block}{Normal Block}
+				\begin{itemize}
+					\item Foo
+					\item Bar
+				\end{itemize}
+			\end{block}			
+		\column{.30\textwidth}
+			\begin{alertblock}{Alert Block}
+				\begin{itemize}
+					\item Foo
+					\item Bar
+				\end{itemize}
+			\end{alertblock}			
+		\column{.30\textwidth}
+			\begin{exampleblock}{Example Block}
+				\begin{itemize}
+					\item Foo
+					\item Bar
+				\end{itemize}
+			\end{exampleblock}
+	\end{columns}	
+	\begin{block}{Equation}
+		\begin{align*}
+			\sqrt{a^2+b^2} = c
+		\end{align*}
+	\end{block}
+\end{frame}
+
+\end{document}
+% eof

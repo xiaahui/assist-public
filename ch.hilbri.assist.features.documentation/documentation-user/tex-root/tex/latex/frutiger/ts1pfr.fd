@@ -1,0 +1,56 @@
+%%
+%% This is file `TS1pfr.fd',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% dlr.dtx  (with options: `fonts,ts1pfr')
+%% This is a generated file.
+%% 
+%% Copyright (c) DLR.  All rights reserved.
+%% 
+%% This file contains official style files for DLR letters,
+%% faxes, memos, slides, protocols, and reports.
+%% Written by Dr. Patrick van der Smagt <smagt@dlr.de>.
+\ProvidesFile{TS1pfr.fd}
+        [2008/12/09 v7.1.0
+DLR LaTeX frutiger fonts]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareFontFamily{TS1}{pfr}{}
+
+\DeclareFontShape{TS1}{pfr}{sb}{n}{
+   <-> pfrr8c
+}{}
+
+\DeclareFontShape{TS1}{pfr}{sb}{sl}{
+   <-> pfrro8c
+}{}
+
+\DeclareFontShape{TS1}{pfr}{b}{n}{
+   <-> pfrb8c
+}{}
+
+\DeclareFontShape{TS1}{pfr}{b}{sl}{
+   <-> pfrbo8c
+}{}
+
+\DeclareFontShape{TS1}{pfr}{b}{it}{
+   <-> pfrbi8c
+}{}
+
+\DeclareFontShape{TS1}{pfr}{m}{n}{
+   <-> pfrl8c
+}{}
+
+\DeclareFontShape{TS1}{pfr}{m}{sl}{
+   <-> pfrli8c
+}{}
+
+\DeclareFontShape{TS1}{pfr}{m}{it}{<->ssub * pfr/m/sl}{}
+\DeclareFontShape{TS1}{pfr}{bx}{n}{<->ssub * pfr/b/n}{}
+\DeclareFontShape{TS1}{pfr}{bx}{sl}{<->ssub * pfr/b/sl}{}
+\DeclareFontShape{TS1}{pfr}{bx}{it}{<->ssub * pfr/b/it}{}
+\endinput
+%%
+%% End of file `TS1pfr.fd'.

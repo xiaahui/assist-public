@@ -1,0 +1,296 @@
+%
+% This is file `dlrtitle.sty',
+% it creates a DLR title page by renewcommanding \maketitle
+%
+%
+% REVISIONS:    2011-11-03 initial release   Andreas Knoblach <andreas.knoblach@dlr.de>
+%               2011-12-08 corporate design  Andreas Klöckner <andreas.kloeckner@dlr.de>
+% TO DO         corporate design:
+%               http://portal.dlr.de/C17/C1/CD/Lists/CDInfo/DispForm.aspx?ID=23&Source=http%3A%2F%2Fportal%2Edlr%2Ede%2FC17%2FC1%2FCD%2Fdefault%2Easpx
+%               http://portal.dlr.de/C17/C1/CD/Lists/CDInfo/DispForm.aspx?ID=25&Source=http%3A%2F%2Fportal%2Edlr%2Ede%2FC17%2FC1%2FCD%2Fdefault%2Easpx
+%               in color: silver for DLR-wide. other: gray
+%               imagetexte:
+%               http://portal.dlr.de/C17/C1/CD/Lists/CDInfo/DispForm.aspx?ID=64&Source=http%3A%2F%2Fportal%2Edlr%2Ede%2FC17%2FC1%2FCD%2Fdefault%2Easpx
+%               impressum:
+%               http://portal.dlr.de/C17/C1/CD/Lists/CDInfo/DispForm.aspx?ID=65&Source=http%3A%2F%2Fportal%2Edlr%2Ede%2FC17%2FC1%2FCD%2Fdefault%2Easpx
+%               beispiele:
+%                http://portal.dlr.de/C17/C1/CD/Vorlagen/Forms/AllItems.aspx?RootFolder=%2fC17%2fC1%2fCD%2fVorlagen%2fBrosch%c3%bcren%2dPublikationen&View=%7bD5F769C3%2d4B33%2d4EEE%2dBE04%2d800838220010%7d
+%               Color: silver
+%               Bildsprache:
+%               Forschungsschwerpunktfotos: 
+%                http://portal.dlr.de/C17/C1/CD/CDVorlagen/Forms/AllItems.aspx?RootFolder=%2FC17%2FC1%2FCD%2FCDVorlagen%2FBildsprache&View={7E87D664-4440-43AD-809B-47981187BDA2}
+%
+% Contact       Andreas Knoblach,  Andreas.knoblach@dlr.de
+% Copyright (C) 2008-2011 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+% Package Header
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{dlrtitle}
+        [2011/12/08 v0.2 DLR Title page]
+
+%
+% Required packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load Tikz and define colors
+\AtBeginDocument{ % To Ensure that options can be user defined for tikz etc. 
+  \RequirePackage{tikz, dlrlogos}
+  \definecolor{DLRgray}{rgb}{0.27,0.27,0.27}
+  \usetikzlibrary{shapes}}
+
+
+
+% Load background image package
+\AtBeginDocument{ % To Ensure that options can be user defined for tikz etc. 
+	\RequirePackage{eso-pic}}
+
+% Load key/value package
+\RequirePackage{xkeyval}
+
+% Load intelligent space package
+\RequirePackage{xspace}
+
+% Load graphicx package (e.g. \resizebox}
+\RequirePackage{graphicx}
+
+% Use DLR institutes info
+\RequirePackage{dlrinstitutes}
+
+% Use hyphenat to suppress hyphenation of titles
+\RequirePackage{hyphenat}
+
+%
+% Additional commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% REPORTNO: Define a report number macro
+\@ifundefined{reportno}{\def\@reportno{} \def\reportno#1{\gdef\@reportno{#1} }}{}
+	
+% SETTITLE: Define a command to set title options
+\newcommand{\settitle}[1]{\setkeys{settitle}{#1}}
+\define@choicekey*{settitle}{area}[\val\nr]                   % Define a case-insensitive option "area" to ...
+                            {aeronautics,space,transport,energy,custom}
+                            {\let\@title@area@choice\nr%      % ... save the choice as number
+                             \let\@title@area@value \val}%    % ... save the choice as string
+\define@choicekey*{settitle}{type}[\val\nr]                   % Define a case-insensitive option "type" 
+                            {areas,plain,scr}                 % ... renew the \maketitle
+                            {\let\@title@type@choice\nr%      % ... save the choice as number
+                             \let\@title@type@value \val}%    % ... save the choice as string
+\settitle{type=plain,area=aeronautics}                        % Set default options
+
+% MAKETITLE: Renew \maketitle to chose one of the alternatives
+\let\maketitle@scr\maketitle
+\renewcommand{\maketitle}{
+  \ifcase\@title@type@choice\relax                            % type = areas?
+    \maketitle@areas                                          % ... load colorful title page
+  \or                                                         % type = plain?
+    \maketitle@plain                                          % ... load simple title page
+  \or                                                         % type = scr?
+    \maketitle@scr                                            % ... load original scr title page
+  \fi}
+
+
+
+%
+% New command for colorful title pages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\maketitle@areas}{
+  \def\and{, }
+
+  \begin{titlepage}
+
+    % Font settings
+	  \renewcommand{\sfdefault}{pfr}  % Change to frutiger font
+	  \renewcommand{\rmdefault}{pfr}  % Change to frutiger font
+	  \sffamily                       % ... and activate it
+	  \sloppy                         % Don't break words
+    \hfuzz=5cm                      % Don't warn for bad boxes
+	
+    % Create background picture  
+    \AddToShipoutPicture*{%                                              % Add the background to shipout
+      \resizebox{\paperwidth}{\paperheight}{%                            % Resize to page size
+        \begin{tikzpicture}                                              % Draw a tikzpicture!
+          \useasboundingbox (-164mm,-232mm) rectangle (164mm,232mm);     % The bounding box of the picture
+          \fill (-164mm,-232mm) rectangle (164mm,232mm) [black!73];      % Fill the page with gray/silver
+          \fill ( 960mm, 550mm) circle    (2403mm/2)    [white];         % Draw white circles to delete gray/silver
+          \fill ( 500mm,-322mm) circle    (1385mm/2)    [white];         % Draw white circles to delete gray/silver
+          \begin{scope}                                                  % Begin scope for...
+            \clip (-156mm, 687mm) circle (1367mm/2);                     % ... clipping "horizontal" edge
+            \clip ( 960mm, 550mm) circle (2400mm/2);                     % ... clipping "vertical" edge
+            \ifcase\@title@area@choice\relax                             % ... area=aeronautics?
+              \node at (8mm,125mm) {%                                    % ... of node with ...
+                \pgfimage[width=-523mm,height=260mm]{aeronautics}};      % ... ... title image
+            \or                                                          % ... area=space?
+              \node at (60mm,130mm) {%                                   % ... of node with ...
+                \pgfimage[width= 520mm,height=312mm]{space}};            % ... ... title image
+            \or                                                          % ... area=transport?
+              \node at (15mm,126mm) {%                                   % ... of node with ...
+                \pgfimage[width= 530mm,height=247mm]{transport}};        % ... ... title image
+            \or                                                          % ... area=energy?
+              \node at (32mm,125mm) {%                                   % ... ... of node with ...
+                \pgfimage[width=-424mm,height=255mm]{energy}};           % ... ... ... title image
+            \or                                                          % ... area=custom?
+              \node at (0mm,110mm) {%                                   % ... ... of node with ...
+                \pgfimage[width=328mm,height = 246mm]{custom}};           % ... ... ... title image
+            \else\fi                                                     % ... area=Unknown number?
+          \end{scope}                                                    % . end scope
+          \node at (9mm,-174mm)[opacity=0.73] {\Huge{\dlradler}};        % Add node with DLR logo
+        \end{tikzpicture}}%                                              %. end tikzpicture+resizebox
+    }                                                                    %. end background
+
+    % Font settings
+	  \renewcommand{\sfdefault}{pfr}  % Change to frutiger font
+	  \sffamily                       % ... and activate it
+	  \sloppy                         % Don't break words
+    \hfuzz=5cm                      % Don't warn for bad boxes
+	
+    % Width of the left page margin and the typical text fields
+    \newlength{\totalleft}  \setlength  {\totalleft}  {\oddsidemargin}
+                            \addtolength{\totalleft}  {1in}
+                            \addtolength{\totalleft}  {\hoffset}
+    \newlength{\totaltop}   \setlength  {\totaltop}   {\topmargin}     
+                            \addtolength{\totaltop}   {1in}     
+                            \addtolength{\totaltop}   {\headheight}     
+                            \addtolength{\totaltop}   {\headsep}     
+                            \addtolength{\totaltop}   {\topskip}     
+                            \addtolength{\totaltop}   {\voffset}     
+                            \addtolength{\totaltop}   {14.8pt}
+    \newlength{\fieldindent}\setlength  {\fieldindent}{0.5\paperwidth}
+                            \addtolength{\fieldindent}{-\totalleft}
+    \newlength{\fieldmargin}\setlength  {\fieldmargin}{1cm}
+    \newlength{\fieldwidth} \setlength  {\fieldwidth} {\paperwidth}     
+                            \addtolength{\fieldwidth} {-\fieldindent}     
+                            \addtolength{\fieldwidth} {-\fieldmargin}
+    \newlength{\fieldadd}   \setlength  {\fieldadd}   {\paperwidth}     
+                            \addtolength{\fieldadd}   {-\textwidth}     
+                            \addtolength{\fieldadd}   {-\totalleft}     
+                            \addtolength{\fieldadd}   {-\fieldmargin}     
+                            
+
+    % Some offset
+    \vspace*{0.5\textheight}
+    \begin{addmargin}[\fieldindent]{-\fieldadd}
+	
+      % Output title
+      {
+        \fontsize{24.0pt}{29.0pt}\bfseries%   % Frutiger light, 24pt, 29pt, bold
+        \color{black!73}%               % 73% black
+        \selectfont%                    % Actually select the font
+        \parindent=0.5\textwidth
+        \nohyphens{\@title}
+      }
+
+      % Output subtitle
+      {
+        \fontsize{17.28pt}{21.5pt}%     % Frutiger light, 18pt, 21.5pt (only 17.28pt available in \texttt)
+        \color{black!73}%               % 73% black
+        \selectfont%                    % Actually select the font
+        \@subtitle
+      }
+      
+
+  % End the title page
+    \end{addmargin}
+  \end{titlepage}
+  \cleardoublepage
+} % End renewcommand
+
+
+
+%
+% New command for plain title page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\maketitle@plain}{%
+  \def\and{, }
+
+  \begin{titlepage}
+%
+    % Make logo appear lower than usual...
+    \enlargethispage{3cm}%
+%
+    % Width of the left/top page margin and the typical text fields
+    \newlength{\totalleft}  \setlength  {\totalleft}  {\oddsidemargin}%
+                            \addtolength{\totalleft}  {1in}%
+                            \addtolength{\totalleft}  {\hoffset}%
+    \newlength{\totaltop}   \setlength  {\totaltop}   {\topmargin}%
+                            \addtolength{\totaltop}   {1in}%     
+                            \addtolength{\totaltop}   {\headheight}%     
+                            \addtolength{\totaltop}   {\headsep}%     
+                            \addtolength{\totaltop}   {\topskip}%     
+                            \addtolength{\totaltop}   {\voffset}%     
+                            \addtolength{\totaltop}   {14.8pt}%
+    \newlength{\fieldindent}\setlength  {\fieldindent}{0.366\paperwidth}%
+    \newlength{\fieldmargin}\setlength  {\fieldmargin}{1cm}%
+    \newlength{\fieldwidth} \setlength  {\fieldwidth} {\paperwidth}%     
+                            \addtolength{\fieldwidth} {-\fieldindent}%     
+                            \addtolength{\fieldwidth} {-\fieldmargin}%
+%
+    % Create background picture  
+    \AddToShipoutPicture*{%                                              % Add the background to shipout
+      \resizebox{\paperwidth}{\paperheight}{%                            % Resize to page size
+        \begin{tikzpicture}%                                             % Draw a tikzpicture!
+          \useasboundingbox (   0mm,   0mm) rectangle (210mm,297mm);%    % The bounding box of the picture
+          \clip             ( 184mm, 618mm) circle    (405mm);%          % Clip "horizontal" edge
+          \clip             ( 447mm, 369mm) circle    (405mm);%          % Clip "vertical" edge
+          \fill[black!73]   (-001mm,-001mm) rectangle (211mm,298mm);%    % Fill the remaining area with gray/silver
+        \end{tikzpicture}}%                                              %. end tikzpicture+resizebox
+    }%                                                                   %. end background
+%
+    % Font settings
+	  \renewcommand{\sfdefault}{pfr}%  % Change to frutiger font
+	  \renewcommand{\rmdefault}{pfr}%  % Change to frutiger font
+	  \sffamily%                       % ... and activate it
+	  \sloppy%                         % Don't break words
+    \hfuzz=5cm%                      % Don't warn for bad boxes
+%	
+    % Move cursor to topleft corner
+    \vspace*{-\totaltop}\Large%
+    \begin{addmargin}[-\totalleft]{0cm}%
+      \begin{tikzpicture}
+        \node (hook)
+              at (0,0)
+                 {};
+        \node (subject)
+              at (\fieldindent,-0.12\paperheight) 
+                 [anchor         = north west,
+                  text width     = \fieldwidth, 
+                  minimum height = 0, 
+                  inner sep      = 0,
+                  align          = left]
+                 {\color{white} {\Huge \bfseries \@subject} \\[.5ex]
+                                {\LARGE \bfseries \@reportno         } };
+        \node (title)
+              at (\fieldindent,-0.37\paperheight) 
+                 [anchor         = north west,
+                  text width     = \fieldwidth, 
+                  minimum height = 0, 
+                  inner sep      = 0,
+                  align          = left]
+                 {\color{black!73} \huge \bfseries \nohyphens{\@title}};
+        \node  (info)
+                 [below=2em of title.south west, 
+                  anchor=north west,
+                  text width = \fieldwidth, 
+                  minimum height=0, 
+                  inner sep =0,
+                  align = left]
+                 {\color{black!73} \@subtitle\\[1.3em]
+                                   \@author\\[1.3em]
+                                   \@publishers\\
+                                   \SITE{city}};
+      \end{tikzpicture}\vfill\large%
+      \begin{tikzpicture}
+        \node (hook)
+              at (0,0)
+                 {};
+        \tikzdlrlogo[(\fieldindent,-2cm)]
+      \end{tikzpicture}
+    \end{addmargin}
+  \end{titlepage}
+  \cleardoublepage
+} % End renewcommand
+
+
+\endinput
+
+% eof

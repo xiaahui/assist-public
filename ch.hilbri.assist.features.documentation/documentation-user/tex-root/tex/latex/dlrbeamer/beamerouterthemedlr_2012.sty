@@ -1,0 +1,96 @@
+%
+% This is file `beamerouterthemedlr_2012.sty',
+% it includes the style definition for the following outer elements.
+%		- The head- and footline.
+%		- The frame title.
+%		- The sidebars             (not used).
+%		- The logo                 (not used).
+%
+%
+% REVISIONS:    2012-03-22 initial release (knob_an)
+%               
+% Contact       Andreas Knoblach,  Andreas.Knoblach@dlr.de
+% Copyright (C) 2012 DLR Robotics and Mechatronics              __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+
+%
+% Load package with beamerdlr images
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{beamerimagesdlr_2012}
+\RequirePackage{xparse}
+
+%
+% Headline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamerfont{headline}{size=\tiny}
+\setbeamercolor{headline}{fg=DLRFLTextColor}
+\setbeamertemplate{headline}{%
+	% Set fonsize to 5pt to ensure that headline is allways same size
+	\fontsize{5pt}{5pt}\selectfont
+	\vspace{1.5mm}\hspace{2.5mm}
+	www.dlr.de $\boldsymbol{\cdot}$
+	\translate{Slide} \insertframenumber\ \translate{of} \inserttotalframenumber
+	$\ >$ \insertshorttitle $\ >$ \insertshortauthor\ $\boldsymbol{\cdot}$ \insertshortdate}
+		
+%
+% Footline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\beamertemplatenavigationsymbolsempty
+\setbeamerfont{footline}{size=\Tiny}
+\setbeamercolor{footline}{fg=DLRFLTextColor}
+\setbeamertemplate{footline}{{%
+  \colorlet{DLREagleColor}{DLRFLEagleColor}  
+  \colorlet{DLRTextColor}{DLRFLTextColor} 
+  \colorlet{DLRBarColor}{DLRFLBarColor}
+	\begin{tikzpicture}	
+		% Set fonsize to 4pt to ensure that DLR Logo is allways same size
+		\fontsize{4pt}{4pt}\selectfont
+		% Define bounding box
+		\useasboundingbox (-.5\paperwidth,0) rectangle (.5\paperwidth,.8cm);
+		% Draw adler
+		\tikzdlradler(DLReagleFL)[(-.45\paperwidth, .6cm)]
+		% Draw addtionalstuff
+		\dlrbeamer@footline@addlogo
+    % Draw earth
+		\clip (-.5\paperwidth,0) rectangle    (.5\paperwidth, .7cm);
+		\headlineimage;
+		% Navigation
+		\node() at (-.48\paperwidth, 1.4mm) [anchor=west, color=DLRFLTextColor] {%
+				\mbox{\scalebox{0.8}{\insertslidenavigationsymbol}%
+				      \scalebox{0.8}{\insertframenavigationsymbol}%
+				      \scalebox{0.8}{\insertsectionnavigationsymbol}%
+				      \scalebox{0.8}{\insertbackfindforwardnavigationsymbol}}};
+	\end{tikzpicture}}}
+	
+% Add command to add logo
+\NewDocumentCommand{\addlogoFL}{sm}{%
+	\IfBooleanTF{#1}
+		{\gdef\dlrbeamer@footline@addlogo{#2}}
+		{\gdef\dlrbeamer@footline@addlogo{\node [node distance=1.2em,right= of DLReagleFL] {#2};}}
+	}
+
+% Define default empty logo
+\gdef\dlrbeamer@footline@addlogo{}
+
+%
+% Change Frametitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamertemplate{frametitle}{
+	\vspace{+.4ex}
+	\begin{beamercolorbox}[sep=0.0cm,wd=\the\paperwidth]{frametitle}
+		\hspace{2.8mm}\insertframetitle \\
+		\hspace{2.8mm}\small \insertframesubtitle
+	\end{beamercolorbox}
+	\vspace{-1ex}}
+%	\vspace{-.3ex}
+%	\begin{beamercolorbox}[sep=0.0cm,wd=\the\paperwidth]{frametitle}
+%		\hspace{2.8mm}\insertframetitle 
+%	\end{beamercolorbox}
+
+
+\endinput
+
+% eof

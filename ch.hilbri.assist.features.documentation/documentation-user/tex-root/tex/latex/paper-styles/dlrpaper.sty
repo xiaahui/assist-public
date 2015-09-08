@@ -1,0 +1,158 @@
+%
+% This is file `dlrpaper.sty',
+% it loads a given publication style file together with hacks for it.
+%
+%
+% REVISIONS:    2013-01-30 First version
+%               2013-04-21 Generalized from aiaa-tc-dlr
+% TO DO:        Define common title interface: after \begin{document}, 
+%                                              \title\author\contact\affiliation + matching
+%
+% Contact       Andreas Klöckner,  Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2013 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+
+%
+% Package Header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{dlrpaper}
+        [2013/04/21 v0.1 DLR customization of publication styles]
+
+%
+% Define options of this package
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Use xkeyval for that
+\RequirePackage{xkeyval}
+
+% Define an option for the list of versions
+\define@key{dlrpaper.sty}{listofversions}[{hg,svn}]{\def\dlrpaper@listofversions{#1}}
+
+% Define an option for the list of todo
+\define@boolkey{dlrpaper.sty}[dlrpaper@]{todonotes}[true]{}%       % Default is true and do nothing
+
+% Define an option for level
+\define@key{dlrpaper.sty}{level}{\def\dlrpaper@level{#1}}
+
+% Define an option for the watermark
+\define@key{dlrpaper.sty}{watermark}[%
+			\AtPageCenter{%                          % ... Define the default watermark for the new classification class dlrpaper
+				 \begingroup%                          % ... ... ... To start a group
+					 \globalcolorsfalse%                 % ... ... Prevent colors from being exported
+					 \definecolor{DLREagleColor}{gray}{0.9}%.. ... Make a lighter eagle color
+					 \scalebox{7}{\dlradler}%            % ... ... Insert the eagle
+				 \endgroup%                            % ... End the group
+				}]{\gdef\dlrpaper@watermark{#1}}%	     % and save it in	\dlrpaper@level	
+\ExecuteOptionsX{watermark}
+
+% Define an option for emptying the watermark
+\define@boolkey{dlrpaper.sty}[dlrpaper@]{nowatermark}[true]{
+	\ifdlrpaper@nowatermark
+		\setkeys{dlrpaper.sty}{watermark={}}%                     % Set the watermark to empty
+	\fi
+	}
+
+% Capture the draft key to add a classification level
+\define@boolkey{dlrpaper.sty}[dlrpaper@]{draft}[true]{%       % Default is true
+		\setkeys{dlrpaper.sty}{level=draft}}%                     % Set the watermark
+
+% Define an option for upload versions: No watermarks etc.
+\define@boolkey{dlrpaper.sty}[dlrpaper@]{upload}[true]{}
+
+% Define an option for the page style
+\define@key{dlrpaper.sty}{pagestyle}{\def\dlrpaper@pagestyle{#1}}
+
+% Process options
+\ProcessOptionsX*\relax
+
+%
+% Draft watermarks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set the publication level by means of a temporary command for expansion
+\ifdlrpaper@upload\else%                                                     % If this is not an upload version
+	\@ifundefined{dlrpaper@level}{}{%                                          % ... If the level key is set
+		\RequirePackage{dlrlogos}%                                               % ... ... Load the dlrlogos package
+		\RequirePackage{classified}%                                             % ... ... Load the classified package
+		\classificationclass{dlrpaper}{yes=\AddToShipoutPictureBG*{%             % ... ... Define the a classification class
+								\dlrpaper@watermark}}%                                       % ... ... ... Load the defined watermark
+		\edef\dlrpaper@level@params{class=publication, level=\dlrpaper@level}%   % ... ... Define an expanded command
+		\expandafter\documentclassified\expandafter[\dlrpaper@level@params]%     % ... ... Set the watermarks
+		\documentclassified[class=dlrpaper, level=yes]%                          % ... ... Activate the watermark
+	}%                                                                         % ... .done
+\fi%                                                                         % .done
+
+%
+% Add list of versions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Include a list of versions, if requested
+\@ifundefined{dlrpaper@listofversions}{}{%                                 % If the listofversions key is set
+	\expandafter\RequirePackage\expandafter[\dlrpaper@listofversions]{listofversions}% Load the listofversions package
+}%                                                                         % .done
+
+%
+% Add list of todo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Include a list of todo, if requested
+\ifdlrpaper@todonotes%                                 % If the todonotes key is set
+	\ifdlrpaper@upload%                                  % ... if the uploadd key is set
+		\RequirePackage[disable]{todonotes}%               % ... ... load todonotes with option disabled
+	\else%                                 							 % ... else
+		\RequirePackage[]{todonotes}%                      % ... ... load todonotes
+	\fi	%                                   						 % ... end
+	\RequirePackage{xpatch, xspace}%                     % ... Add package to patch todnotes
+	\xapptocmd{\todo}{\xspace}{}{}%                      % ... And patch it
+\fi%                
+
+
+%
+% print list of versions and of todo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Include a list of versions, if requested
+\ifdlrpaper@upload\else%                                           % If this is not an upload version
+	\AtEndDocument{\onecolumn\clearpage}%                            % ... onecolumn and clearpage
+	\ifdlrpaper@todonotes%                                           % ... If the todonotes key is set
+		\AtEndDocument{%                                               % ... ... at end of document
+			\ifnum0<\the@todonotes@numberoftodonotes%                    % ... ... ... if todos are defined
+				\listoftodos[List of Todos]%                               % ... ... ... ... Print todonotes at AtEndDocument
+			\fi}%                                                        % ... ... end
+	\fi%                                                             % ... end
+	\@ifundefined{dlrpaper@listofversions}{}{%                       % ... If the listofversions key is set
+		\AtEndDocument{\section*{Version history}\listofversions}%     % ... ... Print listofversions at AtEndDocument
+	}%                                                               % ... .done
+\fi%                                                               % .done       
+
+
+%
+% Page numbers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Include page numbers, if requested
+\ifdlrpaper@upload\else%                                                     % If this is not an upload version
+	\@ifundefined{dlrpaper@pagestyle}{}{%                                      % ... If the pagestyle key is set
+		\AtBeginDocument{%                                                       % ... ... At the beginning of the document
+			\thispagestyle{\dlrpaper@pagestyle}%                                   % ... ... ... Make this page "pagestyle"
+			\pagestyle{\dlrpaper@pagestyle}%                                       % ... ... ... Make the rest of the document "pagestyle"
+			\let\dlrpaper@maketitle\maketitle%                                     % ... ... ... Modify the \maketitle
+			\renewcommand{\maketitle}{\dlrpaper@maketitle%                         % ... ... ... ... To do itself
+			                          \thispagestyle{\dlrpaper@pagestyle}}%        % ... ... ... ... and set the "pagestyle"
+		}%                                                                       % ... .done
+	}%                                                                         % ... .done
+\fi%                                                                         % .done
+
+
+% Examples for author infos
+%		\begin{document}
+%		\title{Benchmark Scenarios for UAV Cooperative Missions}
+%		% aiaa-tc:
+%		%\author{Sebastian Herbst\thanks{position, address} \and Andreas Kl\"ockner\thanks{position, address} \and Andreas Kl\"ockner\thanksibid{2}}
+%		%AIAA:
+%		%\author{Sebastian Herbst\footnote{position, adress}}
+%		%\affiliation{TUM, address}
+%		%\author{Andreas Kl\"ockner\footnote{position, address}}
+%		%\affiliation{DLR, address}
+%		\maketitle
+
+
+
+

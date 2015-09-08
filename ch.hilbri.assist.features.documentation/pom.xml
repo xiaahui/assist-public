@@ -29,7 +29,7 @@
 								<resource>
 									<directory>documentation-user</directory>
 									<includes>
-										<include>user-doc.pdf</include>
+										<include>user-guide.pdf</include>
 									</includes>
 								</resource>
 							</resources>

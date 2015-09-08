@@ -1,0 +1,155 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[dlrbook]{book (dlrbook)}
+ 
+# Input KOMA definitions
+Input scrbook.layout
+
+#
+###################################################################################
+# BASIC CLASS INFORMATION
+
+# How many sides of a sheet are printed on by default?
+Sides 2
+
+# How many columns are used by default?
+Columns 1
+
+# Define page heading style
+# PageStyle plain
+
+# How many levels of numbering should be used?
+# SecNumDepth 3
+# TocDepth 3
+
+# Title shall be included at start of document with \maketitle
+TitleLatexType CommandAfter
+TitleLatexName maketitle
+
+# Define output format
+# OutputType   latex
+# OutputFormat latex
+
+#
+###################################################################################
+# LATEX OPTIONS AND PREAMBLE STUFF
+
+# Which class options are available?
+ClassOptions
+  # FontSize "10|11|12"
+  # Header Only used for HTML...
+  # PageStyle "empty|plain|headings|fancy"
+  Other "frutiger=true,title=true,page=true,elements=true,figures=dlr"
+End
+
+# Which additional things should go to the preamble?
+# AddToPreamble
+# EndPreamble
+# Preamble
+# EndPreamble
+
+#
+###################################################################################
+# LYX APPEARANCE DEFINITIONS
+
+# Define margins
+# LeftMargin  MMMM
+# RightMargin MMMM
+
+# Default font to be used
+DefaultFont
+  Family Sans     # Roman,Sans,Typewriter
+  Series Medium   # Medium,Bold
+  Shape  Up       # Up,Italic,SmallCaps,Slanted
+  Size   normal   # tiny,small,normal,large,larger,largest,huge,giant
+  Color  none     # none,black,white,red,green,blue,cyan,magenta,yellow
+EndFont
+
+# Define the default style for new paragraphs
+# DefaultStyle
+
+# Define additional styles
+# Style MyStyleName
+#    CopyStyle      YourStyleName
+#    LatexName      mylatexcommand
+#    LabelString    "My Style" # For the menu?
+#    Align          block,left,right,center
+#    AlignPossible  block,left,right,center
+#    BottomSep      0
+#    Category       "my category"
+#    CommandDepth   only for XML
+#    DependsOn      SomeOtherStyleToPutAroundThisOne
+#    EndLabelType   No_Label,Box,Filled_Box,Static
+#    EndLabelString "Text to put at end of paragraph, when EndLabelType=Static"
+#    Fill_Bottom    0,1 # Insert \vfill under paragraph
+#    Fill_Top       0,1 # Insert \vfill above paragraph
+#    Font           
+#    FreeSpacing    0,1 # Enable consequent blank spaces
+#    InnerTag       only for XML
+#    InTitle        1,0 # Insert another \maketitle under paragraph
+#    ItemSep        0 # Additional separator for paragrphs inside
+# End
+
+# Define a style for the report number
+Style ReportNumber
+    CopyStyle      Subtitle	
+    LatexName      reportno
+    Font
+      Series       Medium
+    EndFont	
+End    
+
+# Delete previously defined style
+# NoStyle
+
+# Define new float objects
+# Float MyFloatName
+# End
+
+# Delete previously defined float
+# NoFloat
+
+# Define new inset type
+# InsetLayout <Type>
+# End
+
+# Define additional counters
+# Counter MyCounterName
+#    LabelString    "String to output Nr. \arabic{counter}"
+#    LabelStringAppendix "How to print in appendix"
+#    WithIn         "section"
+# End
+
+#
+###################################################################################
+# INTERACTIONS WITH OTHER PACKAGES AND MODULES
+
+# Load default modules
+# DefaultModule dlrsecondpage
+
+# Modules, which are not compatible with this class
+# ExcludesModule mymodule
+
+# Which modules are implicitly provided by this class?
+# ProvidesModule dlrtitle
+
+# Which commands are provided?
+# Provides mycommand 1
+
+# Require some packages via \usepackage
+# Requires amsmath,amsthm
+
+
+
+#
+###################################################################################
+# ANYTHING ELSE WHICH WAS IN THE DOCU
+
+
+
+
+
+
+
+
+
+

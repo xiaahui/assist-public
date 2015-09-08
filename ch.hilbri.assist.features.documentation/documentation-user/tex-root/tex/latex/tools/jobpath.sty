@@ -1,0 +1,263 @@
+%
+% This is file `jobpath.sty',
+% - it provides \jobpathname with the \jobname including the path to it.
+% - it provides \jobpath with the path part of \jobpathname.
+%
+%
+% JOBPATH.TEX -- 96-02-12/14:54
+%
+% Get filename of running job from .log file.
+% emTeX puts filename from command line into log file, so for full name type:
+%       latex f:/mytex/junk
+% Usage:
+% \input{jobpath}
+% This is file \jobpathname.
+%
+% From: David Carlisle <carli...@ma.man.ac.uk>
+% Newsgroups: comp.text.tex
+% Subject: Re: Does TeX know the name of the file currently being processed?
+% Date: 09 Feb 1996 14:28:53 +0000
+% Organization: Manchester University Mathematics Department
+% In-reply-to: r...@PC2.MIC.DTU.DK's message of 9 Feb 1996 09:25:27 GMT
+% To: r...@PC2.MIC.DTU.DK (Roger de Reus)
+%
+%
+% In article <4ff3u7$...@news.uni-c.dk> r...@PC2.MIC.DTU.DK
+% (Roger de Reus) writes:
+%
+%    :  \jobname returns the name of the file being processed,
+%
+%   This will give you the `name' part of the file (without path or extension).
+%   What is the hook for the full qualified file name?
+%
+%
+% I posted something like this to c.t.t some time back,
+% I am not sure anyone would really want to use this (especially if they
+% have a small disk quota:-)
+%
+% but (if you know you are on a tex that uses \jobname.log as the log
+% file (ie not on VMS, where you have to make obvious change to .lis)
+% you can get the full path from the log file. Unfortunately on Unix and
+% presumably other systems writing to the file is buffered, so you have
+% to write an awful lot of rubbish to flush out the buffer so the log
+% really appears in the file, then you can read in the file and look at
+% the first lines...
+%
+% The code below sets the path to the path reported by TeX. If the file
+% is in the current directory this may end up being just the filename
+% like \jobname. On web2c unix Tex at least you can force TeX to give
+% the full path in the log file by explicitly putting the current
+% directory at the front of the TeX input path.
+%
+% Thus if you save the code below as jobpath.tex this seems to work on
+% my machine at least...
+%
+%
+% vummath> TEXINPUTS=$PWD: tex jobpath
+% This is TeX, Version 3.14159 (C version 6.1)
+% (/home/carlisle/jobpath.tex
+% Hyphenation patterns for english, german, loaded.
+% !!!
+% !!! Full path is /home/carlisle/jobpath.tex  !!!
+% !!!
+%  )
+% No pages of output.
+% Transcript written on jobpath.log.
+% vummath>
+%
+%
+% ================ jobpath.tex
+%
+
+%
+% PACKAGE HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{jobpath}
+        [2012/02/29 v0.1 Jobpath by David Carlisle]
+
+
+%
+% In case of lualatex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{ifluatex}
+\ifluatex
+	% Open log file
+	\directlua{file = io.open("\jobname.log", "r")}
+
+	% Write rubbish to logfile until buffer is written
+	\wlog{JobPath writes logfile just to get started}%                           % write some info to log
+	\newif\ifjobpath@empty\jobpath@emptyfalse%                                   % define new if
+	\loop%                                                                       % begin loop
+		\wlog{JobPath_writing_rubbish_to_logfile}\relax%                           % ... write some dummy text ot log
+		\expandafter\csname jobpath@empty\directlua{if file:read("*line")==nil then tex.sprint("false") else tex.sprint("true") end}\endcsname
+	\unless\ifjobpath@empty\repeat%                                              % until some text can be found in the logfile
+
+	% the loop termination also terminates ifluatex, so this is to ensure we are still using lua
+	\ifluatex
+
+% Read the logfile to get the info
+	\bgroup%                                                          % begin group for catcode
+		\catcode`\_=12%                                                 % ... redfince catcode for :
+		\directlua{require("jobpath")}%                                 % ... run lua script whicht does the job
+		\xdef\jobpathname{\directlua{tex.sprint(1, jobpathname)}}%      % ... save jobpathname to makro
+		\xdef\jobpath{\directlua{tex.sprint(1, jobpath)}}%              % ... save jobpath to makro
+		\xdef\jobpathfile{\directlua{tex.sprint(1, jobpathfile)}}%      % ... save jobpathfile to makro
+	\egroup%                                                          % end group for catcode
+	
+% In case of lua; everyhting is done here => end
+	\endinput
+\fi
+
+
+%
+% Initialisation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make logfile readable
+\newread\logfile
+
+% Make ("path_to_jobpath.sty") appear in logfile
+\wlog{JobPath writes logfile just to get started}
+
+%
+% HELPER COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define \flush to keep writing to the logfile, until 
+% unix actually writes the buffer to file.
+\def\flush{%
+  \openin\logfile=\jobname.log
+   \read\logfile to \rubbish % get rid of a \par
+  \ifeof\logfile
+    \writerubbish
+    \closein\logfile
+    \expandafter\flush
+  \fi}
+
+% This is the rubbish to be written to file
+\def\writerubbish{%
+   {\newlinechar`\ \wlog{JobPath_writing_rubbish_to_logfile}}}
+
+% Define \getpath to read the logfile and find the path
+% Change category codes in order to not parse special characters
+\newif\if@firstread\@firstreadtrue%                       % Define an if to check for the first few lines
+\def\parcheck{\par }%                                     % Define \parcheck to check for empty lines
+\def\loglines{}%                                          % Initialize empty \loglines buffer
+\def\getpath{%                                            % Define \getpath to retrieve the path
+	\catcode`\\=12%                                         % Do not treat \ as a special character
+	\catcode`\_=12%                                         % Do not treat _ as a special character
+	%\chardef\\=`/%                                         % Even read it as /. (Does not work?!)
+	\if@firstread%                                          % If this is the first time we are reading
+		\read\logfile to \logline%                            % ... skip 1st line = entering extended mode...
+		\read\logfile to \logline%                            % ... Skip 2nd line = ** call to latex
+		\@firstreadfalse%                                     % ... do not skip again
+	\fi%                                                    % .done
+	\read\logfile to \logline%                              % Read a new line (will contain a space=newline at the end)
+	%\show\logline \show\parcheck%                          % Debug the parcheck against empty lines
+	\ifx\logline\parcheck\else%                             % Only, if the line is not empty
+		%\show\loglines%                                      % ... Debug output of loglines
+		%\show\logline%                                       % ... Debug output of logline
+		\expandafter\catlines\expandafter\loglines\logline\\% % ... Concatenate the old lines and the new line
+	\fi%                                                    % End if
+	%\show\loglines%                                        % Debug output the concatenated lines
+	\catcode`\\=0%                                          % Reset the \ character code
+	\catcode`\_=8%                                          % Reset the _ character code
+  \expandafter\testbracket\loglines(.tex\testbracket}%    % Find sth. of the sort #1(#2.tex
+
+% Define a command to join two lines of the log file by calling:
+% \expandafter\catlines\expandafter\loglines\logline\\%
+\def\catlines#1#2 \\{%                                    % Define \catlines. The space is needed to remove the \read space
+	\def\tmp{#1#2}%
+	\edef\loglines{\tmp}}%
+  %\edef\loglines{#1#2}}                                   % \edef the two together
+
+% Define \testbracket to search through the logfile until the path is found
+\def\bracketcheckA{(.tex}%                                % Define \bracketcheckA as token to check against #3
+\def\bracketcheckB{"(.tex}%                               % Define \bracketcheckB as token to check against #3
+\def\testbracket#1(#2.tex#3\testbracket{%                 % Define \testbracket{before}({filename!}.tex{after}
+  \def\brackettemp{#3}%                                   % Save away the text to check
+  %\show\brackettemp%                                     % Debug output of the text to check
+  \ifx\brackettemp\bracketcheckA%                         % If #3 matches (.tex
+	  \def\jobpathname{#2}                                  % ... Save the \jobpath & name
+  \else\ifx\brackettemp\bracketcheckB%                    % If #3 matches "(.tex
+	  \def\jobpathname{#2"}                                 % ... Save the \jobpath & name
+  \else%                                                  % If ({...}.tex is not found
+    \expandafter\getpath%                                 % ... Read another line
+  \fi\fi}%                                                % Done.
+
+% Define \noquote to remove quotes around path
+\def\noquote#1"#2"#3\\{%                                  % Call either \noquote"path"""\\ or \noquote path""\\
+  \def\testquote{#1}%                                     % Test text before first "
+  \ifx\testquote\empty%                                   % If it is empty...
+    \def\jobpathname{#2}%                                 % ... The next token is the path
+  \else%                                                  % Otherwise
+    \def\jobpathname{#1}%                                 % ... it is the token
+  \fi}%                                                   % Done.
+
+% Define \reslash to replace \ by /
+\edef\tmp{##1\@backslashchar##2}
+\expandafter\def\expandafter\reslash\tmp\\{%              % Call either \reslash...\...\\\ or \reslash...\\\
+  \def\testrest{#2}%                                      % Test text after first \
+  \ifx\testrest\empty%                                    % If it is empty...
+    \def\jobpathname{#1}%                                 % ... The first token is the path
+  \else%                                                  % Otherwise
+    \expandafter\reslash#1/#2\\%                          % ... repeat
+  \fi}%                                                   % Done.
+
+% Define \getjobpathfile to retrieve main file name
+\def\getjobpathfile#1/#2\\{%                              % Call either \getjobpathfile folder/file\\ or \getjobpathfile folder/\\
+  \def\testrest{#2}%                                      % Test text after first /
+  \ifx\testrest\empty%                                    % If it is empty...
+    \def\jobpathfile{#1}%                                 % ... The first token is the jobpathfile
+  \else%                                                  % Otherwise
+    \expandafter\getjobpathfile#2\\%                      % ... repeat
+  \fi}%                                                   % Done.
+
+% Define \getjobpath to retrieve main file's path only
+\def\getjobpath#1/#2\\{%                                  % Call either \getjobpathfile folder/file\\ or \getjobpathfile folder/\\
+  \def\testrest{#2}%                                      % Test text after first /
+  \ifx\testrest\empty%                                    % If it is empty...
+    %                                                     % ... We're done
+  \else%                                                  % Otherwise
+		\ifx\jobpath\empty%                                   % ... If it's the first folder
+			\edef\jobpath{#1}%                                  % ... ... Start with current folder
+		\else%                                                % ... Otherwise
+			\edef\jobpath{\jobpath/#1}%                         % ... ... Append the current folder
+		\fi%                                                  % ... .done
+    \expandafter\getjobpath#2\\%                          % ... repeat
+  \fi}%                                                   % Done.
+
+
+%
+% ACTUALLY READ THE JOBPATHNAME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Get the log file started
+\flush
+
+% Now read it
+\getpath
+%\show\jobpathname
+
+% Remove the quotes around the path
+\expandafter\noquote\jobpathname""\\
+%\show\jobpathname
+
+% Exchange slashes
+\edef\jobpathname{\jobpathname\@backslashchar}
+\expandafter\reslash\jobpathname\\
+%\show\jobpathname
+
+% Define the \jobpathfile
+\expandafter\getjobpathfile\jobpathname/\\
+%\show\jobpathfile
+
+% Define the \jobpath
+\def\jobpath{}
+\expandafter\getjobpath\jobpathname/\\
+%\show\jobpath
+
+%
+% HACK THE JOBNAME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Add ../ to document path&name to achieve a pseudo "jobpath" 
+%\edef\jobpath{\jobpathname/..}
+\endinput
+

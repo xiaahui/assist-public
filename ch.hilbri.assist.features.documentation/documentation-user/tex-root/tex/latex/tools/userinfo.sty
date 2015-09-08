@@ -1,0 +1,157 @@
+%
+% This is file `userinfo.sty',
+% - it provides \userinfo{username}{type} to get info about the username
+
+%
+% PACKAGE HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{userinfo}
+        [2014/04/24 v0.1 userinfo package]
+
+%
+% Make the commands also work on network drives
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{external-base}
+
+%
+% SETUP OF CHARACTER TABLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load inputenc with default encoding 
+\RequirePackage{luainputenc}      % Check that package provides
+               [2006/02/22]    % ... \inputencodingname command
+
+%
+% Define key for recache userinfo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{xkeyval}
+\define@boolkey{userinfo.sty}[userinfo@]{recache}[true]{}
+\ExecuteOptionsX<userinfo.sty>{recache=false}
+\ProcessOptionsX
+
+%
+% Define the core commands \userinfo{username}{type}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \@despace\TEXT \\ removes a trailing space in \TEXT
+\def\@despace#1 \\{#1}
+
+% \userinfo@options{type} => options to dsget user in \@options
+\def\userinfo@options#1{%
+	\edef\@tmp     {#1}%                                                               % Define temporary argument command
+	\def \@tmp@type         {name}\ifx\@tmp\@tmp@type\def\@options{-display   }\fi%    % Check for name type
+	\def \@tmp@type   {department}\ifx\@tmp\@tmp@type\def\@options{-desc      }\fi%    % Check for department type
+	\def \@tmp@type        {email}\ifx\@tmp\@tmp@type\def\@options{-email     }\fi%    % Check for email type
+	\def \@tmp@type    {telnumber}\ifx\@tmp\@tmp@type\def\@options{-tel       }\fi%    % Check for telnumber type
+	\def \@tmp@type {telextension}\ifx\@tmp\@tmp@type\def\@options{-tel       }\fi%    % Check for telextension type
+	\def \@tmp@type    {faxnumber}\ifx\@tmp\@tmp@type\def\@options{-fax       }\fi%    % Check for faxnumber type
+	\def \@tmp@type {faxextension}\ifx\@tmp\@tmp@type\def\@options{-fax       }\fi%    % Check for faxextension type
+	\def \@tmp@type {dlrinstitute}\ifx\@tmp\@tmp@type\def\@options{-dept      }\fi%    % Check for dlrinstitute type: AA-XYZ OP - Some text
+	\def \@tmp@type      {dlrsite}\ifx\@tmp\@tmp@type\def\@options{-dept      }\fi%    % Check for dlrsite type: AA-XYZ OP - Some text
+}
+
+% \userinfo{username}{type} => outputs the requested info
+\newcommand{\userinfo}[2]{%
+	\loaduserinfo{#1}{#2}%                                                             % ... load the data into cache
+	\csname userinfo@#1@#2\endcsname%                                                  % ... output cache!
+}
+
+% \loaduserinfo{username}{type} => loads the requested info without output
+\newcommand{\loaduserinfo}[2]{%
+	\@ifundefined{userinfo@#1@#2}{%                                                    % If it is the first query
+		\userinfo@options{#2}%                                                           % ... Parse the type argument
+		\newif\ifuserinfo@dorecache\userinfo@dorecachefalse%                             % ... Create boolean dorecache and set it false
+		\IfFileExists{\jobname.#1.#2.adi}{}{%                                            % ... If temporary doesn't exist
+			\userinfo@dorecachetrue}%                                                      % ... ... dorecache is true
+		\ifuserinfo@recache%                                                             % ... If package option recache
+			\userinfo@dorecachetrue%                                                       % ... ... dorecache is true
+		\fi%                                                                             % ... done
+		\ifuserinfo@dorecache%                                                           % ... If dorecache
+			\immediate\newwrite\userlogdefault%                                            % ... ... Create a dummy file...
+			\immediate\openout\userlogdefault=\jobname.#1.#2.adi%                          % ... ... ... in the usual location
+			\immediate\write\userlogdefault{This file is a dummy to catch an}%             % ... ... ... with the dummy info line
+			\immediate\write\userlogdefault{Error using userinfo package , - }%            % ... ... ... and an error line with all features
+			\immediate\closeout\userlogdefault%                                            % ... ... .done
+			\execute{dsquery user -name #1 | dsget user  \@options > \jobname.userinfo.tmp%% ... ... Output the data to a file
+			         \string&\string& copy \jobname.userinfo.tmp \jobname.#1.#2.adi}%      % ... ... Copy the file, if successfull
+		\fi%                                                                             % ... .done
+		\begingroup%                                                                     % ... begin a group for inputenc and catcodes
+			\inputencoding{cp850}%                                                         % ... ... use DOS input encoding
+			\newread\userlog%                                                              % ... ... Define a new file handle
+			\openin\userlog=\jobname.#1.#2.adi\relax%                                      % ... ... Open the temporary file and do it now
+			\read\userlog to \@tmp%                                                        % ... ... Read the first line: It's headers
+			\read\userlog to \@tmp%                                                        % ... ... Read the second line with the data!
+			\closein\userlog%                                                              % ... ... Close the temporary file
+			\global\edef\userinfo@value{%                                                  % ... ... Globally define \userinfo@value
+				\expandafter\@despace\@tmp\\}%                                              % ... ... ... without trailing space
+		\endgroup%                                                                       % ... close the DOS encoding group
+		%\show\userinfo@value\sdfasfd%                                                   % ... DEBUG: Output the data!
+		\expandafter\expandafter\csname userinfo@#2\endcsname\userinfo@value\\%          % ... Extract the relevant portion of the data
+		%\show\userinfo@value\sdfasfd%                                                   % ... DEBUG: Output the data!
+		\expandafter\let\csname userinfo@#1@#2\endcsname\userinfo@value%                 % ... Cache data
+	}{}%                                                                               % .done
+}
+
+% bypass some info types
+\def\userinfo@department#1\\{%
+	\def\userinfo@value{#1}}
+\def\userinfo@email#1\\{%
+	\def\userinfo@value{#1}}
+\def\userinfo@telnumber#1\\{%
+	\def\userinfo@value{#1}}
+\def\userinfo@faxnumber#1\\{
+	\def\userinfo@value{#1}}%
+
+% Reorder name 
+\def\userinfo@name#1, #2\\{%
+	\def\userinfo@value{#2 #1}}
+
+% extract dlrinstitute
+\def\userinfo@dlrinstitute#1 #2 -#3\\{%
+	\def\userinfo@value{#1}}
+
+% extract dlrsite
+\def\userinfo@dlrsite#1 #2 -#3\\{%
+	\def\userinfo@value{#2}}
+
+% extract telextension
+\def\userinfo@telextension#1 #2 #3 #4\\{%
+	\def\userinfo@value{#4}}
+
+% extract faxextension
+\let\userinfo@faxextension\userinfo@telextension
+
+%
+% Define some special commands \userspecial{username}{type}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \userspecial[options]{username}{type} => outputs the requested aggregate output
+\newcommand{\userspecial}[3][\@empty]{%
+	\@ifundefined{userspecial@#3}{%                                                    % ... if special is not defined
+		\PackageError{userinfo}{Special '#3' is not defined}{Correct your document}%     % ... ... generate error
+	}{%                                                                                % ... else
+		\expandafter\csname userspecial@#3\endcsname[#1]{#2}%                            % ... ... run the command!
+	}%                                                                                 % ... .done
+}
+
+% Output a formatted email address
+\newcommand{\userspecial@email}[2][]{%
+	\loaduserinfo{#2}{name}%                                                           % Load name
+	\loaduserinfo{#2}{email}%                                                          % Load email
+	\ifuserinfo@hyperref%                                                              % if hyperref loaded
+		\ifuserinfo@url%                                                                 % ... if url loaded 
+			\href{mailto:\userinfo{#2}{name}\@percentchar 20%                              % ... ... make \hyperref{name
+			             \@percentchar 3C\userinfo{#2}{email}\@percentchar 3E?#1}%         % ... ...                <email>}
+			     {\nolinkurl{\userinfo{#2}{email}}}%                                       % ... ...               {\nolinkurl{email}}
+		\else%                                                                           % ... else
+			\href{mailto:\userinfo{#2}{name}\@percentchar 20%                              % ... ... make \hyperref{name
+			             \@percentchar 3C\userinfo{#2}{email}\@percentchar 3E?#1}%         % ... ...                <email>}
+			     {\userinfo{#2}{email}}%                                                   % ... ...               {email}
+		\fi%                                                                             % ... .done
+	\else%                                                                             % else
+		\userinfo{#2}{email}%                                                            % ... just output email
+	\fi%                                                                               % .done
+}
+
+% Make sure, the required flags are set \AtBeginDocument
+\AtBeginDocument{
+	\@ifpackageloaded{hyperref}{\let\ifuserinfo@hyperref\iftrue}{\let\ifuserinfo@hyperref\iffalse}
+	\@ifpackageloaded{url}     {\let\ifuserinfo@url     \iftrue}{\let\ifuserinfo@url     \iffalse}
+}

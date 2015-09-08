@@ -1,0 +1,75 @@
+%
+% This is file `pdftools.sty',
+% it does some magic to your final PDF output
+%
+% REVISIONS:    2013-05-14 alpha version
+% TO DO:        Make nicer and add options
+%               
+% Contact       Andreas Klöckner,  Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2013 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+%
+% PACKAGE HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{pdftools}
+        [2013/05/14 v0.0 Alpha]
+
+%
+% AUXILIARY COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Let the user define the path to ghost-script and tiff2pdf
+\newcommand{\PathToGS}     [1]{\def\path@gs     {#1}}
+\newcommand{\PathToTiffPDF}[1]{\def\path@tiffpdf{#1}}
+\PathToGS{gs}
+\PathToTiffPDF{tiff2pdf}
+
+%
+% Configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Use the external-config package
+\RequirePackage{external-config}
+
+% Load the configuration file
+\get@config{pdftools}
+
+%
+% The magic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% We will need the \execute command
+\RequirePackage{external-base}
+
+% Add a hook at end of document to strip the text off the pdf
+\AtEndDocument{%
+	\execute{start "LaTeX's pdftools package is working..." cmd /c "                                                                    %    % Start new window
+	         echo Waiting...                                                                                                    \string&%    % ... Echo information
+	         ping localhost                                                                                               > nul \string&%    % ... Wait some time to finish
+	         echo Generating intermediate TIFF image...                                                                         \string&%    % ... Echo information
+	         "\path@gs"      -o \jobname.pdftools.tif -r300x300 -sDEVICE=tiffgray -sCompression=lzw \jobname.pdf                \string&%    % ... Generate a tiff
+	         echo Generating PDF file without text...  .                                                                        \string&%    % ... Echo information
+	         "\path@tiffpdf" -o \jobname.pdftools.pdf                             -z                \jobname.pdftools.tif       \string&%    % ... Generate a new PDF
+	         echo Deleting intermediate TIFF image...                                                                           \string&%    % ... Echo information
+	         del \jobname.pdftools.tif                                                                                          \string&%    % ... Delete Tiff
+	         echo Done!                                                                                                         \string&%    % ... Echo information
+	         echo Distribute \jobname.pdftools.pdf, which is without text now!                                                  \string&%    % ... Echo information
+	         ping localhost                                                                                               > nul \string&%    % ... Wait some time to finish
+	         echo."}%                                                                                                                        % Close new window
+}%
+
+
+%Some more commands just to remember:
+%REM "C:\Program Files\gs\gs9.06\bin\gswin64c" -o dodo1.tif -r300x300 -sDEVICE=tiff24nc -sCompression=lzw dodo0.pdf
+%REM "C:\Program Files\gs\gs9.06\bin\gswin64c" -o dodo1.tif -r300x300 -sDEVICE=tiffg4                     dodo0.pdf
+%REM "C:\Program Files\gs\gs9.06\bin\gswin64c" -o dodo1.tif -r300x300 -sDEVICE=tiffgray -sCompression=lzw dodo0.pdf
+%
+%"C:\Program Files\gs\gs9.06\bin\gswin64c" -o dodo1.tif -r300x300 -sDEVICE=tiffgray -sCompression=lzw dodo0.pdf
+%
+%tiff2pdf -c "dlrpaper" -a "Author" -t "Title" -s "Subject" -k "Keywords" -z -o dodo2.pdf dodo1.tif
+
+
+% Add size reduction:
+% gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf
+% 					%"C:/Program Files/gs/gs9.06/bin/gswin64c" -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -sOutputFile=\elib@name.pdf \jobname.pdf  \string&%
+

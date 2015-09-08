@@ -1,0 +1,135 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document class and header        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{scrartcl}
+\input{header.tex}
+
+% Define title and author
+\title{\rmlatex}
+\subtitle{Overview and Installation Guide}
+\author{\printauthor{knob_an}  \printauthor{kloe_ad}}
+\publishers{\INST{name}\\\INST{department}\\\DLR{name}\\}
+
+
+%
+% Begin document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%
+% Title, abstract, and TOC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+
+\begin{abstract}
+\rmlatex is a template collection for reports and presentations. Additionally, several useful tools for working with \LaTeX are available. All features and templates are created due to personal interest and are subject to change. All packages are tested using MiKTeX 2.9. However, they are considered as \enquote{as-is} and without any warranty. For questions, suggestion and feedback, please contact the author of the particular package.
+\begin{center}\color{red}\bfseries
+	\rmlatex requires an up to date \LaTeX{} installation.
+\end{center}\bigskip
+
+\selectlanguage{ngerman}
+\rmlatex enthält einige Vorlagen für Berichte und Präsentationen sowie nützliche Werkzeuge zum Erstellen von LaTeX-Dokumenten. Alle Funktionalitäten und Vorlagen sind aus persönlichen Interessen entstanden und permanent in Bearbeitungszustand: Die Pakete sind zwar mit MiKTeX 2.9 getestet, werden aber \enquote{as is} und ohne Gewähr verteilt. Bei Fragen, Anregungen, Kritik wenden Sie sich bitte an die in den Sourcen ausgewiesenen Urheber.
+\begin{center}\color{red}\bfseries
+	\rmlatex benötigt eine aktuelle \LaTeX{} Installion.
+\end{center}\bigskip
+\selectlanguage{english}
+\end{abstract}
+
+%
+% Package Overview
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{An Overview on \rmlatex}
+The following templates and tools are available in \rmlatex. Further information on each package can be found in the package documentation.
+
+
+\package{dlrtext}{Andreas Klöckner}
+DLR Templates for reports etc.
+
+\package{dlrletter}{Andreas Knoblach}
+A DLR letter layout adapted from the Word template.
+
+\package{dlrbeamer}{Andreas Knoblach}
+A DLR beamer layout adapted from the Power Point template.
+
+\package{dlrgeneric}{Andreas Klöckner}
+Generic DLR tools like the DLR logo and DLR institute names
+
+\package{frutiger}{Andreas Knoblach}
+A Frutiger font package. (Frutiger is the standard font of all official DLR templates.)
+
+\package{paper-styles}{Andreas Klöckner}
+A collection of paper styles for several journals and conferences. The templates are partially bug-fixed. Additionally, a template for creating ELIB cover sheets are provided.
+
+\package{externals}{Andreas Klöckner}
+Interfaces to external programs such as Inkscape and Matlab
+
+\package{xglossaries}{Andreas Knoblach}
+An improved version of the glossaries package.
+
+\package{tools}{Andreas Klöckner}
+Several useful \LaTeX tools.
+
+\package{lyx}{Andreas Klöckner}
+An interface of RM-\LaTeX for LyX
+
+\package{3rd-party}{Misc}
+Miscellaneous third party tools.
+
+%
+% Installation Guide
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Installation Guide}
+The \rmlatex package can be downloaded from \url{http://teamsites.dlr.de/rm/latex/}. The installation procedure for the \rmlatex package on different operating systems is explained in the following.
+
+%
+% Windows
+%
+\subsection{Windows: MiKTeX}
+In order to correctly install \rmlatex on a Windows system with MikTeX the following steps have to be performed. 
+\begin{enumerate}
+	\item Copy RM-\LaTeX to any desired path, e.\,g. to \texttt{D:\textbackslash My-LaTeX-Templates\textbackslash RM-LaTeX\textbackslash}. It is important that you do not change the directory structure.
+	\item Open the MikTeX Settings GUI and add the RM-\LaTeX package root path to the MikTeX root directory list. Click OK.
+	\item The Frutiger font package requires an update the font map files:
+		\begin{enumerate}
+			\item Open a DOS console window.
+			\item Run \texttt{initexmf -{}-edit-config-file updmap} to edit the font config file.
+			\item Add the following lines:\\
+						\texttt{Map frutiger-pdf.map} \\
+						\texttt{Map frutiger-ps.map}
+			\item Save and close the configuration file.
+			\item Run \texttt{initexmf -{}-mkmaps} to rebuild the font map files.\footnote{On some systems \texttt{initexmf -{}-mkmaps} has to be executed after every restart of windows. In order to avoid this, you can add a suitable batch file to the Autostart folder in the Start Menu.} 
+		\end{enumerate}
+\end{enumerate}
+
+%
+% Linux
+\subsection{Linux: TeXLive}
+For an installation with TeXLive a user specific installation and an installation for all users is possible. Both possibilities are explained in the following subsections.
+
+%
+% Installation by an User
+%
+\subsubsection{Installation by an User}
+\begin{enumerate}		
+	\item Unpack the files into the user's \texttt{texmf/} directory. It is important that you do not change the directory structure.
+	\item Update the filename database by executing \texttt{mktexlsr}.
+	\item If you use Debian, you have to update the config files by running \texttt{update-updmap}.
+	\item Final you have to update the font maps. This is be done by calling \texttt{updmap}.
+\end{enumerate}
+
+%
+% Installation for all Users
+%
+\subsubsection{Installation for all Users}
+Please note: if yout want to install the \rmlatex package for all users, administrator rights are necessary.
+\begin{enumerate}		
+	\item Unpack the files to \texttt{/usr/local/share/texmf/}.
+	\item Update the filename database by executing \texttt{sudo mktexlsr}.
+	\item If you use Debian, you have to update the config files by \texttt{sudo update-updmap}.
+	\item Final you have to update the font maps by executing \texttt{sudo updmap-sys}.
+\end{enumerate}
+
+\end{document}
+
+% eof

@@ -1,0 +1,248 @@
+%
+% This is file `external-base.sty',
+% it includes commands to run external commands from latex.
+%
+% It checks for the correct option pdfshellescape
+%
+% It provides the following commands:
+%   \executeiffilenewer{source}{destination}{command}:
+%     Run command, if source is newer than destination.
+%   \execute{command}:
+%     Execute the command in the current directory
+%
+% REVISIONS:    2011-12-14 added first functions
+%               
+% Contact       Andreas Klöckner,  Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2011 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+%
+% PACKAGE HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{external-base}
+        [2011/12/14 v0.1 Basic import hacks]
+
+%
+% REQUIRED PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{xkeyval}   % undefined keys
+\RequirePackage{kvsetkeys} % undefined keys
+\RequirePackage{etoolbox}  % patch commands
+\RequirePackage{jobpath}   % provide path to \jobname
+\RequirePackage{ifplatform}% check for windows system
+\RequirePackage{pdftexcmds}% provides some tex commands for lualatex
+
+%
+% CHECKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Check for set shell-escape option. This by itself is only possible with pdflatex
+\ifshellescape\else
+\PackageWarningNoLine{external-base}{For this package to work, you need to call pdflatex with the "-shell-escape" option! Some features you might be expecting will not work}
+\fi
+
+%
+% NEW ADVANCED COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create a command to execute a macro, if some file is newer than the other:
+% \iffilenewer{source}{destination}{ifsourcenewer-command}{else-command}
+\newcommand{\iffilenewer}[4]{%             % Conditional execution of a macro:
+  \IfFileExists{#1}{%                      % If file #1 does exist
+    \IfFileExists{#2}{%                    % ... If file #2 does exist
+      \ifnum\pdf@strcmp{\pdf@filemoddate{#1}}%.. ... If file #1's mod date
+                      {\pdf@filemoddate{#2}}>0%. ... is later then file #2's one
+        #3%                                % ... ... ... DO IT!
+      \else%                               % ... ... else
+        #4%                                % ... ... ... DO THE OTHER ONE!
+      \fi%                                 % ... ... .done
+    }{%                                    % ... If file #2 does not exist
+      #3%                                  % ... ... DO IT!
+    }%                                     % ... .done
+  }{%                                      % If file #1 does not exist
+     \PackageError{external-base}{File '#1' not found}{You should provide file '#1'.}%
+  }%                                       % .done
+}%
+\let\IfFileNewer\iffilenewer
+
+% Create a command to execute a shell command, if some file is newer than the other:
+% \executeiffilenewer{source}{destination}{command}
+\newcommand{\executeiffilenewer}[3]{%      % Conditional execution of a command:
+  \iffilenewer{#1}{#2}{{\execute{#3}}}{}%  % ... Call the \iffilenewer  and \execute
+}
+\let\ExecuteIfFileNewer\executeiffilenewer
+
+% Define some configuration commands
+\def\external@statusfile{\jobpath/external-status.txt}  % The status file used
+\def\external@statusfail{\par }                         % What results when \TeX\ reads an empty file
+\def\external@status    {-1}                            % Default status for pslatex
+
+% Create a command to execute a shell command in current directory
+% \execute{command}
+\newcommand{\execute}[1]{%                 % Unconditional execution of a command:
+  \ifshellescape%                                                                         % Check for pdfshellescape
+    \ifwindows%                                                                           % ... If Windows platform
+      \FStoBS{\jobpath}%                                                                  % ... ... Replace / by \
+      %\show\@noFS%                                                                       % ... ... DEBUG: Show new path
+      \edef\tmp{#1}%\show\tmp%                                                            % ... ... DEBUG: Show command
+      {\immediate\write18{cmd /v:on /c " pushd \@noFS \string&%                           % ... ... Go to working directory
+                                         #1 %                                             % ... ... Execute command!
+                                         \external@cmdsep%                                % ... ... and
+                                         echo !ERRORLEVEL! > "\external@statusfile"%      % ... ... Save the errorlevel to file
+                                       "}}%                                               % ... ... Finish command string
+    \else%                                                                                % ... Otherwise
+      {\immediate\write18{#1}}%                                                           % ... ... Just execute command!
+    \fi%                                                                                  % ... .done
+    \IfFileExists{"\external@statusfile"}{%                                               % ... If statusfile exist
+      %\show\external@status%                                                             % ... ... DEBUG: Show status
+      \CatchFileEdef{\external@status}{"\external@statusfile"}{}}{%                       % ... ... Read the errorlevel
+      \PackageWarning{external-base}{Status of process unable to be determined:^^J  #1^^J%% ... ... Else: Output a warning
+                                     Trying to proceed... }}%                             % ... ... ... and more text
+    \ifx\external@status\external@statusfail%                                             % ... If the errorlevel could not be read
+      \PackageWarning{external-base}{Status of process unable to be determined:^^J  #1^^J%% ... ... Output a warning
+                                     Trying to proceed... }%                              % ... ... ... and more text
+      \def\external@status{0}%                                                            % ... ... Set the error level to zero = Success
+    \fi%                                                                                  % ... .done
+  \else%                                                                                  % Otherwise
+    \PackageWarningNoLine{external-base}%                                                 % ... Output a warning
+                         {Command not executed. You need to call pdflatex with the "-shell-escape" option}%
+  \fi}%                                                                                   % .done
+
+% Command to check status
+% \ifexecutefailed{if-failed}{if-success}
+\newcommand{\ifexecutefailed}[2]{%                                                        % Define the command
+  \ifnum\external@status < \z@%                                                           % If errorlevel < 0
+    \PackageWarningNoLine{external-base}%                                                 % ... Output a warning
+                         {The status has not been set properly}%                          % ... ... because it is the default value
+  \fi%                                                                                    % .done
+  \ifnum\external@status = \z@%                                                           % If errorlevel = 0
+    #2%                                                                                   % ... Execute "if-success"
+  \else%                                                                                  % else
+    #1%                                                                                   % ... Execute "if-fail"
+  \fi%                                                                                    % .done
+}
+
+% Create an internal command to replace / by \
+% \expandafter\@FStoBS\SomePathWithFS/\\
+\def\@FStoBS#1/#2\\{%                      % Use \@FStoBS some/path/with/forward/slashes/\\ to
+  \def\@tmp{#2}%                           % ... Save a temporary command
+  %\show\@tmp%                             % ... DEBUG: Output the path
+  %\show\empty%                            % ... DEBUG: Output the empty command
+  \ifx\@tmp\empty%                         % ... If the second part is empty (i.e. nothing between / and \\)
+    \def\@noFS{#1}%                        % ... ... We can set \@noFS!
+  \else%                                   % ... else
+    \@FStoBS#1\@backslashchar#2\\%         % ... ... We need to re-iterate
+  \fi%                                     % ... fi
+}                                          % .Done
+
+% Create a command to replace / by \
+% \FStoBS{\SomePathWithFS}
+\def\FStoBS#1{%                            % Use \FStoBS{some/path} to
+  \edef\@tmp{#1}%                          % ... save a temporary command
+  \expandafter\@FStoBS\@tmp/\\%            % ... Execute the hidden command
+}%                                         % .Done
+
+
+%
+% NEW SIMPLE USER COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set up windows and linuy environments
+\edef\external@cmdsep{\ifwindows\string&\else\string;\fi\space}
+\edef\external@rm@cmd{\ifwindows del  \else rm -- \fi}
+\edef\external@cp@cmd{\ifwindows copy \else cp -- \fi}
+
+% Command for removing file
+% \external@file@delete{path}{file}
+\newcommand{\external@file@delete}[2]{%       % Declare command
+  \IfFileExists{#1#2}{%                       % ... If file exists
+    \execute{%                                % ... ... execute:
+      cd "#1"              \external@cmdsep%  % ... ... ... go to directory
+      \external@rm@cmd "#2"%                  % ... ... ... delete the file
+    }%                                        % ... ... .done
+  }{%                                         % ... If file doesn't exist
+    \PackageWarningNoLine{external-base}%     % ... ... warn the user
+                         {File '#1#2' not found! Deleted nothing}%
+  }%                                          % ... .done
+}%                                            % .done
+
+% Command for copying file
+% \external@file@copy{path}{file-old}{file-new}
+\newcommand{\external@file@copy}[3]{%         % Declare command
+  \IfFileExists{#1#2}{%                       % ... If file exists
+    \execute{%                                % ... ... execute:
+      cd "#1"              \external@cmdsep%  % ... ... ... go to directory
+      \external@cp@cmd "#2" "#3"%             % ... ... ... copy the file
+    }%                                        % ... ... .done
+  }{%                                         % ... If file doesn't exist
+    \PackageWarningNoLine{external-base}%     % ... ... warn the user
+                         {File '#1#2' not found! Copied nothing}%
+  }%                                          % ... .done
+}%                                            % .done
+
+% Command for moving file
+% \external@file@move{path}{file-old}{file-new}
+\newcommand{\external@file@move}[3]{%         % Declare command
+  \external@file@copy  {#1}{#2}{#3}%          % ... copy the file
+  \external@file@delete{#1}{#2}%              % ... delete the old file
+}%                                            % .done
+\let\external@file@rename\external@file@move
+
+
+
+%%%%%%%% Create a command to process a file...
+%%%%%%%% \@process {source}{destination}{pre}{command} % ... when necessary
+%%%%%%%% \@process*{source}{destination}{pre}{command} % ... never
+%%%%%%%% \@process!{source}{destination}{pre}{command} % ... always
+%%%%%%%
+%%%%%%%% Use this as follows:
+%%%%%%%%\external@create@versions{external-inkscape.sty}{prefix}{auto,none=*,all=!}
+%%%%%%%%=> o@prefix@auto, ...
+%%%%%%%%=> prefix*, ...
+%%%%%%%
+%%%%%%%%\@process@all
+%%%%%%%%\@process@none
+%%%%%%%%\@process@auto
+%%%%%%%
+%%%%%%%% Define user command
+%%%%%%%\newcommand{\external@create@versions}[3]{%                      % \external@create@versions{external-inkscape.sty}{process}{auto,none=*,all=!}
+%%%%%%%  \def\external@family{#1}%                                      % ... Save the family name (only used for xkeyval)
+%%%%%%%  \def\external@option{#2}%                                      % ... Save the option name
+%%%%%%%  \let\external@values\relax%                                    % ... Clear the values
+%%%%%%%  \expandafter\newcommand\expandafter%                           % ... Define the switch command ... 
+%%%%%%%    {\csname external@change@\external@option\endcsname}[1]{%    % ... ... \external@change@option{overridekey}
+%%%%%%%    \let\external@temp@overridekey{##1}%                         % ... ... store overridekey in \external@temp@overridekey
+%%%%%%%  }%                                                             % ... . Done
+%%%%%%%  \kvsetkeys{external@create@versions}{#3}%                      % ... Process the option!
+%%%%%%%%  \show\external@values%                                        % ... => \external@values holds all allowed values for the option
+%%%%%%%%  \show\external@change@process%                                % ... => \external@change@option switches command versions 
+%%%%%%%  \show\o@process@auto%                                         % ... => \o@option@key holds the command to do the work
+%%%%%%%%  \show\@process@auto%                                          % ... => \@option@key holds the command be used to call \o@option@key
+%%%%%%%  \define@choicekey*{\external@family}%                          % ... Define a choicekey for the given family
+%%%%%%%                    {\external@option}%                          % ... ... with the given option name
+%%%%%%%                    [\external@choice]%                          % ... ... save the value in this command
+%%%%%%%                    {\external@values}{%                         % ... ... allow these values
+%%%%%%%    \external@change@version@prefix{\external@choice}}%          % ... ... call the change@version command!
+%%%%%%%}%                                                               % . done with user interface
+%%%%%%%  
+%%%%%%%% Define switch command
+%%%%%%%\newcommand{\external@change}[3]{                                % \external@change{option}{destination}{source}
+%%%%%%%  \let\csname @#1@#2\endcsname\csname o@#1@#3\endcsname}         % ... to let \@option@destination = \o@option@source
+%%%%%%%  
+%%%%%%%% Define option handler 
+%%%%%%%\newcommand{\external@create@versions@handler}[2]{%              % Key(#1) - value(#2) handler
+%%%%%%%  \appto{\external@values}{,#1}%                                 % ... Append the given key to allowed values
+%%%%%%%  \expandafter\newcommand\expandafter%                           % ... Define the original command ... 
+%%%%%%%    {\csname o@\external@option @#1\endcsname}{}%                % ... ... o@option@value as empty
+%%%%%%%  \expandafter\newcommand\expandafter%                           % ... Define the user command ... 
+%%%%%%%    {\csname  @\external@option @#1\endcsname}{}%                % ... ...  @option@value as empty
+%%%%%%%  \expandafter\apptocmd\expandafter{%                            % ... Append to \external@change@option ...
+%%%%%%%    \csname external@change@\expandafter\external@option\expandafter\endcsname\expandafter}\expandafter{\expandafter%
+%%%%%%%    \external@change\expandafter{\external@option}%              % ... ... Override the option
+%%%%%%%                                {#1}%                            % ... ... destination
+%%%%%%%                                {\external@temp@overridekey}}%   % ... ... with the formerly saved overridekey
+%%%%%%%  \show\dummyshow%                                               %
+%%%%%%%}%                                                               % . Done
+%%%%%%%
+%%%%%%%% Use option handler
+%%%%%%%\kv@set@family@handler{external@create@versions}{%                % Process arbitrary options:
+%%%%%%%  \external@create@versions@handler{#1}{#2}}                      % ... with the handler defined above

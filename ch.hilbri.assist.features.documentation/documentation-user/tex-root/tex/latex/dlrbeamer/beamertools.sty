@@ -1,0 +1,187 @@
+%
+% This is file `beamertools.sty',
+% it includes some tools for beamer
+%
+%
+% REVISIONS:    2012-07-11 initial release (knob_an)
+%               
+% Contact       Andreas Knoblach,  Andreas.Knoblach@dlr.de
+% Copyright (C) 2012 DLR Robotics and Mechatronics              __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+
+% Package Header
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamertools}
+        [2012/07/11 v0.1 Beamer Tools]
+				
+% Load key/value package
+\RequirePackage{xkeyval}		
+\RequirePackage{etoolbox}		
+
+%
+% Define Package Options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% load OutlineABS
+\define@boolkey{beamertools.sty}[beamertools@]{noOutlineABS}[true]{}
+\ExecuteOptionsX<beamertools.sty>{noOutlineABS=false}
+
+% fixt
+\define@boolkey{beamertools.sty}[beamertools@]{fixt}[true]{}
+\ExecuteOptionsX<beamertools.sty>{fixt}
+
+% fixlists
+\define@boolkey{beamertools.sty}[beamertools@]{fixlists}[true]{}
+\ExecuteOptionsX<beamertools.sty>{fixlists}
+
+% fixblocktitle
+\define@boolkey{beamertools.sty}[beamertools@]{fixblocktitle}[true]{}
+\ExecuteOptionsX<beamertools.sty>{fixblocktitle}
+
+%fixeqspaceing
+\define@boolkey{beamertools.sty}[beamertools@]{fixeqspaceing}[true]{}
+\ExecuteOptionsX<beamertools.sty>{fixeqspaceing}
+
+%fixcolspacing
+\define@boolkey{beamertools.sty}[beamertools@]{fixcolspacing}[true]{}
+\ExecuteOptionsX<beamertools.sty>{fixcolspacing}
+
+% Proces Options
+\ProcessOptionsX
+
+%
+% OutlineAtBeginSection
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+% Define key for activating and deactivating the TOC
+\define@cmdkey{OutlineAtBeginSection}{on}[]{\def\DiplayOutline@AtBeginSection{\DiplayOutline{}}}
+\define@cmdkey{OutlineAtBeginSection}{off}[]{\def\DiplayOutline@AtBeginSection{}}
+
+% Define key for selecting mode
+\define@choicekey*{OutlineAtBeginSection}{mode}[\DiplayOutline@AtBeginSection@@mode]{all, beamer, handout}[all]{%
+	\def\DiplayOutline@AtBeginSection@mode{\DiplayOutline@AtBeginSection@@mode}}
+	
+% Define key for framecount
+\define@boolkey{OutlineAtBeginSection}{noframenumbering}[true]{%
+	\ifKV@OutlineAtBeginSection@noframenumbering%
+		\edef\OutlineAtBeginSection@noframenumbering{[noframenumbering]}%
+	\else%
+		\def\OutlineAtBeginSection@noframenumbering\relax%
+	\fi}
+			
+% Defien key for frametitle
+\define@cmdkey{OutlineAtBeginSection}{frametitle}[Outline]{\def\DiplayOutline@AtBeginSection@frametitle{#1}}
+\def\DiplayOutline@AtBeginSection@frametitle{\translate{Outline}}
+
+% Define OutlineAtBeginSection
+\ifbeamertools@noOutlineABS
+	\newcommand{\OutlineAtBeginSection}[1][]{\PackageWarning{beamertools}{%
+				Command OutlineAtBeginSection is not available if packageoption loadABS=false used.}}
+\else
+	% Command OutlineAtBeginSection to change \DiplayOutline@AtBeginSection
+	\newcommand{\OutlineAtBeginSection}[1][on]{\setkeys{OutlineAtBeginSection}{#1}}
+	
+	% Define DiplayOutline
+	\newcommand\DiplayOutline{%
+			\only<\DiplayOutline@AtBeginSection@mode>{\expandafter\frame\OutlineAtBeginSection@noframenumbering{%		
+				\frametitle{\DiplayOutline@AtBeginSection@frametitle}%
+				\tableofcontents[sectionstyle=show/shaded, subsectionstyle=show/show/shaded]}}}
+
+	% Select mode=all and no TOC 
+	\OutlineAtBeginSection[mode, noframenumbering, off]
+
+	% Add \DiplayOutline@AtBeginSection to AtBeginSection
+	\AtBeginDocument{
+		\AtBeginSection[]{\DiplayOutline@AtBeginSection}}
+\fi
+
+%
+% Fix spacing for frameoption t
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifbeamertools@fixt
+	\define@key{beamerframe}{t}[true]{% top
+	\beamer@frametopskip=.2cm plus .5\paperheight\relax%
+	\beamer@framebottomskip=0pt plus 1fill\relax%
+	\beamer@frametopskipautobreak=\beamer@frametopskip\relax%
+	\beamer@framebottomskipautobreak=\beamer@framebottomskip\relax%
+	\def\beamer@initfirstlineunskip{}}
+\fi
+
+
+%
+% Fix spacing of lists
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifbeamertools@fixlists
+	% Add par before every list
+	\setbeamertemplate{itemize/enumerate/description body begin}{\par}
+	% Change list distances
+	\def\@listi{\leftmargin\leftmargini
+							\topsep  1\p@  \@plus2\p@ \@minus4\p@
+							\parsep  0\p@ 
+							\itemsep 2\p@ \@plus2\p@ \@minus4\p@}
+	\let\@listI\@listi
+	\def\@listii{\leftmargin\leftmarginii
+								\topsep    2\p@ \@plus0\p@ \@minus2\p@
+								\parsep    0\p@
+								\itemsep   2\p@ \@plus0\p@ \@minus2\p@}
+	\def\@listiii{\leftmargin\leftmarginiii
+								\topsep    2\p@ \@plus0\p@ \@minus2\p@
+								\parsep    0\p@
+								\itemsep   2\p@ \@plus0\p@ \@minus2\p@}
+		%\AfterEndEnvironment{itemize}{\vspace{.1\baselineskip}\par}
+		%\AfterEndEnvironment{enumerate}{\vspace{.1\baselineskip}\par}
+		%\AfterEndEnvironment{description}{\vspace{.1\baselineskip}\par}
+\fi
+
+%
+% Fix spacing of block titles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifbeamertools@fixblocktitle
+	\addtobeamertemplate{block begin}{%
+		\let\insertblocktitle@org\insertblocktitle%
+		\def\insertblocktitle{\insertblocktitle@org\rule[-.45ex]{0\p@}{1.9ex}\vspace{-.45ex}}}{}
+	\addtobeamertemplate{block end}{\vspace{-\baselineskip}\rule[-.45ex]{0\p@}{1.9ex}\vspace{-.35ex}}{}
+		
+	\addtobeamertemplate{block alerted begin}{%
+		\let\insertblocktitle@org\insertblocktitle%
+		\def\insertblocktitle{\insertblocktitle@org\rule[-.45ex]{0\p@}{1.9ex}\vspace{-.45ex}}}{}
+	\addtobeamertemplate{block alerted end}{\vspace{-\baselineskip}\rule[-.45ex]{0\p@}{1.9ex}\vspace{-.35ex}}{}
+		
+	\addtobeamertemplate{block example begin}{%
+		\let\insertblocktitle@org\insertblocktitle%
+		\def\insertblocktitle{\insertblocktitle@org\rule[-.45ex]{0\p@}{1.9ex}\vspace{-.45ex}}}{}
+	\addtobeamertemplate{block example end}{\vspace{-\baselineskip}\rule[-.45ex]{0\p@}{1.9ex}\vspace{-.35ex}}{}
+\fi
+
+
+%
+% Spacing of equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifbeamertools@fixeqspaceing
+	\AtBeginDocument{%
+		\setlength{\abovedisplayskip}{4pt}%
+		\setlength{\belowdisplayskip}{2pt}}		
+	\BeforeBeginEnvironment{align*}{\par\vspace{-\baselineskip}}
+	\AfterEndEnvironment{align*}{\vspace{-\baselineskip}\rule{0pt}{1.4ex}\par}
+	\BeforeBeginEnvironment{align}{\par\vspace{-\baselineskip}}
+	\AfterEndEnvironment{align}{\vspace{-\baselineskip}\rule{0pt}{1.4ex}\par}
+	\BeforeBeginEnvironment{equation}{\par\vspace{-\baselineskip}}
+	\AfterEndEnvironment{equation}{\vspace{-\baselineskip}\rule{0pt}{1.4ex}\par}
+\fi
+
+%
+% Fix spacing of column
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifbeamertools@fixcolspacing
+	% Fix vertical spacing
+		\let\column@org\column
+		\renewcommand{\column}[2][]{\column@org[#1]{#2}\rule{0pt}{1.4ex}\par\vspace*{-\baselineskip}}
+			
+	% Fix horizontal spacing
+	\define@key{beamer@col}{onlytextwidth}[true]{%
+		\def\beamer@colentrycode{\hbox to1.025\textwidth\bgroup\ignorespaces}%
+		\def\beamer@colexitcode{\unskip\egroup}}
+\fi
+
+\endinput
+% eof

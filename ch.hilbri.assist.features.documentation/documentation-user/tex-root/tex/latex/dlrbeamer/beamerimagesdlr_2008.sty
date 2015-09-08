@@ -1,0 +1,69 @@
+%
+% This is file `beamerimagesdlr_2008.sty',
+% it includes images for a DLR beamer template.
+%
+%
+% REVISIONS:    2012-03-02 initial release (knob_an)
+%               
+% Contact       Andreas Knoblach,  Andreas.Knoblach@dlr.de
+% Copyright (C) 2012 DLR Robotics and Mechatronics              __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+% Package Header
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerimagesdlr_2008}
+        [2012/03/02 v0.1 DLR Images for 2008 beamer theme]
+        
+% Load key/value package
+\RequirePackage{xkeyval}
+
+% RENEW the title image based on user choice
+\newcommand{\renew@title}{
+	\ifcase\@title@area@choice\relax                             % ... area=aeronautics?
+		\pgfdeclareimage[width=1.2\paperwidth]{headlineimage}{aeronautics}
+		\def\headlineimage{
+			\node[inner sep=0mm] at (0.5\paperwidth,-21mm+1pt) {
+				\pgfuseimage{headlineimage}};
+		}
+	\or                                                          % ... area=space?
+		\pgfdeclareimage[width=1.\paperwidth]{headlineimage}{space}
+		\def\headlineimage{
+			\node[inner sep=0mm] at (0.5\paperwidth,-21mm+1pt+18mm) {
+				\pgfuseimage{headlineimage}};
+		}
+	\or                                                          % ... area=transport?
+		\pgfdeclareimage[width=1.2\paperwidth]{headlineimage}{transport}
+		\def\headlineimage{
+			\node[inner sep=0mm] at (0.5\paperwidth,-21mm+1pt) {
+				\pgfuseimage{headlineimage}};
+		}
+	\or                                                          % ... area=energy?
+		\pgfdeclareimage[width=1.\paperwidth]{headlineimage}{energy}
+		\def\headlineimage{
+			\node[inner sep=0mm] at (0.5\paperwidth,-21mm+1pt+23mm) {
+				\pgfuseimage{headlineimage}};
+		}
+	\or                                                          % ... area=all?
+		\pgfdeclareimage[width=1.1\paperwidth]{headlineimage}{all_title}
+		\def\headlineimage{
+			\node[inner sep=0mm] at (0.5\paperwidth,-0.5\paperheight-4mm) {
+				\pgfuseimage{headlineimage}};
+		}
+	\else\fi                                                     % ... done.
+}
+
+% SETTITLE: Define a command to set title options
+\newcommand{\settitle}[1]{\setkeys{settitle}{#1}}
+\define@choicekey*{settitle}{area}[\val\nr]                   % Define a case-insensitive option "area" to ...
+                            {aeronautics,space,transport,energy,all}
+                            {\let\@title@area@choice\nr%      % ... save the choice as number
+                             \let\@title@area@value \val%     % ... save the choice as string
+                             \renew@title}%                   % ... renew the title image
+\settitle{area=all}                                   % Set default options
+
+
+
+\endinput
+
+% eof

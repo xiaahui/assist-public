@@ -1,0 +1,65 @@
+%%
+%% This is file `frutiger.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% dlr.dtx  (with options: `frutiger')
+%% This is a generated file.
+%% 
+%% Copyright (c) DLR.  All rights reserved.
+%% 
+%% This file contains official style files for DLR letters,
+% Frutiger fonts for LaTeX
+%
+% Original file by Dr. Patrick van der Smagt <smagt@dlr.de>.
+% Modified for MikTex 2.9 by Andreas Knoblach <andreas.knoblach@dlr.de>.
+%
+
+% Package Header
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesFile{frutiger.sty}
+        [2011/10/04 v1.0
+				 Frutiger fonts for LaTeX]
+
+% Load requires packeg
+\RequirePackage{ifthen}
+
+
+% Define and ini boobleans
+\newboolean{FrutigerCommand}				\setboolean{FrutigerCommand}{false}
+\newboolean{FrutigerDefaultFamily}	\setboolean{FrutigerDefaultFamily}{false}
+
+
+% Options for command and family
+\DeclareOption{command}{\setboolean{FrutigerCommand}{true}}
+\DeclareOption{family}{\setboolean{FrutigerDefaultFamily}{true}}
+
+
+% Set default options, and execute options
+\ProcessOptions\relax
+
+% Both options can not be combined
+\ifthenelse{\boolean{FrutigerCommand} \AND \boolean{FrutigerDefaultFamily}}{
+	\setboolean{FrutigerCommand}{false}
+	\PackageWarningNoLine{Frutiger}{Option command and family cannot be combined!\MessageBreak Option Command is ignored!}}{}
+
+% No option -> Make sfdefaul Frutiger
+\ifthenelse{\NOT\(\boolean{FrutigerCommand}\) \AND \NOT\(\boolean{FrutigerDefaultFamily}\)}{
+	\renewcommand{\sfdefault}{pfr}}{}
+
+% Option command -> Proved command frutiger
+\ifthenelse{\boolean{FrutigerCommand}}{
+	\newcommand{\frutiger}[1]{{\fontfamily{pfr}\selectfont#1}}}{}
+
+% Option family -> Make sfdefaul Frutiger and familydefault sfdefault 
+\ifthenelse{\boolean{FrutigerDefaultFamily}}{
+	\renewcommand{\sfdefault}{pfr}
+	\renewcommand{\familydefault}{pfr}}{}
+
+
+
+
+\endinput
+
+% eof

@@ -1,0 +1,38 @@
+\documentclass{article}
+
+% The package
+\usepackage{username}
+\usepackage[T1]{fontenc}
+
+% Code listings
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{language=TeX, 
+        %keepspaces=false,
+        breaklines=false,
+        commentstyle=\color{gray},
+        identifierstyle=\color{blue}}
+
+% Meta info
+\title{The username package}
+\author{Andreas Klöckner}
+
+% Begin document
+\begin{document}
+  \maketitle
+
+% Usage
+\section{Usage}
+Simply load the package via \lstinline!\usepackage{username}!. It will then provide the following commands.
+
+\begin{itemize}
+	\item \lstinline!\userdomain! holding the current user's domain:\\
+	      \userdomain
+	\item \lstinline!\ifuserdomain!  to test, if user domain was correctly read.
+	\item \lstinline!\username! holding the current username:\\
+	      \username
+	\item \lstinline!\ifusername!  to test, if username was correctly read.
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,15 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Usage}{}% 2
+\BOOKMARK [1][-]{section.2.1}{The dlrtitle Package}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{The dlrheaders Package}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.3}{The dlrelements Package}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.4}{The dlrreprt Class}{chapter.2}% 6
+\BOOKMARK [2][-]{subsection.2.4.1}{Option frutiger}{section.2.4}% 7
+\BOOKMARK [2][-]{subsection.2.4.2}{Option title}{section.2.4}% 8
+\BOOKMARK [2][-]{subsection.2.4.3}{Option page}{section.2.4}% 9
+\BOOKMARK [2][-]{subsection.2.4.4}{Option elements}{section.2.4}% 10
+\BOOKMARK [2][-]{subsection.2.4.5}{Command \134reportno}{section.2.4}% 11
+\BOOKMARK [1][-]{section.2.5}{The dlrbook Class}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.5.1}{Command \134titlematter}{section.2.5}% 13
+\BOOKMARK [1][-]{section.2.6}{The dlrsecondpage Package}{chapter.2}% 14
+\BOOKMARK [0][-]{chapter.3}{Installation}{}% 15

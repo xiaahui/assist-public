@@ -1,0 +1,44 @@
+% Document class
+\documentclass[]{article}
+
+% Load packages for encoding and languages
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+
+% Load package for tables
+\usepackage{booktabs, array}
+\newcolumntype{C}[1]{>{\centering}m{#1}}
+
+
+% Load dlrlogos
+\usepackage{dlrlogos}
+
+					
+% Define title and author
+\title{dlrlogos.sty}
+\author{Andreas Knoblach}
+\date      {\today}
+
+% Begin document
+\begin{document}
+\maketitle
+
+This packages provides several DLR logos drawn with TikZ. The possible logos are compiled in table \ref{tab:DLRlogos}. There are command to draw the logos in normal text as well as commands for drawing the logos within a TikZ-environment. The latter one accept an optional argument, i.\,e. a coordinate where the logo is to be drawn. The \texttt{\textbackslash dlrlogo} command recognizes, if the current language selected via the \texttt{babel} package is not (n)german, and adds the english name of the DLR to the logo.
+\begin{table}[bh]
+	\centering
+	\caption{DLR logos provided by the \texttt{\textbackslash dlrlogos} Package}
+	\begin{tabular}{m{7em}m{9em}C{18.5em}}
+		\toprule
+		\textbf{Command}                       & \textbf{Command in TikZ}                 &\textbf{Logo}              \tabularnewline
+%		\texttt{\textbackslash minidlradler}   & \texttt{\textbackslash tikzminidlradler} & use \minidlradler   inline \tabularnewline\addlinespace
+		\texttt{\textbackslash dlradler}       & \texttt{\textbackslash tikzdlradler}     & use \dlradler~      separately \tabularnewline\addlinespace
+		\texttt{\textbackslash dlradlerinline} & not available                            & use \dlradlerinline inline     \tabularnewline\addlinespace
+		\texttt{\textbackslash dlrlogo}        & \texttt{\textbackslash tikzdlrlogo}     & \dlrlogo                       \tabularnewline\bottomrule
+	\end{tabular}
+	\label{tab:DLRlogos}
+\end{table}
+
+
+\end{document}

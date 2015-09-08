@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<txcop:outputProfiles version="1" xmlns:txcop="http://schemas.ToolsCenter.org/TeXnicCenter/OutputProfiles.xsd">
+	<outputProfileList>
+		<outputProfile name="LaTeX =&gt; PDF (Sumatra)" stopOnLatexError="false">
+			<texCommand execute="true" path="pdflatex.exe" arguments="-shell-escape -synctex=-1 -interaction=nonstopmode &quot;%pm&quot;"/>
+			<bibTexCommand execute="true" path="bibtex.exe" arguments="&quot;%bm&quot;"/>
+			<makeIndexCommand execute="true" path="makeindex.exe" arguments="&quot;%bm&quot;"/>
+			<postProcessors>
+				<processor name="Glossary" path="makeindex.exe" arguments="-o &quot;%tm.gls&quot; -s &quot;%bm.ist&quot; -t &quot;%tm.gls.log&quot; &quot;%bm.glo&quot;" inputFile="" outputFile=""/>
+			</postProcessors>
+			<viewer path="&quot;&quot;" closeBeforeCompilation="false">
+				<viewProjectCommand type="dde">
+					<commandLineCommand path="&quot;&quot;" arguments=" &quot;%bm.pdf&quot;"/>
+					<ddeCommand path="&quot;&quot;" server="SUMATRA" topic="control" command="[Open(&quot;%bm.pdf&quot;,0,1,1)]"/>
+				</viewProjectCommand>
+				<viewCurrentFileCommand type="dde">
+					<commandLineCommand path="&quot;&quot;" arguments="  &quot;%bm.pdf&quot;"/>
+					<ddeCommand path="&quot;&quot;" server="SUMATRA" topic="control" command="[ForwardSearch(&quot;%bm.pdf&quot;,&quot;%Wc&quot;,%l,0,0,1)]"/>
+				</viewCurrentFileCommand>
+				<viewCloseCommand type="commandLine">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewCloseCommand>
+			</viewer>
+		</outputProfile>
+	</outputProfileList>
+</txcop:outputProfiles>

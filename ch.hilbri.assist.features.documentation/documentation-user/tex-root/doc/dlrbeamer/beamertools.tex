@@ -1,0 +1,91 @@
+\documentclass[8pt]{beamer}
+
+
+% Some defualt packages
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% DLR Layout
+\usetheme{dlr}
+\usecolortheme{orchid}
+
+
+% beamertools package
+\usepackage[]{beamertools}
+
+% Titel and author
+\title{Beamer Tools} 
+\subtitle{Some Useful Commands and Bugfixes for Beamer} 
+\date{22.03.2012}
+\author{Andreas Knoblach}
+\dlrinstitute{SR-FLS}
+\begin{document}
+
+% Maketitle
+\maketitle
+
+% Outline
+\begin{frame}{Outline}
+	\tableofcontents
+\end{frame}
+
+
+\OutlineAtBeginSection
+
+% Package Options
+\section{Package Options}
+\begin{frame}{Package Options}
+	\begin{itemize}
+		\item The beamertools package provides some useful commands, which can be generally used without the DLR beamer theme
+		\item Load the beamertools package by: \\
+		      \texttt{\textbackslash usepackage\{beamertools\}}	
+		\item The following package options are available:
+			\begin{description}
+				\item[\texttt{noOutlineABS}]  Effects that the outline at begin section are not loaded (default=false)
+				\item[\texttt{fixt}]          Activates the fix of frame/class option t (default=true)
+				\item[\texttt{fixlists}]      Activates the fix for lists (default=true)
+				\item[\texttt{fixblocktitle}] Activates the fix for block titles (default=true)
+				\item[\texttt{fixeqspaceing}] Activates the fix for equations (default=true)
+				\item[\texttt{fixcolspacing}] Activates the fix for columns (default=true)
+			\end{description}
+			
+		The valid syntaxes are:
+		\begin{itemize}
+			\item \texttt{\textbackslash usepackage[opt1, opt2]$\{$beamertools$\}$}
+			\item \texttt{\textbackslash usepackage[opt1=true, opt2=false]$\{$beamertools$\}$}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+% OutlineAtBeginSection
+\section{Outline at Begin Section}
+\begin{frame}{Outline at Begin Section}	
+	Use \texttt{\textbackslash OutlineAtBeginSection} to display the table of contents (TOC) before sections.
+	
+	\begin{itemize}
+		\item Use \texttt{\textbackslash OutlineAtBeginSection} or \texttt{\textbackslash OutlineAtBeginSection[on]} at any position in your document. In front of all following sections, the TOC will be printed. Use \texttt{\textbackslash OutlineAtBeginSection[off]} to stop displaying the TOC before sections.
+		\item Use \texttt{\textbackslash OutlineAtBeginSection[mode=beamer]} to display the TOC only in beamer mode. Several modes can be specified by \texttt{\textbackslash OutlineAtBeginSection[mode={MODE1|MODE2|...}]}. For all modes use \texttt{\textbackslash OutlineAtBeginSection[mode=all}.
+		\item Use \texttt{\textbackslash OutlineAtBeginSection[noframenumbering]} to avoid an incrementation of the frame counter for TOC slides
+		\item Use \texttt{\textbackslash OutlineAtBeginSection[frametitle]} to change the frame title of the TOC slide
+	\end{itemize}	
+\end{frame}
+
+% Fix frame options t
+\section{Fixes}
+\begin{frame}{Fixes}	
+	The following fixes are available		 
+		\begin{description}
+			\item[t] The frame/class option t produces inconsistent  vertical spacing.
+			\item[lists] The default spacing of lists is very lavish.
+			\item[blocktitle] The block titles 'm' and 'g' results in unequal block title heights
+			\item[equations]  The space before and after equations is very lavish
+			\item[column] The horizontal and vertical spacing of columns is sometimes inconsistent
+		\end{description}
+		
+\end{frame}
+
+\end{document}
+% eof
+
+

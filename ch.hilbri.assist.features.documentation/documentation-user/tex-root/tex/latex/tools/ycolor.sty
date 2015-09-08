@@ -1,0 +1,122 @@
+%
+% This is file `ycolor.sty',
+% it provides commands for color
+%
+%
+% REVISIONS:    2014-06-10 initial release (knob_an)
+%               
+% Contact       Andreas Knoblach,  Andreas.Knoblach@dlr.de
+% Copyright (C) 2008-2014 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+%
+% TODOs:
+%   - check the logical of the aux file defintions
+
+%
+% Package Header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{ycolor}
+			[2014/06/10 v0.1 ycolor]
+
+
+%
+% Load packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pass all options to xcolor
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{xcolor}}
+\ProcessOptions\relax
+
+% Load xcolor and calc
+\RequirePackage{xcolor}
+\RequirePackage{calc}
+\RequirePackage{xparse}
+
+%
+% Provide commands to set brithness or lumination of a color
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comand to get hsb values
+\def\ycolor@strip@hsb#1,#2,#3\end@ycolor@strip{%
+	\gdef\ycolor@hsb@h{#1}%
+	\gdef\ycolor@hsb@s{#2}%
+	\gdef\ycolor@hsb@b{#3}}
+
+% Command to convert hsb to hsv
+\newcommand{\ycolor@hsbTOhsv}{%
+	\pgfmathsetmacro{\ycolor@hsl@h}{\ycolor@hsb@h}%
+	\pgfmathsetmacro{\ycolor@hsl@l}{(2 - \ycolor@hsb@s) * \ycolor@hsb@b)}%
+	\pgfmathsetmacro{\ycolor@hsl@s}{\ycolor@hsb@s * \ycolor@hsb@b}%
+	\pgfmathsetmacro{\ycolor@hsl@s}{\ycolor@hsl@s/ ((\ycolor@hsl@l <= 1) ? \ycolor@hsl@l : 2 - \ycolor@hsl@l)}%
+	\pgfmathsetmacro{\ycolor@hsl@l}{.5*\ycolor@hsl@l}}
+%(\ycolor@hsl@h,\ycolor@hsl@s,\ycolor@hsl@l)%
+
+% Command to convert hsv to hsb
+\newcommand{\ycolor@hsvTOhsb}{%
+	\pgfmathsetmacro{\ycolor@hsb@h}{\ycolor@hsl@h}%
+	\pgfmathsetmacro{\ycolor@hsb@b}{2*\ycolor@hsl@l}%
+	\pgfmathsetmacro{\ycolor@hsb@s}{\ycolor@hsb@s * ((\ycolor@hsb@b <= 1) ? \ycolor@hsb@b : 2 - \ycolor@hsb@b)}%
+	\pgfmathsetmacro{\ycolor@hsb@b}{.5*(\ycolor@hsb@b + \ycolor@hsb@s)}%
+	\pgfmathsetmacro{\ycolor@hsb@s}{(2 * \ycolor@hsb@s) / (\ycolor@hsb@b + \ycolor@hsb@s)}}
+%(\ycolor@hsb@h,\ycolor@hsb@s,\ycolor@hsb@b)
+
+% Define command to modifiy the brightness of a color
+% \defbcolor{newcolorname}{basiscolorname}{brightness}
+\newcommand{\defbcolor}[3]{%
+	\edef\ycolor@lum@orgspace@orgcol{#2}%                                                % save expanded original color to \ycolor@lum@orgspace@orgcol
+	\extractcolorspec{\ycolor@lum@orgspace@orgcol}\ycolor@lum@orgspace@orgcol%           % extract color info in original space
+	\expandafter\convertcolorspec\ycolor@lum@orgspace@orgcol{hsb}\ycolor@lum@hsb@orgcol% % convert to hsb space
+	\expandafter\ycolor@strip@hsb\ycolor@lum@hsb@orgcol\end@ycolor@strip%                % get h, s, and b values
+	\gdef\ycolor@hsb@b{#3}%                                                              % overwrite b
+	\definecolor{#1}{hsb}{\ycolor@hsb@h,\ycolor@hsb@s,\ycolor@hsb@b}%                    % define new color
+	\colorlet{#1}[rgb]{#1}}%                                                             % convert the new color to rgb
+
+
+% Define command to modifiy the lumination of a color
+% \deflcolor{newcolorname}{basiscolorname}{brightness}
+\newcommand{\deflcolor}[3]{%
+	\edef\ycolor@lum@orgspace@orgcol{#2}%                                                % save expanded original color to \ycolor@lum@orgspace@orgcol
+	\extractcolorspec{\ycolor@lum@orgspace@orgcol}\ycolor@lum@orgspace@orgcol%           % extract color info in original space
+	\expandafter\convertcolorspec\ycolor@lum@orgspace@orgcol{hsb}\ycolor@lum@hsb@orgcol% % convert to hsb space
+	\expandafter\ycolor@strip@hsb\ycolor@lum@hsb@orgcol\end@ycolor@strip%                % get h, s, and b values
+	\ycolor@hsbTOhsv%                                                                    % convert to hsl space
+	\gdef\ycolor@hsl@l{#3}%                                                              % overwrite l
+	\ycolor@hsvTOhsb%%                                                                   % convert to hsb space
+	\definecolor{#1}{hsb}{\ycolor@hsb@h,\ycolor@hsb@s,\ycolor@hsb@b}%                    % define new color
+	\colorlet{#1}[rgb]{#1}}%                                                             % convert the new color to rgb
+
+%
+% Provide command to set lumination of a color
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Makros to globalize/globaly define a color
+\newcommand{\globalizecolor}[1]{\xglobal\colorlet{#1}{#1}}
+\newcommand{\gdefinecolor}[4][]{\xglobal\definecolor[#1]{#2}{#3}{#4}}
+\newcommand{\gprovidecolor}[4][]{\xglobal\providecolor[#1]{#2}{#3}{#4}}
+\NewDocumentCommand{\gcolorlet}{ O{} m O{} m}{\xglobal\colorlet[#1]{#2}[#3]{#4}}
+\newcommand{\gdefbcolor}[3]{\defbcolor{#1}{#2}{#3}\globalizecolor{#1}}
+\newcommand{\gdeflcolor}[3]{\deflcolor{#1}{#2}{#3}\globalizecolor{#1}}
+
+
+% Makros to auxify a color
+\newcommand{\colortoaux}[1]{%
+	\extractcolorspecs{#1}{\ycolor@colortoaux@colspace}{\ycolor@colortoaux@colspec}%
+	\immediate\write\@auxout{\noexpand\xglobal\noexpand\definecolor{#1}{\ycolor@colortoaux@colspace}{\ycolor@colortoaux@colspec}}}
+
+\newcommand{\adefinecolor}[4][]{\gdefinecolor[#1]{#2}{#3}{#4}\colortoaux{#2}}
+\newcommand{\adprovidecolor}[4][]{\gprovidecolor[#1]{#2}{#3}{#4}\colortoaux{#2}}
+%\newcommand{\acolorlet}[3][]{\gcolorlet[#1]{#2}{#3}\colortoaux{#2}}
+\NewDocumentCommand{\acolorlet}{ O{} m O{} m}{\gcolorlet[#1]{#2}[#3]{#4}\colortoaux{#2}}
+\newcommand{\adefbcolor}[3]{\gdefbcolor{#1}{#2}{#3}\colortoaux{#1}}
+\newcommand{\adeflcolor}[3]{\gdeflcolor{#1}{#2}{#3}\colortoaux{#1}}
+
+%\newcommand{\adefinecolor}[4][]{\gdefinecolor[#1]{#2}{#3}{#4}\colortoaux{#2}}
+
+% Makros to create a global color 
+
+% Makro to create a global color in aux file
+%\newcommand{\adefinecolor}[4][]{%
+	%\immediate\write\@auxout{\noexpand\gdefinecolor[#1]{#2}{#3}{#4}}%
+	%\providecolor[#1]{#2}{#3}{#4}}
+
+\endinput
+%eof

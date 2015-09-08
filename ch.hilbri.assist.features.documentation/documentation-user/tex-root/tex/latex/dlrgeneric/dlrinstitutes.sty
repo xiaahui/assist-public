@@ -1,0 +1,200 @@
+%
+% This is file `dlrinstitutes.sty',
+% it fills the document meta data with institute data by package options
+%
+%
+% REVISIONS:    2012-06-14 alpha by kloe_ad
+%
+% Contact       Andreas Klöckner, Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2012 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+% Package Header
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{dlrinstitutes}
+        [2012/06/14 v0.1 DLR Institutes]
+
+
+%
+% Load Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages without options can be loaded at any time	
+\RequirePackage{xkeyval}
+\RequirePackage{xpatch}
+
+
+%
+% Macros to define new data fields
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Need a package to know the current file
+\RequirePackage{currfile}
+
+% \dlrinstitutes@def[language]{info type}{actual info} to define a data field
+\newcommand{\dlrinstitutes@def}[3][]{%
+	\begingroup%                                   % From:          
+		\everyeof{\noexpand}%                        % http://tex.stackexchange.com/questions/117892/can-i-convert-a-string-to-catcode-11
+		\endlinechar=-1%                             % No idea, why this works...
+		\xdef\my@tag{\scantokens\expandafter{\currfilename}}% Remove strange catcodes from \currfilename into \my@tag
+	\endgroup%                                     % ...
+	\expandafter\def\csname%                       % Define a command named...
+		#1@\expandafter\dlrinstitutes@tag\my@tag\\@#2% ... languge@(inst|site)ABBR@infotype
+	\endcsname{#3}%                                % ... to be the {actual info}
+}%
+
+% \dlrinstitutes@tag dlrinstitutes_instRMC-SR.sty to retrieve instRMC-SR
+\def\dlrinstitutes@tag#1_#2.#3\\{%
+	#2}
+
+
+%
+% Commands to load additional data files
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Core loading macro
+\newcommand{\dlrinstitutes@load}[2]{%
+	%\def\dodo{dlrinstitutes_#1#2.sty}%            % DEBUG: create filename
+	%\show\dodo%                                   % DEBUG: output filename
+	%\edef\dodo{dlrinstitutes_#1#2.sty}%           % DEBUG: create filename
+	%\show\dodo%                                   % DEBUG: output filename
+	\IfFileExists{dlrinstitutes_#1#2.sty}{%        % Check for existing file
+		\def\theatcatcode{\the\catcode`@}%           % Get catcode of @
+		\catcode`\@=11%                              % Set catcode of @ to 11
+			\input{dlrinstitutes_#1#2.sty}%            % Read data file
+			\dlrinstitutes@set{#1}{#2}%                % Remember the current source
+		\catcode`\@=\theatcatcode\relax%             % Revert catcode. Immediately
+	}{%
+		\PackageError{dlrinstitutes.sty}{No data file dlrinstitutes_#1#2.sty found}{Please insert the respective definition file into the repository}%
+	}%
+}
+
+% Core selection macro
+\newcommand{\dlrinstitutes@set}[2]{%
+	% Check if loaded. otherwise warn, that on demand loading not possible in document
+	\expandafter\edef\csname @curr#1\endcsname{#2}}
+
+% Redefine the loading macro after the preamble
+\AtBeginDocument{
+	\renewcommand{\dlrinstitutes@load}[2]{%
+		\dlrinstitutes@set{#1}{#2}}}
+
+
+%
+% Define definition file loading interface
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \dlrinstitute{ABBREVIATION} to load the respective institute definition
+\newcommand{\dlrinstitute}[1]{%
+	\dlrinstitutes@load{inst}{#1}
+	\dlrsite{\INST{site}}
+}
+
+% \dlrsite{ABBREVIATION} to load the respective site definition
+\newcommand{\dlrsite}[1]{%
+	\dlrinstitutes@load{site}{#1}}
+
+
+%
+% Define definition output interface
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% We need expandable optional arguments!
+\RequirePackage{exp-testopt}
+
+% \DLR{info type} to retrieve information about the DLR
+\expnewcommand*{\DLR}[1]{%                                 % Define \DLR{info type}
+	\@ifundefined{languagename}{%                        % If babel is not loaded
+		\csname @DLR@#1\endcsname%                         % ... use default data tag
+	}{%                                                  % else
+		\@ifundefined{\languagename @DLR@#1}{%             % ... if specialized tag is there
+			\csname @DLR@#1\endcsname%                       % ... ... use it
+	  }{%                                                % ... else
+	  	\csname\languagename @DLR@#1\endcsname%          % ... ... use default tag
+	  }%                                                 % ... done.
+	}%                                                   % done.
+}%                                                     % .
+
+% \INST[abbreviation]{info type} to retrieve information about the institute
+\expnewcommand*{\INST}[2][\@currinst]{%                    % Define \INST[mnemo]{info type}
+	\@ifundefined{languagename}{%                        % If babel is not loaded
+		\csname @inst#1@#2\endcsname%                      % ... use default data tag like \@instRMC-SR@name
+	}{%                                                  % else
+		\@ifundefined{\languagename @inst#1@#2}{%          % ... if specialized tag \german@instRMC-SR@name is not there
+			\@ifundefined{@inst#1@#2}{%                      % ... ... also check for default tag like \@instRMC-SR@name
+				\PackageError{dlrinstitutes.sty}%              % ... ... ... issue an error
+				             {Data '#2' not loaded for '#1'}%  % ... ... ... .
+				             {Please load the appropriate definition}%   ... .
+			}{%                                              % ... ... else
+				\csname @inst#1@#2\endcsname%                  % ... ... ... use default tag like \@instRMC-SR@name
+			}%                                               % ... ... .done   
+	  }{%                                                % ... else
+	  	\csname\languagename @inst#1@#2\endcsname%      % ... ... use it like \german@instRMC-SR@name
+	  }%                                                 % ... done.
+	}%                                                   % done.
+}%                                                     % .
+
+% \SITE[abbreviation]{info type} to retrieve information about the site
+\expnewcommand*{\SITE}[2][\@currsite]{%                    % Define \SITE[mnemo]{info type}
+	\@ifundefined{languagename}{%                        % If babel is not loaded
+		\csname @site#1@#2\endcsname%                      % ... use default data tag like \@siteOP@name
+	}{%                                                  % else
+		\@ifundefined{\languagename @site#1@#2}{%          % ... if specialized tag \german@siteOP@name is not there
+			\@ifundefined{@site#1@#2}{%                      % ... ... also check for default tag like \@siteOP@name
+				\PackageError{dlrinstitutes.sty}%              % ... ... ... issue an error
+				             {Data '#2' not loaded for '#1'}%  % ... ... ... .
+				             {Please load the appropriate definition}%   ... .
+			}{%                                              % ... ... else
+				\csname @site#1@#2\endcsname%                  % ... ... ... use default tag like \@instRMC-SR@name
+			}%                                               % ... ... .done   
+	  }{%                                                % ... else
+	  	\csname\languagename @site#1@#2\endcsname%      % ... ... use it like \german@siteOP@name
+	  }%                                                 % ... done.
+	}%                                                   % done.
+}%                                                     % .
+
+
+%
+% Declare package options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Option e.g. institute=RMC
+\define@key{dlrinstitutes.sty}{institute}{\dlrinstitute{#1}}
+% Option e.g. site=OP
+\define@key{dlrinstitutes.sty}{site}     {\dlrsite     {#1}}
+
+%
+% Define Flag to check if package is loaded
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef\dlrinstitutes@loaded{}
+
+%
+% Execute default package options and process other options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ExecuteOptionsX{institute=RMC}
+\ProcessOptionsX\relax
+
+%
+% Define DLR wide data fields
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{dlrinstitutes_DLR}
+
+%
+% Build some interface to other packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% beamer
+\@ifclassloaded{beamer}{%                             % If beamer is loaded
+	\xapptocmd{\dlrinstitute}{%                         % ... add to \dlrinstitute cmd
+		\institute {\DLR{name}  \newline%                 % ... ... use DLR name
+		            \INST{name} \newline%                 % ... ... use institute name
+		            \INST{department}}%                   % ... ... and department
+	}{}{}%                                              % ... .done
+}{}%                                                  % .done with beamer
+
+% Report classes
+%\@ifclassloaded{dlrreprt}{%                          % If dlrreprt is loaded
+	\ifx\@publishers\@empty%                            % ... If no publishers set
+		\publishers{\DLR{name}  \newline%                 % ... ... use DLR name
+		            \INST{name} \newline%                 % ... ... use institute name
+		            \INST{department}}%                   % ... ... and department
+	\fi%                                                % ... .done
+%}{}%                                                 % .done with report classes
+
+
+
+% eof

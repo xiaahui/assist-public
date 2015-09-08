@@ -1,0 +1,355 @@
+%
+% This is file `external-tikz.sty',
+% it includes commands to externaliz TikZ plots.
+%
+% REVISIONS:    2013-12-02 inital releas
+%               
+% Contact       Andreas Knonblach,  Andreas.Knonblach@dlr.de
+% Copyright (C) 2013-2014 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+%
+% PACKAGE HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{external-tikz}
+				[2013/11/02 v0.1 Exteranlize TikZ]
+
+%
+% REQUIRED PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{external-base}   % Basic tools for external commands
+\RequirePackage{jobpath}         % To get main file name
+\RequirePackage{xkeyval}         % Allow key value pairs
+\RequirePackage{suffix}          % To declare * and ! variants of commands
+\RequirePackage{ifluatex  }      % To check which latex
+
+
+%
+% Define options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Option for clean up
+\DeclareOptionX{cleanup}{\def\includetikz@makepdf@cleanup@extlist{#1}}
+\ExecuteOptionsX{cleanup={.tex,.aux,.log}}
+
+% Option to use lua
+\define@boolkey{external-tikz.sty}[externaltikz@use]{lua}[true]{}
+\ExecuteOptionsX{lua=false}
+
+% Warning
+\define@boolkey{external-tikz.sty}[externaltikz@]{nowarning}[true]{}
+\ExecuteOptionsX{nowarning=false}
+
+% Process option
+\define@choicekey*{external-tikz.sty}{process}%           % Case-unsensitive option to ...
+	[\includetikz@process@string\includetikz@process@choice]%  % ... save the option as a string and a number
+{all,none,tikz,auto}{}%                                   % ... valid options and do nothing
+\ExecuteOptionsX{process=auto}
+
+% Infolevel option
+\define@choicekey*{external-tikz.sty}{infolevel}%             % Case-unsensitive option to ...
+	[\includetikz@infolevel@string\includetikz@infolevel@choice]%  % ... save the option as a string and a number
+	{none,some,all}{%                                           % ... valid options
+		\ifcase\includetikz@infolevel@choice\relax%               % ... if none
+			\newcommand{\includetikz@typeout@la}[1]{}%              % ... ... la: print nothing
+			\newcommand{\includetikz@typeout@lb}[1]{}%              % ... ... lb: print nothing
+		\or%                                                      % ... if some
+			\newcommand{\includetikz@typeout@la}[1]{\typeout{##1}}% % ... ... la: print info
+			\newcommand{\includetikz@typeout@lb}[1]{}%              % ... ... lb: print nothing
+		\or%                                                      % ... if all
+			\newcommand{\includetikz@typeout@la}[1]{\typeout{##1}}% % ... ... la: print info
+			\newcommand{\includetikz@typeout@lb}[1]{\typeout{##1}}% % ... ... lb: print info
+		\fi}%                                                     % end
+\ExecuteOptionsX{infolevel=some}
+
+% Check shell escape
+\ifpdf
+  \ifshellescape\else
+    \ExecuteOptionsX{process=none}
+    \PackageWarningNoLine{external-tikz}{^^J\space\space%
+      Package option [process=none] activated^^J\space\space
+      because -shell-escape is not enabled.^^J%
+      This warning occurred}
+  \fi
+\fi
+
+% Process option
+\ProcessOptionsX
+
+
+%
+% Check if tikz/pgf plots is loaded
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifexternaltikz@nowarning\else
+	\AtBeginDocument{
+		\@ifpackageloaded{tikz}{}{
+			\PackageWarningNoLine{external-tikz}{^^J\space\space%
+			TikZ is not loaded. Because this package is supposed to be used in^^J\space\space%
+			combination with TikZ, this might cause unexpected behavior. ^^J\space\space%
+			Please load TikZ in your preamble.}}
+		\@ifpackageloaded{pgfplots}{}{
+			\PackageWarningNoLine{external-tikz}{^^J\space\space%
+			Pgfplots is not loaded. Because this package is supposed to be used in^^J\space\space%
+			combination with pgfplots, this might cause unexpected behavior.^^J\space\space%
+			Please load pgfplots in your preamble.}}}
+\fi
+
+%
+% PROVIDE ENDPREAMPLE COMMAND
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\providecommand{\EndPreamble}{}
+
+%
+% PROVIDE FileParts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\ifincludetikz@file@exist\includetikz@file@existfalse
+\newcommand{\includetikz@fileparts}[1]{%
+	\filename@parse{#1}%                            % Parse filenamse
+	\ifx\filename@area\@empty%                      % If path is empty
+		\gdef\includetikz@file@path{./}%              % ... define default
+	\else%                                          % else
+		\global\let\includetikz@file@path\filename@area%... copy result
+	\fi%                                            % end
+	\xdef\includetikz@file@name{\filename@base}%    % copy filename
+	\ifx\filename@ext\relax%                        % If extension is empty
+		\def\includetikz@file@ext{.tex}%              % ... define default
+	\else%                                          % else
+		\edef\includetikz@file@ext{.\filename@ext}%   % ... copy result
+	\fi%                                            % end
+	\IfFileExists{%                                 % Check if file exists
+		\includetikz@file@path\includetikz@file@name\includetikz@file@ext}{%
+		\includetikz@file@existtrue}{%                % ... file #1 exists: setflagtur.
+		\PackageError{external-tikz}{%                % ... file #1 does not exist: error.
+			File #1 not found}{}}}%                     % end
+
+%
+% COMMMANDs to create pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+% define extension for help files
+%
+\def\includetikz@extfn{-external-tikz}
+\def\includetikz@aux{-aux}
+
+%
+% Write auxiliere text filese
+%
+\newwrite\external@tikz@outfile%                                                                                              % creat newwrite
+\newcommand{\includetikz@makepdf@writetex}{% 
+	\immediate\openout\external@tikz@outfile=\includetikz@file@path\includetikz@file@name\includetikz@extfn.tex%                 % create temporary main tex files
+		\immediate\write\external@tikz@outfile{\@percentchar\space Autmatice generated be external-tikz}%
+		\immediate\write\external@tikz@outfile{\unexpanded{\let\origdocument\document}}%                                           % ... backup \begin{document}
+		\immediate\write\external@tikz@outfile{\unexpanded{\let\EndPreamble\endinput}}%                                            % ... stop input at \EndPreamble
+		\immediate\write\external@tikz@outfile{\unexpanded{\def\document{\endgroup\endinput}}}%                                    % ... or at \begin{document}
+		\immediate\write\external@tikz@outfile{\noexpand\input{\jobpathfile}}%                                                     % ... input org file until \EndPreamble or \begin{document}
+		\immediate\write\external@tikz@outfile{\noexpand\usepackage [active,tightpage]{preview}}%                                  % ... preview package
+		\immediate\write\external@tikz@outfile{\unexpanded{\let\document\origdocument}}%                                           % ... restore \begin{document}
+		\immediate\write\external@tikz@outfile{\unexpanded{\makeatletter\global\let\@enddocumenthook\@empty\makeatother}}%         % ... undo any \AtEndDocument
+		\immediate\write\external@tikz@outfile{\noexpand\begin {document}}%                                                        % ... \begin{document}
+		\immediate\write\external@tikz@outfile{\noexpand\include{\includetikz@file@path\includetikz@file@name\includetikz@aux}}%   % ... \include{main_aux.tex}
+		\immediate\write\external@tikz@outfile{\noexpand\end{document}}%                                                           % ... \end{document}
+	\immediate\closeout\external@tikz@outfile%                                                                                   % close main.tex
+	\immediate\openout\external@tikz@outfile=\includetikz@file@path\includetikz@file@name\includetikz@aux.tex%                   % create main_aux.tex (to get seperate aux file)
+		\immediate\write\external@tikz@outfile{\noexpand\begin {preview}}%                                                         % ... \begin{preview}
+		\immediate\write\external@tikz@outfile{\noexpand\mbox{\noexpand\input{\includetikz@file@path\includetikz@file@name\includetikz@file@ext}}}% \imput{tikz.tex}
+		\immediate\write\external@tikz@outfile{\noexpand\end{preview}}%                                                            % ... \end{preview}
+	\immediate\closeout\external@tikz@outfile%                                                                                   % close main_aux.tex
+	}%
+
+%
+% Command for deleting file
+%
+\newcommand{\includetikz@makepdf@delfile}[1]{%
+	cd \includetikz@file@path   \string&%                                             % change directory
+	del \includetikz@file@name\includetikz@extfn#1%                                   % delete file
+	}
+
+%
+% Select LaTeX engin
+%
+\ifluatex
+	\externaltikz@useluatrue
+\fi
+\ifexternaltikz@uselua
+	\def\latex@cmd{lualatex }	
+	\PackageInfo{external-tikz}{LuaLaTeX is used for creating pdfs}%
+\else
+	\def\latex@cmd{pdflatex }
+	\PackageInfo{external-tikz}{pdfLaTeX is used for creating pdfs}%
+\fi
+
+%
+% Command to create pdf
+%
+\newcommand{\includetikz@makepdf}{%
+	\ifincludetikz@file@exist%                                      % Do only anything if file esxists
+		\includetikz@makepdf@writetex%                                % Create pdf
+		\edef\includetikz@runLaTeX{%                                  % Define commmands to run latex
+			\latex@cmd -shell-escape --jobname=\includetikz@file@path\includetikz@file@name\includetikz@extfn\space%
+							\includetikz@file@path\includetikz@file@name\includetikz@extfn.tex >>nul}%
+		\includetikz@typeout@la{^^J^^JRunning LaTeX to create pdf of% % Print some info
+			\includetikz@file@path\includetikz@file@name\includetikz@file@ext}%
+		\execute{\includetikz@runLaTeX}%                              % Run Latex
+		\ifexecutefailed{%                                            % Check if failed
+			\PackageWarningNoLine{external-tikz}{Pdf of %               % ... failed: warning
+				\includetikz@file@path\includetikz@file@name\includetikz@file@ext\space%
+				could not be correclty created}}{%                        % ... didn't failed:
+			\includetikz@typeout@lb{Succefull^^J}%                      % ... ... print info
+			\includetikz@typeout@lb{Start cleaning up procces}%         % ... ... Print some info
+			\external@file@rename{\includetikz@file@path}%              % ... ... Rename PDF
+					{\includetikz@file@name\includetikz@extfn.pdf}{\includetikz@file@name.pdf}%
+			\external@file@rename{\includetikz@file@path}%              % ... ... Rename aux
+					{\includetikz@file@name\includetikz@aux.aux}{\includetikz@file@name.aux}%
+			\def\@tex{.tex}%                                          % ... ...	define variable to check if @ii = .tex
+			\@for\@ii:=\includetikz@makepdf@cleanup@extlist\do{%        % ... ... Loop over extension list
+				\external@file@delete{\includetikz@file@path}%            % ... ... ... delete create filefile
+						{\includetikz@file@name\includetikz@extfn\@ii}%       %
+				\ifx\@tex\@ii%																						% ... ... ... if @ii=.tex
+					\external@file@delete{\includetikz@file@path}%          % ... ... ... ... delete auxfilefile
+							{\includetikz@file@name\includetikz@aux\@ii}%       %
+				\fi}%                                                     % ... ... ... endif
+			\includetikz@typeout@lb{Finished.}}%                        % ... ... Print some info
+	\fi}
+
+%
+% Command which creates pdf if tex is newer
+%
+\newcommand{\includetikz@makepdf@ifnewer}{%
+	\ifincludetikz@file@exist%                                      % Do only anything if file esxists
+		\iffilenewer{%                                                % ... if tex newer then pdf
+				\includetikz@file@path\includetikz@file@name\includetikz@file@ext}{%
+				\includetikz@file@path\includetikz@file@name.pdf}{%
+				\includetikz@makepdf}{}%                                  % ... ... create pdf (and aux)
+		\iffilenewer{%                                                % ... if tex newer then aux
+				\includetikz@file@path\includetikz@file@name\includetikz@file@ext}{%
+				\includetikz@file@path\includetikz@file@name.aux}{%
+				\includetikz@makepdf}{}%                                  % ... ... create pdf (and aux)
+	\fi}
+
+%
+% COMMMAND to input pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Error Figure
+\def\includetikz@error{%
+	\fbox{%
+		\parbox{0.8\linewidth}{%
+			\color{red}\centering\ttfamily\scshape\small
+			An error occured processing graphic:\\
+			\upshape`%
+				\detokenize\expandafter{\includetikz@file@path}%
+				\detokenize\expandafter{\includetikz@file@name}%
+				\detokenize\expandafter{\includetikz@file@ext}%
+			'\\\bigskip
+			\tiny
+			Check the log file for compilation errors:\\
+			`%
+				\detokenize\expandafter{\includetikz@file@path}%
+				\detokenize\expandafter{\includetikz@file@name}%
+				\detokenize\expandafter{\includetikz@extfn}.log%
+			'\\
+	}}}
+
+% Command to include pdf or error
+\newcommand{\includetikz@includepdf}{%
+	\IfFileExists{\includetikz@file@path\includetikz@file@name.pdf}{%
+			\includegraphics{\includetikz@file@path\includetikz@file@name.pdf}%                                                % Include pdf
+			\immediate\write\@auxout{\noexpand\includetikz@aux@input{\includetikz@file@path\includetikz@file@name.aux}}}{%     % input aux file
+		\includetikz@error%
+		\PackageWarningNoLine{external-tikz}{Pdf of %
+					\includetikz@file@path\includetikz@file@name\includetikz@file@ext\space%
+					not found}}}
+
+
+% Command to condtionally input aux file
+\newcommand{\includetikz@aux@input}[1]{%
+	\ifcsname#1\endcsname\else%                % check if #1 is undefined
+		\@input{#1}%                             % ... input #1
+		\expandafter\def\csname#1\endcsname{}%   % ... define #1
+	\fi}
+
+%
+% COMMMAND ^sto referenz to a tikzplot
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define comamand to ref
+\AtBeginDocument{
+	\@ifpackageloaded{hyperref}{%
+		\gdef\plt@ref#1{\ref*{#1}}}{%
+		\gdef\plt@ref#1{\ref{#1}}}}
+% Define user command
+\newcommand{\pltref}[1]{%
+	(\plt@ref{#1})}
+
+%
+% COMMMAND to use tikz in main doc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\includetikz@tikz}{%
+	\input{\includetikz@file@path\includetikz@file@name\includetikz@file@ext}}
+
+%
+% Main function
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defaul version: creates if newer and inputs pdf
+\newcommand{\includetikz}[1]{%
+	\includetikz@fileparts{#1}%                             % get file parts
+	\ifcase\includetikz@process@choice\relax%               % if all
+		\includetikz@makepdf\includetikz@includepdf%          % ... create and input pdf
+	\or%                                                    % if none
+		\includetikz@includepdf%                              % ... input pdf
+	\or%                                                    % if main
+		\includetikz@tikz%                                    % ... input tikz file
+	\or%                                                    % if auto
+		\includetikz@makepdf@ifnewer\includetikz@includepdf%  % ... create if newer and input pdf
+	\fi}
+
+% Never version: inputs pdf
+\WithSuffix\def\includetikz!#1{%
+	\includetikz@fileparts{#1}%                             % get file parts
+	\ifcase\includetikz@process@choice\relax%               % if all
+		\includetikz@makepdf\includetikz@includepdf%          % ... create and input pdf
+	\or%                                                    % if none
+		\includetikz@includepdf%                              % ... input pdf
+	\or%                                                    % if main
+		\includetikz@tikz%                                    % ... input tikz file
+	\or%                                                    % if auto
+		\includetikz@includepdf%                              % ... never veriosn => input pdf
+	\fi}
+
+% Allways version: creates inputs pdf
+\WithSuffix\def\includetikz*#1{%
+	\includetikz@fileparts{#1}%                             % get file parts
+	\ifcase\includetikz@process@choice\relax%               % if all
+		\includetikz@makepdf\includetikz@includepdf%          % ... create and input pdf
+	\or%                                                    % if none
+		\includetikz@includepdf%                              % ... input pdf
+	\or%                                                    % if main
+		\includetikz@tikz%                                    % ... input tikz file
+	\or%                                                    % if auto
+		\includetikz@makepdf\includetikz@includepdf%          % ... allways version: creates inputs pdf
+	\fi}
+
+
+% tikz version: creates inputs pdf
+\WithSuffix\def\includetikz~#1{%
+	\includetikz@fileparts{#1}%                             % get file parts
+	\ifcase\includetikz@process@choice\relax%               % if all,none,main,auto
+		\includetikz@makepdf\includetikz@includepdf%          % ... create and input pdf
+	\or%                                                    % if none
+		\includetikz@includepdf%                              % ... input pdf
+	\or%                                                    % if main
+		\includetikz@tikz%                                    % ... input tikz file
+	\or%                                                    % if auto
+		\includetikz@tikz%                                    % ... tikz version: input tikz file
+	\fi}
+
+
+% force tikz version: creates inputs pdf
+\WithSuffix\def\includetikz=#1{%
+	\includetikz@fileparts{#1}%                             % get file parts
+	\includetikz@tikz}%                                     % input tikz file
+
+
+\endinput
+
+%eof

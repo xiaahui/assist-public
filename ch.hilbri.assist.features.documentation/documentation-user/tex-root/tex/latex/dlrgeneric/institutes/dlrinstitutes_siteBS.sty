@@ -1,0 +1,34 @@
+%
+% This is file `dlrinstitutes_siteBS.sty',
+% it defines the DLR site BS.
+%
+%
+% REVISIONS:    2012-06-14 alpha by kloe_ad
+%               2012-08-14 Martin Grabe (GO)
+%
+% Contact       Andreas Klöckner, Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2012 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+%
+% Check, if dlrinstitutes is loaded
+\ifx\dlrinstitutes@loaded\undefined%
+	\PackageWarningNoLine{dlrinstitutes}{Loading data file without package dlrinstitutes}%
+\fi%
+%
+% Define default (english) data fields
+
+\dlrinstitutes@def         {abbreviation}{BS}%
+\dlrinstitutes@def         {name}        {Braunschweig}%
+\dlrinstitutes@def         {street}      {Lilienthalplatz 7}%
+\dlrinstitutes@def         {zip}         {38108}%
+\dlrinstitutes@def         {city}        {Braunschweig}%
+\dlrinstitutes@def         {prefix}      {+49 531}%
+\dlrinstitutes@def         {subscriber}  {295}%
+\dlrinstitutes@def         {operator}    {0}%
+\dlrinstitutes@def         {url}         {www.dlr.de/dlr/en/desktopdefault.aspx/tabid-10256}%
+%
+% Override language specific data fields
+\dlrinstitutes@def[ngerman]{url}         {www.dlr.de/dlr/desktopdefault.aspx/tabid-10256}%
+\dlrinstitutes@def[german] {url}         {www.dlr.de/dlr/desktopdefault.aspx/tabid-10256}%
+%

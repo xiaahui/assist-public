@@ -1,0 +1,41 @@
+%
+% This is file `dlrinstitutes_instAS-RF.sty',
+% rewritten from `dlrinstitutes_instRMC-SR.sty'.
+% it defines the DLR institute AS-RF
+%
+%
+% REVISIONS:    2012-06-14 alpha by kloe_ad
+%               2012-08-14 Martin Grabe (AS-RF)
+%
+% Contact       Andreas Klöckner, Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2012 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+%
+% Check, if dlrinstitutes is loaded
+\ifx\dlrinstitutes@loaded\undefined%
+	\PackageWarningNoLine{dlrinstitutes}{Loading data file without package dlrinstitutes}%
+\fi%
+%
+% Load default site definition
+\dlrinstitutes@def         {site}        {GO}%
+%
+% Define default (english) data fields
+\dlrinstitutes@def         {abbreviation}{IAS-RF}%
+\dlrinstitutes@def         {name}        {Aerodynamics and Flow Technology}%
+\dlrinstitutes@def         {department}  {Spacecraft}%
+\dlrinstitutes@def         {head}        {Dr. Klaus Hannemann}%
+\dlrinstitutes@def         {operator}    {2477}%
+\dlrinstitutes@def         {fax}         {2870}%
+\dlrinstitutes@def         {url}         {http://www.dlr.de/as/en}%
+%
+% Override language specific data fields (ngerman)
+\dlrinstitutes@def[ngerman]{name}        {Aerodynamik und Strömungstechnik}%
+\dlrinstitutes@def[ngerman]{department}  {Raumfahrzeuge}%
+\dlrinstitutes@def[ngerman]{url}         {http://www.dlr.de/as}%
+%
+% Override language specific data fields (german)
+\dlrinstitutes@def[german] {name}        {Aerodynamik und Strömungstechnik}%
+\dlrinstitutes@def[german] {department}  {Raumfahrzeuge}%
+\dlrinstitutes@def[german] {url}         {http://www.dlr.de/as}%
+%

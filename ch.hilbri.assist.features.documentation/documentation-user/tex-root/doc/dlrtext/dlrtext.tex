@@ -1,0 +1,203 @@
+% Document class
+\documentclass[figures=dlr]{dlrbook}
+%\PassOptionsToPackage[institute=FA-VPT, site=STD]{dlrinstitutes} % Loads instute and site information.
+%\dlrsite{STD}                                                    % Loads a different site than the default.
+%                                                                 % See also the title and author definitions below.
+%\usepackage{dlrlayout}
+
+% Load packages for encoding and languages
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman,english]{babel}
+\usepackage{dlrsecondpage}
+
+% Subfigures
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Load package for tables
+\usepackage{booktabs, array}
+\newcolumntype{C}[1]{>{\centering}m{#1}}
+
+% Load hyperref
+\usepackage[ pdfauthor  = {Andreas Klöckner},
+                                                 pdftitle   = {The DLR report layout},
+                                                 colorlinks = true, 
+                                                 linkcolor  = black,  
+                                                 citecolor  = black,
+                                                 urlcolor   = blue,
+                                                 pdfstartview = {Fit}
+                                        ]{hyperref}
+                                        
+% Change the page layout
+%\KOMAoptions{DIV=9, headinclude=false, footinclude=false, headheight=2.2cm} %bcor=10mm
+%\KOMAoptions{headinclude=false, footinclude=false, headheight=2.2cm} %bcor=10mm
+%\recalctypearea
+%\areaset[0cm]{}
+                                        
+% Define title and author
+\subject     {RM Latex}
+\title       {DLR report layout}
+\subtitle    {An easy to use DLR layout package}
+\author      {Andreas Klöckner \& Andreas Knoblach}
+%\publishers {Institute for Robotics and Mechatronics   \\
+%             Department of System Dynamics and Control }
+\dlrinstitute{RMC-SR}
+%\dlrsite     {OP} % You may load a different site than the default...
+\telnumber   {3305}
+\faxnumber   {1441}
+\email       {andreas.kloeckner@dlr.de}
+\reportno    {IB-XY unbekannt}
+\date        {\today}
+\addversion  {1.1}{27.08.2012}{Changed logos}{kloe\_ad}
+
+
+% Begin document
+\begin{document}
+
+%\pagenumbering{roman}
+\titlematter
+\settitle{type=plain}
+\maketitle
+\secondpage
+
+\frontmatter
+\tableofcontents
+
+\mainmatter
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Package                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction}
+This class provides a DLR layout scheme. It allows an easy change of the title page and of the page layout. In addition, it is possible to use the DLR corporate identity fonts with a suitable math font: \texttt{cmbright}.
+\begin{equation}
+E = m c^2
+\label{eq:example}
+\end{equation}
+
+However, the package bases on the established KOMA-Skript and tries to keep as much features as possible of it "alive".
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Package Usage                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Usage}
+
+\section{The \texttt{dlrtitle} Package}
+This package renews \texttt{\textbackslash maketitle} command in order to change the appearance of the title page using the capabilities of TikZ. In addition, the command \texttt{\textbackslash reportno} is provided, which is similar to the \texttt{\textbackslash author} command.
+
+The layout of the title page can be set up using the \texttt{\textbackslash settitle} command. It accepts key/value pairs. You can set the \texttt{type=plain} to chose a simple report layout. Setting \texttt{type=areas} creates a print category layout with the research areas' corporate design pictures. The research areas can be set with \texttt{area=aeronautics}, \texttt{area=space}, \texttt{area= transport}, \texttt{area=energy} and \texttt{area=custom}.
+If \texttt{area=custom}, the user must supply the image \texttt{custom.*} in an accepted file format. An aspect ratio of 15/9 is advised, but not needed.
+Acceptable formats are e.g. \texttt{custom.eps}, if you are using ps\LaTeX, or \texttt{custom.png} for pdf\LaTeX.
+
+\section{The \texttt{dlrheaders} Package}
+This package modifies the head and the foot line. Especial a DLR water mark and the report number is printed in the foot line. If the command \texttt{\textbackslash reportno} is not yet defined it is created. This package uses the capabilities of the \texttt{scrpage2} package.
+
+\section{The \texttt{dlrelements} Package}
+This package modifies the document fonts for titles and captions. It additionally changes the layout of tables and figures. Use \texttt{\textbackslash tablehead} to format table headings. See figure \ref{elements:figure} and table \ref{elements:table} for an example.
+
+\begin{figure}[t]%
+  \begin{subfigure}[b]{3cm}\centering
+    \dlradler
+    \caption{DLR adler}
+    \label{elements:figure:adler1}
+  \end{subfigure}
+  \begin{subfigure}[b]{8cm}\centering
+    \dlrlogo
+    \caption{DLR logo}
+    \label{elements:figure:logo1}
+  \end{subfigure}
+  \caption{Figure typeset with DLR elements}
+  \label{elements:figure}
+\end{figure}
+
+\begin{table}\centering%
+\begin{tabular}{lcr}
+\dlrtablehead
+ DLR   & layout & test   \\
+ looks & nice,  & right? \\
+ a     & second & row
+\\\bottomrule
+\end{tabular}
+\caption{Table typeset with DLR elements}
+\label{elements:table}
+\end{table}
+
+The package provides the option \texttt{figures}, which takes the values \texttt{plain} or \texttt{dlr}. If \texttt{dlr} is set, the figure appear as seen in figure \ref{elements:figure}. Otherwise, the regular figure appearance is provided. The package options can be provided to the package directly or to the dlr document classes.
+
+
+\section{The \texttt{dlrreprt} Class}
+The packages above are combined within the \texttt{\textbackslash dlrreprt} class, which can be loaded with \texttt{\textbackslash documentclass\{dlrreprt\}} command instead of the \texttt{scrreprt} class. This will load the class with the default options.
+
+The class is based on the \texttt{scrreprt} class. Options not recognised by the \texttt{dlrreprt} class are passed on to \texttt{scrreprt}.
+
+\subsection{Option \texttt{frutiger}}
+By default, the package also loads the DLR corporate identity fonts provided by the package \texttt{frutiger} with the \texttt{family} option. In order to provide a consistent layout with formulae, the package \texttt{cmbright} is loaded for math fonts. In oder to avoid changing default fonts, you can use \texttt{\textbackslash documentclass[frutiger=false]\{dlrreprt\}}.
+
+\subsection{Option \texttt{title}}
+By default, the package changes the appearance of the title page by renewing the command \texttt{\textbackslash maketitle}. Use \texttt{\textbackslash documentclass[title=false]\{dlrreprt\}}, if you wish to use the default title page.
+
+\subsection{Option \texttt{page}}
+By default, the package changes the page layout. This includes a header with the DLR logo, the publisher (usually the institute) and the current chapter. The footer is filled with either the document title or the report number and a page numbering, which also states the total count of pages in the body. If you wish to preserve the default page layout, use \texttt{\textbackslash documentclass[page=false]\{dlrreprt\}}.
+
+\subsection{Option \texttt{elements}}
+By default, the \texttt{dlrelements} package is loaded. You can prevent that by specifying \texttt{\textbackslash documentclass[elements=false]\{dlrreprt\}}.
+
+\subsection{Command \texttt{\textbackslash reportno}}
+The package provides a new command \texttt{\textbackslash reportno}, which similar to the \texttt{\textbackslash author} command in that it creates a variable for use in the title page. This command should be used to insert the internal report number of the document.
+
+\clearpage
+\section{The \texttt{dlrbook} Class}
+The \texttt{\textbackslash dlrbook} class is similar to the \texttt{\textbackslash dlrreprt} class and accepts the same options. Instead of the \texttt{scrreprt} class is bases on the \texttt{scrbook} class. The main advantages of this \texttt{scrbook}  class is, that it is optimised for a two-sided book layout. In addition the commands \texttt{\textbackslash frontmatter}, \texttt{\textbackslash mainmatter}  and \texttt{\textbackslash backmatter} are provide to change among others the page numbering within the front matter etc. For further information it is referred to the documentation of KOMA-Script.
+
+\subsection{Command \texttt{\textbackslash titlematter}}
+In addition to the \texttt{\textbackslash frontmatter} command \texttt{\textbackslash titlematter} can be used to change the page numbering of the title page.
+
+\section{The \texttt{dlrsecondpage} Package}
+This package provides a second page containing an identification sheet for the document and a version history. The following commands can be used to fill out information in the identification sheet:
+\begin{table}[bh]
+        \centering
+        \caption{Document identification provided by the \texttt{\textbackslash dlrsecondpage} package}
+        \begin{tabular}{ll}
+                \texttt{\textbackslash title}        & The document title \tabularnewline
+                \texttt{\textbackslash subject}      & The general subject\tabularnewline
+                \texttt{\textbackslash keywords}     & Some keywords\tabularnewline
+                \texttt{\textbackslash restrictions} & Access restrictions\tabularnewline
+                \texttt{\textbackslash author}       & The author\tabularnewline
+                \texttt{\textbackslash telnumber}    & The author's internal telephone number\tabularnewline
+                \texttt{\textbackslash faxnumber}    & The author's internal fax number\tabularnewline
+                \texttt{\textbackslash email}        & The author's email\tabularnewline
+                \texttt{\textbackslash savedby}      & The the last one to save the file\tabularnewline
+                \texttt{\textbackslash coauthor}     & Contributors to the document\tabularnewline
+                \texttt{\textbackslash approvedby}   & Who checked the document?\tabularnewline
+                \texttt{\textbackslash releasedby}   & Who released the document to the access-granted group? \tabularnewline
+        \end{tabular}
+        \label{tab:DLRsecondpage}
+\end{table}
+
+The packages relies on the \texttt{listofversions} package for version handling. It additionally uses the \texttt{dlrinstitutes} package to retrieve information on the institute. It also uses the \texttt{username} package to set defaults for \texttt{\textbackslash savedby}. The second page can be generated using \texttt{\textbackslash secondpage}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Installation                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Installation}
+\begin{enumerate}
+        \item Copy the package to any desired path. It is important that you do not change the directory structure.
+        \item Open the MikTeX Settings GUI and add the package path to the MikTeX root directory list.
+        \item You may need to refresh the filename database (FNDB).
+        \item Note: This package collection requires the \texttt{frutiger} package to work correctly. How you can install this package is explicitly explain in the corresponding documentation.
+\end{enumerate}
+
+
+\end{document}
+
+
+
+% eof
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

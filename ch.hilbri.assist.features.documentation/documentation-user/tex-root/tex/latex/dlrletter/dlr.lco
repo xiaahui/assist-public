@@ -1,0 +1,279 @@
+%
+% This is file `dlr.lco',
+% it includes command for creating DLR Letter
+%
+% The following koma vars can be used:
+% fromname
+% department
+% institute
+% site
+% fromstreet
+% fromcity
+% presel
+% yourref
+% yourmail
+% myref
+% fromphone
+% fromfax
+% fromemail
+% subject
+% operator
+%
+% REVISIONS:    2013-09-12 initial release  Andreas Knoblach <andreas.knoblach@dlr.de>
+%
+% http://portal.dlr.de/Organisation/Organisationseinheiten/VorstandundStaebe/VO-PR/CD/Seiten/default.aspx?sdupgwelredir=1
+%
+%
+% Contact       Andreas Knoblach,  Andreas.knoblach@dlr.de
+% Copyright (C) 2008-2011 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+\ProvidesFile{dlr.lco}
+
+%
+% Layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength{\dlr@letter@margin}
+\setlength{\dlr@letter@margin}{2.4cm}
+
+\RequirePackage[left=\dlr@letter@margin, right=\dlr@letter@margin,%
+								includehead=true,  top=1.1cm,  headheight=2.4cm,%
+								includefoot=false, bottom=2cm, footskip=1cm]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\KOMAoptions{fontsize=11pt}
+\KOMAoptions{enlargefirstpage=on}
+
+%
+% Font setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[family]{frutiger}
+
+%
+% Language setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{etoolbox}
+\AtEndPreamble{\@ifpackageloaded{babel}{}{\RequirePackage[english]{babel}}}
+
+%
+% Define DLR Variables and german/englisch description
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newkomavar{institute}
+\newkomavar{department}
+\newkomavar{site}
+\newkomavar{prefix}
+\newkomavar{operator}
+\newkomavar{fromstreet}
+\newkomavar{fromcity}
+\newkomavar{signature1}
+\newkomavar{signature2}
+\newkomavar{signature3}
+
+\def\fromname{Your correspondent}
+
+\AtBeginDocument{
+	\renewcaptionname{english}{\yourrefname}{Your reference}
+	\renewcaptionname{english}{\yourmailname}{Your letter}
+	\renewcaptionname{english}{\myrefname}{Our reference}
+	\renewcaptionname{english}{\phonename}{Telephone}
+	\renewcaptionname{english}{\faxname}{Telefax}
+	\renewcaptionname{english}{\emailname}{E-mail}}
+	
+\AtBeginDocument{
+	\providecaptionname{ngerman}{\fromname}{Ihr Gespr\"achspartner}
+	\providecaptionname{german}{\fromname}{Ihr Gespr\"achspartner}
+	\iflanguage{ngerman}{
+		\renewcaptionname{ngerman}{\yourmailname}{Ihr Schreiben}
+		\renewcaptionname{ngerman}{\faxname}{Telefax}}{}}
+
+%
+% Fill DLR Inst Variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\loadInst}[1]{
+	\RequirePackage{dlrinstitutes}
+	\dlrinstitute{#1}
+	\setkomavar{institute}{\INST{name}}
+	\setkomavar{department}{\INST{department}}
+	\setkomavar{site}{\SITE{name}}
+	\setkomavar{fromstreet}{\SITE{street}}
+	\setkomavar{fromcity}{\SITE{zip} \SITE{city}}
+	\setkomavar{prefix}{\SITE{prefix}\,\SITE{subscriber}-}
+	\setkomavar{operator}{\SITE{operator}}\setkomavar{operator}{\SITE{operator}}}
+	
+\newcommand{\loadUser}[1][\username]{
+	\RequirePackage{username, userinfo}
+	\loaduserinfo{#1}{dlrinstitute}
+	\loadInst{\userinfo{#1}{dlrinstitute}}
+	\setkomavar{fromname}{\userinfo{#1}{name}}
+	\setkomavar{fromphone}{\userinfo{#1}{telextension}}
+	\setkomavar{fromfax}{\userinfo{#1}{faxextension}}
+	\loaduserinfo{#1}{email}
+	\setkomavar{fromemail}{\MakeLowercase{\userinfo{#1}{email}}}}
+		
+
+\newcommand{\EmptyKomarVar}[1]{%
+		\ifkomavarempty{#1}{\setkomavar{#1}{#1}\PackageWarning{dlr.lco}{KomaVar #1 is undefined!}}{}}
+		
+\AtBeginLetter{%
+	\EmptyKomarVar{institute}%
+	\EmptyKomarVar{site}%
+	\EmptyKomarVar{fromstreet}%
+	\EmptyKomarVar{fromcity}%
+	\EmptyKomarVar{prefix}%
+	\EmptyKomarVar{operator}%
+	\EmptyKomarVar{prefix}%
+	\EmptyKomarVar{fromname}%
+	\EmptyKomarVar{subject}}
+
+
+%
+% Some colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtBeginDocument{ 
+	\RequirePackage{dlrlogos}
+	\RequirePackage{xcolor}
+	\definecolor{DLREagleColor}{rgb}{0.27,0.27,0.27}
+	\definecolor{DLRTextColor}{rgb}{0.41,0.41,0.41}}
+
+%
+% Headline: first page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\@setplength{firstheadhpos}{\dlr@letter@margin}
+\@setplength{firstheadvpos}{11.9mm}
+\@setplength{firstheadwidth}{180mm}
+\setkomavar{firsthead}{%
+		\begin{tikzpicture}
+				\tikzdlrlogo
+				\fontsize{9}{10.5}\selectfont
+				\node(inst) at ($(EagleDLR3.base west)-(12.95cm, 0)$) [anchor=base west, inner sep=0pt, align=left, color=DLRTextColor]
+						{\bfseries\ifkomavarempty{department}{\usekomavar{institute}}{\usekomavar{department}}};
+				\node[below=1.2em of inst.base west,                anchor=base west, inner sep=0pt, align=left, color=DLRTextColor]
+						{\bfseries\ifkomavarempty{department}{}{\usekomavar{institute}}};
+		\end{tikzpicture}}
+
+%
+% Ship to
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Indent addresse
+\@setplength{toaddrhpos}{\dlr@letter@margin}
+\@addtoplength{toaddrwidth}{-8mm}
+
+% Backaddres
+\@setplength{backaddrheight}{2em}
+\setkomavar{backaddress}{%
+		\color{DLRTextColor}\fontsize{8}{9}\selectfont%
+		\parbox[t]{13mm}{DLR e.\,V.}%
+		\parbox[t]{6.4cm}{\usekomavar{institute}\\\usekomavar{fromstreet}, \usekomavar{fromcity}}}
+
+% No line
+\KOMAoptions{backaddress=plain}
+
+%
+% Location
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{array}
+\newcolumntype{R}[1]{>{\raggedleft\color{DLRTextColor}\fontsize{7}{8}\selectfont}m{#1}}
+
+\@setplength{lochpos}{-11.47cm}
+\@setplength{locvpos}{\useplength{toaddrvpos}}
+\@addtoplength{locvpos}{1.05em}
+
+\@setplength{locheight}{8cm}
+\@setplength{locwidth}{9cm}
+\@addtoplength{locwidth}{1em}
+
+\setkomavar{location}{%
+	\begin{tabular}{@{}R{3.5cm}@{\bfseries\hspace{1em}}p{5.5cm}@{}}
+		\ifkomavarempty{yourref}  {&}{\yourrefname                   & \usekomavar{yourref}}\\
+		\ifkomavarempty{yourmail} {&}{\yourmailname                  & \usekomavar{yourmail}}\\
+		\ifkomavarempty{myref}    {&}{\myrefname                     & \usekomavar{myref}}\\[1.2em]
+		\ifkomavarempty{fromname} {&}{\fromname                      & \usekomavar{fromname}}\\[1.2em]
+		\ifkomavarempty{fromphone}{&}{\phonename~\usekomavar{prefix} & \usekomavar{fromphone}}\\
+		\ifkomavarempty{fromfax}  {&}{\faxname~  \usekomavar{prefix} & \usekomavar{fromfax}}\\
+		\ifkomavarempty{fromemail}{&}{\emailname                     & \usekomavar{fromemail}}\\[1.2em]
+		&\usekomavar{date}
+	\end{tabular}}
+
+%
+% Reflineis (set empty)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\removereffields
+\def\@datepos{0}
+
+%
+% Loaction of subject
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\@setplength{refvpos}{8.99cm}
+
+
+%
+% signature
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand*{\raggedsignature}{\raggedright}
+\setkomavar{signature1}{\usekomavar{fromname}}
+\setkomavar{signature}{%
+	\ifkomavarempty{signature3}{%
+		\parbox{.5\textwidth}{\usekomavar{signature1}}%
+		\parbox{.5\textwidth}{\usekomavar{signature2}}}{%
+		\parbox{.33\textwidth}{\usekomavar{signature1}}%
+		\parbox{.33\textwidth}{\usekomavar{signature2}}%
+		\parbox{.33\textwidth}{\usekomavar{signature3}}}}
+
+%
+% footline: first page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\theDLR{The German Aerospace Center is a member of the Helmholtz\\
+						Association. DLR is represented by its Executive Board and\\
+						persons authorised to act on its behalf. For information, please\\
+						contact the Head of the Legal Department, Linder Hoehe,\\
+						51147 Cologne (DLR Headquarters).}
+
+\AtBeginDocument{
+	\providecaptionname{ngerman}{\theDLR}{%
+				Das Deutsche Zentrum f\"ur Luft- und Raumfahrt e. V. ist\\
+				Mitglied der Helmholtz-Gemeinschaft. Vertreter des DLR\\
+				sind der Vorstand und von ihm erm\"achtigte Personen.\\
+				Ausk\"unfte erteilt der Leiter Allgemeine Rechtsangelegen-\\
+				heiten, Linder H\"ohe, 51147 K\"oln (Hauptsitz des DLR).}}
+
+\AtBeginDocument{
+	\providecaptionname{german}{\theDLR}{%
+				Das Deutsche Zentrum f\"ur Luft- und Raumfahrt e. V. ist\\
+				Mitglied der Helmholtz-Gemeinschaft. Vertreter des DLR\\
+				sind der Vorstand und von ihm erm\"achtigte Personen.\\
+				Ausk\"unfte erteilt der Leiter Allgemeine Rechtsangelegen-\\
+				heiten, Linder H\"ohe, 51147 K\"oln (Hauptsitz des DLR).}}
+
+
+\@setplength{firstfootvpos}{266mm}
+\@setplength{firstfoothpos}{23mm}
+\setkomavar{firstfoot}{%
+		\fontsize{7}{8}\selectfont\color{DLRTextColor}
+		\parbox[b][2cm]{6.5cm}{\theDLR}
+		\hspace{6.42cm}
+		\parbox[b][2cm]{3cm}{%
+			\usekomavar{site}\\
+			\usekomavar{fromcity}\\
+			\phonename~\usekomavar{prefix}\usekomavar{operator}\\
+			Internet DLR.de}}
+
+
+%
+% pacht opening to enelarg first page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\let\opening@org\opening
+\renewcommand{\opening}[1]{\opening@org{#1}\enlargethispage{1cm}}
+
+%
+% Absender 2. Seite
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{scrpage2}
+\pagestyle{scrheadings}
+\setheadwidth[-6.9mm]{18cm}
+\clearscrheadfoot
+\ohead{\parbox[t][2.3cm]{7.5cm}{\hfill\tikz{\tikzdlrlogo}}}%
+\ifoot{\fontsize{7}{8}\selectfont\color{DLRTextColor}\upshape\hspace{13.05cm}\parbox[b]{2.3cm}{\pagename~\thepage}}
+
+\endinput
+%eof

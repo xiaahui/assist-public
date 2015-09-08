@@ -1,0 +1,55 @@
+\documentclass[style=article,draft]{dlrpaper}
+
+
+\title{The dlrpaper class and hacks for popular paper styles}
+\author{Andreas Kl\"ockner}
+
+\begin{document}
+\maketitle
+
+\section{Beginner's guide}
+This folder contains the dlrpaper.cls documentclass and hacks for popular paper styles, such as
+\begin{itemize}
+	\item AIAA technical conferences: aiaa-tc.cls
+	\item AIAA journals: AIAA.cls
+	\item Lecture notes in Informatics: lni.cls
+\end{itemize}
+
+The hacks fix obvious bugs in the paper styles. They do not take additional options. They should be loaded as
+\begin{verbatim}
+	\documentclass{<original name>-hacks}
+\end{verbatim}
+
+Additionally the dlrpaper.cls class provides access to these hacks, if existent. Otherwise the original documentclass will be loaded:
+\begin{verbatim}
+	\documentclass[style=<original name>]{dlrpaper}
+\end{verbatim}
+
+Additional paper classes provided in this folder are:
+\begin{itemize}
+	\item Modelica conferences: modelica.cls
+\end{itemize}
+
+\section{Additional options to dlrpaper.cls}
+\subsection{level=\textless classification level\textgreater}
+If the level option is passed to the dlrpaper.cls class, the classified.sty package is loaded and a suitable classification remark of class "publication"\space is added to the document. Please see the documentation of the classified.sty for a list of available levels. The dlrpaper package additionally puts a DLR logo in the background of your draft, if the level option is used.
+
+\subsection{draft = true / false}
+The option draft = true is equivalent to the option level = draft. Additionally, the draft option is passed to the original document class.
+
+\subsection{listofversions = \{options\}}
+Loads the list of versions package with the given options. Also inserts a final section* with the listofversions.
+
+\subsection{upload = true/false}
+Suppresses the listofversions and the watermarks for uploading the document to the publisher. Also any other modification to the appearance of the paper is suppressed.
+
+\subsection{elib = \{publisher\}}
+Loads the elib documentclass as superclass with the given publisher.
+
+\subsection{pagestyle = ...}
+Sets the page style of the paper to the one provided. This can be useful to e.g.\ set pagestyle=plain in draft version, so you can reference pages with the reviewers. This option is ignored with the upload=true option.
+
+\subsection{Other options}
+All other options are passed to the original document class.
+
+\end{document}

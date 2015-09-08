@@ -1,0 +1,147 @@
+%
+% This is file `dlrlogos.sty',
+% it includes command for creating DLR logos
+%
+% It defines the following commads:
+%		\tikzdlradler
+%		\tikzdlrlogo
+%		\tkizminidlradler
+%		\dlradler
+%		\dlradlerinline
+%		\dlrlogo
+%		\minidlradler
+%		\dlrhook
+%  and the following color
+%		DLREagleColor 
+%		DLRTextColor
+%
+%
+% REVISIONS:    2011-10-28 initial release  Andreas Knoblach <andreas.knoblach@dlr.de>
+%							  2011-12-12 DLRhook added    Andreas Knoblach <andreas.knoblach@dlr.de>
+%				        2012-08-14 new logo rules	Martin Grabe <martin.grabe@dlr.de>
+%							  2012-09-25 Removed transparency group, du to problems with inverse search    Andreas Knoblach <andreas.knoblach@dlr.de>
+%
+% http://portal.dlr.de/Organisation/Organisationseinheiten/VorstandundStaebe/VO-PR/CD/Seiten/default.aspx?sdupgwelredir=1
+%
+%
+% Contact       Andreas Knoblach,  Andreas.knoblach@dlr.de
+% Copyright (C) 2008-2011 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+% Package Header
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{dlrlogos}
+        [2011/11/03v0.1 DLR Logos]
+
+% Load xparse
+\RequirePackage{xparse}
+
+% Load Tikz and define colors
+\AtBeginDocument{ % To Ensure that options can be user defined for tikz etc. 
+  \RequirePackage{tikz}
+  \RequirePackage{xspace}
+  \usetikzlibrary{calc,positioning,fit}
+  \definecolor{DLREagleColor}{gray}{0.27}  
+  \definecolor{DLRTextColor}{gray}{0.27}
+}
+	
+% Eagle for use in Tikz
+\DeclareDocumentCommand{\tikzdlradler}{D(){DLReagel} O{(0,0)}}{
+  \fontfamily{pfr}\selectfont % Change to frutiger font
+  \upshape\mdseries           % Select right shape and series	
+    \node (Eagle1SW) at #2                                 [shape=coordinate]{};
+    \node (Eagle1SE) at ($(Eagle1SW)  + (3.1em,  0pt)$)    [shape=coordinate]{};
+    \node (Eagle1NW) at ($(Eagle1SW)!.333!45:(Eagle1SE)$)  [shape=coordinate]{};
+    \node (Eagle1NE) at ($(Eagle1SE)!.333!225:(Eagle1SW)$) [shape=coordinate]{};
+	
+    \node (Eagle2NW) at ($(Eagle1SW)!.333!(Eagle1SE)$) [shape=coordinate]{};
+    \node (Eagle2SW) at ($(Eagle2NW)!1!90:(Eagle1SW)$) [shape=coordinate]{};
+    \node (Eagle2SE) at ($(Eagle1NE)!.333!(Eagle1NW)$) [shape=coordinate]{};
+    \node (Eagle2NE) at ($(Eagle2SE)!1!90:(Eagle1NE)$) [shape=coordinate]{};
+	
+    \draw [line width = .25em, color=DLREagleColor] (Eagle1NW) -- (Eagle1SW) -- (Eagle1SE) -- (Eagle1NE) -- cycle
+																										(Eagle2NW) -- (Eagle2SW) -- (Eagle2SE) -- (Eagle2NE) -- cycle;
+	
+    \node (EagleDLR1) at ($(Eagle2SW)!1!-90:(Eagle2NW)+(0pt, -.2em)$)        [shape=coordinate]{};
+    \node (EagleDLR2) [right=0pt of EagleDLR1, inner sep=0pt, align=left, color=DLREagleColor]
+                      {\bfseries DLR};
+											
+%	 Add a box arround it to refer to the logo using label
+		\node(#1) [inner sep=0, fit=(EagleDLR2) (Eagle1SW) (Eagle2NE)]{};
+}
+
+	
+% Logo for use in Tikz			
+\DeclareDocumentCommand{\tikzdlrlogo}{D(){DLReagel} O{(0,0)}}{
+	\tikzdlradler(#1)[#2]%
+	\node (EagleDLR3)  [right=1em of EagleDLR2, inner sep=0pt, align=left, color=DLRTextColor]
+		{\bfseries f\"ur Luft- und Raumfahrt};
+	\node (EagleDLR3a) [above=1.2em of EagleDLR3.base west, anchor=base west, inner sep=0pt, align=left, color=DLRTextColor]
+		{\bfseries Deutsches Zentrum};		
+	\ifnum\language=0%
+		\edef\tikzdlrlogo@check@thelanguge{\string english}% language 0 is allway english (BUG in article.cls)
+	\else%
+		\edef\tikzdlrlogo@check@thelanguge{\languagename}%   get language
+	\fi%	
+	\edef\tikzdlrlogo@check@german{\string german}%        define helper to check german
+	\edef\tikzdlrlogo@check@ngerman{\string ngerman}%      define helper to check ngerman
+	\ifx\tikzdlrlogo@check@thelanguge\tikzdlrlogo@check@german%           check german
+		\else\ifx\tikzdlrlogo@check@thelanguge\tikzdlrlogo@check@ngerman%   check ngerman
+		\else%                                               other language
+			\node (EagleDLR3b) [below=1.3em of EagleDLR3.base west, anchor=base west, inner sep=0pt, align=left, color=DLRTextColor]
+				{\scalebox {0.97}{\mdseries German Aerospace Center}};
+	\fi\fi%
+}
+
+	
+		
+% MiniEagle for use in Tikz
+\newcommand{\tikzminidlradler}[1][(0,0)]{
+	\fontfamily{pfr}\selectfont % Change to frutiger font
+	\upshape\mdseries           % Select right shape and series	
+	
+	\node (Eagle1SW) at #1                                 [shape=coordinate]{};
+	\node (Eagle1SE) at ($(Eagle1SW)  + (2.5ex,  0pt)$)    [shape=coordinate]{};
+	\node (Eagle1NW) at ($(Eagle1SW)!.333!45:(Eagle1SE)$)  [shape=coordinate]{};
+	\node (Eagle1NE) at ($(Eagle1SE)!.333!225:(Eagle1SW)$) [shape=coordinate]{};
+	
+	\node (Eagle2NW) at ($(Eagle1SW)!.333!(Eagle1SE)$) [shape=coordinate]{};
+	\node (Eagle2SW) at ($(Eagle2NW)!1!90:(Eagle1SW)$) [shape=coordinate]{};
+	\node (Eagle2SE) at ($(Eagle1NE)!.333!(Eagle1NW)$) [shape=coordinate]{};
+	\node (Eagle2NE) at ($(Eagle2SE)!1!90:(Eagle1NE)$) [shape=coordinate]{};
+	
+	\draw [line width = .08em, color=DLREagleColor] (Eagle1NW) -- (Eagle1SW) -- (Eagle1SE) -- (Eagle1NE) -- cycle
+																									(Eagle2NW) -- (Eagle2SW) -- (Eagle2SE) -- (Eagle2NE) -- cycle;
+	
+	\PackageWarningNoLine{dlrlogos}{The minidlradler command is deprecated. Please use dlradlerinline instead}%
+}
+
+% Eagle and Logo for use without Tikz		
+\newcommand{\dlradler}      {\begin{tikzpicture}\tikzdlradler\end{tikzpicture}}
+\newcommand{\dlrlogo}       {\parbox{18.15em}{\begin{tikzpicture}\tikzdlrlogo\end{tikzpicture}}}
+\newcommand{\minidlradler}  {\raisebox{-.5ex}{\begin{tikzpicture}\tikzminidlradler\end{tikzpicture}}\xspace}
+\newcommand{\dlradlerinline}{\raisebox{-0.4em}{\scalebox{0.4}{\dlradler}}\xspace}
+
+% DLR Hook
+\newcommand{\dlrhook}{%
+	\raisebox{.06em}{%
+		\begin{tikzpicture}[rounded corners=0]
+			% Define nodes for hook
+			\node (corner)  at (0,0)                       [shape=coordinate]{};
+			\node (left)    at ($(corner)+(-1em, 0)$)      [shape=coordinate]{};
+			\node (below)   at ($(corner)+(-.5em, -.5em)$) [shape=coordinate]{};
+			% Define nodes for frame 
+			\node (FRoutcorner) at ($(corner)+(.09em, .04em)$)           [shape=coordinate]{};
+			\node (FRleftout)   at ($(FRoutcorner)+(-.85em, 0)$)         [shape=coordinate]{};
+			\node (FRleftin)    at ($(FRleftout)+(.2em, -.2em)$)         [shape=coordinate]{};
+			\node (FRbelowout)  at ($(FRoutcorner)!.6em!45:(FRleftout)$) [shape=coordinate]{};
+			\node (FRbelowin)   at ($(FRbelowout)+(-.2em, 0)$)           [shape=coordinate]{};
+			% Define frame using clip
+			\clip(FRleftin) -- (FRleftout) -- (FRoutcorner) -- (FRbelowout) -- (FRbelowin) -- cycle;
+			% Draw clip
+			\draw[line width = .1em]  (left) -- (corner) -- (below);
+	\end{tikzpicture}}}
+
+\endinput
+% eof

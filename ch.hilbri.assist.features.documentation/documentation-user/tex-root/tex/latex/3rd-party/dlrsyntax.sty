@@ -1,0 +1,79 @@
+%
+% This is file `dlrsyntax.sty',
+% it loads and modifies data from dtsyntax.sty
+%
+%
+% REVISIONS:    2015-02-25 initial release   Andreas Klöckner <andreas.kloeckner@dlr.de>
+%
+% Contact       Andreas Klöckner,  andreas.kloeckner@dlr.de
+% Copyright (C) 2008-2015 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+% Package Header
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{dlrsyntax}
+        [2015/02/25 v0.1 DLR Syntax Definitions (extends dtsyntax.sty)]
+
+
+%
+% Required packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Keep \ifnumbered, e.g. from KOMA scripts
+\let\dlr@ifnumbered   \ifnumbered
+\let\dlr@numberedtrue \numberedtrue
+\let\dlr@numberedfalse\numberedfalse
+
+% Load dtsyntax and make sure it has the \color and \textquote command
+\RequirePackage{textcomp}
+\RequirePackage{xcolor}
+\RequirePackage{dtsyntax}
+
+% Restore \ifnumbered
+\let\ifnumbered   \dlr@ifnumbered
+\let\numberedtrue \dlr@numberedtrue
+\let\numberedfalse\dlr@numberedfalse
+
+
+%
+% Language definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Overwrite Modelica language definition
+\definecolor{ModelicaGreen}{RGB}{0,100,0}
+\lstdefinelanguage{modelica}{%
+	backgroundcolor={},%
+	morekeywords=[1]{},%otherkeywords=
+	morekeywords=[2]{% 											% keywords
+		annotation,assert,block,class,connector,constant,discrete,%
+		else,elseif,elsewhen,end,exit,extends,external,final,flow,for,%
+		function,if,in,inner,input,import,loop,model,nondiscrete,outer,%
+		output,package,parameter,partial,record,redeclare,replaceable,return,%
+		size,terminate,then,type,when,while,algorithm,equation,initial,%
+		protected,public,and,false,not,or,true},%
+	morekeywords=[3]{% functions										% keywords
+		abs,acos,asin,atan,atan2,connect,cos,cosh,cross,der,edge,exp,homotopy,%
+		noEvent,pre,reinit,sample,sign,sin,sinh,sqrt,tan,tanh,terminal,%
+		Real,Integer,Boolean, min, max, sum, product, Modelica, SIunits, Math},%
+	literate={
+		{initial(}{{{\color{red}{initial}}(}}{7}},   
+	comment=[l][{\color{ModelicaGreen}}]//,%
+	morecomment=[s][{\color{ModelicaGreen}}]{/*}{*/},% 					% comments
+	morecomment=[s][{\color{ModelicaGreen}}]{"}{"},% 					% comments
+	morestring=[b]',%   								% strings 
+%	morestring=[b]",%
+}[keywords,comments,strings]%
+
+
+%
+% User commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Enable breaking lines in shortcut commands
+%\renewcommand{\mcode}[1]   {\lstinline[basicstyle=\ttfamily,breaklines=true,breakatwhitespace,language=mcode]|#1|}
+%\renewcommand{\modelica}[1]{\lstinline[basicstyle=\ttfamily,breaklines=true,breakatwhitespace,language=modelica]|#1|}
+%\renewcommand{\pearl}[1]   {\lstinline[basicstyle=\ttfamily,breaklines=true,breakatwhitespace,language=pearl]|#1|}
+%\renewcommand{\vhdl}[1]    {\lstinline[basicstyle=\ttfamily,breaklines=true,breakatwhitespace,language=vhdl]|#1|}
+\renewcommand{\mcode}[1]   {\lstinline[basicstyle=\ttfamily,breaklines=true,language=mcode]|#1|}
+\renewcommand{\modelica}[1]{\lstinline[basicstyle=\ttfamily,breaklines=true,language=modelica]|#1|}
+\renewcommand{\pearl}[1]   {\lstinline[basicstyle=\ttfamily,breaklines=true,language=pearl]|#1|}
+\renewcommand{\vhdl}[1]    {\lstinline[basicstyle=\ttfamily,breaklines=true,language=vhdl]|#1|}

@@ -1,0 +1,141 @@
+%
+% This is file `monochrome.sty',
+% it converts your pdflatex document to grayscale.
+%
+% REVISIONS:    2012-10-02 beta version
+% TO DO:        - Add a "local" switch to only convert selected parts
+%               
+% Contact       Andreas Klöckner,  Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2012 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+%
+% PACKAGE HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{monochrome}
+        [2012/10/02 v0.1 Beta]
+
+%
+% PATCH COLOR COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{xcolor}                  % Option for colors to become gray
+\selectcolormodel{gray}
+
+%
+% AUXILIARY COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Let the user define the path to ghost-script and convert
+\newcommand{\PathToGS}     [1]{\def\path@gs     {#1}}
+\newcommand{\PathToConvert}[1]{\def\path@convert{#1}}
+
+% Set suitable defaults
+\PathToGS     {gswin64}
+\PathToConvert{convert}
+
+% Load external config
+\RequirePackage{external-config}               % We need some external configuration
+\get@config{monochrome}                        % Read monochrome's config
+
+%
+% PATCH INCLUDEGRAPHICS WITH EXTERNAL SOFTWARE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{external-base}                 % We need some external base commands
+\RequirePackage{graphicx}                      % Only works with graphicx (Maybe also graphics?)
+\let\bw@setfile\Gin@setfile                    % Save original graphicx command
+\renewcommand{\Gin@setfile}[3]{%               % Renew \Gin@setfile{type=pdf}{extension=.pdf}{\Gin@base=dodo \Gin@ext=.pdf} to ...
+	\edef\bw@type{\Gin@ext}%                                 % ... save the \bw@type
+	%\show\bw@type%                                          % ... debug output it
+	\edef\bw@in  {\Gin@base\Gin@ext}%                        % ... save the input file in \bw@in
+		\expandafter\slash@bslash\bw@in/\\%                    % ... ... remove its slashes
+		\let\bw@in\no@slash%                                   % ... ... save it again
+		%\show\bw@in%                                          % ... ... debug output it
+	\edef\bw@out {\Gin@base_bw\Gin@ext}%                     % ... save the output file in \bw@out
+		\expandafter\slash@bslash\bw@out/\\%                   % ... ... remove its slashes
+		\let\bw@out\no@slash%                                  % ... ... save it again
+		%\show\bw@out%                                         % ... ... debug output it
+	%\def \bw@pdf {pdf}%                                     % ... create a command to check for pdf
+	\@ifundefined{ifPreview}{%                               % ... if no preview package is loaded
+		\let\ifPreview\iffalse}{}%                             % ... ... define default \ifPreview=false
+	\ifPreview\else%                                         % ... if we aer not in a preview environment (such as in pstool!)
+		\@ifundefined{bw@command@\bw@type}{%                   % ... ... if no command is defined for the type
+			\@warning{No grayscale conversion for \bw@type}%     % ... ... ... output a warning
+		}{%                                                    % ... ... else
+			\csname bw@command@\bw@type\endcsname%               % ... ... ... execute the command
+		}%                                                     % ... ... .done
+	\fi%                                                     % ... .done
+	\bw@setfile{#1}{#2}{#3}}%                                % ... call the original command
+
+% Define a command to change slashes to backslashes
+\def\slash@bslash#1/#2\\{%                                 % Call either \slash@bslash path1/path2/\\ or \slash@bslash path1/\\
+  \def\testslash{#2}%                                      % Test, whether path2 is given
+  \ifx\testslash\empty%                                    % If it is empty...
+    \def\no@slash{#1}%                                     % ... return only path1
+  \else%                                                   % Otherwise
+    \expandafter\slash@bslash#1\@backslashchar#2\\%        % ... recursive call to myself
+  \fi}%                                                    % .done
+
+%
+% CUSTOM COMMANDS FOR IMAGE TYPES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Convert PDF to grayscale
+\expandafter\def\csname bw@command@.pdf\endcsname{%        % For PDF ...
+	\executeiffilenewer{\bw@in}{\bw@out}{%                   % ... Execute if new file needed:
+		"\path@gs"                                             % ... ... call ghostscript
+		-sOutputFile="\bw@out"                                 % ... ... use \bw@out as output file
+		-sDEVICE=pdfwrite                                      % ... ... to output a pdf
+		-sColorConversionStrategy=Gray                         % ... ... convert colors to gray
+		-dProcessColorModel=/DeviceGray                        % ... ... use gray device instead of colors
+		-dCompatibilityLevel=1.4                               % ... ... set a compatibility level
+		-dNOPAUSE                                              % ... ... don't pause
+		-dBATCH                                                % ... ... you're a batch
+		-dAutoRotatePages=/None                                % ... ... don't autorotate
+		"\bw@in"}%                                             % ... ... process the \bw@in
+	\IfFileExists{\bw@out}{%                                 % ... If the conversion was successful
+		\edef\Gin@base{\Gin@base_bw}%                          % ... ... Redefine the \Gin@base command
+	}{%                                                      % ... else
+		\@warning{Grayscale conversion failed for \bw@in}%     % ... ... output a warning
+	}%                                                       % ... .done
+}%                                                         % .done
+
+% Convert EPS to grayscale
+\expandafter\def\csname bw@command@.eps\endcsname{%        % For PDF ...
+	\executeiffilenewer{\bw@in}{\bw@out}{%                   % ... Execute if new file needed:
+		"\path@gs"                                             % ... ... call ghostscript
+		-sOutputFile="\bw@in_temp.pdf"                         % ... ... use \bw@in_temp.pdf as output file
+		-sDEVICE=pdfwrite                                      % ... ... to output a pdf
+		-sColorConversionStrategy=Gray                         % ... ... convert colors to gray
+		-dProcessColorModel=/DeviceGray                        % ... ... use gray device instead of colors
+		-dCompatibilityLevel=1.4                               % ... ... set a compatibility level
+		-dNOPAUSE                                              % ... ... don't pause
+		-dBATCH                                                % ... ... you're a batch
+		-dEPSCrop                                              % ... ... dont't change the papersize
+		-dAutoRotatePages=/None                                % ... ... don't autorotate
+		"\bw@in" \string&%                                     % ... ... process the \bw@in
+		pdf2ps "\bw@in_temp.pdf" "\bw@out" \string&            % ... reprocess an eps out of the pdf
+		del "\bw@in_temp.pdf"}%                                % ... delete the temporary file
+	\IfFileExists{\bw@out}{%                                 % ... If the conversion was successful
+		\edef\Gin@base{\Gin@base_bw}%                          % ... ... Redefine the \Gin@base command
+	}{%                                                      % ... else
+		\@warning{Grayscale conversion failed for \bw@in}%     % ... ... output a warning
+	}%                                                       % ... .done
+}%                                                         % .done
+
+% Convert PNG to grayscale
+\expandafter\def\csname bw@command@.png\endcsname{%        % For PNG ...
+	\executeiffilenewer{\bw@in}{\bw@out}{%                   % ... Execute if new file needed:
+		"\path@convert"                                        % ... ... call ImageMagick's convert
+		-colorspace gray                                       % ... ... use gray colorspace
+		"\bw@in"                                               % ... ... use \bw@in as input file
+		"\bw@out"}%                                            % ... ... use \bw@out as output file
+	\IfFileExists{\bw@out}{%                                 % ... If the conversion was successful
+		\edef\Gin@base{\Gin@base_bw}%                          % ... ... Redefine the \Gin@base command
+	}{%                                                      % ... else
+		\@warning{Grayscale conversion failed for \bw@in}%     % ... ... output a warning
+	}%                                                       % ... .done
+}%                                                         % .done
+
+% Convert JPG to grayscale
+\expandafter\def\csname bw@command@.jpg\endcsname{%        % For JPG ...
+	\csname bw@command@.png\endcsname}%                      % ... use PNG converter

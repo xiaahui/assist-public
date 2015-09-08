@@ -1,0 +1,117 @@
+%
+% This is file `dlrslides_2008.tex',
+% it includes examples for a DLR beamer template.
+%
+%
+% REVISIONS:    2011-11-03 initial release (knob_an)
+%               
+% Contact       Andreas Klöckner,  Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2011 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+\documentclass[8pt]{beamer}
+
+\usepackage[english]{babel}
+\usepackage[ansinew]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+% DLR Layout
+\usetheme{dlr_2008}
+\usecolortheme{orchid}
+
+% Titel and autho
+\title{DLR Beamer Slides 2008} 
+\subtitle{Simple Documentation and Examples} 
+\date{27.02.2012}
+\author{Andreas Knoblach and Andreas Klöckner}
+\institute{Institute of Robotics and Mechatronics}
+
+% Some usefull standard beamer layout changes
+
+
+% Outline before secion in beamer mode
+\newcommand{\OutlineAtBeginSection}{%
+	\AtBeginSection[]{
+			\begin{frame}{Outline}
+				\tableofcontents[currentsection]
+			\end{frame}}}
+
+\begin{document}
+
+% Maketitle
+\maketitle
+
+% Motivation
+\section{Motivation}
+\begin{frame}{Motivation}
+	\begin{itemize}
+		\item Do we really need to motivate a great beamer theme?!
+	\end{itemize}
+\end{frame}
+
+% Outline
+\begin{frame}{Outline}
+	\pdfbookmark[2]{Outline}{toc}
+	\tableofcontents
+\end{frame}
+
+% Outline before secion in beamer mode
+\only<beamer>{\OutlineAtBeginSection}
+
+% Usage
+\section{Usage}
+\begin{frame}{Theme usage}
+	\begin{itemize}
+		\item Load the beamer class and the DLR theme: \\
+		      \texttt{\textbackslash documentclass\{beamer\}}\\				
+		      \texttt{\textbackslash usetheme\{dlr\_2008\}}
+		\item This will load the generic DLR background image and base font.
+		\item You can change the image used with \texttt{\textbackslash settitle\{area=...\}}. The option takes the values
+		      \texttt{all,aeronautics,space,transport,energy}.
+		\item For this document, an additional color theme is used: \texttt{\textbackslash usecolortheme\{orchid\}}.
+		\alert{\item This template is obsolete! A new version is released!}
+		\item For more information: See the beamer documentation at\\
+		      \url{http://www.tex.ac.uk/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf}
+	\end{itemize}
+\end{frame}
+
+% Example Frame
+\section{Examples}
+\begin{frame}{Example Frame with Blocks and Equations}
+	\begin{columns}
+		\begin{column}{.30\textwidth}
+			\begin{block}{Normal Block}
+				\begin{itemize}
+					\item Foo
+					\item Bar
+				\end{itemize}
+			\end{block}
+		\end{column}
+		\begin{column}{.30\textwidth}
+			\begin{alertblock}{Alert Block}
+				\begin{itemize}
+					\item Foo
+					\item Bar
+				\end{itemize}
+			\end{alertblock}
+		\end{column}
+		\begin{column}{.30\textwidth}
+			\begin{exampleblock}{Example Block}
+				\begin{itemize}
+					\item Foo
+					\item Bar
+				\end{itemize}
+			\end{exampleblock}
+		\end{column}
+	\end{columns}	
+	\begin{block}{Equation}
+		\begin{align*}
+			\sqrt{a^2+b^2} = c
+		\end{align*}
+	\end{block}
+\end{frame}
+
+\end{document}
+% eof

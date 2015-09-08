@@ -1,0 +1,26 @@
+%
+% This is file `dlrinstitutes_siteBA.sty',
+% it defines the DLR site BA.
+%
+%
+% Check, if dlrinstitutes is loaded
+\ifx\dlrinstitutes@loaded\undefined%
+        \PackageWarningNoLine{dlrinstitutes}{Loading data file without package dlrinstitutes}%
+\fi%
+%
+% Define default (english) data fields
+
+\dlrinstitutes@def         {abbreviation}{BA}%
+\dlrinstitutes@def         {name}        {Berlin}%
+\dlrinstitutes@def         {street}      {Rutherfordstraße 2}%
+\dlrinstitutes@def         {zip}         {12489}%
+\dlrinstitutes@def         {city}        {Berlin}%
+\dlrinstitutes@def         {prefix}      {+49 30}%
+\dlrinstitutes@def         {subscriber}  {67055}%
+\dlrinstitutes@def         {operator}    {0}%
+\dlrinstitutes@def         {url}         {www.dlr.de/dlr/en/desktopdefault.aspx/tabid-10252}%
+%
+% Override language specific data fields
+\dlrinstitutes@def[ngerman]{url}         {www.dlr.de/dlr/en/desktopdefault.aspx/tabid-10252}%}%
+\dlrinstitutes@def[german] {url}         {http://www.dlr.de/dlr/de/desktopdefault.aspx/tabid-10252}
+%

@@ -1,0 +1,145 @@
+% Document class
+\documentclass{scrartcl}
+
+% Load packages
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage[command]{frutiger}
+\usepackage[ngerman, english]{babel}
+\usepackage{booktabs}
+\usepackage[ pdfauthor  = {Andreas Knoblach},
+						 pdftitle   = {Frutiger LaTeX Package},
+						 colorlinks = true, 
+						 linkcolor  = black,  
+						 citecolor  = black,
+						 urlcolor   = blue
+					]{hyperref}
+
+% Define title and author
+\title{The \emph{Frutiger} Package}
+\subtitle{Frutiger Fonts for \LaTeX2e{}}
+\author{Andreas Knoblach}
+
+% Define Blind text
+\newcommand{\blindtext}{
+	Die heiße Zypernsonne quälte Max und Victoria ja böse auf dem Weg bis zur Küste. 1234567890}
+
+% Begin document
+\begin{document}
+
+\maketitle
+\tableofcontents
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Frutiger Fonts               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The Frutiger Fonts}
+Frutiger is a sans-serif typeface which was created by the Swiss Adrian Frutiger. The available Frutiger fonts within this package are compiled in table \ref{tab:FrutigerFonts}.
+\begin{table}[hb]
+	\centering
+	\caption{Available Frutiger fonts}\label{tab:FrutigerFonts}
+	\begin{tabular}{llp{10cm}}
+			\toprule
+			\textbf{Shape}   & \textbf{Series} & \textbf{Example} \\\midrule
+			Upright          & Medium          & \frutiger{\upshape\mdseries\blindtext} \\
+			Upright          & Bold            & \frutiger{\upshape\bfseries\blindtext} \\
+			Italic          & Medium          & \frutiger{\itshape\mdseries\blindtext} \\
+			Italic          & Bold            & \frutiger{\itshape\bfseries\blindtext} \\
+			Slanted\footnotemark
+					             & Medium          & \frutiger{\slshape\mdseries\blindtext} \\
+			Slanted\footref{footnote:italic}
+					             & Bold            & \frutiger{\slshape\bfseries\blindtext} \\
+			Small caps       & Medium          & \frutiger{\scshape\mdseries\blindtext} \\
+			Small caps       & Bold            & \frutiger{\scshape\bfseries\blindtext} \\\bottomrule
+	\end{tabular}
+\end{table}
+\footnotetext{\label{footnote:italic}Actually, there is no slanted shape of Frutiger available. Instead an italic shape is used.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Package Usage                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Package Usage}
+The Frutiger package can be easily used within \LaTeX{}\footnote{Note: The fonts are display wrong in the dvi-file but right in the ps- and pdf-file.} and pdf-\LaTeX{} by using the \texttt{\textbackslash usepackage}-command. There are three possibilities to load the Frutiger package
+
+\subsection{Changing \texttt{\textbackslash sffamily}}
+In order to redefine \texttt{\textbackslash sffamily} load the Frutiger package without any options, i.\,e. by \texttt{\textbackslash usepackage\{frutiger\}}. The Frutiger font can now be easily activated using \texttt{\textbackslash sffamily}-command. Since this way of loading the Frutiger package effects every usage of \texttt{\textbackslash sffamily} a consistent layout is produced.
+
+
+\subsection{Providing a \texttt{\textbackslash frutiger\{\}} Command}
+In the case that Frutiger Fonts is to be only used in some few cases, the Frutiger package can be loaded by \texttt{\textbackslash usepackage[command]\{frutiger\}}. Herewith only a \texttt{\textbackslash frutiger\{\}} command is defined and no other changes are performed.
+
+\subsection{Changing \texttt{\textbackslash familydefault}}
+In order to redefine \texttt{\textbackslash familydefault} it is possible to load the Frutiger package with \texttt{\textbackslash usepackage[family]\{frutiger\}}. In that case, \texttt{\textbackslash sffamily} is redefined to Frutiger and \texttt{\textbackslash familydefault} is redefined to \texttt{\textbackslash sffamily}.
+
+If you use the option \texttt{family} option, it is suggest to select a suitable non-serife math font, e.g. by \texttt{\textbackslash usepackage\{cmbright\}}. It is important that you load the \texttt{cmbright} package before the \texttt{frutiger} package.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Package Installation             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Package Installation}
+The installation procedure for the Frutiger package on different operating systems is explained in the following.
+
+%
+% Windows           
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Windows: MiKTeX}
+In order to correctly install the Frutiger package on a Windows system with MikTeX the following steps have to be performed. 
+\begin{enumerate}
+	\item Copy the package to any desired path, e.\,g. to \texttt{D:\textbackslash My-LaTeX-Templates\textbackslash Frutiger\textbackslash}. It is important that you do not change the directory structure.
+	\item Open the MikTeX Settings GUI and add the Frutiger package root path to the MikTeX root directory list. Click OK.
+	\item Update the font map files:
+		\begin{enumerate}
+			\item Open a DOS console window.
+			\item Run \texttt{initexmf -{}-edit-config-file updmap} to edit the font config file.
+			\item Add the following lines:\\
+						\texttt{Map frutiger-pdf.map} \\
+						\texttt{Map frutiger-ps.map}
+			\item Save and close the configuration file.
+			\item Run \texttt{initexmf -{}-mkmaps} to rebuild the font map files.\footnote{On some systems \texttt{initexmf -{}-mkmaps} has to be executed after every restart of windows. In order to avoid this, you can add a suitable batch file to the Autostart folder in the Start Menu.} 
+		\end{enumerate}
+\end{enumerate}
+
+%
+% Linux           
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Linux: TeXLive}
+For an installation with TeXLive a user specific installation and an installation for all users is possible. Both possibilities are explained in the following subsections.
+
+%
+% Installation by an User         
+%
+\subsubsection{Installation by an User}
+\begin{enumerate}		
+	\item Unpack the files into the user's \texttt{texmf/} directory. It is important that you do not change the directory structure.
+	\item Update the filename database by executing \texttt{mktexlsr}.
+	\item If you use Debian, you have to update the config files by running \texttt{update-updmap}.
+	\item Final you have to update the font maps. This is be done by calling \texttt{updmap}.
+\end{enumerate}
+
+%
+% Installation for all Users           
+%
+\subsubsection{Installation for all Users}
+Please note: if yout want to install the Frutiger package for all users, administrator rights are necessary.
+\begin{enumerate}		
+	\item Unpack the files to \texttt{/usr/local/share/texmf/}.
+	\item Update the filename database by executing \texttt{sudo mktexlsr}.
+	\item If you use Debian, you have to update the config files by \texttt{sudo update-updmap}.
+	\item Final you have to update the font maps by executing \texttt{sudo updmap-sys}.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% References                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addsec{References}
+Further information can be found at \url{http://www.macrotex.net/addfont.html}
+
+
+\end{document}
+
+
+
+% eof

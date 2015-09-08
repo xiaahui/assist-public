@@ -1,0 +1,94 @@
+\documentclass{article}
+
+% Take care of the input encoding
+\usepackage[ansinew]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Manage revisions
+\usepackage{listofversions}
+\addversion{0.1}{27.02.2012}{Initial version of the document}{kloe\_ad}
+\addversion{1.0}{2012-02-28}{Fixed some errors}              {AK}
+\addversionssvn[11367,11575]
+
+% Change appearance
+\usepackage[ngerman,german,english]{isodate}                % Needed for date formatting
+\makeatletter
+\def\lov@entry      {\lov@version          &   %            % Output all fields ...
+                     \TeXdate                  %            % . (set date format)
+                     \printdate{\lov@date} &   %            % .
+                     \lov@description      &   %            % .
+                     \lov@author           \\  }            % .
+\makeatother
+
+% Code listings
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{language=TeX, 
+		  basicstyle=\ttfamily,
+        %keepspaces=false,
+        breaklines=true,
+        commentstyle=\color{gray},
+        identifierstyle=\color{blue}}
+
+% Meta info
+\title{The listofversions package}
+\author{Andreas Klöckner}
+
+% Begin document
+\begin{document}
+  \maketitle
+
+% Usage
+\section{Usage}
+Simply load the package via \lstinline!\usepackage{listofversions}!. Declare versions with \lstinline!\addversion{version}{date}{description}{author}!. 
+
+Use the command \lstinline!\addversionshg! to include all versions from Mercurial repositories. This will only work, if the document's folder is under HG revision control. You can specify an optional argument \lstinline!\addversionshg[<revset>]!. This will only include the selected revision set \lstinline!<revset>!. Simple revision sets could be any revision number or a range of revision numbers \lstinline!x:y!. See the hg manpage for more information on revsets. The interface to SVN is currently not available due to an old version in the institute. \lstinline!\listofversions! will finally output the list. The command \lstinline!\addversionssvn! is provided for interfacing to SVN repositories. Use \lstinline!\PathToHG{<path>}! and \lstinline!\PathToSVN{<path>}! to set the appropriate paths to the respective executables.
+
+To change the list's appearance, redefine the following commands:
+\begin{itemize}
+	\item \lstinline!\lov@pre! is executed before all list entries.
+	\item \lstinline!\lov@entry! creates a list entry. The package provides the primitives \hbox{\lstinline!\lov@version!}, \lstinline!\lov@date!, \lstinline!\lov@description! and \lstinline!\lov@author! inside of this command.
+	\item \lstinline!\lov@post! is executed after all list entries. 
+\end{itemize}
+This approach is useful e.g. to yield a uniform date format with the isodate package. Be aware that the \lstinline!date! argument can then take everything which is taken by isodate's \lstinline!\printdate! command. The default appearance is a simple tabular environment.
+
+If you only want to output the current version of the document, you can use the \lstinline!\currentversion! command. It can be formatted redefining the command \hbox{\lstinline!\lov@current!}. You can use the same primitives inside this command as inside the \lstinline!\listofversions! command. As a shortcut for output of only one piece of data of the current version, you can use the command with its optional argument. E.g.\ \lstinline!\currentversion[author]! will only output the author of the current version. Available options are \lstinline!version!, \lstinline!date!, \lstinline!description!, \lstinline!author!.
+
+The package uses the \lstinline!etoolbox! utilities.
+
+\section{Options}
+\subsection{The \lstinline!hg! option}
+Use \lstinline!\usepackage[hg]{listofversions}! to automatically load the versions from an HG repository.
+
+\subsection{The \lstinline!svn! option}
+Use \lstinline!\usepackage[svn]{listofversions}! to automatically load the versions from an SVN repository.
+
+% Example
+\newpage
+\section{Example}
+\subsection{Source code}
+	\begin{lstlisting}[linewidth=\textwidth]
+% Set up version list
+\usepackage{listofversions}
+\addversion{0.1}{27.02.2012}{Initial version of the document}{kloe\_ad}
+\addversion{1.0}{2012-02-28}{Fixed some errors}              {AK}
+\addversionssvn[11367,11575]
+		
+% Renew appearance (uniform date format)
+\usepackage[english]{isodate}
+\makeatletter
+\def\lov@entry      {\lov@version          &
+                     \TeXdate                
+                     \printdate{\lov@date} & 
+                     \lov@description      &  
+                     \lov@author           \\  }
+\makeatother
+
+% Output the list
+\listofversions
+	\end{lstlisting}
+	
+\subsection{Result}
+	\listofversions
+
+\end{document}

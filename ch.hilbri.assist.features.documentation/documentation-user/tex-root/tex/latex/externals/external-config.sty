@@ -1,0 +1,89 @@
+%
+% This is file `external-config.sty',
+% it allows external configuration for arbitrary packages.
+%
+% It provides the following commands:
+%		\set@config{<some tag>}{<config commands>}
+%			It executes the <config commands>, if the config for <some tag>
+%			was requested by \get@config. This command goes into the external
+%			configuration file <some file>.
+%		\get@config[<some file>]{<some tag>}
+%			This command requests the <config commands> to be executed. The 
+%			corresponding \set@config command resides in <some file>. If the
+%			config file is not set, it defaults to "external-config.conf". The
+%			file may be located anywhere in the path. If the file does not 
+%			exist, no additional configuration is set. Make sure, you have proper 
+%			defaults set before calling \set@config. Usually, <some tag> should
+%			be set to the package name.
+
+% REVISIONS:    2012/10/11 First version (kloe_ad)
+%
+% Contact       Andreas Klöckner,  Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2012 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+%
+% PACKAGE HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{external-config}
+	[2012/10/11 v0.1 External configuration reader]
+
+%
+% The core commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define s skip for the "Note: " indent
+\def\@noteindent{\space\space\space\space\space\space}%               % Define skip for the "Note: "
+
+% Define \get@config[<some file>]{<some tag>}
+\newcommand{\get@config}[2][external-config.conf]{                    % Default file: external-config.conf
+	\true@config{#2}%                                                   % ... activate the tag
+	\IfFileExists{#1}{%                                                 % ... if the file exists
+		\input{#1}%                                                       % ... ... input it
+	}{%                                                                 % ... else
+		\typeout{Note: The external-config file "#1" has not been found.}%% ... ... output a warning message
+		\typeout{\@noteindent No configuration set for tag "#2".}%        % ... ... .
+	}%                                                                  % ... .done
+	\false@config{#2}%                                                  % ... deactivate the tag
+}                                                                     % .done
+
+% Define a command \set@config{<some tag>}{<config commands>}
+\newcommand{\set@config}[2]{%                                         % No defaults
+	\if@config{#1}{%                                                    % ... if tag is activated
+		#2%                                                               % ... ... run commands
+	}{%                                                                 % ... else
+	}%                                                                  % ... .done
+}%                                                                    % .done
+
+%
+% Some helper commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define an if, it is not defined yet
+\newcommand{\newif@config}[1]{%                                       % \newif@config{<tag>}
+	\@ifundefined{if#1}{%                                               % ... if <tag> not defined
+		\expandafter\newif\csname if#1\endcsname%                         % ... ... define it
+	}{}%                                                                % ... else nothing
+}%                                                                    % .done
+
+% Check an if
+\newcommand{\if@config}[3]{%                                          % \if@config{<tag>}{<if>}{<else>}
+	\newif@config{#1}%                                                  % ... make sure <tag> is defined
+	\csname if#1\endcsname%                                             % ... if <tag>
+		#2%                                                               % ... ... do <if>
+	\noexpand\else%                                                     % ... else
+		#3%                                                               % ... ... do <else>
+	\noexpand\fi%                                                       % ... .done
+}%                                                                    % .done
+
+% Set an if to true
+\newcommand{\true@config}[1]{%                                        % \true@config{<tag>}
+	\newif@config{#1}%                                                  % ... make sure <tag> is defined
+	\csname #1true\endcsname%                                           % ... set it to true
+}%                                                                    % .done
+
+% Set an if to false
+\newcommand{\false@config}[1]{%                                       % \false@config{<tag>}
+	\newif@config{#1}%                                                  % ... make sure <tag> is defined
+	\csname #1false\endcsname%                                          % ... set it to false
+}%                                                                    % .done

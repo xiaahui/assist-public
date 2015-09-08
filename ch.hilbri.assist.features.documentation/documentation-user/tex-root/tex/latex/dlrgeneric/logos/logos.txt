@@ -1,0 +1,34 @@
+pdflatex     dlrlogo
+pdftops -eps dlrlogo.pdf     dlrlogo.eps
+
+pdflatex     dlrlogog
+pdftops -eps dlrlogog.pdf    dlrlogog.eps
+
+pdflatex     dlrlogoi
+pdftops -eps dlrlogoi.pdf    dlrlogoi.eps
+
+pdflatex     dlrlogo_en
+pdftops -eps dlrlogo_en.pdf  dlrlogo_en.eps
+
+pdflatex     dlrlogog_en
+pdftops -eps dlrlogog_en.pdf dlrlogog_en.eps
+
+pdflatex     dlrlogoi_en
+pdftops -eps dlrlogoi_en.pdf dlrlogoi_en.eps
+
+pdflatex     dlradler
+pdftops -eps dlradler.pdf    dlradler.eps
+
+pdflatex     dlradlerg
+pdftops -eps dlradlerg.pdf   dlradlerg.eps
+
+pdflatex     dlradleri
+pdftops -eps dlradleri.pdf   dlradleri.eps
+
+pause
+
+del *.aux
+del *.bbl
+del *.blg
+del *.dvi
+del *.log

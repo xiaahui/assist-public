@@ -1,0 +1,119 @@
+\documentclass{article}
+
+% Take care of the input encoding
+\usepackage[ansinew]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Manage revisions
+\usepackage{listofversions}
+\addversion{0.1}{2012-04-27}{Initial version of the document}{kloe\_ad}
+
+% Use classified package
+\usepackage{xcolor}
+\usepackage{classified}
+
+% Define class one classification scheme
+\classificationclass{classone}{
+  one=\classifiedremark{\colorbox{white}{
+                        Level One Classification}}, 
+  two=\classifiedremark{\colorbox{red}  {
+                        Classification Level Two}}}
+                        
+% Define class two classification scheme
+\classificationclass{classtwo}{
+  one={{\color{red} (Classified!)      }},
+  two={{\color{red} (More Classified!) }}}
+
+% Set base classification and clearance  
+\documentclassified[class=classone]
+\documentclearance [class=classone, level=two]
+\documentclearance [class=classtwo, level=one]
+
+
+% Code listings
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{language=TeX, 
+        basicstyle=\ttfamily,
+        %keepspaces=false,
+        breaklines=true,
+        commentstyle=\color{gray},
+        identifierstyle=\color{blue}}
+
+% Meta info
+\title{The \lstinline!classified! package}
+\author{Andreas Klöckner}
+
+% Begin document
+\begin{document}
+  \maketitle
+
+% Usage
+\section{Usage}
+Load the package via \lstinline!\usepackage{classified}!. Set up your classification scheme by \lstinline!\classificationclass{<class>}{<level1>=<action1>, <level2>=<action2>, ...}!. Class could be e.g. \lstinline!NATO! or \lstinline!DLR!. Levels have to be declared in descending order of confidentiality. Use the \lstinline!\classifiedremark{<text>}! macro to insert \lstinline!<text>! on the top and bottom of the current page. If you wish a different placement of the remarks, you can use e.g. \lstinline!<level>=\AddToShipoutPictureFG*{\AtPageTop{<remark>}}!. This will place a remark only at the top of the page. Similarly, there are the commands \lstinline!\AtPageBottom!, \lstinline!\AtPageLeft! and \lstinline!\AtPageRight!.
+
+There are some predefined classification schemes: \lstinline!default! with classifaction levels \lstinline!none!, \lstinline!restricted!, \lstinline!confidential!, \lstinline!secret! and \lstinline!topsecret!. And \lstinline!publication! with the levels \lstinline!none!, \lstinline!final!, \lstinline!paper!, \lstinline!submitted! and \lstinline!draft!.
+
+You can define the document to be classified by \lstinline!\documentclassified[<options>]!. \lstinline!<options>! are \lstinline!key=value! pairs for \lstinline!class! and \lstinline!level!. The default class is \lstinline!default!. The default level is the lowest classification level declared for the given class. This command executes the \lstinline!<action>! macros defined for the selected level in each page. If the \lstinline!\documentclassified! command is not issued, the document classification defaults to \lstinline!none!.
+
+Individual text passages can be marked classifed by \lstinline!\classified[<options>]{<text>}!. The options are the same as for the \lstinline!\documentclassified! macro. This macro only executes the \lstinline!<action>! macro on the current page, if the classification level of \lstinline!<text>! is higher than the document classification.
+
+A clearance level for the document can be set by \lstinline!\documentclearance[<options>]!. The \lstinline!<options>! are again the same as for the previous two commands. This command suppresses the output of the \lstinline!\classfied! commands's \lstinline!<text>! arguments. Only classified text with a level lower or equal to the document clearance will be displayed. Any other text will be replaced by a remark, that text has been suppressed. If no \lstinline!\documentclearance! command is issued, the document clearance defaults to \lstinline!none!.
+
+All the above commands work separately for each classification class. In this way, you can e.g. globally insert \lstinline!publication! remarks and only mark selected sections with \lstinline!default! classification.
+
+% Example
+\newpage
+\section{Example}
+This document has been produced with the following preamble:
+
+\begin{lstlisting}[linewidth=\textwidth]
+% Use classified package
+\usepackage{xcolor}
+\usepackage{classified}
+
+% Define class one classification scheme
+\classificationclass{classone}{
+  one=\classifiedremark{\colorbox{white}{
+                        Level One Classification}}, 
+  two=\classifiedremark{\colorbox{red}  {
+                        Classification Level Two}}}
+                        
+% Define class two classification scheme
+\classificationclass{classtwo}{
+  one={{\color{red} (Classified!)      }},
+  two={{\color{red} (More Classified!) }}}
+
+% Set base classification and clearance  
+\documentclassified[class=classone]
+\documentclearance [class=classone, level=two]
+\documentclearance [class=classtwo, level=one]
+\end{lstlisting}
+
+If you want to additionally mark selected <text> passages, you can use something like the following:
+
+\begin{lstlisting}[linewidth=\textwidth]
+\begin{itemize}
+  \item ClassOne-LevelTwo:
+        \classified[class=classone, level=two]{<text>}
+  \item ClassTwo-LevelOne:
+        \classified[class=classtwo, level=one]{<text>}
+  \item ClassTwo-LevelTwo:
+        \classified[class=classtwo, level=two]{<text>}
+\end{itemize}
+\end{lstlisting}
+
+This yields the following result. Note the changed markings for ClassOne-LevelTwo on the page borders. Also note the marked ClassTwo-LevelOne <text> and the removed <text> for ClassTwo-LevelTwo.
+	
+\begin{itemize}
+  \item ClassOne-LevelTwo: \classified[class=classone, level=two]{<text>}
+  \item ClassTwo-LevelOne: \classified[class=classtwo, level=one]{<text>}
+  \item ClassTwo-LevelTwo: \classified[class=classtwo, level=two]{<text>}
+\end{itemize}
+	
+% List of versions
+\newpage
+\section{List of versions}
+\listofversions
+
+\end{document}

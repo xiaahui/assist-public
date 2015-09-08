@@ -1,0 +1,121 @@
+% This is file `subnumberedcases.sty',
+% it provides subnumberedcases environment
+%
+% Provides two environments_
+%		- *subequations (like subequations, but now increment of equation counter)
+%		- subnumberedcases (subnumbered cases)
+%
+% REVISIONS:    2011-11-28 initial release   Andreas Knoblach <andreas.knoblach@dlr.de>
+%               2011-12-12 BUG fix
+%               2012-03-23 Warning if fleqn no used...
+%
+% Contact       Andreas Knoblach,  Andreas.knoblach@dlr.de
+% Copyright (C) 2008-2011 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+
+\ProvidesPackage{subnumberedcases}[2011/11/28 Subnumbered cases]
+
+% Load some packages
+\AtBeginDocument{%
+	\RequirePackage{etoolbox}
+	% Check if amsmath is loaded with right options
+	\ifdef{\mathindent}{}{%
+			\newlength{\mathindent}%
+			\setlength{\mathindent}{0cm}%
+			\PackageError{subnumberedcases}{Class or amsmath package option 'fleqn' required!}{}}
+	\RequirePackage{amsmath}
+	\RequirePackage{calc}
+	\RequirePackage{ifthen}}
+
+% Define subequations* (same like subequations, but it does not increase the equation counter)
+\newtoks\@stequation
+\newenvironment{subequations*}[1][]{
+	\ifthenelse{\isundefined{\theHequation}}{\def\theHequation{\relax}}{}%
+	\edef\@savedequation{\the\c@equation}%
+	\@stequation=\expandafter{\theequation}%
+	\edef\@savedtheequation{\the\@stequation}% 
+	\edef\oldtheequation{\theequation}
+	\edef\oldtheHequation{\theHequation}%
+	\setcounter{equation}{0}%
+	\def\theequation{\oldtheequation\alph{equation}}
+	\def\theHequation{#1SC\oldtheHequation\alph{equation}}}{%
+	\setcounter{equation}{\@savedequation}%
+	\@stequation=\expandafter{\@savedtheequation}%
+	\edef\theequation{\the\@stequation}\global\@ignoretrue}
+	
+%Define new length
+\newlength{\SNChei}
+\newlength{\SNCindent}
+\newlength{\SNCheiTOT}
+\newlength{\SNCmaxindent}
+\setlength{\SNCmaxindent}{1cm}
+
+%Define a command which prints equations within braces
+\newcommand{\SNCcommand}[2][0cm]{%
+	\newline
+	\begin{minipage}{\linewidth}
+		%Passindent
+		\addtolength{\mathindent}{#1}
+		%Getheightofcase
+		\settototalheight{\SNChei}{%
+			\begin{subequations*}[PSC]
+				\begin{minipage}{\linewidth}
+					%Noindent
+					\addtolength{\mathindent}{3mm}
+					\begin{align}	
+						#2
+					\end{align}
+				\end{minipage}
+			\end{subequations*}}
+		%Computetotalheight
+		\setlength{\SNCheiTOT}{\SNChei}
+		\addtolength{\SNCheiTOT}{2mm}
+		%Printcase
+		\begin{minipage}[c][\SNCheiTOT][c]{\linewidth}
+			\vspace{-\baselineskip}
+			\addtolength{\mathindent}{3mm}
+			%Changecounter
+			\begin{subequations*}
+				\begin{align}
+					#2
+				\end{align}
+			\end{subequations*}
+		\end{minipage}%
+		%PrintBraces
+		\addtolength{\SNCheiTOT}{2mm}%
+		\vspace{-\SNCheiTOT}
+		\begin{minipage}[c][\SNCheiTOT][c]{\linewidth}
+			\vspace{-\baselineskip}\vspace{1ex}
+			\begin{subequations*}
+				\begin{equation*}
+					\left\{
+					\parbox[c][\SNChei][c]{.9em}{}
+					\right.
+				\end{equation*}			
+			\end{subequations*}
+		\end{minipage}
+	\end{minipage}}
+
+%Convert coammand to environment
+\AtBeginDocument{
+	\RequirePackage{environ}
+	\NewEnviron{SNCenviron}{\SNCcommand[\SNCindent]{\BODY}}}
+
+%Add normal equation before SNCenviron
+\newenvironment{subnumberedcases}[2][\SNCmaxindent]{%
+		\par\noindent
+		\minipage{\textwidth}
+		\settowidth{\SNCindent}{$#2\ $}%
+		\ifthenelse{\lengthtest{\SNCindent>#1}}{\setlength{\SNCindent}{#1}}{}
+		\begin{align}
+			#2\\\nonumber
+		\end{align}
+		\hbox{}\vspace{-3\baselineskip}\vspace{1ex}
+		\SNCenviron}{
+		\endSNCenviron
+		\endminipage\par\vspace{.5\baselinestretch\baselineskip}\bigskip\noindent}
+
+
+\endinput

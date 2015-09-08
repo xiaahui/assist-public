@@ -1,0 +1,79 @@
+%
+% This is file `beamerouterthemedlr_2008.sty',
+% it includes the style definition for the following outer elements.
+%		- The head- and footline.
+%		- The frame title.
+%		- The sidebars             (not used).
+%		- The logo                 (not used).
+%
+%
+% REVISIONS:    2012-02-27 initial release (knob_an)
+%               
+% Contact       Andreas Knoblach,  Andreas.Knoblach@dlr.de
+% Copyright (C) 2012 DLR Robotics and Mechatronics              __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+%
+% Input style images
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{beamerimagesdlr_2008}
+
+%
+% Headline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{%
+	\vspace{-1pt}%
+	\begin{tikzpicture}              
+	  \clip (0,-8mm) rectangle (\paperwidth,0mm+1pt);
+	  \protect\headlineimage;
+	\end{tikzpicture}}
+	
+%
+% Footline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\beamertemplatenavigationsymbolsempty
+\setbeamerfont{footline}{size=\Tiny}
+\setbeamercolor{footline}{fg=white}
+\setbeamertemplate{footline}{{%
+  \colorlet{DLREagleColor}{DLRFLEagleColor}  
+  \colorlet{DLRTextColor}{DLRFLTextColor} 
+  \colorlet{DLRBarColor}{DLRFLBarColor} 
+	\begin{tikzpicture}
+    % Shaded bar
+		\node (bar)
+				[	fill, rectangle,
+					text width = \textwidth, inner sep = 0, outer sep = 0,
+					left color=white, right color=DLRBarColor,
+					minimum height = .8cm ] at (0,0){};
+		% DLR Logo (Copy from dlrologos.sty; no use of tikzdlrlogo because of bug with parbox and Tiny			
+		\tikzdlradler[(-.45\textwidth, .3cm)]
+		\node (EagleDLR3) [right=1em of EagleDLR2, inner sep = 0pt, align = left, color=DLRTextColor]		
+			{\bfseries Deutsches Zentrum\\[.3ex]
+			 \bfseries f\"ur Luft- und Raumfahrt \mdseries e.V. \\[.3ex]
+			 \scalebox {0.88}{in der Helmholtz-Gemeinschaft}};
+		% Text	
+		\node (text) at (.49\textwidth, 0) 
+			[align = right,anchor=east] {
+				\mbox{\translate{Slide} \insertframenumber\ \translate{of} \inserttotalframenumber} \\[2pt]
+				\mbox{\insertshorttitle\ - \insertauthor\ - \insertdate}    \\
+				\mbox{\scalebox{0.8}{\insertslidenavigationsymbol}%
+				      \scalebox{0.8}{\insertframenavigationsymbol}%
+				      %\scalebox{0.8}{\insertsubsectionnavigationsymbol}%
+				      \scalebox{0.8}{\insertsectionnavigationsymbol}%
+				      %\scalebox{0.8}{\insertdocnavigationsymbol}%
+				      \scalebox{0.8}{\insertbackfindforwardnavigationsymbol}}};
+	  % Zeros
+    %\node[color=red] (0,0) {\bf X};
+	\end{tikzpicture}}}
+	
+	
+
+%
+% Change Frametitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamerfont{frametitle}{series=\bfseries}
+
+\endinput
+
+% eof

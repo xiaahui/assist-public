@@ -1,0 +1,258 @@
+%
+% This is file `dlrelements.sty',
+% it includes style elements for the dlr layout such.
+%
+% This package redefines the appearance of:
+%   text: no parindent
+%   titles: different colors and sizes
+%   figures: frame and caption
+%   table: table head and captions
+%   itemize: adds dlr hook as symbol
+% 
+% The appearances can be changed using the corresponding options:
+%   figures
+%
+% It provides the following commands:
+%   \dlrtablehead:
+%     Should be used to format table head lines.
+%   \rowstyle
+%     Actually a helper for \dlrtablehead, but you can define the 
+%     style of a row in a table
+%
+% REVISIONS:    2011-11-17 package  Andreas Klöckner <andreas.kloeckner@dlr.de>
+%               2011-12-14 bug fixed with htbp modifiers of figure environment
+%               2011-12-14 bug fixed with subfigures extending the page boundaries
+%               2012-08-29 option for figures
+%               
+% Contact       Andreas Klöckner,  Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2011 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+
+% Package Header
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{dlrelements}
+        [2012/08/29 v0.2 DLR Elements]
+
+%
+% Format text elements
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fonts:  http://portal.dlr.de/C17/C1/CD/Lists/CDInfo/DispForm.aspx?ID=27&Source=http%3A%2F%2Fportal%2Edlr%2Ede%2FC17%2FC1%2FCD%2Fdefault%2Easpx
+% Colors: http://portal.dlr.de/C17/C1/CD/Lists/CDInfo/DispForm.aspx?ID=4&Source=http%3A%2F%2Fportal%2Edlr%2Ede%2FC17%2FC1%2FCD%2Fdefault%2Easpx
+% 
+% A lot of white background should be used
+% Little black may be used. E.g. in text
+% Smaller surfaces, highlighting, lines, text may be gray
+% Silver substitutes gray, when used in DLR-wide texts
+%
+% Typography: Frutiger. Except for compatibility. Arial. Embed in PDFs!
+% Should be left justified?! Looks ugly in broad text...
+
+% Check if KOMA is loaded, as is done with dlrtext classes
+\newif\ifdlr@koma@loaded
+\newif\ifdlr@koma@loaded@article
+\newif\ifdlr@koma@loaded@report
+\newif\ifdlr@koma@loaded@book
+%\newif\ifdlr@koma@loaded@letter
+\@ifclassloaded{scrartcl}{\dlr@koma@loadedtrue\dlr@koma@loaded@articletrue}{}
+\@ifclassloaded{scrreprt}{\dlr@koma@loadedtrue\dlr@koma@loaded@reporttrue}{}
+\@ifclassloaded{scrbook}{ \dlr@koma@loadedtrue\dlr@koma@loaded@booktrue}{}
+%\@ifclassloaded{scrlettr}{\dlr@koma@loadedtrue\dlr@koma@loaded@lettertrue}{}
+
+% Warn for KOMA not loaded
+\ifdlr@koma@loaded\else
+	\PackageWarningNoLine{dlrelements}{The dlrelements package currently only supports KOMA script classes}
+\fi
+
+% Set basic layout options
+  \setlength{\parindent}{0pt}       % No paragraph indent
+  \KOMAoption{parskip}{full}        % Skip one line for each paragraph
+
+% Set fonts for titles
+  \AtBeginDocument{                 % Relay for option clash...
+    \RequirePackage{xcolor}}        % ... Requires colors
+\ifdlr@koma@loaded@article\else
+  \setkomafont{chapter}{%           % "Kapitel"
+    \fontsize{24.0pt}{29.0pt}%      % Frutiger light, 24pt, 29pt
+    \color{black!73}%               % 73% black
+    \selectfont} 
+\fi
+  \setkomafont{section}{%           % "Überschrift"
+    \fontsize{17.28pt}{21.5pt}%     % Frutiger light, 18pt, 21.5pt (only 17.28pt available in \texttt)
+    \color{black!73}%               % 73% black
+    \selectfont} 
+  \setkomafont{subsection}{%        % "Zwischenüberschrift"
+    %\fontsize{ 8.5pt}{10.2pt}\bfseries%  % Frutiger bold, 8.5pt, 10.2pt
+    \normalfont\bfseries%           % Normal text font, but bold
+    \color[rgb]{0,0,0}%             % 100% black
+    \selectfont} 
+    
+% Set font for captions
+  \setkomafont{caption}{%           % "Diagrammtitel", 
+    %\raggedright%                  % Left justified
+    %\fontsize{ 8.5pt}{10.2pt}\bfseries%  % Frutiger bold, 8.5pt, 10.2pt
+    \normalfont\bfseries%           % Normal text font, but bold
+    \color{black!73}%               % 73% black
+    \selectfont} 
+
+%
+% Format figures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Figures: http://portal.dlr.de/C17/C1/CD/Lists/CDInfo/DispForm.aspx?ID=37&Source=http%3A%2F%2Fportal%2Edlr%2Ede%2FC17%2FC1%2FCD%2Fdefault%2Easpx
+
+% Define a dlrfigure floatstyle
+  \RequirePackage{scrhack}%        To prevent warnings from float/scr packages
+  \RequirePackage{float}%          To restyle floats
+  \newcommand\floatc@dlrfigure[2]{\centering {#1: \scr@fnt@caption #2}} % Format of caption
+  \newcommand\fs@dlrfigure{%       Style of dlrfigure
+    \let\@fs@iftopcapt\iftrue%     ... captions on top
+    \let\@fs@capt\floatc@dlrfigure%... caption format as above
+    \def\@fs@pre  { }%             ... nothing before
+    \def\@fs@mid  { \kern0.5ex }%  ... space under caption
+    \def\@fs@post { }%             ... nothing after
+  }
+  \floatstyle{plain}%              Initialize figure restyling by
+  \restylefloat{figure}%           ... using plain style
+
+% Create the frame command \pictframe[min width]{content} for the dlr figure frame
+  \AtBeginDocument{\RequirePackage{tikz}}%                   To allow drawing the frame (relay for xcolor option clash)
+  \AtBeginDocument{\RequirePackage{ifthen}}%                 To allow \ifthenelse
+  \newlength\@dlr@figure@width%                              Define \@dlr@figure@width for width of figure
+  \newcommand{\@pictframe}[2][0cm]{%                         New \@pictframe[min width]{\contentbox}
+    \settowidth{\@dlr@figure@width}{\usebox#2}%              ... Width of content
+    \ifthenelse{\lengthtest{\@dlr@figure@width<#1}}%         ... If width<min width
+               {\setlength{\@dlr@figure@width}{#1}}%         ... ... apply min width
+               {}%                                           ... ... else nothing
+    \addtolength{\@dlr@figure@width}{1em}%                   ... Add some space to frame
+    \ifthenelse{\lengthtest{\@dlr@figure@width>\textwidth}}% ... If width>text width
+               {\setlength{\@dlr@figure@width}{\textwidth}}% ... ... apply max width
+               {}%                                           ... ... else nothing
+    \tikzpicture%                                            ... ... Draw the top frame
+      \draw[line width=0.75pt, color=black!73] (0.75pt,-1em) -- (0.75pt,0) -- (\@dlr@figure@width-0.75pt,0) -- (\@dlr@figure@width-0.75pt,-1em);%
+    \endtikzpicture%                                         ... ... Frame done
+    \\[-1mm]%                                                ... ... Remove some space
+    \unhbox#2%                                               ... ... Unbox the actual content
+    \\[-1mm]%                                                ... ... Remove some space
+    \tikzpicture%                                            ... ... Draw the bottom frame
+      \draw[line width=0.75pt, color=black!73] (0.75pt,1em) -- (0.75pt,0) -- (\@dlr@figure@width-0.75pt,0) -- (\@dlr@figure@width-0.75pt,1em);%
+    \endtikzpicture%                                         ... ... Frame done
+  }%                                                         . done
+  \newcommand{\pictframe}[2][0cm]{%                          New \pictframe[min width]{content text}
+    \newbox\@dlr@figure@body%                                ... Create new box for content
+    \setbox\@dlr@figure@body\hbox{#2}%                       ... Save content to box
+    \@pictframe[#1]{\@dlr@figure@body}%                      ... Send box to \@pictframe
+  }%                                                         ... done
+
+% Create a new dlrelements@figure environment
+  \let\dlrelements@o@figure\figure%                                                   % Store old figure
+  \let\dlrelements@o@endfigure\endfigure%                                             % Store old endfigure
+  \newenvironment{dlrelements@figure}[1][tbp]{\dlrelements@o@figure[#1]%              % ... Start original figure environment
+                                              \newbox\@dlr@figure@body%               % ... Create new box for content
+                                              \setbox\@dlr@figure@body\hbox\bgroup%   % ... Save content of figure
+                                            }{\egroup\relax%                          % ... Close the box
+                                              \centering%                             % ... Center content
+                                              \@pictframe{\@dlr@figure@body}%         % ... Send box to \@pictframe
+                                              \dlrelements@o@endfigure}%              % ... End original figure environment
+
+% How to justify captions at left border of object?
+%  \RequirePackage{caption}
+  %\KOMAoption{captions}{nooneline}  % Always align captions to the left
+%  \captionsetup[figure]{position=top,justification=justified}
+%  \captionsetup[table]{position=top,justification=justified}
+
+% Define key/value command \dlrelements@setfigures to ...
+\newcommand{\dlrelements@setfigures}{%                                      % ...
+	\ifcase\dlrelements@figures@nr%                                           % If figure appearance is "plain" ...
+		\floatstyle{plain}%                                                     % ... apply the plain style 
+		\restylefloat{figure}%                                                  % ... to the figure float
+		\let\figure\dlrelements@o@figure%                                       % ... restore original \figure
+		\let\endfigure\dlrelements@o@endfigure%                                 % ... and \endfigure
+	\or%                                                                      % If figure appearance is "dlr"
+		\floatstyle{dlrfigure}%                                                 % ... apply the style dlrfigure
+		\restylefloat{figure}%                                                  % ... to the figure float
+		\let\figure\dlrelements@figure%                                         % ... assign dlr figure environment
+		\let\endfigure\enddlrelements@figure%                                   % ... including endfigure
+	\fi}%                                                                     % .done
+
+
+%
+% Format tables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tables: http://portal.dlr.de/C17/C1/CD/Lists/CDInfo/DispForm.aspx?ID=36&Source=http%3A%2F%2Fportal%2Edlr%2Ede%2FC17%2FC1%2FCD%2Fdefault%2Easpx
+
+% Format caption on top
+  \RequirePackage{scrhack}%        Prevent warnings by float/scr packages
+  \RequirePackage{float}%          Restyle floats
+  \newcommand\floatc@dlrtable[2]{\centering {#1: \scr@fnt@caption #2}} % Format of caption
+  \newcommand\fs@dlrtable{%        Style of dlrtable
+    \let\@fs@iftopcapt\iftrue%     ... captions on top
+    \let\@fs@capt\floatc@dlrtable% ... caption format as above
+    \def\@fs@pre  { }%             ... nothing before
+    \def\@fs@mid  { \kern0.5ex }%  ... space under caption
+    \def\@fs@post { }%             ... nothing after
+  }
+  \floatstyle{dlrtable}%           Apply the style dlrtable
+  \restylefloat{table}%            ... to the table float
+
+% create \rowstyle to define a style for a complete row
+  \RequirePackage{etoolbox}%                  To allow patching commands
+  \newcommand{\rowstyle}[1]{%                 Define new \rowstyle:
+    \gdef\currentrowstyle{#1}%                ... set intermediate \currentrowstyle 
+    \gdef\resetrowstyle{yes}%                 ... remember to change \\
+    #1\ignorespaces}%                         ... run row style once for first cell
+  \newcommand{\pretocell}{%                   Define new \pretocell
+    \@ifundefined{currentrowstyle}{}{%        ... only if intermediate \currentrowstyle is defined
+      \currentrowstyle%                       ... run it
+      \@ifundefined{resetrowstyle}{}{%        ... patch \\ commands, if requested:
+        \global\let\orig@tnl\tabularnewline%  ...                                      ... save old \tabularnewline
+        \global\let\orig@tbs\\%               ...                                      ... and \\ commands
+        \gpreto{\tabularnewline}{\global\let\currentrowstyle\@undefined%               ... reset intermediate \currentrowstyle at end line
+                                 \global\let\tabularnewline\orig@tnl%                  ... restore original \tabularnewline
+                                 \global\let\\\orig@tbs}%                              ... and \\ commands
+        \gpreto{\\}             {\global\let\currentrowstyle\@undefined%               ... reset intermediate \currentrowstyle at end line
+                                 \global\let\tabularnewline\orig@tnl%                  ... restore original \tabularnewline
+                                 \global\let\\\orig@tbs}%                              ... and \\ commands
+        \gappto{\tabularnewline}{\addlinespace}%                                       ... add a linespace after line break
+        \gappto{\\}             {\addlinespace}%                                       ... add a linespace after line break
+        \global\let\resetrowstyle\@undefined% ...                                      ... unremember to patch
+  }}}
+  \RequirePackage{array}%                     To allow changing column types
+  \newcolumntype{l}{>{\pretocell}{l}}%        Add \pretocell to each column type
+  \newcolumntype{c}{>{\pretocell}{c}}%        .
+  \newcolumntype{r}{>{\pretocell}{r}}%        .
+  \newcolumntype{p}{>{\pretocell}{p}}%        .
+  \newcolumntype{m}{>{\pretocell}{m}}%        .
+  \newcolumntype{b}{>{\pretocell}{b}}%        .
+
+% DLR table head lines: \dlrtablehead
+  \RequirePackage{colortbl}%                                       Use colored table backgrounds
+  \RequirePackage{booktabs}%                                       Use nice horizontal lines
+  \RequirePackage{bigstrut}%                                       Use improved vertical space in cells
+  \newcommand{\dlrtablehead}{\specialrule{\heavyrulewidth}{0pt}{0pt}% \dlrtablehead = toprule without distance
+                          \rowstyle{\cellcolor{black!15}%                       75% gray in background
+                                    \bfseries}%                                 bold font
+                          \hspace{0pt}\bigstrut%                                more space in cell
+                         }
+
+%
+% Format itemize
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Use DLR hook for first level itemize
+\RequirePackage{dlrlogos}
+\renewcommand{\labelitemi}{\dlrhook}
+
+%
+% Declare options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Use xkeyval for key value management
+\RequirePackage{xkeyval}
+
+% Define an option for figures layout
+\define@choicekey*{dlrelements.sty}{figures}[\dlrelements@figures\dlrelements@figures@nr]{plain,dlr}[dlr]{\dlrelements@setfigures}
+\ExecuteOptionsX{figures}
+
+% Process all options including those from the \documentclass
+\ProcessOptionsX*
+
+

@@ -1,0 +1,322 @@
+% Copyright 2014 by Andreas Klöckner
+\ProvidesFile{pgflibrarybehaviortrees.code.tex}[2014/08/06 v1.0 A behavior trees library for TikZ]
+
+% Some packages are required
+\RequirePackage{tikz}
+\RequirePackage{pgfmath}
+\usetikzlibrary{shapes}
+\usepgflibrary{intersections}
+
+% Define a style for task symbols
+\tikzset{
+  every task/.style={}
+}
+
+% Add a transient option
+\tikzset{
+  transient/.style={every task/.append style={dashed}}
+}
+
+% Add an active option
+\tikzset{
+  active/.style={font=\bfseries}
+}
+
+% Define commands to draw symbols
+\def\bt@selector{
+  \pgf@anchor@selector@symbol
+  \node[draw,anchor=center,
+        every task,
+        circle,
+        inner sep        = 0em,
+        minimum height   = 1.0em] at (\the\pgf@x,\the\pgf@y) {?};
+}
+\def\bt@sequence{
+  \pgf@anchor@sequence@symbol
+  \node[draw,anchor=center,
+        every task,
+        rectangle,
+        inner ysep        = 0em,
+        minimum height   = 1.0em] at (\the\pgf@x,\the\pgf@y) {$\rightarrow$};
+}
+\expandafter\def\csname bt@sequence*\endcsname{
+  \csname pgf@anchor@sequence*@symbol\endcsname
+  \node[draw,anchor=center,
+        every task,
+        rectangle,
+        inner ysep        = 0em,
+        minimum height   = 1.0em] at (\the\pgf@x,\the\pgf@y) {$\rightarrow$\small$^*$};
+}
+\expandafter\def\csname bt@selector*\endcsname{
+  \csname pgf@anchor@selector*@symbol\endcsname
+  \node[draw,anchor=center,
+        every task,
+        circle,
+        inner sep        = 0em,
+        minimum height   = 1.0em] at (\the\pgf@x,\the\pgf@y) {?\small$^*$};
+}
+\def\bt@action{
+  \pgf@anchor@action@symbol
+  \node[draw,anchor=center,
+        every task,
+        trapezium,rotate =180,
+        trapezium angle  = 60,
+        inner xsep       = 0em,
+        minimum height   = 1.0em,
+        text width       = 0.7em] at (\the\pgf@x,\the\pgf@y) {};
+  %\pgf@anchor@action@symbol
+  %\node[draw,anchor=center,
+        %every task,
+        %rectangle,rotate =  0,
+        %inner xsep       = 0em,
+        %minimum height   = 1.0em,
+        %text width       = 2.0em] at (\the\pgf@x,\the\pgf@y) {};
+}
+\def\bt@condition{
+  \pgf@anchor@condition@symbol
+  \node[draw,anchor=center,
+        every task,
+        trapezium,rotate =  0,
+        trapezium angle  = 60,
+        inner xsep       = 0em,
+        minimum height   = 1.0em,
+        text width       = 0.7em] at (\the\pgf@x,\the\pgf@y) {};
+  %\pgf@anchor@condition@symbol
+  %\node[draw,anchor=center,
+        %every task,
+        %rectangle,rotate =  0,
+        %inner xsep       = 0em,
+        %minimum height   = 1.0em,
+        %text width       = 2.0em] at (\the\pgf@x,\the\pgf@y) {};
+}
+\def\bt@decorator{
+  \pgf@anchor@condition@symbol
+  \node[draw,anchor=center,
+        every task,
+        diamond,
+        inner xsep       = 0em,
+        minimum height   = 1.0em,
+        text width       = 0.7em] at (\the\pgf@x,\the\pgf@y) {};
+}
+\expandafter\def\csname bt@parallel sequence\endcsname{
+  \csname pgf@anchor@parallel sequence@symbol\endcsname
+  \node[draw,anchor=center,
+        every task,
+        rectangle, double,
+        inner ysep       = 0em,
+        minimum height   = 0.85em] at (\the\pgf@x,\the\pgf@y) {$\rightarrow$};
+}
+\expandafter\def\csname bt@parallel selector\endcsname{
+  \csname pgf@anchor@parallel selector@symbol\endcsname
+  \node[draw,anchor=center,
+        every task,
+        circle, double,
+        inner sep        = 0em,
+        minimum height   = 1.0em] at (\the\pgf@x,\the\pgf@y) {?};
+}
+\def\bt@semaphore{
+  \bt@decorator
+  \pgf@anchor@semaphore@symbol
+  \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+  \node[draw,anchor=center,
+        circle,
+        inner sep        = 0em,
+        minimum height   = 0.3em,
+        text width       = 0.0em] at (\the\pgf@xa,\the\pgf@ya) {};
+  \node[draw,anchor=center,
+        circle, yshift   = 0.3em,
+        inner sep        = 0em,
+        minimum height   = 0.3em,
+        text width       = 0.0em] at (\the\pgf@xa,\the\pgf@ya) {};
+  \node[draw,anchor=center,
+        circle, yshift   =-0.3em,
+        inner sep        = 0em,
+        minimum height   = 0.3em,
+        text width       = 0.0em] at (\the\pgf@xa,\the\pgf@ya) {};
+}
+\def\bt@latch{
+  \bt@decorator
+  \pgf@anchor@latch@symbol
+  \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+  \node[anchor=center, circle,
+        minimum height   = 0.3em] at (\the\pgf@xa,\the\pgf@ya) {\textasteriskcentered};
+}
+\def\bt@reset{
+  \bt@decorator
+  \pgf@anchor@reset@symbol
+  \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+  \node[anchor=center, circle, draw, inner sep = 0,
+        minimum height   = 0.3em] at (\the\pgf@xa,\the\pgf@ya) {\tiny /};
+}
+\expandafter\def\csname bt@left out\endcsname{
+  \csname pgf@anchor@left out@symbol\endcsname
+  \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+  \node[draw,anchor=center,
+        circle,
+        inner sep        = 0em,
+        minimum height   = 0.2em,
+        text width       = 0.0em] at (\the\pgf@xa,\the\pgf@ya) {};
+  \node[draw,anchor=center,
+        circle, xshift   = 0.4em,
+        inner sep        = 0em,
+        minimum height   = 0.2em,
+        text width       = 0.0em] at (\the\pgf@xa,\the\pgf@ya) {};
+  \node[draw,anchor=center,
+        circle, xshift   =-0.4em,
+        inner sep        = 0em,
+        minimum height   = 0.2em,
+        text width       = 0.0em] at (\the\pgf@xa,\the\pgf@ya) {};
+}
+
+% Define command to import an anchor with a new name
+\newcommand*\importanchoras[3]{%
+  \expandafter\gdef\csname pgf@anchor@\pgf@sm@shape@name @#3\expandafter\endcsname
+                   \expandafter{\csname pgf@anchor@#1@#2\endcsname}}
+
+% Define a command to define common stuff
+\def\bt@common{
+
+  % Inherit save anchors from rectangle for the text box
+  \inheritsavedanchors[from=rectangle] %   this is nearly a rectangle
+  
+  % Directly inherit some anchors for the text box
+  \inheritanchor[from=rectangle]{text}
+  \inheritanchor[from=rectangle]{base}
+  \inheritanchor[from=rectangle]{base east}
+  \inheritanchor[from=rectangle]{base west}
+  \inheritanchor[from=rectangle]{south}
+  \inheritanchor[from=rectangle]{south east}
+  \inheritanchor[from=rectangle]{south west}
+  \inheritanchor[from=rectangle]{mid}
+  \inheritanchor[from=rectangle]{mid east}
+  \inheritanchor[from=rectangle]{mid west}
+  
+  % Inherit some renamed anchors for the label
+  \importanchoras{rectangle}{east}      {label east}
+  \importanchoras{rectangle}{west}      {label west}
+  \importanchoras{rectangle}{center}    {label center}
+  \importanchoras{rectangle}{north}     {label north}
+  \importanchoras{rectangle}{north east}{label north east}
+  \importanchoras{rectangle}{north west}{label north west}
+  
+  % For now inherit also center
+  %\inheritanchor[from=rectangle]{center}
+  \anchor{center}{
+    \expandafter\csname pgf@anchor@\shapename @symbol\endcsname}
+  
+  % Remember who we are
+  \savedmacro{\shapename}{
+    \edef\shapename{\pgf@sm@shape@name}}
+    
+  % Define a size for the symbol
+  \saveddimen{\symbolsize}{
+    \setlength{\pgf@x}{1em}}
+    
+  % Remember the label width
+  \saveddimen{\labelwidth}{
+    \pgf@x=\wd\pgfnodeparttextbox
+  }
+  
+  % Define the symbol anchor
+  \anchor{symbol}{
+    \expandafter\csname pgf@anchor@\shapename @base\endcsname
+    \setlength{\pgf@yc}{2.5ex}       \advance\pgf@y by 1.0\pgf@yc
+    \setlength{\pgf@yc}{\symbolsize} \advance\pgf@y by 0.5\pgf@yc
+  }
+  
+  % Define the north anchor
+  \anchor{north}{
+    \expandafter\csname pgf@anchor@\shapename @base\endcsname
+    \setlength{\pgf@yc}{2.5ex}       \advance\pgf@y by 1.0\pgf@yc
+    \setlength{\pgf@yc}{\symbolsize} \advance\pgf@y by 1.0\pgf@yc
+  }
+  
+  % Define the west anchor to lie on order
+  \anchor{west}{
+    \expandafter\csname pgf@anchor@\shapename @center\endcsname
+    \setlength{\pgf@yc}{-2cm}        \advance\pgf@x by 1.0\pgf@yc
+    \expandafter\csname pgf@anchor@\shapename @border\endcsname
+    }
+
+  % Define the east anchor to lie on border
+  \anchor{east}{
+    \expandafter\csname pgf@anchor@\shapename @center\endcsname
+    \setlength{\pgf@yc}{+2cm}        \advance\pgf@x by 1.0\pgf@yc
+    \expandafter\csname pgf@anchor@\shapename @border\endcsname
+    }
+
+  % The border will either be on the text or in the top node
+  \anchorborder{
+    % Save the requested point!
+    \pgf@xb =\pgf@x \pgf@yb =\pgf@y 
+    %
+    % Save the \northeast corner
+    \northeast
+    \pgf@xa =\pgf@x  \pgf@ya =\pgf@y 
+    %
+    % Check, if we have a label and if we are below \northeast
+    \newif\iflabel\labelfalse
+    \ifdim\labelwidth>0pt
+      \ifdim\pgf@yb<\pgf@ya
+        \labeltrue
+      \fi
+    \fi
+    \iflabel
+    %\ifdim0pt<\pgf@ya % Always use the bigger bounding box
+    %
+    % This needs the rectangle code
+      \southwest                                                   % southwest corner
+      \pgf@xa =\pgf@x \pgf@ya =\pgf@y                              % ... save it to A => lower left corner
+      \northeast                                                   % northeast corner
+      \advance \pgf@x  by-\pgf@xa \advance \pgf@y  by-\pgf@ya      % ... add the southwest distance
+                                  \advance \pgf@y  by\symbolsize   % ... add the symbol size !!
+      \pgf@xc =.5\pgf@x \pgf@yc =.5\pgf@y                          % ... save half of it to C => half diameter of rectangle
+      \advance \pgf@xa by \pgf@xc \advance \pgf@ya by \pgf@yc      % add half rectangle size to A => center of rectangle
+      %\advance \pgf@xb by-\pgf@xa \advance \pgf@yb by-\pgf@ya      % move requested point relative to center of rectangle
+      \edef \pgf@marshal {                                         % define an intersection command
+        \noexpand \pgfpointborderrectangle                         % ... using a rectangular border
+         {\noexpand \pgfqpoint {\the \pgf@xb }{\the \pgf@yb }}     % ... the guess point
+         {\noexpand \pgfqpoint {\the \pgf@xc }{\the \pgf@yc }}}    % ... half the rectangle diagonal
+      \pgf@process {\pgf@marshal }                                 % execute it
+      \advance \pgf@x by\pgf@xa \advance \pgf@y by\pgf@ya          % move requested point relative to center of rectangle
+    %
+    % If we are above, just return some anchor
+    \else
+    % This needs the rectangle code
+      \csname pgf@anchor@\shapename @symbol\endcsname              % the symbol center
+      \pgf@xa =\pgf@x \pgf@ya =\pgf@y                              % ... save it to A => center of rectangle
+      \setlength{\pgf@x}{\symbolsize}                              % the symbol size
+      \pgf@xc = 1.0\pgf@x \pgf@yc = 0.5\pgf@x                      % ... save half symbol square to C => half diameter of rectangle
+      %\advance \pgf@xb by-\pgf@xa \advance \pgf@yb by-\pgf@ya      % move requested point relative to center of rectangle
+      \edef \pgf@marshal {                                         % define an intersection command
+        \noexpand \pgfpointborderrectangle                         % ... using a rectangular border
+         {\noexpand \pgfqpoint {\the \pgf@xb }{\the \pgf@yb }}     % ... the guess point
+         {\noexpand \pgfqpoint {\the \pgf@xc }{\the \pgf@yc }}}    % ... half the rectangle diagonal
+      \pgf@process {\pgf@marshal }                                 % execute it
+      \advance \pgf@x by\pgf@xa \advance \pgf@y by\pgf@ya          % move requested point relative to center of rectangle
+    \fi
+  }
+  
+  % Define the background path
+  \backgroundpath{
+    \pgfpathrectanglecorners{\southwest}{\northeast}
+    {\csname bt@\shapename\endcsname}
+  }
+  
+}
+
+% Define the shapes!
+\pgfdeclareshape{selector} {\bt@common}
+\pgfdeclareshape{sequence} {\bt@common}
+\pgfdeclareshape{action}   {\bt@common}
+\pgfdeclareshape{condition}{\bt@common}
+\pgfdeclareshape{decorator}{\bt@common}
+\pgfdeclareshape{parallel sequence}{\bt@common}
+\pgfdeclareshape{parallel selector}{\bt@common}
+\pgfdeclareshape{semaphore}{\bt@common}
+\pgfdeclareshape{latch}    {\bt@common}
+\pgfdeclareshape{reset}    {\bt@common}
+\pgfdeclareshape{sequence*}{\bt@common}
+\pgfdeclareshape{selector*}{\bt@common}
+\pgfdeclareshape{left out} {\bt@common}
+

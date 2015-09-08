@@ -1,0 +1,335 @@
+%
+% This is file `listofversions.sty',
+% it provides commands for including a list of versions in your document.
+%
+%
+% REVISIONS:    2012-02-27 initial release (kloe_ad)
+%               2012-03-19 new command for current version (kloe_ad)
+%               2012-05-10 selective revsets for hg (kloe_ad)
+%               
+% Contact       Andreas Klöckner,  Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2012 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+%
+% Package Header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{listofversions}
+        [2012/05/10 v0.3 List of versions package]
+
+%
+% SETUP OF CHARACTER TABLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load inputenc with default encoding 
+\RequirePackage{luainputenc}      % Check that package provides
+               [2006/02/22]    % ... \inputencodingname command
+
+%
+% Define options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Use xkeyval for that
+\RequirePackage{xkeyval}
+
+% Define an option for auto-loading HG revisions
+\define@key{listofversions.sty}{hg}[:]{\def\lov@hg{#1}}
+
+% Define an option for auto-loading SVN revisions
+\define@key{listofversions.sty}{svn}[0:BASE]{\def\lov@svn{#1}}
+
+% Process options
+\ProcessOptionsX\relax
+
+%
+% Create commands for adding versions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define internal list of versions command:
+\def\@listofversions{}
+
+% Define internal current version command:
+\def\@currentversion{}
+
+% This will add the given revision to the internal list of revisions:
+% \addversion{version}{date}{description}{author}
+\RequirePackage{etoolbox}                                   % Package etoolbox is used for \expandonce
+\newcommand\addversion[4]{   \edef\lov@version    {#1}%     % Save version     => \lov@version
+                             \edef\lov@date       {#2}%     % Save date        => \lov@date
+                             \edef\lov@description{#3}%     % Save description => \lov@description
+                             \edef\lov@author     {#4}%     % Save author      => \lov@author
+                             \global\edef\@listofversions{% % Redefine internal \@listofversions command ...
+                               \expandonce\@listofversions% % ... with unexpanded previous content and new \@printversion command
+                               \noexpand\@printversion{\lov@version}{\lov@date}{\lov@description}{\lov@author}}%
+                             \global\edef\@currentversion{% % Redefine internal \@currentversion command ...
+                               \noexpand\@printversion{\lov@version}{\lov@date}{\lov@description}{\lov@author}}%
+                         }
+
+%
+% Create commands for printing the versions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define internal command to print a version
+\newcommand\@printversion[4]{\gdef\lov@version    {#1}%     % Save version
+                             \gdef\lov@date       {#2}%     % Save date
+                             \gdef\lov@description{#3}%     % Save description
+                             \gdef\lov@author     {#4}%     % Save author
+                             \lov@print}                    % The actual output command is changed according to the context
+                             
+% The internal formatting will be changed according to context
+\def\lov@print{}
+
+% The \lov@pre command is executed once before all the entries in the \listofversions
+\def\lov@pre      {\begin{tabular}%                         % Put list in a tabular environment
+                   {llp{\dimexpr\columnwidth-20em\relax}l}% % ... with about the \columnwidth
+                     Ver.                  &   %            % .
+                     Date                  &   %            % .
+                     Comment               &   %            % .
+                     Author                \\  }            % .
+
+% The \lov@entry command is executed for each entry in the \listofversions
+\def\lov@entry      {\lov@version          &   %            % Output all fields ...
+                     \lov@date             &   %            % .
+                     \lov@description      &   %            % .
+                     \lov@author           \\  }            % .
+
+% The \lov@post command is executed once after all the entries in the \listofversions
+\def\lov@post     {\end{tabular}               }            % Close the tabular environment
+
+% The \lov@current command is executed once for the current version entry in \currentversion
+\def\lov@current    {\lov@version              }            % Default is only output the version ID
+
+% Define external list of versions command: \listofversions
+\def\listofversions{\lov@warnuser%                          % Warn the user in strange situations
+                    \let\lov@print\lov@entry                % Assign the entry output format
+                    \expandafter\lov@pre                    % Delay pre expansion to allow for tabularx
+                    \expandafter\@listofversions            % Also delay internal expansion
+                                \lov@post}                  % Expand post first to allow for tabularx
+
+% Define external current version command: \currentversion[version|date|description|author]
+\RequirePackage{ifthen}                                     % Package ifthen is used for conditionals
+\newcommand{\currentversion}[1][]{%                         % Define \currentversion with one optional argument
+  \ifthenelse {\equal{#1}{}} {%                             % ... if optional argument is not given
+    \let\lov@print\lov@current%                             % ... ... Assign the current version output format
+  }{%                                                       % ... else
+    \lowercase{\def\lov@temp{#1}}%                          % ... ... Save optional argument in lowercase and
+    \edef\lov@print{\csname lov@\lov@temp\endcsname}%       % ... ... use only the requested data as output format
+  }%                                                        % ... fi
+  \@currentversion}%                                        % Call the internal commands
+
+% Warn, when using \listofversions inside dlrpaper with upload option
+\def\lov@warnuser{%                                         % Define \lov@warnuser
+	\@ifundefined{ifdlrpaper@upload}{}{%                      % ... If dlrpaper@upload option is available
+		\ifdlrpaper@upload%                                     % ... ... And it is true
+			\PackageWarningNoLine{listofversion}{You are using the listofversions command in a   \MessageBreak%
+			                                     publicly communicated document.                 \MessageBreak%
+			                                     Is this intended?                               }%
+		\fi%                                                    % ... ... .done
+	}%                                                        % ... .done
+}%                                                          % .done
+
+
+%
+% Create and parse hg logfile
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define a command to be used as HG executable
+\def\PathToHG#1{\def\hg@path{#1}}
+\PathToHG{hg}
+
+% Define a command to be used to expand HG log lines
+\def\hgparseline#1: #2 \\{
+	\expandafter\def\csname hg#1\endcsname{#2}
+}
+
+% Define a command to replace , in hg revsets by " -r "
+\def\@hgrevsplit#1,#2\\{%                                   % Use \@hgrevsplit...,\\ to
+  \def\test{#2}%                                            % ... Define a test to check for empty ...,\\
+  %\show\test%                                              % ... DEBUG output of \test
+  %\show\@empty%                                            % ... DEBUG output of \@empty
+  \ifx\test\@empty%                                         % ... If \test is empty
+  	\def\@hgrevisions{-r "#1" }%                            % ... ... return a revset definition
+  \else%                                                    % ... else
+  	\@hgrevsplit#1" -r "#2\\%                               % ... ... call another \@hgrevsplit
+  \fi%                                                      % ... .done
+}%                                                          % .done
+
+
+% This command inserts selected HG revisions of the current directory
+% into the version list: \addversionshg[<revset>], default revset=:
+\newcommand{\addversionshg}[1][:]{
+	
+	% Expand revsets specified in a comma-separated list
+	\@hgrevsplit#1,\\
+	%\show\@hgrevisions
+	
+	% Prevent some special characters from issuing errors
+	\begingroup
+	\inputencoding{ansinew}
+	\catcode`\_=12
+	\catcode`\\=12
+	\catcode`\&=12
+	
+	% Write log for directory into jobname.hg.log
+	\immediate\write18{\hg@path\space log \@hgrevisions     --template "revision:  {rev}           \@backslashchar n%
+	                                                                    node:      {node}          \@backslashchar n%
+	                                                                    date:      {date|shortdate}\@backslashchar n%
+	                                                                    author:    {author}        \@backslashchar n%
+	                                                                    desc:      {desc|firstline}\@backslashchar n%
+	                                                                    \@backslashchar n" . > "\jobname.hg.log"}
+
+	% Debug output of command
+%	\edef\debugoutput {hg log \@hgrevisions     --template "revision:  {rev}           \@backslashchar n%
+%	                                                        node:      {node}          \@backslashchar n%
+%	                                                        date:      {date|shortdate}\@backslashchar n%
+%	                                                        author:    {author}        \@backslashchar n%
+%	                                                        desc:      {desc|firstline}\@backslashchar n%
+%	                                                        \@backslashchar n" > "\jobname.hg.log"}
+%	\show\debugoutput
+	
+	% Open input stream
+	\newread\hglog
+	\openin\hglog="\jobname.hg.log"
+	
+	% Set up input loop to read new lines into \hgline
+	\newif\ifhgmore
+	\hgmoretrue
+	\def\empty{\par }
+	\loop
+	  \read\hglog to \hgline
+	  
+	  % Stop looping, if end of file
+		\ifeof\hglog
+			\hgmorefalse
+			
+		% Save version, if newline
+		\else\ifx\hgline\empty
+		  %\message{NEWLINE}
+			\addversion{\hgrevision}{\hgdate}{\hgdesc}{\hgauthor}
+			
+		% Parse line otherwise
+		\else
+			%\message{::\hgline}		
+			\expandafter\hgparseline\hgline\\
+		\fi\fi
+	
+	% Close input loop	
+	\ifhgmore\repeat
+		
+	% Close file
+	\closein\hglog
+
+	% Done preserving special characters
+	\endgroup
+	
+} % end \addversionshg
+
+% If the hg option was used: load the HG revisions!
+\@ifundefined{lov@hg}{}{
+	\expandafter\addversionshg\expandafter[\lov@hg]
+}
+
+%
+% Create and parse svn logfile
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define a command to be used as HG executable
+\def\PathToSVN#1{\def\svn@path{#1}}
+\PathToSVN{svn}
+
+% Define a command to be used to expand SVN log lines
+% r{rev} | {author} | {date} ...
+\def\svnparseline r#1 | #2 | #3 #4\\{
+	\def\svnrevision{#1}
+	\def\svnauthor  {#2}
+	\def\svndate    {#3}
+}
+
+% Define a command to replace , in svn revsets by " -r "
+% We can actually use the HG command here, too
+\let\@svnrevsplit\@hgrevsplit
+
+% This command inserts selected SVN revisions of the current directory
+% into the version list: \addversionssvn[<revset>], default revset=0:BASE
+\newcommand{\addversionssvn}[1][0:BASE]{
+	
+	% Expand revsets specified in a comma-separated list
+	\@svnrevsplit#1,\\
+	\let\@svnrevisions\@hgrevisions
+	%\show\@svnrevisions
+	
+	% Prevent some special characters from issuing errors
+	\begingroup
+	\catcode`\_=12
+	\catcode`\\=12
+	\catcode`\&=12
+	
+	% Write log for directory into jobname.svn.log
+	%\edef\mu{\svn@path\space log \@svnrevisions > "\jobname.svn.log"}
+	%\show\mu
+	\immediate\write18{\svn@path\space log \@svnrevisions > "\jobname.svn.log"}
+
+	% Open input stream
+	\newread\svnlog
+	\openin\svnlog="\jobname.svn.log"
+	
+	% Read the first line, which contains the separator between SVN revisions
+	\ifeof\svnlog\else
+		\read\svnlog to \svnnew
+	\fi
+
+	% Make sure, we can regognize empty lines in the file
+	\def\empty{\par }
+	
+	% Set up \ifsvnmore for the input loop to read new data sets
+	\newif\ifsvnmore
+	\svnmoretrue
+
+	% Only start the loop, if file is not empty
+	\ifeof\svnlog\else\ifx\svnnew\empty\else%
+	\loop
+	
+		% Read first line containing r{rev} | {author} | {date} ...
+		\read\svnlog to \svnline
+
+		% Stop looping, if empty line (can only occur at end, if after a \svnnew)
+		\ifx\svnline\empty
+			\svnmorefalse
+		\else
+		
+			% Parse the line
+			\expandafter\svnparseline\svnline\\
+	  
+			% Read empty line
+			\read\svnlog to \rubbish
+		  
+			% Read first line of description
+			\read\svnlog to \svndesc
+		  
+			% Save version
+			\addversion{\svnrevision}{\svndate}{\svndesc}{\svnauthor}
+
+			% Loop until \svnnew is found
+			{\loop
+				\read\svnlog to \svnline
+				\ifx\svnline\svnnew\svnmorefalse\fi
+			\ifsvnmore\repeat}
+	  
+		% Stop looping, if end of file
+		\fi
+		\ifeof\svnlog
+			\svnmorefalse
+		\fi
+
+	% Close input loop	
+	\ifsvnmore\repeat\fi\fi
+		
+	% Close file
+	\closein\svnlog
+
+	% Done preserving special characters
+	\endgroup
+	
+} % end \addversionssvn
+
+% If the svn option was used: load the SVN revisions!
+\@ifundefined{lov@svn}{}{
+	\AtBeginDocument{
+	\expandafter\addversionssvn\expandafter[\lov@svn]}
+}

@@ -1,0 +1,56 @@
+%%
+%% This is file `8rpfr.fd',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% dlr.dtx  (with options: `fonts,8rpfr')
+%% This is a generated file.
+%% 
+%% Copyright (c) DLR.  All rights reserved.
+%% 
+%% This file contains official style files for DLR letters,
+%% faxes, memos, slides, protocols, and reports.
+%% Written by Dr. Patrick van der Smagt <smagt@dlr.de>.
+\ProvidesFile{8rpfr.fd}
+        [2008/12/09 v7.1.0
+DLR LaTeX frutiger fonts]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareFontFamily{8r}{pfr}{}
+
+\DeclareFontShape{8r}{pfr}{sb}{n}{
+   <-> pfrr8r
+}{}
+
+\DeclareFontShape{8r}{pfr}{sb}{sl}{
+   <-> pfrro8r
+}{}
+
+\DeclareFontShape{8r}{pfr}{b}{n}{
+   <-> pfrb8r
+}{}
+
+\DeclareFontShape{8r}{pfr}{b}{sl}{
+   <-> pfrbo8r
+}{}
+
+\DeclareFontShape{8r}{pfr}{b}{it}{
+   <-> pfrbi8r
+}{}
+
+\DeclareFontShape{8r}{pfr}{m}{n}{
+   <-> pfrl8r
+}{}
+
+\DeclareFontShape{8r}{pfr}{m}{sl}{
+   <-> pfrli8r
+}{}
+
+\DeclareFontShape{8r}{pfr}{m}{it}{<->ssub * pfr/m/sl}{}
+\DeclareFontShape{8r}{pfr}{bx}{n}{<->ssub * pfr/b/n}{}
+\DeclareFontShape{8r}{pfr}{bx}{sl}{<->ssub * pfr/b/sl}{}
+\DeclareFontShape{8r}{pfr}{bx}{it}{<->ssub * pfr/b/it}{}
+\endinput
+%%
+%% End of file `8rpfr.fd'.

@@ -1,0 +1,34 @@
+\documentclass{article}
+
+\usepackage{userinfo}
+\usepackage{username}
+
+\title{The userinfo package}
+\author{\userinfo{\username}{name}}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+The user info package uses the Microsoft Active Directory (AD) to retrieve information on a specified username. (The username of the currently logged on user can be retrieved using the username package.) 
+
+\section{Usage}
+The package provides the command \textbackslash userinfo\{\textless username\textgreater\}\{\textless info type\textgreater\}. It retrieves the requested info type for the user username. Currently the following info types are supported:
+\begin{description}
+	\item[name]         The display name as retrieved by the flag -display and reordered
+	\item[department]   The department name as of the flag -desc
+	\item[email]        The email adress as of flag -email
+	\item[telnumber]    The telefone number as of flag -tel
+	\item[faxnumber]    The telefax number as of flag -fax
+	\item[telextension] The extension number of the telefone
+	\item[faxextension] The extension number of the telefax
+	\item[dlrinstitute] The department abbreviation as of the flag -dept
+	\item[dlrsite]      The site abbreviation as of the flag -dept
+\end{description}
+The latter two can also be used with the dlrinstitutes package.
+
+
+\section{Usage}
+The info from the AD is only loaded ones and cached in \texttt{*.adi} files. To recache the info, use the package option \texttt{recache}: \texttt{\textbackslash usepackage[recache]\{userinfo\}}.
+
+\end{document}

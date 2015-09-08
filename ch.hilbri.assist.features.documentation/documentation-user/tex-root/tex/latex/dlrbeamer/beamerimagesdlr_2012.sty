@@ -1,0 +1,28 @@
+%
+% This is file `beamerimagesdlr_2012.sty',
+% it includes images for a DLR beamer template.
+%
+%
+% REVISIONS:    2012-03-22 initial release (knob_an)
+%               
+% Contact       Andreas Knoblach,  Andreas.Knoblach@dlr.de
+% Copyright (C) 2012 DLR Robotics and Mechatronics              __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+% Package Header
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerimagesdlr_2012}
+        [2012/03/02 v0.1 DLR Images for 2012 beamer theme]
+        
+% Load key/value package
+\RequirePackage{xkeyval}
+
+% Define headlineimage
+\pgfdeclareimage[width=0.9\paperwidth]{headlineimage}{earth}
+\def\headlineimage{%
+	\node[inner sep=0mm] at (2.25cm, -1.6cm) {
+		\pgfuseimage{headlineimage}};}
+
+\endinput
+% eof

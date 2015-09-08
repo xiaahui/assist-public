@@ -1,0 +1,475 @@
+% This is file `xglossaries.sty',
+% it features
+%    - the manual selection of the refered infos in glossaries
+%    - some tools for symbols
+%    - some additional glossary style
+%
+% Contact       Andreas Knoblach,  Andreas.knoblach@dlr.de
+% Copyright (C) 2013-2014 DLR Control System Dynamics           __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+% Package Header
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{xglossaries}
+        [2011/12/08 v0.1 extension of glossaries]
+
+%
+% Definition of options and loading of glossaries
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load xkeyval
+\RequirePackage{xkeyval}
+
+% ManualRef
+\define@boolkey{xglossaries.sty}[xglossaries@]{manref}[true]{}
+\ExecuteOptionsX<xglossaries.sty>{manref}
+
+% SymbolTools
+\define@boolkey{xglossaries.sty}[xglossaries@]{SymbolTools}[true]{}
+\ExecuteOptionsX<xglossaries.sty>{SymbolTools}
+
+% SymbolTools: LinkSymShortcuts
+\define@boolkey{xglossaries.sty}[xglossaries@]{LinkSymShortcuts}[true]{}
+\ExecuteOptionsX<xglossaries.sty>{LinkSymShortcuts=false}
+
+% DefineStyles
+\define@boolkey{xglossaries.sty}[xglossaries@]{DefineStyles}[true]{}
+\ExecuteOptionsX<xglossaries.sty>{DefineStyles}
+
+% PluralAlias
+\define@boolkey{xglossaries.sty}[xglossaries@]{PluralAlias}[true]{}
+\ExecuteOptionsX<xglossaries.sty>{PluralAlias}
+
+% Pass options to glossaries
+\DeclareOptionX*{%
+  \PassOptionsToPackage{\CurrentOption}{glossaries}%
+}
+\ProcessOptionsX\relax
+
+% Load glossaries
+\RequirePackage{glossaries}
+
+%
+% Hacks for manual refernce
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifxglossaries@manref
+	% Define dummy counter
+	\newcounter{glo@dummycnt}\setcounter{glo@dummycnt}{0}%  ... dummy counter
+	\def\@glo@dummycnt{glo@dummycnt}%                       ... save counter namer to \@glo@dummycnt
+
+	% Define key for ref counter
+	\define@key{glossentry}{refcounter}{\def\@glo@counter@cite{#1}} %  ... define key
+	\def\@glo@counter@ref{page}%                                   ... set default to page
+
+	% Define command for manual ref of entire glossary
+	\newcommand{\glosmanref}[1]{
+		\@gls@setcounter{#1}[\@glo@dummycnt]}
+
+	% Define key manref for glossentry, to acticate manual ref for on entry
+	\define@choicekey{glossentry}{manref}[\val\nr]{true,false}[true]{%  ... define key
+		\ifcase\nr\relax%                                                  ... if activated
+			\edef\@glo@counter{\@glo@dummycnt}%                              ... ... set counter to dummy counter
+		\fi}%                                                              ... end (no action reuired if false)
+
+	% Define key ref for gls, to do manual ref
+	\define@choicekey{glslink}{ref}[\val\nr]{true,false}[true]{%   ... define key
+		\ifcase\nr\relax%                                            ... if activated
+			\def\@gls@counter{\@glo@counter@ref}%                      ... ... set counter to dummy counter
+		\fi}%                                                        ... end (no action reuired if false)
+		
+	% Define key ref for gls, to do manual ref
+	\define@choicekey{glossadd}{ref}[\val\nr]{true,false}[true]{%   ... define key
+		\ifcase\nr\relax%                                            ... if activated
+			\def\@gls@counter{\@glo@counter@ref}%                      ... ... set counter to dummy counter
+		\fi}%     }                                                   ... end (no action reuired if false)
+
+	% Reommand \@do@wrglossary (writes index file, to avoid repeated dummy counter entries
+	\renewcommand*{\@do@wrglossary}[1]{%              ... renewcommand
+		\ifglsindexonlyfirst%                           ... if package option indexonlyfirst
+			\ifglsused{#1}{}{\@@do@wrglossary{#1}}%       ... ... no change here
+		\else%                                          ... else
+			\ifx\@gls@counter\@glo@dummycnt\relax%        ... ... if counter == dummy counter
+				\ifglsused{#1}{}{\@@do@wrglossary{#1}}%     ... ... ... write only if unused
+			\else%                                        ... ... else
+				\@@do@wrglossary{#1}%                       ... ... ... no change here
+			\fi%                                          ... ... end
+		\fi}%                                           ... end
+
+	% Hack setentrycounter to filter dummy counter
+	\let\glsnumberformat@org\glsnumberformat%                    ... Copy glsnumberformat
+	\let\delimN@org\delimN%                                      ... Copy delimN
+	\renewcommand*{\setentrycounter}[2][]{%                      ... Copy of original setentrycounter
+	\def\@glo@counterprefix{#1}%
+	\ifx\@glo@counterprefix\@empty
+		\def\@glo@counterprefix{.}%
+	\else
+		\def\@glo@counterprefix{.#1.}%
+	\fi
+	\def\glsentrycounter{#2}%                                    ... last line of copy
+	%
+	\ifx\glsentrycounter\@glo@dummycnt\relax%                    ... if dummy counter
+		\def\delimN{}%
+		\def\glsnumberformat##1{}%                           ... ... hack glsnumberformat
+	\else%                                                       ... else
+		\let\delimN\delimN@org%
+		\def\glsnumberformat##1{\glsnumberformat@org{##1}}%        ... ... user org glsnumberformat
+	\fi}%
+\fi
+
+%
+% SymbolTools
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifxglossaries@SymbolTools
+	% Define alias for unit
+	\def\glo@unit{user1}
+	\def\glo@unitkey{useri}
+
+	% Define key for unit
+	\define@key{glossentry}{unit}{%                                   key == unit
+		\expandafter\def\csname @glo@\glo@unitkey\endcsname{#1}}%       do like if key == \glo@unitkey
+
+	% Define makro to get unit
+	\newcommand*{\glsentryunit}[1]{\csname glo@#1@\glo@unitkey\endcsname}
+
+	% Define high level makros to get unit (copy of glssymbol)
+	\newrobustcmd*{\glsunit}{\@ifstar\@sglsunit\@glsunit}
+	\newcommand*{\@sglsunit}[1][]{\@glsunit[hyper=false,#1]}
+	\newcommand*{\@glsunit}[2][]{%
+		\new@ifnextchar[{\@glsunit@{#1}{#2}}{\@glsunit@{#1}{#2}[]}}
+	\def\@glsunit@#1#2[#3]{%
+		\glsdoifexists{#2}{\edef\@glo@type{\glsentrytype{#2}}%
+		\protected@edef\@glo@text{\glsentryunit{#2}}%
+		\@gls@link[#1]{#2}{\@glo@text#3}}%
+	}
+
+	% Define makro to get unit wiht conditioned brackets
+	\newcommand{\glsentryunitbrackets}[1]{%
+		\edef\glo@glsentryunitbrackets@unit{\glsentryunit{#1}}%                    ... get unit
+		\def\glo@glsentryunitbrackets@empty{}%                                     ... empty for compariosn
+		\ifx\glo@glsentryunitbrackets@unit\glo@glsentryunitbrackets@empty\relax%   ... if unit empty (do nothing)
+		\else%                                                                     ... else
+			[\glo@glsentryunitbrackets@unit]%                                        ... ... return [unit]
+		\fi}%                                                                      ... end
+
+	% Define makro to define new symbol
+	\newcommand{\newsym}[4][]{%
+		\newglossaryentry{#2}{type=symbol, name={#2}, symbol=\ensuremath{#3}, description={#4}, #1}}
+
+	% Define shortcut to get symbol
+	\let\sym\glssymbol
+	\let\Sym\Glssymbol
+
+	% Define command to define symbol category
+	\newcommand{\newsymcat}[3][]{%
+		\newglossaryentry{#2}{type=symbol, name={#3}, description={}, #1}}
+		
+	% Define command to choose default category
+	\newcommand{\defaultsymcat}[1]{%
+		\def\symcat@def{#1}}
+		
+	% Define command to add symobls to category
+	\newcommand{\newsymincat}[4][]{%
+		\newsym[parent=\symcat@def, #1]{#2}{#3}{#4}}
+		
+	% Command to creat shortcut für symbol
+\RequirePackage{suffix, xspace}
+\newcommand{\symshortcut}[2][]{%
+	\ifx&#1&%                                                                                                         % If #1 empty: use #2 as cmd name
+		\ifxglossaries@LinkSymShortcuts%                                                                                % ... If LinkSymShortcuts
+													 \expandafter\newcommand\expandafter{\csname #2\endcsname} [1][]{\sym [##1]{#2}\xspace}%  % ... ... define cmd = cmd?
+		\else%                                                                                                          % ... else
+													 \expandafter\newcommand\expandafter{\csname #2\endcsname} [1][]{\sym*[##1]{#2}\xspace}%  % ... ... define cmd = cmd*
+		\fi%                                                                                                            % ... end
+		\expandafter\WithSuffix\expandafter\newcommand\expandafter{\csname #2\endcsname}*[1][]{\sym*[##1]{#2}\xspace}%  % ... define cmd*
+		\expandafter\WithSuffix\expandafter\newcommand\expandafter{\csname #2\endcsname}?[1][]{\sym [##1]{#2}\xspace}%  % ... define cmd?
+	\else%                                                                                                            % else: use #1 as cmd name
+		\ifxglossaries@LinkSymShortcuts%                                                                                % ... If LinkSymShortcuts
+													 \expandafter\newcommand\expandafter{\csname #1\endcsname} [1][]{\sym [##1]{#2}\xspace}%  % ... ... define cmd = cmd?
+		\else%                                                                                                          % ... else
+													 \expandafter\newcommand\expandafter{\csname #1\endcsname} [1][]{\sym*[##1]{#2}\xspace}%  % ... ... define cmd = cmd*
+		\fi%                                                                                                            % ... end
+		\expandafter\WithSuffix\expandafter\newcommand\expandafter{\csname #1\endcsname}*[1][]{\sym*[##1]{#2}\xspace}%  % ... define cmd*
+		\expandafter\WithSuffix\expandafter\newcommand\expandafter{\csname #1\endcsname}?[1][]{\sym [##1]{#2}\xspace}%  % ... define cmd?
+	\fi%                                                                                                              % end
+}
+\fi
+
+%
+% Glossarystyle: longAcronym and tabuAcronymHead
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifxglossaries@DefineStyles
+	%
+	% Some preamble tools
+	%
+	
+	% Define makro to load style with old and new version of glossary
+	\newcommand{\xglossaries@setglossarystyle}[1]{%
+			\ifthenelse{\isundefined{\setglossarystyle}}{%
+				\glossarystyle{#1}}{%
+				\setglossarystyle{#1}}}
+
+	% Load booktabs
+	\RequirePackage{booktabs}
+	\RequirePackage{needspace}
+
+	% Define length and some default values
+	\@ifundefined{acacrowidth}{\newlength{\acacrowidth}\setlength{\acacrowidth}{7em}}{}
+	\@ifundefined{acpagewidth}{\newlength{\acpagewidth}\setlength{\acpagewidth}{3em}}{}
+	\@ifundefined{accsepwidth}{\newlength{\accsepwidth}\setlength{\accsepwidth}{1ex}}{}
+	\@ifundefined{acdescwidth}{\newlength{\acdescwidth}}{}
+	\def\accsep{\hspace{\accsepwidth}}
+
+	% Define makro to compute acdescwidth and call it
+	\newcommand{\GlossryComputeAcdescwidth}{
+		\setlength{\acdescwidth}{\textwidth}
+		\addtolength{\acdescwidth}{-\acacrowidth}
+		\addtolength{\acdescwidth}{-\acpagewidth}
+		\addtolength{\acdescwidth}{-4\accsepwidth}}
+	\GlossryComputeAcdescwidth
+
+	% Redefine same names
+	\def\acronymname{Abbreviation}
+	\def\pagelistname{Page}
+
+	%
+	% Glossarystyle: longAcronym
+	%
+	\newglossarystyle{longAcronym}{
+		% Load glossarystyle long3col
+		\xglossaries@setglossarystyle{long3col}
+		% Update theglossary environment
+		\renewenvironment{theglossary}{%
+			\unskip
+			\begin{longtable}{@{\accsep}p{\acacrowidth}@{\accsep}p{\acdescwidth}@{\accsep}p{\acpagewidth}@{\accsep}}\toprule}{
+			\bottomrule\end{longtable}}
+		% have nothing between glossary groups:
+		\renewcommand*{\glsgroupheading}[1]{}%
+		\renewcommand*{\glsgroupskip}{}%
+		% Define how every entry should apear
+		\renewcommand{\glossentry}[2]{%
+			\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}}		&
+			\Glossentrydesc{##1}\glspostdescription										&
+			\hfill ##2\tabularnewline}%
+		}
+
+	%
+	% Glossarystyle: longAcronymNoPage
+	%
+	\newglossarystyle{longAcronymNoPage}{
+		% Load glossarystyle longAcronym
+		\xglossaries@setglossarystyle{longAcronym}
+		% Remove page column
+		\renewenvironment{theglossary}{%
+			\unskip%
+			\addtolength{\acdescwidth}{\acpagewidth}%
+			\addtolength{\acdescwidth}{\accsepwidth}%
+			\begin{longtable}{@{\accsep}p{\acacrowidth}@{\accsep}p{\acdescwidth}@{\accsep}}\toprule}{
+			\bottomrule\end{longtable}}
+		% Define how every entry should apear
+		\renewcommand{\glossentry}[2]{%
+			\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}}		&
+			\Glossentrydesc{##1}\glspostdescription										\tabularnewline}%
+		}
+
+	%
+	% Glossarystyle: longAcronymHeader
+	%
+	\newglossarystyle{longAcronymHeader}{
+		% Load glossarystyle longAcronym
+		\xglossaries@setglossarystyle{longAcronym}
+		% Redefine Header 
+		\renewcommand*{\glossaryheader}{
+			\bfseries\acronymname&\bfseries\descriptionname&\hfill\bfseries\pagelistname\\\midrule\endhead}
+	}
+
+	%
+	% Glossarystyle: longAcronymHeaderNoPage
+	%
+	\newglossarystyle{longAcronymHeaderNoPage}{
+		% Load glossarystyle longAcronymNoPage
+		\xglossaries@setglossarystyle{longAcronymNoPage}
+		% Redefine Header 
+		\renewcommand*{\glossaryheader}{
+			\bfseries\acronymname&\bfseries\descriptionname\\\midrule\endhead}
+	}
+
+
+	%
+	% Glossarystyle: longSymbol
+	%
+	\newglossarystyle{longSymbol}{%
+		% Load glossarystyle longAcronym
+		\xglossaries@setglossarystyle{longAcronym}
+		% Define hwo every entry should apear
+		\renewcommand{\glossentry}[2]{%
+			\glsentryitem{##1}\glstarget{##1}{\glossentrysymbol{##1}} \glsentryunitbrackets{##1}		&
+			\Glossentrydesc{##1}\glspostdescription										&
+			\hfill ##2\tabularnewline}%
+	}
+
+	%
+	% Glossarystyle: longSymbolHeader
+	%
+	\newglossarystyle{longSymbolHeader}{
+		% Load glossarystyle longSymbol
+		\xglossaries@setglossarystyle{longSymbol}
+		% Redefine Header 
+		\renewcommand*{\glossaryheader}{
+			\bfseries\symbolname&\bfseries\descriptionname&\hfill\bfseries\pagelistname\\\midrule\endhead}
+	}
+
+	%
+	% Glossarystyle: longSymbolCats
+	%
+	\newglossarystyle{longSymbolCats}{%
+		% Begin and end of subentry
+		\newcommand*{\glossarsubentrybegin}{%
+			\begin{longtable}{l@{}p{\acacrowidth}@{\accsep}p{\acdescwidth}@{\hspace{3.4pt}}p{\acpagewidth}@{\accsep}}}
+		\newcommand*{\glossarsubentryend}{\vspace{-1.2em}\end{longtable}}
+		
+		% theglossary and glossaryheader dose nothing
+		\renewenvironment{theglossary}{}{\call@glossarsubentryend}
+		\renewcommand*{\glossaryheader}{}%
+			
+		% Command for setting parent as caption
+		\newcommand*{\glossarycaptionparent}[1]{\minisec{##1}}
+			
+		% Define Headline for subentries
+		\newcommand*{\glossarsubentryheader}{%
+			\toprule\endhead%
+			\bottomrule\endfoot}%
+		
+		% Define if to check weather glossarsubentryend must be called or not
+		\newif\ifDoGlossarSubentryEnd
+		\DoGlossarSubentryEndfalse
+		
+		% Functions to capsel subentries
+		\newcommand*{\call@glossarsubentrybegin}{%
+			\DoGlossarSubentryEndtrue%
+			\glossarsubentrybegin%
+			\glossarsubentryheader}
+			
+		\newcommand*{\call@glossarsubentryend}{%
+			\ifDoGlossarSubentryEnd%
+				\glossarsubentryend%
+			\fi}
+		
+		% have nothing between glossary groups:
+		\renewcommand*{\glsgroupheading}[1]{}%
+		\renewcommand*{\glsgroupskip}{}%
+		
+		\renewcommand*{\glossentry}[2]{%
+			\call@glossarsubentryend
+			\pagebreak[3]
+			\needspace{5\baselineskip}
+			\glossarycaptionparent{\glossentryname{##1}} %
+			\call@glossarsubentrybegin}
+		
+		% set how sub-entries appear:		
+		\renewcommand{\subglossentry}[3]{%
+			&\glsentryitem{##2}\glstarget{##2}{\glossentrysymbol{##2}} \glsentryunitbrackets{##2}		&
+			\Glossentrydesc{##2}\glspostdescription										&
+			\hfill ##3\tabularnewline}%
+	}
+
+	%
+	% Glossarystyle: longSymbolHeader
+	%
+	\newglossarystyle{longSymbolCatsHeader}{
+		% Load glossarystyle longSymbol
+		\xglossaries@setglossarystyle{longSymbolCats}
+		% Redefine Header 
+		\renewcommand*{\glossarsubentryheader}{%
+			\toprule%
+			&\bfseries\symbolname&\bfseries\descriptionname&\hfill\bfseries\pagelistname\\\midrule\endhead%
+			\bottomrule\endfoot}
+	}
+
+
+	%
+	% Glossarystyle: indexgroup2col
+	%
+	\RequirePackage{multicol}
+	\newglossarystyle{indexgroup2col}{%
+		% Load glossarystyle indexgroup
+		\xglossaries@setglossarystyle{indexgroup}%
+		% Remember old style
+		\let\x@theglossary\theglossary%
+		\let\x@endtheglossary\endtheglossary%
+		\let\x@glossentry\glossentry%
+		\let\x@indexspace\indexspace%
+		%\meaning\glossentry
+		%\meaning\glspostdescription
+		%\meaning\indexspace
+		% Redefine list to use 2 columns
+		\renewenvironment{theglossary}{%
+			\begin{multicols}{2}%
+			% Make \glossentrydesc do nothing
+			\renewcommand{\glossentrydesc}[1]{}%
+			% Fill with dots
+			\renewcommand{\glspostdescription}{\dotfill}%
+			% Make entry be not formatted
+			\renewcommand{\glstreenamefmt}[1]{####1}%
+			% Don't break after headings
+			\renewcommand{\indexspace}{%
+				\nopagebreak%
+				\x@indexspace%
+				\nopagebreak}%
+			\x@theglossary}{%
+			\x@endtheglossary%
+			\end{multicols}}
+		}
+
+
+\fi
+
+
+%
+% Plural aliases
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifxglossaries@PluralAlias
+
+  % Define \glspluralalias{original key}{plural alias key}
+  \def\glspluralalias#1#2{
+    %plural of #1 may now use #2.\par
+    \expandafter\edef\csname @xglossaries@pluralalias@#2\endcsname{#1}
+  }
+
+  % Define an otion for the \glossentry
+  \define@key{glossentry}{pluralalias}{\glspluralalias{\the\glslabeltok}{#1}}
+
+  % Define command to redefine a shortcut
+  \def\MakePluralAlias#1#2{ %\MakePluralAlias{the shortcut name}{the underlying actual command}
+    \expandafter\renewcommand\expandafter{\csname #1\endcsname}[2][]{%
+      \ifcsname @xglossaries@pluralalias@##2\endcsname%
+        \csname #2pl\endcsname[##1]{\csname @xglossaries@pluralalias@##2\endcsname}%
+      \else%
+        \csname   #2\endcsname[##1]                                 {##2}%
+      \fi%
+    }
+  }
+  
+  % Redefine all the shortcuts
+  \MakePluralAlias{acs} {acrshort}
+ %\MakePluralAlias{acsp}{acrshortpl}
+  \MakePluralAlias{Acs} {Acrshort}
+ %\MakePluralAlias{Acsp}{Acrshortpl}
+  \MakePluralAlias{acl} {acrlong}
+ %\MakePluralAlias{aclp}{acrlongpl}
+  \MakePluralAlias{Acl} {Acrlong}
+ %\MakePluralAlias{Aclp}{Acrlongpl}
+  \MakePluralAlias{acf} {acrfull}
+ %\MakePluralAlias{acfp}{acrfullpl}
+  \MakePluralAlias{Acf} {Acrfull}
+ %\MakePluralAlias{Acfp}{Acrfullpl}
+  \MakePluralAlias{ac}  {gls}
+ %\MakePluralAlias{acp} {glspl}
+  \MakePluralAlias{Ac}  {Gls}
+ %\MakePluralAlias{Acp} {Glspl}
+
+\fi % PluralAlias
+
+
+
+\endinput
+% eof

@@ -1,0 +1,209 @@
+\documentclass{scrartcl}
+
+% Some default packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[ngerman, english]{babel}
+\usepackage[colorlinks=true]{hyperref}
+
+
+% Some packages for this doc
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{%
+	language=[LaTeX]{TeX},
+	basicstyle=\small\ttfamily,
+	commentstyle=\color{black!80!white},
+	showstringspaces=false,
+	keywordstyle=\color{blue}\bfseries,
+	morekeywords={newacronym, glosmanref, ac, newsym, sym, Sym, newsymcat, newsymincat, defaultsymcat}}
+
+
+
+%
+% Title etc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{xGlossaries Package}
+\subtitle{An extension to the glossaries packages}
+\author{Andreas Knoblach}
+
+%
+% Load xglossaries and hack it
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[nomain,shortcuts]{xglossaries}
+
+%
+% Define glossaries
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossary[alg]{acronym}{acr}{acn}{Abbreviations}
+\glosmanref{acronym}
+
+\newglossary[slg]{symbol}{syr}{syn}{Symbols}
+\glosmanref{symbol}
+
+\makeglossaries
+
+
+%
+% Define glossaries entries
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newacronym[manref, pluralalias=TLAs]{TLA}{TLA}{three letter acronym}
+
+\newsymcat{aero}{Aerodynamics}
+\newsymcat{cont}{Control Theory}
+
+\defaultsymcat{aero}
+	\newsymincat[unit={m/s}]{Qhh}{Q_{hh}}{generalized aero}
+	\newsymincat{Qjj}{Q_{jj}}{aero}\symshortcut{Qjj}
+
+\defaultsymcat{cont}
+		\newsymincat{A}{A}{state matrix}\symshortcut[Amat]{A}
+		\newsymincat{B}{B}{input matrix}
+		\newsymincat{C}{C}{output matrix}
+
+%
+% Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\glsaddall
+
+%
+% Title
+%
+\maketitle
+
+%
+% Introduction
+%
+\section{Introduction}
+The \texttt{xgloassries} package provides some useful extensions to the \texttt{glossaries} packages. This documentation explains the additional features only. The basic setup and use of glossaries is explained in the \texttt{glossaries} documentation. It is recommended to read that documentation, too.
+
+%
+% Package Loading and Options
+%
+\section{Package Loading and Options}
+To load the package, use
+\begin{lstlisting}
+\usepackage[Key1=Value1, ...]{xglossaries}
+\end{lstlisting}
+There are three aditonal keys, which are explained below. All other keys are forwared to the \texttt{glossaries} packages.
+
+%
+% Manual Referencing
+%
+\section{Manual Referencing}
+This featurea allows to manually control, to which pages are refered in the gloassary. To deactivate this feature use
+\begin{lstlisting}
+\usepackage[manref=false]{xglossaries}
+\end{lstlisting}
+
+In order to create a gloassry entry, whose referecenc list (in the gloassary packge also refered to as number list), uses the \texttt{manref} key for \texttt{\textbackslash newglossaryentry}, \texttt{\textbackslash newacronym} etc. commands,  e.\,g.
+\begin{lstlisting}
+\newacronym[manref]{TLA}{TLA}{three letter acronym}
+\end{lstlisting}
+To activate the manual referencing for all entries of one glossary, use the \texttt{\textbackslash glosmanref}
+\begin{lstlisting}
+\glosmanref{acronym}
+\end{lstlisting}
+This command has to be called, before entries are defined.
+
+You can use any entry as explained in \texttt{glossaries} documentation using the \texttt{\textbackslash gls} and \texttt{\textbackslash ac} commands. To indicate that a usage shall be referred in the glossaries, use the \texttt{ref} key, e.\,g.
+\begin{lstlisting}
+\ac[ref]{TLA}
+\end{lstlisting}
+for \ac[ref]{TLA}.
+
+%
+% Symbol Tools
+%
+\section{Plural Alias}
+This feature allows to define an alias for the plural of an acronym. To deactivate this feature use
+\begin{lstlisting}
+\usepackage[PluralAlias=false]{xglossaries}
+\end{lstlisting}
+
+The \texttt{glossaries} package provides several commands to create the plural of an acronym, e.\,g. \lstinline!\acp{TLA}! for \acp{TLA}. While this works well in principle, the usage correponds not to the natural language usage. A more inuitive interface would be \lstinline!\acp{TLAs}!. This can be achived using \lstinline!pluralalias! key, e.\,g.:
+\begin{lstlisting}
+\newacronym[manref, pluralalias=TLAs]%
+	{TLA}{TLA}{three letter acronym}
+\end{lstlisting}
+Now, \lstinline!\ac{TLAs}! results in \ac{TLAs}.
+
+
+%
+% Symbol Tools
+%
+\section{Symbol Tools}
+This feature provides some tools for creating a nomenclature using the glossaries package. To deactivate this feature use
+\begin{lstlisting}
+\usepackage[SymbolTools=false]{xglossaries}
+\end{lstlisting}
+
+A command to add new symbols to a glossary \texttt{\textbackslash newsym} is provided:
+\begin{lstlisting}
+\newsym[unit={m/s}]{Qhh}{Q_{hh}}{generalized aero}
+\end{lstlisting}
+The additional key \texttt{unit} is an alias for for the fields \texttt{user1}/\texttt{useri} of a glossary. To refer to a symbol, you can use the command \texttt{\textbackslash sym} and \texttt{\textbackslash Sym}, e.\,g.
+\begin{lstlisting}
+\sym[ref]{Qhh}
+\end{lstlisting}
+for \sym[ref]{Qhh}.
+
+Further more, there you can use \texttt{\textbackslash newsymcat} to create a category for symbols, e.\,g.
+\begin{lstlisting}
+\newsymcat{aero}{Aerodynamics}
+\end{lstlisting}
+To add a symbol to a category use the \texttt{parent} key. Alternatively, use \texttt{\textbackslash newsymincat} to add a symbol to a default category. The default category can be chosen (or changed) by \texttt{\textbackslash defaultsymcat}. This is a complete example:
+\begin{lstlisting}
+% Create categroies
+\newsymcat{aero}{Aerodynamics}
+\newsymcat{cont}{Control Theory}
+
+% Add smbols to aero
+\defaultsymcat{aero}
+	\newsymincat[unit={m/s}]{Qhh}{Q_{hh}}{generalized aero}
+	\newsymincat{Qjj}{Q_{jj}}{aero}
+
+% Add smbols to cont
+\defaultsymcat{cont}
+	\newsymincat{A}{A}{state matrix}
+	\newsymincat{B}{B}{input matrix}
+	\newsymincat{C}{C}{output matrix}
+\end{lstlisting}
+In order to print that glossary, it is highly recommended to use the \texttt{longSymbolCats} glossary style, see next section.
+
+% Create shortcurt
+Finally, you can use \texttt{\textbackslash symshortcut} to creat shortcuts for symbols.
+\begin{lstlisting}
+	\symshortcut{Qjj}%      % Creates \Qjj[#1]=\sym*[#1]{Qjj}
+	\symshortcut[Amat]{A}%  % Creates \Amat[#1] =\sym*[#1]{A}
+\end{lstlisting}
+Additionally a command \texttt{\textbackslash Qjj?} and \texttt{\textbackslash Amat?} is created, which call the non-starred version of \texttt{\textbackslash sym}.
+
+Some tests: \Qjj \Qjj?[ref] \Amat[ref] \Amat?
+
+%
+% Glossary Styles
+%
+\section{Glossary Styles}
+Finally, this package provides some additional glossary styles.  To deactivate this feature use
+\begin{lstlisting}
+\usepackage[DefineStyles=false]{xglossaries}
+\end{lstlisting}
+
+For acronyms, the styles \texttt{longAcronym} and \texttt{longAcronymHeader} are provided:
+
+\bigskip
+\printglossary[type=acronym, style=longAcronymHeader]
+
+For symbols, the styles \texttt{longSymbol} and \texttt{longSymbolHeader} are provided. Additionally, the style \texttt{longSymbolCatsHeader} in combination with the category tools of the preceding section is provided:
+
+\bigskip
+\printglossary[type=symbol, style=longSymbolCatsHeader]
+
+
+\end{document}
+
+

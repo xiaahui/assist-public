@@ -1,0 +1,296 @@
+%
+% This is file `dlrsecondpage.sty',
+% it creates a DLR second page by \secondpage
+%
+%
+% REVISIONS:    2012-06-14 alpha by lind_fr
+%
+% Contact       Frans van der Linden, franciscus.linden@dlr.de
+% Copyright (C) 2008-2012 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+% Package Header
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{dlrsecondpage}
+        [2011/12/08 v0.2 DLR Second page]
+
+%
+% Some extra document info
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\@ifundefined{subject}{     \def\subject#1{\gdef\@subject{#1} }%
+                            \def\@subject{}}{}%
+\@ifundefined{keywords}{    \def\keywords#1{\gdef\@keywords{#1} }%
+                            \def\@keywords{}}{}
+\@ifundefined{restrictions}{\def\restrictions#1{\gdef\@restrictions{#1} }%
+                            \def\@restrictions{}}{}
+\@ifundefined{author}{      \def\author#1{\gdef\@author{#1} }%
+                            \def\@author{}}{}
+\@ifundefined{coauthor}{    \def\coauthor#1{\gdef\@coauthor{#1} }%
+                            \def\@coauthor{}}{}
+\@ifundefined{savedby}{     \def\savedby#1{\gdef\@savedby{#1} }%
+                            \def\@savedby{}}{}      
+\@ifundefined{approvedby}{  \def\approvedby#1{\gdef\@approvedby{#1} }%
+                            \def\@approvedby{}}{}  
+\@ifundefined{releasedby}{  \def\releasedby#1{\gdef\@releasedby{#1} }%
+                            \def\@releasedby{}}{} 
+\@ifundefined{contactname}{ \def\contactname#1{\gdef\@contactname{#1} }%
+                            \def\@contactname{}}{}
+\@ifundefined{telnumber}{   \def\telnumber#1{\gdef\@telnumber{#1} }%
+                            \def\@telnumber{}}{}
+\@ifundefined{faxnumber}{   \def\faxnumber#1{\gdef\@faxnumber{#1} }%
+                            \def\@faxnumber{}}{}      
+\@ifundefined{email}{       \def\email#1{\gdef\@email{#1} }%
+                            \def\@email{}}{}      
+
+
+%
+% Make it available outside the \maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{getdocinfo}
+\getdocinfo{subject}
+\getdocinfo{keywords}
+\getdocinfo{restrictions}
+\getdocinfo{author}
+\getdocinfo{coauthor}
+\getdocinfo{savedby}
+\getdocinfo{approvedby}
+\getdocinfo{releasedby}
+\getdocinfo{contactname}
+\getdocinfo{telnumber}
+\getdocinfo{faxnumber}
+\getdocinfo{email}
+
+
+%
+% An error command to make sure, the contacts are given
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\secondpage@missing#1{
+        \PackageError{dlrsecondpage}
+                     {No \@backslashchar#1 defined}
+                     {Please define it}}
+\author   {\secondpage@missing{author}}
+\telnumber{\secondpage@missing{telnumber}}
+\faxnumber{\secondpage@missing{faxnumber}}
+\email    {\secondpage@missing{email}}
+
+%
+% Provide a language switch according to babel
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtBeginDocument{
+        \@ifpackageloaded{babel}{
+                \let\secondpage@iflanguage\iflanguage}{
+                \def\secondpage@iflanguage#1#2#3{#3}}
+}
+
+%
+% The actual \secondpage command uses commands like \secondpage@german
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\secondpage}{
+        \@ifundefined{languagename}{%                        % If babel is not loaded
+                \secondpage@english%                               % ... use english version
+        }{%                                                  % else
+                \@ifundefined{secondpage@\languagename}{%          % ... if specialized version is not there
+                        \PackageWarning{dlrsecondpage.sty}%                                          % ... ... output a warning and
+                                                                                 {The implementation for the language is missing!}{}%
+                        \secondpage@english%                             % ... ... use english version
+          }{%                                                % ... else
+                \csname secondpage@\languagename\endcsname%      % ... ... use specialized version
+          }%                                                 % ... done.
+        }%                                                   % done.
+}%                                                     % .
+
+%
+% Use dlrinstitutes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{dlrinstitutes}
+
+%
+% Use listofversions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{listofversions}
+
+%
+% Use isodate to print current version's date on title page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\@ifundefined{languagename}{%                        % If babel is not loaded
+        \RequirePackage[english]{isodate}%                 % ... use english version
+}{%                                                  % else
+        \RequirePackage[\languagename]{isodate}%           % ... use localized version
+}%                                                   % .done
+\date{%                                              % Set \date to
+        {%                                             % ... Locally
+                %\show\@tmp                                  %     ... DEBUG: output
+                %\origdate%                                  % ... ... use original date format
+                %\show\@printversion                         %     ... DEBUG: output
+                \renewcommand{\@printversion}[4]{##2}%       % ... ... hack the \@printversion command
+                \edef\@tmp{\@currentversion}%                % ... ... temporary save the current version's date
+                %\show\@tmp                                  %     ... DEBUG: output
+                %\show\empty                                 %     ... DEBUG: output
+                %\show\origdate                              %     ... DEBUG: output
+                %\show\today                                 %     ... DEBUG: output
+                \ifx\@tmp\empty%                             %     ... If \@tmp is empty
+                        \today%                                    %     ... ... just use \today
+                \else%                                       %     ... else
+                                \printdate{\@tmp}%                       % ... ... ... print out the date
+                \fi%                                         % ... ... .done
+                %\show\@tmp                                  %     ... DEBUG: output
+                %\sdfsdfsdf                                  %     ... DEBUG: marker
+        }%                                             % ... .done
+}%                                                   % .done
+
+
+%
+% Use username
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{username}
+\ifusername
+        \savedby{\userdomain\@backslashchar\username}
+\fi
+
+%
+% Use author as default contact
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\contactname{\theauthor}
+
+%
+% Use tabularx
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{tabularx}
+\RequirePackage{longtable,tabu}
+
+%
+% Define some helper commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*\xdotfill{\leavevmode % Better dotfill (as in scr toc; dots are aligne left) [knob_an]
+          \leaders\hbox{$\m@th
+          \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+          mu$}\hfill\kern\z@}
+\newcommand{\DocID}[3]{%
+  \if\relax\detokenize\expandafter{#2}\relax\else%
+    \parbox[t]{12em}{#1\xdotfill} & #2    \tabularnewline%
+    #3%
+  \fi}
+\newcommand{\DocHistory}[3]{%
+  \parbox[t]{12em}{#1\xdotfill} & #2 & #3 \tabularnewline }
+
+%
+% Define output commands for german language
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\secondpage@ngerman}{\secondpage@german}
+\newcommand{\secondpage@german}{
+
+        \edef\deptestA{\INST{department}}
+        \edef\deptestB{}
+
+        \markboth{Dokument-Entwicklung}{Dokument-Identifikation}
+
+        \noindent
+        {\bfseries \DLR{name}} \\
+        \INST{name}            \\
+        \ifx\deptestA\deptestB\else
+        \INST{department}      \\\fi
+        \INST{head}            \\
+        \SITE{street}          \\
+        \SITE{zip}~\SITE{city} \\
+        Tel: \INST{operator}
+        \\[1em]
+        \thecontactname                                    \\
+        Tel: \SITE{prefix}~\SITE{subscriber}-\thetelnumber \\
+        Fax: \SITE{prefix}~\SITE{subscriber}-\thefaxnumber \\
+        E-Mail: \theemail
+        
+        \vspace{3em}\vfill
+        
+        \noindent
+        \textbf{Dokument-Identifikation:}\\[0.5em]
+        \begin{tabularx}{0.95\linewidth}{@{}l>{\raggedright}X}
+                \DocID{Titel                      }{\thetitle         }{}
+                \DocID{Thema                      }{\thesubject       }{}
+                \DocID{Schl\"usselw\"orter        }{\thekeywords      }{}
+                \DocID{Zugangsbeschr\"ankung      }{\therestrictions  }{}
+                \DocID{Author(en)                 }{\theauthor        }{}
+                \DocID{Mit Beitr\"agen von        }{\thecoauthor      }{}
+                \DocID{Dateiname                  }{\jobname.tex      }{}
+                \DocID{Zuletzt gespeichert von    }{\thesavedby       }{}
+                \DocID{Zuletzt gespeichert am     }{\today            }{}
+                \DocID{Gepr\"uft von              }{\theapprovedby    }{
+                \DocID{Unterschrift               }{                  }{}}
+                \DocID{Freigegeben von            }{\thereleasedby    }{
+                \DocID{Unterschrift               }{                  }{}}
+        \end{tabularx}
+
+        \vspace{3em}\vfill
+
+        \def\lov@pre  {\vspace{-2em}\begin{longtabu} to \textwidth {@{}lX{l}r}}
+        \def\lov@entry{\DocHistory{Version \lov@version}{\lov@description}{\lov@date}}
+        \def\lov@post {\end{longtabu}}
+
+        \noindent
+        \textbf{Dokument-Entwicklung:}\nopagebreak\\[0.5em]
+        \listofversions
+        
+        \vfill
+}
+
+%
+% Define output commands for english language
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\secondpage@english}{
+
+        \edef\deptestA{\INST{department}}
+        \edef\deptestB{}
+
+        \markboth{Document History}{Document Identification}
+
+        \noindent
+        {\bfseries \DLR{name}} \\
+        \INST{name}            \\
+        \ifx\deptestA\deptestB\else
+        \INST{department}      \\\fi
+        \INST{head}            \\
+        \SITE{street}          \\
+        \SITE{zip}~\SITE{city} \\
+        Tel: \INST{operator}
+        \\[1em]
+        \thecontactname                                    \\
+        Tel: \SITE{prefix}~\SITE{subscriber}-\thetelnumber \\
+        Fax: \SITE{prefix}~\SITE{subscriber}-\thefaxnumber \\
+        E-Mail: \theemail
+        
+        \vspace{3em}\vfill
+        
+        \noindent
+        \textbf{Document Identification:}\\[0.5em]
+        \begin{tabularx}{0.95\linewidth}{@{}l>{\raggedright}X}
+                \DocID{Title                      }{\thetitle         }{}
+                \DocID{Subject                    }{\thesubject       }{}
+                \DocID{Keywords                   }{\thekeywords      }{}
+                \DocID{Access restriction         }{\therestrictions  }{}
+                \DocID{Author(s)                  }{\theauthor        }{}
+                \DocID{With contributions by      }{\thecoauthor      }{}
+                \DocID{Filename                   }{\jobname.tex      }{}
+                \DocID{Last saved by              }{\thesavedby       }{}
+                \DocID{Last saved on              }{\today            }{}
+                \DocID{Approved by                }{\theapprovedby    }{
+                \DocID{Signature                  }{                  }{}}
+                \DocID{Released by                }{\thereleasedby    }{
+                \DocID{Signature                  }{                  }{}}
+        \end{tabularx}
+
+        \vspace{3em}\vfill
+
+        \def\lov@pre  {\vspace{-2em}\begin{longtabu} to \textwidth {@{}lX{l}r}}
+        \def\lov@entry{\DocHistory{Version \lov@version}{\lov@description}{\lov@date}}
+        \def\lov@post {\end{longtabu}}
+
+        \noindent%
+        \def\compare@empty{}%
+        \ifx\@listofversions\compare@empty\else%
+                \textbf{Document History:}\nopagebreak\\[0.5em]%
+                \listofversions%
+        \fi%
+        
+        \vfill
+}
+

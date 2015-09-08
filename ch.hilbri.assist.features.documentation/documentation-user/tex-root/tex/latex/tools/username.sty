@@ -1,0 +1,83 @@
+%
+% This is file `username.sty',
+% - it provides \userdomain with the userdomain environment variable
+% - it provides \ifuserdomain to test, whether the userdomain has been successfully determined
+% - it provides \username   with the username   environment variable
+% - it provides \ifusername to test, whether the username has been successfully determined
+
+%
+% PACKAGE HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{username}
+        [2012/06/25 v0.1 username package]
+
+%
+% Make the commands also work on network drives
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{external-base}
+
+%
+% A command to get rid of a trailing space
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\def\@despace#1 #2\\{#1}
+\def\@despace#1 \\{#1}
+
+%
+% Read username
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\ifuserdomain
+\newif\ifusername
+\def\readusername{%                                   % Define \readusername to ...
+	\begingroup%                                        % ... Locally
+		\catcode`\_=12%                                   % ... ... Make _ a regular letter
+		\catcode`\\=12%                                   % ... ... Make \ a regular letter
+		\immediate\newwrite\userlogdefault%               % ... ... Create a dummy file...
+		\immediate\openout\userlogdefault=\jobname.user.adi%... ... ... in the usual location
+		\immediate\write\userlogdefault{DUMMYDOMAIN }%    % ... ... ... with a dummy domain line
+		\immediate\write\userlogdefault{DUMMYUSER }%      % ... ... ... and a dummy user line
+		\immediate\closeout\userlogdefault%               % ... ... .done
+		\execute{echo \@percentchar userdomain\@percentchar >  \jobname.user.adi}% ... Output the userdomain environment variable to a file
+		\execute{echo \@percentchar username\@percentchar   >> \jobname.user.adi}% ... Output the username environment variable to a file
+		\newread\userlog%                                 % ... ... Define a new file handle
+		\openin\userlog=\jobname.user.adi\relax%          % ... ... Open the temporary file and do it now
+		\ifeof\userlog                                    % ... ... If end of file
+			\def\userdomain{DOMAIN }%                       % ... ... ... Return default domain
+			\global\userdomainfalse%                        % ... ... ... Set \ifuserdoamin to false
+		\else%                                            % ... ... else
+			\read\userlog to \userdomain%                   % ... ... ... Read in the userdomain
+			\global\userdomaintrue%                         % ... ... ... Set \ifuserdoamin to true
+		\fi%                                              % ... ... .done
+		\ifeof\userlog                                    % ... ... If end of file
+			\def\username{USER }%                           % ... ... ... Return default user
+			\global\usernamefalse%                          % ... ... ... Set \ifusername to false
+		\else%                                            % ... ... else
+			\read\userlog to \username%                     % ... ... ... Read in the username
+			\global\usernametrue%                           % ... ... ... Set \ifusername to true
+		\fi%                                              % ... ... .done
+		\closein\userlog%                                 % ... ... Close the temporary file
+		%\show\userdomain%                                % ... ... Debug output the userdomain
+		%\show\username%                                  % ... ... Debug output the username
+		\global\edef\userdomain{%                         % ... ... Globally define \userdomain
+			\expandafter\@despace\userdomain\\}%           % ... ... ... without trailing space
+		\global\edef\username{%                           % ... ... Globally define \username
+			\expandafter\@despace\username\\}%             % ... ... ... without trailing space
+		%\show\userdomain%                                % ... ... Debug output the userdomain
+		%\show\username%                                  % ... ... Debug output the username
+		%\execute{del \jobname.user.adi}%                 % ... ... Delete the temporary file
+	\endgroup%                                          % ... .done
+}%                                                    % .done
+\readusername%                                        % Actually read the username
+%\show\ifusername
+
+% Detect dummy lines
+\def\dummy@domain{DUMMYDOMAIN}
+\ifx\dummy@domain\userdomain
+  \userdomainfalse
+\fi
+\def\dummy@domain{DUMMYUSER}
+\ifx\dummy@domain\username
+  \usernamefalse
+\fi
+
+\endinput
+

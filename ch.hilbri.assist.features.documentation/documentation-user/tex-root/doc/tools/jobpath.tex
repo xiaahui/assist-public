@@ -1,0 +1,50 @@
+\documentclass{article}
+
+% The package
+\usepackage{jobpath}
+\usepackage{url}
+
+% Code listings
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{language=TeX, 
+        %keepspaces=false,
+        breaklines=false,
+        commentstyle=\color{gray},
+        identifierstyle=\color{blue}}
+
+% Meta info
+\title{The jobpath package}
+\author{Andreas Kl\"ockner}
+
+% Begin document
+\begin{document}
+  \maketitle
+
+% Usage
+\section{Usage}
+Simply load the package via \lstinline!\usepackage{jobpath}!. It will then provide the following commands.
+
+\begin{itemize}
+	\item \lstinline!\jobpath! to include only the path:\\
+	      \expandafter\url\expandafter{\jobpath}
+	\item \lstinline!\jobpathname! to include the main input file together with with its path:\\
+	      \expandafter\url\expandafter{\jobpathname}
+	\item \lstinline!\jobpathfile! to include the main input file:\\
+	      \expandafter\url\expandafter{\jobpathfile}
+\end{itemize}
+
+Be aware, that \lstinline!\jobpathfile! may differ from \lstinline!\jobname!, if you use the \lstinline!jobname! option on \lstinline!latex! executable.
+
+\section{Source}
+This is an adaptation of David Carlisle's code from:
+\begin{verbatim}
+% From: David Carlisle <carli...@ma.man.ac.uk>
+% Newsgroups: comp.text.tex
+% Subject: Re: Does TeX know the name of the file currently being processed?
+% Date: 09 Feb 1996 14:28:53 +0000
+% Organization: Manchester University Mathematics Department
+\end{verbatim}
+
+
+\end{document}

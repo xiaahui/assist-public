@@ -1,0 +1,37 @@
+% This is file `dlrinstitutes_instFA-VPT.sty', which 
+% is a rewrite of `dlrinstitutes_instAS-RF.sty',
+% rewritten from `dlrinstitutes_instRMC-SR.sty'.
+% it defines the DLR institute FA-ADA
+%
+%
+%
+% Check, if dlrinstitutes is loaded
+\ifx\dlrinstitutes@loaded\undefined%
+	\PackageWarningNoLine{dlrinstitutes}{Loading data file without package dlrinstitutes}%
+\fi%
+%
+% Load default site definition
+\dlrinstitutes@def         {site}        {BS}%
+%
+% Define default (english) data fields
+\dlrinstitutes@def         {abbreviation}{FA-ADA}%
+\dlrinstitutes@def         {name}        {Inst. of Composite Structures and Adaptive Systems}% Hier habe ich Institute abgekürzt, sonst passt der Kram nicht in die Zeile
+\dlrinstitutes@def         {department}  {Department Adaptive Systems}%
+\dlrinstitutes@def         {head}        {Dr. Hans Peter Monner}%
+\dlrinstitutes@def         {operator}    {2314}%
+\dlrinstitutes@def         {fax}         {2876}%
+\dlrinstitutes@def         {url}         {http://www.dlr.de/fa}%
+%
+% Override language specific data fields (ngerman)
+\dlrinstitutes@def[ngerman]{name}        {Institut f\"ur Faserverbundleichtbau und Adaptronik}%
+\dlrinstitutes@def[ngerman]{department}  {Abteilung Adaptronik}%
+\dlrinstitutes@def[ngerman]{url}         {http://www.dlr.de/fa}%
+
+
+% Override language specific data fields (ngerman)
+\dlrinstitutes@def[german]{name}        {Institut f\"ur Faserverbundleichtbau und Adaptronik}%
+\dlrinstitutes@def[german]{department}  {Abteilung Adaptronik}%
+\dlrinstitutes@def[german]{url}         {http://www.dlr.de/fa}%
+
+%
+%

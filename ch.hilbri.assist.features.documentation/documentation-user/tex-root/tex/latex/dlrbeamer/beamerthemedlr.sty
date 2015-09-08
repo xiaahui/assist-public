@@ -1,0 +1,27 @@
+%
+% This is file `beamerthemedlr.sty',
+% it includes style sheets for a DLR beamer template.
+%
+%
+% REVISIONS:    2012-02-27 initial release (knob_an)
+%               2012-03-22 changed to 2012 version (knob_an)
+%               
+% Contact       Andreas Knoblach,  Andreas.Knoblach@dlr.de
+% Copyright (C) 2012 DLR Robotics and Mechatronics              __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+%
+% Use current beamer theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOptionBeamer{professionalfonts}[true]{\PassOptionsToPackage{professionalfonts=#1}{beamerthemedlr_2012}}
+\DeclareOptionBeamer{helvetica}[true]{\PassOptionsToPackage{helvetica=#1}{beamerthemedlr_2012}}
+\DeclareOptionBeamer{beamertools}{\PassOptionsToPackage{beamertools={#1}}{beamerthemedlr_2012}}
+\DeclareOptionBeamer{nobeamertools}[true]{\PassOptionsToPackage{nobeamertools={#1}}{beamerthemedlr_2012}}
+\ProcessOptionsBeamer
+\usetheme{dlr_2012}
+
+
+\endinput
+
+% eof

@@ -1,0 +1,327 @@
+%
+% This is file `external-inkscape.sty',
+% it includes commands to import SVG images via inkscape export.
+%
+% It provides the following options:
+%   path:
+%     Sets the path to the inkscape executable
+%   process=all/none/auto:
+%     Forces/suppresses/automates all conversions
+%
+% It provides the following commands:
+%   \includesvg[options]{filename}:
+%     Works just like \includegraphics{filename}.
+%   \includesvg*
+%     Forces conversion of the SVG file.
+%   \includesvg!
+%     Suppresses conversion of the SVG file.
+%
+% REVISIONS:    2010-07-07 developped  Johan B. C. Engelen <goejendaagh@zonnet.nl>
+%                                      http://www.ctan.org/tex-archive/info/svg-inkscape
+%               2011-11-02 packaged by Andreas Klöckner <andreas.kloeckner@dlr.de>
+%               2011-11-03 added size options
+%               2011-11-03 added path and process options
+%               2011-12-14 moved some commands to external-base, interchanged * and ! variants
+%               2012-02-29 umlaut support in utf8x encoding of inkscape
+%               2012-02-29 UNC path support
+%               2012-03-06 Added EPS support. You must run your document through pdflatex first or create the files yourself...
+%               2012-03-19 Use standard UTF8 encoding instead of ucs package for compatibility with biblatex
+%               2012-04-27 Add support for underscores in SVG
+%               2012-09-27 Fixed catcode bug
+%               2012-10-11 Use external-config
+%
+% TODO: make line breaks possible
+%       make different text align possible
+%               
+% Contact       Andreas Klöckner,  Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2012 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+%
+% PACKAGE HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{external-inkscape}
+        [2012/10/11 v0.3 Inkscape import hacks]
+
+%
+% REQUIRED PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{external-base}   % Basic tools for external commands
+\RequirePackage{external-config} % Allow for external configuration file
+\RequirePackage{graphicx}        % Allow inclusion of images
+\AtBeginDocument{                % Relay for option clash...
+  \RequirePackage{xcolor}}       % ... Allow for color in images
+\RequirePackage{import}          % Allow for sub-folders per \subimport
+\RequirePackage{xkeyval}         % Allow key value pairs
+\RequirePackage{calc}            % To calculate the actual dimensions
+\RequirePackage{suffix}          % To declare * and ! variants of commands
+
+%
+% SETUP OF CHARACTER TABLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load inputenc with default encoding, if not loaded
+\@ifpackageloaded{inputenc}{
+  \RequirePackage{inputenc}      % Check that package provides
+                 [2006/02/22]    % ... \inputencodingname command
+}{
+  \RequirePackage[utf8]       % Load default input encoding
+                 {luainputenc}      % ...and check that package provides
+                 [2006/02/22]    % ... \inputencodingname command
+}
+
+% Set up UTF8 character tables
+\AtBeginDocument{              % At the end of the preamble:
+  \edef\initialencoding{\inputencodingname}% % 1a. Save current input encoding
+  \xdef\the@code{\the\catcode`\@}%           % 1b. Save the at catcode. Seems to get broken in ansinew?!
+  %\show\theatcode%                          % DEBUG
+  \inputencoding{utf8}%                      % 2. Load utf8 character tables
+  \inputencoding{\initialencoding}%          % 3a. Change back input encoding
+  \catcode`\@=\the@code%                     % 3b. Restore @ catcode
+}
+
+%
+% AUXILIARY COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Let the user define the path to inkscape
+\newcommand{\PathToInkscape}[1]{\def\inksc@pe{#1}}
+
+%
+% INTERNAL COMMANDS: This requires InkScape version >= 0.48!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create a command to include an SVG image and automatically process it
+
+% Options for ghostscript
+\def\inkscape@gs@exe{C:/Program Files/gs/gs9.14/bin/gswin64c.exe}
+\expandafter\FStoBS\expandafter{\inkscape@gs@exe}
+\let\inkscape@gs@exe\@noFS
+\def\inkscape@gs@opt{-dSAFER -dNOPLATFONTS -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4  -dColorConversionStrategy=/sRGB -dProcessColorModel=/DeviceRGB}
+\def\inkscape@gs@opt{-sDEVICE=pdfwrite  -dCompatibilityLevel=1.5 }
+% -sOutputFile="LibraryOverview.pdf" -f "LibraryOverview.pdf"
+   %\string&                                                         % ... & ...
+   %"\inkscape@gs@exe" \inkscape@gs@opt \space                       % ... call ghostscript to remove
+   %  -sOutputFile="\filename@noFS.pdf" -f "\filename@noFS_tmp.pdf"  % ... multiple page groups
+
+% Default option for Inkscape
+\def\includesvg@options{
+  -z                                             \space % no GUI
+  \ifincludesvgnopdftex\else --export-latex \fi  \space % Only pdf_tex if not suppressed
+  -D                                                    % -D = export drawing (page: -C)
+}
+
+% Call string to inkscape
+\newcommand{\call@inkscape}               % Use command \call@inkscape{file} to
+  {"\inksc@pe"              \includesvg@options\space               % ... call InkScape with options to ...
+                     --file=\filename@noFS.svg                      % ... load the svg file and ...
+               --export-pdf=\filename@noFS_tmp.pdf                  % ... create a PDF file!
+               1>nul 2>nul%                                         % ... suppress output
+   \ifincludesvgnopdftex                                            % ... if no pdf_tex is generated
+   \string&                                                         % ... & ...
+    echo \string\begingroup\@percentchar%                           % ... \begingroup
+        >  "\filename@noFS_tmp.pdf_tex"                             % ... => pdf_tex
+   \string&                                                         % ... & ...
+    echo \string\ifx\string\svgwidth\string\undefined\@percentchar% % ... \ifx\svgwidth\undefined
+        >> "\filename@noFS_tmp.pdf_tex"                             % ... => pdf_tex
+   \string&                                                         % ... & ...
+    echo \string\setlength\string{\string\unitlength\string}\string{5cm\string}\@percentchar% defalt \svgwidth
+        >> "\filename@noFS_tmp.pdf_tex"                             % ... => pdf_tex
+   \string&                                                         % ... & ...
+    echo \string\else\@percentchar%                                 % ... \else
+        >> "\filename@noFS_tmp.pdf_tex"                             % ... => pdf_tex
+   \string&                                                         % ... & ...
+    echo \string\setlength\string{\string\unitlength\string}\string{\string\svgwidth\string}\@percentchar% the \svgwidth
+        >> "\filename@noFS_tmp.pdf_tex"                             % ... => pdf_tex
+   \string&                                                         % ... & ...
+    echo \string\fi\@percentchar%                                   % ... \fi
+        >> "\filename@noFS_tmp.pdf_tex"                             % ... => pdf_tex
+   \string&                                                         % ... & ...
+    echo \string\global\string\let\string\svgwidth\string\undefined\@percentchar%  delete \svgwidth
+        >> "\filename@noFS_tmp.pdf_tex"                             % ... => pdf_tex
+   \string&                                                         % ... & ...
+    echo \string\includegraphics[width=\string\unitlength]\string{\filename@base_tmp.pdf\string}\@percentchar% read image
+        >> "\filename@noFS_tmp.pdf_tex"                             % ... => pdf_tex
+   \string&                                                         % ... & ...
+    echo \string\endgroup\@percentchar%                             % ... \endgroup
+        >> "\filename@noFS_tmp.pdf_tex"                             % ... => pdf_tex
+   \fi                                                              % ... \fi
+   \string&                                                         % ... & ...
+   pdf2ps  "\filename@noFS_tmp.pdf" "\filename@noFS.eps"            % ... create an EPS, too (direct export is always the full page)
+   \string&                                                         % ... & ...
+   ps2pdf  "\filename@noFS.eps"     "\filename@noFS.pdf"            % ... convert the eps to a pdf (remove "multiple page groups")
+   \string&                                                         % ... & ...
+   @echo off \string&                                               % ... DEBUG: switch off echo
+   echo \@percentchar Modified by external-inkscape...              % ... Echo some remark
+        > "\filename@noFS.pdf_tex"                                  % ... ... into the new pdf_tex
+   \string&                                                         % ... & ...
+   @echo off \string&                                               % ... DEBUG: switch off echo
+   (for /F "delims=" \@percentchar a in (\filename@noFS_tmp.pdf_tex)% ... Iterate the pdf_tex file to ...
+   do (set "line=\@percentchar a" \string&                          % ... ... read a line ...
+       set line=!line:\filename@base_tmp.pdf=\filename@base! \string&%... ... exchange the file name *.pdf to * ...
+       echo !line! >> "\filename@noFS.pdf_tex" ))                   % ... ... Write out the file again!
+   \string&                                                         % ... & ...
+   del "\filename@noFS_tmp.pdf_tex"                                 % ... delete tmp.pdf_tex
+   \string&                                                         % ... & ...
+   del "\filename@noFS_tmp.pdf"                                     % ... delete tmp.pdf
+}                                         % done with the command
+
+% Internal commands for process=all/none/auto
+\newcommand{\o@includesvg@all}[2]{%       % Define an internal command to ...
+  \setkeys*{includesvg1}{#1}%                        % ... parse primary key-value pairs (e.g. changecatcodes)
+  \def\filename@all{#2}%                             % ... Store the filename
+  \filename@parse{#2}%                               % ... Parse the filename
+  \FStoBS{#2}\let\filename@noFS\@noFS%               % ... Replace / by \
+  {\execute{\call@inkscape}}%                        % ... Do the inkscape processing.
+  \@computesvg{#1}%                                  % ... Do some calculations.
+  \@includesvg}%                                     % ... Do the actual inclusion.
+\newcommand{\o@includesvg@none}[2]{%      % Define an internal command to ...
+  \setkeys*{includesvg1}{#1}%                        % ... parse primary key-value pairs (e.g. changecatcodes)
+  \def\filename@all{#2}%                             % ... Store the filename
+  \filename@parse{#2}%                               % ... Parse the filename
+  \FStoBS{#2}\let\filename@noFS\@noFS%               % ... Replace / by \
+  \@computesvg{#1}%                                  % ... Do some calculations.
+  \@includesvg}%                                     % ... Do the actual inclusion.
+\newcommand{\o@includesvg@auto}[2]{%      % Define an internal command to ...
+  \setkeys*{includesvg1}{#1}%                        % ... parse primary key-value pairs (e.g. changecatcodes)
+  \def\filename@all{#2}%                             % ... Store the filename
+  \filename@parse{#2}%                               % ... Parse the filename
+  \FStoBS{#2}\let\filename@noFS\@noFS%               % ... Replace / by \
+  \@processsvg%                                      % ... Do the inkscape processing.
+  \@computesvg{#1}%                                  % ... Do some calculations.
+  \@includesvg}%                                     % ... Do the actual inclusion.
+
+% Internal command for conditional processing
+\newcommand{\@processsvg}{%               % Define an internal command to ...
+  \executeiffilenewer%                               % ... compare 
+    {\filename@all.svg}%                             % ... ... svg 
+    {\filename@all.pdf}%                             % ... ... against pdf and ...
+    {\call@inkscape}}%                               % ... run the inkscape command.
+
+% Internal lengths for the original picture size
+\newlength{\o@svgwidth}  % The original width of the picture
+\newlength{\o@svgheight} % The original height of the picture
+
+% Internal command for size computations
+\newcommand{\@computesvg}[1]{%            % Define an internal command to ...
+  \settowidth {\o@svgwidth} {\@includesvg}%          % ... retrieve original size of picture
+  \settoheight{\o@svgheight}{\@includesvg}%          % ... retrieve original size of picture
+  \newlength{\svgwidth}%                             % ... create the \svgwidth length
+  \setlength{\svgwidth}{\o@svgwidth}%                % ... set default \svgwidth 
+  %\the\svgwidth%                                    % ... DEBUG
+  \setrmkeys{includesvg2}%                           % ... parse remaining key-value pairs and assign the \svgwidth
+  %\the\svgwidth%                                    % ... DEBUG
+}
+
+% Internal command for catcode changing
+\newcommand{\@changecatcodes}{%           % Define an internal command to ...
+  \catcode`\_=12%                                    % ... import underscores correctly
+  \catcode`\&=12%                                    % ... import ampersand correctly
+  \catcode`\$=12}%                                   % ... import dollar sign correctly
+
+% Internal command for catcode switching
+\newcommand{\@ifchangecatcodes}{%         % Define an internal command to ...
+    %\show\ifincludesvgchangecatcodes%               % ... debug output
+    \ifincludesvgchangecatcodes%                     % ... if inkscapechangecatcodes=true was passed
+      \@changecatcodes%                              % ... ... change catcodes
+    \fi%                                             % ... .done
+    %\show\ifinkscapechangecatcodes%                 % ... debug output
+    \ifinkscapechangecatcodes%                       % ... if inkscapechangecatcodes=true was passed
+      \@changecatcodes%                              % ... ... change catcodes
+    \fi}%                                            % ... .done
+
+% Internal command for svg inclusion
+\newcommand{\@includesvg}{%               % Define an internal command to ...
+  \let\o@picture\picture%                            % ... store the old picture environment
+  \def\picture{%                                     % ... renew the picture environment
+    \unskip\unskip\unskip\unskip\unskip\o@picture}%  % ... ... to unskip silly spaces
+  \begingroup%                                       % ... begin a group for inputenc and catcodes
+    \inputencoding{utf8}%                            % ... ... use utf8 input encoding
+    \@ifchangecatcodes%                              % ... ... change catcodes if necessary
+    \subimport{\filename@area}%                      % ... ... import from a possible subdirectory
+              {\filename@base.pdf_tex}%              % ... ... the actual pdf_tex file
+    \gdef\UTFviii@two@octets##1{##1}%                % ... ... repair UTF remainders
+    \gdef\UTFviii@three@octets##1{##1}%              % ... ... repair UTF remainders
+    \gdef\UTFviii@four@octets##1{##1}%               % ... ... repair UTF remainders
+  \endgroup%                                         % ... close the utf8x group
+  \let\picture\o@picture}%                           % ... and restore the original picture environment
+
+%
+% USER COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create a command to include an SVG image and automatically process it
+
+% These are the main commands to be used by the user
+           \newcommand\includesvg [2][scale=1]{\@includesvg@auto{#1}{#2}}
+\WithSuffix\newcommand\includesvg*[2][scale=1]{\@includesvg@all {#1}{#2}}
+\WithSuffix\newcommand\includesvg![2][scale=1]{\@includesvg@none{#1}{#2}}
+
+% Define options to the \includesvg command to fill these lengths
+\define@cmdkey {includesvg1}[includesvg@]{options}             {} % Define options for inkscape, e.g. -C = page region, -D = drawing region
+\define@boolkey{includesvg1}[includesvg] {changecatcodes}[true]{} % Creates \ifincludesvgchangecatcodes. Initially: \iffalse
+\define@boolkey{includesvg1}[includesvg] {createpdf}     [true]{} % Creates \ifincludesvgcreatepdf. Initially: \iffalse
+\define@boolkey{includesvg1}[includesvg] {nopdftex}      [true]{} % Creates \ifincludesvgnopdftex. Initially: \iffalse
+\define@key    {includesvg2}             {width}               {\setlength{\svgwidth}{#1}}
+\define@key    {includesvg2}             {scale}               {\setlength{\svgwidth}{#1\o@svgwidth}}
+\define@key    {includesvg2}             {height}              {\setlength{\svgwidth}{#1*\ratio{\o@svgwidth}{\o@svgheight}}}
+
+%
+% PACKAGE OPTIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Let the user define the path to inkscape
+\define@key{external-inkscape.sty}{path}{\PathToInkscape{#1}}
+\ExecuteOptionsX{path=inkscape}
+
+% Define a process=auto/all/none option
+\define@choicekey*{external-inkscape.sty}{process}   % Case-unsensitive option to ...
+  [\inkscpae@process@string\inkscape@process@choice] % ... save the option as a string and a number
+  {all,none,auto}{                                   % ... and allow only these values
+    \ifcase\inkscape@process@choice\relax%           % Check for process=all ...
+      \let\@includesvg@all \o@includesvg@all%        % ... and set all internal command to all
+      \let\@includesvg@none\o@includesvg@all%        % ... and set all internal command to all
+      \let\@includesvg@auto\o@includesvg@all%        % ... and set all internal command to all
+    \or%                                             % Check for process=none ...
+      \let\@includesvg@all \o@includesvg@none%       % ... and set all internal command to none
+      \let\@includesvg@none\o@includesvg@none%       % ... and set all internal command to none
+      \let\@includesvg@auto\o@includesvg@none%       % ... and set all internal command to none
+    \or%                                             % Check for process=auto ...
+      \let\@includesvg@all \o@includesvg@all%        % ... and set all internal command to correct subroutine
+      \let\@includesvg@none\o@includesvg@none%       % ... and set all internal command to correct subroutine
+      \let\@includesvg@auto\o@includesvg@auto%       % ... and set all internal command to correct subroutine
+    \fi}%                                            % Done checking.
+\ExecuteOptionsX{process=auto}                       % Default is automatic processing
+
+% Define a boolean key for enabling direct import of special characters
+\define@boolkey{external-inkscape.sty}[inkscape]{changecatcodes}[true]{} % Creates \ifinkscapechangecatcodes. Initially: \iffalse
+
+% Define a boolean key for enabling intermediate PDF creation
+\define@boolkey{external-inkscape.sty}[inkscape]{createpdf}     [true]{} % Creates \ifinkscapecreatepdf. Initially: \iffalse
+
+% Warn for undefined options
+\DeclareOptionX*{%
+  \PackageWarningNoLine{external-inkscape}{Unknown option `\CurrentOption'}}
+
+% Read the config file
+\get@config{external-inkscape}
+
+% Process options and do it now
+\ProcessOptionsX\relax
+
+
+%\let \origdocument \document 
+%\let \EndPreamble \endinput 
+%\def \document {\endgroup \endinput }
+%\input {XMF_tmp_doc_test_20130513-134437}
+%\usepackage [active,tightpage]{preview}
+%\let \document \origdocument 
+%\pagestyle {empty}
+%\begin {document}
+%\centering \null \vfill 
+%\begin {preview}
+%\csname @input\endcsname {Gear_Contact_Velocity.pdf_tex}
+%%\includegraphics [] {test}
+%\end {preview}
+%\vfill \end {document}
+
+
+
+

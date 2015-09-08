@@ -1,0 +1,46 @@
+\documentclass{article}
+
+% Code listings
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{language=TeX,
+        basicstyle=\ttfamily,
+        %keepspaces=false,
+        breaklines=false,
+        commentstyle=\color{gray},
+        identifierstyle=\color{blue}}
+
+% The actual package
+\usepackage{pdftools}
+\usepackage[colorlinks=true]{hyperref}
+
+% Meta info
+\title{The pdftools package}
+\author{Andreas Kl\"ockner}
+
+% Begin document
+\begin{document}
+  \maketitle
+
+% Usage
+\section{Usage}
+Simply load the package via \lstinline!\usepackage{pdftools}!. It will then issue a command at the end of the compilation process to remove textual information from your document. This is intended to protect it from being copied. This package is in an alpha status, so be aware of changes to it!
+
+\section{Settings paths}
+This package relies heavily on external software. The software is called using the \lstinline!external-base! package. For each external software, the paths need to be known to the package. If the program is on the path, it is found automatically and no change is needed. If not so, please use one of the following commands to set it appropriately:
+\begin{itemize}
+	\item \lstinline!\PathToGS{path/to/gs.exe}! to set the ghostscript path.\\
+	      GhostScript should be provided with your \LaTeX~installation.
+	\item \lstinline!\PathToTiffPDF{path/to/tiff2pdf.exe}! for the \lstinline!tiff2pdf! program.\\
+	      The software is available on the web: http://www.remotesensing.org/libtiff/.
+\end{itemize}
+
+You can also use the configuration file \lstinline!external-config.conf! to store all your settings. The package uses the \lstinline!external-config! package for this funtionality. Please refer to its documentation for more information. Adjust the following example to get started:\\\\
+\lstinline!\set@config{pdftools}{\PathToGS{path/to/gs.exe}}!\\
+\lstinline!\set@config{pdftools}{\PathToTiffPDF{path/to/tiff2pdf.exe}}!
+
+
+\section{Example}
+The file \href{run:./pdftools.pdftools.pdf}{pdftools.pdftools.pdf} is a copy of this documentation without text...
+
+\end{document}

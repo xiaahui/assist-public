@@ -1,0 +1,30 @@
+%
+% This is file `dlrinstitutes_DLR.sty',
+% it defines the DLR wide data fields.
+%
+%
+% REVISIONS:    2012-06-14 alpha by kloe_ad
+%
+% Contact       Andreas Klöckner, Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2012 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+%
+% Check, if dlrinstitutes is loaded
+\ifx\dlrinstitutes@loaded\undefined%
+	\PackageWarningNoLine{dlrinstitutes}{Loading data file without package dlrinstitutes}%
+\fi%
+%
+% Define default (english) data fields
+\dlrinstitutes@def         {abbreviation}{DLR}%
+\dlrinstitutes@def         {name}        {DLR German Aerospace Center}%
+\dlrinstitutes@def         {url}         {www.dlr.de/en}%
+%
+% Override language specific data fields (ngerman)
+\dlrinstitutes@def[ngerman]{name}        {Deutsches Zentrum f\"ur Luft- und Raumfahrt e.V.}%
+\dlrinstitutes@def[ngerman]{url}         {www.dlr.de/}%
+%
+% Override language specific data fields (german)
+\dlrinstitutes@def[german] {name}        {Deutsches Zentrum f\"ur Luft- und Raumfahrt e.V.}%
+\dlrinstitutes@def[german] {url}         {www.dlr.de/}%
+%

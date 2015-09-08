@@ -1,0 +1,38 @@
+%
+% This is file `dlrinstitutes_instRMC.sty',
+% it defines the DLR institute RMC.
+%
+%
+% REVISIONS:    2012-06-14 alpha by kloe_ad
+%
+% Contact       Andreas Klöckner, Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2012 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+%
+% Check, if dlrinstitutes is loaded
+\ifx\dlrinstitutes@loaded\undefined%
+        \PackageWarningNoLine{dlrinstitutes}{Loading data file without package dlrinstitutes}%
+\fi%
+%
+%
+% Load default site definition
+\dlrinstitutes@def         {site}        {BS}%
+%
+% Define default (english) data fields
+\dlrinstitutes@def         {abbreviation}{TS}%
+\dlrinstitutes@def         {name}        {Institute of Transportation Systems}%
+\dlrinstitutes@def         {department}  {}%
+\dlrinstitutes@def         {head}        {Prof. Dr. Karsten Lemmer}%
+\dlrinstitutes@def         {operator}    {+49~531~295-3401}%
+\dlrinstitutes@def         {fax}         {+49~531~295~3402}%
+\dlrinstitutes@def         {url}         {http://www.dlr.de/ts/en}%
+%
+% Override language specific data fields (ngerman)
+\dlrinstitutes@def[ngerman]{name}        {Institut für Verkehrssystemtechnik}%
+\dlrinstitutes@def[ngerman]{url}         {http://www.dlr.de/ts}%
+%
+% Override language specific data fields (german)
+\dlrinstitutes@def[german] {name}        {Institut für Verkehrssystemtechnik}%
+\dlrinstitutes@def[german] {url}         {http://www.dlr.de/ts}%
+%

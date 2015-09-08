@@ -1,0 +1,160 @@
+%
+% This is file `external-inkscape.sty',
+% it includes commands to import SVG images via inkscape export.
+%
+% It provides the following options:
+%   path:
+%     Sets the path to the matlab executable
+%   process=all/none/auto:
+%     Forces/suppresses/automates all conversions
+%
+% It provides the following commands:
+%   \includefig[options]{filename}:
+%     Works just like \includegraphics{filename}.
+%   \includefig*
+%     Forces conversion of the FIG file.
+%   \includefig!
+%     Suppresses conversion of the FIG file.
+%
+% REVISIONS:    2011-12-14 adapted external-inkscape package
+%               2012-03-06 Added UNC path support as well as smaller bug fix
+%               2012-10-11 Use external-config
+%               
+% Contact       Andreas Klöckner,  Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2011 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+%
+% PACKAGE HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{external-matlab}
+        [2011/10/11 v0.1 Matlab import hacks]
+
+%
+% REQUIRED PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{external-base}   % Basic tools for external commands
+\RequirePackage{external-config} % Allow for external configuration file
+\RequirePackage{xkeyval}         % Allow key value pairs
+\RequirePackage{suffix}          % To declare * and ! variants of commands
+\AtBeginDocument{                % Load at begin document to prevent option clashes:
+  \RequirePackage{pstool}}       % ... Package for eps import
+\RequirePackage{grffile}         % Makes spaces etc. okay in filenames
+\RequirePackage{etoolbox}        % Patch some commands
+\RequirePackage{xcolor}          % We need colors
+
+%
+% PATCH PSTOOL PACKAGE TO WORK WITH UNC PATHS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\patchcmd{\pstool@rm}          {\immediate\write18}{\execute}{}{}
+\patchcmd{\pstool@shellexecute}{\immediate\write18}{\execute}{}{}
+\patchcmd{\pstool@shellexecute}{^\@percentchar ERRORLEVEL^\@percentchar}{!ERRORLEVEL!}{}{}
+
+%
+% PROVIDE ENDPREAMPLE COMMAND
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\providecommand{\EndPreamble}{}
+
+%
+% AUXILIARY COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Let the user define the path to matlab
+\newcommand{\PathToMatlab}[1]{\def\matl@b{#1}}
+
+%
+% INTERNAL COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create a command to include a FIG figure and automatically process it
+
+% Commands to call within matlab
+\newcommand{\cmd@matlab}[1]                      % Use command \cmd@matlab{file} to
+  {disp('This is RM LaTeX''s external-matlab.');%% ... print a message
+   disp('Do not stop me...');%                   % ... print a message
+   disp('I will quit by myself...');%            % ... print a message
+   cd('\@percentchar\@percentchar a');%          % ... go to document directory
+   open('#1.fig');%                              % ... open the figure
+   xmf_init('output', 'eps_tex');%               % ... only output eps&tex
+   xmf_init('fixline', true);%                   % ... fix lines   
+   xmf_export('#1');%                            % ... save it with xmf_export
+   exit;}%                                       % ... quit matlab
+  
+% Call string to matlab
+\newcommand{\call@matlab}[1]            % Use command \call@matlab{file} to
+  {echo set "filename=#1"                                                         > #1.bat \string& % Save filename
+   echo set "filename=\@percentchar filename:/=\@backslashchar\@percentchar"     >> #1.bat \string& % Replace / by \
+   echo for /f "tokens=* delims=" \@percentchar\@percentchar a IN ('cd') DO (    >> #1.bat \string& % Get current directory
+   echo "\matl@b" \space -wait -r "\cmd@matlab{#1}"                              >> #1.bat \string& % Call some Matlab commands
+   echo )                                                                        >> #1.bat \string& % Done with Matlab
+   echo del "\@percentchar filename\@percentchar.pdf"                            >> #1.bat \string& % Delete pdf file
+   echo del "\@percentchar filename\@percentchar.bat"                            >> #1.bat \string& % Delete bat file
+   call #1.bat                                                                                      % => call the temporary batch file
+}%                                                                                                  % . Done!
+
+% Internal commands for process=all/none/auto
+\newcommand{\o@includefig@all}[2]{%        % Define an internal command to ...
+  \filename@parse{#2}%                               % ... Parse the filename
+  \IfFileExists{#2.fig}{%                            % ... Process fig file, if existent
+    {\execute{\call@matlab{#2}}}}{}%                 % ... Do the matlab processing.
+  \psfragfig*[#1]{#2}}%                              % ... Do the actual inclusion.
+\newcommand{\o@includefig@none}[2]{%       % Define an internal command to ...
+  \filename@parse{#2}%                               % ... Parse the filename
+  \psfragfig![#1]{#2}}%                              % ... Do the actual inclusion.
+\newcommand{\o@includefig@auto}[2]{%       % Define an internal command to ...
+  \filename@parse{#2}%                               % ... Parse the filename
+  \@processfig{#2}%                                  % ... Do the matlab processing.
+  \psfragfig[#1]{#2}}%                               % ... Do the actual inclusion.
+
+% Internal command for conditional processing
+\newcommand{\@processfig}[1]{%             % Define an internal command to ...
+  \executeiffilenewer{#1.fig}{#1.eps}%               % ... compare fig against eps and ...
+    {\call@matlab{#1}}}%                             % ... run the matlab command.
+
+%
+% USER COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create a command to include an fig image and automatically process it
+
+% These are the main commands to be used by the user
+           \newcommand\includefig [2][scale=1]{\@includefig@auto{#1}{#2}}
+\WithSuffix\newcommand\includefig*[2][scale=1]{\@includefig@all {#1}{#2}}
+\WithSuffix\newcommand\includefig![2][scale=1]{\@includefig@none{#1}{#2}}
+
+%
+% PACKAGE OPTIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Let the user define the path to Matlab
+\define@key{external-matlab.sty}{path}{\PathToMatlab{#1}}
+\ExecuteOptionsX{path={"//rm-samba01/Matlab/Win32/R2011b/bin/matlab.exe" -c "//rm-samba01/Matlab/Win32/R2011b/License/Bals/network.lic"}}
+
+% Define a process=auto/all/none option
+\define@choicekey*{external-matlab.sty}{process}     % Case-unsensitive option to ...
+  [\matlab@process@string\matlab@process@choice] % ... save the option as a string and a number
+  {all,none,auto}{                                   % ... and allow only these values
+    \ifcase\matlab@process@choice\relax%           % Check for process=all ...
+      \let\@includefig@all \o@includefig@all%        % ... and set all internal command to all
+      \let\@includefig@none\o@includefig@all%        % ... and set all internal command to all
+      \let\@includefig@auto\o@includefig@all%        % ... and set all internal command to all
+    \or%                                             % Check for process=none ...
+      \let\@includefig@all \o@includefig@none%       % ... and set all internal command to none
+      \let\@includefig@none\o@includefig@none%       % ... and set all internal command to none
+      \let\@includefig@auto\o@includefig@none%       % ... and set all internal command to none
+    \or%                                             % Check for process=auto ...
+      \let\@includefig@all \o@includefig@all%        % ... and set all internal command to correct subroutine
+      \let\@includefig@none\o@includefig@none%       % ... and set all internal command to correct subroutine
+      \let\@includefig@auto\o@includefig@auto%       % ... and set all internal command to correct subroutine
+    \fi%                                             % Done checking.
+    \PassOptionsToPackage{\CurrentOption}{pstool}}%  % Pass process option to pstool package
+    %\PassOptionsToPackage{process=all}{pstool}}%    % DEBUG: Pass process=all option to pstool package
+\ExecuteOptionsX{process=auto}                       % Default is automatic processing
+
+% Warn for undefined options
+\DeclareOptionX*{%
+  \PackageWarningNoLine{external-matlab}{Unknown option `\CurrentOption'}}
+
+% Read the config file
+\get@config{external-matlab}
+
+% Process options and do it now
+\ProcessOptionsX\relax

@@ -1,0 +1,86 @@
+%
+% This is file `dlrheaders.sty',
+% it creates DLR head and foot lines useing scrpage2
+%
+%
+% REVISIONS:    2011-11-03 initial release   Andreas Knoblach <andreas.knoblach@dlr.de>
+%               2011-12-12 BUG fix           Andreas Knoblach <andreas.knoblach@dlr.de>
+%
+% Contact       Andreas Knoblach,  Andreas.knoblach@dlr.de
+% Copyright (C) 2008-2011 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+
+% Package Header
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{dlrheaders}
+        [2011/11/03 v0.1 DLR Head and Foot Lines]
+		
+% Load Tikz and define colors
+\AtBeginDocument{ % To Ensure that options can be user defined for tikz etc. 
+  \RequirePackage{tikz, dlrlogos}
+  \definecolor{DLRgray}{rgb}{0.27,0.27,0.27}}
+
+
+% REPORTNO: Define a report number macro
+\@ifundefined{reportno}{\def\@reportno{} \def\reportno#1{\gdef\@reportno{#1} }}{}
+
+% Preserve doc-info data for use within document
+\RequirePackage{getdocinfo}
+
+ % Change pagelayout
+\KOMAoptions{headinclude=true, footinclude=false} %bcor=10mm
+\recalctypearea
+
+% Package for headers/footers
+\RequirePackage[autooneside]{scrpage2}		
+
+% Fonts for headers/footers
+%\setkomafont{pagefoot}{\fontfamily{pfr}\selectfont\itshape}
+\setkomafont{pagefoot}{\sffamily\itshape}
+
+% Empty command (to check of reportno is defined
+\def\longempty{}
+
+% Select headers/footers style
+\pagestyle{scrheadings} 
+
+%Clear old  headers/footers
+\clearscrheadfoot		
+
+% Define chapter and section title for header							
+\automark[section]{chapter}  				    % Kapitel (und Section) in Kopfzeile
+
+% Create new header
+\makeatletter
+\if@twoside
+	\rehead[]{\headmark}
+	\lohead[]{\headmark}
+\else
+	\ihead[]{\headmark}
+\fi 
+\makeatother	
+\ohead[]{\pagemark}	
+\setheadsepline{1pt}
+
+% Create new footer									
+\RequirePackage{ifthen}
+\newcommand{\copyrighttext}{{%
+                             \fontfamily{pfr}\selectfont%
+                             \dlradlerinline%
+                             DLR%
+                            } -- %
+                            \ifthenelse{\equal{\thereportno}{}}{%
+                            	\thetitle%
+                            }{%
+                            	\thereportno%
+                            }%
+                           }
+
+\ofoot[\pagemark]{}
+\cfoot[\copyrighttext]{\copyrighttext}
+	
+\endinput
+
+% eof

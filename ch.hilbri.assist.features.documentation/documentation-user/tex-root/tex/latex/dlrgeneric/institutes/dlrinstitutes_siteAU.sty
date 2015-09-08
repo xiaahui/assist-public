@@ -1,0 +1,34 @@
+%
+% This is file `dlrinstitutes_siteBT.sty',
+% it defines the DLR site BT.
+% rewritten from BS
+%
+%
+% REVISIONS:    2012-06-14 alpha by kloe_ad
+%               2012-08-14 Martin Grabe (GO)
+%
+% Contact       Andreas Klöckner, Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2012 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+%
+% Check, if dlrinstitutes is loaded
+\ifx\dlrinstitutes@loaded\undefined%
+	\PackageWarningNoLine{dlrinstitutes}{Loading data file without package dlrinstitutes}%
+\fi%
+%
+% Define default (english) data fields
+\dlrinstitutes@def         {abbreviation}{BT}%
+\dlrinstitutes@def         {name}        {Augsburg}%
+\dlrinstitutes@def         {street}      {Am Technologiezentrum 4}%
+\dlrinstitutes@def         {zip}         {86159}%
+\dlrinstitutes@def         {city}        {Augsburg}%
+\dlrinstitutes@def         {prefix}      {+49 821319874}%
+\dlrinstitutes@def         {subscriber}  {1058}%
+\dlrinstitutes@def         {operator}    {0}%
+\dlrinstitutes@def         {url}         {http://www.dlr.de/dlr/en/desktopdefault.aspx/tabid-10298/}%
+%
+% Override language specific data fields
+\dlrinstitutes@def[ngerman]{url}         {http://www.dlr.de/dlr/desktopdefault.aspx/tabid-10298/}%
+\dlrinstitutes@def[german] {url}         http://www.dlr.de/dlr/desktopdefault.aspx/tabid-10298/}%
+%

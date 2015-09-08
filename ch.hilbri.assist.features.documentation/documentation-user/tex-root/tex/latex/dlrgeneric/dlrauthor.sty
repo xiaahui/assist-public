@@ -1,0 +1,298 @@
+%
+% This is file `dlrauthor.sty',
+% it provides \dlrauthor{user-id} to add a DLR author to the authors list
+%
+% REVISIONS:    2013-05-21 First version
+%               
+% Contact       Andreas Klöckner,  Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2013 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+%
+% Package Header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{dlrauthor}
+        [2013/05/21 v0.1 dlrauthor]
+
+
+%
+% Create arrays to hold authors, contacts, affiliations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{dlrauthor@n}%                                  % The number of entries
+\setcounter{dlrauthor@n}{0}%                               % It's zero at the beginning
+\newcounter{dlrauthor@i}%                                  % Have a counter to iterate authors
+\newcounter{dlrauthor@j}%                                  % Have a counter to iterate authors
+
+% Set the value
+\newcommand{\dlrauthor@set}[3]{%                           % \dlrauthorset{number}{author|contact|affiliation}{value}
+	\expandafter%                                            % ... wait a minute
+	\gdef\csname dlrauthors@#1@#2\endcsname{\unexpanded{#3}}%% ... ... save it as \dlrauthors@1@affiliation
+	\dlrauthor@true{#1}{#2}%                                 % ... remember, it is set!
+}%                                                         % .done
+
+% Get the value
+\newcommand{\dlrauthor@get}[2]{%                           % \dlrauthorget{number}{author|contact|affiliation} => value
+	\csname dlrauthors@#1@#2\endcsname}%                     % ... retrieve the value
+
+% Query, it it is set
+\newcommand{\dlrauthor@if}[2]{%                            % \dlrauthor@if{number}{author|contact|affiliation}
+	\csname ifdlrauthors@#1@#2\endcsname}%                   % ... retrieve the value
+	
+% Set if to true or false
+\newcommand{\dlrauthor@true}[2]{%                          % \dlrauthor@true{number}{author|contact|affiliation}
+	\csname dlrauthors@#1@#2true\endcsname}%                 % ... set to true!
+\newcommand{\dlrauthor@false}[2]{%                         % \dlrauthor@false{number}{author|contact|affiliation}
+	\csname dlrauthors@#1@#2false\endcsname}%                % ... set to false!
+
+% Initialize a new entry
+\newcommand{\dlrauthor@new}{%                              % \dlrauthor@new
+	\stepcounter{dlrauthor@n}%                               % ... increase the counter	
+	\expandafter%                                            % ... create the IF's
+	\newif\csname ifdlrauthors@\the\value{dlrauthor@n}@author\endcsname%
+	\expandafter%
+	\newif\csname ifdlrauthors@\the\value{dlrauthor@n}@contact\endcsname%
+	\expandafter%
+	\newif\csname ifdlrauthors@\the\value{dlrauthor@n}@contactibid\endcsname%
+	\expandafter%
+	\newif\csname ifdlrauthors@\the\value{dlrauthor@n}@affiliation\endcsname%
+	\expandafter%
+	\newif\csname ifdlrauthors@\the\value{dlrauthor@n}@affiliationibid\endcsname%
+}%
+
+
+%
+% Save original \author, \contact, \affiliation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\let\dlrauthor@o@author\author
+\let\dlrauthor@o@contact\contact
+\let\dlrauthor@o@affiliation\affiliation
+
+
+%
+% Redefine \author
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\@ifundefined{author}{%                                    % if not defined
+	\let\dlrauthor@newcommand\newcommand}{%                  % ... use \newcommand
+	\let\dlrauthor@newcommand\renewcommand}%                 % ... else \renewcommand
+\dlrauthor@newcommand{\author}[1]{%                        % Use \author{text} to
+	\dlrauthor@new%                                          % ... create a new entry
+	\dlrauthor@set{\the\value{dlrauthor@n}}{author}{#1}%     % ... save the text
+}
+
+
+%
+% Redefine \contact
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\@ifundefined{contact}{%                                   % if not defined
+	\let\dlrauthor@newcommand\newcommand}{%                  % ... use \newcommand
+	\let\dlrauthor@newcommand\renewcommand}%                 % ... else \renewcommand
+\dlrauthor@newcommand{\contact}[1]{%                       % Use \contact{text} to
+	\dlrauthor@set{\the\value{dlrauthor@n}}{contact}{#1}%    % ... save the text
+}%                                                         % .done
+
+
+%
+% Redefine \affiliation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\@ifundefined{affiliation}{%                               % if not defined
+	\let\dlrauthor@newcommand\newcommand}{%                  % ... use \newcommand
+	\let\dlrauthor@newcommand\renewcommand}%                 % ... else \renewcommand
+\dlrauthor@newcommand{\affiliation}[1]{%                   % Use \affiliation{text} to
+	\dlrauthor@set{\the\value{dlrauthor@n}}{affiliation}{#1}%% ... save the text
+}%                                                         % .done
+
+
+%
+% Find equal entries in contact and affiliation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\linkauthors}{%                                % New command \linkauthors to ...
+	%                                                        % ... ... -------- OUTER LOOP --------
+	\global\setcounter{dlrauthor@i}{1}%                      % ... start counting from i=1
+	\loop\ifnum\value{dlrauthor@i}<\value{dlrauthor@n}%      % ... loop as long as i < n
+	\global\stepcounter{dlrauthor@i}%                        % ... actually start at i=2
+		%                                                      % ... ... -------- CONTACTS IBID --------
+		\dlrauthor@set  {\the\value{dlrauthor@i}}%             % ... ... ... Reset for entry i
+		                {contactibid}{}%                       % ... ... ... ... the contact ibid field
+		\dlrauthor@false{\the\value{dlrauthor@i}}%             % ... ... ... Reset for entry i
+		                {contactibid}%                         % ... ... ... ... the contact ibid if
+		%                                                      % ... ... -------- INNER LOOP --------
+		\global\setcounter{dlrauthor@j}{1}%                    % ... ... start counting from j=1
+		{\loop\ifnum\value{dlrauthor@j}<\value{dlrauthor@i}%   % ... ... loop as long as j < i
+			%i=\the\value{dlrauthor@i},j=\the\value{dlrauthor@j}%% ... ... ... DEBUG: output the indices
+			\edef\dlrauthors@first{%                             % ... ... ... Save first value to compare
+				\dlrauthor@get{\the\value{dlrauthor@j}}{contact}}% % ... ... ... ... as \dlrauthor@get{j}{contact}
+			\edef\dlrauthors@second{%                            % ... ... ... Save second value to compare
+				\dlrauthor@get{\the\value{dlrauthor@i}}{contact}}% % ... ... ... ... as \dlrauthor@get{i}{contact}
+			%\show\dlrauthors@first%                             % ... ... ... DEBUG: output
+			%\show\dlrauthors@second%                            % ... ... ... DEBUG: output
+			\ifx\dlrauthors@first\dlrauthors@second%             % ... ... ... If the two are equal
+				\dlrauthor@set{\the\value{dlrauthor@i}}%           % ... ... ... ... Save for entry i
+				              {contactibid}%                       % ... ... ... ... ... that contact is the same
+				              {\the\value{dlrauthor@j}}%           % ... ... ... ... ... as for entry j
+				\dlrauthor@true{\the\value{dlrauthor@i}}%          % ... ... ... ... Make the information available
+				               {contactibid}%                      % ... ... ... ... ... through an \if
+				\let\iterate\relax%                                % ... ... ... ... Break out of loop
+			\fi%                                                 % ... ... ... .done
+		\global\stepcounter{dlrauthor@j}\repeat}%              % ... ... .done looping j
+		%                                                      % ... ... -------- CONTACTS CONT --------
+		\global\setcounter{dlrauthor@j}{\the\value{dlrauthor@i}}%... ... Set j = i 
+		\global\addtocounter{dlrauthor@j}{-1}%                 % ... ... ... -1
+		%i=\the\value{dlrauthor@i},j=\the\value{dlrauthor@j}%  % ... ... DEBUG: output the indices
+		\edef\dlrauthors@first{%                               % ... ... Save first value to compare
+			\dlrauthor@get{\the\value{dlrauthor@j}}{contact}}%   % ... ... ... as \dlrauthor@get{j}{contact}
+		\edef\dlrauthors@second{%                              % ... ... Save second value to compare
+			\dlrauthor@get{\the\value{dlrauthor@i}}{contact}}%   % ... ... ... as \dlrauthor@get{i}{contact}
+		%\show\dlrauthors@first%                               % ... ... DEBUG: output
+		%\show\dlrauthors@second%                              % ... ... DEBUG: output
+		\ifx\dlrauthors@first\dlrauthors@second%               % ... ... If the two are equal
+			\dlrauthor@true{\the\value{dlrauthor@i}}%            % ... ... ... Make the information available
+			               {contactcont}%                        % ... ... ... ... through an \if
+		\else%                                                 % ... ... Else
+			\dlrauthor@true{\the\value{dlrauthor@i}}%            % ... ... ... Make the information available
+			               {contactcont}%                        % ... ... ... ... through an \if
+		\fi%                                                   % ... ... .done
+	\repeat%                                                 % ... .done looping i
+}
+
+
+%
+% Define \evalauthors to evaluate authors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{etoolbox}%                                 % Use etoolbox commands
+
+\newcommand{\evalauthors}{%                                % New command \evalauthors to ...
+	\def\dlrauthor@tmp{}%                                    % ... define an empty temporary macro
+	\global\setcounter{dlrauthor@i}{0}%                      % ... start counting from i=0
+	\loop\ifnum\value{dlrauthor@i}<\value{dlrauthor@n}%      % ... loop as long as i < n
+		\global\stepcounter{dlrauthor@i}%                      % ... ... increment counter
+		\eappto\dlrauthor@tmp{\dlrauthor@entry{\noexpand\dlrauthor@get{\the\value{dlrauthor@i}}{author}}%      % ... ... add the entry with author
+		                                      {\noexpand\dlrauthor@get{\the\value{dlrauthor@i}}{contact}}%     % ... ... contact
+		                                      {\noexpand\dlrauthor@get{\the\value{dlrauthor@i}}{affiliation}}}%% ... ... affiliation
+		\ifnum\value{dlrauthor@i}<\value{dlrauthor@n}%         % ... ... if i < n
+			\eappto\dlrauthor@tmp{\dlrauthor@and}%               % ... ... ... add \and
+		\fi%                                                   % ... ... .done
+	\repeat%                                                 % ... .done
+	\edef\dlrauthor@tmp{\dlrauthor@wrap{\expandonce\dlrauthor@tmp}}% ... wrap the contents
+	%\show\dlrauthor@tmp\sdf%                                    % ... DEBUG: output
+	\dlrauthor@tmp%                                          % ... evaluate command!
+}%                                                         % .done
+
+%%
+%% Define usage of original commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\@ifclassloaded{aiaa-tc}{%                                 % IF aiaa-tc is loaded
+	%\def\dlrauthor@wrap#1{\noexpand\dlrauthor@o@author{#1}}% % ... \author{ ...
+	%\def\dlrauthor@and{\noexpand\and}%                       % ...          author \and author
+	%\def\dlrauthor@entry#1#2#3{%                             % ... author = {
+		%#1\noexpand\thanks{#3#2}%                              % ... name \thanks{contact affiliation}
+	%}%                                                       % ... }
+%}{%                                                        % ---------------------------------------------
+%\@ifclassloaded{AIAA}{%                                    % IF AIAA is loaded
+	%\def\dlrauthor@wrap#1{#1}%                               % ... 
+	%\def\dlrauthor@and{}%                                    % ... author author
+	%\def\dlrauthor@entry#1#2#3{%                             % ... author = {
+		%\noexpand\dlrauthor@o@author{#1\noexpand\footnote{#2}}%% ... ... \author{name \footnote{contact}}
+		%\noexpand\dlrauthor@o@affiliation{#3}%                 % ... ... \affiliation{affiliation}
+	%}%                                                       % ...}
+%}{%                                                        % ---------------------------------------------
+%%                                                          % ELSE:
+	%\def\dlrauthor@wrap#1{\noexpand\dlrauthor@o@author{#1}}% % ... \author{ ...
+	%\def\dlrauthor@and{\noexpand\and}%                       % ...          author \and author
+	%\def\dlrauthor@entry#1#2#3{%                             % ... author = {
+		%#1\noexpand\thanks{#3#2}%                              % ... name \thanks{contact affiliation}
+	%}%                                                       % ... }
+%}}%                                                        % ---------------------------------------------
+%
+%%
+%% Define DLR specific author commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\@ifclassloaded{AIAA}{%                                    % IF AIAA is loaded
+	%\newcommand{\dlrauthor}[1]{%                             % Define \author =
+		%\author{\userinfo{#1}{name}%                           % ... name
+	%}}%                                                      % 
+	%\newcommand{\dlraffiliation}[1]{%                        % Define \affiliation = 
+		%\loaduserinfo{#1}{dlrinstitute}%                       % ...
+		%\loaduserinfo{#1}{dlrsite}%                            % ...
+		%\affiliation{\DLR{name}, %                             % ... German Aerospace Center,
+		             %D-\SITE[\userinfo{#1}{dlrsite}]{zip} %    % ... D-zip
+		             %\SITE[\userinfo{#1}{dlrsite}]{city}, %    % ... city
+		             %Germany
+		%}}%                                                    % 
+	%\newcommand{\dlrcontact}[1]{%                            % Define \contact = 
+		%\loaduserinfo{#1}{dlrinstitute}%                       % ...
+		%\loaduserinfo{#1}{dlrsite}%                            % ...
+		%\loaduserinfo{#1}{email}%                              % ...
+		%\contact    {Research Assistant, %                     % ... Research Assistant
+		             %\INST[\userinfo{#1}{dlrinstitute}]{name}, % ... institute
+		             %\INST[\userinfo{#1}{dlrinstitute}]{department}, % ... department
+		             %\SITE[\userinfo{#1}{dlrsite}]{street}, %  %... street
+		           %D-\SITE[\userinfo{#1}{dlrsite}]{zip} %      % ... D-zip
+		             %\SITE[\userinfo{#1}{dlrsite}]{city}.%     % ... city.
+		%}}%                                                    % 
+%}{%                                                        % ---------------------------------------------
+%%                                                          % ELSE:
+	%\newcommand{\dlrauthor}[1]{%                             % Define \author =
+		%\author{\userinfo{#1}{name}%                           % ... name
+	%}}%                                                      % 
+	%\newcommand{\dlraffiliation}[1]{%                        % Define \affiliation = 
+		%\loaduserinfo{#1}{dlrinstitute}%                       % ...
+		%\loaduserinfo{#1}{dlrsite}%                            % ...
+		%\affiliation{\DLR{name}, %                             % ... German Aerospace Center,
+		             %\INST[\userinfo{#1}{dlrinstitute}]{name}, % ... institute
+		             %\SITE[\userinfo{#1}{dlrsite}]     {street}, %.. street
+		           %D-\SITE[\userinfo{#1}{dlrsite}]     {zip} % % ... D-zip
+		             %\SITE[\userinfo{#1}{dlrsite}]     {city}. % ... city.
+		%}}%                                                    % 
+	%\newcommand{\dlrcontact}[1]{%                            % Define \contact = 
+		%\loaduserinfo{#1}{email}%                              % ...
+		%\contact    {\userinfo{#1}{email}%                     % ... email
+		%}}%                                                    % 
+%}
+%
+%
+%%
+%% Define a DLR specific author command to rule them all: \dlrauthor*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\RequirePackage{suffix}
+%\WithSuffix\newcommand\dlrauthor*[1]{%
+	%\dlrauthor{#1}
+	%\dlrcontact{#1}
+	%\dlraffiliation{#1}}
+%
+%
+%%%
+%%% Set whether to \evalauthors AtBeginDocument or before maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+%
+
+
+
+
+
+
+% Examples for author infos
+%		\begin{document}
+%		\title{Benchmark Scenarios for UAV Cooperative Missions}
+%		% aiaa-tc:
+%		%\author{Sebastian Herbst\thanks{position, address} \and Andreas Kl\"ockner\thanks{position, address} \and Andreas Kl\"ockner\thanksibid{2}}
+%		%AIAA:
+%		%\author{Sebastian Herbst\footnote{position, adress}}
+%		%\affiliation{TUM, address}
+%		%\author{Andreas Kl\"ockner\footnote{position, address}}
+%		%\affiliation{DLR, address}
+%		\maketitle
+
+
+%
+% Provide \dlrauthor, \dlrcontact, \dlraffiliation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \dlrauthor      adds new author entry
+% \dlrcontact     updates contact data
+% \dlraffiliation updates company data
+

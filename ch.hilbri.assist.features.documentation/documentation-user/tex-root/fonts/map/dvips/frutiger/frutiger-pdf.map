@@ -1,0 +1,6 @@
+pfrb8r Frutiger-Bold  " TeXBase1Encoding ReEncodeFont " <<frb.pfb 8r.enc
+pfrbi8r Frutiger-BoldItalic " TeXBase1Encoding ReEncodeFont " <<frbi.pfb 8r.enc
+pfrl8r Frutiger-Light " TeXBase1Encoding ReEncodeFont " <<frl.pfb 8r.enc
+pfrli8r Frutiger-LightItalic " TeXBase1Encoding ReEncodeFont " <<frli.pfb 8r.enc
+pfrr8r Frutiger-Roman " TeXBase1Encoding ReEncodeFont " <<frr.pfb 8r.enc
+pfrro8r Frutiger-Italic " TeXBase1Encoding ReEncodeFont " <<fri.pfb 8r.enc

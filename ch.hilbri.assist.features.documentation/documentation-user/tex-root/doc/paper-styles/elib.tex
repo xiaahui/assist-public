@@ -1,0 +1,44 @@
+\documentclass{article}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{language=TeX, 
+        %keepspaces=false,
+        breaklines=false,
+        commentstyle=\color{gray},
+        identifierstyle=\color{blue}}
+
+\title{The elib class}
+\author{Andreas Kl\"ockner}
+
+\begin{document}
+\maketitle
+\makeatletter
+
+\section{Introduction}
+The elib document class can be used to insert copyright and citation notices into document published on the DLR elib repository. To generate a suitable cover page, just use \lstinline!\documentclass[options]{elib}!. You will need to have an empty document via \lstinline!\begin{document}\end{document}!, because the cover page is created \lstinline!\AtBeginDocument!.
+
+\section{Copyright notice option \lstinline!publisher=<...>!}
+Please select the publisher/agreement or have signed when sumbitting your paper. Then the appropriate copyright notice in inserted in the cover page. Currently there are the following defined publishers:
+\begin{description}
+	\item[aiaa@A] The AIAA conferences agreement A. You are not allowed to distribute such papers.
+	\item[aiaa@B] The AIAA conferences agreement B. You are not allowed to do whatever you want.
+	\item[ieee]   The IEEE conferences agreement. You are allowed to publish pre-prints with a prominent display of copyright, a citation and a link to IEEE XPlore.
+	\item[lni]    The LNI agreement. You are allowed to archive the document on your personal website with a prominent copright and a citation.
+\end{description}
+
+Please add additional publishers to the class, by copying and extending the template \lstinline!\elib@publisher@mypublisher!.
+
+\section{Citation notice file \lstinline!elib.bib!}
+If you put a file \lstinline!elib.bib! anywhere on the \LaTeX~search path, it will be inserted in the coverpage as a full citation and in source code. You can use the DIO field to create suitable links to e.g. IEEE XPlore.
+
+\section{PDF inclusion option \lstinline!includepdf=mydoc.pdf!}
+If issued, this option includes the PDF provided in order to directly attach the cover page to your paper. This is useful, if you are allowed to publish post-prints. You can as well use Acrobat to join the files manually. This will also preserver any links in the document...
+
+\section{TEX inclusion option \lstinline!includetex=mydoc.tex!}
+If issued, this option includes the tex provided in order to directly attach the cover page to your paper. This is useful, if you are allowed to only publish pre-prints. If you use this option, the class also tries to guess your publisher based on the document class used in the original mydoc.tex.
+
+\section{External programs}
+This class issues a call to bibtex by using the external-base package. Please see the documentation of this package, too.
+
+\end{document}

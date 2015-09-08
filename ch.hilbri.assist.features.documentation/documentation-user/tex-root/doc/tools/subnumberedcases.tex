@@ -1,0 +1,129 @@
+% This is file `subnumberedcases.tex',
+% it demonstrated the possibilities of  the subnumberedcases package
+%
+% REVISIONS:    2011-11-28 initial release   Andreas Knoblach <andreas.knoblach@dlr.de>
+%
+% Contact       Andreas Knoblach,  Andreas.knoblach@dlr.de
+% Copyright (C) 2008-2011 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+
+\documentclass[12pt,fleqn,DIV=14]{scrartcl}
+
+% Some default package
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}  
+
+% AMS and subnumberedcases package
+\usepackage{amsmath}
+\usepackage{subnumberedcases}
+
+% Booktabs and hyperref
+\usepackage{booktabs}
+\usepackage[colorlinks]{hyperref}
+
+% Change couting of equaions
+\numberwithin{equation}{section} 
+
+\author{Andreas Knoblach}
+\title{The Subnumberedcases Package}
+
+\begin{document}
+\maketitle
+\addsec{Abstract}
+This not a real docu, it only demonstrates the possibilities of the subnumberedcases package.
+\tableofcontents
+\clearpage
+
+\section{Test Subequations*}
+\subsection{Subequations}
+Normal \texttt{subequations} environment:
+\begin{align}
+	ASD\label{SE1}
+\end{align}
+\begin{subequations}
+	\begin{align}
+		ASD\label{SE2a} \\
+		ASD\label{SE2b} \\
+		ASD\label{SE2c} 
+	\end{align}
+\end{subequations}
+
+\subsection{Subequations*}
+The \texttt{subequations*} environment:
+\begin{align}
+	ASD\label{SE3}
+\end{align}
+\begin{subequations*}
+	\begin{align}
+		ASD\label{SE3a} \\
+		ASD\label{SE3b} \\
+		ASD\label{SE3c} 
+	\end{align}
+\end{subequations*}
+Note that there are the equations \eqref{SE3} and \eqref{SE3a} but no (\ref{SE1}a).
+
+\subsection{References}
+\begin{center}
+	\begin{tabular}{lr}
+		\toprule
+			\textbf{Label} & \textbf{Reference} \\ \midrule
+			SE1  & \eqref{SE1}  \\ \midrule
+			SE2a & \eqref{SE2a} \\
+			SE2b & \eqref{SE2b} \\
+			SE2c & \eqref{SE2c} \\ \midrule
+			SE3  & \eqref{SE3}  \\ \midrule
+			SE3a & \eqref{SE3a} \\
+			SE3b & \eqref{SE3b} \\
+			SE3c & \eqref{SE3c} \\ \bottomrule
+	\end{tabular}
+\end{center}
+\clearpage
+
+\section{Test Subnumberedcases}
+\subsection{Subnumberedcases}
+The \texttt{subnumberedcases} environment:
+\begin{align}
+	ASD\label{E1}
+\end{align}
+\begin{subnumberedcases}{ASD ASD ASD ASD\label{E2}}
+	& ASD\label{E2a} \\
+	& 1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1+1-1 \label{E2b} \\
+	& ASD\label{E2c}
+\end{subnumberedcases}
+\begin{align}
+	ASD  \label{E3}
+\end{align}
+	
+\subsection{Indent of Subnumberedcases}
+The \texttt{subnumberedcases[maxindent]} environment\footnote{The default \texttt{maxindent} is 1cm. It can be changed by \texttt{\textbackslash\textbackslash setlength\{\textbackslash\textbackslash SNCmaxindent\}\{1cm\}}.}:
+\begin{subnumberedcases}[2cm]{\text{Blablabbla } \frac{\frac{1}{2}}{\frac{1}{2}} =\label{E4}}
+	& 1\label{E4a} \\
+	& \frac{1}{2}\label{E4b}
+\end{subnumberedcases}
+
+\subsection{References}
+\begin{center}
+	\begin{tabular}{lr}
+		\toprule
+			\textbf{Label} & \textbf{Reference} \\ \midrule
+			E1  & \eqref{E1}  \\ \midrule
+			E2  & \eqref{E2}  \\
+			E2a & \eqref{E2a} \\
+			E2b & \eqref{E2b} \\
+			E2c & \eqref{E2c} \\ \midrule
+			E3  & \eqref{E3}  \\ \midrule
+			E4a & \eqref{E4a} \\
+			E4b & \eqref{E4b} \\ \bottomrule
+	\end{tabular}
+\end{center}
+
+\section{Problems, Warnings and Errors}
+The subnumberedcases package requires that align environment flushes equations left. To achieve this select the option \texttt{fleqn} of the used document class or of amsmath.
+
+
+\end{document}
+

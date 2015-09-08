@@ -1,0 +1,40 @@
+% Document class
+\documentclass{scrartcl}
+
+% Load packages
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage[command]{frutiger}
+\usepackage[ngerman, english]{babel}
+\usepackage[ pdfauthor  = {Andreas Knoblach},
+						 pdftitle   = {Frutiger LaTeX Packag},
+						 colorlinks = true, 
+						 linkcolor  = black,  
+						 citecolor  = black,
+						 urlcolor   = blue
+					]{hyperref}
+					
+% Define title and author
+\title{The package getdocinfo}
+\author{Andreas Knoblach}
+\date{\today}
+
+% Begin document
+\begin{document}
+\maketitle
+
+\noindent
+The \texttt{getdocinfo} package provides the following commands
+\begin{itemize}
+	\item \texttt{\textbackslash thetitle}
+	\item \texttt{\textbackslash theauthor}
+	\item \texttt{\textbackslash thepublishers}
+	\item \texttt{\textbackslash thereportno} (only if \texttt{\textbackslash reportno} is defined)
+\end{itemize}
+in order access the related information outside the titlepage-environment
+
+
+\end{document}
+
+% eof

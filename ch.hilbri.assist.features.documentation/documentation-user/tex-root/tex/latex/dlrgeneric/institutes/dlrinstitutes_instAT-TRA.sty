@@ -1,0 +1,39 @@
+%
+% This is file `dlrinstitutes_instAT-TRA.sty',
+% it defines the DLR institute AT-TRA.
+%
+%
+% REVISIONS:    2012-06-14 alpha by kloe_ad
+%
+% Contact       Andreas Klöckner, Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2012 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+%
+% Check, if dlrinstitutes is loaded
+\ifx\dlrinstitutes@loaded\undefined%
+	\PackageWarningNoLine{dlrinstitutes}{Loading data file without package dlrinstitutes}%
+\fi%
+%
+% Load default site definition
+\dlrinstitutes@def         {site}        {BC}%
+%
+% Define default (english) data fields
+\dlrinstitutes@def         {abbreviation}{AT-TRA}%
+\dlrinstitutes@def         {name}        {Institute of Propulsion Technology}%
+\dlrinstitutes@def         {department}  {Engine Acoustics}%
+\dlrinstitutes@def         {head}        {Prof. Dr. Lars Enghardt}%
+\dlrinstitutes@def         {operator}    {18}%
+\dlrinstitutes@def         {fax}         {39}%
+\dlrinstitutes@def         {url}         {http://www.dlr.de/at/en}%
+%
+% Override language specific data fields (ngerman)
+\dlrinstitutes@def[ngerman]{name}        {Institut f\"ur Antriebstechnik}%
+\dlrinstitutes@def[ngerman]{department}  {Abteilung Triebwerksakustik}%
+\dlrinstitutes@def[ngerman]{url}         {http://www.dlr.de/at}%
+%
+% Override language specific data fields (german)
+\dlrinstitutes@def[german] {name}        {Institut f\"ur Antriebstechnik}%
+\dlrinstitutes@def[german] {department}  {Abteilung Triebwerksakustik}%
+\dlrinstitutes@def[german] {url}         {http://www.dlr.de/at}%
+%

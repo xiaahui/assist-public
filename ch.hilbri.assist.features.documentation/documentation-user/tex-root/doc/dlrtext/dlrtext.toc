@@ -1,0 +1,17 @@
+\select@language {english}
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Usage}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}The \texttt {dlrtitle} Package}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}The \texttt {dlrheaders} Package}{3}{section.2.2}
+\contentsline {section}{\numberline {2.3}The \texttt {dlrelements} Package}{4}{section.2.3}
+\contentsline {section}{\numberline {2.4}The \texttt {dlrreprt} Class}{4}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Option \texttt {frutiger}}{5}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Option \texttt {title}}{5}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Option \texttt {page}}{5}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}Option \texttt {elements}}{5}{subsection.2.4.4}
+\contentsline {subsection}{\numberline {2.4.5}Command \texttt {\textbackslash reportno}}{5}{subsection.2.4.5}
+\contentsline {section}{\numberline {2.5}The \texttt {dlrbook} Class}{6}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Command \texttt {\textbackslash titlematter}}{6}{subsection.2.5.1}
+\contentsline {section}{\numberline {2.6}The \texttt {dlrsecondpage} Package}{6}{section.2.6}
+\contentsline {chapter}{\numberline {3}Installation}{9}{chapter.3}

@@ -1,0 +1,103 @@
+% Document class
+\documentclass[]{article}
+
+% Load packages for encoding and languages
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman, english]{babel}
+
+					
+% Define title and author
+\title{dlrinstitutes.sty}
+\author{Andreas Klöckner}
+\date      {\today}
+
+% Begin document
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Package                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The package}
+The package \texttt{dlrinstitutes} provides DLR institute and site information to other packages via simple interface commands. The package can be loaded by \texttt{\textbackslash usepackage\{dlrinstitutes\}}. This will provide the following commands to the user:
+
+\subsection{\textbackslash dlrinstitute\{<abbreviation>\}}
+Use this command to load the given institute's information. The information must be provided in a file called \texttt{dlrinstitutes\_inst<abbreviation>.sty}. if no such file is present, an error will be issued. Default is \textbackslash dlrinstitute\{RMC\}. Please see the respective institute definition file for an example, how to define you own institute. You can also specify the institute, by passing the option "institute=<abbreviation>" to the package.
+
+\subsection{\textbackslash dlrsite\{<abbreviation>\}}
+This command is the equivalent for site information. Default is \textbackslash dlrsite\{OP\}. You can also call this command from within your institute definition. You can also specify the site, by passing the option "site=<abbreviation>" to the package.
+
+\subsection{Order of loading and using definitions}
+In order to use data of institutes or site definitions, these definitions must be loaded prior to using them with one of the two commands described above.
+The order of loading definitions (and thus also the arguments to the package) is important, as loading a definition makes it the default for use in the document.
+Note that institutes usually define a default site. If you wish to use a different site other than the default site, you must load the site after the institute definition.
+Data can only be loaded in the preamble. Make sure, you load all institutes and sites there!
+
+\subsection{\textbackslash DLR\{<info type>\}}
+This command is used to retrieve global information about the DLR. The command respects language changes by the babel package. E.g. \textbackslash DLR\{name\} will return "German Aerospace Center", when used with english language. Typical info types are listed in table \ref{tab:DLRinfo}.
+\begin{table}[h]%
+	\centering%
+	\begin{tabular}{ll}
+		abbreviation & = DLR \\
+		name         & e.g. German Aerospace Center \\
+		url          & e.g. www.dlr.de/en
+	\end{tabular}
+	\caption{\textbackslash DLR info types}
+	\label{tab:DLRinfo}
+\end{table}
+
+\subsection{\textbackslash INST[<institute definition>]\{<info type>\}}
+This command retrieves information about the institute. 
+The requested information must be defined by the institute definition file and loaded in the preamble.
+Otherwise, an error is issued. 
+If the optional argument is omitted, the current default institute is used.
+The default institute can be switched using \textbackslash dlrinstitute.
+Typical info types are listed in table \ref{tab:INSTinfo}.
+\begin{table}[h]%
+	\centering%
+	\begin{tabular}{ll}
+		abbreviation & The abbreviation of the department \\
+		name         & The name of the institute \\
+		department   & The name od the department \\
+		head         & The head of the department \\
+		operator     & The operator's dial-through \\
+		fax          & The operator's fax \\
+		url          & The departments web site
+	\end{tabular}
+	\caption{\textbackslash INST info types}
+	\label{tab:INSTinfo}
+\end{table}
+
+
+\subsection{\textbackslash SITE[<site definition>]\{<info type>\}}
+This command retrieves information about the site. 
+The requested information must be defined by the site definition file and loaded in the preamble.
+Otherwise, an error is issued. 
+If the optional argument is omitted, the current default site is used.
+The default site can be switched using \textbackslash dlrsite.
+Typical info types are listed in table \ref{tab:SITEinfo}.
+\begin{table}[h]%
+	\centering%
+	\begin{tabular}{ll}
+		abbreviation & The site's abbreviation \\
+		name         & The site's full name\\
+		street       & The site's street adress \\
+		zip          & The site's ZIP code \\
+		city         & The name of the site's city \\
+		prefix       & The site telephone area code \\
+		subscriber   & The site telephone subscriber number \\
+		operator     & The site's operator dial-through \\
+		url          & The site's web..., well site
+	\end{tabular}
+	\caption{\textbackslash SITE info types}
+	\label{tab:SITEinfo}
+\end{table}
+
+
+
+\end{document}
+
+
+
+% eof

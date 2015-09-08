@@ -1,0 +1,328 @@
+%
+% This is file `classified.sty',
+% it provides commands to put confidentiality marks on every or certain page(s).
+%
+%
+% REVISIONS:    2012-04-26 initial release (kloe_ad)
+%               2012-05-10 Added \AtPageTop etc. (kloe_ad)
+%               
+% Contact       Andreas Klöckner,  Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2012 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+%
+% Package Header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{classified}
+        [2012/05/10 v0.2 classified package]
+
+%
+% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{xkeyval}
+\RequirePackage{kvsetkeys}
+
+%
+% User commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \classificationclass{class}{level={macro},higherlevel={macro},...}
+% Use this to define a new classification class (e.g. DLR or NATO) with clearance levels in ascending order
+% There is a "default" classification class with levels none,restricted,confidential,secret,topsecret
+\providecommand{\classificationclass}[2]{\classified@newclass{#1}{#2}}
+
+% \classifiedremark{<text>}
+% Use this to put centered remarks on top and bottom of the page.
+\def\classifiedremark#1{\classified@remark{#1}}
+
+% \classified  [class=<default>, level=restricted]  {Information}
+% Use this to declare classified information with a given level and class
+% This will call the macro defined in the \restrictionclass and only conditionally display information
+\providecommand{\classified}        [2][level=restricted]  {\classified@information[#1]{#2}}
+
+% \restricted  [class=<default>, level=restricted]  {Information}
+% \confidential[class=<default>, level=confidential]{Information}
+% \secret      [class=<default>, level=secret]      {Information}
+% \topsecret   [class=<default>, level=topsecret]   {Information}
+% These only define aliases to the \classified command with different defaults
+\providecommand{\restricted}        [2][level=restricted]  {\classified@information[#1]{#2}}
+\providecommand{\confidential}      [2][level=confidential]{\classified@information[#1]{#2}}
+\providecommand{\secret}            [2][level=secret]      {\classified@information[#1]{#2}}
+\providecommand{\topsecret}         [2][level=topsecret]   {\classified@information[#1]{#2}}
+
+% \documentclassified[class=<default>, level=restricted]
+% Use this to define the ase classification of the document
+\providecommand{\documentclassified}[1][level=restricted]  {\classified@document   [#1]}
+
+% \documentclearance[class=<default>, level=restricted]
+% Use this to define the maximum classification of displayed information
+\providecommand{\documentclearance} [1][level=none]        {\classified@clearance  [#1]}
+
+
+%
+% Commands for page manipulation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Required packages
+\RequirePackage{eso-pic}
+\RequirePackage{tikz}
+
+% Define shortcuts to put nicely placed text at top, bottom, right and left border of page
+\newcommand{\AtPageTop}[1]{%                                      % \AtPageTop{What to put...}
+  \AtPageLowerLeft{%                                              %        ... Start out at the lower left
+    \put(\LenToUnit{0.5\paperwidth},\LenToUnit{\paperheight}){%   %        ... Move to top border
+      \begin{tikzpicture}%                                        %        ... ... Add a tikzpicture
+        \useasboundingbox (0,0) rectangle (0,0);%                 %        ... ... anchored in point
+        \node[rotate=00,anchor=north,align=center] (text) at (0,0) {#1};%  ... ... with a centered remark
+      \end{tikzpicture}}}}%                                       %        ... .done
+\newcommand{\AtPageBottom}[1]{%                                   % \AtPageBottom{What to put...}
+  \AtPageLowerLeft{%                                              %        ... Start out at the lower left
+    \put(\LenToUnit{0.5\paperwidth},0){%                          %        ... Move to bottom border
+      \begin{tikzpicture}%                                        %        ... ... Add a tikzpicture
+        \useasboundingbox (0,0) rectangle (0,0);%                 %        ... ... anchored in point
+        \node[rotate=00,anchor=south,align=center] (text) at (0,0) {#1};%  ... ... with a centered remark
+      \end{tikzpicture}}}}%                                       %        ... .done
+\newcommand{\AtPageLeft}[1]{%                                     % \AtPageLeft{What to put...}
+  \AtPageLowerLeft{%                                              %        ... Start out at the lower left
+    \put(0,\LenToUnit{0.5\paperheight}){%                         %        ... Move to left border
+      \begin{tikzpicture}%                                        %        ... ... Add a tikzpicture
+        \useasboundingbox (0,0) rectangle (0,0);%                 %        ... ... anchored in point
+        \node[rotate=90,anchor=north,align=center] (text) at (0,0) {#1};%  ... ... with a centered remark
+      \end{tikzpicture}}}}%                                       %        ... .done
+\newcommand{\AtPageRight}[1]{%                                    % \AtPageRight{What to put...}
+  \AtPageLowerLeft{%                                              %        ... Start out at the lower left
+    \put(\LenToUnit{\paperwidth},\LenToUnit{0.5\paperheight}){%   %        ... Move to right border
+      \begin{tikzpicture}%                                        %        ... ... Add a tikzpicture
+        \useasboundingbox (0,0) rectangle (0,0);%                 %        ... ... anchored in point
+        \node[rotate=90,anchor=south,align=center] (text) at (0,0) {#1};%  ... ... with a centered remark
+      \end{tikzpicture}}}}%                                       %        ... .done
+\newcommand{\AtPageCornerTL}[1]{%                                 % \AtPageCornerTL{What to put...}
+  \AtPageLowerLeft{%                                              %        ... Start out at the lower left
+    \put(\LenToUnit{0.0\paperwidth},\LenToUnit{1.0\paperheight}){%%        ... Move to top left corner
+      \begin{tikzpicture}%                                        %        ... ... Add a tikzpicture
+        \useasboundingbox (0,0) rectangle (0,0);%                 %        ... ... anchored in point
+        \node[rotate=00,anchor=north west] (text) at (0,0) {#1};% %        ... ... with a remark
+      \end{tikzpicture}}}}%                                       %        ... .done
+\newcommand{\AtPageCornerTR}[1]{%                                 % \AtPageCornerTR{What to put...}
+  \AtPageLowerLeft{%                                              %        ... Start out at the lower left
+    \put(\LenToUnit{1.0\paperwidth},\LenToUnit{1.0\paperheight}){%%        ... Move to top right corner
+      \begin{tikzpicture}%                                        %        ... ... Add a tikzpicture
+        \useasboundingbox (0,0) rectangle (0,0);%                 %        ... ... anchored in point
+        \node[rotate=00,anchor=north east] (text) at (0,0) {#1};% %        ... ... with a remark
+      \end{tikzpicture}}}}%                                       %        ... .done
+\newcommand{\AtPageCornerBL}[1]{%                                 % \AtPageCornerBL{What to put...}
+  \AtPageLowerLeft{%                                              %        ... Start out at the lower left
+    \put(\LenToUnit{0.0\paperwidth},\LenToUnit{0.0\paperheight}){%%        ... Move to bottom left corner
+      \begin{tikzpicture}%                                        %        ... ... Add a tikzpicture
+        \useasboundingbox (0,0) rectangle (0,0);%                 %        ... ... anchored in point
+        \node[rotate=00,anchor=south west] (text) at (0,0) {#1};% %        ... ... with a remark
+      \end{tikzpicture}}}}%                                       %        ... .done
+\newcommand{\AtPageCornerBR}[1]{%                                 % \AtPageCornerBR{What to put...}
+  \AtPageLowerLeft{%                                              %        ... Start out at the lower left
+    \put(\LenToUnit{1.0\paperwidth},\LenToUnit{0.0\paperheight}){%%        ... Move to bottom right corner
+      \begin{tikzpicture}%                                        %        ... ... Add a tikzpicture
+        \useasboundingbox (0,0) rectangle (0,0);%                 %        ... ... anchored in point
+        \node[rotate=00,anchor=south east] (text) at (0,0) {#1};% %        ... ... with a remark
+      \end{tikzpicture}}}}%                                       %        ... .done
+\renewcommand{\AtPageCenter}[1]{%                                   % \AtPageCenter{What to put...}
+  \AtPageLowerLeft{%                                              %        ... Start out at the lower left
+    \put(\LenToUnit{0.5\paperwidth},\LenToUnit{0.5\paperheight}){%%        ... Move to center
+      \begin{tikzpicture}%                                        %        ... ... Add a tikzpicture
+        \useasboundingbox (0,0) rectangle (0,0);%                 %        ... ... anchored in point
+        \node[rotate=00] (text) at (0,0) {#1};%     %        ... ... with a remark
+      \end{tikzpicture}}}}%                                       %        ... .done
+
+% Put a remark on top and bottom of page
+\providecommand\classified@remark[1]{%                            % \classified@remark{What to put...}
+  \AddToShipoutPictureFG*{\AtPageTop   {\normalsize\normalfont #1}}%... Add to top border
+  \AddToShipoutPictureFG*{\AtPageBottom{\normalsize\normalfont #1}}%... Add to bottom border
+}                                                                 % .done
+
+
+%
+% Internal commands for classification level handling
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Key handler for \classificationclass:
+% 1. Adds the new level to the list of \classified@<class>@levels
+% 2. Defines the action \classified@action@<class>@<level>
+% 3. If undefined, defines the \classified@default@level@<class> to first level
+\kv@set@family@handler{classificationclass}{
+  \expandafter\g@addto@macro\expandafter{\csname classified@levels@\tmp@class\endcsname}       {,#1} 
+  \expandafter\let                        \csname classified@action@\tmp@class @#1\endcsname\undefined
+  \expandafter\newcommand    \expandafter{\csname classified@action@\tmp@class @#1\endcsname}    {#2} 
+  \expandafter\@ifundefined{classified@default@level@\tmp@class}{
+    \expandafter\newcommand \expandafter{\csname classified@default@level@\tmp@class\endcsname} {#1}
+  }{} 
+}
+
+% \classified@newclass{class}{level={macro},higherlevel={macro},...}
+% 1. Stores the class name in \tmp@class
+% 2. Initializes the allowed levels with only one: "none"
+% 3. Defines an empty macro \classified@action@<class>@none to call for unclassified information
+% 4. Set document classification to none
+% 4. Set document clearance to none
+% 5. Iterates all additional levels passed here through the key handler for \restrictionclass
+% 6. Defines a choicekey for this class
+\providecommand{\classified@newclass}[2]{
+  \def\tmp@class{#1}
+  \expandafter\gdef\csname classified@levels@#1\endcsname              {none}%    % Define a level=none
+  \expandafter\gdef\csname classified@action@\tmp@class @none\endcsname{}%        % Define an empty action for it
+  \expandafter\gdef\csname classified@document@\tmp@class\endcsname    {none}%    % Set document classification = none
+  \expandafter\gdef\csname classified@clearance@\tmp@class\endcsname   {none}%    % Set document clearance to none
+  \kvsetkeys{classificationclass}{#2}%                                            % Process the remaining levels
+  \edef\tmp@choicekey{%                                                           % Define temporary command
+    \noexpand\define@choicekey*%                                                  % . to define a choicekey
+                              {classified@#1}%                                    %  - of family classified@<class>
+                              {level}%                                            %  - named level
+                              [\noexpand\val\noexpand\nr]%                        %  - that stores the \val and \nr
+                              {\csname classified@levels@\tmp@class\endcsname}%   %  - and accepts level list created
+                              {\noexpand\global\edef\noexpand\tmp@level%          %  - and sets the \tmp@level macro
+                                                                {\noexpand\val}%  %    to \val
+                               \noexpand\global\edef\noexpand\val@level%          %  - and sets the \val@level macro
+                                                                {\noexpand\nr}}%  %    to \nr
+    \noexpand\gpresetkeys%
+                         {classified@#1}%
+                         {level=\csname classified@default@level@\tmp@class\endcsname}{}%
+  }%                                                                              % .done
+  %\show\tmp@choicekey%                                                           % Debug: Show the temp command
+  \tmp@choicekey%                                                                 % Execute the temporary command
+}
+
+% Only executes the <macro>, when the current \classified@document@<class> is equal or higher than <level>
+\providecommand{\classified@conditional}[4]{%                      % \classified@conditional{<class>}{<level>}{<macro>}{<info>}
+  \edef\tmp@class      {#1}%                                              % ... Save the class in a temp variable
+  \edef\tmp@clearance  {\csname classified@clearance@\tmp@class\endcsname}% ... Save the clearance in a temp variable
+  \edef\tmp@document   {\csname classified@document@\tmp@class\endcsname}%% ... Save the document in a temp variable
+  \edef\tmp@information{#2}%                                              % ... Save the info level in a temp variable
+  \edef\cmd@clearance%                                                    % ... Define a temporary macro
+    {\noexpand\classified@processargs{class=\tmp@class,%                  % ... ... for class
+                                      level=\tmp@clearance}}%             % ... ... to process the document clearance
+  \edef\cmd@document%                                                     % ... Define a temporary macro
+    {\noexpand\classified@processargs{class=\tmp@class,%                  % ... ... for class
+                                      level=\tmp@document}}%              % ... ... to process the document level
+  \edef\cmd@information%                                                  % ... Define a temporary macro
+    {\noexpand\classified@processargs{class=\tmp@class,%                  % ... ... for class
+                                      level=\tmp@information}}%           % ... ... to process the info level
+  %\show\tmp@class%                                                       % ... DEBUG Output class
+  %\show\tmp@clearance%                                                   % ... DEBUG Output level
+  %\show\cmd@clearance%                                                   % ... DEBUG Output command
+  \cmd@clearance\let  \val@clearance  \val@level%                         % ... Convert the clearance to a number
+  %\show\tmp@class%                                                       % ... DEBUG Output class
+  %\show\tmp@document%                                                    % ... DEBUG Output level
+  %\show\cmd@document%                                                    % ... DEBUG Output command
+  \cmd@document\let   \val@document   \val@level%                         % ... Convert the document level to a number
+  %\show\tmp@class%                                                       % ... DEBUG Output class
+  %\show\tmp@information%                                                 % ... DEBUG Output level
+  %\show\cmd@information%                                                 % ... DEBUG Output command
+  \cmd@information\let\val@information\val@level%                         % ... Convert the info level to a number
+  \ifnum\val@clearance<\val@information%                                  % ... If clearance is not high enough
+    \ifnum\val@document<\val@information%                                 % ... ... And if document level is lower
+      << CLASSIFIED INFORMATION REMOVED >>%                               % ... ... ... Remove the info
+    \else%                                                                % ... ... else
+      #4%                                                                 % ... ... ... Output the info
+    \fi%                                                                  % ... ... .done
+  \else%                                                                  % ... else
+    #4%                                                                   % ... ... Output the info
+    \ifnum\val@document<\val@information%                                 % ... ... If document less than info
+      #3%                                                                 % ... ... ... Execute the macro
+    \fi%                                                                  % ... ... .done
+  \fi%                                                                    % ... .done
+}                                                                         % .done
+
+% MAYBE LATER ONLY SHOW RED BOXES?
+%\usepackage{soul}
+%\DeclareRobustCommand{\geheim}{%
+%\SOUL@setup
+%\def\SOUL@everytoken{%
+%%\newlength{\@w}\settowidth{\@w}{\the\SOUL@token}
+%%\makebox[\@w]{
+%\fboxsep0pt
+%{\colorbox{red}{{\the\SOUL@token}}}}\SOUL@}
+
+% Parses the arguments given to \classified@information and \classified@document
+\providecommand{\classified@processargs}[1]{%                     % \classified@processargs{arguments}
+  \setkeys*{classified}{#1}%                                      %        ... set passed keys as far possible
+  %\show\tmp@class%                                               %        ... DEBUG Output class
+  \expandafter\setrmkeys{classified@\tmp@class}%                  %        ... set remaining keys for known class
+}                                                                 %        .done
+
+% \classified@information[class=<default>, level=restricted]{Information}
+\providecommand\classified@information[2][]{%                     % \classified@information[class=, level=]{Info}
+  \classified@processargs{#1}%                                    %        ... process the arguments
+  %\show\tmp@class                                                %        ... DEBUG output class
+  %\show\tmp@level                                                %        ... DEBUG output level
+  \classified@conditional{\tmp@class}{\tmp@level}%                %        ... Conditionally treat the information
+    {\csname classified@action@\tmp@class @\tmp@level\endcsname}% %        ... ... \classified@action@<class>@<level>
+    {#2}%                                                         %        ... ... add the original text
+}                                                                 %        .done
+
+% \classified@clearance
+\providecommand\classified@clearance[1][]{                        % \classified@clearance[class=, level=]
+  \ifx\@onlypreamble\@notprerr                                    %        ... if not in preamble:
+    \@latex@error{Can be used only in preamble: documentclearance}\fi    % ... ... issue error
+  \classified@processargs{#1}                                     %        ... process the arguments
+  %\show\tmp@class                                                %        ... DEBUG output class
+  %\show\tmp@level                                                %        ... DEBUG output level
+  \expandafter\gdef                                               %        ... Set the ...
+    \csname classified@clearance@\expandafter\tmp@class\expandafter\endcsname% ... document clearance
+    \expandafter{\tmp@level}                                      %        ... ... to requested level
+}                                                                 %        .done
+
+% \classified@document
+\providecommand\classified@document[1][]{                         % \classified@document[class=, level=]
+  \ifx\@onlypreamble\@notprerr                                    %        ... if not in preamble:
+    \@latex@error{Can be used only in preamble: documentclassified}\fi   % ... ... issue error
+  \classified@processargs{#1}                                     %        ... process the arguments
+  %\show\tmp@class                                                %        ... DEBUG output class
+  %\show\tmp@level                                                %        ... DEBUG output level
+  \expandafter\gdef                                               %        ... Set the ...
+    \csname classified@document@\expandafter\tmp@class\expandafter\endcsname % ... document classification
+    \expandafter{\tmp@level}                                      %        ... ... to requested level
+  \edef\tmp@cmd{                                                  %        ... Define a temporary command
+    \noexpand\AtBeginShipout{%                                    %        ... ... add to each page
+    \noexpand\csname classified@action@\tmp@class @\tmp@level\endcsname} % ... ... ... the action
+    \noexpand\AtBeginDocument{%                                   %        ... ... and to begin document
+    \noexpand\csname classified@action@\tmp@class @\tmp@level\endcsname}}% ... ... ... the action
+  \tmp@cmd%                                                       %        ... Call the command
+  %\show\AtBegShi@Hook                                            %        ... DEBUG show beginShipout hook
+}                                                                 %        .done
+
+%
+% Default settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define a default classification class
+\classificationclass{default}{restricted  ={\classifiedremark{\fcolorbox{blue}{white}{\bfseries \color{blue} Restricted}  }},
+                              confidential={\classifiedremark{\fcolorbox{blue}{white}{\bfseries \color{blue} Confidential}}},
+                              secret      ={\classifiedremark{\fcolorbox{red} {white}{\bfseries \color{red}  Secret}      }},
+                              topsecret   ={\classifiedremark{\fcolorbox{red} {white}{\bfseries \color{red}  Top Secret} }}}
+\def\classified@default@class{default}
+
+% Define a publication classification class
+\def\classified@version@remark{This should have been redefined...}
+\AtBeginDocument{%
+	\@ifpackageloaded{listofversions}{%
+		\def\classified@version@remark{Ver. \currentversion[version] as of \currentversion[date]}%
+	}{%
+		\def\classified@version@remark                              {as of \today}%
+	}%
+}%
+\classificationclass{publication}{final    =\classifiedremark{            Final       Paper Copy \classified@version@remark},
+                                  paper    =\classifiedremark{            Preliminary Paper Copy \classified@version@remark},
+                                  submitted=\classifiedremark{\color{red} Submitted   Draft Copy \classified@version@remark},
+                                  draft    =\classifiedremark{\color{red} Preliminary Draft Copy \classified@version@remark}}
+
+%\show\classified@action@default@none
+%\show\classified@action@default@restricted
+%\show\classified@action@default@topsecret
+%\show\classified@levels@default
+%\show\classified@default@class
+%\show\classified@default@level@default
+%\@latex@error{here!}
+%\setkeys  {classified@default}{level=none}                             %        ... set default keys for class and level
+
+% Later also add allowed classes to a list etc...
+\define@key{classified}{class}[\classified@default@class]{\edef\tmp@class{#1}}
+\presetkeys{classified}{class = \classified@default@class}{}
+
+
+\endinput %eof

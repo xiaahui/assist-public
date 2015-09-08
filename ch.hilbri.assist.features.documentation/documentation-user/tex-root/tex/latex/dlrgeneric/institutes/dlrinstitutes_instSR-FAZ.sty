@@ -1,0 +1,39 @@
+%
+% This is file `dlrinstitutes_instSR-FAZ.sty',
+% it defines the DLR institute SR-FAZ.
+%
+%
+% REVISIONS:    2013-09-10 alpha by tobolar
+%
+% Contact       Jakub.Tobolar@dlr.de
+% Copyright (C) 2013 DLR Robotics and Mechatronics              __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+%
+% Check, if dlrinstitutes is loaded
+\ifx\dlrinstitutes@loaded\undefined%
+	\PackageWarningNoLine{dlrinstitutes}{Loading data file without package dlrinstitutes}%
+\fi%
+%
+% Load default site definition
+\dlrinstitutes@def         {site}        {OP}%
+%
+% Define default (english) data fields
+\dlrinstitutes@def         {abbreviation}{SR-FAZ}%
+\dlrinstitutes@def         {name}        {Institute of System Dynamics and Control}%
+\dlrinstitutes@def         {department}  {Department of Vehicle System Dynamics}%
+\dlrinstitutes@def         {head}        {Dr. Andreas Heckmann, Jonathan Brembeck}%
+\dlrinstitutes@def         {operator}    {1699, 2472}%
+\dlrinstitutes@def         {fax}         {1441}%
+\dlrinstitutes@def         {url}         {http://www.dlr.de/rm/en/desktopdefault.aspx/tabid-8176/}%
+%
+% Override language specific data fields (ngerman)
+\dlrinstitutes@def[ngerman]{name}        {Institut f\"ur Systemdynamik und Regelungstechnik}%
+\dlrinstitutes@def[ngerman]{department}  {Abteilung Fahrzeug-Systemdynamik}%
+\dlrinstitutes@def[ngerman]{url}         {http://www.dlr.de/rm/desktopdefault.aspx/tabid-8176/}%
+%
+% Override language specific data fields (german)
+\dlrinstitutes@def[german] {name}        {Institut f\"ur Systemdynamik und Regelungstechnik}%
+\dlrinstitutes@def[german] {department}  {Abteilung Fahrzeug-Systemdynamik}%
+\dlrinstitutes@def[german] {url}         {http://www.dlr.de/rm/desktopdefault.aspx/tabid-8176/}%
+%

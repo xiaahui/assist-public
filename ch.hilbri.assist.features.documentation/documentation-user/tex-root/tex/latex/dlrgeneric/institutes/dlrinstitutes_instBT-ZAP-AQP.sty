@@ -1,0 +1,40 @@
+%
+% This is file `dlrinstitutes_instBT-ZAP-AQP.sty',
+% it defines the DLR instituteBT-ZAP-AQP.
+% rewritten from `dlrinstitutes_instRMC-SR.sty'.
+%
+%
+% REVISIONS:    2012-06-14 alpha by kloe_ad
+%
+% Contact       Andreas Klöckner, Andreas.Kloeckner@dlr.de
+% Copyright (C) 2008-2012 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+%
+% Check, if dlrinstitutes is loaded
+\ifx\dlrinstitutes@loaded\undefined%
+	\PackageWarningNoLine{dlrinstitutes}{Loading data file without package dlrinstitutes}%
+\fi%
+%
+% Load default site definition
+\dlrinstitutes@def         {site}        {AU}%
+%
+% Define default (english) data fields
+\dlrinstitutes@def         {abbreviation}{BT-ZAP-AQP}%
+\dlrinstitutes@def         {name}        {Institute of Structures and Design}%
+\dlrinstitutes@def         {department}  {Center for Lightweight Production Technology}%
+\dlrinstitutes@def         {head}        {Prof. Dr. Heinz Voggenreiter}%
+\dlrinstitutes@def         {operator}    {0821319874-1021}%
+\dlrinstitutes@def         {fax}         {1441}%
+\dlrinstitutes@def         {url}         {http://www.dlr.de/bt/en}%
+%
+% Override language specific data fields (ngerman)
+\dlrinstitutes@def[ngerman]{name}        {Institut f\"ur Bauweisen- und Strukturtechnologie}%
+\dlrinstitutes@def[ngerman]{department}  {Zentrum f\"ur Leichtbauproduktinstechnologie}%
+\dlrinstitutes@def[ngerman]{url}         {http://www.dlr.de/bt/}%
+%
+% Override language specific data fields (german)
+\dlrinstitutes@def[german] {name}        {Institut f\"ur Bauweisen- und Strukturtechnologie}%
+\dlrinstitutes@def[german] {department}  {Zentrum f\"ur Leichtbauproduktinstechnologie}%
+\dlrinstitutes@def[german] {url}         {http://www.dlr.de/bt/}%
+%

@@ -1,0 +1,216 @@
+\documentclass[11pt,DIV=12]{scrartcl}
+
+% Some language stuff
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Used ycolor package
+%\usepackage[svgnames,hideerrors]{xcolor}
+\usepackage[svgnames,hideerrors]{ycolor}
+\usepackage{tikz}
+
+% Code listings
+\usepackage{listings}
+\lstset{language=TeX, 
+				basicstyle=\ttfamily,
+				tabsize=3,
+				breaklines=true,
+				commentstyle=\color{gray},
+				identifierstyle=\color{blue}}
+
+
+% Use situnix
+\usepackage{siunitx}
+
+% Used hyperref/cleveref package
+\usepackage[colorlinks]{hyperref}
+\usepackage[capitalize,nameinlink,noabbrev]{cleveref}
+
+% Doc info
+\title{The \lstinline!ycolor! package}
+\author{Andreas Knoblach}
+
+
+\begin{document}
+
+%
+% Title and abstrac
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+\begin{abstract}
+The \lstinline!ycolor! package provides some useful tools for working with colors. The package serves as an extension of the \lstinline!xcolor! packages. All options are passed to this package.
+\end{abstract}
+
+%
+% Modifying Brightness and Luminance of Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modifying Brightness and luminance of Colors}
+In order to yield proper colored as well as black/white prints, the brightness or Luminance property of colors can be used. For further information see the Wikipdie article on the HSB and HSL color spaces: \url{http://en.wikipedia.org/wiki/HSV_color_space}
+
+%
+% The defbcolor Command
+%
+\subsection[The defbcolor Command]{The \lstinline!defbcolor! Command}
+Use \lstinline!\defbcolor{NewCol}{OrgCol}{Brightness}! to define a color \lstinline!NewCol! which has the same hue and saturation like \lstinline!OrgCol! but a modified \lstinline!Brightness!. Note that \lstinline!Brightness! is number between $0$ and $1$.
+
+In \cref{fig:brightness} several colors for the \lstinline!Brightness! levels $\{0.0, 0.1, \cdots, 1.0\}$ are depicted. Additional their black/white counterpart can be seen.
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		% Loop over color
+		\foreach \col  [count=\icol] in {Red, Orange, Yellow, Green, Cyan, Blue}{
+			% Draw color headline
+			\draw[fill=\col]  (1,              -\icol) ++(.05,  .05) rectangle node[left,xshift=-10]{\col} ++(.9,.9);
+			% Loop over brightness
+			\foreach \intense  [count=\iintense] in  {0.01,0.10,...,1.01}{
+				% Compute colors
+				\defbcolor{colW}{\col}{\intense}
+				\colorlet{colWG}[gray]{colW}
+				% Draw the stuff
+				\draw[fill=colW]  (  \iintense+1, -\icol) ++(.05,  .55) rectangle ++(.9,.4);
+				\draw[fill=colWG] (  \iintense+1, -\icol) ++(.05,  .05) rectangle ++(.9,.4);}}
+			% Loop over brightness for label
+			\foreach \intense  [count=\iintense] in  {0.01,0.10,...,1.01}{
+				\node at (\iintense+1.5,.5) {\num[round-mode = places,round-precision = 1]{\intense}};}
+	\end{tikzpicture}
+	\caption{Several colors for different \lstinline!Brightness! levels}
+	\label{fig:brightness}
+\end{figure}
+
+%
+% The deflcolor Command
+%
+\subsection[The deflcolor Command]{The \lstinline!deflcolor! Command}
+Use \lstinline!\defbcolor{NewCol}{OrgCol}{Luminance}! to define a color \lstinline!NewCol! which has the same hue and saturation like \lstinline!OrgCol! but a modified \lstinline!Luminance!. Note that \lstinline!Luminance! is number between $0$ and $1$.
+
+In \cref{fig:luminance} several colors for the \lstinline!Luminance! levels $\{0.0, 0.1, \cdots, 1.0\}$ are depicted. Additional their black/white counterpart can be seen.
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		% Loop over coor
+		\foreach \col  [count=\icol] in {Red, Orange, Yellow, Green, Cyan, Blue}{
+			% Draw color headline
+			\draw[fill=\col]  (1,              -\icol) ++(.05,  .05) rectangle node[left,xshift=-10]{\col} ++(.9,.9);
+			% Loop over Luminance
+			\foreach \intense  [count=\iintense] in  {0.01,0.10,...,1.01}{
+				% Compute colors
+				\deflcolor{colW}{\col}{\intense}
+				\colorlet{colWG}[gray]{colW}
+				% Draw the stuff
+				\draw[fill=colW]  (  \iintense+1, -\icol) ++(.05,  .55) rectangle ++(.9,.4);
+				\draw[fill=colWG] (  \iintense+1, -\icol) ++(.05,  .05) rectangle ++(.9,.4);}}
+			% Loop over Luminance for label
+			\foreach \intense  [count=\iintense] in  {0.01,0.10,...,1.01}{
+				\node at (\iintense+1.5,.5) {\num[round-mode = places,round-precision = 1]{\intense}};}
+	\end{tikzpicture}
+	\caption{Several colors for different \lstinline!Luminance! levels}
+	\label{fig:luminance}
+\end{figure}
+
+
+
+%
+% Definition of Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Definition of Global Colors and Colors in the \texttt{aux}-File}
+
+%
+% Global Definition of Colors
+%
+\subsection{Global Definition of Colors}
+Use \lstinline!\globalizecolor! to make a color globally available. As an alternative, you can use \lstinline!\gdefinecolor!, \lstinline!\gprovidecolor!, \lstinline!\gcolorlet!, \lstinline!\gdefbcolor!, and \lstinline!\gdeflcolor! to directly define global color. The possibilities are demonstrated in the following example:
+\begin{lstlisting}
+	% Defintion of colors in a group
+	\bgroup
+		\colorlet{globalizedcolor}{red}
+		\globalizecolor{globalizedcolor}
+		\gdefinecolor{gdefinecolor}{rgb}{1,0,1}
+		\gprovidecolor{gprovidecolor}{rgb}{0,1,0}
+		\gcolorlet{gcolorlet}{pink}
+		\gdefbcolor{gdefbcolor}{cyan}{.7}
+		\gdeflcolor{gdeflcolor}{cyan}{.7}
+	\egroup
+
+	% The colors are still available
+	\begin{tikzpicture}
+		\draw[fill=globalizedcolor] (0.0,0) rectangle ++(.4,.4);
+		\draw[fill=gdefinecolor]    (0.5,0) rectangle ++(.4,.4);
+		\draw[fill=gprovidecolor]   (1.0,0) rectangle ++(.4,.4);
+		\draw[fill=gcolorlet]       (1.5,0) rectangle ++(.4,.4);
+		\draw[fill=gdefbcolor]      (2.0,0) rectangle ++(.4,.4);
+		\draw[fill=gdeflcolor]      (2.5,0) rectangle ++(.4,.4);
+	\end{tikzpicture}
+\end{lstlisting}
+
+% Defintion of colors in a group
+\bgroup
+	\colorlet{globalizedcolor}{red}
+	\globalizecolor{globalizedcolor}
+	\gdefinecolor{gdefinecolor}{rgb}{1,0,1}
+	\gprovidecolor{gprovidecolor}{rgb}{0,1,0}
+	\gcolorlet{gcolorlet}{pink}
+	\gdefbcolor{gdefbcolor}{cyan}{.7}
+	\gdeflcolor{gdeflcolor}{cyan}{.7}
+\egroup
+
+% The colors are still available
+This is the corresponding output
+\begin{tikzpicture}
+	\draw[fill=globalizedcolor] (0.0,0) rectangle ++(.4,.4);
+	\draw[fill=gdefinecolor]    (0.5,0) rectangle ++(.4,.4);
+	\draw[fill=gprovidecolor]   (1.0,0) rectangle ++(.4,.4);
+	\draw[fill=gcolorlet]       (1.5,0) rectangle ++(.4,.4);
+	\draw[fill=gdefbcolor]      (2.0,0) rectangle ++(.4,.4);
+	\draw[fill=gdeflcolor]      (2.5,0) rectangle ++(.4,.4);
+\end{tikzpicture}
+
+
+%
+% Global Definition of Colors
+%
+\subsection{Definition of Colors in the \texttt{aux}--File}
+Occasionally, color might by used before they are defined. This can be achieved by writing the color definition in the \texttt{aux}--file. To that end, the commands \lstinline!\colortoaux!, \lstinline!\adefinecolor!, \lstinline!\aprovidecolor!, \lstinline!\acolorlet!, \lstinline!\adefbcolor!, and \lstinline!\adeflcolor! are available. Note, that during the first compilation, the colors are eventually not yet available. To avoid error message, use the package option \lstinline!hideerrors! to get a warning. The possibilities are demonstrated in the following example:
+
+\begin{lstlisting}
+	% Use color before they are defined
+	\begin{tikzpicture}
+		\draw[fill=colortoaux]      (0.0,0) rectangle ++(.4,.4);
+		\draw[fill=adefinecolor]    (0.5,0) rectangle ++(.4,.4);
+		\draw[fill=aprovidecolor]   (1.0,0) rectangle ++(.4,.4);
+		\draw[fill=acolorlet]       (1.5,0) rectangle ++(.4,.4);
+		\draw[fill=adefbcolor]      (2.0,0) rectangle ++(.4,.4);
+		\draw[fill=adeflcolor]      (2.5,0) rectangle ++(.4,.4);
+	\end{tikzpicture}
+
+	% Define the color afterwars
+	\colorlet{colortoaux}{Green}
+	\colortoaux{colortoaux}
+	\adefinecolor{adefinecolor}{rgb}{0,0,1}
+	\adprovidecolor{aprovidecolor}{rgb}{1,1,0}
+	\acolorlet{acolorlet}{YellowGreen}
+	\adefbcolor{adefbcolor}{Green}{.7}
+	\adeflcolor{adeflcolor}{Green}{.7}
+\end{lstlisting}
+
+This is the corresponding output
+\begin{tikzpicture}
+	\draw[fill=colortoaux]      (0.0,0) rectangle ++(.4,.4);
+	\draw[fill=adefinecolor]    (0.5,0) rectangle ++(.4,.4);
+	\draw[fill=aprovidecolor]   (1.0,0) rectangle ++(.4,.4);
+	\draw[fill=acolorlet]       (1.5,0) rectangle ++(.4,.4);
+	\draw[fill=adefbcolor]      (2.0,0) rectangle ++(.4,.4);
+	\draw[fill=adeflcolor]      (2.5,0) rectangle ++(.4,.4);
+\end{tikzpicture}
+
+\colorlet{colortoaux}{Green}
+\colortoaux{colortoaux}
+\adefinecolor{adefinecolor}{rgb}{0,0,1}
+\adprovidecolor{aprovidecolor}{rgb}{1,1,0}
+\acolorlet{acolorlet}{YellowGreen}
+\adefbcolor{adefbcolor}{Green}{.7}
+\adeflcolor{adeflcolor}{Green}{.7}
+
+
+\end{document}

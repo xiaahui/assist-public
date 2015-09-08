@@ -1,0 +1,113 @@
+\documentclass[dlr]{scrlttr2}
+
+% Seltec english
+%\usepackage[english]{babel}
+%\usepackage[french]{babel}
+
+% Some default packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+
+% Get DLR Institute and user info
+\loadUser
+
+
+% Define letter info
+\setkomavar{subject}{Test Letter}
+\setkomavar{yourref}{Your TestRef}
+\setkomavar{yourmail}{01.02.2013}
+\setkomavar{myref}{My TestRef}
+\setkomavar{signature2}{Some Else}
+
+% Some packages for this letter
+\usepackage{booktabs}
+\usepackage{listings}
+\lstset{%
+	language=[LaTeX]{TeX},
+	basicstyle=\small\ttfamily,
+	commentstyle=\color{black!80!white},
+	showstringspaces=false,
+	keywordstyle=\color{blue}\bfseries,
+	morekeywords={loadINST,loadUser,setkomavar,opening,closing,encl}}
+
+%
+% Beginn the letter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{letter}{Test company\\
+               Test user\\
+               Test road 2\\
+               123456 Test city\\[1ex]
+               Testcountry}
+							
+\opening{Dear test user,}
+
+this is a DLR \LaTeX test letter, using \texttt{scrlettr2}.
+
+The \LaTeX head is as follows:
+\begin{lstlisting}
+\documentclass[dlr]{scrlttr2}  % Load scrlttr2 with dlr letter
+
+\usepackage[english]{babel}    % To write an english letter
+%\usepackage[ngerman]{babel}   % To write a german letter
+\end{lstlisting}
+Note the package requires babel.
+
+There are the following mandatory and optional koma variables:
+\begin{center}
+	\begin{tabular}{p{3cm}p{3cm}} \toprule
+		\textbf{Mandatory} & \textbf{Optional} \\ \midrule
+		institute		& department \\
+		site				& fromphone  \\
+		fromname		& fromfax		 \\
+		fromstreet	& fromemail	 \\
+		fromcity		& yourref	   \\
+		presel			& yourmail	 \\
+		subject			& myref 		 \\
+								& signature1/2\&3 \\  \bottomrule
+	\end{tabular}
+\end{center}
+You can set variables by e.\,g.: \texttt{\textbackslash setkomavar\{fromname\}\{Test User\}}
+
+This package supports the \texttt{dlrinstitutes} and the \texttt{userinfo} package. To load a DLR institute, use e.g.: \texttt{\textbackslash loadINST\{SR-FLS\}}.  See the \texttt{dlrinstitutes} documentation for available institutes.
+
+To load the user info, use \texttt{\textbackslash loadUser[user\_nm]}, where \texttt{user\_nm} is a DLR user name. The default user is the current user. For details, see the \texttt{userinfo} documentation.
+
+\clearpage
+This is a complete example:
+\begin{lstlisting}
+\documentclass[dlr]{scrlttr2}
+
+\usepackage[english]{babel}
+
+\loadUser
+
+\setkomavar{subject}{Test Letter}
+\setkomavar{yourref}{Your TestRef}
+\setkomavar{yourmail}{01.02.2013}
+\setkomavar{myref}{My TestRef}
+\setkomavar{signature2}{Some Else}
+
+\begin{document}
+\begin{letter}{Test company\\
+               Test user\\
+               Test road 2\\
+               123456 Test city\\[1ex]
+               Testcountry}
+							
+\opening{Dear test user,}
+
+bla bla bla\dots
+
+\closing{Kind regards}
+\encl{Some attachment}
+
+\end{letter}
+\end{document}
+\end{lstlisting}
+
+\closing{Kind regards}
+\encl{Some attachment}
+\end{letter}
+\end{document}

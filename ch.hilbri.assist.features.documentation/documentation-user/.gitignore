@@ -1,6 +1,9 @@
 /auto/
-/user-doc.aux
-/user-doc.fdb_latexmk
-/user-doc.log
-/user-doc.toc
-/user-doc.synctex.gz
+/*.aux
+/*.fdb_latexmk
+/*.log
+/*.toc
+/*.synctex.gz
+/*.out
+/*.synctex
+/user-guide.user.adi

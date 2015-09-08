@@ -1,0 +1,48 @@
+%
+% This is file `getdocinfo.sty',
+% it enables to easy make the document info available outside of the maketitle commands
+%
+% ProvidedCommands
+%  \thetitle
+%  \theauthor
+%  \thepublishers
+%  \thereportno
+%
+% REVISIONS:    2011-11-03 initial release   Andreas Knoblach <andreas.knoblach@dlr.de>
+%               2011-12-12 BUG fix           Andreas Knoblach <andreas.knoblach@dlr.de>
+%
+% Contact       Andreas Knoblach,  Andreas.knoblach@dlr.de
+% Copyright (C) 2008-2011 DLR Robotics and Mechatronics         __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+
+% Package Header
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{getdocinfo}
+        [2011/11/03 v0.1 Get document info]
+
+% Load packages
+\RequirePackage{etoolbox}	
+
+% Generically make commands available outside
+\def\getdocinfo#1{%                              % Define \getdocinfo{author} to...
+          \expandafter\def%                      % ... def
+          \csname the#1\expandafter\endcsname%   % ... ... \theauthor
+          \expandafter%                          % ... ... =
+         {\csname @#1\endcsname}%               % ... ... \@author
+  \gpreto{\maketitle}%                           % ... at the beginning of the \maketitle command
+         {\expandafter\let%                      % ... let
+          \csname the#1\expandafter\endcsname%   % ... \theauthor
+          \csname @#1\endcsname}%                % ... = \@author
+}
+
+% Make typical commands available
+\getdocinfo{title}
+\getdocinfo{author}
+\getdocinfo{publishers}
+\getdocinfo{reportno}
+
+% That's it!
+\endinput
+% eof

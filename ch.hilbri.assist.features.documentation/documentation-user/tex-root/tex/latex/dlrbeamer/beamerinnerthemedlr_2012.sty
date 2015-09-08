@@ -1,0 +1,131 @@
+%
+% This is file `beamerinnerthemedlr_2012.sty',
+% it includes the style definition for the following inner elements.
+%		- Title and part pages.
+%		- Itemize environments.
+%		- Enumerate environments.
+%		- Description environments.
+%		- Block environments.
+%		- Theorem and proof environments.
+%		- Figures and tables.
+%		- Footnotes.
+%		- Bibliography entries.
+%
+% REVISIONS:    2012-03-22 initial release (knob_an)
+%               
+% Contact       Andreas Knoblach,  Andreas.Knoblach@dlr.de
+% Copyright (C) 2012 DLR Robotics and Mechatronics              __/|__
+%                                                              /_/_/_/  
+%                                                                |/ DLR
+
+%
+% Load package with beamerdlr images and DLR infos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{beamerimagesdlr_2012}
+\RequirePackage{dlrinstitutes}
+
+%
+% Titelpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define titlepage background
+\defbeamertemplate{title page}{DLR BG}{
+	\colorlet{DLREagleColor}{DLRFLEagleColor}			
+	\begin{tikzpicture}[remember picture,overlay]
+		% Set curent page south to center
+		\tikzset{shift=(current page.south)};		
+		\useasboundingbox (-.5\paperwidth,0) rectangle (.5\paperwidth,\paperheight);
+		\clip (-.5\paperwidth,0) rectangle (.5\paperwidth,\paperheight);
+		% Set fonsize to 8pt to ensure that DLR Logo is allways same size
+		\fontsize{8pt}{8pt}\selectfont
+		% Draw adler
+		\tikzdlradler(DLReagleTP)[(-.45\paperwidth, .8cm)]%
+		% Draw earth
+		\headlineimage;
+		% Set fonsize to 4pt to ensure that Navigation icons are allway same size
+		\fontsize{4pt}{4pt}\selectfont
+		% Navigation
+		\node() at (-.48\paperwidth, 1.4mm) [anchor=west, color=DLRFLTextColor]{%
+				\mbox{\scalebox{0.8}{\insertslidenavigationsymbol}%
+							\scalebox{0.8}{\insertframenavigationsymbol}%
+							\scalebox{0.8}{\insertsectionnavigationsymbol}%
+							\scalebox{0.8}{\insertbackfindforwardnavigationsymbol}}};
+		% Knowledge
+		\node () at (3.3cm,2.1cm) [color=white] {\fontsize{12}{12}\selectfont\translate{Knowledge for Tomorrow}};		
+		% Draw addtionalstuff
+		\fontsize{8pt}{8pt}\selectfont
+		\dlrbeamer@titlepage@addlogo
+	\end{tikzpicture}}
+
+% Add content
+\defbeamertemplate{title page}{DLR}{%
+	% USe backgrount template
+	\setbeamertemplate{title page}[DLR BG]
+	\usebeamertemplate{title page}
+	% Define some fonts
+	\setbeamerfont{title}{series=\bfseries}
+	\setbeamerfont{institute}{size=\footnotesize}
+	\setbeamerfont{date}{size=\small}
+	% Add content
+	\vskip2em
+	\begin{beamercolorbox}[sep=8pt,left]{title}
+		\usebeamerfont{title}\inserttitle\par%
+		\ifx\insertsubtitle\@empty%
+		\else%
+			\vskip0.25em%
+			{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+		\fi%     
+	\end{beamercolorbox}%
+	\vskip1em\par
+	\begin{beamercolorbox}[sep=8pt,left]{author}
+		\usebeamerfont{author}\insertauthor 
+	\end{beamercolorbox}
+	\vspace{-1em}
+	\begin{beamercolorbox}[sep=8pt,left]{institute}
+		\usebeamerfont{institute}\insertinstitute
+	\end{beamercolorbox}
+	\begin{beamercolorbox}[sep=8pt,left]{date}
+		\usebeamerfont{date}\insertdate
+	\end{beamercolorbox}
+	% Decrease frame counter
+	
+	}	
+
+% Acticate DLR titlepage	
+\setbeamertemplate{title page}[DLR]
+
+% Addapt and titlepage maketitle
+\let\titlepage@org\titlepage
+\renewcommand{\titlepage}{
+  \ifbeamer@inframe
+		\titlepage@org
+  \else
+    \frame[t, plain,noframenumbering]{\titlepage@org}		
+	\fi}
+	\let\maketitle\titlepage
+
+% Add command to add logo
+\NewDocumentCommand{\addlogoTP}{sm}{%
+	\IfBooleanTF{#1}
+		{\gdef\dlrbeamer@titlepage@addlogo{#2}}
+		{\gdef\dlrbeamer@titlepage@addlogo{\node [node distance=1.2em,right= of DLReagleTP] {#2};}}
+	}
+
+% Define default empty logo
+\gdef\dlrbeamer@titlepage@addlogo{}
+
+%
+% Change itemize symbols
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{dlrlogos}
+\setbeamertemplate{itemize items}{\dlrhook}
+
+%
+% Number Sections in TOC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[square]
+
+
+\endinput
+
+% eof
