@@ -7,10 +7,6 @@
       ws="cocoa,gtk,win32"
       arch="x86_64">
 
-   <license url="">
-      GPL
-   </license>
-
    <requires>
       <import plugin="ch.hilbri.assist.libraries.args4j" version="2.0.21" match="greaterOrEqual"/>
       <import plugin="ch.hilbri.assist.libraries.automaton" version="1.21.8" match="greaterOrEqual"/>
