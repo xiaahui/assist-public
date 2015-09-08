@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="Mapping"/>
+	<classpathentry kind="src" path="Metrics"/>
 	<classpathentry kind="con" path="ch.hilbri.assist.application.classpathContainer"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="output" path="Compiled-metrics"/>
+	<classpathentry kind="output" path="Compiled-Metrics"/>
 </classpath>

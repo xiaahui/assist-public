@@ -1,22 +1,117 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
-<libraryInfo home="C:\Git-Repositories\ASSIST-Public\ch.hilbri.assist.releng.product.gui\target\products\assist\win32\win32\x86_64" version="1.8.0_60">
+<libraryInfo home="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.7" version="1.8.0_45">
 <bootpath>
-<entry path="C:\Git-Repositories\ASSIST-Public\ch.hilbri.assist.releng.product.gui\target\products\assist\win32\win32\x86_64\jre\lib\resources.jar"/>
-<entry path="C:\Git-Repositories\ASSIST-Public\ch.hilbri.assist.releng.product.gui\target\products\assist\win32\win32\x86_64\jre\lib\rt.jar"/>
-<entry path="C:\Git-Repositories\ASSIST-Public\ch.hilbri.assist.releng.product.gui\target\products\assist\win32\win32\x86_64\jre\lib\sunrsasign.jar"/>
-<entry path="C:\Git-Repositories\ASSIST-Public\ch.hilbri.assist.releng.product.gui\target\products\assist\win32\win32\x86_64\jre\lib\jsse.jar"/>
-<entry path="C:\Git-Repositories\ASSIST-Public\ch.hilbri.assist.releng.product.gui\target\products\assist\win32\win32\x86_64\jre\lib\jce.jar"/>
-<entry path="C:\Git-Repositories\ASSIST-Public\ch.hilbri.assist.releng.product.gui\target\products\assist\win32\win32\x86_64\jre\lib\charsets.jar"/>
-<entry path="C:\Git-Repositories\ASSIST-Public\ch.hilbri.assist.releng.product.gui\target\products\assist\win32\win32\x86_64\jre\lib\jfr.jar"/>
-<entry path="C:\Git-Repositories\ASSIST-Public\ch.hilbri.assist.releng.product.gui\target\products\assist\win32\win32\x86_64\jre\classes"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.7\jre\lib\resources.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.7\jre\lib\rt.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.7\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.7\jre\lib\jsse.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.7\jre\lib\jce.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.7\jre\lib\charsets.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.7\jre\lib\jfr.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.7\jre\classes"/>
 </bootpath>
 <extensionDirs>
-<entry path="C:\Git-Repositories\ASSIST-Public\ch.hilbri.assist.releng.product.gui\target\products\assist\win32\win32\x86_64\jre\lib\ext"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.7\jre\lib\ext"/>
 <entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
 </extensionDirs>
 <endorsedDirs>
-<entry path="C:\Git-Repositories\ASSIST-Public\ch.hilbri.assist.releng.product.gui\target\products\assist\win32\win32\x86_64\jre\lib\endorsed"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.7\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8" version="1.8.0_45">
+<bootpath>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\resources.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\rt.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\jsse.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\jce.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\charsets.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\jfr.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre" version="1.8.0_45">
+<bootpath>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\resources.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\rt.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\jsse.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\jce.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\charsets.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\jfr.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre" version="1.8.0_45">
+<bootpath>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\resources.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\rt.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\jsse.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\jce.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\charsets.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\jfr.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8c" version="1.8.0_51">
+<bootpath>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8c\jre\lib\resources.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8c\jre\lib\rt.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8c\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8c\jre\lib\jsse.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8c\jre\lib\jce.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8c\jre\lib\charsets.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8c\jre\lib\jfr.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8c\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8c\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8c\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b" version="1.8.0_45">
+<bootpath>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\resources.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\rt.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\jsse.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\jce.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\charsets.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\jfr.jar"/>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Users\hilb_ro\ASSIST\Releases\Airbus-Only\ASSIST-1.8b\jre\lib\endorsed"/>
 </endorsedDirs>
 </libraryInfo>
 </libraryInfos>
