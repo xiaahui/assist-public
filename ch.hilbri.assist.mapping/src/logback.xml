@@ -1,6 +1,5 @@
-<configuration debug="false">
+<configuration debug="true">
 
-   <!-- <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> -->
    <appender name="STDOUT" class="ch.hilbri.assist.libraries.logback.AssistConsoleAppender"> 
         <encoder>
             <pattern>[%date{HH:mm:ss.SSS}] %msg%n</pattern>

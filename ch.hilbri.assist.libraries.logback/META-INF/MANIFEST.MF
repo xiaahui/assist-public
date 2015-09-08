@@ -9,7 +9,9 @@ Bundle-ClassPath: slf4j-api-1.7.7.jar,
  logback-core-1.1.2.jar,
  bin/
 Bundle-Vendor: QOS.ch
-Export-Package: org.slf4j,
+Export-Package: ch.qos.logback.core,
+ ch.qos.logback.core.encoder,
+ org.slf4j,
  org.slf4j.helpers,
  org.slf4j.spi
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
