@@ -1,0 +1,64 @@
+Global { 
+	Name = "Example System";
+
+	Protection Level Restrictions { 
+		RDC.Location = "Front" 	And Equipment.EmhZone1 	= "Front" 	-> L5;
+		RDC.Location = "Left" 	And Equipment.EmhZone1 	= "Front" 	-> L5, L8;
+		RDC.Location = "Aft" 	And Equipment.EmhZone1 	= "Left" 	-> L3, L7, L8;
+	}
+}
+
+Compartment C1 {
+	RDC RDC1 {
+	
+		Connector Connector1 {
+			Name=Pin1 "CustomType0" = 1 with protection level L4;
+			Name=Pin2 "CustomType0" = 1 with protection level L4;
+		}
+
+		Connector Connector2 {
+			"CustomType4" = 2;
+			Name=Pin3 "CustomType0" = 1 with protection level L4;
+			Name=Pin4 "CustomType0" = 1 with protection level L4;
+			Name=Pin5 "CustomType0" = 1 with protection level L4;
+		}
+		
+		Pins {
+			C1.RDC1.Connector1.Pin1, C1.RDC1.Connector1.Pin2 are connected;
+			C1.RDC1.Connector2.Pin3, C1.RDC1.Connector2.Pin4, C1.RDC1.Connector2.Pin5 are connected;
+		}
+	}
+}
+
+
+Interfaces {
+	Interface Iface1 {
+		System = "System";
+		SubAta = "SubATA";
+		Resource = "Resource";
+		LineName = "LineName";
+		WiringLane = "WiringLane";
+		GrpInfo = "GrpInfo";
+		Route = "Route";
+		PwSup1 = "PWSup1";
+		EmhZone1 = "MyZone";
+		Type = "CustomType0";
+	}
+	
+	Interface Iface2 {
+		System = "System";
+		SubAta = "SubATA";
+		Resource = "Resource";
+		LineName = "LineName";
+		WiringLane = "WiringLane";
+		GrpInfo = "GrpInfo";
+		Route = "Route";
+		PwSup1 = "PWSup1";
+		EmhZone1 = "MyZone";
+		Type = "CustomType0";
+	}
+}
+
+InterfaceGroups {
+	Group G1 { Iface1, Iface2 };
+}
