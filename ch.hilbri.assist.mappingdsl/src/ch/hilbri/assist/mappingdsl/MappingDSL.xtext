@@ -4,10 +4,11 @@ import "ch.hilbri.assist.datamodel.model"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 AssistModel: 
-	globalBlock=GlobalBlock
+	(
+		globalBlock=GlobalBlock					&
+		compartmentsBlock=CompartmentsBlock
+	)
 
-//	compartments+=Compartment+
-//
 //	('Interfaces' '{'
 //		(eqInterfaces+=EqInterface)+ 
 //	'}')?
@@ -29,6 +30,10 @@ AssistModel:
 //		
 //	'}')?
 ;
+
+/* ************************************************************
+ * GLOBAL BLOCK
+   ************************************************************ */
 
 GlobalBlock: {GlobalBlock}
 		'Global'  '{' 
@@ -66,6 +71,15 @@ ProtectionLevelEntry:
 ;
 
 
+/* ************************************************************
+ * COMPARTMENTS
+   ************************************************************ */
+
+CompartmentsBlock: {CompartmentsBlock}
+	'Compartments' '{'
+		compartments+=Compartment+
+	'}'
+;
 
 Compartment: 
 	'Compartment' name=ID '{'
@@ -74,7 +88,8 @@ Compartment:
 			('PowerSupply' 				'=' powerSupply=STRING ';')?					&
 			('Side' 					'=' side=STRING ';')?							&
 			('Zone' 					'=' zone=STRING ';')?							&
-			(rdcs+=RDC+)															
+			(rdcs+=RDC+)																&
+			(metricParametersBlock=MetricParametersBlock)?
 		)
 	'}'
 ;
@@ -91,8 +106,9 @@ RDC:
 			('ResourceY'				'=' resourceY=SIGNEDINT ';')?					&
 			('ResourceZ'				'=' resourceZ=SIGNEDINT ';')?					&
 			(connectors+=Connector+)													&
+			(metricParametersBlock=MetricParametersBlock)?								&						
 			('Pins' '{' connectedPins+=InternallyConnectedPinEntry+ '}' )?
-		)													
+		)												
 	'}'
 ;
 
@@ -107,6 +123,7 @@ InternallyConnectedPinEntry:
 Connector:
 	'Connector' name=ID '{'
 		(availableEqInterfaces+=AvailableEqInterface)*
+		(metricParametersBlock=MetricParametersBlock)?								
 	'}'
 ;
 
@@ -124,6 +141,16 @@ enum ProtectionLevelType:
 	L6		= 'L6'		|
 	L7		= 'L7'		|
 	L8		= 'L8'		
+;
+
+MetricParametersBlock: 
+	'Metric Parameters' '{'
+		metricParameters+=MetricParameter
+	'}'	
+;
+
+MetricParameter:  
+	name=STRING '=' value=INT ';'
 ;
 
 
@@ -273,9 +300,6 @@ enum DeploymentImplicitDefinitionAttribute:
 ;
 
 /* MISC */
-MetricParameter:  
-	name=STRING '=' value=INT ';'
-;
 
 Double returns ecore::EDouble:
     INT? '.'? INT

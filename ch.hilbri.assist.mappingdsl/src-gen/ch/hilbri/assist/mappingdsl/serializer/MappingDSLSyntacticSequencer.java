@@ -23,14 +23,14 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MappingDSLGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_InvalidDeployment_AreKeyword_3_1_or_IsKeyword_3_0;
-	protected AbstractElementAlias match_RDC___RightCurlyBracketKeyword_3_9_3_PinsKeyword_3_9_0_LeftCurlyBracketKeyword_3_9_1__q;
+	protected AbstractElementAlias match_RDC___RightCurlyBracketKeyword_3_10_3_PinsKeyword_3_10_0_LeftCurlyBracketKeyword_3_10_1__q;
 	protected AbstractElementAlias match_ValidDeployment_AreKeyword_3_1_or_IsKeyword_3_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MappingDSLGrammarAccess) access;
 		match_InvalidDeployment_AreKeyword_3_1_or_IsKeyword_3_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getInvalidDeploymentAccess().getAreKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getInvalidDeploymentAccess().getIsKeyword_3_0()));
-		match_RDC___RightCurlyBracketKeyword_3_9_3_PinsKeyword_3_9_0_LeftCurlyBracketKeyword_3_9_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getRDCAccess().getRightCurlyBracketKeyword_3_9_3()), new TokenAlias(false, false, grammarAccess.getRDCAccess().getPinsKeyword_3_9_0()), new TokenAlias(false, false, grammarAccess.getRDCAccess().getLeftCurlyBracketKeyword_3_9_1()));
+		match_RDC___RightCurlyBracketKeyword_3_10_3_PinsKeyword_3_10_0_LeftCurlyBracketKeyword_3_10_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getRDCAccess().getRightCurlyBracketKeyword_3_10_3()), new TokenAlias(false, false, grammarAccess.getRDCAccess().getPinsKeyword_3_10_0()), new TokenAlias(false, false, grammarAccess.getRDCAccess().getLeftCurlyBracketKeyword_3_10_1()));
 		match_ValidDeployment_AreKeyword_3_1_or_IsKeyword_3_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getValidDeploymentAccess().getAreKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getValidDeploymentAccess().getIsKeyword_3_0()));
 	}
 	
@@ -48,8 +48,8 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if(match_InvalidDeployment_AreKeyword_3_1_or_IsKeyword_3_0.equals(syntax))
 				emit_InvalidDeployment_AreKeyword_3_1_or_IsKeyword_3_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_RDC___RightCurlyBracketKeyword_3_9_3_PinsKeyword_3_9_0_LeftCurlyBracketKeyword_3_9_1__q.equals(syntax))
-				emit_RDC___RightCurlyBracketKeyword_3_9_3_PinsKeyword_3_9_0_LeftCurlyBracketKeyword_3_9_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_RDC___RightCurlyBracketKeyword_3_10_3_PinsKeyword_3_10_0_LeftCurlyBracketKeyword_3_10_1__q.equals(syntax))
+				emit_RDC___RightCurlyBracketKeyword_3_10_3_PinsKeyword_3_10_0_LeftCurlyBracketKeyword_3_10_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ValidDeployment_AreKeyword_3_1_or_IsKeyword_3_0.equals(syntax))
 				emit_ValidDeployment_AreKeyword_3_1_or_IsKeyword_3_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -75,7 +75,7 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     connectedPins+=InternallyConnectedPinEntry (ambiguity) connectedPins+=InternallyConnectedPinEntry
 	 */
-	protected void emit_RDC___RightCurlyBracketKeyword_3_9_3_PinsKeyword_3_9_0_LeftCurlyBracketKeyword_3_9_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_RDC___RightCurlyBracketKeyword_3_10_3_PinsKeyword_3_10_0_LeftCurlyBracketKeyword_3_10_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

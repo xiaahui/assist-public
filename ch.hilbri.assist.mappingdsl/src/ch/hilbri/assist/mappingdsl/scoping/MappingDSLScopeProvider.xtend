@@ -20,15 +20,9 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 class MappingDSLScopeProvider extends AbstractDeclarativeScopeProvider {
 	@Inject IQualifiedNameProvider nameprovider
 
-	/* 
-	 * Referenzen auf ein HardwareElement 
-	 * 
-	 * Der QualifiedNameProvider ist wichtig, denn damit koennen auch gleichnamige
-	 * Boxen in unterschiedlichen Compartments referenziert werden.
-	 */
  	def scope_HardwareElement(AssistModel ctx, EReference ref) {
 		val list = newArrayList()
-		for (comp : ctx.compartments) {
+		for (comp : ctx.allCompartments) {
 			val compartment = comp as Compartment
 			list.add(compartment)
 			

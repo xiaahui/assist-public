@@ -71,9 +71,9 @@ Workflow {
     		fragment = parser.antlr.XtextAntlrGeneratorFragment auto-inject {
     		 options = {
     		//      backtrack = true
-    				classSplitting=true
-               		fieldsPerClass = "200" 
-               		methodsPerClass= "500" 
+    				classSplitting = true
+               		fieldsPerClass = "100" 
+               		methodsPerClass= "200" 
     		  }
     		}
     

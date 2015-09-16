@@ -27,42 +27,42 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		
 		/* ---------- COMPARTMENTS ------------- */
 		val compartmentsNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Compartments", false)
-		for (compartment : model.compartments)
+		for (compartment : model.compartmentsBlock.compartments)
 			createNode(compartmentsNode, compartment)
 		
 		/* ---------- INTERFACES AND GROUPS --------- */
 		val interfaceNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Interfaces", false)
-		for (iface : model.eqInterfaces) 
+		for (iface : model.interfacesBlock.eqInterfaces) 
 			createNode(interfaceNode, iface)
 		
-		if (!model.eqInterfaceGroups.empty) {
+		if (!model.interfaceGroupsBlock.eqInterfaceGroups.empty) {
 			val interfaceGroupNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Interface Groups", false)
-			for (group : model.eqInterfaceGroups)
+			for (group : model.interfaceGroupsBlock.eqInterfaceGroups)
 				createNode(interfaceGroupNode, group)
 		}
 		
 		/* --------- RESTRICTION CONSTRAINTS -------------- */
-		if (!model.dislocalityRelations.empty || !model.colocalityRelations.empty || !model.validDeployments.empty || !model.invalidDeployments.empty) {
+		if (!model.restrictionsBlock.dislocalityRelations.empty || !model.restrictionsBlock.colocalityRelations.empty || !model.restrictionsBlock.validDeployments.empty || !model.restrictionsBlock.invalidDeployments.empty) {
 			val restrictionsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Restrictions", false)
 
-			if (!model.dislocalityRelations.empty) {		
+			if (!model.restrictionsBlock.dislocalityRelations.empty) {		
 				val dislocalRelationNode = new VirtualOutlineNode(restrictionsNode, imgsubfolderDesc, "Dislocality", false)
-				for (r : model.dislocalityRelations) createNode(dislocalRelationNode, r)
+				for (r : model.restrictionsBlock.dislocalityRelations) createNode(dislocalRelationNode, r)
 			}
 			
-			if (!model.colocalityRelations.empty) {		
+			if (!model.restrictionsBlock.colocalityRelations.empty) {		
 				val dissimRelationNode = new VirtualOutlineNode(restrictionsNode, imgsubfolderDesc, "Colocality", false)
-				for (r : model.colocalityRelations) createNode(dissimRelationNode, r)
+				for (r : model.restrictionsBlock.colocalityRelations) createNode(dissimRelationNode, r)
 			}
 			
-			if (!model.validDeployments.empty) {		
+			if (!model.restrictionsBlock.validDeployments.empty) {		
 				val validDeploymentsNode = new VirtualOutlineNode(restrictionsNode, imgsubfolderDesc, "Valid deployments", false)
-				for (r : model.validDeployments) createNode(validDeploymentsNode, r)
+				for (r : model.restrictionsBlock.validDeployments) createNode(validDeploymentsNode, r)
 			}
 			
-			if (!model.invalidDeployments.empty) {		
+			if (!model.restrictionsBlock.invalidDeployments.empty) {		
 				val invalidDeploymentsNode = new VirtualOutlineNode(restrictionsNode, imgsubfolderDesc, "Invalid deployments", false)
-				for (r : model.invalidDeployments) createNode(invalidDeploymentsNode, r)
+				for (r : model.restrictionsBlock.invalidDeployments) createNode(invalidDeploymentsNode, r)
 			}
 		}
 	}

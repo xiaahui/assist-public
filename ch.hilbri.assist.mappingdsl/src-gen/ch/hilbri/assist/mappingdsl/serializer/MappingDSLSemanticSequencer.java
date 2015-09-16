@@ -9,6 +9,7 @@ import ch.hilbri.assist.datamodel.model.CableWeightDataBlock;
 import ch.hilbri.assist.datamodel.model.CableWeightEntry;
 import ch.hilbri.assist.datamodel.model.ColocalityRelation;
 import ch.hilbri.assist.datamodel.model.Compartment;
+import ch.hilbri.assist.datamodel.model.CompartmentsBlock;
 import ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry;
 import ch.hilbri.assist.datamodel.model.CompatibleIoTypesBlock;
 import ch.hilbri.assist.datamodel.model.Connector;
@@ -24,6 +25,7 @@ import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttri
 import ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry;
 import ch.hilbri.assist.datamodel.model.InvalidDeployment;
 import ch.hilbri.assist.datamodel.model.MetricParameter;
+import ch.hilbri.assist.datamodel.model.MetricParametersBlock;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelEntry;
@@ -71,6 +73,9 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case ModelPackage.COMPARTMENT:
 				sequence_Compartment(context, (Compartment) semanticObject); 
 				return; 
+			case ModelPackage.COMPARTMENTS_BLOCK:
+				sequence_CompartmentsBlock(context, (CompartmentsBlock) semanticObject); 
+				return; 
 			case ModelPackage.COMPATIBLE_IO_TYPE_ENTRY:
 				sequence_CompatibleIoTypeEntry(context, (CompatibleIoTypeEntry) semanticObject); 
 				return; 
@@ -116,6 +121,9 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case ModelPackage.METRIC_PARAMETER:
 				sequence_MetricParameter(context, (MetricParameter) semanticObject); 
 				return; 
+			case ModelPackage.METRIC_PARAMETERS_BLOCK:
+				sequence_MetricParametersBlock(context, (MetricParametersBlock) semanticObject); 
+				return; 
 			case ModelPackage.PROTECTION_LEVEL_DATA_BLOCK:
 				sequence_ProtectionLevelDataBlock(context, (ProtectionLevelDataBlock) semanticObject); 
 				return; 
@@ -134,7 +142,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     globalBlock=GlobalBlock
+	 *     (globalBlock=GlobalBlock compartmentsBlock=CompartmentsBlock)
 	 */
 	protected void sequence_AssistModel(EObject context, AssistModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -185,10 +193,20 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         powerSupply=STRING? 
 	 *         side=STRING? 
 	 *         zone=STRING? 
-	 *         rdcs+=RDC+
+	 *         rdcs+=RDC+ 
+	 *         metricParametersBlock=MetricParametersBlock?
 	 *     )
 	 */
 	protected void sequence_Compartment(EObject context, Compartment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     compartments+=Compartment+
+	 */
+	protected void sequence_CompartmentsBlock(EObject context, CompartmentsBlock semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -213,7 +231,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID availableEqInterfaces+=AvailableEqInterface*)
+	 *     (name=ID availableEqInterfaces+=AvailableEqInterface* metricParametersBlock=MetricParametersBlock?)
 	 */
 	protected void sequence_Connector(EObject context, Connector semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -393,6 +411,15 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
+	 *     metricParameters+=MetricParameter
+	 */
+	protected void sequence_MetricParametersBlock(EObject context, MetricParametersBlock semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     protectionLevelEntries+=ProtectionLevelEntry+
 	 */
 	protected void sequence_ProtectionLevelDataBlock(EObject context, ProtectionLevelDataBlock semanticObject) {
@@ -422,6 +449,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         resourceY=SIGNEDINT? 
 	 *         resourceZ=SIGNEDINT? 
 	 *         connectors+=Connector+ 
+	 *         metricParametersBlock=MetricParametersBlock? 
 	 *         connectedPins+=InternallyConnectedPinEntry*
 	 *     )
 	 */

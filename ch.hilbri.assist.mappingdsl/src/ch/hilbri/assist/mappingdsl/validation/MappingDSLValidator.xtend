@@ -45,7 +45,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 		else if (model.globalBlock.cableWeightDataBlock.cableWeightEntries.filter[isDefaultEntry].length > 0)
 			return
 		else {
-			for (ioType : model.eqInterfaces.map[ioType].toSet.toList.sort)
+			for (ioType : model.interfacesBlock.eqInterfaces.map[ioType].toSet.toList.sort)
 				if (model.globalBlock.cableWeightDataBlock.cableWeightEntries.filter[eqInterfaceIoType.equals(ioType)].isNullOrEmpty)
 					warning(
 						"There is no cable weight specification for io type '" + ioType + "' and no default value.",
@@ -60,7 +60,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 		for (entry : model.globalBlock.cableWeightDataBlock.cableWeightEntries) {
 			val eqInterfaceType = entry.eqInterfaceIoType
 
-			if (entry.isDefaultEntry == false && model.eqInterfaces.filter[ioType.equals(eqInterfaceType)].isEmpty)
+			if (entry.isDefaultEntry == false && model.interfacesBlock.eqInterfaces.filter[ioType.equals(eqInterfaceType)].isEmpty)
 				warning(
 					"There is no interface of type '" + eqInterfaceType +
 						"' in this specification. This may be unintended.",
@@ -101,7 +101,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 	def checkCompatibleTypes(AssistModel model) {
 		for (entry : model.compatibleIoTypes) {
 			val eqInterfaceType = entry.eqInterfaceIoType
-			if (model.eqInterfaces.filter[it.ioType.equals(eqInterfaceType)].isEmpty)
+			if (model.interfacesBlock.eqInterfaces.filter[it.ioType.equals(eqInterfaceType)].isEmpty)
 				warning(
 					"There is no interface of type '" + eqInterfaceType +
 						"' in this specification. This may be unintended.",
@@ -158,7 +158,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 
 	@Check
 	def checkImplicitlyDefinedValidDeploymentsAreNotEmpty(AssistModel model) {
-		for (s : model.validDeployments.filter[it.implicitHardwareElements.length > 0].filter[
+		for (s : model.restrictionsBlock.validDeployments.filter[it.implicitHardwareElements.length > 0].filter[
 			it.hardwareElements.length == 0]) {
 			if (s.implicitlyDefinedConnectors.isNullOrEmpty)
 				warning("The list of hardware elements for this specification is currently empty.", s,
@@ -182,7 +182,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 
 	@Check
 	def checkImplicitlyDefinedInvalidDeploymentsAreNotEmpty(AssistModel model) {
-		for (s : model.invalidDeployments.filter[it.implicitHardwareElements.length > 0].filter[
+		for (s : model.restrictionsBlock.invalidDeployments.filter[it.implicitHardwareElements.length > 0].filter[
 			it.hardwareElements.length == 0]) {
 			if (s.implicitlyDefinedConnectors.isNullOrEmpty)
 				warning("The list of hardware elements for this specification is currently empty.", s,
@@ -192,7 +192,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 
 	@Check
 	def checkCombinedGroupsDoNotContainCombinedGroups(AssistModel model) {
-		for (g : model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithCombinedDefinition]) {
+		for (g : model.interfaceGroupsBlock.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithCombinedDefinition]) {
 			for (combinedGroup : (g as EqInterfaceGroupWithCombinedDefinition).combinedGroups.filter[
 				it instanceof EqInterfaceGroupWithCombinedDefinition]) {
 				error(
@@ -205,7 +205,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 
 	@Check
 	def checkCombinedGroupIsNotEmpty(AssistModel model) {
-		for (g : model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithCombinedDefinition]) {
+		for (g : model.interfaceGroupsBlock.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithCombinedDefinition]) {
 
 			var boolean foundAtLeastOneInterface = false
 
