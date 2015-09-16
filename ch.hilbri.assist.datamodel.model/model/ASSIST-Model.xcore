@@ -15,11 +15,13 @@ import org.eclipse.emf.common.util.BasicEList
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 class AssistModel {
-	String 									systemName 	= ""
 	
-	contains CableWeightData[0..1]			cableWeightData
-	contains ProtectionLevelData[0..1]		protectionLevelData
-	contains CompatibleIoTypeEntry[0..*] 	compatibleIoTypes
+	contains GlobalBlock					globalBlock
+	
+	contains CompartmentsBlock[0..1]		compartmentsBlock
+	contains InterfacesBlock[0..1]			interfacesBlock
+	contains InterfaceGroupsBlock[0..1]		interfaceGroupsBlock
+	contains RestrictionsBlock[0..1]		restrictionsBlock
 	
 	contains Compartment[0..*]				compartments
 	contains EqInterface[0..*]				eqInterfaces
@@ -55,25 +57,24 @@ class AssistModel {
 		else return null
 	}
 	
-	
+	op String						getSystemName()				{ globalBlock.systemName								}
+	op CompatibleIoTypeEntry[*] 	getCompatibleIoTypes() 		{ globalBlock.compatibleIoTypesBlock.compatibleIoTypes	}
+	op CableWeightEntry[*]  		getCableWeightData() 		{ globalBlock.cableWeightDataBlock.cableWeightEntries   }
+	op ProtectionLevelEntry[*] 		getProtectionLevelData()	{ globalBlock.protectionLevelDataBlock.protectionLevelEntries 	}
 }
 
-class CompatibleIoTypeEntry {
-	String 			eqInterfaceIoType 		= ""
-	String[1..*] 	pinInterfaceIoTypes		= ""
+class GlobalBlock {
+	String 									systemName 				= ""
+	contains CompatibleIoTypesBlock			compatibleIoTypesBlock
+	contains CableWeightDataBlock			cableWeightDataBlock
+	contains ProtectionLevelDataBlock		protectionLevelDataBlock
 }
 
-class ProtectionLevelData {
-	contains ProtectionLevelEntry[0..*]		protectionLevelEntries
+class CompatibleIoTypesBlock {
+	contains CompatibleIoTypeEntry[0..*] 	compatibleIoTypes
 }
 
-class ProtectionLevelEntry{
-	String 						rdcLocation		= ""
-	String 						emhZone1		= ""
-	ProtectionLevelType[1..*] 	protectionLevel
-}
-
-class CableWeightData {
+class CableWeightDataBlock {
 	contains CableWeightEntry[0..*] 		cableWeightEntries
 	
 	op double getDefaultCableWeight() {
@@ -85,6 +86,33 @@ class CableWeightData {
 		if (cableWeightEntries.filter[eqInterfaceIoType.equals(ioType)].isEmpty) return defaultCableWeight
 		else return cableWeightEntries.filter[eqInterfaceIoType.equals(ioType)].get(0).weight 
 	}
+}
+
+class ProtectionLevelDataBlock {
+	contains ProtectionLevelEntry[0..*]		protectionLevelEntries
+}
+
+class CompartmentsBlock {}
+
+class InterfacesBlock {}
+
+class InterfaceGroupsBlock {}
+
+class RestrictionsBlock {}
+
+class CompatibleIoTypeEntry {
+	String 			eqInterfaceIoType 		= ""
+	String[1..*] 	pinInterfaceIoTypes		= ""
+}
+
+class ProtectionLevelEntry{
+	String 						rdcLocation		= ""
+	String 						emhZone1		= ""
+	ProtectionLevelType[1..*] 	protectionLevel
+}
+
+class CableWeightData {
+	
 }
 
 class CableWeightEntry {

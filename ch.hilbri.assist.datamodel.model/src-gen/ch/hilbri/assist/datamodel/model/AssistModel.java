@@ -15,10 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getSystemName <em>System Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getCableWeightData <em>Cable Weight Data</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getProtectionLevelData <em>Protection Level Data</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getCompatibleIoTypes <em>Compatible Io Types</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getGlobalBlock <em>Global Block</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getCompartmentsBlock <em>Compartments Block</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getInterfacesBlock <em>Interfaces Block</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getInterfaceGroupsBlock <em>Interface Groups Block</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getRestrictionsBlock <em>Restrictions Block</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getCompartments <em>Compartments</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getEqInterfaces <em>Eq Interfaces</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getEqInterfaceGroups <em>Eq Interface Groups</em>}</li>
@@ -34,99 +35,134 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AssistModel extends EObject {
 	/**
-	 * Returns the value of the '<em><b>System Name</b></em>' attribute.
-	 * The default value is <code>""</code>.
+	 * Returns the value of the '<em><b>Global Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>System Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Global Block</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>System Name</em>' attribute.
-	 * @see #setSystemName(String)
-	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_SystemName()
-	 * @model default="" unique="false"
-	 * @generated
-	 */
-	String getSystemName();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getSystemName <em>System Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>System Name</em>' attribute.
-	 * @see #getSystemName()
-	 * @generated
-	 */
-	void setSystemName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Cable Weight Data</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Cable Weight Data</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cable Weight Data</em>' containment reference.
-	 * @see #setCableWeightData(CableWeightData)
-	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_CableWeightData()
+	 * @return the value of the '<em>Global Block</em>' containment reference.
+	 * @see #setGlobalBlock(GlobalBlock)
+	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_GlobalBlock()
 	 * @model containment="true"
 	 * @generated
 	 */
-	CableWeightData getCableWeightData();
+	GlobalBlock getGlobalBlock();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getCableWeightData <em>Cable Weight Data</em>}' containment reference.
+	 * Sets the value of the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getGlobalBlock <em>Global Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cable Weight Data</em>' containment reference.
-	 * @see #getCableWeightData()
+	 * @param value the new value of the '<em>Global Block</em>' containment reference.
+	 * @see #getGlobalBlock()
 	 * @generated
 	 */
-	void setCableWeightData(CableWeightData value);
+	void setGlobalBlock(GlobalBlock value);
 
 	/**
-	 * Returns the value of the '<em><b>Protection Level Data</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Compartments Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Protection Level Data</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Compartments Block</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Protection Level Data</em>' containment reference.
-	 * @see #setProtectionLevelData(ProtectionLevelData)
-	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_ProtectionLevelData()
+	 * @return the value of the '<em>Compartments Block</em>' containment reference.
+	 * @see #setCompartmentsBlock(CompartmentsBlock)
+	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_CompartmentsBlock()
 	 * @model containment="true"
 	 * @generated
 	 */
-	ProtectionLevelData getProtectionLevelData();
+	CompartmentsBlock getCompartmentsBlock();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getProtectionLevelData <em>Protection Level Data</em>}' containment reference.
+	 * Sets the value of the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getCompartmentsBlock <em>Compartments Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Protection Level Data</em>' containment reference.
-	 * @see #getProtectionLevelData()
+	 * @param value the new value of the '<em>Compartments Block</em>' containment reference.
+	 * @see #getCompartmentsBlock()
 	 * @generated
 	 */
-	void setProtectionLevelData(ProtectionLevelData value);
+	void setCompartmentsBlock(CompartmentsBlock value);
 
 	/**
-	 * Returns the value of the '<em><b>Compatible Io Types</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry}.
+	 * Returns the value of the '<em><b>Interfaces Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Compatible Io Types</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Interfaces Block</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Compatible Io Types</em>' containment reference list.
-	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_CompatibleIoTypes()
+	 * @return the value of the '<em>Interfaces Block</em>' containment reference.
+	 * @see #setInterfacesBlock(InterfacesBlock)
+	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_InterfacesBlock()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<CompatibleIoTypeEntry> getCompatibleIoTypes();
+	InterfacesBlock getInterfacesBlock();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getInterfacesBlock <em>Interfaces Block</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Interfaces Block</em>' containment reference.
+	 * @see #getInterfacesBlock()
+	 * @generated
+	 */
+	void setInterfacesBlock(InterfacesBlock value);
+
+	/**
+	 * Returns the value of the '<em><b>Interface Groups Block</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Interface Groups Block</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Interface Groups Block</em>' containment reference.
+	 * @see #setInterfaceGroupsBlock(InterfaceGroupsBlock)
+	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_InterfaceGroupsBlock()
+	 * @model containment="true"
+	 * @generated
+	 */
+	InterfaceGroupsBlock getInterfaceGroupsBlock();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getInterfaceGroupsBlock <em>Interface Groups Block</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Interface Groups Block</em>' containment reference.
+	 * @see #getInterfaceGroupsBlock()
+	 * @generated
+	 */
+	void setInterfaceGroupsBlock(InterfaceGroupsBlock value);
+
+	/**
+	 * Returns the value of the '<em><b>Restrictions Block</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Restrictions Block</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Restrictions Block</em>' containment reference.
+	 * @see #setRestrictionsBlock(RestrictionsBlock)
+	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_RestrictionsBlock()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RestrictionsBlock getRestrictionsBlock();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getRestrictionsBlock <em>Restrictions Block</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Restrictions Block</em>' containment reference.
+	 * @see #getRestrictionsBlock()
+	 * @generated
+	 */
+	void setRestrictionsBlock(RestrictionsBlock value);
 
 	/**
 	 * Returns the value of the '<em><b>Compartments</b></em>' containment reference list.
@@ -275,5 +311,41 @@ public interface AssistModel extends EObject {
 	 * @generated
 	 */
 	EList<HardwareElement> getAllHardwareElements(int level);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.GlobalBlock%> _globalBlock = this.getGlobalBlock();\nreturn _globalBlock.getSystemName();'"
+	 * @generated
+	 */
+	String getSystemName();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.GlobalBlock%> _globalBlock = this.getGlobalBlock();\n<%ch.hilbri.assist.datamodel.model.CompatibleIoTypesBlock%> _compatibleIoTypesBlock = _globalBlock.getCompatibleIoTypesBlock();\nreturn _compatibleIoTypesBlock.getCompatibleIoTypes();'"
+	 * @generated
+	 */
+	EList<CompatibleIoTypeEntry> getCompatibleIoTypes();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.GlobalBlock%> _globalBlock = this.getGlobalBlock();\n<%ch.hilbri.assist.datamodel.model.CableWeightDataBlock%> _cableWeightDataBlock = _globalBlock.getCableWeightDataBlock();\nreturn _cableWeightDataBlock.getCableWeightEntries();'"
+	 * @generated
+	 */
+	EList<CableWeightEntry> getCableWeightData();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.GlobalBlock%> _globalBlock = this.getGlobalBlock();\n<%ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock%> _protectionLevelDataBlock = _globalBlock.getProtectionLevelDataBlock();\nreturn _protectionLevelDataBlock.getProtectionLevelEntries();'"
+	 * @generated
+	 */
+	EList<ProtectionLevelEntry> getProtectionLevelData();
 
 } // AssistModel

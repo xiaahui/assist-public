@@ -6,11 +6,15 @@ package ch.hilbri.assist.datamodel.model.provider;
 import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.ModelFactory;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -22,8 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EqInterfaceItemProvider 
-	extends EqInterfaceOrGroupItemProvider {
+public class EqInterfaceItemProvider extends EqInterfaceOrGroupItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -98,28 +101,6 @@ public class EqInterfaceItemProvider
 				 getString("_UI_EqInterface_subAta_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_subAta_feature", "_UI_EqInterface_type"),
 				 ModelPackage.Literals.EQ_INTERFACE__SUB_ATA,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Resource feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addResourcePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EqInterface_resource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_resource_feature", "_UI_EqInterface_type"),
-				 ModelPackage.Literals.EQ_INTERFACE__RESOURCE,
 				 true,
 				 false,
 				 false,
@@ -274,6 +255,28 @@ public class EqInterfaceItemProvider
 				 getString("_UI_EqInterface_ioType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_ioType_feature", "_UI_EqInterface_type"),
 				 ModelPackage.Literals.EQ_INTERFACE__IO_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Resource feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResourcePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EqInterface_resource_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EqInterface_resource_feature", "_UI_EqInterface_type"),
+				 ModelPackage.Literals.EQ_INTERFACE__RESOURCE,
 				 true,
 				 false,
 				 false,

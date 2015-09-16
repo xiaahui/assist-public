@@ -272,7 +272,7 @@ public class MetricsView {
 						
 						/* Check if the cable weight metric has some input to work on */
 						if ((currentModel.getResults().get(0).getModel().getCableWeightData() == null) || 
-								(currentModel.getResults().get(0).getModel().getCableWeightData().getCableWeightEntries().isEmpty())){
+								(currentModel.getResults().get(0).getModel().getGlobalBlock().getCableWeightDataBlock().getCableWeightEntries().isEmpty())){
 							for (AbstractMetric m : currentModel.getSelectedMetricsList()) {
 								if (m instanceof MinimizeRequiredCableWeight) {
 									(new MessageDialog(null, "No Cable Weight Data", null, 

@@ -176,7 +176,7 @@ class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 		if (model.protectionLevelData == null) 
 			return true 
 		
-		val protLevelRequirements = model.protectionLevelData.protectionLevelEntries.filter[emhZone1.equals(iface.emhZone1) && 
+		val protLevelRequirements = model.globalBlock.protectionLevelDataBlock.protectionLevelEntries.filter[emhZone1.equals(iface.emhZone1) && 
 										      		  										rdcLocation.equals(rdc.location)]
 		
 		// does this mapping require special treatment?

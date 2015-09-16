@@ -5,6 +5,7 @@ package ch.hilbri.assist.datamodel.model.provider;
 
 import ch.hilbri.assist.datamodel.model.EqInterfaceOrGroup;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+
 import java.util.Collection;
 import java.util.List;
 

@@ -129,28 +129,6 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Compartment feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCompartmentPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RDC_compartment_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_compartment_feature", "_UI_RDC_type"),
-				 ModelPackage.Literals.RDC__COMPARTMENT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Rdc Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -278,6 +256,28 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Compartment feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCompartmentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RDC_compartment_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_compartment_feature", "_UI_RDC_type"),
+				 ModelPackage.Literals.RDC__COMPARTMENT,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

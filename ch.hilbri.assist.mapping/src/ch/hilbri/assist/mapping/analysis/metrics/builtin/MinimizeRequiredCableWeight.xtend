@@ -32,7 +32,7 @@ class MinimizeRequiredCableWeight extends AbstractMetricImpl {
 												 
 												 *
 																		 
-												 result.model.cableWeightData.getCableWeight(it.ioType)		// Skaliere die Länge mit dem Gewicht
+												 result.model.globalBlock.cableWeightDataBlock.getCableWeight(it.ioType)		// Skaliere die Länge mit dem Gewicht
 												 															// dieses Interfaces
 											]
 											.reduce[p1, p2|p1+p2]

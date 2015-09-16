@@ -4,14 +4,13 @@
  */
 package ch.hilbri.assist.mappingdsl.ui;
 
-import org.eclipse.xtext.ui.DefaultUiModule;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
  * Manual modifications go to {ch.hilbri.assist.mappingdsl.ui.MappingDSLUiModule}
  */
 @SuppressWarnings("all")
-public abstract class AbstractMappingDSLUiModule extends DefaultUiModule {
+public abstract class AbstractMappingDSLUiModule extends org.eclipse.xtext.common.types.ui.DefaultCommonTypesUiModule {
 	
 	public AbstractMappingDSLUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
@@ -51,6 +50,11 @@ public abstract class AbstractMappingDSLUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
 	public Class<? extends org.eclipse.xtext.ui.editor.IXtextEditorCallback> bindIXtextEditorCallback() {
 		return org.eclipse.xtext.builder.nature.NatureAddingEditorCallback.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
+	public Class<? extends org.eclipse.xtext.generator.IContextualOutputConfigurationProvider> bindIContextualOutputConfigurationProvider() {
+		return org.eclipse.xtext.builder.EclipseOutputConfigurationProvider.class;
 	}
 
 	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
@@ -96,11 +100,6 @@ public abstract class AbstractMappingDSLUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.ui.generator.outline.OutlineTreeProviderFragment
 	public Class<? extends org.eclipse.xtext.ui.editor.outline.impl.IOutlineTreeStructureProvider> bindIOutlineTreeStructureProvider() {
 		return ch.hilbri.assist.mappingdsl.ui.outline.MappingDSLOutlineTreeProvider.class;
-	}
-
-	// contributed by org.eclipse.xtext.ui.generator.quickfix.QuickfixProviderFragment
-	public Class<? extends org.eclipse.xtext.ui.editor.quickfix.IssueResolutionProvider> bindIssueResolutionProvider() {
-		return ch.hilbri.assist.mappingdsl.ui.quickfix.MappingDSLQuickfixProvider.class;
 	}
 
 	// contributed by org.eclipse.xtext.ui.generator.contentAssist.ContentAssistFragment
@@ -154,88 +153,8 @@ public abstract class AbstractMappingDSLUiModule extends DefaultUiModule {
 	}
 
 	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
-	public java.lang.ClassLoader bindClassLoaderToInstance() {
-		return getClass().getClassLoader();
-	}
-
-	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
-	public Class<? extends org.eclipse.xtext.common.types.access.IJvmTypeProvider.Factory> bindIJvmTypeProvider$Factory() {
-		return org.eclipse.xtext.common.types.access.jdt.JdtTypeProviderFactory.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
-	public Class<? extends org.eclipse.xtext.common.types.xtext.AbstractTypeScopeProvider> bindAbstractTypeScopeProvider() {
-		return org.eclipse.xtext.common.types.xtext.ui.JdtBasedSimpleTypeScopeProvider.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
-	public Class<? extends org.eclipse.xtext.common.types.xtext.ui.ITypesProposalProvider> bindITypesProposalProvider() {
-		return org.eclipse.xtext.common.types.xtext.ui.JdtTypesProposalProvider.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
-	public Class<? extends org.eclipse.xtext.common.types.access.jdt.IJavaProjectProvider> bindIJavaProjectProvider() {
-		return org.eclipse.xtext.common.types.xtext.ui.XtextResourceSetBasedProjectProvider.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
-	public Class<? extends org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper> bindIHyperlinkHelper() {
-		return org.eclipse.xtext.common.types.xtext.ui.TypeAwareHyperlinkHelper.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
 	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.PrefixMatcher> bindPrefixMatcher() {
 		return org.eclipse.xtext.ui.editor.contentassist.FQNPrefixMatcher.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
-	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.AbstractJavaBasedContentProposalProvider.ReferenceProposalCreator> bindAbstractJavaBasedContentProposalProvider$ReferenceProposalCreator() {
-		return org.eclipse.xtext.common.types.xtext.ui.TypeAwareReferenceProposalCreator.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
-	public Class<? extends org.eclipse.xtext.ui.editor.IValidationJobScheduler> bindIValidationJobScheduler() {
-		return org.eclipse.xtext.common.types.xtext.ui.JdtValidationJobScheduler.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
-	public Class<? extends org.eclipse.xtext.ui.refactoring.impl.RefactoringResourceSetProvider> bindRefactoringResourceSetProvider() {
-		return org.eclipse.xtext.common.types.ui.refactoring.JvmRefactoringResourceSetProvider.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
-	public Class<? extends org.eclipse.xtext.common.types.ui.query.IJavaSearchParticipation> bindIJavaSearchParticipation() {
-		return org.eclipse.xtext.common.types.ui.query.IJavaSearchParticipation.Yes.class;
-	}
-
-	// contributed by org.eclipse.xtext.ui.generator.templates.CodetemplatesGeneratorFragment
-	public com.google.inject.Provider<org.eclipse.xtext.ui.codetemplates.ui.preferences.TemplatesLanguageConfiguration> provideTemplatesLanguageConfiguration() {
-		return org.eclipse.xtext.ui.codetemplates.ui.AccessibleCodetemplatesActivator.getTemplatesLanguageConfigurationProvider();
-	}
-
-	// contributed by org.eclipse.xtext.ui.generator.templates.CodetemplatesGeneratorFragment
-	public com.google.inject.Provider<org.eclipse.xtext.ui.codetemplates.ui.registry.LanguageRegistry> provideLanguageRegistry() {
-		return org.eclipse.xtext.ui.codetemplates.ui.AccessibleCodetemplatesActivator.getLanguageRegistry();
-	}
-
-	// contributed by org.eclipse.xtext.ui.generator.templates.CodetemplatesGeneratorFragment
-	@org.eclipse.xtext.service.SingletonBinding(eager=true)	public Class<? extends org.eclipse.xtext.ui.codetemplates.ui.registry.LanguageRegistrar> bindLanguageRegistrar() {
-		return org.eclipse.xtext.ui.codetemplates.ui.registry.LanguageRegistrar.class;
-	}
-
-	// contributed by org.eclipse.xtext.ui.generator.templates.CodetemplatesGeneratorFragment
-	public Class<? extends org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage> bindXtextTemplatePreferencePage() {
-		return org.eclipse.xtext.ui.codetemplates.ui.preferences.AdvancedTemplatesPreferencePage.class;
-	}
-
-	// contributed by org.eclipse.xtext.ui.generator.templates.CodetemplatesGeneratorFragment
-	public Class<? extends org.eclipse.xtext.ui.codetemplates.ui.partialEditing.IPartialContentAssistParser> bindIPartialContentAssistParser() {
-		return ch.hilbri.assist.mappingdsl.ui.contentassist.antlr.PartialMappingDSLContentAssistParser.class;
-	}
-
-	// contributed by org.eclipse.xtext.ui.generator.compare.CompareFragment
-	public Class<? extends org.eclipse.compare.IViewerCreator> bindIViewerCreator() {
-		return org.eclipse.xtext.ui.compare.DefaultViewerCreator.class;
 	}
 
 

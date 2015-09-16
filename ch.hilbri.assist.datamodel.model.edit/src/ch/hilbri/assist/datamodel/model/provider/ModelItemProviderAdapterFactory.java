@@ -95,6 +95,190 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.GlobalBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GlobalBlockItemProvider globalBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.GlobalBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGlobalBlockAdapter() {
+		if (globalBlockItemProvider == null) {
+			globalBlockItemProvider = new GlobalBlockItemProvider(this);
+		}
+
+		return globalBlockItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CompatibleIoTypesBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompatibleIoTypesBlockItemProvider compatibleIoTypesBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.CompatibleIoTypesBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompatibleIoTypesBlockAdapter() {
+		if (compatibleIoTypesBlockItemProvider == null) {
+			compatibleIoTypesBlockItemProvider = new CompatibleIoTypesBlockItemProvider(this);
+		}
+
+		return compatibleIoTypesBlockItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CableWeightDataBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CableWeightDataBlockItemProvider cableWeightDataBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.CableWeightDataBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCableWeightDataBlockAdapter() {
+		if (cableWeightDataBlockItemProvider == null) {
+			cableWeightDataBlockItemProvider = new CableWeightDataBlockItemProvider(this);
+		}
+
+		return cableWeightDataBlockItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProtectionLevelDataBlockItemProvider protectionLevelDataBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProtectionLevelDataBlockAdapter() {
+		if (protectionLevelDataBlockItemProvider == null) {
+			protectionLevelDataBlockItemProvider = new ProtectionLevelDataBlockItemProvider(this);
+		}
+
+		return protectionLevelDataBlockItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CompartmentsBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompartmentsBlockItemProvider compartmentsBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.CompartmentsBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompartmentsBlockAdapter() {
+		if (compartmentsBlockItemProvider == null) {
+			compartmentsBlockItemProvider = new CompartmentsBlockItemProvider(this);
+		}
+
+		return compartmentsBlockItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.InterfacesBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InterfacesBlockItemProvider interfacesBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.InterfacesBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInterfacesBlockAdapter() {
+		if (interfacesBlockItemProvider == null) {
+			interfacesBlockItemProvider = new InterfacesBlockItemProvider(this);
+		}
+
+		return interfacesBlockItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InterfaceGroupsBlockItemProvider interfaceGroupsBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInterfaceGroupsBlockAdapter() {
+		if (interfaceGroupsBlockItemProvider == null) {
+			interfaceGroupsBlockItemProvider = new InterfaceGroupsBlockItemProvider(this);
+		}
+
+		return interfaceGroupsBlockItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.RestrictionsBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RestrictionsBlockItemProvider restrictionsBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.RestrictionsBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRestrictionsBlockAdapter() {
+		if (restrictionsBlockItemProvider == null) {
+			restrictionsBlockItemProvider = new RestrictionsBlockItemProvider(this);
+		}
+
+		return restrictionsBlockItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -115,29 +299,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		}
 
 		return compatibleIoTypeEntryItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ProtectionLevelData} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ProtectionLevelDataItemProvider protectionLevelDataItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ProtectionLevelData}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createProtectionLevelDataAdapter() {
-		if (protectionLevelDataItemProvider == null) {
-			protectionLevelDataItemProvider = new ProtectionLevelDataItemProvider(this);
-		}
-
-		return protectionLevelDataItemProvider;
 	}
 
 	/**
@@ -578,29 +739,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ValidDeployment} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ValidDeploymentItemProvider validDeploymentItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ValidDeployment}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createValidDeploymentAdapter() {
-		if (validDeploymentItemProvider == null) {
-			validDeploymentItemProvider = new ValidDeploymentItemProvider(this);
-		}
-
-		return validDeploymentItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -644,6 +782,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		}
 
 		return deploymentImplicitDefinitionAttributeAndValueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ValidDeployment} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValidDeploymentItemProvider validDeploymentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.ValidDeployment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValidDeploymentAdapter() {
+		if (validDeploymentItemProvider == null) {
+			validDeploymentItemProvider = new ValidDeploymentItemProvider(this);
+		}
+
+		return validDeploymentItemProvider;
 	}
 
 	/**
@@ -769,8 +930,15 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	 */
 	public void dispose() {
 		if (assistModelItemProvider != null) assistModelItemProvider.dispose();
+		if (globalBlockItemProvider != null) globalBlockItemProvider.dispose();
+		if (compatibleIoTypesBlockItemProvider != null) compatibleIoTypesBlockItemProvider.dispose();
+		if (cableWeightDataBlockItemProvider != null) cableWeightDataBlockItemProvider.dispose();
+		if (protectionLevelDataBlockItemProvider != null) protectionLevelDataBlockItemProvider.dispose();
+		if (compartmentsBlockItemProvider != null) compartmentsBlockItemProvider.dispose();
+		if (interfacesBlockItemProvider != null) interfacesBlockItemProvider.dispose();
+		if (interfaceGroupsBlockItemProvider != null) interfaceGroupsBlockItemProvider.dispose();
+		if (restrictionsBlockItemProvider != null) restrictionsBlockItemProvider.dispose();
 		if (compatibleIoTypeEntryItemProvider != null) compatibleIoTypeEntryItemProvider.dispose();
-		if (protectionLevelDataItemProvider != null) protectionLevelDataItemProvider.dispose();
 		if (protectionLevelEntryItemProvider != null) protectionLevelEntryItemProvider.dispose();
 		if (cableWeightDataItemProvider != null) cableWeightDataItemProvider.dispose();
 		if (cableWeightEntryItemProvider != null) cableWeightEntryItemProvider.dispose();

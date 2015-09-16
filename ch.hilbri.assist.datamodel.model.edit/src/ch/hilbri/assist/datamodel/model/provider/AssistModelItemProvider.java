@@ -17,14 +17,12 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -63,31 +61,8 @@ public class AssistModelItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSystemNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the System Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSystemNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AssistModel_systemName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_systemName_feature", "_UI_AssistModel_type"),
-				 ModelPackage.Literals.ASSIST_MODEL__SYSTEM_NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -102,9 +77,11 @@ public class AssistModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__CABLE_WEIGHT_DATA);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__PROTECTION_LEVEL_DATA);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPATIBLE_IO_TYPES);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__GLOBAL_BLOCK);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS_BLOCK);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__INTERFACES_BLOCK);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__INTERFACE_GROUPS_BLOCK);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__RESTRICTIONS_BLOCK);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACES);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACE_GROUPS);
@@ -148,10 +125,7 @@ public class AssistModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AssistModel)object).getSystemName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_AssistModel_type") :
-			getString("_UI_AssistModel_type") + " " + label;
+		return getString("_UI_AssistModel_type");
 	}
 	
 
@@ -167,12 +141,11 @@ public class AssistModelItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AssistModel.class)) {
-			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case ModelPackage.ASSIST_MODEL__CABLE_WEIGHT_DATA:
-			case ModelPackage.ASSIST_MODEL__PROTECTION_LEVEL_DATA:
-			case ModelPackage.ASSIST_MODEL__COMPATIBLE_IO_TYPES:
+			case ModelPackage.ASSIST_MODEL__GLOBAL_BLOCK:
+			case ModelPackage.ASSIST_MODEL__COMPARTMENTS_BLOCK:
+			case ModelPackage.ASSIST_MODEL__INTERFACES_BLOCK:
+			case ModelPackage.ASSIST_MODEL__INTERFACE_GROUPS_BLOCK:
+			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
 			case ModelPackage.ASSIST_MODEL__EQ_INTERFACES:
 			case ModelPackage.ASSIST_MODEL__EQ_INTERFACE_GROUPS:
@@ -199,18 +172,28 @@ public class AssistModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__CABLE_WEIGHT_DATA,
-				 ModelFactory.eINSTANCE.createCableWeightData()));
+				(ModelPackage.Literals.ASSIST_MODEL__GLOBAL_BLOCK,
+				 ModelFactory.eINSTANCE.createGlobalBlock()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__PROTECTION_LEVEL_DATA,
-				 ModelFactory.eINSTANCE.createProtectionLevelData()));
+				(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS_BLOCK,
+				 ModelFactory.eINSTANCE.createCompartmentsBlock()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__COMPATIBLE_IO_TYPES,
-				 ModelFactory.eINSTANCE.createCompatibleIoTypeEntry()));
+				(ModelPackage.Literals.ASSIST_MODEL__INTERFACES_BLOCK,
+				 ModelFactory.eINSTANCE.createInterfacesBlock()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL__INTERFACE_GROUPS_BLOCK,
+				 ModelFactory.eINSTANCE.createInterfaceGroupsBlock()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL__RESTRICTIONS_BLOCK,
+				 ModelFactory.eINSTANCE.createRestrictionsBlock()));
 
 		newChildDescriptors.add
 			(createChildParameter

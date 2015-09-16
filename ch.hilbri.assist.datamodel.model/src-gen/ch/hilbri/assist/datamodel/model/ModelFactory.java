@@ -31,6 +31,78 @@ public interface ModelFactory extends EFactory {
 	AssistModel createAssistModel();
 
 	/**
+	 * Returns a new object of class '<em>Global Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Global Block</em>'.
+	 * @generated
+	 */
+	GlobalBlock createGlobalBlock();
+
+	/**
+	 * Returns a new object of class '<em>Compatible Io Types Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compatible Io Types Block</em>'.
+	 * @generated
+	 */
+	CompatibleIoTypesBlock createCompatibleIoTypesBlock();
+
+	/**
+	 * Returns a new object of class '<em>Cable Weight Data Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cable Weight Data Block</em>'.
+	 * @generated
+	 */
+	CableWeightDataBlock createCableWeightDataBlock();
+
+	/**
+	 * Returns a new object of class '<em>Protection Level Data Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Protection Level Data Block</em>'.
+	 * @generated
+	 */
+	ProtectionLevelDataBlock createProtectionLevelDataBlock();
+
+	/**
+	 * Returns a new object of class '<em>Compartments Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compartments Block</em>'.
+	 * @generated
+	 */
+	CompartmentsBlock createCompartmentsBlock();
+
+	/**
+	 * Returns a new object of class '<em>Interfaces Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interfaces Block</em>'.
+	 * @generated
+	 */
+	InterfacesBlock createInterfacesBlock();
+
+	/**
+	 * Returns a new object of class '<em>Interface Groups Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interface Groups Block</em>'.
+	 * @generated
+	 */
+	InterfaceGroupsBlock createInterfaceGroupsBlock();
+
+	/**
+	 * Returns a new object of class '<em>Restrictions Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Restrictions Block</em>'.
+	 * @generated
+	 */
+	RestrictionsBlock createRestrictionsBlock();
+
+	/**
 	 * Returns a new object of class '<em>Compatible Io Type Entry</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,15 +110,6 @@ public interface ModelFactory extends EFactory {
 	 * @generated
 	 */
 	CompatibleIoTypeEntry createCompatibleIoTypeEntry();
-
-	/**
-	 * Returns a new object of class '<em>Protection Level Data</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Protection Level Data</em>'.
-	 * @generated
-	 */
-	ProtectionLevelData createProtectionLevelData();
 
 	/**
 	 * Returns a new object of class '<em>Protection Level Entry</em>'.

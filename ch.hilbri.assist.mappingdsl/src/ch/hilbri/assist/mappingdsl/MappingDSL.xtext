@@ -4,60 +4,65 @@ import "ch.hilbri.assist.datamodel.model"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 AssistModel: 
-	'Global'  '{' 
+	globalBlock=GlobalBlock
+
+//	compartments+=Compartment+
+//
+//	('Interfaces' '{'
+//		(eqInterfaces+=EqInterface)+ 
+//	'}')?
+//	
+//	('InterfaceGroups' '{'
+//		(
+//			eqInterfaceGroups+=EqInterfaceGroup 						|	
+//			eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition
+//		)*		
+//	'}')?
+//	
+//	('Restrictions' '{'
+//		( 
+//			dislocalityRelations+=DislocalityRelation 			|
+//			colocalityRelations+=ColocalityRelation				|
+//			validDeployments+=ValidDeployment					|		 
+//			invalidDeployments+=InvalidDeployment 			 
+//		)*
+//		
+//	'}')?
+;
+
+GlobalBlock: {GlobalBlock}
+		'Global'  '{' 
 		(
-			('Name' '=' systemName=STRING ';'														)?		&
-			( 'Compatible Interface Types' 	'{'	(compatibleIoTypes+=CompatibleIoTypeEntry)* '}'		)?		&
-			( cableWeightData=CableWeightData														)?		&
-			( protectionLevelData=ProtectionLevelData												)?
-			
+			('Name' '=' systemName=STRING ';'						)?		&
+			( compatibleIoTypesBlock	= CompatibleIoTypesBlock	)?		&
+			( cableWeightDataBlock		= CableWeightDataBlock		)?		&
+			( protectionLevelDataBlock	= ProtectionLevelDataBlock	)?
 		)  
-	'}'
-
-	compartments+=Compartment+
-
-	('Interfaces' '{'
-		(eqInterfaces+=EqInterface)+ 
-	'}')?
-	
-	('InterfaceGroups' '{'
-		(
-			eqInterfaceGroups+=EqInterfaceGroup 						|	
-			eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition
-		)*		
-	'}')?
-	
-	('Restrictions' '{'
-		( 
-			dislocalityRelations+=DislocalityRelation 			|
-			colocalityRelations+=ColocalityRelation				|
-			validDeployments+=ValidDeployment					|		 
-			invalidDeployments+=InvalidDeployment 			 
-		)*
-		
-	'}')?
+		'}'
 ;
 
-
-ProtectionLevelData: 
-	'Protection Level Restrictions'	'{' (protectionLevelEntries+=ProtectionLevelEntry)+	'}'
+CompatibleIoTypesBlock: 
+	'Compatible Interface Types' 	'{'	(compatibleIoTypes+=CompatibleIoTypeEntry)+ '}'	
 ;
-
-ProtectionLevelEntry: 
-	'RDC.Location' '=' rdcLocation=STRING 'And' 'Equipment.EmhZone1' '=' emhZone1=STRING '->' protectionLevel+=ProtectionLevelType (',' protectionLevel+=ProtectionLevelType)* ';'
-;
-
 
 CompatibleIoTypeEntry: 
 	eqInterfaceIoType=STRING '->' pinInterfaceIoTypes+=STRING (',' pinInterfaceIoTypes+=STRING)* ';'
 ;
 
-CableWeightData:
-	'Cable Weights' 				'{'	(cableWeightEntries+=CableWeightEntry)+  	'}'		
+CableWeightDataBlock: 
+	'Cable Weights' 				'{'	(cableWeightEntries+=CableWeightEntry)+  	'}'	
 ;
 
 CableWeightEntry:
 	(eqInterfaceIoType=STRING | defaultEntry?='default') '=' weight=Double ';'
+;
+
+ProtectionLevelDataBlock: 
+	'Protection Level Restrictions'	'{' (protectionLevelEntries+=ProtectionLevelEntry)+	'}'	
+;
+
+ProtectionLevelEntry: 
+	'RDC.Location' '=' rdcLocation=STRING 'And' 'Equipment.EmhZone1' '=' emhZone1=STRING '->' protectionLevel+=ProtectionLevelType (',' protectionLevel+=ProtectionLevelType)* ';'
 ;
 
 
@@ -273,7 +278,7 @@ MetricParameter:
 ;
 
 Double returns ecore::EDouble:
-    '-'? INT? '.'? INT
+    INT? '.'? INT
 ;
 
 QualifiedName:

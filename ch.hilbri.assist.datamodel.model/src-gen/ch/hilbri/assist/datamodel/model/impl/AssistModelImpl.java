@@ -3,19 +3,27 @@
 package ch.hilbri.assist.datamodel.model.impl;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
-import ch.hilbri.assist.datamodel.model.CableWeightData;
+import ch.hilbri.assist.datamodel.model.CableWeightDataBlock;
+import ch.hilbri.assist.datamodel.model.CableWeightEntry;
 import ch.hilbri.assist.datamodel.model.ColocalityRelation;
 import ch.hilbri.assist.datamodel.model.Compartment;
+import ch.hilbri.assist.datamodel.model.CompartmentsBlock;
 import ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry;
+import ch.hilbri.assist.datamodel.model.CompatibleIoTypesBlock;
 import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.DislocalityRelation;
 import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
+import ch.hilbri.assist.datamodel.model.GlobalBlock;
 import ch.hilbri.assist.datamodel.model.HardwareElement;
+import ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock;
+import ch.hilbri.assist.datamodel.model.InterfacesBlock;
 import ch.hilbri.assist.datamodel.model.InvalidDeployment;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
-import ch.hilbri.assist.datamodel.model.ProtectionLevelData;
+import ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock;
+import ch.hilbri.assist.datamodel.model.ProtectionLevelEntry;
 import ch.hilbri.assist.datamodel.model.RDC;
+import ch.hilbri.assist.datamodel.model.RestrictionsBlock;
 import ch.hilbri.assist.datamodel.model.ValidDeployment;
 
 import java.lang.reflect.InvocationTargetException;
@@ -49,10 +57,11 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getSystemName <em>System Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getCableWeightData <em>Cable Weight Data</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getProtectionLevelData <em>Protection Level Data</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getCompatibleIoTypes <em>Compatible Io Types</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getGlobalBlock <em>Global Block</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getCompartmentsBlock <em>Compartments Block</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getInterfacesBlock <em>Interfaces Block</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getInterfaceGroupsBlock <em>Interface Groups Block</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getRestrictionsBlock <em>Restrictions Block</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getCompartments <em>Compartments</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getEqInterfaces <em>Eq Interfaces</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getEqInterfaceGroups <em>Eq Interface Groups</em>}</li>
@@ -66,54 +75,54 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  */
 public class AssistModelImpl extends MinimalEObjectImpl.Container implements AssistModel {
 	/**
-	 * The default value of the '{@link #getSystemName() <em>System Name</em>}' attribute.
+	 * The cached value of the '{@link #getGlobalBlock() <em>Global Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSystemName()
+	 * @see #getGlobalBlock()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SYSTEM_NAME_EDEFAULT = "";
+	protected GlobalBlock globalBlock;
 
 	/**
-	 * The cached value of the '{@link #getSystemName() <em>System Name</em>}' attribute.
+	 * The cached value of the '{@link #getCompartmentsBlock() <em>Compartments Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSystemName()
+	 * @see #getCompartmentsBlock()
 	 * @generated
 	 * @ordered
 	 */
-	protected String systemName = SYSTEM_NAME_EDEFAULT;
+	protected CompartmentsBlock compartmentsBlock;
 
 	/**
-	 * The cached value of the '{@link #getCableWeightData() <em>Cable Weight Data</em>}' containment reference.
+	 * The cached value of the '{@link #getInterfacesBlock() <em>Interfaces Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCableWeightData()
+	 * @see #getInterfacesBlock()
 	 * @generated
 	 * @ordered
 	 */
-	protected CableWeightData cableWeightData;
+	protected InterfacesBlock interfacesBlock;
 
 	/**
-	 * The cached value of the '{@link #getProtectionLevelData() <em>Protection Level Data</em>}' containment reference.
+	 * The cached value of the '{@link #getInterfaceGroupsBlock() <em>Interface Groups Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProtectionLevelData()
+	 * @see #getInterfaceGroupsBlock()
 	 * @generated
 	 * @ordered
 	 */
-	protected ProtectionLevelData protectionLevelData;
+	protected InterfaceGroupsBlock interfaceGroupsBlock;
 
 	/**
-	 * The cached value of the '{@link #getCompatibleIoTypes() <em>Compatible Io Types</em>}' containment reference list.
+	 * The cached value of the '{@link #getRestrictionsBlock() <em>Restrictions Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCompatibleIoTypes()
+	 * @see #getRestrictionsBlock()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CompatibleIoTypeEntry> compatibleIoTypes;
+	protected RestrictionsBlock restrictionsBlock;
 
 	/**
 	 * The cached value of the '{@link #getCompartments() <em>Compartments</em>}' containment reference list.
@@ -209,8 +218,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSystemName() {
-		return systemName;
+	public GlobalBlock getGlobalBlock() {
+		return globalBlock;
 	}
 
 	/**
@@ -218,32 +227,11 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSystemName(String newSystemName) {
-		String oldSystemName = systemName;
-		systemName = newSystemName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__SYSTEM_NAME, oldSystemName, systemName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CableWeightData getCableWeightData() {
-		return cableWeightData;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCableWeightData(CableWeightData newCableWeightData, NotificationChain msgs) {
-		CableWeightData oldCableWeightData = cableWeightData;
-		cableWeightData = newCableWeightData;
+	public NotificationChain basicSetGlobalBlock(GlobalBlock newGlobalBlock, NotificationChain msgs) {
+		GlobalBlock oldGlobalBlock = globalBlock;
+		globalBlock = newGlobalBlock;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__CABLE_WEIGHT_DATA, oldCableWeightData, newCableWeightData);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__GLOBAL_BLOCK, oldGlobalBlock, newGlobalBlock);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -254,18 +242,18 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCableWeightData(CableWeightData newCableWeightData) {
-		if (newCableWeightData != cableWeightData) {
+	public void setGlobalBlock(GlobalBlock newGlobalBlock) {
+		if (newGlobalBlock != globalBlock) {
 			NotificationChain msgs = null;
-			if (cableWeightData != null)
-				msgs = ((InternalEObject)cableWeightData).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ASSIST_MODEL__CABLE_WEIGHT_DATA, null, msgs);
-			if (newCableWeightData != null)
-				msgs = ((InternalEObject)newCableWeightData).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ASSIST_MODEL__CABLE_WEIGHT_DATA, null, msgs);
-			msgs = basicSetCableWeightData(newCableWeightData, msgs);
+			if (globalBlock != null)
+				msgs = ((InternalEObject)globalBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ASSIST_MODEL__GLOBAL_BLOCK, null, msgs);
+			if (newGlobalBlock != null)
+				msgs = ((InternalEObject)newGlobalBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ASSIST_MODEL__GLOBAL_BLOCK, null, msgs);
+			msgs = basicSetGlobalBlock(newGlobalBlock, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__CABLE_WEIGHT_DATA, newCableWeightData, newCableWeightData));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__GLOBAL_BLOCK, newGlobalBlock, newGlobalBlock));
 	}
 
 	/**
@@ -273,8 +261,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProtectionLevelData getProtectionLevelData() {
-		return protectionLevelData;
+	public CompartmentsBlock getCompartmentsBlock() {
+		return compartmentsBlock;
 	}
 
 	/**
@@ -282,11 +270,11 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProtectionLevelData(ProtectionLevelData newProtectionLevelData, NotificationChain msgs) {
-		ProtectionLevelData oldProtectionLevelData = protectionLevelData;
-		protectionLevelData = newProtectionLevelData;
+	public NotificationChain basicSetCompartmentsBlock(CompartmentsBlock newCompartmentsBlock, NotificationChain msgs) {
+		CompartmentsBlock oldCompartmentsBlock = compartmentsBlock;
+		compartmentsBlock = newCompartmentsBlock;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__PROTECTION_LEVEL_DATA, oldProtectionLevelData, newProtectionLevelData);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__COMPARTMENTS_BLOCK, oldCompartmentsBlock, newCompartmentsBlock);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -297,18 +285,18 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProtectionLevelData(ProtectionLevelData newProtectionLevelData) {
-		if (newProtectionLevelData != protectionLevelData) {
+	public void setCompartmentsBlock(CompartmentsBlock newCompartmentsBlock) {
+		if (newCompartmentsBlock != compartmentsBlock) {
 			NotificationChain msgs = null;
-			if (protectionLevelData != null)
-				msgs = ((InternalEObject)protectionLevelData).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ASSIST_MODEL__PROTECTION_LEVEL_DATA, null, msgs);
-			if (newProtectionLevelData != null)
-				msgs = ((InternalEObject)newProtectionLevelData).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ASSIST_MODEL__PROTECTION_LEVEL_DATA, null, msgs);
-			msgs = basicSetProtectionLevelData(newProtectionLevelData, msgs);
+			if (compartmentsBlock != null)
+				msgs = ((InternalEObject)compartmentsBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ASSIST_MODEL__COMPARTMENTS_BLOCK, null, msgs);
+			if (newCompartmentsBlock != null)
+				msgs = ((InternalEObject)newCompartmentsBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ASSIST_MODEL__COMPARTMENTS_BLOCK, null, msgs);
+			msgs = basicSetCompartmentsBlock(newCompartmentsBlock, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__PROTECTION_LEVEL_DATA, newProtectionLevelData, newProtectionLevelData));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__COMPARTMENTS_BLOCK, newCompartmentsBlock, newCompartmentsBlock));
 	}
 
 	/**
@@ -316,11 +304,128 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CompatibleIoTypeEntry> getCompatibleIoTypes() {
-		if (compatibleIoTypes == null) {
-			compatibleIoTypes = new EObjectContainmentEList<CompatibleIoTypeEntry>(CompatibleIoTypeEntry.class, this, ModelPackage.ASSIST_MODEL__COMPATIBLE_IO_TYPES);
+	public InterfacesBlock getInterfacesBlock() {
+		return interfacesBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInterfacesBlock(InterfacesBlock newInterfacesBlock, NotificationChain msgs) {
+		InterfacesBlock oldInterfacesBlock = interfacesBlock;
+		interfacesBlock = newInterfacesBlock;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__INTERFACES_BLOCK, oldInterfacesBlock, newInterfacesBlock);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return compatibleIoTypes;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInterfacesBlock(InterfacesBlock newInterfacesBlock) {
+		if (newInterfacesBlock != interfacesBlock) {
+			NotificationChain msgs = null;
+			if (interfacesBlock != null)
+				msgs = ((InternalEObject)interfacesBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ASSIST_MODEL__INTERFACES_BLOCK, null, msgs);
+			if (newInterfacesBlock != null)
+				msgs = ((InternalEObject)newInterfacesBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ASSIST_MODEL__INTERFACES_BLOCK, null, msgs);
+			msgs = basicSetInterfacesBlock(newInterfacesBlock, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__INTERFACES_BLOCK, newInterfacesBlock, newInterfacesBlock));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InterfaceGroupsBlock getInterfaceGroupsBlock() {
+		return interfaceGroupsBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInterfaceGroupsBlock(InterfaceGroupsBlock newInterfaceGroupsBlock, NotificationChain msgs) {
+		InterfaceGroupsBlock oldInterfaceGroupsBlock = interfaceGroupsBlock;
+		interfaceGroupsBlock = newInterfaceGroupsBlock;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__INTERFACE_GROUPS_BLOCK, oldInterfaceGroupsBlock, newInterfaceGroupsBlock);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInterfaceGroupsBlock(InterfaceGroupsBlock newInterfaceGroupsBlock) {
+		if (newInterfaceGroupsBlock != interfaceGroupsBlock) {
+			NotificationChain msgs = null;
+			if (interfaceGroupsBlock != null)
+				msgs = ((InternalEObject)interfaceGroupsBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ASSIST_MODEL__INTERFACE_GROUPS_BLOCK, null, msgs);
+			if (newInterfaceGroupsBlock != null)
+				msgs = ((InternalEObject)newInterfaceGroupsBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ASSIST_MODEL__INTERFACE_GROUPS_BLOCK, null, msgs);
+			msgs = basicSetInterfaceGroupsBlock(newInterfaceGroupsBlock, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__INTERFACE_GROUPS_BLOCK, newInterfaceGroupsBlock, newInterfaceGroupsBlock));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RestrictionsBlock getRestrictionsBlock() {
+		return restrictionsBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRestrictionsBlock(RestrictionsBlock newRestrictionsBlock, NotificationChain msgs) {
+		RestrictionsBlock oldRestrictionsBlock = restrictionsBlock;
+		restrictionsBlock = newRestrictionsBlock;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK, oldRestrictionsBlock, newRestrictionsBlock);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRestrictionsBlock(RestrictionsBlock newRestrictionsBlock) {
+		if (newRestrictionsBlock != restrictionsBlock) {
+			NotificationChain msgs = null;
+			if (restrictionsBlock != null)
+				msgs = ((InternalEObject)restrictionsBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK, null, msgs);
+			if (newRestrictionsBlock != null)
+				msgs = ((InternalEObject)newRestrictionsBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK, null, msgs);
+			msgs = basicSetRestrictionsBlock(newRestrictionsBlock, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK, newRestrictionsBlock, newRestrictionsBlock));
 	}
 
 	/**
@@ -493,15 +598,62 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getSystemName() {
+		GlobalBlock _globalBlock = this.getGlobalBlock();
+		return _globalBlock.getSystemName();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CompatibleIoTypeEntry> getCompatibleIoTypes() {
+		GlobalBlock _globalBlock = this.getGlobalBlock();
+		CompatibleIoTypesBlock _compatibleIoTypesBlock = _globalBlock.getCompatibleIoTypesBlock();
+		return _compatibleIoTypesBlock.getCompatibleIoTypes();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CableWeightEntry> getCableWeightData() {
+		GlobalBlock _globalBlock = this.getGlobalBlock();
+		CableWeightDataBlock _cableWeightDataBlock = _globalBlock.getCableWeightDataBlock();
+		return _cableWeightDataBlock.getCableWeightEntries();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ProtectionLevelEntry> getProtectionLevelData() {
+		GlobalBlock _globalBlock = this.getGlobalBlock();
+		ProtectionLevelDataBlock _protectionLevelDataBlock = _globalBlock.getProtectionLevelDataBlock();
+		return _protectionLevelDataBlock.getProtectionLevelEntries();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL__CABLE_WEIGHT_DATA:
-				return basicSetCableWeightData(null, msgs);
-			case ModelPackage.ASSIST_MODEL__PROTECTION_LEVEL_DATA:
-				return basicSetProtectionLevelData(null, msgs);
-			case ModelPackage.ASSIST_MODEL__COMPATIBLE_IO_TYPES:
-				return ((InternalEList<?>)getCompatibleIoTypes()).basicRemove(otherEnd, msgs);
+			case ModelPackage.ASSIST_MODEL__GLOBAL_BLOCK:
+				return basicSetGlobalBlock(null, msgs);
+			case ModelPackage.ASSIST_MODEL__COMPARTMENTS_BLOCK:
+				return basicSetCompartmentsBlock(null, msgs);
+			case ModelPackage.ASSIST_MODEL__INTERFACES_BLOCK:
+				return basicSetInterfacesBlock(null, msgs);
+			case ModelPackage.ASSIST_MODEL__INTERFACE_GROUPS_BLOCK:
+				return basicSetInterfaceGroupsBlock(null, msgs);
+			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
+				return basicSetRestrictionsBlock(null, msgs);
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
 				return ((InternalEList<?>)getCompartments()).basicRemove(otherEnd, msgs);
 			case ModelPackage.ASSIST_MODEL__EQ_INTERFACES:
@@ -528,14 +680,16 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
-				return getSystemName();
-			case ModelPackage.ASSIST_MODEL__CABLE_WEIGHT_DATA:
-				return getCableWeightData();
-			case ModelPackage.ASSIST_MODEL__PROTECTION_LEVEL_DATA:
-				return getProtectionLevelData();
-			case ModelPackage.ASSIST_MODEL__COMPATIBLE_IO_TYPES:
-				return getCompatibleIoTypes();
+			case ModelPackage.ASSIST_MODEL__GLOBAL_BLOCK:
+				return getGlobalBlock();
+			case ModelPackage.ASSIST_MODEL__COMPARTMENTS_BLOCK:
+				return getCompartmentsBlock();
+			case ModelPackage.ASSIST_MODEL__INTERFACES_BLOCK:
+				return getInterfacesBlock();
+			case ModelPackage.ASSIST_MODEL__INTERFACE_GROUPS_BLOCK:
+				return getInterfaceGroupsBlock();
+			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
+				return getRestrictionsBlock();
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
 				return getCompartments();
 			case ModelPackage.ASSIST_MODEL__EQ_INTERFACES:
@@ -563,18 +717,20 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
-				setSystemName((String)newValue);
+			case ModelPackage.ASSIST_MODEL__GLOBAL_BLOCK:
+				setGlobalBlock((GlobalBlock)newValue);
 				return;
-			case ModelPackage.ASSIST_MODEL__CABLE_WEIGHT_DATA:
-				setCableWeightData((CableWeightData)newValue);
+			case ModelPackage.ASSIST_MODEL__COMPARTMENTS_BLOCK:
+				setCompartmentsBlock((CompartmentsBlock)newValue);
 				return;
-			case ModelPackage.ASSIST_MODEL__PROTECTION_LEVEL_DATA:
-				setProtectionLevelData((ProtectionLevelData)newValue);
+			case ModelPackage.ASSIST_MODEL__INTERFACES_BLOCK:
+				setInterfacesBlock((InterfacesBlock)newValue);
 				return;
-			case ModelPackage.ASSIST_MODEL__COMPATIBLE_IO_TYPES:
-				getCompatibleIoTypes().clear();
-				getCompatibleIoTypes().addAll((Collection<? extends CompatibleIoTypeEntry>)newValue);
+			case ModelPackage.ASSIST_MODEL__INTERFACE_GROUPS_BLOCK:
+				setInterfaceGroupsBlock((InterfaceGroupsBlock)newValue);
+				return;
+			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
+				setRestrictionsBlock((RestrictionsBlock)newValue);
 				return;
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
 				getCompartments().clear();
@@ -616,17 +772,20 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
-				setSystemName(SYSTEM_NAME_EDEFAULT);
+			case ModelPackage.ASSIST_MODEL__GLOBAL_BLOCK:
+				setGlobalBlock((GlobalBlock)null);
 				return;
-			case ModelPackage.ASSIST_MODEL__CABLE_WEIGHT_DATA:
-				setCableWeightData((CableWeightData)null);
+			case ModelPackage.ASSIST_MODEL__COMPARTMENTS_BLOCK:
+				setCompartmentsBlock((CompartmentsBlock)null);
 				return;
-			case ModelPackage.ASSIST_MODEL__PROTECTION_LEVEL_DATA:
-				setProtectionLevelData((ProtectionLevelData)null);
+			case ModelPackage.ASSIST_MODEL__INTERFACES_BLOCK:
+				setInterfacesBlock((InterfacesBlock)null);
 				return;
-			case ModelPackage.ASSIST_MODEL__COMPATIBLE_IO_TYPES:
-				getCompatibleIoTypes().clear();
+			case ModelPackage.ASSIST_MODEL__INTERFACE_GROUPS_BLOCK:
+				setInterfaceGroupsBlock((InterfaceGroupsBlock)null);
+				return;
+			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
+				setRestrictionsBlock((RestrictionsBlock)null);
 				return;
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
 				getCompartments().clear();
@@ -661,14 +820,16 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
-				return SYSTEM_NAME_EDEFAULT == null ? systemName != null : !SYSTEM_NAME_EDEFAULT.equals(systemName);
-			case ModelPackage.ASSIST_MODEL__CABLE_WEIGHT_DATA:
-				return cableWeightData != null;
-			case ModelPackage.ASSIST_MODEL__PROTECTION_LEVEL_DATA:
-				return protectionLevelData != null;
-			case ModelPackage.ASSIST_MODEL__COMPATIBLE_IO_TYPES:
-				return compatibleIoTypes != null && !compatibleIoTypes.isEmpty();
+			case ModelPackage.ASSIST_MODEL__GLOBAL_BLOCK:
+				return globalBlock != null;
+			case ModelPackage.ASSIST_MODEL__COMPARTMENTS_BLOCK:
+				return compartmentsBlock != null;
+			case ModelPackage.ASSIST_MODEL__INTERFACES_BLOCK:
+				return interfacesBlock != null;
+			case ModelPackage.ASSIST_MODEL__INTERFACE_GROUPS_BLOCK:
+				return interfaceGroupsBlock != null;
+			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
+				return restrictionsBlock != null;
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
 				return compartments != null && !compartments.isEmpty();
 			case ModelPackage.ASSIST_MODEL__EQ_INTERFACES:
@@ -703,24 +864,16 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getAllConnectors();
 			case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT:
 				return getAllHardwareElements((Integer)arguments.get(0));
+			case ModelPackage.ASSIST_MODEL___GET_SYSTEM_NAME:
+				return getSystemName();
+			case ModelPackage.ASSIST_MODEL___GET_COMPATIBLE_IO_TYPES:
+				return getCompatibleIoTypes();
+			case ModelPackage.ASSIST_MODEL___GET_CABLE_WEIGHT_DATA:
+				return getCableWeightData();
+			case ModelPackage.ASSIST_MODEL___GET_PROTECTION_LEVEL_DATA:
+				return getProtectionLevelData();
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (systemName: ");
-		result.append(systemName);
-		result.append(')');
-		return result.toString();
 	}
 
 } //AssistModelImpl

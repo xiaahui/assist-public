@@ -72,15 +72,57 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.COMPATIBLE_IO_TYPE_ENTRY: {
-				CompatibleIoTypeEntry compatibleIoTypeEntry = (CompatibleIoTypeEntry)theEObject;
-				T result = caseCompatibleIoTypeEntry(compatibleIoTypeEntry);
+			case ModelPackage.GLOBAL_BLOCK: {
+				GlobalBlock globalBlock = (GlobalBlock)theEObject;
+				T result = caseGlobalBlock(globalBlock);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.PROTECTION_LEVEL_DATA: {
-				ProtectionLevelData protectionLevelData = (ProtectionLevelData)theEObject;
-				T result = caseProtectionLevelData(protectionLevelData);
+			case ModelPackage.COMPATIBLE_IO_TYPES_BLOCK: {
+				CompatibleIoTypesBlock compatibleIoTypesBlock = (CompatibleIoTypesBlock)theEObject;
+				T result = caseCompatibleIoTypesBlock(compatibleIoTypesBlock);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.CABLE_WEIGHT_DATA_BLOCK: {
+				CableWeightDataBlock cableWeightDataBlock = (CableWeightDataBlock)theEObject;
+				T result = caseCableWeightDataBlock(cableWeightDataBlock);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.PROTECTION_LEVEL_DATA_BLOCK: {
+				ProtectionLevelDataBlock protectionLevelDataBlock = (ProtectionLevelDataBlock)theEObject;
+				T result = caseProtectionLevelDataBlock(protectionLevelDataBlock);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.COMPARTMENTS_BLOCK: {
+				CompartmentsBlock compartmentsBlock = (CompartmentsBlock)theEObject;
+				T result = caseCompartmentsBlock(compartmentsBlock);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.INTERFACES_BLOCK: {
+				InterfacesBlock interfacesBlock = (InterfacesBlock)theEObject;
+				T result = caseInterfacesBlock(interfacesBlock);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.INTERFACE_GROUPS_BLOCK: {
+				InterfaceGroupsBlock interfaceGroupsBlock = (InterfaceGroupsBlock)theEObject;
+				T result = caseInterfaceGroupsBlock(interfaceGroupsBlock);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.RESTRICTIONS_BLOCK: {
+				RestrictionsBlock restrictionsBlock = (RestrictionsBlock)theEObject;
+				T result = caseRestrictionsBlock(restrictionsBlock);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.COMPATIBLE_IO_TYPE_ENTRY: {
+				CompatibleIoTypeEntry compatibleIoTypeEntry = (CompatibleIoTypeEntry)theEObject;
+				T result = caseCompatibleIoTypeEntry(compatibleIoTypeEntry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -251,6 +293,126 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Global Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Global Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGlobalBlock(GlobalBlock object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Compatible Io Types Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Compatible Io Types Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompatibleIoTypesBlock(CompatibleIoTypesBlock object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Cable Weight Data Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Cable Weight Data Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCableWeightDataBlock(CableWeightDataBlock object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Protection Level Data Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Protection Level Data Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProtectionLevelDataBlock(ProtectionLevelDataBlock object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Compartments Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Compartments Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompartmentsBlock(CompartmentsBlock object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Interfaces Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Interfaces Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInterfacesBlock(InterfacesBlock object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Interface Groups Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Interface Groups Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInterfaceGroupsBlock(InterfaceGroupsBlock object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Restrictions Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Restrictions Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRestrictionsBlock(RestrictionsBlock object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Compatible Io Type Entry</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -262,21 +424,6 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCompatibleIoTypeEntry(CompatibleIoTypeEntry object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Protection Level Data</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Protection Level Data</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseProtectionLevelData(ProtectionLevelData object) {
 		return null;
 	}
 

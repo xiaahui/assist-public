@@ -69,9 +69,12 @@ Workflow {
     
     		// The antlr parser generator fragment.
     		fragment = parser.antlr.XtextAntlrGeneratorFragment auto-inject {
-    		//  options = {
+    		 options = {
     		//      backtrack = true
-    		//  }
+    				classSplitting=true
+               		fieldsPerClass = "200" 
+               		methodsPerClass= "500" 
+    		  }
     		}
     
     		// Xtend-based API for validation
@@ -79,10 +82,6 @@ Workflow {
     		//    composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
     		      composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
     		}
-    
-    		// old scoping and exporting API
-    		// fragment = scoping.ImportURIScopingFragment auto-inject {}
-    		// fragment = exporting.SimpleNamesFragment auto-inject {}
     
     		// scoping and exporting API
     		fragment = scoping.ImportNamespacesScopingFragment auto-inject {}
@@ -103,7 +102,7 @@ Workflow {
     		fragment = outline.QuickOutlineFragment auto-inject {}
     
     		// quickfix API
-    		fragment = quickfix.QuickfixProviderFragment auto-inject {}
+//    		fragment = quickfix.QuickfixProviderFragment auto-inject {}
     
     		// content assist API
     		fragment = contentAssist.ContentAssistFragment auto-inject {}
@@ -127,10 +126,10 @@ Workflow {
     		fragment = xbase.XtypeGeneratorFragment auto-inject {}
     
     		// provides a preference page for template proposals
-    		fragment = templates.CodetemplatesGeneratorFragment auto-inject {}
+//    		fragment = templates.CodetemplatesGeneratorFragment auto-inject {}
     
     		// provides a compare view
-    		fragment = compare.CompareFragment auto-inject {}
+//    		fragment = compare.CompareFragment auto-inject {}
     	}
     }
 }

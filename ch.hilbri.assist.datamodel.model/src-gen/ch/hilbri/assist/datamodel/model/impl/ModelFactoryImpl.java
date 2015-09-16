@@ -58,8 +58,15 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ModelPackage.ASSIST_MODEL: return createAssistModel();
+			case ModelPackage.GLOBAL_BLOCK: return createGlobalBlock();
+			case ModelPackage.COMPATIBLE_IO_TYPES_BLOCK: return createCompatibleIoTypesBlock();
+			case ModelPackage.CABLE_WEIGHT_DATA_BLOCK: return createCableWeightDataBlock();
+			case ModelPackage.PROTECTION_LEVEL_DATA_BLOCK: return createProtectionLevelDataBlock();
+			case ModelPackage.COMPARTMENTS_BLOCK: return createCompartmentsBlock();
+			case ModelPackage.INTERFACES_BLOCK: return createInterfacesBlock();
+			case ModelPackage.INTERFACE_GROUPS_BLOCK: return createInterfaceGroupsBlock();
+			case ModelPackage.RESTRICTIONS_BLOCK: return createRestrictionsBlock();
 			case ModelPackage.COMPATIBLE_IO_TYPE_ENTRY: return createCompatibleIoTypeEntry();
-			case ModelPackage.PROTECTION_LEVEL_DATA: return createProtectionLevelData();
 			case ModelPackage.PROTECTION_LEVEL_ENTRY: return createProtectionLevelEntry();
 			case ModelPackage.CABLE_WEIGHT_DATA: return createCableWeightData();
 			case ModelPackage.CABLE_WEIGHT_ENTRY: return createCableWeightEntry();
@@ -145,9 +152,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompatibleIoTypeEntry createCompatibleIoTypeEntry() {
-		CompatibleIoTypeEntryImpl compatibleIoTypeEntry = new CompatibleIoTypeEntryImpl();
-		return compatibleIoTypeEntry;
+	public GlobalBlock createGlobalBlock() {
+		GlobalBlockImpl globalBlock = new GlobalBlockImpl();
+		return globalBlock;
 	}
 
 	/**
@@ -155,9 +162,79 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProtectionLevelData createProtectionLevelData() {
-		ProtectionLevelDataImpl protectionLevelData = new ProtectionLevelDataImpl();
-		return protectionLevelData;
+	public CompatibleIoTypesBlock createCompatibleIoTypesBlock() {
+		CompatibleIoTypesBlockImpl compatibleIoTypesBlock = new CompatibleIoTypesBlockImpl();
+		return compatibleIoTypesBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CableWeightDataBlock createCableWeightDataBlock() {
+		CableWeightDataBlockImpl cableWeightDataBlock = new CableWeightDataBlockImpl();
+		return cableWeightDataBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProtectionLevelDataBlock createProtectionLevelDataBlock() {
+		ProtectionLevelDataBlockImpl protectionLevelDataBlock = new ProtectionLevelDataBlockImpl();
+		return protectionLevelDataBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompartmentsBlock createCompartmentsBlock() {
+		CompartmentsBlockImpl compartmentsBlock = new CompartmentsBlockImpl();
+		return compartmentsBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InterfacesBlock createInterfacesBlock() {
+		InterfacesBlockImpl interfacesBlock = new InterfacesBlockImpl();
+		return interfacesBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InterfaceGroupsBlock createInterfaceGroupsBlock() {
+		InterfaceGroupsBlockImpl interfaceGroupsBlock = new InterfaceGroupsBlockImpl();
+		return interfaceGroupsBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RestrictionsBlock createRestrictionsBlock() {
+		RestrictionsBlockImpl restrictionsBlock = new RestrictionsBlockImpl();
+		return restrictionsBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompatibleIoTypeEntry createCompatibleIoTypeEntry() {
+		CompatibleIoTypeEntryImpl compatibleIoTypeEntry = new CompatibleIoTypeEntryImpl();
+		return compatibleIoTypeEntry;
 	}
 
 	/**

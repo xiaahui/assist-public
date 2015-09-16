@@ -40,24 +40,24 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 
 	@Check
 	def checkCableWeightEntryForEveryEqIoType(AssistModel model) {
-		if (model.cableWeightData.cableWeightEntries.nullOrEmpty)
+		if (model.globalBlock.cableWeightDataBlock.cableWeightEntries.nullOrEmpty)
 			return
-		else if (model.cableWeightData.cableWeightEntries.filter[isDefaultEntry].length > 0)
+		else if (model.globalBlock.cableWeightDataBlock.cableWeightEntries.filter[isDefaultEntry].length > 0)
 			return
 		else {
 			for (ioType : model.eqInterfaces.map[ioType].toSet.toList.sort)
-				if (model.cableWeightData.cableWeightEntries.filter[eqInterfaceIoType.equals(ioType)].isNullOrEmpty)
+				if (model.globalBlock.cableWeightDataBlock.cableWeightEntries.filter[eqInterfaceIoType.equals(ioType)].isNullOrEmpty)
 					warning(
 						"There is no cable weight specification for io type '" + ioType + "' and no default value.",
 						model,
-						ModelPackage.Literals::ASSIST_MODEL__CABLE_WEIGHT_DATA
+						ModelPackage.Literals::GLOBAL_BLOCK__CABLE_WEIGHT_DATA_BLOCK
 					)
 		}
 	}
 
 	@Check
 	def checkCableWeightIoTypes(AssistModel model) {
-		for (entry : model.cableWeightData.cableWeightEntries) {
+		for (entry : model.globalBlock.cableWeightDataBlock.cableWeightEntries) {
 			val eqInterfaceType = entry.eqInterfaceIoType
 
 			if (entry.isDefaultEntry == false && model.eqInterfaces.filter[ioType.equals(eqInterfaceType)].isEmpty)
@@ -72,8 +72,8 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 
 	@Check
 	def checkCableWeightOnlyOneDefault(AssistModel model) {
-		if (model.cableWeightData.cableWeightEntries.filter[isDefaultEntry].length > 1)
-			for (entry : model.cableWeightData.cableWeightEntries.filter[isDefaultEntry == true])
+		if (model.globalBlock.cableWeightDataBlock.cableWeightEntries.filter[isDefaultEntry].length > 1)
+			for (entry : model.globalBlock.cableWeightDataBlock.cableWeightEntries.filter[isDefaultEntry == true])
 				error(
 					"There are multiple default entries for the cable weight in this specification.",
 					entry,
@@ -83,9 +83,9 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 
 	@Check
 	def checkCableWeightDoubleEntries(AssistModel model) {
-		for (entry : model.cableWeightData.cableWeightEntries) {
+		for (entry : model.globalBlock.cableWeightDataBlock.cableWeightEntries) {
 			if (!entry.isDefaultEntry) {
-				if (model.cableWeightData.cableWeightEntries.filter[eqInterfaceIoType.equals(entry.eqInterfaceIoType)].
+				if (model.globalBlock.cableWeightDataBlock.cableWeightEntries.filter[eqInterfaceIoType.equals(entry.eqInterfaceIoType)].
 					length > 1) {
 					error(
 						"The weight for the io type '" + entry.eqInterfaceIoType + "' is defined multiple times",
