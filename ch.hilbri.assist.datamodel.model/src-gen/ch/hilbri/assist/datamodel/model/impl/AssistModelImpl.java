@@ -5,35 +5,31 @@ package ch.hilbri.assist.datamodel.model.impl;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.CableWeightDataBlock;
 import ch.hilbri.assist.datamodel.model.CableWeightEntry;
-import ch.hilbri.assist.datamodel.model.ColocalityRelation;
 import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.CompartmentsBlock;
 import ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry;
 import ch.hilbri.assist.datamodel.model.CompatibleIoTypesBlock;
 import ch.hilbri.assist.datamodel.model.Connector;
-import ch.hilbri.assist.datamodel.model.DislocalityRelation;
-import ch.hilbri.assist.datamodel.model.EqInterface;
-import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
 import ch.hilbri.assist.datamodel.model.GlobalBlock;
 import ch.hilbri.assist.datamodel.model.HardwareElement;
 import ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock;
 import ch.hilbri.assist.datamodel.model.InterfacesBlock;
-import ch.hilbri.assist.datamodel.model.InvalidDeployment;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelEntry;
 import ch.hilbri.assist.datamodel.model.RDC;
 import ch.hilbri.assist.datamodel.model.RestrictionsBlock;
-import ch.hilbri.assist.datamodel.model.ValidDeployment;
+
+import com.google.common.collect.Iterables;
+
+import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
-
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -41,9 +37,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
 
@@ -62,13 +55,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getInterfacesBlock <em>Interfaces Block</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getInterfaceGroupsBlock <em>Interface Groups Block</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getRestrictionsBlock <em>Restrictions Block</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getCompartments <em>Compartments</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getEqInterfaces <em>Eq Interfaces</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getEqInterfaceGroups <em>Eq Interface Groups</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getDislocalityRelations <em>Dislocality Relations</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getColocalityRelations <em>Colocality Relations</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getValidDeployments <em>Valid Deployments</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getInvalidDeployments <em>Invalid Deployments</em>}</li>
  * </ul>
  *
  * @generated
@@ -123,76 +109,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @ordered
 	 */
 	protected RestrictionsBlock restrictionsBlock;
-
-	/**
-	 * The cached value of the '{@link #getCompartments() <em>Compartments</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCompartments()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Compartment> compartments;
-
-	/**
-	 * The cached value of the '{@link #getEqInterfaces() <em>Eq Interfaces</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEqInterfaces()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<EqInterface> eqInterfaces;
-
-	/**
-	 * The cached value of the '{@link #getEqInterfaceGroups() <em>Eq Interface Groups</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEqInterfaceGroups()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<EqInterfaceGroup> eqInterfaceGroups;
-
-	/**
-	 * The cached value of the '{@link #getDislocalityRelations() <em>Dislocality Relations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDislocalityRelations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DislocalityRelation> dislocalityRelations;
-
-	/**
-	 * The cached value of the '{@link #getColocalityRelations() <em>Colocality Relations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getColocalityRelations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ColocalityRelation> colocalityRelations;
-
-	/**
-	 * The cached value of the '{@link #getValidDeployments() <em>Valid Deployments</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValidDeployments()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ValidDeployment> validDeployments;
-
-	/**
-	 * The cached value of the '{@link #getInvalidDeployments() <em>Invalid Deployments</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInvalidDeployments()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<InvalidDeployment> invalidDeployments;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -433,92 +349,9 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Compartment> getCompartments() {
-		if (compartments == null) {
-			compartments = new EObjectContainmentEList<Compartment>(Compartment.class, this, ModelPackage.ASSIST_MODEL__COMPARTMENTS);
-		}
-		return compartments;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<EqInterface> getEqInterfaces() {
-		if (eqInterfaces == null) {
-			eqInterfaces = new EObjectContainmentEList<EqInterface>(EqInterface.class, this, ModelPackage.ASSIST_MODEL__EQ_INTERFACES);
-		}
-		return eqInterfaces;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<EqInterfaceGroup> getEqInterfaceGroups() {
-		if (eqInterfaceGroups == null) {
-			eqInterfaceGroups = new EObjectContainmentEList<EqInterfaceGroup>(EqInterfaceGroup.class, this, ModelPackage.ASSIST_MODEL__EQ_INTERFACE_GROUPS);
-		}
-		return eqInterfaceGroups;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<DislocalityRelation> getDislocalityRelations() {
-		if (dislocalityRelations == null) {
-			dislocalityRelations = new EObjectContainmentEList<DislocalityRelation>(DislocalityRelation.class, this, ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS);
-		}
-		return dislocalityRelations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ColocalityRelation> getColocalityRelations() {
-		if (colocalityRelations == null) {
-			colocalityRelations = new EObjectContainmentEList<ColocalityRelation>(ColocalityRelation.class, this, ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS);
-		}
-		return colocalityRelations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ValidDeployment> getValidDeployments() {
-		if (validDeployments == null) {
-			validDeployments = new EObjectContainmentEList<ValidDeployment>(ValidDeployment.class, this, ModelPackage.ASSIST_MODEL__VALID_DEPLOYMENTS);
-		}
-		return validDeployments;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<InvalidDeployment> getInvalidDeployments() {
-		if (invalidDeployments == null) {
-			invalidDeployments = new EObjectContainmentEList<InvalidDeployment>(InvalidDeployment.class, this, ModelPackage.ASSIST_MODEL__INVALID_DEPLOYMENTS);
-		}
-		return invalidDeployments;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Compartment> getAllCompartments() {
-		return this.getCompartments();
+		CompartmentsBlock _compartmentsBlock = this.getCompartmentsBlock();
+		return _compartmentsBlock.getCompartments();
 	}
 
 	/**
@@ -527,13 +360,15 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @generated
 	 */
 	public EList<RDC> getAllRDCs() {
-		final BasicEList<RDC> list = new BasicEList<RDC>();
-		EList<Compartment> _compartments = this.getCompartments();
-		for (final Compartment c : _compartments) {
-			EList<RDC> _rdcs = c.getRdcs();
-			list.addAll(_rdcs);
-		}
-		return list;
+		EList<Compartment> _allCompartments = this.getAllCompartments();
+		final Function1<Compartment, EList<RDC>> _function = new Function1<Compartment, EList<RDC>>() {
+			public EList<RDC> apply(final Compartment it) {
+				return it.getRdcs();
+			}
+		};
+		EList<EList<RDC>> _map = XcoreEListExtensions.<Compartment, EList<RDC>>map(_allCompartments, _function);
+		Iterable<RDC> _flatten = Iterables.<RDC>concat(_map);
+		return ECollections.<RDC>toEList(_flatten);
 	}
 
 	/**
@@ -542,13 +377,15 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @generated
 	 */
 	public EList<Connector> getAllConnectors() {
-		final BasicEList<Connector> list = new BasicEList<Connector>();
 		EList<RDC> _allRDCs = this.getAllRDCs();
-		for (final RDC r : _allRDCs) {
-			EList<Connector> _connectors = r.getConnectors();
-			list.addAll(_connectors);
-		}
-		return list;
+		final Function1<RDC, EList<Connector>> _function = new Function1<RDC, EList<Connector>>() {
+			public EList<Connector> apply(final RDC it) {
+				return it.getConnectors();
+			}
+		};
+		EList<EList<Connector>> _map = XcoreEListExtensions.<RDC, EList<Connector>>map(_allRDCs, _function);
+		Iterable<Connector> _flatten = Iterables.<Connector>concat(_map);
+		return ECollections.<Connector>toEList(_flatten);
 	}
 
 	/**
@@ -578,13 +415,13 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			}
 			else {
 				if ((level == 2)) {
-					EList<Compartment> _compartments = this.getCompartments();
+					EList<Compartment> _allCompartments = this.getAllCompartments();
 					final Function1<Compartment, HardwareElement> _function_2 = new Function1<Compartment, HardwareElement>() {
 						public HardwareElement apply(final Compartment it) {
 							return ((HardwareElement) it);
 						}
 					};
-					return XcoreEListExtensions.<Compartment, HardwareElement>map(_compartments, _function_2);
+					return XcoreEListExtensions.<Compartment, HardwareElement>map(_allCompartments, _function_2);
 				}
 				else {
 					return null;
@@ -654,20 +491,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return basicSetInterfaceGroupsBlock(null, msgs);
 			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
 				return basicSetRestrictionsBlock(null, msgs);
-			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
-				return ((InternalEList<?>)getCompartments()).basicRemove(otherEnd, msgs);
-			case ModelPackage.ASSIST_MODEL__EQ_INTERFACES:
-				return ((InternalEList<?>)getEqInterfaces()).basicRemove(otherEnd, msgs);
-			case ModelPackage.ASSIST_MODEL__EQ_INTERFACE_GROUPS:
-				return ((InternalEList<?>)getEqInterfaceGroups()).basicRemove(otherEnd, msgs);
-			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
-				return ((InternalEList<?>)getDislocalityRelations()).basicRemove(otherEnd, msgs);
-			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
-				return ((InternalEList<?>)getColocalityRelations()).basicRemove(otherEnd, msgs);
-			case ModelPackage.ASSIST_MODEL__VALID_DEPLOYMENTS:
-				return ((InternalEList<?>)getValidDeployments()).basicRemove(otherEnd, msgs);
-			case ModelPackage.ASSIST_MODEL__INVALID_DEPLOYMENTS:
-				return ((InternalEList<?>)getInvalidDeployments()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -690,20 +513,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getInterfaceGroupsBlock();
 			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
 				return getRestrictionsBlock();
-			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
-				return getCompartments();
-			case ModelPackage.ASSIST_MODEL__EQ_INTERFACES:
-				return getEqInterfaces();
-			case ModelPackage.ASSIST_MODEL__EQ_INTERFACE_GROUPS:
-				return getEqInterfaceGroups();
-			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
-				return getDislocalityRelations();
-			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
-				return getColocalityRelations();
-			case ModelPackage.ASSIST_MODEL__VALID_DEPLOYMENTS:
-				return getValidDeployments();
-			case ModelPackage.ASSIST_MODEL__INVALID_DEPLOYMENTS:
-				return getInvalidDeployments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -713,7 +522,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -731,34 +539,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return;
 			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
 				setRestrictionsBlock((RestrictionsBlock)newValue);
-				return;
-			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
-				getCompartments().clear();
-				getCompartments().addAll((Collection<? extends Compartment>)newValue);
-				return;
-			case ModelPackage.ASSIST_MODEL__EQ_INTERFACES:
-				getEqInterfaces().clear();
-				getEqInterfaces().addAll((Collection<? extends EqInterface>)newValue);
-				return;
-			case ModelPackage.ASSIST_MODEL__EQ_INTERFACE_GROUPS:
-				getEqInterfaceGroups().clear();
-				getEqInterfaceGroups().addAll((Collection<? extends EqInterfaceGroup>)newValue);
-				return;
-			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
-				getDislocalityRelations().clear();
-				getDislocalityRelations().addAll((Collection<? extends DislocalityRelation>)newValue);
-				return;
-			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
-				getColocalityRelations().clear();
-				getColocalityRelations().addAll((Collection<? extends ColocalityRelation>)newValue);
-				return;
-			case ModelPackage.ASSIST_MODEL__VALID_DEPLOYMENTS:
-				getValidDeployments().clear();
-				getValidDeployments().addAll((Collection<? extends ValidDeployment>)newValue);
-				return;
-			case ModelPackage.ASSIST_MODEL__INVALID_DEPLOYMENTS:
-				getInvalidDeployments().clear();
-				getInvalidDeployments().addAll((Collection<? extends InvalidDeployment>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -787,27 +567,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
 				setRestrictionsBlock((RestrictionsBlock)null);
 				return;
-			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
-				getCompartments().clear();
-				return;
-			case ModelPackage.ASSIST_MODEL__EQ_INTERFACES:
-				getEqInterfaces().clear();
-				return;
-			case ModelPackage.ASSIST_MODEL__EQ_INTERFACE_GROUPS:
-				getEqInterfaceGroups().clear();
-				return;
-			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
-				getDislocalityRelations().clear();
-				return;
-			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
-				getColocalityRelations().clear();
-				return;
-			case ModelPackage.ASSIST_MODEL__VALID_DEPLOYMENTS:
-				getValidDeployments().clear();
-				return;
-			case ModelPackage.ASSIST_MODEL__INVALID_DEPLOYMENTS:
-				getInvalidDeployments().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -830,20 +589,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return interfaceGroupsBlock != null;
 			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
 				return restrictionsBlock != null;
-			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
-				return compartments != null && !compartments.isEmpty();
-			case ModelPackage.ASSIST_MODEL__EQ_INTERFACES:
-				return eqInterfaces != null && !eqInterfaces.isEmpty();
-			case ModelPackage.ASSIST_MODEL__EQ_INTERFACE_GROUPS:
-				return eqInterfaceGroups != null && !eqInterfaceGroups.isEmpty();
-			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
-				return dislocalityRelations != null && !dislocalityRelations.isEmpty();
-			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
-				return colocalityRelations != null && !colocalityRelations.isEmpty();
-			case ModelPackage.ASSIST_MODEL__VALID_DEPLOYMENTS:
-				return validDeployments != null && !validDeployments.isEmpty();
-			case ModelPackage.ASSIST_MODEL__INVALID_DEPLOYMENTS:
-				return invalidDeployments != null && !invalidDeployments.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

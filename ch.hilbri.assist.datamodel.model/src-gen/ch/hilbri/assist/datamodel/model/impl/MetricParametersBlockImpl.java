@@ -2,8 +2,8 @@
  */
 package ch.hilbri.assist.datamodel.model.impl;
 
-import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
-import ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock;
+import ch.hilbri.assist.datamodel.model.MetricParameter;
+import ch.hilbri.assist.datamodel.model.MetricParametersBlock;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 
 import java.util.Collection;
@@ -22,34 +22,34 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Interface Groups Block</b></em>'.
+ * An implementation of the model object '<em><b>Metric Parameters Block</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.InterfaceGroupsBlockImpl#getEqInterfaceGroups <em>Eq Interface Groups</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.MetricParametersBlockImpl#getMetricParameters <em>Metric Parameters</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class InterfaceGroupsBlockImpl extends MinimalEObjectImpl.Container implements InterfaceGroupsBlock {
+public class MetricParametersBlockImpl extends MinimalEObjectImpl.Container implements MetricParametersBlock {
 	/**
-	 * The cached value of the '{@link #getEqInterfaceGroups() <em>Eq Interface Groups</em>}' containment reference list.
+	 * The cached value of the '{@link #getMetricParameters() <em>Metric Parameters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEqInterfaceGroups()
+	 * @see #getMetricParameters()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EqInterfaceGroup> eqInterfaceGroups;
+	protected EList<MetricParameter> metricParameters;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InterfaceGroupsBlockImpl() {
+	protected MetricParametersBlockImpl() {
 		super();
 	}
 
@@ -60,7 +60,7 @@ public class InterfaceGroupsBlockImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ModelPackage.Literals.INTERFACE_GROUPS_BLOCK;
+		return ModelPackage.Literals.METRIC_PARAMETERS_BLOCK;
 	}
 
 	/**
@@ -68,11 +68,11 @@ public class InterfaceGroupsBlockImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EqInterfaceGroup> getEqInterfaceGroups() {
-		if (eqInterfaceGroups == null) {
-			eqInterfaceGroups = new EObjectContainmentEList<EqInterfaceGroup>(EqInterfaceGroup.class, this, ModelPackage.INTERFACE_GROUPS_BLOCK__EQ_INTERFACE_GROUPS);
+	public EList<MetricParameter> getMetricParameters() {
+		if (metricParameters == null) {
+			metricParameters = new EObjectContainmentEList<MetricParameter>(MetricParameter.class, this, ModelPackage.METRIC_PARAMETERS_BLOCK__METRIC_PARAMETERS);
 		}
-		return eqInterfaceGroups;
+		return metricParameters;
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class InterfaceGroupsBlockImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModelPackage.INTERFACE_GROUPS_BLOCK__EQ_INTERFACE_GROUPS:
-				return ((InternalEList<?>)getEqInterfaceGroups()).basicRemove(otherEnd, msgs);
+			case ModelPackage.METRIC_PARAMETERS_BLOCK__METRIC_PARAMETERS:
+				return ((InternalEList<?>)getMetricParameters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,8 +97,8 @@ public class InterfaceGroupsBlockImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.INTERFACE_GROUPS_BLOCK__EQ_INTERFACE_GROUPS:
-				return getEqInterfaceGroups();
+			case ModelPackage.METRIC_PARAMETERS_BLOCK__METRIC_PARAMETERS:
+				return getMetricParameters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,9 +112,9 @@ public class InterfaceGroupsBlockImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.INTERFACE_GROUPS_BLOCK__EQ_INTERFACE_GROUPS:
-				getEqInterfaceGroups().clear();
-				getEqInterfaceGroups().addAll((Collection<? extends EqInterfaceGroup>)newValue);
+			case ModelPackage.METRIC_PARAMETERS_BLOCK__METRIC_PARAMETERS:
+				getMetricParameters().clear();
+				getMetricParameters().addAll((Collection<? extends MetricParameter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,8 +128,8 @@ public class InterfaceGroupsBlockImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.INTERFACE_GROUPS_BLOCK__EQ_INTERFACE_GROUPS:
-				getEqInterfaceGroups().clear();
+			case ModelPackage.METRIC_PARAMETERS_BLOCK__METRIC_PARAMETERS:
+				getMetricParameters().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -143,10 +143,10 @@ public class InterfaceGroupsBlockImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.INTERFACE_GROUPS_BLOCK__EQ_INTERFACE_GROUPS:
-				return eqInterfaceGroups != null && !eqInterfaceGroups.isEmpty();
+			case ModelPackage.METRIC_PARAMETERS_BLOCK__METRIC_PARAMETERS:
+				return metricParameters != null && !metricParameters.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //InterfaceGroupsBlockImpl
+} //MetricParametersBlockImpl

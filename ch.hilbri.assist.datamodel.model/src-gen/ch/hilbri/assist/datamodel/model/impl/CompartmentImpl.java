@@ -19,7 +19,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -275,13 +275,15 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 	 * @generated
 	 */
 	public EList<Connector> getAllConnectors() {
-		final BasicEList<Connector> list = new BasicEList<Connector>();
 		EList<RDC> _rdcs = this.getRdcs();
-		for (final RDC rdc : _rdcs) {
-			EList<Connector> _connectors = rdc.getConnectors();
-			list.addAll(_connectors);
-		}
-		return list;
+		final Function1<RDC, EList<Connector>> _function = new Function1<RDC, EList<Connector>>() {
+			public EList<Connector> apply(final RDC it) {
+				return it.getConnectors();
+			}
+		};
+		EList<EList<Connector>> _map = XcoreEListExtensions.<RDC, EList<Connector>>map(_rdcs, _function);
+		Iterable<Connector> _flatten = Iterables.<Connector>concat(_map);
+		return ECollections.<Connector>toEList(_flatten);
 	}
 
 	/**

@@ -80,48 +80,40 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createCompatibleIoTypesBlockAdapter();
 			}
 			@Override
-			public Adapter caseCableWeightDataBlock(CableWeightDataBlock object) {
-				return createCableWeightDataBlockAdapter();
-			}
-			@Override
-			public Adapter caseProtectionLevelDataBlock(ProtectionLevelDataBlock object) {
-				return createProtectionLevelDataBlockAdapter();
-			}
-			@Override
-			public Adapter caseCompartmentsBlock(CompartmentsBlock object) {
-				return createCompartmentsBlockAdapter();
-			}
-			@Override
-			public Adapter caseInterfacesBlock(InterfacesBlock object) {
-				return createInterfacesBlockAdapter();
-			}
-			@Override
-			public Adapter caseInterfaceGroupsBlock(InterfaceGroupsBlock object) {
-				return createInterfaceGroupsBlockAdapter();
-			}
-			@Override
-			public Adapter caseRestrictionsBlock(RestrictionsBlock object) {
-				return createRestrictionsBlockAdapter();
-			}
-			@Override
 			public Adapter caseCompatibleIoTypeEntry(CompatibleIoTypeEntry object) {
 				return createCompatibleIoTypeEntryAdapter();
 			}
 			@Override
-			public Adapter caseProtectionLevelEntry(ProtectionLevelEntry object) {
-				return createProtectionLevelEntryAdapter();
-			}
-			@Override
-			public Adapter caseCableWeightData(CableWeightData object) {
-				return createCableWeightDataAdapter();
+			public Adapter caseCableWeightDataBlock(CableWeightDataBlock object) {
+				return createCableWeightDataBlockAdapter();
 			}
 			@Override
 			public Adapter caseCableWeightEntry(CableWeightEntry object) {
 				return createCableWeightEntryAdapter();
 			}
 			@Override
+			public Adapter caseProtectionLevelDataBlock(ProtectionLevelDataBlock object) {
+				return createProtectionLevelDataBlockAdapter();
+			}
+			@Override
+			public Adapter caseProtectionLevelEntry(ProtectionLevelEntry object) {
+				return createProtectionLevelEntryAdapter();
+			}
+			@Override
+			public Adapter caseCompartmentsBlock(CompartmentsBlock object) {
+				return createCompartmentsBlockAdapter();
+			}
+			@Override
 			public Adapter caseHardwareElement(HardwareElement object) {
 				return createHardwareElementAdapter();
+			}
+			@Override
+			public Adapter caseMetricParametersBlock(MetricParametersBlock object) {
+				return createMetricParametersBlockAdapter();
+			}
+			@Override
+			public Adapter caseMetricParameter(MetricParameter object) {
+				return createMetricParameterAdapter();
 			}
 			@Override
 			public Adapter caseCompartment(Compartment object) {
@@ -144,12 +136,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createAvailableEqInterfaceAdapter();
 			}
 			@Override
+			public Adapter caseInterfacesBlock(InterfacesBlock object) {
+				return createInterfacesBlockAdapter();
+			}
+			@Override
 			public Adapter caseEqInterfaceOrGroup(EqInterfaceOrGroup object) {
 				return createEqInterfaceOrGroupAdapter();
 			}
 			@Override
 			public Adapter caseEqInterface(EqInterface object) {
 				return createEqInterfaceAdapter();
+			}
+			@Override
+			public Adapter caseInterfaceGroupsBlock(InterfaceGroupsBlock object) {
+				return createInterfaceGroupsBlockAdapter();
 			}
 			@Override
 			public Adapter caseEqInterfaceGroup(EqInterfaceGroup object) {
@@ -168,8 +168,8 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createEqInterfaceGroupWithCombinedDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseMetricParameter(MetricParameter object) {
-				return createMetricParameterAdapter();
+			public Adapter caseRestrictionsBlock(RestrictionsBlock object) {
+				return createRestrictionsBlockAdapter();
 			}
 			@Override
 			public Adapter caseDislocalityRelation(DislocalityRelation object) {
@@ -262,90 +262,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.CableWeightDataBlock <em>Cable Weight Data Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.datamodel.model.CableWeightDataBlock
-	 * @generated
-	 */
-	public Adapter createCableWeightDataBlockAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock <em>Protection Level Data Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock
-	 * @generated
-	 */
-	public Adapter createProtectionLevelDataBlockAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.CompartmentsBlock <em>Compartments Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.datamodel.model.CompartmentsBlock
-	 * @generated
-	 */
-	public Adapter createCompartmentsBlockAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.InterfacesBlock <em>Interfaces Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.datamodel.model.InterfacesBlock
-	 * @generated
-	 */
-	public Adapter createInterfacesBlockAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock <em>Interface Groups Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock
-	 * @generated
-	 */
-	public Adapter createInterfaceGroupsBlockAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.RestrictionsBlock <em>Restrictions Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.datamodel.model.RestrictionsBlock
-	 * @generated
-	 */
-	public Adapter createRestrictionsBlockAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry <em>Compatible Io Type Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -360,30 +276,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelEntry <em>Protection Level Entry</em>}'.
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.CableWeightDataBlock <em>Cable Weight Data Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelEntry
+	 * @see ch.hilbri.assist.datamodel.model.CableWeightDataBlock
 	 * @generated
 	 */
-	public Adapter createProtectionLevelEntryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.CableWeightData <em>Cable Weight Data</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.datamodel.model.CableWeightData
-	 * @generated
-	 */
-	public Adapter createCableWeightDataAdapter() {
+	public Adapter createCableWeightDataBlockAdapter() {
 		return null;
 	}
 
@@ -402,6 +304,48 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock <em>Protection Level Data Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock
+	 * @generated
+	 */
+	public Adapter createProtectionLevelDataBlockAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelEntry <em>Protection Level Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelEntry
+	 * @generated
+	 */
+	public Adapter createProtectionLevelEntryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.CompartmentsBlock <em>Compartments Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.datamodel.model.CompartmentsBlock
+	 * @generated
+	 */
+	public Adapter createCompartmentsBlockAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.HardwareElement <em>Hardware Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -412,6 +356,34 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHardwareElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.MetricParametersBlock <em>Metric Parameters Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.datamodel.model.MetricParametersBlock
+	 * @generated
+	 */
+	public Adapter createMetricParametersBlockAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.MetricParameter <em>Metric Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.datamodel.model.MetricParameter
+	 * @generated
+	 */
+	public Adapter createMetricParameterAdapter() {
 		return null;
 	}
 
@@ -486,6 +458,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.InterfacesBlock <em>Interfaces Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.datamodel.model.InterfacesBlock
+	 * @generated
+	 */
+	public Adapter createInterfacesBlockAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.EqInterfaceOrGroup <em>Eq Interface Or Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -510,6 +496,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEqInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock <em>Interface Groups Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock
+	 * @generated
+	 */
+	public Adapter createInterfaceGroupsBlockAdapter() {
 		return null;
 	}
 
@@ -570,16 +570,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.MetricParameter <em>Metric Parameter</em>}'.
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.RestrictionsBlock <em>Restrictions Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ch.hilbri.assist.datamodel.model.MetricParameter
+	 * @see ch.hilbri.assist.datamodel.model.RestrictionsBlock
 	 * @generated
 	 */
-	public Adapter createMetricParameterAdapter() {
+	public Adapter createRestrictionsBlockAdapter() {
 		return null;
 	}
 

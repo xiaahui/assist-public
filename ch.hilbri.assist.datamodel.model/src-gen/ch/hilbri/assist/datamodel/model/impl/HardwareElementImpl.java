@@ -3,24 +3,17 @@
 package ch.hilbri.assist.datamodel.model.impl;
 
 import ch.hilbri.assist.datamodel.model.HardwareElement;
-import ch.hilbri.assist.datamodel.model.MetricParameter;
+import ch.hilbri.assist.datamodel.model.MetricParametersBlock;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
-
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +24,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.HardwareElementImpl#getName <em>Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.HardwareElementImpl#getMetricParameters <em>Metric Parameters</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.HardwareElementImpl#getMetricParametersBlock <em>Metric Parameters Block</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,14 +51,14 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMetricParameters() <em>Metric Parameters</em>}' containment reference list.
+	 * The cached value of the '{@link #getMetricParametersBlock() <em>Metric Parameters Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMetricParameters()
+	 * @see #getMetricParametersBlock()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<MetricParameter> metricParameters;
+	protected MetricParametersBlock metricParametersBlock;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,11 +105,42 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MetricParameter> getMetricParameters() {
-		if (metricParameters == null) {
-			metricParameters = new EObjectContainmentEList<MetricParameter>(MetricParameter.class, this, ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS);
+	public MetricParametersBlock getMetricParametersBlock() {
+		return metricParametersBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMetricParametersBlock(MetricParametersBlock newMetricParametersBlock, NotificationChain msgs) {
+		MetricParametersBlock oldMetricParametersBlock = metricParametersBlock;
+		metricParametersBlock = newMetricParametersBlock;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK, oldMetricParametersBlock, newMetricParametersBlock);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return metricParameters;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMetricParametersBlock(MetricParametersBlock newMetricParametersBlock) {
+		if (newMetricParametersBlock != metricParametersBlock) {
+			NotificationChain msgs = null;
+			if (metricParametersBlock != null)
+				msgs = ((InternalEObject)metricParametersBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK, null, msgs);
+			if (newMetricParametersBlock != null)
+				msgs = ((InternalEObject)newMetricParametersBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK, null, msgs);
+			msgs = basicSetMetricParametersBlock(newMetricParametersBlock, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK, newMetricParametersBlock, newMetricParametersBlock));
 	}
 
 	/**
@@ -127,8 +151,8 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS:
-				return ((InternalEList<?>)getMetricParameters()).basicRemove(otherEnd, msgs);
+			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK:
+				return basicSetMetricParametersBlock(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -143,8 +167,8 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case ModelPackage.HARDWARE_ELEMENT__NAME:
 				return getName();
-			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS:
-				return getMetricParameters();
+			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK:
+				return getMetricParametersBlock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -154,16 +178,14 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.HARDWARE_ELEMENT__NAME:
 				setName((String)newValue);
 				return;
-			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS:
-				getMetricParameters().clear();
-				getMetricParameters().addAll((Collection<? extends MetricParameter>)newValue);
+			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK:
+				setMetricParametersBlock((MetricParametersBlock)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,8 +202,8 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 			case ModelPackage.HARDWARE_ELEMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS:
-				getMetricParameters().clear();
+			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK:
+				setMetricParametersBlock((MetricParametersBlock)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -197,8 +219,8 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case ModelPackage.HARDWARE_ELEMENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS:
-				return metricParameters != null && !metricParameters.isEmpty();
+			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK:
+				return metricParametersBlock != null;
 		}
 		return super.eIsSet(featureID);
 	}

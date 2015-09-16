@@ -102,7 +102,7 @@ public class HardwareElementItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.HARDWARE_ELEMENT__METRIC_PARAMETERS);
+			childrenFeatures.add(ModelPackage.Literals.HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK);
 		}
 		return childrenFeatures;
 	}
@@ -161,7 +161,7 @@ public class HardwareElementItemProvider
 			case ModelPackage.HARDWARE_ELEMENT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS:
+			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -181,8 +181,8 @@ public class HardwareElementItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.HARDWARE_ELEMENT__METRIC_PARAMETERS,
-				 ModelFactory.eINSTANCE.createMetricParameter()));
+				(ModelPackage.Literals.HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK,
+				 ModelFactory.eINSTANCE.createMetricParametersBlock()));
 	}
 
 	/**

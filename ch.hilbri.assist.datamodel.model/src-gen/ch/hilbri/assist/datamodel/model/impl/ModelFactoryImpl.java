@@ -60,29 +60,29 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.ASSIST_MODEL: return createAssistModel();
 			case ModelPackage.GLOBAL_BLOCK: return createGlobalBlock();
 			case ModelPackage.COMPATIBLE_IO_TYPES_BLOCK: return createCompatibleIoTypesBlock();
-			case ModelPackage.CABLE_WEIGHT_DATA_BLOCK: return createCableWeightDataBlock();
-			case ModelPackage.PROTECTION_LEVEL_DATA_BLOCK: return createProtectionLevelDataBlock();
-			case ModelPackage.COMPARTMENTS_BLOCK: return createCompartmentsBlock();
-			case ModelPackage.INTERFACES_BLOCK: return createInterfacesBlock();
-			case ModelPackage.INTERFACE_GROUPS_BLOCK: return createInterfaceGroupsBlock();
-			case ModelPackage.RESTRICTIONS_BLOCK: return createRestrictionsBlock();
 			case ModelPackage.COMPATIBLE_IO_TYPE_ENTRY: return createCompatibleIoTypeEntry();
-			case ModelPackage.PROTECTION_LEVEL_ENTRY: return createProtectionLevelEntry();
-			case ModelPackage.CABLE_WEIGHT_DATA: return createCableWeightData();
+			case ModelPackage.CABLE_WEIGHT_DATA_BLOCK: return createCableWeightDataBlock();
 			case ModelPackage.CABLE_WEIGHT_ENTRY: return createCableWeightEntry();
+			case ModelPackage.PROTECTION_LEVEL_DATA_BLOCK: return createProtectionLevelDataBlock();
+			case ModelPackage.PROTECTION_LEVEL_ENTRY: return createProtectionLevelEntry();
+			case ModelPackage.COMPARTMENTS_BLOCK: return createCompartmentsBlock();
 			case ModelPackage.HARDWARE_ELEMENT: return createHardwareElement();
+			case ModelPackage.METRIC_PARAMETERS_BLOCK: return createMetricParametersBlock();
+			case ModelPackage.METRIC_PARAMETER: return createMetricParameter();
 			case ModelPackage.COMPARTMENT: return createCompartment();
 			case ModelPackage.RDC: return createRDC();
 			case ModelPackage.INTERNALLY_CONNECTED_PIN_ENTRY: return createInternallyConnectedPinEntry();
 			case ModelPackage.CONNECTOR: return createConnector();
 			case ModelPackage.AVAILABLE_EQ_INTERFACE: return createAvailableEqInterface();
+			case ModelPackage.INTERFACES_BLOCK: return createInterfacesBlock();
 			case ModelPackage.EQ_INTERFACE_OR_GROUP: return createEqInterfaceOrGroup();
 			case ModelPackage.EQ_INTERFACE: return createEqInterface();
+			case ModelPackage.INTERFACE_GROUPS_BLOCK: return createInterfaceGroupsBlock();
 			case ModelPackage.EQ_INTERFACE_GROUP: return createEqInterfaceGroup();
 			case ModelPackage.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION: return createImplicitEqInterfaceMemberDefinition();
 			case ModelPackage.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTES_AND_VALUES: return createImplicitEqInterfaceMemberDefinitionAttributesAndValues();
 			case ModelPackage.EQ_INTERFACE_GROUP_WITH_COMBINED_DEFINITION: return createEqInterfaceGroupWithCombinedDefinition();
-			case ModelPackage.METRIC_PARAMETER: return createMetricParameter();
+			case ModelPackage.RESTRICTIONS_BLOCK: return createRestrictionsBlock();
 			case ModelPackage.DISLOCALITY_RELATION: return createDislocalityRelation();
 			case ModelPackage.COLOCALITY_RELATION: return createColocalityRelation();
 			case ModelPackage.DEPLOYMENT_SPECIFICATION: return createDeploymentSpecification();
@@ -172,66 +172,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CableWeightDataBlock createCableWeightDataBlock() {
-		CableWeightDataBlockImpl cableWeightDataBlock = new CableWeightDataBlockImpl();
-		return cableWeightDataBlock;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProtectionLevelDataBlock createProtectionLevelDataBlock() {
-		ProtectionLevelDataBlockImpl protectionLevelDataBlock = new ProtectionLevelDataBlockImpl();
-		return protectionLevelDataBlock;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CompartmentsBlock createCompartmentsBlock() {
-		CompartmentsBlockImpl compartmentsBlock = new CompartmentsBlockImpl();
-		return compartmentsBlock;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InterfacesBlock createInterfacesBlock() {
-		InterfacesBlockImpl interfacesBlock = new InterfacesBlockImpl();
-		return interfacesBlock;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InterfaceGroupsBlock createInterfaceGroupsBlock() {
-		InterfaceGroupsBlockImpl interfaceGroupsBlock = new InterfaceGroupsBlockImpl();
-		return interfaceGroupsBlock;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RestrictionsBlock createRestrictionsBlock() {
-		RestrictionsBlockImpl restrictionsBlock = new RestrictionsBlockImpl();
-		return restrictionsBlock;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CompatibleIoTypeEntry createCompatibleIoTypeEntry() {
 		CompatibleIoTypeEntryImpl compatibleIoTypeEntry = new CompatibleIoTypeEntryImpl();
 		return compatibleIoTypeEntry;
@@ -242,19 +182,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProtectionLevelEntry createProtectionLevelEntry() {
-		ProtectionLevelEntryImpl protectionLevelEntry = new ProtectionLevelEntryImpl();
-		return protectionLevelEntry;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CableWeightData createCableWeightData() {
-		CableWeightDataImpl cableWeightData = new CableWeightDataImpl();
-		return cableWeightData;
+	public CableWeightDataBlock createCableWeightDataBlock() {
+		CableWeightDataBlockImpl cableWeightDataBlock = new CableWeightDataBlockImpl();
+		return cableWeightDataBlock;
 	}
 
 	/**
@@ -272,9 +202,59 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ProtectionLevelDataBlock createProtectionLevelDataBlock() {
+		ProtectionLevelDataBlockImpl protectionLevelDataBlock = new ProtectionLevelDataBlockImpl();
+		return protectionLevelDataBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProtectionLevelEntry createProtectionLevelEntry() {
+		ProtectionLevelEntryImpl protectionLevelEntry = new ProtectionLevelEntryImpl();
+		return protectionLevelEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompartmentsBlock createCompartmentsBlock() {
+		CompartmentsBlockImpl compartmentsBlock = new CompartmentsBlockImpl();
+		return compartmentsBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public HardwareElement createHardwareElement() {
 		HardwareElementImpl hardwareElement = new HardwareElementImpl();
 		return hardwareElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MetricParametersBlock createMetricParametersBlock() {
+		MetricParametersBlockImpl metricParametersBlock = new MetricParametersBlockImpl();
+		return metricParametersBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MetricParameter createMetricParameter() {
+		MetricParameterImpl metricParameter = new MetricParameterImpl();
+		return metricParameter;
 	}
 
 	/**
@@ -332,6 +312,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public InterfacesBlock createInterfacesBlock() {
+		InterfacesBlockImpl interfacesBlock = new InterfacesBlockImpl();
+		return interfacesBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EqInterfaceOrGroup createEqInterfaceOrGroup() {
 		EqInterfaceOrGroupImpl eqInterfaceOrGroup = new EqInterfaceOrGroupImpl();
 		return eqInterfaceOrGroup;
@@ -345,6 +335,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public EqInterface createEqInterface() {
 		EqInterfaceImpl eqInterface = new EqInterfaceImpl();
 		return eqInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InterfaceGroupsBlock createInterfaceGroupsBlock() {
+		InterfaceGroupsBlockImpl interfaceGroupsBlock = new InterfaceGroupsBlockImpl();
+		return interfaceGroupsBlock;
 	}
 
 	/**
@@ -392,9 +392,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MetricParameter createMetricParameter() {
-		MetricParameterImpl metricParameter = new MetricParameterImpl();
-		return metricParameter;
+	public RestrictionsBlock createRestrictionsBlock() {
+		RestrictionsBlockImpl restrictionsBlock = new RestrictionsBlockImpl();
+		return restrictionsBlock;
 	}
 
 	/**

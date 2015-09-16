@@ -325,29 +325,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CableWeightData} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CableWeightDataItemProvider cableWeightDataItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.CableWeightData}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCableWeightDataAdapter() {
-		if (cableWeightDataItemProvider == null) {
-			cableWeightDataItemProvider = new CableWeightDataItemProvider(this);
-		}
-
-		return cableWeightDataItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CableWeightEntry} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -391,6 +368,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		}
 
 		return hardwareElementItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.MetricParametersBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MetricParametersBlockItemProvider metricParametersBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.MetricParametersBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMetricParametersBlockAdapter() {
+		if (metricParametersBlockItemProvider == null) {
+			metricParametersBlockItemProvider = new MetricParametersBlockItemProvider(this);
+		}
+
+		return metricParametersBlockItemProvider;
 	}
 
 	/**
@@ -932,29 +932,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (assistModelItemProvider != null) assistModelItemProvider.dispose();
 		if (globalBlockItemProvider != null) globalBlockItemProvider.dispose();
 		if (compatibleIoTypesBlockItemProvider != null) compatibleIoTypesBlockItemProvider.dispose();
-		if (cableWeightDataBlockItemProvider != null) cableWeightDataBlockItemProvider.dispose();
-		if (protectionLevelDataBlockItemProvider != null) protectionLevelDataBlockItemProvider.dispose();
-		if (compartmentsBlockItemProvider != null) compartmentsBlockItemProvider.dispose();
-		if (interfacesBlockItemProvider != null) interfacesBlockItemProvider.dispose();
-		if (interfaceGroupsBlockItemProvider != null) interfaceGroupsBlockItemProvider.dispose();
-		if (restrictionsBlockItemProvider != null) restrictionsBlockItemProvider.dispose();
 		if (compatibleIoTypeEntryItemProvider != null) compatibleIoTypeEntryItemProvider.dispose();
-		if (protectionLevelEntryItemProvider != null) protectionLevelEntryItemProvider.dispose();
-		if (cableWeightDataItemProvider != null) cableWeightDataItemProvider.dispose();
+		if (cableWeightDataBlockItemProvider != null) cableWeightDataBlockItemProvider.dispose();
 		if (cableWeightEntryItemProvider != null) cableWeightEntryItemProvider.dispose();
+		if (protectionLevelDataBlockItemProvider != null) protectionLevelDataBlockItemProvider.dispose();
+		if (protectionLevelEntryItemProvider != null) protectionLevelEntryItemProvider.dispose();
+		if (compartmentsBlockItemProvider != null) compartmentsBlockItemProvider.dispose();
 		if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();
+		if (metricParametersBlockItemProvider != null) metricParametersBlockItemProvider.dispose();
+		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 		if (compartmentItemProvider != null) compartmentItemProvider.dispose();
 		if (rdcItemProvider != null) rdcItemProvider.dispose();
 		if (internallyConnectedPinEntryItemProvider != null) internallyConnectedPinEntryItemProvider.dispose();
 		if (connectorItemProvider != null) connectorItemProvider.dispose();
 		if (availableEqInterfaceItemProvider != null) availableEqInterfaceItemProvider.dispose();
+		if (interfacesBlockItemProvider != null) interfacesBlockItemProvider.dispose();
 		if (eqInterfaceOrGroupItemProvider != null) eqInterfaceOrGroupItemProvider.dispose();
 		if (eqInterfaceItemProvider != null) eqInterfaceItemProvider.dispose();
+		if (interfaceGroupsBlockItemProvider != null) interfaceGroupsBlockItemProvider.dispose();
 		if (eqInterfaceGroupItemProvider != null) eqInterfaceGroupItemProvider.dispose();
 		if (implicitEqInterfaceMemberDefinitionItemProvider != null) implicitEqInterfaceMemberDefinitionItemProvider.dispose();
 		if (implicitEqInterfaceMemberDefinitionAttributesAndValuesItemProvider != null) implicitEqInterfaceMemberDefinitionAttributesAndValuesItemProvider.dispose();
 		if (eqInterfaceGroupWithCombinedDefinitionItemProvider != null) eqInterfaceGroupWithCombinedDefinitionItemProvider.dispose();
-		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
+		if (restrictionsBlockItemProvider != null) restrictionsBlockItemProvider.dispose();
 		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
 		if (colocalityRelationItemProvider != null) colocalityRelationItemProvider.dispose();
 		if (deploymentSpecificationItemProvider != null) deploymentSpecificationItemProvider.dispose();

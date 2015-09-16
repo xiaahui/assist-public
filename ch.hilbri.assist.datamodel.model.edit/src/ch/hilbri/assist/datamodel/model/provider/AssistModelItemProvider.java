@@ -82,13 +82,6 @@ public class AssistModelItemProvider
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__INTERFACES_BLOCK);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__INTERFACE_GROUPS_BLOCK);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__RESTRICTIONS_BLOCK);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACES);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACE_GROUPS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COLOCALITY_RELATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__VALID_DEPLOYMENTS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__INVALID_DEPLOYMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -146,13 +139,6 @@ public class AssistModelItemProvider
 			case ModelPackage.ASSIST_MODEL__INTERFACES_BLOCK:
 			case ModelPackage.ASSIST_MODEL__INTERFACE_GROUPS_BLOCK:
 			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
-			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
-			case ModelPackage.ASSIST_MODEL__EQ_INTERFACES:
-			case ModelPackage.ASSIST_MODEL__EQ_INTERFACE_GROUPS:
-			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
-			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
-			case ModelPackage.ASSIST_MODEL__VALID_DEPLOYMENTS:
-			case ModelPackage.ASSIST_MODEL__INVALID_DEPLOYMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -194,46 +180,6 @@ public class AssistModelItemProvider
 			(createChildParameter
 				(ModelPackage.Literals.ASSIST_MODEL__RESTRICTIONS_BLOCK,
 				 ModelFactory.eINSTANCE.createRestrictionsBlock()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS,
-				 ModelFactory.eINSTANCE.createCompartment()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACES,
-				 ModelFactory.eINSTANCE.createEqInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACE_GROUPS,
-				 ModelFactory.eINSTANCE.createEqInterfaceGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__EQ_INTERFACE_GROUPS,
-				 ModelFactory.eINSTANCE.createEqInterfaceGroupWithCombinedDefinition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS,
-				 ModelFactory.eINSTANCE.createDislocalityRelation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__COLOCALITY_RELATIONS,
-				 ModelFactory.eINSTANCE.createColocalityRelation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__VALID_DEPLOYMENTS,
-				 ModelFactory.eINSTANCE.createValidDeployment()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__INVALID_DEPLOYMENTS,
-				 ModelFactory.eINSTANCE.createInvalidDeployment()));
 	}
 
 	/**

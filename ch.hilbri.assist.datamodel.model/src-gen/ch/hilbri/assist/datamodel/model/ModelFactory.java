@@ -49,60 +49,6 @@ public interface ModelFactory extends EFactory {
 	CompatibleIoTypesBlock createCompatibleIoTypesBlock();
 
 	/**
-	 * Returns a new object of class '<em>Cable Weight Data Block</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cable Weight Data Block</em>'.
-	 * @generated
-	 */
-	CableWeightDataBlock createCableWeightDataBlock();
-
-	/**
-	 * Returns a new object of class '<em>Protection Level Data Block</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Protection Level Data Block</em>'.
-	 * @generated
-	 */
-	ProtectionLevelDataBlock createProtectionLevelDataBlock();
-
-	/**
-	 * Returns a new object of class '<em>Compartments Block</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Compartments Block</em>'.
-	 * @generated
-	 */
-	CompartmentsBlock createCompartmentsBlock();
-
-	/**
-	 * Returns a new object of class '<em>Interfaces Block</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Interfaces Block</em>'.
-	 * @generated
-	 */
-	InterfacesBlock createInterfacesBlock();
-
-	/**
-	 * Returns a new object of class '<em>Interface Groups Block</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Interface Groups Block</em>'.
-	 * @generated
-	 */
-	InterfaceGroupsBlock createInterfaceGroupsBlock();
-
-	/**
-	 * Returns a new object of class '<em>Restrictions Block</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Restrictions Block</em>'.
-	 * @generated
-	 */
-	RestrictionsBlock createRestrictionsBlock();
-
-	/**
 	 * Returns a new object of class '<em>Compatible Io Type Entry</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,22 +58,13 @@ public interface ModelFactory extends EFactory {
 	CompatibleIoTypeEntry createCompatibleIoTypeEntry();
 
 	/**
-	 * Returns a new object of class '<em>Protection Level Entry</em>'.
+	 * Returns a new object of class '<em>Cable Weight Data Block</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Protection Level Entry</em>'.
+	 * @return a new object of class '<em>Cable Weight Data Block</em>'.
 	 * @generated
 	 */
-	ProtectionLevelEntry createProtectionLevelEntry();
-
-	/**
-	 * Returns a new object of class '<em>Cable Weight Data</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cable Weight Data</em>'.
-	 * @generated
-	 */
-	CableWeightData createCableWeightData();
+	CableWeightDataBlock createCableWeightDataBlock();
 
 	/**
 	 * Returns a new object of class '<em>Cable Weight Entry</em>'.
@@ -139,6 +76,33 @@ public interface ModelFactory extends EFactory {
 	CableWeightEntry createCableWeightEntry();
 
 	/**
+	 * Returns a new object of class '<em>Protection Level Data Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Protection Level Data Block</em>'.
+	 * @generated
+	 */
+	ProtectionLevelDataBlock createProtectionLevelDataBlock();
+
+	/**
+	 * Returns a new object of class '<em>Protection Level Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Protection Level Entry</em>'.
+	 * @generated
+	 */
+	ProtectionLevelEntry createProtectionLevelEntry();
+
+	/**
+	 * Returns a new object of class '<em>Compartments Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compartments Block</em>'.
+	 * @generated
+	 */
+	CompartmentsBlock createCompartmentsBlock();
+
+	/**
 	 * Returns a new object of class '<em>Hardware Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,6 +110,24 @@ public interface ModelFactory extends EFactory {
 	 * @generated
 	 */
 	HardwareElement createHardwareElement();
+
+	/**
+	 * Returns a new object of class '<em>Metric Parameters Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Metric Parameters Block</em>'.
+	 * @generated
+	 */
+	MetricParametersBlock createMetricParametersBlock();
+
+	/**
+	 * Returns a new object of class '<em>Metric Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Metric Parameter</em>'.
+	 * @generated
+	 */
+	MetricParameter createMetricParameter();
 
 	/**
 	 * Returns a new object of class '<em>Compartment</em>'.
@@ -193,6 +175,15 @@ public interface ModelFactory extends EFactory {
 	AvailableEqInterface createAvailableEqInterface();
 
 	/**
+	 * Returns a new object of class '<em>Interfaces Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interfaces Block</em>'.
+	 * @generated
+	 */
+	InterfacesBlock createInterfacesBlock();
+
+	/**
 	 * Returns a new object of class '<em>Eq Interface Or Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,6 +200,15 @@ public interface ModelFactory extends EFactory {
 	 * @generated
 	 */
 	EqInterface createEqInterface();
+
+	/**
+	 * Returns a new object of class '<em>Interface Groups Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interface Groups Block</em>'.
+	 * @generated
+	 */
+	InterfaceGroupsBlock createInterfaceGroupsBlock();
 
 	/**
 	 * Returns a new object of class '<em>Eq Interface Group</em>'.
@@ -247,13 +247,13 @@ public interface ModelFactory extends EFactory {
 	EqInterfaceGroupWithCombinedDefinition createEqInterfaceGroupWithCombinedDefinition();
 
 	/**
-	 * Returns a new object of class '<em>Metric Parameter</em>'.
+	 * Returns a new object of class '<em>Restrictions Block</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Metric Parameter</em>'.
+	 * @return a new object of class '<em>Restrictions Block</em>'.
 	 * @generated
 	 */
-	MetricParameter createMetricParameter();
+	RestrictionsBlock createRestrictionsBlock();
 
 	/**
 	 * Returns a new object of class '<em>Dislocality Relation</em>'.

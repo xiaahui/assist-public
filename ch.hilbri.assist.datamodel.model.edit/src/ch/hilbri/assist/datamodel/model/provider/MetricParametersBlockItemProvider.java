@@ -3,9 +3,10 @@
 package ch.hilbri.assist.datamodel.model.provider;
 
 
+import ch.hilbri.assist.datamodel.model.MetricParametersBlock;
 import ch.hilbri.assist.datamodel.model.ModelFactory;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
-import ch.hilbri.assist.datamodel.model.RestrictionsBlock;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -25,12 +27,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.RestrictionsBlock} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.MetricParametersBlock} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RestrictionsBlockItemProvider 
+public class MetricParametersBlockItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -44,7 +46,7 @@ public class RestrictionsBlockItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RestrictionsBlockItemProvider(AdapterFactory adapterFactory) {
+	public MetricParametersBlockItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -75,10 +77,7 @@ public class RestrictionsBlockItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.RESTRICTIONS_BLOCK__DISLOCALITY_RELATIONS);
-			childrenFeatures.add(ModelPackage.Literals.RESTRICTIONS_BLOCK__COLOCALITY_RELATIONS);
-			childrenFeatures.add(ModelPackage.Literals.RESTRICTIONS_BLOCK__VALID_DEPLOYMENTS);
-			childrenFeatures.add(ModelPackage.Literals.RESTRICTIONS_BLOCK__INVALID_DEPLOYMENTS);
+			childrenFeatures.add(ModelPackage.Literals.METRIC_PARAMETERS_BLOCK__METRIC_PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -97,14 +96,14 @@ public class RestrictionsBlockItemProvider
 	}
 
 	/**
-	 * This returns RestrictionsBlock.gif.
+	 * This returns MetricParametersBlock.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RestrictionsBlock"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MetricParametersBlock"));
 	}
 
 	/**
@@ -115,7 +114,7 @@ public class RestrictionsBlockItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RestrictionsBlock_type");
+		return getString("_UI_MetricParametersBlock_type");
 	}
 	
 
@@ -130,11 +129,8 @@ public class RestrictionsBlockItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(RestrictionsBlock.class)) {
-			case ModelPackage.RESTRICTIONS_BLOCK__DISLOCALITY_RELATIONS:
-			case ModelPackage.RESTRICTIONS_BLOCK__COLOCALITY_RELATIONS:
-			case ModelPackage.RESTRICTIONS_BLOCK__VALID_DEPLOYMENTS:
-			case ModelPackage.RESTRICTIONS_BLOCK__INVALID_DEPLOYMENTS:
+		switch (notification.getFeatureID(MetricParametersBlock.class)) {
+			case ModelPackage.METRIC_PARAMETERS_BLOCK__METRIC_PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -154,23 +150,8 @@ public class RestrictionsBlockItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.RESTRICTIONS_BLOCK__DISLOCALITY_RELATIONS,
-				 ModelFactory.eINSTANCE.createDislocalityRelation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.RESTRICTIONS_BLOCK__COLOCALITY_RELATIONS,
-				 ModelFactory.eINSTANCE.createColocalityRelation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.RESTRICTIONS_BLOCK__VALID_DEPLOYMENTS,
-				 ModelFactory.eINSTANCE.createValidDeployment()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.RESTRICTIONS_BLOCK__INVALID_DEPLOYMENTS,
-				 ModelFactory.eINSTANCE.createInvalidDeployment()));
+				(ModelPackage.Literals.METRIC_PARAMETERS_BLOCK__METRIC_PARAMETERS,
+				 ModelFactory.eINSTANCE.createMetricParameter()));
 	}
 
 	/**

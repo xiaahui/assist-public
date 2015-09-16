@@ -20,13 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getInterfacesBlock <em>Interfaces Block</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getInterfaceGroupsBlock <em>Interface Groups Block</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getRestrictionsBlock <em>Restrictions Block</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getCompartments <em>Compartments</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getEqInterfaces <em>Eq Interfaces</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getEqInterfaceGroups <em>Eq Interface Groups</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getColocalityRelations <em>Colocality Relations</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getValidDeployments <em>Valid Deployments</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.AssistModel#getInvalidDeployments <em>Invalid Deployments</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel()
@@ -45,7 +38,7 @@ public interface AssistModel extends EObject {
 	 * @return the value of the '<em>Global Block</em>' containment reference.
 	 * @see #setGlobalBlock(GlobalBlock)
 	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_GlobalBlock()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	GlobalBlock getGlobalBlock();
@@ -71,7 +64,7 @@ public interface AssistModel extends EObject {
 	 * @return the value of the '<em>Compartments Block</em>' containment reference.
 	 * @see #setCompartmentsBlock(CompartmentsBlock)
 	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_CompartmentsBlock()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	CompartmentsBlock getCompartmentsBlock();
@@ -97,7 +90,7 @@ public interface AssistModel extends EObject {
 	 * @return the value of the '<em>Interfaces Block</em>' containment reference.
 	 * @see #setInterfacesBlock(InterfacesBlock)
 	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_InterfacesBlock()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	InterfacesBlock getInterfacesBlock();
@@ -165,122 +158,10 @@ public interface AssistModel extends EObject {
 	void setRestrictionsBlock(RestrictionsBlock value);
 
 	/**
-	 * Returns the value of the '<em><b>Compartments</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.datamodel.model.Compartment}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Compartments</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Compartments</em>' containment reference list.
-	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_Compartments()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Compartment> getCompartments();
-
-	/**
-	 * Returns the value of the '<em><b>Eq Interfaces</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.datamodel.model.EqInterface}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Eq Interfaces</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Eq Interfaces</em>' containment reference list.
-	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_EqInterfaces()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<EqInterface> getEqInterfaces();
-
-	/**
-	 * Returns the value of the '<em><b>Eq Interface Groups</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.datamodel.model.EqInterfaceGroup}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Eq Interface Groups</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Eq Interface Groups</em>' containment reference list.
-	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_EqInterfaceGroups()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<EqInterfaceGroup> getEqInterfaceGroups();
-
-	/**
-	 * Returns the value of the '<em><b>Dislocality Relations</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.datamodel.model.DislocalityRelation}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dislocality Relations</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dislocality Relations</em>' containment reference list.
-	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_DislocalityRelations()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<DislocalityRelation> getDislocalityRelations();
-
-	/**
-	 * Returns the value of the '<em><b>Colocality Relations</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.datamodel.model.ColocalityRelation}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Colocality Relations</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Colocality Relations</em>' containment reference list.
-	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_ColocalityRelations()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ColocalityRelation> getColocalityRelations();
-
-	/**
-	 * Returns the value of the '<em><b>Valid Deployments</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.datamodel.model.ValidDeployment}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Valid Deployments</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Valid Deployments</em>' containment reference list.
-	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_ValidDeployments()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ValidDeployment> getValidDeployments();
-
-	/**
-	 * Returns the value of the '<em><b>Invalid Deployments</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.datamodel.model.InvalidDeployment}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Invalid Deployments</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Invalid Deployments</em>' containment reference list.
-	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_InvalidDeployments()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<InvalidDeployment> getInvalidDeployments();
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getCompartments();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.CompartmentsBlock%> _compartmentsBlock = this.getCompartmentsBlock();\nreturn _compartmentsBlock.getCompartments();'"
 	 * @generated
 	 */
 	EList<Compartment> getAllCompartments();
@@ -289,7 +170,7 @@ public interface AssistModel extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.datamodel.model.RDC%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.datamodel.model.RDC%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Compartment%>> _compartments = this.getCompartments();\nfor (final <%ch.hilbri.assist.datamodel.model.Compartment%> c : _compartments)\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.RDC%>> _rdcs = c.getRdcs();\n\tlist.addAll(_rdcs);\n}\nreturn list;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Compartment%>> _allCompartments = this.getAllCompartments();\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.Compartment%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.RDC%>>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.Compartment%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.RDC%>>>()\n{\n\tpublic <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.RDC%>> apply(final <%ch.hilbri.assist.datamodel.model.Compartment%> it)\n\t{\n\t\treturn it.getRdcs();\n\t}\n};\n<%org.eclipse.emf.common.util.EList%><<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.RDC%>>> _map = <%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%>.<<%ch.hilbri.assist.datamodel.model.Compartment%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.RDC%>>>map(_allCompartments, _function);\n<%java.lang.Iterable%><<%ch.hilbri.assist.datamodel.model.RDC%>> _flatten = <%com.google.common.collect.Iterables%>.<<%ch.hilbri.assist.datamodel.model.RDC%>>concat(_map);\nreturn <%org.eclipse.emf.common.util.ECollections%>.<<%ch.hilbri.assist.datamodel.model.RDC%>>toEList(_flatten);'"
 	 * @generated
 	 */
 	EList<RDC> getAllRDCs();
@@ -298,7 +179,7 @@ public interface AssistModel extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.datamodel.model.Connector%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.datamodel.model.Connector%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.RDC%>> _allRDCs = this.getAllRDCs();\nfor (final <%ch.hilbri.assist.datamodel.model.RDC%> r : _allRDCs)\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Connector%>> _connectors = r.getConnectors();\n\tlist.addAll(_connectors);\n}\nreturn list;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.RDC%>> _allRDCs = this.getAllRDCs();\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.RDC%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Connector%>>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.RDC%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Connector%>>>()\n{\n\tpublic <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Connector%>> apply(final <%ch.hilbri.assist.datamodel.model.RDC%> it)\n\t{\n\t\treturn it.getConnectors();\n\t}\n};\n<%org.eclipse.emf.common.util.EList%><<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Connector%>>> _map = <%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%>.<<%ch.hilbri.assist.datamodel.model.RDC%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Connector%>>>map(_allRDCs, _function);\n<%java.lang.Iterable%><<%ch.hilbri.assist.datamodel.model.Connector%>> _flatten = <%com.google.common.collect.Iterables%>.<<%ch.hilbri.assist.datamodel.model.Connector%>>concat(_map);\nreturn <%org.eclipse.emf.common.util.ECollections%>.<<%ch.hilbri.assist.datamodel.model.Connector%>>toEList(_flatten);'"
 	 * @generated
 	 */
 	EList<Connector> getAllConnectors();
@@ -307,7 +188,7 @@ public interface AssistModel extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model unique="false" levelUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='if ((level == 0))\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Connector%>> _allConnectors = this.getAllConnectors();\n\tfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.Connector%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.Connector%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>>()\n\t{\n\t\tpublic <%ch.hilbri.assist.datamodel.model.HardwareElement%> apply(final <%ch.hilbri.assist.datamodel.model.Connector%> it)\n\t\t{\n\t\t\treturn ((<%ch.hilbri.assist.datamodel.model.HardwareElement%>) it);\n\t\t}\n\t};\n\treturn <%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%>.<<%ch.hilbri.assist.datamodel.model.Connector%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>>map(_allConnectors, _function);\n}\nelse\n{\n\tif ((level == 1))\n\t{\n\t\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.RDC%>> _allRDCs = this.getAllRDCs();\n\t\tfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.RDC%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>> _function_1 = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.RDC%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>>()\n\t\t{\n\t\t\tpublic <%ch.hilbri.assist.datamodel.model.HardwareElement%> apply(final <%ch.hilbri.assist.datamodel.model.RDC%> it)\n\t\t\t{\n\t\t\t\treturn ((<%ch.hilbri.assist.datamodel.model.HardwareElement%>) it);\n\t\t\t}\n\t\t};\n\t\treturn <%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%>.<<%ch.hilbri.assist.datamodel.model.RDC%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>>map(_allRDCs, _function_1);\n\t}\n\telse\n\t{\n\t\tif ((level == 2))\n\t\t{\n\t\t\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Compartment%>> _compartments = this.getCompartments();\n\t\t\tfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.Compartment%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>> _function_2 = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.Compartment%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>>()\n\t\t\t{\n\t\t\t\tpublic <%ch.hilbri.assist.datamodel.model.HardwareElement%> apply(final <%ch.hilbri.assist.datamodel.model.Compartment%> it)\n\t\t\t\t{\n\t\t\t\t\treturn ((<%ch.hilbri.assist.datamodel.model.HardwareElement%>) it);\n\t\t\t\t}\n\t\t\t};\n\t\t\treturn <%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%>.<<%ch.hilbri.assist.datamodel.model.Compartment%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>>map(_compartments, _function_2);\n\t\t}\n\t\telse\n\t\t{\n\t\t\treturn null;\n\t\t}\n\t}\n}'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='if ((level == 0))\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Connector%>> _allConnectors = this.getAllConnectors();\n\tfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.Connector%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.Connector%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>>()\n\t{\n\t\tpublic <%ch.hilbri.assist.datamodel.model.HardwareElement%> apply(final <%ch.hilbri.assist.datamodel.model.Connector%> it)\n\t\t{\n\t\t\treturn ((<%ch.hilbri.assist.datamodel.model.HardwareElement%>) it);\n\t\t}\n\t};\n\treturn <%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%>.<<%ch.hilbri.assist.datamodel.model.Connector%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>>map(_allConnectors, _function);\n}\nelse\n{\n\tif ((level == 1))\n\t{\n\t\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.RDC%>> _allRDCs = this.getAllRDCs();\n\t\tfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.RDC%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>> _function_1 = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.RDC%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>>()\n\t\t{\n\t\t\tpublic <%ch.hilbri.assist.datamodel.model.HardwareElement%> apply(final <%ch.hilbri.assist.datamodel.model.RDC%> it)\n\t\t\t{\n\t\t\t\treturn ((<%ch.hilbri.assist.datamodel.model.HardwareElement%>) it);\n\t\t\t}\n\t\t};\n\t\treturn <%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%>.<<%ch.hilbri.assist.datamodel.model.RDC%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>>map(_allRDCs, _function_1);\n\t}\n\telse\n\t{\n\t\tif ((level == 2))\n\t\t{\n\t\t\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Compartment%>> _allCompartments = this.getAllCompartments();\n\t\t\tfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.Compartment%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>> _function_2 = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.Compartment%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>>()\n\t\t\t{\n\t\t\t\tpublic <%ch.hilbri.assist.datamodel.model.HardwareElement%> apply(final <%ch.hilbri.assist.datamodel.model.Compartment%> it)\n\t\t\t\t{\n\t\t\t\t\treturn ((<%ch.hilbri.assist.datamodel.model.HardwareElement%>) it);\n\t\t\t\t}\n\t\t\t};\n\t\t\treturn <%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%>.<<%ch.hilbri.assist.datamodel.model.Compartment%>, <%ch.hilbri.assist.datamodel.model.HardwareElement%>>map(_allCompartments, _function_2);\n\t\t}\n\t\telse\n\t\t{\n\t\t\treturn null;\n\t\t}\n\t}\n}'"
 	 * @generated
 	 */
 	EList<HardwareElement> getAllHardwareElements(int level);

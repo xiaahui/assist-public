@@ -16,46 +16,25 @@ annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 class AssistModel {
 	
-	contains GlobalBlock					globalBlock
-	
-	contains CompartmentsBlock[0..1]		compartmentsBlock
-	contains InterfacesBlock[0..1]			interfacesBlock
+	contains GlobalBlock[1]					globalBlock
+	contains CompartmentsBlock[1]			compartmentsBlock
+	contains InterfacesBlock[1]				interfacesBlock
 	contains InterfaceGroupsBlock[0..1]		interfaceGroupsBlock
 	contains RestrictionsBlock[0..1]		restrictionsBlock
 	
-	contains Compartment[0..*]				compartments
-	contains EqInterface[0..*]				eqInterfaces
-	contains EqInterfaceGroup[0..*]			eqInterfaceGroups
-	contains DislocalityRelation[0..*]		dislocalityRelations
-	contains ColocalityRelation[0..*]		colocalityRelations
-	contains ValidDeployment[0..*]			validDeployments
-	contains InvalidDeployment[0..*]		invalidDeployments
-
+	// Methods
 	
-	op Compartment[] getAllCompartments() {
-		return compartments
-	}
-	
-	op RDC[] getAllRDCs() {
-		val list = new BasicEList<RDC>
-		for (c : compartments)
-			list.addAll(c.rdcs)
-		return list
-	}
-	
-	op Connector[] getAllConnectors() {
-		val list = new BasicEList<Connector>
-		for (r : allRDCs)
-			list.addAll(r.connectors)
-		return list
-	}
-	
+	op Compartment[] getAllCompartments() 	{ compartmentsBlock.compartments }
+	op RDC[] getAllRDCs() 					{ allCompartments.map[rdcs].flatten.toEList }
+	op Connector[] getAllConnectors() 		{ allRDCs.map[connectors].flatten.toEList	}
 	op HardwareElement[] getAllHardwareElements(int level) {
 		if (level == 0) 		return allConnectors.map[it as HardwareElement]
 		else if (level == 1)	return allRDCs.map[it as HardwareElement]
-		else if (level == 2)	return compartments.map[it as HardwareElement]
+		else if (level == 2)	return allCompartments.map[it as HardwareElement]
 		else return null
 	}
+	
+	// Shortcuts for backwards compatibility
 	
 	op String						getSystemName()				{ globalBlock.systemName								}
 	op CompatibleIoTypeEntry[*] 	getCompatibleIoTypes() 		{ globalBlock.compatibleIoTypesBlock.compatibleIoTypes	}
@@ -63,6 +42,10 @@ class AssistModel {
 	op ProtectionLevelEntry[*] 		getProtectionLevelData()	{ globalBlock.protectionLevelDataBlock.protectionLevelEntries 	}
 }
 
+/* *******************************************************************************
+ * GLOBAL BLOCK
+ * ******************************************************************************* */
+   
 class GlobalBlock {
 	String 									systemName 				= ""
 	contains CompatibleIoTypesBlock			compatibleIoTypesBlock
@@ -72,6 +55,11 @@ class GlobalBlock {
 
 class CompatibleIoTypesBlock {
 	contains CompatibleIoTypeEntry[0..*] 	compatibleIoTypes
+}
+
+class CompatibleIoTypeEntry {
+	String 			eqInterfaceIoType 		= ""
+	String[1..*] 	pinInterfaceIoTypes		= ""
 }
 
 class CableWeightDataBlock {
@@ -88,21 +76,14 @@ class CableWeightDataBlock {
 	}
 }
 
-class ProtectionLevelDataBlock {
-	contains ProtectionLevelEntry[0..*]		protectionLevelEntries
+class CableWeightEntry {
+	boolean			defaultEntry			= "false"
+	String			eqInterfaceIoType		= ""
+	double 			weight					= "0.0"
 }
 
-class CompartmentsBlock {}
-
-class InterfacesBlock {}
-
-class InterfaceGroupsBlock {}
-
-class RestrictionsBlock {}
-
-class CompatibleIoTypeEntry {
-	String 			eqInterfaceIoType 		= ""
-	String[1..*] 	pinInterfaceIoTypes		= ""
+class ProtectionLevelDataBlock {
+	contains ProtectionLevelEntry[0..*]		protectionLevelEntries
 }
 
 class ProtectionLevelEntry{
@@ -111,36 +92,38 @@ class ProtectionLevelEntry{
 	ProtectionLevelType[1..*] 	protectionLevel
 }
 
-class CableWeightData {
-	
-}
+/* *******************************************************************************
+ * COMPARTMENTS BLOCK
+ * ******************************************************************************* */
 
-class CableWeightEntry {
-	boolean			defaultEntry			= "false"
-	String			eqInterfaceIoType		= ""
-	double 			weight					= "0.0"
+class CompartmentsBlock {
+	contains Compartment[*]		compartments
 }
 
 class HardwareElement {
-	 String name 			= ""
-	 contains MetricParameter[0..*] metricParameters
+	String name 							= ""
+	contains MetricParametersBlock[0..1]	metricParametersBlock
+}
+
+class MetricParametersBlock {
+	 contains MetricParameter[*] metricParameters
+}
+
+class MetricParameter {
+	String name = ""
+	int value = "0"
 }
 
 class Compartment extends HardwareElement {
-	String manufacturer	= ""
+	String manufacturer		= ""
 	String powerSupply		= ""
 	String side				= ""
 	String zone				= ""
+	
 	contains RDC[0..*] rdcs opposite compartment
 	
-	op String toString() 			{ name }
-	
-	op Connector[] getAllConnectors() {
-		val list = new BasicEList<Connector>
-		for (rdc : rdcs)
-			list.addAll(rdc.connectors)		
-		return list
-	}
+	op String toString() 				{ name }
+	op Connector[] getAllConnectors() 	{ rdcs.map[connectors].flatten.toEList }
 	
 	op int[] getAvailableEqInterfaces(String[] eqInterfaceTypes) {
 		val allAvailableEqInterfaces = allConnectors.map[availableEqInterfaces].flatten
@@ -170,9 +153,10 @@ class RDC extends HardwareElement {
 	int resourceX			= "0"
 	int resourceY			= "0"
 	int resourceZ			= "0"
+	
 	container Compartment compartment opposite rdcs
-	contains Connector[0..*] connectors opposite rdc
-	contains InternallyConnectedPinEntry[0..*] connectedPins
+	contains Connector[*] 					connectors opposite rdc
+	contains InternallyConnectedPinEntry[*] connectedPins
 	
 	op String toString() 			{ name }
 	
@@ -198,13 +182,13 @@ class InternallyConnectedPinEntry {
 }
 
 class Connector extends HardwareElement {
+	
 	container RDC rdc opposite connectors
+	
 	contains AvailableEqInterface[0..*] 	availableEqInterfaces
 	
 	op String fullName() 					{ rdc.compartment.name + "." + rdc.name + "." + name }
-	
 	op String toString() 					{ name }
-	
 	op int[] getAvailableEqInterfaces(String[] eqInterfaceTypes) {
 		eqInterfaceTypes.map[
 			val typeName = it
@@ -239,6 +223,14 @@ class AvailableEqInterface {
 	ProtectionLevelType protectionLevel = "None"
 }
 
+
+/* *******************************************************************************
+ * INTERFACES BLOCK
+ * ******************************************************************************* */
+class InterfacesBlock {
+	contains EqInterface[0..*]				eqInterfaces
+}
+
 class EqInterfaceOrGroup {
 	String name = ""
 	op String toString() { name }
@@ -260,6 +252,13 @@ class EqInterface extends EqInterfaceOrGroup {
 	int resourceZ		= "0"
 	contains MetricParameter[0..*] metricParameters
 	op String toString() { name }	
+}
+
+/* *******************************************************************************
+ * INTERFACE GROUPS BLOCK
+ * ******************************************************************************* */
+class InterfaceGroupsBlock {
+	contains EqInterfaceGroup[0..*]			eqInterfaceGroups
 }
 
 class EqInterfaceGroup extends EqInterfaceOrGroup {
@@ -303,7 +302,7 @@ class ImplicitEqInterfaceMemberDefinition {
 		val model = this.eContainer.eContainer as AssistModel
 		
 		// contains the interfaces discovered for a single implicit definition element
-		var Iterable<EqInterface> interfaceList = model.eqInterfaces	
+		var Iterable<EqInterface> interfaceList = model.interfacesBlock.eqInterfaces	
 					
 		// Go through all entries (they are concatenated by AND)
 		for (entry : entries) {
@@ -359,13 +358,16 @@ class EqInterfaceGroupWithCombinedDefinition extends EqInterfaceGroup {
 }
 
 
-class MetricParameter {
-	String name = ""
-	int value = "0"
+/* *******************************************************************************
+ * RESTRICTIONS BLOCK
+ * ******************************************************************************* */
+class RestrictionsBlock {
+	contains DislocalityRelation[0..*]		dislocalityRelations
+	contains ColocalityRelation[0..*]		colocalityRelations
+	contains ValidDeployment[0..*]			validDeployments
+	contains InvalidDeployment[0..*]		invalidDeployments
 }
 
-
-/*** RELATIONS  ****/
 
 enum HardwareArchitectureLevelType {
 	CONNECTOR 	as "Connector"

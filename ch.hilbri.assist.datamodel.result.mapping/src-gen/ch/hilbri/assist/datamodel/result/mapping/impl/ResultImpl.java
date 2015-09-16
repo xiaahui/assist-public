@@ -5,6 +5,7 @@ package ch.hilbri.assist.datamodel.result.mapping.impl;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.EqInterface;
+import ch.hilbri.assist.datamodel.model.InterfacesBlock;
 
 import ch.hilbri.assist.datamodel.result.mapping.Evaluation;
 import ch.hilbri.assist.datamodel.result.mapping.MappingPackage;
@@ -340,7 +341,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 */
 	public EList<EqInterface> getAllUnmappedEqInterfaces() {
 		AssistModel _model = this.getModel();
-		EList<EqInterface> _eqInterfaces = _model.getEqInterfaces();
+		InterfacesBlock _interfacesBlock = _model.getInterfacesBlock();
+		EList<EqInterface> _eqInterfaces = _interfacesBlock.getEqInterfaces();
 		final Function1<EqInterface, Boolean> _function = new Function1<EqInterface, Boolean>() {
 			public Boolean apply(final EqInterface it) {
 				HashMap<EqInterface, Connector> _mapping = ResultImpl.this.getMapping();
@@ -363,7 +365,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		int _length = ((Object[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(_allUnmappedEqInterfaces, Object.class)).length;
 		int _multiply = (_length * 100);
 		AssistModel _model = this.getModel();
-		EList<EqInterface> _eqInterfaces = _model.getEqInterfaces();
+		InterfacesBlock _interfacesBlock = _model.getInterfacesBlock();
+		EList<EqInterface> _eqInterfaces = _interfacesBlock.getEqInterfaces();
 		int _length_1 = ((Object[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(_eqInterfaces, Object.class)).length;
 		int _divide = (_multiply / _length_1);
 		return (100 - _divide);

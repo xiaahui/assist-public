@@ -7,6 +7,7 @@ import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinition;
 import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttribute;
 import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttributesAndValues;
+import ch.hilbri.assist.datamodel.model.InterfacesBlock;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 
 import com.google.common.collect.Iterables;
@@ -103,7 +104,8 @@ public class ImplicitEqInterfaceMemberDefinitionImpl extends MinimalEObjectImpl.
 		EObject _eContainer = this.eContainer();
 		EObject _eContainer_1 = _eContainer.eContainer();
 		final AssistModel model = ((AssistModel) _eContainer_1);
-		Iterable<EqInterface> interfaceList = model.getEqInterfaces();
+		InterfacesBlock _interfacesBlock = model.getInterfacesBlock();
+		Iterable<EqInterface> interfaceList = _interfacesBlock.getEqInterfaces();
 		EList<ImplicitEqInterfaceMemberDefinitionAttributesAndValues> _entries = this.getEntries();
 		for (final ImplicitEqInterfaceMemberDefinitionAttributesAndValues entry : _entries) {
 			ImplicitEqInterfaceMemberDefinitionAttribute _attribute = entry.getAttribute();

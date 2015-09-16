@@ -116,76 +116,13 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL__RESTRICTIONS_BLOCK = 4;
 
 	/**
-	 * The feature id for the '<em><b>Compartments</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL__COMPARTMENTS = 5;
-
-	/**
-	 * The feature id for the '<em><b>Eq Interfaces</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL__EQ_INTERFACES = 6;
-
-	/**
-	 * The feature id for the '<em><b>Eq Interface Groups</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL__EQ_INTERFACE_GROUPS = 7;
-
-	/**
-	 * The feature id for the '<em><b>Dislocality Relations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL__DISLOCALITY_RELATIONS = 8;
-
-	/**
-	 * The feature id for the '<em><b>Colocality Relations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL__COLOCALITY_RELATIONS = 9;
-
-	/**
-	 * The feature id for the '<em><b>Valid Deployments</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL__VALID_DEPLOYMENTS = 10;
-
-	/**
-	 * The feature id for the '<em><b>Invalid Deployments</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL__INVALID_DEPLOYMENTS = 11;
-
-	/**
 	 * The number of structural features of the '<em>Assist Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_FEATURE_COUNT = 12;
+	int ASSIST_MODEL_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Get All Compartments</em>' operation.
@@ -370,6 +307,52 @@ public interface ModelPackage extends EPackage {
 	int COMPATIBLE_IO_TYPES_BLOCK_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.CompatibleIoTypeEntryImpl <em>Compatible Io Type Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.datamodel.model.impl.CompatibleIoTypeEntryImpl
+	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getCompatibleIoTypeEntry()
+	 * @generated
+	 */
+	int COMPATIBLE_IO_TYPE_ENTRY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Eq Interface Io Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPATIBLE_IO_TYPE_ENTRY__EQ_INTERFACE_IO_TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Pin Interface Io Types</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPATIBLE_IO_TYPE_ENTRY__PIN_INTERFACE_IO_TYPES = 1;
+
+	/**
+	 * The number of structural features of the '<em>Compatible Io Type Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPATIBLE_IO_TYPE_ENTRY_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Compatible Io Type Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPATIBLE_IO_TYPE_ENTRY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.CableWeightDataBlockImpl <em>Cable Weight Data Block</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,7 +360,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getCableWeightDataBlock()
 	 * @generated
 	 */
-	int CABLE_WEIGHT_DATA_BLOCK = 3;
+	int CABLE_WEIGHT_DATA_BLOCK = 4;
 
 	/**
 	 * The feature id for the '<em><b>Cable Weight Entries</b></em>' containment reference list.
@@ -425,284 +408,6 @@ public interface ModelPackage extends EPackage {
 	int CABLE_WEIGHT_DATA_BLOCK_OPERATION_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.ProtectionLevelDataBlockImpl <em>Protection Level Data Block</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.datamodel.model.impl.ProtectionLevelDataBlockImpl
-	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getProtectionLevelDataBlock()
-	 * @generated
-	 */
-	int PROTECTION_LEVEL_DATA_BLOCK = 4;
-
-	/**
-	 * The feature id for the '<em><b>Protection Level Entries</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROTECTION_LEVEL_DATA_BLOCK__PROTECTION_LEVEL_ENTRIES = 0;
-
-	/**
-	 * The number of structural features of the '<em>Protection Level Data Block</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROTECTION_LEVEL_DATA_BLOCK_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Protection Level Data Block</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROTECTION_LEVEL_DATA_BLOCK_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.CompartmentsBlockImpl <em>Compartments Block</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.datamodel.model.impl.CompartmentsBlockImpl
-	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getCompartmentsBlock()
-	 * @generated
-	 */
-	int COMPARTMENTS_BLOCK = 5;
-
-	/**
-	 * The number of structural features of the '<em>Compartments Block</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARTMENTS_BLOCK_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Compartments Block</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARTMENTS_BLOCK_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.InterfacesBlockImpl <em>Interfaces Block</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.datamodel.model.impl.InterfacesBlockImpl
-	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInterfacesBlock()
-	 * @generated
-	 */
-	int INTERFACES_BLOCK = 6;
-
-	/**
-	 * The number of structural features of the '<em>Interfaces Block</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACES_BLOCK_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Interfaces Block</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACES_BLOCK_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.InterfaceGroupsBlockImpl <em>Interface Groups Block</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.datamodel.model.impl.InterfaceGroupsBlockImpl
-	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInterfaceGroupsBlock()
-	 * @generated
-	 */
-	int INTERFACE_GROUPS_BLOCK = 7;
-
-	/**
-	 * The number of structural features of the '<em>Interface Groups Block</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE_GROUPS_BLOCK_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Interface Groups Block</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE_GROUPS_BLOCK_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.RestrictionsBlockImpl <em>Restrictions Block</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.datamodel.model.impl.RestrictionsBlockImpl
-	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getRestrictionsBlock()
-	 * @generated
-	 */
-	int RESTRICTIONS_BLOCK = 8;
-
-	/**
-	 * The number of structural features of the '<em>Restrictions Block</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESTRICTIONS_BLOCK_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Restrictions Block</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESTRICTIONS_BLOCK_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.CompatibleIoTypeEntryImpl <em>Compatible Io Type Entry</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.datamodel.model.impl.CompatibleIoTypeEntryImpl
-	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getCompatibleIoTypeEntry()
-	 * @generated
-	 */
-	int COMPATIBLE_IO_TYPE_ENTRY = 9;
-
-	/**
-	 * The feature id for the '<em><b>Eq Interface Io Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPATIBLE_IO_TYPE_ENTRY__EQ_INTERFACE_IO_TYPE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Pin Interface Io Types</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPATIBLE_IO_TYPE_ENTRY__PIN_INTERFACE_IO_TYPES = 1;
-
-	/**
-	 * The number of structural features of the '<em>Compatible Io Type Entry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPATIBLE_IO_TYPE_ENTRY_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Compatible Io Type Entry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPATIBLE_IO_TYPE_ENTRY_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.ProtectionLevelEntryImpl <em>Protection Level Entry</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.datamodel.model.impl.ProtectionLevelEntryImpl
-	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getProtectionLevelEntry()
-	 * @generated
-	 */
-	int PROTECTION_LEVEL_ENTRY = 10;
-
-	/**
-	 * The feature id for the '<em><b>Rdc Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROTECTION_LEVEL_ENTRY__RDC_LOCATION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Emh Zone1</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROTECTION_LEVEL_ENTRY__EMH_ZONE1 = 1;
-
-	/**
-	 * The feature id for the '<em><b>Protection Level</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROTECTION_LEVEL_ENTRY__PROTECTION_LEVEL = 2;
-
-	/**
-	 * The number of structural features of the '<em>Protection Level Entry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROTECTION_LEVEL_ENTRY_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Protection Level Entry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROTECTION_LEVEL_ENTRY_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.CableWeightDataImpl <em>Cable Weight Data</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.datamodel.model.impl.CableWeightDataImpl
-	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getCableWeightData()
-	 * @generated
-	 */
-	int CABLE_WEIGHT_DATA = 11;
-
-	/**
-	 * The number of structural features of the '<em>Cable Weight Data</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CABLE_WEIGHT_DATA_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Cable Weight Data</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CABLE_WEIGHT_DATA_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.CableWeightEntryImpl <em>Cable Weight Entry</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -710,7 +415,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getCableWeightEntry()
 	 * @generated
 	 */
-	int CABLE_WEIGHT_ENTRY = 12;
+	int CABLE_WEIGHT_ENTRY = 5;
 
 	/**
 	 * The feature id for the '<em><b>Default Entry</b></em>' attribute.
@@ -758,6 +463,135 @@ public interface ModelPackage extends EPackage {
 	int CABLE_WEIGHT_ENTRY_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.ProtectionLevelDataBlockImpl <em>Protection Level Data Block</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.datamodel.model.impl.ProtectionLevelDataBlockImpl
+	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getProtectionLevelDataBlock()
+	 * @generated
+	 */
+	int PROTECTION_LEVEL_DATA_BLOCK = 6;
+
+	/**
+	 * The feature id for the '<em><b>Protection Level Entries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTECTION_LEVEL_DATA_BLOCK__PROTECTION_LEVEL_ENTRIES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Protection Level Data Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTECTION_LEVEL_DATA_BLOCK_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Protection Level Data Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTECTION_LEVEL_DATA_BLOCK_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.ProtectionLevelEntryImpl <em>Protection Level Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.datamodel.model.impl.ProtectionLevelEntryImpl
+	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getProtectionLevelEntry()
+	 * @generated
+	 */
+	int PROTECTION_LEVEL_ENTRY = 7;
+
+	/**
+	 * The feature id for the '<em><b>Rdc Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTECTION_LEVEL_ENTRY__RDC_LOCATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Emh Zone1</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTECTION_LEVEL_ENTRY__EMH_ZONE1 = 1;
+
+	/**
+	 * The feature id for the '<em><b>Protection Level</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTECTION_LEVEL_ENTRY__PROTECTION_LEVEL = 2;
+
+	/**
+	 * The number of structural features of the '<em>Protection Level Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTECTION_LEVEL_ENTRY_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Protection Level Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTECTION_LEVEL_ENTRY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.CompartmentsBlockImpl <em>Compartments Block</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.datamodel.model.impl.CompartmentsBlockImpl
+	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getCompartmentsBlock()
+	 * @generated
+	 */
+	int COMPARTMENTS_BLOCK = 8;
+
+	/**
+	 * The feature id for the '<em><b>Compartments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARTMENTS_BLOCK__COMPARTMENTS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Compartments Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARTMENTS_BLOCK_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Compartments Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARTMENTS_BLOCK_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -765,7 +599,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getHardwareElement()
 	 * @generated
 	 */
-	int HARDWARE_ELEMENT = 13;
+	int HARDWARE_ELEMENT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -777,13 +611,13 @@ public interface ModelPackage extends EPackage {
 	int HARDWARE_ELEMENT__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Metric Parameters Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HARDWARE_ELEMENT__METRIC_PARAMETERS = 1;
+	int HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK = 1;
 
 	/**
 	 * The number of structural features of the '<em>Hardware Element</em>' class.
@@ -804,6 +638,89 @@ public interface ModelPackage extends EPackage {
 	int HARDWARE_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.MetricParametersBlockImpl <em>Metric Parameters Block</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.datamodel.model.impl.MetricParametersBlockImpl
+	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getMetricParametersBlock()
+	 * @generated
+	 */
+	int METRIC_PARAMETERS_BLOCK = 10;
+
+	/**
+	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_PARAMETERS_BLOCK__METRIC_PARAMETERS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Metric Parameters Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_PARAMETERS_BLOCK_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Metric Parameters Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_PARAMETERS_BLOCK_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.MetricParameterImpl <em>Metric Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.datamodel.model.impl.MetricParameterImpl
+	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getMetricParameter()
+	 * @generated
+	 */
+	int METRIC_PARAMETER = 11;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_PARAMETER__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_PARAMETER__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Metric Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_PARAMETER_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Metric Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_PARAMETER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.CompartmentImpl <em>Compartment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -811,7 +728,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getCompartment()
 	 * @generated
 	 */
-	int COMPARTMENT = 14;
+	int COMPARTMENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -823,13 +740,13 @@ public interface ModelPackage extends EPackage {
 	int COMPARTMENT__NAME = HARDWARE_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Metric Parameters Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARTMENT__METRIC_PARAMETERS = HARDWARE_ELEMENT__METRIC_PARAMETERS;
+	int COMPARTMENT__METRIC_PARAMETERS_BLOCK = HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK;
 
 	/**
 	 * The feature id for the '<em><b>Manufacturer</b></em>' attribute.
@@ -929,7 +846,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getRDC()
 	 * @generated
 	 */
-	int RDC = 15;
+	int RDC = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -941,13 +858,13 @@ public interface ModelPackage extends EPackage {
 	int RDC__NAME = HARDWARE_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Metric Parameters Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDC__METRIC_PARAMETERS = HARDWARE_ELEMENT__METRIC_PARAMETERS;
+	int RDC__METRIC_PARAMETERS_BLOCK = HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK;
 
 	/**
 	 * The feature id for the '<em><b>Manufacturer</b></em>' attribute.
@@ -1101,7 +1018,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInternallyConnectedPinEntry()
 	 * @generated
 	 */
-	int INTERNALLY_CONNECTED_PIN_ENTRY = 16;
+	int INTERNALLY_CONNECTED_PIN_ENTRY = 14;
 
 	/**
 	 * The feature id for the '<em><b>Pins</b></em>' reference list.
@@ -1138,7 +1055,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getConnector()
 	 * @generated
 	 */
-	int CONNECTOR = 17;
+	int CONNECTOR = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1150,13 +1067,13 @@ public interface ModelPackage extends EPackage {
 	int CONNECTOR__NAME = HARDWARE_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Metric Parameters Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__METRIC_PARAMETERS = HARDWARE_ELEMENT__METRIC_PARAMETERS;
+	int CONNECTOR__METRIC_PARAMETERS_BLOCK = HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK;
 
 	/**
 	 * The feature id for the '<em><b>Rdc</b></em>' container reference.
@@ -1229,7 +1146,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getAvailableEqInterface()
 	 * @generated
 	 */
-	int AVAILABLE_EQ_INTERFACE = 18;
+	int AVAILABLE_EQ_INTERFACE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1286,6 +1203,43 @@ public interface ModelPackage extends EPackage {
 	int AVAILABLE_EQ_INTERFACE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.InterfacesBlockImpl <em>Interfaces Block</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.datamodel.model.impl.InterfacesBlockImpl
+	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInterfacesBlock()
+	 * @generated
+	 */
+	int INTERFACES_BLOCK = 17;
+
+	/**
+	 * The feature id for the '<em><b>Eq Interfaces</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACES_BLOCK__EQ_INTERFACES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Interfaces Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACES_BLOCK_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Interfaces Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACES_BLOCK_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.EqInterfaceOrGroupImpl <em>Eq Interface Or Group</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1293,7 +1247,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getEqInterfaceOrGroup()
 	 * @generated
 	 */
-	int EQ_INTERFACE_OR_GROUP = 19;
+	int EQ_INTERFACE_OR_GROUP = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1339,7 +1293,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getEqInterface()
 	 * @generated
 	 */
-	int EQ_INTERFACE = 20;
+	int EQ_INTERFACE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1502,6 +1456,43 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int EQ_INTERFACE_OPERATION_COUNT = EQ_INTERFACE_OR_GROUP_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.InterfaceGroupsBlockImpl <em>Interface Groups Block</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.datamodel.model.impl.InterfaceGroupsBlockImpl
+	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInterfaceGroupsBlock()
+	 * @generated
+	 */
+	int INTERFACE_GROUPS_BLOCK = 20;
+
+	/**
+	 * The feature id for the '<em><b>Eq Interface Groups</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE_GROUPS_BLOCK__EQ_INTERFACE_GROUPS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Interface Groups Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE_GROUPS_BLOCK_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Interface Groups Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE_GROUPS_BLOCK_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.EqInterfaceGroupImpl <em>Eq Interface Group</em>}' class.
@@ -1805,50 +1796,68 @@ public interface ModelPackage extends EPackage {
 	int EQ_INTERFACE_GROUP_WITH_COMBINED_DEFINITION_OPERATION_COUNT = EQ_INTERFACE_GROUP_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.MetricParameterImpl <em>Metric Parameter</em>}' class.
+	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.RestrictionsBlockImpl <em>Restrictions Block</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.datamodel.model.impl.MetricParameterImpl
-	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getMetricParameter()
+	 * @see ch.hilbri.assist.datamodel.model.impl.RestrictionsBlockImpl
+	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getRestrictionsBlock()
 	 * @generated
 	 */
-	int METRIC_PARAMETER = 25;
+	int RESTRICTIONS_BLOCK = 25;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Dislocality Relations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METRIC_PARAMETER__NAME = 0;
+	int RESTRICTIONS_BLOCK__DISLOCALITY_RELATIONS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Colocality Relations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METRIC_PARAMETER__VALUE = 1;
+	int RESTRICTIONS_BLOCK__COLOCALITY_RELATIONS = 1;
 
 	/**
-	 * The number of structural features of the '<em>Metric Parameter</em>' class.
+	 * The feature id for the '<em><b>Valid Deployments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METRIC_PARAMETER_FEATURE_COUNT = 2;
+	int RESTRICTIONS_BLOCK__VALID_DEPLOYMENTS = 2;
 
 	/**
-	 * The number of operations of the '<em>Metric Parameter</em>' class.
+	 * The feature id for the '<em><b>Invalid Deployments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METRIC_PARAMETER_OPERATION_COUNT = 0;
+	int RESTRICTIONS_BLOCK__INVALID_DEPLOYMENTS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Restrictions Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTRICTIONS_BLOCK_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Restrictions Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTRICTIONS_BLOCK_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.DislocalityRelationImpl <em>Dislocality Relation</em>}' class.
@@ -2405,83 +2414,6 @@ public interface ModelPackage extends EPackage {
 	EReference getAssistModel_RestrictionsBlock();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.AssistModel#getCompartments <em>Compartments</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Compartments</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getCompartments()
-	 * @see #getAssistModel()
-	 * @generated
-	 */
-	EReference getAssistModel_Compartments();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.AssistModel#getEqInterfaces <em>Eq Interfaces</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Eq Interfaces</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getEqInterfaces()
-	 * @see #getAssistModel()
-	 * @generated
-	 */
-	EReference getAssistModel_EqInterfaces();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.AssistModel#getEqInterfaceGroups <em>Eq Interface Groups</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Eq Interface Groups</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getEqInterfaceGroups()
-	 * @see #getAssistModel()
-	 * @generated
-	 */
-	EReference getAssistModel_EqInterfaceGroups();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dislocality Relations</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getDislocalityRelations()
-	 * @see #getAssistModel()
-	 * @generated
-	 */
-	EReference getAssistModel_DislocalityRelations();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.AssistModel#getColocalityRelations <em>Colocality Relations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Colocality Relations</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getColocalityRelations()
-	 * @see #getAssistModel()
-	 * @generated
-	 */
-	EReference getAssistModel_ColocalityRelations();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.AssistModel#getValidDeployments <em>Valid Deployments</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Valid Deployments</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getValidDeployments()
-	 * @see #getAssistModel()
-	 * @generated
-	 */
-	EReference getAssistModel_ValidDeployments();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.AssistModel#getInvalidDeployments <em>Invalid Deployments</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Invalid Deployments</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getInvalidDeployments()
-	 * @see #getAssistModel()
-	 * @generated
-	 */
-	EReference getAssistModel_InvalidDeployments();
-
-	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getAllCompartments() <em>Get All Compartments</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2637,6 +2569,38 @@ public interface ModelPackage extends EPackage {
 	EReference getCompatibleIoTypesBlock_CompatibleIoTypes();
 
 	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry <em>Compatible Io Type Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Compatible Io Type Entry</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry
+	 * @generated
+	 */
+	EClass getCompatibleIoTypeEntry();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry#getEqInterfaceIoType <em>Eq Interface Io Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Eq Interface Io Type</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry#getEqInterfaceIoType()
+	 * @see #getCompatibleIoTypeEntry()
+	 * @generated
+	 */
+	EAttribute getCompatibleIoTypeEntry_EqInterfaceIoType();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry#getPinInterfaceIoTypes <em>Pin Interface Io Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Pin Interface Io Types</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry#getPinInterfaceIoTypes()
+	 * @see #getCompatibleIoTypeEntry()
+	 * @generated
+	 */
+	EAttribute getCompatibleIoTypeEntry_PinInterfaceIoTypes();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.CableWeightDataBlock <em>Cable Weight Data Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2676,152 +2640,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCableWeightDataBlock__GetCableWeight__String();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock <em>Protection Level Data Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Protection Level Data Block</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock
-	 * @generated
-	 */
-	EClass getProtectionLevelDataBlock();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock#getProtectionLevelEntries <em>Protection Level Entries</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Protection Level Entries</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock#getProtectionLevelEntries()
-	 * @see #getProtectionLevelDataBlock()
-	 * @generated
-	 */
-	EReference getProtectionLevelDataBlock_ProtectionLevelEntries();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.CompartmentsBlock <em>Compartments Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Compartments Block</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.CompartmentsBlock
-	 * @generated
-	 */
-	EClass getCompartmentsBlock();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.InterfacesBlock <em>Interfaces Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Interfaces Block</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.InterfacesBlock
-	 * @generated
-	 */
-	EClass getInterfacesBlock();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock <em>Interface Groups Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Interface Groups Block</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock
-	 * @generated
-	 */
-	EClass getInterfaceGroupsBlock();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.RestrictionsBlock <em>Restrictions Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Restrictions Block</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.RestrictionsBlock
-	 * @generated
-	 */
-	EClass getRestrictionsBlock();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry <em>Compatible Io Type Entry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Compatible Io Type Entry</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry
-	 * @generated
-	 */
-	EClass getCompatibleIoTypeEntry();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry#getEqInterfaceIoType <em>Eq Interface Io Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Eq Interface Io Type</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry#getEqInterfaceIoType()
-	 * @see #getCompatibleIoTypeEntry()
-	 * @generated
-	 */
-	EAttribute getCompatibleIoTypeEntry_EqInterfaceIoType();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry#getPinInterfaceIoTypes <em>Pin Interface Io Types</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Pin Interface Io Types</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry#getPinInterfaceIoTypes()
-	 * @see #getCompatibleIoTypeEntry()
-	 * @generated
-	 */
-	EAttribute getCompatibleIoTypeEntry_PinInterfaceIoTypes();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelEntry <em>Protection Level Entry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Protection Level Entry</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelEntry
-	 * @generated
-	 */
-	EClass getProtectionLevelEntry();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelEntry#getRdcLocation <em>Rdc Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Rdc Location</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelEntry#getRdcLocation()
-	 * @see #getProtectionLevelEntry()
-	 * @generated
-	 */
-	EAttribute getProtectionLevelEntry_RdcLocation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelEntry#getEmhZone1 <em>Emh Zone1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Emh Zone1</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelEntry#getEmhZone1()
-	 * @see #getProtectionLevelEntry()
-	 * @generated
-	 */
-	EAttribute getProtectionLevelEntry_EmhZone1();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelEntry#getProtectionLevel <em>Protection Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Protection Level</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelEntry#getProtectionLevel()
-	 * @see #getProtectionLevelEntry()
-	 * @generated
-	 */
-	EAttribute getProtectionLevelEntry_ProtectionLevel();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.CableWeightData <em>Cable Weight Data</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Cable Weight Data</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.CableWeightData
-	 * @generated
-	 */
-	EClass getCableWeightData();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.CableWeightEntry <em>Cable Weight Entry</em>}'.
@@ -2867,6 +2685,91 @@ public interface ModelPackage extends EPackage {
 	EAttribute getCableWeightEntry_Weight();
 
 	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock <em>Protection Level Data Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Protection Level Data Block</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock
+	 * @generated
+	 */
+	EClass getProtectionLevelDataBlock();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock#getProtectionLevelEntries <em>Protection Level Entries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Protection Level Entries</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock#getProtectionLevelEntries()
+	 * @see #getProtectionLevelDataBlock()
+	 * @generated
+	 */
+	EReference getProtectionLevelDataBlock_ProtectionLevelEntries();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelEntry <em>Protection Level Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Protection Level Entry</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelEntry
+	 * @generated
+	 */
+	EClass getProtectionLevelEntry();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelEntry#getRdcLocation <em>Rdc Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rdc Location</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelEntry#getRdcLocation()
+	 * @see #getProtectionLevelEntry()
+	 * @generated
+	 */
+	EAttribute getProtectionLevelEntry_RdcLocation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelEntry#getEmhZone1 <em>Emh Zone1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Emh Zone1</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelEntry#getEmhZone1()
+	 * @see #getProtectionLevelEntry()
+	 * @generated
+	 */
+	EAttribute getProtectionLevelEntry_EmhZone1();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link ch.hilbri.assist.datamodel.model.ProtectionLevelEntry#getProtectionLevel <em>Protection Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Protection Level</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.ProtectionLevelEntry#getProtectionLevel()
+	 * @see #getProtectionLevelEntry()
+	 * @generated
+	 */
+	EAttribute getProtectionLevelEntry_ProtectionLevel();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.CompartmentsBlock <em>Compartments Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Compartments Block</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.CompartmentsBlock
+	 * @generated
+	 */
+	EClass getCompartmentsBlock();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.CompartmentsBlock#getCompartments <em>Compartments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Compartments</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.CompartmentsBlock#getCompartments()
+	 * @see #getCompartmentsBlock()
+	 * @generated
+	 */
+	EReference getCompartmentsBlock_Compartments();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.HardwareElement <em>Hardware Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2888,15 +2791,68 @@ public interface ModelPackage extends EPackage {
 	EAttribute getHardwareElement_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.HardwareElement#getMetricParameters <em>Metric Parameters</em>}'.
+	 * Returns the meta object for the containment reference '{@link ch.hilbri.assist.datamodel.model.HardwareElement#getMetricParametersBlock <em>Metric Parameters Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Metric Parameters</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.HardwareElement#getMetricParameters()
+	 * @return the meta object for the containment reference '<em>Metric Parameters Block</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.HardwareElement#getMetricParametersBlock()
 	 * @see #getHardwareElement()
 	 * @generated
 	 */
-	EReference getHardwareElement_MetricParameters();
+	EReference getHardwareElement_MetricParametersBlock();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.MetricParametersBlock <em>Metric Parameters Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Metric Parameters Block</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.MetricParametersBlock
+	 * @generated
+	 */
+	EClass getMetricParametersBlock();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.MetricParametersBlock#getMetricParameters <em>Metric Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Metric Parameters</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.MetricParametersBlock#getMetricParameters()
+	 * @see #getMetricParametersBlock()
+	 * @generated
+	 */
+	EReference getMetricParametersBlock_MetricParameters();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.MetricParameter <em>Metric Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Metric Parameter</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.MetricParameter
+	 * @generated
+	 */
+	EClass getMetricParameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.MetricParameter#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.MetricParameter#getName()
+	 * @see #getMetricParameter()
+	 * @generated
+	 */
+	EAttribute getMetricParameter_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.MetricParameter#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.MetricParameter#getValue()
+	 * @see #getMetricParameter()
+	 * @generated
+	 */
+	EAttribute getMetricParameter_Value();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.Compartment <em>Compartment</em>}'.
@@ -3293,6 +3249,27 @@ public interface ModelPackage extends EPackage {
 	EAttribute getAvailableEqInterface_ProtectionLevel();
 
 	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.InterfacesBlock <em>Interfaces Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Interfaces Block</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.InterfacesBlock
+	 * @generated
+	 */
+	EClass getInterfacesBlock();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.InterfacesBlock#getEqInterfaces <em>Eq Interfaces</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Eq Interfaces</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.InterfacesBlock#getEqInterfaces()
+	 * @see #getInterfacesBlock()
+	 * @generated
+	 */
+	EReference getInterfacesBlock_EqInterfaces();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.EqInterfaceOrGroup <em>Eq Interface Or Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3498,6 +3475,27 @@ public interface ModelPackage extends EPackage {
 	EOperation getEqInterface__ToString();
 
 	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock <em>Interface Groups Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Interface Groups Block</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock
+	 * @generated
+	 */
+	EClass getInterfaceGroupsBlock();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock#getEqInterfaceGroups <em>Eq Interface Groups</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Eq Interface Groups</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock#getEqInterfaceGroups()
+	 * @see #getInterfaceGroupsBlock()
+	 * @generated
+	 */
+	EReference getInterfaceGroupsBlock_EqInterfaceGroups();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.EqInterfaceGroup <em>Eq Interface Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3666,36 +3664,58 @@ public interface ModelPackage extends EPackage {
 	EReference getEqInterfaceGroupWithCombinedDefinition_CombinedGroups();
 
 	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.MetricParameter <em>Metric Parameter</em>}'.
+	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.RestrictionsBlock <em>Restrictions Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Metric Parameter</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.MetricParameter
+	 * @return the meta object for class '<em>Restrictions Block</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.RestrictionsBlock
 	 * @generated
 	 */
-	EClass getMetricParameter();
+	EClass getRestrictionsBlock();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.MetricParameter#getName <em>Name</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.RestrictionsBlock#getDislocalityRelations <em>Dislocality Relations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.MetricParameter#getName()
-	 * @see #getMetricParameter()
+	 * @return the meta object for the containment reference list '<em>Dislocality Relations</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.RestrictionsBlock#getDislocalityRelations()
+	 * @see #getRestrictionsBlock()
 	 * @generated
 	 */
-	EAttribute getMetricParameter_Name();
+	EReference getRestrictionsBlock_DislocalityRelations();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.MetricParameter#getValue <em>Value</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.RestrictionsBlock#getColocalityRelations <em>Colocality Relations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.MetricParameter#getValue()
-	 * @see #getMetricParameter()
+	 * @return the meta object for the containment reference list '<em>Colocality Relations</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.RestrictionsBlock#getColocalityRelations()
+	 * @see #getRestrictionsBlock()
 	 * @generated
 	 */
-	EAttribute getMetricParameter_Value();
+	EReference getRestrictionsBlock_ColocalityRelations();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.RestrictionsBlock#getValidDeployments <em>Valid Deployments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Valid Deployments</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.RestrictionsBlock#getValidDeployments()
+	 * @see #getRestrictionsBlock()
+	 * @generated
+	 */
+	EReference getRestrictionsBlock_ValidDeployments();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.RestrictionsBlock#getInvalidDeployments <em>Invalid Deployments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Invalid Deployments</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.RestrictionsBlock#getInvalidDeployments()
+	 * @see #getRestrictionsBlock()
+	 * @generated
+	 */
+	EReference getRestrictionsBlock_InvalidDeployments();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.DislocalityRelation <em>Dislocality Relation</em>}'.
@@ -4071,62 +4091,6 @@ public interface ModelPackage extends EPackage {
 		EReference ASSIST_MODEL__RESTRICTIONS_BLOCK = eINSTANCE.getAssistModel_RestrictionsBlock();
 
 		/**
-		 * The meta object literal for the '<em><b>Compartments</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ASSIST_MODEL__COMPARTMENTS = eINSTANCE.getAssistModel_Compartments();
-
-		/**
-		 * The meta object literal for the '<em><b>Eq Interfaces</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ASSIST_MODEL__EQ_INTERFACES = eINSTANCE.getAssistModel_EqInterfaces();
-
-		/**
-		 * The meta object literal for the '<em><b>Eq Interface Groups</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ASSIST_MODEL__EQ_INTERFACE_GROUPS = eINSTANCE.getAssistModel_EqInterfaceGroups();
-
-		/**
-		 * The meta object literal for the '<em><b>Dislocality Relations</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ASSIST_MODEL__DISLOCALITY_RELATIONS = eINSTANCE.getAssistModel_DislocalityRelations();
-
-		/**
-		 * The meta object literal for the '<em><b>Colocality Relations</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ASSIST_MODEL__COLOCALITY_RELATIONS = eINSTANCE.getAssistModel_ColocalityRelations();
-
-		/**
-		 * The meta object literal for the '<em><b>Valid Deployments</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ASSIST_MODEL__VALID_DEPLOYMENTS = eINSTANCE.getAssistModel_ValidDeployments();
-
-		/**
-		 * The meta object literal for the '<em><b>Invalid Deployments</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ASSIST_MODEL__INVALID_DEPLOYMENTS = eINSTANCE.getAssistModel_InvalidDeployments();
-
-		/**
 		 * The meta object literal for the '<em><b>Get All Compartments</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4251,6 +4215,32 @@ public interface ModelPackage extends EPackage {
 		EReference COMPATIBLE_IO_TYPES_BLOCK__COMPATIBLE_IO_TYPES = eINSTANCE.getCompatibleIoTypesBlock_CompatibleIoTypes();
 
 		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.CompatibleIoTypeEntryImpl <em>Compatible Io Type Entry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.datamodel.model.impl.CompatibleIoTypeEntryImpl
+		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getCompatibleIoTypeEntry()
+		 * @generated
+		 */
+		EClass COMPATIBLE_IO_TYPE_ENTRY = eINSTANCE.getCompatibleIoTypeEntry();
+
+		/**
+		 * The meta object literal for the '<em><b>Eq Interface Io Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPATIBLE_IO_TYPE_ENTRY__EQ_INTERFACE_IO_TYPE = eINSTANCE.getCompatibleIoTypeEntry_EqInterfaceIoType();
+
+		/**
+		 * The meta object literal for the '<em><b>Pin Interface Io Types</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPATIBLE_IO_TYPE_ENTRY__PIN_INTERFACE_IO_TYPES = eINSTANCE.getCompatibleIoTypeEntry_PinInterfaceIoTypes();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.CableWeightDataBlockImpl <em>Cable Weight Data Block</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4283,134 +4273,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation CABLE_WEIGHT_DATA_BLOCK___GET_CABLE_WEIGHT__STRING = eINSTANCE.getCableWeightDataBlock__GetCableWeight__String();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.ProtectionLevelDataBlockImpl <em>Protection Level Data Block</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.datamodel.model.impl.ProtectionLevelDataBlockImpl
-		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getProtectionLevelDataBlock()
-		 * @generated
-		 */
-		EClass PROTECTION_LEVEL_DATA_BLOCK = eINSTANCE.getProtectionLevelDataBlock();
-
-		/**
-		 * The meta object literal for the '<em><b>Protection Level Entries</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROTECTION_LEVEL_DATA_BLOCK__PROTECTION_LEVEL_ENTRIES = eINSTANCE.getProtectionLevelDataBlock_ProtectionLevelEntries();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.CompartmentsBlockImpl <em>Compartments Block</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.datamodel.model.impl.CompartmentsBlockImpl
-		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getCompartmentsBlock()
-		 * @generated
-		 */
-		EClass COMPARTMENTS_BLOCK = eINSTANCE.getCompartmentsBlock();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.InterfacesBlockImpl <em>Interfaces Block</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.datamodel.model.impl.InterfacesBlockImpl
-		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInterfacesBlock()
-		 * @generated
-		 */
-		EClass INTERFACES_BLOCK = eINSTANCE.getInterfacesBlock();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.InterfaceGroupsBlockImpl <em>Interface Groups Block</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.datamodel.model.impl.InterfaceGroupsBlockImpl
-		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInterfaceGroupsBlock()
-		 * @generated
-		 */
-		EClass INTERFACE_GROUPS_BLOCK = eINSTANCE.getInterfaceGroupsBlock();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.RestrictionsBlockImpl <em>Restrictions Block</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.datamodel.model.impl.RestrictionsBlockImpl
-		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getRestrictionsBlock()
-		 * @generated
-		 */
-		EClass RESTRICTIONS_BLOCK = eINSTANCE.getRestrictionsBlock();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.CompatibleIoTypeEntryImpl <em>Compatible Io Type Entry</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.datamodel.model.impl.CompatibleIoTypeEntryImpl
-		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getCompatibleIoTypeEntry()
-		 * @generated
-		 */
-		EClass COMPATIBLE_IO_TYPE_ENTRY = eINSTANCE.getCompatibleIoTypeEntry();
-
-		/**
-		 * The meta object literal for the '<em><b>Eq Interface Io Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMPATIBLE_IO_TYPE_ENTRY__EQ_INTERFACE_IO_TYPE = eINSTANCE.getCompatibleIoTypeEntry_EqInterfaceIoType();
-
-		/**
-		 * The meta object literal for the '<em><b>Pin Interface Io Types</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMPATIBLE_IO_TYPE_ENTRY__PIN_INTERFACE_IO_TYPES = eINSTANCE.getCompatibleIoTypeEntry_PinInterfaceIoTypes();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.ProtectionLevelEntryImpl <em>Protection Level Entry</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.datamodel.model.impl.ProtectionLevelEntryImpl
-		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getProtectionLevelEntry()
-		 * @generated
-		 */
-		EClass PROTECTION_LEVEL_ENTRY = eINSTANCE.getProtectionLevelEntry();
-
-		/**
-		 * The meta object literal for the '<em><b>Rdc Location</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROTECTION_LEVEL_ENTRY__RDC_LOCATION = eINSTANCE.getProtectionLevelEntry_RdcLocation();
-
-		/**
-		 * The meta object literal for the '<em><b>Emh Zone1</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROTECTION_LEVEL_ENTRY__EMH_ZONE1 = eINSTANCE.getProtectionLevelEntry_EmhZone1();
-
-		/**
-		 * The meta object literal for the '<em><b>Protection Level</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROTECTION_LEVEL_ENTRY__PROTECTION_LEVEL = eINSTANCE.getProtectionLevelEntry_ProtectionLevel();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.CableWeightDataImpl <em>Cable Weight Data</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.datamodel.model.impl.CableWeightDataImpl
-		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getCableWeightData()
-		 * @generated
-		 */
-		EClass CABLE_WEIGHT_DATA = eINSTANCE.getCableWeightData();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.CableWeightEntryImpl <em>Cable Weight Entry</em>}' class.
@@ -4447,6 +4309,76 @@ public interface ModelPackage extends EPackage {
 		EAttribute CABLE_WEIGHT_ENTRY__WEIGHT = eINSTANCE.getCableWeightEntry_Weight();
 
 		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.ProtectionLevelDataBlockImpl <em>Protection Level Data Block</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.datamodel.model.impl.ProtectionLevelDataBlockImpl
+		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getProtectionLevelDataBlock()
+		 * @generated
+		 */
+		EClass PROTECTION_LEVEL_DATA_BLOCK = eINSTANCE.getProtectionLevelDataBlock();
+
+		/**
+		 * The meta object literal for the '<em><b>Protection Level Entries</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROTECTION_LEVEL_DATA_BLOCK__PROTECTION_LEVEL_ENTRIES = eINSTANCE.getProtectionLevelDataBlock_ProtectionLevelEntries();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.ProtectionLevelEntryImpl <em>Protection Level Entry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.datamodel.model.impl.ProtectionLevelEntryImpl
+		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getProtectionLevelEntry()
+		 * @generated
+		 */
+		EClass PROTECTION_LEVEL_ENTRY = eINSTANCE.getProtectionLevelEntry();
+
+		/**
+		 * The meta object literal for the '<em><b>Rdc Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROTECTION_LEVEL_ENTRY__RDC_LOCATION = eINSTANCE.getProtectionLevelEntry_RdcLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Emh Zone1</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROTECTION_LEVEL_ENTRY__EMH_ZONE1 = eINSTANCE.getProtectionLevelEntry_EmhZone1();
+
+		/**
+		 * The meta object literal for the '<em><b>Protection Level</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROTECTION_LEVEL_ENTRY__PROTECTION_LEVEL = eINSTANCE.getProtectionLevelEntry_ProtectionLevel();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.CompartmentsBlockImpl <em>Compartments Block</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.datamodel.model.impl.CompartmentsBlockImpl
+		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getCompartmentsBlock()
+		 * @generated
+		 */
+		EClass COMPARTMENTS_BLOCK = eINSTANCE.getCompartmentsBlock();
+
+		/**
+		 * The meta object literal for the '<em><b>Compartments</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPARTMENTS_BLOCK__COMPARTMENTS = eINSTANCE.getCompartmentsBlock_Compartments();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4465,12 +4397,56 @@ public interface ModelPackage extends EPackage {
 		EAttribute HARDWARE_ELEMENT__NAME = eINSTANCE.getHardwareElement_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Metric Parameters Block</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK = eINSTANCE.getHardwareElement_MetricParametersBlock();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.MetricParametersBlockImpl <em>Metric Parameters Block</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.datamodel.model.impl.MetricParametersBlockImpl
+		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getMetricParametersBlock()
+		 * @generated
+		 */
+		EClass METRIC_PARAMETERS_BLOCK = eINSTANCE.getMetricParametersBlock();
+
+		/**
 		 * The meta object literal for the '<em><b>Metric Parameters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference HARDWARE_ELEMENT__METRIC_PARAMETERS = eINSTANCE.getHardwareElement_MetricParameters();
+		EReference METRIC_PARAMETERS_BLOCK__METRIC_PARAMETERS = eINSTANCE.getMetricParametersBlock_MetricParameters();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.MetricParameterImpl <em>Metric Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.datamodel.model.impl.MetricParameterImpl
+		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getMetricParameter()
+		 * @generated
+		 */
+		EClass METRIC_PARAMETER = eINSTANCE.getMetricParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METRIC_PARAMETER__NAME = eINSTANCE.getMetricParameter_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METRIC_PARAMETER__VALUE = eINSTANCE.getMetricParameter_Value();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.CompartmentImpl <em>Compartment</em>}' class.
@@ -4779,6 +4755,24 @@ public interface ModelPackage extends EPackage {
 		EAttribute AVAILABLE_EQ_INTERFACE__PROTECTION_LEVEL = eINSTANCE.getAvailableEqInterface_ProtectionLevel();
 
 		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.InterfacesBlockImpl <em>Interfaces Block</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.datamodel.model.impl.InterfacesBlockImpl
+		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInterfacesBlock()
+		 * @generated
+		 */
+		EClass INTERFACES_BLOCK = eINSTANCE.getInterfacesBlock();
+
+		/**
+		 * The meta object literal for the '<em><b>Eq Interfaces</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACES_BLOCK__EQ_INTERFACES = eINSTANCE.getInterfacesBlock_EqInterfaces();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.EqInterfaceOrGroupImpl <em>Eq Interface Or Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4935,6 +4929,24 @@ public interface ModelPackage extends EPackage {
 		EOperation EQ_INTERFACE___TO_STRING = eINSTANCE.getEqInterface__ToString();
 
 		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.InterfaceGroupsBlockImpl <em>Interface Groups Block</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.datamodel.model.impl.InterfaceGroupsBlockImpl
+		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInterfaceGroupsBlock()
+		 * @generated
+		 */
+		EClass INTERFACE_GROUPS_BLOCK = eINSTANCE.getInterfaceGroupsBlock();
+
+		/**
+		 * The meta object literal for the '<em><b>Eq Interface Groups</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACE_GROUPS_BLOCK__EQ_INTERFACE_GROUPS = eINSTANCE.getInterfaceGroupsBlock_EqInterfaceGroups();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.EqInterfaceGroupImpl <em>Eq Interface Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5071,30 +5083,46 @@ public interface ModelPackage extends EPackage {
 		EReference EQ_INTERFACE_GROUP_WITH_COMBINED_DEFINITION__COMBINED_GROUPS = eINSTANCE.getEqInterfaceGroupWithCombinedDefinition_CombinedGroups();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.MetricParameterImpl <em>Metric Parameter</em>}' class.
+		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.RestrictionsBlockImpl <em>Restrictions Block</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.datamodel.model.impl.MetricParameterImpl
-		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getMetricParameter()
+		 * @see ch.hilbri.assist.datamodel.model.impl.RestrictionsBlockImpl
+		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getRestrictionsBlock()
 		 * @generated
 		 */
-		EClass METRIC_PARAMETER = eINSTANCE.getMetricParameter();
+		EClass RESTRICTIONS_BLOCK = eINSTANCE.getRestrictionsBlock();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Dislocality Relations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute METRIC_PARAMETER__NAME = eINSTANCE.getMetricParameter_Name();
+		EReference RESTRICTIONS_BLOCK__DISLOCALITY_RELATIONS = eINSTANCE.getRestrictionsBlock_DislocalityRelations();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Colocality Relations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute METRIC_PARAMETER__VALUE = eINSTANCE.getMetricParameter_Value();
+		EReference RESTRICTIONS_BLOCK__COLOCALITY_RELATIONS = eINSTANCE.getRestrictionsBlock_ColocalityRelations();
+
+		/**
+		 * The meta object literal for the '<em><b>Valid Deployments</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESTRICTIONS_BLOCK__VALID_DEPLOYMENTS = eINSTANCE.getRestrictionsBlock_ValidDeployments();
+
+		/**
+		 * The meta object literal for the '<em><b>Invalid Deployments</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESTRICTIONS_BLOCK__INVALID_DEPLOYMENTS = eINSTANCE.getRestrictionsBlock_InvalidDeployments();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.DislocalityRelationImpl <em>Dislocality Relation</em>}' class.

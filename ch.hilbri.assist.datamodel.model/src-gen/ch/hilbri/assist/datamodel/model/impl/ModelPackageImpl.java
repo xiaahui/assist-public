@@ -4,7 +4,6 @@ package ch.hilbri.assist.datamodel.model.impl;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
-import ch.hilbri.assist.datamodel.model.CableWeightData;
 import ch.hilbri.assist.datamodel.model.CableWeightDataBlock;
 import ch.hilbri.assist.datamodel.model.CableWeightEntry;
 import ch.hilbri.assist.datamodel.model.ColocalityRelation;
@@ -33,6 +32,7 @@ import ch.hilbri.assist.datamodel.model.InterfacesBlock;
 import ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry;
 import ch.hilbri.assist.datamodel.model.InvalidDeployment;
 import ch.hilbri.assist.datamodel.model.MetricParameter;
+import ch.hilbri.assist.datamodel.model.MetricParametersBlock;
 import ch.hilbri.assist.datamodel.model.ModelFactory;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock;
@@ -84,48 +84,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass cableWeightDataBlockEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass protectionLevelDataBlockEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass compartmentsBlockEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass interfacesBlockEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass interfaceGroupsBlockEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass restrictionsBlockEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass compatibleIoTypeEntryEClass = null;
 
 	/**
@@ -133,14 +91,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass protectionLevelEntryEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass cableWeightDataEClass = null;
+	private EClass cableWeightDataBlockEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,7 +105,42 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass protectionLevelDataBlockEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass protectionLevelEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass compartmentsBlockEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass hardwareElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass metricParametersBlockEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass metricParameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -196,6 +182,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass interfacesBlockEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass eqInterfaceOrGroupEClass = null;
 
 	/**
@@ -204,6 +197,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass eqInterfaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass interfaceGroupsBlockEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -238,7 +238,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass metricParameterEClass = null;
+	private EClass restrictionsBlockEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -440,69 +440,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_Compartments() {
-		return (EReference)assistModelEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAssistModel_EqInterfaces() {
-		return (EReference)assistModelEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAssistModel_EqInterfaceGroups() {
-		return (EReference)assistModelEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAssistModel_DislocalityRelations() {
-		return (EReference)assistModelEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAssistModel_ColocalityRelations() {
-		return (EReference)assistModelEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAssistModel_ValidDeployments() {
-		return (EReference)assistModelEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAssistModel_InvalidDeployments() {
-		return (EReference)assistModelEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getAssistModel__GetAllCompartments() {
 		return assistModelEClass.getEOperations().get(0);
 	}
@@ -638,6 +575,33 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCompatibleIoTypeEntry() {
+		return compatibleIoTypeEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCompatibleIoTypeEntry_EqInterfaceIoType() {
+		return (EAttribute)compatibleIoTypeEntryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCompatibleIoTypeEntry_PinInterfaceIoTypes() {
+		return (EAttribute)compatibleIoTypeEntryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCableWeightDataBlock() {
 		return cableWeightDataBlockEClass;
 	}
@@ -667,132 +631,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EOperation getCableWeightDataBlock__GetCableWeight__String() {
 		return cableWeightDataBlockEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getProtectionLevelDataBlock() {
-		return protectionLevelDataBlockEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProtectionLevelDataBlock_ProtectionLevelEntries() {
-		return (EReference)protectionLevelDataBlockEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getCompartmentsBlock() {
-		return compartmentsBlockEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getInterfacesBlock() {
-		return interfacesBlockEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getInterfaceGroupsBlock() {
-		return interfaceGroupsBlockEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRestrictionsBlock() {
-		return restrictionsBlockEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getCompatibleIoTypeEntry() {
-		return compatibleIoTypeEntryEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCompatibleIoTypeEntry_EqInterfaceIoType() {
-		return (EAttribute)compatibleIoTypeEntryEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCompatibleIoTypeEntry_PinInterfaceIoTypes() {
-		return (EAttribute)compatibleIoTypeEntryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getProtectionLevelEntry() {
-		return protectionLevelEntryEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getProtectionLevelEntry_RdcLocation() {
-		return (EAttribute)protectionLevelEntryEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getProtectionLevelEntry_EmhZone1() {
-		return (EAttribute)protectionLevelEntryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getProtectionLevelEntry_ProtectionLevel() {
-		return (EAttribute)protectionLevelEntryEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getCableWeightData() {
-		return cableWeightDataEClass;
 	}
 
 	/**
@@ -836,6 +674,78 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getProtectionLevelDataBlock() {
+		return protectionLevelDataBlockEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProtectionLevelDataBlock_ProtectionLevelEntries() {
+		return (EReference)protectionLevelDataBlockEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProtectionLevelEntry() {
+		return protectionLevelEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProtectionLevelEntry_RdcLocation() {
+		return (EAttribute)protectionLevelEntryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProtectionLevelEntry_EmhZone1() {
+		return (EAttribute)protectionLevelEntryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProtectionLevelEntry_ProtectionLevel() {
+		return (EAttribute)protectionLevelEntryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCompartmentsBlock() {
+		return compartmentsBlockEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCompartmentsBlock_Compartments() {
+		return (EReference)compartmentsBlockEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getHardwareElement() {
 		return hardwareElementEClass;
 	}
@@ -854,8 +764,53 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getHardwareElement_MetricParameters() {
+	public EReference getHardwareElement_MetricParametersBlock() {
 		return (EReference)hardwareElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMetricParametersBlock() {
+		return metricParametersBlockEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMetricParametersBlock_MetricParameters() {
+		return (EReference)metricParametersBlockEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMetricParameter() {
+		return metricParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMetricParameter_Name() {
+		return (EAttribute)metricParameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMetricParameter_Value() {
+		return (EAttribute)metricParameterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1196,6 +1151,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getInterfacesBlock() {
+		return interfacesBlockEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterfacesBlock_EqInterfaces() {
+		return (EReference)interfacesBlockEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEqInterfaceOrGroup() {
 		return eqInterfaceOrGroupEClass;
 	}
@@ -1367,6 +1340,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getInterfaceGroupsBlock() {
+		return interfaceGroupsBlockEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterfaceGroupsBlock_EqInterfaceGroups() {
+		return (EReference)interfaceGroupsBlockEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEqInterfaceGroup() {
 		return eqInterfaceGroupEClass;
 	}
@@ -1511,8 +1502,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMetricParameter() {
-		return metricParameterEClass;
+	public EClass getRestrictionsBlock() {
+		return restrictionsBlockEClass;
 	}
 
 	/**
@@ -1520,8 +1511,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMetricParameter_Name() {
-		return (EAttribute)metricParameterEClass.getEStructuralFeatures().get(0);
+	public EReference getRestrictionsBlock_DislocalityRelations() {
+		return (EReference)restrictionsBlockEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1529,8 +1520,26 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMetricParameter_Value() {
-		return (EAttribute)metricParameterEClass.getEStructuralFeatures().get(1);
+	public EReference getRestrictionsBlock_ColocalityRelations() {
+		return (EReference)restrictionsBlockEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRestrictionsBlock_ValidDeployments() {
+		return (EReference)restrictionsBlockEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRestrictionsBlock_InvalidDeployments() {
+		return (EReference)restrictionsBlockEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1828,13 +1837,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(assistModelEClass, ASSIST_MODEL__INTERFACES_BLOCK);
 		createEReference(assistModelEClass, ASSIST_MODEL__INTERFACE_GROUPS_BLOCK);
 		createEReference(assistModelEClass, ASSIST_MODEL__RESTRICTIONS_BLOCK);
-		createEReference(assistModelEClass, ASSIST_MODEL__COMPARTMENTS);
-		createEReference(assistModelEClass, ASSIST_MODEL__EQ_INTERFACES);
-		createEReference(assistModelEClass, ASSIST_MODEL__EQ_INTERFACE_GROUPS);
-		createEReference(assistModelEClass, ASSIST_MODEL__DISLOCALITY_RELATIONS);
-		createEReference(assistModelEClass, ASSIST_MODEL__COLOCALITY_RELATIONS);
-		createEReference(assistModelEClass, ASSIST_MODEL__VALID_DEPLOYMENTS);
-		createEReference(assistModelEClass, ASSIST_MODEL__INVALID_DEPLOYMENTS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_COMPARTMENTS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_RD_CS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_CONNECTORS);
@@ -1853,41 +1855,41 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		compatibleIoTypesBlockEClass = createEClass(COMPATIBLE_IO_TYPES_BLOCK);
 		createEReference(compatibleIoTypesBlockEClass, COMPATIBLE_IO_TYPES_BLOCK__COMPATIBLE_IO_TYPES);
 
-		cableWeightDataBlockEClass = createEClass(CABLE_WEIGHT_DATA_BLOCK);
-		createEReference(cableWeightDataBlockEClass, CABLE_WEIGHT_DATA_BLOCK__CABLE_WEIGHT_ENTRIES);
-		createEOperation(cableWeightDataBlockEClass, CABLE_WEIGHT_DATA_BLOCK___GET_DEFAULT_CABLE_WEIGHT);
-		createEOperation(cableWeightDataBlockEClass, CABLE_WEIGHT_DATA_BLOCK___GET_CABLE_WEIGHT__STRING);
-
-		protectionLevelDataBlockEClass = createEClass(PROTECTION_LEVEL_DATA_BLOCK);
-		createEReference(protectionLevelDataBlockEClass, PROTECTION_LEVEL_DATA_BLOCK__PROTECTION_LEVEL_ENTRIES);
-
-		compartmentsBlockEClass = createEClass(COMPARTMENTS_BLOCK);
-
-		interfacesBlockEClass = createEClass(INTERFACES_BLOCK);
-
-		interfaceGroupsBlockEClass = createEClass(INTERFACE_GROUPS_BLOCK);
-
-		restrictionsBlockEClass = createEClass(RESTRICTIONS_BLOCK);
-
 		compatibleIoTypeEntryEClass = createEClass(COMPATIBLE_IO_TYPE_ENTRY);
 		createEAttribute(compatibleIoTypeEntryEClass, COMPATIBLE_IO_TYPE_ENTRY__EQ_INTERFACE_IO_TYPE);
 		createEAttribute(compatibleIoTypeEntryEClass, COMPATIBLE_IO_TYPE_ENTRY__PIN_INTERFACE_IO_TYPES);
 
-		protectionLevelEntryEClass = createEClass(PROTECTION_LEVEL_ENTRY);
-		createEAttribute(protectionLevelEntryEClass, PROTECTION_LEVEL_ENTRY__RDC_LOCATION);
-		createEAttribute(protectionLevelEntryEClass, PROTECTION_LEVEL_ENTRY__EMH_ZONE1);
-		createEAttribute(protectionLevelEntryEClass, PROTECTION_LEVEL_ENTRY__PROTECTION_LEVEL);
-
-		cableWeightDataEClass = createEClass(CABLE_WEIGHT_DATA);
+		cableWeightDataBlockEClass = createEClass(CABLE_WEIGHT_DATA_BLOCK);
+		createEReference(cableWeightDataBlockEClass, CABLE_WEIGHT_DATA_BLOCK__CABLE_WEIGHT_ENTRIES);
+		createEOperation(cableWeightDataBlockEClass, CABLE_WEIGHT_DATA_BLOCK___GET_DEFAULT_CABLE_WEIGHT);
+		createEOperation(cableWeightDataBlockEClass, CABLE_WEIGHT_DATA_BLOCK___GET_CABLE_WEIGHT__STRING);
 
 		cableWeightEntryEClass = createEClass(CABLE_WEIGHT_ENTRY);
 		createEAttribute(cableWeightEntryEClass, CABLE_WEIGHT_ENTRY__DEFAULT_ENTRY);
 		createEAttribute(cableWeightEntryEClass, CABLE_WEIGHT_ENTRY__EQ_INTERFACE_IO_TYPE);
 		createEAttribute(cableWeightEntryEClass, CABLE_WEIGHT_ENTRY__WEIGHT);
 
+		protectionLevelDataBlockEClass = createEClass(PROTECTION_LEVEL_DATA_BLOCK);
+		createEReference(protectionLevelDataBlockEClass, PROTECTION_LEVEL_DATA_BLOCK__PROTECTION_LEVEL_ENTRIES);
+
+		protectionLevelEntryEClass = createEClass(PROTECTION_LEVEL_ENTRY);
+		createEAttribute(protectionLevelEntryEClass, PROTECTION_LEVEL_ENTRY__RDC_LOCATION);
+		createEAttribute(protectionLevelEntryEClass, PROTECTION_LEVEL_ENTRY__EMH_ZONE1);
+		createEAttribute(protectionLevelEntryEClass, PROTECTION_LEVEL_ENTRY__PROTECTION_LEVEL);
+
+		compartmentsBlockEClass = createEClass(COMPARTMENTS_BLOCK);
+		createEReference(compartmentsBlockEClass, COMPARTMENTS_BLOCK__COMPARTMENTS);
+
 		hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
 		createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
-		createEReference(hardwareElementEClass, HARDWARE_ELEMENT__METRIC_PARAMETERS);
+		createEReference(hardwareElementEClass, HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK);
+
+		metricParametersBlockEClass = createEClass(METRIC_PARAMETERS_BLOCK);
+		createEReference(metricParametersBlockEClass, METRIC_PARAMETERS_BLOCK__METRIC_PARAMETERS);
+
+		metricParameterEClass = createEClass(METRIC_PARAMETER);
+		createEAttribute(metricParameterEClass, METRIC_PARAMETER__NAME);
+		createEAttribute(metricParameterEClass, METRIC_PARAMETER__VALUE);
 
 		compartmentEClass = createEClass(COMPARTMENT);
 		createEAttribute(compartmentEClass, COMPARTMENT__MANUFACTURER);
@@ -1931,6 +1933,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(availableEqInterfaceEClass, AVAILABLE_EQ_INTERFACE__COUNT);
 		createEAttribute(availableEqInterfaceEClass, AVAILABLE_EQ_INTERFACE__PROTECTION_LEVEL);
 
+		interfacesBlockEClass = createEClass(INTERFACES_BLOCK);
+		createEReference(interfacesBlockEClass, INTERFACES_BLOCK__EQ_INTERFACES);
+
 		eqInterfaceOrGroupEClass = createEClass(EQ_INTERFACE_OR_GROUP);
 		createEAttribute(eqInterfaceOrGroupEClass, EQ_INTERFACE_OR_GROUP__NAME);
 		createEOperation(eqInterfaceOrGroupEClass, EQ_INTERFACE_OR_GROUP___TO_STRING);
@@ -1952,6 +1957,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(eqInterfaceEClass, EQ_INTERFACE__METRIC_PARAMETERS);
 		createEOperation(eqInterfaceEClass, EQ_INTERFACE___TO_STRING);
 
+		interfaceGroupsBlockEClass = createEClass(INTERFACE_GROUPS_BLOCK);
+		createEReference(interfaceGroupsBlockEClass, INTERFACE_GROUPS_BLOCK__EQ_INTERFACE_GROUPS);
+
 		eqInterfaceGroupEClass = createEClass(EQ_INTERFACE_GROUP);
 		createEReference(eqInterfaceGroupEClass, EQ_INTERFACE_GROUP__EQ_INTERFACES);
 		createEReference(eqInterfaceGroupEClass, EQ_INTERFACE_GROUP__WITHOUT_EQ_INTERFACES);
@@ -1972,9 +1980,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		eqInterfaceGroupWithCombinedDefinitionEClass = createEClass(EQ_INTERFACE_GROUP_WITH_COMBINED_DEFINITION);
 		createEReference(eqInterfaceGroupWithCombinedDefinitionEClass, EQ_INTERFACE_GROUP_WITH_COMBINED_DEFINITION__COMBINED_GROUPS);
 
-		metricParameterEClass = createEClass(METRIC_PARAMETER);
-		createEAttribute(metricParameterEClass, METRIC_PARAMETER__NAME);
-		createEAttribute(metricParameterEClass, METRIC_PARAMETER__VALUE);
+		restrictionsBlockEClass = createEClass(RESTRICTIONS_BLOCK);
+		createEReference(restrictionsBlockEClass, RESTRICTIONS_BLOCK__DISLOCALITY_RELATIONS);
+		createEReference(restrictionsBlockEClass, RESTRICTIONS_BLOCK__COLOCALITY_RELATIONS);
+		createEReference(restrictionsBlockEClass, RESTRICTIONS_BLOCK__VALID_DEPLOYMENTS);
+		createEReference(restrictionsBlockEClass, RESTRICTIONS_BLOCK__INVALID_DEPLOYMENTS);
 
 		dislocalityRelationEClass = createEClass(DISLOCALITY_RELATION);
 		createEReference(dislocalityRelationEClass, DISLOCALITY_RELATION__EQ_INTERFACE_OR_GROUPS);
@@ -2057,18 +2067,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(assistModelEClass, AssistModel.class, "AssistModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAssistModel_GlobalBlock(), this.getGlobalBlock(), null, "globalBlock", null, 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_CompartmentsBlock(), this.getCompartmentsBlock(), null, "compartmentsBlock", null, 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_InterfacesBlock(), this.getInterfacesBlock(), null, "interfacesBlock", null, 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModel_GlobalBlock(), this.getGlobalBlock(), null, "globalBlock", null, 1, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModel_CompartmentsBlock(), this.getCompartmentsBlock(), null, "compartmentsBlock", null, 1, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModel_InterfacesBlock(), this.getInterfacesBlock(), null, "interfacesBlock", null, 1, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_InterfaceGroupsBlock(), this.getInterfaceGroupsBlock(), null, "interfaceGroupsBlock", null, 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_RestrictionsBlock(), this.getRestrictionsBlock(), null, "restrictionsBlock", null, 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_Compartments(), this.getCompartment(), null, "compartments", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_EqInterfaces(), this.getEqInterface(), null, "eqInterfaces", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_EqInterfaceGroups(), this.getEqInterfaceGroup(), null, "eqInterfaceGroups", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_DislocalityRelations(), this.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_ColocalityRelations(), this.getColocalityRelation(), null, "colocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_ValidDeployments(), this.getValidDeployment(), null, "validDeployments", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_InvalidDeployments(), this.getInvalidDeployment(), null, "invalidDeployments", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAssistModel__GetAllCompartments(), this.getCompartment(), "getAllCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
@@ -2096,6 +2099,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(compatibleIoTypesBlockEClass, CompatibleIoTypesBlock.class, "CompatibleIoTypesBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompatibleIoTypesBlock_CompatibleIoTypes(), this.getCompatibleIoTypeEntry(), null, "compatibleIoTypes", null, 0, -1, CompatibleIoTypesBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(compatibleIoTypeEntryEClass, CompatibleIoTypeEntry.class, "CompatibleIoTypeEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCompatibleIoTypeEntry_EqInterfaceIoType(), theEcorePackage.getEString(), "eqInterfaceIoType", "", 0, 1, CompatibleIoTypeEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompatibleIoTypeEntry_PinInterfaceIoTypes(), theEcorePackage.getEString(), "pinInterfaceIoTypes", "", 1, -1, CompatibleIoTypeEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(cableWeightDataBlockEClass, CableWeightDataBlock.class, "CableWeightDataBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCableWeightDataBlock_CableWeightEntries(), this.getCableWeightEntry(), null, "cableWeightEntries", null, 0, -1, CableWeightDataBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2104,36 +2111,32 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		op = initEOperation(getCableWeightDataBlock__GetCableWeight__String(), theEcorePackage.getEDouble(), "getCableWeight", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcorePackage.getEString(), "ioType", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
+		initEClass(cableWeightEntryEClass, CableWeightEntry.class, "CableWeightEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCableWeightEntry_DefaultEntry(), theEcorePackage.getEBoolean(), "defaultEntry", "false", 0, 1, CableWeightEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCableWeightEntry_EqInterfaceIoType(), theEcorePackage.getEString(), "eqInterfaceIoType", "", 0, 1, CableWeightEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCableWeightEntry_Weight(), theEcorePackage.getEDouble(), "weight", "0.0", 0, 1, CableWeightEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(protectionLevelDataBlockEClass, ProtectionLevelDataBlock.class, "ProtectionLevelDataBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProtectionLevelDataBlock_ProtectionLevelEntries(), this.getProtectionLevelEntry(), null, "protectionLevelEntries", null, 0, -1, ProtectionLevelDataBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(compartmentsBlockEClass, CompartmentsBlock.class, "CompartmentsBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(interfacesBlockEClass, InterfacesBlock.class, "InterfacesBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(interfaceGroupsBlockEClass, InterfaceGroupsBlock.class, "InterfaceGroupsBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(restrictionsBlockEClass, RestrictionsBlock.class, "RestrictionsBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(compatibleIoTypeEntryEClass, CompatibleIoTypeEntry.class, "CompatibleIoTypeEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCompatibleIoTypeEntry_EqInterfaceIoType(), theEcorePackage.getEString(), "eqInterfaceIoType", "", 0, 1, CompatibleIoTypeEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCompatibleIoTypeEntry_PinInterfaceIoTypes(), theEcorePackage.getEString(), "pinInterfaceIoTypes", "", 1, -1, CompatibleIoTypeEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(protectionLevelEntryEClass, ProtectionLevelEntry.class, "ProtectionLevelEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProtectionLevelEntry_RdcLocation(), theEcorePackage.getEString(), "rdcLocation", "", 0, 1, ProtectionLevelEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProtectionLevelEntry_EmhZone1(), theEcorePackage.getEString(), "emhZone1", "", 0, 1, ProtectionLevelEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProtectionLevelEntry_ProtectionLevel(), this.getProtectionLevelType(), "protectionLevel", null, 1, -1, ProtectionLevelEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(cableWeightDataEClass, CableWeightData.class, "CableWeightData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(cableWeightEntryEClass, CableWeightEntry.class, "CableWeightEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCableWeightEntry_DefaultEntry(), theEcorePackage.getEBoolean(), "defaultEntry", "false", 0, 1, CableWeightEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCableWeightEntry_EqInterfaceIoType(), theEcorePackage.getEString(), "eqInterfaceIoType", "", 0, 1, CableWeightEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCableWeightEntry_Weight(), theEcorePackage.getEDouble(), "weight", "0.0", 0, 1, CableWeightEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(compartmentsBlockEClass, CompartmentsBlock.class, "CompartmentsBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompartmentsBlock_Compartments(), this.getCompartment(), null, "compartments", null, 0, -1, CompartmentsBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHardwareElement_Name(), theEcorePackage.getEString(), "name", "", 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getHardwareElement_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHardwareElement_MetricParametersBlock(), this.getMetricParametersBlock(), null, "metricParametersBlock", null, 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(metricParametersBlockEClass, MetricParametersBlock.class, "MetricParametersBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMetricParametersBlock_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, MetricParametersBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(metricParameterEClass, MetricParameter.class, "MetricParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMetricParameter_Name(), theEcorePackage.getEString(), "name", "", 0, 1, MetricParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMetricParameter_Value(), theEcorePackage.getEInt(), "value", "0", 0, 1, MetricParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compartmentEClass, Compartment.class, "Compartment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCompartment_Manufacturer(), theEcorePackage.getEString(), "manufacturer", "", 0, 1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2188,6 +2191,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getAvailableEqInterface_Count(), theEcorePackage.getEInt(), "count", "0", 0, 1, AvailableEqInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAvailableEqInterface_ProtectionLevel(), this.getProtectionLevelType(), "protectionLevel", "None", 0, 1, AvailableEqInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(interfacesBlockEClass, InterfacesBlock.class, "InterfacesBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInterfacesBlock_EqInterfaces(), this.getEqInterface(), null, "eqInterfaces", null, 0, -1, InterfacesBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(eqInterfaceOrGroupEClass, EqInterfaceOrGroup.class, "EqInterfaceOrGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEqInterfaceOrGroup_Name(), theEcorePackage.getEString(), "name", "", 0, 1, EqInterfaceOrGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2210,6 +2216,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getEqInterface_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, EqInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getEqInterface__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		initEClass(interfaceGroupsBlockEClass, InterfaceGroupsBlock.class, "InterfaceGroupsBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInterfaceGroupsBlock_EqInterfaceGroups(), this.getEqInterfaceGroup(), null, "eqInterfaceGroups", null, 0, -1, InterfaceGroupsBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eqInterfaceGroupEClass, EqInterfaceGroup.class, "EqInterfaceGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEqInterfaceGroup_EqInterfaces(), this.getEqInterface(), null, "eqInterfaces", null, 0, -1, EqInterfaceGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2235,9 +2244,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(eqInterfaceGroupWithCombinedDefinitionEClass, EqInterfaceGroupWithCombinedDefinition.class, "EqInterfaceGroupWithCombinedDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEqInterfaceGroupWithCombinedDefinition_CombinedGroups(), this.getEqInterfaceGroup(), null, "combinedGroups", null, 1, -1, EqInterfaceGroupWithCombinedDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(metricParameterEClass, MetricParameter.class, "MetricParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMetricParameter_Name(), theEcorePackage.getEString(), "name", "", 0, 1, MetricParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMetricParameter_Value(), theEcorePackage.getEInt(), "value", "0", 0, 1, MetricParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(restrictionsBlockEClass, RestrictionsBlock.class, "RestrictionsBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRestrictionsBlock_DislocalityRelations(), this.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, RestrictionsBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRestrictionsBlock_ColocalityRelations(), this.getColocalityRelation(), null, "colocalityRelations", null, 0, -1, RestrictionsBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRestrictionsBlock_ValidDeployments(), this.getValidDeployment(), null, "validDeployments", null, 0, -1, RestrictionsBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRestrictionsBlock_InvalidDeployments(), this.getInvalidDeployment(), null, "invalidDeployments", null, 0, -1, RestrictionsBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dislocalityRelationEClass, DislocalityRelation.class, "DislocalityRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDislocalityRelation_EqInterfaceOrGroups(), this.getEqInterfaceOrGroup(), null, "eqInterfaceOrGroups", null, 1, -1, DislocalityRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

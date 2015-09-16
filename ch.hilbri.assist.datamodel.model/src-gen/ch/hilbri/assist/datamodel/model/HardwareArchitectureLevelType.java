@@ -13,9 +13,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Hardware Architecture Level Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * <!-- begin-model-doc -->
- * ** RELATIONS  ***
- * <!-- end-model-doc -->
  * @see ch.hilbri.assist.datamodel.model.ModelPackage#getHardwareArchitectureLevelType()
  * @model
  * @generated

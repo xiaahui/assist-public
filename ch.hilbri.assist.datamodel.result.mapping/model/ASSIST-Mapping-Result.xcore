@@ -41,8 +41,8 @@ class Result extends Comparable {
 
 	boolean 			partialSolution 		= "false"
 	
-	op EqInterface[] 	getAllUnmappedEqInterfaces() 	{ return model.eqInterfaces.filter[!mapping.keySet.contains(it)].toEList 			}
-	op double			getCompletenessAsPercentage()	{ return 100 - allUnmappedEqInterfaces.length * 100 / model.eqInterfaces.length 	}
+	op EqInterface[] 	getAllUnmappedEqInterfaces() 	{ return model.interfacesBlock.eqInterfaces.filter[!mapping.keySet.contains(it)].toEList 			}
+	op double			getCompletenessAsPercentage()	{ return 100 - allUnmappedEqInterfaces.length * 100 / model.interfacesBlock.eqInterfaces.length 	}
 }
 
 abstract class AbstractMetric  {

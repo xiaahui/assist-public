@@ -2,8 +2,6 @@
  */
 package ch.hilbri.assist.datamodel.model;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.datamodel.model.HardwareElement#getName <em>Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.HardwareElement#getMetricParameters <em>Metric Parameters</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.HardwareElement#getMetricParametersBlock <em>Metric Parameters Block</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.datamodel.model.ModelPackage#getHardwareElement()
@@ -52,19 +50,29 @@ public interface HardwareElement extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Metric Parameters</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.datamodel.model.MetricParameter}.
+	 * Returns the value of the '<em><b>Metric Parameters Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Metric Parameters</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Metric Parameters Block</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Metric Parameters</em>' containment reference list.
-	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getHardwareElement_MetricParameters()
+	 * @return the value of the '<em>Metric Parameters Block</em>' containment reference.
+	 * @see #setMetricParametersBlock(MetricParametersBlock)
+	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getHardwareElement_MetricParametersBlock()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<MetricParameter> getMetricParameters();
+	MetricParametersBlock getMetricParametersBlock();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.datamodel.model.HardwareElement#getMetricParametersBlock <em>Metric Parameters Block</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Metric Parameters Block</em>' containment reference.
+	 * @see #getMetricParametersBlock()
+	 * @generated
+	 */
+	void setMetricParametersBlock(MetricParametersBlock value);
 
 } // HardwareElement
