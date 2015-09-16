@@ -3,10 +3,20 @@
  */
 package ch.hilbri.assist.mappingdsl.ui.contentassist
 
-import ch.hilbri.assist.mappingdsl.ui.contentassist.AbstractMappingDSLProposalProvider
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.RuleCall
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
  */
 class MappingDSLProposalProvider extends AbstractMappingDSLProposalProvider {
+	
+	// There is no content assist for double rule calls
+	override complete_Double(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.complete_Double(model, ruleCall, context, acceptor)
+		val proposal = "0.0"
+		acceptor.accept(createCompletionProposal(proposal, context))
+	}
 }
