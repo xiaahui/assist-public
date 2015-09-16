@@ -26,9 +26,9 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 		if (useTableConstraintsForSystemHierarchy) {
 			// building allowed tuples
 			val tuples = new Tuples(true)
-			for (int connIdx : 0 ..< model.allConnectors.length) {
-				val rdcIdx = model.allRDCs.indexOf(model.allConnectors.get(connIdx).eContainer)
-				val compIdx = model.allCompartments.indexOf(model.allConnectors.get(connIdx).eContainer.eContainer)
+			for (int connIdx : 0 ..< model.connectors.length) {
+				val rdcIdx = model.RDCs.indexOf(model.connectors.get(connIdx).eContainer)
+				val compIdx = model.compartments.indexOf(model.connectors.get(connIdx).eContainer.eContainer)
 				tuples.add(connIdx, rdcIdx, compIdx)
 			}
 
@@ -42,8 +42,8 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 		
 		// Use Element Constraint for system hierarchy
 		else {
-			val connector2rdcTable = model.allConnectors.map[model.allRDCs.indexOf(it.rdc)]
-			val rdc2compartmentTable = model.allRDCs.map[model.allCompartments.indexOf(it.compartment)]
+			val connector2rdcTable = model.connectors.map[model.RDCs.indexOf(it.rdc)]
+			val rdc2compartmentTable = model.RDCs.map[model.compartments.indexOf(it.compartment)]
 
 			for (iface : model.eqInterfaces) {
 			
@@ -69,7 +69,7 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 
 				val ifaceVar = solverVariables.getEqInterfaceLocationVariable(iface, HardwareArchitectureLevelType.RDC)
 				
-				val cableLengthTable = model.allRDCs.map[rdc | 	Math.abs(iface.resourceX - rdc.resourceX) +
+				val cableLengthTable = model.RDCs.map[rdc | 	Math.abs(iface.resourceX - rdc.resourceX) +
 																Math.abs(iface.resourceY - rdc.resourceY) + 
 																Math.abs(iface.resourceZ - rdc.resourceZ)]
 

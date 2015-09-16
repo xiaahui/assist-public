@@ -2930,7 +2930,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1214:1: (lv_manufacturer_6_0= RULE_STRING )
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1215:3: lv_manufacturer_6_0= RULE_STRING
             	    {
-            	    lv_manufacturer_6_0=(Token)match(input,RULE_STRING,FollowSets001.FOLLOW_RULE_STRING_in_ruleRDC2892); 
+            	    lv_manufacturer_6_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleRDC2892); 
 
             	    			newLeafNode(lv_manufacturer_6_0, grammarAccess.getRDCAccess().getManufacturerSTRINGTerminalRuleCall_3_0_2_0()); 
             	    		
@@ -2950,7 +2950,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_7=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleRDC2909); 
+            	    otherlv_7=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRDC2909); 
 
             	        	newLeafNode(otherlv_7, grammarAccess.getRDCAccess().getSemicolonKeyword_3_0_3());
             	        
@@ -2996,11 +2996,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1247:16: (otherlv_8= 'PowerSupply' otherlv_9= '=' ( (lv_powerSupply_10_0= RULE_STRING ) ) otherlv_11= ';' )
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1247:18: otherlv_8= 'PowerSupply' otherlv_9= '=' ( (lv_powerSupply_10_0= RULE_STRING ) ) otherlv_11= ';'
             	    {
-            	    otherlv_8=(Token)match(input,29,FollowSets001.FOLLOW_29_in_ruleRDC2977); 
+            	    otherlv_8=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleRDC2977); 
 
             	        	newLeafNode(otherlv_8, grammarAccess.getRDCAccess().getPowerSupplyKeyword_3_1_0());
             	        
-            	    otherlv_9=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleRDC2989); 
+            	    otherlv_9=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleRDC2989); 
 
             	        	newLeafNode(otherlv_9, grammarAccess.getRDCAccess().getEqualsSignKeyword_3_1_1());
             	        
@@ -3010,7 +3010,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1256:1: (lv_powerSupply_10_0= RULE_STRING )
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1257:3: lv_powerSupply_10_0= RULE_STRING
             	    {
-            	    lv_powerSupply_10_0=(Token)match(input,RULE_STRING,FollowSets001.FOLLOW_RULE_STRING_in_ruleRDC3006); 
+            	    lv_powerSupply_10_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleRDC3006); 
 
             	    			newLeafNode(lv_powerSupply_10_0, grammarAccess.getRDCAccess().getPowerSupplySTRINGTerminalRuleCall_3_1_2_0()); 
             	    		
@@ -3030,7 +3030,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_11=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleRDC3023); 
+            	    otherlv_11=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRDC3023); 
 
             	        	newLeafNode(otherlv_11, grammarAccess.getRDCAccess().getSemicolonKeyword_3_1_3());
             	        
@@ -3076,11 +3076,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1289:16: (otherlv_12= 'Type' otherlv_13= '=' ( (lv_rdcType_14_0= RULE_STRING ) ) otherlv_15= ';' )
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1289:18: otherlv_12= 'Type' otherlv_13= '=' ( (lv_rdcType_14_0= RULE_STRING ) ) otherlv_15= ';'
             	    {
-            	    otherlv_12=(Token)match(input,33,FollowSets001.FOLLOW_33_in_ruleRDC3091); 
+            	    otherlv_12=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleRDC3091); 
 
             	        	newLeafNode(otherlv_12, grammarAccess.getRDCAccess().getTypeKeyword_3_2_0());
             	        
-            	    otherlv_13=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleRDC3103); 
+            	    otherlv_13=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleRDC3103); 
 
             	        	newLeafNode(otherlv_13, grammarAccess.getRDCAccess().getEqualsSignKeyword_3_2_1());
             	        
@@ -3090,7 +3090,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1298:1: (lv_rdcType_14_0= RULE_STRING )
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1299:3: lv_rdcType_14_0= RULE_STRING
             	    {
-            	    lv_rdcType_14_0=(Token)match(input,RULE_STRING,FollowSets001.FOLLOW_RULE_STRING_in_ruleRDC3120); 
+            	    lv_rdcType_14_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleRDC3120); 
 
             	    			newLeafNode(lv_rdcType_14_0, grammarAccess.getRDCAccess().getRdcTypeSTRINGTerminalRuleCall_3_2_2_0()); 
             	    		
@@ -3110,7 +3110,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_15=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleRDC3137); 
+            	    otherlv_15=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRDC3137); 
 
             	        	newLeafNode(otherlv_15, grammarAccess.getRDCAccess().getSemicolonKeyword_3_2_3());
             	        
@@ -3156,11 +3156,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1331:16: (otherlv_16= 'ESS' otherlv_17= '=' ( (lv_ess_18_0= RULE_STRING ) ) otherlv_19= ';' )
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1331:18: otherlv_16= 'ESS' otherlv_17= '=' ( (lv_ess_18_0= RULE_STRING ) ) otherlv_19= ';'
             	    {
-            	    otherlv_16=(Token)match(input,34,FollowSets001.FOLLOW_34_in_ruleRDC3205); 
+            	    otherlv_16=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleRDC3205); 
 
             	        	newLeafNode(otherlv_16, grammarAccess.getRDCAccess().getESSKeyword_3_3_0());
             	        
-            	    otherlv_17=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleRDC3217); 
+            	    otherlv_17=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleRDC3217); 
 
             	        	newLeafNode(otherlv_17, grammarAccess.getRDCAccess().getEqualsSignKeyword_3_3_1());
             	        
@@ -3170,7 +3170,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1340:1: (lv_ess_18_0= RULE_STRING )
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1341:3: lv_ess_18_0= RULE_STRING
             	    {
-            	    lv_ess_18_0=(Token)match(input,RULE_STRING,FollowSets001.FOLLOW_RULE_STRING_in_ruleRDC3234); 
+            	    lv_ess_18_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleRDC3234); 
 
             	    			newLeafNode(lv_ess_18_0, grammarAccess.getRDCAccess().getEssSTRINGTerminalRuleCall_3_3_2_0()); 
             	    		
@@ -3190,7 +3190,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_19=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleRDC3251); 
+            	    otherlv_19=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRDC3251); 
 
             	        	newLeafNode(otherlv_19, grammarAccess.getRDCAccess().getSemicolonKeyword_3_3_3());
             	        
@@ -3236,11 +3236,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1373:16: (otherlv_20= 'Location' otherlv_21= '=' ( (lv_location_22_0= RULE_STRING ) ) otherlv_23= ';' )
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1373:18: otherlv_20= 'Location' otherlv_21= '=' ( (lv_location_22_0= RULE_STRING ) ) otherlv_23= ';'
             	    {
-            	    otherlv_20=(Token)match(input,35,FollowSets001.FOLLOW_35_in_ruleRDC3319); 
+            	    otherlv_20=(Token)match(input,35,FollowSets000.FOLLOW_35_in_ruleRDC3319); 
 
             	        	newLeafNode(otherlv_20, grammarAccess.getRDCAccess().getLocationKeyword_3_4_0());
             	        
-            	    otherlv_21=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleRDC3331); 
+            	    otherlv_21=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleRDC3331); 
 
             	        	newLeafNode(otherlv_21, grammarAccess.getRDCAccess().getEqualsSignKeyword_3_4_1());
             	        
@@ -3250,7 +3250,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1382:1: (lv_location_22_0= RULE_STRING )
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1383:3: lv_location_22_0= RULE_STRING
             	    {
-            	    lv_location_22_0=(Token)match(input,RULE_STRING,FollowSets001.FOLLOW_RULE_STRING_in_ruleRDC3348); 
+            	    lv_location_22_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleRDC3348); 
 
             	    			newLeafNode(lv_location_22_0, grammarAccess.getRDCAccess().getLocationSTRINGTerminalRuleCall_3_4_2_0()); 
             	    		
@@ -3270,7 +3270,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_23=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleRDC3365); 
+            	    otherlv_23=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRDC3365); 
 
             	        	newLeafNode(otherlv_23, grammarAccess.getRDCAccess().getSemicolonKeyword_3_4_3());
             	        
@@ -3316,11 +3316,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1415:16: (otherlv_24= 'ResourceX' otherlv_25= '=' ( (lv_resourceX_26_0= ruleSIGNEDINT ) ) otherlv_27= ';' )
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1415:18: otherlv_24= 'ResourceX' otherlv_25= '=' ( (lv_resourceX_26_0= ruleSIGNEDINT ) ) otherlv_27= ';'
             	    {
-            	    otherlv_24=(Token)match(input,36,FollowSets001.FOLLOW_36_in_ruleRDC3433); 
+            	    otherlv_24=(Token)match(input,36,FollowSets000.FOLLOW_36_in_ruleRDC3433); 
 
             	        	newLeafNode(otherlv_24, grammarAccess.getRDCAccess().getResourceXKeyword_3_5_0());
             	        
-            	    otherlv_25=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleRDC3445); 
+            	    otherlv_25=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleRDC3445); 
 
             	        	newLeafNode(otherlv_25, grammarAccess.getRDCAccess().getEqualsSignKeyword_3_5_1());
             	        
@@ -3333,7 +3333,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getRDCAccess().getResourceXSIGNEDINTParserRuleCall_3_5_2_0()); 
             	    	    
-            	    pushFollow(FollowSets001.FOLLOW_ruleSIGNEDINT_in_ruleRDC3466);
+            	    pushFollow(FollowSets000.FOLLOW_ruleSIGNEDINT_in_ruleRDC3466);
             	    lv_resourceX_26_0=ruleSIGNEDINT();
 
             	    state._fsp--;
@@ -3355,7 +3355,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_27=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleRDC3478); 
+            	    otherlv_27=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRDC3478); 
 
             	        	newLeafNode(otherlv_27, grammarAccess.getRDCAccess().getSemicolonKeyword_3_5_3());
             	        
@@ -3401,11 +3401,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1457:16: (otherlv_28= 'ResourceY' otherlv_29= '=' ( (lv_resourceY_30_0= ruleSIGNEDINT ) ) otherlv_31= ';' )
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1457:18: otherlv_28= 'ResourceY' otherlv_29= '=' ( (lv_resourceY_30_0= ruleSIGNEDINT ) ) otherlv_31= ';'
             	    {
-            	    otherlv_28=(Token)match(input,37,FollowSets001.FOLLOW_37_in_ruleRDC3546); 
+            	    otherlv_28=(Token)match(input,37,FollowSets000.FOLLOW_37_in_ruleRDC3546); 
 
             	        	newLeafNode(otherlv_28, grammarAccess.getRDCAccess().getResourceYKeyword_3_6_0());
             	        
-            	    otherlv_29=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleRDC3558); 
+            	    otherlv_29=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleRDC3558); 
 
             	        	newLeafNode(otherlv_29, grammarAccess.getRDCAccess().getEqualsSignKeyword_3_6_1());
             	        
@@ -3418,7 +3418,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getRDCAccess().getResourceYSIGNEDINTParserRuleCall_3_6_2_0()); 
             	    	    
-            	    pushFollow(FollowSets001.FOLLOW_ruleSIGNEDINT_in_ruleRDC3579);
+            	    pushFollow(FollowSets000.FOLLOW_ruleSIGNEDINT_in_ruleRDC3579);
             	    lv_resourceY_30_0=ruleSIGNEDINT();
 
             	    state._fsp--;
@@ -3440,7 +3440,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_31=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleRDC3591); 
+            	    otherlv_31=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRDC3591); 
 
             	        	newLeafNode(otherlv_31, grammarAccess.getRDCAccess().getSemicolonKeyword_3_6_3());
             	        
@@ -3486,11 +3486,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1499:16: (otherlv_32= 'ResourceZ' otherlv_33= '=' ( (lv_resourceZ_34_0= ruleSIGNEDINT ) ) otherlv_35= ';' )
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1499:18: otherlv_32= 'ResourceZ' otherlv_33= '=' ( (lv_resourceZ_34_0= ruleSIGNEDINT ) ) otherlv_35= ';'
             	    {
-            	    otherlv_32=(Token)match(input,38,FollowSets001.FOLLOW_38_in_ruleRDC3659); 
+            	    otherlv_32=(Token)match(input,38,FollowSets000.FOLLOW_38_in_ruleRDC3659); 
 
             	        	newLeafNode(otherlv_32, grammarAccess.getRDCAccess().getResourceZKeyword_3_7_0());
             	        
-            	    otherlv_33=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleRDC3671); 
+            	    otherlv_33=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleRDC3671); 
 
             	        	newLeafNode(otherlv_33, grammarAccess.getRDCAccess().getEqualsSignKeyword_3_7_1());
             	        
@@ -3503,7 +3503,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getRDCAccess().getResourceZSIGNEDINTParserRuleCall_3_7_2_0()); 
             	    	    
-            	    pushFollow(FollowSets001.FOLLOW_ruleSIGNEDINT_in_ruleRDC3692);
+            	    pushFollow(FollowSets000.FOLLOW_ruleSIGNEDINT_in_ruleRDC3692);
             	    lv_resourceZ_34_0=ruleSIGNEDINT();
 
             	    state._fsp--;
@@ -3525,7 +3525,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_35=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleRDC3704); 
+            	    otherlv_35=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRDC3704); 
 
             	        	newLeafNode(otherlv_35, grammarAccess.getRDCAccess().getSemicolonKeyword_3_7_3());
             	        
@@ -3596,7 +3596,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    	     
             	    	    	        newCompositeNode(grammarAccess.getRDCAccess().getConnectorsConnectorParserRuleCall_3_8_0()); 
             	    	    	    
-            	    	    pushFollow(FollowSets001.FOLLOW_ruleConnector_in_ruleRDC3780);
+            	    	    pushFollow(FollowSets000.FOLLOW_ruleConnector_in_ruleRDC3780);
             	    	    lv_connectors_36_0=ruleConnector();
 
             	    	    state._fsp--;
@@ -3673,7 +3673,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getRDCAccess().getMetricParametersBlockMetricParametersBlockParserRuleCall_3_9_0()); 
             	    	    
-            	    pushFollow(FollowSets001.FOLLOW_ruleMetricParametersBlock_in_ruleRDC3856);
+            	    pushFollow(FollowSets000.FOLLOW_ruleMetricParametersBlock_in_ruleRDC3856);
             	    lv_metricParametersBlock_37_0=ruleMetricParametersBlock();
 
             	    state._fsp--;
@@ -3734,11 +3734,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1601:16: (otherlv_38= 'Pins' otherlv_39= '{' ( (lv_connectedPins_40_0= ruleInternallyConnectedPinEntry ) )+ otherlv_41= '}' )
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1601:18: otherlv_38= 'Pins' otherlv_39= '{' ( (lv_connectedPins_40_0= ruleInternallyConnectedPinEntry ) )+ otherlv_41= '}'
             	    {
-            	    otherlv_38=(Token)match(input,39,FollowSets001.FOLLOW_39_in_ruleRDC3923); 
+            	    otherlv_38=(Token)match(input,39,FollowSets000.FOLLOW_39_in_ruleRDC3923); 
 
             	        	newLeafNode(otherlv_38, grammarAccess.getRDCAccess().getPinsKeyword_3_10_0());
             	        
-            	    otherlv_39=(Token)match(input,12,FollowSets001.FOLLOW_12_in_ruleRDC3935); 
+            	    otherlv_39=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleRDC3935); 
 
             	        	newLeafNode(otherlv_39, grammarAccess.getRDCAccess().getLeftCurlyBracketKeyword_3_10_1());
             	        
@@ -3764,7 +3764,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	    	     
             	    	    	        newCompositeNode(grammarAccess.getRDCAccess().getConnectedPinsInternallyConnectedPinEntryParserRuleCall_3_10_2_0()); 
             	    	    	    
-            	    	    pushFollow(FollowSets001.FOLLOW_ruleInternallyConnectedPinEntry_in_ruleRDC3956);
+            	    	    pushFollow(FollowSets000.FOLLOW_ruleInternallyConnectedPinEntry_in_ruleRDC3956);
             	    	    lv_connectedPins_40_0=ruleInternallyConnectedPinEntry();
 
             	    	    state._fsp--;
@@ -3796,7 +3796,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	        cnt13++;
             	    } while (true);
 
-            	    otherlv_41=(Token)match(input,16,FollowSets001.FOLLOW_16_in_ruleRDC3969); 
+            	    otherlv_41=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleRDC3969); 
 
             	        	newLeafNode(otherlv_41, grammarAccess.getRDCAccess().getRightCurlyBracketKeyword_3_10_3());
             	        
@@ -3843,7 +3843,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_42=(Token)match(input,16,FollowSets001.FOLLOW_16_in_ruleRDC4028); 
+            otherlv_42=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleRDC4028); 
 
                 	newLeafNode(otherlv_42, grammarAccess.getRDCAccess().getRightCurlyBracketKeyword_4());
                 
@@ -3880,13 +3880,13 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1660:2: iv_ruleInternallyConnectedPinEntry= ruleInternallyConnectedPinEntry EOF
             {
              newCompositeNode(grammarAccess.getInternallyConnectedPinEntryRule()); 
-            pushFollow(FollowSets001.FOLLOW_ruleInternallyConnectedPinEntry_in_entryRuleInternallyConnectedPinEntry4064);
+            pushFollow(FollowSets000.FOLLOW_ruleInternallyConnectedPinEntry_in_entryRuleInternallyConnectedPinEntry4064);
             iv_ruleInternallyConnectedPinEntry=ruleInternallyConnectedPinEntry();
 
             state._fsp--;
 
              current =iv_ruleInternallyConnectedPinEntry; 
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleInternallyConnectedPinEntry4074); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleInternallyConnectedPinEntry4074); 
 
             }
 
@@ -3937,7 +3937,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getInternallyConnectedPinEntryAccess().getPinsAvailableEqInterfaceCrossReference_0_0()); 
             	    
-            pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_ruleInternallyConnectedPinEntry4122);
+            pushFollow(FollowSets000.FOLLOW_ruleQualifiedName_in_ruleInternallyConnectedPinEntry4122);
             ruleQualifiedName();
 
             state._fsp--;
@@ -3951,7 +3951,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,19,FollowSets001.FOLLOW_19_in_ruleInternallyConnectedPinEntry4134); 
+            otherlv_1=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleInternallyConnectedPinEntry4134); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getInternallyConnectedPinEntryAccess().getCommaKeyword_1());
                 
@@ -3969,7 +3969,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getInternallyConnectedPinEntryAccess().getPinsAvailableEqInterfaceCrossReference_2_0()); 
             	    
-            pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_ruleInternallyConnectedPinEntry4157);
+            pushFollow(FollowSets000.FOLLOW_ruleQualifiedName_in_ruleInternallyConnectedPinEntry4157);
             ruleQualifiedName();
 
             state._fsp--;
@@ -3994,7 +3994,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1705:4: otherlv_3= ',' ( ( ruleQualifiedName ) )
                     {
-                    otherlv_3=(Token)match(input,19,FollowSets001.FOLLOW_19_in_ruleInternallyConnectedPinEntry4170); 
+                    otherlv_3=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleInternallyConnectedPinEntry4170); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getInternallyConnectedPinEntryAccess().getCommaKeyword_3_0());
                         
@@ -4012,7 +4012,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getInternallyConnectedPinEntryAccess().getPinsAvailableEqInterfaceCrossReference_3_1_0()); 
                     	    
-                    pushFollow(FollowSets001.FOLLOW_ruleQualifiedName_in_ruleInternallyConnectedPinEntry4193);
+                    pushFollow(FollowSets000.FOLLOW_ruleQualifiedName_in_ruleInternallyConnectedPinEntry4193);
                     ruleQualifiedName();
 
                     state._fsp--;
@@ -4032,15 +4032,15 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,40,FollowSets001.FOLLOW_40_in_ruleInternallyConnectedPinEntry4207); 
+            otherlv_5=(Token)match(input,40,FollowSets000.FOLLOW_40_in_ruleInternallyConnectedPinEntry4207); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getInternallyConnectedPinEntryAccess().getAreKeyword_4());
                 
-            otherlv_6=(Token)match(input,41,FollowSets001.FOLLOW_41_in_ruleInternallyConnectedPinEntry4219); 
+            otherlv_6=(Token)match(input,41,FollowSets000.FOLLOW_41_in_ruleInternallyConnectedPinEntry4219); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getInternallyConnectedPinEntryAccess().getConnectedKeyword_5());
                 
-            otherlv_7=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleInternallyConnectedPinEntry4231); 
+            otherlv_7=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleInternallyConnectedPinEntry4231); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getInternallyConnectedPinEntryAccess().getSemicolonKeyword_6());
                 
@@ -4077,13 +4077,13 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1746:2: iv_ruleConnector= ruleConnector EOF
             {
              newCompositeNode(grammarAccess.getConnectorRule()); 
-            pushFollow(FollowSets001.FOLLOW_ruleConnector_in_entryRuleConnector4267);
+            pushFollow(FollowSets000.FOLLOW_ruleConnector_in_entryRuleConnector4267);
             iv_ruleConnector=ruleConnector();
 
             state._fsp--;
 
              current =iv_ruleConnector; 
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleConnector4277); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleConnector4277); 
 
             }
 
@@ -4123,7 +4123,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1757:1: (otherlv_0= 'Connector' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_availableEqInterfaces_3_0= ruleAvailableEqInterface ) )* ( (lv_metricParametersBlock_4_0= ruleMetricParametersBlock ) )? otherlv_5= '}' )
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1757:3: otherlv_0= 'Connector' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_availableEqInterfaces_3_0= ruleAvailableEqInterface ) )* ( (lv_metricParametersBlock_4_0= ruleMetricParametersBlock ) )? otherlv_5= '}'
             {
-            otherlv_0=(Token)match(input,42,FollowSets001.FOLLOW_42_in_ruleConnector4314); 
+            otherlv_0=(Token)match(input,42,FollowSets000.FOLLOW_42_in_ruleConnector4314); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getConnectorAccess().getConnectorKeyword_0());
                 
@@ -4133,7 +4133,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1762:1: (lv_name_1_0= RULE_ID )
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1763:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets001.FOLLOW_RULE_ID_in_ruleConnector4331); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleConnector4331); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getConnectorAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -4153,7 +4153,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FollowSets001.FOLLOW_12_in_ruleConnector4348); 
+            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleConnector4348); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getConnectorAccess().getLeftCurlyBracketKeyword_2());
                 
@@ -4178,7 +4178,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getConnectorAccess().getAvailableEqInterfacesAvailableEqInterfaceParserRuleCall_3_0()); 
             	    	    
-            	    pushFollow(FollowSets001.FOLLOW_ruleAvailableEqInterface_in_ruleConnector4369);
+            	    pushFollow(FollowSets000.FOLLOW_ruleAvailableEqInterface_in_ruleConnector4369);
             	    lv_availableEqInterfaces_3_0=ruleAvailableEqInterface();
 
             	    state._fsp--;
@@ -4223,7 +4223,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getConnectorAccess().getMetricParametersBlockMetricParametersBlockParserRuleCall_4_0()); 
                     	    
-                    pushFollow(FollowSets001.FOLLOW_ruleMetricParametersBlock_in_ruleConnector4391);
+                    pushFollow(FollowSets000.FOLLOW_ruleMetricParametersBlock_in_ruleConnector4391);
                     lv_metricParametersBlock_4_0=ruleMetricParametersBlock();
 
                     state._fsp--;
@@ -4248,7 +4248,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,16,FollowSets001.FOLLOW_16_in_ruleConnector4404); 
+            otherlv_5=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleConnector4404); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getConnectorAccess().getRightCurlyBracketKeyword_5());
                 
@@ -4285,13 +4285,13 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1833:2: iv_ruleAvailableEqInterface= ruleAvailableEqInterface EOF
             {
              newCompositeNode(grammarAccess.getAvailableEqInterfaceRule()); 
-            pushFollow(FollowSets001.FOLLOW_ruleAvailableEqInterface_in_entryRuleAvailableEqInterface4440);
+            pushFollow(FollowSets000.FOLLOW_ruleAvailableEqInterface_in_entryRuleAvailableEqInterface4440);
             iv_ruleAvailableEqInterface=ruleAvailableEqInterface();
 
             state._fsp--;
 
              current =iv_ruleAvailableEqInterface; 
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleAvailableEqInterface4450); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAvailableEqInterface4450); 
 
             }
 
@@ -4344,11 +4344,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1844:4: otherlv_0= 'Name' otherlv_1= '=' ( (lv_name_2_0= RULE_ID ) )
                     {
-                    otherlv_0=(Token)match(input,13,FollowSets001.FOLLOW_13_in_ruleAvailableEqInterface4488); 
+                    otherlv_0=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleAvailableEqInterface4488); 
 
                         	newLeafNode(otherlv_0, grammarAccess.getAvailableEqInterfaceAccess().getNameKeyword_0_0());
                         
-                    otherlv_1=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleAvailableEqInterface4500); 
+                    otherlv_1=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleAvailableEqInterface4500); 
 
                         	newLeafNode(otherlv_1, grammarAccess.getAvailableEqInterfaceAccess().getEqualsSignKeyword_0_1());
                         
@@ -4358,7 +4358,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1853:1: (lv_name_2_0= RULE_ID )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1854:3: lv_name_2_0= RULE_ID
                     {
-                    lv_name_2_0=(Token)match(input,RULE_ID,FollowSets001.FOLLOW_RULE_ID_in_ruleAvailableEqInterface4517); 
+                    lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleAvailableEqInterface4517); 
 
                     			newLeafNode(lv_name_2_0, grammarAccess.getAvailableEqInterfaceAccess().getNameIDTerminalRuleCall_0_2_0()); 
                     		
@@ -4390,7 +4390,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1871:1: (lv_eqInterfaceType_3_0= RULE_STRING )
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1872:3: lv_eqInterfaceType_3_0= RULE_STRING
             {
-            lv_eqInterfaceType_3_0=(Token)match(input,RULE_STRING,FollowSets001.FOLLOW_RULE_STRING_in_ruleAvailableEqInterface4541); 
+            lv_eqInterfaceType_3_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleAvailableEqInterface4541); 
 
             			newLeafNode(lv_eqInterfaceType_3_0, grammarAccess.getAvailableEqInterfaceAccess().getEqInterfaceTypeSTRINGTerminalRuleCall_1_0()); 
             		
@@ -4410,7 +4410,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleAvailableEqInterface4558); 
+            otherlv_4=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleAvailableEqInterface4558); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getAvailableEqInterfaceAccess().getEqualsSignKeyword_2());
                 
@@ -4420,7 +4420,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1893:1: (lv_count_5_0= RULE_INT )
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1894:3: lv_count_5_0= RULE_INT
             {
-            lv_count_5_0=(Token)match(input,RULE_INT,FollowSets001.FOLLOW_RULE_INT_in_ruleAvailableEqInterface4575); 
+            lv_count_5_0=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleAvailableEqInterface4575); 
 
             			newLeafNode(lv_count_5_0, grammarAccess.getAvailableEqInterfaceAccess().getCountINTTerminalRuleCall_3_0()); 
             		
@@ -4451,7 +4451,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1910:4: otherlv_6= 'with protection level' ( (lv_protectionLevel_7_0= ruleProtectionLevelType ) )
                     {
-                    otherlv_6=(Token)match(input,43,FollowSets001.FOLLOW_43_in_ruleAvailableEqInterface4593); 
+                    otherlv_6=(Token)match(input,43,FollowSets000.FOLLOW_43_in_ruleAvailableEqInterface4593); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getAvailableEqInterfaceAccess().getWithProtectionLevelKeyword_4_0());
                         
@@ -4464,7 +4464,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getAvailableEqInterfaceAccess().getProtectionLevelProtectionLevelTypeEnumRuleCall_4_1_0()); 
                     	    
-                    pushFollow(FollowSets001.FOLLOW_ruleProtectionLevelType_in_ruleAvailableEqInterface4614);
+                    pushFollow(FollowSets000.FOLLOW_ruleProtectionLevelType_in_ruleAvailableEqInterface4614);
                     lv_protectionLevel_7_0=ruleProtectionLevelType();
 
                     state._fsp--;
@@ -4492,7 +4492,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_8=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleAvailableEqInterface4628); 
+            otherlv_8=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleAvailableEqInterface4628); 
 
                 	newLeafNode(otherlv_8, grammarAccess.getAvailableEqInterfaceAccess().getSemicolonKeyword_5());
                 
@@ -4529,13 +4529,13 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1946:2: iv_ruleMetricParametersBlock= ruleMetricParametersBlock EOF
             {
              newCompositeNode(grammarAccess.getMetricParametersBlockRule()); 
-            pushFollow(FollowSets001.FOLLOW_ruleMetricParametersBlock_in_entryRuleMetricParametersBlock4664);
+            pushFollow(FollowSets000.FOLLOW_ruleMetricParametersBlock_in_entryRuleMetricParametersBlock4664);
             iv_ruleMetricParametersBlock=ruleMetricParametersBlock();
 
             state._fsp--;
 
              current =iv_ruleMetricParametersBlock; 
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleMetricParametersBlock4674); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMetricParametersBlock4674); 
 
             }
 
@@ -4572,11 +4572,11 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1957:1: (otherlv_0= 'Metric Parameters' otherlv_1= '{' ( (lv_metricParameters_2_0= ruleMetricParameter ) ) otherlv_3= '}' )
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1957:3: otherlv_0= 'Metric Parameters' otherlv_1= '{' ( (lv_metricParameters_2_0= ruleMetricParameter ) ) otherlv_3= '}'
             {
-            otherlv_0=(Token)match(input,44,FollowSets001.FOLLOW_44_in_ruleMetricParametersBlock4711); 
+            otherlv_0=(Token)match(input,44,FollowSets000.FOLLOW_44_in_ruleMetricParametersBlock4711); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getMetricParametersBlockAccess().getMetricParametersKeyword_0());
                 
-            otherlv_1=(Token)match(input,12,FollowSets001.FOLLOW_12_in_ruleMetricParametersBlock4723); 
+            otherlv_1=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleMetricParametersBlock4723); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getMetricParametersBlockAccess().getLeftCurlyBracketKeyword_1());
                 
@@ -4589,7 +4589,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getMetricParametersBlockAccess().getMetricParametersMetricParameterParserRuleCall_2_0()); 
             	    
-            pushFollow(FollowSets001.FOLLOW_ruleMetricParameter_in_ruleMetricParametersBlock4744);
+            pushFollow(FollowSets000.FOLLOW_ruleMetricParameter_in_ruleMetricParametersBlock4744);
             lv_metricParameters_2_0=ruleMetricParameter();
 
             state._fsp--;
@@ -4611,7 +4611,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,16,FollowSets001.FOLLOW_16_in_ruleMetricParametersBlock4756); 
+            otherlv_3=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleMetricParametersBlock4756); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getMetricParametersBlockAccess().getRightCurlyBracketKeyword_3());
                 
@@ -4648,13 +4648,13 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:1997:2: iv_ruleMetricParameter= ruleMetricParameter EOF
             {
              newCompositeNode(grammarAccess.getMetricParameterRule()); 
-            pushFollow(FollowSets001.FOLLOW_ruleMetricParameter_in_entryRuleMetricParameter4792);
+            pushFollow(FollowSets000.FOLLOW_ruleMetricParameter_in_entryRuleMetricParameter4792);
             iv_ruleMetricParameter=ruleMetricParameter();
 
             state._fsp--;
 
              current =iv_ruleMetricParameter; 
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleMetricParameter4802); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMetricParameter4802); 
 
             }
 
@@ -4696,7 +4696,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2009:1: (lv_name_0_0= RULE_STRING )
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2010:3: lv_name_0_0= RULE_STRING
             {
-            lv_name_0_0=(Token)match(input,RULE_STRING,FollowSets001.FOLLOW_RULE_STRING_in_ruleMetricParameter4844); 
+            lv_name_0_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleMetricParameter4844); 
 
             			newLeafNode(lv_name_0_0, grammarAccess.getMetricParameterAccess().getNameSTRINGTerminalRuleCall_0_0()); 
             		
@@ -4716,7 +4716,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleMetricParameter4861); 
+            otherlv_1=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleMetricParameter4861); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getMetricParameterAccess().getEqualsSignKeyword_1());
                 
@@ -4726,7 +4726,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2031:1: (lv_value_2_0= RULE_INT )
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2032:3: lv_value_2_0= RULE_INT
             {
-            lv_value_2_0=(Token)match(input,RULE_INT,FollowSets001.FOLLOW_RULE_INT_in_ruleMetricParameter4878); 
+            lv_value_2_0=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleMetricParameter4878); 
 
             			newLeafNode(lv_value_2_0, grammarAccess.getMetricParameterAccess().getValueINTTerminalRuleCall_2_0()); 
             		
@@ -4746,7 +4746,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,15,FollowSets001.FOLLOW_15_in_ruleMetricParameter4895); 
+            otherlv_3=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleMetricParameter4895); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getMetricParameterAccess().getSemicolonKeyword_3());
                 
@@ -4783,13 +4783,13 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2064:2: iv_ruleImplicitEqInterfaceMemberDefinition= ruleImplicitEqInterfaceMemberDefinition EOF
             {
              newCompositeNode(grammarAccess.getImplicitEqInterfaceMemberDefinitionRule()); 
-            pushFollow(FollowSets001.FOLLOW_ruleImplicitEqInterfaceMemberDefinition_in_entryRuleImplicitEqInterfaceMemberDefinition4933);
+            pushFollow(FollowSets000.FOLLOW_ruleImplicitEqInterfaceMemberDefinition_in_entryRuleImplicitEqInterfaceMemberDefinition4933);
             iv_ruleImplicitEqInterfaceMemberDefinition=ruleImplicitEqInterfaceMemberDefinition();
 
             state._fsp--;
 
              current =iv_ruleImplicitEqInterfaceMemberDefinition; 
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleImplicitEqInterfaceMemberDefinition4943); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleImplicitEqInterfaceMemberDefinition4943); 
 
             }
 
@@ -4827,7 +4827,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2075:1: (otherlv_0= 'interfaces with' ( (lv_entries_1_0= ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues ) ) (otherlv_2= 'and' ( (lv_entries_3_0= ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues ) ) )* )
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2075:3: otherlv_0= 'interfaces with' ( (lv_entries_1_0= ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues ) ) (otherlv_2= 'and' ( (lv_entries_3_0= ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues ) ) )*
             {
-            otherlv_0=(Token)match(input,45,FollowSets001.FOLLOW_45_in_ruleImplicitEqInterfaceMemberDefinition4980); 
+            otherlv_0=(Token)match(input,45,FollowSets000.FOLLOW_45_in_ruleImplicitEqInterfaceMemberDefinition4980); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getInterfacesWithKeyword_0());
                 
@@ -4840,7 +4840,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getEntriesImplicitEqInterfaceMemberDefinitionAttributesAndValuesParserRuleCall_1_0()); 
             	    
-            pushFollow(FollowSets001.FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues_in_ruleImplicitEqInterfaceMemberDefinition5001);
+            pushFollow(FollowSets000.FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues_in_ruleImplicitEqInterfaceMemberDefinition5001);
             lv_entries_1_0=ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues();
 
             state._fsp--;
@@ -4877,7 +4877,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2097:4: otherlv_2= 'and' ( (lv_entries_3_0= ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues ) )
             	    {
-            	    otherlv_2=(Token)match(input,46,FollowSets001.FOLLOW_46_in_ruleImplicitEqInterfaceMemberDefinition5014); 
+            	    otherlv_2=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleImplicitEqInterfaceMemberDefinition5014); 
 
             	        	newLeafNode(otherlv_2, grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getAndKeyword_2_0());
             	        
@@ -4890,7 +4890,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getImplicitEqInterfaceMemberDefinitionAccess().getEntriesImplicitEqInterfaceMemberDefinitionAttributesAndValuesParserRuleCall_2_1_0()); 
             	    	    
-            	    pushFollow(FollowSets001.FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues_in_ruleImplicitEqInterfaceMemberDefinition5035);
+            	    pushFollow(FollowSets000.FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues_in_ruleImplicitEqInterfaceMemberDefinition5035);
             	    lv_entries_3_0=ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues();
 
             	    state._fsp--;
@@ -4954,13 +4954,13 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2129:2: iv_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues= ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues EOF
             {
              newCompositeNode(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesRule()); 
-            pushFollow(FollowSets001.FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues_in_entryRuleImplicitEqInterfaceMemberDefinitionAttributesAndValues5073);
+            pushFollow(FollowSets000.FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues_in_entryRuleImplicitEqInterfaceMemberDefinitionAttributesAndValues5073);
             iv_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues=ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues();
 
             state._fsp--;
 
              current =iv_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues; 
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleImplicitEqInterfaceMemberDefinitionAttributesAndValues5083); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleImplicitEqInterfaceMemberDefinitionAttributesAndValues5083); 
 
             }
 
@@ -5005,7 +5005,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getAttributeImplicitEqInterfaceMemberDefinitionAttributeEnumRuleCall_0_0()); 
             	    
-            pushFollow(FollowSets001.FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttribute_in_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues5129);
+            pushFollow(FollowSets000.FOLLOW_ruleImplicitEqInterfaceMemberDefinitionAttribute_in_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues5129);
             lv_attribute_0_0=ruleImplicitEqInterfaceMemberDefinitionAttribute();
 
             state._fsp--;
@@ -5027,7 +5027,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues5141); 
+            otherlv_1=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues5141); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getEqualsSignKeyword_1());
                 
@@ -5037,7 +5037,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2163:1: (lv_value_2_0= RULE_STRING )
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2164:3: lv_value_2_0= RULE_STRING
             {
-            lv_value_2_0=(Token)match(input,RULE_STRING,FollowSets001.FOLLOW_RULE_STRING_in_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues5158); 
+            lv_value_2_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleImplicitEqInterfaceMemberDefinitionAttributesAndValues5158); 
 
             			newLeafNode(lv_value_2_0, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributesAndValuesAccess().getValueSTRINGTerminalRuleCall_2_0()); 
             		
@@ -5090,13 +5090,13 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2202:2: iv_ruleDeploymentImplicitDefinition= ruleDeploymentImplicitDefinition EOF
             {
              newCompositeNode(grammarAccess.getDeploymentImplicitDefinitionRule()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeploymentImplicitDefinition_in_entryRuleDeploymentImplicitDefinition5211);
+            pushFollow(FollowSets000.FOLLOW_ruleDeploymentImplicitDefinition_in_entryRuleDeploymentImplicitDefinition5211);
             iv_ruleDeploymentImplicitDefinition=ruleDeploymentImplicitDefinition();
 
             state._fsp--;
 
              current =iv_ruleDeploymentImplicitDefinition; 
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleDeploymentImplicitDefinition5221); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleDeploymentImplicitDefinition5221); 
 
             }
 
@@ -5134,7 +5134,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2213:1: (otherlv_0= 'connectors with' ( (lv_entries_1_0= ruleDeploymentImplicitDefinitionAttributeAndValue ) ) (otherlv_2= 'and' ( (lv_entries_3_0= ruleDeploymentImplicitDefinitionAttributeAndValue ) ) )* )
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2213:3: otherlv_0= 'connectors with' ( (lv_entries_1_0= ruleDeploymentImplicitDefinitionAttributeAndValue ) ) (otherlv_2= 'and' ( (lv_entries_3_0= ruleDeploymentImplicitDefinitionAttributeAndValue ) ) )*
             {
-            otherlv_0=(Token)match(input,47,FollowSets001.FOLLOW_47_in_ruleDeploymentImplicitDefinition5258); 
+            otherlv_0=(Token)match(input,47,FollowSets000.FOLLOW_47_in_ruleDeploymentImplicitDefinition5258); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getDeploymentImplicitDefinitionAccess().getConnectorsWithKeyword_0());
                 
@@ -5147,7 +5147,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getDeploymentImplicitDefinitionAccess().getEntriesDeploymentImplicitDefinitionAttributeAndValueParserRuleCall_1_0()); 
             	    
-            pushFollow(FollowSets001.FOLLOW_ruleDeploymentImplicitDefinitionAttributeAndValue_in_ruleDeploymentImplicitDefinition5279);
+            pushFollow(FollowSets000.FOLLOW_ruleDeploymentImplicitDefinitionAttributeAndValue_in_ruleDeploymentImplicitDefinition5279);
             lv_entries_1_0=ruleDeploymentImplicitDefinitionAttributeAndValue();
 
             state._fsp--;
@@ -5184,7 +5184,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2235:4: otherlv_2= 'and' ( (lv_entries_3_0= ruleDeploymentImplicitDefinitionAttributeAndValue ) )
             	    {
-            	    otherlv_2=(Token)match(input,46,FollowSets001.FOLLOW_46_in_ruleDeploymentImplicitDefinition5292); 
+            	    otherlv_2=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleDeploymentImplicitDefinition5292); 
 
             	        	newLeafNode(otherlv_2, grammarAccess.getDeploymentImplicitDefinitionAccess().getAndKeyword_2_0());
             	        
@@ -5197,7 +5197,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getDeploymentImplicitDefinitionAccess().getEntriesDeploymentImplicitDefinitionAttributeAndValueParserRuleCall_2_1_0()); 
             	    	    
-            	    pushFollow(FollowSets001.FOLLOW_ruleDeploymentImplicitDefinitionAttributeAndValue_in_ruleDeploymentImplicitDefinition5313);
+            	    pushFollow(FollowSets000.FOLLOW_ruleDeploymentImplicitDefinitionAttributeAndValue_in_ruleDeploymentImplicitDefinition5313);
             	    lv_entries_3_0=ruleDeploymentImplicitDefinitionAttributeAndValue();
 
             	    state._fsp--;
@@ -5261,13 +5261,13 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2267:2: iv_ruleDeploymentImplicitDefinitionAttributeAndValue= ruleDeploymentImplicitDefinitionAttributeAndValue EOF
             {
              newCompositeNode(grammarAccess.getDeploymentImplicitDefinitionAttributeAndValueRule()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeploymentImplicitDefinitionAttributeAndValue_in_entryRuleDeploymentImplicitDefinitionAttributeAndValue5351);
+            pushFollow(FollowSets000.FOLLOW_ruleDeploymentImplicitDefinitionAttributeAndValue_in_entryRuleDeploymentImplicitDefinitionAttributeAndValue5351);
             iv_ruleDeploymentImplicitDefinitionAttributeAndValue=ruleDeploymentImplicitDefinitionAttributeAndValue();
 
             state._fsp--;
 
              current =iv_ruleDeploymentImplicitDefinitionAttributeAndValue; 
-            match(input,EOF,FollowSets001.FOLLOW_EOF_in_entryRuleDeploymentImplicitDefinitionAttributeAndValue5361); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleDeploymentImplicitDefinitionAttributeAndValue5361); 
 
             }
 
@@ -5312,7 +5312,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getDeploymentImplicitDefinitionAttributeAndValueAccess().getAttributeDeploymentImplicitDefinitionAttributeEnumRuleCall_0_0()); 
             	    
-            pushFollow(FollowSets001.FOLLOW_ruleDeploymentImplicitDefinitionAttribute_in_ruleDeploymentImplicitDefinitionAttributeAndValue5407);
+            pushFollow(FollowSets000.FOLLOW_ruleDeploymentImplicitDefinitionAttribute_in_ruleDeploymentImplicitDefinitionAttributeAndValue5407);
             lv_attribute_0_0=ruleDeploymentImplicitDefinitionAttribute();
 
             state._fsp--;
@@ -5334,7 +5334,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,14,FollowSets001.FOLLOW_14_in_ruleDeploymentImplicitDefinitionAttributeAndValue5419); 
+            otherlv_1=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleDeploymentImplicitDefinitionAttributeAndValue5419); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getDeploymentImplicitDefinitionAttributeAndValueAccess().getEqualsSignKeyword_1());
                 
@@ -5344,7 +5344,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2301:1: (lv_value_2_0= RULE_STRING )
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2302:3: lv_value_2_0= RULE_STRING
             {
-            lv_value_2_0=(Token)match(input,RULE_STRING,FollowSets001.FOLLOW_RULE_STRING_in_ruleDeploymentImplicitDefinitionAttributeAndValue5436); 
+            lv_value_2_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleDeploymentImplicitDefinitionAttributeAndValue5436); 
 
             			newLeafNode(lv_value_2_0, grammarAccess.getDeploymentImplicitDefinitionAttributeAndValueAccess().getValueSTRINGTerminalRuleCall_2_0()); 
             		
@@ -5397,13 +5397,13 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2328:2: iv_ruleDouble= ruleDouble EOF
             {
              newCompositeNode(grammarAccess.getDoubleRule()); 
-            pushFollow(FollowSets002.FOLLOW_ruleDouble_in_entryRuleDouble5478);
+            pushFollow(FollowSets000.FOLLOW_ruleDouble_in_entryRuleDouble5478);
             iv_ruleDouble=ruleDouble();
 
             state._fsp--;
 
              current =iv_ruleDouble.getText(); 
-            match(input,EOF,FollowSets002.FOLLOW_EOF_in_entryRuleDouble5489); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleDouble5489); 
 
             }
 
@@ -5453,7 +5453,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2339:7: this_INT_0= RULE_INT
                     {
-                    this_INT_0=(Token)match(input,RULE_INT,FollowSets002.FOLLOW_RULE_INT_in_ruleDouble5530); 
+                    this_INT_0=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleDouble5530); 
 
                     		current.merge(this_INT_0);
                         
@@ -5477,7 +5477,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2347:2: kw= '.'
                     {
-                    kw=(Token)match(input,48,FollowSets002.FOLLOW_48_in_ruleDouble5551); 
+                    kw=(Token)match(input,48,FollowSets000.FOLLOW_48_in_ruleDouble5551); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getDoubleAccess().getFullStopKeyword_1()); 
@@ -5488,7 +5488,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            this_INT_2=(Token)match(input,RULE_INT,FollowSets002.FOLLOW_RULE_INT_in_ruleDouble5568); 
+            this_INT_2=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleDouble5568); 
 
             		current.merge(this_INT_2);
                 
@@ -5528,13 +5528,13 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2369:2: iv_ruleQualifiedName= ruleQualifiedName EOF
             {
              newCompositeNode(grammarAccess.getQualifiedNameRule()); 
-            pushFollow(FollowSets002.FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName5614);
+            pushFollow(FollowSets000.FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName5614);
             iv_ruleQualifiedName=ruleQualifiedName();
 
             state._fsp--;
 
              current =iv_ruleQualifiedName.getText(); 
-            match(input,EOF,FollowSets002.FOLLOW_EOF_in_entryRuleQualifiedName5625); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleQualifiedName5625); 
 
             }
 
@@ -5569,7 +5569,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2380:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2380:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
-            this_ID_0=(Token)match(input,RULE_ID,FollowSets002.FOLLOW_RULE_ID_in_ruleQualifiedName5665); 
+            this_ID_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleQualifiedName5665); 
 
             		current.merge(this_ID_0);
                 
@@ -5591,12 +5591,12 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2388:2: kw= '.' this_ID_2= RULE_ID
             	    {
-            	    kw=(Token)match(input,48,FollowSets002.FOLLOW_48_in_ruleQualifiedName5684); 
+            	    kw=(Token)match(input,48,FollowSets000.FOLLOW_48_in_ruleQualifiedName5684); 
 
             	            current.merge(kw);
             	            newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
             	        
-            	    this_ID_2=(Token)match(input,RULE_ID,FollowSets002.FOLLOW_RULE_ID_in_ruleQualifiedName5699); 
+            	    this_ID_2=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleQualifiedName5699); 
 
             	    		current.merge(this_ID_2);
             	        
@@ -5645,13 +5645,13 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
             // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2410:2: iv_ruleSIGNEDINT= ruleSIGNEDINT EOF
             {
              newCompositeNode(grammarAccess.getSIGNEDINTRule()); 
-            pushFollow(FollowSets002.FOLLOW_ruleSIGNEDINT_in_entryRuleSIGNEDINT5747);
+            pushFollow(FollowSets000.FOLLOW_ruleSIGNEDINT_in_entryRuleSIGNEDINT5747);
             iv_ruleSIGNEDINT=ruleSIGNEDINT();
 
             state._fsp--;
 
              current =iv_ruleSIGNEDINT.getText(); 
-            match(input,EOF,FollowSets002.FOLLOW_EOF_in_entryRuleSIGNEDINT5758); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSIGNEDINT5758); 
 
             }
 
@@ -5696,7 +5696,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2422:2: kw= '-'
                     {
-                    kw=(Token)match(input,49,FollowSets002.FOLLOW_49_in_ruleSIGNEDINT5797); 
+                    kw=(Token)match(input,49,FollowSets000.FOLLOW_49_in_ruleSIGNEDINT5797); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getSIGNEDINTAccess().getHyphenMinusKeyword_0()); 
@@ -5707,7 +5707,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            this_INT_1=(Token)match(input,RULE_INT,FollowSets002.FOLLOW_RULE_INT_in_ruleSIGNEDINT5814); 
+            this_INT_1=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleSIGNEDINT5814); 
 
             		current.merge(this_INT_1);
                 
@@ -5816,7 +5816,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2445:2: (enumLiteral_0= 'None' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2445:4: enumLiteral_0= 'None'
                     {
-                    enumLiteral_0=(Token)match(input,50,FollowSets002.FOLLOW_50_in_ruleProtectionLevelType5873); 
+                    enumLiteral_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleProtectionLevelType5873); 
 
                             current = grammarAccess.getProtectionLevelTypeAccess().getNONEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getProtectionLevelTypeAccess().getNONEEnumLiteralDeclaration_0()); 
@@ -5833,7 +5833,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2451:6: (enumLiteral_1= 'L1' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2451:8: enumLiteral_1= 'L1'
                     {
-                    enumLiteral_1=(Token)match(input,51,FollowSets002.FOLLOW_51_in_ruleProtectionLevelType5890); 
+                    enumLiteral_1=(Token)match(input,51,FollowSets000.FOLLOW_51_in_ruleProtectionLevelType5890); 
 
                             current = grammarAccess.getProtectionLevelTypeAccess().getL1EnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getProtectionLevelTypeAccess().getL1EnumLiteralDeclaration_1()); 
@@ -5850,7 +5850,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2457:6: (enumLiteral_2= 'L2' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2457:8: enumLiteral_2= 'L2'
                     {
-                    enumLiteral_2=(Token)match(input,52,FollowSets002.FOLLOW_52_in_ruleProtectionLevelType5907); 
+                    enumLiteral_2=(Token)match(input,52,FollowSets000.FOLLOW_52_in_ruleProtectionLevelType5907); 
 
                             current = grammarAccess.getProtectionLevelTypeAccess().getL2EnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getProtectionLevelTypeAccess().getL2EnumLiteralDeclaration_2()); 
@@ -5867,7 +5867,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2463:6: (enumLiteral_3= 'L3' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2463:8: enumLiteral_3= 'L3'
                     {
-                    enumLiteral_3=(Token)match(input,53,FollowSets002.FOLLOW_53_in_ruleProtectionLevelType5924); 
+                    enumLiteral_3=(Token)match(input,53,FollowSets000.FOLLOW_53_in_ruleProtectionLevelType5924); 
 
                             current = grammarAccess.getProtectionLevelTypeAccess().getL3EnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getProtectionLevelTypeAccess().getL3EnumLiteralDeclaration_3()); 
@@ -5884,7 +5884,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2469:6: (enumLiteral_4= 'L4' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2469:8: enumLiteral_4= 'L4'
                     {
-                    enumLiteral_4=(Token)match(input,54,FollowSets002.FOLLOW_54_in_ruleProtectionLevelType5941); 
+                    enumLiteral_4=(Token)match(input,54,FollowSets000.FOLLOW_54_in_ruleProtectionLevelType5941); 
 
                             current = grammarAccess.getProtectionLevelTypeAccess().getL4EnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_4, grammarAccess.getProtectionLevelTypeAccess().getL4EnumLiteralDeclaration_4()); 
@@ -5901,7 +5901,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2475:6: (enumLiteral_5= 'L5' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2475:8: enumLiteral_5= 'L5'
                     {
-                    enumLiteral_5=(Token)match(input,55,FollowSets002.FOLLOW_55_in_ruleProtectionLevelType5958); 
+                    enumLiteral_5=(Token)match(input,55,FollowSets000.FOLLOW_55_in_ruleProtectionLevelType5958); 
 
                             current = grammarAccess.getProtectionLevelTypeAccess().getL5EnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_5, grammarAccess.getProtectionLevelTypeAccess().getL5EnumLiteralDeclaration_5()); 
@@ -5918,7 +5918,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2481:6: (enumLiteral_6= 'L6' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2481:8: enumLiteral_6= 'L6'
                     {
-                    enumLiteral_6=(Token)match(input,56,FollowSets002.FOLLOW_56_in_ruleProtectionLevelType5975); 
+                    enumLiteral_6=(Token)match(input,56,FollowSets000.FOLLOW_56_in_ruleProtectionLevelType5975); 
 
                             current = grammarAccess.getProtectionLevelTypeAccess().getL6EnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_6, grammarAccess.getProtectionLevelTypeAccess().getL6EnumLiteralDeclaration_6()); 
@@ -5935,7 +5935,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2487:6: (enumLiteral_7= 'L7' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2487:8: enumLiteral_7= 'L7'
                     {
-                    enumLiteral_7=(Token)match(input,57,FollowSets002.FOLLOW_57_in_ruleProtectionLevelType5992); 
+                    enumLiteral_7=(Token)match(input,57,FollowSets000.FOLLOW_57_in_ruleProtectionLevelType5992); 
 
                             current = grammarAccess.getProtectionLevelTypeAccess().getL7EnumLiteralDeclaration_7().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_7, grammarAccess.getProtectionLevelTypeAccess().getL7EnumLiteralDeclaration_7()); 
@@ -5952,7 +5952,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2493:6: (enumLiteral_8= 'L8' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2493:8: enumLiteral_8= 'L8'
                     {
-                    enumLiteral_8=(Token)match(input,58,FollowSets002.FOLLOW_58_in_ruleProtectionLevelType6009); 
+                    enumLiteral_8=(Token)match(input,58,FollowSets000.FOLLOW_58_in_ruleProtectionLevelType6009); 
 
                             current = grammarAccess.getProtectionLevelTypeAccess().getL8EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_8, grammarAccess.getProtectionLevelTypeAccess().getL8EnumLiteralDeclaration_8()); 
@@ -6095,7 +6095,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2506:2: (enumLiteral_0= 'Name' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2506:4: enumLiteral_0= 'Name'
                     {
-                    enumLiteral_0=(Token)match(input,13,FollowSets002.FOLLOW_13_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6054); 
+                    enumLiteral_0=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6054); 
 
                             current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getNAMEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getNAMEEnumLiteralDeclaration_0()); 
@@ -6112,7 +6112,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2512:6: (enumLiteral_1= 'System' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2512:8: enumLiteral_1= 'System'
                     {
-                    enumLiteral_1=(Token)match(input,59,FollowSets002.FOLLOW_59_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6071); 
+                    enumLiteral_1=(Token)match(input,59,FollowSets000.FOLLOW_59_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6071); 
 
                             current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getSYSTEMEnumLiteralDeclaration_1()); 
@@ -6129,7 +6129,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2518:6: (enumLiteral_2= 'SubAta' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2518:8: enumLiteral_2= 'SubAta'
                     {
-                    enumLiteral_2=(Token)match(input,60,FollowSets002.FOLLOW_60_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6088); 
+                    enumLiteral_2=(Token)match(input,60,FollowSets000.FOLLOW_60_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6088); 
 
                             current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getSUBATAEnumLiteralDeclaration_2()); 
@@ -6146,7 +6146,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2524:6: (enumLiteral_3= 'LineName' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2524:8: enumLiteral_3= 'LineName'
                     {
-                    enumLiteral_3=(Token)match(input,61,FollowSets002.FOLLOW_61_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6105); 
+                    enumLiteral_3=(Token)match(input,61,FollowSets000.FOLLOW_61_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6105); 
 
                             current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getLINENAMEEnumLiteralDeclaration_3()); 
@@ -6163,7 +6163,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2530:6: (enumLiteral_4= 'WiringLane' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2530:8: enumLiteral_4= 'WiringLane'
                     {
-                    enumLiteral_4=(Token)match(input,62,FollowSets002.FOLLOW_62_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6122); 
+                    enumLiteral_4=(Token)match(input,62,FollowSets000.FOLLOW_62_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6122); 
 
                             current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_4, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getWIRINGLANEEnumLiteralDeclaration_4()); 
@@ -6180,7 +6180,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2536:6: (enumLiteral_5= 'GrpInfo' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2536:8: enumLiteral_5= 'GrpInfo'
                     {
-                    enumLiteral_5=(Token)match(input,63,FollowSets002.FOLLOW_63_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6139); 
+                    enumLiteral_5=(Token)match(input,63,FollowSets000.FOLLOW_63_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6139); 
 
                             current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_5, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getGRPINFOEnumLiteralDeclaration_5()); 
@@ -6197,7 +6197,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2542:6: (enumLiteral_6= 'Route' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2542:8: enumLiteral_6= 'Route'
                     {
-                    enumLiteral_6=(Token)match(input,64,FollowSets002.FOLLOW_64_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6156); 
+                    enumLiteral_6=(Token)match(input,64,FollowSets000.FOLLOW_64_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6156); 
 
                             current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_6, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getROUTEEnumLiteralDeclaration_6()); 
@@ -6214,7 +6214,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2548:6: (enumLiteral_7= 'PwSup1' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2548:8: enumLiteral_7= 'PwSup1'
                     {
-                    enumLiteral_7=(Token)match(input,65,FollowSets002.FOLLOW_65_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6173); 
+                    enumLiteral_7=(Token)match(input,65,FollowSets000.FOLLOW_65_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6173); 
 
                             current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_7().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_7, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getPWSUP1EnumLiteralDeclaration_7()); 
@@ -6231,7 +6231,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2554:6: (enumLiteral_8= 'EmhZone1' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2554:8: enumLiteral_8= 'EmhZone1'
                     {
-                    enumLiteral_8=(Token)match(input,66,FollowSets002.FOLLOW_66_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6190); 
+                    enumLiteral_8=(Token)match(input,66,FollowSets000.FOLLOW_66_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6190); 
 
                             current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_8, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getEMHZONE1EnumLiteralDeclaration_8()); 
@@ -6248,7 +6248,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2560:6: (enumLiteral_9= 'Type' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2560:8: enumLiteral_9= 'Type'
                     {
-                    enumLiteral_9=(Token)match(input,33,FollowSets002.FOLLOW_33_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6207); 
+                    enumLiteral_9=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6207); 
 
                             current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_9, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getIOTYPEEnumLiteralDeclaration_9()); 
@@ -6265,7 +6265,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2566:6: (enumLiteral_10= 'Resource' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2566:8: enumLiteral_10= 'Resource'
                     {
-                    enumLiteral_10=(Token)match(input,67,FollowSets002.FOLLOW_67_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6224); 
+                    enumLiteral_10=(Token)match(input,67,FollowSets000.FOLLOW_67_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6224); 
 
                             current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_10, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCEEnumLiteralDeclaration_10()); 
@@ -6282,7 +6282,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2572:6: (enumLiteral_11= 'ResourceX' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2572:8: enumLiteral_11= 'ResourceX'
                     {
-                    enumLiteral_11=(Token)match(input,36,FollowSets002.FOLLOW_36_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6241); 
+                    enumLiteral_11=(Token)match(input,36,FollowSets000.FOLLOW_36_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6241); 
 
                             current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCE_XEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_11, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCE_XEnumLiteralDeclaration_11()); 
@@ -6299,7 +6299,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2578:6: (enumLiteral_12= 'ResourceY' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2578:8: enumLiteral_12= 'ResourceY'
                     {
-                    enumLiteral_12=(Token)match(input,37,FollowSets002.FOLLOW_37_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6258); 
+                    enumLiteral_12=(Token)match(input,37,FollowSets000.FOLLOW_37_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6258); 
 
                             current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCE_YEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_12, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCE_YEnumLiteralDeclaration_12()); 
@@ -6316,7 +6316,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2584:6: (enumLiteral_13= 'ResourceZ' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2584:8: enumLiteral_13= 'ResourceZ'
                     {
-                    enumLiteral_13=(Token)match(input,38,FollowSets002.FOLLOW_38_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6275); 
+                    enumLiteral_13=(Token)match(input,38,FollowSets000.FOLLOW_38_in_ruleImplicitEqInterfaceMemberDefinitionAttribute6275); 
 
                             current = grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCE_ZEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_13, grammarAccess.getImplicitEqInterfaceMemberDefinitionAttributeAccess().getRESOURCE_ZEnumLiteralDeclaration_13()); 
@@ -6393,7 +6393,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2597:2: (enumLiteral_0= 'Compartment' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2597:4: enumLiteral_0= 'Compartment'
                     {
-                    enumLiteral_0=(Token)match(input,27,FollowSets002.FOLLOW_27_in_ruleHardwareArchitectureLevelType6320); 
+                    enumLiteral_0=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleHardwareArchitectureLevelType6320); 
 
                             current = grammarAccess.getHardwareArchitectureLevelTypeAccess().getCOMPARTMENTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getHardwareArchitectureLevelTypeAccess().getCOMPARTMENTEnumLiteralDeclaration_0()); 
@@ -6410,7 +6410,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2603:6: (enumLiteral_1= 'RDC' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2603:8: enumLiteral_1= 'RDC'
                     {
-                    enumLiteral_1=(Token)match(input,32,FollowSets002.FOLLOW_32_in_ruleHardwareArchitectureLevelType6337); 
+                    enumLiteral_1=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleHardwareArchitectureLevelType6337); 
 
                             current = grammarAccess.getHardwareArchitectureLevelTypeAccess().getRDCEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getHardwareArchitectureLevelTypeAccess().getRDCEnumLiteralDeclaration_1()); 
@@ -6427,7 +6427,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2609:6: (enumLiteral_2= 'Connector' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2609:8: enumLiteral_2= 'Connector'
                     {
-                    enumLiteral_2=(Token)match(input,42,FollowSets002.FOLLOW_42_in_ruleHardwareArchitectureLevelType6354); 
+                    enumLiteral_2=(Token)match(input,42,FollowSets000.FOLLOW_42_in_ruleHardwareArchitectureLevelType6354); 
 
                             current = grammarAccess.getHardwareArchitectureLevelTypeAccess().getCONNECTOREnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getHardwareArchitectureLevelTypeAccess().getCONNECTOREnumLiteralDeclaration_2()); 
@@ -6576,7 +6576,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2622:2: (enumLiteral_0= 'Compartment.Name' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2622:4: enumLiteral_0= 'Compartment.Name'
                     {
-                    enumLiteral_0=(Token)match(input,68,FollowSets002.FOLLOW_68_in_ruleDeploymentImplicitDefinitionAttribute6399); 
+                    enumLiteral_0=(Token)match(input,68,FollowSets000.FOLLOW_68_in_ruleDeploymentImplicitDefinitionAttribute6399); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCOMPARTMENT_NAMEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCOMPARTMENT_NAMEEnumLiteralDeclaration_0()); 
@@ -6593,7 +6593,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2628:6: (enumLiteral_1= 'Compartment.Manufacturer' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2628:8: enumLiteral_1= 'Compartment.Manufacturer'
                     {
-                    enumLiteral_1=(Token)match(input,69,FollowSets002.FOLLOW_69_in_ruleDeploymentImplicitDefinitionAttribute6416); 
+                    enumLiteral_1=(Token)match(input,69,FollowSets000.FOLLOW_69_in_ruleDeploymentImplicitDefinitionAttribute6416); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCOMPARTMENT_MANUFACTUREREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCOMPARTMENT_MANUFACTUREREnumLiteralDeclaration_1()); 
@@ -6610,7 +6610,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2634:6: (enumLiteral_2= 'Compartment.PowerSupply' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2634:8: enumLiteral_2= 'Compartment.PowerSupply'
                     {
-                    enumLiteral_2=(Token)match(input,70,FollowSets002.FOLLOW_70_in_ruleDeploymentImplicitDefinitionAttribute6433); 
+                    enumLiteral_2=(Token)match(input,70,FollowSets000.FOLLOW_70_in_ruleDeploymentImplicitDefinitionAttribute6433); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCOMPARTMENT_POWERSUPPLYEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCOMPARTMENT_POWERSUPPLYEnumLiteralDeclaration_2()); 
@@ -6627,7 +6627,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2640:6: (enumLiteral_3= 'Compartment.Side' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2640:8: enumLiteral_3= 'Compartment.Side'
                     {
-                    enumLiteral_3=(Token)match(input,71,FollowSets002.FOLLOW_71_in_ruleDeploymentImplicitDefinitionAttribute6450); 
+                    enumLiteral_3=(Token)match(input,71,FollowSets000.FOLLOW_71_in_ruleDeploymentImplicitDefinitionAttribute6450); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCOMPARTMENT_SIDEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCOMPARTMENT_SIDEEnumLiteralDeclaration_3()); 
@@ -6644,7 +6644,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2646:6: (enumLiteral_4= 'Compartment.Zone' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2646:8: enumLiteral_4= 'Compartment.Zone'
                     {
-                    enumLiteral_4=(Token)match(input,72,FollowSets002.FOLLOW_72_in_ruleDeploymentImplicitDefinitionAttribute6467); 
+                    enumLiteral_4=(Token)match(input,72,FollowSets000.FOLLOW_72_in_ruleDeploymentImplicitDefinitionAttribute6467); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCOMPARTMENT_ZONEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_4, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCOMPARTMENT_ZONEEnumLiteralDeclaration_4()); 
@@ -6661,7 +6661,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2652:6: (enumLiteral_5= 'RDC.Name' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2652:8: enumLiteral_5= 'RDC.Name'
                     {
-                    enumLiteral_5=(Token)match(input,73,FollowSets002.FOLLOW_73_in_ruleDeploymentImplicitDefinitionAttribute6484); 
+                    enumLiteral_5=(Token)match(input,73,FollowSets000.FOLLOW_73_in_ruleDeploymentImplicitDefinitionAttribute6484); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_NAMEEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_5, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_NAMEEnumLiteralDeclaration_5()); 
@@ -6678,7 +6678,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2658:6: (enumLiteral_6= 'RDC.Manufacturer' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2658:8: enumLiteral_6= 'RDC.Manufacturer'
                     {
-                    enumLiteral_6=(Token)match(input,74,FollowSets002.FOLLOW_74_in_ruleDeploymentImplicitDefinitionAttribute6501); 
+                    enumLiteral_6=(Token)match(input,74,FollowSets000.FOLLOW_74_in_ruleDeploymentImplicitDefinitionAttribute6501); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_MANUFACTUREREnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_6, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_MANUFACTUREREnumLiteralDeclaration_6()); 
@@ -6695,7 +6695,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2664:6: (enumLiteral_7= 'RDC.PowerSupply' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2664:8: enumLiteral_7= 'RDC.PowerSupply'
                     {
-                    enumLiteral_7=(Token)match(input,75,FollowSets002.FOLLOW_75_in_ruleDeploymentImplicitDefinitionAttribute6518); 
+                    enumLiteral_7=(Token)match(input,75,FollowSets000.FOLLOW_75_in_ruleDeploymentImplicitDefinitionAttribute6518); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_POWERSUPPLYEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_7, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_POWERSUPPLYEnumLiteralDeclaration_7()); 
@@ -6712,7 +6712,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2670:6: (enumLiteral_8= 'RDC.Side' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2670:8: enumLiteral_8= 'RDC.Side'
                     {
-                    enumLiteral_8=(Token)match(input,76,FollowSets002.FOLLOW_76_in_ruleDeploymentImplicitDefinitionAttribute6535); 
+                    enumLiteral_8=(Token)match(input,76,FollowSets000.FOLLOW_76_in_ruleDeploymentImplicitDefinitionAttribute6535); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_SIDEEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_8, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_SIDEEnumLiteralDeclaration_8()); 
@@ -6729,7 +6729,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2676:6: (enumLiteral_9= 'RDC.Type' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2676:8: enumLiteral_9= 'RDC.Type'
                     {
-                    enumLiteral_9=(Token)match(input,77,FollowSets002.FOLLOW_77_in_ruleDeploymentImplicitDefinitionAttribute6552); 
+                    enumLiteral_9=(Token)match(input,77,FollowSets000.FOLLOW_77_in_ruleDeploymentImplicitDefinitionAttribute6552); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_TYPEEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_9, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_TYPEEnumLiteralDeclaration_9()); 
@@ -6746,7 +6746,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2682:6: (enumLiteral_10= 'RDC.ESS' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2682:8: enumLiteral_10= 'RDC.ESS'
                     {
-                    enumLiteral_10=(Token)match(input,78,FollowSets002.FOLLOW_78_in_ruleDeploymentImplicitDefinitionAttribute6569); 
+                    enumLiteral_10=(Token)match(input,78,FollowSets000.FOLLOW_78_in_ruleDeploymentImplicitDefinitionAttribute6569); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_ESSEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_10, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_ESSEnumLiteralDeclaration_10()); 
@@ -6763,7 +6763,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2688:6: (enumLiteral_11= 'RDC.ResourceX' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2688:8: enumLiteral_11= 'RDC.ResourceX'
                     {
-                    enumLiteral_11=(Token)match(input,79,FollowSets002.FOLLOW_79_in_ruleDeploymentImplicitDefinitionAttribute6586); 
+                    enumLiteral_11=(Token)match(input,79,FollowSets000.FOLLOW_79_in_ruleDeploymentImplicitDefinitionAttribute6586); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_RESOURCE_XEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_11, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_RESOURCE_XEnumLiteralDeclaration_11()); 
@@ -6780,7 +6780,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2694:6: (enumLiteral_12= 'RDC.ResourceY' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2694:8: enumLiteral_12= 'RDC.ResourceY'
                     {
-                    enumLiteral_12=(Token)match(input,80,FollowSets002.FOLLOW_80_in_ruleDeploymentImplicitDefinitionAttribute6603); 
+                    enumLiteral_12=(Token)match(input,80,FollowSets000.FOLLOW_80_in_ruleDeploymentImplicitDefinitionAttribute6603); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_RESOURCE_YEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_12, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_RESOURCE_YEnumLiteralDeclaration_12()); 
@@ -6797,7 +6797,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2700:6: (enumLiteral_13= 'RDC.ResourceZ' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2700:8: enumLiteral_13= 'RDC.ResourceZ'
                     {
-                    enumLiteral_13=(Token)match(input,81,FollowSets002.FOLLOW_81_in_ruleDeploymentImplicitDefinitionAttribute6620); 
+                    enumLiteral_13=(Token)match(input,81,FollowSets000.FOLLOW_81_in_ruleDeploymentImplicitDefinitionAttribute6620); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_RESOURCE_ZEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_13, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getRDC_RESOURCE_ZEnumLiteralDeclaration_13()); 
@@ -6814,7 +6814,7 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2706:6: (enumLiteral_14= 'Connector.Name' )
                     // ../ch.hilbri.assist.mappingdsl/src-gen/ch/hilbri/assist/mappingdsl/parser/antlr/internal/InternalMappingDSL.g:2706:8: enumLiteral_14= 'Connector.Name'
                     {
-                    enumLiteral_14=(Token)match(input,82,FollowSets002.FOLLOW_82_in_ruleDeploymentImplicitDefinitionAttribute6637); 
+                    enumLiteral_14=(Token)match(input,82,FollowSets000.FOLLOW_82_in_ruleDeploymentImplicitDefinitionAttribute6637); 
 
                             current = grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCONNECTOR_NAMEEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_14, grammarAccess.getDeploymentImplicitDefinitionAttributeAccess().getCONNECTOR_NAMEEnumLiteralDeclaration_14()); 
@@ -7059,9 +7059,6 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_12_in_ruleRDC2805 = new BitSet(new long[]{0x000014FFF0000000L});
         public static final BitSet FOLLOW_28_in_ruleRDC2863 = new BitSet(new long[]{0x0000000000004000L});
         public static final BitSet FOLLOW_14_in_ruleRDC2875 = new BitSet(new long[]{0x0000000000000010L});
-    }
-
-    private static class FollowSets001 {
         public static final BitSet FOLLOW_RULE_STRING_in_ruleRDC2892 = new BitSet(new long[]{0x0000000000008000L});
         public static final BitSet FOLLOW_15_in_ruleRDC2909 = new BitSet(new long[]{0x000014FFF0010000L});
         public static final BitSet FOLLOW_29_in_ruleRDC2977 = new BitSet(new long[]{0x0000000000004000L});
@@ -7162,9 +7159,6 @@ public class InternalMappingDSLParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_ruleDeploymentImplicitDefinitionAttribute_in_ruleDeploymentImplicitDefinitionAttributeAndValue5407 = new BitSet(new long[]{0x0000000000004000L});
         public static final BitSet FOLLOW_14_in_ruleDeploymentImplicitDefinitionAttributeAndValue5419 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_RULE_STRING_in_ruleDeploymentImplicitDefinitionAttributeAndValue5436 = new BitSet(new long[]{0x0000000000000002L});
-    }
-
-    private static class FollowSets002 {
         public static final BitSet FOLLOW_ruleDouble_in_entryRuleDouble5478 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleDouble5489 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_RULE_INT_in_ruleDouble5530 = new BitSet(new long[]{0x0001000000000040L});

@@ -40,7 +40,7 @@ class ImprovedColocalitiesConstraint extends AbstractMappingConstraint {
 			if (r.hardwareLevel == HardwareArchitectureLevelType.CONNECTOR) {
 	
 				// Get a list of connectors having sufficient IO interfaces
-				val validConnectors = model.allConnectors.filter[
+				val validConnectors = model.connectors.filter[
 					val availCapacitiesPerIoType = it.getAvailableEqInterfaces(new BasicEList<String>(requestedIoTypes)).toList
 					val remainingCapacitiesPerIoType = availCapacitiesPerIoType.map[it - reqCapacitiesPerIoType.get(availCapacitiesPerIoType.indexOf(it))]	
 					
@@ -48,7 +48,7 @@ class ImprovedColocalitiesConstraint extends AbstractMappingConstraint {
 					else 										false 					
 				]
 				
-				val validConnectorsIndizes = validConnectors.map[model.allConnectors.indexOf(it)]
+				val validConnectorsIndizes = validConnectors.map[model.connectors.indexOf(it)]
 				
 				for (iface : r.allInterfaces) {
 					val ifaceVar = solverVariables.getEqInterfaceLocationVariable(iface, 0)
@@ -61,7 +61,7 @@ class ImprovedColocalitiesConstraint extends AbstractMappingConstraint {
 			else if (r.hardwareLevel == HardwareArchitectureLevelType.RDC) {
 				
 				// Get a list of RDCs having sufficient IO interfaces
-				val validRDCs = model.allRDCs.filter[
+				val validRDCs = model.RDCs.filter[
 					val availCapacitiesPerIoType = it.getAvailableEqInterfaces(new BasicEList<String>(requestedIoTypes)).toList
 					val remainingCapacitiesPerIoType = availCapacitiesPerIoType.map[it - reqCapacitiesPerIoType.get(availCapacitiesPerIoType.indexOf(it))]	
 					
@@ -69,7 +69,7 @@ class ImprovedColocalitiesConstraint extends AbstractMappingConstraint {
 					else 										false 					
 				]
 				
-				val validRDCIndizes = validRDCs.map[model.allRDCs.indexOf(it)]
+				val validRDCIndizes = validRDCs.map[model.RDCs.indexOf(it)]
 				
 				for (iface : r.allInterfaces) {
 					val ifaceVar = solverVariables.getEqInterfaceLocationVariable(iface, 1)
@@ -90,7 +90,7 @@ class ImprovedColocalitiesConstraint extends AbstractMappingConstraint {
 					else 										false 					
 				]
 				
-				val validCompartmentIndizes = validCompartments.map[model.allCompartments.indexOf(it)]
+				val validCompartmentIndizes = validCompartments.map[model.compartments.indexOf(it)]
 				
 				for (iface : r.allInterfaces) {
 					val ifaceVar = solverVariables.getEqInterfaceLocationVariable(iface, 2)

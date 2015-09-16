@@ -77,9 +77,9 @@ InterfaceGroups {
 		val r = allResults.get(0)
 		
 		// Compartment
-		assertEquals(1, r.model.allCompartments.size)
-		assertTrue(r.model.allCompartments.get(0) instanceof Compartment)
-		val c = r.model.allCompartments.get(0) as Compartment
+		assertEquals(1, r.model.compartments.size)
+		assertTrue(r.model.compartments.get(0) instanceof Compartment)
+		val c = r.model.compartments.get(0) as Compartment
 		assertEquals("C1", c.name)
 			
 		// RDC
@@ -106,7 +106,7 @@ InterfaceGroups {
 		val r = allResults.get(0)
 		
 		// connector view
-		val connector = r.model.allConnectors.get(0)
+		val connector = r.model.connectors.get(0)
 		val mapped = r.getAllMappedEqInterfacesForConnector(connector)
 		assertEquals(2, mapped.size)
 		for (iface : mapped)

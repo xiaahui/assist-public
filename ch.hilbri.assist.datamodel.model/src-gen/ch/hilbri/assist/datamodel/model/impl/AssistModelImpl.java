@@ -5,20 +5,26 @@ package ch.hilbri.assist.datamodel.model.impl;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.CableWeightDataBlock;
 import ch.hilbri.assist.datamodel.model.CableWeightEntry;
+import ch.hilbri.assist.datamodel.model.ColocalityRelation;
 import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.CompartmentsBlock;
 import ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry;
 import ch.hilbri.assist.datamodel.model.CompatibleIoTypesBlock;
 import ch.hilbri.assist.datamodel.model.Connector;
+import ch.hilbri.assist.datamodel.model.DislocalityRelation;
+import ch.hilbri.assist.datamodel.model.EqInterface;
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
 import ch.hilbri.assist.datamodel.model.GlobalBlock;
 import ch.hilbri.assist.datamodel.model.HardwareElement;
 import ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock;
 import ch.hilbri.assist.datamodel.model.InterfacesBlock;
+import ch.hilbri.assist.datamodel.model.InvalidDeployment;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelEntry;
 import ch.hilbri.assist.datamodel.model.RDC;
 import ch.hilbri.assist.datamodel.model.RestrictionsBlock;
+import ch.hilbri.assist.datamodel.model.ValidDeployment;
 
 import com.google.common.collect.Iterables;
 
@@ -349,92 +355,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Compartment> getAllCompartments() {
-		CompartmentsBlock _compartmentsBlock = this.getCompartmentsBlock();
-		return _compartmentsBlock.getCompartments();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RDC> getAllRDCs() {
-		EList<Compartment> _allCompartments = this.getAllCompartments();
-		final Function1<Compartment, EList<RDC>> _function = new Function1<Compartment, EList<RDC>>() {
-			public EList<RDC> apply(final Compartment it) {
-				return it.getRdcs();
-			}
-		};
-		EList<EList<RDC>> _map = XcoreEListExtensions.<Compartment, EList<RDC>>map(_allCompartments, _function);
-		Iterable<RDC> _flatten = Iterables.<RDC>concat(_map);
-		return ECollections.<RDC>toEList(_flatten);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Connector> getAllConnectors() {
-		EList<RDC> _allRDCs = this.getAllRDCs();
-		final Function1<RDC, EList<Connector>> _function = new Function1<RDC, EList<Connector>>() {
-			public EList<Connector> apply(final RDC it) {
-				return it.getConnectors();
-			}
-		};
-		EList<EList<Connector>> _map = XcoreEListExtensions.<RDC, EList<Connector>>map(_allRDCs, _function);
-		Iterable<Connector> _flatten = Iterables.<Connector>concat(_map);
-		return ECollections.<Connector>toEList(_flatten);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<HardwareElement> getAllHardwareElements(final int level) {
-		if ((level == 0)) {
-			EList<Connector> _allConnectors = this.getAllConnectors();
-			final Function1<Connector, HardwareElement> _function = new Function1<Connector, HardwareElement>() {
-				public HardwareElement apply(final Connector it) {
-					return ((HardwareElement) it);
-				}
-			};
-			return XcoreEListExtensions.<Connector, HardwareElement>map(_allConnectors, _function);
-		}
-		else {
-			if ((level == 1)) {
-				EList<RDC> _allRDCs = this.getAllRDCs();
-				final Function1<RDC, HardwareElement> _function_1 = new Function1<RDC, HardwareElement>() {
-					public HardwareElement apply(final RDC it) {
-						return ((HardwareElement) it);
-					}
-				};
-				return XcoreEListExtensions.<RDC, HardwareElement>map(_allRDCs, _function_1);
-			}
-			else {
-				if ((level == 2)) {
-					EList<Compartment> _allCompartments = this.getAllCompartments();
-					final Function1<Compartment, HardwareElement> _function_2 = new Function1<Compartment, HardwareElement>() {
-						public HardwareElement apply(final Compartment it) {
-							return ((HardwareElement) it);
-						}
-					};
-					return XcoreEListExtensions.<Compartment, HardwareElement>map(_allCompartments, _function_2);
-				}
-				else {
-					return null;
-				}
-			}
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getSystemName() {
 		GlobalBlock _globalBlock = this.getGlobalBlock();
 		return _globalBlock.getSystemName();
@@ -471,6 +391,152 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 		GlobalBlock _globalBlock = this.getGlobalBlock();
 		ProtectionLevelDataBlock _protectionLevelDataBlock = _globalBlock.getProtectionLevelDataBlock();
 		return _protectionLevelDataBlock.getProtectionLevelEntries();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Compartment> getCompartments() {
+		CompartmentsBlock _compartmentsBlock = this.getCompartmentsBlock();
+		return _compartmentsBlock.getCompartments();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RDC> getRDCs() {
+		EList<Compartment> _compartments = this.getCompartments();
+		final Function1<Compartment, EList<RDC>> _function = new Function1<Compartment, EList<RDC>>() {
+			public EList<RDC> apply(final Compartment it) {
+				return it.getRdcs();
+			}
+		};
+		EList<EList<RDC>> _map = XcoreEListExtensions.<Compartment, EList<RDC>>map(_compartments, _function);
+		Iterable<RDC> _flatten = Iterables.<RDC>concat(_map);
+		return ECollections.<RDC>toEList(_flatten);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Connector> getConnectors() {
+		EList<RDC> _rDCs = this.getRDCs();
+		final Function1<RDC, EList<Connector>> _function = new Function1<RDC, EList<Connector>>() {
+			public EList<Connector> apply(final RDC it) {
+				return it.getConnectors();
+			}
+		};
+		EList<EList<Connector>> _map = XcoreEListExtensions.<RDC, EList<Connector>>map(_rDCs, _function);
+		Iterable<Connector> _flatten = Iterables.<Connector>concat(_map);
+		return ECollections.<Connector>toEList(_flatten);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EqInterface> getEqInterfaces() {
+		InterfacesBlock _interfacesBlock = this.getInterfacesBlock();
+		return _interfacesBlock.getEqInterfaces();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EqInterfaceGroup> getEqInterfaceGroups() {
+		InterfaceGroupsBlock _interfaceGroupsBlock = this.getInterfaceGroupsBlock();
+		return _interfaceGroupsBlock.getEqInterfaceGroups();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ColocalityRelation> getColocalityRelations() {
+		RestrictionsBlock _restrictionsBlock = this.getRestrictionsBlock();
+		return _restrictionsBlock.getColocalityRelations();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DislocalityRelation> getDislocalityRelations() {
+		RestrictionsBlock _restrictionsBlock = this.getRestrictionsBlock();
+		return _restrictionsBlock.getDislocalityRelations();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ValidDeployment> getValidDeployments() {
+		RestrictionsBlock _restrictionsBlock = this.getRestrictionsBlock();
+		return _restrictionsBlock.getValidDeployments();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<InvalidDeployment> getInvalidDeployments() {
+		RestrictionsBlock _restrictionsBlock = this.getRestrictionsBlock();
+		return _restrictionsBlock.getInvalidDeployments();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<HardwareElement> getAllHardwareElements(final int level) {
+		if ((level == 0)) {
+			EList<Connector> _connectors = this.getConnectors();
+			final Function1<Connector, HardwareElement> _function = new Function1<Connector, HardwareElement>() {
+				public HardwareElement apply(final Connector it) {
+					return ((HardwareElement) it);
+				}
+			};
+			return XcoreEListExtensions.<Connector, HardwareElement>map(_connectors, _function);
+		}
+		else {
+			if ((level == 1)) {
+				EList<RDC> _rDCs = this.getRDCs();
+				final Function1<RDC, HardwareElement> _function_1 = new Function1<RDC, HardwareElement>() {
+					public HardwareElement apply(final RDC it) {
+						return ((HardwareElement) it);
+					}
+				};
+				return XcoreEListExtensions.<RDC, HardwareElement>map(_rDCs, _function_1);
+			}
+			else {
+				if ((level == 2)) {
+					EList<Compartment> _compartments = this.getCompartments();
+					final Function1<Compartment, HardwareElement> _function_2 = new Function1<Compartment, HardwareElement>() {
+						public HardwareElement apply(final Compartment it) {
+							return ((HardwareElement) it);
+						}
+					};
+					return XcoreEListExtensions.<Compartment, HardwareElement>map(_compartments, _function_2);
+				}
+				else {
+					return null;
+				}
+			}
+		}
 	}
 
 	/**
@@ -601,14 +667,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ModelPackage.ASSIST_MODEL___GET_ALL_COMPARTMENTS:
-				return getAllCompartments();
-			case ModelPackage.ASSIST_MODEL___GET_ALL_RD_CS:
-				return getAllRDCs();
-			case ModelPackage.ASSIST_MODEL___GET_ALL_CONNECTORS:
-				return getAllConnectors();
-			case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT:
-				return getAllHardwareElements((Integer)arguments.get(0));
 			case ModelPackage.ASSIST_MODEL___GET_SYSTEM_NAME:
 				return getSystemName();
 			case ModelPackage.ASSIST_MODEL___GET_COMPATIBLE_IO_TYPES:
@@ -617,6 +675,26 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getCableWeightData();
 			case ModelPackage.ASSIST_MODEL___GET_PROTECTION_LEVEL_DATA:
 				return getProtectionLevelData();
+			case ModelPackage.ASSIST_MODEL___GET_COMPARTMENTS:
+				return getCompartments();
+			case ModelPackage.ASSIST_MODEL___GET_RD_CS:
+				return getRDCs();
+			case ModelPackage.ASSIST_MODEL___GET_CONNECTORS:
+				return getConnectors();
+			case ModelPackage.ASSIST_MODEL___GET_EQ_INTERFACES:
+				return getEqInterfaces();
+			case ModelPackage.ASSIST_MODEL___GET_EQ_INTERFACE_GROUPS:
+				return getEqInterfaceGroups();
+			case ModelPackage.ASSIST_MODEL___GET_COLOCALITY_RELATIONS:
+				return getColocalityRelations();
+			case ModelPackage.ASSIST_MODEL___GET_DISLOCALITY_RELATIONS:
+				return getDislocalityRelations();
+			case ModelPackage.ASSIST_MODEL___GET_VALID_DEPLOYMENTS:
+				return getValidDeployments();
+			case ModelPackage.ASSIST_MODEL___GET_INVALID_DEPLOYMENTS:
+				return getInvalidDeployments();
+			case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT:
+				return getAllHardwareElements((Integer)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

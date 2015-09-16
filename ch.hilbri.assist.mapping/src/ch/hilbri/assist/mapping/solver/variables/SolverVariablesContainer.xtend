@@ -39,17 +39,17 @@ import org.eclipse.xtend.lib.annotations.Data
 			val l = new ArrayList<IntVar>
 			
 			// Connector Level (index 0)
-			val ifaceLocVarCon = VF.enumerated("Loc-" + iface.name + "-Connector", 0, model.allConnectors.length-1, solver) 
+			val ifaceLocVarCon = VF.enumerated("Loc-" + iface.name + "-Connector", 0, model.connectors.length-1, solver) 
 			l.add(ifaceLocVarCon)
 			locationVarMap.put(ifaceLocVarCon, iface)
 			
 			// RDC Level (index 1)
-			val ifaceLocVarRDC = VF.enumerated("Loc-" + iface.name + "-RDC", 0, model.allRDCs.length-1, solver) 
+			val ifaceLocVarRDC = VF.enumerated("Loc-" + iface.name + "-RDC", 0, model.RDCs.length-1, solver) 
 			l.add(ifaceLocVarRDC)
 			locationVarMap.put(ifaceLocVarRDC, iface)
 			
 			// Compartment Level (index 2)
-			val ifaceLocVarComp = VF.enumerated("Loc-" + iface.name + "-Compartment", 0, model.allCompartments.length-1, solver)
+			val ifaceLocVarComp = VF.enumerated("Loc-" + iface.name + "-Compartment", 0, model.compartments.length-1, solver)
 			l.add(ifaceLocVarComp)
 			locationVarMap.put(ifaceLocVarComp, iface)
 			
@@ -64,7 +64,7 @@ import org.eclipse.xtend.lib.annotations.Data
 			}
 		}
 
-		this.optVars = #[VF.bounded("UsedRDCCount", 0, model.allRDCs.length, solver),
+		this.optVars = #[VF.bounded("UsedRDCCount", 0, model.RDCs.length, solver),
 						 VF.bounded("TotalCableLength", 0, Integer.MAX_VALUE / 2, solver)]
 	}
 	

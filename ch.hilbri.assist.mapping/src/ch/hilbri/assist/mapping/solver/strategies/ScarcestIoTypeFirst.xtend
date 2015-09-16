@@ -26,7 +26,7 @@ class ScarcestIoTypeFirst implements VariableSelector<IntVar>  {
 		
 		val availIoTypes = new HashMap<String, Integer>
 		
-		for (conn : model.allConnectors)
+		for (conn : model.connectors)
 			for (iface : conn.availableEqInterfaces)
 				if (availIoTypes.keySet.contains(iface.eqInterfaceType))
 					availIoTypes.put(iface.eqInterfaceType, availIoTypes.get(iface.eqInterfaceType) + iface.count)

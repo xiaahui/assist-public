@@ -29,7 +29,7 @@ class RDCWithShortestDistanceSelector implements IntValueSelector  {
      	
      	val equipment = solverVariables.getInterfaceForLocationVariable(variable)
      	
-     	connIndexList.sortBy[ val rdc = model.allConnectors.get(it).rdc
+     	connIndexList.sortBy[ val rdc = model.connectors.get(it).rdc
      						  Math.abs(equipment.resourceX - rdc.resourceX) +
 							  Math.abs(equipment.resourceY - rdc.resourceY) +
 							  Math.abs(equipment.resourceZ - rdc.resourceZ)  ]

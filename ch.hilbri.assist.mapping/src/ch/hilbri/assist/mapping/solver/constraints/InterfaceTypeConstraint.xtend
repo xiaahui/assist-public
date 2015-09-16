@@ -37,7 +37,7 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 			
 			
 			// How many interfaces of this type does each connector offer?
-			val interfaceSupplyPerConnector = model.allConnectors.map[
+			val interfaceSupplyPerConnector = model.connectors.map[
 													if (!availableEqInterfaces.filter[eqInterfaceType.equals(t)].isNullOrEmpty)
 														availableEqInterfaces.filter[eqInterfaceType.equals(t)].map[count].reduce[p1, p2|p1 + p2]
 													else 
@@ -66,7 +66,7 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 				// building allowed tuples 
 				val tuples = new Tuples(true) // true = valid tuples
 				var int pinIdx = 0
-				for (int connIdx : 0 ..< model.allConnectors.length) {
+				for (int connIdx : 0 ..< model.connectors.length) {
 					for (int pin : 0 ..< interfaceSupplyPerConnector.get(connIdx)) {
 						tuples.add(connIdx, pinIdx)
 						pinIdx++						

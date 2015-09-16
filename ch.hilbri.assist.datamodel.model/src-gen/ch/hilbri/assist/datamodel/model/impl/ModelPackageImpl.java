@@ -440,7 +440,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetAllCompartments() {
+	public EOperation getAssistModel__GetSystemName() {
 		return assistModelEClass.getEOperations().get(0);
 	}
 
@@ -449,7 +449,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetAllRDCs() {
+	public EOperation getAssistModel__GetCompatibleIoTypes() {
 		return assistModelEClass.getEOperations().get(1);
 	}
 
@@ -458,7 +458,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetAllConnectors() {
+	public EOperation getAssistModel__GetCableWeightData() {
 		return assistModelEClass.getEOperations().get(2);
 	}
 
@@ -467,7 +467,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetAllHardwareElements__int() {
+	public EOperation getAssistModel__GetProtectionLevelData() {
 		return assistModelEClass.getEOperations().get(3);
 	}
 
@@ -476,7 +476,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetSystemName() {
+	public EOperation getAssistModel__GetCompartments() {
 		return assistModelEClass.getEOperations().get(4);
 	}
 
@@ -485,7 +485,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetCompatibleIoTypes() {
+	public EOperation getAssistModel__GetRDCs() {
 		return assistModelEClass.getEOperations().get(5);
 	}
 
@@ -494,7 +494,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetCableWeightData() {
+	public EOperation getAssistModel__GetConnectors() {
 		return assistModelEClass.getEOperations().get(6);
 	}
 
@@ -503,8 +503,62 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetProtectionLevelData() {
+	public EOperation getAssistModel__GetEqInterfaces() {
 		return assistModelEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetEqInterfaceGroups() {
+		return assistModelEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetColocalityRelations() {
+		return assistModelEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetDislocalityRelations() {
+		return assistModelEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetValidDeployments() {
+		return assistModelEClass.getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetInvalidDeployments() {
+		return assistModelEClass.getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllHardwareElements__int() {
+		return assistModelEClass.getEOperations().get(13);
 	}
 
 	/**
@@ -1837,14 +1891,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(assistModelEClass, ASSIST_MODEL__INTERFACES_BLOCK);
 		createEReference(assistModelEClass, ASSIST_MODEL__INTERFACE_GROUPS_BLOCK);
 		createEReference(assistModelEClass, ASSIST_MODEL__RESTRICTIONS_BLOCK);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_COMPARTMENTS);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_RD_CS);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_CONNECTORS);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_SYSTEM_NAME);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_COMPATIBLE_IO_TYPES);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_CABLE_WEIGHT_DATA);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_PROTECTION_LEVEL_DATA);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_COMPARTMENTS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_RD_CS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_CONNECTORS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_EQ_INTERFACES);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_EQ_INTERFACE_GROUPS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_COLOCALITY_RELATIONS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_DISLOCALITY_RELATIONS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_VALID_DEPLOYMENTS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_INVALID_DEPLOYMENTS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT);
 
 		globalBlockEClass = createEClass(GLOBAL_BLOCK);
 		createEAttribute(globalBlockEClass, GLOBAL_BLOCK__SYSTEM_NAME);
@@ -2073,15 +2133,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getAssistModel_InterfaceGroupsBlock(), this.getInterfaceGroupsBlock(), null, "interfaceGroupsBlock", null, 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_RestrictionsBlock(), this.getRestrictionsBlock(), null, "restrictionsBlock", null, 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getAssistModel__GetAllCompartments(), this.getCompartment(), "getAllCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getAssistModel__GetAllRDCs(), this.getRDC(), "getAllRDCs", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getAssistModel__GetAllConnectors(), this.getConnector(), "getAllConnectors", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-		EOperation op = initEOperation(getAssistModel__GetAllHardwareElements__int(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcorePackage.getEInt(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
 		initEOperation(getAssistModel__GetSystemName(), theEcorePackage.getEString(), "getSystemName", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getAssistModel__GetCompatibleIoTypes(), this.getCompatibleIoTypeEntry(), "getCompatibleIoTypes", 0, -1, !IS_UNIQUE, IS_ORDERED);
@@ -2089,6 +2140,27 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEOperation(getAssistModel__GetCableWeightData(), this.getCableWeightEntry(), "getCableWeightData", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getAssistModel__GetProtectionLevelData(), this.getProtectionLevelEntry(), "getProtectionLevelData", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetCompartments(), this.getCompartment(), "getCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetRDCs(), this.getRDC(), "getRDCs", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetConnectors(), this.getConnector(), "getConnectors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetEqInterfaces(), this.getEqInterface(), "getEqInterfaces", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetEqInterfaceGroups(), this.getEqInterfaceGroup(), "getEqInterfaceGroups", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetColocalityRelations(), this.getColocalityRelation(), "getColocalityRelations", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetDislocalityRelations(), this.getDislocalityRelation(), "getDislocalityRelations", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetValidDeployments(), this.getValidDeployment(), "getValidDeployments", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetInvalidDeployments(), this.getInvalidDeployment(), "getInvalidDeployments", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		EOperation op = initEOperation(getAssistModel__GetAllHardwareElements__int(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEInt(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(globalBlockEClass, GlobalBlock.class, "GlobalBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGlobalBlock_SystemName(), theEcorePackage.getEString(), "systemName", "", 0, 1, GlobalBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

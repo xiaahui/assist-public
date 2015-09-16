@@ -37,7 +37,7 @@ class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 		for (types : allConnectedSetsFromGraph) {
 				
 				// How many pins of a compatible io type does each connector offer? (no protection level yet)	
-				val compatiblePinSupplyPerConnector = model.allConnectors.map[
+				val compatiblePinSupplyPerConnector = model.connectors.map[
 														if (!availableEqInterfaces.filter[eqInterfaceType.multipleEquals(types)].isNullOrEmpty)
 															 availableEqInterfaces.filter[eqInterfaceType.multipleEquals(types)].map[count].reduce[p1, p2|p1 + p2]
 														else 
@@ -50,7 +50,7 @@ class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 				val totalDemand 				= interfacesOfTypeIterator.length
 			
 				// How many pins are connected?
-				var connectedPinCount = model.allRDCs.map[connectedPins.filter[pins.get(0).eqInterfaceType.multipleEquals(types)]
+				var connectedPinCount = model.RDCs.map[connectedPins.filter[pins.get(0).eqInterfaceType.multipleEquals(types)]
 											                   .map[pins.length - 1]]
 															   .flatten
 															   .reduce[p1, p2|p1+p2]
@@ -71,7 +71,7 @@ class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 				// building allowed tuples 
 				val tuples = new Tuples(true) // true = valid tuples
 				var int pinIdx = 0
-				for (int connIdx : 0 ..< model.allConnectors.length) {
+				for (int connIdx : 0 ..< model.connectors.length) {
 					for (int pin : 0 ..< compatiblePinSupplyPerConnector.get(connIdx)) {
 						tuples.add(connIdx, pinIdx)
 						pinIdx++						
@@ -99,14 +99,14 @@ class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 				// Durchgeschaltete Pins (connected pins) BEGIN
 				
 				// Look at RDCs having a connected pins specification only
-				for (rdc : model.allRDCs.filter[!connectedPins.nullOrEmpty])
+				for (rdc : model.RDCs.filter[!connectedPins.nullOrEmpty])
 					
 					// Look at connected pin specifications which are contained in the current type selection
 					// ASSUMPTION: all pins within the same specification have an identical io type 
 					for (connPinEntry : rdc.connectedPins.filter[pins.get(0).eqInterfaceType.multipleEquals(types)]) {
 						
 						// which pins (indizes) are connected?
-						val indizes = model.allConnectors
+						val indizes = model.connectors
 												.filter[!availableEqInterfaces.filter[eqInterfaceType.multipleEquals(types)].isNullOrEmpty]
 												.map[availableEqInterfaces.filter[eqInterfaceType.multipleEquals(types)]
 																		  .map[ availEqIfaces | newArrayOfSize(availEqIfaces.count).map[availEqIfaces]]
@@ -137,7 +137,7 @@ class ConfigurablePinInterfaceTypeConstraint extends AbstractMappingConstraint {
 	
 	private def List<Integer> getValidPinIndizes(EqInterface iface, Set<String> types) {
 		
-		val validPins = model.allConnectors
+		val validPins = model.connectors
 								// Retrieve all connectors having at least one type compatible pin
 								.filter[!availableEqInterfaces.filter[eqInterfaceType.multipleEquals(types)].isNullOrEmpty]
 										

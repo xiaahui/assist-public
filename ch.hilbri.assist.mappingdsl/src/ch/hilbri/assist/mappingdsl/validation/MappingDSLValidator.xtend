@@ -111,7 +111,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 
 			var i = 0
 			for (pinType : entry.pinInterfaceIoTypes) {
-				if (model.allConnectors.filter[!availableEqInterfaces.filter[it.eqInterfaceType.equals(pinType)].isEmpty].
+				if (model.connectors.filter[!availableEqInterfaces.filter[it.eqInterfaceType.equals(pinType)].isEmpty].
 					isEmpty) {
 					warning(
 						"There is no connector with a pin of io type '" + pinType +

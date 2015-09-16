@@ -115,7 +115,7 @@ public class Runner {
 				final ArrayList<Result> results = solver.getResults();
 				System.out.println(results.size() + " solutions found.");
 				for (Result r: results) {
-					for (Connector c: r.getModel().getAllConnectors()) {
+					for (Connector c: r.getModel().getConnectors()) {
 						System.out.print(c.fullName() + " { ");
 						for (EqInterface i: r.getAllMappedEqInterfacesForConnector(c)) {
 							System.out.print(i.getName()+",");

@@ -23,23 +23,28 @@ class AssistModel {
 	contains RestrictionsBlock[0..1]		restrictionsBlock
 	
 	// Methods
+	op String					getSystemName()				{ globalBlock.systemName								}
+	op CompatibleIoTypeEntry[] 	getCompatibleIoTypes() 		{ globalBlock.compatibleIoTypesBlock.compatibleIoTypes	}
+	op CableWeightEntry[]  		getCableWeightData() 		{ globalBlock.cableWeightDataBlock.cableWeightEntries   }
+	op ProtectionLevelEntry[] 	getProtectionLevelData()	{ globalBlock.protectionLevelDataBlock.protectionLevelEntries 	}
+	op Compartment[] 			getCompartments() 			{ compartmentsBlock.compartments 						}
+	op RDC[] 					getRDCs() 					{ compartments.map[rdcs].flatten.toEList }
+	op Connector[] 				getConnectors() 			{ RDCs.map[connectors].flatten.toEList	}
+	op EqInterface[]			getEqInterfaces()			{ interfacesBlock.eqInterfaces }
+	op EqInterfaceGroup[]		getEqInterfaceGroups()		{ interfaceGroupsBlock.eqInterfaceGroups }
+	op ColocalityRelation[]		getColocalityRelations()	{ restrictionsBlock.colocalityRelations }
+	op DislocalityRelation[]	getDislocalityRelations()	{ restrictionsBlock.dislocalityRelations }
+	op ValidDeployment[]		getValidDeployments()		{ restrictionsBlock.validDeployments }
+	op InvalidDeployment[]		getInvalidDeployments()		{ restrictionsBlock.invalidDeployments }
 	
-	op Compartment[] getAllCompartments() 	{ compartmentsBlock.compartments }
-	op RDC[] getAllRDCs() 					{ allCompartments.map[rdcs].flatten.toEList }
-	op Connector[] getAllConnectors() 		{ allRDCs.map[connectors].flatten.toEList	}
 	op HardwareElement[] getAllHardwareElements(int level) {
-		if (level == 0) 		return allConnectors.map[it as HardwareElement]
-		else if (level == 1)	return allRDCs.map[it as HardwareElement]
-		else if (level == 2)	return allCompartments.map[it as HardwareElement]
+		if (level == 0) 		return connectors.map[it as HardwareElement]
+		else if (level == 1)	return RDCs.map[it as HardwareElement]
+		else if (level == 2)	return compartments.map[it as HardwareElement]
 		else return null
 	}
 	
-	// Shortcuts for backwards compatibility
 	
-	op String						getSystemName()				{ globalBlock.systemName								}
-	op CompatibleIoTypeEntry[*] 	getCompatibleIoTypes() 		{ globalBlock.compatibleIoTypesBlock.compatibleIoTypes	}
-	op CableWeightEntry[*]  		getCableWeightData() 		{ globalBlock.cableWeightDataBlock.cableWeightEntries   }
-	op ProtectionLevelEntry[*] 		getProtectionLevelData()	{ globalBlock.protectionLevelDataBlock.protectionLevelEntries 	}
 }
 
 /* *******************************************************************************
@@ -487,7 +492,7 @@ class DeploymentImplicitDefinition {
 	op Connector[] getImplicitlyDefinedConnectors() {
 		val list = new BasicEList<Connector>
 		val model = this.eContainer.eContainer as AssistModel
-		var Iterable<Connector> connectorList = model.allConnectors
+		var Iterable<Connector> connectorList = model.connectors
 	
 		for (entry : entries) {
 			switch (entry.attribute) {

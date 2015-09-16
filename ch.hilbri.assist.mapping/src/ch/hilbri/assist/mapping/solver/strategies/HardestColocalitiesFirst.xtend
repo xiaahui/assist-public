@@ -46,7 +46,7 @@ class HardestColocalitiesFirst implements VariableSelector<IntVar>, IntValueSele
 			val demand = colocDemand.get(repVar)
 			if (!repVar.instantiated) {
 				for (var int i = repVar.getLB(); i <= repVar.getUB(); i = repVar.nextValue(i)) {
-					val connector = model.allConnectors.get(i)
+					val connector = model.connectors.get(i)
 					var totalNeed = 0
 					var totalSupply = 0
 					for (ioType: demand.keySet) {

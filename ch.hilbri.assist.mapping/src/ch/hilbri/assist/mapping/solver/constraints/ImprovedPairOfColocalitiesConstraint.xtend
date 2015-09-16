@@ -63,7 +63,7 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 				
 					// Get a list of hardwareElements having sufficient IO interfaces
 					if (level == HardwareArchitectureLevelType.CONNECTOR) {
-						if (model.allConnectors
+						if (model.connectors
 								.filter[ // go through every Connector; how many interfaces does this Connector offer for these io types?
 										val availCapacitiesPerIoType = it.getAvailableEqInterfaces(new BasicEList<String>(requestedIoTypes)).toList
 					
@@ -86,7 +86,7 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 
 					// same as above
 					else if (level == HardwareArchitectureLevelType.RDC) {
-						if (model.allRDCs
+						if (model.RDCs
 								.filter[ val availCapacitiesPerIoType = it.getAvailableEqInterfaces(new BasicEList<String>(requestedIoTypes)).toList
 										 val remainingCapacitiesPerIoType = availCapacitiesPerIoType.map[it - reqCapacitiesPerIoType.get(availCapacitiesPerIoType.indexOf(it))]	
 										 remainingCapacitiesPerIoType.min >= 0]
@@ -99,7 +99,7 @@ class ImprovedPairOfColocalitiesConstraint extends AbstractMappingConstraint {
 					
 					// same as above
 					else if (level == HardwareArchitectureLevelType.COMPARTMENT) {
-						if (model.allCompartments
+						if (model.compartments
 								.filter[ val availCapacitiesPerIoType = it.getAvailableEqInterfaces(new BasicEList<String>(requestedIoTypes)).toList
 										 val remainingCapacitiesPerIoType = availCapacitiesPerIoType.map[it - reqCapacitiesPerIoType.get(availCapacitiesPerIoType.indexOf(it))]	
 										 remainingCapacitiesPerIoType.min >= 0]

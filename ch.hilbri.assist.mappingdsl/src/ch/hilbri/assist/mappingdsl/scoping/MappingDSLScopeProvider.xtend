@@ -22,7 +22,7 @@ class MappingDSLScopeProvider extends AbstractDeclarativeScopeProvider {
 
  	def scope_HardwareElement(AssistModel ctx, EReference ref) {
 		val list = newArrayList()
-		for (comp : ctx.allCompartments) {
+		for (comp : ctx.compartments) {
 			val compartment = comp as Compartment
 			list.add(compartment)
 			

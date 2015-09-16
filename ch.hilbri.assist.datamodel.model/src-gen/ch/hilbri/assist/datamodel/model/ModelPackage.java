@@ -125,49 +125,13 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL_FEATURE_COUNT = 5;
 
 	/**
-	 * The operation id for the '<em>Get All Compartments</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL___GET_ALL_COMPARTMENTS = 0;
-
-	/**
-	 * The operation id for the '<em>Get All RD Cs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL___GET_ALL_RD_CS = 1;
-
-	/**
-	 * The operation id for the '<em>Get All Connectors</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL___GET_ALL_CONNECTORS = 2;
-
-	/**
-	 * The operation id for the '<em>Get All Hardware Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = 3;
-
-	/**
 	 * The operation id for the '<em>Get System Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_SYSTEM_NAME = 4;
+	int ASSIST_MODEL___GET_SYSTEM_NAME = 0;
 
 	/**
 	 * The operation id for the '<em>Get Compatible Io Types</em>' operation.
@@ -176,7 +140,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_COMPATIBLE_IO_TYPES = 5;
+	int ASSIST_MODEL___GET_COMPATIBLE_IO_TYPES = 1;
 
 	/**
 	 * The operation id for the '<em>Get Cable Weight Data</em>' operation.
@@ -185,7 +149,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_CABLE_WEIGHT_DATA = 6;
+	int ASSIST_MODEL___GET_CABLE_WEIGHT_DATA = 2;
 
 	/**
 	 * The operation id for the '<em>Get Protection Level Data</em>' operation.
@@ -194,7 +158,97 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_PROTECTION_LEVEL_DATA = 7;
+	int ASSIST_MODEL___GET_PROTECTION_LEVEL_DATA = 3;
+
+	/**
+	 * The operation id for the '<em>Get Compartments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_COMPARTMENTS = 4;
+
+	/**
+	 * The operation id for the '<em>Get RD Cs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_RD_CS = 5;
+
+	/**
+	 * The operation id for the '<em>Get Connectors</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_CONNECTORS = 6;
+
+	/**
+	 * The operation id for the '<em>Get Eq Interfaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_EQ_INTERFACES = 7;
+
+	/**
+	 * The operation id for the '<em>Get Eq Interface Groups</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_EQ_INTERFACE_GROUPS = 8;
+
+	/**
+	 * The operation id for the '<em>Get Colocality Relations</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_COLOCALITY_RELATIONS = 9;
+
+	/**
+	 * The operation id for the '<em>Get Dislocality Relations</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_DISLOCALITY_RELATIONS = 10;
+
+	/**
+	 * The operation id for the '<em>Get Valid Deployments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_VALID_DEPLOYMENTS = 11;
+
+	/**
+	 * The operation id for the '<em>Get Invalid Deployments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_INVALID_DEPLOYMENTS = 12;
+
+	/**
+	 * The operation id for the '<em>Get All Hardware Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = 13;
 
 	/**
 	 * The number of operations of the '<em>Assist Model</em>' class.
@@ -203,7 +257,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_OPERATION_COUNT = 8;
+	int ASSIST_MODEL_OPERATION_COUNT = 14;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.GlobalBlockImpl <em>Global Block</em>}' class.
@@ -2414,46 +2468,6 @@ public interface ModelPackage extends EPackage {
 	EReference getAssistModel_RestrictionsBlock();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getAllCompartments() <em>Get All Compartments</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Compartments</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getAllCompartments()
-	 * @generated
-	 */
-	EOperation getAssistModel__GetAllCompartments();
-
-	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getAllRDCs() <em>Get All RD Cs</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All RD Cs</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getAllRDCs()
-	 * @generated
-	 */
-	EOperation getAssistModel__GetAllRDCs();
-
-	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getAllConnectors() <em>Get All Connectors</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Connectors</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getAllConnectors()
-	 * @generated
-	 */
-	EOperation getAssistModel__GetAllConnectors();
-
-	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getAllHardwareElements(int) <em>Get All Hardware Elements</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Hardware Elements</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getAllHardwareElements(int)
-	 * @generated
-	 */
-	EOperation getAssistModel__GetAllHardwareElements__int();
-
-	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getSystemName() <em>Get System Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2492,6 +2506,106 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getAssistModel__GetProtectionLevelData();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getCompartments() <em>Get Compartments</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Compartments</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getCompartments()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetCompartments();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getRDCs() <em>Get RD Cs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get RD Cs</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getRDCs()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetRDCs();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getConnectors() <em>Get Connectors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Connectors</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getConnectors()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetConnectors();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getEqInterfaces() <em>Get Eq Interfaces</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Eq Interfaces</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getEqInterfaces()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetEqInterfaces();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getEqInterfaceGroups() <em>Get Eq Interface Groups</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Eq Interface Groups</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getEqInterfaceGroups()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetEqInterfaceGroups();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getColocalityRelations() <em>Get Colocality Relations</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Colocality Relations</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getColocalityRelations()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetColocalityRelations();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getDislocalityRelations() <em>Get Dislocality Relations</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Dislocality Relations</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getDislocalityRelations()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetDislocalityRelations();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getValidDeployments() <em>Get Valid Deployments</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Valid Deployments</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getValidDeployments()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetValidDeployments();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getInvalidDeployments() <em>Get Invalid Deployments</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Invalid Deployments</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getInvalidDeployments()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetInvalidDeployments();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getAllHardwareElements(int) <em>Get All Hardware Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Hardware Elements</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getAllHardwareElements(int)
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllHardwareElements__int();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.GlobalBlock <em>Global Block</em>}'.
@@ -4091,38 +4205,6 @@ public interface ModelPackage extends EPackage {
 		EReference ASSIST_MODEL__RESTRICTIONS_BLOCK = eINSTANCE.getAssistModel_RestrictionsBlock();
 
 		/**
-		 * The meta object literal for the '<em><b>Get All Compartments</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ASSIST_MODEL___GET_ALL_COMPARTMENTS = eINSTANCE.getAssistModel__GetAllCompartments();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All RD Cs</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ASSIST_MODEL___GET_ALL_RD_CS = eINSTANCE.getAssistModel__GetAllRDCs();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Connectors</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ASSIST_MODEL___GET_ALL_CONNECTORS = eINSTANCE.getAssistModel__GetAllConnectors();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = eINSTANCE.getAssistModel__GetAllHardwareElements__int();
-
-		/**
 		 * The meta object literal for the '<em><b>Get System Name</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4153,6 +4235,86 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ASSIST_MODEL___GET_PROTECTION_LEVEL_DATA = eINSTANCE.getAssistModel__GetProtectionLevelData();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Compartments</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_COMPARTMENTS = eINSTANCE.getAssistModel__GetCompartments();
+
+		/**
+		 * The meta object literal for the '<em><b>Get RD Cs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_RD_CS = eINSTANCE.getAssistModel__GetRDCs();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Connectors</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_CONNECTORS = eINSTANCE.getAssistModel__GetConnectors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Eq Interfaces</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_EQ_INTERFACES = eINSTANCE.getAssistModel__GetEqInterfaces();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Eq Interface Groups</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_EQ_INTERFACE_GROUPS = eINSTANCE.getAssistModel__GetEqInterfaceGroups();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Colocality Relations</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_COLOCALITY_RELATIONS = eINSTANCE.getAssistModel__GetColocalityRelations();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Dislocality Relations</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_DISLOCALITY_RELATIONS = eINSTANCE.getAssistModel__GetDislocalityRelations();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Valid Deployments</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_VALID_DEPLOYMENTS = eINSTANCE.getAssistModel__GetValidDeployments();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Invalid Deployments</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_INVALID_DEPLOYMENTS = eINSTANCE.getAssistModel__GetInvalidDeployments();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = eINSTANCE.getAssistModel__GetAllHardwareElements__int();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.GlobalBlockImpl <em>Global Block</em>}' class.

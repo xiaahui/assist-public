@@ -32,14 +32,14 @@ class PowerSupplyConstraint extends AbstractMappingConstraint {
 				
 				/* Case: "DC1" or "DC2" */
 				if (!iface.pwSup1.matches('.* EMER'))
-					allowedRDCs = model.allRDCs.filter[it.powerSupply.equals(iface.pwSup1) ||
+					allowedRDCs = model.RDCs.filter[it.powerSupply.equals(iface.pwSup1) ||
 													   it.powerSupply.equals(iface.pwSup1  + " EMER")]
 				/* Case: "DC1 EMER" or "DC2 EMER" */
 				else
-					allowedRDCs = model.allRDCs.filter[it.powerSupply.equals(iface.pwSup1)]
+					allowedRDCs = model.RDCs.filter[it.powerSupply.equals(iface.pwSup1)]
 				
 				/* Get the indices for the allowed RDCs */
-				val allowedRDCsIndexes = allowedRDCs.map[model.allRDCs.indexOf(it)]
+				val allowedRDCsIndexes = allowedRDCs.map[model.RDCs.indexOf(it)]
 				
 				/* Get the variable on the RDC level for this interface */
 				val locationVariableRDCLevel = solverVariables.getEqInterfaceLocationVariable(iface, 1)

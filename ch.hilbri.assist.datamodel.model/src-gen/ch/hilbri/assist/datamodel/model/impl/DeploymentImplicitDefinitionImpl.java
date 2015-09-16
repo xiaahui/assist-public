@@ -105,7 +105,7 @@ public class DeploymentImplicitDefinitionImpl extends MinimalEObjectImpl.Contain
 		EObject _eContainer = this.eContainer();
 		EObject _eContainer_1 = _eContainer.eContainer();
 		final AssistModel model = ((AssistModel) _eContainer_1);
-		Iterable<Connector> connectorList = model.getAllConnectors();
+		Iterable<Connector> connectorList = model.getConnectors();
 		EList<DeploymentImplicitDefinitionAttributeAndValue> _entries = this.getEntries();
 		for (final DeploymentImplicitDefinitionAttributeAndValue entry : _entries) {
 			DeploymentImplicitDefinitionAttribute _attribute = entry.getAttribute();

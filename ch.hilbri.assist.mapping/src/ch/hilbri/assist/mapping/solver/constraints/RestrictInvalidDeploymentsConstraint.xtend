@@ -32,7 +32,7 @@ class RestrictInvalidDeploymentsConstraint extends AbstractMappingConstraint {
 			}
 
 			// Remove duplicate connectors, then get their indices
-			val idxList = list.toSet.toList.map[model.allConnectors.indexOf(it)]
+			val idxList = list.toSet.toList.map[model.connectors.indexOf(it)]
 
 			// which interfaces or groups do we have?
 			val ifaceList = new ArrayList<EqInterface>

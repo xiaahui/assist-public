@@ -85,7 +85,7 @@ class DerivedAllDifferentConstraint extends AbstractMappingConstraint {
 							for (var int i = iv.getLB(); i <= iv.getUB(); i = iv.nextValue(i)) {
 								var fit = false
 								if (oiv.contains(i)) {
-									val connector = model.allConnectors.get(i)
+									val connector = model.connectors.get(i)
 									fit = true
 									for (supply : connector.availableEqInterfaces) {
 										if (demand.getOrDefault(supply.eqInterfaceType, 0) + odemand.getOrDefault(supply.eqInterfaceType, 0) > supply.count) {

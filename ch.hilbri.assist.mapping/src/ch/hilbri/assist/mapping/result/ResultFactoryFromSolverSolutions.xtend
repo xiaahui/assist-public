@@ -31,7 +31,7 @@ class ResultFactoryFromSolverSolutions {
 			
 			if (partialSolution.keySet.contains(locVar)) {
 				val connectorIndex 	= partialSolution.get(locVar)
-				val connector 		= result.model.allConnectors.get(connectorIndex)
+				val connector 		= result.model.connectors.get(connectorIndex)
 				result.mapping.put(iface, connector)	
 			}
 		}
@@ -91,7 +91,7 @@ class ResultFactoryFromSolverSolutions {
 		{
 			val locVar = solverVariables.getEqInterfaceLocationVariable(iface, 0)
 			val connectorIndex = solution.getIntVal(locVar)
-			val connector = result.model.allConnectors.get(connectorIndex)
+			val connector = result.model.connectors.get(connectorIndex)
 			
 			result.mapping.put(iface, connector)
 		}
