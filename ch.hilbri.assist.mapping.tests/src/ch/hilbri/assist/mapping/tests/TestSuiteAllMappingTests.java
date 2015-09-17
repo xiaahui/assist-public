@@ -28,27 +28,27 @@ import ch.hilbri.assist.mapping.tests.strategies.BasicStrategyTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	BasicResultTests.class,
-	DislocalityTests.class,
-	DislocalityPropagationTests.class,
-	DislocalityTest2.class,
-	ImplicitlyDefinedGroups.class,
-	ColocalityTest.class,
-	RestrictValidDeploymentTest.class,
-	RestrictValidDeploymentTest2.class,
-	SearchTypeTests.class,
-	ChocoSolverTests.class,
-	BasicStrategyTest.class,
-	AssistElementConstraintTests.class,
-	ConfigurablePinTests.class,
-	ConfigurablePinTests2.class,
-	ProtectionLevelTest1.class,
-	ProtectionLevelTest2.class,
-	ProtectionLevelTest3.class,
-	ProtectionLevelTest4.class,
-	ProtectionLevelTest5.class,
-	ConnectedPinsTest1.class,
-	ConnectedPinsTest2.class
+//	BasicResultTests.class,
+//	DislocalityTests.class,
+//	DislocalityPropagationTests.class,
+//	DislocalityTest2.class,
+//	ImplicitlyDefinedGroups.class,
+//	ColocalityTest.class,
+//	RestrictValidDeploymentTest.class,
+//	RestrictValidDeploymentTest2.class,
+//	SearchTypeTests.class,
+//	ChocoSolverTests.class,
+//	BasicStrategyTest.class,
+//	AssistElementConstraintTests.class,
+//	ConfigurablePinTests.class,
+//	ConfigurablePinTests2.class,
+//	ProtectionLevelTest1.class,
+//	ProtectionLevelTest2.class,
+//	ProtectionLevelTest3.class,
+//	ProtectionLevelTest4.class,
+//	ProtectionLevelTest5.class,
+//	ConnectedPinsTest1.class,
+//	ConnectedPinsTest2.class
 })  
 
 public class TestSuiteAllMappingTests {}

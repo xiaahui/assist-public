@@ -103,7 +103,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def String text(Pin p) {
-		'''Pin of type: "«p.eqInterfaceType»'''
+		'''«p.name»: "«p.eqInterfaceType»"'''
 	}
 	
 	def image(Pin p) {

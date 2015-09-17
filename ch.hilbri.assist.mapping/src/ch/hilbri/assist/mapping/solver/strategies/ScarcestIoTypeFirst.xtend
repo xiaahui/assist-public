@@ -20,32 +20,32 @@ class ScarcestIoTypeFirst implements VariableSelector<IntVar>  {
 	private boolean printVariablesInSortedOrder = true
 	
 	new(SolverVariablesContainer solverVariables, AssistModel model) {
-		this.logger = LoggerFactory.getLogger(this.class)
-		this.solverVariables = solverVariables
-		this.model = model
-		
-		val availIoTypes = new HashMap<String, Integer>
-		
-		for (conn : model.connectors)
-			for (iface : conn.availableEqInterfaces)
-				if (availIoTypes.keySet.contains(iface.eqInterfaceType))
-					availIoTypes.put(iface.eqInterfaceType, availIoTypes.get(iface.eqInterfaceType) + iface.count)
-				else
-					availIoTypes.put(iface.eqInterfaceType, iface.count)
-		
-		val requestedIoTypes = new HashMap<String, Integer>
-		
-		for (iface : model.eqInterfaces)
-			if (requestedIoTypes.keySet.contains(iface.ioType))
-				requestedIoTypes.put(iface.ioType, requestedIoTypes.get(iface.ioType) + 1)					
-			else
-				requestedIoTypes.put(iface.ioType, 1)
-		
-		for (iface : model.eqInterfaces) {
-			map.put(solverVariables.getEqInterfaceLocationVariable(iface, 0),
-					availIoTypes.get(iface.ioType) - requestedIoTypes.get(iface.ioType))
-			logger.info('''Putting «iface.name» with score «availIoTypes.get(iface.ioType) - requestedIoTypes.get(iface.ioType)»''')
-		}
+//		this.logger = LoggerFactory.getLogger(this.class)
+//		this.solverVariables = solverVariables
+//		this.model = model
+//		
+//		val availIoTypes = new HashMap<String, Integer>
+//		
+//		for (conn : model.connectors)
+//			for (iface : conn.availableEqInterfaces)
+//				if (availIoTypes.keySet.contains(iface.eqInterfaceType))
+//					availIoTypes.put(iface.eqInterfaceType, availIoTypes.get(iface.eqInterfaceType) + iface.count)
+//				else
+//					availIoTypes.put(iface.eqInterfaceType, iface.count)
+//		
+//		val requestedIoTypes = new HashMap<String, Integer>
+//		
+//		for (iface : model.eqInterfaces)
+//			if (requestedIoTypes.keySet.contains(iface.ioType))
+//				requestedIoTypes.put(iface.ioType, requestedIoTypes.get(iface.ioType) + 1)					
+//			else
+//				requestedIoTypes.put(iface.ioType, 1)
+//		
+//		for (iface : model.eqInterfaces) {
+//			map.put(solverVariables.getEqInterfaceLocationVariable(iface, 0),
+//					availIoTypes.get(iface.ioType) - requestedIoTypes.get(iface.ioType))
+//			logger.info('''Putting «iface.name» with score «availIoTypes.get(iface.ioType) - requestedIoTypes.get(iface.ioType)»''')
+//		}
 	}
 	
 	override IntVar getVariable(IntVar[] variables) {

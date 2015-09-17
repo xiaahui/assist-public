@@ -38,39 +38,39 @@ class HardestColocalitiesFirst implements VariableSelector<IntVar>, IntValueSele
 	}
 	
 	override IntVar getVariable(IntVar[] variables) {
-		var maxRatio = 0f
-		var maxDemand = 0
-		var IntVar maxVar = null
-		nextValue = -1
-		for (repVar: colocDemand.keySet) {
-			val demand = colocDemand.get(repVar)
-			if (!repVar.instantiated) {
-				for (var int i = repVar.getLB(); i <= repVar.getUB(); i = repVar.nextValue(i)) {
-					val connector = model.connectors.get(i)
-					var totalNeed = 0
-					var totalSupply = 0
-					for (ioType: demand.keySet) {
-						totalNeed += demand.get(ioType)
-						// this should be dynamic i.e. not the total available interfaces but the ones not used yet 
-						for (supply : connector.availableEqInterfaces) {
-							if (supply.eqInterfaceType.equals(ioType)) {
-								totalSupply += supply.count
-							}
-						}						
-					}
-					val ratio = totalNeed / (totalSupply as float)
-					if (ratio > maxRatio || (ratio == maxRatio && totalNeed > maxDemand)) {
-						maxRatio = ratio
-						maxDemand = totalNeed
-						maxVar = repVar
-						nextValue = i
-					}
-				}
-			}		
-		}
-		if (maxVar != null) {		
-			return maxVar
-		}
+//		var maxRatio = 0f
+//		var maxDemand = 0
+//		var IntVar maxVar = null
+//		nextValue = -1
+//		for (repVar: colocDemand.keySet) {
+//			val demand = colocDemand.get(repVar)
+//			if (!repVar.instantiated) {
+//				for (var int i = repVar.getLB(); i <= repVar.getUB(); i = repVar.nextValue(i)) {
+//					val connector = model.connectors.get(i)
+//					var totalNeed = 0
+//					var totalSupply = 0
+//					for (ioType: demand.keySet) {
+//						totalNeed += demand.get(ioType)
+//						// this should be dynamic i.e. not the total available interfaces but the ones not used yet 
+//						for (supply : connector.availableEqInterfaces) {
+//							if (supply.eqInterfaceType.equals(ioType)) {
+//								totalSupply += supply.count
+//							}
+//						}						
+//					}
+//					val ratio = totalNeed / (totalSupply as float)
+//					if (ratio > maxRatio || (ratio == maxRatio && totalNeed > maxDemand)) {
+//						maxRatio = ratio
+//						maxDemand = totalNeed
+//						maxVar = repVar
+//						nextValue = i
+//					}
+//				}
+//			}		
+//		}
+//		if (maxVar != null) {		
+//			return maxVar
+//		}
 		return ff.getVariable(variables)
 	}
 	
