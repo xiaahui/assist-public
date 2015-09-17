@@ -20,6 +20,7 @@ import ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock;
 import ch.hilbri.assist.datamodel.model.InterfacesBlock;
 import ch.hilbri.assist.datamodel.model.InvalidDeployment;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+import ch.hilbri.assist.datamodel.model.Pin;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelEntry;
 import ch.hilbri.assist.datamodel.model.RDC;
@@ -442,6 +443,23 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Pin> getPins() {
+		EList<Connector> _connectors = this.getConnectors();
+		final Function1<Connector, EList<Pin>> _function = new Function1<Connector, EList<Pin>>() {
+			public EList<Pin> apply(final Connector it) {
+				return it.getPins();
+			}
+		};
+		EList<EList<Pin>> _map = XcoreEListExtensions.<Connector, EList<Pin>>map(_connectors, _function);
+		Iterable<Pin> _flatten = Iterables.<Pin>concat(_map);
+		return ECollections.<Pin>toEList(_flatten);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<EqInterface> getEqInterfaces() {
 		InterfacesBlock _interfacesBlock = this.getInterfacesBlock();
 		return _interfacesBlock.getEqInterfaces();
@@ -681,6 +699,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getRDCs();
 			case ModelPackage.ASSIST_MODEL___GET_CONNECTORS:
 				return getConnectors();
+			case ModelPackage.ASSIST_MODEL___GET_PINS:
+				return getPins();
 			case ModelPackage.ASSIST_MODEL___GET_EQ_INTERFACES:
 				return getEqInterfaces();
 			case ModelPackage.ASSIST_MODEL___GET_EQ_INTERFACE_GROUPS:

@@ -503,7 +503,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetEqInterfaces() {
+	public EOperation getAssistModel__GetPins() {
 		return assistModelEClass.getEOperations().get(7);
 	}
 
@@ -512,7 +512,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetEqInterfaceGroups() {
+	public EOperation getAssistModel__GetEqInterfaces() {
 		return assistModelEClass.getEOperations().get(8);
 	}
 
@@ -521,7 +521,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetColocalityRelations() {
+	public EOperation getAssistModel__GetEqInterfaceGroups() {
 		return assistModelEClass.getEOperations().get(9);
 	}
 
@@ -530,7 +530,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetDislocalityRelations() {
+	public EOperation getAssistModel__GetColocalityRelations() {
 		return assistModelEClass.getEOperations().get(10);
 	}
 
@@ -539,7 +539,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetValidDeployments() {
+	public EOperation getAssistModel__GetDislocalityRelations() {
 		return assistModelEClass.getEOperations().get(11);
 	}
 
@@ -548,7 +548,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetInvalidDeployments() {
+	public EOperation getAssistModel__GetValidDeployments() {
 		return assistModelEClass.getEOperations().get(12);
 	}
 
@@ -557,8 +557,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetAllHardwareElements__int() {
+	public EOperation getAssistModel__GetInvalidDeployments() {
 		return assistModelEClass.getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllHardwareElements__int() {
+		return assistModelEClass.getEOperations().get(14);
 	}
 
 	/**
@@ -1880,6 +1889,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_COMPARTMENTS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_RD_CS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_CONNECTORS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_PINS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_EQ_INTERFACES);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_EQ_INTERFACE_GROUPS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_COLOCALITY_RELATIONS);
@@ -2127,6 +2137,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEOperation(getAssistModel__GetRDCs(), this.getRDC(), "getRDCs", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getAssistModel__GetConnectors(), this.getConnector(), "getConnectors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetPins(), this.getPin(), "getPins", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getAssistModel__GetEqInterfaces(), this.getEqInterface(), "getEqInterfaces", 0, -1, !IS_UNIQUE, IS_ORDERED);
 

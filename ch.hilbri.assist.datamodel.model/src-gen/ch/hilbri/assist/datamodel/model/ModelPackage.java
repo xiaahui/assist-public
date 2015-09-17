@@ -188,13 +188,22 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL___GET_CONNECTORS = 6;
 
 	/**
+	 * The operation id for the '<em>Get Pins</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_PINS = 7;
+
+	/**
 	 * The operation id for the '<em>Get Eq Interfaces</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_EQ_INTERFACES = 7;
+	int ASSIST_MODEL___GET_EQ_INTERFACES = 8;
 
 	/**
 	 * The operation id for the '<em>Get Eq Interface Groups</em>' operation.
@@ -203,7 +212,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_EQ_INTERFACE_GROUPS = 8;
+	int ASSIST_MODEL___GET_EQ_INTERFACE_GROUPS = 9;
 
 	/**
 	 * The operation id for the '<em>Get Colocality Relations</em>' operation.
@@ -212,7 +221,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_COLOCALITY_RELATIONS = 9;
+	int ASSIST_MODEL___GET_COLOCALITY_RELATIONS = 10;
 
 	/**
 	 * The operation id for the '<em>Get Dislocality Relations</em>' operation.
@@ -221,7 +230,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_DISLOCALITY_RELATIONS = 10;
+	int ASSIST_MODEL___GET_DISLOCALITY_RELATIONS = 11;
 
 	/**
 	 * The operation id for the '<em>Get Valid Deployments</em>' operation.
@@ -230,7 +239,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_VALID_DEPLOYMENTS = 11;
+	int ASSIST_MODEL___GET_VALID_DEPLOYMENTS = 12;
 
 	/**
 	 * The operation id for the '<em>Get Invalid Deployments</em>' operation.
@@ -239,7 +248,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_INVALID_DEPLOYMENTS = 12;
+	int ASSIST_MODEL___GET_INVALID_DEPLOYMENTS = 13;
 
 	/**
 	 * The operation id for the '<em>Get All Hardware Elements</em>' operation.
@@ -248,7 +257,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = 13;
+	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = 14;
 
 	/**
 	 * The number of operations of the '<em>Assist Model</em>' class.
@@ -257,7 +266,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_OPERATION_COUNT = 14;
+	int ASSIST_MODEL_OPERATION_COUNT = 15;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.GlobalBlockImpl <em>Global Block</em>}' class.
@@ -2538,6 +2547,16 @@ public interface ModelPackage extends EPackage {
 	EOperation getAssistModel__GetConnectors();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getPins() <em>Get Pins</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Pins</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getPins()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetPins();
+
+	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getEqInterfaces() <em>Get Eq Interfaces</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4239,6 +4258,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ASSIST_MODEL___GET_CONNECTORS = eINSTANCE.getAssistModel__GetConnectors();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Pins</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_PINS = eINSTANCE.getAssistModel__GetPins();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Eq Interfaces</b></em>' operation.
