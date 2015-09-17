@@ -58,7 +58,7 @@ public class DislocalityRelationImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 * @ordered
 	 */
-	protected static final HardwareArchitectureLevelType HARDWARE_LEVEL_EDEFAULT = HardwareArchitectureLevelType.CONNECTOR;
+	protected static final HardwareArchitectureLevelType HARDWARE_LEVEL_EDEFAULT = HardwareArchitectureLevelType.PIN;
 
 	/**
 	 * The cached value of the '{@link #getHardwareLevel() <em>Hardware Level</em>}' attribute.

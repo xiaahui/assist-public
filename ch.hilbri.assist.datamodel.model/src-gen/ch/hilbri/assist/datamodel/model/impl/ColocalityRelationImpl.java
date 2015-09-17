@@ -58,7 +58,7 @@ public class ColocalityRelationImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected static final HardwareArchitectureLevelType HARDWARE_LEVEL_EDEFAULT = HardwareArchitectureLevelType.CONNECTOR;
+	protected static final HardwareArchitectureLevelType HARDWARE_LEVEL_EDEFAULT = HardwareArchitectureLevelType.PIN;
 
 	/**
 	 * The cached value of the '{@link #getHardwareLevel() <em>Hardware Level</em>}' attribute.

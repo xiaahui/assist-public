@@ -19,6 +19,16 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum HardwareArchitectureLevelType implements Enumerator {
 	/**
+	 * The '<em><b>PIN</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PIN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PIN(0, "PIN", "Pin"),
+
+	/**
 	 * The '<em><b>CONNECTOR</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,6 +57,21 @@ public enum HardwareArchitectureLevelType implements Enumerator {
 	 * @ordered
 	 */
 	COMPARTMENT(0, "COMPARTMENT", "Compartment");
+
+	/**
+	 * The '<em><b>PIN</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>PIN</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #PIN
+	 * @model literal="Pin"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PIN_VALUE = 0;
 
 	/**
 	 * The '<em><b>CONNECTOR</b></em>' literal value.
@@ -101,6 +126,7 @@ public enum HardwareArchitectureLevelType implements Enumerator {
 	 */
 	private static final HardwareArchitectureLevelType[] VALUES_ARRAY =
 		new HardwareArchitectureLevelType[] {
+			PIN,
 			CONNECTOR,
 			RDC,
 			COMPARTMENT,
@@ -160,7 +186,7 @@ public enum HardwareArchitectureLevelType implements Enumerator {
 	 */
 	public static HardwareArchitectureLevelType get(int value) {
 		switch (value) {
-			case CONNECTOR_VALUE: return CONNECTOR;
+			case PIN_VALUE: return PIN;
 		}
 		return null;
 	}

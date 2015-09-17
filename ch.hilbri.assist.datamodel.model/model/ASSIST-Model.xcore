@@ -348,6 +348,7 @@ class RestrictionsBlock {
 
 
 enum HardwareArchitectureLevelType {
+	PIN			as "Pin"
 	CONNECTOR 	as "Connector"
 	RDC		  	as "RDC"
 	COMPARTMENT as "Compartment"
