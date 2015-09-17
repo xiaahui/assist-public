@@ -26,15 +26,15 @@ class HardestColocalitiesFirst implements VariableSelector<IntVar>, IntValueSele
 		this.solverVariables = solverVariables
 		this.model = model
 		this.ff = new FirstFail
-		for (r : model.colocalityRelations) {
-			val vars = solverVariables.getColocationVariables(r)
-			val demand = new HashMap<String, Integer>
-			for (v: vars) {
-				val iface = solverVariables.getInterfaceForLocationVariable(v)
-				demand.put(iface.ioType, demand.getOrDefault(iface.ioType, 0) + 1)
-			}
-			colocDemand.put(vars.get(0), demand)
-		}
+//		for (r : model.colocalityRelations) {
+//			val vars = solverVariables.getColocationVariables(r)
+//			val demand = new HashMap<String, Integer>
+//			for (v: vars) {
+//				val iface = solverVariables.getInterfaceForLocationVariable(v)
+//				demand.put(iface.ioType, demand.getOrDefault(iface.ioType, 0) + 1)
+//			}
+//			colocDemand.put(vars.get(0), demand)
+//		}
 	}
 	
 	override IntVar getVariable(IntVar[] variables) {

@@ -14,17 +14,17 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 
+import com.google.inject.Inject;
+
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.model.Connector;
-import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+import ch.hilbri.assist.datamodel.model.Pin;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.solver.AssistSolver;
 import ch.hilbri.assist.mapping.solver.SearchType;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider;
-
-import com.google.inject.Inject;
 
 public class Runner {
 
@@ -117,13 +117,14 @@ public class Runner {
 				for (Result r: results) {
 					for (Connector c: r.getModel().getConnectors()) {
 						System.out.print(c.fullName() + " { ");
-						for (EqInterface i: r.getAllMappedEqInterfacesForConnector(c)) {
-							System.out.print(i.getName()+",");
-						}
-						System.out.println(" } ");
+						
+						for (Pin p : c.getPins()) 
+							System.out.println("    Pin\t" + p.getName() + "-" + "\t" + r.getEqInterfaceForPin(p).getName());
+						
 					}
-					System.out.println();
+					System.out.println(" } ");
 				}
+				System.out.println();
 			}
 			catch (BasicConstraintsException e) {
 				System.err.println("Inconsistency found while processing constraint \"" + e.getConstraintName() + "\"");

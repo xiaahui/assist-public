@@ -3,9 +3,9 @@
 package ch.hilbri.assist.datamodel.result.mapping.impl;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
-import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.InterfacesBlock;
+import ch.hilbri.assist.datamodel.model.Pin;
 
 import ch.hilbri.assist.datamodel.result.mapping.Evaluation;
 import ch.hilbri.assist.datamodel.result.mapping.MappingPackage;
@@ -18,12 +18,12 @@ import java.lang.Iterable;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
@@ -34,8 +34,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.Functions.Function2;
 
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.MapExtensions;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,8 +50,8 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.ResultImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.ResultImpl#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.ResultImpl#getMapping <em>Mapping</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.ResultImpl#getEvaluation <em>Evaluation</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.ResultImpl#isPartialSolution <em>Partial Solution</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.ResultImpl#getEvaluation <em>Evaluation</em>}</li>
  * </ul>
  *
  * @generated
@@ -93,17 +95,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @generated
 	 * @ordered
 	 */
-	protected HashMap<EqInterface, Connector> mapping;
-
-	/**
-	 * The cached value of the '{@link #getEvaluation() <em>Evaluation</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEvaluation()
-	 * @generated
-	 * @ordered
-	 */
-	protected Evaluation evaluation;
+	protected HashMap<EqInterface, Pin> mapping;
 
 	/**
 	 * The default value of the '{@link #isPartialSolution() <em>Partial Solution</em>}' attribute.
@@ -124,6 +116,16 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @ordered
 	 */
 	protected boolean partialSolution = PARTIAL_SOLUTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEvaluation() <em>Evaluation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEvaluation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Evaluation evaluation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -208,7 +210,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HashMap<EqInterface, Connector> getMapping() {
+	public HashMap<EqInterface, Pin> getMapping() {
 		return mapping;
 	}
 
@@ -217,11 +219,32 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMapping(HashMap<EqInterface, Connector> newMapping) {
-		HashMap<EqInterface, Connector> oldMapping = mapping;
+	public void setMapping(HashMap<EqInterface, Pin> newMapping) {
+		HashMap<EqInterface, Pin> oldMapping = mapping;
 		mapping = newMapping;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.RESULT__MAPPING, oldMapping, mapping));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isPartialSolution() {
+		return partialSolution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPartialSolution(boolean newPartialSolution) {
+		boolean oldPartialSolution = partialSolution;
+		partialSolution = newPartialSolution;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.RESULT__PARTIAL_SOLUTION, oldPartialSolution, partialSolution));
 	}
 
 	/**
@@ -272,80 +295,13 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isPartialSolution() {
-		return partialSolution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPartialSolution(boolean newPartialSolution) {
-		boolean oldPartialSolution = partialSolution;
-		partialSolution = newPartialSolution;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.RESULT__PARTIAL_SOLUTION, oldPartialSolution, partialSolution));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int compareTo(final Result o) {
-		Evaluation _evaluation = null;
-		if (this!=null) {
-			_evaluation=this.getEvaluation();
-		}
-		double _totalScaledScore = _evaluation.getTotalScaledScore();
-		Evaluation _evaluation_1 = null;
-		if (o!=null) {
-			_evaluation_1=o.getEvaluation();
-		}
-		double _totalScaledScore_1 = _evaluation_1.getTotalScaledScore();
-		final double diff = (_totalScaledScore - _totalScaledScore_1);
-		if ((diff < 0.0)) {
-			return 1;
-		}
-		if ((diff > 0.0)) {
-			return (-1);
-		}
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<EqInterface> getAllMappedEqInterfacesForConnector(final Connector connector) {
-		final BasicEList<EqInterface> list = new BasicEList<EqInterface>();
-		HashMap<EqInterface, Connector> _mapping = this.getMapping();
-		Set<EqInterface> _keySet = _mapping.keySet();
-		for (final EqInterface iface : _keySet) {
-			HashMap<EqInterface, Connector> _mapping_1 = this.getMapping();
-			Connector _get = _mapping_1.get(iface);
-			boolean _equals = Objects.equal(_get, connector);
-			if (_equals) {
-				list.add(iface);
-			}
-		}
-		return list;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<EqInterface> getAllUnmappedEqInterfaces() {
 		AssistModel _model = this.getModel();
 		InterfacesBlock _interfacesBlock = _model.getInterfacesBlock();
 		EList<EqInterface> _eqInterfaces = _interfacesBlock.getEqInterfaces();
 		final Function1<EqInterface, Boolean> _function = new Function1<EqInterface, Boolean>() {
 			public Boolean apply(final EqInterface it) {
-				HashMap<EqInterface, Connector> _mapping = ResultImpl.this.getMapping();
+				HashMap<EqInterface, Pin> _mapping = ResultImpl.this.getMapping();
 				Set<EqInterface> _keySet = _mapping.keySet();
 				boolean _contains = _keySet.contains(it);
 				return Boolean.valueOf((!_contains));
@@ -377,6 +333,69 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Pin getPinForEqInterface(final EqInterface iface) {
+		Pin _xifexpression = null;
+		HashMap<EqInterface, Pin> _mapping = this.getMapping();
+		Set<EqInterface> _keySet = _mapping.keySet();
+		boolean _contains = _keySet.contains(iface);
+		if (_contains) {
+			HashMap<EqInterface, Pin> _mapping_1 = this.getMapping();
+			_xifexpression = _mapping_1.get(iface);
+		}
+		else {
+			_xifexpression = null;
+		}
+		return _xifexpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EqInterface getEqInterfaceForPin(final Pin p) {
+		EqInterface _xblockexpression = null;
+		{
+			HashMap<EqInterface, Pin> _mapping = this.getMapping();
+			final Function2<EqInterface, Pin, Boolean> _function = new Function2<EqInterface, Pin, Boolean>() {
+				public Boolean apply(final EqInterface iface, final Pin pin) {
+					return Boolean.valueOf(Objects.equal(pin, p));
+				}
+			};
+			Map<EqInterface, Pin> _filter = MapExtensions.<EqInterface, Pin>filter(_mapping, _function);
+			final Set<EqInterface> ifaces = _filter.keySet();
+			EqInterface _xifexpression = null;
+			int _length = ((Object[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, Object.class)).length;
+			boolean _equals = (_length == 1);
+			if (_equals) {
+				_xifexpression = ((EqInterface[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, EqInterface.class))[0];
+			}
+			else {
+				_xifexpression = null;
+			}
+			_xblockexpression = _xifexpression;
+		}
+		return _xblockexpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int compareTo(final Result o) {
+		Evaluation _evaluation = this.getEvaluation();
+		double _totalScaledScore = _evaluation.getTotalScaledScore();
+		Evaluation _evaluation_1 = o.getEvaluation();
+		double _totalScaledScore_1 = _evaluation_1.getTotalScaledScore();
+		return Double.compare(_totalScaledScore, _totalScaledScore_1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -401,10 +420,10 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return basicGetModel();
 			case MappingPackage.RESULT__MAPPING:
 				return getMapping();
-			case MappingPackage.RESULT__EVALUATION:
-				return getEvaluation();
 			case MappingPackage.RESULT__PARTIAL_SOLUTION:
 				return isPartialSolution();
+			case MappingPackage.RESULT__EVALUATION:
+				return getEvaluation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -425,13 +444,13 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				setModel((AssistModel)newValue);
 				return;
 			case MappingPackage.RESULT__MAPPING:
-				setMapping((HashMap<EqInterface, Connector>)newValue);
-				return;
-			case MappingPackage.RESULT__EVALUATION:
-				setEvaluation((Evaluation)newValue);
+				setMapping((HashMap<EqInterface, Pin>)newValue);
 				return;
 			case MappingPackage.RESULT__PARTIAL_SOLUTION:
 				setPartialSolution((Boolean)newValue);
+				return;
+			case MappingPackage.RESULT__EVALUATION:
+				setEvaluation((Evaluation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -452,13 +471,13 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				setModel((AssistModel)null);
 				return;
 			case MappingPackage.RESULT__MAPPING:
-				setMapping((HashMap<EqInterface, Connector>)null);
-				return;
-			case MappingPackage.RESULT__EVALUATION:
-				setEvaluation((Evaluation)null);
+				setMapping((HashMap<EqInterface, Pin>)null);
 				return;
 			case MappingPackage.RESULT__PARTIAL_SOLUTION:
 				setPartialSolution(PARTIAL_SOLUTION_EDEFAULT);
+				return;
+			case MappingPackage.RESULT__EVALUATION:
+				setEvaluation((Evaluation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -478,10 +497,10 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return model != null;
 			case MappingPackage.RESULT__MAPPING:
 				return mapping != null;
-			case MappingPackage.RESULT__EVALUATION:
-				return evaluation != null;
 			case MappingPackage.RESULT__PARTIAL_SOLUTION:
 				return partialSolution != PARTIAL_SOLUTION_EDEFAULT;
+			case MappingPackage.RESULT__EVALUATION:
+				return evaluation != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -494,14 +513,16 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case MappingPackage.RESULT___COMPARE_TO__RESULT:
-				return compareTo((Result)arguments.get(0));
-			case MappingPackage.RESULT___GET_ALL_MAPPED_EQ_INTERFACES_FOR_CONNECTOR__CONNECTOR:
-				return getAllMappedEqInterfacesForConnector((Connector)arguments.get(0));
 			case MappingPackage.RESULT___GET_ALL_UNMAPPED_EQ_INTERFACES:
 				return getAllUnmappedEqInterfaces();
 			case MappingPackage.RESULT___GET_COMPLETENESS_AS_PERCENTAGE:
 				return getCompletenessAsPercentage();
+			case MappingPackage.RESULT___GET_PIN_FOR_EQ_INTERFACE__EQINTERFACE:
+				return getPinForEqInterface((EqInterface)arguments.get(0));
+			case MappingPackage.RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN:
+				return getEqInterfaceForPin((Pin)arguments.get(0));
+			case MappingPackage.RESULT___COMPARE_TO__RESULT:
+				return compareTo((Result)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

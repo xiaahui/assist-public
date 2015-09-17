@@ -11,14 +11,16 @@ class MaximizeUnusedRDCs extends AbstractMetricImpl {
 	}
 	
 	override computeAbsoluteScore(Result result) {
-		val score = result.model.RDCs.map[
-											it.connectors
-												.map[result.getAllMappedEqInterfacesForConnector(it).length]
-								 				.reduce[p1, p2|p1+p2] // gets the sum of all interfaces per RDC
-				]
-				.filter[it == 0] // how many rdcs have 0 interfaces
-				.size
-		
-		return score
+//		FIXME: 
+//		val score = result.model.RDCs.map[
+//											it.connectors
+//												.map[result.getAllMappedEqInterfacesForConnector(it).length]
+//								 				.reduce[p1, p2|p1+p2] // gets the sum of all interfaces per RDC
+//				]
+//				.filter[it == 0] // how many rdcs have 0 interfaces
+//				.size
+//		
+//		return score
+		0
 	}
 }

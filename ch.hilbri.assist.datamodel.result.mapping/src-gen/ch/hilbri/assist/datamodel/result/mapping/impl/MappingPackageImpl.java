@@ -64,7 +64,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType eqInterfaceConnectorMapTypeEDataType = null;
+	private EDataType eqInterfacePinMapTypeEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -187,17 +187,8 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResult_Evaluation() {
-		return (EReference)resultEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getResult_PartialSolution() {
-		return (EAttribute)resultEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)resultEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -205,17 +196,8 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__CompareTo__Result() {
-		return resultEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getResult__GetAllMappedEqInterfacesForConnector__Connector() {
-		return resultEClass.getEOperations().get(1);
+	public EReference getResult_Evaluation() {
+		return (EReference)resultEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -224,7 +206,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * @generated
 	 */
 	public EOperation getResult__GetAllUnmappedEqInterfaces() {
-		return resultEClass.getEOperations().get(2);
+		return resultEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -233,7 +215,34 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * @generated
 	 */
 	public EOperation getResult__GetCompletenessAsPercentage() {
+		return resultEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getResult__GetPinForEqInterface__EqInterface() {
+		return resultEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getResult__GetEqInterfaceForPin__Pin() {
 		return resultEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getResult__CompareTo__Result() {
+		return resultEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -322,17 +331,8 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvaluation_TotalScaledScore() {
-		return (EAttribute)evaluationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getEvaluation_MetricsUsed() {
-		return (EReference)evaluationEClass.getEStructuralFeatures().get(3);
+		return (EReference)evaluationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -340,8 +340,17 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getEqInterfaceConnectorMapType() {
-		return eqInterfaceConnectorMapTypeEDataType;
+	public EAttribute getEvaluation_TotalScaledScore() {
+		return (EAttribute)evaluationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getEqInterfacePinMapType() {
+		return eqInterfacePinMapTypeEDataType;
 	}
 
 	/**
@@ -387,12 +396,13 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEAttribute(resultEClass, RESULT__NAME);
 		createEReference(resultEClass, RESULT__MODEL);
 		createEAttribute(resultEClass, RESULT__MAPPING);
-		createEReference(resultEClass, RESULT__EVALUATION);
 		createEAttribute(resultEClass, RESULT__PARTIAL_SOLUTION);
-		createEOperation(resultEClass, RESULT___COMPARE_TO__RESULT);
-		createEOperation(resultEClass, RESULT___GET_ALL_MAPPED_EQ_INTERFACES_FOR_CONNECTOR__CONNECTOR);
+		createEReference(resultEClass, RESULT__EVALUATION);
 		createEOperation(resultEClass, RESULT___GET_ALL_UNMAPPED_EQ_INTERFACES);
 		createEOperation(resultEClass, RESULT___GET_COMPLETENESS_AS_PERCENTAGE);
+		createEOperation(resultEClass, RESULT___GET_PIN_FOR_EQ_INTERFACE__EQINTERFACE);
+		createEOperation(resultEClass, RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN);
+		createEOperation(resultEClass, RESULT___COMPARE_TO__RESULT);
 
 		abstractMetricEClass = createEClass(ABSTRACT_METRIC);
 		createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__NAME);
@@ -404,11 +414,11 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		evaluationEClass = createEClass(EVALUATION);
 		createEAttribute(evaluationEClass, EVALUATION__ABSOLUTE_SCORES);
 		createEAttribute(evaluationEClass, EVALUATION__SCALED_SCORES);
-		createEAttribute(evaluationEClass, EVALUATION__TOTAL_SCALED_SCORE);
 		createEReference(evaluationEClass, EVALUATION__METRICS_USED);
+		createEAttribute(evaluationEClass, EVALUATION__TOTAL_SCALED_SCORE);
 
 		// Create data types
-		eqInterfaceConnectorMapTypeEDataType = createEDataType(EQ_INTERFACE_CONNECTOR_MAP_TYPE);
+		eqInterfacePinMapTypeEDataType = createEDataType(EQ_INTERFACE_PIN_MAP_TYPE);
 		metricScoreMapEDataType = createEDataType(METRIC_SCORE_MAP);
 	}
 
@@ -452,19 +462,22 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEClass(resultEClass, Result.class, "Result", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResult_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResult_Model(), theModelPackage.getAssistModel(), null, "model", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResult_Mapping(), this.getEqInterfaceConnectorMapType(), "mapping", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResult_Evaluation(), this.getEvaluation(), null, "evaluation", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResult_Mapping(), this.getEqInterfacePinMapType(), "mapping", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_PartialSolution(), theEcorePackage.getEBoolean(), "partialSolution", "false", 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		EOperation op = initEOperation(getResult__CompareTo__Result(), theEcorePackage.getEInt(), "compareTo", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getResult(), "o", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getResult__GetAllMappedEqInterfacesForConnector__Connector(), theModelPackage.getEqInterface(), "getAllMappedEqInterfacesForConnector", 0, -1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theModelPackage.getConnector(), "connector", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		initEReference(getResult_Evaluation(), this.getEvaluation(), null, "evaluation", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getResult__GetAllUnmappedEqInterfaces(), theModelPackage.getEqInterface(), "getAllUnmappedEqInterfaces", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getResult__GetCompletenessAsPercentage(), theEcorePackage.getEDouble(), "getCompletenessAsPercentage", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		EOperation op = initEOperation(getResult__GetPinForEqInterface__EqInterface(), theModelPackage.getPin(), "getPinForEqInterface", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theModelPackage.getEqInterface(), "iface", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getResult__GetEqInterfaceForPin__Pin(), theModelPackage.getEqInterface(), "getEqInterfaceForPin", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theModelPackage.getPin(), "p", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getResult__CompareTo__Result(), theEcorePackage.getEInt(), "compareTo", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getResult(), "o", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(abstractMetricEClass, AbstractMetric.class, "AbstractMetric", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbstractMetric_Name(), theEcorePackage.getEString(), "name", null, 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -478,11 +491,11 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEClass(evaluationEClass, Evaluation.class, "Evaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEvaluation_AbsoluteScores(), this.getMetricScoreMap(), "absoluteScores", null, 0, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEvaluation_ScaledScores(), this.getMetricScoreMap(), "scaledScores", null, 0, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEvaluation_TotalScaledScore(), theEcorePackage.getEDouble(), "totalScaledScore", null, 0, 1, Evaluation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getEvaluation_MetricsUsed(), this.getAbstractMetric(), null, "metricsUsed", null, 0, -1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvaluation_TotalScaledScore(), theEcorePackage.getEDouble(), "totalScaledScore", null, 0, 1, Evaluation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
-		initEDataType(eqInterfaceConnectorMapTypeEDataType, HashMap.class, "EqInterfaceConnectorMapType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.HashMap<ch.hilbri.assist.datamodel.model.EqInterface, ch.hilbri.assist.datamodel.model.Connector>");
+		initEDataType(eqInterfacePinMapTypeEDataType, HashMap.class, "EqInterfacePinMapType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.HashMap<ch.hilbri.assist.datamodel.model.EqInterface, ch.hilbri.assist.datamodel.model.Pin>");
 		initEDataType(metricScoreMapEDataType, HashMap.class, "MetricScoreMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.HashMap<ch.hilbri.assist.datamodel.result.mapping.AbstractMetric, java.lang.Double>");
 
 		// Create resource

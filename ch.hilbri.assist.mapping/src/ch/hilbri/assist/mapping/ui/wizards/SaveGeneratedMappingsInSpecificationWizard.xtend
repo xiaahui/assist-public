@@ -4,6 +4,7 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.Connector
 import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.ModelFactory
+import ch.hilbri.assist.datamodel.model.Pin
 import ch.hilbri.assist.datamodel.model.ValidDeployment
 import java.io.IOException
 import java.util.ArrayList
@@ -26,17 +27,17 @@ class SaveGeneratedMappingsInSpecificationWizard extends Wizard implements INewW
     
     private SaveGeneratedMappingsInSpecificationFileSelectionPage fileSelectionPage
     private SaveGeneratedMappingsInSpecificationIfaceSelectionPage interfaceSelectionPage
-    private Map<EqInterface, Connector> mapping
+    private Map<EqInterface, Pin> mapping
     private AssistModel model
     
     private String filenameSuggestion
 	
-	new(String filenameSuggestion, Map<EqInterface, Connector> mapping, AssistModel model) {
+	new(String p_filenameSuggestion, Map<EqInterface, Pin> p_mapping, AssistModel p_model) {
 		super()
 		setWindowTitle("Save Generated Mappings in Specification")
-		this.filenameSuggestion = filenameSuggestion
-		this.mapping = mapping
-		this.model = model
+		filenameSuggestion = p_filenameSuggestion
+		mapping = p_mapping
+		model = p_model
 	}
 	
 	override void init(IWorkbench workbench, IStructuredSelection selection) {

@@ -2,9 +2,18 @@ package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collections;
-import java.util.List;
 
+import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.ecore.EObject;
+
+import ch.hilbri.assist.datamodel.model.Compartment;
+import ch.hilbri.assist.datamodel.model.Connector;
+import ch.hilbri.assist.datamodel.model.EqInterface;
+import ch.hilbri.assist.datamodel.model.Pin;
+import ch.hilbri.assist.datamodel.model.RDC;
+import ch.hilbri.assist.datamodel.result.mapping.Result;
+import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.GotoSolutionDialog;
+import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.value.ChangeListener;
@@ -29,17 +38,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-
-import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.ecore.EObject;
-
-import ch.hilbri.assist.datamodel.model.Compartment;
-import ch.hilbri.assist.datamodel.model.Connector;
-import ch.hilbri.assist.datamodel.model.EqInterface;
-import ch.hilbri.assist.datamodel.model.RDC;
-import ch.hilbri.assist.datamodel.result.mapping.Result;
-import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.GotoSolutionDialog;
-import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 
 /**
  * Handles the DetailedResultView View
@@ -358,6 +356,7 @@ public class ResultsViewController extends AnchorPane{
 		if (obj instanceof Compartment) 	i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_compartment_16x16.png"));
 		else if (obj instanceof RDC)		i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_rdc_16x16.png"));
 		else if (obj instanceof Connector)	i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_connector_16x16.png"));
+		else if (obj instanceof Pin)		i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_connector_16x16.png"));
 		else return;
 		
 		ImageView iv = new ImageView(i);
@@ -365,13 +364,8 @@ public class ResultsViewController extends AnchorPane{
 		rootNode.getChildren().add(newNode);
 		newNode.setExpanded(true);
 		
-		if (obj instanceof Connector) { 
-			/* draw interfaces */
-			List<EqInterface> resultList = result.getAllMappedEqInterfacesForConnector((Connector) obj);
-			Collections.sort(resultList, new EqInterfaceComparator());
-			
-			for (EqInterface iface : resultList) 
-				drawInterfaceNodes(iface, newNode);
+		if (obj instanceof Pin) { 
+			drawInterfaceNodes(result.getEqInterfaceForPin((Pin) obj), newNode);
 		}
 		else { 	
 			/* draw lower level hardware architecture */

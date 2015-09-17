@@ -2,8 +2,8 @@
  */
 package ch.hilbri.assist.datamodel.result.mapping.impl;
 
-import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.EqInterface;
+import ch.hilbri.assist.datamodel.model.Pin;
 
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 import ch.hilbri.assist.datamodel.result.mapping.Evaluation;
@@ -81,8 +81,8 @@ public class MappingFactoryImpl extends EFactoryImpl implements MappingFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case MappingPackage.EQ_INTERFACE_CONNECTOR_MAP_TYPE:
-				return createEqInterfaceConnectorMapTypeFromString(eDataType, initialValue);
+			case MappingPackage.EQ_INTERFACE_PIN_MAP_TYPE:
+				return createEqInterfacePinMapTypeFromString(eDataType, initialValue);
 			case MappingPackage.METRIC_SCORE_MAP:
 				return createMetricScoreMapFromString(eDataType, initialValue);
 			default:
@@ -98,8 +98,8 @@ public class MappingFactoryImpl extends EFactoryImpl implements MappingFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case MappingPackage.EQ_INTERFACE_CONNECTOR_MAP_TYPE:
-				return convertEqInterfaceConnectorMapTypeToString(eDataType, instanceValue);
+			case MappingPackage.EQ_INTERFACE_PIN_MAP_TYPE:
+				return convertEqInterfacePinMapTypeToString(eDataType, instanceValue);
 			case MappingPackage.METRIC_SCORE_MAP:
 				return convertMetricScoreMapToString(eDataType, instanceValue);
 			default:
@@ -133,8 +133,8 @@ public class MappingFactoryImpl extends EFactoryImpl implements MappingFactory {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public HashMap<EqInterface, Connector> createEqInterfaceConnectorMapTypeFromString(EDataType eDataType, String initialValue) {
-		return (HashMap<EqInterface, Connector>)super.createFromString(initialValue);
+	public HashMap<EqInterface, Pin> createEqInterfacePinMapTypeFromString(EDataType eDataType, String initialValue) {
+		return (HashMap<EqInterface, Pin>)super.createFromString(initialValue);
 	}
 
 	/**
@@ -142,7 +142,7 @@ public class MappingFactoryImpl extends EFactoryImpl implements MappingFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertEqInterfaceConnectorMapTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertEqInterfacePinMapTypeToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
 	}
 

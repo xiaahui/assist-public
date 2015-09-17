@@ -32,6 +32,7 @@ import org.eclipse.swt.widgets.Text;
 
 import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.EqInterface;
+import ch.hilbri.assist.datamodel.model.Pin;
 
 public class SaveGeneratedMappingsInSpecificationIfaceSelectionPage extends WizardPage {
 	
@@ -52,8 +53,9 @@ public class SaveGeneratedMappingsInSpecificationIfaceSelectionPage extends Wiza
 			switch (columnIndex) {
 			case 0: return "";
 			case 1: return iface.getName();
-			case 2: return mapping.get(iface).getRdc().getCompartment().getName() + "." + 
-						   mapping.get(iface).getRdc().getName() + "." + 
+			case 2: return mapping.get(iface).getConnector().getRdc().getCompartment().getName() + "." + 
+						   mapping.get(iface).getConnector().getRdc().getName() + "." + 
+						   mapping.get(iface).getConnector().getName() + " . " + 
 						   mapping.get(iface).getName(); 
 			case 3: return iface.getIoType();
 			case 4: return iface.getSystem();
@@ -71,8 +73,9 @@ public class SaveGeneratedMappingsInSpecificationIfaceSelectionPage extends Wiza
 			if (iface.getName().matches(searchString)) return true;
 			if (iface.getIoType().matches(searchString)) return true;
 			if (iface.getSystem().matches(searchString)) return true;
-			if ((mapping.get(iface).getRdc().getCompartment().getName() + "." + 
-				 mapping.get(iface).getRdc().getName() + "." + 
+			if ((mapping.get(iface).getConnector().getRdc().getCompartment().getName() + "." + 
+				 mapping.get(iface).getConnector().getRdc().getName() + "." + 
+				 mapping.get(iface).getConnector().getName() + "." +
 				 mapping.get(iface).getName())
 				.matches(searchString)) return true;
 			
@@ -116,11 +119,11 @@ public class SaveGeneratedMappingsInSpecificationIfaceSelectionPage extends Wiza
 	
 	private Table table;
 	private CheckboxTableViewer tableViewer;
-	private Map<EqInterface, Connector> mapping;
+	private Map<EqInterface, Pin> mapping;
 	private Text searchText;
 	private InterfaceFilter filter; 
 
-	protected SaveGeneratedMappingsInSpecificationIfaceSelectionPage(Map<EqInterface, Connector> mapping) {
+	protected SaveGeneratedMappingsInSpecificationIfaceSelectionPage(Map<EqInterface, Pin> mapping) {
 		super("InterfaceSelection");
 		setTitle("Select Interface Mappings");
 		setDescription("Please select the mappings from the current solution.");

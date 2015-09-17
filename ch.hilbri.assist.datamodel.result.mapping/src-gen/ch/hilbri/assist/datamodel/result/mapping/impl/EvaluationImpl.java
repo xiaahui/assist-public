@@ -10,7 +10,6 @@ import com.google.common.base.Objects;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -39,8 +38,8 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  * <ul>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.EvaluationImpl#getAbsoluteScores <em>Absolute Scores</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.EvaluationImpl#getScaledScores <em>Scaled Scores</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.EvaluationImpl#getTotalScaledScore <em>Total Scaled Score</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.EvaluationImpl#getMetricsUsed <em>Metrics Used</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.EvaluationImpl#getTotalScaledScore <em>Total Scaled Score</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,16 +66,6 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	protected HashMap<AbstractMetric, Double> scaledScores;
 
 	/**
-	 * The default value of the '{@link #getTotalScaledScore() <em>Total Scaled Score</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTotalScaledScore()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double TOTAL_SCALED_SCORE_EDEFAULT = 0.0;
-
-	/**
 	 * The cached value of the '{@link #getMetricsUsed() <em>Metrics Used</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,6 +74,16 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	 * @ordered
 	 */
 	protected EList<AbstractMetric> metricsUsed;
+
+	/**
+	 * The default value of the '{@link #getTotalScaledScore() <em>Total Scaled Score</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTotalScaledScore()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double TOTAL_SCALED_SCORE_EDEFAULT = 0.0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,6 +151,18 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<AbstractMetric> getMetricsUsed() {
+		if (metricsUsed == null) {
+			metricsUsed = new EObjectResolvingEList<AbstractMetric>(AbstractMetric.class, this, MappingPackage.EVALUATION__METRICS_USED);
+		}
+		return metricsUsed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public double getTotalScaledScore() {
 		Double _xifexpression = null;
 		boolean _or = false;
@@ -161,13 +172,11 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 			_or = true;
 		} else {
 			HashMap<AbstractMetric, Double> _scaledScores_1 = this.getScaledScores();
-			Set<AbstractMetric> _keySet = _scaledScores_1.keySet();
-			int _size = _keySet.size();
-			boolean _equals_1 = (_size == 0);
-			_or = _equals_1;
+			boolean _isEmpty = _scaledScores_1.isEmpty();
+			_or = _isEmpty;
 		}
 		if (_or) {
-			return 0.0;
+			_xifexpression = Double.valueOf(0.0);
 		}
 		else {
 			HashMap<AbstractMetric, Double> _scaledScores_2 = this.getScaledScores();
@@ -187,18 +196,6 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AbstractMetric> getMetricsUsed() {
-		if (metricsUsed == null) {
-			metricsUsed = new EObjectResolvingEList<AbstractMetric>(AbstractMetric.class, this, MappingPackage.EVALUATION__METRICS_USED);
-		}
-		return metricsUsed;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -206,10 +203,10 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 				return getAbsoluteScores();
 			case MappingPackage.EVALUATION__SCALED_SCORES:
 				return getScaledScores();
-			case MappingPackage.EVALUATION__TOTAL_SCALED_SCORE:
-				return getTotalScaledScore();
 			case MappingPackage.EVALUATION__METRICS_USED:
 				return getMetricsUsed();
+			case MappingPackage.EVALUATION__TOTAL_SCALED_SCORE:
+				return getTotalScaledScore();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -270,10 +267,10 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 				return absoluteScores != null;
 			case MappingPackage.EVALUATION__SCALED_SCORES:
 				return scaledScores != null;
-			case MappingPackage.EVALUATION__TOTAL_SCALED_SCORE:
-				return getTotalScaledScore() != TOTAL_SCALED_SCORE_EDEFAULT;
 			case MappingPackage.EVALUATION__METRICS_USED:
 				return metricsUsed != null && !metricsUsed.isEmpty();
+			case MappingPackage.EVALUATION__TOTAL_SCALED_SCORE:
+				return getTotalScaledScore() != TOTAL_SCALED_SCORE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

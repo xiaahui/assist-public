@@ -126,22 +126,22 @@ public interface MappingPackage extends EPackage {
 	int RESULT__MAPPING = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Evaluation</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT__EVALUATION = COMPARABLE_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Partial Solution</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__PARTIAL_SOLUTION = COMPARABLE_FEATURE_COUNT + 4;
+	int RESULT__PARTIAL_SOLUTION = COMPARABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Evaluation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__EVALUATION = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Result</em>' class.
@@ -153,31 +153,13 @@ public interface MappingPackage extends EPackage {
 	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Compare To</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT___COMPARE_TO__RESULT = COMPARABLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get All Mapped Eq Interfaces For Connector</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT___GET_ALL_MAPPED_EQ_INTERFACES_FOR_CONNECTOR__CONNECTOR = COMPARABLE_OPERATION_COUNT + 1;
-
-	/**
 	 * The operation id for the '<em>Get All Unmapped Eq Interfaces</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___GET_ALL_UNMAPPED_EQ_INTERFACES = COMPARABLE_OPERATION_COUNT + 2;
+	int RESULT___GET_ALL_UNMAPPED_EQ_INTERFACES = COMPARABLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Completeness As Percentage</em>' operation.
@@ -186,7 +168,34 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___GET_COMPLETENESS_AS_PERCENTAGE = COMPARABLE_OPERATION_COUNT + 3;
+	int RESULT___GET_COMPLETENESS_AS_PERCENTAGE = COMPARABLE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Pin For Eq Interface</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_PIN_FOR_EQ_INTERFACE__EQINTERFACE = COMPARABLE_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Eq Interface For Pin</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN = COMPARABLE_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Compare To</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___COMPARE_TO__RESULT = COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Result</em>' class.
@@ -195,7 +204,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 4;
+	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl <em>Abstract Metric</em>}' class.
@@ -299,22 +308,22 @@ public interface MappingPackage extends EPackage {
 	int EVALUATION__SCALED_SCORES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Total Scaled Score</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVALUATION__TOTAL_SCALED_SCORE = 2;
-
-	/**
 	 * The feature id for the '<em><b>Metrics Used</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVALUATION__METRICS_USED = 3;
+	int EVALUATION__METRICS_USED = 2;
+
+	/**
+	 * The feature id for the '<em><b>Total Scaled Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATION__TOTAL_SCALED_SCORE = 3;
 
 	/**
 	 * The number of structural features of the '<em>Evaluation</em>' class.
@@ -335,14 +344,14 @@ public interface MappingPackage extends EPackage {
 	int EVALUATION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '<em>Eq Interface Connector Map Type</em>' data type.
+	 * The meta object id for the '<em>Eq Interface Pin Map Type</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see java.util.HashMap
-	 * @see ch.hilbri.assist.datamodel.result.mapping.impl.MappingPackageImpl#getEqInterfaceConnectorMapType()
+	 * @see ch.hilbri.assist.datamodel.result.mapping.impl.MappingPackageImpl#getEqInterfacePinMapType()
 	 * @generated
 	 */
-	int EQ_INTERFACE_CONNECTOR_MAP_TYPE = 4;
+	int EQ_INTERFACE_PIN_MAP_TYPE = 4;
 
 	/**
 	 * The meta object id for the '<em>Metric Score Map</em>' data type.
@@ -410,17 +419,6 @@ public interface MappingPackage extends EPackage {
 	EAttribute getResult_Mapping();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getEvaluation <em>Evaluation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Evaluation</em>'.
-	 * @see ch.hilbri.assist.datamodel.result.mapping.Result#getEvaluation()
-	 * @see #getResult()
-	 * @generated
-	 */
-	EReference getResult_Evaluation();
-
-	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.result.mapping.Result#isPartialSolution <em>Partial Solution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -432,24 +430,15 @@ public interface MappingPackage extends EPackage {
 	EAttribute getResult_PartialSolution();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#compareTo(ch.hilbri.assist.datamodel.result.mapping.Result) <em>Compare To</em>}' operation.
+	 * Returns the meta object for the containment reference '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getEvaluation <em>Evaluation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Compare To</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.result.mapping.Result#compareTo(ch.hilbri.assist.datamodel.result.mapping.Result)
+	 * @return the meta object for the containment reference '<em>Evaluation</em>'.
+	 * @see ch.hilbri.assist.datamodel.result.mapping.Result#getEvaluation()
+	 * @see #getResult()
 	 * @generated
 	 */
-	EOperation getResult__CompareTo__Result();
-
-	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getAllMappedEqInterfacesForConnector(ch.hilbri.assist.datamodel.model.Connector) <em>Get All Mapped Eq Interfaces For Connector</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Mapped Eq Interfaces For Connector</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.result.mapping.Result#getAllMappedEqInterfacesForConnector(ch.hilbri.assist.datamodel.model.Connector)
-	 * @generated
-	 */
-	EOperation getResult__GetAllMappedEqInterfacesForConnector__Connector();
+	EReference getResult_Evaluation();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getAllUnmappedEqInterfaces() <em>Get All Unmapped Eq Interfaces</em>}' operation.
@@ -470,6 +459,36 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getResult__GetCompletenessAsPercentage();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getPinForEqInterface(ch.hilbri.assist.datamodel.model.EqInterface) <em>Get Pin For Eq Interface</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Pin For Eq Interface</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.result.mapping.Result#getPinForEqInterface(ch.hilbri.assist.datamodel.model.EqInterface)
+	 * @generated
+	 */
+	EOperation getResult__GetPinForEqInterface__EqInterface();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getEqInterfaceForPin(ch.hilbri.assist.datamodel.model.Pin) <em>Get Eq Interface For Pin</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Eq Interface For Pin</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.result.mapping.Result#getEqInterfaceForPin(ch.hilbri.assist.datamodel.model.Pin)
+	 * @generated
+	 */
+	EOperation getResult__GetEqInterfaceForPin__Pin();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#compareTo(ch.hilbri.assist.datamodel.result.mapping.Result) <em>Compare To</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compare To</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.result.mapping.Result#compareTo(ch.hilbri.assist.datamodel.result.mapping.Result)
+	 * @generated
+	 */
+	EOperation getResult__CompareTo__Result();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.result.mapping.AbstractMetric <em>Abstract Metric</em>}'.
@@ -568,17 +587,6 @@ public interface MappingPackage extends EPackage {
 	EAttribute getEvaluation_ScaledScores();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.result.mapping.Evaluation#getTotalScaledScore <em>Total Scaled Score</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Total Scaled Score</em>'.
-	 * @see ch.hilbri.assist.datamodel.result.mapping.Evaluation#getTotalScaledScore()
-	 * @see #getEvaluation()
-	 * @generated
-	 */
-	EAttribute getEvaluation_TotalScaledScore();
-
-	/**
 	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.datamodel.result.mapping.Evaluation#getMetricsUsed <em>Metrics Used</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -590,15 +598,26 @@ public interface MappingPackage extends EPackage {
 	EReference getEvaluation_MetricsUsed();
 
 	/**
-	 * Returns the meta object for data type '{@link java.util.HashMap <em>Eq Interface Connector Map Type</em>}'.
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.result.mapping.Evaluation#getTotalScaledScore <em>Total Scaled Score</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Eq Interface Connector Map Type</em>'.
-	 * @see java.util.HashMap
-	 * @model instanceClass="java.util.HashMap<ch.hilbri.assist.datamodel.model.EqInterface, ch.hilbri.assist.datamodel.model.Connector>"
+	 * @return the meta object for the attribute '<em>Total Scaled Score</em>'.
+	 * @see ch.hilbri.assist.datamodel.result.mapping.Evaluation#getTotalScaledScore()
+	 * @see #getEvaluation()
 	 * @generated
 	 */
-	EDataType getEqInterfaceConnectorMapType();
+	EAttribute getEvaluation_TotalScaledScore();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.HashMap <em>Eq Interface Pin Map Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Eq Interface Pin Map Type</em>'.
+	 * @see java.util.HashMap
+	 * @model instanceClass="java.util.HashMap<ch.hilbri.assist.datamodel.model.EqInterface, ch.hilbri.assist.datamodel.model.Pin>"
+	 * @generated
+	 */
+	EDataType getEqInterfacePinMapType();
 
 	/**
 	 * Returns the meta object for data type '{@link java.util.HashMap <em>Metric Score Map</em>}'.
@@ -679,14 +698,6 @@ public interface MappingPackage extends EPackage {
 		EAttribute RESULT__MAPPING = eINSTANCE.getResult_Mapping();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESULT__EVALUATION = eINSTANCE.getResult_Evaluation();
-
-		/**
 		 * The meta object literal for the '<em><b>Partial Solution</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -695,20 +706,12 @@ public interface MappingPackage extends EPackage {
 		EAttribute RESULT__PARTIAL_SOLUTION = eINSTANCE.getResult_PartialSolution();
 
 		/**
-		 * The meta object literal for the '<em><b>Compare To</b></em>' operation.
+		 * The meta object literal for the '<em><b>Evaluation</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RESULT___COMPARE_TO__RESULT = eINSTANCE.getResult__CompareTo__Result();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Mapped Eq Interfaces For Connector</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RESULT___GET_ALL_MAPPED_EQ_INTERFACES_FOR_CONNECTOR__CONNECTOR = eINSTANCE.getResult__GetAllMappedEqInterfacesForConnector__Connector();
+		EReference RESULT__EVALUATION = eINSTANCE.getResult_Evaluation();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Unmapped Eq Interfaces</b></em>' operation.
@@ -725,6 +728,30 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RESULT___GET_COMPLETENESS_AS_PERCENTAGE = eINSTANCE.getResult__GetCompletenessAsPercentage();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Pin For Eq Interface</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_PIN_FOR_EQ_INTERFACE__EQINTERFACE = eINSTANCE.getResult__GetPinForEqInterface__EqInterface();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Eq Interface For Pin</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN = eINSTANCE.getResult__GetEqInterfaceForPin__Pin();
+
+		/**
+		 * The meta object literal for the '<em><b>Compare To</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___COMPARE_TO__RESULT = eINSTANCE.getResult__CompareTo__Result();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl <em>Abstract Metric</em>}' class.
@@ -803,14 +830,6 @@ public interface MappingPackage extends EPackage {
 		EAttribute EVALUATION__SCALED_SCORES = eINSTANCE.getEvaluation_ScaledScores();
 
 		/**
-		 * The meta object literal for the '<em><b>Total Scaled Score</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EVALUATION__TOTAL_SCALED_SCORE = eINSTANCE.getEvaluation_TotalScaledScore();
-
-		/**
 		 * The meta object literal for the '<em><b>Metrics Used</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -819,14 +838,22 @@ public interface MappingPackage extends EPackage {
 		EReference EVALUATION__METRICS_USED = eINSTANCE.getEvaluation_MetricsUsed();
 
 		/**
-		 * The meta object literal for the '<em>Eq Interface Connector Map Type</em>' data type.
+		 * The meta object literal for the '<em><b>Total Scaled Score</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVALUATION__TOTAL_SCALED_SCORE = eINSTANCE.getEvaluation_TotalScaledScore();
+
+		/**
+		 * The meta object literal for the '<em>Eq Interface Pin Map Type</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see java.util.HashMap
-		 * @see ch.hilbri.assist.datamodel.result.mapping.impl.MappingPackageImpl#getEqInterfaceConnectorMapType()
+		 * @see ch.hilbri.assist.datamodel.result.mapping.impl.MappingPackageImpl#getEqInterfacePinMapType()
 		 * @generated
 		 */
-		EDataType EQ_INTERFACE_CONNECTOR_MAP_TYPE = eINSTANCE.getEqInterfaceConnectorMapType();
+		EDataType EQ_INTERFACE_PIN_MAP_TYPE = eINSTANCE.getEqInterfacePinMapType();
 
 		/**
 		 * The meta object literal for the '<em>Metric Score Map</em>' data type.

@@ -4,12 +4,7 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
-import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
-import ch.hilbri.assist.mapping.solver.constraints.ConfigurablePinInterfaceTypeConstraint
-import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ImprovedPairOfColocalitiesConstraint
-import ch.hilbri.assist.mapping.solver.constraints.RestrictInvalidDeploymentsConstraint
-import ch.hilbri.assist.mapping.solver.constraints.RestrictValidDeploymentsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
@@ -59,9 +54,11 @@ class AssistSolver {
 		this(model, #[0], 0)
 	}
 
-	new (AssistModel model, List<Integer> locationVariableLvls, int minimize) {
-		this.minimize = minimize - 1
-		this.logger = LoggerFactory.getLogger(this.class)
+	new (AssistModel model, List<Integer> locationVariableLvls, int min) {
+		minimize = minimize - 1
+		
+		logger = LoggerFactory.getLogger(this.class)
+		
 		logger.info('''******************************''')
 		logger.info(''' Executing a new AssistSolver''')
 		logger.info('''******************************''')
@@ -90,50 +87,50 @@ class AssistSolver {
 		}
 			
 		/* Create a new Solver object */
-		this.solver = new Solver()
+		solver = new Solver()
 				
 		/* Create a new recorder for our solutions */
-		this.recorder = new AllSolutionsRecorder(solver)
-		this.solver.set(recorder)
+		recorder = new AllSolutionsRecorder(solver)
+		solver.set(recorder)
 		
 		/* Create the container for variables which are needed in the solver */
- 		this.solverVariables = new SolverVariablesContainer(model, solver, locationVariableLvls)
+ 		solverVariables = new SolverVariablesContainer(model, solver, locationVariableLvls)
 		
 		/* The same solution should not be found twice */
 		SMF.nogoodRecordingOnSolution(solverVariables.locationVariables)
 		
 		/* Attach the search monitors */
-		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solverVariables))
-		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
-		this.solver.searchLoop.plugSearchMonitor(new RestartMonitor)
-		this.solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor())
+		solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solverVariables))
+		solver.searchLoop.plugSearchMonitor(new CloseMonitor)
+		solver.searchLoop.plugSearchMonitor(new RestartMonitor)
+		solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor())
 	
 		/* Create an empty set of constraints that will be used */
-		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
-		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables, this.minimize >= 0))
-//		this.mappingConstraintsList.add(new ConfigurablePinInterfaceTypeConstraint(model, solver, solverVariables))				
-//		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
+		mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
+		mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables, minimize >= 0))
+//		mappingConstraintsList.add(new ConfigurablePinInterfaceTypeConstraint(model, solver, solverVariables))				
+//		mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
+//		mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
+//		mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 
 		// Bug: these constraints do not work with configurable interface types 
 		// this.mappingConstraintsList.add(new ImprovedColocalitiesConstraint(model, solver, solverVariables))
 		// this.mappingConstraintsList.add(new ImprovedPairOfColocalitiesConstraint(model, solver, solverVariables))
 		
-		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
+//		mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
 
 		/* Create a list for the results */ 
-		this.mappingResults = new ArrayList<Result>()  
+		mappingResults = new ArrayList<Result>()  
 	}
 
 
 	def setSavePartialSolution(boolean value) {
-		this.savePartialSolution = value
+		savePartialSolution = value
 		
 		if (value) {
 			logger.info("Enabled saving of partial solutions if no solutions are found")
-			this.partialSolutionSaveMonitor = new PartialSolutionSaveMonitor(solver, solverVariables)
-			this.solver.searchLoop.plugSearchMonitor(partialSolutionSaveMonitor)		
+			partialSolutionSaveMonitor = new PartialSolutionSaveMonitor(solver, solverVariables)
+			solver.searchLoop.plugSearchMonitor(partialSolutionSaveMonitor)		
 		}
 		else {
 			logger.info("Disabled saving of partial solutions if no solutions are found")
@@ -242,10 +239,6 @@ class AssistSolver {
 			case ACTIVITY: {
 				heuristics.add(ISF.activity(vars, seed))
 			}
-//			case IMPACT: { // possibly broken
-//				heuristics.add(ISF.impact(vars, seed))
-//			}
-			
 		}
 		
 		solver.set(heuristics)

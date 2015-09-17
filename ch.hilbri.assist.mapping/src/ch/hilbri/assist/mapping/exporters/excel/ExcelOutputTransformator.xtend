@@ -64,7 +64,7 @@ class ExcelOutputTransformator {
 						
 						if (result.mapping.get(eqInterface) != null) {
 
-							val mappedRDCName = result.mapping.get(eqInterface).rdc.name + "__" + result.mapping.get(eqInterface).name
+							val mappedRDCName = result.getPinForEqInterface(eqInterface).connector.rdc.name + "__" + result.mapping.get(eqInterface).name
 							val label = new Label(3,row, mappedRDCName)
 							sheet.addCell(label)
 							

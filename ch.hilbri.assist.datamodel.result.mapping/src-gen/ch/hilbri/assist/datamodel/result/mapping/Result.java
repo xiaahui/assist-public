@@ -3,8 +3,8 @@
 package ch.hilbri.assist.datamodel.result.mapping;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
-import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.EqInterface;
+import ch.hilbri.assist.datamodel.model.Pin;
 
 import java.lang.Comparable;
 
@@ -26,8 +26,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.Result#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.Result#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.Result#getMapping <em>Mapping</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.Result#getEvaluation <em>Evaluation</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.Result#isPartialSolution <em>Partial Solution</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.Result#getEvaluation <em>Evaluation</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.datamodel.result.mapping.MappingPackage#getResult()
@@ -98,10 +98,10 @@ public interface Result extends EObject, Comparable<Result> {
 	 * @return the value of the '<em>Mapping</em>' attribute.
 	 * @see #setMapping(HashMap)
 	 * @see ch.hilbri.assist.datamodel.result.mapping.MappingPackage#getResult_Mapping()
-	 * @model unique="false" dataType="ch.hilbri.assist.datamodel.result.mapping.EqInterfaceConnectorMapType"
+	 * @model unique="false" dataType="ch.hilbri.assist.datamodel.result.mapping.EqInterfacePinMapType"
 	 * @generated
 	 */
-	HashMap<EqInterface, Connector> getMapping();
+	HashMap<EqInterface, Pin> getMapping();
 
 	/**
 	 * Sets the value of the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getMapping <em>Mapping</em>}' attribute.
@@ -111,33 +111,7 @@ public interface Result extends EObject, Comparable<Result> {
 	 * @see #getMapping()
 	 * @generated
 	 */
-	void setMapping(HashMap<EqInterface, Connector> value);
-
-	/**
-	 * Returns the value of the '<em><b>Evaluation</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Evaluation</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Evaluation</em>' containment reference.
-	 * @see #setEvaluation(Evaluation)
-	 * @see ch.hilbri.assist.datamodel.result.mapping.MappingPackage#getResult_Evaluation()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Evaluation getEvaluation();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getEvaluation <em>Evaluation</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Evaluation</em>' containment reference.
-	 * @see #getEvaluation()
-	 * @generated
-	 */
-	void setEvaluation(Evaluation value);
+	void setMapping(HashMap<EqInterface, Pin> value);
 
 	/**
 	 * Returns the value of the '<em><b>Partial Solution</b></em>' attribute.
@@ -167,28 +141,36 @@ public interface Result extends EObject, Comparable<Result> {
 	void setPartialSolution(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Evaluation</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Evaluation</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model unique="false" oUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.result.mapping.Evaluation%> _evaluation = null;\nif (this!=null)\n{\n\t_evaluation=this.getEvaluation();\n}\ndouble _totalScaledScore = _evaluation.getTotalScaledScore();\n<%ch.hilbri.assist.datamodel.result.mapping.Evaluation%> _evaluation_1 = null;\nif (o!=null)\n{\n\t_evaluation_1=o.getEvaluation();\n}\ndouble _totalScaledScore_1 = _evaluation_1.getTotalScaledScore();\nfinal double diff = (_totalScaledScore - _totalScaledScore_1);\nif ((diff < 0.0))\n{\n\treturn 1;\n}\nif ((diff > 0.0))\n{\n\treturn (-1);\n}\nreturn 0;'"
+	 * @return the value of the '<em>Evaluation</em>' containment reference.
+	 * @see #setEvaluation(Evaluation)
+	 * @see ch.hilbri.assist.datamodel.result.mapping.MappingPackage#getResult_Evaluation()
+	 * @model containment="true"
 	 * @generated
 	 */
-	int compareTo(Result o);
+	Evaluation getEvaluation();
 
 	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getEvaluation <em>Evaluation</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model unique="false" connectorUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.datamodel.model.EqInterface%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.datamodel.model.EqInterface%>>();\n<%java.util.HashMap%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Connector%>> _mapping = this.getMapping();\n<%java.util.Set%><<%ch.hilbri.assist.datamodel.model.EqInterface%>> _keySet = _mapping.keySet();\nfor (final <%ch.hilbri.assist.datamodel.model.EqInterface%> iface : _keySet)\n{\n\t<%java.util.HashMap%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Connector%>> _mapping_1 = this.getMapping();\n\t<%ch.hilbri.assist.datamodel.model.Connector%> _get = _mapping_1.get(iface);\n\tboolean _equals = <%com.google.common.base.Objects%>.equal(_get, connector);\n\tif (_equals)\n\t{\n\t\tlist.add(iface);\n\t}\n}\nreturn list;'"
+	 * @param value the new value of the '<em>Evaluation</em>' containment reference.
+	 * @see #getEvaluation()
 	 * @generated
 	 */
-	EList<EqInterface> getAllMappedEqInterfacesForConnector(Connector connector);
+	void setEvaluation(Evaluation value);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.AssistModel%> _model = this.getModel();\n<%ch.hilbri.assist.datamodel.model.InterfacesBlock%> _interfacesBlock = _model.getInterfacesBlock();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.EqInterface%>> _eqInterfaces = _interfacesBlock.getEqInterfaces();\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%java.lang.Boolean%>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%java.lang.Boolean%>>()\n{\n\tpublic <%java.lang.Boolean%> apply(final <%ch.hilbri.assist.datamodel.model.EqInterface%> it)\n\t{\n\t\t<%java.util.HashMap%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Connector%>> _mapping = <%this%>.getMapping();\n\t\t<%java.util.Set%><<%ch.hilbri.assist.datamodel.model.EqInterface%>> _keySet = _mapping.keySet();\n\t\tboolean _contains = _keySet.contains(it);\n\t\treturn <%java.lang.Boolean%>.valueOf((!_contains));\n\t}\n};\n<%java.lang.Iterable%><<%ch.hilbri.assist.datamodel.model.EqInterface%>> _filter = <%org.eclipse.xtext.xbase.lib.IterableExtensions%>.<<%ch.hilbri.assist.datamodel.model.EqInterface%>>filter(_eqInterfaces, _function);\nreturn <%org.eclipse.emf.common.util.ECollections%>.<<%ch.hilbri.assist.datamodel.model.EqInterface%>>toEList(_filter);'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.AssistModel%> _model = this.getModel();\n<%ch.hilbri.assist.datamodel.model.InterfacesBlock%> _interfacesBlock = _model.getInterfacesBlock();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.EqInterface%>> _eqInterfaces = _interfacesBlock.getEqInterfaces();\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%java.lang.Boolean%>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%java.lang.Boolean%>>()\n{\n\tpublic <%java.lang.Boolean%> apply(final <%ch.hilbri.assist.datamodel.model.EqInterface%> it)\n\t{\n\t\t<%java.util.HashMap%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Pin%>> _mapping = <%this%>.getMapping();\n\t\t<%java.util.Set%><<%ch.hilbri.assist.datamodel.model.EqInterface%>> _keySet = _mapping.keySet();\n\t\tboolean _contains = _keySet.contains(it);\n\t\treturn <%java.lang.Boolean%>.valueOf((!_contains));\n\t}\n};\n<%java.lang.Iterable%><<%ch.hilbri.assist.datamodel.model.EqInterface%>> _filter = <%org.eclipse.xtext.xbase.lib.IterableExtensions%>.<<%ch.hilbri.assist.datamodel.model.EqInterface%>>filter(_eqInterfaces, _function);\nreturn <%org.eclipse.emf.common.util.ECollections%>.<<%ch.hilbri.assist.datamodel.model.EqInterface%>>toEList(_filter);'"
 	 * @generated
 	 */
 	EList<EqInterface> getAllUnmappedEqInterfaces();
@@ -201,5 +183,32 @@ public interface Result extends EObject, Comparable<Result> {
 	 * @generated
 	 */
 	double getCompletenessAsPercentage();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" ifaceUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.Pin%> _xifexpression = null;\n<%java.util.HashMap%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Pin%>> _mapping = this.getMapping();\n<%java.util.Set%><<%ch.hilbri.assist.datamodel.model.EqInterface%>> _keySet = _mapping.keySet();\nboolean _contains = _keySet.contains(iface);\nif (_contains)\n{\n\t<%java.util.HashMap%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Pin%>> _mapping_1 = this.getMapping();\n\t_xifexpression = _mapping_1.get(iface);\n}\nelse\n{\n\t_xifexpression = null;\n}\nreturn _xifexpression;'"
+	 * @generated
+	 */
+	Pin getPinForEqInterface(EqInterface iface);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" pUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.EqInterface%> _xblockexpression = null;\n{\n\t<%java.util.HashMap%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Pin%>> _mapping = this.getMapping();\n\tfinal <%org.eclipse.xtext.xbase.lib.Functions.Function2%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Pin%>, <%java.lang.Boolean%>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function2%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Pin%>, <%java.lang.Boolean%>>()\n\t{\n\t\tpublic <%java.lang.Boolean%> apply(final <%ch.hilbri.assist.datamodel.model.EqInterface%> iface, final <%ch.hilbri.assist.datamodel.model.Pin%> pin)\n\t\t{\n\t\t\treturn <%java.lang.Boolean%>.valueOf(<%com.google.common.base.Objects%>.equal(pin, p));\n\t\t}\n\t};\n\t<%java.util.Map%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Pin%>> _filter = <%org.eclipse.xtext.xbase.lib.MapExtensions%>.<<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Pin%>>filter(_mapping, _function);\n\tfinal <%java.util.Set%><<%ch.hilbri.assist.datamodel.model.EqInterface%>> ifaces = _filter.keySet();\n\t<%ch.hilbri.assist.datamodel.model.EqInterface%> _xifexpression = null;\n\tint _length = ((<%java.lang.Object%>[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, <%java.lang.Object%>.class)).length;\n\tboolean _equals = (_length == 1);\n\tif (_equals)\n\t{\n\t\t_xifexpression = ((<%ch.hilbri.assist.datamodel.model.EqInterface%>[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, <%ch.hilbri.assist.datamodel.model.EqInterface%>.class))[0];\n\t}\n\telse\n\t{\n\t\t_xifexpression = null;\n\t}\n\t_xblockexpression = _xifexpression;\n}\nreturn _xblockexpression;'"
+	 * @generated
+	 */
+	EqInterface getEqInterfaceForPin(Pin p);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" oUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.result.mapping.Evaluation%> _evaluation = this.getEvaluation();\ndouble _totalScaledScore = _evaluation.getTotalScaledScore();\n<%ch.hilbri.assist.datamodel.result.mapping.Evaluation%> _evaluation_1 = o.getEvaluation();\ndouble _totalScaledScore_1 = _evaluation_1.getTotalScaledScore();\nreturn <%java.lang.Double%>.compare(_totalScaledScore, _totalScaledScore_1);'"
+	 * @generated
+	 */
+	int compareTo(Result o);
 
 } // Result

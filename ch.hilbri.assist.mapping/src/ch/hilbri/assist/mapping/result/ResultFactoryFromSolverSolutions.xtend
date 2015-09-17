@@ -12,6 +12,7 @@ import org.chocosolver.solver.search.solution.Solution
 import org.chocosolver.solver.variables.IntVar
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 
 class ResultFactoryFromSolverSolutions {
 	private static Logger logger = LoggerFactory.getLogger(ResultFactoryFromSolverSolutions)
@@ -27,12 +28,12 @@ class ResultFactoryFromSolverSolutions {
 		
 		for (iface : result.model.eqInterfaces)
 		{
-			val locVar = solverVariables.getEqInterfaceLocationVariable(iface, 0)
+			val locVar = solverVariables.getEqInterfaceLocationVariable(iface, HardwareArchitectureLevelType.PIN)
 			
 			if (partialSolution.keySet.contains(locVar)) {
-				val connectorIndex 	= partialSolution.get(locVar)
-				val connector 		= result.model.connectors.get(connectorIndex)
-				result.mapping.put(iface, connector)	
+				val pinIndex 	= partialSolution.get(locVar)
+				val pin 		= result.model.pins.get(pinIndex)
+				result.mapping.put(iface, pin)	
 			}
 		}
 		results.add(result)
@@ -89,11 +90,11 @@ class ResultFactoryFromSolverSolutions {
 	static private def void addMappingFromSolution(Result result, SolverVariablesContainer solverVariables, Solution solution) {
 		for (iface : result.model.eqInterfaces)
 		{
-			val locVar = solverVariables.getEqInterfaceLocationVariable(iface, 0)
-			val connectorIndex = solution.getIntVal(locVar)
-			val connector = result.model.connectors.get(connectorIndex)
+			val locVar = solverVariables.getEqInterfaceLocationVariable(iface, HardwareArchitectureLevelType.PIN)
+			val pinIndex = solution.getIntVal(locVar)
+			val pin 	 = result.model.pins.get(pinIndex)
 			
-			result.mapping.put(iface, connector)
+			result.mapping.put(iface, pin)
 		}
 	}
 	
