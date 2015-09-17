@@ -32,18 +32,17 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		
 		/* ---------- INTERFACES AND GROUPS --------- */
 		val interfaceNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Interfaces", false)
-		if (model.interfacesBlock != null)
-			for (iface : model.interfacesBlock.eqInterfaces) 
+		for (iface : model?.interfacesBlock?.eqInterfaces) 
 				createNode(interfaceNode, iface)
 		
-		if (!model.interfaceGroupsBlock.eqInterfaceGroups.empty) {
+		if (model.interfaceGroupsBlock != null && !model.interfaceGroupsBlock.eqInterfaceGroups.empty) {
 			val interfaceGroupNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Interface Groups", false)
 			for (group : model.interfaceGroupsBlock.eqInterfaceGroups)
 				createNode(interfaceGroupNode, group)
 		}
 		
 		/* --------- RESTRICTION CONSTRAINTS -------------- */
-		if (!model.restrictionsBlock.dislocalityRelations.empty || !model.restrictionsBlock.colocalityRelations.empty || !model.restrictionsBlock.validDeployments.empty || !model.restrictionsBlock.invalidDeployments.empty) {
+		if (model.restrictionsBlock != null && (!model.restrictionsBlock.dislocalityRelations.empty || !model.restrictionsBlock.colocalityRelations.empty || !model.restrictionsBlock.validDeployments.empty || !model.restrictionsBlock.invalidDeployments.empty)) {
 			val restrictionsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Restrictions", false)
 
 			if (!model.restrictionsBlock.dislocalityRelations.empty) {		
