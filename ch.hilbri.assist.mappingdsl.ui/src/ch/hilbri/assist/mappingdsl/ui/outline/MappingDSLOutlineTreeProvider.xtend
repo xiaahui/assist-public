@@ -32,8 +32,9 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		
 		/* ---------- INTERFACES AND GROUPS --------- */
 		val interfaceNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Interfaces", false)
-		for (iface : model.interfacesBlock.eqInterfaces) 
-			createNode(interfaceNode, iface)
+		if (model.interfacesBlock != null)
+			for (iface : model.interfacesBlock.eqInterfaces) 
+				createNode(interfaceNode, iface)
 		
 		if (!model.interfaceGroupsBlock.eqInterfaceGroups.empty) {
 			val interfaceGroupNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Interface Groups", false)

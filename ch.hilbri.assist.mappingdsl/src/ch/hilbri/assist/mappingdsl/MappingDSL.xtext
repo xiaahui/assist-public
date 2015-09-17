@@ -5,30 +5,12 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 AssistModel: 
 	(
-		globalBlock=GlobalBlock					&
-		compartmentsBlock=CompartmentsBlock
+		globalBlock				= GlobalBlock				&
+		compartmentsBlock		= CompartmentsBlock			&
+		interfacesBlock			= InterfacesBlock			&
+		(interfaceGroupsBlock	= InterfaceGroupsBlock)?	&
+		(restrictionsBlock		= RestrictionsBlock)?
 	)
-
-//	('Interfaces' '{'
-//		(eqInterfaces+=EqInterface)+ 
-//	'}')?
-//	
-//	('InterfaceGroups' '{'
-//		(
-//			eqInterfaceGroups+=EqInterfaceGroup 						|	
-//			eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition
-//		)*		
-//	'}')?
-//	
-//	('Restrictions' '{'
-//		( 
-//			dislocalityRelations+=DislocalityRelation 			|
-//			colocalityRelations+=ColocalityRelation				|
-//			validDeployments+=ValidDeployment					|		 
-//			invalidDeployments+=InvalidDeployment 			 
-//		)*
-//		
-//	'}')?
 ;
 
 /* ************************************************************
@@ -153,8 +135,49 @@ MetricParameter:
 	name=STRING '=' value=INT ';'
 ;
 
+/* ************************************************************
+ * INTERFACES
+   ************************************************************ */
 
-/* SOFTWARE */
+InterfacesBlock: 
+	'Interfaces' '{'
+		(eqInterfaces+=EqInterface)+ 
+	'}'
+;
+
+EqInterface:
+	'Interface' name=ID '{'
+		(
+			('System' 			'=' system=STRING 		';')?			&
+			('SubAta' 			'=' subAta=STRING 		';')?			&
+			('Resource'			'=' resource=STRING 	';')?			&
+			('LineName'			'=' lineName=STRING 	';')?			&
+			('WiringLane'		'=' wiringLane=STRING 	';')?			&
+			('GrpInfo'			'=' grpInfo=STRING 		';')?			&
+			('Route'			'=' route=STRING 		';')?			&
+			('PwSup1'			'=' pwSup1=STRING 		';')?			&
+			('EmhZone1'			'=' emhZone1=STRING 	';')?			&
+			('Type'				'=' ioType=STRING 		';')?			&
+			('ResourceX'		'=' resourceX=SIGNEDINT	';')?			&
+			('ResourceY'		'=' resourceY=SIGNEDINT	';')?			&
+			('ResourceZ'		'=' resourceZ=SIGNEDINT	';')?			
+		)
+	'}';
+
+
+/* ************************************************************
+ * INTERFACE GROUPS
+ * ************************************************************ */
+
+InterfaceGroupsBlock: {InterfaceGroupsBlock} 
+	'InterfaceGroups' '{'
+		(
+			eqInterfaceGroups+=EqInterfaceGroup 						|	
+			eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition
+		)*		
+	'}'
+;
+
 
 EqInterfaceGroup: 
 	'Group' name=ID '{' 
@@ -219,27 +242,21 @@ EqInterfaceGroupWithCombinedDefinition:
 	'Group' name=ID 'combines' combinedGroups+=[EqInterfaceGroup] ('and' combinedGroups+=[EqInterfaceGroup])* ';'	
 ;
 
-EqInterface:
-	'Interface' name=ID '{'
-		(
-			('System' 			'=' system=STRING 		';')?			&
-			('SubAta' 			'=' subAta=STRING 		';')?			&
-			('Resource'			'=' resource=STRING 	';')?			&
-			('LineName'			'=' lineName=STRING 	';')?			&
-			('WiringLane'		'=' wiringLane=STRING 	';')?			&
-			('GrpInfo'			'=' grpInfo=STRING 		';')?			&
-			('Route'			'=' route=STRING 		';')?			&
-			('PwSup1'			'=' pwSup1=STRING 		';')?			&
-			('EmhZone1'			'=' emhZone1=STRING 	';')?			&
-			('Type'				'=' ioType=STRING 		';')?			&
-			('ResourceX'		'=' resourceX=SIGNEDINT	';')?			&
-			('ResourceY'		'=' resourceY=SIGNEDINT	';')?			&
-			('ResourceZ'		'=' resourceZ=SIGNEDINT	';')?			
-		)
-	'}';
 
+/* ************************************************************
+ * RESTRICTIONS
+ * ************************************************************ */
 
-/* RELATIONEN */
+RestrictionsBlock: {RestrictionsBlock}
+	'Restrictions' '{'
+		( 
+			dislocalityRelations	+= DislocalityRelation 			|
+			colocalityRelations		+= ColocalityRelation			|
+			validDeployments		+= ValidDeployment				|		 
+			invalidDeployments		+= InvalidDeployment 			 
+		)* 
+	'}'
+;
 
 enum HardwareArchitectureLevelType :
 	COMPARTMENT = 'Compartment' |
@@ -248,15 +265,22 @@ enum HardwareArchitectureLevelType :
 ;
 
 DislocalityRelation:
-	eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 'dislocal up to' hardwareLevel=HardwareArchitectureLevelType ';';
+	eqInterfaceOrGroups+=[EqInterfaceOrGroup] 
+	(',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
+	'dislocal up to' 
+	hardwareLevel=HardwareArchitectureLevelType ';';
 	
 	
 ColocalityRelation:
-	eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])*  'on same' hardwareLevel=HardwareArchitectureLevelType ';'
+	eqInterfaceOrGroups+=[EqInterfaceOrGroup] 
+	(',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])*  
+	'on same' 
+	hardwareLevel=HardwareArchitectureLevelType ';'
 ;	
 
 ValidDeployment:
-	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
+	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] 
+	(',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
 	('is'|'are') '{'
 		  ( 	 hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
 		  (',' 	(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) )* 
@@ -264,7 +288,8 @@ ValidDeployment:
 ;
 
 InvalidDeployment:
-	'Invalid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
+	'Invalid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] 
+	(',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
 	('is'|'are') '{'
 		  ( 	hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
 		  (',' (hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) )* 
@@ -272,7 +297,8 @@ InvalidDeployment:
 ;
 
 DeploymentImplicitDefinition:
-	'connectors with' entries+=DeploymentImplicitDefinitionAttributeAndValue ('and' entries+=DeploymentImplicitDefinitionAttributeAndValue)*
+	'connectors with' entries+=DeploymentImplicitDefinitionAttributeAndValue 
+	('and' entries+=DeploymentImplicitDefinitionAttributeAndValue)*
 ;
 
 DeploymentImplicitDefinitionAttributeAndValue:
@@ -299,7 +325,10 @@ enum DeploymentImplicitDefinitionAttribute:
 	CONNECTOR_NAME				= 'Connector.Name'
 ;
 
-/* MISC */
+
+/* ************************************************************
+ * RESTRICTIONS
+ * ************************************************************ */
 
 Double returns ecore::EDouble:
     INT? '.'? INT

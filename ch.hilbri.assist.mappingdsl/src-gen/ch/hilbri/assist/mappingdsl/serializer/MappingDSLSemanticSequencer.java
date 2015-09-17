@@ -22,6 +22,8 @@ import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition;
 import ch.hilbri.assist.datamodel.model.GlobalBlock;
 import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinition;
 import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttributesAndValues;
+import ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock;
+import ch.hilbri.assist.datamodel.model.InterfacesBlock;
 import ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry;
 import ch.hilbri.assist.datamodel.model.InvalidDeployment;
 import ch.hilbri.assist.datamodel.model.MetricParameter;
@@ -30,6 +32,7 @@ import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelEntry;
 import ch.hilbri.assist.datamodel.model.RDC;
+import ch.hilbri.assist.datamodel.model.RestrictionsBlock;
 import ch.hilbri.assist.datamodel.model.ValidDeployment;
 import ch.hilbri.assist.mappingdsl.services.MappingDSLGrammarAccess;
 import com.google.inject.Inject;
@@ -112,6 +115,12 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case ModelPackage.IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTES_AND_VALUES:
 				sequence_ImplicitEqInterfaceMemberDefinitionAttributesAndValues(context, (ImplicitEqInterfaceMemberDefinitionAttributesAndValues) semanticObject); 
 				return; 
+			case ModelPackage.INTERFACE_GROUPS_BLOCK:
+				sequence_InterfaceGroupsBlock(context, (InterfaceGroupsBlock) semanticObject); 
+				return; 
+			case ModelPackage.INTERFACES_BLOCK:
+				sequence_InterfacesBlock(context, (InterfacesBlock) semanticObject); 
+				return; 
 			case ModelPackage.INTERNALLY_CONNECTED_PIN_ENTRY:
 				sequence_InternallyConnectedPinEntry(context, (InternallyConnectedPinEntry) semanticObject); 
 				return; 
@@ -133,6 +142,9 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case ModelPackage.RDC:
 				sequence_RDC(context, (RDC) semanticObject); 
 				return; 
+			case ModelPackage.RESTRICTIONS_BLOCK:
+				sequence_RestrictionsBlock(context, (RestrictionsBlock) semanticObject); 
+				return; 
 			case ModelPackage.VALID_DEPLOYMENT:
 				sequence_ValidDeployment(context, (ValidDeployment) semanticObject); 
 				return; 
@@ -142,7 +154,13 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (globalBlock=GlobalBlock compartmentsBlock=CompartmentsBlock)
+	 *     (
+	 *         globalBlock=GlobalBlock 
+	 *         compartmentsBlock=CompartmentsBlock 
+	 *         interfacesBlock=InterfacesBlock 
+	 *         interfaceGroupsBlock=InterfaceGroupsBlock? 
+	 *         restrictionsBlock=RestrictionsBlock?
+	 *     )
 	 */
 	protected void sequence_AssistModel(EObject context, AssistModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -369,6 +387,24 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
+	 *     ((eqInterfaceGroups+=EqInterfaceGroup | eqInterfaceGroups+=EqInterfaceGroupWithCombinedDefinition)*)
+	 */
+	protected void sequence_InterfaceGroupsBlock(EObject context, InterfaceGroupsBlock semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     eqInterfaces+=EqInterface+
+	 */
+	protected void sequence_InterfacesBlock(EObject context, InterfacesBlock semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (pins+=[AvailableEqInterface|QualifiedName] pins+=[AvailableEqInterface|QualifiedName] pins+=[AvailableEqInterface|QualifiedName]?)
 	 */
 	protected void sequence_InternallyConnectedPinEntry(EObject context, InternallyConnectedPinEntry semanticObject) {
@@ -454,6 +490,22 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     )
 	 */
 	protected void sequence_RDC(EObject context, RDC semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         (
+	 *             dislocalityRelations+=DislocalityRelation | 
+	 *             colocalityRelations+=ColocalityRelation | 
+	 *             validDeployments+=ValidDeployment | 
+	 *             invalidDeployments+=InvalidDeployment
+	 *         )*
+	 *     )
+	 */
+	protected void sequence_RestrictionsBlock(EObject context, RestrictionsBlock semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
