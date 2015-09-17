@@ -3,8 +3,8 @@
 package ch.hilbri.assist.datamodel.model.provider;
 
 
-import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+import ch.hilbri.assist.datamodel.model.Pin;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,40 +12,25 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.AvailableEqInterface} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.datamodel.model.Pin} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AvailableEqInterfaceItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class PinItemProvider extends HardwareElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AvailableEqInterfaceItemProvider(AdapterFactory adapterFactory) {
+	public PinItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,32 +45,31 @@ public class AvailableEqInterfaceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
+			addConnectorPropertyDescriptor(object);
 			addEqInterfaceTypePropertyDescriptor(object);
-			addCountPropertyDescriptor(object);
 			addProtectionLevelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AvailableEqInterface_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AvailableEqInterface_name_feature", "_UI_AvailableEqInterface_type"),
-				 ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__NAME,
+				 getString("_UI_Pin_connector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Pin_connector_feature", "_UI_Pin_type"),
+				 ModelPackage.Literals.PIN__CONNECTOR,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -101,35 +85,13 @@ public class AvailableEqInterfaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AvailableEqInterface_eqInterfaceType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AvailableEqInterface_eqInterfaceType_feature", "_UI_AvailableEqInterface_type"),
-				 ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__EQ_INTERFACE_TYPE,
+				 getString("_UI_Pin_eqInterfaceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Pin_eqInterfaceType_feature", "_UI_Pin_type"),
+				 ModelPackage.Literals.PIN__EQ_INTERFACE_TYPE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Count feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCountPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AvailableEqInterface_count_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AvailableEqInterface_count_feature", "_UI_AvailableEqInterface_type"),
-				 ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__COUNT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -145,9 +107,9 @@ public class AvailableEqInterfaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AvailableEqInterface_protectionLevel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AvailableEqInterface_protectionLevel_feature", "_UI_AvailableEqInterface_type"),
-				 ModelPackage.Literals.AVAILABLE_EQ_INTERFACE__PROTECTION_LEVEL,
+				 getString("_UI_Pin_protectionLevel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Pin_protectionLevel_feature", "_UI_Pin_type"),
+				 ModelPackage.Literals.PIN__PROTECTION_LEVEL,
 				 true,
 				 false,
 				 false,
@@ -157,14 +119,14 @@ public class AvailableEqInterfaceItemProvider
 	}
 
 	/**
-	 * This returns AvailableEqInterface.gif.
+	 * This returns Pin.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AvailableEqInterface"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Pin"));
 	}
 
 	/**
@@ -175,10 +137,10 @@ public class AvailableEqInterfaceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AvailableEqInterface)object).getName();
+		String label = ((Pin)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AvailableEqInterface_type") :
-			getString("_UI_AvailableEqInterface_type") + " " + label;
+			getString("_UI_Pin_type") :
+			getString("_UI_Pin_type") + " " + label;
 	}
 	
 
@@ -193,11 +155,9 @@ public class AvailableEqInterfaceItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AvailableEqInterface.class)) {
-			case ModelPackage.AVAILABLE_EQ_INTERFACE__NAME:
-			case ModelPackage.AVAILABLE_EQ_INTERFACE__EQ_INTERFACE_TYPE:
-			case ModelPackage.AVAILABLE_EQ_INTERFACE__COUNT:
-			case ModelPackage.AVAILABLE_EQ_INTERFACE__PROTECTION_LEVEL:
+		switch (notification.getFeatureID(Pin.class)) {
+			case ModelPackage.PIN__EQ_INTERFACE_TYPE:
+			case ModelPackage.PIN__PROTECTION_LEVEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -214,17 +174,6 @@ public class AvailableEqInterfaceItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ModelEditPlugin.INSTANCE;
 	}
 
 }

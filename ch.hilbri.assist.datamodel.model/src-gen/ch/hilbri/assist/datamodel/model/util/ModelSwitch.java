@@ -152,12 +152,6 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.INTERNALLY_CONNECTED_PIN_ENTRY: {
-				InternallyConnectedPinEntry internallyConnectedPinEntry = (InternallyConnectedPinEntry)theEObject;
-				T result = caseInternallyConnectedPinEntry(internallyConnectedPinEntry);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ModelPackage.CONNECTOR: {
 				Connector connector = (Connector)theEObject;
 				T result = caseConnector(connector);
@@ -165,9 +159,16 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.AVAILABLE_EQ_INTERFACE: {
-				AvailableEqInterface availableEqInterface = (AvailableEqInterface)theEObject;
-				T result = caseAvailableEqInterface(availableEqInterface);
+			case ModelPackage.PIN: {
+				Pin pin = (Pin)theEObject;
+				T result = casePin(pin);
+				if (result == null) result = caseHardwareElement(pin);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.INTERNALLY_CONNECTED_PIN_ENTRY: {
+				InternallyConnectedPinEntry internallyConnectedPinEntry = (InternallyConnectedPinEntry)theEObject;
+				T result = caseInternallyConnectedPinEntry(internallyConnectedPinEntry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -488,21 +489,6 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Internally Connected Pin Entry</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Internally Connected Pin Entry</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInternallyConnectedPinEntry(InternallyConnectedPinEntry object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -518,17 +504,32 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Available Eq Interface</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Pin</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Available Eq Interface</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Pin</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAvailableEqInterface(AvailableEqInterface object) {
+	public T casePin(Pin object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Internally Connected Pin Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Internally Connected Pin Entry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInternallyConnectedPinEntry(InternallyConnectedPinEntry object) {
 		return null;
 	}
 

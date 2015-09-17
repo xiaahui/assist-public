@@ -80,7 +80,8 @@ RDC:
 	'RDC' name=ID '{'
 		(
 			('Manufacturer' 			'=' manufacturer=STRING ';')?					&
-			('PowerSupply' 				'=' powerSupply=STRING ';')?					&
+			('PowerSupply1'				'=' powerSupply1=STRING ';')?					&
+			('PowerSupply2'				'=' powerSupply2=STRING ';')?					&
 			('Type' 					'=' rdcType=STRING ';')?						&
 			('ESS'		 				'=' ess=STRING ';')?							&
 			('Location'					'=' location=STRING ';')?						&
@@ -88,30 +89,32 @@ RDC:
 			('ResourceY'				'=' resourceY=SIGNEDINT ';')?					&
 			('ResourceZ'				'=' resourceZ=SIGNEDINT ';')?					&
 			(connectors+=Connector+)													&
-			(metricParametersBlock=MetricParametersBlock)?								&						
-			('Pins' '{' connectedPins+=InternallyConnectedPinEntry+ '}' )?
+			(metricParametersBlock=MetricParametersBlock)?														
 		)												
 	'}'
 ;
 
-InternallyConnectedPinEntry: 
-	pins+=[AvailableEqInterface|QualifiedName] 
-	',' pins+=[AvailableEqInterface|QualifiedName] 
-	(',' pins+=[AvailableEqInterface|QualifiedName])? 
-	'are' 'connected' ';'  
-;
-
-
 Connector:
 	'Connector' name=ID '{'
-		(availableEqInterfaces+=AvailableEqInterface)*
-		(metricParametersBlock=MetricParametersBlock)?								
+		(pins+=Pin)*	
+		(metricParametersBlock=MetricParametersBlock)?
+		//		(availableEqInterfaces+=AvailableEqInterface)*								
 	'}'
 ;
 
-AvailableEqInterface:
-	('Name' '=' name=ID)? eqInterfaceType=STRING '=' count=INT ('with protection level' protectionLevel=ProtectionLevelType)? ';'
+Pin:
+	name=ID ':' eqInterfaceType=STRING ('protection level' protectionLevel=ProtectionLevelType)? ';'
 ;
+
+
+//InternallyConnectedPinEntry: 
+//	pins+=[AvailableEqInterface|QualifiedName] 
+//	',' pins+=[AvailableEqInterface|QualifiedName] 
+//	(',' pins+=[AvailableEqInterface|QualifiedName])? 
+//	'are' 'connected' ';'  
+//;
+
+
 
 enum ProtectionLevelType:
 	NONE	= 'None'	|
@@ -314,7 +317,8 @@ enum DeploymentImplicitDefinitionAttribute:
 	
 	RDC_NAME					= 'RDC.Name'					|
 	RDC_MANUFACTURER 			= 'RDC.Manufacturer'			|
-	RDC_POWERSUPPLY 			= 'RDC.PowerSupply'				|
+	RDC_POWERSUPPLY1 			= 'RDC.PowerSupply1'			|
+	RDC_POWERSUPPLY2 			= 'RDC.PowerSupply2'			|
 	RDC_SIDE 					= 'RDC.Side'					|
 	RDC_TYPE 					= 'RDC.Type'					|
 	RDC_ESS	 					= 'RDC.ESS'						|

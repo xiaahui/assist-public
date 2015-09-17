@@ -141,6 +141,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompatibleIoTypeEntryItemProvider compatibleIoTypeEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompatibleIoTypeEntryAdapter() {
+		if (compatibleIoTypeEntryItemProvider == null) {
+			compatibleIoTypeEntryItemProvider = new CompatibleIoTypeEntryItemProvider(this);
+		}
+
+		return compatibleIoTypeEntryItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CableWeightDataBlock} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,6 +184,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		}
 
 		return cableWeightDataBlockItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CableWeightEntry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CableWeightEntryItemProvider cableWeightEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.CableWeightEntry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCableWeightEntryAdapter() {
+		if (cableWeightEntryItemProvider == null) {
+			cableWeightEntryItemProvider = new CableWeightEntryItemProvider(this);
+		}
+
+		return cableWeightEntryItemProvider;
 	}
 
 	/**
@@ -187,121 +233,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CompartmentsBlock} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CompartmentsBlockItemProvider compartmentsBlockItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.CompartmentsBlock}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCompartmentsBlockAdapter() {
-		if (compartmentsBlockItemProvider == null) {
-			compartmentsBlockItemProvider = new CompartmentsBlockItemProvider(this);
-		}
-
-		return compartmentsBlockItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.InterfacesBlock} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InterfacesBlockItemProvider interfacesBlockItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.InterfacesBlock}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInterfacesBlockAdapter() {
-		if (interfacesBlockItemProvider == null) {
-			interfacesBlockItemProvider = new InterfacesBlockItemProvider(this);
-		}
-
-		return interfacesBlockItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InterfaceGroupsBlockItemProvider interfaceGroupsBlockItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInterfaceGroupsBlockAdapter() {
-		if (interfaceGroupsBlockItemProvider == null) {
-			interfaceGroupsBlockItemProvider = new InterfaceGroupsBlockItemProvider(this);
-		}
-
-		return interfaceGroupsBlockItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.RestrictionsBlock} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RestrictionsBlockItemProvider restrictionsBlockItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.RestrictionsBlock}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRestrictionsBlockAdapter() {
-		if (restrictionsBlockItemProvider == null) {
-			restrictionsBlockItemProvider = new RestrictionsBlockItemProvider(this);
-		}
-
-		return restrictionsBlockItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CompatibleIoTypeEntryItemProvider compatibleIoTypeEntryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCompatibleIoTypeEntryAdapter() {
-		if (compatibleIoTypeEntryItemProvider == null) {
-			compatibleIoTypeEntryItemProvider = new CompatibleIoTypeEntryItemProvider(this);
-		}
-
-		return compatibleIoTypeEntryItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.ProtectionLevelEntry} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -325,26 +256,26 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CableWeightEntry} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.CompartmentsBlock} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CableWeightEntryItemProvider cableWeightEntryItemProvider;
+	protected CompartmentsBlockItemProvider compartmentsBlockItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.CableWeightEntry}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.CompartmentsBlock}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCableWeightEntryAdapter() {
-		if (cableWeightEntryItemProvider == null) {
-			cableWeightEntryItemProvider = new CableWeightEntryItemProvider(this);
+	public Adapter createCompartmentsBlockAdapter() {
+		if (compartmentsBlockItemProvider == null) {
+			compartmentsBlockItemProvider = new CompartmentsBlockItemProvider(this);
 		}
 
-		return cableWeightEntryItemProvider;
+		return compartmentsBlockItemProvider;
 	}
 
 	/**
@@ -394,6 +325,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.MetricParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MetricParameterItemProvider metricParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.MetricParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMetricParameterAdapter() {
+		if (metricParameterItemProvider == null) {
+			metricParameterItemProvider = new MetricParameterItemProvider(this);
+		}
+
+		return metricParameterItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Compartment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -440,29 +394,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InternallyConnectedPinEntryItemProvider internallyConnectedPinEntryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInternallyConnectedPinEntryAdapter() {
-		if (internallyConnectedPinEntryItemProvider == null) {
-			internallyConnectedPinEntryItemProvider = new InternallyConnectedPinEntryItemProvider(this);
-		}
-
-		return internallyConnectedPinEntryItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Connector} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -486,26 +417,72 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.AvailableEqInterface} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.Pin} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AvailableEqInterfaceItemProvider availableEqInterfaceItemProvider;
+	protected PinItemProvider pinItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.AvailableEqInterface}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.Pin}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAvailableEqInterfaceAdapter() {
-		if (availableEqInterfaceItemProvider == null) {
-			availableEqInterfaceItemProvider = new AvailableEqInterfaceItemProvider(this);
+	public Adapter createPinAdapter() {
+		if (pinItemProvider == null) {
+			pinItemProvider = new PinItemProvider(this);
 		}
 
-		return availableEqInterfaceItemProvider;
+		return pinItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InternallyConnectedPinEntryItemProvider internallyConnectedPinEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInternallyConnectedPinEntryAdapter() {
+		if (internallyConnectedPinEntryItemProvider == null) {
+			internallyConnectedPinEntryItemProvider = new InternallyConnectedPinEntryItemProvider(this);
+		}
+
+		return internallyConnectedPinEntryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.InterfacesBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InterfacesBlockItemProvider interfacesBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.InterfacesBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInterfacesBlockAdapter() {
+		if (interfacesBlockItemProvider == null) {
+			interfacesBlockItemProvider = new InterfacesBlockItemProvider(this);
+		}
+
+		return interfacesBlockItemProvider;
 	}
 
 	/**
@@ -552,6 +529,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		}
 
 		return eqInterfaceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InterfaceGroupsBlockItemProvider interfaceGroupsBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInterfaceGroupsBlockAdapter() {
+		if (interfaceGroupsBlockItemProvider == null) {
+			interfaceGroupsBlockItemProvider = new InterfaceGroupsBlockItemProvider(this);
+		}
+
+		return interfaceGroupsBlockItemProvider;
 	}
 
 	/**
@@ -647,26 +647,26 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.MetricParameter} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.datamodel.model.RestrictionsBlock} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MetricParameterItemProvider metricParameterItemProvider;
+	protected RestrictionsBlockItemProvider restrictionsBlockItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.MetricParameter}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.datamodel.model.RestrictionsBlock}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createMetricParameterAdapter() {
-		if (metricParameterItemProvider == null) {
-			metricParameterItemProvider = new MetricParameterItemProvider(this);
+	public Adapter createRestrictionsBlockAdapter() {
+		if (restrictionsBlockItemProvider == null) {
+			restrictionsBlockItemProvider = new RestrictionsBlockItemProvider(this);
 		}
 
-		return metricParameterItemProvider;
+		return restrictionsBlockItemProvider;
 	}
 
 	/**
@@ -943,9 +943,9 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 		if (compartmentItemProvider != null) compartmentItemProvider.dispose();
 		if (rdcItemProvider != null) rdcItemProvider.dispose();
-		if (internallyConnectedPinEntryItemProvider != null) internallyConnectedPinEntryItemProvider.dispose();
 		if (connectorItemProvider != null) connectorItemProvider.dispose();
-		if (availableEqInterfaceItemProvider != null) availableEqInterfaceItemProvider.dispose();
+		if (pinItemProvider != null) pinItemProvider.dispose();
+		if (internallyConnectedPinEntryItemProvider != null) internallyConnectedPinEntryItemProvider.dispose();
 		if (interfacesBlockItemProvider != null) interfacesBlockItemProvider.dispose();
 		if (eqInterfaceOrGroupItemProvider != null) eqInterfaceOrGroupItemProvider.dispose();
 		if (eqInterfaceItemProvider != null) eqInterfaceItemProvider.dispose();

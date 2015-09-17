@@ -2,16 +2,11 @@
  */
 package ch.hilbri.assist.datamodel.model.impl;
 
-import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
 import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.model.RDC;
-
-import com.google.common.collect.Iterables;
-
-import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -32,13 +27,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
-
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.Functions.Function2;
-
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>RDC</b></em>'.
@@ -48,7 +36,8 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getManufacturer <em>Manufacturer</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getPowerSupply <em>Power Supply</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getPowerSupply1 <em>Power Supply1</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getPowerSupply2 <em>Power Supply2</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getSide <em>Side</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getRdcType <em>Rdc Type</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getEss <em>Ess</em>}</li>
@@ -85,24 +74,44 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 	protected String manufacturer = MANUFACTURER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPowerSupply() <em>Power Supply</em>}' attribute.
+	 * The default value of the '{@link #getPowerSupply1() <em>Power Supply1</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPowerSupply()
+	 * @see #getPowerSupply1()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String POWER_SUPPLY_EDEFAULT = "";
+	protected static final String POWER_SUPPLY1_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getPowerSupply() <em>Power Supply</em>}' attribute.
+	 * The cached value of the '{@link #getPowerSupply1() <em>Power Supply1</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPowerSupply()
+	 * @see #getPowerSupply1()
 	 * @generated
 	 * @ordered
 	 */
-	protected String powerSupply = POWER_SUPPLY_EDEFAULT;
+	protected String powerSupply1 = POWER_SUPPLY1_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPowerSupply2() <em>Power Supply2</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPowerSupply2()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String POWER_SUPPLY2_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getPowerSupply2() <em>Power Supply2</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPowerSupply2()
+	 * @generated
+	 * @ordered
+	 */
+	protected String powerSupply2 = POWER_SUPPLY2_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSide() <em>Side</em>}' attribute.
@@ -309,8 +318,8 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPowerSupply() {
-		return powerSupply;
+	public String getPowerSupply1() {
+		return powerSupply1;
 	}
 
 	/**
@@ -318,11 +327,32 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPowerSupply(String newPowerSupply) {
-		String oldPowerSupply = powerSupply;
-		powerSupply = newPowerSupply;
+	public void setPowerSupply1(String newPowerSupply1) {
+		String oldPowerSupply1 = powerSupply1;
+		powerSupply1 = newPowerSupply1;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RDC__POWER_SUPPLY, oldPowerSupply, powerSupply));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RDC__POWER_SUPPLY1, oldPowerSupply1, powerSupply1));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPowerSupply2() {
+		return powerSupply2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPowerSupply2(String newPowerSupply2) {
+		String oldPowerSupply2 = powerSupply2;
+		powerSupply2 = newPowerSupply2;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RDC__POWER_SUPPLY2, oldPowerSupply2, powerSupply2));
 	}
 
 	/**
@@ -561,71 +591,6 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Integer> getAvailableEqInterfaces(final EList<String> eqInterfaceTypes) {
-		EList<Integer> _xblockexpression = null;
-		{
-			EList<Connector> _connectors = this.getConnectors();
-			final Function1<Connector, EList<AvailableEqInterface>> _function = new Function1<Connector, EList<AvailableEqInterface>>() {
-				public EList<AvailableEqInterface> apply(final Connector it) {
-					return it.getAvailableEqInterfaces();
-				}
-			};
-			EList<EList<AvailableEqInterface>> _map = XcoreEListExtensions.<Connector, EList<AvailableEqInterface>>map(_connectors, _function);
-			final Iterable<AvailableEqInterface> allAvailableEqInterfaces = Iterables.<AvailableEqInterface>concat(_map);
-			final Function1<String, Integer> _function_1 = new Function1<String, Integer>() {
-				public Integer apply(final String it) {
-					Integer _xblockexpression = null;
-					{
-						final String typeName = it;
-						Integer _xifexpression = null;
-						final Function1<AvailableEqInterface, Boolean> _function = new Function1<AvailableEqInterface, Boolean>() {
-							public Boolean apply(final AvailableEqInterface it) {
-								String _eqInterfaceType = it.getEqInterfaceType();
-								return Boolean.valueOf(_eqInterfaceType.equals(typeName));
-							}
-						};
-						Iterable<AvailableEqInterface> _filter = IterableExtensions.<AvailableEqInterface>filter(allAvailableEqInterfaces, _function);
-						boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(_filter);
-						boolean _not = (!_isNullOrEmpty);
-						if (_not) {
-							final Function1<AvailableEqInterface, Boolean> _function_1 = new Function1<AvailableEqInterface, Boolean>() {
-								public Boolean apply(final AvailableEqInterface it) {
-									String _eqInterfaceType = it.getEqInterfaceType();
-									return Boolean.valueOf(_eqInterfaceType.equals(typeName));
-								}
-							};
-							Iterable<AvailableEqInterface> _filter_1 = IterableExtensions.<AvailableEqInterface>filter(allAvailableEqInterfaces, _function_1);
-							final Function1<AvailableEqInterface, Integer> _function_2 = new Function1<AvailableEqInterface, Integer>() {
-								public Integer apply(final AvailableEqInterface it) {
-									return Integer.valueOf(it.getCount());
-								}
-							};
-							Iterable<Integer> _map = IterableExtensions.<AvailableEqInterface, Integer>map(_filter_1, _function_2);
-							final Function2<Integer, Integer, Integer> _function_3 = new Function2<Integer, Integer, Integer>() {
-								public Integer apply(final Integer p1, final Integer p2) {
-									return Integer.valueOf(((p1).intValue() + (p2).intValue()));
-								}
-							};
-							_xifexpression = IterableExtensions.<Integer>reduce(_map, _function_3);
-						}
-						else {
-							_xifexpression = Integer.valueOf(0);
-						}
-						_xblockexpression = _xifexpression;
-					}
-					return _xblockexpression;
-				}
-			};
-			_xblockexpression = XcoreEListExtensions.<String, Integer>map(eqInterfaceTypes, _function_1);
-		}
-		return _xblockexpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -682,8 +647,10 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 		switch (featureID) {
 			case ModelPackage.RDC__MANUFACTURER:
 				return getManufacturer();
-			case ModelPackage.RDC__POWER_SUPPLY:
-				return getPowerSupply();
+			case ModelPackage.RDC__POWER_SUPPLY1:
+				return getPowerSupply1();
+			case ModelPackage.RDC__POWER_SUPPLY2:
+				return getPowerSupply2();
 			case ModelPackage.RDC__SIDE:
 				return getSide();
 			case ModelPackage.RDC__RDC_TYPE:
@@ -721,8 +688,11 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 			case ModelPackage.RDC__MANUFACTURER:
 				setManufacturer((String)newValue);
 				return;
-			case ModelPackage.RDC__POWER_SUPPLY:
-				setPowerSupply((String)newValue);
+			case ModelPackage.RDC__POWER_SUPPLY1:
+				setPowerSupply1((String)newValue);
+				return;
+			case ModelPackage.RDC__POWER_SUPPLY2:
+				setPowerSupply2((String)newValue);
 				return;
 			case ModelPackage.RDC__SIDE:
 				setSide((String)newValue);
@@ -771,8 +741,11 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 			case ModelPackage.RDC__MANUFACTURER:
 				setManufacturer(MANUFACTURER_EDEFAULT);
 				return;
-			case ModelPackage.RDC__POWER_SUPPLY:
-				setPowerSupply(POWER_SUPPLY_EDEFAULT);
+			case ModelPackage.RDC__POWER_SUPPLY1:
+				setPowerSupply1(POWER_SUPPLY1_EDEFAULT);
+				return;
+			case ModelPackage.RDC__POWER_SUPPLY2:
+				setPowerSupply2(POWER_SUPPLY2_EDEFAULT);
 				return;
 			case ModelPackage.RDC__SIDE:
 				setSide(SIDE_EDEFAULT);
@@ -818,8 +791,10 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 		switch (featureID) {
 			case ModelPackage.RDC__MANUFACTURER:
 				return MANUFACTURER_EDEFAULT == null ? manufacturer != null : !MANUFACTURER_EDEFAULT.equals(manufacturer);
-			case ModelPackage.RDC__POWER_SUPPLY:
-				return POWER_SUPPLY_EDEFAULT == null ? powerSupply != null : !POWER_SUPPLY_EDEFAULT.equals(powerSupply);
+			case ModelPackage.RDC__POWER_SUPPLY1:
+				return POWER_SUPPLY1_EDEFAULT == null ? powerSupply1 != null : !POWER_SUPPLY1_EDEFAULT.equals(powerSupply1);
+			case ModelPackage.RDC__POWER_SUPPLY2:
+				return POWER_SUPPLY2_EDEFAULT == null ? powerSupply2 != null : !POWER_SUPPLY2_EDEFAULT.equals(powerSupply2);
 			case ModelPackage.RDC__SIDE:
 				return SIDE_EDEFAULT == null ? side != null : !SIDE_EDEFAULT.equals(side);
 			case ModelPackage.RDC__RDC_TYPE:
@@ -850,13 +825,10 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 	 * @generated
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ModelPackage.RDC___TO_STRING:
 				return toString();
-			case ModelPackage.RDC___GET_AVAILABLE_EQ_INTERFACES__ELIST:
-				return getAvailableEqInterfaces((EList<String>)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -875,22 +875,13 @@ public interface ModelPackage extends EPackage {
 	int COMPARTMENT___GET_ALL_CONNECTORS = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Available Eq Interfaces</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARTMENT___GET_AVAILABLE_EQ_INTERFACES__ELIST = HARDWARE_ELEMENT_OPERATION_COUNT + 2;
-
-	/**
 	 * The number of operations of the '<em>Compartment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARTMENT_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 3;
+	int COMPARTMENT_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl <em>RDC</em>}' class.
@@ -930,13 +921,22 @@ public interface ModelPackage extends EPackage {
 	int RDC__MANUFACTURER = HARDWARE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Power Supply</b></em>' attribute.
+	 * The feature id for the '<em><b>Power Supply1</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDC__POWER_SUPPLY = HARDWARE_ELEMENT_FEATURE_COUNT + 1;
+	int RDC__POWER_SUPPLY1 = HARDWARE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Power Supply2</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDC__POWER_SUPPLY2 = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Side</b></em>' attribute.
@@ -945,7 +945,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDC__SIDE = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
+	int RDC__SIDE = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Rdc Type</b></em>' attribute.
@@ -954,7 +954,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDC__RDC_TYPE = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
+	int RDC__RDC_TYPE = HARDWARE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Ess</b></em>' attribute.
@@ -963,7 +963,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDC__ESS = HARDWARE_ELEMENT_FEATURE_COUNT + 4;
+	int RDC__ESS = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -972,7 +972,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDC__LOCATION = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
+	int RDC__LOCATION = HARDWARE_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Resource X</b></em>' attribute.
@@ -981,7 +981,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDC__RESOURCE_X = HARDWARE_ELEMENT_FEATURE_COUNT + 6;
+	int RDC__RESOURCE_X = HARDWARE_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Resource Y</b></em>' attribute.
@@ -990,7 +990,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDC__RESOURCE_Y = HARDWARE_ELEMENT_FEATURE_COUNT + 7;
+	int RDC__RESOURCE_Y = HARDWARE_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Resource Z</b></em>' attribute.
@@ -999,7 +999,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDC__RESOURCE_Z = HARDWARE_ELEMENT_FEATURE_COUNT + 8;
+	int RDC__RESOURCE_Z = HARDWARE_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Compartment</b></em>' container reference.
@@ -1008,7 +1008,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDC__COMPARTMENT = HARDWARE_ELEMENT_FEATURE_COUNT + 9;
+	int RDC__COMPARTMENT = HARDWARE_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Connectors</b></em>' containment reference list.
@@ -1017,7 +1017,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDC__CONNECTORS = HARDWARE_ELEMENT_FEATURE_COUNT + 10;
+	int RDC__CONNECTORS = HARDWARE_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Connected Pins</b></em>' containment reference list.
@@ -1026,7 +1026,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDC__CONNECTED_PINS = HARDWARE_ELEMENT_FEATURE_COUNT + 11;
+	int RDC__CONNECTED_PINS = HARDWARE_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of structural features of the '<em>RDC</em>' class.
@@ -1035,7 +1035,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDC_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 12;
+	int RDC_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -1047,59 +1047,13 @@ public interface ModelPackage extends EPackage {
 	int RDC___TO_STRING = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Available Eq Interfaces</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RDC___GET_AVAILABLE_EQ_INTERFACES__ELIST = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>RDC</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDC_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.InternallyConnectedPinEntryImpl <em>Internally Connected Pin Entry</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.datamodel.model.impl.InternallyConnectedPinEntryImpl
-	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInternallyConnectedPinEntry()
-	 * @generated
-	 */
-	int INTERNALLY_CONNECTED_PIN_ENTRY = 14;
-
-	/**
-	 * The feature id for the '<em><b>Pins</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERNALLY_CONNECTED_PIN_ENTRY__PINS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Internally Connected Pin Entry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERNALLY_CONNECTED_PIN_ENTRY_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Internally Connected Pin Entry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERNALLY_CONNECTED_PIN_ENTRY_OPERATION_COUNT = 0;
+	int RDC_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.ConnectorImpl <em>Connector</em>}' class.
@@ -1109,7 +1063,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getConnector()
 	 * @generated
 	 */
-	int CONNECTOR = 15;
+	int CONNECTOR = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1139,13 +1093,13 @@ public interface ModelPackage extends EPackage {
 	int CONNECTOR__RDC = HARDWARE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Available Eq Interfaces</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Pins</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__AVAILABLE_EQ_INTERFACES = HARDWARE_ELEMENT_FEATURE_COUNT + 1;
+	int CONNECTOR__PINS = HARDWARE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Connector</em>' class.
@@ -1175,32 +1129,23 @@ public interface ModelPackage extends EPackage {
 	int CONNECTOR___TO_STRING = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Available Eq Interfaces</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR___GET_AVAILABLE_EQ_INTERFACES__ELIST = HARDWARE_ELEMENT_OPERATION_COUNT + 2;
-
-	/**
 	 * The number of operations of the '<em>Connector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 3;
+	int CONNECTOR_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.AvailableEqInterfaceImpl <em>Available Eq Interface</em>}' class.
+	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.PinImpl <em>Pin</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.datamodel.model.impl.AvailableEqInterfaceImpl
-	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getAvailableEqInterface()
+	 * @see ch.hilbri.assist.datamodel.model.impl.PinImpl
+	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getPin()
 	 * @generated
 	 */
-	int AVAILABLE_EQ_INTERFACE = 16;
+	int PIN = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1209,7 +1154,25 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABLE_EQ_INTERFACE__NAME = 0;
+	int PIN__NAME = HARDWARE_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Metric Parameters Block</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__METRIC_PARAMETERS_BLOCK = HARDWARE_ELEMENT__METRIC_PARAMETERS_BLOCK;
+
+	/**
+	 * The feature id for the '<em><b>Connector</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN__CONNECTOR = HARDWARE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Eq Interface Type</b></em>' attribute.
@@ -1218,16 +1181,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABLE_EQ_INTERFACE__EQ_INTERFACE_TYPE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Count</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVAILABLE_EQ_INTERFACE__COUNT = 2;
+	int PIN__EQ_INTERFACE_TYPE = HARDWARE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Protection Level</b></em>' attribute.
@@ -1236,25 +1190,71 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABLE_EQ_INTERFACE__PROTECTION_LEVEL = 3;
+	int PIN__PROTECTION_LEVEL = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Available Eq Interface</em>' class.
+	 * The number of structural features of the '<em>Pin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABLE_EQ_INTERFACE_FEATURE_COUNT = 4;
+	int PIN_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Available Eq Interface</em>' class.
+	 * The operation id for the '<em>To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABLE_EQ_INTERFACE_OPERATION_COUNT = 0;
+	int PIN___TO_STRING = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Pin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.InternallyConnectedPinEntryImpl <em>Internally Connected Pin Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.datamodel.model.impl.InternallyConnectedPinEntryImpl
+	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInternallyConnectedPinEntry()
+	 * @generated
+	 */
+	int INTERNALLY_CONNECTED_PIN_ENTRY = 16;
+
+	/**
+	 * The feature id for the '<em><b>Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNALLY_CONNECTED_PIN_ENTRY__PINS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Internally Connected Pin Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNALLY_CONNECTED_PIN_ENTRY_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Internally Connected Pin Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNALLY_CONNECTED_PIN_ENTRY_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.InterfacesBlockImpl <em>Interfaces Block</em>}' class.
@@ -3054,16 +3054,6 @@ public interface ModelPackage extends EPackage {
 	EOperation getCompartment__GetAllConnectors();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.Compartment#getAvailableEqInterfaces(org.eclipse.emf.common.util.EList) <em>Get Available Eq Interfaces</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Available Eq Interfaces</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.Compartment#getAvailableEqInterfaces(org.eclipse.emf.common.util.EList)
-	 * @generated
-	 */
-	EOperation getCompartment__GetAvailableEqInterfaces__EList();
-
-	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.RDC <em>RDC</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3085,15 +3075,26 @@ public interface ModelPackage extends EPackage {
 	EAttribute getRDC_Manufacturer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.RDC#getPowerSupply <em>Power Supply</em>}'.
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.RDC#getPowerSupply1 <em>Power Supply1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Power Supply</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.RDC#getPowerSupply()
+	 * @return the meta object for the attribute '<em>Power Supply1</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.RDC#getPowerSupply1()
 	 * @see #getRDC()
 	 * @generated
 	 */
-	EAttribute getRDC_PowerSupply();
+	EAttribute getRDC_PowerSupply1();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.RDC#getPowerSupply2 <em>Power Supply2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Power Supply2</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.RDC#getPowerSupply2()
+	 * @see #getRDC()
+	 * @generated
+	 */
+	EAttribute getRDC_PowerSupply2();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.RDC#getSide <em>Side</em>}'.
@@ -3216,37 +3217,6 @@ public interface ModelPackage extends EPackage {
 	EOperation getRDC__ToString();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.RDC#getAvailableEqInterfaces(org.eclipse.emf.common.util.EList) <em>Get Available Eq Interfaces</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Available Eq Interfaces</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.RDC#getAvailableEqInterfaces(org.eclipse.emf.common.util.EList)
-	 * @generated
-	 */
-	EOperation getRDC__GetAvailableEqInterfaces__EList();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry <em>Internally Connected Pin Entry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Internally Connected Pin Entry</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry
-	 * @generated
-	 */
-	EClass getInternallyConnectedPinEntry();
-
-	/**
-	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry#getPins <em>Pins</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Pins</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry#getPins()
-	 * @see #getInternallyConnectedPinEntry()
-	 * @generated
-	 */
-	EReference getInternallyConnectedPinEntry_Pins();
-
-	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.Connector <em>Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3268,15 +3238,15 @@ public interface ModelPackage extends EPackage {
 	EReference getConnector_Rdc();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.Connector#getAvailableEqInterfaces <em>Available Eq Interfaces</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.Connector#getPins <em>Pins</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Available Eq Interfaces</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.Connector#getAvailableEqInterfaces()
+	 * @return the meta object for the containment reference list '<em>Pins</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.Connector#getPins()
 	 * @see #getConnector()
 	 * @generated
 	 */
-	EReference getConnector_AvailableEqInterfaces();
+	EReference getConnector_Pins();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.Connector#fullName() <em>Full Name</em>}' operation.
@@ -3299,68 +3269,78 @@ public interface ModelPackage extends EPackage {
 	EOperation getConnector__ToString();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.Connector#getAvailableEqInterfaces(org.eclipse.emf.common.util.EList) <em>Get Available Eq Interfaces</em>}' operation.
+	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.Pin <em>Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Available Eq Interfaces</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.Connector#getAvailableEqInterfaces(org.eclipse.emf.common.util.EList)
+	 * @return the meta object for class '<em>Pin</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.Pin
 	 * @generated
 	 */
-	EOperation getConnector__GetAvailableEqInterfaces__EList();
+	EClass getPin();
 
 	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.AvailableEqInterface <em>Available Eq Interface</em>}'.
+	 * Returns the meta object for the container reference '{@link ch.hilbri.assist.datamodel.model.Pin#getConnector <em>Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Available Eq Interface</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.AvailableEqInterface
+	 * @return the meta object for the container reference '<em>Connector</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.Pin#getConnector()
+	 * @see #getPin()
 	 * @generated
 	 */
-	EClass getAvailableEqInterface();
+	EReference getPin_Connector();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.AvailableEqInterface#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.AvailableEqInterface#getName()
-	 * @see #getAvailableEqInterface()
-	 * @generated
-	 */
-	EAttribute getAvailableEqInterface_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.AvailableEqInterface#getEqInterfaceType <em>Eq Interface Type</em>}'.
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.Pin#getEqInterfaceType <em>Eq Interface Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Eq Interface Type</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.AvailableEqInterface#getEqInterfaceType()
-	 * @see #getAvailableEqInterface()
+	 * @see ch.hilbri.assist.datamodel.model.Pin#getEqInterfaceType()
+	 * @see #getPin()
 	 * @generated
 	 */
-	EAttribute getAvailableEqInterface_EqInterfaceType();
+	EAttribute getPin_EqInterfaceType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.AvailableEqInterface#getCount <em>Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Count</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.AvailableEqInterface#getCount()
-	 * @see #getAvailableEqInterface()
-	 * @generated
-	 */
-	EAttribute getAvailableEqInterface_Count();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.AvailableEqInterface#getProtectionLevel <em>Protection Level</em>}'.
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.model.Pin#getProtectionLevel <em>Protection Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Protection Level</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.AvailableEqInterface#getProtectionLevel()
-	 * @see #getAvailableEqInterface()
+	 * @see ch.hilbri.assist.datamodel.model.Pin#getProtectionLevel()
+	 * @see #getPin()
 	 * @generated
 	 */
-	EAttribute getAvailableEqInterface_ProtectionLevel();
+	EAttribute getPin_ProtectionLevel();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.Pin#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.Pin#toString()
+	 * @generated
+	 */
+	EOperation getPin__ToString();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry <em>Internally Connected Pin Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Internally Connected Pin Entry</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry
+	 * @generated
+	 */
+	EClass getInternallyConnectedPinEntry();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry#getPins <em>Pins</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Pins</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry#getPins()
+	 * @see #getInternallyConnectedPinEntry()
+	 * @generated
+	 */
+	EReference getInternallyConnectedPinEntry_Pins();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.InterfacesBlock <em>Interfaces Block</em>}'.
@@ -4677,14 +4657,6 @@ public interface ModelPackage extends EPackage {
 		EOperation COMPARTMENT___GET_ALL_CONNECTORS = eINSTANCE.getCompartment__GetAllConnectors();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Available Eq Interfaces</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPARTMENT___GET_AVAILABLE_EQ_INTERFACES__ELIST = eINSTANCE.getCompartment__GetAvailableEqInterfaces__EList();
-
-		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl <em>RDC</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4703,12 +4675,20 @@ public interface ModelPackage extends EPackage {
 		EAttribute RDC__MANUFACTURER = eINSTANCE.getRDC_Manufacturer();
 
 		/**
-		 * The meta object literal for the '<em><b>Power Supply</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Power Supply1</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RDC__POWER_SUPPLY = eINSTANCE.getRDC_PowerSupply();
+		EAttribute RDC__POWER_SUPPLY1 = eINSTANCE.getRDC_PowerSupply1();
+
+		/**
+		 * The meta object literal for the '<em><b>Power Supply2</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RDC__POWER_SUPPLY2 = eINSTANCE.getRDC_PowerSupply2();
 
 		/**
 		 * The meta object literal for the '<em><b>Side</b></em>' attribute feature.
@@ -4799,32 +4779,6 @@ public interface ModelPackage extends EPackage {
 		EOperation RDC___TO_STRING = eINSTANCE.getRDC__ToString();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Available Eq Interfaces</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RDC___GET_AVAILABLE_EQ_INTERFACES__ELIST = eINSTANCE.getRDC__GetAvailableEqInterfaces__EList();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.InternallyConnectedPinEntryImpl <em>Internally Connected Pin Entry</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.datamodel.model.impl.InternallyConnectedPinEntryImpl
-		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInternallyConnectedPinEntry()
-		 * @generated
-		 */
-		EClass INTERNALLY_CONNECTED_PIN_ENTRY = eINSTANCE.getInternallyConnectedPinEntry();
-
-		/**
-		 * The meta object literal for the '<em><b>Pins</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTERNALLY_CONNECTED_PIN_ENTRY__PINS = eINSTANCE.getInternallyConnectedPinEntry_Pins();
-
-		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.ConnectorImpl <em>Connector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4843,12 +4797,12 @@ public interface ModelPackage extends EPackage {
 		EReference CONNECTOR__RDC = eINSTANCE.getConnector_Rdc();
 
 		/**
-		 * The meta object literal for the '<em><b>Available Eq Interfaces</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Pins</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONNECTOR__AVAILABLE_EQ_INTERFACES = eINSTANCE.getConnector_AvailableEqInterfaces();
+		EReference CONNECTOR__PINS = eINSTANCE.getConnector_Pins();
 
 		/**
 		 * The meta object literal for the '<em><b>Full Name</b></em>' operation.
@@ -4867,30 +4821,22 @@ public interface ModelPackage extends EPackage {
 		EOperation CONNECTOR___TO_STRING = eINSTANCE.getConnector__ToString();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Available Eq Interfaces</b></em>' operation.
+		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.PinImpl <em>Pin</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.datamodel.model.impl.PinImpl
+		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getPin()
 		 * @generated
 		 */
-		EOperation CONNECTOR___GET_AVAILABLE_EQ_INTERFACES__ELIST = eINSTANCE.getConnector__GetAvailableEqInterfaces__EList();
+		EClass PIN = eINSTANCE.getPin();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.AvailableEqInterfaceImpl <em>Available Eq Interface</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.datamodel.model.impl.AvailableEqInterfaceImpl
-		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getAvailableEqInterface()
-		 * @generated
-		 */
-		EClass AVAILABLE_EQ_INTERFACE = eINSTANCE.getAvailableEqInterface();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Connector</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute AVAILABLE_EQ_INTERFACE__NAME = eINSTANCE.getAvailableEqInterface_Name();
+		EReference PIN__CONNECTOR = eINSTANCE.getPin_Connector();
 
 		/**
 		 * The meta object literal for the '<em><b>Eq Interface Type</b></em>' attribute feature.
@@ -4898,15 +4844,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute AVAILABLE_EQ_INTERFACE__EQ_INTERFACE_TYPE = eINSTANCE.getAvailableEqInterface_EqInterfaceType();
-
-		/**
-		 * The meta object literal for the '<em><b>Count</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute AVAILABLE_EQ_INTERFACE__COUNT = eINSTANCE.getAvailableEqInterface_Count();
+		EAttribute PIN__EQ_INTERFACE_TYPE = eINSTANCE.getPin_EqInterfaceType();
 
 		/**
 		 * The meta object literal for the '<em><b>Protection Level</b></em>' attribute feature.
@@ -4914,7 +4852,33 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute AVAILABLE_EQ_INTERFACE__PROTECTION_LEVEL = eINSTANCE.getAvailableEqInterface_ProtectionLevel();
+		EAttribute PIN__PROTECTION_LEVEL = eINSTANCE.getPin_ProtectionLevel();
+
+		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PIN___TO_STRING = eINSTANCE.getPin__ToString();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.InternallyConnectedPinEntryImpl <em>Internally Connected Pin Entry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.datamodel.model.impl.InternallyConnectedPinEntryImpl
+		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInternallyConnectedPinEntry()
+		 * @generated
+		 */
+		EClass INTERNALLY_CONNECTED_PIN_ENTRY = eINSTANCE.getInternallyConnectedPinEntry();
+
+		/**
+		 * The meta object literal for the '<em><b>Pins</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERNALLY_CONNECTED_PIN_ENTRY__PINS = eINSTANCE.getInternallyConnectedPinEntry_Pins();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.InterfacesBlockImpl <em>Interfaces Block</em>}' class.

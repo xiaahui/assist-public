@@ -49,7 +49,8 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addManufacturerPropertyDescriptor(object);
-			addPowerSupplyPropertyDescriptor(object);
+			addPowerSupply1PropertyDescriptor(object);
+			addPowerSupply2PropertyDescriptor(object);
 			addSidePropertyDescriptor(object);
 			addRdcTypePropertyDescriptor(object);
 			addEssPropertyDescriptor(object);
@@ -85,19 +86,41 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Power Supply feature.
+	 * This adds a property descriptor for the Power Supply1 feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPowerSupplyPropertyDescriptor(Object object) {
+	protected void addPowerSupply1PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RDC_powerSupply_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_powerSupply_feature", "_UI_RDC_type"),
-				 ModelPackage.Literals.RDC__POWER_SUPPLY,
+				 getString("_UI_RDC_powerSupply1_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_powerSupply1_feature", "_UI_RDC_type"),
+				 ModelPackage.Literals.RDC__POWER_SUPPLY1,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Power Supply2 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPowerSupply2PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RDC_powerSupply2_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_powerSupply2_feature", "_UI_RDC_type"),
+				 ModelPackage.Literals.RDC__POWER_SUPPLY2,
 				 true,
 				 false,
 				 false,
@@ -352,7 +375,8 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 
 		switch (notification.getFeatureID(RDC.class)) {
 			case ModelPackage.RDC__MANUFACTURER:
-			case ModelPackage.RDC__POWER_SUPPLY:
+			case ModelPackage.RDC__POWER_SUPPLY1:
+			case ModelPackage.RDC__POWER_SUPPLY2:
 			case ModelPackage.RDC__SIDE:
 			case ModelPackage.RDC__RDC_TYPE:
 			case ModelPackage.RDC__ESS:

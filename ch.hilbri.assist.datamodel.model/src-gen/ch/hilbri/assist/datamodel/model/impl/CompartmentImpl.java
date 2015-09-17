@@ -2,7 +2,6 @@
  */
 package ch.hilbri.assist.datamodel.model.impl;
 
-import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
 import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
@@ -33,9 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
 
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.Functions.Function2;
-
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * <!-- begin-user-doc -->
@@ -291,71 +287,6 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Integer> getAvailableEqInterfaces(final EList<String> eqInterfaceTypes) {
-		EList<Integer> _xblockexpression = null;
-		{
-			EList<Connector> _allConnectors = this.getAllConnectors();
-			final Function1<Connector, EList<AvailableEqInterface>> _function = new Function1<Connector, EList<AvailableEqInterface>>() {
-				public EList<AvailableEqInterface> apply(final Connector it) {
-					return it.getAvailableEqInterfaces();
-				}
-			};
-			EList<EList<AvailableEqInterface>> _map = XcoreEListExtensions.<Connector, EList<AvailableEqInterface>>map(_allConnectors, _function);
-			final Iterable<AvailableEqInterface> allAvailableEqInterfaces = Iterables.<AvailableEqInterface>concat(_map);
-			final Function1<String, Integer> _function_1 = new Function1<String, Integer>() {
-				public Integer apply(final String it) {
-					Integer _xblockexpression = null;
-					{
-						final String typeName = it;
-						Integer _xifexpression = null;
-						final Function1<AvailableEqInterface, Boolean> _function = new Function1<AvailableEqInterface, Boolean>() {
-							public Boolean apply(final AvailableEqInterface it) {
-								String _eqInterfaceType = it.getEqInterfaceType();
-								return Boolean.valueOf(_eqInterfaceType.equals(typeName));
-							}
-						};
-						Iterable<AvailableEqInterface> _filter = IterableExtensions.<AvailableEqInterface>filter(allAvailableEqInterfaces, _function);
-						boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(_filter);
-						boolean _not = (!_isNullOrEmpty);
-						if (_not) {
-							final Function1<AvailableEqInterface, Boolean> _function_1 = new Function1<AvailableEqInterface, Boolean>() {
-								public Boolean apply(final AvailableEqInterface it) {
-									String _eqInterfaceType = it.getEqInterfaceType();
-									return Boolean.valueOf(_eqInterfaceType.equals(typeName));
-								}
-							};
-							Iterable<AvailableEqInterface> _filter_1 = IterableExtensions.<AvailableEqInterface>filter(allAvailableEqInterfaces, _function_1);
-							final Function1<AvailableEqInterface, Integer> _function_2 = new Function1<AvailableEqInterface, Integer>() {
-								public Integer apply(final AvailableEqInterface it) {
-									return Integer.valueOf(it.getCount());
-								}
-							};
-							Iterable<Integer> _map = IterableExtensions.<AvailableEqInterface, Integer>map(_filter_1, _function_2);
-							final Function2<Integer, Integer, Integer> _function_3 = new Function2<Integer, Integer, Integer>() {
-								public Integer apply(final Integer p1, final Integer p2) {
-									return Integer.valueOf(((p1).intValue() + (p2).intValue()));
-								}
-							};
-							_xifexpression = IterableExtensions.<Integer>reduce(_map, _function_3);
-						}
-						else {
-							_xifexpression = Integer.valueOf(0);
-						}
-						_xblockexpression = _xifexpression;
-					}
-					return _xblockexpression;
-				}
-			};
-			_xblockexpression = XcoreEListExtensions.<String, Integer>map(eqInterfaceTypes, _function_1);
-		}
-		return _xblockexpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -486,15 +417,12 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 	 * @generated
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ModelPackage.COMPARTMENT___TO_STRING:
 				return toString();
 			case ModelPackage.COMPARTMENT___GET_ALL_CONNECTORS:
 				return getAllConnectors();
-			case ModelPackage.COMPARTMENT___GET_AVAILABLE_EQ_INTERFACES__ELIST:
-				return getAvailableEqInterfaces((EList<String>)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

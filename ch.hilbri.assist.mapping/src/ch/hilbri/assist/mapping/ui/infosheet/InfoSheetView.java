@@ -2,11 +2,6 @@ package ch.hilbri.assist.mapping.ui.infosheet;
 
 import java.text.DecimalFormat;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ListChangeListener;
-import javafx.scene.control.TreeItem;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
@@ -28,17 +23,21 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
 import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.HardwareElement;
+import ch.hilbri.assist.datamodel.model.Pin;
 import ch.hilbri.assist.datamodel.model.RDC;
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.ListChangeListener;
+import javafx.scene.control.TreeItem;
 
 
 public class InfoSheetView {
@@ -352,8 +351,8 @@ public class InfoSheetView {
 					addRowToTableComponentProperties("Component type", "Connector");
 					addRowToTableComponentProperties("Name", c.getName());
 
-					for (AvailableEqInterface iface : c.getAvailableEqInterfaces()) {
-						addRowToTableComponentProperties("Available of type '" + iface.getEqInterfaceType() + "'", ""+ iface.getCount());
+					for (Pin p : c.getPins()) {
+						addRowToTableComponentProperties("Pin", p.getName() + ": " + p.getEqInterfaceType());
 					}
 				
 				} else if (obj instanceof RDC) {
@@ -361,7 +360,8 @@ public class InfoSheetView {
 					addRowToTableComponentProperties("Component type", "RDC");
 					addRowToTableComponentProperties("Name", b.getName());
 					addRowToTableComponentProperties("Manufacturer", b.getManufacturer());
-					addRowToTableComponentProperties("Power supply", b.getPowerSupply());
+					addRowToTableComponentProperties("Power supply 1", b.getPowerSupply1());
+					addRowToTableComponentProperties("Power supply 2", b.getPowerSupply2());
 					addRowToTableComponentProperties("Side", b.getSide());
 					addRowToTableComponentProperties("Type", b.getRdcType());
 					addRowToTableComponentProperties("ESS", b.getEss());

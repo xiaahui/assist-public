@@ -4,19 +4,19 @@
 package ch.hilbri.assist.mappingdsl.ui.labeling
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.ColocalityRelation
 import ch.hilbri.assist.datamodel.model.Compartment
 import ch.hilbri.assist.datamodel.model.Connector
 import ch.hilbri.assist.datamodel.model.DislocalityRelation
 import ch.hilbri.assist.datamodel.model.EqInterface
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.InvalidDeployment
+import ch.hilbri.assist.datamodel.model.Pin
 import ch.hilbri.assist.datamodel.model.RDC
 import ch.hilbri.assist.datamodel.model.ValidDeployment
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
-import ch.hilbri.assist.datamodel.model.ColocalityRelation
-import ch.hilbri.assist.datamodel.model.AvailableEqInterface
-import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 
 /**
  * Provides labels for a EObjects.
@@ -102,11 +102,11 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		'outlineview_specification_16x16.png'
 	}
 	
-	def String text(AvailableEqInterface i) {
-		'''Interface of type: "«i.eqInterfaceType»" count: "«i.count»"'''
+	def String text(Pin p) {
+		'''Pin of type: "«p.eqInterfaceType»'''
 	}
 	
-	def image(AvailableEqInterface i) {
+	def image(Pin p) {
 		'outlineview_interface_16x16.png'
 	}
 	

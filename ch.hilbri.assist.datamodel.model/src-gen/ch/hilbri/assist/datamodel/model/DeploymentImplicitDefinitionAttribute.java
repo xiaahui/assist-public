@@ -89,14 +89,24 @@ public enum DeploymentImplicitDefinitionAttribute implements Enumerator {
 	RDC_MANUFACTURER(0, "RDC_MANUFACTURER", "RDC.Manufacturer"),
 
 	/**
-	 * The '<em><b>RDC POWERSUPPLY</b></em>' literal object.
+	 * The '<em><b>RDC POWERSUPPLY1</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #RDC_POWERSUPPLY_VALUE
+	 * @see #RDC_POWERSUPPLY1_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	RDC_POWERSUPPLY(0, "RDC_POWERSUPPLY", "RDC.PowerSupply"),
+	RDC_POWERSUPPLY1(0, "RDC_POWERSUPPLY1", "RDC.PowerSupply1"),
+
+	/**
+	 * The '<em><b>RDC POWERSUPPLY2</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RDC_POWERSUPPLY2_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	RDC_POWERSUPPLY2(0, "RDC_POWERSUPPLY2", "RDC.PowerSupply2"),
 
 	/**
 	 * The '<em><b>RDC SIDE</b></em>' literal object.
@@ -274,19 +284,34 @@ public enum DeploymentImplicitDefinitionAttribute implements Enumerator {
 	public static final int RDC_MANUFACTURER_VALUE = 0;
 
 	/**
-	 * The '<em><b>RDC POWERSUPPLY</b></em>' literal value.
+	 * The '<em><b>RDC POWERSUPPLY1</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>RDC POWERSUPPLY</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>RDC POWERSUPPLY1</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #RDC_POWERSUPPLY
-	 * @model literal="RDC.PowerSupply"
+	 * @see #RDC_POWERSUPPLY1
+	 * @model literal="RDC.PowerSupply1"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RDC_POWERSUPPLY_VALUE = 0;
+	public static final int RDC_POWERSUPPLY1_VALUE = 0;
+
+	/**
+	 * The '<em><b>RDC POWERSUPPLY2</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>RDC POWERSUPPLY2</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #RDC_POWERSUPPLY2
+	 * @model literal="RDC.PowerSupply2"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RDC_POWERSUPPLY2_VALUE = 0;
 
 	/**
 	 * The '<em><b>RDC SIDE</b></em>' literal value.
@@ -408,7 +433,8 @@ public enum DeploymentImplicitDefinitionAttribute implements Enumerator {
 			COMPARTMENT_ZONE,
 			RDC_NAME,
 			RDC_MANUFACTURER,
-			RDC_POWERSUPPLY,
+			RDC_POWERSUPPLY1,
+			RDC_POWERSUPPLY2,
 			RDC_SIDE,
 			RDC_TYPE,
 			RDC_ESS,

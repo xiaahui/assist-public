@@ -111,10 +111,10 @@ class AssistSolver {
 		/* Create an empty set of constraints that will be used */
 		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
 		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables, this.minimize >= 0))
-		this.mappingConstraintsList.add(new ConfigurablePinInterfaceTypeConstraint(model, solver, solverVariables))				
-		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
-		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new ConfigurablePinInterfaceTypeConstraint(model, solver, solverVariables))				
+//		this.mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
+//		this.mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 
 		// Bug: these constraints do not work with configurable interface types 
 		// this.mappingConstraintsList.add(new ImprovedColocalitiesConstraint(model, solver, solverVariables))

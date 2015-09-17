@@ -4,7 +4,6 @@
 package ch.hilbri.assist.mappingdsl.serializer;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
-import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
 import ch.hilbri.assist.datamodel.model.CableWeightDataBlock;
 import ch.hilbri.assist.datamodel.model.CableWeightEntry;
 import ch.hilbri.assist.datamodel.model.ColocalityRelation;
@@ -24,11 +23,11 @@ import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinition;
 import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttributesAndValues;
 import ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock;
 import ch.hilbri.assist.datamodel.model.InterfacesBlock;
-import ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry;
 import ch.hilbri.assist.datamodel.model.InvalidDeployment;
 import ch.hilbri.assist.datamodel.model.MetricParameter;
 import ch.hilbri.assist.datamodel.model.MetricParametersBlock;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+import ch.hilbri.assist.datamodel.model.Pin;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelEntry;
 import ch.hilbri.assist.datamodel.model.RDC;
@@ -60,9 +59,6 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 		if(semanticObject.eClass().getEPackage() == ModelPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
 			case ModelPackage.ASSIST_MODEL:
 				sequence_AssistModel(context, (AssistModel) semanticObject); 
-				return; 
-			case ModelPackage.AVAILABLE_EQ_INTERFACE:
-				sequence_AvailableEqInterface(context, (AvailableEqInterface) semanticObject); 
 				return; 
 			case ModelPackage.CABLE_WEIGHT_DATA_BLOCK:
 				sequence_CableWeightDataBlock(context, (CableWeightDataBlock) semanticObject); 
@@ -121,9 +117,6 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case ModelPackage.INTERFACES_BLOCK:
 				sequence_InterfacesBlock(context, (InterfacesBlock) semanticObject); 
 				return; 
-			case ModelPackage.INTERNALLY_CONNECTED_PIN_ENTRY:
-				sequence_InternallyConnectedPinEntry(context, (InternallyConnectedPinEntry) semanticObject); 
-				return; 
 			case ModelPackage.INVALID_DEPLOYMENT:
 				sequence_InvalidDeployment(context, (InvalidDeployment) semanticObject); 
 				return; 
@@ -132,6 +125,9 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case ModelPackage.METRIC_PARAMETERS_BLOCK:
 				sequence_MetricParametersBlock(context, (MetricParametersBlock) semanticObject); 
+				return; 
+			case ModelPackage.PIN:
+				sequence_Pin(context, (Pin) semanticObject); 
 				return; 
 			case ModelPackage.PROTECTION_LEVEL_DATA_BLOCK:
 				sequence_ProtectionLevelDataBlock(context, (ProtectionLevelDataBlock) semanticObject); 
@@ -163,15 +159,6 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     )
 	 */
 	protected void sequence_AssistModel(EObject context, AssistModel semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID? eqInterfaceType=STRING count=INT protectionLevel=ProtectionLevelType?)
-	 */
-	protected void sequence_AvailableEqInterface(EObject context, AvailableEqInterface semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -249,7 +236,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID availableEqInterfaces+=AvailableEqInterface* metricParametersBlock=MetricParametersBlock?)
+	 *     (name=ID pins+=Pin* metricParametersBlock=MetricParametersBlock?)
 	 */
 	protected void sequence_Connector(EObject context, Connector semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -405,15 +392,6 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (pins+=[AvailableEqInterface|QualifiedName] pins+=[AvailableEqInterface|QualifiedName] pins+=[AvailableEqInterface|QualifiedName]?)
-	 */
-	protected void sequence_InternallyConnectedPinEntry(EObject context, InternallyConnectedPinEntry semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (
 	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] 
 	 *         eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID]* 
@@ -456,6 +434,15 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
+	 *     (name=ID eqInterfaceType=STRING protectionLevel=ProtectionLevelType?)
+	 */
+	protected void sequence_Pin(EObject context, Pin semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     protectionLevelEntries+=ProtectionLevelEntry+
 	 */
 	protected void sequence_ProtectionLevelDataBlock(EObject context, ProtectionLevelDataBlock semanticObject) {
@@ -477,7 +464,8 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (
 	 *         name=ID 
 	 *         manufacturer=STRING? 
-	 *         powerSupply=STRING? 
+	 *         powerSupply1=STRING? 
+	 *         powerSupply2=STRING? 
 	 *         rdcType=STRING? 
 	 *         ess=STRING? 
 	 *         location=STRING? 
@@ -485,8 +473,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         resourceY=SIGNEDINT? 
 	 *         resourceZ=SIGNEDINT? 
 	 *         connectors+=Connector+ 
-	 *         metricParametersBlock=MetricParametersBlock? 
-	 *         connectedPins+=InternallyConnectedPinEntry*
+	 *         metricParametersBlock=MetricParametersBlock?
 	 *     )
 	 */
 	protected void sequence_RDC(EObject context, RDC semanticObject) {

@@ -2,9 +2,9 @@
  */
 package ch.hilbri.assist.datamodel.model.impl;
 
-import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
 import ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+import ch.hilbri.assist.datamodel.model.Pin;
 
 import java.util.Collection;
 
@@ -38,7 +38,7 @@ public class InternallyConnectedPinEntryImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AvailableEqInterface> pins;
+	protected EList<Pin> pins;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -64,9 +64,9 @@ public class InternallyConnectedPinEntryImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AvailableEqInterface> getPins() {
+	public EList<Pin> getPins() {
 		if (pins == null) {
-			pins = new EObjectResolvingEList<AvailableEqInterface>(AvailableEqInterface.class, this, ModelPackage.INTERNALLY_CONNECTED_PIN_ENTRY__PINS);
+			pins = new EObjectResolvingEList<Pin>(Pin.class, this, ModelPackage.INTERNALLY_CONNECTED_PIN_ENTRY__PINS);
 		}
 		return pins;
 	}
@@ -96,7 +96,7 @@ public class InternallyConnectedPinEntryImpl extends MinimalEObjectImpl.Containe
 		switch (featureID) {
 			case ModelPackage.INTERNALLY_CONNECTED_PIN_ENTRY__PINS:
 				getPins().clear();
-				getPins().addAll((Collection<? extends AvailableEqInterface>)newValue);
+				getPins().addAll((Collection<? extends Pin>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

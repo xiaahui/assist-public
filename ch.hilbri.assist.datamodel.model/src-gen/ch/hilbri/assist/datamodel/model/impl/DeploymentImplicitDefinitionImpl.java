@@ -200,20 +200,32 @@ public class DeploymentImplicitDefinitionImpl extends MinimalEObjectImpl.Contain
 						Iterable<Connector> _filter_6 = IterableExtensions.<Connector>filter(connectorList, _function_6);
 						connectorList = _filter_6;
 						break;
-					case RDC_POWERSUPPLY:
+					case RDC_POWERSUPPLY1:
 						final Function1<Connector, Boolean> _function_7 = new Function1<Connector, Boolean>() {
 							public Boolean apply(final Connector it) {
 								RDC _rdc = it.getRdc();
-								String _powerSupply = _rdc.getPowerSupply();
+								String _powerSupply1 = _rdc.getPowerSupply1();
 								String _value = entry.getValue();
-								return Boolean.valueOf(_powerSupply.equals(_value));
+								return Boolean.valueOf(_powerSupply1.equals(_value));
 							}
 						};
 						Iterable<Connector> _filter_7 = IterableExtensions.<Connector>filter(connectorList, _function_7);
 						connectorList = _filter_7;
 						break;
-					case RDC_SIDE:
+					case RDC_POWERSUPPLY2:
 						final Function1<Connector, Boolean> _function_8 = new Function1<Connector, Boolean>() {
+							public Boolean apply(final Connector it) {
+								RDC _rdc = it.getRdc();
+								String _powerSupply2 = _rdc.getPowerSupply2();
+								String _value = entry.getValue();
+								return Boolean.valueOf(_powerSupply2.equals(_value));
+							}
+						};
+						Iterable<Connector> _filter_8 = IterableExtensions.<Connector>filter(connectorList, _function_8);
+						connectorList = _filter_8;
+						break;
+					case RDC_SIDE:
+						final Function1<Connector, Boolean> _function_9 = new Function1<Connector, Boolean>() {
 							public Boolean apply(final Connector it) {
 								RDC _rdc = it.getRdc();
 								String _side = _rdc.getSide();
@@ -221,11 +233,11 @@ public class DeploymentImplicitDefinitionImpl extends MinimalEObjectImpl.Contain
 								return Boolean.valueOf(_side.equals(_value));
 							}
 						};
-						Iterable<Connector> _filter_8 = IterableExtensions.<Connector>filter(connectorList, _function_8);
-						connectorList = _filter_8;
+						Iterable<Connector> _filter_9 = IterableExtensions.<Connector>filter(connectorList, _function_9);
+						connectorList = _filter_9;
 						break;
 					case RDC_TYPE:
-						final Function1<Connector, Boolean> _function_9 = new Function1<Connector, Boolean>() {
+						final Function1<Connector, Boolean> _function_10 = new Function1<Connector, Boolean>() {
 							public Boolean apply(final Connector it) {
 								RDC _rdc = it.getRdc();
 								String _rdcType = _rdc.getRdcType();
@@ -233,11 +245,11 @@ public class DeploymentImplicitDefinitionImpl extends MinimalEObjectImpl.Contain
 								return Boolean.valueOf(_rdcType.equals(_value));
 							}
 						};
-						Iterable<Connector> _filter_9 = IterableExtensions.<Connector>filter(connectorList, _function_9);
-						connectorList = _filter_9;
+						Iterable<Connector> _filter_10 = IterableExtensions.<Connector>filter(connectorList, _function_10);
+						connectorList = _filter_10;
 						break;
 					case RDC_ESS:
-						final Function1<Connector, Boolean> _function_10 = new Function1<Connector, Boolean>() {
+						final Function1<Connector, Boolean> _function_11 = new Function1<Connector, Boolean>() {
 							public Boolean apply(final Connector it) {
 								RDC _rdc = it.getRdc();
 								String _ess = _rdc.getEss();
@@ -245,11 +257,11 @@ public class DeploymentImplicitDefinitionImpl extends MinimalEObjectImpl.Contain
 								return Boolean.valueOf(_ess.equals(_value));
 							}
 						};
-						Iterable<Connector> _filter_10 = IterableExtensions.<Connector>filter(connectorList, _function_10);
-						connectorList = _filter_10;
+						Iterable<Connector> _filter_11 = IterableExtensions.<Connector>filter(connectorList, _function_11);
+						connectorList = _filter_11;
 						break;
 					case RDC_RESOURCE_X:
-						final Function1<Connector, Boolean> _function_11 = new Function1<Connector, Boolean>() {
+						final Function1<Connector, Boolean> _function_12 = new Function1<Connector, Boolean>() {
 							public Boolean apply(final Connector it) {
 								RDC _rdc = it.getRdc();
 								int _resourceX = _rdc.getResourceX();
@@ -257,11 +269,11 @@ public class DeploymentImplicitDefinitionImpl extends MinimalEObjectImpl.Contain
 								return Boolean.valueOf(Integer.valueOf(_resourceX).equals(_value));
 							}
 						};
-						Iterable<Connector> _filter_11 = IterableExtensions.<Connector>filter(connectorList, _function_11);
-						connectorList = _filter_11;
+						Iterable<Connector> _filter_12 = IterableExtensions.<Connector>filter(connectorList, _function_12);
+						connectorList = _filter_12;
 						break;
 					case RDC_RESOURCE_Y:
-						final Function1<Connector, Boolean> _function_12 = new Function1<Connector, Boolean>() {
+						final Function1<Connector, Boolean> _function_13 = new Function1<Connector, Boolean>() {
 							public Boolean apply(final Connector it) {
 								RDC _rdc = it.getRdc();
 								int _resourceY = _rdc.getResourceY();
@@ -269,11 +281,11 @@ public class DeploymentImplicitDefinitionImpl extends MinimalEObjectImpl.Contain
 								return Boolean.valueOf(Integer.valueOf(_resourceY).equals(_value));
 							}
 						};
-						Iterable<Connector> _filter_12 = IterableExtensions.<Connector>filter(connectorList, _function_12);
-						connectorList = _filter_12;
+						Iterable<Connector> _filter_13 = IterableExtensions.<Connector>filter(connectorList, _function_13);
+						connectorList = _filter_13;
 						break;
 					case RDC_RESOURCE_Z:
-						final Function1<Connector, Boolean> _function_13 = new Function1<Connector, Boolean>() {
+						final Function1<Connector, Boolean> _function_14 = new Function1<Connector, Boolean>() {
 							public Boolean apply(final Connector it) {
 								RDC _rdc = it.getRdc();
 								int _resourceZ = _rdc.getResourceZ();
@@ -281,19 +293,19 @@ public class DeploymentImplicitDefinitionImpl extends MinimalEObjectImpl.Contain
 								return Boolean.valueOf(Integer.valueOf(_resourceZ).equals(_value));
 							}
 						};
-						Iterable<Connector> _filter_13 = IterableExtensions.<Connector>filter(connectorList, _function_13);
-						connectorList = _filter_13;
+						Iterable<Connector> _filter_14 = IterableExtensions.<Connector>filter(connectorList, _function_14);
+						connectorList = _filter_14;
 						break;
 					case CONNECTOR_NAME:
-						final Function1<Connector, Boolean> _function_14 = new Function1<Connector, Boolean>() {
+						final Function1<Connector, Boolean> _function_15 = new Function1<Connector, Boolean>() {
 							public Boolean apply(final Connector it) {
 								String _name = it.getName();
 								String _value = entry.getValue();
 								return Boolean.valueOf(_name.equals(_value));
 							}
 						};
-						Iterable<Connector> _filter_14 = IterableExtensions.<Connector>filter(connectorList, _function_14);
-						connectorList = _filter_14;
+						Iterable<Connector> _filter_15 = IterableExtensions.<Connector>filter(connectorList, _function_15);
+						connectorList = _filter_15;
 						break;
 					default:
 						break;

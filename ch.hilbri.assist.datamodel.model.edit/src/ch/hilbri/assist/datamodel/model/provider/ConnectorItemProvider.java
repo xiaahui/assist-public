@@ -86,7 +86,7 @@ public class ConnectorItemProvider extends HardwareElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.CONNECTOR__AVAILABLE_EQ_INTERFACES);
+			childrenFeatures.add(ModelPackage.Literals.CONNECTOR__PINS);
 		}
 		return childrenFeatures;
 	}
@@ -142,7 +142,7 @@ public class ConnectorItemProvider extends HardwareElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Connector.class)) {
-			case ModelPackage.CONNECTOR__AVAILABLE_EQ_INTERFACES:
+			case ModelPackage.CONNECTOR__PINS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -162,8 +162,8 @@ public class ConnectorItemProvider extends HardwareElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.CONNECTOR__AVAILABLE_EQ_INTERFACES,
-				 ModelFactory.eINSTANCE.createAvailableEqInterface()));
+				(ModelPackage.Literals.CONNECTOR__PINS,
+				 ModelFactory.eINSTANCE.createPin()));
 	}
 
 }

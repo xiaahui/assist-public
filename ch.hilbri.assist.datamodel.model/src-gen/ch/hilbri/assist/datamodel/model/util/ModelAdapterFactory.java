@@ -124,16 +124,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createRDCAdapter();
 			}
 			@Override
-			public Adapter caseInternallyConnectedPinEntry(InternallyConnectedPinEntry object) {
-				return createInternallyConnectedPinEntryAdapter();
-			}
-			@Override
 			public Adapter caseConnector(Connector object) {
 				return createConnectorAdapter();
 			}
 			@Override
-			public Adapter caseAvailableEqInterface(AvailableEqInterface object) {
-				return createAvailableEqInterfaceAdapter();
+			public Adapter casePin(Pin object) {
+				return createPinAdapter();
+			}
+			@Override
+			public Adapter caseInternallyConnectedPinEntry(InternallyConnectedPinEntry object) {
+				return createInternallyConnectedPinEntryAdapter();
 			}
 			@Override
 			public Adapter caseInterfacesBlock(InterfacesBlock object) {
@@ -416,20 +416,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry <em>Internally Connected Pin Entry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry
-	 * @generated
-	 */
-	public Adapter createInternallyConnectedPinEntryAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.Connector <em>Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -444,16 +430,30 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.AvailableEqInterface <em>Available Eq Interface</em>}'.
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.Pin <em>Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ch.hilbri.assist.datamodel.model.AvailableEqInterface
+	 * @see ch.hilbri.assist.datamodel.model.Pin
 	 * @generated
 	 */
-	public Adapter createAvailableEqInterfaceAdapter() {
+	public Adapter createPinAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry <em>Internally Connected Pin Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry
+	 * @generated
+	 */
+	public Adapter createInternallyConnectedPinEntryAdapter() {
 		return null;
 	}
 

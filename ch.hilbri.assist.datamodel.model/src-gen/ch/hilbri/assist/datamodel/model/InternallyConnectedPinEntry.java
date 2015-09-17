@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface InternallyConnectedPinEntry extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Pins</b></em>' reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.datamodel.model.AvailableEqInterface}.
+	 * The list contents are of type {@link ch.hilbri.assist.datamodel.model.Pin}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Pins</em>' reference list isn't clear,
@@ -37,6 +37,6 @@ public interface InternallyConnectedPinEntry extends EObject {
 	 * @model lower="2"
 	 * @generated
 	 */
-	EList<AvailableEqInterface> getPins();
+	EList<Pin> getPins();
 
 } // InternallyConnectedPinEntry

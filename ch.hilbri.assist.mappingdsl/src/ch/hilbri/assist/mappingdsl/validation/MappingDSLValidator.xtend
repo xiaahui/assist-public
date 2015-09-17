@@ -26,17 +26,17 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 		}
 	}
 
-	@Check
-	def checkConnectedPinsHaveCountOfOne(InternallyConnectedPinEntry entry) {
-		for (pin : entry.pins) {
-			if (pin.count != 1)
-				try {
-					error("Connected pins must a count of 1 to be exactly identifiable.", pin,
-						ModelPackage.Literals::AVAILABLE_EQ_INTERFACE__COUNT)
-				} catch (IllegalArgumentException ex) {
-				}
-		}
-	}
+//	@Check
+//	def checkConnectedPinsHaveCountOfOne(InternallyConnectedPinEntry entry) {
+//		for (pin : entry.pins) {
+//			if (pin.count != 1)
+//				try {
+//					error("Connected pins must a count of 1 to be exactly identifiable.", pin,
+//						ModelPackage.Literals::AVAILABLE_EQ_INTERFACE__COUNT)
+//				} catch (IllegalArgumentException ex) {
+//				}
+//		}
+//	}
 
 	@Check
 	def checkCableWeightEntryForEveryEqIoType(AssistModel model) {
@@ -97,34 +97,34 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 		}
 	}
 
-	@Check
-	def checkCompatibleTypes(AssistModel model) {
-		for (entry : model.compatibleIoTypes) {
-			val eqInterfaceType = entry.eqInterfaceIoType
-			if (model.interfacesBlock.eqInterfaces.filter[it.ioType.equals(eqInterfaceType)].isEmpty)
-				warning(
-					"There is no interface of type '" + eqInterfaceType +
-						"' in this specification. This may be unintended.",
-					entry,
-					ModelPackage.Literals::COMPATIBLE_IO_TYPE_ENTRY__EQ_INTERFACE_IO_TYPE
-				)
-
-			var i = 0
-			for (pinType : entry.pinInterfaceIoTypes) {
-				if (model.connectors.filter[!availableEqInterfaces.filter[it.eqInterfaceType.equals(pinType)].isEmpty].
-					isEmpty) {
-					warning(
-						"There is no connector with a pin of io type '" + pinType +
-							"' in this specification. This may be unintended.",
-						entry,
-						ModelPackage.Literals::COMPATIBLE_IO_TYPE_ENTRY__PIN_INTERFACE_IO_TYPES,
-						i
-					)
-				}
-				i++
-			}
-		}
-	}
+//	@Check
+//	def checkCompatibleTypes(AssistModel model) {
+//		for (entry : model.compatibleIoTypes) {
+//			val eqInterfaceType = entry.eqInterfaceIoType
+//			if (model.interfacesBlock.eqInterfaces.filter[it.ioType.equals(eqInterfaceType)].isEmpty)
+//				warning(
+//					"There is no interface of type '" + eqInterfaceType +
+//						"' in this specification. This may be unintended.",
+//					entry,
+//					ModelPackage.Literals::COMPATIBLE_IO_TYPE_ENTRY__EQ_INTERFACE_IO_TYPE
+//				)
+//
+//			var i = 0
+//			for (pinType : entry.pinInterfaceIoTypes) {
+//				if (model.connectors.filter[!availableEqInterfaces.filter[it.eqInterfaceType.equals(pinType)].isEmpty].
+//					isEmpty) {
+//					warning(
+//						"There is no connector with a pin of io type '" + pinType +
+//							"' in this specification. This may be unintended.",
+//						entry,
+//						ModelPackage.Literals::COMPATIBLE_IO_TYPE_ENTRY__PIN_INTERFACE_IO_TYPES,
+//						i
+//					)
+//				}
+//				i++
+//			}
+//		}
+//	}
 
 	@Check
 	def checkGroupsAreNotEmpty(EqInterfaceGroup g) {

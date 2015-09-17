@@ -3,7 +3,6 @@
 package ch.hilbri.assist.datamodel.model.impl;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
-import ch.hilbri.assist.datamodel.model.AvailableEqInterface;
 import ch.hilbri.assist.datamodel.model.CableWeightDataBlock;
 import ch.hilbri.assist.datamodel.model.CableWeightEntry;
 import ch.hilbri.assist.datamodel.model.ColocalityRelation;
@@ -35,6 +34,7 @@ import ch.hilbri.assist.datamodel.model.MetricParameter;
 import ch.hilbri.assist.datamodel.model.MetricParametersBlock;
 import ch.hilbri.assist.datamodel.model.ModelFactory;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+import ch.hilbri.assist.datamodel.model.Pin;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelEntry;
 import ch.hilbri.assist.datamodel.model.ProtectionLevelType;
@@ -161,13 +161,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass internallyConnectedPinEntryEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass connectorEClass = null;
 
 	/**
@@ -175,7 +168,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass availableEqInterfaceEClass = null;
+	private EClass pinEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass internallyConnectedPinEntryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -944,15 +944,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCompartment__GetAvailableEqInterfaces__EList() {
-		return compartmentEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRDC() {
 		return rdcEClass;
 	}
@@ -971,7 +962,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRDC_PowerSupply() {
+	public EAttribute getRDC_PowerSupply1() {
 		return (EAttribute)rdcEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -980,7 +971,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRDC_Side() {
+	public EAttribute getRDC_PowerSupply2() {
 		return (EAttribute)rdcEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -989,7 +980,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRDC_RdcType() {
+	public EAttribute getRDC_Side() {
 		return (EAttribute)rdcEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -998,7 +989,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRDC_Ess() {
+	public EAttribute getRDC_RdcType() {
 		return (EAttribute)rdcEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1007,7 +998,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRDC_Location() {
+	public EAttribute getRDC_Ess() {
 		return (EAttribute)rdcEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1016,7 +1007,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRDC_ResourceX() {
+	public EAttribute getRDC_Location() {
 		return (EAttribute)rdcEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1025,7 +1016,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRDC_ResourceY() {
+	public EAttribute getRDC_ResourceX() {
 		return (EAttribute)rdcEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -1034,7 +1025,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRDC_ResourceZ() {
+	public EAttribute getRDC_ResourceY() {
 		return (EAttribute)rdcEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -1043,8 +1034,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRDC_Compartment() {
-		return (EReference)rdcEClass.getEStructuralFeatures().get(9);
+	public EAttribute getRDC_ResourceZ() {
+		return (EAttribute)rdcEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1052,7 +1043,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRDC_Connectors() {
+	public EReference getRDC_Compartment() {
 		return (EReference)rdcEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -1061,8 +1052,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRDC_ConnectedPins() {
+	public EReference getRDC_Connectors() {
 		return (EReference)rdcEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRDC_ConnectedPins() {
+		return (EReference)rdcEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1072,33 +1072,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EOperation getRDC__ToString() {
 		return rdcEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getRDC__GetAvailableEqInterfaces__EList() {
-		return rdcEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getInternallyConnectedPinEntry() {
-		return internallyConnectedPinEntryEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInternallyConnectedPinEntry_Pins() {
-		return (EReference)internallyConnectedPinEntryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1124,7 +1097,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConnector_AvailableEqInterfaces() {
+	public EReference getConnector_Pins() {
 		return (EReference)connectorEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1151,8 +1124,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getConnector__GetAvailableEqInterfaces__EList() {
-		return connectorEClass.getEOperations().get(2);
+	public EClass getPin() {
+		return pinEClass;
 	}
 
 	/**
@@ -1160,8 +1133,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAvailableEqInterface() {
-		return availableEqInterfaceEClass;
+	public EReference getPin_Connector() {
+		return (EReference)pinEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1169,8 +1142,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAvailableEqInterface_Name() {
-		return (EAttribute)availableEqInterfaceEClass.getEStructuralFeatures().get(0);
+	public EAttribute getPin_EqInterfaceType() {
+		return (EAttribute)pinEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1178,8 +1151,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAvailableEqInterface_EqInterfaceType() {
-		return (EAttribute)availableEqInterfaceEClass.getEStructuralFeatures().get(1);
+	public EAttribute getPin_ProtectionLevel() {
+		return (EAttribute)pinEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1187,8 +1160,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAvailableEqInterface_Count() {
-		return (EAttribute)availableEqInterfaceEClass.getEStructuralFeatures().get(2);
+	public EOperation getPin__ToString() {
+		return pinEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1196,8 +1169,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAvailableEqInterface_ProtectionLevel() {
-		return (EAttribute)availableEqInterfaceEClass.getEStructuralFeatures().get(3);
+	public EClass getInternallyConnectedPinEntry() {
+		return internallyConnectedPinEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInternallyConnectedPinEntry_Pins() {
+		return (EReference)internallyConnectedPinEntryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1959,11 +1941,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(compartmentEClass, COMPARTMENT__RDCS);
 		createEOperation(compartmentEClass, COMPARTMENT___TO_STRING);
 		createEOperation(compartmentEClass, COMPARTMENT___GET_ALL_CONNECTORS);
-		createEOperation(compartmentEClass, COMPARTMENT___GET_AVAILABLE_EQ_INTERFACES__ELIST);
 
 		rdcEClass = createEClass(RDC);
 		createEAttribute(rdcEClass, RDC__MANUFACTURER);
-		createEAttribute(rdcEClass, RDC__POWER_SUPPLY);
+		createEAttribute(rdcEClass, RDC__POWER_SUPPLY1);
+		createEAttribute(rdcEClass, RDC__POWER_SUPPLY2);
 		createEAttribute(rdcEClass, RDC__SIDE);
 		createEAttribute(rdcEClass, RDC__RDC_TYPE);
 		createEAttribute(rdcEClass, RDC__ESS);
@@ -1975,23 +1957,21 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(rdcEClass, RDC__CONNECTORS);
 		createEReference(rdcEClass, RDC__CONNECTED_PINS);
 		createEOperation(rdcEClass, RDC___TO_STRING);
-		createEOperation(rdcEClass, RDC___GET_AVAILABLE_EQ_INTERFACES__ELIST);
-
-		internallyConnectedPinEntryEClass = createEClass(INTERNALLY_CONNECTED_PIN_ENTRY);
-		createEReference(internallyConnectedPinEntryEClass, INTERNALLY_CONNECTED_PIN_ENTRY__PINS);
 
 		connectorEClass = createEClass(CONNECTOR);
 		createEReference(connectorEClass, CONNECTOR__RDC);
-		createEReference(connectorEClass, CONNECTOR__AVAILABLE_EQ_INTERFACES);
+		createEReference(connectorEClass, CONNECTOR__PINS);
 		createEOperation(connectorEClass, CONNECTOR___FULL_NAME);
 		createEOperation(connectorEClass, CONNECTOR___TO_STRING);
-		createEOperation(connectorEClass, CONNECTOR___GET_AVAILABLE_EQ_INTERFACES__ELIST);
 
-		availableEqInterfaceEClass = createEClass(AVAILABLE_EQ_INTERFACE);
-		createEAttribute(availableEqInterfaceEClass, AVAILABLE_EQ_INTERFACE__NAME);
-		createEAttribute(availableEqInterfaceEClass, AVAILABLE_EQ_INTERFACE__EQ_INTERFACE_TYPE);
-		createEAttribute(availableEqInterfaceEClass, AVAILABLE_EQ_INTERFACE__COUNT);
-		createEAttribute(availableEqInterfaceEClass, AVAILABLE_EQ_INTERFACE__PROTECTION_LEVEL);
+		pinEClass = createEClass(PIN);
+		createEReference(pinEClass, PIN__CONNECTOR);
+		createEAttribute(pinEClass, PIN__EQ_INTERFACE_TYPE);
+		createEAttribute(pinEClass, PIN__PROTECTION_LEVEL);
+		createEOperation(pinEClass, PIN___TO_STRING);
+
+		internallyConnectedPinEntryEClass = createEClass(INTERNALLY_CONNECTED_PIN_ENTRY);
+		createEReference(internallyConnectedPinEntryEClass, INTERNALLY_CONNECTED_PIN_ENTRY__PINS);
 
 		interfacesBlockEClass = createEClass(INTERFACES_BLOCK);
 		createEReference(interfacesBlockEClass, INTERFACES_BLOCK__EQ_INTERFACES);
@@ -2119,6 +2099,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		compartmentEClass.getESuperTypes().add(this.getHardwareElement());
 		rdcEClass.getESuperTypes().add(this.getHardwareElement());
 		connectorEClass.getESuperTypes().add(this.getHardwareElement());
+		pinEClass.getESuperTypes().add(this.getHardwareElement());
 		eqInterfaceEClass.getESuperTypes().add(this.getEqInterfaceOrGroup());
 		eqInterfaceGroupEClass.getESuperTypes().add(this.getEqInterfaceOrGroup());
 		eqInterfaceGroupWithCombinedDefinitionEClass.getESuperTypes().add(this.getEqInterfaceGroup());
@@ -2221,12 +2202,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEOperation(getCompartment__GetAllConnectors(), this.getConnector(), "getAllConnectors", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getCompartment__GetAvailableEqInterfaces__EList(), theEcorePackage.getEInt(), "getAvailableEqInterfaces", 0, -1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcorePackage.getEString(), "eqInterfaceTypes", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
 		initEClass(rdcEClass, ch.hilbri.assist.datamodel.model.RDC.class, "RDC", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRDC_Manufacturer(), theEcorePackage.getEString(), "manufacturer", "", 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRDC_PowerSupply(), theEcorePackage.getEString(), "powerSupply", "", 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRDC_PowerSupply1(), theEcorePackage.getEString(), "powerSupply1", "", 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRDC_PowerSupply2(), theEcorePackage.getEString(), "powerSupply2", "", 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRDC_Side(), theEcorePackage.getEString(), "side", "", 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRDC_RdcType(), theEcorePackage.getEString(), "rdcType", "", 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRDC_Ess(), theEcorePackage.getEString(), "ess", "", 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2240,28 +2219,23 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEOperation(getRDC__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getRDC__GetAvailableEqInterfaces__EList(), theEcorePackage.getEInt(), "getAvailableEqInterfaces", 0, -1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcorePackage.getEString(), "eqInterfaceTypes", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-		initEClass(internallyConnectedPinEntryEClass, InternallyConnectedPinEntry.class, "InternallyConnectedPinEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInternallyConnectedPinEntry_Pins(), this.getAvailableEqInterface(), null, "pins", null, 2, -1, InternallyConnectedPinEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConnector_Rdc(), this.getRDC(), this.getRDC_Connectors(), "rdc", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConnector_AvailableEqInterfaces(), this.getAvailableEqInterface(), null, "availableEqInterfaces", null, 0, -1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnector_Pins(), this.getPin(), this.getPin_Connector(), "pins", null, 0, -1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getConnector__FullName(), theEcorePackage.getEString(), "fullName", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getConnector__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getConnector__GetAvailableEqInterfaces__EList(), theEcorePackage.getEInt(), "getAvailableEqInterfaces", 0, -1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcorePackage.getEString(), "eqInterfaceTypes", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		initEClass(pinEClass, Pin.class, "Pin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPin_Connector(), this.getConnector(), this.getConnector_Pins(), "connector", null, 0, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPin_EqInterfaceType(), theEcorePackage.getEString(), "eqInterfaceType", "", 0, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPin_ProtectionLevel(), this.getProtectionLevelType(), "protectionLevel", "None", 0, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(availableEqInterfaceEClass, AvailableEqInterface.class, "AvailableEqInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAvailableEqInterface_Name(), theEcorePackage.getEString(), "name", "", 0, 1, AvailableEqInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAvailableEqInterface_EqInterfaceType(), theEcorePackage.getEString(), "eqInterfaceType", "", 0, 1, AvailableEqInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAvailableEqInterface_Count(), theEcorePackage.getEInt(), "count", "0", 0, 1, AvailableEqInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAvailableEqInterface_ProtectionLevel(), this.getProtectionLevelType(), "protectionLevel", "None", 0, 1, AvailableEqInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEOperation(getPin__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		initEClass(internallyConnectedPinEntryEClass, InternallyConnectedPinEntry.class, "InternallyConnectedPinEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInternallyConnectedPinEntry_Pins(), this.getPin(), null, "pins", null, 2, -1, InternallyConnectedPinEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(interfacesBlockEClass, InterfacesBlock.class, "InterfacesBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInterfacesBlock_EqInterfaces(), this.getEqInterface(), null, "eqInterfaces", null, 0, -1, InterfacesBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2403,7 +2377,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEEnumLiteral(deploymentImplicitDefinitionAttributeEEnum, DeploymentImplicitDefinitionAttribute.COMPARTMENT_ZONE);
 		addEEnumLiteral(deploymentImplicitDefinitionAttributeEEnum, DeploymentImplicitDefinitionAttribute.RDC_NAME);
 		addEEnumLiteral(deploymentImplicitDefinitionAttributeEEnum, DeploymentImplicitDefinitionAttribute.RDC_MANUFACTURER);
-		addEEnumLiteral(deploymentImplicitDefinitionAttributeEEnum, DeploymentImplicitDefinitionAttribute.RDC_POWERSUPPLY);
+		addEEnumLiteral(deploymentImplicitDefinitionAttributeEEnum, DeploymentImplicitDefinitionAttribute.RDC_POWERSUPPLY1);
+		addEEnumLiteral(deploymentImplicitDefinitionAttributeEEnum, DeploymentImplicitDefinitionAttribute.RDC_POWERSUPPLY2);
 		addEEnumLiteral(deploymentImplicitDefinitionAttributeEEnum, DeploymentImplicitDefinitionAttribute.RDC_SIDE);
 		addEEnumLiteral(deploymentImplicitDefinitionAttributeEEnum, DeploymentImplicitDefinitionAttribute.RDC_TYPE);
 		addEEnumLiteral(deploymentImplicitDefinitionAttributeEEnum, DeploymentImplicitDefinitionAttribute.RDC_ESS);
