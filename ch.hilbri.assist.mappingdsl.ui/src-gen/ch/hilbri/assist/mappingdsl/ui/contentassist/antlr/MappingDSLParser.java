@@ -44,10 +44,8 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEqInterfaceGroupAccess().getAlternatives_6_2(), "rule__EqInterfaceGroup__Alternatives_6_2");
 					put(grammarAccess.getEqInterfaceGroupAccess().getAlternatives_6_3_1(), "rule__EqInterfaceGroup__Alternatives_6_3_1");
 					put(grammarAccess.getRestrictionsBlockAccess().getAlternatives_3(), "rule__RestrictionsBlock__Alternatives_3");
-					put(grammarAccess.getValidDeploymentAccess().getAlternatives_3(), "rule__ValidDeployment__Alternatives_3");
 					put(grammarAccess.getValidDeploymentAccess().getAlternatives_5(), "rule__ValidDeployment__Alternatives_5");
 					put(grammarAccess.getValidDeploymentAccess().getAlternatives_6_1(), "rule__ValidDeployment__Alternatives_6_1");
-					put(grammarAccess.getInvalidDeploymentAccess().getAlternatives_3(), "rule__InvalidDeployment__Alternatives_3");
 					put(grammarAccess.getInvalidDeploymentAccess().getAlternatives_5(), "rule__InvalidDeployment__Alternatives_5");
 					put(grammarAccess.getInvalidDeploymentAccess().getAlternatives_6_1(), "rule__InvalidDeployment__Alternatives_6_1");
 					put(grammarAccess.getProtectionLevelTypeAccess().getAlternatives(), "rule__ProtectionLevelType__Alternatives");
@@ -80,6 +78,9 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRDCAccess().getGroup_3_6(), "rule__RDC__Group_3_6__0");
 					put(grammarAccess.getRDCAccess().getGroup_3_7(), "rule__RDC__Group_3_7__0");
 					put(grammarAccess.getRDCAccess().getGroup_3_8(), "rule__RDC__Group_3_8__0");
+					put(grammarAccess.getInternalConnectedPinBlockAccess().getGroup(), "rule__InternalConnectedPinBlock__Group__0");
+					put(grammarAccess.getConnectedPinEntryAccess().getGroup(), "rule__ConnectedPinEntry__Group__0");
+					put(grammarAccess.getConnectedPinEntryAccess().getGroup_1(), "rule__ConnectedPinEntry__Group_1__0");
 					put(grammarAccess.getConnectorAccess().getGroup(), "rule__Connector__Group__0");
 					put(grammarAccess.getPinAccess().getGroup(), "rule__Pin__Group__0");
 					put(grammarAccess.getPinAccess().getGroup_3(), "rule__Pin__Group_3__0");
@@ -157,7 +158,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCompartmentAccess().getSideAssignment_3_2_2(), "rule__Compartment__SideAssignment_3_2_2");
 					put(grammarAccess.getCompartmentAccess().getZoneAssignment_3_3_2(), "rule__Compartment__ZoneAssignment_3_3_2");
 					put(grammarAccess.getCompartmentAccess().getRdcsAssignment_3_4(), "rule__Compartment__RdcsAssignment_3_4");
-					put(grammarAccess.getCompartmentAccess().getMetricParametersBlockAssignment_3_5(), "rule__Compartment__MetricParametersBlockAssignment_3_5");
+					put(grammarAccess.getCompartmentAccess().getMetricParametersBlockAssignment_4(), "rule__Compartment__MetricParametersBlockAssignment_4");
 					put(grammarAccess.getRDCAccess().getNameAssignment_1(), "rule__RDC__NameAssignment_1");
 					put(grammarAccess.getRDCAccess().getManufacturerAssignment_3_0_2(), "rule__RDC__ManufacturerAssignment_3_0_2");
 					put(grammarAccess.getRDCAccess().getPowerSupply1Assignment_3_1_2(), "rule__RDC__PowerSupply1Assignment_3_1_2");
@@ -168,8 +169,12 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRDCAccess().getResourceXAssignment_3_6_2(), "rule__RDC__ResourceXAssignment_3_6_2");
 					put(grammarAccess.getRDCAccess().getResourceYAssignment_3_7_2(), "rule__RDC__ResourceYAssignment_3_7_2");
 					put(grammarAccess.getRDCAccess().getResourceZAssignment_3_8_2(), "rule__RDC__ResourceZAssignment_3_8_2");
-					put(grammarAccess.getRDCAccess().getConnectorsAssignment_3_9(), "rule__RDC__ConnectorsAssignment_3_9");
-					put(grammarAccess.getRDCAccess().getMetricParametersBlockAssignment_3_10(), "rule__RDC__MetricParametersBlockAssignment_3_10");
+					put(grammarAccess.getRDCAccess().getInternalConnectedPinBlockAssignment_3_9(), "rule__RDC__InternalConnectedPinBlockAssignment_3_9");
+					put(grammarAccess.getRDCAccess().getConnectorsAssignment_3_10(), "rule__RDC__ConnectorsAssignment_3_10");
+					put(grammarAccess.getRDCAccess().getMetricParametersBlockAssignment_4(), "rule__RDC__MetricParametersBlockAssignment_4");
+					put(grammarAccess.getInternalConnectedPinBlockAccess().getConnectedPinsAssignment_3(), "rule__InternalConnectedPinBlock__ConnectedPinsAssignment_3");
+					put(grammarAccess.getConnectedPinEntryAccess().getPinsAssignment_0(), "rule__ConnectedPinEntry__PinsAssignment_0");
+					put(grammarAccess.getConnectedPinEntryAccess().getPinsAssignment_1_1(), "rule__ConnectedPinEntry__PinsAssignment_1_1");
 					put(grammarAccess.getConnectorAccess().getNameAssignment_1(), "rule__Connector__NameAssignment_1");
 					put(grammarAccess.getConnectorAccess().getPinsAssignment_3(), "rule__Connector__PinsAssignment_3");
 					put(grammarAccess.getConnectorAccess().getMetricParametersBlockAssignment_4(), "rule__Connector__MetricParametersBlockAssignment_4");

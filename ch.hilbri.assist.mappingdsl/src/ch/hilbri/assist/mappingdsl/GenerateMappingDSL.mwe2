@@ -69,9 +69,6 @@ Workflow {
     
     		// The antlr parser generator fragment.
     		fragment = parser.antlr.XtextAntlrGeneratorFragment auto-inject {
-    		 options = {
-    				classSplitting = true
-    		  }
     		}
     
     		// Xtend-based API for validation
@@ -108,6 +105,8 @@ Workflow {
     		fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {
     			options = {
     				classSplitting = true
+    				methodsPerClass = "100"
+    				fieldsPerClass = "100"
     		  	}
     		}
     

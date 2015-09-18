@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ch.hilbri.assist.datamodel.model.RDC#getResourceZ <em>Resource Z</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.RDC#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.RDC#getConnectors <em>Connectors</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.RDC#getConnectedPins <em>Connected Pins</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.RDC#getInternalConnectedPinBlock <em>Internal Connected Pin Block</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.datamodel.model.ModelPackage#getRDC()
@@ -350,20 +350,30 @@ public interface RDC extends HardwareElement {
 	EList<Connector> getConnectors();
 
 	/**
-	 * Returns the value of the '<em><b>Connected Pins</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry}.
+	 * Returns the value of the '<em><b>Internal Connected Pin Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Connected Pins</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Internal Connected Pin Block</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Connected Pins</em>' containment reference list.
-	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getRDC_ConnectedPins()
+	 * @return the value of the '<em>Internal Connected Pin Block</em>' containment reference.
+	 * @see #setInternalConnectedPinBlock(InternalConnectedPinBlock)
+	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getRDC_InternalConnectedPinBlock()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<InternallyConnectedPinEntry> getConnectedPins();
+	InternalConnectedPinBlock getInternalConnectedPinBlock();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.datamodel.model.RDC#getInternalConnectedPinBlock <em>Internal Connected Pin Block</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Internal Connected Pin Block</em>' containment reference.
+	 * @see #getInternalConnectedPinBlock()
+	 * @generated
+	 */
+	void setInternalConnectedPinBlock(InternalConnectedPinBlock value);
 
 	/**
 	 * <!-- begin-user-doc -->

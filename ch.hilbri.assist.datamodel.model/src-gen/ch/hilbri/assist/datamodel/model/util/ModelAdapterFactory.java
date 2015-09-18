@@ -124,16 +124,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createRDCAdapter();
 			}
 			@Override
+			public Adapter caseInternalConnectedPinBlock(InternalConnectedPinBlock object) {
+				return createInternalConnectedPinBlockAdapter();
+			}
+			@Override
+			public Adapter caseConnectedPinEntry(ConnectedPinEntry object) {
+				return createConnectedPinEntryAdapter();
+			}
+			@Override
 			public Adapter caseConnector(Connector object) {
 				return createConnectorAdapter();
 			}
 			@Override
 			public Adapter casePin(Pin object) {
 				return createPinAdapter();
-			}
-			@Override
-			public Adapter caseInternallyConnectedPinEntry(InternallyConnectedPinEntry object) {
-				return createInternallyConnectedPinEntryAdapter();
 			}
 			@Override
 			public Adapter caseInterfacesBlock(InterfacesBlock object) {
@@ -416,6 +420,34 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.InternalConnectedPinBlock <em>Internal Connected Pin Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.datamodel.model.InternalConnectedPinBlock
+	 * @generated
+	 */
+	public Adapter createInternalConnectedPinBlockAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.ConnectedPinEntry <em>Connected Pin Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.datamodel.model.ConnectedPinEntry
+	 * @generated
+	 */
+	public Adapter createConnectedPinEntryAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.Connector <em>Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -440,20 +472,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPinAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry <em>Internally Connected Pin Entry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry
-	 * @generated
-	 */
-	public Adapter createInternallyConnectedPinEntryAdapter() {
 		return null;
 	}
 

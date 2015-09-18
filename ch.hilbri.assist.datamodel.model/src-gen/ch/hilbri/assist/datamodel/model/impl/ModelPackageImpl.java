@@ -10,6 +10,7 @@ import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.CompartmentsBlock;
 import ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry;
 import ch.hilbri.assist.datamodel.model.CompatibleIoTypesBlock;
+import ch.hilbri.assist.datamodel.model.ConnectedPinEntry;
 import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinition;
 import ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinitionAttribute;
@@ -28,7 +29,7 @@ import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttri
 import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttributesAndValues;
 import ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock;
 import ch.hilbri.assist.datamodel.model.InterfacesBlock;
-import ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry;
+import ch.hilbri.assist.datamodel.model.InternalConnectedPinBlock;
 import ch.hilbri.assist.datamodel.model.InvalidDeployment;
 import ch.hilbri.assist.datamodel.model.MetricParameter;
 import ch.hilbri.assist.datamodel.model.MetricParametersBlock;
@@ -161,6 +162,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass internalConnectedPinBlockEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass connectedPinEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass connectorEClass = null;
 
 	/**
@@ -169,13 +184,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass pinEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass internallyConnectedPinEntryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1079,7 +1087,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRDC_ConnectedPins() {
+	public EReference getRDC_InternalConnectedPinBlock() {
 		return (EReference)rdcEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -1090,6 +1098,42 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EOperation getRDC__ToString() {
 		return rdcEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInternalConnectedPinBlock() {
+		return internalConnectedPinBlockEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInternalConnectedPinBlock_ConnectedPins() {
+		return (EReference)internalConnectedPinBlockEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConnectedPinEntry() {
+		return connectedPinEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConnectedPinEntry_Pins() {
+		return (EReference)connectedPinEntryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1180,24 +1224,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EOperation getPin__ToString() {
 		return pinEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getInternallyConnectedPinEntry() {
-		return internallyConnectedPinEntryEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInternallyConnectedPinEntry_Pins() {
-		return (EReference)internallyConnectedPinEntryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1975,8 +2001,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(rdcEClass, RDC__RESOURCE_Z);
 		createEReference(rdcEClass, RDC__COMPARTMENT);
 		createEReference(rdcEClass, RDC__CONNECTORS);
-		createEReference(rdcEClass, RDC__CONNECTED_PINS);
+		createEReference(rdcEClass, RDC__INTERNAL_CONNECTED_PIN_BLOCK);
 		createEOperation(rdcEClass, RDC___TO_STRING);
+
+		internalConnectedPinBlockEClass = createEClass(INTERNAL_CONNECTED_PIN_BLOCK);
+		createEReference(internalConnectedPinBlockEClass, INTERNAL_CONNECTED_PIN_BLOCK__CONNECTED_PINS);
+
+		connectedPinEntryEClass = createEClass(CONNECTED_PIN_ENTRY);
+		createEReference(connectedPinEntryEClass, CONNECTED_PIN_ENTRY__PINS);
 
 		connectorEClass = createEClass(CONNECTOR);
 		createEReference(connectorEClass, CONNECTOR__RDC);
@@ -1989,9 +2021,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(pinEClass, PIN__EQ_INTERFACE_TYPE);
 		createEAttribute(pinEClass, PIN__PROTECTION_LEVEL);
 		createEOperation(pinEClass, PIN___TO_STRING);
-
-		internallyConnectedPinEntryEClass = createEClass(INTERNALLY_CONNECTED_PIN_ENTRY);
-		createEReference(internallyConnectedPinEntryEClass, INTERNALLY_CONNECTED_PIN_ENTRY__PINS);
 
 		interfacesBlockEClass = createEClass(INTERFACES_BLOCK);
 		createEReference(interfacesBlockEClass, INTERFACES_BLOCK__EQ_INTERFACES);
@@ -2239,9 +2268,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getRDC_ResourceZ(), theEcorePackage.getEInt(), "resourceZ", "0", 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRDC_Compartment(), this.getCompartment(), this.getCompartment_Rdcs(), "compartment", null, 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRDC_Connectors(), this.getConnector(), this.getConnector_Rdc(), "connectors", null, 0, -1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRDC_ConnectedPins(), this.getInternallyConnectedPinEntry(), null, "connectedPins", null, 0, -1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRDC_InternalConnectedPinBlock(), this.getInternalConnectedPinBlock(), null, "internalConnectedPinBlock", null, 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getRDC__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		initEClass(internalConnectedPinBlockEClass, InternalConnectedPinBlock.class, "InternalConnectedPinBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInternalConnectedPinBlock_ConnectedPins(), this.getConnectedPinEntry(), null, "connectedPins", null, 0, -1, InternalConnectedPinBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(connectedPinEntryEClass, ConnectedPinEntry.class, "ConnectedPinEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConnectedPinEntry_Pins(), this.getPin(), null, "pins", null, 2, -1, ConnectedPinEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConnector_Rdc(), this.getRDC(), this.getRDC_Connectors(), "rdc", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2257,9 +2292,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getPin_ProtectionLevel(), this.getProtectionLevelType(), "protectionLevel", "None", 0, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getPin__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-		initEClass(internallyConnectedPinEntryEClass, InternallyConnectedPinEntry.class, "InternallyConnectedPinEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInternallyConnectedPinEntry_Pins(), this.getPin(), null, "pins", null, 2, -1, InternallyConnectedPinEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(interfacesBlockEClass, InterfacesBlock.class, "InterfacesBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInterfacesBlock_EqInterfaces(), this.getEqInterface(), null, "eqInterfaces", null, 0, -1, InterfacesBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

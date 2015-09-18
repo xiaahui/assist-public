@@ -1038,13 +1038,13 @@ public interface ModelPackage extends EPackage {
 	int RDC__CONNECTORS = HARDWARE_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Connected Pins</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Internal Connected Pin Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDC__CONNECTED_PINS = HARDWARE_ELEMENT_FEATURE_COUNT + 12;
+	int RDC__INTERNAL_CONNECTED_PIN_BLOCK = HARDWARE_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of structural features of the '<em>RDC</em>' class.
@@ -1074,6 +1074,80 @@ public interface ModelPackage extends EPackage {
 	int RDC_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.InternalConnectedPinBlockImpl <em>Internal Connected Pin Block</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.datamodel.model.impl.InternalConnectedPinBlockImpl
+	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInternalConnectedPinBlock()
+	 * @generated
+	 */
+	int INTERNAL_CONNECTED_PIN_BLOCK = 14;
+
+	/**
+	 * The feature id for the '<em><b>Connected Pins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_CONNECTED_PIN_BLOCK__CONNECTED_PINS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Internal Connected Pin Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_CONNECTED_PIN_BLOCK_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Internal Connected Pin Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_CONNECTED_PIN_BLOCK_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.ConnectedPinEntryImpl <em>Connected Pin Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.datamodel.model.impl.ConnectedPinEntryImpl
+	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getConnectedPinEntry()
+	 * @generated
+	 */
+	int CONNECTED_PIN_ENTRY = 15;
+
+	/**
+	 * The feature id for the '<em><b>Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTED_PIN_ENTRY__PINS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Connected Pin Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTED_PIN_ENTRY_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Connected Pin Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTED_PIN_ENTRY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.ConnectorImpl <em>Connector</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1081,7 +1155,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getConnector()
 	 * @generated
 	 */
-	int CONNECTOR = 14;
+	int CONNECTOR = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1163,7 +1237,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getPin()
 	 * @generated
 	 */
-	int PIN = 15;
+	int PIN = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1238,43 +1312,6 @@ public interface ModelPackage extends EPackage {
 	int PIN_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.InternallyConnectedPinEntryImpl <em>Internally Connected Pin Entry</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.datamodel.model.impl.InternallyConnectedPinEntryImpl
-	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInternallyConnectedPinEntry()
-	 * @generated
-	 */
-	int INTERNALLY_CONNECTED_PIN_ENTRY = 16;
-
-	/**
-	 * The feature id for the '<em><b>Pins</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERNALLY_CONNECTED_PIN_ENTRY__PINS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Internally Connected Pin Entry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERNALLY_CONNECTED_PIN_ENTRY_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Internally Connected Pin Entry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERNALLY_CONNECTED_PIN_ENTRY_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.InterfacesBlockImpl <em>Interfaces Block</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1282,7 +1319,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInterfacesBlock()
 	 * @generated
 	 */
-	int INTERFACES_BLOCK = 17;
+	int INTERFACES_BLOCK = 18;
 
 	/**
 	 * The feature id for the '<em><b>Eq Interfaces</b></em>' containment reference list.
@@ -1319,7 +1356,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getEqInterfaceOrGroup()
 	 * @generated
 	 */
-	int EQ_INTERFACE_OR_GROUP = 18;
+	int EQ_INTERFACE_OR_GROUP = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1365,7 +1402,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getEqInterface()
 	 * @generated
 	 */
-	int EQ_INTERFACE = 19;
+	int EQ_INTERFACE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1537,7 +1574,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInterfaceGroupsBlock()
 	 * @generated
 	 */
-	int INTERFACE_GROUPS_BLOCK = 20;
+	int INTERFACE_GROUPS_BLOCK = 21;
 
 	/**
 	 * The feature id for the '<em><b>Eq Interface Groups</b></em>' containment reference list.
@@ -1574,7 +1611,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getEqInterfaceGroup()
 	 * @generated
 	 */
-	int EQ_INTERFACE_GROUP = 21;
+	int EQ_INTERFACE_GROUP = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1674,7 +1711,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getImplicitEqInterfaceMemberDefinition()
 	 * @generated
 	 */
-	int IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION = 22;
+	int IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION = 23;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
@@ -1720,7 +1757,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getImplicitEqInterfaceMemberDefinitionAttributesAndValues()
 	 * @generated
 	 */
-	int IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTES_AND_VALUES = 23;
+	int IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTES_AND_VALUES = 24;
 
 	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' attribute.
@@ -1766,7 +1803,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getEqInterfaceGroupWithCombinedDefinition()
 	 * @generated
 	 */
-	int EQ_INTERFACE_GROUP_WITH_COMBINED_DEFINITION = 24;
+	int EQ_INTERFACE_GROUP_WITH_COMBINED_DEFINITION = 25;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1875,7 +1912,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getRestrictionsBlock()
 	 * @generated
 	 */
-	int RESTRICTIONS_BLOCK = 25;
+	int RESTRICTIONS_BLOCK = 26;
 
 	/**
 	 * The feature id for the '<em><b>Dislocality Relations</b></em>' containment reference list.
@@ -1939,7 +1976,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getDislocalityRelation()
 	 * @generated
 	 */
-	int DISLOCALITY_RELATION = 26;
+	int DISLOCALITY_RELATION = 27;
 
 	/**
 	 * The feature id for the '<em><b>Eq Interface Or Groups</b></em>' reference list.
@@ -2012,7 +2049,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getColocalityRelation()
 	 * @generated
 	 */
-	int COLOCALITY_RELATION = 27;
+	int COLOCALITY_RELATION = 28;
 
 	/**
 	 * The feature id for the '<em><b>Eq Interface Or Groups</b></em>' reference list.
@@ -2076,7 +2113,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getDeploymentSpecification()
 	 * @generated
 	 */
-	int DEPLOYMENT_SPECIFICATION = 28;
+	int DEPLOYMENT_SPECIFICATION = 29;
 
 	/**
 	 * The feature id for the '<em><b>Eq Interface Or Groups</b></em>' reference list.
@@ -2149,7 +2186,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getDeploymentImplicitDefinition()
 	 * @generated
 	 */
-	int DEPLOYMENT_IMPLICIT_DEFINITION = 29;
+	int DEPLOYMENT_IMPLICIT_DEFINITION = 30;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
@@ -2195,7 +2232,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getDeploymentImplicitDefinitionAttributeAndValue()
 	 * @generated
 	 */
-	int DEPLOYMENT_IMPLICIT_DEFINITION_ATTRIBUTE_AND_VALUE = 30;
+	int DEPLOYMENT_IMPLICIT_DEFINITION_ATTRIBUTE_AND_VALUE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' attribute.
@@ -2241,7 +2278,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getValidDeployment()
 	 * @generated
 	 */
-	int VALID_DEPLOYMENT = 31;
+	int VALID_DEPLOYMENT = 32;
 
 	/**
 	 * The feature id for the '<em><b>Eq Interface Or Groups</b></em>' reference list.
@@ -2314,7 +2351,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInvalidDeployment()
 	 * @generated
 	 */
-	int INVALID_DEPLOYMENT = 32;
+	int INVALID_DEPLOYMENT = 33;
 
 	/**
 	 * The feature id for the '<em><b>Eq Interface Or Groups</b></em>' reference list.
@@ -2387,7 +2424,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getProtectionLevelType()
 	 * @generated
 	 */
-	int PROTECTION_LEVEL_TYPE = 33;
+	int PROTECTION_LEVEL_TYPE = 34;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttribute <em>Implicit Eq Interface Member Definition Attribute</em>}' enum.
@@ -2397,7 +2434,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getImplicitEqInterfaceMemberDefinitionAttribute()
 	 * @generated
 	 */
-	int IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTE = 34;
+	int IMPLICIT_EQ_INTERFACE_MEMBER_DEFINITION_ATTRIBUTE = 35;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
@@ -2407,7 +2444,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
 	 * @generated
 	 */
-	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 35;
+	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 36;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinitionAttribute <em>Deployment Implicit Definition Attribute</em>}' enum.
@@ -2417,7 +2454,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getDeploymentImplicitDefinitionAttribute()
 	 * @generated
 	 */
-	int DEPLOYMENT_IMPLICIT_DEFINITION_ATTRIBUTE = 36;
+	int DEPLOYMENT_IMPLICIT_DEFINITION_ATTRIBUTE = 37;
 
 
 	/**
@@ -3234,15 +3271,15 @@ public interface ModelPackage extends EPackage {
 	EReference getRDC_Connectors();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.RDC#getConnectedPins <em>Connected Pins</em>}'.
+	 * Returns the meta object for the containment reference '{@link ch.hilbri.assist.datamodel.model.RDC#getInternalConnectedPinBlock <em>Internal Connected Pin Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Connected Pins</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.RDC#getConnectedPins()
+	 * @return the meta object for the containment reference '<em>Internal Connected Pin Block</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.RDC#getInternalConnectedPinBlock()
 	 * @see #getRDC()
 	 * @generated
 	 */
-	EReference getRDC_ConnectedPins();
+	EReference getRDC_InternalConnectedPinBlock();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.RDC#toString() <em>To String</em>}' operation.
@@ -3253,6 +3290,48 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRDC__ToString();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.InternalConnectedPinBlock <em>Internal Connected Pin Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Internal Connected Pin Block</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.InternalConnectedPinBlock
+	 * @generated
+	 */
+	EClass getInternalConnectedPinBlock();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.datamodel.model.InternalConnectedPinBlock#getConnectedPins <em>Connected Pins</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Connected Pins</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.InternalConnectedPinBlock#getConnectedPins()
+	 * @see #getInternalConnectedPinBlock()
+	 * @generated
+	 */
+	EReference getInternalConnectedPinBlock_ConnectedPins();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.ConnectedPinEntry <em>Connected Pin Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Connected Pin Entry</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.ConnectedPinEntry
+	 * @generated
+	 */
+	EClass getConnectedPinEntry();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.datamodel.model.ConnectedPinEntry#getPins <em>Pins</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Pins</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.ConnectedPinEntry#getPins()
+	 * @see #getConnectedPinEntry()
+	 * @generated
+	 */
+	EReference getConnectedPinEntry_Pins();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.Connector <em>Connector</em>}'.
@@ -3358,27 +3437,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPin__ToString();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry <em>Internally Connected Pin Entry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Internally Connected Pin Entry</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry
-	 * @generated
-	 */
-	EClass getInternallyConnectedPinEntry();
-
-	/**
-	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry#getPins <em>Pins</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Pins</em>'.
-	 * @see ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry#getPins()
-	 * @see #getInternallyConnectedPinEntry()
-	 * @generated
-	 */
-	EReference getInternallyConnectedPinEntry_Pins();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.InterfacesBlock <em>Interfaces Block</em>}'.
@@ -4817,12 +4875,12 @@ public interface ModelPackage extends EPackage {
 		EReference RDC__CONNECTORS = eINSTANCE.getRDC_Connectors();
 
 		/**
-		 * The meta object literal for the '<em><b>Connected Pins</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Internal Connected Pin Block</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RDC__CONNECTED_PINS = eINSTANCE.getRDC_ConnectedPins();
+		EReference RDC__INTERNAL_CONNECTED_PIN_BLOCK = eINSTANCE.getRDC_InternalConnectedPinBlock();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
@@ -4831,6 +4889,42 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RDC___TO_STRING = eINSTANCE.getRDC__ToString();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.InternalConnectedPinBlockImpl <em>Internal Connected Pin Block</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.datamodel.model.impl.InternalConnectedPinBlockImpl
+		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInternalConnectedPinBlock()
+		 * @generated
+		 */
+		EClass INTERNAL_CONNECTED_PIN_BLOCK = eINSTANCE.getInternalConnectedPinBlock();
+
+		/**
+		 * The meta object literal for the '<em><b>Connected Pins</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERNAL_CONNECTED_PIN_BLOCK__CONNECTED_PINS = eINSTANCE.getInternalConnectedPinBlock_ConnectedPins();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.ConnectedPinEntryImpl <em>Connected Pin Entry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.datamodel.model.impl.ConnectedPinEntryImpl
+		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getConnectedPinEntry()
+		 * @generated
+		 */
+		EClass CONNECTED_PIN_ENTRY = eINSTANCE.getConnectedPinEntry();
+
+		/**
+		 * The meta object literal for the '<em><b>Pins</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTED_PIN_ENTRY__PINS = eINSTANCE.getConnectedPinEntry_Pins();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.ConnectorImpl <em>Connector</em>}' class.
@@ -4915,24 +5009,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PIN___TO_STRING = eINSTANCE.getPin__ToString();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.InternallyConnectedPinEntryImpl <em>Internally Connected Pin Entry</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.datamodel.model.impl.InternallyConnectedPinEntryImpl
-		 * @see ch.hilbri.assist.datamodel.model.impl.ModelPackageImpl#getInternallyConnectedPinEntry()
-		 * @generated
-		 */
-		EClass INTERNALLY_CONNECTED_PIN_ENTRY = eINSTANCE.getInternallyConnectedPinEntry();
-
-		/**
-		 * The meta object literal for the '<em><b>Pins</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTERNALLY_CONNECTED_PIN_ENTRY__PINS = eINSTANCE.getInternallyConnectedPinEntry_Pins();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.InterfacesBlockImpl <em>Interfaces Block</em>}' class.

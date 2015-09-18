@@ -507,19 +507,19 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_3_3_3 = (Keyword)cGroup_3_3.eContents().get(3);
 		private final Assignment cRdcsAssignment_3_4 = (Assignment)cUnorderedGroup_3.eContents().get(4);
 		private final RuleCall cRdcsRDCParserRuleCall_3_4_0 = (RuleCall)cRdcsAssignment_3_4.eContents().get(0);
-		private final Assignment cMetricParametersBlockAssignment_3_5 = (Assignment)cUnorderedGroup_3.eContents().get(5);
-		private final RuleCall cMetricParametersBlockMetricParametersBlockParserRuleCall_3_5_0 = (RuleCall)cMetricParametersBlockAssignment_3_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cMetricParametersBlockAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cMetricParametersBlockMetricParametersBlockParserRuleCall_4_0 = (RuleCall)cMetricParametersBlockAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Compartment:
 		//	"Compartment" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING
-		//	";")? & ("Side" "=" side=STRING ";")? & ("Zone" "=" zone=STRING ";")? & rdcs+=RDC+ &
-		//	metricParametersBlock=MetricParametersBlock?) "}";
+		//	";")? & ("Side" "=" side=STRING ";")? & ("Zone" "=" zone=STRING ";")? & rdcs+=RDC+)
+		//	metricParametersBlock=MetricParametersBlock? "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"Compartment" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING ";")? &
-		//("Side" "=" side=STRING ";")? & ("Zone" "=" zone=STRING ";")? & rdcs+=RDC+ &
-		//metricParametersBlock=MetricParametersBlock?) "}"
+		//("Side" "=" side=STRING ";")? & ("Zone" "=" zone=STRING ";")? & rdcs+=RDC+)
+		//metricParametersBlock=MetricParametersBlock? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Compartment"
@@ -535,7 +535,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
 		//("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING ";")? & ("Side" "=" side=STRING
-		//";")? & ("Zone" "=" zone=STRING ";")? & rdcs+=RDC+ & metricParametersBlock=MetricParametersBlock?
+		//";")? & ("Zone" "=" zone=STRING ";")? & rdcs+=RDC+
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
 		//("Manufacturer" "=" manufacturer=STRING ";")?
@@ -617,13 +617,13 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getRdcsRDCParserRuleCall_3_4_0() { return cRdcsRDCParserRuleCall_3_4_0; }
 
 		//metricParametersBlock=MetricParametersBlock?
-		public Assignment getMetricParametersBlockAssignment_3_5() { return cMetricParametersBlockAssignment_3_5; }
+		public Assignment getMetricParametersBlockAssignment_4() { return cMetricParametersBlockAssignment_4; }
 
 		//MetricParametersBlock
-		public RuleCall getMetricParametersBlockMetricParametersBlockParserRuleCall_3_5_0() { return cMetricParametersBlockMetricParametersBlockParserRuleCall_3_5_0; }
+		public RuleCall getMetricParametersBlockMetricParametersBlockParserRuleCall_4_0() { return cMetricParametersBlockMetricParametersBlockParserRuleCall_4_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class RDCElements extends AbstractParserRuleElementFinder {
@@ -688,25 +688,29 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cResourceZAssignment_3_8_2 = (Assignment)cGroup_3_8.eContents().get(2);
 		private final RuleCall cResourceZSIGNEDINTParserRuleCall_3_8_2_0 = (RuleCall)cResourceZAssignment_3_8_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3_8_3 = (Keyword)cGroup_3_8.eContents().get(3);
-		private final Assignment cConnectorsAssignment_3_9 = (Assignment)cUnorderedGroup_3.eContents().get(9);
-		private final RuleCall cConnectorsConnectorParserRuleCall_3_9_0 = (RuleCall)cConnectorsAssignment_3_9.eContents().get(0);
-		private final Assignment cMetricParametersBlockAssignment_3_10 = (Assignment)cUnorderedGroup_3.eContents().get(10);
-		private final RuleCall cMetricParametersBlockMetricParametersBlockParserRuleCall_3_10_0 = (RuleCall)cMetricParametersBlockAssignment_3_10.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cInternalConnectedPinBlockAssignment_3_9 = (Assignment)cUnorderedGroup_3.eContents().get(9);
+		private final RuleCall cInternalConnectedPinBlockInternalConnectedPinBlockParserRuleCall_3_9_0 = (RuleCall)cInternalConnectedPinBlockAssignment_3_9.eContents().get(0);
+		private final Assignment cConnectorsAssignment_3_10 = (Assignment)cUnorderedGroup_3.eContents().get(10);
+		private final RuleCall cConnectorsConnectorParserRuleCall_3_10_0 = (RuleCall)cConnectorsAssignment_3_10.eContents().get(0);
+		private final Assignment cMetricParametersBlockAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cMetricParametersBlockMetricParametersBlockParserRuleCall_4_0 = (RuleCall)cMetricParametersBlockAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//RDC:
 		//	"RDC" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply1" "=" powerSupply1=STRING ";")? &
 		//	("PowerSupply2" "=" powerSupply2=STRING ";")? & ("Type" "=" rdcType=STRING ";")? & ("ESS" "=" ess=STRING ";")? &
 		//	("Location" "=" location=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? & ("ResourceY" "="
-		//	resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")? & connectors+=Connector+ &
-		//	metricParametersBlock=MetricParametersBlock?) "}";
+		//	resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")? &
+		//	internalConnectedPinBlock=InternalConnectedPinBlock? & connectors+=Connector+)
+		//	metricParametersBlock=MetricParametersBlock? "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"RDC" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply1" "=" powerSupply1=STRING ";")? &
 		//("PowerSupply2" "=" powerSupply2=STRING ";")? & ("Type" "=" rdcType=STRING ";")? & ("ESS" "=" ess=STRING ";")? &
 		//("Location" "=" location=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? & ("ResourceY" "="
-		//resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")? & connectors+=Connector+ &
-		//metricParametersBlock=MetricParametersBlock?) "}"
+		//resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")? &
+		//internalConnectedPinBlock=InternalConnectedPinBlock? & connectors+=Connector+)
+		//metricParametersBlock=MetricParametersBlock? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"RDC"
@@ -724,7 +728,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply1" "=" powerSupply1=STRING ";")? & ("PowerSupply2" "="
 		//powerSupply2=STRING ";")? & ("Type" "=" rdcType=STRING ";")? & ("ESS" "=" ess=STRING ";")? & ("Location" "="
 		//location=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? & ("ResourceY" "=" resourceY=SIGNEDINT ";")? &
-		//("ResourceZ" "=" resourceZ=SIGNEDINT ";")? & connectors+=Connector+ & metricParametersBlock=MetricParametersBlock?
+		//("ResourceZ" "=" resourceZ=SIGNEDINT ";")? & internalConnectedPinBlock=InternalConnectedPinBlock? &
+		//connectors+=Connector+
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
 		//("Manufacturer" "=" manufacturer=STRING ";")?
@@ -889,20 +894,114 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_3_8_3() { return cSemicolonKeyword_3_8_3; }
 
+		//internalConnectedPinBlock=InternalConnectedPinBlock?
+		public Assignment getInternalConnectedPinBlockAssignment_3_9() { return cInternalConnectedPinBlockAssignment_3_9; }
+
+		//InternalConnectedPinBlock
+		public RuleCall getInternalConnectedPinBlockInternalConnectedPinBlockParserRuleCall_3_9_0() { return cInternalConnectedPinBlockInternalConnectedPinBlockParserRuleCall_3_9_0; }
+
 		//connectors+=Connector+
-		public Assignment getConnectorsAssignment_3_9() { return cConnectorsAssignment_3_9; }
+		public Assignment getConnectorsAssignment_3_10() { return cConnectorsAssignment_3_10; }
 
 		//Connector
-		public RuleCall getConnectorsConnectorParserRuleCall_3_9_0() { return cConnectorsConnectorParserRuleCall_3_9_0; }
+		public RuleCall getConnectorsConnectorParserRuleCall_3_10_0() { return cConnectorsConnectorParserRuleCall_3_10_0; }
 
 		//metricParametersBlock=MetricParametersBlock?
-		public Assignment getMetricParametersBlockAssignment_3_10() { return cMetricParametersBlockAssignment_3_10; }
+		public Assignment getMetricParametersBlockAssignment_4() { return cMetricParametersBlockAssignment_4; }
 
 		//MetricParametersBlock
-		public RuleCall getMetricParametersBlockMetricParametersBlockParserRuleCall_3_10_0() { return cMetricParametersBlockMetricParametersBlockParserRuleCall_3_10_0; }
+		public RuleCall getMetricParametersBlockMetricParametersBlockParserRuleCall_4_0() { return cMetricParametersBlockMetricParametersBlockParserRuleCall_4_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+
+	public class InternalConnectedPinBlockElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "InternalConnectedPinBlock");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cInternalConnectedPinBlockAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cConnectedPinsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cConnectedPinsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cConnectedPinsConnectedPinEntryParserRuleCall_3_0 = (RuleCall)cConnectedPinsAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//InternalConnectedPinBlock:
+		//	{InternalConnectedPinBlock} "Connected Pins" "{" connectedPins+=ConnectedPinEntry* "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//{InternalConnectedPinBlock} "Connected Pins" "{" connectedPins+=ConnectedPinEntry* "}"
+		public Group getGroup() { return cGroup; }
+
+		//{InternalConnectedPinBlock}
+		public Action getInternalConnectedPinBlockAction_0() { return cInternalConnectedPinBlockAction_0; }
+
+		//"Connected Pins"
+		public Keyword getConnectedPinsKeyword_1() { return cConnectedPinsKeyword_1; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//connectedPins+=ConnectedPinEntry*
+		public Assignment getConnectedPinsAssignment_3() { return cConnectedPinsAssignment_3; }
+
+		//ConnectedPinEntry
+		public RuleCall getConnectedPinsConnectedPinEntryParserRuleCall_3_0() { return cConnectedPinsConnectedPinEntryParserRuleCall_3_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class ConnectedPinEntryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConnectedPinEntry");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cPinsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cPinsPinCrossReference_0_0 = (CrossReference)cPinsAssignment_0.eContents().get(0);
+		private final RuleCall cPinsPinQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cPinsPinCrossReference_0_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cPinsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cPinsPinCrossReference_1_1_0 = (CrossReference)cPinsAssignment_1_1.eContents().get(0);
+		private final RuleCall cPinsPinQualifiedNameParserRuleCall_1_1_0_1 = (RuleCall)cPinsPinCrossReference_1_1_0.eContents().get(1);
+		private final Keyword cAreConnectedKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//ConnectedPinEntry:
+		//	pins+=[Pin|QualifiedName] ("," pins+=[Pin|QualifiedName])+ "are connected" ";";
+		@Override public ParserRule getRule() { return rule; }
+
+		//pins+=[Pin|QualifiedName] ("," pins+=[Pin|QualifiedName])+ "are connected" ";"
+		public Group getGroup() { return cGroup; }
+
+		//pins+=[Pin|QualifiedName]
+		public Assignment getPinsAssignment_0() { return cPinsAssignment_0; }
+
+		//[Pin|QualifiedName]
+		public CrossReference getPinsPinCrossReference_0_0() { return cPinsPinCrossReference_0_0; }
+
+		//QualifiedName
+		public RuleCall getPinsPinQualifiedNameParserRuleCall_0_0_1() { return cPinsPinQualifiedNameParserRuleCall_0_0_1; }
+
+		//("," pins+=[Pin|QualifiedName])+
+		public Group getGroup_1() { return cGroup_1; }
+
+		//","
+		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
+
+		//pins+=[Pin|QualifiedName]
+		public Assignment getPinsAssignment_1_1() { return cPinsAssignment_1_1; }
+
+		//[Pin|QualifiedName]
+		public CrossReference getPinsPinCrossReference_1_1_0() { return cPinsPinCrossReference_1_1_0; }
+
+		//QualifiedName
+		public RuleCall getPinsPinQualifiedNameParserRuleCall_1_1_0_1() { return cPinsPinQualifiedNameParserRuleCall_1_1_0_1; }
+
+		//"are connected"
+		public Keyword getAreConnectedKeyword_2() { return cAreConnectedKeyword_2; }
+
+		//";"
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
 
 	public class ConnectorElements extends AbstractParserRuleElementFinder {
@@ -919,12 +1018,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Connector:
-		//	"Connector" name=ID "{" pins+=Pin* metricParametersBlock=MetricParametersBlock? //		(availableEqInterfaces+=AvailableEqInterface)*								
-		//	"}";
+		//	"Connector" name=ID "{" pins+=Pin* metricParametersBlock=MetricParametersBlock? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Connector" name=ID "{" pins+=Pin* metricParametersBlock=MetricParametersBlock? //		(availableEqInterfaces+=AvailableEqInterface)*								
-		//"}"
+		//"Connector" name=ID "{" pins+=Pin* metricParametersBlock=MetricParametersBlock? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Connector"
@@ -951,7 +1048,6 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//MetricParametersBlock
 		public RuleCall getMetricParametersBlockMetricParametersBlockParserRuleCall_4_0() { return cMetricParametersBlockMetricParametersBlockParserRuleCall_4_0; }
 
-		////		(availableEqInterfaces+=AvailableEqInterface)*								
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
@@ -1788,10 +1884,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//EqInterfaceGroupWithCombinedDefinition:
-		//	"Group" name=ID "combines" combinedGroups+=[EqInterfaceGroup] ("and" combinedGroups+=[EqInterfaceGroup])* ";";
+		//	"Group" name=ID "combines" combinedGroups+=[EqInterfaceGroup] ("and" combinedGroups+=[EqInterfaceGroup])+ ";";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Group" name=ID "combines" combinedGroups+=[EqInterfaceGroup] ("and" combinedGroups+=[EqInterfaceGroup])* ";"
+		//"Group" name=ID "combines" combinedGroups+=[EqInterfaceGroup] ("and" combinedGroups+=[EqInterfaceGroup])+ ";"
 		public Group getGroup() { return cGroup; }
 
 		//"Group"
@@ -1815,7 +1911,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getCombinedGroupsEqInterfaceGroupIDTerminalRuleCall_3_0_1() { return cCombinedGroupsEqInterfaceGroupIDTerminalRuleCall_3_0_1; }
 
-		//("and" combinedGroups+=[EqInterfaceGroup])*
+		//("and" combinedGroups+=[EqInterfaceGroup])+
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"and"
@@ -2041,9 +2137,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cEqInterfaceOrGroupsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final CrossReference cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_2_1_0 = (CrossReference)cEqInterfaceOrGroupsAssignment_2_1.eContents().get(0);
 		private final RuleCall cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_2_1_0_1 = (RuleCall)cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_2_1_0.eContents().get(1);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Keyword cIsKeyword_3_0 = (Keyword)cAlternatives_3.eContents().get(0);
-		private final Keyword cAreKeyword_3_1 = (Keyword)cAlternatives_3.eContents().get(1);
+		private final Keyword cAreKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
 		private final Assignment cHardwareElementsAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
@@ -2063,14 +2157,14 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//ValidDeployment:
-		//	"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* ("is" | "are")
-		//	"{" (hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) (","
+		//	"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "are" "{"
+		//	(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) (","
 		//	(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition))* "}"
 		//	";";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* ("is" | "are")
-		//"{" (hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) (","
+		//"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "are" "{"
+		//(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) (","
 		//(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition))* "}" ";"
 		public Group getGroup() { return cGroup; }
 
@@ -2101,14 +2195,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_2_1_0_1() { return cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_2_1_0_1; }
 
-		//"is" | "are"
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
-
-		//"is"
-		public Keyword getIsKeyword_3_0() { return cIsKeyword_3_0; }
-
 		//"are"
-		public Keyword getAreKeyword_3_1() { return cAreKeyword_3_1; }
+		public Keyword getAreKeyword_3() { return cAreKeyword_3; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
@@ -2174,9 +2262,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cEqInterfaceOrGroupsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final CrossReference cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_2_1_0 = (CrossReference)cEqInterfaceOrGroupsAssignment_2_1.eContents().get(0);
 		private final RuleCall cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_2_1_0_1 = (RuleCall)cEqInterfaceOrGroupsEqInterfaceOrGroupCrossReference_2_1_0.eContents().get(1);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Keyword cIsKeyword_3_0 = (Keyword)cAlternatives_3.eContents().get(0);
-		private final Keyword cAreKeyword_3_1 = (Keyword)cAlternatives_3.eContents().get(1);
+		private final Keyword cAreKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
 		private final Assignment cHardwareElementsAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
@@ -2196,14 +2282,14 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//InvalidDeployment:
-		//	"Invalid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* ("is" |
-		//	"are") "{" (hardwareElements+=[HardwareElement|QualifiedName] |
-		//	implicitHardwareElements+=DeploymentImplicitDefinition) ("," (hardwareElements+=[HardwareElement|QualifiedName] |
-		//	implicitHardwareElements+=DeploymentImplicitDefinition))* "}" ";";
+		//	"Invalid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "are" "{"
+		//	(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) (","
+		//	(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition))* "}"
+		//	";";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Invalid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* ("is" | "are")
-		//"{" (hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) (","
+		//"Invalid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "are" "{"
+		//(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) (","
 		//(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition))* "}" ";"
 		public Group getGroup() { return cGroup; }
 
@@ -2234,14 +2320,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_2_1_0_1() { return cEqInterfaceOrGroupsEqInterfaceOrGroupIDTerminalRuleCall_2_1_0_1; }
 
-		//"is" | "are"
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
-
-		//"is"
-		public Keyword getIsKeyword_3_0() { return cIsKeyword_3_0; }
-
 		//"are"
-		public Keyword getAreKeyword_3_1() { return cAreKeyword_3_1; }
+		public Keyword getAreKeyword_3() { return cAreKeyword_3; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
@@ -2379,16 +2459,16 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		/// * ************************************************************
 		// * RESTRICTIONS
 		// * ************************************************************ * / Double returns ecore::EDouble:
-		//	INT? "."? INT;
+		//	INT "." INT;
 		@Override public ParserRule getRule() { return rule; }
 
-		//INT? "."? INT
+		//INT "." INT
 		public Group getGroup() { return cGroup; }
 
-		//INT?
+		//INT
 		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
 
-		//"."?
+		//"."
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
 
 		//INT
@@ -2466,12 +2546,6 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final EnumLiteralDeclaration cL8EnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
 		private final Keyword cL8L8Keyword_8_0 = (Keyword)cL8EnumLiteralDeclaration_8.eContents().get(0);
 		
-		////InternallyConnectedPinEntry: 
-		////	pins+=[AvailableEqInterface|QualifiedName] 
-		////	',' pins+=[AvailableEqInterface|QualifiedName] 
-		////	(',' pins+=[AvailableEqInterface|QualifiedName])? 
-		////	'are' 'connected' ';'  
-		////;
 		//enum ProtectionLevelType:
 		//	NONE="None" | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8;
 		public EnumRule getRule() { return rule; }
@@ -2859,6 +2933,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	private final CompartmentsBlockElements pCompartmentsBlock;
 	private final CompartmentElements pCompartment;
 	private final RDCElements pRDC;
+	private final InternalConnectedPinBlockElements pInternalConnectedPinBlock;
+	private final ConnectedPinEntryElements pConnectedPinEntry;
 	private final ConnectorElements pConnector;
 	private final PinElements pPin;
 	private final ProtectionLevelTypeElements unknownRuleProtectionLevelType;
@@ -2905,6 +2981,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pCompartmentsBlock = new CompartmentsBlockElements();
 		this.pCompartment = new CompartmentElements();
 		this.pRDC = new RDCElements();
+		this.pInternalConnectedPinBlock = new InternalConnectedPinBlockElements();
+		this.pConnectedPinEntry = new ConnectedPinEntryElements();
 		this.pConnector = new ConnectorElements();
 		this.pPin = new PinElements();
 		this.unknownRuleProtectionLevelType = new ProtectionLevelTypeElements();
@@ -3058,8 +3136,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Compartment:
 	//	"Compartment" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply" "=" powerSupply=STRING
-	//	";")? & ("Side" "=" side=STRING ";")? & ("Zone" "=" zone=STRING ";")? & rdcs+=RDC+ &
-	//	metricParametersBlock=MetricParametersBlock?) "}";
+	//	";")? & ("Side" "=" side=STRING ";")? & ("Zone" "=" zone=STRING ";")? & rdcs+=RDC+)
+	//	metricParametersBlock=MetricParametersBlock? "}";
 	public CompartmentElements getCompartmentAccess() {
 		return pCompartment;
 	}
@@ -3072,8 +3150,9 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"RDC" name=ID "{" (("Manufacturer" "=" manufacturer=STRING ";")? & ("PowerSupply1" "=" powerSupply1=STRING ";")? &
 	//	("PowerSupply2" "=" powerSupply2=STRING ";")? & ("Type" "=" rdcType=STRING ";")? & ("ESS" "=" ess=STRING ";")? &
 	//	("Location" "=" location=STRING ";")? & ("ResourceX" "=" resourceX=SIGNEDINT ";")? & ("ResourceY" "="
-	//	resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")? & connectors+=Connector+ &
-	//	metricParametersBlock=MetricParametersBlock?) "}";
+	//	resourceY=SIGNEDINT ";")? & ("ResourceZ" "=" resourceZ=SIGNEDINT ";")? &
+	//	internalConnectedPinBlock=InternalConnectedPinBlock? & connectors+=Connector+)
+	//	metricParametersBlock=MetricParametersBlock? "}";
 	public RDCElements getRDCAccess() {
 		return pRDC;
 	}
@@ -3082,9 +3161,28 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getRDCAccess().getRule();
 	}
 
+	//InternalConnectedPinBlock:
+	//	{InternalConnectedPinBlock} "Connected Pins" "{" connectedPins+=ConnectedPinEntry* "}";
+	public InternalConnectedPinBlockElements getInternalConnectedPinBlockAccess() {
+		return pInternalConnectedPinBlock;
+	}
+	
+	public ParserRule getInternalConnectedPinBlockRule() {
+		return getInternalConnectedPinBlockAccess().getRule();
+	}
+
+	//ConnectedPinEntry:
+	//	pins+=[Pin|QualifiedName] ("," pins+=[Pin|QualifiedName])+ "are connected" ";";
+	public ConnectedPinEntryElements getConnectedPinEntryAccess() {
+		return pConnectedPinEntry;
+	}
+	
+	public ParserRule getConnectedPinEntryRule() {
+		return getConnectedPinEntryAccess().getRule();
+	}
+
 	//Connector:
-	//	"Connector" name=ID "{" pins+=Pin* metricParametersBlock=MetricParametersBlock? //		(availableEqInterfaces+=AvailableEqInterface)*								
-	//	"}";
+	//	"Connector" name=ID "{" pins+=Pin* metricParametersBlock=MetricParametersBlock? "}";
 	public ConnectorElements getConnectorAccess() {
 		return pConnector;
 	}
@@ -3103,12 +3201,6 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getPinAccess().getRule();
 	}
 
-	////InternallyConnectedPinEntry: 
-	////	pins+=[AvailableEqInterface|QualifiedName] 
-	////	',' pins+=[AvailableEqInterface|QualifiedName] 
-	////	(',' pins+=[AvailableEqInterface|QualifiedName])? 
-	////	'are' 'connected' ';'  
-	////;
 	//enum ProtectionLevelType:
 	//	NONE="None" | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8;
 	public ProtectionLevelTypeElements getProtectionLevelTypeAccess() {
@@ -3226,7 +3318,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EqInterfaceGroupWithCombinedDefinition:
-	//	"Group" name=ID "combines" combinedGroups+=[EqInterfaceGroup] ("and" combinedGroups+=[EqInterfaceGroup])* ";";
+	//	"Group" name=ID "combines" combinedGroups+=[EqInterfaceGroup] ("and" combinedGroups+=[EqInterfaceGroup])+ ";";
 	public EqInterfaceGroupWithCombinedDefinitionElements getEqInterfaceGroupWithCombinedDefinitionAccess() {
 		return pEqInterfaceGroupWithCombinedDefinition;
 	}
@@ -3282,8 +3374,8 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ValidDeployment:
-	//	"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* ("is" | "are")
-	//	"{" (hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) (","
+	//	"Valid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "are" "{"
+	//	(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) (","
 	//	(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition))* "}"
 	//	";";
 	public ValidDeploymentElements getValidDeploymentAccess() {
@@ -3295,10 +3387,10 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//InvalidDeployment:
-	//	"Invalid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* ("is" |
-	//	"are") "{" (hardwareElements+=[HardwareElement|QualifiedName] |
-	//	implicitHardwareElements+=DeploymentImplicitDefinition) ("," (hardwareElements+=[HardwareElement|QualifiedName] |
-	//	implicitHardwareElements+=DeploymentImplicitDefinition))* "}" ";";
+	//	"Invalid for" eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "are" "{"
+	//	(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) (","
+	//	(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition))* "}"
+	//	";";
 	public InvalidDeploymentElements getInvalidDeploymentAccess() {
 		return pInvalidDeployment;
 	}
@@ -3346,7 +3438,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	/// * ************************************************************
 	// * RESTRICTIONS
 	// * ************************************************************ * / Double returns ecore::EDouble:
-	//	INT? "."? INT;
+	//	INT "." INT;
 	public DoubleElements getDoubleAccess() {
 		return pDouble;
 	}

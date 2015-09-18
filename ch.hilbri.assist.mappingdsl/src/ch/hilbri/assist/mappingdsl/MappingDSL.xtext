@@ -70,9 +70,9 @@ Compartment:
 			('PowerSupply' 				'=' powerSupply=STRING ';')?					&
 			('Side' 					'=' side=STRING ';')?							&
 			('Zone' 					'=' zone=STRING ';')?							&
-			(rdcs+=RDC+)																&
-			(metricParametersBlock=MetricParametersBlock)?
+			(rdcs+=RDC+)																
 		)
+		(metricParametersBlock=MetricParametersBlock)?
 	'}'
 ;
 
@@ -88,32 +88,33 @@ RDC:
 			('ResourceX'				'=' resourceX=SIGNEDINT ';')?					&
 			('ResourceY'				'=' resourceY=SIGNEDINT ';')?					&
 			('ResourceZ'				'=' resourceZ=SIGNEDINT ';')?					&
-			(connectors+=Connector+)													&
-			(metricParametersBlock=MetricParametersBlock)?														
-		)												
+			(internalConnectedPinBlock=InternalConnectedPinBlock)?						&
+			(connectors+=Connector)+													
+		)		
+		(metricParametersBlock=MetricParametersBlock)?																		
 	'}'
+;
+
+InternalConnectedPinBlock: {InternalConnectedPinBlock}
+	'Connected Pins' '{' 
+		(connectedPins+=ConnectedPinEntry)*	
+	'}'
+;
+
+ConnectedPinEntry: 
+	pins+=[Pin|QualifiedName] (',' pins+=[Pin|QualifiedName])+	 'are connected' ';' 
 ;
 
 Connector:
 	'Connector' name=ID '{'
 		(pins+=Pin)*	
 		(metricParametersBlock=MetricParametersBlock)?
-		//		(availableEqInterfaces+=AvailableEqInterface)*								
 	'}'
 ;
 
 Pin:
 	name=ID ':' eqInterfaceType=STRING ('protection level' protectionLevel=ProtectionLevelType)? ';'
 ;
-
-
-//InternallyConnectedPinEntry: 
-//	pins+=[AvailableEqInterface|QualifiedName] 
-//	',' pins+=[AvailableEqInterface|QualifiedName] 
-//	(',' pins+=[AvailableEqInterface|QualifiedName])? 
-//	'are' 'connected' ';'  
-//;
-
 
 
 enum ProtectionLevelType:
@@ -242,7 +243,7 @@ enum ImplicitEqInterfaceMemberDefinitionAttribute:
 ;
 
 EqInterfaceGroupWithCombinedDefinition: 
-	'Group' name=ID 'combines' combinedGroups+=[EqInterfaceGroup] ('and' combinedGroups+=[EqInterfaceGroup])* ';'	
+	'Group' name=ID 'combines' combinedGroups+=[EqInterfaceGroup] ('and' combinedGroups+=[EqInterfaceGroup])+ ';'	
 ;
 
 
@@ -284,7 +285,7 @@ ColocalityRelation:
 ValidDeployment:
 	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] 
 	(',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
-	('is'|'are') '{'
+	'are' '{'
 		  ( 	 hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
 		  (',' 	(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) )* 
 	'}' ';'
@@ -293,7 +294,7 @@ ValidDeployment:
 InvalidDeployment:
 	'Invalid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] 
 	(',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
-	('is'|'are') '{'
+	'are' '{'
 		  ( 	hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
 		  (',' (hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) )* 
 	'}' ';'
@@ -335,7 +336,7 @@ enum DeploymentImplicitDefinitionAttribute:
  * ************************************************************ */
 
 Double returns ecore::EDouble:
-    INT? '.'? INT
+    INT '.' INT
 ;
 
 QualifiedName:

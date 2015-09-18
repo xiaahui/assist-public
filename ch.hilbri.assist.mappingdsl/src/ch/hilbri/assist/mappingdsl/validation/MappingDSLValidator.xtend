@@ -4,7 +4,6 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.DeploymentSpecification
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition
-import ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry
 import ch.hilbri.assist.datamodel.model.ModelPackage
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.validation.Check
@@ -16,15 +15,15 @@ import org.eclipse.xtext.validation.Check
  */
 class MappingDSLValidator extends AbstractMappingDSLValidator {
 
-	@Check
-	def checkConnectedPinsHaveSameIOType(InternallyConnectedPinEntry entry) {
-		
-		val list = entry.pins.filter[!name.isNullOrEmpty].map[eqInterfaceType]
-		if (list.toSet.length > 1) {
-			error("Connected pins must have an identical io interface type", entry.eContainer,
-				ModelPackage.Literals::RDC__CONNECTED_PINS)
-		}
-	}
+//	@Check
+//	def checkConnectedPinsHaveSameIOType(InternallyConnectedPinEntry entry) {
+//		
+//		val list = entry.pins.filter[!name.isNullOrEmpty].map[eqInterfaceType]
+//		if (list.toSet.length > 1) {
+//			error("Connected pins must have an identical io interface type", entry.eContainer,
+//				ModelPackage.Literals::RDC__CONNECTED_PINS)
+//		}
+//	}
 
 //	@Check
 //	def checkConnectedPinsHaveCountOfOne(InternallyConnectedPinEntry entry) {

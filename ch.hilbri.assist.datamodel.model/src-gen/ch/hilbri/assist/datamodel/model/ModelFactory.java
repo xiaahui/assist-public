@@ -148,6 +148,24 @@ public interface ModelFactory extends EFactory {
 	RDC createRDC();
 
 	/**
+	 * Returns a new object of class '<em>Internal Connected Pin Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Internal Connected Pin Block</em>'.
+	 * @generated
+	 */
+	InternalConnectedPinBlock createInternalConnectedPinBlock();
+
+	/**
+	 * Returns a new object of class '<em>Connected Pin Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Connected Pin Entry</em>'.
+	 * @generated
+	 */
+	ConnectedPinEntry createConnectedPinEntry();
+
+	/**
 	 * Returns a new object of class '<em>Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,15 +182,6 @@ public interface ModelFactory extends EFactory {
 	 * @generated
 	 */
 	Pin createPin();
-
-	/**
-	 * Returns a new object of class '<em>Internally Connected Pin Entry</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Internally Connected Pin Entry</em>'.
-	 * @generated
-	 */
-	InternallyConnectedPinEntry createInternallyConnectedPinEntry();
 
 	/**
 	 * Returns a new object of class '<em>Interfaces Block</em>'.

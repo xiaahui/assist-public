@@ -71,9 +71,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.METRIC_PARAMETER: return createMetricParameter();
 			case ModelPackage.COMPARTMENT: return createCompartment();
 			case ModelPackage.RDC: return createRDC();
+			case ModelPackage.INTERNAL_CONNECTED_PIN_BLOCK: return createInternalConnectedPinBlock();
+			case ModelPackage.CONNECTED_PIN_ENTRY: return createConnectedPinEntry();
 			case ModelPackage.CONNECTOR: return createConnector();
 			case ModelPackage.PIN: return createPin();
-			case ModelPackage.INTERNALLY_CONNECTED_PIN_ENTRY: return createInternallyConnectedPinEntry();
 			case ModelPackage.INTERFACES_BLOCK: return createInterfacesBlock();
 			case ModelPackage.EQ_INTERFACE_OR_GROUP: return createEqInterfaceOrGroup();
 			case ModelPackage.EQ_INTERFACE: return createEqInterface();
@@ -282,6 +283,26 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public InternalConnectedPinBlock createInternalConnectedPinBlock() {
+		InternalConnectedPinBlockImpl internalConnectedPinBlock = new InternalConnectedPinBlockImpl();
+		return internalConnectedPinBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConnectedPinEntry createConnectedPinEntry() {
+		ConnectedPinEntryImpl connectedPinEntry = new ConnectedPinEntryImpl();
+		return connectedPinEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Connector createConnector() {
 		ConnectorImpl connector = new ConnectorImpl();
 		return connector;
@@ -295,16 +316,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public Pin createPin() {
 		PinImpl pin = new PinImpl();
 		return pin;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InternallyConnectedPinEntry createInternallyConnectedPinEntry() {
-		InternallyConnectedPinEntryImpl internallyConnectedPinEntry = new InternallyConnectedPinEntryImpl();
-		return internallyConnectedPinEntry;
 	}
 
 	/**

@@ -131,23 +131,6 @@ class Compartment extends HardwareElement {
 	
 	op String toString() 				{ name }
 	op Connector[] getAllConnectors() 	{ rdcs.map[connectors].flatten.toEList }
-	
-//	op int[] getAvailableEqInterfaces(String[] eqInterfaceTypes) {
-//		val allAvailableEqInterfaces = allConnectors.map[availableEqInterfaces].flatten
-//		
-//		eqInterfaceTypes.map[
-//			val typeName = it
-//			// if this rdc does have some interfaces of this type, retrieve their total count
-//			if (!allAvailableEqInterfaces.filter[it.eqInterfaceType.equals(typeName)].isNullOrEmpty)
-//				allAvailableEqInterfaces.filter[it.eqInterfaceType.equals(typeName)]
-//								 .map[it.count]
-//								 .reduce[p1, p2|p1+p2]
-//			// if this rdc does not have any fitting interfaces for this type, return 0
-//			else
-//				0
-//		]
-//	}
-	
 }
 
 class RDC extends HardwareElement {
@@ -161,14 +144,19 @@ class RDC extends HardwareElement {
 	int resourceX			= "0"
 	int resourceY			= "0"
 	int resourceZ			= "0"
-	
-	container Compartment compartment opposite rdcs
-	contains Connector[*] 					connectors opposite rdc
-	contains InternallyConnectedPinEntry[*] connectedPins
-	
+	container Compartment 						compartment opposite rdcs
+	contains Connector[*] 						connectors opposite rdc
+	contains InternalConnectedPinBlock[0..1] 	internalConnectedPinBlock
 	op String toString() 			{ name }
 }
 
+class InternalConnectedPinBlock {
+	contains ConnectedPinEntry[*] connectedPins
+}
+
+class ConnectedPinEntry {
+	refers Pin[2..*]	pins
+}
 
 class Connector extends HardwareElement {
 	container 	RDC 	rdc 	opposite connectors
@@ -187,9 +175,6 @@ class Pin extends HardwareElement {
 }
 
 
-class InternallyConnectedPinEntry {
-	refers Pin[2..*]	pins
-}
 
 enum ProtectionLevelType {
 	NONE 	as "None"

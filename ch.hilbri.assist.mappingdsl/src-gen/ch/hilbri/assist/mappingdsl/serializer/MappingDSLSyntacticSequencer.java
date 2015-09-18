@@ -11,9 +11,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -21,14 +18,10 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MappingDSLGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_InvalidDeployment_AreKeyword_3_1_or_IsKeyword_3_0;
-	protected AbstractElementAlias match_ValidDeployment_AreKeyword_3_1_or_IsKeyword_3_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MappingDSLGrammarAccess) access;
-		match_InvalidDeployment_AreKeyword_3_1_or_IsKeyword_3_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getInvalidDeploymentAccess().getAreKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getInvalidDeploymentAccess().getIsKeyword_3_0()));
-		match_ValidDeployment_AreKeyword_3_1_or_IsKeyword_3_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getValidDeploymentAccess().getAreKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getValidDeploymentAccess().getIsKeyword_3_0()));
 	}
 	
 	@Override
@@ -43,36 +36,8 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_InvalidDeployment_AreKeyword_3_1_or_IsKeyword_3_0.equals(syntax))
-				emit_InvalidDeployment_AreKeyword_3_1_or_IsKeyword_3_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ValidDeployment_AreKeyword_3_1_or_IsKeyword_3_0.equals(syntax))
-				emit_ValidDeployment_AreKeyword_3_1_or_IsKeyword_3_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     'is' | 'are'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] (ambiguity) '{' hardwareElements+=[HardwareElement|QualifiedName]
-	 *     eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] (ambiguity) '{' implicitHardwareElements+=DeploymentImplicitDefinition
-	 */
-	protected void emit_InvalidDeployment_AreKeyword_3_1_or_IsKeyword_3_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'is' | 'are'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] (ambiguity) '{' hardwareElements+=[HardwareElement|QualifiedName]
-	 *     eqInterfaceOrGroups+=[EqInterfaceOrGroup|ID] (ambiguity) '{' implicitHardwareElements+=DeploymentImplicitDefinition
-	 */
-	protected void emit_ValidDeployment_AreKeyword_3_1_or_IsKeyword_3_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }

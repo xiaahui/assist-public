@@ -4,7 +4,7 @@ package ch.hilbri.assist.datamodel.model.impl;
 
 import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.Connector;
-import ch.hilbri.assist.datamodel.model.InternallyConnectedPinEntry;
+import ch.hilbri.assist.datamodel.model.InternalConnectedPinBlock;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.model.RDC;
 
@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -47,7 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getResourceZ <em>Resource Z</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getConnectors <em>Connectors</em>}</li>
- *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getConnectedPins <em>Connected Pins</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getInternalConnectedPinBlock <em>Internal Connected Pin Block</em>}</li>
  * </ul>
  *
  * @generated
@@ -264,14 +263,14 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 	protected EList<Connector> connectors;
 
 	/**
-	 * The cached value of the '{@link #getConnectedPins() <em>Connected Pins</em>}' containment reference list.
+	 * The cached value of the '{@link #getInternalConnectedPinBlock() <em>Internal Connected Pin Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConnectedPins()
+	 * @see #getInternalConnectedPinBlock()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<InternallyConnectedPinEntry> connectedPins;
+	protected InternalConnectedPinBlock internalConnectedPinBlock;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -570,11 +569,42 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<InternallyConnectedPinEntry> getConnectedPins() {
-		if (connectedPins == null) {
-			connectedPins = new EObjectContainmentEList<InternallyConnectedPinEntry>(InternallyConnectedPinEntry.class, this, ModelPackage.RDC__CONNECTED_PINS);
+	public InternalConnectedPinBlock getInternalConnectedPinBlock() {
+		return internalConnectedPinBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInternalConnectedPinBlock(InternalConnectedPinBlock newInternalConnectedPinBlock, NotificationChain msgs) {
+		InternalConnectedPinBlock oldInternalConnectedPinBlock = internalConnectedPinBlock;
+		internalConnectedPinBlock = newInternalConnectedPinBlock;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.RDC__INTERNAL_CONNECTED_PIN_BLOCK, oldInternalConnectedPinBlock, newInternalConnectedPinBlock);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return connectedPins;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInternalConnectedPinBlock(InternalConnectedPinBlock newInternalConnectedPinBlock) {
+		if (newInternalConnectedPinBlock != internalConnectedPinBlock) {
+			NotificationChain msgs = null;
+			if (internalConnectedPinBlock != null)
+				msgs = ((InternalEObject)internalConnectedPinBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.RDC__INTERNAL_CONNECTED_PIN_BLOCK, null, msgs);
+			if (newInternalConnectedPinBlock != null)
+				msgs = ((InternalEObject)newInternalConnectedPinBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.RDC__INTERNAL_CONNECTED_PIN_BLOCK, null, msgs);
+			msgs = basicSetInternalConnectedPinBlock(newInternalConnectedPinBlock, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RDC__INTERNAL_CONNECTED_PIN_BLOCK, newInternalConnectedPinBlock, newInternalConnectedPinBlock));
 	}
 
 	/**
@@ -617,8 +647,8 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 				return basicSetCompartment(null, msgs);
 			case ModelPackage.RDC__CONNECTORS:
 				return ((InternalEList<?>)getConnectors()).basicRemove(otherEnd, msgs);
-			case ModelPackage.RDC__CONNECTED_PINS:
-				return ((InternalEList<?>)getConnectedPins()).basicRemove(otherEnd, msgs);
+			case ModelPackage.RDC__INTERNAL_CONNECTED_PIN_BLOCK:
+				return basicSetInternalConnectedPinBlock(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -670,8 +700,8 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 				return basicGetCompartment();
 			case ModelPackage.RDC__CONNECTORS:
 				return getConnectors();
-			case ModelPackage.RDC__CONNECTED_PINS:
-				return getConnectedPins();
+			case ModelPackage.RDC__INTERNAL_CONNECTED_PIN_BLOCK:
+				return getInternalConnectedPinBlock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -722,9 +752,8 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 				getConnectors().clear();
 				getConnectors().addAll((Collection<? extends Connector>)newValue);
 				return;
-			case ModelPackage.RDC__CONNECTED_PINS:
-				getConnectedPins().clear();
-				getConnectedPins().addAll((Collection<? extends InternallyConnectedPinEntry>)newValue);
+			case ModelPackage.RDC__INTERNAL_CONNECTED_PIN_BLOCK:
+				setInternalConnectedPinBlock((InternalConnectedPinBlock)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -774,8 +803,8 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 			case ModelPackage.RDC__CONNECTORS:
 				getConnectors().clear();
 				return;
-			case ModelPackage.RDC__CONNECTED_PINS:
-				getConnectedPins().clear();
+			case ModelPackage.RDC__INTERNAL_CONNECTED_PIN_BLOCK:
+				setInternalConnectedPinBlock((InternalConnectedPinBlock)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -813,8 +842,8 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 				return basicGetCompartment() != null;
 			case ModelPackage.RDC__CONNECTORS:
 				return connectors != null && !connectors.isEmpty();
-			case ModelPackage.RDC__CONNECTED_PINS:
-				return connectedPins != null && !connectedPins.isEmpty();
+			case ModelPackage.RDC__INTERNAL_CONNECTED_PIN_BLOCK:
+				return internalConnectedPinBlock != null;
 		}
 		return super.eIsSet(featureID);
 	}
