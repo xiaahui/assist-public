@@ -30,20 +30,6 @@ public enum SearchType {
 								 "connectors are selected based on lowest index first", 
 								 false),
 								 
-	HARDEST_DISLOCALITIES_FIRST	("Hardest Dislocalities First", 	
-								 "The interface which affects the highest number of other interfaces due to its dislocality relations is chosen first. " +
-								 "Connectors with lower index values are picked first.", 
-								 false),
-											 
-	HARDEST_COLOCALITIES_FIRST	("Hardest Colocalities First", 	
-								 "The interface and the connector in the colocality relation with the highest demand/supply ratio for the connector are chosen first. ", 
-								 false),
-														 
-	SCARCEST_IOTYPE_FIRST		("Scarcest Interface Type First", 	
-								 "The interface with the scarcest interface type and the smallest domain is chosen first. " + 
-								 "Connectors with lower index values are picked first.", 
-								 false),
-								 
 	VARS_IN_MOST_DISLOC			("Most Dislocalities First", 		
 								 "The interface which is part of the highest number of dislocality relations is chosen first. " + 
 	                             "Connectors with lower index values are picked first.", 
@@ -58,14 +44,6 @@ public enum SearchType {
 								 "connectors are chosen by minimum available index first", 
 								 false),
 								 
-								 
-	DOM_OVER_WDEG_MIN_VAL_FIRST_VER_1_3	
-								("Domain over weighted degree + Min Value First (ASSIST 1.3)", 	
-							     "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
-								 "connectors are chosen by minimum available index first; " + 
-							     "improved co-locality handling for pairs of on-same relations is disabled", 
-								 false),
-			
 	DOM_OVER_WDEG_CLOSEST_DISTANCE 
 								("Domain over weighted degree + Closest Connector First",
 								 "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
@@ -83,10 +61,6 @@ public enum SearchType {
 								 "See: 'Activity-Based Search for Black-Box Constraint Programming Solvers', L. Michel and P. Van Hentenryck, 2012.", 
 								 false),
 	
-//	IMPACT						("Impact",
-//								 "See: 'Impact-Based Search Strategies for Constraint Programming', Philippe Refalo, 2004. " +
-//								 "This is possibly broken. Be wary!", 
-//								 false)
 	;
 	
 	

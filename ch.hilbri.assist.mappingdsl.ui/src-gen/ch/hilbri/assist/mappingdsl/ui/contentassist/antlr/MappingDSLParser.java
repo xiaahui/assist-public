@@ -80,7 +80,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRDCAccess().getGroup_3_8(), "rule__RDC__Group_3_8__0");
 					put(grammarAccess.getInternalConnectedPinBlockAccess().getGroup(), "rule__InternalConnectedPinBlock__Group__0");
 					put(grammarAccess.getConnectedPinEntryAccess().getGroup(), "rule__ConnectedPinEntry__Group__0");
-					put(grammarAccess.getConnectedPinEntryAccess().getGroup_1(), "rule__ConnectedPinEntry__Group_1__0");
+					put(grammarAccess.getConnectedPinEntryAccess().getGroup_3(), "rule__ConnectedPinEntry__Group_3__0");
 					put(grammarAccess.getConnectorAccess().getGroup(), "rule__Connector__Group__0");
 					put(grammarAccess.getPinAccess().getGroup(), "rule__Pin__Group__0");
 					put(grammarAccess.getPinAccess().getGroup_3(), "rule__Pin__Group_3__0");
@@ -174,7 +174,8 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRDCAccess().getMetricParametersBlockAssignment_4(), "rule__RDC__MetricParametersBlockAssignment_4");
 					put(grammarAccess.getInternalConnectedPinBlockAccess().getConnectedPinsAssignment_3(), "rule__InternalConnectedPinBlock__ConnectedPinsAssignment_3");
 					put(grammarAccess.getConnectedPinEntryAccess().getPinsAssignment_0(), "rule__ConnectedPinEntry__PinsAssignment_0");
-					put(grammarAccess.getConnectedPinEntryAccess().getPinsAssignment_1_1(), "rule__ConnectedPinEntry__PinsAssignment_1_1");
+					put(grammarAccess.getConnectedPinEntryAccess().getPinsAssignment_2(), "rule__ConnectedPinEntry__PinsAssignment_2");
+					put(grammarAccess.getConnectedPinEntryAccess().getPinsAssignment_3_1(), "rule__ConnectedPinEntry__PinsAssignment_3_1");
 					put(grammarAccess.getConnectorAccess().getNameAssignment_1(), "rule__Connector__NameAssignment_1");
 					put(grammarAccess.getConnectorAccess().getPinsAssignment_3(), "rule__Connector__PinsAssignment_3");
 					put(grammarAccess.getConnectorAccess().getMetricParametersBlockAssignment_4(), "rule__Connector__MetricParametersBlockAssignment_4");

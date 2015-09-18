@@ -1,10 +1,11 @@
 package ch.hilbri.assist.mapping.solver
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
-import ch.hilbri.assist.mapping.solver.constraints.ImprovedPairOfColocalitiesConstraint
+import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
@@ -18,15 +19,11 @@ import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupDefinitions
 import ch.hilbri.assist.mapping.solver.preprocessors.InvalidDeploymentHardwareElements
 import ch.hilbri.assist.mapping.solver.preprocessors.ValidDeploymentHardwareElements
 import ch.hilbri.assist.mapping.solver.strategies.FirstFailThenMaxRelationDegree
-import ch.hilbri.assist.mapping.solver.strategies.HardestColocalitiesFirst
-import ch.hilbri.assist.mapping.solver.strategies.HardestDislocalitiesFirst
 import ch.hilbri.assist.mapping.solver.strategies.RDCWithShortestDistanceSelector
-import ch.hilbri.assist.mapping.solver.strategies.ScarcestIoTypeFirst
 import ch.hilbri.assist.mapping.solver.strategies.VariablesInMostDislocalityRelationsFirst
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.List
-import org.chocosolver.solver.ResolutionPolicy
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.search.loop.monitors.SMF
 import org.chocosolver.solver.search.solution.AllSolutionsRecorder
@@ -36,8 +33,6 @@ import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
-import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 
 class AssistSolver {
 	
@@ -106,15 +101,9 @@ class AssistSolver {
 		mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
 		mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))
 		
-//		mappingConstraintsList.add(new ConfigurablePinInterfaceTypeConstraint(model, solver, solverVariables))				
 //		mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 //		mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 //		mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
-
-		// Bug: these constraints do not work with configurable interface types 
-		// this.mappingConstraintsList.add(new ImprovedColocalitiesConstraint(model, solver, solverVariables))
-		// this.mappingConstraintsList.add(new ImprovedPairOfColocalitiesConstraint(model, solver, solverVariables))
-		
 //		mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
 
 		/* Create a list for the results */ 
@@ -179,21 +168,6 @@ class AssistSolver {
 				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model)
 				heuristics.add(ISF.custom(selector, selector, vars))				
 			}
-			
-			case HARDEST_DISLOCALITIES_FIRST: {
-				val selector = new HardestDislocalitiesFirst(solverVariables, model)
-				heuristics.add(ISF.custom(selector, selector, vars))
-			}
-
-			case HARDEST_COLOCALITIES_FIRST: {
-				val selector = new HardestColocalitiesFirst(solverVariables, model)
-				heuristics.add(ISF.custom(selector, selector, vars))
-			}
-
-			case SCARCEST_IOTYPE_FIRST: {
-				val selector = new ScarcestIoTypeFirst(solverVariables, model)
-				heuristics.add(ISF.custom(selector, ISF.min_value_selector, vars))
-			}
 
 			case VARS_IN_MOST_DISLOC: {
 				val selector = new VariablesInMostDislocalityRelationsFirst(solverVariables, model)
@@ -208,14 +182,6 @@ class AssistSolver {
 				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))	
 			}
 			
-			case DOM_OVER_WDEG_MIN_VAL_FIRST_VER_1_3: {
-				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))	
-				for (c : this.mappingConstraintsList) {
-					if (c instanceof ImprovedPairOfColocalitiesConstraint) 
-						this.mappingConstraintsList.remove(c)
-				}
-			}
-
 			case DOM_OVER_WDEG_MIN_VAL_FIRST_RESTARTS: {
 				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))
 

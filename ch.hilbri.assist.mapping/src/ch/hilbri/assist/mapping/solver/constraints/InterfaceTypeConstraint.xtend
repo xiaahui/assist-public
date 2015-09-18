@@ -10,6 +10,7 @@ import java.util.List
 import java.util.Set
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
+import org.chocosolver.solver.variables.VF
 import org.jgrapht.alg.ConnectivityInspector
 import org.jgrapht.graph.DefaultEdge
 import org.jgrapht.graph.SimpleGraph
@@ -31,27 +32,46 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 
 		for (typeSet : ifaceTypeGraph.connectedSets) {
 
+			// This is a list of all interfaces that we have to work with in this loop
 			val ifaceList			 	= model.eqInterfaces.filter[typeSet.contains(ioType)] 
-			val locVarList				= ifaceList.map[solverVariables.getEqInterfaceLocationVariable(it, HardwareArchitectureLevelType.PIN)]
-			val compatiblePinIndizes 	= model.pins.filter[typeSet.contains(eqInterfaceType)].map[model.pins.indexOf(it)]
-
-			// Restrict all eqInterfaces of this type to compatible pinInterfaces
-			for (locVar : locVarList) 
-				solver.post(ICF.member(locVar, compatiblePinIndizes))
-
-			// Enforce an allDifferent for these interfaces	(only one pin for each interface)		
-			solver.post(ICF.alldifferent(locVarList))			
+			
+			// This is the list of solver variables for the interfaces above
+			val locVarList				= ifaceList.map[solverVariables.getEqInterfaceLocationVariable(it, HardwareArchitectureLevelType.PIN)].toList
+			
+			// This is list of all compatible pins for the interfaces, 
+			// if we just look at the eqInterfaceType
+			val typeCompatiblePinIndizes 	= model.pins.filter[typeSet.contains(eqInterfaceType)].map[model.pins.indexOf(it)]
 
 			// Restrict all eqInterfaces to pins with a compatible protection level
 			for (iface : ifaceList) {
 				//  - Retrieve list of allowed pins (filter according to protection level)
-				val allowedPinIndizes = compatiblePinIndizes.filter[filterPinsForProtectionLevel(iface, 
+				val protLevelCompatiblePinIndizes = typeCompatiblePinIndizes.filter[filterPinsForProtectionLevel(iface, 
 																								model.pins.get(it).connector.rdc, 
 																								model.pins.get(it).protectionLevel)]
 				//  - Post a member constraint
 				solver.post(ICF.member(solverVariables.getEqInterfaceLocationVariable(iface, HardwareArchitectureLevelType.PIN), 
-									   allowedPinIndizes))
+									   protLevelCompatiblePinIndizes))
 			}
+			
+			// Now we need to look at the connected pins
+			for (rdc : model.RDCs.filter[internalConnectedPinBlock != null && !internalConnectedPinBlock.connectedPins.nullOrEmpty]) {
+				// We just work with connected pins relevant for the current interface types
+				// ASSUMPTION: all connected pins have the same type / or they are in the same typeSet
+				for (entry : rdc.internalConnectedPinBlock.connectedPins.filter[typeSet.contains(pins.get(0).eqInterfaceType)]) {
+					
+					// Which indizes are connected in this entry?
+					val pinIndizes = entry.pins.map[model.pins.indexOf(it)]
+					
+					// Create n-1 pseudo interfaces
+					val pseudoInterfaces = VF.enumeratedArray("PseudoIfaces", pinIndizes.size-1, pinIndizes, solver)
+					
+					// Add these to the locVarList so that we can enforce an allDifferent later
+					locVarList.addAll(pseudoInterfaces)
+				}
+			}
+			
+			// Finally, we can enforce an AllDifferent Constraint
+			solver.post(ICF.alldifferent(locVarList, "AC"))
 		}
 
 		true

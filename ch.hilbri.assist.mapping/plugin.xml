@@ -17,7 +17,7 @@
             default="true"
             extensions="mdsl"
             icon="icons/icon-mapping-specification-16x16.png"
-            id="ch.hilbri.assist.mapping.editors.mappingeditor"
+            id="ch.hilbri.assist.mappingdsl.MappingDSL"
             name="Mapping Specification">
       </editor>
    </extension>

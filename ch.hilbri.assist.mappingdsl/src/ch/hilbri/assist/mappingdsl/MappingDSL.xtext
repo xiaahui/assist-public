@@ -102,7 +102,7 @@ InternalConnectedPinBlock: {InternalConnectedPinBlock}
 ;
 
 ConnectedPinEntry: 
-	pins+=[Pin|QualifiedName] (',' pins+=[Pin|QualifiedName])+	 'are connected' ';' 
+	pins+=[Pin|QualifiedName] ',' pins+=[Pin|QualifiedName] (',' pins+=[Pin|QualifiedName])?	 'are connected' ';' 
 ;
 
 Connector:
@@ -340,7 +340,7 @@ Double returns ecore::EDouble:
 ;
 
 QualifiedName:
-	ID ('.' ID)*
+	ID ('.' ID)* 
 ;
 
 SIGNEDINT returns ecore::EInt:

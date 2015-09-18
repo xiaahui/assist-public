@@ -1,7 +1,6 @@
 package ch.hilbri.assist.mapping.ui.wizards
 
 import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.Connector
 import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.ModelFactory
 import ch.hilbri.assist.datamodel.model.Pin

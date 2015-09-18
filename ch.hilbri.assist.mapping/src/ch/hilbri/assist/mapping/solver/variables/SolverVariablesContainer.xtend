@@ -1,11 +1,8 @@
 package ch.hilbri.assist.mapping.solver.variables
 
 import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.ColocalityRelation
 import ch.hilbri.assist.datamodel.model.EqInterface
-import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
-import java.util.ArrayList
 import java.util.HashMap
 import java.util.List
 import java.util.Map

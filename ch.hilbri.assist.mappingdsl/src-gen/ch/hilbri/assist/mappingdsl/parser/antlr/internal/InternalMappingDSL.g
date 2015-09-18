@@ -1836,9 +1836,9 @@ ruleConnectedPinEntry returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_1=',' 
+)	otherlv_1=',' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getConnectedPinEntryAccess().getCommaKeyword_1_0());
+    	newLeafNode(otherlv_1, grammarAccess.getConnectedPinEntryAccess().getCommaKeyword_1());
     }
 (
 (
@@ -1848,20 +1848,39 @@ ruleConnectedPinEntry returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getConnectedPinEntryAccess().getPinsPinCrossReference_1_1_0()); 
+	        newCompositeNode(grammarAccess.getConnectedPinEntryAccess().getPinsPinCrossReference_2_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))+	otherlv_3='are connected' 
+)(	otherlv_3=',' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getConnectedPinEntryAccess().getAreConnectedKeyword_2());
+    	newLeafNode(otherlv_3, grammarAccess.getConnectedPinEntryAccess().getCommaKeyword_3_0());
     }
-	otherlv_4=';' 
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConnectedPinEntryRule());
+	        }
+        }
+		{ 
+	        newCompositeNode(grammarAccess.getConnectedPinEntryAccess().getPinsPinCrossReference_3_1_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?	otherlv_5='are connected' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getConnectedPinEntryAccess().getSemicolonKeyword_3());
+    	newLeafNode(otherlv_5, grammarAccess.getConnectedPinEntryAccess().getAreConnectedKeyword_4());
+    }
+	otherlv_6=';' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getConnectedPinEntryAccess().getSemicolonKeyword_5());
     }
 )
 ;

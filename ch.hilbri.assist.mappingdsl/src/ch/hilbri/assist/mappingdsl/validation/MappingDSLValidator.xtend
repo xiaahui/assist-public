@@ -1,6 +1,7 @@
 package ch.hilbri.assist.mappingdsl.validation
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.ConnectedPinEntry
 import ch.hilbri.assist.datamodel.model.DeploymentSpecification
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroupWithCombinedDefinition
@@ -15,27 +16,22 @@ import org.eclipse.xtext.validation.Check
  */
 class MappingDSLValidator extends AbstractMappingDSLValidator {
 
-//	@Check
-//	def checkConnectedPinsHaveSameIOType(InternallyConnectedPinEntry entry) {
-//		
-//		val list = entry.pins.filter[!name.isNullOrEmpty].map[eqInterfaceType]
-//		if (list.toSet.length > 1) {
-//			error("Connected pins must have an identical io interface type", entry.eContainer,
-//				ModelPackage.Literals::RDC__CONNECTED_PINS)
-//		}
-//	}
+	@Check
+	def checkConnectedPinsAreDifferent(ConnectedPinEntry entry) {
+		if (entry.pins.length != entry.pins.toSet.length) {
+			error("A pin can only be referenced once.", entry.eContainer, ModelPackage.Literals::INTERNAL_CONNECTED_PIN_BLOCK__CONNECTED_PINS)
+		}
+	}
 
-//	@Check
-//	def checkConnectedPinsHaveCountOfOne(InternallyConnectedPinEntry entry) {
-//		for (pin : entry.pins) {
-//			if (pin.count != 1)
-//				try {
-//					error("Connected pins must a count of 1 to be exactly identifiable.", pin,
-//						ModelPackage.Literals::AVAILABLE_EQ_INTERFACE__COUNT)
-//				} catch (IllegalArgumentException ex) {
-//				}
-//		}
-//	}
+	@Check
+	def checkConnectedPinsHaveSameIOType(ConnectedPinEntry entry) {
+		
+		val list = entry.pins.filter[!name.isNullOrEmpty].map[eqInterfaceType]
+		if (list.toSet.length > 1) {
+			error("Connected pins must have an identical io interface type", entry.eContainer,
+				ModelPackage.Literals::INTERNAL_CONNECTED_PIN_BLOCK__CONNECTED_PINS)
+		}
+	}
 
 	@Check
 	def checkCableWeightEntryForEveryEqIoType(AssistModel model) {
