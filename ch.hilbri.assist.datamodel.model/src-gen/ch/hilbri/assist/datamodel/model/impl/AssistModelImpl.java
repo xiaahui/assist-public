@@ -33,6 +33,8 @@ import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
+import java.util.Set;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -48,6 +50,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
 
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
+
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * <!-- begin-user-doc -->
@@ -520,6 +524,23 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getEqInterfaceTypes() {
+		EList<EqInterface> _eqInterfaces = this.getEqInterfaces();
+		final Function1<EqInterface, String> _function = new Function1<EqInterface, String>() {
+			public String apply(final EqInterface it) {
+				return it.getIoType();
+			}
+		};
+		EList<String> _map = XcoreEListExtensions.<EqInterface, String>map(_eqInterfaces, _function);
+		Set<String> _set = IterableExtensions.<String>toSet(_map);
+		return ECollections.<String>toEList(_set);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<HardwareElement> getAllHardwareElements(final int level) {
 		if ((level == 0)) {
 			EList<Connector> _connectors = this.getConnectors();
@@ -713,6 +734,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getValidDeployments();
 			case ModelPackage.ASSIST_MODEL___GET_INVALID_DEPLOYMENTS:
 				return getInvalidDeployments();
+			case ModelPackage.ASSIST_MODEL___GET_EQ_INTERFACE_TYPES:
+				return getEqInterfaceTypes();
 			case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT:
 				return getAllHardwareElements((Integer)arguments.get(0));
 		}

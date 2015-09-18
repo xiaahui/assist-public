@@ -566,8 +566,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetAllHardwareElements__int() {
+	public EOperation getAssistModel__GetEqInterfaceTypes() {
 		return assistModelEClass.getEOperations().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAssistModel__GetAllHardwareElements__int() {
+		return assistModelEClass.getEOperations().get(15);
 	}
 
 	/**
@@ -1896,6 +1905,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_DISLOCALITY_RELATIONS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_VALID_DEPLOYMENTS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_INVALID_DEPLOYMENTS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_EQ_INTERFACE_TYPES);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT);
 
 		globalBlockEClass = createEClass(GLOBAL_BLOCK);
@@ -2151,6 +2161,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEOperation(getAssistModel__GetValidDeployments(), this.getValidDeployment(), "getValidDeployments", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getAssistModel__GetInvalidDeployments(), this.getInvalidDeployment(), "getInvalidDeployments", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAssistModel__GetEqInterfaceTypes(), theEcorePackage.getEString(), "getEqInterfaceTypes", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		EOperation op = initEOperation(getAssistModel__GetAllHardwareElements__int(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcorePackage.getEInt(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);

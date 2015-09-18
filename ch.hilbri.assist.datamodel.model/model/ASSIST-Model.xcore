@@ -37,6 +37,7 @@ class AssistModel {
 	op DislocalityRelation[]	getDislocalityRelations()	{ restrictionsBlock.dislocalityRelations				}
 	op ValidDeployment[]		getValidDeployments()		{ restrictionsBlock.validDeployments 					}
 	op InvalidDeployment[]		getInvalidDeployments()		{ restrictionsBlock.invalidDeployments 					}
+	op String[]					getEqInterfaceTypes()		{ eqInterfaces.map[ioType].toSet.toEList				}
 	
 	op HardwareElement[] getAllHardwareElements(int level) {
 		if (level == 0) 		return connectors.map[it as HardwareElement]
