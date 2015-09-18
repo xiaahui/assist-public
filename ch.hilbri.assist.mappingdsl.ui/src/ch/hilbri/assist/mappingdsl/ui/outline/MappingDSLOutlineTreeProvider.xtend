@@ -27,8 +27,9 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		
 		/* ---------- COMPARTMENTS ------------- */
 		val compartmentsNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Compartments", false)
-		for (compartment : model.compartmentsBlock.compartments)
-			createNode(compartmentsNode, compartment)
+		if (model.compartmentsBlock != null)
+			for (compartment : model.compartmentsBlock.compartments)
+				createNode(compartmentsNode, compartment)
 		
 		/* ---------- INTERFACES AND GROUPS --------- */
 		val interfaceNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Interfaces", false)

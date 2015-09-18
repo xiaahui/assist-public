@@ -82,7 +82,7 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 				logger.info(''' - Assigning variable «variable.name» score «score»''')
 			}
 		}
-		varList = solverVariables.levels.map[l|solverVariables.getLocationVariables(l).sortBy[-map.getOrDefault(it, 0)]]
+		varList = #[0,1,2,3].map[l|solverVariables.getLocationVariables(l).sortBy[-map.getOrDefault(it, 0)]]
 	}
 	
     def IntVar getFirstFail(IntVar[] variables) {

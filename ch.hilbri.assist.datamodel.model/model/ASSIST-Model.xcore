@@ -23,21 +23,21 @@ class AssistModel {
 	contains RestrictionsBlock[0..1]		restrictionsBlock
 	
 	// Methods
-	op String					getSystemName()				{ globalBlock.systemName								}
-	op CompatibleIoTypeEntry[] 	getCompatibleIoTypes() 		{ globalBlock.compatibleIoTypesBlock.compatibleIoTypes	}
-	op CableWeightEntry[]  		getCableWeightData() 		{ globalBlock.cableWeightDataBlock.cableWeightEntries   }
-	op ProtectionLevelEntry[] 	getProtectionLevelData()	{ globalBlock.protectionLevelDataBlock.protectionLevelEntries 	}
-	op Compartment[] 			getCompartments() 			{ compartmentsBlock.compartments 						}
-	op RDC[] 					getRDCs() 					{ compartments.map[rdcs].flatten.toEList 				}
-	op Connector[] 				getConnectors() 			{ RDCs.map[connectors].flatten.toEList					}
-	op Pin[]					getPins()					{ connectors.map[pins].flatten.toEList 					}
-	op EqInterface[]			getEqInterfaces()			{ interfacesBlock.eqInterfaces 							}
-	op EqInterfaceGroup[]		getEqInterfaceGroups()		{ interfaceGroupsBlock.eqInterfaceGroups 				}
-	op ColocalityRelation[]		getColocalityRelations()	{ restrictionsBlock.colocalityRelations 				}
-	op DislocalityRelation[]	getDislocalityRelations()	{ restrictionsBlock.dislocalityRelations				}
-	op ValidDeployment[]		getValidDeployments()		{ restrictionsBlock.validDeployments 					}
-	op InvalidDeployment[]		getInvalidDeployments()		{ restrictionsBlock.invalidDeployments 					}
-	op String[]					getEqInterfaceTypes()		{ eqInterfaces.map[ioType].toSet.toEList				}
+	op String					getSystemName()				{ globalBlock.systemName										}
+	op CompatibleIoTypeEntry[] 	getCompatibleIoTypes() 		{ globalBlock.compatibleIoTypesBlock?.compatibleIoTypes			}
+	op CableWeightEntry[]  		getCableWeightData() 		{ globalBlock.cableWeightDataBlock?.cableWeightEntries   		}
+	op ProtectionLevelEntry[] 	getProtectionLevelData()	{ globalBlock.protectionLevelDataBlock?.protectionLevelEntries 	}
+	op Compartment[] 			getCompartments() 			{ compartmentsBlock.compartments 								}
+	op RDC[] 					getRDCs() 					{ compartments.map[rdcs].flatten.toEList 						}
+	op Connector[] 				getConnectors() 			{ RDCs.map[connectors].flatten.toEList							}
+	op Pin[]					getPins()					{ connectors.map[pins].flatten.toEList 							}
+	op EqInterface[]			getEqInterfaces()			{ interfacesBlock.eqInterfaces 									}
+	op EqInterfaceGroup[]		getEqInterfaceGroups()		{ interfaceGroupsBlock?.eqInterfaceGroups 						}
+	op ColocalityRelation[]		getColocalityRelations()	{ restrictionsBlock?.colocalityRelations 						}
+	op DislocalityRelation[]	getDislocalityRelations()	{ restrictionsBlock?.dislocalityRelations						}
+	op ValidDeployment[]		getValidDeployments()		{ restrictionsBlock?.validDeployments 							}
+	op InvalidDeployment[]		getInvalidDeployments()		{ restrictionsBlock?.invalidDeployments 						}
+	op String[]					getEqInterfaceTypes()		{ eqInterfaces.map[ioType].toSet.toEList						}
 	
 	op HardwareElement[] getAllHardwareElements(int level) {
 		if (level == 0) 		return connectors.map[it as HardwareElement]

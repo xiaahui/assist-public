@@ -14,10 +14,13 @@ class EqInterfaceGroupDefinitions extends AbstractModelPreprocessor {
 	
 	override execute() {
 		
+		if (model.eqInterfaceGroups == null)
+			return false
+		
 		if (model.eqInterfaceGroups.filter[!implicitMemberDefinitions.nullOrEmpty || !withoutImplicitMemberDefinitions.nullOrEmpty || !withoutEqInterfaces.nullOrEmpty]
 								   .filter[!(it instanceof EqInterfaceGroupWithCombinedDefinition)]
-								   .isNullOrEmpty
-		) return false
+								   .isNullOrEmpty) 
+			return false
 		
 		for (g : model.eqInterfaceGroups.filter[!implicitMemberDefinitions.nullOrEmpty || !withoutImplicitMemberDefinitions.nullOrEmpty || !withoutEqInterfaces.nullOrEmpty ]
 			                			.filter[!(it instanceof EqInterfaceGroupWithCombinedDefinition)]) 

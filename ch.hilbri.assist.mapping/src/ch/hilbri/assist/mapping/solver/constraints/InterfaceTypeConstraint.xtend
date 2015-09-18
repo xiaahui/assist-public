@@ -1,96 +1,123 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.mapping.solver.exceptions.InterfaceTypeCouldNotBeMapped
-import ch.hilbri.assist.mapping.solver.exceptions.InterfaceTypeDemandExceedsSupply
+import ch.hilbri.assist.datamodel.model.EqInterface
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.datamodel.model.ProtectionLevelType
+import ch.hilbri.assist.datamodel.model.RDC
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
-import java.util.ArrayList
+import java.util.List
+import java.util.Set
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
-import org.chocosolver.solver.constraints.^extension.Tuples
-import org.chocosolver.solver.exception.ContradictionException
-import org.chocosolver.solver.variables.IntVar
-import org.chocosolver.solver.variables.VF
-import org.slf4j.Logger
+import org.jgrapht.alg.ConnectivityInspector
+import org.jgrapht.graph.DefaultEdge
+import org.jgrapht.graph.SimpleGraph
 import org.slf4j.LoggerFactory
 
-/*
- * 20150407-RPH: PinMatching is now enabled by default; Indicator-variables (boolean channeling) is no longer necessary 
- */
 class InterfaceTypeConstraint extends AbstractMappingConstraint {
 	
-	private Logger logger
+	/* Member fields */
+	private CompatibleInterfaceTypeGraph ifaceTypeGraph
 	
-	
-	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("interface type", model, solver, solverVariables)
-		this.logger = LoggerFactory.getLogger(this.class)
+	/* Constructor */
+	new(AssistModel p_model, Solver p_solver, SolverVariablesContainer p_solverVariables) {
+		super("(configurable) interface type", p_model, p_solver, p_solverVariables)
+		logger 			= LoggerFactory.getLogger(this.class)
+		ifaceTypeGraph 	= new CompatibleInterfaceTypeGraph(model)
 	}
 
 	override generate() {
-//		// 1. Generate a list of all ioTypes used in this specification
-//		//    - we collect all types from the interfaces in the spec, remove duplicates and sort them
-//		val ioTypesList = model.eqInterfaces.map[it.ioType].toSet.toList.sort
-//		
-//		// 2. Generate the constraints
-//		for (t : ioTypesList) {
-//			
-//			
-//			// How many interfaces of this type does each connector offer?
-//			val interfaceSupplyPerConnector = model.connectors.map[
-//													if (!availableEqInterfaces.filter[eqInterfaceType.equals(t)].isNullOrEmpty)
-//														availableEqInterfaces.filter[eqInterfaceType.equals(t)].map[count].reduce[p1, p2|p1 + p2]
-//													else 
-//														0]
-//
-//			// A list of all interfaces of the current type														
-//			val interfacesOfType 			= model.eqInterfaces.filter[ioType.equals(t)]
-//			
-//			// How many interfaces of the current type are requested?
-//			val totalDemand 				= interfacesOfType.length
-//			
-//			// How many interfaces of the current type are available?
-//			val totalSupply 				= interfaceSupplyPerConnector.reduce[p1, p2|p1+p2]			
-//			
-//			// Check that the supply is sufficient for the demand
-//			if (totalDemand > totalSupply)
-//				throw new InterfaceTypeDemandExceedsSupply(this, t, totalDemand, totalSupply)
-//
-//			/*  We need no constraints if the "smallest" connector (i.e. every connector!) 
-//			    can handle all (this includes the "demand==0" case) */
-//			if (totalDemand > interfaceSupplyPerConnector.min) {
-//
-//				// A list of all interface indices with the current type
-//				val int[] indexListOfAffectedInterfaces = interfacesOfType.map[model.eqInterfaces.indexOf(it)]
-//				
-//				// building allowed tuples 
-//				val tuples = new Tuples(true) // true = valid tuples
-//				var int pinIdx = 0
-//				for (int connIdx : 0 ..< model.connectors.length) {
-//					for (int pin : 0 ..< interfaceSupplyPerConnector.get(connIdx)) {
-//						tuples.add(connIdx, pinIdx)
-//						pinIdx++						
-//					}
-//				}
-//			
-//				val connectorLocationVars = indexListOfAffectedInterfaces.map[solverVariables.getLocationVariables(0).get(it)]
-//				val pinLocationVars = new ArrayList<IntVar>
-//				
-//				// building table constraints reflecting the location hierarchy		
-//				for (locVar : connectorLocationVars) {
-//					val pinVar = VF.enumerated("Pin-"+locVar.name, 0, totalSupply-1, solver) // Pin-variable which is like a connector variables ranging over all pins of this type
-//					solver.post(ICF.table(locVar, pinVar, tuples, ""))
-//					pinLocationVars.add(pinVar)
-//				}
-//	
-//				solver.post(ICF.alldifferent(pinLocationVars, "AC")) // Pins must not share a single type offered --> this realizes the sum constraint for each connector
-//				
-//				try { solver.propagate } 
-//				catch (ContradictionException e) { throw new InterfaceTypeCouldNotBeMapped(this, t) }
-//			}
-//
-//		}
 
-		return true
+		for (typeSet : ifaceTypeGraph.connectedSets) {
+
+			val ifaceList			 	= model.eqInterfaces.filter[typeSet.contains(ioType)] 
+			val locVarList				= ifaceList.map[solverVariables.getEqInterfaceLocationVariable(it, HardwareArchitectureLevelType.PIN)]
+			val compatiblePinIndizes 	= model.pins.filter[typeSet.contains(eqInterfaceType)].map[model.pins.indexOf(it)]
+
+			// Restrict all eqInterfaces of this type to compatible pinInterfaces
+			for (locVar : locVarList) 
+				solver.post(ICF.member(locVar, compatiblePinIndizes))
+
+			// Enforce an allDifferent for these interfaces	(only one pin for each interface)		
+			solver.post(ICF.alldifferent(locVarList))			
+
+			// Restrict all eqInterfaces to pins with a compatible protection level
+			for (iface : ifaceList) {
+				//  - Retrieve list of allowed pins (filter according to protection level)
+				val allowedPinIndizes = compatiblePinIndizes.filter[filterPinsForProtectionLevel(iface, 
+																								model.pins.get(it).connector.rdc, 
+																								model.pins.get(it).protectionLevel)]
+				//  - Post a member constraint
+				solver.post(ICF.member(solverVariables.getEqInterfaceLocationVariable(iface, HardwareArchitectureLevelType.PIN), 
+									   allowedPinIndizes))
+			}
+		}
+
+		true
+	}
+	
+	private def boolean filterPinsForProtectionLevel(EqInterface iface, RDC rdc, ProtectionLevelType pinProtectionLevel) {
+
+		// no additional pin restrictions?
+		if (model.protectionLevelData == null) 
+			return true 
+		
+		val protLevelRequirements = model.globalBlock.protectionLevelDataBlock.protectionLevelEntries.
+										filter[emhZone1 == iface.emhZone1 && rdcLocation == rdc.location]
+		
+		// does this mapping require special treatment?
+		if (protLevelRequirements.nullOrEmpty)
+			return true 
+		
+		// we do need to look at the requirements and check the compatibility
+		// of the protection level
+		else {
+			for (req : protLevelRequirements)
+				for (level : req.protectionLevel) 
+					if (level == pinProtectionLevel) 
+						return true
+							
+		}
+		
+		return false
+	}
+}
+
+/**
+ * This specialized graph encapsulates everything that is needed to build
+ * a graph for all interface types
+ */
+class CompatibleInterfaceTypeGraph extends SimpleGraph<String, DefaultEdge> {
+	new (AssistModel p_model) {
+		super(DefaultEdge)
+		
+		// 1. Add all types (no configurable pins yet)
+		for (type : p_model.eqInterfaceTypes) 
+			addVertex(type)	
+		
+		// 2. Add all configurable pin types 
+		if (p_model.compatibleIoTypes != null) {
+			for (entry : p_model.compatibleIoTypes) {
+			
+				// Do we already have the left side in our graph?
+				if (!p_model.eqInterfaceTypes.contains(entry.eqInterfaceIoType)) 
+					addVertex(entry.eqInterfaceIoType)
+				
+				// Go through all right side entries
+				for (compatibleType : entry.pinInterfaceIoTypes) {
+					if (!p_model.eqInterfaceTypes.contains(compatibleType))
+						addVertex(compatibleType)
+				
+					addEdge(entry.eqInterfaceIoType, compatibleType)
+				}
+			}
+		}
+	}
+	
+	/** Returns a list of sets of strings which represent connected interface types */
+	def List<Set<String>> getConnectedSets() {
+		val inspector = new ConnectivityInspector(this)
+		inspector.connectedSets
 	}
 }

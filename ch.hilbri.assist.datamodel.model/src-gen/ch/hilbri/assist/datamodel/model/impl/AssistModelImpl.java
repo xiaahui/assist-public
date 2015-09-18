@@ -373,7 +373,11 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	public EList<CompatibleIoTypeEntry> getCompatibleIoTypes() {
 		GlobalBlock _globalBlock = this.getGlobalBlock();
 		CompatibleIoTypesBlock _compatibleIoTypesBlock = _globalBlock.getCompatibleIoTypesBlock();
-		return _compatibleIoTypesBlock.getCompatibleIoTypes();
+		EList<CompatibleIoTypeEntry> _compatibleIoTypes = null;
+		if (_compatibleIoTypesBlock!=null) {
+			_compatibleIoTypes=_compatibleIoTypesBlock.getCompatibleIoTypes();
+		}
+		return _compatibleIoTypes;
 	}
 
 	/**
@@ -384,7 +388,11 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	public EList<CableWeightEntry> getCableWeightData() {
 		GlobalBlock _globalBlock = this.getGlobalBlock();
 		CableWeightDataBlock _cableWeightDataBlock = _globalBlock.getCableWeightDataBlock();
-		return _cableWeightDataBlock.getCableWeightEntries();
+		EList<CableWeightEntry> _cableWeightEntries = null;
+		if (_cableWeightDataBlock!=null) {
+			_cableWeightEntries=_cableWeightDataBlock.getCableWeightEntries();
+		}
+		return _cableWeightEntries;
 	}
 
 	/**
@@ -395,7 +403,11 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	public EList<ProtectionLevelEntry> getProtectionLevelData() {
 		GlobalBlock _globalBlock = this.getGlobalBlock();
 		ProtectionLevelDataBlock _protectionLevelDataBlock = _globalBlock.getProtectionLevelDataBlock();
-		return _protectionLevelDataBlock.getProtectionLevelEntries();
+		EList<ProtectionLevelEntry> _protectionLevelEntries = null;
+		if (_protectionLevelDataBlock!=null) {
+			_protectionLevelEntries=_protectionLevelDataBlock.getProtectionLevelEntries();
+		}
+		return _protectionLevelEntries;
 	}
 
 	/**
@@ -476,7 +488,11 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 */
 	public EList<EqInterfaceGroup> getEqInterfaceGroups() {
 		InterfaceGroupsBlock _interfaceGroupsBlock = this.getInterfaceGroupsBlock();
-		return _interfaceGroupsBlock.getEqInterfaceGroups();
+		EList<EqInterfaceGroup> _eqInterfaceGroups = null;
+		if (_interfaceGroupsBlock!=null) {
+			_eqInterfaceGroups=_interfaceGroupsBlock.getEqInterfaceGroups();
+		}
+		return _eqInterfaceGroups;
 	}
 
 	/**
@@ -486,7 +502,11 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 */
 	public EList<ColocalityRelation> getColocalityRelations() {
 		RestrictionsBlock _restrictionsBlock = this.getRestrictionsBlock();
-		return _restrictionsBlock.getColocalityRelations();
+		EList<ColocalityRelation> _colocalityRelations = null;
+		if (_restrictionsBlock!=null) {
+			_colocalityRelations=_restrictionsBlock.getColocalityRelations();
+		}
+		return _colocalityRelations;
 	}
 
 	/**
@@ -496,7 +516,11 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 */
 	public EList<DislocalityRelation> getDislocalityRelations() {
 		RestrictionsBlock _restrictionsBlock = this.getRestrictionsBlock();
-		return _restrictionsBlock.getDislocalityRelations();
+		EList<DislocalityRelation> _dislocalityRelations = null;
+		if (_restrictionsBlock!=null) {
+			_dislocalityRelations=_restrictionsBlock.getDislocalityRelations();
+		}
+		return _dislocalityRelations;
 	}
 
 	/**
@@ -506,7 +530,11 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 */
 	public EList<ValidDeployment> getValidDeployments() {
 		RestrictionsBlock _restrictionsBlock = this.getRestrictionsBlock();
-		return _restrictionsBlock.getValidDeployments();
+		EList<ValidDeployment> _validDeployments = null;
+		if (_restrictionsBlock!=null) {
+			_validDeployments=_restrictionsBlock.getValidDeployments();
+		}
+		return _validDeployments;
 	}
 
 	/**
@@ -516,7 +544,11 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 */
 	public EList<InvalidDeployment> getInvalidDeployments() {
 		RestrictionsBlock _restrictionsBlock = this.getRestrictionsBlock();
-		return _restrictionsBlock.getInvalidDeployments();
+		EList<InvalidDeployment> _invalidDeployments = null;
+		if (_restrictionsBlock!=null) {
+			_invalidDeployments=_restrictionsBlock.getInvalidDeployments();
+		}
+		return _invalidDeployments;
 	}
 
 	/**

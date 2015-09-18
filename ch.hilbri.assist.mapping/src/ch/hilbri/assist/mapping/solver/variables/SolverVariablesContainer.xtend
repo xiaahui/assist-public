@@ -22,21 +22,10 @@ import org.eclipse.xtend.lib.annotations.Data
 	/** A map containing the interface for each location variable */
 	private Map<IntVar, EqInterface> 		locationVarMap = new HashMap
 	
-	/** An array describing possible location variable levels - if multiple levels are used */
-	private int[]                   		locationVariableLevels 
-	
-	/** A list of location variables which are in a colocation relation */
-	private List<IntVar>            		colocationVariables 
-		
-	/** A list of variables which will be used for optimization */
-	private IntVar[]                		optVars
-	
 	/* ****************************
 	 * CONSTRUCTOR
 	 * **************************** */
-	new (AssistModel model, Solver solver, int[] locationVariableLvls) {
-	
-		locationVariableLevels = locationVariableLvls
+	new (AssistModel model, Solver solver) {
 		
 		/* Initialize the hash map for all eqInterface-related location variables */
 		for (iface : model.eqInterfaces) {
@@ -59,34 +48,28 @@ import org.eclipse.xtend.lib.annotations.Data
 			
 			eqInterfaceLocationVariables.put(iface, #[ifaceLocVarPin, ifaceLocVarCon, ifaceLocVarRDC, ifaceLocVarComp])
 		}
-
-		colocationVariables = model.colocalityRelations.map[getColocationVariables(it)]
-													   .flatten
-													   .toSet.toList
-
-		optVars = #[VF.bounded("UsedRDCCount", 0, model.RDCs.length, solver),
-		    		VF.bounded("TotalCableLength", 0, Integer.MAX_VALUE / 2, solver)]
 	}
 
 	/** Returns a list of all location variables */
 	def IntVar[] getLocationVariables() {
-		return eqInterfaceLocationVariables.values
-					    				   .flatten
-							  			   .sortBy[name]
+		eqInterfaceLocationVariables.values
+									.flatten
+							  		.sortBy[name]
 	}
 
 	/** Return a list of all location variables for a specific hardware level 
 	 * (index 0 = pin level, 1 = connector level, ...)
 	 */	
 	def IntVar[] getLocationVariables(int level) {
-		return eqInterfaceLocationVariables.values
-		                                   .map[get(level)]
-		                                   .sortBy[name]
+		eqInterfaceLocationVariables.values
+		                            .map[get(level)]
+		                            .sortBy[name]
 	}
 	
-	/** Returns a list of available levels */
-	def int[] getLevels() {
-		locationVariableLevels
+	
+	/** Return a list of all location variables for a specific hardware level */	
+	def IntVar[] getLocationVariables(HardwareArchitectureLevelType hwLevel) {
+		getLocationVariables(getLevelIndex(hwLevel))
 	}
 
 	/** Retrieve the index for a specified hardware level */
@@ -98,18 +81,6 @@ import org.eclipse.xtend.lib.annotations.Data
 			case HardwareArchitectureLevelType.COMPARTMENT	:  3
 			default											: -1
 		}		
-	}
-
-	/** Retrieve a list of all eqInterface location variables 
-	 *  (location variables which are actually affected by a colocality relation)
-	 */
-	def List<IntVar> getColocationVariables() {
-		colocationVariables
-	}
-
-	/** Returns the optimization variable */
-	def IntVar[] getOptimizationVariables() {
-		optVars
 	}
 
 	/** 
@@ -133,21 +104,5 @@ import org.eclipse.xtend.lib.annotations.Data
 	 */
 	def EqInterface getInterfaceForLocationVariable(IntVar variable) {
 		locationVarMap.get(variable)
-	}
-	
-	/**
-	 * Retrieve a list of affected location variables by a colocality relation
-	 */
-	private def List<IntVar> getColocationVariables(ColocalityRelation r) {
-		val list = new ArrayList<IntVar>
-		for (ifaceOrGroup : r.eqInterfaceOrGroups) {
-			if (ifaceOrGroup instanceof EqInterface) {
-				list.add(getEqInterfaceLocationVariable(ifaceOrGroup, r.hardwareLevel))
-			} else if (ifaceOrGroup instanceof EqInterfaceGroup) {
-				list.addAll(ifaceOrGroup.eqInterfaces.map[getEqInterfaceLocationVariable(it, r.hardwareLevel)])
-			}
-		}
-		// Return a list of unique interfaces
-		return list.toSet.toList
 	}
 }

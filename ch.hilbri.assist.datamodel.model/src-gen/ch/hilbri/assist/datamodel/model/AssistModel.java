@@ -170,7 +170,7 @@ public interface AssistModel extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.GlobalBlock%> _globalBlock = this.getGlobalBlock();\n<%ch.hilbri.assist.datamodel.model.CompatibleIoTypesBlock%> _compatibleIoTypesBlock = _globalBlock.getCompatibleIoTypesBlock();\nreturn _compatibleIoTypesBlock.getCompatibleIoTypes();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.GlobalBlock%> _globalBlock = this.getGlobalBlock();\n<%ch.hilbri.assist.datamodel.model.CompatibleIoTypesBlock%> _compatibleIoTypesBlock = _globalBlock.getCompatibleIoTypesBlock();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.CompatibleIoTypeEntry%>> _compatibleIoTypes = null;\nif (_compatibleIoTypesBlock!=null)\n{\n\t_compatibleIoTypes=_compatibleIoTypesBlock.getCompatibleIoTypes();\n}\nreturn _compatibleIoTypes;'"
 	 * @generated
 	 */
 	EList<CompatibleIoTypeEntry> getCompatibleIoTypes();
@@ -179,7 +179,7 @@ public interface AssistModel extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.GlobalBlock%> _globalBlock = this.getGlobalBlock();\n<%ch.hilbri.assist.datamodel.model.CableWeightDataBlock%> _cableWeightDataBlock = _globalBlock.getCableWeightDataBlock();\nreturn _cableWeightDataBlock.getCableWeightEntries();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.GlobalBlock%> _globalBlock = this.getGlobalBlock();\n<%ch.hilbri.assist.datamodel.model.CableWeightDataBlock%> _cableWeightDataBlock = _globalBlock.getCableWeightDataBlock();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.CableWeightEntry%>> _cableWeightEntries = null;\nif (_cableWeightDataBlock!=null)\n{\n\t_cableWeightEntries=_cableWeightDataBlock.getCableWeightEntries();\n}\nreturn _cableWeightEntries;'"
 	 * @generated
 	 */
 	EList<CableWeightEntry> getCableWeightData();
@@ -188,7 +188,7 @@ public interface AssistModel extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.GlobalBlock%> _globalBlock = this.getGlobalBlock();\n<%ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock%> _protectionLevelDataBlock = _globalBlock.getProtectionLevelDataBlock();\nreturn _protectionLevelDataBlock.getProtectionLevelEntries();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.GlobalBlock%> _globalBlock = this.getGlobalBlock();\n<%ch.hilbri.assist.datamodel.model.ProtectionLevelDataBlock%> _protectionLevelDataBlock = _globalBlock.getProtectionLevelDataBlock();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.ProtectionLevelEntry%>> _protectionLevelEntries = null;\nif (_protectionLevelDataBlock!=null)\n{\n\t_protectionLevelEntries=_protectionLevelDataBlock.getProtectionLevelEntries();\n}\nreturn _protectionLevelEntries;'"
 	 * @generated
 	 */
 	EList<ProtectionLevelEntry> getProtectionLevelData();
@@ -242,7 +242,7 @@ public interface AssistModel extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock%> _interfaceGroupsBlock = this.getInterfaceGroupsBlock();\nreturn _interfaceGroupsBlock.getEqInterfaceGroups();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock%> _interfaceGroupsBlock = this.getInterfaceGroupsBlock();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.EqInterfaceGroup%>> _eqInterfaceGroups = null;\nif (_interfaceGroupsBlock!=null)\n{\n\t_eqInterfaceGroups=_interfaceGroupsBlock.getEqInterfaceGroups();\n}\nreturn _eqInterfaceGroups;'"
 	 * @generated
 	 */
 	EList<EqInterfaceGroup> getEqInterfaceGroups();
@@ -251,7 +251,7 @@ public interface AssistModel extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.RestrictionsBlock%> _restrictionsBlock = this.getRestrictionsBlock();\nreturn _restrictionsBlock.getColocalityRelations();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.RestrictionsBlock%> _restrictionsBlock = this.getRestrictionsBlock();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.ColocalityRelation%>> _colocalityRelations = null;\nif (_restrictionsBlock!=null)\n{\n\t_colocalityRelations=_restrictionsBlock.getColocalityRelations();\n}\nreturn _colocalityRelations;'"
 	 * @generated
 	 */
 	EList<ColocalityRelation> getColocalityRelations();
@@ -260,7 +260,7 @@ public interface AssistModel extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.RestrictionsBlock%> _restrictionsBlock = this.getRestrictionsBlock();\nreturn _restrictionsBlock.getDislocalityRelations();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.RestrictionsBlock%> _restrictionsBlock = this.getRestrictionsBlock();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.DislocalityRelation%>> _dislocalityRelations = null;\nif (_restrictionsBlock!=null)\n{\n\t_dislocalityRelations=_restrictionsBlock.getDislocalityRelations();\n}\nreturn _dislocalityRelations;'"
 	 * @generated
 	 */
 	EList<DislocalityRelation> getDislocalityRelations();
@@ -269,7 +269,7 @@ public interface AssistModel extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.RestrictionsBlock%> _restrictionsBlock = this.getRestrictionsBlock();\nreturn _restrictionsBlock.getValidDeployments();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.RestrictionsBlock%> _restrictionsBlock = this.getRestrictionsBlock();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.ValidDeployment%>> _validDeployments = null;\nif (_restrictionsBlock!=null)\n{\n\t_validDeployments=_restrictionsBlock.getValidDeployments();\n}\nreturn _validDeployments;'"
 	 * @generated
 	 */
 	EList<ValidDeployment> getValidDeployments();
@@ -278,7 +278,7 @@ public interface AssistModel extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.RestrictionsBlock%> _restrictionsBlock = this.getRestrictionsBlock();\nreturn _restrictionsBlock.getInvalidDeployments();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.RestrictionsBlock%> _restrictionsBlock = this.getRestrictionsBlock();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.InvalidDeployment%>> _invalidDeployments = null;\nif (_restrictionsBlock!=null)\n{\n\t_invalidDeployments=_restrictionsBlock.getInvalidDeployments();\n}\nreturn _invalidDeployments;'"
 	 * @generated
 	 */
 	EList<InvalidDeployment> getInvalidDeployments();

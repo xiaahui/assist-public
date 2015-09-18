@@ -12,6 +12,9 @@ class EqInterfaceGroupCombinations extends AbstractModelPreprocessor {
 	
 	override execute() {
 		/* Combined Interface groups have to be processed after regular groups! */
+		if (model.eqInterfaceGroups == null)
+			return false
+			
 		if (!model.eqInterfaceGroups.filter[it instanceof EqInterfaceGroupWithCombinedDefinition].isNullOrEmpty) {
 			
 			logger.info(" - Creating interface groups which combine other interface groups")

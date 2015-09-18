@@ -19,17 +19,16 @@ class RDCWithShortestDistanceSelector implements IntValueSelector  {
 		this.model = model
 	}
 	
-	// Assumes that the variable is only on connector level
 	override int selectValue(IntVar variable) {
-		val connIndexList = new ArrayList<Integer>
+		val pinIndexList = new ArrayList<Integer>
 		val iterator = variable.getValueIterator(true)
  		while(iterator.hasNext()) {
-     		connIndexList.add(iterator.next)
+     		pinIndexList.add(iterator.next)
      	}
      	
      	val equipment = solverVariables.getInterfaceForLocationVariable(variable)
      	
-     	connIndexList.sortBy[ val rdc = model.connectors.get(it).rdc
+     	pinIndexList.sortBy[ val rdc = model.pins.get(it).connector.rdc
      						  Math.abs(equipment.resourceX - rdc.resourceX) +
 							  Math.abs(equipment.resourceY - rdc.resourceY) +
 							  Math.abs(equipment.resourceZ - rdc.resourceZ)  ]

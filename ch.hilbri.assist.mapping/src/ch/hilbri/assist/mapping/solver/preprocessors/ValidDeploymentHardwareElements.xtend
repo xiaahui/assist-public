@@ -8,6 +8,9 @@ class ValidDeploymentHardwareElements extends AbstractModelPreprocessor {
 	
 	override execute() {
 		
+		if (model.validDeployments == null)
+			return false
+		
 		if (model.validDeployments.filter[it.implicitHardwareElements.length > 0].isNullOrEmpty) return false
 		
 		for (s : model.validDeployments.filter[it.implicitHardwareElements.length > 0]) {

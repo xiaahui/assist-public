@@ -36,6 +36,8 @@ import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 
 class AssistSolver {
 	
@@ -45,17 +47,11 @@ class AssistSolver {
 	private SolverVariablesContainer solverVariables
 	private ArrayList<AbstractMappingConstraint> mappingConstraintsList
 	private ArrayList<Result> mappingResults
-	private int minimize
 	private Logger logger
 	private boolean savePartialSolution = false
 	private PartialSolutionSaveMonitor partialSolutionSaveMonitor
-	
-	new (AssistModel model) {
-		this(model, #[0], 0)
-	}
 
-	new (AssistModel model, List<Integer> locationVariableLvls, int min) {
-		minimize = minimize - 1
+	new (AssistModel p_model) {
 		
 		logger = LoggerFactory.getLogger(this.class)
 		
@@ -69,8 +65,8 @@ class AssistSolver {
 			logger.info('''******************************''')
 		}
 			
-		/* Get the model */
-		this.model = model
+		/* Store the model */
+		model = p_model
 
 		/* Create all preprocessors */
 		val modelPreprocessors = new ArrayList<AbstractModelPreprocessor> 
@@ -94,7 +90,7 @@ class AssistSolver {
 		solver.set(recorder)
 		
 		/* Create the container for variables which are needed in the solver */
- 		solverVariables = new SolverVariablesContainer(model, solver, locationVariableLvls)
+ 		solverVariables = new SolverVariablesContainer(model, solver)
 		
 		/* The same solution should not be found twice */
 		SMF.nogoodRecordingOnSolution(solverVariables.locationVariables)
@@ -107,7 +103,9 @@ class AssistSolver {
 	
 		/* Create an empty set of constraints that will be used */
 		mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
-		mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables, minimize >= 0))
+		mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
+		mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))
+		
 //		mappingConstraintsList.add(new ConfigurablePinInterfaceTypeConstraint(model, solver, solverVariables))				
 //		mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 //		mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
@@ -254,35 +252,21 @@ class AssistSolver {
             }
 			logger.info('''   done.''')
 		}
-		val colocs = solverVariables.colocationVariables
-		val vars = solverVariables.locationVariables
+
+		val vars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
 		logger.info('''After initial propagation:''') 
-		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location variables instantiated''') 
-		logger.info('''      «colocs.filter[instantiated].size» / «colocs.size» colocation variables instantiated''') 
+		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location vars instantiated''') 
+
 	}
 	
 	def solutionSearch() throws BasicConstraintsException {
-
-		// Clear old results
 		mappingResults.clear
 		
-		if (minimize >= 0) {
-			if (minimize < 2) {
-				val optVar = solverVariables.optimizationVariables.get(minimize)
-				logger.info("Initiating choco-solver - searching for the optimal solution using " + optVar)
-				solver.findOptimalSolution(ResolutionPolicy.MINIMIZE, optVar)
-			} else {
-				logger.info("Initiating choco-solver - searching for the pareto optimal solutions")
-				solver.findParetoFront(ResolutionPolicy.MINIMIZE, solverVariables.optimizationVariables)
-			}
-		} else {	
-			logger.info("Initiating choco-solver - searching for a solution")
-			solver.findAllSolutions
-		}
+		logger.info("Initiating choco-solver - searching for a solution")
+		solver.findAllSolutions
+	
 		logger.info('''Solutions found: «recorder.solutions.size»''') 
-		
 		logger.info('''Internal solver statistics: «solver.measures.toOneLineString»''')
-			
 	}
 	
 	def createSolutions() {

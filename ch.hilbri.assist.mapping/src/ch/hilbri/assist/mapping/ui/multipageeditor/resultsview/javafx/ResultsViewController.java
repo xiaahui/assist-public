@@ -356,7 +356,7 @@ public class ResultsViewController extends AnchorPane{
 		if (obj instanceof Compartment) 	i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_compartment_16x16.png"));
 		else if (obj instanceof RDC)		i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_rdc_16x16.png"));
 		else if (obj instanceof Connector)	i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_connector_16x16.png"));
-		else if (obj instanceof Pin)		i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_connector_16x16.png"));
+		else if (obj instanceof Pin)		i = new Image(getClass().getResourceAsStream("/icons/treeview/treeview_pin_16x16.png"));
 		else return;
 		
 		ImageView iv = new ImageView(i);
@@ -365,7 +365,9 @@ public class ResultsViewController extends AnchorPane{
 		newNode.setExpanded(true);
 		
 		if (obj instanceof Pin) { 
-			drawInterfaceNodes(result.getEqInterfaceForPin((Pin) obj), newNode);
+			EqInterface iface = result.getEqInterfaceForPin((Pin) obj);
+			if (iface != null)
+				drawInterfaceNodes(iface, newNode);
 		}
 		else { 	
 			/* draw lower level hardware architecture */

@@ -107,7 +107,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def image(Pin p) {
-		'outlineview_interface_16x16.png'
+		'outlineview_pin_16x16.png'
 	}
 	
 	def String text(EqInterfaceGroup g) {
