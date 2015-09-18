@@ -6,43 +6,42 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.model.ProtectionLevelType
 import ch.hilbri.assist.datamodel.model.RDC
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
-import java.util.List
-import java.util.Set
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
-import org.chocosolver.solver.variables.VF
-import org.jgrapht.alg.ConnectivityInspector
-import org.jgrapht.graph.DefaultEdge
-import org.jgrapht.graph.SimpleGraph
 import org.slf4j.LoggerFactory
 
 class InterfaceTypeConstraint extends AbstractMappingConstraint {
-	
-	/* Member fields */
-	private CompatibleInterfaceTypeGraph ifaceTypeGraph
-	
+		
 	/* Constructor */
 	new(AssistModel p_model, Solver p_solver, SolverVariablesContainer p_solverVariables) {
 		super("(configurable) interface type", p_model, p_solver, p_solverVariables)
 		logger 			= LoggerFactory.getLogger(this.class)
-		ifaceTypeGraph 	= new CompatibleInterfaceTypeGraph(model)
 	}
+
+	/* The allDifferent Constraint is not part of this constraint;
+	 * this constraint just restricts the interfaces to compatible types.
+	 * The allDifferent constraint is done in the connected pin constraint. */
 
 	override generate() {
 
-		for (typeSet : ifaceTypeGraph.connectedSets) {
+		val ifaceTypes = model.eqInterfaces.map[ioType].toSet
 
-			// This is a list of all interfaces that we have to work with in this loop
-			val ifaceList			 	= model.eqInterfaces.filter[typeSet.contains(ioType)] 
+		// We go through every equipment interface type and check where it could be placed
+		for (ifaceType : ifaceTypes) {
 			
-			// This is the list of solver variables for the interfaces above
-			val locVarList				= ifaceList.map[solverVariables.getEqInterfaceLocationVariable(it, HardwareArchitectureLevelType.PIN)].toList
+			// Which pin types are compatible with this interface io type?
+			// .. the exact string matched type
+			val compatiblePinTypes = model.getCompatiblePinTypes(ifaceType)
 			
 			// This is list of all compatible pins for the interfaces, 
 			// if we just look at the eqInterfaceType
-			val typeCompatiblePinIndizes 	= model.pins.filter[typeSet.contains(eqInterfaceType)].map[model.pins.indexOf(it)]
-
+			val typeCompatiblePinIndizes 	= model.pins.filter[compatiblePinTypes.contains(eqInterfaceType)].map[model.pins.indexOf(it)]
+						
+			// This is a list of all interfaces that we have to work with in this loop
+			val ifaceList			 		= model.eqInterfaces.filter[ioType == ifaceType] 
+			
 			// Restrict all eqInterfaces to pins with a compatible protection level
+			// This cannot be made for the entire type; it depends on the equipment!
 			for (iface : ifaceList) {
 				//  - Retrieve list of allowed pins (filter according to protection level)
 				val protLevelCompatiblePinIndizes = typeCompatiblePinIndizes.filter[filterPinsForProtectionLevel(iface, 
@@ -52,27 +51,9 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 				solver.post(ICF.member(solverVariables.getEqInterfaceLocationVariable(iface, HardwareArchitectureLevelType.PIN), 
 									   protLevelCompatiblePinIndizes))
 			}
-			
-			// Now we need to look at the connected pins
-			for (rdc : model.RDCs.filter[internalConnectedPinBlock != null && !internalConnectedPinBlock.connectedPins.nullOrEmpty]) {
-				// We just work with connected pins relevant for the current interface types
-				// ASSUMPTION: all connected pins have the same type / or they are in the same typeSet
-				for (entry : rdc.internalConnectedPinBlock.connectedPins.filter[typeSet.contains(pins.get(0).eqInterfaceType)]) {
-					
-					// Which indizes are connected in this entry?
-					val pinIndizes = entry.pins.map[model.pins.indexOf(it)]
-					
-					// Create n-1 pseudo interfaces
-					val pseudoInterfaces = VF.enumeratedArray("PseudoIfaces", pinIndizes.size-1, pinIndizes, solver)
-					
-					// Add these to the locVarList so that we can enforce an allDifferent later
-					locVarList.addAll(pseudoInterfaces)
-				}
-			}
-			
-			// Finally, we can enforce an AllDifferent Constraint
-			solver.post(ICF.alldifferent(locVarList, "AC"))
 		}
+		
+		propagate
 
 		true
 	}
@@ -104,40 +85,3 @@ class InterfaceTypeConstraint extends AbstractMappingConstraint {
 	}
 }
 
-/**
- * This specialized graph encapsulates everything that is needed to build
- * a graph for all interface types
- */
-class CompatibleInterfaceTypeGraph extends SimpleGraph<String, DefaultEdge> {
-	new (AssistModel p_model) {
-		super(DefaultEdge)
-		
-		// 1. Add all types (no configurable pins yet)
-		for (type : p_model.eqInterfaceTypes) 
-			addVertex(type)	
-		
-		// 2. Add all configurable pin types 
-		if (p_model.compatibleIoTypes != null) {
-			for (entry : p_model.compatibleIoTypes) {
-			
-				// Do we already have the left side in our graph?
-				if (!p_model.eqInterfaceTypes.contains(entry.eqInterfaceIoType)) 
-					addVertex(entry.eqInterfaceIoType)
-				
-				// Go through all right side entries
-				for (compatibleType : entry.pinInterfaceIoTypes) {
-					if (!p_model.eqInterfaceTypes.contains(compatibleType))
-						addVertex(compatibleType)
-				
-					addEdge(entry.eqInterfaceIoType, compatibleType)
-				}
-			}
-		}
-	}
-	
-	/** Returns a list of sets of strings which represent connected interface types */
-	def List<Set<String>> getConnectedSets() {
-		val inspector = new ConnectivityInspector(this)
-		inspector.connectedSets
-	}
-}

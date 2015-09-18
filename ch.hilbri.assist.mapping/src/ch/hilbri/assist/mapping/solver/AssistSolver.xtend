@@ -33,6 +33,7 @@ import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.constraints.ConnectedPinsConstraint
 
 class AssistSolver {
 	
@@ -100,6 +101,7 @@ class AssistSolver {
 		mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
 		mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
 		mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))
+		mappingConstraintsList.add(new ConnectedPinsConstraint(model, solver, solverVariables))
 		
 //		mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 //		mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))

@@ -6,7 +6,9 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	BasicTests.class
+	BasicTests.class,
+	InterfaceTypeTests.class,
+	ConnectedPinsTests.class
 })  
 
 public class TestSuiteAllMappingTests {}

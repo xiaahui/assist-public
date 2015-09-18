@@ -260,13 +260,22 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL___GET_EQ_INTERFACE_TYPES = 14;
 
 	/**
+	 * The operation id for the '<em>Get Compatible Pin Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_COMPATIBLE_PIN_TYPES__STRING = 15;
+
+	/**
 	 * The operation id for the '<em>Get All Hardware Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = 15;
+	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = 16;
 
 	/**
 	 * The number of operations of the '<em>Assist Model</em>' class.
@@ -275,7 +284,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_OPERATION_COUNT = 16;
+	int ASSIST_MODEL_OPERATION_COUNT = 17;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.GlobalBlockImpl <em>Global Block</em>}' class.
@@ -2673,6 +2682,16 @@ public interface ModelPackage extends EPackage {
 	EOperation getAssistModel__GetEqInterfaceTypes();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getCompatiblePinTypes(java.lang.String) <em>Get Compatible Pin Types</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Compatible Pin Types</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getCompatiblePinTypes(java.lang.String)
+	 * @generated
+	 */
+	EOperation getAssistModel__GetCompatiblePinTypes__String();
+
+	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getAllHardwareElements(int) <em>Get All Hardware Elements</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4399,6 +4418,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ASSIST_MODEL___GET_EQ_INTERFACE_TYPES = eINSTANCE.getAssistModel__GetEqInterfaceTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Compatible Pin Types</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_COMPATIBLE_PIN_TYPES__STRING = eINSTANCE.getAssistModel__GetCompatiblePinTypes__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.

@@ -24,7 +24,7 @@ class AssistModel {
 	
 	// Methods
 	op String					getSystemName()				{ globalBlock.systemName										}
-	op CompatibleIoTypeEntry[] 	getCompatibleIoTypes() 		{ globalBlock.compatibleIoTypesBlock?.compatibleIoTypes			}
+	op CompatibleIoTypeEntry[] 	getCompatibleIoTypes() 		{ globalBlock.compatibleIoTypesBlock?.compatibleIoTypes.toEList	}
 	op CableWeightEntry[]  		getCableWeightData() 		{ globalBlock.cableWeightDataBlock?.cableWeightEntries   		}
 	op ProtectionLevelEntry[] 	getProtectionLevelData()	{ globalBlock.protectionLevelDataBlock?.protectionLevelEntries 	}
 	op Compartment[] 			getCompartments() 			{ compartmentsBlock.compartments 								}
@@ -38,7 +38,17 @@ class AssistModel {
 	op ValidDeployment[]		getValidDeployments()		{ restrictionsBlock?.validDeployments 							}
 	op InvalidDeployment[]		getInvalidDeployments()		{ restrictionsBlock?.invalidDeployments 						}
 	op String[]					getEqInterfaceTypes()		{ eqInterfaces.map[ioType].toSet.toEList						}
-	
+
+	op String[]					getCompatiblePinTypes(String eqIfaceType) {
+		if (globalBlock.compatibleIoTypesBlock == null)		#[eqIfaceType].toEList
+		else 
+			(#[eqIfaceType] + compatibleIoTypes.filter[eqInterfaceIoType == eqIfaceType]
+			  				  .map[pinInterfaceIoTypes]
+							  .flatten
+							  .toSet)
+							  .toEList
+	}		
+
 	op HardwareElement[] getAllHardwareElements(int level) {
 		if (level == 0) 		return connectors.map[it as HardwareElement]
 		else if (level == 1)	return RDCs.map[it as HardwareElement]

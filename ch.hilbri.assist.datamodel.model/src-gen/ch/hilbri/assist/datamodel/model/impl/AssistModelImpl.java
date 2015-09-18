@@ -27,6 +27,8 @@ import ch.hilbri.assist.datamodel.model.RDC;
 import ch.hilbri.assist.datamodel.model.RestrictionsBlock;
 import ch.hilbri.assist.datamodel.model.ValidDeployment;
 
+import com.google.common.base.Objects;
+
 import com.google.common.collect.Iterables;
 
 import java.lang.Iterable;
@@ -377,7 +379,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 		if (_compatibleIoTypesBlock!=null) {
 			_compatibleIoTypes=_compatibleIoTypesBlock.getCompatibleIoTypes();
 		}
-		return _compatibleIoTypes;
+		return ECollections.<CompatibleIoTypeEntry>toEList(_compatibleIoTypes);
 	}
 
 	/**
@@ -566,6 +568,42 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 		EList<String> _map = XcoreEListExtensions.<EqInterface, String>map(_eqInterfaces, _function);
 		Set<String> _set = IterableExtensions.<String>toSet(_map);
 		return ECollections.<String>toEList(_set);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getCompatiblePinTypes(final String eqIfaceType) {
+		EList<String> _xifexpression = null;
+		GlobalBlock _globalBlock = this.getGlobalBlock();
+		CompatibleIoTypesBlock _compatibleIoTypesBlock = _globalBlock.getCompatibleIoTypesBlock();
+		boolean _equals = Objects.equal(_compatibleIoTypesBlock, null);
+		if (_equals) {
+			_xifexpression = ECollections.<String>toEList(java.util.Collections.<String>unmodifiableList(org.eclipse.xtext.xbase.lib.CollectionLiterals.<String>newArrayList(eqIfaceType)));
+		}
+		else {
+			EList<CompatibleIoTypeEntry> _compatibleIoTypes = this.getCompatibleIoTypes();
+			final Function1<CompatibleIoTypeEntry, Boolean> _function = new Function1<CompatibleIoTypeEntry, Boolean>() {
+				public Boolean apply(final CompatibleIoTypeEntry it) {
+					String _eqInterfaceIoType = it.getEqInterfaceIoType();
+					return Boolean.valueOf(Objects.equal(_eqInterfaceIoType, eqIfaceType));
+				}
+			};
+			Iterable<CompatibleIoTypeEntry> _filter = IterableExtensions.<CompatibleIoTypeEntry>filter(_compatibleIoTypes, _function);
+			final Function1<CompatibleIoTypeEntry, EList<String>> _function_1 = new Function1<CompatibleIoTypeEntry, EList<String>>() {
+				public EList<String> apply(final CompatibleIoTypeEntry it) {
+					return it.getPinInterfaceIoTypes();
+				}
+			};
+			Iterable<EList<String>> _map = IterableExtensions.<CompatibleIoTypeEntry, EList<String>>map(_filter, _function_1);
+			Iterable<String> _flatten = Iterables.<String>concat(_map);
+			Set<String> _set = IterableExtensions.<String>toSet(_flatten);
+			Iterable<String> _plus = Iterables.<String>concat(java.util.Collections.<String>unmodifiableList(org.eclipse.xtext.xbase.lib.CollectionLiterals.<String>newArrayList(eqIfaceType)), _set);
+			_xifexpression = ECollections.<String>toEList(_plus);
+		}
+		return _xifexpression;
 	}
 
 	/**
@@ -768,6 +806,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getInvalidDeployments();
 			case ModelPackage.ASSIST_MODEL___GET_EQ_INTERFACE_TYPES:
 				return getEqInterfaceTypes();
+			case ModelPackage.ASSIST_MODEL___GET_COMPATIBLE_PIN_TYPES__STRING:
+				return getCompatiblePinTypes((String)arguments.get(0));
 			case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT:
 				return getAllHardwareElements((Integer)arguments.get(0));
 		}
