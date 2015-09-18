@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.tests.misc
+package ch.hilbri.assist.mapping.tests
 
 import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor
 import java.util.ArrayList

@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.tests.groups
+package ch.hilbri.assist.mapping.tests
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.Connector

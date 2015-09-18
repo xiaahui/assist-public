@@ -1,11 +1,11 @@
-package ch.hilbri.assist.mapping.tests.strategies
+package ch.hilbri.assist.mapping.tests
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.ModelPackage
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.solver.AssistSolver
 import ch.hilbri.assist.mapping.solver.SearchType
-import ch.hilbri.assist.mapping.tests.constraints.AbstractMappingTest
+import ch.hilbri.assist.mapping.tests.AbstractMappingTest
 import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider
 import java.util.ArrayList
 import javax.inject.Inject
@@ -21,7 +21,7 @@ import static org.junit.Assert.*
 
 @InjectWith(MappingDSLInjectorProvider)
 @RunWith(XtextRunner)
-class BasicStrategyTest {
+class StrategyTests {
 	
 	String 				input
 	AssistModel 		model
