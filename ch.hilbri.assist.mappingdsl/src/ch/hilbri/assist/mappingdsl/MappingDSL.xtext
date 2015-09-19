@@ -129,9 +129,9 @@ enum ProtectionLevelType:
 	L8		= 'L8'		
 ;
 
-MetricParametersBlock: 
+MetricParametersBlock: {MetricParametersBlock}
 	'Metric Parameters' '{'
-		metricParameters+=MetricParameter
+		(metricParameters+=MetricParameter)*
 	'}'	
 ;
 

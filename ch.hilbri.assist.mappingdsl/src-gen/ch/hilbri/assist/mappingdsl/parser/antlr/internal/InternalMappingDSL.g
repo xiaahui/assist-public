@@ -2077,35 +2077,41 @@ ruleMetricParametersBlock returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='Metric Parameters' 
+((
     {
-    	newLeafNode(otherlv_0, grammarAccess.getMetricParametersBlockAccess().getMetricParametersKeyword_0());
+        $current = forceCreateModelElement(
+            grammarAccess.getMetricParametersBlockAccess().getMetricParametersBlockAction_0(),
+            $current);
     }
-	otherlv_1='{' 
+)	otherlv_1='Metric Parameters' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getMetricParametersBlockAccess().getLeftCurlyBracketKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getMetricParametersBlockAccess().getMetricParametersKeyword_1());
+    }
+	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getMetricParametersBlockAccess().getLeftCurlyBracketKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMetricParametersBlockAccess().getMetricParametersMetricParameterParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getMetricParametersBlockAccess().getMetricParametersMetricParameterParserRuleCall_3_0()); 
 	    }
-		lv_metricParameters_2_0=ruleMetricParameter		{
+		lv_metricParameters_3_0=ruleMetricParameter		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMetricParametersBlockRule());
 	        }
        		add(
        			$current, 
        			"metricParameters",
-        		lv_metricParameters_2_0, 
+        		lv_metricParameters_3_0, 
         		"MetricParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_3='}' 
+)*	otherlv_4='}' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getMetricParametersBlockAccess().getRightCurlyBracketKeyword_3());
+    	newLeafNode(otherlv_4, grammarAccess.getMetricParametersBlockAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;

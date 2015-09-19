@@ -182,7 +182,7 @@ public class MappingDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPinAccess().getNameAssignment_0(), "rule__Pin__NameAssignment_0");
 					put(grammarAccess.getPinAccess().getEqInterfaceTypeAssignment_2(), "rule__Pin__EqInterfaceTypeAssignment_2");
 					put(grammarAccess.getPinAccess().getProtectionLevelAssignment_3_1(), "rule__Pin__ProtectionLevelAssignment_3_1");
-					put(grammarAccess.getMetricParametersBlockAccess().getMetricParametersAssignment_2(), "rule__MetricParametersBlock__MetricParametersAssignment_2");
+					put(grammarAccess.getMetricParametersBlockAccess().getMetricParametersAssignment_3(), "rule__MetricParametersBlock__MetricParametersAssignment_3");
 					put(grammarAccess.getMetricParameterAccess().getNameAssignment_0(), "rule__MetricParameter__NameAssignment_0");
 					put(grammarAccess.getMetricParameterAccess().getValueAssignment_2(), "rule__MetricParameter__ValueAssignment_2");
 					put(grammarAccess.getInterfacesBlockAccess().getEqInterfacesAssignment_2(), "rule__InterfacesBlock__EqInterfacesAssignment_2");

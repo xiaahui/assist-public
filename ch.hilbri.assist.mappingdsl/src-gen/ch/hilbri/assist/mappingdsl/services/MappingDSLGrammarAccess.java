@@ -1123,33 +1123,37 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	public class MetricParametersBlockElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MetricParametersBlock");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cMetricParametersKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cMetricParametersAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMetricParametersMetricParameterParserRuleCall_2_0 = (RuleCall)cMetricParametersAssignment_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Action cMetricParametersBlockAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cMetricParametersKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cMetricParametersAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cMetricParametersMetricParameterParserRuleCall_3_0 = (RuleCall)cMetricParametersAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//MetricParametersBlock:
-		//	"Metric Parameters" "{" metricParameters+=MetricParameter "}";
+		//	{MetricParametersBlock} "Metric Parameters" "{" metricParameters+=MetricParameter* "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Metric Parameters" "{" metricParameters+=MetricParameter "}"
+		//{MetricParametersBlock} "Metric Parameters" "{" metricParameters+=MetricParameter* "}"
 		public Group getGroup() { return cGroup; }
 
+		//{MetricParametersBlock}
+		public Action getMetricParametersBlockAction_0() { return cMetricParametersBlockAction_0; }
+
 		//"Metric Parameters"
-		public Keyword getMetricParametersKeyword_0() { return cMetricParametersKeyword_0; }
+		public Keyword getMetricParametersKeyword_1() { return cMetricParametersKeyword_1; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//metricParameters+=MetricParameter
-		public Assignment getMetricParametersAssignment_2() { return cMetricParametersAssignment_2; }
+		//metricParameters+=MetricParameter*
+		public Assignment getMetricParametersAssignment_3() { return cMetricParametersAssignment_3; }
 
 		//MetricParameter
-		public RuleCall getMetricParametersMetricParameterParserRuleCall_2_0() { return cMetricParametersMetricParameterParserRuleCall_2_0; }
+		public RuleCall getMetricParametersMetricParameterParserRuleCall_3_0() { return cMetricParametersMetricParameterParserRuleCall_3_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
 	public class MetricParameterElements extends AbstractParserRuleElementFinder {
@@ -3228,7 +3232,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MetricParametersBlock:
-	//	"Metric Parameters" "{" metricParameters+=MetricParameter "}";
+	//	{MetricParametersBlock} "Metric Parameters" "{" metricParameters+=MetricParameter* "}";
 	public MetricParametersBlockElements getMetricParametersBlockAccess() {
 		return pMetricParametersBlock;
 	}

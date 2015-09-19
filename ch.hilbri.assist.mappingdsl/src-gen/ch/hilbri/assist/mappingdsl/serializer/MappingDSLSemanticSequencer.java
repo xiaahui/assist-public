@@ -451,7 +451,7 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     metricParameters+=MetricParameter
+	 *     (metricParameters+=MetricParameter*)
 	 */
 	protected void sequence_MetricParametersBlock(EObject context, MetricParametersBlock semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

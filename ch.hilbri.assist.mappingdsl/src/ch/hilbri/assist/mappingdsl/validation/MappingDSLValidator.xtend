@@ -124,7 +124,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 	@Check
 	def checkGroupsAreNotEmpty(EqInterfaceGroup g) {
 		EcoreUtil.resolveAll(g)
-
+		// FIXME:!!!
 		val eqInterfaces = (g.eqInterfaces + g.implicitlyDefinedEqInterfaces).toSet.toList
 
 		eqInterfaces.removeAll(g.withoutEqInterfaces + g.withoutImplicitlyDefinedEqInterfaces)
