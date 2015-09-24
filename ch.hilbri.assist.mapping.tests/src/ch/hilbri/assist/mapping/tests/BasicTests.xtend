@@ -1,11 +1,35 @@
 package ch.hilbri.assist.mapping.tests
 
 import ch.hilbri.assist.datamodel.model.Compartment
+import java.net.URL
+import java.nio.file.Files
+import java.nio.file.Paths
 import org.junit.Test
 
 import static org.junit.Assert.*
 
 class BasicTests extends AbstractMappingTest {
+	
+	@Test
+	def void exampleSpecFileTest() {
+		
+		/* It is a little tricky to find the correct path 
+		 * to a file where I just know the relative path of;
+		 * especially when all the OSGi helper functions cannot
+		 * be used, because junit test case do not have these 
+		 * libraries loaded ... 
+		 */
+		val className = this.getClass().getSimpleName()
+		val testPath = this.getClass().getResource(className+".class")
+		val newPath = new URL(testPath, "../../../../../../../../ch.hilbri.assist.mappingdsl/src/ch/hilbri/assist/mappingdsl/ExampleSpecification.mdsl")
+
+		 val input = new String(Files.readAllBytes(Paths.get(newPath.toURI)))
+		 assertFalse(input.length == 0)
+	
+	     loadModelAndCreateResults(input)
+	     
+	     assertFalse(allResults.size == 0)
+	}
 	
 	@Test
 	def void attributeTest1() {
