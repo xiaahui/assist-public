@@ -7,6 +7,11 @@ import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.constraints.^extension.Tuples
 import org.slf4j.LoggerFactory
 
+/**
+ * This constraint is just responsible for building the system hierarchy,
+ * the valid "connections" between the various hardware levels:
+ * pin-level, connector-level, rdc-level, compartment-level
+ */
 class SystemHierarchyConstraint extends AbstractMappingConstraint {
 
 	/* Constructor */

@@ -10,17 +10,31 @@ import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.ICF
 import org.slf4j.LoggerFactory
 
+/**
+ * This constraint restricts every interface to a set of allowed pins
+ * 
+ * It takes care of:
+ * - basic io types 			(string matching)
+ * - configurable io types
+ * - protection levels
+ *  
+ * The allDifferent Constraint is not part of this constraint.
+ * This constraint does NOT assure that all pins get at most one interface
+ * allocated to them. Here, we just restrict the range of allowed values.
+ * 
+ * (Enforcing that each pin is taken by max. 1 interface is enforced
+ * in the connectedPin constraints.)
+ */
+
 class InterfaceTypeConstraint extends AbstractMappingConstraint {
 		
 	/* Constructor */
 	new(AssistModel p_model, Solver p_solver, SolverVariablesContainer p_solverVariables) {
 		super("(configurable) interface type", p_model, p_solver, p_solverVariables)
-		logger 			= LoggerFactory.getLogger(this.class)
+		logger = LoggerFactory.getLogger(this.class)
 	}
 
-	/* The allDifferent Constraint is not part of this constraint;
-	 * this constraint just restricts the interfaces to compatible types.
-	 * The allDifferent constraint is done in the connected pin constraint. */
+	
 
 	override generate() {
 

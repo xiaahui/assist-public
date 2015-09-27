@@ -13,6 +13,18 @@ import org.jgrapht.graph.DefaultEdge
 import org.jgrapht.graph.SimpleGraph
 import org.slf4j.LoggerFactory
 
+/**
+ * This constraint ensures that connected pins are properly handled
+ * and it also ensures that each pin is only assigned max. 1 interface
+ * 
+ * - connected pins are handled by adding "virtual interfaces"
+ *   which are only allowed to fill up the "unused pins" 
+ * 
+ * - assigning max. 1 interfaces is achieved by enforcing an alldiffernt
+ *   constraint; however, it is not enforced for ALL variables at the same time
+ *   due to performance penalties; therefore we try to split the set of all pins 
+ *   into smaller sets which can be treated independently  
+ */
 class ConnectedPinsConstraint extends AbstractMappingConstraint {
 
 	/* Member fields */
@@ -53,7 +65,7 @@ class ConnectedPinsConstraint extends AbstractMappingConstraint {
 				}
 			}
 			
-			// Finally, we can enforce an AllDifferent Constraint
+			// Finally, we can enforce an AllDifferent Constraint for the current subset
 			solver.post(ICF.alldifferent(locVarList, "AC"))
 			
 		}
@@ -68,13 +80,21 @@ class ConnectedPinsConstraint extends AbstractMappingConstraint {
  * This specialized graph encapsulates everything that is needed to build
  * a graph for all pin types which are jointly used 
  * (or better: which cannot be treated independently)
+ * 
+ * Approach: we go through every type and retrieve the list of compatible types
+ *           (this includes the "original" type)
+ * 		     then we add a node for each type and add an edge to the "original" type
+ *           
+ * Result:  a graph with the pin types as nodes and edges between the nodes if these
+ *          types have to be mapped "together" 
+ *          (only nodes with no edges can be mapped independently!)
  */
 class CompatibleInterfaceTypeGraph extends SimpleGraph<String, DefaultEdge> {
-	new (AssistModel p_model) {
+	new (AssistModel model) {
 		super(DefaultEdge)
 		
-		for (type : p_model.eqInterfaceTypes) {
-			val compatiblePinTypes = p_model.getCompatiblePinTypes(type)
+		for (type : model.eqInterfaceTypes) {
+			val compatiblePinTypes = model.getCompatiblePinTypes(type)
 			for (pinType : compatiblePinTypes) {
 				addVertex(pinType)
 				if (pinType != compatiblePinTypes.head) 
