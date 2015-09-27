@@ -123,15 +123,17 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 
 	@Check
 	def checkGroupsAreNotEmpty(EqInterfaceGroup g) {
-		EcoreUtil.resolveAll(g)
-		// FIXME:!!!
-		val eqInterfaces = (g.eqInterfaces + g.implicitlyDefinedEqInterfaces).toSet.toList
-
-		eqInterfaces.removeAll(g.withoutEqInterfaces + g.withoutImplicitlyDefinedEqInterfaces)
-
-		if (eqInterfaces.nullOrEmpty)
-			warning("The group " + g.name + " contains no interfaces. It is empty. This may be unintended.", g,
-				ModelPackage.Literals::EQ_INTERFACE_OR_GROUP__NAME)
+		
+		if (!(g instanceof EqInterfaceGroupWithCombinedDefinition))	{
+		
+			EcoreUtil.resolveAll(g)
+			val eqInterfaces = (g.eqInterfaces + g.implicitlyDefinedEqInterfaces).toSet.toList
+			eqInterfaces.removeAll(g.withoutEqInterfaces + g.withoutImplicitlyDefinedEqInterfaces)
+			if (eqInterfaces.nullOrEmpty)
+				warning("The group " + g.name + " contains no interfaces. It is empty. This may be unintended.", g,
+					ModelPackage.Literals::EQ_INTERFACE_OR_GROUP__NAME)
+				
+		}
 	
 	}
 

@@ -8,15 +8,17 @@ import ch.hilbri.assist.datamodel.model.EqInterfaceOrGroup;
 import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinition;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 
+import com.google.common.collect.Iterables;
+
+import java.lang.Iterable;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
@@ -26,6 +28,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
+
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
@@ -168,15 +174,16 @@ public class EqInterfaceGroupImpl extends EqInterfaceOrGroupImpl implements EqIn
 	 * @generated
 	 */
 	public EList<EqInterface> getImplicitlyDefinedEqInterfaces() {
-		final BasicEList<EqInterface> list = new BasicEList<EqInterface>();
 		EList<ImplicitEqInterfaceMemberDefinition> _implicitMemberDefinitions = this.getImplicitMemberDefinitions();
-		for (final ImplicitEqInterfaceMemberDefinition implicitDefinitionElement : _implicitMemberDefinitions) {
-			EList<EqInterface> _implicitlyDefinedEqInterfaces = implicitDefinitionElement.getImplicitlyDefinedEqInterfaces();
-			list.addAll(_implicitlyDefinedEqInterfaces);
-		}
-		Set<EqInterface> _set = IterableExtensions.<EqInterface>toSet(list);
-		List<EqInterface> _list = IterableExtensions.<EqInterface>toList(_set);
-		return ECollections.<EqInterface>toEList(_list);
+		final Function1<ImplicitEqInterfaceMemberDefinition, EList<EqInterface>> _function = new Function1<ImplicitEqInterfaceMemberDefinition, EList<EqInterface>>() {
+			public EList<EqInterface> apply(final ImplicitEqInterfaceMemberDefinition it) {
+				return it.getImplicitlyDefinedEqInterfaces();
+			}
+		};
+		EList<EList<EqInterface>> _map = XcoreEListExtensions.<ImplicitEqInterfaceMemberDefinition, EList<EqInterface>>map(_implicitMemberDefinitions, _function);
+		Iterable<EqInterface> _flatten = Iterables.<EqInterface>concat(_map);
+		Set<EqInterface> _set = IterableExtensions.<EqInterface>toSet(_flatten);
+		return ECollections.<EqInterface>toEList(_set);
 	}
 
 	/**
@@ -185,15 +192,16 @@ public class EqInterfaceGroupImpl extends EqInterfaceOrGroupImpl implements EqIn
 	 * @generated
 	 */
 	public EList<EqInterface> getWithoutImplicitlyDefinedEqInterfaces() {
-		final BasicEList<EqInterface> list = new BasicEList<EqInterface>();
 		EList<ImplicitEqInterfaceMemberDefinition> _withoutImplicitMemberDefinitions = this.getWithoutImplicitMemberDefinitions();
-		for (final ImplicitEqInterfaceMemberDefinition implicitDefinitionElement : _withoutImplicitMemberDefinitions) {
-			EList<EqInterface> _implicitlyDefinedEqInterfaces = implicitDefinitionElement.getImplicitlyDefinedEqInterfaces();
-			list.addAll(_implicitlyDefinedEqInterfaces);
-		}
-		Set<EqInterface> _set = IterableExtensions.<EqInterface>toSet(list);
-		List<EqInterface> _list = IterableExtensions.<EqInterface>toList(_set);
-		return ECollections.<EqInterface>toEList(_list);
+		final Function1<ImplicitEqInterfaceMemberDefinition, EList<EqInterface>> _function = new Function1<ImplicitEqInterfaceMemberDefinition, EList<EqInterface>>() {
+			public EList<EqInterface> apply(final ImplicitEqInterfaceMemberDefinition it) {
+				return it.getImplicitlyDefinedEqInterfaces();
+			}
+		};
+		EList<EList<EqInterface>> _map = XcoreEListExtensions.<ImplicitEqInterfaceMemberDefinition, EList<EqInterface>>map(_withoutImplicitMemberDefinitions, _function);
+		Iterable<EqInterface> _flatten = Iterables.<EqInterface>concat(_map);
+		Set<EqInterface> _set = IterableExtensions.<EqInterface>toSet(_flatten);
+		return ECollections.<EqInterface>toEList(_set);
 	}
 
 	/**

@@ -10,19 +10,15 @@ import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttri
 import ch.hilbri.assist.datamodel.model.InterfacesBlock;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 
-import com.google.common.collect.Iterables;
-
 import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
@@ -100,10 +96,10 @@ public class ImplicitEqInterfaceMemberDefinitionImpl extends MinimalEObjectImpl.
 	 * @generated
 	 */
 	public EList<EqInterface> getImplicitlyDefinedEqInterfaces() {
-		final BasicEList<EqInterface> list = new BasicEList<EqInterface>();
 		EObject _eContainer = this.eContainer();
 		EObject _eContainer_1 = _eContainer.eContainer();
-		final AssistModel model = ((AssistModel) _eContainer_1);
+		EObject _eContainer_2 = _eContainer_1.eContainer();
+		final AssistModel model = ((AssistModel) _eContainer_2);
 		InterfacesBlock _interfacesBlock = model.getInterfacesBlock();
 		Iterable<EqInterface> interfaceList = _interfacesBlock.getEqInterfaces();
 		EList<ImplicitEqInterfaceMemberDefinitionAttributesAndValues> _entries = this.getEntries();
@@ -270,10 +266,8 @@ public class ImplicitEqInterfaceMemberDefinitionImpl extends MinimalEObjectImpl.
 				}
 			}
 		}
-		Iterables.<EqInterface>addAll(list, interfaceList);
-		Set<EqInterface> _set = IterableExtensions.<EqInterface>toSet(list);
-		List<EqInterface> _list = IterableExtensions.<EqInterface>toList(_set);
-		return ECollections.<EqInterface>toEList(_list);
+		Set<EqInterface> _set = IterableExtensions.<EqInterface>toSet(interfaceList);
+		return ECollections.<EqInterface>toEList(_set);
 	}
 
 	/**

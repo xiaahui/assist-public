@@ -245,25 +245,17 @@ class EqInterfaceGroup extends EqInterfaceOrGroup {
 	op String toString() { name }
 
 	op EqInterface[] getImplicitlyDefinedEqInterfaces() {
-		val list = new BasicEList<EqInterface>
-		
-		// We have to explode all implicit group definitions
-		for (implicitDefinitionElement : this.implicitMemberDefinitions) {
-			list.addAll(implicitDefinitionElement.implicitlyDefinedEqInterfaces)
-		} 
-		
-		return (list.toSet.toList.toEList)
+		implicitMemberDefinitions.map[implicitlyDefinedEqInterfaces]
+								 .flatten
+								 .toSet
+								 .toEList
 	}
 	
 	op EqInterface[] getWithoutImplicitlyDefinedEqInterfaces() {
-		val list = new BasicEList<EqInterface>
-		
-		// We have to explode all implicit group definitions
-		for (implicitDefinitionElement : this.withoutImplicitMemberDefinitions) {
-			list.addAll(implicitDefinitionElement.implicitlyDefinedEqInterfaces)
-		} 
-		
-		return (list.toSet.toList.toEList)
+		withoutImplicitMemberDefinitions.map[implicitlyDefinedEqInterfaces]
+										.flatten
+										.toSet
+										.toEList
 	}
 }
 
@@ -272,42 +264,41 @@ class ImplicitEqInterfaceMemberDefinition {
 	contains ImplicitEqInterfaceMemberDefinitionAttributesAndValues[1..*] entries
 
 	op EqInterface[] getImplicitlyDefinedEqInterfaces() {
-		val list = new BasicEList<EqInterface>
-		val model = this.eContainer.eContainer as AssistModel
+
+		val model = this.eContainer.eContainer.eContainer as AssistModel
 		
-		// contains the interfaces discovered for a single implicit definition element
+		// contains all interfaces present in the system
+		// this set will be reduced in the next steps
 		var Iterable<EqInterface> interfaceList = model.interfacesBlock.eqInterfaces	
 					
 		// Go through all entries (they are concatenated by AND)
 		for (entry : entries) {
 			switch (entry.attribute) {
-				case NAME:			{ interfaceList = interfaceList.filter[it.name.equals(entry.value)			]}
-				case SYSTEM: 		{ interfaceList = interfaceList.filter[it.system.equals(entry.value)		]}
-				case SUBATA: 		{ interfaceList = interfaceList.filter[it.subAta.equals(entry.value)		]}
-				case RESOURCE: 		{ interfaceList = interfaceList.filter[it.resource.equals(entry.value)		]}
-				case LINENAME: 		{ interfaceList = interfaceList.filter[it.lineName.equals(entry.value)		]}
-				case WIRINGLANE:	{ interfaceList = interfaceList.filter[it.wiringLane.equals(entry.value)	]}
-				case GRPINFO: 		{ interfaceList = interfaceList.filter[it.grpInfo.equals(entry.value)		]}
-				case ROUTE: 		{ interfaceList = interfaceList.filter[it.route.equals(entry.value)			]}
-				case PWSUP1: 		{ interfaceList = interfaceList.filter[it.pwSup1.equals(entry.value)		]}
-				case EMHZONE1: 		{ interfaceList = interfaceList.filter[it.emhZone1.equals(entry.value)		]}
-				case IOTYPE: 		{ interfaceList = interfaceList.filter[it.ioType.equals(entry.value)		]}
-				case RESOURCE_X: 	{ interfaceList = interfaceList.filter[it.resourceX.equals(entry.value)		]}
-				case RESOURCE_Y: 	{ interfaceList = interfaceList.filter[it.resourceY.equals(entry.value)		]}
-				case RESOURCE_Z: 	{ interfaceList = interfaceList.filter[it.resourceZ.equals(entry.value)		]}
+				case NAME:			{ interfaceList = interfaceList.filter[name.equals(entry.value)			]}
+				case SYSTEM: 		{ interfaceList = interfaceList.filter[system.equals(entry.value)		]}
+				case SUBATA: 		{ interfaceList = interfaceList.filter[subAta.equals(entry.value)		]}
+				case RESOURCE: 		{ interfaceList = interfaceList.filter[resource.equals(entry.value)		]}
+				case LINENAME: 		{ interfaceList = interfaceList.filter[lineName.equals(entry.value)		]}
+				case WIRINGLANE:	{ interfaceList = interfaceList.filter[wiringLane.equals(entry.value)	]}
+				case GRPINFO: 		{ interfaceList = interfaceList.filter[grpInfo.equals(entry.value)		]}
+				case ROUTE: 		{ interfaceList = interfaceList.filter[route.equals(entry.value)		]}
+				case PWSUP1: 		{ interfaceList = interfaceList.filter[pwSup1.equals(entry.value)		]}
+				case EMHZONE1: 		{ interfaceList = interfaceList.filter[emhZone1.equals(entry.value)		]}
+				case IOTYPE: 		{ interfaceList = interfaceList.filter[ioType.equals(entry.value)		]}
+				case RESOURCE_X: 	{ interfaceList = interfaceList.filter[resourceX.equals(entry.value)	]}
+				case RESOURCE_Y: 	{ interfaceList = interfaceList.filter[resourceY.equals(entry.value)	]}
+				case RESOURCE_Z: 	{ interfaceList = interfaceList.filter[resourceZ.equals(entry.value)	]}
 			} // switch
 		} // for (entry)
 		
-		list.addAll(interfaceList)
-		
-		return (list.toSet.toList.toEList)
+		return interfaceList.toSet.toEList
 	}
 }
 
 
 class ImplicitEqInterfaceMemberDefinitionAttributesAndValues {
-	ImplicitEqInterfaceMemberDefinitionAttribute attribute
-	String					 			value
+	ImplicitEqInterfaceMemberDefinitionAttribute 	attribute
+	String					 						value
 }
 
 enum ImplicitEqInterfaceMemberDefinitionAttribute {
