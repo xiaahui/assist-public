@@ -5,6 +5,8 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
+import ch.hilbri.assist.mapping.solver.constraints.ConnectedPinsConstraint
+import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
@@ -33,7 +35,6 @@ import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.constraints.ConnectedPinsConstraint
 
 class AssistSolver {
 	
@@ -106,7 +107,7 @@ class AssistSolver {
 //		mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 //		mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 //		mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
-//		mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
+		mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
 
 		/* Create a list for the results */ 
 		mappingResults = new ArrayList<Result>()  

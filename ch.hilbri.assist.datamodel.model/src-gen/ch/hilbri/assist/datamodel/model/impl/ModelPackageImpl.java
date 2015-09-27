@@ -592,7 +592,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetAllHardwareElements__int() {
+	public EOperation getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType() {
 		return assistModelEClass.getEOperations().get(16);
 	}
 
@@ -1942,7 +1942,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_INVALID_DEPLOYMENTS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_EQ_INTERFACE_TYPES);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_COMPATIBLE_PIN_TYPES__STRING);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE);
 
 		globalBlockEClass = createEClass(GLOBAL_BLOCK);
 		createEAttribute(globalBlockEClass, GLOBAL_BLOCK__SYSTEM_NAME);
@@ -2206,8 +2206,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		EOperation op = initEOperation(getAssistModel__GetCompatiblePinTypes__String(), theEcorePackage.getEString(), "getCompatiblePinTypes", 0, -1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcorePackage.getEString(), "eqIfaceType", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getAssistModel__GetAllHardwareElements__int(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcorePackage.getEInt(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getHardwareArchitectureLevelType(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(globalBlockEClass, GlobalBlock.class, "GlobalBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGlobalBlock_SystemName(), theEcorePackage.getEString(), "systemName", "", 0, 1, GlobalBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

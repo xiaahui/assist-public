@@ -25,15 +25,15 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 		if (model.dislocalityRelations.isNullOrEmpty) return false
 
 		for (r : model.dislocalityRelations) {
-			val l = solverVariables.getLevelIndex(r.hardwareLevel)
 			
-			// Case 0: Nothing is mentioned - prevented by the input language grammar
-
 			// Case 1: Only EqInterfaces mentioned
 			if (r.eqInterfaceOrGroups.filter[it instanceof EqInterface].length == r.eqInterfaceOrGroups.length) {
-				val intVars = r.eqInterfaceOrGroups.map[solverVariables.getEqInterfaceLocationVariable(it as EqInterface, l)]
+				val intVars = r.eqInterfaceOrGroups.map[solverVariables.getEqInterfaceLocationVariable(it as EqInterface, r.hardwareLevel)]
 				if (intVars.length > 1)
 					solver.post(ICF.alldifferent(intVars, "AC"))
+				else 
+					logger.info('''       Skipping dislocality constraint with only one eqInterface «r.eqInterfaceOrGroups.get(0).name»''')
+				
 			} 
 			
 			// Case 2: Only a single group is mentioned
@@ -43,24 +43,25 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				
 				// The group should not be empty
 				if (group.eqInterfaces.length > 1) { 
-					val intVars = group.eqInterfaces.map[solverVariables.getEqInterfaceLocationVariable(it, l)]
+					val intVars = group.eqInterfaces.map[solverVariables.getEqInterfaceLocationVariable(it, r.hardwareLevel)]
 					solver.post(ICF.alldifferent(intVars, "AC"))
-				} else {
+				} else 
 					logger.info('''       Skipping dislocality constraint with empty or one element group «group.name»''')
-				}
+				
 				
 			}
 			
 			// Case 3: A mix of groups and interfaces is specified
+			// This is a change in semantics(!) - now dislocal groups are not allowed to share resources between groups, but they can share an RDCs within a group
 			else {
 				val List<List<EqInterface>> ifaceList  = r.eqInterfaceOrGroups
 														  .filter[(it instanceof EqInterface) || 
-																	(it instanceof EqInterfaceGroup && (it as EqInterfaceGroup).eqInterfaces.length > 0)]
+																  (it instanceof EqInterfaceGroup && (it as EqInterfaceGroup).eqInterfaces.length > 0)]
 					  									  .toList
 														  .map[ if (it instanceof EqInterface) #[it]
 															    else if (it instanceof EqInterfaceGroup) it.eqInterfaces]
 				
-				val List<List<IntVar>> intVarList = ifaceList.map[it.map[solverVariables.getEqInterfaceLocationVariable(it, l)]]
+				val List<List<IntVar>> intVarList = ifaceList.map[it.map[solverVariables.getEqInterfaceLocationVariable(it, r.hardwareLevel)]]
 				
 				val emptyGroupCounter = r.eqInterfaceOrGroups.length - ifaceList.length
 					
@@ -79,7 +80,8 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 					} 
 					else {
 					    // this could be optimized by using the variable itself for groups containing only one element 
-						val domainUnionVars = intVarList.map[VF.enumerated("DomainVarForGroup" + it, 0, model.getAllHardwareElements(l).size-1, solver)]
+						val domainUnionVars = intVarList.map[VF.enumerated("DomainVarForGroup" + it, 0, model.getAllHardwareElements(r.hardwareLevel).size-1, solver)]
+						// this is our specialized allDifferent for lists of lists of intVars
 						solver.post(ACF.allDifferent(intVarList, domainUnionVars))					
 					}
 				}
@@ -95,8 +97,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 	}
 	
 	def void recursiveConstraintBuild(List<List<IntVar>> intVarList, int idx, List<IntVar> conflict) {
-		val curList = intVarList.get(idx)
-		for (l: curList) {
+		for (l: intVarList.get(idx)) {
 			conflict.add(l)
 			if (idx == intVarList.size - 1) {
 				solver.post(ICF.alldifferent(conflict))				

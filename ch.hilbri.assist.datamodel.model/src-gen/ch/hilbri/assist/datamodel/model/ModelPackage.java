@@ -275,7 +275,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = 16;
+	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE = 16;
 
 	/**
 	 * The number of operations of the '<em>Assist Model</em>' class.
@@ -2692,14 +2692,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getAssistModel__GetCompatiblePinTypes__String();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getAllHardwareElements(int) <em>Get All Hardware Elements</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getAllHardwareElements(ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType) <em>Get All Hardware Elements</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get All Hardware Elements</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getAllHardwareElements(int)
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getAllHardwareElements(ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType)
 	 * @generated
 	 */
-	EOperation getAssistModel__GetAllHardwareElements__int();
+	EOperation getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.GlobalBlock <em>Global Block</em>}'.
@@ -4433,7 +4433,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = eINSTANCE.getAssistModel__GetAllHardwareElements__int();
+		EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE = eINSTANCE.getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.GlobalBlockImpl <em>Global Block</em>}' class.

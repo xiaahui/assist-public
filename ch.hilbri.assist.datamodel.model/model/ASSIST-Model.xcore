@@ -49,13 +49,13 @@ class AssistModel {
 							  .toEList
 	}		
 
-	op HardwareElement[] getAllHardwareElements(int level) {
-		if (level == 0) 		return connectors.map[it as HardwareElement]
-		else if (level == 1)	return RDCs.map[it as HardwareElement]
-		else if (level == 2)	return compartments.map[it as HardwareElement]
-		else return null
+	op HardwareElement[] getAllHardwareElements(HardwareArchitectureLevelType level) {
+		if (level == HardwareArchitectureLevelType.PIN)					return pins.map[it as HardwareElement]
+		else if (level == HardwareArchitectureLevelType.CONNECTOR)		return connectors.map[it as HardwareElement]
+		else if (level == HardwareArchitectureLevelType.RDC)			return RDCs.map[it as HardwareElement]
+		else if (level == HardwareArchitectureLevelType.COMPARTMENT)	return compartments.map[it as HardwareElement]
+		else return null	
 	}
-	
 	
 }
 

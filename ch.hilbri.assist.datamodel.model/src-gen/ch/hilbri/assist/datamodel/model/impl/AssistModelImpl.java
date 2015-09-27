@@ -15,6 +15,7 @@ import ch.hilbri.assist.datamodel.model.DislocalityRelation;
 import ch.hilbri.assist.datamodel.model.EqInterface;
 import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
 import ch.hilbri.assist.datamodel.model.GlobalBlock;
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.datamodel.model.HardwareElement;
 import ch.hilbri.assist.datamodel.model.InterfaceGroupsBlock;
 import ch.hilbri.assist.datamodel.model.InterfacesBlock;
@@ -611,38 +612,53 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<HardwareElement> getAllHardwareElements(final int level) {
-		if ((level == 0)) {
-			EList<Connector> _connectors = this.getConnectors();
-			final Function1<Connector, HardwareElement> _function = new Function1<Connector, HardwareElement>() {
-				public HardwareElement apply(final Connector it) {
+	public EList<HardwareElement> getAllHardwareElements(final HardwareArchitectureLevelType level) {
+		boolean _equals = Objects.equal(level, HardwareArchitectureLevelType.PIN);
+		if (_equals) {
+			EList<Pin> _pins = this.getPins();
+			final Function1<Pin, HardwareElement> _function = new Function1<Pin, HardwareElement>() {
+				public HardwareElement apply(final Pin it) {
 					return ((HardwareElement) it);
 				}
 			};
-			return XcoreEListExtensions.<Connector, HardwareElement>map(_connectors, _function);
+			return XcoreEListExtensions.<Pin, HardwareElement>map(_pins, _function);
 		}
 		else {
-			if ((level == 1)) {
-				EList<RDC> _rDCs = this.getRDCs();
-				final Function1<RDC, HardwareElement> _function_1 = new Function1<RDC, HardwareElement>() {
-					public HardwareElement apply(final RDC it) {
+			boolean _equals_1 = Objects.equal(level, HardwareArchitectureLevelType.CONNECTOR);
+			if (_equals_1) {
+				EList<Connector> _connectors = this.getConnectors();
+				final Function1<Connector, HardwareElement> _function_1 = new Function1<Connector, HardwareElement>() {
+					public HardwareElement apply(final Connector it) {
 						return ((HardwareElement) it);
 					}
 				};
-				return XcoreEListExtensions.<RDC, HardwareElement>map(_rDCs, _function_1);
+				return XcoreEListExtensions.<Connector, HardwareElement>map(_connectors, _function_1);
 			}
 			else {
-				if ((level == 2)) {
-					EList<Compartment> _compartments = this.getCompartments();
-					final Function1<Compartment, HardwareElement> _function_2 = new Function1<Compartment, HardwareElement>() {
-						public HardwareElement apply(final Compartment it) {
+				boolean _equals_2 = Objects.equal(level, HardwareArchitectureLevelType.RDC);
+				if (_equals_2) {
+					EList<RDC> _rDCs = this.getRDCs();
+					final Function1<RDC, HardwareElement> _function_2 = new Function1<RDC, HardwareElement>() {
+						public HardwareElement apply(final RDC it) {
 							return ((HardwareElement) it);
 						}
 					};
-					return XcoreEListExtensions.<Compartment, HardwareElement>map(_compartments, _function_2);
+					return XcoreEListExtensions.<RDC, HardwareElement>map(_rDCs, _function_2);
 				}
 				else {
-					return null;
+					boolean _equals_3 = Objects.equal(level, HardwareArchitectureLevelType.COMPARTMENT);
+					if (_equals_3) {
+						EList<Compartment> _compartments = this.getCompartments();
+						final Function1<Compartment, HardwareElement> _function_3 = new Function1<Compartment, HardwareElement>() {
+							public HardwareElement apply(final Compartment it) {
+								return ((HardwareElement) it);
+							}
+						};
+						return XcoreEListExtensions.<Compartment, HardwareElement>map(_compartments, _function_3);
+					}
+					else {
+						return null;
+					}
 				}
 			}
 		}
@@ -808,8 +824,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getEqInterfaceTypes();
 			case ModelPackage.ASSIST_MODEL___GET_COMPATIBLE_PIN_TYPES__STRING:
 				return getCompatiblePinTypes((String)arguments.get(0));
-			case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT:
-				return getAllHardwareElements((Integer)arguments.get(0));
+			case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE:
+				return getAllHardwareElements((HardwareArchitectureLevelType)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
