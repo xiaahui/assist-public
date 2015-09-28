@@ -9,6 +9,8 @@ import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ConnectedPinsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
+import ch.hilbri.assist.mapping.solver.constraints.RestrictInvalidDeploymentsConstraint
+import ch.hilbri.assist.mapping.solver.constraints.RestrictValidDeploymentsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
@@ -105,8 +107,8 @@ class AssistSolver {
 		mappingConstraintsList.add(new InterfaceTypeConstraint(model, solver, solverVariables))
 		mappingConstraintsList.add(new ConnectedPinsConstraint(model, solver, solverVariables))
 		
-//		mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
-//		mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
+		mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
+		mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 		mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
 

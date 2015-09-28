@@ -54,10 +54,10 @@ class MappingDSLFormatter extends AbstractDeclarativeFormatter {
 		c.setNoLinewrap.before(eqInterfaceGroupAccess.rightCurlyBracketKeyword_5)
 	
 		// No linewrap after valid/invalid definitions
-		c.setNoLinewrap.after(validDeploymentAccess.leftCurlyBracketKeyword_4)
-		c.setNoLinewrap.before(validDeploymentAccess.rightCurlyBracketKeyword_7)
-		c.setNoLinewrap.after(invalidDeploymentAccess.leftCurlyBracketKeyword_4)
-		c.setNoLinewrap.before(invalidDeploymentAccess.rightCurlyBracketKeyword_7)
+		c.setNoLinewrap.after(validDeploymentAccess.leftCurlyBracketKeyword_5)
+		c.setNoLinewrap.before(validDeploymentAccess.rightCurlyBracketKeyword_8)
+		c.setNoLinewrap.after(invalidDeploymentAccess.leftCurlyBracketKeyword_5)
+		c.setNoLinewrap.before(invalidDeploymentAccess.rightCurlyBracketKeyword_8)
 		
 		// Double Linewrap after sections in the ASSIST rule
 		

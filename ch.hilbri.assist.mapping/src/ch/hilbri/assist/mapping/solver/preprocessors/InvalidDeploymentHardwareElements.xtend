@@ -17,7 +17,7 @@ class InvalidDeploymentHardwareElements extends AbstractModelPreprocessor {
 			
 				logger.info("    . Processing invalid deployment for interfaces/groups " + s.eqInterfaceOrGroups)
 			
-				s.hardwareElements.addAll(s.implicitlyDefinedConnectors)			
+				s.hardwareElements.addAll(s.implicitlyDefinedPins)			
 				
 				// We do not need to remove duplicate entries - this will be already done in the constraint
 				

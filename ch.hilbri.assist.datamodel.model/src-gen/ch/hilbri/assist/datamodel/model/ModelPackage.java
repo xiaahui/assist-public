@@ -893,13 +893,13 @@ public interface ModelPackage extends EPackage {
 	int COMPARTMENT___TO_STRING = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get All Connectors</em>' operation.
+	 * The operation id for the '<em>Get Pins</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARTMENT___GET_ALL_CONNECTORS = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
+	int COMPARTMENT___GET_PINS = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Compartment</em>' class.
@@ -1074,13 +1074,22 @@ public interface ModelPackage extends EPackage {
 	int RDC___TO_STRING = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Pins</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDC___GET_PINS = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>RDC</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDC_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
+	int RDC_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.InternalConnectedPinBlockImpl <em>Internal Connected Pin Block</em>}' class.
@@ -2170,13 +2179,13 @@ public interface ModelPackage extends EPackage {
 	int DEPLOYMENT_SPECIFICATION___GET_ALL_EQ_INTERFACE_OR_GROUP_NAMES = 0;
 
 	/**
-	 * The operation id for the '<em>Get Implicitly Defined Connectors</em>' operation.
+	 * The operation id for the '<em>Get Implicitly Defined Pins</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT_SPECIFICATION___GET_IMPLICITLY_DEFINED_CONNECTORS = 1;
+	int DEPLOYMENT_SPECIFICATION___GET_IMPLICITLY_DEFINED_PINS = 1;
 
 	/**
 	 * The number of operations of the '<em>Deployment Specification</em>' class.
@@ -2216,13 +2225,13 @@ public interface ModelPackage extends EPackage {
 	int DEPLOYMENT_IMPLICIT_DEFINITION_FEATURE_COUNT = 1;
 
 	/**
-	 * The operation id for the '<em>Get Implicitly Defined Connectors</em>' operation.
+	 * The operation id for the '<em>Get Implicitly Defined Pins</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT_IMPLICIT_DEFINITION___GET_IMPLICITLY_DEFINED_CONNECTORS = 0;
+	int DEPLOYMENT_IMPLICIT_DEFINITION___GET_IMPLICITLY_DEFINED_PINS = 0;
 
 	/**
 	 * The number of operations of the '<em>Deployment Implicit Definition</em>' class.
@@ -2335,13 +2344,13 @@ public interface ModelPackage extends EPackage {
 	int VALID_DEPLOYMENT___GET_ALL_EQ_INTERFACE_OR_GROUP_NAMES = DEPLOYMENT_SPECIFICATION___GET_ALL_EQ_INTERFACE_OR_GROUP_NAMES;
 
 	/**
-	 * The operation id for the '<em>Get Implicitly Defined Connectors</em>' operation.
+	 * The operation id for the '<em>Get Implicitly Defined Pins</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALID_DEPLOYMENT___GET_IMPLICITLY_DEFINED_CONNECTORS = DEPLOYMENT_SPECIFICATION___GET_IMPLICITLY_DEFINED_CONNECTORS;
+	int VALID_DEPLOYMENT___GET_IMPLICITLY_DEFINED_PINS = DEPLOYMENT_SPECIFICATION___GET_IMPLICITLY_DEFINED_PINS;
 
 	/**
 	 * The number of operations of the '<em>Valid Deployment</em>' class.
@@ -2408,13 +2417,13 @@ public interface ModelPackage extends EPackage {
 	int INVALID_DEPLOYMENT___GET_ALL_EQ_INTERFACE_OR_GROUP_NAMES = DEPLOYMENT_SPECIFICATION___GET_ALL_EQ_INTERFACE_OR_GROUP_NAMES;
 
 	/**
-	 * The operation id for the '<em>Get Implicitly Defined Connectors</em>' operation.
+	 * The operation id for the '<em>Get Implicitly Defined Pins</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INVALID_DEPLOYMENT___GET_IMPLICITLY_DEFINED_CONNECTORS = DEPLOYMENT_SPECIFICATION___GET_IMPLICITLY_DEFINED_CONNECTORS;
+	int INVALID_DEPLOYMENT___GET_IMPLICITLY_DEFINED_PINS = DEPLOYMENT_SPECIFICATION___GET_IMPLICITLY_DEFINED_PINS;
 
 	/**
 	 * The number of operations of the '<em>Invalid Deployment</em>' class.
@@ -3138,14 +3147,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getCompartment__ToString();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.Compartment#getAllConnectors() <em>Get All Connectors</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.Compartment#getPins() <em>Get Pins</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Connectors</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.Compartment#getAllConnectors()
+	 * @return the meta object for the '<em>Get Pins</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.Compartment#getPins()
 	 * @generated
 	 */
-	EOperation getCompartment__GetAllConnectors();
+	EOperation getCompartment__GetPins();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.RDC <em>RDC</em>}'.
@@ -3309,6 +3318,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRDC__ToString();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.RDC#getPins() <em>Get Pins</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Pins</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.RDC#getPins()
+	 * @generated
+	 */
+	EOperation getRDC__GetPins();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.InternalConnectedPinBlock <em>Internal Connected Pin Block</em>}'.
@@ -4094,14 +4113,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getDeploymentSpecification__GetAllEqInterfaceOrGroupNames();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.DeploymentSpecification#getImplicitlyDefinedConnectors() <em>Get Implicitly Defined Connectors</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.DeploymentSpecification#getImplicitlyDefinedPins() <em>Get Implicitly Defined Pins</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Implicitly Defined Connectors</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.DeploymentSpecification#getImplicitlyDefinedConnectors()
+	 * @return the meta object for the '<em>Get Implicitly Defined Pins</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.DeploymentSpecification#getImplicitlyDefinedPins()
 	 * @generated
 	 */
-	EOperation getDeploymentSpecification__GetImplicitlyDefinedConnectors();
+	EOperation getDeploymentSpecification__GetImplicitlyDefinedPins();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinition <em>Deployment Implicit Definition</em>}'.
@@ -4125,14 +4144,14 @@ public interface ModelPackage extends EPackage {
 	EReference getDeploymentImplicitDefinition_Entries();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinition#getImplicitlyDefinedConnectors() <em>Get Implicitly Defined Connectors</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinition#getImplicitlyDefinedPins() <em>Get Implicitly Defined Pins</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Implicitly Defined Connectors</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinition#getImplicitlyDefinedConnectors()
+	 * @return the meta object for the '<em>Get Implicitly Defined Pins</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinition#getImplicitlyDefinedPins()
 	 * @generated
 	 */
-	EOperation getDeploymentImplicitDefinition__GetImplicitlyDefinedConnectors();
+	EOperation getDeploymentImplicitDefinition__GetImplicitlyDefinedPins();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinitionAttributeAndValue <em>Deployment Implicit Definition Attribute And Value</em>}'.
@@ -4788,12 +4807,12 @@ public interface ModelPackage extends EPackage {
 		EOperation COMPARTMENT___TO_STRING = eINSTANCE.getCompartment__ToString();
 
 		/**
-		 * The meta object literal for the '<em><b>Get All Connectors</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Pins</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation COMPARTMENT___GET_ALL_CONNECTORS = eINSTANCE.getCompartment__GetAllConnectors();
+		EOperation COMPARTMENT___GET_PINS = eINSTANCE.getCompartment__GetPins();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl <em>RDC</em>}' class.
@@ -4916,6 +4935,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RDC___TO_STRING = eINSTANCE.getRDC__ToString();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Pins</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RDC___GET_PINS = eINSTANCE.getRDC__GetPins();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.InternalConnectedPinBlockImpl <em>Internal Connected Pin Block</em>}' class.
@@ -5542,12 +5569,12 @@ public interface ModelPackage extends EPackage {
 		EOperation DEPLOYMENT_SPECIFICATION___GET_ALL_EQ_INTERFACE_OR_GROUP_NAMES = eINSTANCE.getDeploymentSpecification__GetAllEqInterfaceOrGroupNames();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Implicitly Defined Connectors</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Implicitly Defined Pins</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DEPLOYMENT_SPECIFICATION___GET_IMPLICITLY_DEFINED_CONNECTORS = eINSTANCE.getDeploymentSpecification__GetImplicitlyDefinedConnectors();
+		EOperation DEPLOYMENT_SPECIFICATION___GET_IMPLICITLY_DEFINED_PINS = eINSTANCE.getDeploymentSpecification__GetImplicitlyDefinedPins();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.DeploymentImplicitDefinitionImpl <em>Deployment Implicit Definition</em>}' class.
@@ -5568,12 +5595,12 @@ public interface ModelPackage extends EPackage {
 		EReference DEPLOYMENT_IMPLICIT_DEFINITION__ENTRIES = eINSTANCE.getDeploymentImplicitDefinition_Entries();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Implicitly Defined Connectors</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Implicitly Defined Pins</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DEPLOYMENT_IMPLICIT_DEFINITION___GET_IMPLICITLY_DEFINED_CONNECTORS = eINSTANCE.getDeploymentImplicitDefinition__GetImplicitlyDefinedConnectors();
+		EOperation DEPLOYMENT_IMPLICIT_DEFINITION___GET_IMPLICITLY_DEFINED_PINS = eINSTANCE.getDeploymentImplicitDefinition__GetImplicitlyDefinedPins();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.DeploymentImplicitDefinitionAttributeAndValueImpl <em>Deployment Implicit Definition Attribute And Value</em>}' class.

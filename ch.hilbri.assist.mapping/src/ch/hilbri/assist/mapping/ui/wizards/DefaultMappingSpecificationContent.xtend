@@ -89,6 +89,14 @@ Compartments {
 			// ...
 		}
 	}
+	
+	// Another empty compartment for demo purposes
+	Compartment Comp2 {
+		RDC RDC1 {
+			Connector Connector1{
+			}
+		}
+	}
 }
 
 /*
@@ -158,6 +166,24 @@ InterfaceGroups {
  
 Restrictions {
 
+	/*
+	 * COLOCALITY
+	 */  
+	 
+	// EquipmentInterface1 and EquipmentInterface2 must
+	// be mapped to the same Connector (or RDC or Compartment)
+
+	EquipmentInterface1, EquipmentInterface2 on same Connector;
+	EquipmentInterface1, EquipmentInterface2 on same RDC;
+	 
+	// This also works for groups 
+
+	G1 on same Connector;
+
+	// .. and combinations of groups and interfaces
+
+	G4, EquipmentInterface2, G5 on same RDC;
+
 	/* 
 	 * DISLOCALITY
 	 */
@@ -165,29 +191,18 @@ Restrictions {
 	// EquipmentInterface1 and EquipmentInterface2 must 
 	// be on separate Compartments (and RDCs and Connectors)
 	// (the level can be set to "Compartment" or "RDC" or "Connector")	
-	EquipmentInterface1, EquipmentInterface2 dislocal up to Connector;
+
+//	EquipmentInterface1, EquipmentInterface2 dislocal up to Connector;
 	
-	// All members of G1 must be on separate RDCs
-	G1 dislocal up to RDC; 		
+	// All members of G1 must be on separate Connector
+
+//	G1 dislocal up to Connector; 		
 	
-	// The members of G1 and G2 must not share an RDC
-    // (while the members of G1 may be on the same RDC)
-	G1, G2 dislocal up to RDC;
-	
-	
-	/*
-	 * COLOCALITY
-	 */  
-	 
-	// EquipmentInterface1 and EquipmentInterface2 must
-	// be mapped to the same Connector (or RDC or Compartment)
-	EquipmentInterface1, EquipmentInterface2 on same Connector;
-	EquipmentInterface1, EquipmentInterface2 on same RDC;
-	 
-	// This also works for groups 
-	G1 on same Connector;
-	// .. and combinations of groups and interfaces
-	G4, EquipmentInterface2, G5 on same RDC;
+	// The members of G1 and G2 must not share an Connector
+    // (while the members of G1 may be on the same Connector)
+
+//	G1, G2 dislocal up to Connector;
+
 	 
 	/*
 	 * VALID DEPLOYMENTS
@@ -196,36 +211,37 @@ Restrictions {
 	// Valid allocations for EquipmentInterface1 are all
 	// pins on Connector1 of RDC1 in Comp1
 	// (explicit pin specification)
-	Valid for EquipmentInterface1 are { Comp1.RDC1.Connector1 };
+	Valid for EquipmentInterface1 is { Comp1.RDC1.Connector1 };
 	  
 	// This also works for groups
 	// (explicit pin specification) 
-	Valid for G1, EquipmentInterface1, G3 are { Comp1 };
+	Valid for G1, EquipmentInterface1, G3 is { Comp1 };
 	  
 	// There are also implicit pin specifications possible
-	Valid for EquipmentInterface1 are { connectors with Compartment.Name = "Comp1" };
+	Valid for EquipmentInterface1 is { pins with Compartment.Name = "Comp1" };
 	  
 	// Or even implicit combinations ...
 	// EquipmentInterface1 can be allocated to all connectors
 	// where the hosting RDC has a powerSupply1 attribute of Sup1 or
 	// the hosting RDC has a powerSupply2 attribute of Sup2
-	Valid for EquipmentInterface1 are { connectors with RDC.PowerSupply1 = "Sup1",
-									    connectors with RDC.PowerSupply2 = "Sup2"  };
+	Valid for EquipmentInterface1 is { pins with RDC.PowerSupply1 = "PowerSupply1Name",
+									   pins with RDC.PowerSupply2 = "PowerSupply2Name"  };
 
 	/* 
 	 * INVALID DEPLOYMENTS
 	 */
 
-	Invalid for EquipmentInterface1 are { Comp1.RDC1.Connector1 };
+	Invalid for EquipmentInterface1 is { Comp2.RDC1.Connector1 };
 	  
-	Invalid for G1, EquipmentInterface1, G3 are { Comp1 };
+	Invalid for G1, EquipmentInterface1, G3 is { Comp2 };
 	  
-	Invalid for EquipmentInterface1 are { connectors with Compartment.Name = "Comp1" };
+	Invalid for EquipmentInterface1 is { pins with Compartment.Name = "UnsafeCompartment" };
 	  
-	Invalid for EquipmentInterface1 are { connectors with RDC.PowerSupply1 = "Sup1",
-									      connectors with RDC.PowerSupply2 = "Sup2"  };
+	Invalid for EquipmentInterface1 is { pins with RDC.PowerSupply1 = "UnsafeSupplier",
+									     pins with RDC.PowerSupply2 = "UnsafeSupplier"  };
 		
 }
+
 		'''
 		
 		return new ByteArrayInputStream(input.bytes)

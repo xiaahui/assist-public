@@ -176,7 +176,17 @@ public enum DeploymentImplicitDefinitionAttribute implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONNECTOR_NAME(0, "CONNECTOR_NAME", "Connector.Name");
+	CONNECTOR_NAME(0, "CONNECTOR_NAME", "Connector.Name"),
+
+	/**
+	 * The '<em><b>PIN NAME</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PIN_NAME_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PIN_NAME(0, "PIN_NAME", "Pin.Name");
 
 	/**
 	 * The '<em><b>COMPARTMENT NAME</b></em>' literal value.
@@ -419,6 +429,21 @@ public enum DeploymentImplicitDefinitionAttribute implements Enumerator {
 	public static final int CONNECTOR_NAME_VALUE = 0;
 
 	/**
+	 * The '<em><b>PIN NAME</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>PIN NAME</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #PIN_NAME
+	 * @model literal="Pin.Name"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PIN_NAME_VALUE = 0;
+
+	/**
 	 * An array of all the '<em><b>Deployment Implicit Definition Attribute</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -442,6 +467,7 @@ public enum DeploymentImplicitDefinitionAttribute implements Enumerator {
 			RDC_RESOURCE_Y,
 			RDC_RESOURCE_Z,
 			CONNECTOR_NAME,
+			PIN_NAME,
 		};
 
 	/**

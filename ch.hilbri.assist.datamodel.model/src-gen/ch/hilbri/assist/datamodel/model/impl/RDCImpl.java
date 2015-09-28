@@ -6,7 +6,12 @@ import ch.hilbri.assist.datamodel.model.Compartment;
 import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.InternalConnectedPinBlock;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+import ch.hilbri.assist.datamodel.model.Pin;
 import ch.hilbri.assist.datamodel.model.RDC;
+
+import com.google.common.collect.Iterables;
+
+import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -15,6 +20,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -25,6 +31,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
+
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
 /**
  * <!-- begin-user-doc -->
@@ -621,6 +631,23 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Pin> getPins() {
+		EList<Connector> _connectors = this.getConnectors();
+		final Function1<Connector, EList<Pin>> _function = new Function1<Connector, EList<Pin>>() {
+			public EList<Pin> apply(final Connector it) {
+				return it.getPins();
+			}
+		};
+		EList<EList<Pin>> _map = XcoreEListExtensions.<Connector, EList<Pin>>map(_connectors, _function);
+		Iterable<Pin> _flatten = Iterables.<Pin>concat(_map);
+		return ECollections.<Pin>toEList(_flatten);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -858,6 +885,8 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 		switch (operationID) {
 			case ModelPackage.RDC___TO_STRING:
 				return toString();
+			case ModelPackage.RDC___GET_PINS:
+				return getPins();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

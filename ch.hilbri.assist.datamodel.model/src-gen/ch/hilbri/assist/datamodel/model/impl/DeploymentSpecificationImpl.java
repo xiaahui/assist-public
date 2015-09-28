@@ -2,7 +2,6 @@
  */
 package ch.hilbri.assist.datamodel.model.impl;
 
-import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.DeploymentImplicitDefinition;
 import ch.hilbri.assist.datamodel.model.DeploymentSpecification;
 import ch.hilbri.assist.datamodel.model.EqInterface;
@@ -10,16 +9,19 @@ import ch.hilbri.assist.datamodel.model.EqInterfaceGroup;
 import ch.hilbri.assist.datamodel.model.EqInterfaceOrGroup;
 import ch.hilbri.assist.datamodel.model.HardwareElement;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+import ch.hilbri.assist.datamodel.model.Pin;
+
+import com.google.common.collect.Iterables;
+
+import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
@@ -31,6 +33,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
+
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
@@ -173,16 +179,17 @@ public class DeploymentSpecificationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Connector> getImplicitlyDefinedConnectors() {
-		final BasicEList<Connector> list = new BasicEList<Connector>();
+	public EList<Pin> getImplicitlyDefinedPins() {
 		EList<DeploymentImplicitDefinition> _implicitHardwareElements = this.getImplicitHardwareElements();
-		for (final DeploymentImplicitDefinition definition : _implicitHardwareElements) {
-			EList<Connector> _implicitlyDefinedConnectors = definition.getImplicitlyDefinedConnectors();
-			list.addAll(_implicitlyDefinedConnectors);
-		}
-		Set<Connector> _set = IterableExtensions.<Connector>toSet(list);
-		List<Connector> _list = IterableExtensions.<Connector>toList(_set);
-		return ECollections.<Connector>toEList(_list);
+		final Function1<DeploymentImplicitDefinition, EList<Pin>> _function = new Function1<DeploymentImplicitDefinition, EList<Pin>>() {
+			public EList<Pin> apply(final DeploymentImplicitDefinition it) {
+				return it.getImplicitlyDefinedPins();
+			}
+		};
+		EList<EList<Pin>> _map = XcoreEListExtensions.<DeploymentImplicitDefinition, EList<Pin>>map(_implicitHardwareElements, _function);
+		Iterable<Pin> _flatten = Iterables.<Pin>concat(_map);
+		Set<Pin> _set = IterableExtensions.<Pin>toSet(_flatten);
+		return ECollections.<Pin>toEList(_set);
 	}
 
 	/**
@@ -291,8 +298,8 @@ public class DeploymentSpecificationImpl extends MinimalEObjectImpl.Container im
 		switch (operationID) {
 			case ModelPackage.DEPLOYMENT_SPECIFICATION___GET_ALL_EQ_INTERFACE_OR_GROUP_NAMES:
 				return getAllEqInterfaceOrGroupNames();
-			case ModelPackage.DEPLOYMENT_SPECIFICATION___GET_IMPLICITLY_DEFINED_CONNECTORS:
-				return getImplicitlyDefinedConnectors();
+			case ModelPackage.DEPLOYMENT_SPECIFICATION___GET_IMPLICITLY_DEFINED_PINS:
+				return getImplicitlyDefinedPins();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

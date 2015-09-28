@@ -11,12 +11,12 @@ class ValidDeploymentHardwareElements extends AbstractModelPreprocessor {
 		if (model.validDeployments == null)
 			return false
 		
-		if (model.validDeployments.filter[it.implicitHardwareElements.length > 0].isNullOrEmpty) return false
+		if (model.validDeployments.filter[implicitHardwareElements.length > 0].isNullOrEmpty) return false
 		
-		for (s : model.validDeployments.filter[it.implicitHardwareElements.length > 0]) {
+		for (s : model.validDeployments.filter[implicitHardwareElements.length > 0]) {
 				logger.info("    . Processing valid deployment for interfaces/groups: [" + s.allEqInterfaceOrGroupNames + "]")
 				
-				s.hardwareElements.addAll(s.implicitlyDefinedConnectors)			
+				s.hardwareElements.addAll(s.implicitlyDefinedPins)			
 				
 				// We do not need to remove duplicate entries - this will be already done in the constraint
 				

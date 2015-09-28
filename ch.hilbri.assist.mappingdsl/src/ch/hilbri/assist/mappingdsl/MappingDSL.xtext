@@ -29,7 +29,7 @@ GlobalBlock: {GlobalBlock}
 ;
 
 CompatibleIoTypesBlock: 
-	'Compatible Interface Types' 	'{'	(compatibleIoTypes+=CompatibleIoTypeEntry)+ '}'	
+	'Compatible' 'Interface' 'Types' 	'{'	(compatibleIoTypes+=CompatibleIoTypeEntry)+ '}'	
 ;
 
 CompatibleIoTypeEntry: 
@@ -37,7 +37,7 @@ CompatibleIoTypeEntry:
 ;
 
 CableWeightDataBlock: 
-	'Cable Weights' 				'{'	(cableWeightEntries+=CableWeightEntry)+  	'}'	
+	'Cable' 'Weights' 				'{'	(cableWeightEntries+=CableWeightEntry)+  	'}'	
 ;
 
 CableWeightEntry:
@@ -45,7 +45,7 @@ CableWeightEntry:
 ;
 
 ProtectionLevelDataBlock: 
-	'Protection Level Restrictions'	'{' (protectionLevelEntries+=ProtectionLevelEntry)+	'}'	
+	'Protection' 'Level' 'Restrictions'	'{' (protectionLevelEntries+=ProtectionLevelEntry)+	'}'	
 ;
 
 ProtectionLevelEntry: 
@@ -96,13 +96,13 @@ RDC:
 ;
 
 InternalConnectedPinBlock: {InternalConnectedPinBlock}
-	'Connected Pins' '{' 
+	'Connected' 'Pins' '{' 
 		(connectedPins+=ConnectedPinEntry)*	
 	'}'
 ;
 
 ConnectedPinEntry: 
-	pins+=[Pin|QualifiedName] ',' pins+=[Pin|QualifiedName] (',' pins+=[Pin|QualifiedName])?	 'are connected' ';' 
+	pins+=[Pin|QualifiedName] ',' pins+=[Pin|QualifiedName] (',' pins+=[Pin|QualifiedName])?	 'are' 'connected' ';' 
 ;
 
 Connector:
@@ -113,7 +113,7 @@ Connector:
 ;
 
 Pin:
-	name=ID ':' eqInterfaceType=STRING ('protection level' protectionLevel=ProtectionLevelType)? ';'
+	name=ID ':' eqInterfaceType=STRING ('protection' 'level' protectionLevel=ProtectionLevelType)? ';'
 ;
 
 
@@ -218,7 +218,8 @@ EqInterfaceGroup:
 
 
 ImplicitEqInterfaceMemberDefinition:
-	'interfaces with' entries+=ImplicitEqInterfaceMemberDefinitionAttributesAndValues ('and' entries+=ImplicitEqInterfaceMemberDefinitionAttributesAndValues)*
+	'interfaces' 'with' entries+=ImplicitEqInterfaceMemberDefinitionAttributesAndValues 
+	                    ('and' entries+=ImplicitEqInterfaceMemberDefinitionAttributesAndValues)*
 ;
 
 ImplicitEqInterfaceMemberDefinitionAttributesAndValues:  
@@ -268,45 +269,33 @@ enum HardwareArchitectureLevelType :
 	CONNECTOR	= 'Connector'
 ;
 
-/* Dislocality Restrictions */
-
 DislocalityRelation:
-	eqInterfaceOrGroups+=[EqInterfaceOrGroup] 
-	(',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
-	'dislocal up to' 
-	hardwareLevel=HardwareArchitectureLevelType ';';
+	eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
+	'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
 	
-/* Colocality Restrictions */
-
 ColocalityRelation:
-	eqInterfaceOrGroups+=[EqInterfaceOrGroup] 
-	(',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])*  
-	'on same' 
-	hardwareLevel=HardwareArchitectureLevelType ';'
+	eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])*  
+	'on' 'same' hardwareLevel=HardwareArchitectureLevelType ';'
 ;	
 
-
-
 ValidDeployment:
-	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] 
-	(',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
-	'are' '{'
-		  		(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
+	'Valid' 'for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 'is' 
+	'{'
+	            (hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
 		  (',' 	(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) )* 
 	'}' ';'
 ;
 
 InvalidDeployment:
-	'Invalid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] 
-	(',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
-	'are' '{'
+	'Invalid' 'for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] (',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 'is'
+	'{'
 		  ( 	hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
 		  (',' (hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) )* 
 	'}' ';'
 ;
 
 DeploymentImplicitDefinition:
-	'connectors with' entries+=DeploymentImplicitDefinitionAttributeAndValue 
+	'pins' 'with' entries+=DeploymentImplicitDefinitionAttributeAndValue 
 	('and' entries+=DeploymentImplicitDefinitionAttributeAndValue)*
 ;
 
@@ -320,7 +309,6 @@ enum DeploymentImplicitDefinitionAttribute:
 	COMPARTMENT_POWERSUPPLY 	= 'Compartment.PowerSupply' 	|
 	COMPARTMENT_SIDE		 	= 'Compartment.Side'		 	|
 	COMPARTMENT_ZONE		 	= 'Compartment.Zone'		 	|
-	
 	RDC_NAME					= 'RDC.Name'					|
 	RDC_MANUFACTURER 			= 'RDC.Manufacturer'			|
 	RDC_POWERSUPPLY1 			= 'RDC.PowerSupply1'			|
@@ -331,8 +319,8 @@ enum DeploymentImplicitDefinitionAttribute:
 	RDC_RESOURCE_X				= 'RDC.ResourceX'				|
 	RDC_RESOURCE_Y				= 'RDC.ResourceY'				|
 	RDC_RESOURCE_Z				= 'RDC.ResourceZ'				|
-	
-	CONNECTOR_NAME				= 'Connector.Name'
+	CONNECTOR_NAME				= 'Connector.Name'				|
+	PIN_NAME					= 'Pin.Name'
 ;
 
 

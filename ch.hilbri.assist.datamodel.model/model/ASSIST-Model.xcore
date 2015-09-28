@@ -139,8 +139,8 @@ class Compartment extends HardwareElement {
 	
 	contains RDC[0..*] rdcs opposite compartment
 	
-	op String toString() 				{ name }
-	op Connector[] getAllConnectors() 	{ rdcs.map[connectors].flatten.toEList }
+	op String toString() 			{ name }
+	op Pin[] getPins() 				{ rdcs.map[pins].flatten.toEList }
 }
 
 class RDC extends HardwareElement {
@@ -157,7 +157,9 @@ class RDC extends HardwareElement {
 	container Compartment 						compartment opposite rdcs
 	contains Connector[*] 						connectors opposite rdc
 	contains InternalConnectedPinBlock[0..1] 	internalConnectedPinBlock
+	
 	op String toString() 			{ name }
+	op Pin[] getPins() 				{ connectors.map[pins].flatten.toEList }
 }
 
 class InternalConnectedPinBlock {
@@ -433,51 +435,50 @@ class DeploymentSpecification {
 		return result
 	}
 	
-	op Connector[] getImplicitlyDefinedConnectors() {
-		val list = new BasicEList<Connector>
-		
-		for (definition : this.implicitHardwareElements) {
-			list.addAll(definition.implicitlyDefinedConnectors)
-		} // for (implicit definition)
-	
-		return (list.toSet.toList.toEList)
+	op Pin[] getImplicitlyDefinedPins() {
+		implicitHardwareElements.map[implicitlyDefinedPins]
+								.flatten
+								.toSet
+								.toEList
 	}
 }
 
 class DeploymentImplicitDefinition {
 	contains DeploymentImplicitDefinitionAttributeAndValue [1..*] entries
 
-	op Connector[] getImplicitlyDefinedConnectors() {
-		val list = new BasicEList<Connector>
-		val model = this.eContainer.eContainer as AssistModel
-		var Iterable<Connector> connectorList = model.connectors
+	op Pin[] getImplicitlyDefinedPins() {
+		val list = new BasicEList<Pin>
+		val model = this.eContainer.eContainer.eContainer as AssistModel
+		var Iterable<Pin> pinList = model.pins
 	
 		for (entry : entries) {
 			switch (entry.attribute) {
-				case COMPARTMENT_NAME:			{ connectorList = connectorList.filter[it.rdc.compartment.name.equals(entry.value)			]}
-				case COMPARTMENT_MANUFACTURER:	{ connectorList = connectorList.filter[it.rdc.compartment.manufacturer.equals(entry.value)	]}
-				case COMPARTMENT_POWERSUPPLY:	{ connectorList = connectorList.filter[it.rdc.compartment.powerSupply.equals(entry.value)	]}
-				case COMPARTMENT_SIDE:			{ connectorList = connectorList.filter[it.rdc.compartment.side.equals(entry.value)			]}
-				case COMPARTMENT_ZONE:			{ connectorList = connectorList.filter[it.rdc.compartment.zone.equals(entry.value)			]}
+				case COMPARTMENT_NAME:			{ pinList = pinList.filter[connector.rdc.compartment.name.equals(entry.value)			]}
+				case COMPARTMENT_MANUFACTURER:	{ pinList = pinList.filter[connector.rdc.compartment.manufacturer.equals(entry.value)	]}
+				case COMPARTMENT_POWERSUPPLY:	{ pinList = pinList.filter[connector.rdc.compartment.powerSupply.equals(entry.value)	]}
+				case COMPARTMENT_SIDE:			{ pinList = pinList.filter[connector.rdc.compartment.side.equals(entry.value)			]}
+				case COMPARTMENT_ZONE:			{ pinList = pinList.filter[connector.rdc.compartment.zone.equals(entry.value)			]}
 				
-				case RDC_NAME:					{ connectorList = connectorList.filter[it.rdc.name.equals(entry.value)						]}
-				case RDC_MANUFACTURER: 			{ connectorList = connectorList.filter[it.rdc.manufacturer.equals(entry.value)				]}
-				case RDC_POWERSUPPLY1: 			{ connectorList = connectorList.filter[it.rdc.powerSupply1.equals(entry.value)				]}
-				case RDC_POWERSUPPLY2: 			{ connectorList = connectorList.filter[it.rdc.powerSupply2.equals(entry.value)				]}
-				case RDC_SIDE: 					{ connectorList = connectorList.filter[it.rdc.side.equals(entry.value)						]}
-				case RDC_TYPE: 					{ connectorList = connectorList.filter[it.rdc.rdcType.equals(entry.value)					]}
-				case RDC_ESS: 					{ connectorList = connectorList.filter[it.rdc.ess.equals(entry.value)						]}
-				case RDC_RESOURCE_X:			{ connectorList = connectorList.filter[it.rdc.resourceX.equals(entry.value)					]}
-				case RDC_RESOURCE_Y:			{ connectorList = connectorList.filter[it.rdc.resourceY.equals(entry.value)					]}
-				case RDC_RESOURCE_Z:			{ connectorList = connectorList.filter[it.rdc.resourceZ.equals(entry.value)					]}
+				case RDC_NAME:					{ pinList = pinList.filter[connector.rdc.name.equals(entry.value)						]}
+				case RDC_MANUFACTURER: 			{ pinList = pinList.filter[connector.rdc.manufacturer.equals(entry.value)				]}
+				case RDC_POWERSUPPLY1: 			{ pinList = pinList.filter[connector.rdc.powerSupply1.equals(entry.value)				]}
+				case RDC_POWERSUPPLY2: 			{ pinList = pinList.filter[connector.rdc.powerSupply2.equals(entry.value)				]}
+				case RDC_SIDE: 					{ pinList = pinList.filter[connector.rdc.side.equals(entry.value)						]}
+				case RDC_TYPE: 					{ pinList = pinList.filter[connector.rdc.rdcType.equals(entry.value)					]}
+				case RDC_ESS: 					{ pinList = pinList.filter[connector.rdc.ess.equals(entry.value)						]}
+				case RDC_RESOURCE_X:			{ pinList = pinList.filter[connector.rdc.resourceX.equals(entry.value)					]}
+				case RDC_RESOURCE_Y:			{ pinList = pinList.filter[connector.rdc.resourceY.equals(entry.value)					]}
+				case RDC_RESOURCE_Z:			{ pinList = pinList.filter[connector.rdc.resourceZ.equals(entry.value)					]}
 				
-				case CONNECTOR_NAME:			{ connectorList = connectorList.filter[it.name.equals(entry.value)							]}
+				case CONNECTOR_NAME:			{ pinList = pinList.filter[connector.name.equals(entry.value)							]}
+				
+				case PIN_NAME:					{ pinList = pinList.filter[name.equals(entry.value)										]}
 			} // switch
 		} // for (entry)
 			
-		list.addAll(connectorList)
+		list.addAll(pinList)
 				
-		return (list.toSet.toList.toEList)
+		list.toSet.toList.toEList
 	}
 }
 
@@ -505,6 +506,8 @@ enum DeploymentImplicitDefinitionAttribute {
 	RDC_RESOURCE_Z				as  "RDC.ResourceZ"
 
 	CONNECTOR_NAME				as	"Connector.Name"
+	
+	PIN_NAME					as "Pin.Name"
 	
 	
 }

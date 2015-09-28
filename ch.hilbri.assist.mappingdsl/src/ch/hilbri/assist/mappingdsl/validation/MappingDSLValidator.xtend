@@ -157,7 +157,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 	def checkImplicitlyDefinedValidDeploymentsAreNotEmpty(AssistModel model) {
 		for (s : model.restrictionsBlock.validDeployments.filter[it.implicitHardwareElements.length > 0].filter[
 			it.hardwareElements.length == 0]) {
-			if (s.implicitlyDefinedConnectors.isNullOrEmpty)
+			if (s.implicitlyDefinedPins.isNullOrEmpty)
 				warning("The list of hardware elements for this specification is currently empty.", s,
 					ModelPackage.Literals::DEPLOYMENT_SPECIFICATION__IMPLICIT_HARDWARE_ELEMENTS)
 		}
@@ -166,7 +166,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 	@Check
 	def checkImplicitDeploymentDefinitionsAreNotEmpty(DeploymentSpecification specification) {
 		for (definition : specification.implicitHardwareElements) {
-			if (definition.implicitlyDefinedConnectors.isNullOrEmpty) {
+			if (definition.implicitlyDefinedPins.isNullOrEmpty) {
 				warning(
 					"This part of the specification matches no connectors. This may be unintended.",
 					specification,
@@ -181,7 +181,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 	def checkImplicitlyDefinedInvalidDeploymentsAreNotEmpty(AssistModel model) {
 		for (s : model.restrictionsBlock.invalidDeployments.filter[it.implicitHardwareElements.length > 0].filter[
 			it.hardwareElements.length == 0]) {
-			if (s.implicitlyDefinedConnectors.isNullOrEmpty)
+			if (s.implicitlyDefinedPins.isNullOrEmpty)
 				warning("The list of hardware elements for this specification is currently empty.", s,
 					ModelPackage.Literals::DEPLOYMENT_SPECIFICATION__IMPLICIT_HARDWARE_ELEMENTS)
 		}

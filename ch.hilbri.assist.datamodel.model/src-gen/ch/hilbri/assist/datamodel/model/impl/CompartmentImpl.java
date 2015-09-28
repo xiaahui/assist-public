@@ -3,8 +3,8 @@
 package ch.hilbri.assist.datamodel.model.impl;
 
 import ch.hilbri.assist.datamodel.model.Compartment;
-import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
+import ch.hilbri.assist.datamodel.model.Pin;
 import ch.hilbri.assist.datamodel.model.RDC;
 
 import com.google.common.collect.Iterables;
@@ -270,16 +270,16 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Connector> getAllConnectors() {
+	public EList<Pin> getPins() {
 		EList<RDC> _rdcs = this.getRdcs();
-		final Function1<RDC, EList<Connector>> _function = new Function1<RDC, EList<Connector>>() {
-			public EList<Connector> apply(final RDC it) {
-				return it.getConnectors();
+		final Function1<RDC, EList<Pin>> _function = new Function1<RDC, EList<Pin>>() {
+			public EList<Pin> apply(final RDC it) {
+				return it.getPins();
 			}
 		};
-		EList<EList<Connector>> _map = XcoreEListExtensions.<RDC, EList<Connector>>map(_rdcs, _function);
-		Iterable<Connector> _flatten = Iterables.<Connector>concat(_map);
-		return ECollections.<Connector>toEList(_flatten);
+		EList<EList<Pin>> _map = XcoreEListExtensions.<RDC, EList<Pin>>map(_rdcs, _function);
+		Iterable<Pin> _flatten = Iterables.<Pin>concat(_map);
+		return ECollections.<Pin>toEList(_flatten);
 	}
 
 	/**
@@ -421,8 +421,8 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 		switch (operationID) {
 			case ModelPackage.COMPARTMENT___TO_STRING:
 				return toString();
-			case ModelPackage.COMPARTMENT___GET_ALL_CONNECTORS:
-				return getAllConnectors();
+			case ModelPackage.COMPARTMENT___GET_PINS:
+				return getPins();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

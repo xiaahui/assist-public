@@ -970,7 +970,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCompartment__GetAllConnectors() {
+	public EOperation getCompartment__GetPins() {
 		return compartmentEClass.getEOperations().get(1);
 	}
 
@@ -1107,6 +1107,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EOperation getRDC__ToString() {
 		return rdcEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRDC__GetPins() {
+		return rdcEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1780,7 +1789,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDeploymentSpecification__GetImplicitlyDefinedConnectors() {
+	public EOperation getDeploymentSpecification__GetImplicitlyDefinedPins() {
 		return deploymentSpecificationEClass.getEOperations().get(1);
 	}
 
@@ -1807,7 +1816,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDeploymentImplicitDefinition__GetImplicitlyDefinedConnectors() {
+	public EOperation getDeploymentImplicitDefinition__GetImplicitlyDefinedPins() {
 		return deploymentImplicitDefinitionEClass.getEOperations().get(0);
 	}
 
@@ -1996,7 +2005,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(compartmentEClass, COMPARTMENT__ZONE);
 		createEReference(compartmentEClass, COMPARTMENT__RDCS);
 		createEOperation(compartmentEClass, COMPARTMENT___TO_STRING);
-		createEOperation(compartmentEClass, COMPARTMENT___GET_ALL_CONNECTORS);
+		createEOperation(compartmentEClass, COMPARTMENT___GET_PINS);
 
 		rdcEClass = createEClass(RDC);
 		createEAttribute(rdcEClass, RDC__MANUFACTURER);
@@ -2013,6 +2022,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(rdcEClass, RDC__CONNECTORS);
 		createEReference(rdcEClass, RDC__INTERNAL_CONNECTED_PIN_BLOCK);
 		createEOperation(rdcEClass, RDC___TO_STRING);
+		createEOperation(rdcEClass, RDC___GET_PINS);
 
 		internalConnectedPinBlockEClass = createEClass(INTERNAL_CONNECTED_PIN_BLOCK);
 		createEReference(internalConnectedPinBlockEClass, INTERNAL_CONNECTED_PIN_BLOCK__CONNECTED_PINS);
@@ -2103,11 +2113,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(deploymentSpecificationEClass, DEPLOYMENT_SPECIFICATION__HARDWARE_ELEMENTS);
 		createEReference(deploymentSpecificationEClass, DEPLOYMENT_SPECIFICATION__IMPLICIT_HARDWARE_ELEMENTS);
 		createEOperation(deploymentSpecificationEClass, DEPLOYMENT_SPECIFICATION___GET_ALL_EQ_INTERFACE_OR_GROUP_NAMES);
-		createEOperation(deploymentSpecificationEClass, DEPLOYMENT_SPECIFICATION___GET_IMPLICITLY_DEFINED_CONNECTORS);
+		createEOperation(deploymentSpecificationEClass, DEPLOYMENT_SPECIFICATION___GET_IMPLICITLY_DEFINED_PINS);
 
 		deploymentImplicitDefinitionEClass = createEClass(DEPLOYMENT_IMPLICIT_DEFINITION);
 		createEReference(deploymentImplicitDefinitionEClass, DEPLOYMENT_IMPLICIT_DEFINITION__ENTRIES);
-		createEOperation(deploymentImplicitDefinitionEClass, DEPLOYMENT_IMPLICIT_DEFINITION___GET_IMPLICITLY_DEFINED_CONNECTORS);
+		createEOperation(deploymentImplicitDefinitionEClass, DEPLOYMENT_IMPLICIT_DEFINITION___GET_IMPLICITLY_DEFINED_PINS);
 
 		deploymentImplicitDefinitionAttributeAndValueEClass = createEClass(DEPLOYMENT_IMPLICIT_DEFINITION_ATTRIBUTE_AND_VALUE);
 		createEAttribute(deploymentImplicitDefinitionAttributeAndValueEClass, DEPLOYMENT_IMPLICIT_DEFINITION_ATTRIBUTE_AND_VALUE__ATTRIBUTE);
@@ -2266,7 +2276,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEOperation(getCompartment__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getCompartment__GetAllConnectors(), this.getConnector(), "getAllConnectors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getCompartment__GetPins(), this.getPin(), "getPins", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(rdcEClass, ch.hilbri.assist.datamodel.model.RDC.class, "RDC", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRDC_Manufacturer(), theEcorePackage.getEString(), "manufacturer", "", 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2284,6 +2294,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getRDC_InternalConnectedPinBlock(), this.getInternalConnectedPinBlock(), null, "internalConnectedPinBlock", null, 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getRDC__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getRDC__GetPins(), this.getPin(), "getPins", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(internalConnectedPinBlockEClass, InternalConnectedPinBlock.class, "InternalConnectedPinBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInternalConnectedPinBlock_ConnectedPins(), this.getConnectedPinEntry(), null, "connectedPins", null, 0, -1, InternalConnectedPinBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2390,12 +2402,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEOperation(getDeploymentSpecification__GetAllEqInterfaceOrGroupNames(), theEcorePackage.getEString(), "getAllEqInterfaceOrGroupNames", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getDeploymentSpecification__GetImplicitlyDefinedConnectors(), this.getConnector(), "getImplicitlyDefinedConnectors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDeploymentSpecification__GetImplicitlyDefinedPins(), this.getPin(), "getImplicitlyDefinedPins", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(deploymentImplicitDefinitionEClass, DeploymentImplicitDefinition.class, "DeploymentImplicitDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDeploymentImplicitDefinition_Entries(), this.getDeploymentImplicitDefinitionAttributeAndValue(), null, "entries", null, 1, -1, DeploymentImplicitDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getDeploymentImplicitDefinition__GetImplicitlyDefinedConnectors(), this.getConnector(), "getImplicitlyDefinedConnectors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDeploymentImplicitDefinition__GetImplicitlyDefinedPins(), this.getPin(), "getImplicitlyDefinedPins", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(deploymentImplicitDefinitionAttributeAndValueEClass, DeploymentImplicitDefinitionAttributeAndValue.class, "DeploymentImplicitDefinitionAttributeAndValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeploymentImplicitDefinitionAttributeAndValue_Attribute(), this.getDeploymentImplicitDefinitionAttribute(), "attribute", null, 0, 1, DeploymentImplicitDefinitionAttributeAndValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2456,6 +2468,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEEnumLiteral(deploymentImplicitDefinitionAttributeEEnum, DeploymentImplicitDefinitionAttribute.RDC_RESOURCE_Y);
 		addEEnumLiteral(deploymentImplicitDefinitionAttributeEEnum, DeploymentImplicitDefinitionAttribute.RDC_RESOURCE_Z);
 		addEEnumLiteral(deploymentImplicitDefinitionAttributeEEnum, DeploymentImplicitDefinitionAttribute.CONNECTOR_NAME);
+		addEEnumLiteral(deploymentImplicitDefinitionAttributeEEnum, DeploymentImplicitDefinitionAttribute.PIN_NAME);
 
 		// Create resource
 		createResource(eNS_URI);
