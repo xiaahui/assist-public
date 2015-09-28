@@ -50,28 +50,43 @@ Global {
 	def static createCompartmentsRDCsAndConnectors(String filePath) {
 		return '''
  
-/* **********************************
- * COMPARTMENTS, RDCs, CONNECTORS
- * ********************************** */
- 
-Compartment CompartmentName1 {
-	Manufacturer = "";
-	PowerSupply  = "";
-	Side         = "";
-	Zone         = "";
-	
-	RDC RDCName1 {
+/* **************************************** *
+ * COMPARTMENTS, RDCs, CONNECTORS and PINS  *
+ * **************************************** */
+
+Compartments { 
+	Compartment CompartmentName1 {
 		Manufacturer = "";
 		PowerSupply  = "";
-		Type         = "";
-		ESS          = "";
-		ResourceX    = 0;
-		ResourceY    = 0;
-		ResourceZ    = 0;
-		
-		Connector ConnectorName1 {
-			"ExampleIOType" 	= 10;
-			"ExampleIOType2"	= 5;
+		Side         = "";
+		Zone         = "";
+	
+		RDC RDC1 {
+			Manufacturer	= "ManufacturerName";
+			PowerSupply1	= "PowerSupply1Name";
+			PowerSupply2	= "PowerSupply2Name";
+			Type			= "RDCTypeName";
+			ESS				= "ESSName";
+			Location		= "RDCLocatioName";
+			ResourceX		= -120;
+			ResourceY		= 150;
+			ResourceZ		= -1200;
+			
+			Connector Connector1{
+				// Available protection levels:
+				// None, L1, L2, L3, L4, L5, L6, L7, L8
+
+				Pin1: "PinType0"; // = protection level None
+				Pin2: "PinType0" protection level L5;
+				Pin3: "PinType1" protection level L8;
+				
+			}
+			
+			Connector Connector2{
+				Pin1: "PinType3";
+				Pin2: "PinType1" protection level L8;
+				Pin3: "PinType1" protection level L8;
+			}
 		}
 	}
 }		
@@ -212,7 +227,7 @@ Restrictions {
 	
 	// Generated restrictions for valid deployments ("restrict deployment to")
 	«FOR iface : interfaceDeploymentRestrictions.keySet»
-	Valid for «iface.name» is { connectors with RDC.Name = "«IF !interfaceDeploymentRestrictions.get(iface).contains("__")»«interfaceDeploymentRestrictions.get(iface)»"«ELSE»«interfaceDeploymentRestrictions.get(iface).split("__").get(0)»" and Connector.Name = "«interfaceDeploymentRestrictions.get(iface).split("__").get(1)»"«ENDIF» };
+	Valid for «iface.name» is { pins with RDC.Name = "«IF !interfaceDeploymentRestrictions.get(iface).contains("__")»«interfaceDeploymentRestrictions.get(iface)»"«ELSE»«interfaceDeploymentRestrictions.get(iface).split("__").get(0)»" and Connector.Name = "«interfaceDeploymentRestrictions.get(iface).split("__").get(1)»"«ENDIF» };
 	«ENDFOR»
 	
 }
