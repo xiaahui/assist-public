@@ -59,12 +59,14 @@ class ExcelOutputTransformator {
 					val interfacename = ifacename // needs to be final
 				
 					// Try to locate that interface in our model
-					if (result.model.eqInterfaces.filter[it.name.equals(interfacename)].length == 1) {
-						val eqInterface = result.model.eqInterfaces.filter[it.name.equals(interfacename)].get(0)
+					if (result.model.eqInterfaces.filter[name.equals(interfacename)].length == 1) {
+						
+						val eqInterface = result.model.eqInterfaces.filter[name.equals(interfacename)].get(0)
 						
 						if (result.mapping.get(eqInterface) != null) {
-
-							val mappedRDCName = result.getPinForEqInterface(eqInterface).connector.rdc.name + "__" + result.mapping.get(eqInterface).name
+							
+							// Here we try to build the string that gets exported to Excel
+							val mappedRDCName = result.getPinForEqInterface(eqInterface).connector.rdc.name + "__" + result.mapping.get(eqInterface).connector.name
 							val label = new Label(3,row, mappedRDCName)
 							sheet.addCell(label)
 							
