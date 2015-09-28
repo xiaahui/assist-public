@@ -268,13 +268,16 @@ enum HardwareArchitectureLevelType :
 	CONNECTOR	= 'Connector'
 ;
 
+/* Dislocality Restrictions */
+
 DislocalityRelation:
 	eqInterfaceOrGroups+=[EqInterfaceOrGroup] 
 	(',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
 	'dislocal up to' 
 	hardwareLevel=HardwareArchitectureLevelType ';';
 	
-	
+/* Colocality Restrictions */
+
 ColocalityRelation:
 	eqInterfaceOrGroups+=[EqInterfaceOrGroup] 
 	(',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])*  
@@ -282,11 +285,13 @@ ColocalityRelation:
 	hardwareLevel=HardwareArchitectureLevelType ';'
 ;	
 
+
+
 ValidDeployment:
 	'Valid for' eqInterfaceOrGroups+=[EqInterfaceOrGroup] 
 	(',' eqInterfaceOrGroups+=[EqInterfaceOrGroup])* 
 	'are' '{'
-		  ( 	 hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
+		  		(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) 
 		  (',' 	(hardwareElements+=[HardwareElement|QualifiedName] | implicitHardwareElements+=DeploymentImplicitDefinition) )* 
 	'}' ';'
 ;

@@ -386,19 +386,16 @@ class DislocalityRelation{
 class ColocalityRelation {
 	refers EqInterfaceOrGroup[1..*] eqInterfaceOrGroups
 	HardwareArchitectureLevelType hardwareLevel
-	
-	op EqInterface[] getAllInterfaces() {
-		val list = new BasicEList<EqInterface>
-		
-		for (e : eqInterfaceOrGroups) {
-			if (e instanceof EqInterface) 				list.add(e)
-			else if (e instanceof EqInterfaceGroup) 	list.addAll(e.eqInterfaces)
-		}
 
-		return list
+	op EqInterface[] getAllInterfaces() {
+		eqInterfaceOrGroups.map[ if (it instanceof EqInterface) #[it] 
+								 else if (it instanceof EqInterfaceGroup) eqInterfaces]
+						   .flatten
+						   .toEList
 	}
 	
 	op String getAllEqInterfaceOrGroupNames() {
+
 		var String result = ""
 		var boolean first = true
 		

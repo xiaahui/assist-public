@@ -2037,7 +2037,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_3_0 = (RuleCall)cHardwareLevelAssignment_3.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//DislocalityRelation:
+		/// * Dislocality Restrictions * / DislocalityRelation:
 		//	eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "dislocal up to"
 		//	hardwareLevel=HardwareArchitectureLevelType ";";
 		@Override public ParserRule getRule() { return rule; }
@@ -2099,7 +2099,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_3_0 = (RuleCall)cHardwareLevelAssignment_3.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//ColocalityRelation:
+		/// * Colocality Restrictions * / ColocalityRelation:
 		//	eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "on same"
 		//	hardwareLevel=HardwareArchitectureLevelType ";";
 		@Override public ParserRule getRule() { return rule; }
@@ -3371,7 +3371,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getHardwareArchitectureLevelTypeAccess().getRule();
 	}
 
-	//DislocalityRelation:
+	/// * Dislocality Restrictions * / DislocalityRelation:
 	//	eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "dislocal up to"
 	//	hardwareLevel=HardwareArchitectureLevelType ";";
 	public DislocalityRelationElements getDislocalityRelationAccess() {
@@ -3382,7 +3382,7 @@ public class MappingDSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getDislocalityRelationAccess().getRule();
 	}
 
-	//ColocalityRelation:
+	/// * Colocality Restrictions * / ColocalityRelation:
 	//	eqInterfaceOrGroups+=[EqInterfaceOrGroup] ("," eqInterfaceOrGroups+=[EqInterfaceOrGroup])* "on same"
 	//	hardwareLevel=HardwareArchitectureLevelType ";";
 	public ColocalityRelationElements getColocalityRelationAccess() {

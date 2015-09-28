@@ -5,6 +5,7 @@ import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
+import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ConnectedPinsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
@@ -106,7 +107,7 @@ class AssistSolver {
 		
 //		mappingConstraintsList.add(new RestrictValidDeploymentsConstraint(model, solver, solverVariables))
 //		mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
-//		mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
+		mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 		mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
 
 		/* Create a list for the results */ 

@@ -9,13 +9,18 @@ import ch.hilbri.assist.datamodel.model.EqInterfaceOrGroup;
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 
+import com.google.common.collect.Iterables;
+
+import java.lang.Iterable;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -24,6 +29,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
+
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
 /**
  * <!-- begin-user-doc -->
@@ -128,20 +137,26 @@ public class ColocalityRelationImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	public EList<EqInterface> getAllInterfaces() {
-		final BasicEList<EqInterface> list = new BasicEList<EqInterface>();
 		EList<EqInterfaceOrGroup> _eqInterfaceOrGroups = this.getEqInterfaceOrGroups();
-		for (final EqInterfaceOrGroup e : _eqInterfaceOrGroups) {
-			if ((e instanceof EqInterface)) {
-				list.add(((EqInterface)e));
-			}
-			else {
-				if ((e instanceof EqInterfaceGroup)) {
-					EList<EqInterface> _eqInterfaces = ((EqInterfaceGroup)e).getEqInterfaces();
-					list.addAll(_eqInterfaces);
+		final Function1<EqInterfaceOrGroup, List<EqInterface>> _function = new Function1<EqInterfaceOrGroup, List<EqInterface>>() {
+			public List<EqInterface> apply(final EqInterfaceOrGroup it) {
+				List<EqInterface> _xifexpression = null;
+				if ((it instanceof EqInterface)) {
+					_xifexpression = java.util.Collections.<EqInterface>unmodifiableList(org.eclipse.xtext.xbase.lib.CollectionLiterals.<EqInterface>newArrayList(((EqInterface)it)));
 				}
+				else {
+					EList<EqInterface> _xifexpression_1 = null;
+					if ((it instanceof EqInterfaceGroup)) {
+						_xifexpression_1 = ((EqInterfaceGroup)it).getEqInterfaces();
+					}
+					_xifexpression = _xifexpression_1;
+				}
+				return _xifexpression;
 			}
-		}
-		return list;
+		};
+		EList<List<EqInterface>> _map = XcoreEListExtensions.<EqInterfaceOrGroup, List<EqInterface>>map(_eqInterfaceOrGroups, _function);
+		Iterable<EqInterface> _flatten = Iterables.<EqInterface>concat(_map);
+		return ECollections.<EqInterface>toEList(_flatten);
 	}
 
 	/**
