@@ -14,32 +14,32 @@ class MinimizeRequiredCableWeight extends AbstractMetricImpl {
 		
 		var double sum = 0
 		
-//FIXME:		for (rdc : result.model.RDCs) {
-//		
-//			// Welche Interfaces landen auf diesem RDC?
-//			val allMappedInterfacesForRDC = rdc.connectors
-//													.map[result.getAllMappedEqInterfacesForConnector(it)]
-//													.flatten
-//			
-//			if (!allMappedInterfacesForRDC.isNullOrEmpty) {
-//				
-//				// Bestimme die Summe der Kabelgewichte für alle Interfaces auf diesem RDC
-//				val weightedCableLengthForRDC = allMappedInterfacesForRDC
-//											.map[
-//												(Math.abs(it.resourceX - rdc.resourceX) +  // Bestimme die Länge
-//											     Math.abs(it.resourceY - rdc.resourceY) +
-//												 Math.abs(it.resourceZ - rdc.resourceZ))
-//												 
-//												 *
-//																		 
-//												 result.model.globalBlock.cableWeightDataBlock.getCableWeight(it.ioType)		// Skaliere die Länge mit dem Gewicht
-//												 															// dieses Interfaces
-//											]
-//											.reduce[p1, p2|p1+p2]
-//			
-//				sum += weightedCableLengthForRDC
-//			}
-//		}
+		for (rdc : result.model.RDCs) {
+		
+			// Welche Interfaces landen auf diesem RDC?
+			val allMappedInterfacesForRDC = rdc.connectors
+													.map[result.getAllMappedEqInterfaces(it)]
+													.flatten
+			
+			if (!allMappedInterfacesForRDC.isNullOrEmpty) {
+				
+				// Bestimme die Summe der Kabelgewichte für alle Interfaces auf diesem RDC
+				val weightedCableLengthForRDC = allMappedInterfacesForRDC
+											.map[
+												(Math.abs(it.resourceX - rdc.resourceX) +  // Bestimme die Länge
+											     Math.abs(it.resourceY - rdc.resourceY) +
+												 Math.abs(it.resourceZ - rdc.resourceZ))
+												 
+												 *
+																		 
+												 result.model.globalBlock.cableWeightDataBlock.getCableWeight(it.ioType)		// Skaliere die Länge mit dem Gewicht
+												 																				// dieses Interfaces
+											]
+											.reduce[p1, p2|p1+p2]
+			
+				sum += weightedCableLengthForRDC
+			}
+		}
 			
 		return sum
 	}
