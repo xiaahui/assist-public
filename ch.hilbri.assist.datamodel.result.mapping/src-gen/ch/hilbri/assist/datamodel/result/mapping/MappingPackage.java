@@ -189,13 +189,22 @@ public interface MappingPackage extends EPackage {
 	int RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN = COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get All Mapped Eq Interfaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_ALL_MAPPED_EQ_INTERFACES__HARDWAREELEMENT = COMPARABLE_OPERATION_COUNT + 4;
+
+	/**
 	 * The operation id for the '<em>Compare To</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___COMPARE_TO__RESULT = COMPARABLE_OPERATION_COUNT + 4;
+	int RESULT___COMPARE_TO__RESULT = COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Result</em>' class.
@@ -204,7 +213,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 5;
+	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl <em>Abstract Metric</em>}' class.
@@ -481,6 +490,16 @@ public interface MappingPackage extends EPackage {
 	EOperation getResult__GetEqInterfaceForPin__Pin();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getAllMappedEqInterfaces(ch.hilbri.assist.datamodel.model.HardwareElement) <em>Get All Mapped Eq Interfaces</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Mapped Eq Interfaces</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.result.mapping.Result#getAllMappedEqInterfaces(ch.hilbri.assist.datamodel.model.HardwareElement)
+	 * @generated
+	 */
+	EOperation getResult__GetAllMappedEqInterfaces__HardwareElement();
+
+	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#compareTo(ch.hilbri.assist.datamodel.result.mapping.Result) <em>Compare To</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -744,6 +763,14 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN = eINSTANCE.getResult__GetEqInterfaceForPin__Pin();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Mapped Eq Interfaces</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_ALL_MAPPED_EQ_INTERFACES__HARDWAREELEMENT = eINSTANCE.getResult__GetAllMappedEqInterfaces__HardwareElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Compare To</b></em>' operation.

@@ -3,9 +3,13 @@
 package ch.hilbri.assist.datamodel.result.mapping.impl;
 
 import ch.hilbri.assist.datamodel.model.AssistModel;
+import ch.hilbri.assist.datamodel.model.Compartment;
+import ch.hilbri.assist.datamodel.model.Connector;
 import ch.hilbri.assist.datamodel.model.EqInterface;
+import ch.hilbri.assist.datamodel.model.HardwareElement;
 import ch.hilbri.assist.datamodel.model.InterfacesBlock;
 import ch.hilbri.assist.datamodel.model.Pin;
+import ch.hilbri.assist.datamodel.model.RDC;
 
 import ch.hilbri.assist.datamodel.result.mapping.Evaluation;
 import ch.hilbri.assist.datamodel.result.mapping.MappingPackage;
@@ -32,6 +36,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
 
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.Functions.Function2;
@@ -370,9 +376,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			if (_equals) {
 				_xifexpression = ((EqInterface[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, EqInterface.class))[0];
 			}
-			else {
-				_xifexpression = null;
-			}
 			_xblockexpression = _xifexpression;
 		}
 		return _xblockexpression;
@@ -383,10 +386,145 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<EqInterface> getAllMappedEqInterfaces(final HardwareElement elem) {
+		EList<EqInterface> _xifexpression = null;
+		if ((elem instanceof Compartment)) {
+			EList<Pin> _pins = ((Compartment)elem).getPins();
+			final Function1<Pin, EqInterface> _function = new Function1<Pin, EqInterface>() {
+				public EqInterface apply(final Pin it) {
+					EqInterface _xblockexpression = null;
+					{
+						HashMap<EqInterface, Pin> _mapping = ResultImpl.this.getMapping();
+						final Function2<EqInterface, Pin, Boolean> _function = new Function2<EqInterface, Pin, Boolean>() {
+							public Boolean apply(final EqInterface iface, final Pin pin) {
+								return Boolean.valueOf(Objects.equal(pin, it));
+							}
+						};
+						Map<EqInterface, Pin> _filter = MapExtensions.<EqInterface, Pin>filter(_mapping, _function);
+						final Set<EqInterface> ifaces = _filter.keySet();
+						EqInterface _xifexpression = null;
+						int _length = ((Object[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, Object.class)).length;
+						boolean _equals = (_length == 1);
+						if (_equals) {
+							_xifexpression = ((EqInterface[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, EqInterface.class))[0];
+						}
+						else {
+							_xifexpression = null;
+						}
+						_xblockexpression = _xifexpression;
+					}
+					return _xblockexpression;
+				}
+			};
+			EList<EqInterface> _map = XcoreEListExtensions.<Pin, EqInterface>map(_pins, _function);
+			final Function1<EqInterface, Boolean> _function_1 = new Function1<EqInterface, Boolean>() {
+				public Boolean apply(final EqInterface it) {
+					return Boolean.valueOf((!Objects.equal(it, null)));
+				}
+			};
+			Iterable<EqInterface> _filter = IterableExtensions.<EqInterface>filter(_map, _function_1);
+			Set<EqInterface> _set = IterableExtensions.<EqInterface>toSet(_filter);
+			_xifexpression = ECollections.<EqInterface>toEList(_set);
+		}
+		else {
+			EList<EqInterface> _xifexpression_1 = null;
+			if ((elem instanceof RDC)) {
+				EList<Pin> _pins_1 = ((RDC)elem).getPins();
+				final Function1<Pin, EqInterface> _function_2 = new Function1<Pin, EqInterface>() {
+					public EqInterface apply(final Pin it) {
+						EqInterface _xblockexpression = null;
+						{
+							HashMap<EqInterface, Pin> _mapping = ResultImpl.this.getMapping();
+							final Function2<EqInterface, Pin, Boolean> _function = new Function2<EqInterface, Pin, Boolean>() {
+								public Boolean apply(final EqInterface iface, final Pin pin) {
+									return Boolean.valueOf(Objects.equal(pin, it));
+								}
+							};
+							Map<EqInterface, Pin> _filter = MapExtensions.<EqInterface, Pin>filter(_mapping, _function);
+							final Set<EqInterface> ifaces = _filter.keySet();
+							EqInterface _xifexpression = null;
+							int _length = ((Object[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, Object.class)).length;
+							boolean _equals = (_length == 1);
+							if (_equals) {
+								_xifexpression = ((EqInterface[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, EqInterface.class))[0];
+							}
+							else {
+								_xifexpression = null;
+							}
+							_xblockexpression = _xifexpression;
+						}
+						return _xblockexpression;
+					}
+				};
+				EList<EqInterface> _map_1 = XcoreEListExtensions.<Pin, EqInterface>map(_pins_1, _function_2);
+				final Function1<EqInterface, Boolean> _function_3 = new Function1<EqInterface, Boolean>() {
+					public Boolean apply(final EqInterface it) {
+						return Boolean.valueOf((!Objects.equal(it, null)));
+					}
+				};
+				Iterable<EqInterface> _filter_1 = IterableExtensions.<EqInterface>filter(_map_1, _function_3);
+				Set<EqInterface> _set_1 = IterableExtensions.<EqInterface>toSet(_filter_1);
+				_xifexpression_1 = ECollections.<EqInterface>toEList(_set_1);
+			}
+			else {
+				EList<EqInterface> _xifexpression_2 = null;
+				if ((elem instanceof Connector)) {
+					EList<Pin> _pins_2 = ((Connector)elem).getPins();
+					final Function1<Pin, EqInterface> _function_4 = new Function1<Pin, EqInterface>() {
+						public EqInterface apply(final Pin it) {
+							EqInterface _xblockexpression = null;
+							{
+								HashMap<EqInterface, Pin> _mapping = ResultImpl.this.getMapping();
+								final Function2<EqInterface, Pin, Boolean> _function = new Function2<EqInterface, Pin, Boolean>() {
+									public Boolean apply(final EqInterface iface, final Pin pin) {
+										return Boolean.valueOf(Objects.equal(pin, it));
+									}
+								};
+								Map<EqInterface, Pin> _filter = MapExtensions.<EqInterface, Pin>filter(_mapping, _function);
+								final Set<EqInterface> ifaces = _filter.keySet();
+								EqInterface _xifexpression = null;
+								int _length = ((Object[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, Object.class)).length;
+								boolean _equals = (_length == 1);
+								if (_equals) {
+									_xifexpression = ((EqInterface[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, EqInterface.class))[0];
+								}
+								else {
+									_xifexpression = null;
+								}
+								_xblockexpression = _xifexpression;
+							}
+							return _xblockexpression;
+						}
+					};
+					EList<EqInterface> _map_2 = XcoreEListExtensions.<Pin, EqInterface>map(_pins_2, _function_4);
+					final Function1<EqInterface, Boolean> _function_5 = new Function1<EqInterface, Boolean>() {
+						public Boolean apply(final EqInterface it) {
+							return Boolean.valueOf((!Objects.equal(it, null)));
+						}
+					};
+					Iterable<EqInterface> _filter_2 = IterableExtensions.<EqInterface>filter(_map_2, _function_5);
+					Set<EqInterface> _set_2 = IterableExtensions.<EqInterface>toSet(_filter_2);
+					_xifexpression_2 = ECollections.<EqInterface>toEList(_set_2);
+				}
+				else {
+					_xifexpression_2 = null;
+				}
+				_xifexpression_1 = _xifexpression_2;
+			}
+			_xifexpression = _xifexpression_1;
+		}
+		return _xifexpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int compareTo(final Result o) {
-		Evaluation _evaluation = this.getEvaluation();
+		Evaluation _evaluation = o.getEvaluation();
 		double _totalScaledScore = _evaluation.getTotalScaledScore();
-		Evaluation _evaluation_1 = o.getEvaluation();
+		Evaluation _evaluation_1 = this.getEvaluation();
 		double _totalScaledScore_1 = _evaluation_1.getTotalScaledScore();
 		return Double.compare(_totalScaledScore, _totalScaledScore_1);
 	}
@@ -521,6 +659,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return getPinForEqInterface((EqInterface)arguments.get(0));
 			case MappingPackage.RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN:
 				return getEqInterfaceForPin((Pin)arguments.get(0));
+			case MappingPackage.RESULT___GET_ALL_MAPPED_EQ_INTERFACES__HARDWAREELEMENT:
+				return getAllMappedEqInterfaces((HardwareElement)arguments.get(0));
 			case MappingPackage.RESULT___COMPARE_TO__RESULT:
 				return compareTo((Result)arguments.get(0));
 		}
