@@ -2,6 +2,7 @@ package ch.hilbri.assist.mapping.ui.handlers;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.MApplication;
@@ -18,9 +19,9 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor;
-import org.eclipse.core.runtime.jobs.Job;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.application.helpers.Helpers;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.mapping.solver.GuiSolverJob;
@@ -47,20 +48,20 @@ public class Generate {
 					ResourceSet rs = new ResourceSetImpl();
 					Resource resource = rs.getResource(uri, true);
 					
-					// Resolve all proxies
-					EcoreUtil.resolveAll(resource);
-					
-					
+//					// Resolve all proxies
+//					EcoreUtil.resolveAll(resource);
+
 					/* Searching for errors inside the document? */
 					/* 1) Error with the syntax of the dsl */
 					if (resource.getErrors().size() > 0) {	return false; } 
 					
 					if (resource.getContents().size() == 0) { return false;	}
-					/* 2) Custom validation rule errors */
-					Diagnostic diagnostic = Diagnostician.INSTANCE.validate(resource.getContents().get(0));
-					if (diagnostic.getSeverity() == Diagnostic.ERROR) { 
-						return false; 
-					}
+					
+//					/* 2) Custom validation rule errors */
+//					Diagnostic diagnostic = Diagnostician.INSTANCE.validate(resource.getContents().get(0));
+//					if (diagnostic.getSeverity() == Diagnostic.ERROR) { 
+//						return false; 
+//					}
 				
 					return true;
 				}
@@ -75,7 +76,9 @@ public class Generate {
 	 */
 	@Execute
 	public Object execute(MApplication application, EModelService service, IProgressMonitor monitor) {
-				
+		
+		Logger logger 			= LoggerFactory.getLogger(this.getClass());
+		
 		MPart editorPart = Helpers.getActiveEditor(application, service);
 		if (editorPart == null) return null;
 		
@@ -96,22 +99,24 @@ public class Generate {
 					// Resolve all proxies
 					EcoreUtil.resolveAll(resource);
 					
-					
 					/* Searching for errors inside the document? */
 					/* 1) Error with the syntax of the dsl */
 					if (resource.getErrors().size() > 0) {	
-						ConsoleCommands.writeLineToConsole("Input contains errors - it will not be processed."); 
+						logger.info("Input contains errors - it will not be processed."); 
 						return null; 
 					}
 					
 					if (resource.getContents().size() == 0) { 
-						ConsoleCommands.writeLineToConsole("Input is empty? It will not be processed."); 
+						logger.info("Input is empty - it will not be processed."); 
 						return null;
 					}
 					/* 2) Custom validation rule errors */
 					Diagnostic diagnostic = Diagnostician.INSTANCE.validate(resource.getContents().get(0));
 					if (diagnostic.getSeverity() == Diagnostic.ERROR) {
-						ConsoleCommands.writeLineToConsole("There are still some errors in the input. It will not be processed."); 
+						logger.info("There are still some errors in the input. It will not be processed."); 
+						logger.info("  - Message: " + diagnostic.getMessage());
+						logger.info("  - Source : " + diagnostic.getSource());
+						logger.info("  - Data   : " + diagnostic.getData());
 						return null;
 					}
 					
