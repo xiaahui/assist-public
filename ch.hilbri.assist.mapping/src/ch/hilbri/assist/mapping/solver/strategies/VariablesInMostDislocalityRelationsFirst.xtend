@@ -8,6 +8,7 @@ import org.chocosolver.solver.search.strategy.selectors.VariableSelector
 import org.chocosolver.solver.variables.IntVar
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 
 class VariablesInMostDislocalityRelationsFirst implements VariableSelector<IntVar>  {
 	
@@ -30,10 +31,10 @@ class VariablesInMostDislocalityRelationsFirst implements VariableSelector<IntVa
 			
 			if (!model.dislocalityRelations.filter[allInterfaces.contains(iface)].nullOrEmpty)
 				score = model.dislocalityRelations.filter[allInterfaces.contains(iface)].length 
-//						*
-//						model.dislocalityRelations.filter[allInterfaces.contains(iface)].map[allInterfaces.size].reduce[p1, p2|p1+p2]
+						*
+						model.dislocalityRelations.filter[allInterfaces.contains(iface)].map[allInterfaces.size].reduce[p1, p2|p1+p2]
 			
-			val v = solverVariables.getEqInterfaceLocationVariable(iface, 0)
+			val v = solverVariables.getEqInterfaceLocationVariable(iface, HardwareArchitectureLevelType.PIN)
 			
 			map.put(v, score)
 		}

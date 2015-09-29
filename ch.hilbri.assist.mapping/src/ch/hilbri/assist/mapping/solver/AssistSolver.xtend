@@ -143,7 +143,7 @@ class AssistSolver {
 	def setSolverSearchStrategy(SearchType strategy) {
 		val List<AbstractStrategy<IntVar>> heuristics = new ArrayList<AbstractStrategy<IntVar>>
 		val seed = 12345
-		val vars = solverVariables.locationVariables
+		val vars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
 		
 		logger.info("Setting choco-solver search strategy to '" + strategy.humanReadableName + "'")
 		
