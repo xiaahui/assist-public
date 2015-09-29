@@ -34,7 +34,6 @@
 	</repositories>
 
 	<build>
-
 		<plugins>
 			<plugin>
 				<!-- enable tycho build extension -->
