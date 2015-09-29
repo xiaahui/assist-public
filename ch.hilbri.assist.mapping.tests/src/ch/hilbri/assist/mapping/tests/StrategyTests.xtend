@@ -1,63 +1,47 @@
 package ch.hilbri.assist.mapping.tests
 
 import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.ModelPackage
-import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.solver.AssistSolver
 import ch.hilbri.assist.mapping.solver.SearchType
-import ch.hilbri.assist.mapping.tests.AbstractMappingTest
-import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider
-import java.util.ArrayList
-import javax.inject.Inject
-import org.eclipse.xtext.junit4.InjectWith
-import org.eclipse.xtext.junit4.XtextRunner
-import org.eclipse.xtext.junit4.util.ParseHelper
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 
 import static org.junit.Assert.*
 
-@InjectWith(MappingDSLInjectorProvider)
-@RunWith(XtextRunner)
-class StrategyTests {
+class StrategyTests extends AbstractMappingTest {
 	
-	String 				input
-	AssistModel 		model
-	ArrayList<Result> 	allResults
-	Logger 				logger
-
-	new() {
-		logger = LoggerFactory.getLogger(AbstractMappingTest)
-		input = '''
+	@Test
+	def void testAllStrategiesForSimpleExample() {
+		val input = '''
 Global { 
 	Name = "Example System";
 }
 
-Compartment C1 {
-	RDC RDC1 {
-		Connector Connector1 {
-			"CustomType0" = 2;
-			"CustomType1" = 2;
-		}
+Compartments {
+	Compartment C1 {
+		RDC RDC1 {
+			Connector Connector1 {
+				Pin01 : "CustomType0";
+				Pin11 : "CustomType1";
+			}
 
-		Connector Connector2 {
-			"CustomType0" = 2;
+			Connector Connector2 {
+				Pin01 : "CustomType0";
+				Pin02 : "CustomType0";
+			}
+		}
+	
+		RDC RDC2 {
+			Connector Connector1 {
+				Pin01 : "CustomType0";
+				Pin11 : "CustomType1";
+			}
+
+			Connector Connector2 {
+				Pin21 : "CustomType2";
+				Pin22 : "CustomType2";
+			}
 		}
 	}
-	
-	RDC RDC2 {
-		Connector Connector1 {
-			"CustomType0" = 2;
-			"CustomType1" = 2;
-		}
-
-		Connector Connector2 {
-			"CustomType2" = 2;
-		}
-	}
-	
 }
 
 
@@ -79,20 +63,9 @@ Restrictions {
 	Iface2, Iface4 on same RDC; 
 }
 '''
-	}
-
-	@Inject
-	protected ParseHelper<AssistModel> parser
-	
-	@Test
-	def checkAllStrategiesRunProperly() {
-
-		ModelPackage.eINSTANCE.eClass()
-	
 		/* Parse the input */
 		model = parser.parse(input) as AssistModel
 		
-		/* Fix the model */
 		assertNotNull(model) 
 
 		/* Go through all possible search strategies */
@@ -113,7 +86,7 @@ Restrictions {
 			/* Store the results */
 			allResults = solver.results
 			assertNotNull(allResults)
-			assertEquals(allResults.length, 2)
+			assertEquals(allResults.length, 6)
 		}
 	}
 }

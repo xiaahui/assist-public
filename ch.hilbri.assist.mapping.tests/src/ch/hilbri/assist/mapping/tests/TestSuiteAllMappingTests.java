@@ -8,7 +8,10 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({
 	BasicTests.class,
 	InterfaceTypeTests.class,
-	ConnectedPinsTests.class
+	ConnectedPinsTests.class,
+	ChocoSolverTests.class,
+	SearchTypeTests.class,
+	StrategyTests.class
 })  
 
 public class TestSuiteAllMappingTests {}

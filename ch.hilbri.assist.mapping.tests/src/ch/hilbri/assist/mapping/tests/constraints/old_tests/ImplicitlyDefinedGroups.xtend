@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.tests
+package ch.hilbri.assist.mapping.tests.constraints.old_tests
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.ModelPackage
