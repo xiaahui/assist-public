@@ -17,6 +17,7 @@
       <import plugin="org.eclipse.swt" version="3.104.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.console" version="3.6.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jface" version="3.11.0" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.libraries.poi"/>
    </requires>
 
    <plugin
@@ -77,5 +78,19 @@
          download-size="0"
          install-size="0"
          version="0.0.0"/>
+
+   <plugin
+         id="ch.hilbri.assist.libraries.codecs"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.libraries.poi"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>

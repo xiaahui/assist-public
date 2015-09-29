@@ -13,3 +13,9 @@
 [submodule "ch.hilbri.assist.libraries.math/commons-math"]
 	path = ch.hilbri.assist.libraries.math/commons-math
 	url = https://github.com/apache/commons-math
+[submodule "ch.hilbri.assist.libraries.poi/poi"]
+	path = ch.hilbri.assist.libraries.poi/poi
+	url = https://github.com/apache/poi
+[submodule "ch.hilbri.assist.libraries.codecs/commons-codec"]
+	path = ch.hilbri.assist.libraries.codecs/commons-codec
+	url = https://github.com/apache/commons-codec

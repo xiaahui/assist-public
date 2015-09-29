@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ch.hilbri.assist.libraries.poi
+Bundle-SymbolicName: ch.hilbri.assist.libraries.poi
+Bundle-Version: 3.13.0.qualifier
+Bundle-Vendor: The Apache POI Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.apache.commons.logging
+Require-Bundle: ch.hilbri.assist.libraries.codecs;bundle-version="1.10.0"
