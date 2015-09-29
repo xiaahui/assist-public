@@ -30,7 +30,7 @@ class RestrictInvalidDeploymentsConstraint extends AbstractMappingConstraint {
 	}
 	
 	override generate() {
-		if (model.invalidDeployments.empty) return false
+		if (model.invalidDeployments == null || model.invalidDeployments.empty) return false
 	
 		for (spec : model.invalidDeployments) {
 		

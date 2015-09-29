@@ -29,7 +29,7 @@ class RestrictValidDeploymentsConstraint extends AbstractMappingConstraint {
 	}
 	
 	override generate() {
-		if (model.validDeployments.empty) return false
+		if (model.validDeployments == null || model.validDeployments.empty) return false
 	
 		for (spec : model.validDeployments) {
 		
