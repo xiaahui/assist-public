@@ -6,7 +6,6 @@ import java.io.File
 import java.io.FileNotFoundException
 import java.util.HashMap
 import jxl.Workbook
-import jxl.WorkbookSettings
 import jxl.read.biff.BiffException
 import jxl.write.Label
 import jxl.write.WritableWorkbook
@@ -15,6 +14,8 @@ import org.eclipse.swt.widgets.Display
 import org.eclipse.ui.PlatformUI
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+
+import static ch.hilbri.assist.mapping.exporters.excel.ExcelOutputTransformator.*
 
 class ExcelOutputTransformator {
 	
@@ -36,11 +37,12 @@ class ExcelOutputTransformator {
 		var Workbook rWorkbook
 		
 		try {
-			val workbookSettings = new WorkbookSettings()
-			workbookSettings.suppressWarnings = true
+//			val workbookSettings = new WorkbookSettings()
+//			workbookSettings.writeAccess = "ASSIST"
+//			workbookSettings.suppressWarnings = true
 			
-			rWorkbook = Workbook.getWorkbook(inputExcelFile, workbookSettings)
-			wWorkbook = Workbook.createWorkbook(outputExcelFile, rWorkbook, workbookSettings)
+			rWorkbook = Workbook.getWorkbook(inputExcelFile) //, workbookSettings)
+			wWorkbook = Workbook.createWorkbook(outputExcelFile, rWorkbook) //, workbookSettings)
 			
 			val sheet = wWorkbook.getSheet("Wiring part V2")
 	
@@ -66,7 +68,8 @@ class ExcelOutputTransformator {
 						if (result.mapping.get(eqInterface) != null) {
 							
 							// Here we try to build the string that gets exported to Excel
-							val mappedRDCName = result.getPinForEqInterface(eqInterface).connector.rdc.name + "__" + result.mapping.get(eqInterface).connector.name
+							val pin = result.getPinForEqInterface(eqInterface)
+							val mappedRDCName = pin.connector.rdc.name + "__" + pin.connector.name + "__" + pin.name
 							val label = new Label(3,row, mappedRDCName)
 							sheet.addCell(label)
 							
@@ -80,6 +83,8 @@ class ExcelOutputTransformator {
 			}	// for (rows)
 			
 			wWorkbook.write
+			wWorkbook.close
+			rWorkbook.close
 			
 		} catch(FileNotFoundException e) {
 			Display.getDefault().asyncExec(new Runnable() {
@@ -87,10 +92,6 @@ class ExcelOutputTransformator {
 			});
 		} catch (BiffException e) {
 			e.printStackTrace() 
-		}
-		finally {
-			rWorkbook?.close
-			wWorkbook?.close
 		}
 		
 		logger.info('''Exported «exportedInterfaceCount» interfaces to '«outputExcelFileName»'. ''')

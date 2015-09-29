@@ -227,7 +227,15 @@ Restrictions {
 	
 	// Generated restrictions for valid deployments ("restrict deployment to")
 	«FOR iface : interfaceDeploymentRestrictions.keySet»
-	Valid for «iface.name» is { pins with RDC.Name = "«IF !interfaceDeploymentRestrictions.get(iface).contains("__")»«interfaceDeploymentRestrictions.get(iface)»"«ELSE»«interfaceDeploymentRestrictions.get(iface).split("__").get(0)»" and Connector.Name = "«interfaceDeploymentRestrictions.get(iface).split("__").get(1)»"«ENDIF» };
+	Valid for «iface.name» is { pins with RDC.Name = "«
+		IF !interfaceDeploymentRestrictions.get(iface).contains("__")»«interfaceDeploymentRestrictions.get(iface)»"«
+		ELSE»«IF interfaceDeploymentRestrictions.get(iface).split("__").length == 2
+			»«interfaceDeploymentRestrictions.get(iface).split("__").get(0)»" and Connector.Name = "«interfaceDeploymentRestrictions.get(iface).split("__").get(1)»"«
+			ENDIF
+			»«IF interfaceDeploymentRestrictions.get(iface).split("__").length == 3
+			»«interfaceDeploymentRestrictions.get(iface).split("__").get(0)»" and Connector.Name = "«interfaceDeploymentRestrictions.get(iface).split("__").get(1)»" and Pin.Name = "«interfaceDeploymentRestrictions.get(iface).split("__").get(2)»"«
+			ENDIF
+		»«ENDIF» };
 	«ENDFOR»
 	
 }
