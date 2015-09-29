@@ -60,7 +60,7 @@ class SavePartialSolution {
 								   
 					
 					val root = ResourcesPlugin.getWorkspace.getRoot
-					val folder = root.getFolder(inputFile.file.parent.fullPath)
+					val fullPathFile = inputFile.file.parent.fullPath
 					val model = detailedResultsViewUiModel.currentResult.model
 					
 					val solutionWizard = new SaveGeneratedMappingsInSpecificationWizard(newfilename, detailedResultsViewUiModel.currentResult.mapping, model)
@@ -68,8 +68,14 @@ class SavePartialSolution {
 					if (selection != null)
 						solutionWizard.init(PlatformUI.getWorkbench, selection)
 					else {
-						val sselection = new StructuredSelection(folder)
-						solutionWizard.init(PlatformUI.getWorkbench, sselection)
+						if (fullPathFile.segmentCount > 1) {
+							val sselection = new StructuredSelection(root.getFolder(fullPathFile))
+							solutionWizard.init(PlatformUI.getWorkbench, sselection)
+						} else {
+							val sselection = new StructuredSelection(root)
+							solutionWizard.init(PlatformUI.getWorkbench, sselection)
+						}
+							
 					}
 					val dialogSolutionWizard = new WizardDialog(editor.getSite.getShell, solutionWizard)
 					dialogSolutionWizard.open
