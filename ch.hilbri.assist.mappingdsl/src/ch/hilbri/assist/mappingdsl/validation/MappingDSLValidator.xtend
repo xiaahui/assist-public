@@ -219,7 +219,7 @@ class MappingDSLValidator extends AbstractMappingDSLValidator {
 
 	}
 
-// FIXME: TASK
+// TODO: 
 /*
 	 * Create a check that an application in a dislocality relation is not ALSO
 	 * part of an applicationGroup in the same relation!!!!
