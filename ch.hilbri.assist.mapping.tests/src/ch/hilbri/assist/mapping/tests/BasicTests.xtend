@@ -1,6 +1,5 @@
 package ch.hilbri.assist.mapping.tests
 
-import ch.hilbri.assist.datamodel.model.Compartment
 import java.net.URL
 import java.nio.file.Files
 import java.nio.file.Paths
@@ -91,7 +90,6 @@ InterfaceGroups {
 		for (r : allResults) {
 			// Compartment
 			assertEquals(1, r.model.compartments.size)
-			assertTrue(r.model.compartments.get(0) instanceof Compartment)
 			val comp = r.model.compartments.get(0)
 			assertEquals("C1", comp.name)
 			

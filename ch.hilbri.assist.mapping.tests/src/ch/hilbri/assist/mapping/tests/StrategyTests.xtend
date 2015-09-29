@@ -1,6 +1,5 @@
 package ch.hilbri.assist.mapping.tests
 
-import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.mapping.solver.AssistSolver
 import ch.hilbri.assist.mapping.solver.SearchType
 import org.junit.Test
@@ -64,7 +63,7 @@ Restrictions {
 }
 '''
 		/* Parse the input */
-		model = parser.parse(input) as AssistModel
+		model = parser.parse(input)
 		
 		assertNotNull(model) 
 

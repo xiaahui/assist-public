@@ -52,7 +52,7 @@ class SavePartialSolution {
 
 			val input = editor.getEditorInput
 			if (input instanceof IFileEditorInput) {
-					val inputFile = input as IFileEditorInput
+					val inputFile = input 
 					val detailedResultsViewUiModel = editor.getDetailedResultViewUiModel() 
 					val newfilename = inputFile.file.name.substring(0, inputFile.file.name.length - (inputFile.file.fileExtension.length + 1)) + 
 								   " - " + 

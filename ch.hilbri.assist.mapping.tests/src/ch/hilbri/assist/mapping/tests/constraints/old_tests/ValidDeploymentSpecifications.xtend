@@ -67,7 +67,7 @@ Restrictions {
 }
 '''
 		/* Parse the input */
-		model = parser.parse(input) as AssistModel
+		model = parser.parse(input) 
 		new AssistSolver(model)
 		
 		/* Assertions */

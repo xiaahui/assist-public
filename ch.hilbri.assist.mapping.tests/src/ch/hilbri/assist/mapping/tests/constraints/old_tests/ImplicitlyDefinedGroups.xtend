@@ -79,7 +79,7 @@ InterfaceGroups {
 }'''
 		
 		/* Parse the input */
-		model = parser.parse(input) as AssistModel
+		model = parser.parse(input) 
 		new AssistSolver(model)
 		assertEquals(model.eqInterfaceGroups.length, 1)
 		assertEquals(model.eqInterfaceGroups.get(0).eqInterfaces.length, 2)
@@ -142,7 +142,7 @@ InterfaceGroups {
 }'''
 		
 		/* Parse the input */
-		model = parser.parse(input) as AssistModel
+		model = parser.parse(input)
 		new AssistSolver(model)
 		assertEquals(model.eqInterfaceGroups.length, 1)
 		assertEquals(model.eqInterfaceGroups.get(0).eqInterfaces.length, 2)
@@ -214,7 +214,7 @@ InterfaceGroups {
 }'''
 		
 		/* Parse the input */
-		model = parser.parse(input) as AssistModel
+		model = parser.parse(input) 
 		new AssistSolver(model)
 
 		assertEquals(model.eqInterfaceGroups.length, 1)
