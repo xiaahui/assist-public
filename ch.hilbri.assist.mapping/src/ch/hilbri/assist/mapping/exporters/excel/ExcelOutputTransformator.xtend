@@ -22,9 +22,14 @@ class ExcelOutputTransformator {
 	private static Logger logger = LoggerFactory.getLogger(ExcelOutputTransformator)
 	
 	def static String createExcelOutput(String file, Result result) {
+		
+		
+		
 		val inputExcelFile = new File(file)
 		val outputExcelFileName = file.substring(0, file.length - 4) + " -- ASSIST " + result.name + ".xls"
 		val outputExcelFile = new File(outputExcelFileName)
+		
+		logger.debug('''Exporter: using excel file «file» and creating a new excel file «outputExcelFileName»''')
 		
 		var exportedInterfaceCount = 0 // how many interfaces where exported?
 		val exportedInterfaceMap = new HashMap<EqInterface, Boolean>  // which interfaces where exported?
@@ -83,15 +88,17 @@ class ExcelOutputTransformator {
 			}	// for (rows)
 			
 			wWorkbook.write
-			wWorkbook.close
-			rWorkbook.close
-			
 		} catch(FileNotFoundException e) {
 			Display.getDefault().asyncExec(new Runnable() {
 				override run() {MessageDialog.openError(PlatformUI.workbench.activeWorkbenchWindow.shell, "Export error", "Error while accessing the file: " + e.message)}
 			});
 		} catch (BiffException e) {
 			e.printStackTrace() 
+		} catch (Exception e) {
+			logger.debug('''Exporter: encountered an exception: «e.message»''')	
+		}finally {
+			rWorkbook?.close
+			wWorkbook?.close
 		}
 		
 		logger.info('''Exported «exportedInterfaceCount» interfaces to '«outputExcelFileName»'. ''')
