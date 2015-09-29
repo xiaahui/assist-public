@@ -2,7 +2,12 @@
 \chapter{Mapping Example }
 \label{cha:example-input}
 
-In Listing~\ref{lst:example-input} an example specification is described. This example illustrates the specifications that are possible with the current version of ASSIST.
+In Listing~\ref{lst:example-input} an example specification is described. 
+This example illustrates the specifications that are possible with the current version of ASSIST.
+Comments are used to further document the intended specification. 
+Single-line comments are prefixed with \verb|//|.
+Multi-line comments have to be placed between \verb|/*| and \verb|*/|.
+The entire specification language is white space tolerant, so that additional white spaces can be added between keywords without violating its syntax.
 
  \lstinputlisting[label={lst:example-input},caption={ASSIST Example Specification}]{../../ch.hilbri.assist.mappingdsl/src/ch/hilbri/assist/mappingdsl/ExampleSpecification.mdsl} 
 

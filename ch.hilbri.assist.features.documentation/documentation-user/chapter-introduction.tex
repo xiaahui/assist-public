@@ -2,6 +2,24 @@
 \chapter{Introduction}
 \label{cha:introduction}
 
+The ASSIST Toolsuite is for System Engineers and System Architects of safety-critical systems. 
+It automates the construction of a mapping between equipment interfaces and the pins of an RDC while respecting safety and reliability requirements.
+
+The ASSIST Toolsuite aims to automate this challenging, error prone and complex task. 
+It requires the user to specify:
+
+\begin{itemize}
+\item the resource requirements of the equipment interfaces,
+\item the features and capabilities of the RDCs and
+\item safety and reliability requirements
+\end{itemize}
+
+in a textual domain specific language.
+
+This specification of a mapping problem is automatically transfered into Constraint Satisfaction Problem (CSP). 
+Solutions for this CSP represent correct deployments. 
+They are automatically generated with the constraint solver \emph{Choco3}. 
+Solutions can also be evaluated and optimized based on pre-defined or customizable metrics.
 
 %%% Local Variables:
 %%% mode: latex
