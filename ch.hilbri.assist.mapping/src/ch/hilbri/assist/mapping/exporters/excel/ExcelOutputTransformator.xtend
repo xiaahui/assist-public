@@ -3,12 +3,12 @@ package ch.hilbri.assist.mapping.exporters.excel
 import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import java.io.File
+import java.io.FileInputStream
 import java.io.FileNotFoundException
+import java.io.FileOutputStream
 import java.util.HashMap
-import jxl.Workbook
-import jxl.read.biff.BiffException
-import jxl.write.Label
-import jxl.write.WritableWorkbook
+import org.apache.poi.hssf.usermodel.HSSFWorkbook
+import org.apache.poi.ss.usermodel.Row
 import org.eclipse.jface.dialogs.MessageDialog
 import org.eclipse.swt.widgets.Display
 import org.eclipse.ui.PlatformUI
@@ -23,11 +23,9 @@ class ExcelOutputTransformator {
 	
 	def static String createExcelOutput(String file, Result result) {
 		
-		
-		
-		val inputExcelFile = new File(file)
+		val inputExcelFile = new FileInputStream(new File(file))
 		val outputExcelFileName = file.substring(0, file.length - 4) + " -- ASSIST " + result.name + ".xls"
-		val outputExcelFile = new File(outputExcelFileName)
+		val outputExcelFile = new FileOutputStream(new File(outputExcelFileName))
 		
 		logger.debug('''Exporter: using excel file «file» and creating a new excel file «outputExcelFileName»''')
 		
@@ -37,68 +35,80 @@ class ExcelOutputTransformator {
 			exportedInterfaceMap.put(iface, false)
 		var exportedNotFoundInterfaceCount = 0
 		
-		
-		var WritableWorkbook wWorkbook
-		var Workbook rWorkbook
-		
 		try {
-//			val workbookSettings = new WorkbookSettings()
-//			workbookSettings.writeAccess = "ASSIST"
-//			workbookSettings.suppressWarnings = true
 			
-			rWorkbook = Workbook.getWorkbook(inputExcelFile) //, workbookSettings)
-			wWorkbook = Workbook.createWorkbook(outputExcelFile, rWorkbook) //, workbookSettings)
+			val workbook = new HSSFWorkbook(inputExcelFile)
+			val sheet = workbook.getSheet("Wiring part V2")
 			
-			val sheet = wWorkbook.getSheet("Wiring part V2")
-	
-			for (row : 4 ..< sheet.rows) {
-				// Retrieve raw data from excel and clean it
-				val lineName			 = sheet.getCell(12, row).contents		// Spalte: M
-				val wiringLane			 = sheet.getCell(13, row).contents		// Spalte: N
-				val restrictDeploymentTo = sheet.getCell(3, row).contents		// Spalte: D
-			
-				// We need to have a line with an interface in it and an empty "result field"
-				if (!lineName.nullOrEmpty && restrictDeploymentTo.nullOrEmpty) {
-	
-					var ifacename = clear(lineName) 
-					if (!wiringLane.nullOrEmpty) ifacename += "__" + clear(wiringLane)
+			val rowIterator = sheet.iterator
+			while (rowIterator.hasNext) {
+				val row = rowIterator.next
 				
-					val interfacename = ifacename // needs to be final
+				// We skip the header 
+				if (row.rowNum >= 4)  {
+					
+					// How do we test if a line is empty?
+					// -> "system" cannot be empty
+					if (row.getCell(2, Row.CREATE_NULL_AS_BLANK).stringCellValue.length > 0) {
+						
+						// Retrieve raw data from excel and clean it
+						val lineName			 = row.getCell(12).stringCellValue				// Spalte: M
+						val wiringLane			 = row.getCell(13).stringCellValue				// Spalte: N
+						val restrictDeploymentTo = row.getCell(3).stringCellValue				// Spalte: D
+					
+						// We need to have a line with an interface in it and an empty "result field"
+						if (!lineName.nullOrEmpty && restrictDeploymentTo.nullOrEmpty) {
+		
+							var ifacename = clear(lineName) 
+							if (!wiringLane.nullOrEmpty) ifacename += "__" + clear(wiringLane)
 				
-					// Try to locate that interface in our model
-					if (result.model.eqInterfaces.filter[name.equals(interfacename)].length == 1) {
+							val interfacename = ifacename // needs to be final
+				
+							// Try to locate that interface in our model
+							if (result.model.eqInterfaces.filter[name.equals(interfacename)].length == 1) {
 						
-						val eqInterface = result.model.eqInterfaces.filter[name.equals(interfacename)].get(0)
+								val eqInterface = result.model.eqInterfaces.filter[name.equals(interfacename)].get(0)
 						
-						if (result.mapping.get(eqInterface) != null) {
+								if (result.mapping.get(eqInterface) != null) {
 							
-							// Here we try to build the string that gets exported to Excel
-							val pin = result.getPinForEqInterface(eqInterface)
-							val mappedRDCName = pin.connector.rdc.name + "__" + pin.connector.name + "__" + pin.name
-							val label = new Label(3,row, mappedRDCName)
-							sheet.addCell(label)
-							
-							exportedInterfaceCount++
-							exportedInterfaceMap.put(eqInterface, true)
-						}
-					} else {
-						exportedNotFoundInterfaceCount++
-					}
-				}
-			}	// for (rows)
+									// Here we try to build the string that gets exported to Excel
+									val pin = result.getPinForEqInterface(eqInterface)
+									val mappedRDCName = pin.connector.rdc.name + "__" + pin.connector.name + "__" + pin.name
+								
+									val cell = row.getCell(3)
+									cell.cellValue = mappedRDCName					
+
+									exportedInterfaceCount++
+									exportedInterfaceMap.put(eqInterface, true)
+								}
+						
+							}	 
+
+							// The interface was not found
+							else {	
+								exportedNotFoundInterfaceCount++   
+							}
+
+						} // we need to have a line for an interface
+
+					} // row is not empty
+
+				} // if row > 4			
+
+			} // while rowIter
 			
-			wWorkbook.write
+			inputExcelFile.close
+			
+			workbook.write(outputExcelFile)
+			outputExcelFile.close
+			
+			
 		} catch(FileNotFoundException e) {
 			Display.getDefault().asyncExec(new Runnable() {
 				override run() {MessageDialog.openError(PlatformUI.workbench.activeWorkbenchWindow.shell, "Export error", "Error while accessing the file: " + e.message)}
 			});
-		} catch (BiffException e) {
-			e.printStackTrace() 
 		} catch (Exception e) {
-			logger.debug('''Exporter: encountered an exception: «e.message»''')	
-		}finally {
-			rWorkbook?.close
-			wWorkbook?.close
+			logger.debug('''Exporter: encountered an exception: «e.class.simpleName»«IF !e.message.nullOrEmpty»: >>«e.message»<<«ENDIF»''')	
 		}
 		
 		logger.info('''Exported «exportedInterfaceCount» interfaces to '«outputExcelFileName»'. ''')
