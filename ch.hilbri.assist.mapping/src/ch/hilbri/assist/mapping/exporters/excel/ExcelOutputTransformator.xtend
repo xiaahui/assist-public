@@ -7,8 +7,9 @@ import java.io.FileInputStream
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.util.HashMap
-import org.apache.poi.hssf.usermodel.HSSFWorkbook
+import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import org.apache.poi.ss.usermodel.Row
+
 import org.eclipse.jface.dialogs.MessageDialog
 import org.eclipse.swt.widgets.Display
 import org.eclipse.ui.PlatformUI
@@ -24,7 +25,7 @@ class ExcelOutputTransformator {
 	def static String createExcelOutput(String file, Result result) {
 		
 		val inputExcelFile = new FileInputStream(new File(file))
-		val outputExcelFileName = file.substring(0, file.length - 4) + " -- ASSIST " + result.name + ".xls"
+		val outputExcelFileName = file.substring(0, file.length - 5) + " -- ASSIST " + result.name + ".xlsx"
 		val outputExcelFile = new FileOutputStream(new File(outputExcelFileName))
 		
 		logger.debug('''Exporter: using excel file «file» and creating a new excel file «outputExcelFileName»''')
@@ -37,7 +38,7 @@ class ExcelOutputTransformator {
 		
 		try {
 			
-			val workbook = new HSSFWorkbook(inputExcelFile)
+			val workbook = new XSSFWorkbook(inputExcelFile)
 			val sheet = workbook.getSheet("Wiring part V2")
 			
 			val rowIterator = sheet.iterator

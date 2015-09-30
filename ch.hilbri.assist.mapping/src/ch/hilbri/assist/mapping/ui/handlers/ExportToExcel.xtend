@@ -49,7 +49,7 @@ class ExportToExcel {
 			val detailedResultsViewUiModel = editor.getDetailedResultViewUiModel() 
 
 			val dialog = new FileDialog(editor.getSite().getShell(), SWT.SAVE)
-			dialog.setFilterExtensions(#["*.xls"])
+			dialog.setFilterExtensions(#["*.xlsx"])
 			
 			val filePath = dialog.open()
 			if (filePath == null) return null
@@ -58,7 +58,7 @@ class ExportToExcel {
 			
 			if (outputfile != null) {
 				Display.getDefault().asyncExec(new Runnable() {
-					override run() {MessageDialog.openInformation(PlatformUI.workbench.activeWorkbenchWindow.shell, "Export successful", "The current solution was successfully exported to the Excel file: '" + outputfile + "'.\n\nPlease note that the formatting may differ from the original file.")}
+					override run() {MessageDialog.openInformation(PlatformUI.workbench.activeWorkbenchWindow.shell, "Export successful", "The current solution was successfully exported to the Excel file: '" + outputfile + "'.")}
 				});
 			}
 					
