@@ -66,6 +66,7 @@ class SaveGeneratedMappingsInSpecificationWizard extends Wizard implements INewW
 		// We have to update the current model with the valid restrictions; 
 		// if we do a copy of the model, then all comments are lost
 		// other option: make comments explicit in the grammar - but this is a bit overkill
+
 		// thats why we add some valid restrictions, persist to the disk and take them back afterwards					
 		
 		// Update model
@@ -77,6 +78,11 @@ class SaveGeneratedMappingsInSpecificationWizard extends Wizard implements INewW
 			val vd = f.createValidDeployment
 			vd.eqInterfaceOrGroups.add(iface)
 			vd.hardwareElements.add(mapping.get(iface))
+			
+			// Check if we have a restrictions block already
+			if (model.restrictionsBlock == null) {
+				model.restrictionsBlock = f.createRestrictionsBlock
+			}
 			
 			// Check if we already have that exact statement
 			if (model.validDeployments.filter[it.eqInterfaceOrGroups.contains(iface) && it.eqInterfaceOrGroups.length == 1]
