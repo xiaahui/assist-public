@@ -9,6 +9,7 @@ import java.util.Calendar
 import java.util.HashMap
 import java.util.Map
 import org.apache.poi.hssf.usermodel.HSSFWorkbook
+import org.apache.poi.ss.usermodel.Row
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -102,50 +103,56 @@ Compartments {
 		try {
 			
 			val excelFile = new FileInputStream(new File(filePath))
-			var workbook = new HSSFWorkbook(excelFile)
-			var sheet = workbook.getSheet("Wiring part V2")
+			val workbook = new HSSFWorkbook(excelFile)
+			val sheet = workbook.getSheet("Wiring part V2")
 			
 			val rowIterator = sheet.iterator
 			while (rowIterator.hasNext) {
 				val row = rowIterator.next
 				
-				// We skip the header and hopefully avoid empty rows
-				if ((row.rowNum >= 4) && (row.getCell(0) != null)) {
+				// We skip the header 
+				if (row.rowNum >= 4)  {
 					
-					val subAta				 = row.getCell(1).numericCellValue				// Spalte: B
-					val system 				 = row.getCell(2).stringCellValue  				// Spalte: C
-					val ioType				 = row.getCell(5).stringCellValue				// Spalte: F
-					val emhZone1			 = row.getCell(6).stringCellValue				// Spalte: G
-					val route				 = row.getCell(8).stringCellValue				// Spalte: I
-					val pwSup1				 = row.getCell(9).stringCellValue				// Spalte: J
-					val lineName			 = row.getCell(12).stringCellValue				// Spalte: M
-					val wiringLane			 = row.getCell(13).stringCellValue				// Spalte: N
-					val grpInfo				 = row.getCell(14).stringCellValue				// Spalte: O
-					val resource			 = row.getCell(19).stringCellValue				// Spalte: T
-					val resourceX			 = row.getCell(21).numericCellValue				// Spalte: V
-					val resourceY			 = row.getCell(22).numericCellValue				// Spalte: W
-					val resourceZ			 = row.getCell(23).numericCellValue				// Spalte: X
-					val restrictDeploymentTo = row.getCell(3).stringCellValue				// Spalte: D
+					// How do we test if a line is empty?
+					// -> "system" cannot be empty
+					if (row.getCell(2, Row.CREATE_NULL_AS_BLANK).stringCellValue.length > 0) {
+					
+						val subAta				 = row.getCell(1).numericCellValue				// Spalte: B
+						val system 				 = row.getCell(2).stringCellValue  				// Spalte: C
+						val ioType				 = row.getCell(5).stringCellValue				// Spalte: F
+						val emhZone1			 = row.getCell(6).stringCellValue				// Spalte: G
+						val route				 = row.getCell(8).stringCellValue				// Spalte: I
+						val pwSup1				 = row.getCell(9).stringCellValue				// Spalte: J
+						val lineName			 = row.getCell(12).stringCellValue				// Spalte: M
+						val wiringLane			 = row.getCell(13).stringCellValue				// Spalte: N
+						val grpInfo				 = row.getCell(14).stringCellValue				// Spalte: O
+						val resource			 = row.getCell(19).stringCellValue				// Spalte: T
+						val resourceX			 = row.getCell(21).numericCellValue				// Spalte: V
+						val resourceY			 = row.getCell(22).numericCellValue				// Spalte: W
+						val resourceZ			 = row.getCell(23).numericCellValue				// Spalte: X
+						val restrictDeploymentTo = row.getCell(3).stringCellValue				// Spalte: D	
 
-					if (!lineName.nullOrEmpty) {
-	
-						var interfacename = clear(lineName) 
-					
-						if (!wiringLane.nullOrEmpty) 
-							interfacename += "__" + clear(wiringLane)
-				
-						// We need to make the doubles we read into proper strings
-						val subAtaStr = subAta.intValue.toString
-						val resXStr = resourceX.intValue.toString
-						val resYStr = resourceY.intValue.toString
-						val resZStr = resourceZ.intValue.toString
-				
-						val iface = new ImportInterface(interfacename, system, subAtaStr, resource, lineName, wiringLane, grpInfo, route, pwSup1, ioType, emhZone1, resXStr, resYStr, resZStr)				
-						allInterfaces.add(iface)
-					
-						if (!restrictDeploymentTo.isNullOrEmpty) 
-							interfaceDeploymentRestrictions.put(iface, restrictDeploymentTo.trim)
+						if (!lineName.nullOrEmpty) {
+		
+							var interfacename = clear(lineName) 
 						
+							if (!wiringLane.nullOrEmpty) 
+								interfacename += "__" + clear(wiringLane)
+					
+							// We need to make the doubles we read into proper strings
+							val subAtaStr = subAta.intValue.toString
+							val resXStr = resourceX.intValue.toString
+							val resYStr = resourceY.intValue.toString
+							val resZStr = resourceZ.intValue.toString
+					
+							val iface = new ImportInterface(interfacename, system, subAtaStr, resource, lineName, wiringLane, grpInfo, route, pwSup1, ioType, emhZone1, resXStr, resYStr, resZStr)				
+							allInterfaces.add(iface)
+						
+							if (!restrictDeploymentTo.isNullOrEmpty) 
+								interfaceDeploymentRestrictions.put(iface, restrictDeploymentTo.trim)
+							
+						}
+					
 					}				
 				}
 			}
@@ -220,8 +227,7 @@ InterfaceGroups {
 		 
 		catch (Exception e) {
 		
-			logger.info('''Importer encountered an error.''')
-			logger.info('''>>«e.message»<<''')
+			logger.info('''Importer encountered an error: «e.class.simpleName»«IF !e.message.nullOrEmpty»: >>«e.message»<<«ENDIF»''')
 		}
 		return "";
 		
