@@ -8,7 +8,7 @@ import java.util.ArrayList
 import java.util.Calendar
 import java.util.HashMap
 import java.util.Map
-import org.apache.poi.hssf.usermodel.HSSFWorkbook
+import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import org.apache.poi.ss.usermodel.Row
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -103,7 +103,7 @@ Compartments {
 		try {
 			
 			val excelFile = new FileInputStream(new File(filePath))
-			val workbook = new HSSFWorkbook(excelFile)
+			val workbook = new XSSFWorkbook(excelFile)
 			val sheet = workbook.getSheet("Wiring part V2")
 			
 			val rowIterator = sheet.iterator

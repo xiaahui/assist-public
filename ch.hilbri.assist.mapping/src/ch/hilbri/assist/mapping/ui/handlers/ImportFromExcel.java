@@ -55,7 +55,7 @@ public class ImportFromExcel {
 				IFile file = ((IFileEditorInput) input).getFile();
 				
 				FileDialog dialog = new FileDialog(editor.getSite().getShell(),	SWT.OPEN);
-				dialog.setFilterExtensions(new String[] { "*.xls" });
+				dialog.setFilterExtensions(new String[] { "*.xlsx" });
 				String filePath = dialog.open();
 
 				if (filePath == null) return null;
