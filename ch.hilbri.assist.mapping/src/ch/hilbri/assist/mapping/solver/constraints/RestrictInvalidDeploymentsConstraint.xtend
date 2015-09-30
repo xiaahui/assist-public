@@ -34,7 +34,7 @@ class RestrictInvalidDeploymentsConstraint extends AbstractMappingConstraint {
 	
 		for (spec : model.invalidDeployments) {
 		
-			// which are the valid connectors?
+			// which are the valid pins?
 			val list = new ArrayList<Pin>
 			for (hwElem : spec.hardwareElements) {
 				if (hwElem instanceof Compartment) 		list.addAll(hwElem.pins)
@@ -43,8 +43,8 @@ class RestrictInvalidDeploymentsConstraint extends AbstractMappingConstraint {
 				else if (hwElem instanceof Pin)			list.add(hwElem)
 			}
 
-			// Remove duplicate connectors; then get their indices
-			val idxList = list.toSet.map[model.pins.indexOf(it)]
+			//  get their indices
+			val idxList = list.map[model.pins.indexOf(it)]
 
 			// which interfaces or groups do we have?
 			val ifaceList = new ArrayList<EqInterface>
