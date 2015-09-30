@@ -20,7 +20,6 @@
       <import plugin="ch.hilbri.assist.mappingdsl.ui" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="ch.hilbri.assist.libraries.javafx" version="1.8.60" match="greaterOrEqual"/>
       <import plugin="ch.hilbri.assist.libraries.math" version="3.2.1" match="greaterOrEqual"/>
-      <import plugin="ch.hilbri.assist.libraries.jxl" version="2.6.12" match="greaterOrEqual"/>
       <import plugin="ch.hilbri.assist.libraries.choco" version="3.3.1" match="greaterOrEqual"/>
       <import plugin="ch.hilbri.assist.libraries.logback" version="1.1.2" match="greaterOrEqual"/>
       <import plugin="javax.inject" version="1.0.0" match="greaterOrEqual"/>
@@ -59,6 +58,10 @@
       <import plugin="org.eclipse.xtext.common.types.ui" version="2.8.4" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.ui.codetemplates.ui" version="2.8.4" match="greaterOrEqual"/>
       <import plugin="org.eclipse.compare" version="3.5.600" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.libraries.poi" version="3.13.0" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.libraries.jgrapht" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.ui.services" version="1.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.console"/>
    </requires>
 
    <plugin
