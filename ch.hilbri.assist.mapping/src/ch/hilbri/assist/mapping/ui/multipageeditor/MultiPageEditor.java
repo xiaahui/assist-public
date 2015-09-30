@@ -34,6 +34,8 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 
+import com.google.inject.Injector;
+
 import ch.hilbri.assist.application.helpers.Helpers;
 import ch.hilbri.assist.application.helpers.PathProvider;
 import ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView;
@@ -41,8 +43,6 @@ import ch.hilbri.assist.mapping.ui.metrics.MetricsView;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.ResultsView;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import ch.hilbri.assist.mappingdsl.ui.internal.MappingDSLActivator;
-
-import com.google.inject.Injector;
 
 /**
  * A multi-page editor. This editor has 2 pages:
