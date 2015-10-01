@@ -12,18 +12,21 @@
 
 \section{Usage}
 
+\subsection{Overview}
+
 ASSIST has been developed to support the following workflow:
 
 \begin{enumerate}
 \item Import or specify your hardware and software architecture in an \textbf{mdsl} file
 \item Import or Specify your resource and safety requirements in the same \textbf{mdsl} file
 \item Generate a set of valid deployments 
-\item Sort these deployments according to customized metrics
+\item Iterative approach: partial solutions can be fixed in ASSIST
+\item Sort these deployments according to customizable metrics
 \item Select an optimal deployment 
 \item Export the selected deployment
 \end{enumerate}
 
-This can be achieved by:
+\subsection{Create a new Project and Specification}
 
 \begin{enumerate}
 \item Create a new project by clicking on \textsc{File} and \textsc{New}\\
@@ -38,11 +41,41 @@ Please provide a suiteable name for your deployment specification and click on \
 \includegraphics[width=0.5\textwidth]{gfx/install-generate-mappings.jpg}
 \end{enumerate}
 
+
+\subsection{Generate Mappings}
+
+\begin{itemize}
+\item Available Strategies
+\item Partial Solutions
+\end{itemize}
+
+\subsection{Save Mappings to Specification}
+
+\begin{itemize}
+\item How do I store individual mappings in ASIST?
+\end{itemize}
+
+\subsection{Evaluate Solutions}
+
+\begin{itemize}
+\item How do I evaluate and sort my solutions?
+\item Builtin metrics vs. customized metrics
+\end{itemize}
+
+\subsection{Creating customized Metrics}
+
+\begin{itemize}
+\item How do I create customized metrics?
+\end{itemize}
+
 \section{Useful Shortcuts}
 
 \begin{itemize}
 \item \textbf{Ctrl-Shift-C} - Comment the current line or the currently selected lines
 \item \textbf{Ctrl-Shift-F} - Format the current file (indention of sections, \dots)
+\item \textbf{Ctrl-Space} - Code-Completion; the current specification entry will be completed with available parameters
+\item \textbf{Ctrl-F} - Find and replace dialog
+\item \textbf{Ctrl-S} - Save the current editor file
 \end{itemize}
 
 %%% Local Variables:
