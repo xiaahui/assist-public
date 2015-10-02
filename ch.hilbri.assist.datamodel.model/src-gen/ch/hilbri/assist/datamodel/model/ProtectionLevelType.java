@@ -36,7 +36,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	L1(0, "L1", "L1"),
+	L1(1, "L1", "L1"),
 
 	/**
 	 * The '<em><b>L2</b></em>' literal object.
@@ -46,7 +46,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	L2(0, "L2", "L2"),
+	L2(2, "L2", "L2"),
 
 	/**
 	 * The '<em><b>L3</b></em>' literal object.
@@ -56,7 +56,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	L3(0, "L3", "L3"),
+	L3(3, "L3", "L3"),
 
 	/**
 	 * The '<em><b>L4</b></em>' literal object.
@@ -66,7 +66,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	L4(0, "L4", "L4"),
+	L4(4, "L4", "L4"),
 
 	/**
 	 * The '<em><b>L5</b></em>' literal object.
@@ -76,7 +76,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	L5(0, "L5", "L5"),
+	L5(5, "L5", "L5"),
 
 	/**
 	 * The '<em><b>L6</b></em>' literal object.
@@ -86,7 +86,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	L6(0, "L6", "L6"),
+	L6(6, "L6", "L6"),
 
 	/**
 	 * The '<em><b>L7</b></em>' literal object.
@@ -96,7 +96,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	L7(0, "L7", "L7"),
+	L7(7, "L7", "L7"),
 
 	/**
 	 * The '<em><b>L8</b></em>' literal object.
@@ -106,7 +106,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	L8(0, "L8", "L8");
+	L8(8, "L8", "L8");
 
 	/**
 	 * The '<em><b>NONE</b></em>' literal value.
@@ -136,7 +136,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int L1_VALUE = 0;
+	public static final int L1_VALUE = 1;
 
 	/**
 	 * The '<em><b>L2</b></em>' literal value.
@@ -151,7 +151,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int L2_VALUE = 0;
+	public static final int L2_VALUE = 2;
 
 	/**
 	 * The '<em><b>L3</b></em>' literal value.
@@ -166,7 +166,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int L3_VALUE = 0;
+	public static final int L3_VALUE = 3;
 
 	/**
 	 * The '<em><b>L4</b></em>' literal value.
@@ -181,7 +181,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int L4_VALUE = 0;
+	public static final int L4_VALUE = 4;
 
 	/**
 	 * The '<em><b>L5</b></em>' literal value.
@@ -196,7 +196,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int L5_VALUE = 0;
+	public static final int L5_VALUE = 5;
 
 	/**
 	 * The '<em><b>L6</b></em>' literal value.
@@ -211,7 +211,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int L6_VALUE = 0;
+	public static final int L6_VALUE = 6;
 
 	/**
 	 * The '<em><b>L7</b></em>' literal value.
@@ -226,7 +226,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int L7_VALUE = 0;
+	public static final int L7_VALUE = 7;
 
 	/**
 	 * The '<em><b>L8</b></em>' literal value.
@@ -241,7 +241,7 @@ public enum ProtectionLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int L8_VALUE = 0;
+	public static final int L8_VALUE = 8;
 
 	/**
 	 * An array of all the '<em><b>Protection Level Type</b></em>' enumerators.
@@ -317,6 +317,14 @@ public enum ProtectionLevelType implements Enumerator {
 	public static ProtectionLevelType get(int value) {
 		switch (value) {
 			case NONE_VALUE: return NONE;
+			case L1_VALUE: return L1;
+			case L2_VALUE: return L2;
+			case L3_VALUE: return L3;
+			case L4_VALUE: return L4;
+			case L5_VALUE: return L5;
+			case L6_VALUE: return L6;
+			case L7_VALUE: return L7;
+			case L8_VALUE: return L8;
 		}
 		return null;
 	}

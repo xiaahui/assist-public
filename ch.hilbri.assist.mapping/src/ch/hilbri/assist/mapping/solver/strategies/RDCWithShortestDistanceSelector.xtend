@@ -19,20 +19,36 @@ class RDCWithShortestDistanceSelector implements IntValueSelector  {
 		this.model = model
 	}
 	
+	/*
+	 * We have to follow a three-level sorting hierarchy
+	 * 
+	 * 1. Level: Closest RDC
+	 * 2. Level: Exact Type Matching
+	 * 3. Level: Minimum Protection Level possible (NONE < L1 < L2 < L3 < ... < L8)
+	 */
 	override int selectValue(IntVar variable) {
+		
+		val equipment = solverVariables.getInterfaceForLocationVariable(variable)
+		
 		val pinIndexList = new ArrayList<Integer>
 		val iterator = variable.getValueIterator(true)
  		while(iterator.hasNext()) {
      		pinIndexList.add(iterator.next)
      	}
      	
-     	val equipment = solverVariables.getInterfaceForLocationVariable(variable)
-     	
-     	pinIndexList.sortBy[ val rdc = model.pins.get(it).connector.rdc
+     	pinIndexList // 3. Level - Minimum Protection Level possible
+     				.sortBy[ model.pins.get(it).protectionLevel.value ]
+     		
+		     		// 2. Level - Exact Type matching is preferred over everything else
+     				.sortBy[ if (equipment.ioType == model.pins.get(it).eqInterfaceType) 0 else	1 ]
+     		
+		     		// 1. Level - Closest RDC
+     				.sortBy[ val rdc = model.pins.get(it).connector.rdc
      						  Math.abs(equipment.resourceX - rdc.resourceX) +
 							  Math.abs(equipment.resourceY - rdc.resourceY) +
 							  Math.abs(equipment.resourceZ - rdc.resourceZ)  ]
-					 .get(0)
-     			
+
+					// Get the first pin
+					.get(0)
 	}
 }
