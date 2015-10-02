@@ -22,6 +22,7 @@ import ch.hilbri.assist.mapping.solver.preprocessors.AbstractModelPreprocessor
 import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupCombinations
 import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupDefinitions
 import ch.hilbri.assist.mapping.solver.preprocessors.InvalidDeploymentHardwareElements
+import ch.hilbri.assist.mapping.solver.preprocessors.ModelShortcutBuilder
 import ch.hilbri.assist.mapping.solver.preprocessors.ValidDeploymentHardwareElements
 import ch.hilbri.assist.mapping.solver.strategies.FirstFailThenMaxRelationDegree
 import ch.hilbri.assist.mapping.solver.strategies.RDCWithShortestDistanceSelector
@@ -70,6 +71,7 @@ class AssistSolver {
 
 		/* Create all preprocessors */
 		val modelPreprocessors = new ArrayList<AbstractModelPreprocessor> 
+		modelPreprocessors.add(new ModelShortcutBuilder(model))  // <- needs to be the first preProcessor to setup all shortcuts
 		modelPreprocessors.add(new EqInterfaceGroupDefinitions(model))
 		modelPreprocessors.add(new EqInterfaceGroupCombinations(model))
 		modelPreprocessors.add(new ValidDeploymentHardwareElements(model))

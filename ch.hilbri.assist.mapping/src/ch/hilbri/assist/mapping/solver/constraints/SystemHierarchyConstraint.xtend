@@ -28,7 +28,7 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 		
 		for (int pinIdx : 0 ..< model.pins.length) {
 			val conIdx 	= model.connectors.indexOf(model.pins.get(pinIdx).eContainer) 
-			val rdcIdx 	= model.RDCs.indexOf(model.pins.get(pinIdx).eContainer.eContainer)
+			val rdcIdx 	= model.rdcs.indexOf(model.pins.get(pinIdx).eContainer.eContainer)
 			val comIdx 	= model.compartments.indexOf(model.pins.get(pinIdx).eContainer.eContainer.eContainer)
 			tuples.add(pinIdx, conIdx, rdcIdx, comIdx)
 		}

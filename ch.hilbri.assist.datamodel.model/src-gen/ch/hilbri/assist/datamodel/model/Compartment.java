@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ch.hilbri.assist.datamodel.model.Compartment#getSide <em>Side</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.Compartment#getZone <em>Zone</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.Compartment#getRdcs <em>Rdcs</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.Compartment#getPins <em>Pins</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.datamodel.model.ModelPackage#getCompartment()
@@ -152,6 +153,22 @@ public interface Compartment extends HardwareElement {
 	EList<RDC> getRdcs();
 
 	/**
+	 * Returns the value of the '<em><b>Pins</b></em>' reference list.
+	 * The list contents are of type {@link ch.hilbri.assist.datamodel.model.Pin}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pins</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pins</em>' reference list.
+	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getCompartment_Pins()
+	 * @model
+	 * @generated
+	 */
+	EList<Pin> getPins();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model unique="false"
@@ -159,14 +176,5 @@ public interface Compartment extends HardwareElement {
 	 * @generated
 	 */
 	String toString();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.RDC%>> _rdcs = this.getRdcs();\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.RDC%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Pin%>>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.RDC%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Pin%>>>()\n{\n\tpublic <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Pin%>> apply(final <%ch.hilbri.assist.datamodel.model.RDC%> it)\n\t{\n\t\treturn it.getPins();\n\t}\n};\n<%org.eclipse.emf.common.util.EList%><<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Pin%>>> _map = <%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%>.<<%ch.hilbri.assist.datamodel.model.RDC%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Pin%>>>map(_rdcs, _function);\n<%java.lang.Iterable%><<%ch.hilbri.assist.datamodel.model.Pin%>> _flatten = <%com.google.common.collect.Iterables%>.<<%ch.hilbri.assist.datamodel.model.Pin%>>concat(_map);\nreturn <%org.eclipse.emf.common.util.ECollections%>.<<%ch.hilbri.assist.datamodel.model.Pin%>>toEList(_flatten);'"
-	 * @generated
-	 */
-	EList<Pin> getPins();
 
 } // Compartment

@@ -9,10 +9,6 @@ import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.model.Pin;
 import ch.hilbri.assist.datamodel.model.RDC;
 
-import com.google.common.collect.Iterables;
-
-import java.lang.Iterable;
-
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -20,7 +16,6 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -29,12 +24,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
-
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,6 +49,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getInternalConnectedPinBlock <em>Internal Connected Pin Block</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl#getPins <em>Pins</em>}</li>
  * </ul>
  *
  * @generated
@@ -281,6 +274,16 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 	 * @ordered
 	 */
 	protected InternalConnectedPinBlock internalConnectedPinBlock;
+
+	/**
+	 * The cached value of the '{@link #getPins() <em>Pins</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPins()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Pin> pins;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -622,8 +625,11 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String toString() {
-		return this.getName();
+	public EList<Pin> getPins() {
+		if (pins == null) {
+			pins = new EObjectResolvingEList<Pin>(Pin.class, this, ModelPackage.RDC__PINS);
+		}
+		return pins;
 	}
 
 	/**
@@ -631,16 +637,8 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Pin> getPins() {
-		EList<Connector> _connectors = this.getConnectors();
-		final Function1<Connector, EList<Pin>> _function = new Function1<Connector, EList<Pin>>() {
-			public EList<Pin> apply(final Connector it) {
-				return it.getPins();
-			}
-		};
-		EList<EList<Pin>> _map = XcoreEListExtensions.<Connector, EList<Pin>>map(_connectors, _function);
-		Iterable<Pin> _flatten = Iterables.<Pin>concat(_map);
-		return ECollections.<Pin>toEList(_flatten);
+	public String toString() {
+		return this.getName();
 	}
 
 	/**
@@ -729,6 +727,8 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 				return getConnectors();
 			case ModelPackage.RDC__INTERNAL_CONNECTED_PIN_BLOCK:
 				return getInternalConnectedPinBlock();
+			case ModelPackage.RDC__PINS:
+				return getPins();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -782,6 +782,10 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 			case ModelPackage.RDC__INTERNAL_CONNECTED_PIN_BLOCK:
 				setInternalConnectedPinBlock((InternalConnectedPinBlock)newValue);
 				return;
+			case ModelPackage.RDC__PINS:
+				getPins().clear();
+				getPins().addAll((Collection<? extends Pin>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -833,6 +837,9 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 			case ModelPackage.RDC__INTERNAL_CONNECTED_PIN_BLOCK:
 				setInternalConnectedPinBlock((InternalConnectedPinBlock)null);
 				return;
+			case ModelPackage.RDC__PINS:
+				getPins().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -871,6 +878,8 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 				return connectors != null && !connectors.isEmpty();
 			case ModelPackage.RDC__INTERNAL_CONNECTED_PIN_BLOCK:
 				return internalConnectedPinBlock != null;
+			case ModelPackage.RDC__PINS:
+				return pins != null && !pins.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -885,8 +894,6 @@ public class RDCImpl extends HardwareElementImpl implements RDC {
 		switch (operationID) {
 			case ModelPackage.RDC___TO_STRING:
 				return toString();
-			case ModelPackage.RDC___GET_PINS:
-				return getPins();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

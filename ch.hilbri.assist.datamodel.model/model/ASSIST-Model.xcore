@@ -22,15 +22,17 @@ class AssistModel {
 	contains InterfaceGroupsBlock[0..1]		interfaceGroupsBlock
 	contains RestrictionsBlock[0..1]		restrictionsBlock
 	
+
+	refers Compartment[0..*]				compartments
+	refers RDC[0..*]						rdcs
+	refers Connector[0..*]					connectors
+	refers Pin[0..*]						pins
+	
 	// Methods
 	op String					getSystemName()				{ globalBlock.systemName										}
 	op CompatibleIoTypeEntry[] 	getCompatibleIoTypes() 		{ globalBlock.compatibleIoTypesBlock?.compatibleIoTypes.toEList	}
 	op CableWeightEntry[]  		getCableWeightData() 		{ globalBlock.cableWeightDataBlock?.cableWeightEntries   		}
 	op ProtectionLevelEntry[] 	getProtectionLevelData()	{ globalBlock.protectionLevelDataBlock?.protectionLevelEntries 	}
-	op Compartment[] 			getCompartments() 			{ compartmentsBlock.compartments 								}
-	op RDC[] 					getRDCs() 					{ compartments.map[rdcs].flatten.toEList 						}
-	op Connector[] 				getConnectors() 			{ RDCs.map[connectors].flatten.toEList							}
-	op Pin[]					getPins()					{ connectors.map[pins].flatten.toEList 							}
 	op EqInterface[]			getEqInterfaces()			{ interfacesBlock.eqInterfaces 									}
 	op EqInterfaceGroup[]		getEqInterfaceGroups()		{ interfaceGroupsBlock?.eqInterfaceGroups 						}
 	op ColocalityRelation[]		getColocalityRelations()	{ restrictionsBlock?.colocalityRelations 						}
@@ -52,7 +54,7 @@ class AssistModel {
 	op HardwareElement[] getAllHardwareElements(HardwareArchitectureLevelType level) {
 		if (level == HardwareArchitectureLevelType.PIN)					return pins.map[it as HardwareElement]
 		else if (level == HardwareArchitectureLevelType.CONNECTOR)		return connectors.map[it as HardwareElement]
-		else if (level == HardwareArchitectureLevelType.RDC)			return RDCs.map[it as HardwareElement]
+		else if (level == HardwareArchitectureLevelType.RDC)			return rdcs.map[it as HardwareElement]
 		else if (level == HardwareArchitectureLevelType.COMPARTMENT)	return compartments.map[it as HardwareElement]
 		else return null	
 	}
@@ -139,8 +141,10 @@ class Compartment extends HardwareElement {
 	
 	contains RDC[0..*] rdcs opposite compartment
 	
+	refers Pin[0..*] pins
+	
 	op String toString() 			{ name }
-	op Pin[] getPins() 				{ rdcs.map[pins].flatten.toEList }
+
 }
 
 class RDC extends HardwareElement {
@@ -159,7 +163,8 @@ class RDC extends HardwareElement {
 	contains InternalConnectedPinBlock[0..1] 	internalConnectedPinBlock
 	
 	op String toString() 			{ name }
-	op Pin[] getPins() 				{ connectors.map[pins].flatten.toEList }
+	
+	refers Pin[0..*] pins
 }
 
 class InternalConnectedPinBlock {

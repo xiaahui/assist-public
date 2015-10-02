@@ -116,13 +116,49 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL__RESTRICTIONS_BLOCK = 4;
 
 	/**
+	 * The feature id for the '<em><b>Compartments</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL__COMPARTMENTS = 5;
+
+	/**
+	 * The feature id for the '<em><b>Rdcs</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL__RDCS = 6;
+
+	/**
+	 * The feature id for the '<em><b>Connectors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL__CONNECTORS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL__PINS = 8;
+
+	/**
 	 * The number of structural features of the '<em>Assist Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_FEATURE_COUNT = 5;
+	int ASSIST_MODEL_FEATURE_COUNT = 9;
 
 	/**
 	 * The operation id for the '<em>Get System Name</em>' operation.
@@ -161,49 +197,13 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL___GET_PROTECTION_LEVEL_DATA = 3;
 
 	/**
-	 * The operation id for the '<em>Get Compartments</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL___GET_COMPARTMENTS = 4;
-
-	/**
-	 * The operation id for the '<em>Get RD Cs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL___GET_RD_CS = 5;
-
-	/**
-	 * The operation id for the '<em>Get Connectors</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL___GET_CONNECTORS = 6;
-
-	/**
-	 * The operation id for the '<em>Get Pins</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL___GET_PINS = 7;
-
-	/**
 	 * The operation id for the '<em>Get Eq Interfaces</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_EQ_INTERFACES = 8;
+	int ASSIST_MODEL___GET_EQ_INTERFACES = 4;
 
 	/**
 	 * The operation id for the '<em>Get Eq Interface Groups</em>' operation.
@@ -212,7 +212,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_EQ_INTERFACE_GROUPS = 9;
+	int ASSIST_MODEL___GET_EQ_INTERFACE_GROUPS = 5;
 
 	/**
 	 * The operation id for the '<em>Get Colocality Relations</em>' operation.
@@ -221,7 +221,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_COLOCALITY_RELATIONS = 10;
+	int ASSIST_MODEL___GET_COLOCALITY_RELATIONS = 6;
 
 	/**
 	 * The operation id for the '<em>Get Dislocality Relations</em>' operation.
@@ -230,7 +230,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_DISLOCALITY_RELATIONS = 11;
+	int ASSIST_MODEL___GET_DISLOCALITY_RELATIONS = 7;
 
 	/**
 	 * The operation id for the '<em>Get Valid Deployments</em>' operation.
@@ -239,7 +239,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_VALID_DEPLOYMENTS = 12;
+	int ASSIST_MODEL___GET_VALID_DEPLOYMENTS = 8;
 
 	/**
 	 * The operation id for the '<em>Get Invalid Deployments</em>' operation.
@@ -248,7 +248,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_INVALID_DEPLOYMENTS = 13;
+	int ASSIST_MODEL___GET_INVALID_DEPLOYMENTS = 9;
 
 	/**
 	 * The operation id for the '<em>Get Eq Interface Types</em>' operation.
@@ -257,7 +257,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_EQ_INTERFACE_TYPES = 14;
+	int ASSIST_MODEL___GET_EQ_INTERFACE_TYPES = 10;
 
 	/**
 	 * The operation id for the '<em>Get Compatible Pin Types</em>' operation.
@@ -266,7 +266,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_COMPATIBLE_PIN_TYPES__STRING = 15;
+	int ASSIST_MODEL___GET_COMPATIBLE_PIN_TYPES__STRING = 11;
 
 	/**
 	 * The operation id for the '<em>Get All Hardware Elements</em>' operation.
@@ -275,7 +275,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE = 16;
+	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__HARDWAREARCHITECTURELEVELTYPE = 12;
 
 	/**
 	 * The number of operations of the '<em>Assist Model</em>' class.
@@ -284,7 +284,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_OPERATION_COUNT = 17;
+	int ASSIST_MODEL_OPERATION_COUNT = 13;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.GlobalBlockImpl <em>Global Block</em>}' class.
@@ -875,13 +875,22 @@ public interface ModelPackage extends EPackage {
 	int COMPARTMENT__RDCS = HARDWARE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARTMENT__PINS = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Compartment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARTMENT_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
+	int COMPARTMENT_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -893,22 +902,13 @@ public interface ModelPackage extends EPackage {
 	int COMPARTMENT___TO_STRING = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Pins</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARTMENT___GET_PINS = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Compartment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARTMENT_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 2;
+	int COMPARTMENT_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl <em>RDC</em>}' class.
@@ -1056,13 +1056,22 @@ public interface ModelPackage extends EPackage {
 	int RDC__INTERNAL_CONNECTED_PIN_BLOCK = HARDWARE_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
+	 * The feature id for the '<em><b>Pins</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDC__PINS = HARDWARE_ELEMENT_FEATURE_COUNT + 13;
+
+	/**
 	 * The number of structural features of the '<em>RDC</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDC_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 13;
+	int RDC_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -1074,22 +1083,13 @@ public interface ModelPackage extends EPackage {
 	int RDC___TO_STRING = HARDWARE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Pins</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RDC___GET_PINS = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>RDC</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDC_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 2;
+	int RDC_OPERATION_COUNT = HARDWARE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.datamodel.model.impl.InternalConnectedPinBlockImpl <em>Internal Connected Pin Block</em>}' class.
@@ -2541,6 +2541,50 @@ public interface ModelPackage extends EPackage {
 	EReference getAssistModel_RestrictionsBlock();
 
 	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.datamodel.model.AssistModel#getCompartments <em>Compartments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Compartments</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getCompartments()
+	 * @see #getAssistModel()
+	 * @generated
+	 */
+	EReference getAssistModel_Compartments();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.datamodel.model.AssistModel#getRdcs <em>Rdcs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Rdcs</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getRdcs()
+	 * @see #getAssistModel()
+	 * @generated
+	 */
+	EReference getAssistModel_Rdcs();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.datamodel.model.AssistModel#getConnectors <em>Connectors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Connectors</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getConnectors()
+	 * @see #getAssistModel()
+	 * @generated
+	 */
+	EReference getAssistModel_Connectors();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.datamodel.model.AssistModel#getPins <em>Pins</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Pins</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getPins()
+	 * @see #getAssistModel()
+	 * @generated
+	 */
+	EReference getAssistModel_Pins();
+
+	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getSystemName() <em>Get System Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2579,46 +2623,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getAssistModel__GetProtectionLevelData();
-
-	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getCompartments() <em>Get Compartments</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Compartments</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getCompartments()
-	 * @generated
-	 */
-	EOperation getAssistModel__GetCompartments();
-
-	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getRDCs() <em>Get RD Cs</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get RD Cs</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getRDCs()
-	 * @generated
-	 */
-	EOperation getAssistModel__GetRDCs();
-
-	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getConnectors() <em>Get Connectors</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Connectors</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getConnectors()
-	 * @generated
-	 */
-	EOperation getAssistModel__GetConnectors();
-
-	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getPins() <em>Get Pins</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Pins</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.AssistModel#getPins()
-	 * @generated
-	 */
-	EOperation getAssistModel__GetPins();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.AssistModel#getEqInterfaces() <em>Get Eq Interfaces</em>}' operation.
@@ -3137,6 +3141,17 @@ public interface ModelPackage extends EPackage {
 	EReference getCompartment_Rdcs();
 
 	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.datamodel.model.Compartment#getPins <em>Pins</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Pins</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.Compartment#getPins()
+	 * @see #getCompartment()
+	 * @generated
+	 */
+	EReference getCompartment_Pins();
+
+	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.Compartment#toString() <em>To String</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3145,16 +3160,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCompartment__ToString();
-
-	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.Compartment#getPins() <em>Get Pins</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Pins</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.Compartment#getPins()
-	 * @generated
-	 */
-	EOperation getCompartment__GetPins();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.RDC <em>RDC</em>}'.
@@ -3310,6 +3315,17 @@ public interface ModelPackage extends EPackage {
 	EReference getRDC_InternalConnectedPinBlock();
 
 	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.datamodel.model.RDC#getPins <em>Pins</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Pins</em>'.
+	 * @see ch.hilbri.assist.datamodel.model.RDC#getPins()
+	 * @see #getRDC()
+	 * @generated
+	 */
+	EReference getRDC_Pins();
+
+	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.RDC#toString() <em>To String</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3318,16 +3334,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRDC__ToString();
-
-	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.model.RDC#getPins() <em>Get Pins</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Pins</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.model.RDC#getPins()
-	 * @generated
-	 */
-	EOperation getRDC__GetPins();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.datamodel.model.InternalConnectedPinBlock <em>Internal Connected Pin Block</em>}'.
@@ -4319,6 +4325,38 @@ public interface ModelPackage extends EPackage {
 		EReference ASSIST_MODEL__RESTRICTIONS_BLOCK = eINSTANCE.getAssistModel_RestrictionsBlock();
 
 		/**
+		 * The meta object literal for the '<em><b>Compartments</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSIST_MODEL__COMPARTMENTS = eINSTANCE.getAssistModel_Compartments();
+
+		/**
+		 * The meta object literal for the '<em><b>Rdcs</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSIST_MODEL__RDCS = eINSTANCE.getAssistModel_Rdcs();
+
+		/**
+		 * The meta object literal for the '<em><b>Connectors</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSIST_MODEL__CONNECTORS = eINSTANCE.getAssistModel_Connectors();
+
+		/**
+		 * The meta object literal for the '<em><b>Pins</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSIST_MODEL__PINS = eINSTANCE.getAssistModel_Pins();
+
+		/**
 		 * The meta object literal for the '<em><b>Get System Name</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4349,38 +4387,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ASSIST_MODEL___GET_PROTECTION_LEVEL_DATA = eINSTANCE.getAssistModel__GetProtectionLevelData();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Compartments</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ASSIST_MODEL___GET_COMPARTMENTS = eINSTANCE.getAssistModel__GetCompartments();
-
-		/**
-		 * The meta object literal for the '<em><b>Get RD Cs</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ASSIST_MODEL___GET_RD_CS = eINSTANCE.getAssistModel__GetRDCs();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Connectors</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ASSIST_MODEL___GET_CONNECTORS = eINSTANCE.getAssistModel__GetConnectors();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Pins</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ASSIST_MODEL___GET_PINS = eINSTANCE.getAssistModel__GetPins();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Eq Interfaces</b></em>' operation.
@@ -4799,20 +4805,20 @@ public interface ModelPackage extends EPackage {
 		EReference COMPARTMENT__RDCS = eINSTANCE.getCompartment_Rdcs();
 
 		/**
+		 * The meta object literal for the '<em><b>Pins</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPARTMENT__PINS = eINSTANCE.getCompartment_Pins();
+
+		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation COMPARTMENT___TO_STRING = eINSTANCE.getCompartment__ToString();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Pins</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPARTMENT___GET_PINS = eINSTANCE.getCompartment__GetPins();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.RDCImpl <em>RDC</em>}' class.
@@ -4929,20 +4935,20 @@ public interface ModelPackage extends EPackage {
 		EReference RDC__INTERNAL_CONNECTED_PIN_BLOCK = eINSTANCE.getRDC_InternalConnectedPinBlock();
 
 		/**
+		 * The meta object literal for the '<em><b>Pins</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RDC__PINS = eINSTANCE.getRDC_Pins();
+
+		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation RDC___TO_STRING = eINSTANCE.getRDC__ToString();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Pins</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RDC___GET_PINS = eINSTANCE.getRDC__GetPins();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.datamodel.model.impl.InternalConnectedPinBlockImpl <em>Internal Connected Pin Block</em>}' class.

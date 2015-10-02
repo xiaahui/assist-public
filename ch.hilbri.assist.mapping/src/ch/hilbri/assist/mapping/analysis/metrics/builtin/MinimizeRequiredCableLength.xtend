@@ -14,7 +14,7 @@ class MinimizeRequiredCableLength extends AbstractMetricImpl {
 		
 		var sum = 0
 		
-		for (rdc : result.model.RDCs) {
+		for (rdc : result.model.rdcs) {
 		
 			val allMappedInterfacesForRDC = rdc.connectors
 													.map[result.getAllMappedEqInterfaces(it)]

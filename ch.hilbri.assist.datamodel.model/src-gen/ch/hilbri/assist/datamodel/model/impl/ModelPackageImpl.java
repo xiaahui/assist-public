@@ -448,6 +448,42 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAssistModel_Compartments() {
+		return (EReference)assistModelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssistModel_Rdcs() {
+		return (EReference)assistModelEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssistModel_Connectors() {
+		return (EReference)assistModelEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssistModel_Pins() {
+		return (EReference)assistModelEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getAssistModel__GetSystemName() {
 		return assistModelEClass.getEOperations().get(0);
 	}
@@ -484,7 +520,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetCompartments() {
+	public EOperation getAssistModel__GetEqInterfaces() {
 		return assistModelEClass.getEOperations().get(4);
 	}
 
@@ -493,7 +529,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetRDCs() {
+	public EOperation getAssistModel__GetEqInterfaceGroups() {
 		return assistModelEClass.getEOperations().get(5);
 	}
 
@@ -502,7 +538,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetConnectors() {
+	public EOperation getAssistModel__GetColocalityRelations() {
 		return assistModelEClass.getEOperations().get(6);
 	}
 
@@ -511,7 +547,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetPins() {
+	public EOperation getAssistModel__GetDislocalityRelations() {
 		return assistModelEClass.getEOperations().get(7);
 	}
 
@@ -520,7 +556,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetEqInterfaces() {
+	public EOperation getAssistModel__GetValidDeployments() {
 		return assistModelEClass.getEOperations().get(8);
 	}
 
@@ -529,7 +565,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetEqInterfaceGroups() {
+	public EOperation getAssistModel__GetInvalidDeployments() {
 		return assistModelEClass.getEOperations().get(9);
 	}
 
@@ -538,7 +574,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetColocalityRelations() {
+	public EOperation getAssistModel__GetEqInterfaceTypes() {
 		return assistModelEClass.getEOperations().get(10);
 	}
 
@@ -547,7 +583,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetDislocalityRelations() {
+	public EOperation getAssistModel__GetCompatiblePinTypes__String() {
 		return assistModelEClass.getEOperations().get(11);
 	}
 
@@ -556,44 +592,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetValidDeployments() {
-		return assistModelEClass.getEOperations().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getAssistModel__GetInvalidDeployments() {
-		return assistModelEClass.getEOperations().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getAssistModel__GetEqInterfaceTypes() {
-		return assistModelEClass.getEOperations().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getAssistModel__GetCompatiblePinTypes__String() {
-		return assistModelEClass.getEOperations().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getAssistModel__GetAllHardwareElements__HardwareArchitectureLevelType() {
-		return assistModelEClass.getEOperations().get(16);
+		return assistModelEClass.getEOperations().get(12);
 	}
 
 	/**
@@ -961,8 +961,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCompartment__ToString() {
-		return compartmentEClass.getEOperations().get(0);
+	public EReference getCompartment_Pins() {
+		return (EReference)compartmentEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -970,8 +970,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCompartment__GetPins() {
-		return compartmentEClass.getEOperations().get(1);
+	public EOperation getCompartment__ToString() {
+		return compartmentEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1105,8 +1105,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRDC__ToString() {
-		return rdcEClass.getEOperations().get(0);
+	public EReference getRDC_Pins() {
+		return (EReference)rdcEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -1114,8 +1114,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRDC__GetPins() {
-		return rdcEClass.getEOperations().get(1);
+	public EOperation getRDC__ToString() {
+		return rdcEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1935,14 +1935,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(assistModelEClass, ASSIST_MODEL__INTERFACES_BLOCK);
 		createEReference(assistModelEClass, ASSIST_MODEL__INTERFACE_GROUPS_BLOCK);
 		createEReference(assistModelEClass, ASSIST_MODEL__RESTRICTIONS_BLOCK);
+		createEReference(assistModelEClass, ASSIST_MODEL__COMPARTMENTS);
+		createEReference(assistModelEClass, ASSIST_MODEL__RDCS);
+		createEReference(assistModelEClass, ASSIST_MODEL__CONNECTORS);
+		createEReference(assistModelEClass, ASSIST_MODEL__PINS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_SYSTEM_NAME);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_COMPATIBLE_IO_TYPES);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_CABLE_WEIGHT_DATA);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_PROTECTION_LEVEL_DATA);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_COMPARTMENTS);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_RD_CS);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_CONNECTORS);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_PINS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_EQ_INTERFACES);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_EQ_INTERFACE_GROUPS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_COLOCALITY_RELATIONS);
@@ -2004,8 +2004,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(compartmentEClass, COMPARTMENT__SIDE);
 		createEAttribute(compartmentEClass, COMPARTMENT__ZONE);
 		createEReference(compartmentEClass, COMPARTMENT__RDCS);
+		createEReference(compartmentEClass, COMPARTMENT__PINS);
 		createEOperation(compartmentEClass, COMPARTMENT___TO_STRING);
-		createEOperation(compartmentEClass, COMPARTMENT___GET_PINS);
 
 		rdcEClass = createEClass(RDC);
 		createEAttribute(rdcEClass, RDC__MANUFACTURER);
@@ -2021,8 +2021,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(rdcEClass, RDC__COMPARTMENT);
 		createEReference(rdcEClass, RDC__CONNECTORS);
 		createEReference(rdcEClass, RDC__INTERNAL_CONNECTED_PIN_BLOCK);
+		createEReference(rdcEClass, RDC__PINS);
 		createEOperation(rdcEClass, RDC___TO_STRING);
-		createEOperation(rdcEClass, RDC___GET_PINS);
 
 		internalConnectedPinBlockEClass = createEClass(INTERNAL_CONNECTED_PIN_BLOCK);
 		createEReference(internalConnectedPinBlockEClass, INTERNAL_CONNECTED_PIN_BLOCK__CONNECTED_PINS);
@@ -2182,6 +2182,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getAssistModel_InterfacesBlock(), this.getInterfacesBlock(), null, "interfacesBlock", null, 1, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_InterfaceGroupsBlock(), this.getInterfaceGroupsBlock(), null, "interfaceGroupsBlock", null, 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_RestrictionsBlock(), this.getRestrictionsBlock(), null, "restrictionsBlock", null, 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModel_Compartments(), this.getCompartment(), null, "compartments", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModel_Rdcs(), this.getRDC(), null, "rdcs", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModel_Connectors(), this.getConnector(), null, "connectors", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModel_Pins(), this.getPin(), null, "pins", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAssistModel__GetSystemName(), theEcorePackage.getEString(), "getSystemName", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
@@ -2190,14 +2194,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEOperation(getAssistModel__GetCableWeightData(), this.getCableWeightEntry(), "getCableWeightData", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getAssistModel__GetProtectionLevelData(), this.getProtectionLevelEntry(), "getProtectionLevelData", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getAssistModel__GetCompartments(), this.getCompartment(), "getCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getAssistModel__GetRDCs(), this.getRDC(), "getRDCs", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getAssistModel__GetConnectors(), this.getConnector(), "getConnectors", 0, -1, !IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getAssistModel__GetPins(), this.getPin(), "getPins", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getAssistModel__GetEqInterfaces(), this.getEqInterface(), "getEqInterfaces", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
@@ -2273,10 +2269,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getCompartment_Side(), theEcorePackage.getEString(), "side", "", 0, 1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompartment_Zone(), theEcorePackage.getEString(), "zone", "", 0, 1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCompartment_Rdcs(), this.getRDC(), this.getRDC_Compartment(), "rdcs", null, 0, -1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompartment_Pins(), this.getPin(), null, "pins", null, 0, -1, Compartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getCompartment__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getCompartment__GetPins(), this.getPin(), "getPins", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(rdcEClass, ch.hilbri.assist.datamodel.model.RDC.class, "RDC", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRDC_Manufacturer(), theEcorePackage.getEString(), "manufacturer", "", 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2292,10 +2287,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getRDC_Compartment(), this.getCompartment(), this.getCompartment_Rdcs(), "compartment", null, 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRDC_Connectors(), this.getConnector(), this.getConnector_Rdc(), "connectors", null, 0, -1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRDC_InternalConnectedPinBlock(), this.getInternalConnectedPinBlock(), null, "internalConnectedPinBlock", null, 0, 1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRDC_Pins(), this.getPin(), null, "pins", null, 0, -1, ch.hilbri.assist.datamodel.model.RDC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getRDC__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getRDC__GetPins(), this.getPin(), "getPins", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(internalConnectedPinBlockEClass, InternalConnectedPinBlock.class, "InternalConnectedPinBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInternalConnectedPinBlock_ConnectedPins(), this.getConnectedPinEntry(), null, "connectedPins", null, 0, -1, InternalConnectedPinBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

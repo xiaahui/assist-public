@@ -36,7 +36,7 @@ import org.eclipse.xtend.lib.annotations.Data
 			locationVarMap.put(ifaceLocVarCon, iface)
 			
 			// RDC Level (index 2)
-			val ifaceLocVarRDC = VF.enumerated(iface.name + "-RDC", 0, model.RDCs.length-1, solver) 
+			val ifaceLocVarRDC = VF.enumerated(iface.name + "-RDC", 0, model.rdcs.length-1, solver) 
 			locationVarMap.put(ifaceLocVarRDC, iface)
 			
 			// Compartment Level (index 3)

@@ -7,10 +7,6 @@ import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.model.Pin;
 import ch.hilbri.assist.datamodel.model.RDC;
 
-import com.google.common.collect.Iterables;
-
-import java.lang.Iterable;
-
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -18,7 +14,6 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -27,11 +22,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
-
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,6 +38,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.CompartmentImpl#getSide <em>Side</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.CompartmentImpl#getZone <em>Zone</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.CompartmentImpl#getRdcs <em>Rdcs</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.CompartmentImpl#getPins <em>Pins</em>}</li>
  * </ul>
  *
  * @generated
@@ -140,6 +133,16 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 	 * @ordered
 	 */
 	protected EList<RDC> rdcs;
+
+	/**
+	 * The cached value of the '{@link #getPins() <em>Pins</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPins()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Pin> pins;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -261,8 +264,11 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String toString() {
-		return this.getName();
+	public EList<Pin> getPins() {
+		if (pins == null) {
+			pins = new EObjectResolvingEList<Pin>(Pin.class, this, ModelPackage.COMPARTMENT__PINS);
+		}
+		return pins;
 	}
 
 	/**
@@ -270,16 +276,8 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Pin> getPins() {
-		EList<RDC> _rdcs = this.getRdcs();
-		final Function1<RDC, EList<Pin>> _function = new Function1<RDC, EList<Pin>>() {
-			public EList<Pin> apply(final RDC it) {
-				return it.getPins();
-			}
-		};
-		EList<EList<Pin>> _map = XcoreEListExtensions.<RDC, EList<Pin>>map(_rdcs, _function);
-		Iterable<Pin> _flatten = Iterables.<Pin>concat(_map);
-		return ECollections.<Pin>toEList(_flatten);
+	public String toString() {
+		return this.getName();
 	}
 
 	/**
@@ -329,6 +327,8 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 				return getZone();
 			case ModelPackage.COMPARTMENT__RDCS:
 				return getRdcs();
+			case ModelPackage.COMPARTMENT__PINS:
+				return getPins();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -358,6 +358,10 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 				getRdcs().clear();
 				getRdcs().addAll((Collection<? extends RDC>)newValue);
 				return;
+			case ModelPackage.COMPARTMENT__PINS:
+				getPins().clear();
+				getPins().addAll((Collection<? extends Pin>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -385,6 +389,9 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 			case ModelPackage.COMPARTMENT__RDCS:
 				getRdcs().clear();
 				return;
+			case ModelPackage.COMPARTMENT__PINS:
+				getPins().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -407,6 +414,8 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 				return ZONE_EDEFAULT == null ? zone != null : !ZONE_EDEFAULT.equals(zone);
 			case ModelPackage.COMPARTMENT__RDCS:
 				return rdcs != null && !rdcs.isEmpty();
+			case ModelPackage.COMPARTMENT__PINS:
+				return pins != null && !pins.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -421,8 +430,6 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 		switch (operationID) {
 			case ModelPackage.COMPARTMENT___TO_STRING:
 				return toString();
-			case ModelPackage.COMPARTMENT___GET_PINS:
-				return getPins();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

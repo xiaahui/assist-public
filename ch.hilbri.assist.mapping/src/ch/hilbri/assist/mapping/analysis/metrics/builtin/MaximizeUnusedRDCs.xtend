@@ -12,7 +12,7 @@ class MaximizeUnusedRDCs extends AbstractMetricImpl {
 	
 	override computeAbsoluteScore(Result result) {
  
-		val score = result.model.RDCs.map[
+		val score = result.model.rdcs.map[
 											it.connectors
 												.map[result.getAllMappedEqInterfaces(it).length]
 								 				.reduce[p1, p2|p1+p2] // gets the sum of all interfaces per RDC

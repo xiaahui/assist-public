@@ -36,6 +36,7 @@ import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
+import java.util.Collection;
 import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -49,6 +50,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
 
@@ -69,6 +72,10 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getInterfacesBlock <em>Interfaces Block</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getInterfaceGroupsBlock <em>Interface Groups Block</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getRestrictionsBlock <em>Restrictions Block</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getCompartments <em>Compartments</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getRdcs <em>Rdcs</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getConnectors <em>Connectors</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.impl.AssistModelImpl#getPins <em>Pins</em>}</li>
  * </ul>
  *
  * @generated
@@ -123,6 +130,46 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @ordered
 	 */
 	protected RestrictionsBlock restrictionsBlock;
+
+	/**
+	 * The cached value of the '{@link #getCompartments() <em>Compartments</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCompartments()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Compartment> compartments;
+
+	/**
+	 * The cached value of the '{@link #getRdcs() <em>Rdcs</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRdcs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RDC> rdcs;
+
+	/**
+	 * The cached value of the '{@link #getConnectors() <em>Connectors</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConnectors()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Connector> connectors;
+
+	/**
+	 * The cached value of the '{@link #getPins() <em>Pins</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPins()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Pin> pins;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -363,6 +410,54 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Compartment> getCompartments() {
+		if (compartments == null) {
+			compartments = new EObjectResolvingEList<Compartment>(Compartment.class, this, ModelPackage.ASSIST_MODEL__COMPARTMENTS);
+		}
+		return compartments;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RDC> getRdcs() {
+		if (rdcs == null) {
+			rdcs = new EObjectResolvingEList<RDC>(RDC.class, this, ModelPackage.ASSIST_MODEL__RDCS);
+		}
+		return rdcs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Connector> getConnectors() {
+		if (connectors == null) {
+			connectors = new EObjectResolvingEList<Connector>(Connector.class, this, ModelPackage.ASSIST_MODEL__CONNECTORS);
+		}
+		return connectors;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Pin> getPins() {
+		if (pins == null) {
+			pins = new EObjectResolvingEList<Pin>(Pin.class, this, ModelPackage.ASSIST_MODEL__PINS);
+		}
+		return pins;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getSystemName() {
 		GlobalBlock _globalBlock = this.getGlobalBlock();
 		return _globalBlock.getSystemName();
@@ -411,67 +506,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			_protectionLevelEntries=_protectionLevelDataBlock.getProtectionLevelEntries();
 		}
 		return _protectionLevelEntries;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Compartment> getCompartments() {
-		CompartmentsBlock _compartmentsBlock = this.getCompartmentsBlock();
-		return _compartmentsBlock.getCompartments();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RDC> getRDCs() {
-		EList<Compartment> _compartments = this.getCompartments();
-		final Function1<Compartment, EList<RDC>> _function = new Function1<Compartment, EList<RDC>>() {
-			public EList<RDC> apply(final Compartment it) {
-				return it.getRdcs();
-			}
-		};
-		EList<EList<RDC>> _map = XcoreEListExtensions.<Compartment, EList<RDC>>map(_compartments, _function);
-		Iterable<RDC> _flatten = Iterables.<RDC>concat(_map);
-		return ECollections.<RDC>toEList(_flatten);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Connector> getConnectors() {
-		EList<RDC> _rDCs = this.getRDCs();
-		final Function1<RDC, EList<Connector>> _function = new Function1<RDC, EList<Connector>>() {
-			public EList<Connector> apply(final RDC it) {
-				return it.getConnectors();
-			}
-		};
-		EList<EList<Connector>> _map = XcoreEListExtensions.<RDC, EList<Connector>>map(_rDCs, _function);
-		Iterable<Connector> _flatten = Iterables.<Connector>concat(_map);
-		return ECollections.<Connector>toEList(_flatten);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Pin> getPins() {
-		EList<Connector> _connectors = this.getConnectors();
-		final Function1<Connector, EList<Pin>> _function = new Function1<Connector, EList<Pin>>() {
-			public EList<Pin> apply(final Connector it) {
-				return it.getPins();
-			}
-		};
-		EList<EList<Pin>> _map = XcoreEListExtensions.<Connector, EList<Pin>>map(_connectors, _function);
-		Iterable<Pin> _flatten = Iterables.<Pin>concat(_map);
-		return ECollections.<Pin>toEList(_flatten);
 	}
 
 	/**
@@ -637,13 +671,13 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			else {
 				boolean _equals_2 = Objects.equal(level, HardwareArchitectureLevelType.RDC);
 				if (_equals_2) {
-					EList<RDC> _rDCs = this.getRDCs();
+					EList<RDC> _rdcs = this.getRdcs();
 					final Function1<RDC, HardwareElement> _function_2 = new Function1<RDC, HardwareElement>() {
 						public HardwareElement apply(final RDC it) {
 							return ((HardwareElement) it);
 						}
 					};
-					return XcoreEListExtensions.<RDC, HardwareElement>map(_rDCs, _function_2);
+					return XcoreEListExtensions.<RDC, HardwareElement>map(_rdcs, _function_2);
 				}
 				else {
 					boolean _equals_3 = Objects.equal(level, HardwareArchitectureLevelType.COMPARTMENT);
@@ -704,6 +738,14 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getInterfaceGroupsBlock();
 			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
 				return getRestrictionsBlock();
+			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
+				return getCompartments();
+			case ModelPackage.ASSIST_MODEL__RDCS:
+				return getRdcs();
+			case ModelPackage.ASSIST_MODEL__CONNECTORS:
+				return getConnectors();
+			case ModelPackage.ASSIST_MODEL__PINS:
+				return getPins();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -713,6 +755,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -730,6 +773,22 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return;
 			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
 				setRestrictionsBlock((RestrictionsBlock)newValue);
+				return;
+			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
+				getCompartments().clear();
+				getCompartments().addAll((Collection<? extends Compartment>)newValue);
+				return;
+			case ModelPackage.ASSIST_MODEL__RDCS:
+				getRdcs().clear();
+				getRdcs().addAll((Collection<? extends RDC>)newValue);
+				return;
+			case ModelPackage.ASSIST_MODEL__CONNECTORS:
+				getConnectors().clear();
+				getConnectors().addAll((Collection<? extends Connector>)newValue);
+				return;
+			case ModelPackage.ASSIST_MODEL__PINS:
+				getPins().clear();
+				getPins().addAll((Collection<? extends Pin>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -758,6 +817,18 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
 				setRestrictionsBlock((RestrictionsBlock)null);
 				return;
+			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
+				getCompartments().clear();
+				return;
+			case ModelPackage.ASSIST_MODEL__RDCS:
+				getRdcs().clear();
+				return;
+			case ModelPackage.ASSIST_MODEL__CONNECTORS:
+				getConnectors().clear();
+				return;
+			case ModelPackage.ASSIST_MODEL__PINS:
+				getPins().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -780,6 +851,14 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return interfaceGroupsBlock != null;
 			case ModelPackage.ASSIST_MODEL__RESTRICTIONS_BLOCK:
 				return restrictionsBlock != null;
+			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
+				return compartments != null && !compartments.isEmpty();
+			case ModelPackage.ASSIST_MODEL__RDCS:
+				return rdcs != null && !rdcs.isEmpty();
+			case ModelPackage.ASSIST_MODEL__CONNECTORS:
+				return connectors != null && !connectors.isEmpty();
+			case ModelPackage.ASSIST_MODEL__PINS:
+				return pins != null && !pins.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -800,14 +879,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getCableWeightData();
 			case ModelPackage.ASSIST_MODEL___GET_PROTECTION_LEVEL_DATA:
 				return getProtectionLevelData();
-			case ModelPackage.ASSIST_MODEL___GET_COMPARTMENTS:
-				return getCompartments();
-			case ModelPackage.ASSIST_MODEL___GET_RD_CS:
-				return getRDCs();
-			case ModelPackage.ASSIST_MODEL___GET_CONNECTORS:
-				return getConnectors();
-			case ModelPackage.ASSIST_MODEL___GET_PINS:
-				return getPins();
 			case ModelPackage.ASSIST_MODEL___GET_EQ_INTERFACES:
 				return getEqInterfaces();
 			case ModelPackage.ASSIST_MODEL___GET_EQ_INTERFACE_GROUPS:

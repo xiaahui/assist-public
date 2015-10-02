@@ -49,7 +49,7 @@ class ConnectedPinsConstraint extends AbstractMappingConstraint {
 			val locVarList = ifaceList.map[solverVariables.getEqInterfaceLocationVariable(it, HardwareArchitectureLevelType.PIN)].toList
 			
 			// Add variables for connected pins
-			for (rdc : model.RDCs.filter[internalConnectedPinBlock != null && !internalConnectedPinBlock.connectedPins.nullOrEmpty]) {
+			for (rdc : model.rdcs.filter[internalConnectedPinBlock != null && !internalConnectedPinBlock.connectedPins.nullOrEmpty]) {
 				// We just work with connected pins relevant for the current pin types
 				// ASSUMPTION: all connected pins have the same type / or they are in the same typeSet
 				for (entry : rdc.internalConnectedPinBlock.connectedPins.filter[pinTypeSet.contains(pins.get(0).eqInterfaceType)]) {

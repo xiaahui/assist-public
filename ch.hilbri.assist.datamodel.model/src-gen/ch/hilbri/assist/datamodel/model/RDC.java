@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ch.hilbri.assist.datamodel.model.RDC#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.RDC#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.model.RDC#getInternalConnectedPinBlock <em>Internal Connected Pin Block</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.model.RDC#getPins <em>Pins</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.datamodel.model.ModelPackage#getRDC()
@@ -376,6 +377,22 @@ public interface RDC extends HardwareElement {
 	void setInternalConnectedPinBlock(InternalConnectedPinBlock value);
 
 	/**
+	 * Returns the value of the '<em><b>Pins</b></em>' reference list.
+	 * The list contents are of type {@link ch.hilbri.assist.datamodel.model.Pin}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pins</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pins</em>' reference list.
+	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getRDC_Pins()
+	 * @model
+	 * @generated
+	 */
+	EList<Pin> getPins();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model unique="false"
@@ -383,14 +400,5 @@ public interface RDC extends HardwareElement {
 	 * @generated
 	 */
 	String toString();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Connector%>> _connectors = this.getConnectors();\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.Connector%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Pin%>>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.datamodel.model.Connector%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Pin%>>>()\n{\n\tpublic <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Pin%>> apply(final <%ch.hilbri.assist.datamodel.model.Connector%> it)\n\t{\n\t\treturn it.getPins();\n\t}\n};\n<%org.eclipse.emf.common.util.EList%><<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Pin%>>> _map = <%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%>.<<%ch.hilbri.assist.datamodel.model.Connector%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.Pin%>>>map(_connectors, _function);\n<%java.lang.Iterable%><<%ch.hilbri.assist.datamodel.model.Pin%>> _flatten = <%com.google.common.collect.Iterables%>.<<%ch.hilbri.assist.datamodel.model.Pin%>>concat(_map);\nreturn <%org.eclipse.emf.common.util.ECollections%>.<<%ch.hilbri.assist.datamodel.model.Pin%>>toEList(_flatten);'"
-	 * @generated
-	 */
-	EList<Pin> getPins();
 
 } // RDC

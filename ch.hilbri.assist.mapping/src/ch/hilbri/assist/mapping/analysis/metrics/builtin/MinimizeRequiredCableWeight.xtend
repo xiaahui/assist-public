@@ -14,7 +14,7 @@ class MinimizeRequiredCableWeight extends AbstractMetricImpl {
 		
 		var double sum = 0
 		
-		for (rdc : result.model.RDCs) {
+		for (rdc : result.model.rdcs) {
 		
 			// Welche Interfaces landen auf diesem RDC?
 			val allMappedInterfacesForRDC = rdc.connectors

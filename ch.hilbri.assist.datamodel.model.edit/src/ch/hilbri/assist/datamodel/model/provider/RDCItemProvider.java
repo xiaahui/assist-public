@@ -59,6 +59,7 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 			addResourceYPropertyDescriptor(object);
 			addResourceZPropertyDescriptor(object);
 			addCompartmentPropertyDescriptor(object);
+			addPinsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -297,6 +298,28 @@ public class RDCItemProvider extends HardwareElementItemProvider {
 				 getString("_UI_RDC_compartment_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_compartment_feature", "_UI_RDC_type"),
 				 ModelPackage.Literals.RDC__COMPARTMENT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Pins feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPinsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RDC_pins_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RDC_pins_feature", "_UI_RDC_type"),
+				 ModelPackage.Literals.RDC__PINS,
 				 true,
 				 false,
 				 true,
