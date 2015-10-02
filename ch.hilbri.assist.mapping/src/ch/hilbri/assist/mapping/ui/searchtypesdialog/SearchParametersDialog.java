@@ -56,13 +56,13 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		
 		
 		Composite composite_1 = new Composite(container, SWT.NONE);
-		composite_1.setBounds(0, 0, 514, 351);
+		composite_1.setBounds(0, 0, 766, 351);
 		
 		/* selection */
 		
 		Group grpSolverLimits = new Group(composite_1, SWT.NONE);
 		grpSolverLimits.setText("Limits");
-		grpSolverLimits.setBounds(10, 153, 494, 81);
+		grpSolverLimits.setBounds(10, 112, 746, 81);
 		
 		
 		Label lblMaxSolutions = new Label(grpSolverLimits, SWT.NONE);
@@ -116,14 +116,14 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		
 		Group grpStrategy = new Group(composite_1, SWT.NONE);
 		grpStrategy.setText("Strategy");
-		grpStrategy.setBounds(10, 10, 494, 137);
+		grpStrategy.setBounds(10, 10, 746, 96);
 		
 		Label lblSearchHeuristic = new Label(grpStrategy, SWT.NONE);
 		lblSearchHeuristic.setBounds(22, 28, 82, 15);
 		lblSearchHeuristic.setText("Heuristic:");
 		
 		Combo cbxSearchHeuristics = new Combo(grpStrategy, SWT.READ_ONLY);
-		cbxSearchHeuristics.setBounds(110, 25, 374, 23);
+		cbxSearchHeuristics.setBounds(110, 25, 626, 23);
 		cbxSearchHeuristics.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -141,12 +141,12 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		lblExplanation.setText("Explanation:");
 		
 		lblExplanationText = new Label(grpStrategy, SWT.WRAP | SWT.SHADOW_IN);
-		lblExplanationText.setBounds(110, 59, 374, 68);
+		lblExplanationText.setBounds(110, 59, 626, 35);
 		lblExplanationText.setText(selectedSearchType.getHumanReadableExplanation());
 		
 		Group grpMiscOptions = new Group(composite_1, SWT.NONE);
 		grpMiscOptions.setText("Miscellaneous");
-		grpMiscOptions.setBounds(10, 245, 494, 96);
+		grpMiscOptions.setBounds(10, 199, 746, 81);
 		
 		Button btnSavePartialSolution = new Button(grpMiscOptions, SWT.CHECK);
 		btnSavePartialSolution.setSelection(true);
@@ -183,7 +183,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(520, 498);
+		return new Point(772, 430);
 	}
 	
 	protected DataBindingContext initDataBindings() {

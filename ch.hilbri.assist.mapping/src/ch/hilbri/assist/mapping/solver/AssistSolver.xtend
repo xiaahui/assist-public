@@ -39,6 +39,7 @@ import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.strategies.RDCWithShortestDistanceAndTypesSelector
 
 class AssistSolver {
 	
@@ -158,6 +159,12 @@ class AssistSolver {
 									vars))
 			}
 			
+			case MIN_DOMAIN_FIRST_AND_SHORTEST_DISTANCE_AND_EXACT_TYPES_AND_MIN_PROT_LEVEL: {
+				heuristics.add(ISF.custom(
+									ISF.minDomainSize_var_selector, 
+									new RDCWithShortestDistanceAndTypesSelector(solverVariables, model), 
+									vars))
+			}
 			case MIN_DOMAIN_FIRST_AND_RANDOM_CONNECTORS: {
 				heuristics.add(ISF.custom(
 									ISF.minDomainSize_var_selector, 
@@ -206,6 +213,10 @@ class AssistSolver {
 			
 			case DOM_OVER_WDEG_CLOSEST_DISTANCE: {
 				heuristics.add(ISF.domOverWDeg(vars, seed, new RDCWithShortestDistanceSelector(solverVariables, model)))	
+			}
+			
+			case DOM_OVER_WDEG_CLOSEST_DISTANCE_AND_EXACT_TYPES_AND_MIN_PROT_LEVEL: {
+				heuristics.add(ISF.domOverWDeg(vars, seed, new RDCWithShortestDistanceAndTypesSelector(solverVariables, model)))	
 			}
 		
 			case ACTIVITY: {

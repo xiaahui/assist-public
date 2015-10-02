@@ -8,7 +8,7 @@ import org.chocosolver.solver.variables.IntVar
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-class RDCWithShortestDistanceSelector implements IntValueSelector  {
+class RDCWithShortestDistanceAndTypesSelector implements IntValueSelector {
 	private Logger logger
 	private SolverVariablesContainer solverVariables
 	private AssistModel model
@@ -20,9 +20,11 @@ class RDCWithShortestDistanceSelector implements IntValueSelector  {
 	}
 	
 	/*
-	 * We have to follow a one-level sorting hierarchy
+	 * We have to follow a three-level sorting hierarchy
 	 * 
 	 * 1. Level: Closest RDC
+	 * 2. Level: Exact Type Matching
+	 * 3. Level: Minimum Protection Level possible (NONE < L1 < L2 < L3 < ... < L8)
 	 */
 	override int selectValue(IntVar variable) {
 		
@@ -34,7 +36,13 @@ class RDCWithShortestDistanceSelector implements IntValueSelector  {
      		pinIndexList.add(iterator.next)
      	}
      	
-     	pinIndexList // 1. Level - Closest RDC
+     	pinIndexList // 3. Level - Minimum Protection Level possible
+     				.sortBy[ model.pins.get(it).protectionLevel.value ]
+     		
+		     		// 2. Level - Exact Type matching is preferred over everything else
+     				.sortBy[ if (equipment.ioType == model.pins.get(it).eqInterfaceType) 0 else	1 ]
+     		
+		     		// 1. Level - Closest RDC
      				.sortBy[ val rdc = model.pins.get(it).connector.rdc
      						  Math.abs(equipment.resourceX - rdc.resourceX) +
 							  Math.abs(equipment.resourceY - rdc.resourceY) +

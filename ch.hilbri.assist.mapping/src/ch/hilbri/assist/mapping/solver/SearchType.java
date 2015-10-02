@@ -12,6 +12,12 @@ public enum SearchType {
 								 "connectors are selected based on minimum shortest distance",
 								 false),
 	
+	MIN_DOMAIN_FIRST_AND_SHORTEST_DISTANCE_AND_EXACT_TYPES_AND_MIN_PROT_LEVEL
+								("Min Domainsize First + Closest Connector + Exact Types + Min Protection Level First",
+								 "Interfaces are selected based on min domainsize first strategy; " +
+								 "connectors are selected based on minimum shortest distance",
+								 false),
+	
 	MIN_DOMAIN_FIRST_AND_RANDOM_CONNECTORS
 								("Min Domainsize First + Random Connector", 				
 								 "Interfaces are selected based on min domainsize first strategy; " +
@@ -49,6 +55,13 @@ public enum SearchType {
 								 "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
 								 "connectors are selected based on minimum shortest distance",
 								 true),
+
+	DOM_OVER_WDEG_CLOSEST_DISTANCE_AND_EXACT_TYPES_AND_MIN_PROT_LEVEL
+								("Domain over weighted degree + Closest Connector + Exact Types + Min Protection Level First",
+								 "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
+								 "connectors are selected based on minimum shortest distance and exact type matching and min protection level",
+								 false),
+
 								 
 	DOM_OVER_WDEG_MIN_VAL_FIRST_RESTARTS
 								("Domain over weighted degree + Min Value First + Restarts", 	
