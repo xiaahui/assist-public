@@ -10,7 +10,7 @@ public enum SearchType {
 								("Min Domainsize First + Closest Connector First",
 								 "Interfaces are selected based on min domainsize first strategy; " +
 								 "connectors are selected based on minimum shortest distance",
-								 true),
+								 false),
 	
 	MIN_DOMAIN_FIRST_AND_RANDOM_CONNECTORS
 								("Min Domainsize First + Random Connector", 				
@@ -48,7 +48,7 @@ public enum SearchType {
 								("Domain over weighted degree + Closest Connector First",
 								 "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)}); " +
 								 "connectors are selected based on minimum shortest distance",
-								 false),
+								 true),
 								 
 	DOM_OVER_WDEG_MIN_VAL_FIRST_RESTARTS
 								("Domain over weighted degree + Min Value First + Restarts", 	
