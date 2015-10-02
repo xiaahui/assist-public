@@ -276,6 +276,8 @@ class ImplicitEqInterfaceMemberDefinition {
 		
 		// contains all interfaces present in the system
 		// this set will be reduced in the next steps
+		if (model.interfacesBlock == null) return null
+		
 		var Iterable<EqInterface> interfaceList = model.interfacesBlock.eqInterfaces	
 					
 		// Go through all entries (they are concatenated by AND)
@@ -454,7 +456,12 @@ class DeploymentImplicitDefinition {
 	op Pin[] getImplicitlyDefinedPins() {
 		val list = new BasicEList<Pin>
 		val model = this.eContainer.eContainer.eContainer as AssistModel
-		var Iterable<Pin> pinList = model.pins
+		
+		if (model.compartmentsBlock == null) return null
+		var Iterable<Pin> pinList = model.compartmentsBlock.compartments.map[rdcs.map[connectors.map[pins]
+																								.flatten ]
+																				 .flatten]
+																		.flatten
 	
 		for (entry : entries) {
 			switch (entry.attribute) {
@@ -483,7 +490,7 @@ class DeploymentImplicitDefinition {
 			
 		list.addAll(pinList)
 				
-		list.toSet.toList.toEList
+		list.toSet.toEList
 	}
 }
 

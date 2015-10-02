@@ -10,6 +10,8 @@ import ch.hilbri.assist.datamodel.model.ImplicitEqInterfaceMemberDefinitionAttri
 import ch.hilbri.assist.datamodel.model.InterfacesBlock;
 import ch.hilbri.assist.datamodel.model.ModelPackage;
 
+import com.google.common.base.Objects;
+
 import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
@@ -101,7 +103,12 @@ public class ImplicitEqInterfaceMemberDefinitionImpl extends MinimalEObjectImpl.
 		EObject _eContainer_2 = _eContainer_1.eContainer();
 		final AssistModel model = ((AssistModel) _eContainer_2);
 		InterfacesBlock _interfacesBlock = model.getInterfacesBlock();
-		Iterable<EqInterface> interfaceList = _interfacesBlock.getEqInterfaces();
+		boolean _equals = Objects.equal(_interfacesBlock, null);
+		if (_equals) {
+			return null;
+		}
+		InterfacesBlock _interfacesBlock_1 = model.getInterfacesBlock();
+		Iterable<EqInterface> interfaceList = _interfacesBlock_1.getEqInterfaces();
 		EList<ImplicitEqInterfaceMemberDefinitionAttributesAndValues> _entries = this.getEntries();
 		for (final ImplicitEqInterfaceMemberDefinitionAttributesAndValues entry : _entries) {
 			ImplicitEqInterfaceMemberDefinitionAttribute _attribute = entry.getAttribute();
