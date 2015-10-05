@@ -141,7 +141,7 @@ public class Generate {
 							GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", inputModel, (MultiPageEditor)editor);
 							findSolutionsJob.setPriority(Job.LONG);
 							findSolutionsJob.setUser(true);
-							findSolutionsJob.setSearchStrategy(searchParamDlg.getSearchType());
+							findSolutionsJob.setSearchStrategy(searchParamDlg.getVariableSelector(), searchParamDlg.getValueSelector());
 							findSolutionsJob.setMaxSolutions(searchParamDlg.getNumberOfSolutions());
 							findSolutionsJob.setMaxSearchTime(searchParamDlg.getSearchTime());
 							findSolutionsJob.setSavePartialSolution(searchParamDlg.getSavePartialSolution());

@@ -4,8 +4,9 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.ModelPackage
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.solver.AssistSolver
-import ch.hilbri.assist.mapping.solver.SearchType
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
+import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
+import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider
 import com.google.inject.Inject
 import java.util.ArrayList
@@ -48,7 +49,7 @@ class AbstractMappingTest {
 
 		/* Create the job to search for new solutions */
 		val solver = new AssistSolver(model)
-		solver.solverSearchStrategy = SearchType.getDefaultSearchType
+		solver.setSolverSearchStrategy(VariableSelectorTypes.getDefault, ValueSelectorTypes.getDefault)
 		solver.solverMaxSolutions = 10000
 		assertNotNull(solver)
 		

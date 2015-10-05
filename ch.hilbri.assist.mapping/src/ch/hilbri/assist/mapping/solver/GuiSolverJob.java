@@ -15,6 +15,8 @@ import org.slf4j.LoggerFactory;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
+import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes;
+import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 
@@ -155,9 +157,11 @@ public class GuiSolverJob extends Job {
 	}
 
 	public void	setMaxSolutions(int maxSolutions) 			 { assistSolver.setSolverMaxSolutions(maxSolutions); 		}
-	public void	setSearchStrategy(SearchType searchStrategy) { assistSolver.setSolverSearchStrategy(searchStrategy);	}
 	public void setMaxSearchTime(long maxTimeInmsec) 		 { assistSolver.setSolverTimeLimit(maxTimeInmsec); 			}
 	public void setSavePartialSolution(boolean value)		 { assistSolver.setSavePartialSolution(value);    			}
-	
 	public ArrayList<Result> getNewMappingResults()			 { return assistSolver.getResults();						}
+	public void	setSearchStrategy(VariableSelectorTypes varSelector, ValueSelectorTypes valSelector) { 
+		assistSolver.setSolverSearchStrategy(varSelector, valSelector);	
+	}
+
 }

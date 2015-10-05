@@ -1,7 +1,8 @@
 package ch.hilbri.assist.mapping.tests
 
 import ch.hilbri.assist.mapping.solver.AssistSolver
-import ch.hilbri.assist.mapping.solver.SearchType
+import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
+import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import org.junit.Test
 
 import static org.junit.Assert.*
@@ -68,11 +69,12 @@ Restrictions {
 		assertNotNull(model) 
 
 		/* Go through all possible search strategies */
-		for (searchType : SearchType.values) {
+		for (varSelector : VariableSelectorTypes.values) {
+			for (valSelector : ValueSelectorTypes.values) {
 			
 			/* Create the job to search for new solutions */
 			val solver = new AssistSolver(model)
-			solver.solverSearchStrategy = searchType
+			solver.setSolverSearchStrategy(varSelector, valSelector)
 			solver.solverMaxSolutions = 10000
 			
 			assertNotNull(solver)
@@ -86,6 +88,8 @@ Restrictions {
 			allResults = solver.results
 			assertNotNull(allResults)
 			assertEquals(allResults.length, 6)
+			
+			}
 		}
 	}
 }

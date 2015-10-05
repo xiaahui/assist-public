@@ -7,13 +7,12 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.HashMap
 import java.util.List
 import java.util.Map
-import org.chocosolver.solver.search.strategy.selectors.IntValueSelector
 import org.chocosolver.solver.search.strategy.selectors.VariableSelector
 import org.chocosolver.solver.variables.IntVar
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntValueSelector {
+class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar> {
 	private Logger logger
 	private SolverVariablesContainer solverVariables
 	private AssistModel model
@@ -118,10 +117,4 @@ class FirstFailThenMaxRelationDegree implements VariableSelector<IntVar>, IntVal
 		}
 		return null
 	}
-	
-	 
-    override int selectValue(IntVar variable) {
-        return variable.getLB();
-    }
-	
 }

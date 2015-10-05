@@ -22,8 +22,9 @@ import ch.hilbri.assist.datamodel.model.ModelPackage;
 import ch.hilbri.assist.datamodel.model.Pin;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.solver.AssistSolver;
-import ch.hilbri.assist.mapping.solver.SearchType;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
+import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes;
+import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes;
 import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider;
 
 public class Runner {
@@ -88,17 +89,18 @@ public class Runner {
 			}*/
 			final int minimize = Integer.parseInt(cmd.getOptionValue("minimize", "0"));
 			final AssistSolver solver = new AssistSolver(model);
-			SearchType heuristic = SearchType.getDefaultSearchType();
+			
 			switch (cmd.getOptionValue("strategy", "")) {
-				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST_AND_SHORTEST_DISTANCE; break;
-				case "ffmd": heuristic = SearchType.MAX_DEGREE_FIRST; break;
-				case "md": heuristic = SearchType.VARS_IN_MOST_DISLOC; break;
-				case "domwd": heuristic = SearchType.DOM_OVER_WDEG_CLOSEST_DISTANCE; break;
-				case "act": heuristic = SearchType.ACTIVITY; break;
-				case "rand": heuristic = SearchType.RANDOM_RANDOM; break;
-				default: heuristic = SearchType.getDefaultSearchType(); break;
+//				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST_AND_SHORTEST_DISTANCE; break;
+//				case "ffmd": heuristic = SearchType.MAX_DEGREE_FIRST; break;
+//				case "md": heuristic = SearchType.VARS_IN_MOST_DISLOC; break;
+				case "domwd": solver.setSolverSearchStrategy(VariableSelectorTypes.DOM_OVER_WDEG, ValueSelectorTypes.CLOSEST_DISTANCE); break;
+				case "act": solver.setSolverSearchStrategy(VariableSelectorTypes.ACTIVITY, null); break;
+				case "rand": solver.setSolverSearchStrategy(VariableSelectorTypes.RANDOM, ValueSelectorTypes.RANDOM); break;
+				default: solver.setSolverSearchStrategy(VariableSelectorTypes.getDefault(), ValueSelectorTypes.getDefault());
 			}	
-			solver.setSolverSearchStrategy(heuristic);
+			
+			
 			final int numSolutions = Integer.parseInt(cmd.getOptionValue("solutions", minimize == 0 ? "1" : "100"));
 			solver.setSolverMaxSolutions(numSolutions);
 			final int timeout = Integer.parseInt(cmd.getOptionValue("timeout", "0"));

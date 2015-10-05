@@ -19,20 +19,27 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
-import ch.hilbri.assist.mapping.solver.SearchType;
+import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes;
+import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes;
 
 public class SearchParametersDialog extends TitleAreaDialog {
 
 	private Text editMaxSolutions;
 	private Text editMaxSearchTime;
 	private Combo cbxMaxSearchTimeUnit;
-	private Label lblExplanationText;
+	private Combo cbxPinSelection;
+	private Label lblInterfaceExplanation;
+	private Combo cbxInterfaceSelection;
+	private Label lblPinExplanation;
+
 	
 	private long 		searchTime 			= 60;
 	private String 		searchTimeItem 		= null;
 	private int 		maxSolutions 		= 1;
-	private SearchType 	selectedSearchType 	= SearchType.getDefaultSearchType();
 	private boolean		savePartialSolution = true;
+	private VariableSelectorTypes variableSelector 	= VariableSelectorTypes.getDefault();
+	private ValueSelectorTypes valueSelector = ValueSelectorTypes.getDefault();
+
 	
 	/**
 	 * Create the dialog.
@@ -56,13 +63,13 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		
 		
 		Composite composite_1 = new Composite(container, SWT.NONE);
-		composite_1.setBounds(0, 0, 766, 351);
+		composite_1.setBounds(0, 0, 517, 409);
 		
 		/* selection */
 		
 		Group grpSolverLimits = new Group(composite_1, SWT.NONE);
 		grpSolverLimits.setText("Limits");
-		grpSolverLimits.setBounds(10, 112, 746, 81);
+		grpSolverLimits.setBounds(10, 231, 495, 81);
 		
 		
 		Label lblMaxSolutions = new Label(grpSolverLimits, SWT.NONE);
@@ -116,37 +123,76 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		
 		Group grpStrategy = new Group(composite_1, SWT.NONE);
 		grpStrategy.setText("Strategy");
-		grpStrategy.setBounds(10, 10, 746, 96);
+		grpStrategy.setBounds(10, 10, 495, 215);
 		
 		Label lblSearchHeuristic = new Label(grpStrategy, SWT.NONE);
-		lblSearchHeuristic.setBounds(22, 28, 82, 15);
-		lblSearchHeuristic.setText("Heuristic:");
+		lblSearchHeuristic.setBounds(22, 28, 107, 15);
+		lblSearchHeuristic.setText("Interface Selection:");
 		
-		Combo cbxSearchHeuristics = new Combo(grpStrategy, SWT.READ_ONLY);
-		cbxSearchHeuristics.setBounds(110, 25, 626, 23);
-		cbxSearchHeuristics.addSelectionListener(new SelectionAdapter() {
+		cbxInterfaceSelection = new Combo(grpStrategy, SWT.READ_ONLY);
+		cbxInterfaceSelection.setBounds(130, 25, 348, 23);
+		cbxInterfaceSelection.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				selectedSearchType = SearchType.getSortedValues().get(cbxSearchHeuristics.getSelectionIndex());
-				lblExplanationText.setText(selectedSearchType.getHumanReadableExplanation());
+				variableSelector = VariableSelectorTypes.getSortedValues().get(cbxInterfaceSelection.getSelectionIndex());
+				lblInterfaceExplanation.setText(variableSelector.getHumanReadableExplanation());
+				
+				if (variableSelector.isValueSelectorRequired()) {
+					cbxPinSelection.setEnabled(true);
+					cbxPinSelection.deselectAll();
+					cbxPinSelection.select(0);
+					lblPinExplanation.setText(ValueSelectorTypes.getSortedValues().get(0).getHumanReadableExplanation());
+				}
+				
+				else {
+					cbxPinSelection.setEnabled(false);
+					cbxPinSelection.deselectAll();
+					lblPinExplanation.setText("");
+				}
 			}
 		});
-		String[] items = new String[SearchType.getSortedValues().size()];
-		for (int i = 0; i < SearchType.getSortedValues().size(); i++) items[i] = SearchType.getSortedValues().get(i).getHumanReadableName();
-		cbxSearchHeuristics.setItems(items);		
-		cbxSearchHeuristics.select(0);
+		String[] ifaceStrategies = new String[VariableSelectorTypes.getSortedValues().size()];
+		for (int i = 0; i < VariableSelectorTypes.getSortedValues().size(); i++) ifaceStrategies[i] = VariableSelectorTypes.getSortedValues().get(i).getHumanReadableName();
+		cbxInterfaceSelection.setItems(ifaceStrategies);		
+		cbxInterfaceSelection.select(0);
 		
-		Label lblExplanation = new Label(grpStrategy, SWT.NONE);
-		lblExplanation.setBounds(22, 59, 82, 15);
-		lblExplanation.setText("Explanation:");
+		lblInterfaceExplanation = new Label(grpStrategy, SWT.WRAP | SWT.SHADOW_IN);
+		lblInterfaceExplanation.setBounds(130, 62, 348, 50);
+		lblInterfaceExplanation.setText(VariableSelectorTypes.getSortedValues().get(0).getHumanReadableExplanation());
 		
-		lblExplanationText = new Label(grpStrategy, SWT.WRAP | SWT.SHADOW_IN);
-		lblExplanationText.setBounds(110, 59, 626, 35);
-		lblExplanationText.setText(selectedSearchType.getHumanReadableExplanation());
+		Label lblPinselection = new Label(grpStrategy, SWT.NONE);
+		lblPinselection.setText("Pin Selection:");
+		lblPinselection.setBounds(22, 118, 107, 15);
+		
+		cbxPinSelection = new Combo(grpStrategy, SWT.READ_ONLY);
+		cbxPinSelection.setBounds(130, 115, 348, 23);
+		cbxPinSelection.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				valueSelector = ValueSelectorTypes.getSortedValues().get(cbxPinSelection.getSelectionIndex());
+				lblPinExplanation.setText(variableSelector.getHumanReadableExplanation());
+			}
+		});
+		String[] pinStrategies = new String[ValueSelectorTypes.getSortedValues().size()];
+		for (int i = 0; i < ValueSelectorTypes.getSortedValues().size(); i++) pinStrategies[i] = ValueSelectorTypes.getSortedValues().get(i).getHumanReadableName();
+		cbxPinSelection.setItems(pinStrategies);		
+		cbxPinSelection.select(0);
+		
+		
+		lblPinExplanation = new Label(grpStrategy, SWT.WRAP | SWT.SHADOW_IN);
+		lblPinExplanation.setText(ValueSelectorTypes.getSortedValues().get(0).getHumanReadableExplanation());
+		lblPinExplanation.setBounds(130, 153, 348, 55);
+		
+		// Disable value selector if no one is needed
+		if (VariableSelectorTypes.getSortedValues().get(0).isValueSelectorRequired() == false) {
+			cbxPinSelection.setEnabled(false);
+			cbxPinSelection.deselectAll();
+			lblPinExplanation.setText("");
+		}
 		
 		Group grpMiscOptions = new Group(composite_1, SWT.NONE);
 		grpMiscOptions.setText("Miscellaneous");
-		grpMiscOptions.setBounds(10, 199, 746, 81);
+		grpMiscOptions.setBounds(10, 318, 495, 81);
 		
 		Button btnSavePartialSolution = new Button(grpMiscOptions, SWT.CHECK);
 		btnSavePartialSolution.setSelection(true);
@@ -183,7 +229,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(772, 430);
+		return new Point(520, 556);
 	}
 	
 	protected DataBindingContext initDataBindings() {
@@ -191,12 +237,13 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		return bindingContext;
 	}
 	
-	/**
-	 * 
-	 * @return mode of the search, returns null, if a not defined/no mode is marked.
-	 */
-	public SearchType getSearchType() {
-		return selectedSearchType;
+	public ValueSelectorTypes getValueSelector() {
+		if (variableSelector.isValueSelectorRequired()) return valueSelector;
+		else return null;
+	}
+	
+	public VariableSelectorTypes getVariableSelector() {
+		return variableSelector;
 	}
 	
 	

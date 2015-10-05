@@ -24,22 +24,19 @@ import ch.hilbri.assist.mapping.solver.preprocessors.EqInterfaceGroupDefinitions
 import ch.hilbri.assist.mapping.solver.preprocessors.InvalidDeploymentHardwareElements
 import ch.hilbri.assist.mapping.solver.preprocessors.ModelShortcutBuilder
 import ch.hilbri.assist.mapping.solver.preprocessors.ValidDeploymentHardwareElements
-import ch.hilbri.assist.mapping.solver.strategies.FirstFailThenMaxRelationDegree
-import ch.hilbri.assist.mapping.solver.strategies.RDCWithShortestDistanceSelector
-import ch.hilbri.assist.mapping.solver.strategies.VariablesInMostDislocalityRelationsFirst
+import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
+import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.List
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.search.loop.monitors.SMF
 import org.chocosolver.solver.search.solution.AllSolutionsRecorder
-import org.chocosolver.solver.search.strategy.ISF
 import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy
 import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.strategies.RDCWithShortestDistanceAndTypesSelector
 
 class AssistSolver {
 	
@@ -143,89 +140,19 @@ class AssistSolver {
 		SMF.limitSolution(solver, maxSolutions);
 	}
 	
-	def setSolverSearchStrategy(SearchType strategy) {
+	def setSolverSearchStrategy(VariableSelectorTypes varSelector, ValueSelectorTypes valSelector) {
 		val List<AbstractStrategy<IntVar>> heuristics = new ArrayList<AbstractStrategy<IntVar>>
-		val seed = 12345
-		val vars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
+		val seed = 12345678
 		
-		logger.info("Setting choco-solver search strategy to '" + strategy.humanReadableName + "'")
+		logger.info('''Setting interface selection strategy to: "«varSelector.humanReadableName»"''')
+		if (varSelector.isValueSelectorRequired) 
+			logger.info('''Setting pin selection strategy to: "«valSelector.humanReadableName»"''')
 		
-		switch (strategy) {
-			
-			case MIN_DOMAIN_FIRST_AND_SHORTEST_DISTANCE: {
-				heuristics.add(ISF.custom(
-									ISF.minDomainSize_var_selector, 
-									new RDCWithShortestDistanceSelector(solverVariables, model), 
-									vars))
-			}
-			
-			case MIN_DOMAIN_FIRST_AND_SHORTEST_DISTANCE_AND_EXACT_TYPES_AND_MIN_PROT_LEVEL: {
-				heuristics.add(ISF.custom(
-									ISF.minDomainSize_var_selector, 
-									new RDCWithShortestDistanceAndTypesSelector(solverVariables, model), 
-									vars))
-			}
-			case MIN_DOMAIN_FIRST_AND_RANDOM_CONNECTORS: {
-				heuristics.add(ISF.custom(
-									ISF.minDomainSize_var_selector, 
-									ISF.random_value_selector(seed),
-									vars))
-			}
-			
-			case MIN_DOMAIN_FIRST_AND_MIN_VALUE_CONNECTORS: {
-				heuristics.add(ISF.custom(
-									ISF.minDomainSize_var_selector, 
-									ISF.min_value_selector,
-									vars))
-			}
-			
-			case MAX_DEGREE_FIRST: {
-				val selector = new FirstFailThenMaxRelationDegree(solverVariables, model)
-				heuristics.add(ISF.custom(selector, selector, vars))				
-			}
-
-			case VARS_IN_MOST_DISLOC: {
-				val selector = new VariablesInMostDislocalityRelationsFirst(solverVariables, model)
-				heuristics.add(ISF.custom(selector, ISF.min_value_selector, vars))
-			}
-				
-			case RANDOM_RANDOM: {
-				heuristics.add(ISF.random_value(vars, seed))
-			}
-			
-			case DOM_OVER_WDEG_MIN_VAL_FIRST: {
-				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))	
-			}
-			
-			case DOM_OVER_WDEG_MIN_VAL_FIRST_RESTARTS: {
-				heuristics.add(ISF.domOverWDeg(vars, seed, ISF.min_value_selector))
-
-//				val rm = new RestartManager( 
-//											 new GeometricalRestartStrategy(8000, 1),   // 8000 Nodes each time 	
-//                							 new NodeCounter(10000),       			    // Go to 10000 nodes max
-//                							 solver.getSearchLoop(), 
-//                							 40											// # Restarts
-//                							)
-//        		
-//				solver.plugMonitor(rm)
-			}
-
-			
-			case DOM_OVER_WDEG_CLOSEST_DISTANCE: {
-				heuristics.add(ISF.domOverWDeg(vars, seed, new RDCWithShortestDistanceSelector(solverVariables, model)))	
-			}
-			
-			case DOM_OVER_WDEG_CLOSEST_DISTANCE_AND_EXACT_TYPES_AND_MIN_PROT_LEVEL: {
-				heuristics.add(ISF.domOverWDeg(vars, seed, new RDCWithShortestDistanceAndTypesSelector(solverVariables, model)))	
-			}
-		
-			case ACTIVITY: {
-				heuristics.add(ISF.activity(vars, seed))
-			}
-		}
+		heuristics.add(
+			varSelector.getStrategy(solverVariables, model, seed, valSelector)
+		)
 		
 		solver.set(heuristics)
-		
 	}
 
 	def propagation() throws BasicConstraintsException {
