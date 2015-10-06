@@ -4,12 +4,15 @@
 package ch.hilbri.assist.mappingdsl.ui.outline
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.InvalidDeployment
+import ch.hilbri.assist.datamodel.model.ValidDeployment
 import org.eclipse.core.runtime.FileLocator
 import org.eclipse.core.runtime.Path
 import org.eclipse.core.runtime.Platform
 import org.eclipse.jface.resource.ImageDescriptor
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 
 /**
  * Customization of the default outline structure.
@@ -24,6 +27,7 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		val bundle = Platform.getBundle("ch.hilbri.assist.mappingdsl.ui");
 		val imgfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_folder_16x16.png"), null));
 		val imgsubfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_subfolder_16x16.png"), null));
+		
 		
 		/* ---------- COMPARTMENTS ------------- */
 		val compartmentsNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Compartments", false)
@@ -68,5 +72,9 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 			}
 		}
 	}
+	
+	def _isLeaf(InvalidDeployment r) 	{	true 	}
+	def _isLeaf(ValidDeployment r) 		{	true 	}
+	def _isLeaf(EqInterfaceGroup g)		{ 	true	}
 }
 

@@ -31,7 +31,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(AssistModel model) {
-		'System ' + model.systemName
+		model.systemName
 	}
 
 	def image(AssistModel model) {
@@ -39,7 +39,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(Compartment comp) {
-		'Compartment ' + comp.name
+		comp.name
 	}
 
 	def image(Compartment comp) {
@@ -47,7 +47,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(RDC b) {
-		'RDC ' + b.name
+		b.name
 	}
 
 	def image(RDC b) {
@@ -55,7 +55,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(Connector c) {
-		'Connector ' + c.name
+		c.name
 	}
 
 	def image(Connector c) {
@@ -63,7 +63,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(EqInterface a) {
-		'Interface ' + a.name + ' (type: "' + a.ioType + '")'
+		a.name
 	}
 
 	def image(EqInterface a) {
@@ -71,7 +71,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def String text(DislocalityRelation r) {
-		'''Dislocality for [«r.allEqInterfaceOrGroupNames»]''' 
+		'''«r.allEqInterfaceOrGroupNames»''' 
 	}
 
 	def image(DislocalityRelation r) {
@@ -79,7 +79,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def String text(ValidDeployment s) {
-		'''Valid deployment for [«s.allEqInterfaceOrGroupNames»]'''
+		'''«s.allEqInterfaceOrGroupNames»'''
 	}
 	
 	def image(ValidDeployment s) {
@@ -87,7 +87,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def String text(InvalidDeployment s) {
-		'''Invalid deployment for [«s.allEqInterfaceOrGroupNames»]'''
+		'''«s.allEqInterfaceOrGroupNames»'''
 	}
 	
 	def image(InvalidDeployment s) {
@@ -95,7 +95,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def String text(ColocalityRelation r) {
-		'''Colocality - [«r.allEqInterfaceOrGroupNames»]'''
+		'''«r.allEqInterfaceOrGroupNames»'''
 	}
 	
 	def image(ColocalityRelation r) {
@@ -115,6 +115,6 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def image(EqInterfaceGroup g) {
-		'outlineview_connector_16x16.png'
+		'outlineview_interface_group_16x16.png'
 	}
 }
