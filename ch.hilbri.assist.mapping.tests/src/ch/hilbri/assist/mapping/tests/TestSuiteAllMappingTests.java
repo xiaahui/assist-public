@@ -12,7 +12,10 @@ import org.junit.runners.Suite.SuiteClasses;
 	ChocoSolverTests.class,
 	SearchTypeTests.class,
 	StrategyTests.class,
-	ColocalityTests.class
+	ColocalityTests.class,
+	DislocalityTests.class,
+	AssistElementConstraintTests.class,
+	ImplicitlyDefinedGroupsTests.class
 })  
 
 public class TestSuiteAllMappingTests {}

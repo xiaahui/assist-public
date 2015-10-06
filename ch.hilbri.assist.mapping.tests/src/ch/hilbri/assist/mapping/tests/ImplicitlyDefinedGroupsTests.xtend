@@ -1,45 +1,21 @@
-package ch.hilbri.assist.mapping.tests.constraints.old_tests
+package ch.hilbri.assist.mapping.tests
 
-import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.ModelPackage
 import ch.hilbri.assist.mapping.solver.AssistSolver
-import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider
-import javax.inject.Inject
-import org.eclipse.xtext.junit4.InjectWith
-import org.eclipse.xtext.junit4.XtextRunner
-import org.eclipse.xtext.junit4.util.ParseHelper
-import org.junit.BeforeClass
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+
 import static org.junit.Assert.*
 
-@InjectWith(MappingDSLInjectorProvider)
-@RunWith(XtextRunner)
-class ImplicitlyDefinedGroups {
-	
-	protected String input
-	protected AssistModel model
-	
-	private Logger logger
-
-	new() { logger = LoggerFactory.getLogger(this.class)}	
-	
-	@Inject
-	protected ParseHelper<AssistModel> parser
-
-	@BeforeClass
-	def static void registerEPackage() { ModelPackage.eINSTANCE.eClass() }	
+class ImplicitlyDefinedGroupsTests extends AbstractMappingTest {
 	
 	@Test
 	def simpleImplicitlyDefinedGroups() {
 		/* Define the input */
-		input = '''
+		val input = '''
 Global { 
 	Name = "Example System";
 }
 
+Compartments{
 Compartment C1 {
 	RDC RDC1 {
 		Manufacturer = "Manu";
@@ -47,13 +23,22 @@ Compartment C1 {
 		ESS = "Ess";
 	
 		Connector Connector1 {
-			"CustomType0" = 20;
+			Pin0 : "CustomType0";
+			Pin1 : "CustomType0";
+			Pin2 : "CustomType0";
+			Pin3 : "CustomType0";
+			Pin4 : "CustomType0";
 		}
 
 		Connector Connector2 {
-			"CustomType0" = 20;
+			Pin0 : "CustomType0";
+			Pin1 : "CustomType0";
+			Pin2 : "CustomType0";
+			Pin3 : "CustomType0";
+			Pin4 : "CustomType0";
 		}
 	}
+}
 }
 
 
@@ -91,11 +76,11 @@ InterfaceGroups {
 	@Test
 	def complexImplicitlyDefinedGroups() {
 		/* Define the input */
-		input = '''
+		val input = '''
 Global { 
 	Name = "Example System";
 }
-
+Compartments{
 Compartment C1 {
 	RDC RDC1 {
 		Manufacturer = "Manu";
@@ -103,15 +88,23 @@ Compartment C1 {
 		ESS = "Ess";
 	
 		Connector Connector1 {
-			"CustomType0" = 20;
+			Pin0 : "CustomType0";
+			Pin1 : "CustomType0";
+			Pin2 : "CustomType0";
+			Pin3 : "CustomType0";
+			Pin4 : "CustomType0";
 		}
 
 		Connector Connector2 {
-			"CustomType0" = 20;
+			Pin0 : "CustomType0";
+			Pin1 : "CustomType0";
+			Pin2 : "CustomType0";
+			Pin3 : "CustomType0";
+			Pin4 : "CustomType0";
 		}
 	}
 }
-
+}
 
 Interfaces {
 	Interface Iface1 {
@@ -154,11 +147,12 @@ InterfaceGroups {
 
 	@Test
 	def complexImplicitlyDefinedGroups2() {
-		input = 
+		val input = 
 '''Global { 
 	Name = "Example System";
 }
 
+Compartments{
 Compartment C1 {
 	RDC RDC1 {
 		Manufacturer = "Manu";
@@ -166,13 +160,22 @@ Compartment C1 {
 		ESS = "Ess";
 	
 		Connector Connector1 {
-			"CustomType0" = 20;
+			Pin0 : "CustomType0";
+			Pin1 : "CustomType0";
+			Pin2 : "CustomType0";
+			Pin3 : "CustomType0";
+			Pin4 : "CustomType0";
 		}
 
 		Connector Connector2 {
-			"CustomType0" = 20;
+			Pin0 : "CustomType0";
+			Pin1 : "CustomType0";
+			Pin2 : "CustomType0";
+			Pin3 : "CustomType0";
+			Pin4 : "CustomType0";
 		}
 	}
+}
 }
 
 

@@ -6,7 +6,7 @@ import static org.junit.Assert.*
 
 class ColocalityTests extends AbstractMappingTest {
 	@Test
-	def void exampleSpecFileTest() {
+	def void colocTest() {
 		val input = '''
 Global {
 	Name = "Example System";
