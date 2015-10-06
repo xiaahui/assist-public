@@ -23,10 +23,10 @@ class AssistModel {
 	contains RestrictionsBlock[0..1]		restrictionsBlock
 	
 
-	refers Compartment[0..*]				compartments
-	refers RDC[0..*]						rdcs
-	refers Connector[0..*]					connectors
-	refers Pin[0..*]						pins
+	refers transient Compartment[0..*]				compartments
+	refers transient RDC[0..*]						rdcs
+	refers transient Connector[0..*]				connectors
+	refers transient Pin[0..*]						pins
 	
 	// Methods
 	op String					getSystemName()				{ globalBlock.systemName										}
@@ -141,7 +141,7 @@ class Compartment extends HardwareElement {
 	
 	contains RDC[0..*] rdcs opposite compartment
 	
-	refers Pin[0..*] pins
+	refers transient Pin[0..*] pins
 	
 	op String toString() 			{ name }
 
@@ -164,7 +164,7 @@ class RDC extends HardwareElement {
 	
 	op String toString() 			{ name }
 	
-	refers Pin[0..*] pins
+	refers transient Pin[0..*] pins
 }
 
 class InternalConnectedPinBlock {

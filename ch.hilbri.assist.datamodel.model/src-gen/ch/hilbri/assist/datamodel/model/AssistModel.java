@@ -172,7 +172,7 @@ public interface AssistModel extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Compartments</em>' reference list.
 	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_Compartments()
-	 * @model
+	 * @model transient="true"
 	 * @generated
 	 */
 	EList<Compartment> getCompartments();
@@ -188,7 +188,7 @@ public interface AssistModel extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rdcs</em>' reference list.
 	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_Rdcs()
-	 * @model
+	 * @model transient="true"
 	 * @generated
 	 */
 	EList<RDC> getRdcs();
@@ -204,7 +204,7 @@ public interface AssistModel extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Connectors</em>' reference list.
 	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_Connectors()
-	 * @model
+	 * @model transient="true"
 	 * @generated
 	 */
 	EList<Connector> getConnectors();
@@ -220,7 +220,7 @@ public interface AssistModel extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pins</em>' reference list.
 	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getAssistModel_Pins()
-	 * @model
+	 * @model transient="true"
 	 * @generated
 	 */
 	EList<Pin> getPins();

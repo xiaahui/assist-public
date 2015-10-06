@@ -387,7 +387,7 @@ public interface RDC extends HardwareElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pins</em>' reference list.
 	 * @see ch.hilbri.assist.datamodel.model.ModelPackage#getRDC_Pins()
-	 * @model
+	 * @model transient="true"
 	 * @generated
 	 */
 	EList<Pin> getPins();
