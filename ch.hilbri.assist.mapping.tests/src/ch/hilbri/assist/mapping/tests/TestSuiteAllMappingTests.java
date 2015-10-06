@@ -11,7 +11,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	ConnectedPinsTests.class,
 	ChocoSolverTests.class,
 	SearchTypeTests.class,
-	StrategyTests.class
+	StrategyTests.class,
+	ColocalityTests.class
 })  
 
 public class TestSuiteAllMappingTests {}
