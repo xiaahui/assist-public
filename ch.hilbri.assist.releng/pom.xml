@@ -135,7 +135,6 @@
 		<module>../ch.hilbri.assist.libraries.math</module>
 		<module>../ch.hilbri.assist.libraries.trove4j</module>
 		<module>../ch.hilbri.assist.application</module>
-		<module>../ch.hilbri.assist.cli</module>
 		<module>../ch.hilbri.assist.datamodel.model</module>
 		<module>../ch.hilbri.assist.datamodel.model.edit</module>
 		<module>../ch.hilbri.assist.datamodel.model.editor</module>
@@ -154,7 +153,6 @@
 		<module>../ch.hilbri.assist.features.documentation</module>
 		<module>../ch.hilbri.assist.features.defaults</module>
 		<module>../ch.hilbri.assist.libraries.poi</module>
-
 		<module>../ch.hilbri.assist.releng.product.cli</module>
 	</modules>
 </project>
