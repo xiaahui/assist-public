@@ -16,7 +16,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	DislocalityTests.class,
 	AssistElementConstraintTests.class,
 	ImplicitlyDefinedGroupsTests.class,
-	ConfigurablePinTypeTests.class
+	ConfigurablePinTypeTests.class,
+	ProtectionLevelTests.class
 })  
 
 public class TestSuiteAllMappingTests {}
