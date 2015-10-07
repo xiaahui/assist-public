@@ -1,12 +1,12 @@
 package ch.hilbri.assist.mapping.tests
 
-import ch.hilbri.assist.mapping.solver.AssistSolver
 import org.junit.Test
 
 import static org.junit.Assert.*
 
 class ImplicitlyDefinedGroupsTests extends AbstractMappingTest {
 	
+
 	@Test
 	def simpleImplicitlyDefinedGroups() {
 		/* Define the input */
@@ -64,8 +64,8 @@ InterfaceGroups {
 }'''
 		
 		/* Parse the input */
-		model = parser.parse(input) 
-		new AssistSolver(model)
+		loadModelAndCreateResults(input)
+		
 		assertEquals(model.eqInterfaceGroups.length, 1)
 		assertEquals(model.eqInterfaceGroups.get(0).eqInterfaces.length, 2)
 		assertEquals(model.eqInterfaceGroups.get(0).eqInterfaces.sortBy[it.name].get(0).name, "Iface1")
@@ -118,7 +118,7 @@ Interfaces {
 	}
 	
 	Interface Iface3 {
-		SubAta = "Ata1"
+		SubAta = "Ata1";
 		System = "C";
 		Type = "CustomType0";
 	}
@@ -134,14 +134,12 @@ InterfaceGroups {
 	Group G1 { Iface3, interfaces with System="C" and SubAta="Ata2"  };
 }'''
 		
-		/* Parse the input */
-		model = parser.parse(input)
-		new AssistSolver(model)
+		loadModelAndCreateResults(input)
+		
 		assertEquals(model.eqInterfaceGroups.length, 1)
 		assertEquals(model.eqInterfaceGroups.get(0).eqInterfaces.length, 2)
 		assertEquals(model.eqInterfaceGroups.get(0).eqInterfaces.sortBy[it.name].get(0).name, "Iface3")
 		assertEquals(model.eqInterfaceGroups.get(0).eqInterfaces.sortBy[it.name].get(1).name, "Iface4")
-	
 	}
 
 
@@ -196,7 +194,7 @@ Interfaces {
 	}
 	
 	Interface Iface3 {
-		SubAta = "Ata1"
+		SubAta = "Ata1";
 		System = "C";
 		Resource = "R3";
 		Route = "M2";
@@ -217,8 +215,7 @@ InterfaceGroups {
 }'''
 		
 		/* Parse the input */
-		model = parser.parse(input) 
-		new AssistSolver(model)
+		loadModelAndCreateResults(input)
 
 		assertEquals(model.eqInterfaceGroups.length, 1)
 		assertEquals(model.eqInterfaceGroups.get(0).eqInterfaces.length, 3)

@@ -86,7 +86,7 @@ Global {
 	Name = "System";
 	Compatible Interface Types { 
 		"T0" -> "T1";
-		"T3" -> "T1"
+		"T3" -> "T1";
 	}
 }
 
@@ -124,7 +124,7 @@ Global {
 	Name = "System";
 	Compatible Interface Types { 
 		"T0" -> "T1";
-		"T3" -> "T1", "T2"
+		"T3" -> "T1", "T2";
 	}
 }
 

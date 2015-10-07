@@ -248,10 +248,11 @@ Restrictions {
 }
 		
 		'''
-	
-	     loadModelAndCreateResults(input)
+		
+		// We ignore the warning from invalid spec regarding "UnsafeSupplier" and "UnsafeCompartment"
+	    loadModelAndCreateResults(input, false, true)	
 	     
-	     assertFalse(allResults.size == 0)
+	    assertFalse(allResults.size == 0)
 	}
 	
 	@Test
