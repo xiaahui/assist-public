@@ -146,7 +146,7 @@
 		<module>../ch.hilbri.assist.mappingdsl.tests</module>
 		<module>../ch.hilbri.assist.mappingdsl.ui</module>
 		<module>../ch.hilbri.assist.releng.product.gui</module>
-		<module>../ch.hilbri.assist.features.2</module>
+		<module>../ch.hilbri.assist.features.application</module>
 		<module>../ch.hilbri.assist.features.datamodel</module>
 		<module>../ch.hilbri.assist.features.libraries</module>
 		<module>../ch.hilbri.assist.features.mapping</module>
