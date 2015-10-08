@@ -12,7 +12,6 @@
    </license>
 
    <requires>
-      <import plugin="ch.hilbri.assist.application" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="ch.hilbri.assist.datamodel.model" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="ch.hilbri.assist.datamodel.model.edit" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="ch.hilbri.assist.datamodel.model.editor" version="2.0.0" match="greaterOrEqual"/>
@@ -62,6 +61,7 @@
       <import plugin="ch.hilbri.assist.libraries.jgrapht" version="0.9.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.e4.ui.services" version="1.2.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.console"/>
+      <import plugin="ch.hilbri.assist.application.gui"/>
    </requires>
 
    <plugin

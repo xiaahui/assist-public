@@ -37,14 +37,14 @@
    </requires>
 
    <plugin
-         id="ch.hilbri.assist.application"
+         id="org.eclipse.ui.cheatsheets"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.ui.cheatsheets"
+         id="ch.hilbri.assist.application.gui"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -22,7 +22,7 @@ Export-Package: ch.hilbri.assist.libraries.logback,
  ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model,
  ch.hilbri.assist.mapping.ui.searchtypesdialog,
  ch.hilbri.assist.mapping.ui.wizards
-Require-Bundle: ch.hilbri.assist.application;bundle-version="2.0.0",
+Require-Bundle: ch.hilbri.assist.application.gui;bundle-version="2.0.0",
  ch.hilbri.assist.datamodel.model;bundle-version="2.0.0",
  ch.hilbri.assist.datamodel.model.edit;bundle-version="2.0.0",
  ch.hilbri.assist.datamodel.model.editor;bundle-version="2.0.0",

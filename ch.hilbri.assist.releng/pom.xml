@@ -134,7 +134,7 @@
 		<module>../ch.hilbri.assist.libraries.logback</module>
 		<module>../ch.hilbri.assist.libraries.math</module>
 		<module>../ch.hilbri.assist.libraries.trove4j</module>
-		<module>../ch.hilbri.assist.application</module>
+		
 		<module>../ch.hilbri.assist.datamodel.model</module>
 		<module>../ch.hilbri.assist.datamodel.model.edit</module>
 		<module>../ch.hilbri.assist.datamodel.model.editor</module>
@@ -146,7 +146,7 @@
 		<module>../ch.hilbri.assist.mappingdsl.tests</module>
 		<module>../ch.hilbri.assist.mappingdsl.ui</module>
 		<module>../ch.hilbri.assist.releng.product.gui</module>
-		<module>../ch.hilbri.assist.features.application</module>
+		<module>../ch.hilbri.assist.features.2</module>
 		<module>../ch.hilbri.assist.features.datamodel</module>
 		<module>../ch.hilbri.assist.features.libraries</module>
 		<module>../ch.hilbri.assist.features.mapping</module>
@@ -154,5 +154,6 @@
 		<module>../ch.hilbri.assist.features.defaults</module>
 		<module>../ch.hilbri.assist.libraries.poi</module>
 		<module>../ch.hilbri.assist.releng.product.cli</module>
+		<module>../ch.hilbri.assist.application.gui</module>
 	</modules>
 </project>

@@ -3,11 +3,11 @@ eclipse.buildId=unknown
 java.version=1.8.0_60
 java.vendor=Oracle Corporation
 BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
-Framework arguments:  -product ch.hilbri.assist.application.assist_product
-Command-line arguments:  -product ch.hilbri.assist.application.assist_product -data C:\Users\hilb_ro\Eclipse-Workspace\ASSIST-Airbus/../runtime-ch.hilbri.assist.application.product -dev file:C:/Users/hilb_ro/Eclipse-Workspace/ASSIST-Airbus/.metadata/.plugins/org.eclipse.pde.core/Run ASSIST 2.x/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+Framework arguments:  -product ch.hilbri.assist.application.gui.assist_product
+Command-line arguments:  -product ch.hilbri.assist.application.gui.assist_product -data C:\Users\hilb_ro\Eclipse-Workspace\ASSIST-Airbus/../runtime-ch.hilbri.assist.application.gui.product -dev file:C:/Users/hilb_ro/Eclipse-Workspace/ASSIST-Airbus/.metadata/.plugins/org.eclipse.pde.core/Run ASSIST 2.x/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
 
 !ENTRY org.eclipse.ui 2 2 2015-09-29 11:55:25.260
-!MESSAGE Perspective with name 'Main Perspective' and id 'ch.hilbri.assist.application.perspective.mainPerspective' has been made into a local copy
+!MESSAGE Perspective with name 'Main Perspective' and id 'ch.hilbri.assist.application.gui.perspective.mainPerspective' has been made into a local copy
 !SESSION 2015-09-29 12:12:37.053 -----------------------------------------------
 eclipse.buildId=unknown
 java.version=1.8.0_60
@@ -62,7 +62,7 @@ org.eclipse.core.internal.resources.ResourceException: The project description f
 	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
 	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
 	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at ch.hilbri.assist.application.Activator.start(Activator.java:20)
+	at ch.hilbri.assist.application.gui.Activator.start(Activator.java:20)
 	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
 	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
 	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)

@@ -42,7 +42,7 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.dialogs.ListSelectionDialog;
 import org.eclipse.wb.swt.ResourceManager;
 
-import ch.hilbri.assist.application.helpers.ConsoleCommands;
+import ch.hilbri.assist.application.gui.helpers.ConsoleCommands;
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.MinimizeRequiredCableWeight;

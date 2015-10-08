@@ -23,7 +23,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
-import ch.hilbri.assist.application.helpers.PathProvider;
+import ch.hilbri.assist.application.gui.helpers.PathProvider;
 
 /**
  * The "New" wizard page allows setting the container for the new file as well

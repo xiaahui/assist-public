@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_NEzLgWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application" contributorURI="platform:/plugin/ch.hilbri.assist.application" selectedElement="_NEzLgmaQEeWcXdIR1LslfQ">
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_NEzLgWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" selectedElement="_NEzLgmaQEeWcXdIR1LslfQ">
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_NEzLgmaQEeWcXdIR1LslfQ" elementId="MainWindow" contributorURI="platform:/plugin/ch.hilbri.assist.application" selectedElement="_NEzLg2aQEeWcXdIR1LslfQ" label="ASSIST" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/ASSIST-icon-256x256.png" width="1280" height="720">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_NEzLgmaQEeWcXdIR1LslfQ" elementId="MainWindow" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" selectedElement="_NEzLg2aQEeWcXdIR1LslfQ" label="ASSIST" iconURI="platform:/plugin/ch.hilbri.assist.application.gui/icons/ASSIST-icon-256x256.png" width="1280" height="720">
     <persistedState key="coolBarVisible" value="true"/>
     <persistedState key="perspectiveBarVisible" value="true"/>
     <persistedState key="isRestored" value="true"/>
@@ -11,8 +11,8 @@
     <persistedState key="aggregateWorkingSetId"/>
     <tags>topLevel</tags>
     <tags>shellMaximized</tags>
-    <children xsi:type="advanced:PerspectiveStack" xmi:id="_NEzLg2aQEeWcXdIR1LslfQ" contributorURI="platform:/plugin/ch.hilbri.assist.application" selectedElement="_NEzLhGaQEeWcXdIR1LslfQ">
-      <children xsi:type="advanced:Perspective" xmi:id="_NEzLhGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.perspective.mainPerspective.&lt;Main Perspective>" contributorURI="platform:/plugin/ch.hilbri.assist.application" selectedElement="_NEzLhWaQEeWcXdIR1LslfQ" label="&lt;Main Perspective>" iconURI="">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_NEzLg2aQEeWcXdIR1LslfQ" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" selectedElement="_NEzLhGaQEeWcXdIR1LslfQ">
+      <children xsi:type="advanced:Perspective" xmi:id="_NEzLhGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.perspective.mainPerspective.&lt;Main Perspective>" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" selectedElement="_NEzLhWaQEeWcXdIR1LslfQ" label="&lt;Main Perspective>" iconURI="">
         <tags>Perspective</tags>
         <tags>categoryTag:General</tags>
         <tags>persp.actionSet:org.eclipse.search.searchActionSet</tags>
@@ -21,28 +21,28 @@
         <tags>persp.actionSet:org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo</tags>
         <tags>persp.actionSet:org.eclipse.ui.actionSet.keyBindings</tags>
         <tags>persp.actionSet:org.eclipse.ui.actionSet.openFiles</tags>
-        <children xsi:type="basic:PartSashContainer" xmi:id="_NEzLhWaQEeWcXdIR1LslfQ" contributorURI="platform:/plugin/ch.hilbri.assist.application" selectedElement="_NEzLi2aQEeWcXdIR1LslfQ" horizontal="true">
-          <children xsi:type="basic:PartSashContainer" xmi:id="_NEzLhmaQEeWcXdIR1LslfQ" elementId="" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="3400" selectedElement="_NEzLh2aQEeWcXdIR1LslfQ">
-            <children xsi:type="basic:PartStack" xmi:id="_NEzLh2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.partstack.navigation" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="3400" selectedElement="_NEzLiGaQEeWcXdIR1LslfQ">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_NEzLhWaQEeWcXdIR1LslfQ" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" selectedElement="_NEzLi2aQEeWcXdIR1LslfQ" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_NEzLhmaQEeWcXdIR1LslfQ" elementId="" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="3400" selectedElement="_NEzLh2aQEeWcXdIR1LslfQ">
+            <children xsi:type="basic:PartStack" xmi:id="_NEzLh2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.partstack.navigation" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="3400" selectedElement="_NEzLiGaQEeWcXdIR1LslfQ">
               <tags>newtablook</tags>
               <tags>org.eclipse.e4.primaryNavigationStack</tags>
-              <children xsi:type="advanced:Placeholder" xmi:id="_NEzLiGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributorURI="platform:/plugin/ch.hilbri.assist.application" ref="_NEzLnGaQEeWcXdIR1LslfQ"/>
+              <children xsi:type="advanced:Placeholder" xmi:id="_NEzLiGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" ref="_NEzLnGaQEeWcXdIR1LslfQ"/>
             </children>
-            <children xsi:type="basic:PartStack" xmi:id="_NEzLiWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.partstack.outline" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="3400" selectedElement="_NEzLimaQEeWcXdIR1LslfQ">
-              <children xsi:type="advanced:Placeholder" xmi:id="_NEzLimaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.ContentOutline" contributorURI="platform:/plugin/ch.hilbri.assist.application" ref="_NEzLo2aQEeWcXdIR1LslfQ"/>
+            <children xsi:type="basic:PartStack" xmi:id="_NEzLiWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.partstack.outline" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="3400" selectedElement="_NEzLimaQEeWcXdIR1LslfQ">
+              <children xsi:type="advanced:Placeholder" xmi:id="_NEzLimaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.ContentOutline" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" ref="_NEzLo2aQEeWcXdIR1LslfQ"/>
             </children>
           </children>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_NEzLi2aQEeWcXdIR1LslfQ" elementId="" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="10000" selectedElement="_NEzLjGaQEeWcXdIR1LslfQ">
-            <children xsi:type="basic:PartSashContainer" xmi:id="_NEzLjGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.partsashcontainer.0" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="10000" selectedElement="_NEzLjWaQEeWcXdIR1LslfQ" horizontal="true">
-              <children xsi:type="advanced:Placeholder" xmi:id="_NEzLjWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.editorss" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="8000" ref="_NEzLl2aQEeWcXdIR1LslfQ"/>
-              <children xsi:type="basic:PartStack" xmi:id="_NEzLjmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.partstack.infopart" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="3500" selectedElement="_NNso0GaQEeWcXdIR1LslfQ">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_NEzLi2aQEeWcXdIR1LslfQ" elementId="" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="10000" selectedElement="_NEzLjGaQEeWcXdIR1LslfQ">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_NEzLjGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.partsashcontainer.0" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="10000" selectedElement="_NEzLjWaQEeWcXdIR1LslfQ" horizontal="true">
+              <children xsi:type="advanced:Placeholder" xmi:id="_NEzLjWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.editorss" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="8000" ref="_NEzLl2aQEeWcXdIR1LslfQ"/>
+              <children xsi:type="basic:PartStack" xmi:id="_NEzLjmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.partstack.infopart" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="3500" selectedElement="_NNso0GaQEeWcXdIR1LslfQ">
                 <children xsi:type="basic:Part" xmi:id="_NNso0GaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.mapping.infosheet" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView" label="Information" closeable="true"/>
               </children>
             </children>
-            <children xsi:type="basic:PartStack" xmi:id="_NEzLj2aQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.PropertySheetMStack" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="3400" selectedElement="_S5OBMGaQEeWcXdIR1LslfQ">
+            <children xsi:type="basic:PartStack" xmi:id="_NEzLj2aQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.PropertySheetMStack" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="3400" selectedElement="_S5OBMGaQEeWcXdIR1LslfQ">
               <tags>newtablook</tags>
               <tags>org.eclipse.e4.secondaryDataStack</tags>
-              <children xsi:type="advanced:Placeholder" xmi:id="_NEzLkGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.console.ConsoleView" contributorURI="platform:/plugin/ch.hilbri.assist.application" ref="_NEzLoGaQEeWcXdIR1LslfQ"/>
+              <children xsi:type="advanced:Placeholder" xmi:id="_NEzLkGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.console.ConsoleView" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" ref="_NEzLoGaQEeWcXdIR1LslfQ"/>
               <children xsi:type="basic:Part" xmi:id="_S5OBMGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.mapping.metrictable" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricsView" label="Evaluation Metrics" iconURI="platform:/plugin/ch.hilbri.assist.mapping/icons/generic-file.gif" closeable="true">
                 <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
               </children>
@@ -51,8 +51,8 @@
         </children>
       </children>
     </children>
-    <sharedElements xsi:type="advanced:Area" xmi:id="_NEzLl2aQEeWcXdIR1LslfQ" elementId="testArea" contributorURI="platform:/plugin/ch.hilbri.assist.application" selectedElement="_NEzLmGaQEeWcXdIR1LslfQ" label="Editor Area">
-      <children xsi:type="basic:PartStack" xmi:id="_NEzLmGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.editorss" contributorURI="platform:/plugin/ch.hilbri.assist.application" selectedElement="_Sp5LwGaQEeWcXdIR1LslfQ">
+    <sharedElements xsi:type="advanced:Area" xmi:id="_NEzLl2aQEeWcXdIR1LslfQ" elementId="testArea" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" selectedElement="_NEzLmGaQEeWcXdIR1LslfQ" label="Editor Area">
+      <children xsi:type="basic:PartStack" xmi:id="_NEzLmGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.editorss" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" selectedElement="_Sp5LwGaQEeWcXdIR1LslfQ">
         <tags>newtablook</tags>
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
@@ -67,38 +67,38 @@
         </children>
       </children>
     </sharedElements>
-    <sharedElements xsi:type="basic:Part" xmi:id="_NEzLmWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.PropertySheet" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views//icons/full/eview16/prop_ps.gif" closeable="true">
+    <sharedElements xsi:type="basic:Part" xmi:id="_NEzLmWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.PropertySheet" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views//icons/full/eview16/prop_ps.gif" closeable="true">
       <tags>View</tags>
       <tags>categoryTag:General</tags>
-      <menus xmi:id="_NEzLmmaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.PropertySheet" contributorURI="platform:/plugin/ch.hilbri.assist.application">
+      <menus xmi:id="_NEzLmmaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.PropertySheet" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_NEzLm2aQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.PropertySheet" contributorURI="platform:/plugin/ch.hilbri.assist.application"/>
+      <toolbar xmi:id="_NEzLm2aQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.PropertySheet" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui"/>
     </sharedElements>
-    <sharedElements xsi:type="basic:Part" xmi:id="_NEzLnGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources//icons/full/eview16/resource_persp.gif">
+    <sharedElements xsi:type="basic:Part" xmi:id="_NEzLnGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources//icons/full/eview16/resource_persp.gif">
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;1&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
-      <menus xmi:id="_NEzLnWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributorURI="platform:/plugin/ch.hilbri.assist.application">
+      <menus xmi:id="_NEzLnWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <menus xsi:type="menu:PopupMenu" xmi:id="_NEzLnmaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.navigator.ProjectExplorer#PopupMenu" contributorURI="platform:/plugin/ch.hilbri.assist.application">
+      <menus xsi:type="menu:PopupMenu" xmi:id="_NEzLnmaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.navigator.ProjectExplorer#PopupMenu" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui">
         <tags>menuContribution:popup</tags>
         <tags>popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu</tags>
       </menus>
-      <toolbar xmi:id="_NEzLn2aQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributorURI="platform:/plugin/ch.hilbri.assist.application"/>
+      <toolbar xmi:id="_NEzLn2aQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui"/>
     </sharedElements>
-    <sharedElements xsi:type="basic:Part" xmi:id="_NEzLoGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.console.ConsoleView" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Console" iconURI="platform:/plugin/org.eclipse.ui.console//icons/full/cview16/console_view.gif">
+    <sharedElements xsi:type="basic:Part" xmi:id="_NEzLoGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.console.ConsoleView" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Console" iconURI="platform:/plugin/org.eclipse.ui.console//icons/full/cview16/console_view.gif">
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
-      <menus xmi:id="_NEzLoWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.console.ConsoleView" contributorURI="platform:/plugin/ch.hilbri.assist.application">
+      <menus xmi:id="_NEzLoWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.console.ConsoleView" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui">
         <tags>ViewMenu</tags>
       </menus>
-      <toolbar xmi:id="_NEzLomaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.console.ConsoleView" contributorURI="platform:/plugin/ch.hilbri.assist.application" visible="false"/>
+      <toolbar xmi:id="_NEzLomaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.console.ConsoleView" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" visible="false"/>
     </sharedElements>
-    <sharedElements xsi:type="basic:Part" xmi:id="_NEzLo2aQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.ContentOutline" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Outline" iconURI="platform:/plugin/org.eclipse.ui.views/icons/full/eview16/outline_co.gif">
+    <sharedElements xsi:type="basic:Part" xmi:id="_NEzLo2aQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.ContentOutline" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Outline" iconURI="platform:/plugin/org.eclipse.ui.views/icons/full/eview16/outline_co.gif">
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <menus xmi:id="_NTCb0GaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.ContentOutline">
         <tags>ViewMenu</tags>
@@ -106,8 +106,8 @@
       </menus>
       <toolbar xmi:id="_NTCb0WaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.ContentOutline"/>
     </sharedElements>
-    <sharedElements xsi:type="basic:Part" xmi:id="_NEzLpGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.cheatsheets.views.CheatSheetView" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="CheatSheet" closeable="true">
-      <toolbar xmi:id="_NEzLpWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.toolbar.0" contributorURI="platform:/plugin/ch.hilbri.assist.application"/>
+    <sharedElements xsi:type="basic:Part" xmi:id="_NEzLpGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.cheatsheets.views.CheatSheetView" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="CheatSheet" closeable="true">
+      <toolbar xmi:id="_NEzLpWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.toolbar.0" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui"/>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_neH9wGaSEeWgC7ls5u8lWQ" elementId="org.eclipse.ui.editorss">
       <children xsi:type="basic:PartStack" xmi:id="_neH9wWaSEeWgC7ls5u8lWQ" elementId="org.eclipse.e4.primaryDataStack">
@@ -115,15 +115,15 @@
         <tags>EditorStack</tags>
       </children>
     </sharedElements>
-    <trimBars xmi:id="_NEzLpmaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.main.toolbar" contributorURI="platform:/plugin/ch.hilbri.assist.application">
+    <trimBars xmi:id="_NEzLpmaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.main.toolbar" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui">
       <tags>View</tags>
-      <children xsi:type="menu:ToolBar" xmi:id="_NEzLp2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.toolbar.main" contributorURI="platform:/plugin/ch.hilbri.assist.application">
+      <children xsi:type="menu:ToolBar" xmi:id="_NEzLp2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.toolbar.main" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_LUw-MA6IEeSDxY5r3Lnjag" elementId="ch.hilbri.assist.application.handledtoolitem.new" contributorURI="platform:/plugin/ch.hilbri.assist.application" label="New" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/new_wiz.gif" tooltip="New" command="_NEzynWaQEeWcXdIR1LslfQ"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_Bg2b0A6CEeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledtoolitem.save" contributorURI="platform:/plugin/ch.hilbri.assist.application" label="Save" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/save.png" tooltip="Save (Ctrl+S)" enabled="false" command="_NEzyoGaQEeWcXdIR1LslfQ"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_alz70A6HEeSDxY5r3Lnjag" elementId="ch.hilbri.assist.application.handledtoolitem.saveAll" contributorURI="platform:/plugin/ch.hilbri.assist.application" label="Save All" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/saveAll.png" tooltip="Save All (Ctrl+ Shift+ S)" enabled="false" command="_NEzyomaQEeWcXdIR1LslfQ"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_U9F5IBJTEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledtoolitem.print" contributorURI="platform:/plugin/ch.hilbri.assist.application" label="Print" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/print.png" tooltip="Print" enabled="false" command="_NFH71WaQEeWcXdIR1LslfQ"/>
-        <children xsi:type="menu:ToolBarSeparator" xmi:id="_NEzLqGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.toolbarseparator.first" contributorURI="platform:/plugin/ch.hilbri.assist.application"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_LUw-MA6IEeSDxY5r3Lnjag" elementId="ch.hilbri.assist.application.gui.handledtoolitem.new" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" label="New" iconURI="platform:/plugin/ch.hilbri.assist.application.gui/icons/new_wiz.gif" tooltip="New" command="_NEzynWaQEeWcXdIR1LslfQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_Bg2b0A6CEeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.gui.handledtoolitem.save" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" label="Save" iconURI="platform:/plugin/ch.hilbri.assist.application.gui/icons/toolbar/save.png" tooltip="Save (Ctrl+S)" enabled="false" command="_NEzyoGaQEeWcXdIR1LslfQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_alz70A6HEeSDxY5r3Lnjag" elementId="ch.hilbri.assist.application.gui.handledtoolitem.saveAll" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" label="Save All" iconURI="platform:/plugin/ch.hilbri.assist.application.gui/icons/toolbar/saveAll.png" tooltip="Save All (Ctrl+ Shift+ S)" enabled="false" command="_NEzyomaQEeWcXdIR1LslfQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_U9F5IBJTEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.gui.handledtoolitem.print" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" label="Print" iconURI="platform:/plugin/ch.hilbri.assist.application.gui/icons/toolbar/print.png" tooltip="Print" enabled="false" command="_NFH71WaQEeWcXdIR1LslfQ"/>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_NEzLqGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.toolbarseparator.first" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_CweRcEiREeOdX57Z--P1Iw" elementId="ch.hilbri.assist.toolbar.mapping.handledtoolitem.generate" contributorURI="platform:/plugin/ch.hilbri.assist.mapping" label="Generate mappings" iconURI="platform:/plugin/ch.hilbri.assist.mapping/icons/toolbar/toolbar-mapping-generate-16x16.png" tooltip="Generate mappings for the current specification" enabled="false">
           <command href="platform:/plugin/ch.hilbri.assist.mapping/fragment.e4xmi#_G7-ZEA_cEeOdg7LCSWH6eQ"/>
         </children>
@@ -153,7 +153,7 @@
         <tags>SHOW_RESTORE_MENU</tags>
       </children>
     </trimBars>
-    <trimBars xmi:id="_NEzLqWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.trim.status" contributorURI="platform:/plugin/ch.hilbri.assist.application" side="Bottom">
+    <trimBars xmi:id="_NEzLqWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.trim.status" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" side="Bottom">
       <children xsi:type="menu:ToolControl" xmi:id="_NNbjEGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.StatusLine" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.StandardTrim">
         <tags>stretch</tags>
       </children>
@@ -167,26 +167,26 @@
     <trimBars xmi:id="_NNcxMWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.trim.vertical1" side="Left"/>
     <trimBars xmi:id="_NNemYGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.trim.vertical2" side="Right"/>
   </children>
-  <handlers xmi:id="_NEzLqmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.handler.openhandler" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.OpenHandler" command="_NEzymGaQEeWcXdIR1LslfQ"/>
-  <handlers xmi:id="_NEzLq2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.handler.exit" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.QuitHandler" command="_NEzymWaQEeWcXdIR1LslfQ"/>
-  <handlers xmi:id="_NEzLrGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.handler.newFile" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.NewFileDialogHandler" command="_NEzymmaQEeWcXdIR1LslfQ"/>
-  <handlers xmi:id="_NEzLrWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.handler.newFolder" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.NewFolderDialogHandler" command="_NEzym2aQEeWcXdIR1LslfQ"/>
-  <handlers xmi:id="_NEzLrmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.handler.newProject" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.NewProjectDialogHandler" command="_NEzynGaQEeWcXdIR1LslfQ"/>
-  <handlers xmi:id="_NEzLr2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.handler.newOther" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.NewOtherDialogHandler" command="_NEzynWaQEeWcXdIR1LslfQ"/>
-  <handlers xmi:id="_NEzLsGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.handler.close" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.CloseHandler" command="_NEzynmaQEeWcXdIR1LslfQ"/>
-  <handlers xmi:id="_NEzLsWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.handler.closeAll" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.CloseAllHandler" command="_NEzyn2aQEeWcXdIR1LslfQ"/>
-  <handlers xmi:id="_NEzLsmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.handler.save" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.SaveHandler" command="_NEzyoGaQEeWcXdIR1LslfQ"/>
-  <handlers xmi:id="_NEzLs2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.handler.saveAs" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.SaveAsHandler" command="_NEzyoWaQEeWcXdIR1LslfQ"/>
-  <handlers xmi:id="_NEzLtGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.handler.saveAll" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.SaveAllHandler" command="_NEzyomaQEeWcXdIR1LslfQ"/>
-  <handlers xmi:id="_NEzLtWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.handler.revert" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.RevertHandler" command="_NEzyo2aQEeWcXdIR1LslfQ"/>
-  <handlers xmi:id="_XdNdkAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handler.help" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.HelpHandler">
-    <command href="platform:/plugin/ch.hilbri.assist.application/fragments/help_menu_content.e4xmi#_MKwR4AEdEeSTlPOe0qW7tA"/>
+  <handlers xmi:id="_NEzLqmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.handler.openhandler" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.OpenHandler" command="_NEzymGaQEeWcXdIR1LslfQ"/>
+  <handlers xmi:id="_NEzLq2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.handler.exit" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.QuitHandler" command="_NEzymWaQEeWcXdIR1LslfQ"/>
+  <handlers xmi:id="_NEzLrGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.handler.newFile" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.NewFileDialogHandler" command="_NEzymmaQEeWcXdIR1LslfQ"/>
+  <handlers xmi:id="_NEzLrWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.handler.newFolder" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.NewFolderDialogHandler" command="_NEzym2aQEeWcXdIR1LslfQ"/>
+  <handlers xmi:id="_NEzLrmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.handler.newProject" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.NewProjectDialogHandler" command="_NEzynGaQEeWcXdIR1LslfQ"/>
+  <handlers xmi:id="_NEzLr2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.handler.newOther" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.NewOtherDialogHandler" command="_NEzynWaQEeWcXdIR1LslfQ"/>
+  <handlers xmi:id="_NEzLsGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.handler.close" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.CloseHandler" command="_NEzynmaQEeWcXdIR1LslfQ"/>
+  <handlers xmi:id="_NEzLsWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.handler.closeAll" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.CloseAllHandler" command="_NEzyn2aQEeWcXdIR1LslfQ"/>
+  <handlers xmi:id="_NEzLsmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.handler.save" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.SaveHandler" command="_NEzyoGaQEeWcXdIR1LslfQ"/>
+  <handlers xmi:id="_NEzLs2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.handler.saveAs" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.SaveAsHandler" command="_NEzyoWaQEeWcXdIR1LslfQ"/>
+  <handlers xmi:id="_NEzLtGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.handler.saveAll" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.SaveAllHandler" command="_NEzyomaQEeWcXdIR1LslfQ"/>
+  <handlers xmi:id="_NEzLtWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.handler.revert" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.RevertHandler" command="_NEzyo2aQEeWcXdIR1LslfQ"/>
+  <handlers xmi:id="_XdNdkAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.handler.help" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.HelpHandler">
+    <command href="platform:/plugin/ch.hilbri.assist.application.gui/fragments/help_menu_content.e4xmi#_MKwR4AEdEeSTlPOe0qW7tA"/>
   </handlers>
-  <handlers xmi:id="_YOvoMAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handler.about" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.AboutHandler">
-    <command href="platform:/plugin/ch.hilbri.assist.application/fragments/help_menu_content.e4xmi#_P7mtUAEdEeSTlPOe0qW7tA"/>
+  <handlers xmi:id="_YOvoMAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.handler.about" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.AboutHandler">
+    <command href="platform:/plugin/ch.hilbri.assist.application.gui/fragments/help_menu_content.e4xmi#_P7mtUAEdEeSTlPOe0qW7tA"/>
   </handlers>
-  <handlers xmi:id="_ZPAyYAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handler.showCheatSheet" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.ShowUsageCheatSheetHandler">
-    <command href="platform:/plugin/ch.hilbri.assist.application/fragments/help_menu_content.e4xmi#_SYuQAAEdEeSTlPOe0qW7tA"/>
+  <handlers xmi:id="_ZPAyYAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.handler.showCheatSheet" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.ShowUsageCheatSheetHandler">
+    <command href="platform:/plugin/ch.hilbri.assist.application.gui/fragments/help_menu_content.e4xmi#_SYuQAAEdEeSTlPOe0qW7tA"/>
   </handlers>
   <handlers xmi:id="_M42AIA_cEeOdg7LCSWH6eQ" elementId="ch.hilbri.assist.handler.mapping.generate" contributorURI="platform:/plugin/ch.hilbri.assist.mapping" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.handlers.Generate">
     <command href="platform:/plugin/ch.hilbri.assist.mapping/fragment.e4xmi#_G7-ZEA_cEeOdg7LCSWH6eQ"/>
@@ -519,8 +519,8 @@
   <bindingTables xmi:id="_NNnwVWaQEeWcXdIR1LslfQ" bindingContext="_NNnwVGaQEeWcXdIR1LslfQ"/>
   <bindingTables xmi:id="_NNnwV2aQEeWcXdIR1LslfQ" bindingContext="_NNnwVmaQEeWcXdIR1LslfQ"/>
   <bindingTables xmi:id="_NNnwWWaQEeWcXdIR1LslfQ" bindingContext="_NNnwWGaQEeWcXdIR1LslfQ"/>
-  <rootContext xmi:id="_NEzykGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" contributorURI="platform:/plugin/ch.hilbri.assist.application" name="In Dialogs and Windows" description="Either a dialog or a window is open">
-    <children xmi:id="_NEzykWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.contexts.window" contributorURI="platform:/plugin/ch.hilbri.assist.application" name="In Windows" description="A window is open">
+  <rootContext xmi:id="_NEzykGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" name="In Dialogs and Windows" description="Either a dialog or a window is open">
+    <children xmi:id="_NEzykWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.contexts.window" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" name="In Windows" description="A window is open">
       <children xmi:id="_NFKX4GaQEeWcXdIR1LslfQ" elementId="org.eclipse.debug.ui.BreakpointView" name="In Breakpoints View" description="The breakpoints view context"/>
       <children xmi:id="_NFKX4WaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.textEditorScope" name="Editing Text" description="Editing Text Context">
         <children xmi:id="_NFKX52aQEeWcXdIR1LslfQ" elementId="org.eclipse.xtext.ui.XtextEditorScope" name="Editing Xtext Source" description="Editing Xtext Source Context"/>
@@ -537,7 +537,7 @@
         <children xmi:id="_NFKX7GaQEeWcXdIR1LslfQ" elementId="org.eclipse.jdt.debug.ui.debugging" name="Debugging Java" description="Debugging Java programs"/>
       </children>
     </children>
-    <children xmi:id="_NEzykmaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.contexts.dialog" contributorURI="platform:/plugin/ch.hilbri.assist.application" name="In Dialogs" description="A dialog is open"/>
+    <children xmi:id="_NEzykmaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.contexts.dialog" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" name="In Dialogs" description="A dialog is open"/>
     <children xmi:id="_NFKX7maQEeWcXdIR1LslfQ" elementId="org.eclipse.xtext.ui.embeddedTextEditorScope" name="Embedded Xtext Editor context" description="Embedded Xtext Editor is active"/>
   </rootContext>
   <rootContext xmi:id="_NFKX4maQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.contexts.actionSet" name="Action Set" description="Parent context for action sets"/>
@@ -565,23 +565,23 @@
   <rootContext xmi:id="_NNnwVGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.WorkingSetActionSet" name="Auto::org.eclipse.ui.WorkingSetActionSet"/>
   <rootContext xmi:id="_NNnwVmaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.actionSet.openFiles" name="Auto::org.eclipse.ui.actionSet.openFiles"/>
   <rootContext xmi:id="_NNnwWGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.edit.text.actionSet.presentation" name="Auto::org.eclipse.ui.edit.text.actionSet.presentation"/>
-  <descriptors xmi:id="_NEzyk2aQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributorURI="platform:/plugin/ch.hilbri.assist.application" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources/icons/full/eview16/resource_persp.gif" tooltip="" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_NEzyk2aQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources/icons/full/eview16/resource_persp.gif" tooltip="" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>
-  <descriptors xmi:id="_NEzylGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.console.ConsoleView" contributorURI="platform:/plugin/ch.hilbri.assist.application" label="Console" iconURI="platform:/plugin/org.eclipse.ui.console/icons/full/cview16/console_view.png" tooltip="" allowMultiple="true" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_NEzylGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.console.ConsoleView" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" label="Console" iconURI="platform:/plugin/org.eclipse.ui.console/icons/full/cview16/console_view.png" tooltip="" allowMultiple="true" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>
-  <descriptors xmi:id="_NEzylWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.ProgressView" contributorURI="platform:/plugin/ch.hilbri.assist.application" label="Progress" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/pview.png" tooltip="" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_NEzylWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.ProgressView" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" label="Progress" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/pview.png" tooltip="" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>
-  <descriptors xmi:id="_NEzylmaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.PropertySheet" contributorURI="platform:/plugin/ch.hilbri.assist.application" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views/icons/full/eview16/prop_ps.png" tooltip="" allowMultiple="true" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_NEzylmaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.PropertySheet" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views/icons/full/eview16/prop_ps.png" tooltip="" allowMultiple="true" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>
-  <descriptors xmi:id="_NEzyl2aQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.ContentOutline" contributorURI="platform:/plugin/ch.hilbri.assist.application" label="Outline" iconURI="platform:/plugin/org.eclipse.ui.views/icons/full/eview16/outline_co.png" tooltip="" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_NEzyl2aQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.ContentOutline" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" label="Outline" iconURI="platform:/plugin/org.eclipse.ui.views/icons/full/eview16/outline_co.png" tooltip="" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>
@@ -709,45 +709,45 @@
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>
-  <snippets xsi:type="advanced:Perspective" xmi:id="_NNktAGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.perspective.mainPerspective.&lt;Main Perspective>" contributorURI="platform:/plugin/ch.hilbri.assist.application" label="&lt;Main Perspective>" iconURI="">
+  <snippets xsi:type="advanced:Perspective" xmi:id="_NNktAGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.perspective.mainPerspective.&lt;Main Perspective>" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" label="&lt;Main Perspective>" iconURI="">
     <tags>Perspective</tags>
     <tags>categoryTag:General</tags>
-    <children xsi:type="basic:PartSashContainer" xmi:id="_NNktAWaQEeWcXdIR1LslfQ" contributorURI="platform:/plugin/ch.hilbri.assist.application" horizontal="true">
-      <children xsi:type="basic:PartSashContainer" xmi:id="_NNktAmaQEeWcXdIR1LslfQ" elementId="" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="3400">
-        <children xsi:type="basic:PartStack" xmi:id="_NNktA2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.partstack.navigation" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="3400" selectedElement="_NNktBGaQEeWcXdIR1LslfQ">
+    <children xsi:type="basic:PartSashContainer" xmi:id="_NNktAWaQEeWcXdIR1LslfQ" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" horizontal="true">
+      <children xsi:type="basic:PartSashContainer" xmi:id="_NNktAmaQEeWcXdIR1LslfQ" elementId="" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="3400">
+        <children xsi:type="basic:PartStack" xmi:id="_NNktA2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.partstack.navigation" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="3400" selectedElement="_NNktBGaQEeWcXdIR1LslfQ">
           <tags>newtablook</tags>
           <tags>org.eclipse.e4.primaryNavigationStack</tags>
-          <children xsi:type="advanced:Placeholder" xmi:id="_NNktBGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributorURI="platform:/plugin/ch.hilbri.assist.application"/>
+          <children xsi:type="advanced:Placeholder" xmi:id="_NNktBGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui"/>
         </children>
-        <children xsi:type="basic:PartStack" xmi:id="_NNktBWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.partstack.outline" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="3400">
-          <children xsi:type="advanced:Placeholder" xmi:id="_NNktBmaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.ContentOutline" contributorURI="platform:/plugin/ch.hilbri.assist.application"/>
+        <children xsi:type="basic:PartStack" xmi:id="_NNktBWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.partstack.outline" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="3400">
+          <children xsi:type="advanced:Placeholder" xmi:id="_NNktBmaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.ContentOutline" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui"/>
         </children>
       </children>
-      <children xsi:type="basic:PartSashContainer" xmi:id="_NNktB2aQEeWcXdIR1LslfQ" elementId="" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="10000">
-        <children xsi:type="basic:PartSashContainer" xmi:id="_NNktCGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.partsashcontainer.0" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="10000" horizontal="true">
-          <children xsi:type="advanced:Placeholder" xmi:id="_NNktCWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.editorss" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="8000"/>
-          <children xsi:type="basic:PartStack" xmi:id="_NNktCmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.partstack.infopart" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="3500"/>
+      <children xsi:type="basic:PartSashContainer" xmi:id="_NNktB2aQEeWcXdIR1LslfQ" elementId="" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="10000">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_NNktCGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.partsashcontainer.0" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="10000" horizontal="true">
+          <children xsi:type="advanced:Placeholder" xmi:id="_NNktCWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.editorss" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="8000"/>
+          <children xsi:type="basic:PartStack" xmi:id="_NNktCmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.partstack.infopart" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="3500"/>
         </children>
-        <children xsi:type="basic:PartStack" xmi:id="_NNktC2aQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.PropertySheetMStack" contributorURI="platform:/plugin/ch.hilbri.assist.application" containerData="3400">
+        <children xsi:type="basic:PartStack" xmi:id="_NNktC2aQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.views.PropertySheetMStack" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" containerData="3400">
           <tags>newtablook</tags>
           <tags>org.eclipse.e4.secondaryDataStack</tags>
-          <children xsi:type="advanced:Placeholder" xmi:id="_NNktDGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.console.ConsoleView" contributorURI="platform:/plugin/ch.hilbri.assist.application"/>
+          <children xsi:type="advanced:Placeholder" xmi:id="_NNktDGaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.console.ConsoleView" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui"/>
         </children>
       </children>
     </children>
   </snippets>
-  <commands xmi:id="_NEzymGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.command.opencommand" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="Open File"/>
-  <commands xmi:id="_NEzymWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.command.exit" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="Quit programm"/>
-  <commands xmi:id="_NEzymmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.command.newFile" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="New File Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
-  <commands xmi:id="_NEzym2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.command.newFolder" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="New Folder Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
-  <commands xmi:id="_NEzynGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.command.newProject" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="New Project Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
-  <commands xmi:id="_NEzynWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.command.newOther" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="New Other Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
-  <commands xmi:id="_NEzynmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.command.close" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="Close Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
-  <commands xmi:id="_NEzyn2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.command.closeAll" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="Close All Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
-  <commands xmi:id="_NEzyoGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.command.save" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="Save Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
-  <commands xmi:id="_NEzyoWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.command.saveAs" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="Save As Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
-  <commands xmi:id="_NEzyomaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.command.saveAll" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="Save All Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
-  <commands xmi:id="_NEzyo2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.command.revert" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="Revert Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
+  <commands xmi:id="_NEzymGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.command.opencommand" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="Open File"/>
+  <commands xmi:id="_NEzymWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.command.exit" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="Quit programm"/>
+  <commands xmi:id="_NEzymmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.command.newFile" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="New File Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
+  <commands xmi:id="_NEzym2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.command.newFolder" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="New Folder Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
+  <commands xmi:id="_NEzynGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.command.newProject" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="New Project Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
+  <commands xmi:id="_NEzynWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.command.newOther" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="New Other Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
+  <commands xmi:id="_NEzynmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.command.close" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="Close Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
+  <commands xmi:id="_NEzyn2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.command.closeAll" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="Close All Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
+  <commands xmi:id="_NEzyoGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.command.save" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="Save Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
+  <commands xmi:id="_NEzyoWaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.command.saveAs" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="Save As Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
+  <commands xmi:id="_NEzyomaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.command.saveAll" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="Save All Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
+  <commands xmi:id="_NEzyo2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.command.revert" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="Revert Command" category="_NEzysGaQEeWcXdIR1LslfQ"/>
   <commands xmi:id="_NFFfaWaQEeWcXdIR1LslfQ" elementId="org.eclipse.jdt.ui.correction.inlineLocal.assist" commandName="Quick Assist - Inline local variable" description="Invokes quick assist and selects 'Inline local variable'" category="_NFFfYWaQEeWcXdIR1LslfQ"/>
   <commands xmi:id="_NFFfamaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.edit.text.select.pageUp" commandName="Select Page Up" description="Select to the top of the page" category="_NFE4VmaQEeWcXdIR1LslfQ"/>
   <commands xmi:id="_NFFfa2aQEeWcXdIR1LslfQ" elementId="org.eclipse.jdt.ui.edit.text.java.surround.with.quickMenu" commandName="Surround With Quick Menu" description="Shows the Surround With quick menu" category="_NFFfYWaQEeWcXdIR1LslfQ"/>
@@ -1260,9 +1260,9 @@
     <parameters xmi:id="_NFJJy2aQEeWcXdIR1LslfQ" elementId="filePath" name="File Path" typeId="org.eclipse.ui.ide.resourcePath"/>
   </commands>
   <commands xmi:id="_NFJJzGaQEeWcXdIR1LslfQ" elementId="org.eclipse.compare.copyAllLeftToRight" commandName="Copy All from Left to Right" description="Copy All Changes from Left to Right" category="_NFFfY2aQEeWcXdIR1LslfQ"/>
-  <commands xmi:id="_MKwR4AEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.command.help" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="Help"/>
-  <commands xmi:id="_P7mtUAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.command.about" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="About ASSIST"/>
-  <commands xmi:id="_SYuQAAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.command.showCheatSheet" contributorURI="platform:/plugin/ch.hilbri.assist.application" commandName="Show Usage Cheat Sheet"/>
+  <commands xmi:id="_MKwR4AEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.command.help" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="Help"/>
+  <commands xmi:id="_P7mtUAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.command.about" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="About ASSIST"/>
+  <commands xmi:id="_SYuQAAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.command.showCheatSheet" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" commandName="Show Usage Cheat Sheet"/>
   <commands xmi:id="_G7-ZEA_cEeOdg7LCSWH6eQ" elementId="ch.hilbri.assist.command.mapping.generate" contributorURI="platform:/plugin/ch.hilbri.assist.mapping" commandName="Generate mappings"/>
   <commands xmi:id="_k49dwI5uEeOJBOmJqpLcrw" elementId="ch.hilbri.assist.command.mapping.export.text" contributorURI="platform:/plugin/ch.hilbri.assist.mapping" commandName="Export current solution to text file"/>
   <commands xmi:id="_FXL1MP1gEeO5XfAAZEIvRg" elementId="ch.hilbri.assist.command.mapping.import.excel" contributorURI="platform:/plugin/ch.hilbri.assist.mapping" commandName="Import specification from Excel"/>
@@ -1336,22 +1336,22 @@
   <commands xmi:id="_NMB04WaQEeWcXdIR1LslfQ" elementId="AUTOGEN:::org.eclipse.jdt.debug.ui.DisplayViewActions/org.eclipse.jdt.debug.ui.displayViewToolbar.Execute" commandName="Execute" description="Execute the Selected Text" category="_NFFfZmaQEeWcXdIR1LslfQ"/>
   <commands xmi:id="_NMB04maQEeWcXdIR1LslfQ" elementId="AUTOGEN:::org.eclipse.jdt.debug.ui.DisplayViewActions/org.eclipse.jdt.debug.ui.displayViewToolbar.Display" commandName="Display" description="Display Result of Evaluating Selected Text" category="_NFFfZmaQEeWcXdIR1LslfQ"/>
   <commands xmi:id="_NMB042aQEeWcXdIR1LslfQ" elementId="AUTOGEN:::org.eclipse.jdt.debug.ui.DisplayViewActions/org.eclipse.jdt.debug.ui.displayViewToolbar.Inspect" commandName="Inspect" description="Inspect Result of Evaluating Selected Text" category="_NFFfZmaQEeWcXdIR1LslfQ"/>
-  <addons xmi:id="_NEzypGaQEeWcXdIR1LslfQ" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
-  <addons xmi:id="_NEzypWaQEeWcXdIR1LslfQ" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
-  <addons xmi:id="_NEzypmaQEeWcXdIR1LslfQ" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
-  <addons xmi:id="_NEzyp2aQEeWcXdIR1LslfQ" elementId="org.eclipse.e4.ui.workbench.commands.model" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
-  <addons xmi:id="_NEzyqGaQEeWcXdIR1LslfQ" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
-  <addons xmi:id="_NEzyqWaQEeWcXdIR1LslfQ" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
-  <addons xmi:id="_NEzyqmaQEeWcXdIR1LslfQ" elementId="org.eclipse.e4.ui.workbench.handler.model" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
-  <addons xmi:id="_NEzyq2aQEeWcXdIR1LslfQ" elementId="Cleanup Addon" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.cleanupaddon.CleanupAddon"/>
-  <addons xmi:id="_NEzyrGaQEeWcXdIR1LslfQ" elementId="DnD Addon" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.dndaddon.DnDAddon"/>
-  <addons xmi:id="_NEzyrWaQEeWcXdIR1LslfQ" elementId="MinMax Addon" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon">
-    <persistedState key="ch.hilbri.assist.application.perspective.mainPerspective.&lt;Main Perspective>" value=""/>
+  <addons xmi:id="_NEzypGaQEeWcXdIR1LslfQ" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_NEzypWaQEeWcXdIR1LslfQ" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_NEzypmaQEeWcXdIR1LslfQ" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_NEzyp2aQEeWcXdIR1LslfQ" elementId="org.eclipse.e4.ui.workbench.commands.model" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_NEzyqGaQEeWcXdIR1LslfQ" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_NEzyqWaQEeWcXdIR1LslfQ" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+  <addons xmi:id="_NEzyqmaQEeWcXdIR1LslfQ" elementId="org.eclipse.e4.ui.workbench.handler.model" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <addons xmi:id="_NEzyq2aQEeWcXdIR1LslfQ" elementId="Cleanup Addon" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.cleanupaddon.CleanupAddon"/>
+  <addons xmi:id="_NEzyrGaQEeWcXdIR1LslfQ" elementId="DnD Addon" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.dndaddon.DnDAddon"/>
+  <addons xmi:id="_NEzyrWaQEeWcXdIR1LslfQ" elementId="MinMax Addon" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon">
+    <persistedState key="ch.hilbri.assist.application.gui.perspective.mainPerspective.&lt;Main Perspective>" value=""/>
   </addons>
-  <addons xmi:id="_NEzyrmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.addon.0" contributorURI="platform:/plugin/ch.hilbri.assist.application" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.addons.HandleToolbarAddon"/>
+  <addons xmi:id="_NEzyrmaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.addon.0" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.addons.HandleToolbarAddon"/>
   <addons xmi:id="_NE3c8GaQEeWcXdIR1LslfQ" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <categories xmi:id="_NEzyr2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.category.keys" contributorURI="platform:/plugin/ch.hilbri.assist.application" name="ASSIST Keys" description="Contains all keys for ASSIST"/>
-  <categories xmi:id="_NEzysGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.category.fileCommands" contributorURI="platform:/plugin/ch.hilbri.assist.application" name="File Commands" description="All commands regarding file operations"/>
+  <categories xmi:id="_NEzyr2aQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.category.keys" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" name="ASSIST Keys" description="Contains all keys for ASSIST"/>
+  <categories xmi:id="_NEzysGaQEeWcXdIR1LslfQ" elementId="ch.hilbri.assist.application.gui.category.fileCommands" contributorURI="platform:/plugin/ch.hilbri.assist.application.gui" name="File Commands" description="All commands regarding file operations"/>
   <categories xmi:id="_NFE4UGaQEeWcXdIR1LslfQ" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
   <categories xmi:id="_NFE4UWaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
   <categories xmi:id="_NFE4UmaQEeWcXdIR1LslfQ" elementId="org.eclipse.ui.category.project" name="Project"/>

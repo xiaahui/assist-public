@@ -22,7 +22,7 @@ import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.hilbri.assist.application.helpers.Helpers;
+import ch.hilbri.assist.application.gui.helpers.Helpers;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.mapping.solver.GuiSolverJob;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;

@@ -26,7 +26,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.wizards.newresource.BasicNewResourceWizard;
 
-import ch.hilbri.assist.application.helpers.PathProvider;
+import ch.hilbri.assist.application.gui.helpers.PathProvider;
 
 public class NewMappingSpecificationWizard extends BasicNewResourceWizard implements INewWizard {
 

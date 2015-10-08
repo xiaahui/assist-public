@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="ASSIST" uid="assist" id="ch.hilbri.assist.application.assist_product" application="ch.hilbri.assist.application.application" version="2.0.0.qualifier" useFeatures="true" includeLaunchers="true">
-
+<product name="ASSIST" uid="ch.hilbri.assist.application.gui.product" id="ch.hilbri.assist.application.gui.product" application="ch.hilbri.assist.application.gui.app" version="2.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -15,10 +14,10 @@
       </vmArgsMac>
    </launcherArgs>
 
-   <windowImages i16="/ch.hilbri.assist.application/icons/ASSIST-icon-16x16.png" i32="/ch.hilbri.assist.application/icons/ASSIST-icon-32x32.png" i48="/ch.hilbri.assist.application/icons/ASSIST-icon-48x48.png" i64="/ch.hilbri.assist.application/icons/ASSIST-icon-64x64.png" i128="/ch.hilbri.assist.application/icons/ASSIST-icon-128x128.png" i256="/ch.hilbri.assist.application/icons/ASSIST-icon-256x256.png"/>
+   <windowImages i16="/ch.hilbri.assist.application.gui/icons/ASSIST-icon-16x16.png" i32="/ch.hilbri.assist.application.gui/icons/ASSIST-icon-32x32.png" i48="/ch.hilbri.assist.application.gui/icons/ASSIST-icon-48x48.png" i64="/ch.hilbri.assist.application.gui/icons/ASSIST-icon-64x64.png" i128="/ch.hilbri.assist.application.gui/icons/ASSIST-icon-128x128.png" i256="/ch.hilbri.assist.application.gui/icons/ASSIST-icon-256x256.png"/>
 
    <splash
-      location="ch.hilbri.assist.application" />
+      location="ch.hilbri.assist.application.gui" />
    <launcher name="ASSIST">
       <linux icon="icons/icon.xpm"/>
       <solaris/>
@@ -28,13 +27,11 @@
       </win>
    </launcher>
 
-
    <vm>
       <linux include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</linux>
       <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</macos>
       <windows include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</windows>
    </vm>
-
 
    <plugins>
    </plugins>

@@ -36,8 +36,8 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 
 import com.google.inject.Injector;
 
-import ch.hilbri.assist.application.helpers.Helpers;
-import ch.hilbri.assist.application.helpers.PathProvider;
+import ch.hilbri.assist.application.gui.helpers.Helpers;
+import ch.hilbri.assist.application.gui.helpers.PathProvider;
 import ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView;
 import ch.hilbri.assist.mapping.ui.metrics.MetricsView;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.ResultsView;

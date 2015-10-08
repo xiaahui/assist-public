@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_GzwU0AEZEeSTlPOe0qW7tA">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_PprXMAEaEeSTlPOe0qW7tA" featurename="children" parentElementId="help" positionInList="">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_-s2F0AEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.handledmenuitem.help" label="Help" command="_MKwR4AEdEeSTlPOe0qW7tA"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="__gd7IAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.menuseparator.0"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="__5A-AAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.handledmenuitem.showCheatSheet" label="Show Usage Cheat Sheet" command="_SYuQAAEdEeSTlPOe0qW7tA"/>
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_Ak5zoAEeEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.menuseparator.1"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_BAlDAAEeEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.handledmenuitem.about" label="About ASSIST" command="_P7mtUAEdEeSTlPOe0qW7tA"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_5FuCEAEZEeSTlPOe0qW7tA" featurename="handlers" parentElementId="ch.hilbri.assist.application.gui">
+    <elements xsi:type="commands:Handler" xmi:id="_XdNdkAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.handler.help" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.HelpHandler" command="_MKwR4AEdEeSTlPOe0qW7tA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_YOvoMAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.handler.about" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.AboutHandler" command="_P7mtUAEdEeSTlPOe0qW7tA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_ZPAyYAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.handler.showCheatSheet" contributionURI="bundleclass://ch.hilbri.assist.application.gui/ch.hilbri.assist.application.gui.handlers.ShowUsageCheatSheetHandler" command="_SYuQAAEdEeSTlPOe0qW7tA"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_tGgeEAEZEeSTlPOe0qW7tA" featurename="commands" parentElementId="ch.hilbri.assist.application.gui">
+    <elements xsi:type="commands:Command" xmi:id="_MKwR4AEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.command.help" commandName="Help"/>
+    <elements xsi:type="commands:Command" xmi:id="_P7mtUAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.command.about" commandName="About ASSIST"/>
+    <elements xsi:type="commands:Command" xmi:id="_SYuQAAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.gui.command.showCheatSheet" commandName="Show Usage Cheat Sheet"/>
+  </fragments>
+</fragment:ModelFragments>
