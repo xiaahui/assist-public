@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ch.hilbri.assist.application.cli
+Bundle-SymbolicName: ch.hilbri.assist.application.cli
+Bundle-Version: 2.0.0.qualifier
+Bundle-Vendor: Robert Hilbrich
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
