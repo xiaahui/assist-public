@@ -155,5 +155,7 @@
 		<module>../ch.hilbri.assist.libraries.poi</module>
 		<module>../ch.hilbri.assist.releng.product.cli</module>
 		<module>../ch.hilbri.assist.application.gui</module>
+		
+		<module>../ch.hilbri.assist.application.cli</module>
 	</modules>
 </project>
