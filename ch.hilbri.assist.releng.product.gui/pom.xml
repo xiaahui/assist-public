@@ -11,6 +11,7 @@
 	</parent>
 	<build>
 		<plugins>
+			
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-director-plugin</artifactId>
@@ -39,7 +40,7 @@
 					</formats>
 					<products>
 						<product>
-							<id>assist</id>
+							<id>ch.hilbri.assist.application.gui.product</id>
 							<rootFolders>
 								<macosx>ASSIST.app</macosx>
 							</rootFolders>
