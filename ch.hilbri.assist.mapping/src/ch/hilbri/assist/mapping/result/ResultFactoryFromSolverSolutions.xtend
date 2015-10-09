@@ -1,6 +1,8 @@
 package ch.hilbri.assist.mapping.result
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.EqInterface
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.result.mapping.MappingFactory
 import ch.hilbri.assist.datamodel.result.mapping.Result
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
@@ -10,9 +12,9 @@ import java.util.List
 import java.util.Map
 import org.chocosolver.solver.search.solution.Solution
 import org.chocosolver.solver.variables.IntVar
+import org.eclipse.emf.common.util.BasicEList
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 
 class ResultFactoryFromSolverSolutions {
 	private static Logger logger = LoggerFactory.getLogger(ResultFactoryFromSolverSolutions)
@@ -34,6 +36,11 @@ class ResultFactoryFromSolverSolutions {
 				val pinIndex 	= partialSolution.get(locVar)
 				val pin 		= result.model.pins.get(pinIndex)
 				result.mapping.put(iface, pin)	
+				
+				result.mappingsForHardwareElements.get(pin).add(iface)
+				result.mappingsForHardwareElements.get(pin.connector).add(iface)
+				result.mappingsForHardwareElements.get(pin.connector.rdc).add(iface)
+				result.mappingsForHardwareElements.get(pin.connector.rdc.compartment).add(iface)
 			}
 		}
 		results.add(result)
@@ -79,6 +86,12 @@ class ResultFactoryFromSolverSolutions {
 		// Mapping
 		result.mapping = new HashMap
 		
+		result.mappingsForHardwareElements = new HashMap
+		for (p : model.pins) 			result.mappingsForHardwareElements.put(p, new BasicEList<EqInterface>)
+		for (c : model.connectors)  	result.mappingsForHardwareElements.put(c, new BasicEList<EqInterface>)
+		for (r : model.rdcs)  			result.mappingsForHardwareElements.put(r, new BasicEList<EqInterface>)
+		for (c : model.compartments)  	result.mappingsForHardwareElements.put(c, new BasicEList<EqInterface>)
+		
 		// Evaluation			
 		val e = f.createEvaluation
 		e.setAbsoluteScores(new HashMap)
@@ -96,6 +109,10 @@ class ResultFactoryFromSolverSolutions {
 			val pin 	 = result.model.pins.get(pinIndex)
 			
 			result.mapping.put(iface, pin)
+			result.mappingsForHardwareElements.get(pin).add(iface)
+			result.mappingsForHardwareElements.get(pin.connector).add(iface)
+			result.mappingsForHardwareElements.get(pin.connector.rdc).add(iface)
+			result.mappingsForHardwareElements.get(pin.connector.rdc.compartment).add(iface)
 		}
 	}
 	

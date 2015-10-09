@@ -3,6 +3,7 @@
 package ch.hilbri.assist.datamodel.result.mapping.impl;
 
 import ch.hilbri.assist.datamodel.model.EqInterface;
+import ch.hilbri.assist.datamodel.model.HardwareElement;
 import ch.hilbri.assist.datamodel.model.Pin;
 
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
@@ -12,6 +13,8 @@ import ch.hilbri.assist.datamodel.result.mapping.MappingPackage;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 
 import java.util.HashMap;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -83,6 +86,8 @@ public class MappingFactoryImpl extends EFactoryImpl implements MappingFactory {
 		switch (eDataType.getClassifierID()) {
 			case MappingPackage.EQ_INTERFACE_PIN_MAP_TYPE:
 				return createEqInterfacePinMapTypeFromString(eDataType, initialValue);
+			case MappingPackage.HARDWARE_ELEMENT_MAPPINGS_MAP_TYPE:
+				return createHardwareElementMappingsMapTypeFromString(eDataType, initialValue);
 			case MappingPackage.METRIC_SCORE_MAP:
 				return createMetricScoreMapFromString(eDataType, initialValue);
 			default:
@@ -100,6 +105,8 @@ public class MappingFactoryImpl extends EFactoryImpl implements MappingFactory {
 		switch (eDataType.getClassifierID()) {
 			case MappingPackage.EQ_INTERFACE_PIN_MAP_TYPE:
 				return convertEqInterfacePinMapTypeToString(eDataType, instanceValue);
+			case MappingPackage.HARDWARE_ELEMENT_MAPPINGS_MAP_TYPE:
+				return convertHardwareElementMappingsMapTypeToString(eDataType, instanceValue);
 			case MappingPackage.METRIC_SCORE_MAP:
 				return convertMetricScoreMapToString(eDataType, instanceValue);
 			default:
@@ -143,6 +150,25 @@ public class MappingFactoryImpl extends EFactoryImpl implements MappingFactory {
 	 * @generated
 	 */
 	public String convertEqInterfacePinMapTypeToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public HashMap<HardwareElement, EList<EqInterface>> createHardwareElementMappingsMapTypeFromString(EDataType eDataType, String initialValue) {
+		return (HashMap<HardwareElement, EList<EqInterface>>)super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertHardwareElementMappingsMapTypeToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
 	}
 

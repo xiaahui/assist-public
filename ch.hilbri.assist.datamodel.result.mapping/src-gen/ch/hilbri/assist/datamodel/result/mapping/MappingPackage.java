@@ -126,13 +126,22 @@ public interface MappingPackage extends EPackage {
 	int RESULT__MAPPING = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Mappings For Hardware Elements</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__MAPPINGS_FOR_HARDWARE_ELEMENTS = COMPARABLE_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Partial Solution</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__PARTIAL_SOLUTION = COMPARABLE_FEATURE_COUNT + 3;
+	int RESULT__PARTIAL_SOLUTION = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Solution Found Order Id</b></em>' attribute.
@@ -141,7 +150,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__SOLUTION_FOUND_ORDER_ID = COMPARABLE_FEATURE_COUNT + 4;
+	int RESULT__SOLUTION_FOUND_ORDER_ID = COMPARABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Evaluation</b></em>' containment reference.
@@ -150,7 +159,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__EVALUATION = COMPARABLE_FEATURE_COUNT + 5;
+	int RESULT__EVALUATION = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Result</em>' class.
@@ -159,7 +168,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 6;
+	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get All Unmapped Eq Interfaces</em>' operation.
@@ -372,6 +381,16 @@ public interface MappingPackage extends EPackage {
 	int EQ_INTERFACE_PIN_MAP_TYPE = 4;
 
 	/**
+	 * The meta object id for the '<em>Hardware Element Mappings Map Type</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.HashMap
+	 * @see ch.hilbri.assist.datamodel.result.mapping.impl.MappingPackageImpl#getHardwareElementMappingsMapType()
+	 * @generated
+	 */
+	int HARDWARE_ELEMENT_MAPPINGS_MAP_TYPE = 5;
+
+	/**
 	 * The meta object id for the '<em>Metric Score Map</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -379,7 +398,7 @@ public interface MappingPackage extends EPackage {
 	 * @see ch.hilbri.assist.datamodel.result.mapping.impl.MappingPackageImpl#getMetricScoreMap()
 	 * @generated
 	 */
-	int METRIC_SCORE_MAP = 5;
+	int METRIC_SCORE_MAP = 6;
 
 
 	/**
@@ -435,6 +454,17 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getResult_Mapping();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getMappingsForHardwareElements <em>Mappings For Hardware Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mappings For Hardware Elements</em>'.
+	 * @see ch.hilbri.assist.datamodel.result.mapping.Result#getMappingsForHardwareElements()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EAttribute getResult_MappingsForHardwareElements();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.result.mapping.Result#isPartialSolution <em>Partial Solution</em>}'.
@@ -659,6 +689,17 @@ public interface MappingPackage extends EPackage {
 	EDataType getEqInterfacePinMapType();
 
 	/**
+	 * Returns the meta object for data type '{@link java.util.HashMap <em>Hardware Element Mappings Map Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Hardware Element Mappings Map Type</em>'.
+	 * @see java.util.HashMap
+	 * @model instanceClass="java.util.HashMap<ch.hilbri.assist.datamodel.model.HardwareElement, org.eclipse.emf.common.util.EList<ch.hilbri.assist.datamodel.model.EqInterface>>"
+	 * @generated
+	 */
+	EDataType getHardwareElementMappingsMapType();
+
+	/**
 	 * Returns the meta object for data type '{@link java.util.HashMap <em>Metric Score Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -735,6 +776,14 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESULT__MAPPING = eINSTANCE.getResult_Mapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Mappings For Hardware Elements</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT__MAPPINGS_FOR_HARDWARE_ELEMENTS = eINSTANCE.getResult_MappingsForHardwareElements();
 
 		/**
 		 * The meta object literal for the '<em><b>Partial Solution</b></em>' attribute feature.
@@ -909,6 +958,16 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType EQ_INTERFACE_PIN_MAP_TYPE = eINSTANCE.getEqInterfacePinMapType();
+
+		/**
+		 * The meta object literal for the '<em>Hardware Element Mappings Map Type</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.HashMap
+		 * @see ch.hilbri.assist.datamodel.result.mapping.impl.MappingPackageImpl#getHardwareElementMappingsMapType()
+		 * @generated
+		 */
+		EDataType HARDWARE_ELEMENT_MAPPINGS_MAP_TYPE = eINSTANCE.getHardwareElementMappingsMapType();
 
 		/**
 		 * The meta object literal for the '<em>Metric Score Map</em>' data type.

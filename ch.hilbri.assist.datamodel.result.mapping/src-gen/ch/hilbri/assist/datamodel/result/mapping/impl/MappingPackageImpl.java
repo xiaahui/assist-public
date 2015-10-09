@@ -71,6 +71,13 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EDataType hardwareElementMappingsMapTypeEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType metricScoreMapEDataType = null;
 
 	/**
@@ -187,7 +194,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResult_PartialSolution() {
+	public EAttribute getResult_MappingsForHardwareElements() {
 		return (EAttribute)resultEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -196,7 +203,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResult_SolutionFoundOrderId() {
+	public EAttribute getResult_PartialSolution() {
 		return (EAttribute)resultEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -205,8 +212,17 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getResult_SolutionFoundOrderId() {
+		return (EAttribute)resultEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getResult_Evaluation() {
-		return (EReference)resultEClass.getEStructuralFeatures().get(5);
+		return (EReference)resultEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -376,6 +392,15 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getHardwareElementMappingsMapType() {
+		return hardwareElementMappingsMapTypeEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getMetricScoreMap() {
 		return metricScoreMapEDataType;
 	}
@@ -414,6 +439,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEAttribute(resultEClass, RESULT__NAME);
 		createEReference(resultEClass, RESULT__MODEL);
 		createEAttribute(resultEClass, RESULT__MAPPING);
+		createEAttribute(resultEClass, RESULT__MAPPINGS_FOR_HARDWARE_ELEMENTS);
 		createEAttribute(resultEClass, RESULT__PARTIAL_SOLUTION);
 		createEAttribute(resultEClass, RESULT__SOLUTION_FOUND_ORDER_ID);
 		createEReference(resultEClass, RESULT__EVALUATION);
@@ -439,6 +465,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 
 		// Create data types
 		eqInterfacePinMapTypeEDataType = createEDataType(EQ_INTERFACE_PIN_MAP_TYPE);
+		hardwareElementMappingsMapTypeEDataType = createEDataType(HARDWARE_ELEMENT_MAPPINGS_MAP_TYPE);
 		metricScoreMapEDataType = createEDataType(METRIC_SCORE_MAP);
 	}
 
@@ -483,6 +510,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEAttribute(getResult_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResult_Model(), theModelPackage.getAssistModel(), null, "model", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_Mapping(), this.getEqInterfacePinMapType(), "mapping", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResult_MappingsForHardwareElements(), this.getHardwareElementMappingsMapType(), "mappingsForHardwareElements", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_PartialSolution(), theEcorePackage.getEBoolean(), "partialSolution", "false", 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_SolutionFoundOrderId(), theEcorePackage.getEInt(), "solutionFoundOrderId", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResult_Evaluation(), this.getEvaluation(), null, "evaluation", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -520,6 +548,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 
 		// Initialize data types
 		initEDataType(eqInterfacePinMapTypeEDataType, HashMap.class, "EqInterfacePinMapType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.HashMap<ch.hilbri.assist.datamodel.model.EqInterface, ch.hilbri.assist.datamodel.model.Pin>");
+		initEDataType(hardwareElementMappingsMapTypeEDataType, HashMap.class, "HardwareElementMappingsMapType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.HashMap<ch.hilbri.assist.datamodel.model.HardwareElement, org.eclipse.emf.common.util.EList<ch.hilbri.assist.datamodel.model.EqInterface>>");
 		initEDataType(metricScoreMapEDataType, HashMap.class, "MetricScoreMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.HashMap<ch.hilbri.assist.datamodel.result.mapping.AbstractMetric, java.lang.Double>");
 
 		// Create resource
