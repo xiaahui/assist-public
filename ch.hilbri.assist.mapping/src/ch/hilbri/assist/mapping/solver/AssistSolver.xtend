@@ -96,10 +96,10 @@ class AssistSolver {
 		SMF.nogoodRecordingOnSolution(solverVariables.locationVariables)
 		
 		/* Attach the search monitors */
-		solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solverVariables))
+		solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solverVariables, model))
 		solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 		solver.searchLoop.plugSearchMonitor(new RestartMonitor)
-		solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor())
+		solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solverVariables, model))
 	
 		/* Create an empty set of constraints that will be used */
 		mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()

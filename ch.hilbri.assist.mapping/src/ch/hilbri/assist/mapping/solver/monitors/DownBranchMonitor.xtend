@@ -1,11 +1,12 @@
 package ch.hilbri.assist.mapping.solver.monitors
 
+import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.search.loop.monitors.IMonitorDownBranch
 import org.chocosolver.solver.variables.IntVar
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 
 class DownBranchMonitor implements IMonitorDownBranch {
 	
@@ -13,14 +14,16 @@ class DownBranchMonitor implements IMonitorDownBranch {
 	private IntVar[] locationVariables
 	private Logger logger
 	private int bestProgress = 0
+	private AssistModel model
 	
 	private IntVar[] instantiatedVars
 	
-	new(SolverVariablesContainer p_solverVariables) {
+	new(SolverVariablesContainer p_solverVariables, AssistModel p_model) {
 		solverVariables = p_solverVariables
 		locationVariables = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
 		logger = LoggerFactory.getLogger(this.class)
 		instantiatedVars = locationVariables.filter[instantiated]
+		model = p_model
 	}
 	
 	def calculateProgress() {
@@ -36,9 +39,34 @@ class DownBranchMonitor implements IMonitorDownBranch {
 			val curInstantiatedVars = locationVariables.filter[instantiated]
 			val newVars = curInstantiatedVars.filter[!instantiatedVars.contains(it)]
 			
-			logger.info('''                 instantiated vars during last step = «newVars.size» [«FOR v : newVars»«IF v != newVars.head», «ENDIF»«solverVariables.getInterfaceForLocationVariable(v).name»«ENDFOR»]''')
-			
+			logger.info('''                 . instantiated vars = «newVars.size» (during last step)''')
+			logger.info('''                   [«FOR v : newVars»«IF v != newVars.head», «ENDIF»«solverVariables.getEqInterfaceForLocationVariable(v).name»«ENDFOR»]''')
+
 			instantiatedVars = curInstantiatedVars
+			
+			// Calculate current cable weight
+			var double sum = 0
+			val ifacesOnRDCLevel = solverVariables.getLocationVariables(HardwareArchitectureLevelType.RDC).filter[isInstantiated]
+			for (rdc : model.rdcs) {
+				val rdcIndex = model.rdcs.indexOf(rdc)
+				val ifaceVarsOnCurrentRDCs = ifacesOnRDCLevel.filter[isInstantiatedTo(rdcIndex)]
+				
+				if (!ifaceVarsOnCurrentRDCs.nullOrEmpty && model.globalBlock.cableWeightDataBlock != null) {
+					val ifacesOnCurrentRDC = ifaceVarsOnCurrentRDCs.map[solverVariables.getEqInterfaceForLocationVariable(it)]
+					val weightedCableLengthForRDC = ifacesOnCurrentRDC
+											.map[
+												(Math.abs(it.resourceX - rdc.resourceX) +  // Retrieve the length
+											     Math.abs(it.resourceY - rdc.resourceY) +
+												 Math.abs(it.resourceZ - rdc.resourceZ))
+												 *
+												 model.globalBlock.cableWeightDataBlock.getCableWeight(ioType)	// Multiply by weight of this iotype
+											]
+											.reduce[p1, p2|p1+p2]
+					sum+=weightedCableLengthForRDC
+				}
+			}
+			
+			logger.info('''                 . total cable weight = "«sum»" (of all currently mapped interfaces)''')
 		}	
 	}
 	
