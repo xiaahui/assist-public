@@ -7,7 +7,7 @@ class MaximizeUnusedRDCs extends AbstractMetricImpl {
 	new() {
 		builtIn = true
 		higherScoreIsBetter = true
-		name = "Maximize unused RDCs"
+		name = "Unused RDC count"
 	}
 	
 	override computeAbsoluteScore(Result result) {

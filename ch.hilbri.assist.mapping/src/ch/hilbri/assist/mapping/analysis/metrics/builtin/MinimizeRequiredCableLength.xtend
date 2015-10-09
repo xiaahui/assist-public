@@ -7,7 +7,7 @@ class MinimizeRequiredCableLength extends AbstractMetricImpl {
 	new() {
 		builtIn = true
 		higherScoreIsBetter = false
-		name = "Minimize required cable length"
+		name = "Total cable length"
 	}
 	
 	override computeAbsoluteScore(Result result) {

@@ -1,6 +1,5 @@
 package ch.hilbri.assist.mapping.ui.metrics;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -26,9 +25,6 @@ class EvaluateJob implements IRunnableWithProgress {
 		
 		if (model != null) {
 			ResultsAnalysis.evaluate(model.getResults(), selectedMetrics);
-		
-			Collections.sort(model.getResults());
-		
 			model.refreshResultsList();
 		}
 		

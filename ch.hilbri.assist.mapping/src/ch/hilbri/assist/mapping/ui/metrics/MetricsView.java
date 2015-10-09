@@ -88,7 +88,7 @@ public class MetricsView {
 	 */
 	@PostConstruct
 	public void createControls(final Composite parentMain) {
-		GridLayout gl_parentMain = new GridLayout(8, false);
+		GridLayout gl_parentMain = new GridLayout(10, false);
 		gl_parentMain.horizontalSpacing = 10;
 		parentMain.setLayout(gl_parentMain);
 		
@@ -305,12 +305,112 @@ public class MetricsView {
 			
 		});
 		
+		Button btnSortResults = new Button(parentMain, SWT.NONE);
+		btnSortResults.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/sort.gif"));
+		btnSortResults.setText("Sort results (score)");
+		btnSortResults.addSelectionListener(new SelectionListener() {
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) { widgetSelected(e); }
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (currentModel != null) {
+
+					if ((currentModel.getResults() != null) && (currentModel.getResults().size() > 0)) {
+						
+						/* Check if the cable weight metric has some input to work on */
+						if ((currentModel.getResults().get(0).getModel().getCableWeightData() == null) || 
+								(currentModel.getResults().get(0).getModel().getGlobalBlock().getCableWeightDataBlock().getCableWeightEntries().isEmpty())){
+							for (AbstractMetric m : currentModel.getSelectedMetricsList()) {
+								if (m instanceof MinimizeRequiredCableWeight) {
+									(new MessageDialog(null, "No Cable Weight Data", null, 
+											"The metric '"+ m.getName() + "' was selected, but there is no cable weight data in the specification.", 
+											MessageDialog.ERROR, 
+											new String[] { "OK" }, 0)
+									).open();
+									return;
+								}
+							}
+						}
+						
+						
+						ProgressMonitorDialog progressDialog = new ProgressMonitorDialog(currentEditor.getSite().getShell());
+						try {
+							progressDialog.run(true, false, new SortJob(currentModel, SortCriteriaTypes.SCORE));
+						} catch (InvocationTargetException | InterruptedException e1) {
+							e1.printStackTrace();
+						}
+					}
+					else {
+						MessageDialog dlg = new MessageDialog(null, "No results found", null, 
+											"No results were found for analysis. Please generate valid deployments.", 
+											MessageDialog.INFORMATION, 
+											new String[] { "OK" }, 0);
+						dlg.open();
+					}
+				}
+			}
+			
+		});
+		
+		Button btnSortResultsorder = new Button(parentMain, SWT.NONE);
+		btnSortResultsorder.setText("Sort results (order)");
+		btnSortResultsorder.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/sort.gif"));
+		btnSortResultsorder.addSelectionListener(new SelectionListener() {
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) { widgetSelected(e); }
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (currentModel != null) {
+
+					if ((currentModel.getResults() != null) && (currentModel.getResults().size() > 0)) {
+						
+						/* Check if the cable weight metric has some input to work on */
+						if ((currentModel.getResults().get(0).getModel().getCableWeightData() == null) || 
+								(currentModel.getResults().get(0).getModel().getGlobalBlock().getCableWeightDataBlock().getCableWeightEntries().isEmpty())){
+							for (AbstractMetric m : currentModel.getSelectedMetricsList()) {
+								if (m instanceof MinimizeRequiredCableWeight) {
+									(new MessageDialog(null, "No Cable Weight Data", null, 
+											"The metric '"+ m.getName() + "' was selected, but there is no cable weight data in the specification.", 
+											MessageDialog.ERROR, 
+											new String[] { "OK" }, 0)
+									).open();
+									return;
+								}
+							}
+						}
+						
+						
+						ProgressMonitorDialog progressDialog = new ProgressMonitorDialog(currentEditor.getSite().getShell());
+						try {
+							progressDialog.run(true, false, new SortJob(currentModel, SortCriteriaTypes.CREATION_ORDER));
+						} catch (InvocationTargetException | InterruptedException e1) {
+							e1.printStackTrace();
+						}
+					}
+					else {
+						MessageDialog dlg = new MessageDialog(null, "No results found", null, 
+											"No results were found for analysis. Please generate valid deployments.", 
+											MessageDialog.INFORMATION, 
+											new String[] { "OK" }, 0);
+						dlg.open();
+					}
+				}
+			}
+			
+		});
+		
+		
+		
 		Label label = new Label(parentMain, SWT.NONE);
 		label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 				
 		Group grpSelectedMetrics = new Group(parentMain, SWT.NONE);
 		grpSelectedMetrics.setLayout(new FillLayout(SWT.HORIZONTAL));
-		grpSelectedMetrics.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 8, 1));
+		grpSelectedMetrics.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 10, 1));
 		grpSelectedMetrics.setText("Selected metrics");
 		
 		Composite composite = new Composite(grpSelectedMetrics, SWT.NONE);
