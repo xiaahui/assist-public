@@ -196,8 +196,17 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getResult_SolutionFoundOrderId() {
+		return (EAttribute)resultEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getResult_Evaluation() {
-		return (EReference)resultEClass.getEStructuralFeatures().get(4);
+		return (EReference)resultEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -406,6 +415,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEReference(resultEClass, RESULT__MODEL);
 		createEAttribute(resultEClass, RESULT__MAPPING);
 		createEAttribute(resultEClass, RESULT__PARTIAL_SOLUTION);
+		createEAttribute(resultEClass, RESULT__SOLUTION_FOUND_ORDER_ID);
 		createEReference(resultEClass, RESULT__EVALUATION);
 		createEOperation(resultEClass, RESULT___GET_ALL_UNMAPPED_EQ_INTERFACES);
 		createEOperation(resultEClass, RESULT___GET_COMPLETENESS_AS_PERCENTAGE);
@@ -474,6 +484,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		initEReference(getResult_Model(), theModelPackage.getAssistModel(), null, "model", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_Mapping(), this.getEqInterfacePinMapType(), "mapping", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_PartialSolution(), theEcorePackage.getEBoolean(), "partialSolution", "false", 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResult_SolutionFoundOrderId(), theEcorePackage.getEInt(), "solutionFoundOrderId", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResult_Evaluation(), this.getEvaluation(), null, "evaluation", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getResult__GetAllUnmappedEqInterfaces(), theModelPackage.getEqInterface(), "getAllUnmappedEqInterfaces", 0, -1, !IS_UNIQUE, IS_ORDERED);

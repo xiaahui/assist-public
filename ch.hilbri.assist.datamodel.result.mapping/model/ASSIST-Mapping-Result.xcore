@@ -27,6 +27,7 @@ class Result extends Comparable {
 	refers AssistModel					model
 	EqInterfacePinMapType 				mapping
 	boolean 							partialSolution = "false"
+	int									solutionFoundOrderId
 	
 	contains Evaluation[0..1] 			evaluation
 

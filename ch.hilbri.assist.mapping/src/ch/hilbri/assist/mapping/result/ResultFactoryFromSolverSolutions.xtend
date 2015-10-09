@@ -23,7 +23,7 @@ class ResultFactoryFromSolverSolutions {
 		f = MappingFactory.eINSTANCE
 		val results = new ArrayList<Result>
 		
-		val result = createBasicResult(model, "Best partial solution")
+		val result = createBasicResult(model, "Best partial solution", 0)
 		result.partialSolution = true
 		
 		for (iface : result.model.eqInterfaces)
@@ -52,7 +52,7 @@ class ResultFactoryFromSolverSolutions {
 			val solNumber = solverSolutions.indexOf(solution) + 1
 			val solTotalCount  = solverSolutions.length
 			
-			val result = createBasicResult(model, "Solution "+ solNumber + " of " + solTotalCount)
+			val result = createBasicResult(model, "Solution "+ solNumber + " of " + solTotalCount, solNumber)
 			
 			logger.info('''Created an ASSIST solution from solver solution «solNumber» / «solTotalCount»''')
 			
@@ -67,13 +67,14 @@ class ResultFactoryFromSolverSolutions {
 	}
 	
 	
-	static private def createBasicResult(AssistModel model, String resultName) {
+	static private def createBasicResult(AssistModel model, String resultName, int solutionFoundOrderId) {
 
 		val result = f.createResult
 		
 		// Basic stuff
 		result.name = resultName
 		result.model = model
+		result.solutionFoundOrderId = solutionFoundOrderId
 		
 		// Mapping
 		result.mapping = new HashMap

@@ -57,6 +57,7 @@ import org.eclipse.xtext.xbase.lib.MapExtensions;
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.ResultImpl#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.ResultImpl#getMapping <em>Mapping</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.ResultImpl#isPartialSolution <em>Partial Solution</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.ResultImpl#getSolutionFoundOrderId <em>Solution Found Order Id</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.impl.ResultImpl#getEvaluation <em>Evaluation</em>}</li>
  * </ul>
  *
@@ -122,6 +123,26 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @ordered
 	 */
 	protected boolean partialSolution = PARTIAL_SOLUTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSolutionFoundOrderId() <em>Solution Found Order Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSolutionFoundOrderId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SOLUTION_FOUND_ORDER_ID_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getSolutionFoundOrderId() <em>Solution Found Order Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSolutionFoundOrderId()
+	 * @generated
+	 * @ordered
+	 */
+	protected int solutionFoundOrderId = SOLUTION_FOUND_ORDER_ID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getEvaluation() <em>Evaluation</em>}' containment reference.
@@ -251,6 +272,27 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		partialSolution = newPartialSolution;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.RESULT__PARTIAL_SOLUTION, oldPartialSolution, partialSolution));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getSolutionFoundOrderId() {
+		return solutionFoundOrderId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSolutionFoundOrderId(int newSolutionFoundOrderId) {
+		int oldSolutionFoundOrderId = solutionFoundOrderId;
+		solutionFoundOrderId = newSolutionFoundOrderId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MappingPackage.RESULT__SOLUTION_FOUND_ORDER_ID, oldSolutionFoundOrderId, solutionFoundOrderId));
 	}
 
 	/**
@@ -560,6 +602,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return getMapping();
 			case MappingPackage.RESULT__PARTIAL_SOLUTION:
 				return isPartialSolution();
+			case MappingPackage.RESULT__SOLUTION_FOUND_ORDER_ID:
+				return getSolutionFoundOrderId();
 			case MappingPackage.RESULT__EVALUATION:
 				return getEvaluation();
 		}
@@ -586,6 +630,9 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return;
 			case MappingPackage.RESULT__PARTIAL_SOLUTION:
 				setPartialSolution((Boolean)newValue);
+				return;
+			case MappingPackage.RESULT__SOLUTION_FOUND_ORDER_ID:
+				setSolutionFoundOrderId((Integer)newValue);
 				return;
 			case MappingPackage.RESULT__EVALUATION:
 				setEvaluation((Evaluation)newValue);
@@ -614,6 +661,9 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			case MappingPackage.RESULT__PARTIAL_SOLUTION:
 				setPartialSolution(PARTIAL_SOLUTION_EDEFAULT);
 				return;
+			case MappingPackage.RESULT__SOLUTION_FOUND_ORDER_ID:
+				setSolutionFoundOrderId(SOLUTION_FOUND_ORDER_ID_EDEFAULT);
+				return;
 			case MappingPackage.RESULT__EVALUATION:
 				setEvaluation((Evaluation)null);
 				return;
@@ -637,6 +687,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return mapping != null;
 			case MappingPackage.RESULT__PARTIAL_SOLUTION:
 				return partialSolution != PARTIAL_SOLUTION_EDEFAULT;
+			case MappingPackage.RESULT__SOLUTION_FOUND_ORDER_ID:
+				return solutionFoundOrderId != SOLUTION_FOUND_ORDER_ID_EDEFAULT;
 			case MappingPackage.RESULT__EVALUATION:
 				return evaluation != null;
 		}
@@ -683,6 +735,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		result.append(mapping);
 		result.append(", partialSolution: ");
 		result.append(partialSolution);
+		result.append(", solutionFoundOrderId: ");
+		result.append(solutionFoundOrderId);
 		result.append(')');
 		return result.toString();
 	}

@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.Result#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.Result#getMapping <em>Mapping</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.Result#isPartialSolution <em>Partial Solution</em>}</li>
+ *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.Result#getSolutionFoundOrderId <em>Solution Found Order Id</em>}</li>
  *   <li>{@link ch.hilbri.assist.datamodel.result.mapping.Result#getEvaluation <em>Evaluation</em>}</li>
  * </ul>
  *
@@ -140,6 +141,32 @@ public interface Result extends EObject, Comparable<Result> {
 	 * @generated
 	 */
 	void setPartialSolution(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Solution Found Order Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Solution Found Order Id</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Solution Found Order Id</em>' attribute.
+	 * @see #setSolutionFoundOrderId(int)
+	 * @see ch.hilbri.assist.datamodel.result.mapping.MappingPackage#getResult_SolutionFoundOrderId()
+	 * @model unique="false"
+	 * @generated
+	 */
+	int getSolutionFoundOrderId();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getSolutionFoundOrderId <em>Solution Found Order Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Solution Found Order Id</em>' attribute.
+	 * @see #getSolutionFoundOrderId()
+	 * @generated
+	 */
+	void setSolutionFoundOrderId(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Evaluation</b></em>' containment reference.

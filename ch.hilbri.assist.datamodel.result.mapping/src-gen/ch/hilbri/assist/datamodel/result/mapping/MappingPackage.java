@@ -135,13 +135,22 @@ public interface MappingPackage extends EPackage {
 	int RESULT__PARTIAL_SOLUTION = COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Solution Found Order Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__SOLUTION_FOUND_ORDER_ID = COMPARABLE_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Evaluation</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__EVALUATION = COMPARABLE_FEATURE_COUNT + 4;
+	int RESULT__EVALUATION = COMPARABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Result</em>' class.
@@ -150,7 +159,7 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 5;
+	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get All Unmapped Eq Interfaces</em>' operation.
@@ -439,6 +448,17 @@ public interface MappingPackage extends EPackage {
 	EAttribute getResult_PartialSolution();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getSolutionFoundOrderId <em>Solution Found Order Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Solution Found Order Id</em>'.
+	 * @see ch.hilbri.assist.datamodel.result.mapping.Result#getSolutionFoundOrderId()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EAttribute getResult_SolutionFoundOrderId();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getEvaluation <em>Evaluation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -723,6 +743,14 @@ public interface MappingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESULT__PARTIAL_SOLUTION = eINSTANCE.getResult_PartialSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Solution Found Order Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT__SOLUTION_FOUND_ORDER_ID = eINSTANCE.getResult_SolutionFoundOrderId();
 
 		/**
 		 * The meta object literal for the '<em><b>Evaluation</b></em>' containment reference feature.
