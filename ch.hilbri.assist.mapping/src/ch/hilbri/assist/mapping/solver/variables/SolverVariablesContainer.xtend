@@ -45,6 +45,7 @@ import org.eclipse.xtend.lib.annotations.Data
 			
 			eqInterfaceLocationVariables.put(iface, #[ifaceLocVarPin, ifaceLocVarCon, ifaceLocVarRDC, ifaceLocVarComp])
 		}
+		
 	}
 
 	/** Returns a list of all location variables */
@@ -99,7 +100,21 @@ import org.eclipse.xtend.lib.annotations.Data
 	/**
 	 * Returns the interface for a given solver variable
 	 */
-	def EqInterface getInterfaceForLocationVariable(IntVar variable) {
+	def EqInterface getEqInterfaceForLocationVariable(IntVar variable) {
 		locationVarMap.get(variable)
+	}
+	
+	/*
+	 * Dummy method to prevent getter generation
+	 */
+	private def getEqInterfaceLocationVariables() {
+		return eqInterfaceLocationVariables
+	}
+	
+	/*
+	 * Dummy method to prevent getter generation
+	 */
+	private def getLocationVarMap() {
+		return locationVarMap
 	}
 }

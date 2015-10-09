@@ -26,7 +26,7 @@ class RDCWithShortestDistanceSelector implements IntValueSelector  {
 	 */
 	override int selectValue(IntVar variable) {
 		
-		val equipment = solverVariables.getInterfaceForLocationVariable(variable)
+		val equipment = solverVariables.getEqInterfaceForLocationVariable(variable)
 		
 		val pinIndexList = new ArrayList<Integer>
 		val iterator = variable.getValueIterator(true)
