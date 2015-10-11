@@ -257,7 +257,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__GetEqInterfaceForPin__Pin() {
+	public EOperation getResult__GetAllMappedEqInterfaces__HardwareElement() {
 		return resultEClass.getEOperations().get(3);
 	}
 
@@ -266,7 +266,7 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__GetAllMappedEqInterfaces__HardwareElement() {
+	public EOperation getResult__GetEqInterfaceForPin__Pin() {
 		return resultEClass.getEOperations().get(4);
 	}
 
@@ -446,8 +446,8 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		createEOperation(resultEClass, RESULT___GET_ALL_UNMAPPED_EQ_INTERFACES);
 		createEOperation(resultEClass, RESULT___GET_COMPLETENESS_AS_PERCENTAGE);
 		createEOperation(resultEClass, RESULT___GET_PIN_FOR_EQ_INTERFACE__EQINTERFACE);
-		createEOperation(resultEClass, RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN);
 		createEOperation(resultEClass, RESULT___GET_ALL_MAPPED_EQ_INTERFACES__HARDWAREELEMENT);
+		createEOperation(resultEClass, RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN);
 		createEOperation(resultEClass, RESULT___COMPARE_TO__RESULT);
 
 		abstractMetricEClass = createEClass(ABSTRACT_METRIC);
@@ -522,11 +522,11 @@ public class MappingPackageImpl extends EPackageImpl implements MappingPackage {
 		EOperation op = initEOperation(getResult__GetPinForEqInterface__EqInterface(), theModelPackage.getPin(), "getPinForEqInterface", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theModelPackage.getEqInterface(), "iface", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getResult__GetEqInterfaceForPin__Pin(), theModelPackage.getEqInterface(), "getEqInterfaceForPin", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theModelPackage.getPin(), "p", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
 		op = initEOperation(getResult__GetAllMappedEqInterfaces__HardwareElement(), theModelPackage.getEqInterface(), "getAllMappedEqInterfaces", 0, -1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theModelPackage.getHardwareElement(), "elem", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getResult__GetEqInterfaceForPin__Pin(), theModelPackage.getEqInterface(), "getEqInterfaceForPin", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theModelPackage.getPin(), "p", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getResult__CompareTo__Result(), theEcorePackage.getEInt(), "compareTo", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getResult(), "o", 0, 1, !IS_UNIQUE, IS_ORDERED);

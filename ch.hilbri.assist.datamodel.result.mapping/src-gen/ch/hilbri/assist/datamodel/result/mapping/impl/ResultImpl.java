@@ -12,14 +12,11 @@ import ch.hilbri.assist.datamodel.result.mapping.Evaluation;
 import ch.hilbri.assist.datamodel.result.mapping.MappingPackage;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 
-import com.google.common.base.Objects;
-
 import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -35,10 +32,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.Functions.Function2;
 
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.MapExtensions;
 
 /**
  * <!-- begin-user-doc -->
@@ -428,26 +423,9 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EqInterface getEqInterfaceForPin(final Pin p) {
-		EqInterface _xblockexpression = null;
-		{
-			HashMap<EqInterface, Pin> _mapping = this.getMapping();
-			final Function2<EqInterface, Pin, Boolean> _function = new Function2<EqInterface, Pin, Boolean>() {
-				public Boolean apply(final EqInterface iface, final Pin pin) {
-					return Boolean.valueOf(Objects.equal(pin, p));
-				}
-			};
-			Map<EqInterface, Pin> _filter = MapExtensions.<EqInterface, Pin>filter(_mapping, _function);
-			final Set<EqInterface> ifaces = _filter.keySet();
-			EqInterface _xifexpression = null;
-			int _length = ((Object[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, Object.class)).length;
-			boolean _equals = (_length == 1);
-			if (_equals) {
-				_xifexpression = ((EqInterface[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, EqInterface.class))[0];
-			}
-			_xblockexpression = _xifexpression;
-		}
-		return _xblockexpression;
+	public EList<EqInterface> getAllMappedEqInterfaces(final HardwareElement elem) {
+		HashMap<HardwareElement, EList<EqInterface>> _mappingsForHardwareElements = this.getMappingsForHardwareElements();
+		return _mappingsForHardwareElements.get(elem);
 	}
 
 	/**
@@ -455,9 +433,9 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EqInterface> getAllMappedEqInterfaces(final HardwareElement elem) {
-		HashMap<HardwareElement, EList<EqInterface>> _mappingsForHardwareElements = this.getMappingsForHardwareElements();
-		return _mappingsForHardwareElements.get(elem);
+	public EqInterface getEqInterfaceForPin(final Pin p) {
+		EList<EqInterface> _allMappedEqInterfaces = this.getAllMappedEqInterfaces(p);
+		return IterableExtensions.<EqInterface>head(_allMappedEqInterfaces);
 	}
 
 	/**
@@ -621,10 +599,10 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return getCompletenessAsPercentage();
 			case MappingPackage.RESULT___GET_PIN_FOR_EQ_INTERFACE__EQINTERFACE:
 				return getPinForEqInterface((EqInterface)arguments.get(0));
-			case MappingPackage.RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN:
-				return getEqInterfaceForPin((Pin)arguments.get(0));
 			case MappingPackage.RESULT___GET_ALL_MAPPED_EQ_INTERFACES__HARDWAREELEMENT:
 				return getAllMappedEqInterfaces((HardwareElement)arguments.get(0));
+			case MappingPackage.RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN:
+				return getEqInterfaceForPin((Pin)arguments.get(0));
 			case MappingPackage.RESULT___COMPARE_TO__RESULT:
 				return compareTo((Result)arguments.get(0));
 		}

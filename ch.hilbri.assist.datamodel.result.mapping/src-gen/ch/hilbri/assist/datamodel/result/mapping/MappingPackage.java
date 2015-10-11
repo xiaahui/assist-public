@@ -198,22 +198,22 @@ public interface MappingPackage extends EPackage {
 	int RESULT___GET_PIN_FOR_EQ_INTERFACE__EQINTERFACE = COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Eq Interface For Pin</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN = COMPARABLE_OPERATION_COUNT + 3;
-
-	/**
 	 * The operation id for the '<em>Get All Mapped Eq Interfaces</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___GET_ALL_MAPPED_EQ_INTERFACES__HARDWAREELEMENT = COMPARABLE_OPERATION_COUNT + 4;
+	int RESULT___GET_ALL_MAPPED_EQ_INTERFACES__HARDWAREELEMENT = COMPARABLE_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Eq Interface For Pin</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN = COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Compare To</em>' operation.
@@ -530,16 +530,6 @@ public interface MappingPackage extends EPackage {
 	EOperation getResult__GetPinForEqInterface__EqInterface();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getEqInterfaceForPin(ch.hilbri.assist.datamodel.model.Pin) <em>Get Eq Interface For Pin</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Eq Interface For Pin</em>' operation.
-	 * @see ch.hilbri.assist.datamodel.result.mapping.Result#getEqInterfaceForPin(ch.hilbri.assist.datamodel.model.Pin)
-	 * @generated
-	 */
-	EOperation getResult__GetEqInterfaceForPin__Pin();
-
-	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getAllMappedEqInterfaces(ch.hilbri.assist.datamodel.model.HardwareElement) <em>Get All Mapped Eq Interfaces</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -548,6 +538,16 @@ public interface MappingPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getResult__GetAllMappedEqInterfaces__HardwareElement();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#getEqInterfaceForPin(ch.hilbri.assist.datamodel.model.Pin) <em>Get Eq Interface For Pin</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Eq Interface For Pin</em>' operation.
+	 * @see ch.hilbri.assist.datamodel.result.mapping.Result#getEqInterfaceForPin(ch.hilbri.assist.datamodel.model.Pin)
+	 * @generated
+	 */
+	EOperation getResult__GetEqInterfaceForPin__Pin();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.datamodel.result.mapping.Result#compareTo(ch.hilbri.assist.datamodel.result.mapping.Result) <em>Compare To</em>}' operation.
@@ -834,20 +834,20 @@ public interface MappingPackage extends EPackage {
 		EOperation RESULT___GET_PIN_FOR_EQ_INTERFACE__EQINTERFACE = eINSTANCE.getResult__GetPinForEqInterface__EqInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Eq Interface For Pin</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN = eINSTANCE.getResult__GetEqInterfaceForPin__Pin();
-
-		/**
 		 * The meta object literal for the '<em><b>Get All Mapped Eq Interfaces</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation RESULT___GET_ALL_MAPPED_EQ_INTERFACES__HARDWAREELEMENT = eINSTANCE.getResult__GetAllMappedEqInterfaces__HardwareElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Eq Interface For Pin</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_EQ_INTERFACE_FOR_PIN__PIN = eINSTANCE.getResult__GetEqInterfaceForPin__Pin();
 
 		/**
 		 * The meta object literal for the '<em><b>Compare To</b></em>' operation.

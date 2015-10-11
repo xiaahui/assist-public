@@ -251,20 +251,20 @@ public interface Result extends EObject, Comparable<Result> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model unique="false" pUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%ch.hilbri.assist.datamodel.model.EqInterface%> _xblockexpression = null;\n{\n\t<%java.util.HashMap%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Pin%>> _mapping = this.getMapping();\n\tfinal <%org.eclipse.xtext.xbase.lib.Functions.Function2%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Pin%>, <%java.lang.Boolean%>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function2%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Pin%>, <%java.lang.Boolean%>>()\n\t{\n\t\tpublic <%java.lang.Boolean%> apply(final <%ch.hilbri.assist.datamodel.model.EqInterface%> iface, final <%ch.hilbri.assist.datamodel.model.Pin%> pin)\n\t\t{\n\t\t\treturn <%java.lang.Boolean%>.valueOf(<%com.google.common.base.Objects%>.equal(pin, p));\n\t\t}\n\t};\n\t<%java.util.Map%><<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Pin%>> _filter = <%org.eclipse.xtext.xbase.lib.MapExtensions%>.<<%ch.hilbri.assist.datamodel.model.EqInterface%>, <%ch.hilbri.assist.datamodel.model.Pin%>>filter(_mapping, _function);\n\tfinal <%java.util.Set%><<%ch.hilbri.assist.datamodel.model.EqInterface%>> ifaces = _filter.keySet();\n\t<%ch.hilbri.assist.datamodel.model.EqInterface%> _xifexpression = null;\n\tint _length = ((<%java.lang.Object%>[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, <%java.lang.Object%>.class)).length;\n\tboolean _equals = (_length == 1);\n\tif (_equals)\n\t{\n\t\t_xifexpression = ((<%ch.hilbri.assist.datamodel.model.EqInterface%>[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(ifaces, <%ch.hilbri.assist.datamodel.model.EqInterface%>.class))[0];\n\t}\n\t_xblockexpression = _xifexpression;\n}\nreturn _xblockexpression;'"
-	 * @generated
-	 */
-	EqInterface getEqInterfaceForPin(Pin p);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model unique="false" elemUnique="false"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.util.HashMap%><<%ch.hilbri.assist.datamodel.model.HardwareElement%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.EqInterface%>>> _mappingsForHardwareElements = this.getMappingsForHardwareElements();\nreturn _mappingsForHardwareElements.get(elem);'"
 	 * @generated
 	 */
 	EList<EqInterface> getAllMappedEqInterfaces(HardwareElement elem);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" pUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.datamodel.model.EqInterface%>> _allMappedEqInterfaces = this.getAllMappedEqInterfaces(p);\nreturn <%org.eclipse.xtext.xbase.lib.IterableExtensions%>.<<%ch.hilbri.assist.datamodel.model.EqInterface%>>head(_allMappedEqInterfaces);'"
+	 * @generated
+	 */
+	EqInterface getEqInterfaceForPin(Pin p);
 
 	/**
 	 * <!-- begin-user-doc -->

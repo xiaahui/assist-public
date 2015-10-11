@@ -43,19 +43,19 @@ public class Generate {
 				MultiPageEditor editor = (MultiPageEditor) compEditor.getEditor();
 				IEditorInput input = editor.getEditorInput();
 				if (input instanceof IFileEditorInput) {
-					IPath path = ((IFileEditorInput)input).getFile().getLocation();
-					URI uri = URI.createFileURI(path.toOSString());
-					ResourceSet rs = new ResourceSetImpl();
-					Resource resource = rs.getResource(uri, true);
-					
+//					IPath path = ((IFileEditorInput)input).getFile().getLocation();
+//					URI uri = URI.createFileURI(path.toOSString());
+//					ResourceSet rs = new ResourceSetImpl();
+//					Resource resource = rs.getResource(uri, true);
+//					
 //					// Resolve all proxies
 //					EcoreUtil.resolveAll(resource);
 
 					/* Searching for errors inside the document? */
 					/* 1) Error with the syntax of the dsl */
-					if (resource.getErrors().size() > 0) {	return false; } 
-					
-					if (resource.getContents().size() == 0) { return false;	}
+//					if (resource.getErrors().size() > 0) {	return false; } 
+//					
+//					if (resource.getContents().size() == 0) { return false;	}
 					
 //					/* 2) Custom validation rule errors */
 //					Diagnostic diagnostic = Diagnostician.INSTANCE.validate(resource.getContents().get(0));

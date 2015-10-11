@@ -34,18 +34,9 @@ class Result extends Comparable {
 	
 	op Pin				getPinForEqInterface(EqInterface iface) { if (mapping.keySet.contains(iface)) mapping.get(iface)
 																  else null 												}
-	
-	op EqInterface		getEqInterfaceForPin(Pin p)		{ val ifaces = mapping.filter[iface, pin | pin == p].keySet 
-														  if (ifaces.length == 1) ifaces.get(0) 
-														  }
 
-
-	op EqInterface[]	getAllMappedEqInterfaces(HardwareElement elem) {
-		mappingsForHardwareElements.get(elem)
-	}
-	
-
-
+	op EqInterface[]	getAllMappedEqInterfaces(HardwareElement elem) 	{ mappingsForHardwareElements.get(elem) }
+	op EqInterface		getEqInterfaceForPin(Pin p)						{ getAllMappedEqInterfaces(p).head 		}
 	
 	op int compareTo(Result o) {
 		Double.compare(o.evaluation.totalScaledScore, evaluation.totalScaledScore)

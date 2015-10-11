@@ -362,7 +362,10 @@ public class ResultsViewController extends AnchorPane{
 		ImageView iv = new ImageView(i);
 		TreeItem<TreeObject> newNode = new TreeItem<TreeObject>(new TreeObject(obj), iv);
 		rootNode.getChildren().add(newNode);
-		newNode.setExpanded(true);
+		if (obj instanceof Compartment) 
+			newNode.setExpanded(true);
+		else
+			newNode.setExpanded(false);
 		
 		if (obj instanceof Pin) { 
 			EqInterface iface = result.getEqInterfaceForPin((Pin) obj);
