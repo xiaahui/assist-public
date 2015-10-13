@@ -5,6 +5,7 @@ Bundle-SymbolicName: ch.hilbri.assist.libraries.javafx
 Bundle-Version: 1.8.60.qualifier
 Bundle-ClassPath: jfxrt-win.jar,
  jfxrt-mac.jar,
+ jfxrt-linux.jar,
  jfxswt.jar
 Export-Package: com.sun.deploy.uitoolkit.impl.fx,
  com.sun.deploy.uitoolkit.impl.fx.ui,
@@ -13,6 +14,7 @@ Export-Package: com.sun.deploy.uitoolkit.impl.fx,
  com.sun.glass.events.mac,
  com.sun.glass.ui,
  com.sun.glass.ui.delegate,
+ com.sun.glass.ui.gtk,
  com.sun.glass.ui.mac,
  com.sun.glass.ui.win,
  com.sun.glass.utils,
