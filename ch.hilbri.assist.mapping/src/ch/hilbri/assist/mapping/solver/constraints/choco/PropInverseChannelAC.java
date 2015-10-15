@@ -8,7 +8,6 @@ import org.chocosolver.solver.constraints.PropagatorPriority;
 import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.explanations.RuleStore;
 import org.chocosolver.solver.variables.IntVar;
-import org.chocosolver.solver.variables.delta.IIntDeltaMonitor;
 import org.chocosolver.solver.variables.events.IEventType;
 import org.chocosolver.solver.variables.events.IntEventType;
 import org.chocosolver.util.ESat;
@@ -16,20 +15,12 @@ import org.chocosolver.util.tools.ArrayUtils;
 
 import gnu.trove.map.hash.THashMap;
 
-/**
- * X[i] = j+Ox <=> Y[j] = i+Oy
- * <p>
- * AC propagator for enumerated domain variables
- */
 @SuppressWarnings("serial")
 public class PropInverseChannelAC extends Propagator<IntVar> {
 
     protected int pinVarsLength;
     protected int eqIfaceVarsLength;
     protected IntVar[] eqIfaceVars, pinVars;
-
-//    protected RemProc rem_proc;
-//    protected IIntDeltaMonitor[] idms;
 
     /**
      * Constructor
@@ -46,17 +37,18 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
         
         pinVarsLength = pinVars.length;
         eqIfaceVarsLength = eqIfaceVars.length;
-        
-//        rem_proc = new RemProc();
-//        this.idms = new IIntDeltaMonitor[this.vars.length];
-//        for (int i = 0; i < vars.length; i++) {
-//            idms[i] = this.vars[i].monitorDelta(this);
-//        }
     }
 
+    /**
+     * Coarse-grained initial propagation 
+     */
     @Override
     public void propagate(int evtmask) throws ContradictionException {
 
+    	if (IntEventType.isInstantiate(evtmask)) {
+    		// do something if some variable got instantiated
+    	}    	
+    	
     	for (int i = 0; i < pinVarsLength; i++) {
             pinVars[i].updateLowerBound(0, aCause);
             // UpperBound: 0 (= empty) plus all interface indices
@@ -76,17 +68,59 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
         for (int i = 0; i < eqIfaceVarsLength; i++) {
         	enumeratedFilteringOfEqIfaceVars(i);
         }
-        
-//        for (int i = 0; i < vars.length; i++) {
-//            idms[i].unfreeze();
-//        }
     }
 
+    /**
+     * Fine-grained propagation - reaction to fine-events
+     */
     @Override
     public void propagate(int varIdx, int mask) throws ContradictionException {
-//        idms[varIdx].freeze();
-//        idms[varIdx].forEachRemVal(rem_proc.set(varIdx));
-//        idms[varIdx].unfreeze();
+    	if (IntEventType.isInstantiate(mask)) {
+    		if (varIdx < eqIfaceVarsLength) {
+    			// we have an eqIfaceVar that got instantiated
+    			int eqVarIdx 	= varIdx;
+    			int eqVarValue  = eqIfaceVars[eqVarIdx].getValue();
+    				
+    			// modify the pinVar accordingly
+    			IntVar pinVar = pinVars[eqVarValue];
+    			pinVar.instantiateTo(eqVarValue + 1, aCause);
+    		} 
+    		else {
+    			// we have a pinVar
+    			int pinVarIdx 	= varIdx - eqIfaceVarsLength;
+    			int pinVarValue = pinVars[pinVarIdx].getValue();
+    			
+    			// if that pin is not "unused" then instantiate the interface
+    			if (pinVarValue > 0) {
+    				IntVar eqIfaceVar = eqIfaceVars[pinVarValue-1];
+    				eqIfaceVar.instantiateTo(pinVarIdx, aCause);
+    			}
+    		}
+    		
+    		// FIXME: Add more smarts to it! 
+    		// Can be improved to just check the effects of varIdx's value removal
+    		// Currently we check the total state - no matter what
+    		for (int i = 0; i < pinVarsLength; i++) {
+				enumeratedFilteringOfPinVars(i);
+			}
+
+			for (int i = 0; i < eqIfaceVarsLength; i++) {
+				enumeratedFilteringOfEqIfaceVars(i);
+			}
+    	}
+    	
+    	if (IntEventType.isRemove(mask)) {
+    		// FIXME: Add more smarts to it! 
+    		// Can be improved to just check the effects of varIdx's value removal
+    		// Currently we check the total state - no matter what
+    		for (int i = 0; i < pinVarsLength; i++) {
+				enumeratedFilteringOfPinVars(i);
+			}
+
+			for (int i = 0; i < eqIfaceVarsLength; i++) {
+				enumeratedFilteringOfEqIfaceVars(i);
+			}
+    	}
     }
 
     private void enumeratedFilteringOfEqIfaceVars(int var) throws ContradictionException {
@@ -112,25 +146,6 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
             }
         }
     }
-
-//    private class RemProc implements UnaryIntProcedure<Integer> {
-//		private int var;
-//
-//        @Override
-//        public UnaryIntProcedure<Integer> set(Integer idxVar) {
-//            this.var = idxVar;
-//            return this;
-//        }
-//
-//        @Override
-//        public void execute(int val) throws ContradictionException {
-//            if (var < pinVarsLength) {
-//                pinVars[val].removeValue(var + 1, aCause);
-//            } else {
-//                eqIfaceVars[val-1].removeValue(var - pinVarsLength, aCause);
-//            }
-//        }
-//    }
 
     @Override
     public ESat isEntailed() {
