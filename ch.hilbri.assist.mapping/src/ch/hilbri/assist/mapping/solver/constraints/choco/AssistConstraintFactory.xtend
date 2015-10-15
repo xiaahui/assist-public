@@ -5,7 +5,9 @@ import java.util.List
 import org.chocosolver.solver.constraints.Constraint
 import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.constraints.nary.alldifferent.PropAllDiffAC
+import org.chocosolver.solver.constraints.nary.count.PropCount_AC
 import org.chocosolver.solver.variables.IntVar
+import org.chocosolver.solver.variables.VF
 
 class AssistConstraintFactory {
 
@@ -28,6 +30,8 @@ class AssistConstraintFactory {
 		// this is already done in the ConnectedPinsConstraint
 		// But we can still enforce an AllDifferent on the pins - but they can be 0!
 		propagators.addAll(ICF.alldifferent_except_0(pinVars).propagators)
+		val emptyPinCount = pinVars.length-eqIfaceVars.length
+		propagators.add(new PropCount_AC(pinVars, 0, VF.enumerated("", emptyPinCount, emptyPinCount, pinVars.get(0).solver)))
 		propagators.add(new PropInverseChannelAC(eqIfaceVars, pinVars))
 
 		new Constraint("ASSISTInverseChanneling", propagators)

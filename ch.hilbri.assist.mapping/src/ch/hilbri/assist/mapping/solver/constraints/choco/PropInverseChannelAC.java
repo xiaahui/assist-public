@@ -22,6 +22,7 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
     protected int eqIfaceVarsLength;
     protected IntVar[] eqIfaceVars, pinVars;
 
+	// FIXME: do not forget the connected pin interfaces
     /**
      * Constructor
      * 
@@ -48,7 +49,7 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
     	if (IntEventType.isInstantiate(evtmask)) {
     		// do something if some variable got instantiated
     	}    	
-    	
+
     	for (int i = 0; i < pinVarsLength; i++) {
             pinVars[i].updateLowerBound(0, aCause);
             // UpperBound: 0 (= empty) plus all interface indices
@@ -84,6 +85,10 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
     			// modify the pinVar accordingly
     			IntVar pinVar = pinVars[eqVarValue];
     			pinVar.instantiateTo(eqVarValue + 1, aCause);
+    			
+    			// We do not need to inform all other Pin-Vars 
+    			// that this value is missing, because the allDifferent 
+    			// for all pins in ACF does that job for us already
     		} 
     		else {
     			// we have a pinVar
@@ -95,31 +100,25 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
     				IntVar eqIfaceVar = eqIfaceVars[pinVarValue-1];
     				eqIfaceVar.instantiateTo(pinVarIdx, aCause);
     			}
-    		}
-    		
-    		// FIXME: Add more smarts to it! 
-    		// Can be improved to just check the effects of varIdx's value removal
-    		// Currently we check the total state - no matter what
-    		for (int i = 0; i < pinVarsLength; i++) {
-				enumeratedFilteringOfPinVars(i);
-			}
 
-			for (int i = 0; i < eqIfaceVarsLength; i++) {
-				enumeratedFilteringOfEqIfaceVars(i);
-			}
+    			// We do not need to inform all other EqIface-Vars 
+    			// that this value is missing, because the allDifferent 
+    			// for all eqIfaces does that job for us already
+    		}
     	}
     	
+    	
+    	// Hier kommt der RemProc Teil rein.
     	if (IntEventType.isRemove(mask)) {
-    		// FIXME: Add more smarts to it! 
-    		// Can be improved to just check the effects of varIdx's value removal
-    		// Currently we check the total state - no matter what
-    		for (int i = 0; i < pinVarsLength; i++) {
-				enumeratedFilteringOfPinVars(i);
-			}
-
-			for (int i = 0; i < eqIfaceVarsLength; i++) {
-				enumeratedFilteringOfEqIfaceVars(i);
-			}
+    		if (varIdx < eqIfaceVarsLength) {
+    			for (int i = 0; i < pinVarsLength; i++) {
+    				enumeratedFilteringOfPinVars(i);
+    			}
+    		} else {
+    			for (int i = 0; i < eqIfaceVarsLength; i++) {
+    				enumeratedFilteringOfEqIfaceVars(i);
+    			}
+    		}
     	}
     }
 
