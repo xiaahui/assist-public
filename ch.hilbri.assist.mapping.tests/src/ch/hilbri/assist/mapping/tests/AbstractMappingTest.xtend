@@ -10,6 +10,8 @@ import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider
 import com.google.inject.Inject
 import java.util.ArrayList
+import java.util.List
+import org.chocosolver.solver.variables.IntVar
 import org.eclipse.emf.common.util.Diagnostic
 import org.eclipse.emf.ecore.util.Diagnostician
 import org.eclipse.xtext.junit4.InjectWith
@@ -93,5 +95,18 @@ class AbstractMappingTest {
 		/* Store the results */
 		allResults = solver.results
 		assertNotNull(allResults)
+	}
+	
+	/**
+	 * This is a little extension for IntVars 
+	 * it collects all values which are still allowed 
+	 * from its domain and returns a list
+	 */
+	protected def List<Integer> values(IntVar variable) {
+		val values = newArrayList
+        for (var v = variable.LB; v <= variable.UB; v = variable.nextValue(v)) 
+        	values.add(v)
+        
+        return values
 	}
 }
