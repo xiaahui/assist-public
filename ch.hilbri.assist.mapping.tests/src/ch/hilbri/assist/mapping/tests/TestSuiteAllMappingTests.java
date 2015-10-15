@@ -18,8 +18,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	ImplicitlyDefinedGroupsTests.class,
 	ConfigurablePinTypeTests.class,
 	ProtectionLevelTests.class,
-	RestrictValidDeploymentTests.class,
-	AssistInverseChannelingTests.class
+	RestrictValidDeploymentTests.class
 })  
 
 public class TestSuiteAllMappingTests {}
