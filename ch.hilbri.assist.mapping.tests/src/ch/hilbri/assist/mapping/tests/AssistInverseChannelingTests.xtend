@@ -11,12 +11,6 @@ import static org.junit.Assert.*
 
 class AssistInverseChannelingTests extends AbstractMappingTest {
 
-	/**
-	 * This tests essentially checks that the inverse_channeling constraint
-	 * does not break anything like changing the domain of eqIfaceVars and
-	 * it also checks that the starting point after an initial propagation
-	 * (and no instantiation) is still valid
-	 */
 	@Test
 	def basicTest0() {
 		val solver = new Solver
@@ -46,17 +40,17 @@ class AssistInverseChannelingTests extends AbstractMappingTest {
 
 		// Check the results
 
-		// Pin0: domain should be {empty, iface0, iface1} -> {0,1,2}
-		assertEquals(#[0,1,2], pinVars.get(0).values)
+		// Pin0: domain should be {iface0} -> {1}
+		assertEquals(#[1], pinVars.get(0).values)
 		
-		// Pin1: domain should be {empty, iface1} -> {0,2}
-		assertEquals(#[0,2], pinVars.get(1).values)
+		// Pin1: domain should be {iface1} -> {2}
+		assertEquals(#[2], pinVars.get(1).values)
 
 		// Iface0: domain should be unchanged: {Pin0} -> {0}
 		assertEquals(#[0], eqIfaceVars.get(0).values)
 		 
-		// Iface1: domain should be unchanged {Pin0, Pin1} -> {0, 1}
-		assertEquals(#[0, 1], eqIfaceVars.get(1).values)
+		// Iface1: domain should be {Pin1} -> {1}
+		assertEquals(#[1], eqIfaceVars.get(1).values)
 	}
 
 
@@ -109,9 +103,6 @@ class AssistInverseChannelingTests extends AbstractMappingTest {
 		// Iface1 -> can go to pins {0, 1, 2}
 		val eqIfaceVars = VF.enumeratedArray("EqIfaceVars", 2, 0, 2, solver)
 
-		// Propagate everything
-		solver.propagate
-
 		// Pin0 -> can contain ifaces {0, 1} or nothing --> values {0, 1, 2}
 		// Pin1 -> can contain ifaces {0, 1} or nothing --> values {0, 1, 2}
 		// Pin2 -> can contain ifaces {0, 1} or nothing --> values {0, 1, 2}
@@ -140,8 +131,8 @@ class AssistInverseChannelingTests extends AbstractMappingTest {
 		// Check the results
 		assertEquals(#[0,1], 	eqIfaceVars.get(0).values)
 		assertEquals(#[0,1], 	eqIfaceVars.get(1).values)
-		assertEquals(#[0,1,2], 	pinVars.get(0).values)
-		assertEquals(#[0,1,2], 	pinVars.get(1).values)
+		assertEquals(#[1,2], 	pinVars.get(0).values)
+		assertEquals(#[1,2], 	pinVars.get(1).values)
 		assertEquals(#[0], 		pinVars.get(2).values)
 		
 		// Now we fix an interface to a pin and check whether its 0 state gets removed
@@ -198,8 +189,8 @@ class AssistInverseChannelingTests extends AbstractMappingTest {
 		// Check the results
 		assertEquals(#[0,1], 	eqIfaceVars.get(0).values)
 		assertEquals(#[0,1], 	eqIfaceVars.get(1).values)
-		assertEquals(#[0,1,2], 	pinVars.get(0).values)
-		assertEquals(#[0,1,2],	pinVars.get(1).values)
+		assertEquals(#[1,2], 	pinVars.get(0).values)
+		assertEquals(#[1,2],	pinVars.get(1).values)
 		assertEquals(#[0], 		pinVars.get(2).values)
 		
 		// Now we force pin0 to be either empty or host iface1 (shifting!)
@@ -208,11 +199,11 @@ class AssistInverseChannelingTests extends AbstractMappingTest {
 		solver.propagate
 		
 		// Check the results
-		assertEquals(#[1], 		eqIfaceVars.get(0).values) // iface0 can only go to pin1 
-		assertEquals(#[0,1],	eqIfaceVars.get(1).values) // iface1 can go to both pins
-		assertEquals(#[0,2], 	pinVars.get(0).values)	   // pin0 can be empty or host iface1
-		assertEquals(#[0,1,2],	pinVars.get(1).values)     // pin1 can be empty or host iface0 or iface1
-		assertEquals(#[0], 		pinVars.get(2).values)	   // pin2 is empty
+		assertEquals(#[1], 		eqIfaceVars.get(0).values) 	// iface0 can only go to pin1 
+		assertEquals(#[0],		eqIfaceVars.get(1).values) 	// iface1 can go to both pins
+		assertEquals(#[2], 		pinVars.get(0).values)	   	// pin0 can be empty or host iface1
+		assertEquals(#[1],		pinVars.get(1).values)     	// pin1 can be empty or host iface0 or iface1
+		assertEquals(#[0], 		pinVars.get(2).values)	   	// pin2 is empty
 	}
 	
 	@Test
