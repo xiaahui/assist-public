@@ -119,7 +119,7 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
 
 				// modify the pinVar accordingly
 				IntVar pinVar = pinVars[eqVarValue];
-				pinVar.instantiateTo(eqVarValue + 1, aCause);
+				pinVar.instantiateTo(varIdx + 1, aCause);
 
 				// We do not need to inform all other Pin-Vars
 				// that this value is missing, because the allDifferent

@@ -60,6 +60,9 @@ class ConnectedPinsConstraint extends AbstractMappingConstraint {
 					// Create n-1 pseudo interfaces
 					val pseudoInterfaces = VF.enumeratedArray("PseudoIfaces", pinIndizes.size-1, pinIndizes, solver)
 					
+					// Store these pseudeInterfaces for the pinVars
+					solverVariables.pseudoInterfaces.addAll(pseudoInterfaces)
+					
 					// Add these to the locVarList so that we can enforce an allDifferent later
 					locVarList.addAll(pseudoInterfaces)
 				}

@@ -3,6 +3,8 @@ package ch.hilbri.assist.mapping.solver.variables
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.EqInterface
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.datamodel.model.Pin
+import java.util.ArrayList
 import java.util.HashMap
 import java.util.List
 import java.util.Map
@@ -16,8 +18,18 @@ import org.eclipse.xtend.lib.annotations.Data
 	/** A map containing the location variables for each interface (and each system layer) */
 	private Map<EqInterface, List<IntVar>>  eqInterfaceLocationVariables = new HashMap 
 	
-	/** A map containing the interface for each location variable */
-	private Map<IntVar, EqInterface> 		locationVarMap = new HashMap
+	/** A map containing the interface for each iface variable */
+	private Map<IntVar, EqInterface> 		ifaceVarMap = new HashMap
+	
+	/** Here we store a list of all pseudoInterfaces which were created for connected pins */
+	private List<IntVar>					pseudoInterfaces = new ArrayList
+
+	/** A map containing the intVar for each pin
+	 * it cannot be initialized here, because we do not know the number of pseudo interfaces yet
+	 */
+	private Map<Pin, IntVar> 				pinVarMap = new HashMap
+	
+
 	
 	/* ****************************
 	 * CONSTRUCTOR
@@ -29,23 +41,22 @@ import org.eclipse.xtend.lib.annotations.Data
 			
 			// Pin Level (index 0)
 			val ifaceLocVarPin = VF.enumerated(iface.name + "-Pin", 0, model.pins.length-1, solver)
-			locationVarMap.put(ifaceLocVarPin, iface)			
+			ifaceVarMap.put(ifaceLocVarPin, iface)			
 			
 			// Connector Level (index 1)
 			val ifaceLocVarCon = VF.enumerated(iface.name + "-Con", 0, model.connectors.length-1, solver) 
-			locationVarMap.put(ifaceLocVarCon, iface)
+			ifaceVarMap.put(ifaceLocVarCon, iface)
 			
 			// RDC Level (index 2)
 			val ifaceLocVarRDC = VF.enumerated(iface.name + "-RDC", 0, model.rdcs.length-1, solver) 
-			locationVarMap.put(ifaceLocVarRDC, iface)
+			ifaceVarMap.put(ifaceLocVarRDC, iface)
 			
 			// Compartment Level (index 3)
 			val ifaceLocVarComp = VF.enumerated(iface.name + "-Com", 0, model.compartments.length-1, solver)
-			locationVarMap.put(ifaceLocVarComp, iface)
+			ifaceVarMap.put(ifaceLocVarComp, iface)
 			
 			eqInterfaceLocationVariables.put(iface, #[ifaceLocVarPin, ifaceLocVarCon, ifaceLocVarRDC, ifaceLocVarComp])
 		}
-		
 	}
 
 	/** Returns a list of all location variables */
@@ -101,7 +112,7 @@ import org.eclipse.xtend.lib.annotations.Data
 	 * Returns the interface for a given solver variable
 	 */
 	def EqInterface getEqInterfaceForLocationVariable(IntVar variable) {
-		locationVarMap.get(variable)
+		ifaceVarMap.get(variable)
 	}
 	
 	/*
@@ -115,6 +126,6 @@ import org.eclipse.xtend.lib.annotations.Data
 	 * Dummy method to prevent getter generation
 	 */
 	private def getLocationVarMap() {
-		return locationVarMap
+		return ifaceVarMap
 	}
 }
