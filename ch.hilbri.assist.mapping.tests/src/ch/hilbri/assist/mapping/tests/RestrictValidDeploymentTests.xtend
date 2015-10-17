@@ -52,7 +52,7 @@ Restrictions {
 }		
 		'''
 		loadModelAndCreateResults(input)
-		assertEquals(2, allResults.size)
+		assertEquals(1, allResults.size)
 		for (r : allResults) {
 			val iface1Con = r.mapping.get(r.model.eqInterfaces.filter[it.name.equals("Iface1")].get(0)).connector
 			val iface2Con = r.mapping.get(r.model.eqInterfaces.filter[it.name.equals("Iface2")].get(0)).connector

@@ -235,4 +235,20 @@ class AssistInverseChannelingTests extends AbstractMappingTest {
 		assertEquals(#[1,2],	pinVars.get(1).values)     // FIXME: it should know that it can't be empty
 		assertEquals(#[0], 		pinVars.get(2).values)	   
 	}	
+	
+	@Test
+	def basicTest5() {
+		
+		val solver = new Solver
+		val pinVars = #[VF.enumerated("1", 0, 0, solver),
+			            VF.enumerated("2", 0, 0, solver),
+			            VF.enumerated("3", #[0,1,4,6,8,9,11,234], solver),
+			            VF.enumerated("4", #[0,1,4,6,8,9,11,234], solver)
+		]
+		
+		for (var i = 0; i < pinVars.length -1; i++)
+			solver.post(ICF.arithm(pinVars.get(i), "<=", pinVars.get(i+1)))
+		
+		solver.propagate
+	}
 }

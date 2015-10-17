@@ -23,10 +23,12 @@ Compartments {
 			Connector Conn1{
 				P1: "T0";
 				P2: "T1";
+			}
+			Connector Conn2{
 				P3: "T1";
 			}
 			Connected Pins {
-				C1.RDC1.Conn1.P2, C1.RDC1.Conn1.P3 are connected;
+				C1.RDC1.Conn1.P2, C1.RDC1.Conn2.P3 are connected;
 			}
 		}
 	}

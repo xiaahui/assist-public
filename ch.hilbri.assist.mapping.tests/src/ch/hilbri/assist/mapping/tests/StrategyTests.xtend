@@ -87,7 +87,7 @@ Restrictions {
 			/* Store the results */
 			allResults = solver.results
 			assertNotNull(allResults)
-			assertEquals(allResults.length, 6)
+			assertEquals(2, allResults.length)
 			
 			}
 		}

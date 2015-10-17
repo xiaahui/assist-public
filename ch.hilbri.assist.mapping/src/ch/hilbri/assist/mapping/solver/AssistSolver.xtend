@@ -38,6 +38,8 @@ import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import ch.hilbri.assist.mapping.solver.constraints.PinMappingConstraints
+import org.chocosolver.solver.search.loop.monitors.FailPerPropagator
+import ch.hilbri.assist.mapping.solver.constraints.PreventPinPermutationsConstraint
 
 class AssistSolver {
 	
@@ -50,6 +52,7 @@ class AssistSolver {
 	private Logger logger
 	private boolean savePartialSolution = false
 	private PartialSolutionSaveMonitor partialSolutionSaveMonitor
+	private FailPerPropagator counter
 
 	new (AssistModel p_model) {
 		
@@ -112,6 +115,10 @@ class AssistSolver {
 		mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 		mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
+		mappingConstraintsList.add(new PreventPinPermutationsConstraint(model, solver, solverVariables))
+
+		/* Attach a fail-counter */
+		counter = new FailPerPropagator(solver.cstrs, solver)
 
 		/* Create a list for the results */ 
 		mappingResults = new ArrayList<Result>()  
@@ -183,7 +190,6 @@ class AssistSolver {
 	}
 	
 	def createSolutions() {
-
 		if (solver.hasReachedLimit)
 			logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)")
 
@@ -194,11 +200,27 @@ class AssistSolver {
 		} 
 		
 		// should we save a partial solution?
-		else if (savePartialSolution) {
-			mappingResults = ResultFactoryFromSolverSolutions.createPartialResult(model, solverVariables, partialSolutionSaveMonitor.partialSolution)			
-			logger.info('''Created «mappingResults.size» partial solution with «mappingResults.get(0).mapping.keySet.size» mapped interfaces''')
+		else {
+			if (savePartialSolution) {
+				mappingResults = ResultFactoryFromSolverSolutions.createPartialResult(model, solverVariables, partialSolutionSaveMonitor.partialSolution)			
+				logger.info('''Created «mappingResults.size» partial solution with «mappingResults.get(0).mapping.keySet.size» mapped interfaces''')
+			}
 		} 
+		
+		printFailCounter	
+		
 	}
+	
+	def printFailCounter() {
+		val topFailedProps = solver.cstrs.map[propagators.toList]
+										 .flatten
+										 .toSet
+										 .sortBy[-counter.getFails(it)]
+										 .subList(0, 10)
+		logger.info('''Top failed propagators:''')
+		for (p : topFailedProps)
+			logger.info('''  - [«counter.getFails(p)»] «p.class.name» - Constraint: «p.constraint.name» - Variables: «FOR v : p.vars»«IF v != p.vars.head», «ENDIF»«v.name»«ENDFOR»''')
+	}	
 
 
 	def ArrayList<Result> getResults() 	{ mappingResults 			}

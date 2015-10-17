@@ -123,15 +123,22 @@ InterfaceGroups {
 	Group G4 { Iface3, Iface4 };
 }
 Restrictions {
+	// {Iface1, Iface3}
 	G1 dislocal up to RDC;
+	
+	// {Iface2, Iface4}
 	G2 dislocal up to RDC;
+	
+	// {Iface1, Iface2}
 	G3 dislocal up to Connector;
+	
+	// {Iface3, Iface4}
 	G4 dislocal up to Connector;
 }
 		'''
 		
 		loadModelAndCreateResults(input)
-		assertEquals(416, allResults.size)
+		assertEquals(40, allResults.size)
 		for (r : allResults) {
 			val iface1Con = r.mapping.get(r.model.eqInterfaces.filter[it.name.equals("Iface1")].get(0)).connector
 			val iface2Con = r.mapping.get(r.model.eqInterfaces.filter[it.name.equals("Iface2")].get(0)).connector
