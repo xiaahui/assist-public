@@ -9,6 +9,8 @@ import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ConnectedPinsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
+import ch.hilbri.assist.mapping.solver.constraints.PinMappingConstraints
+import ch.hilbri.assist.mapping.solver.constraints.PreventPinPermutationsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictInvalidDeploymentsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictValidDeploymentsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
@@ -30,6 +32,8 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.List
 import org.chocosolver.solver.Solver
+import org.chocosolver.solver.constraints.Propagator
+import org.chocosolver.solver.search.loop.monitors.FailPerPropagator
 import org.chocosolver.solver.search.loop.monitors.SMF
 import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy
@@ -37,9 +41,6 @@ import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.constraints.PinMappingConstraints
-import org.chocosolver.solver.search.loop.monitors.FailPerPropagator
-import ch.hilbri.assist.mapping.solver.constraints.PreventPinPermutationsConstraint
 
 class AssistSolver {
 	
@@ -216,7 +217,14 @@ class AssistSolver {
 										 .flatten
 										 .toSet
 										 .sortBy[-counter.getFails(it)]
-										 .subList(0, 10)
+		
+		var List<Propagator<IntVar>> topFailedPropsList
+		
+		if (topFailedProps.length > 10)
+			topFailedPropsList = topFailedProps.subList(0, 10)
+		else 
+			topFailedPropsList = topFailedProps
+
 		logger.info('''Top failed propagators:''')
 		for (p : topFailedProps)
 			logger.info('''  - [«counter.getFails(p)»] «p.class.name» - Constraint: «p.constraint.name» - Variables: «FOR v : p.vars»«IF v != p.vars.head», «ENDIF»«v.name»«ENDFOR»''')
