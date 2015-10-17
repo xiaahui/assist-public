@@ -15,29 +15,32 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 
 public enum VariableSelectorTypes {
 
-	MIN_DOMAIN_FIRST("Min domainsize first", "Interfaces with smallest domain are chosen first.", false, true),
-	MAX_DEGREE_FIRST("Max relation degree first", "Interfaces are selected based on their appearance in co-locality and dislocality groups", false, true),
-	MOST_DISLOCALITIES_FIRST("Max dislocalities first", "The interface which is part of the highest number of dislocality relations is chosen first", false, true),
-	RANDOM("Random", "Interfaces are chosen at random", false, true),
-	DOM_OVER_WDEG("Domain over weighted degree", "Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)})", true, true),
-	ACTIVITY("Activity", "See: 'Activity-Based Search for Black-Box Constraint Programming Solvers', L. Michel and P. Van Hentenryck, 2012.", false, false),
+	MIN_DOMAIN_FIRST("Min domainsize first", 			"Interfaces with smallest domain are chosen first.", 											"MNDF", 	false, true),
+	MAX_DEGREE_FIRST("Max relation degree first", 		"Interfaces are selected based on their appearance in co-locality and dislocality groups", 		"MXRF", false, true),
+	MOST_DISLOCALITIES_FIRST("Max dislocalities first", "The interface which is part of the highest number of dislocality relations is chosen first", 	"MDLF", false, true),
+	RANDOM("Random", 									"Interfaces are chosen at random", 																"RAND", 	false, true),
+	DOM_OVER_WDEG("Domain over weighted degree", 		"Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)})",		"DOWD", true, true),
+	ACTIVITY("Activity", "See: 'Activity-Based Search for Black-Box Constraint Programming Solvers', L. Michel and P. Van Hentenryck, 2012.", 			"ACTY", 	false, false),
 	;
 	
 	// Properties
 	private	final String humanReadableName;
 	private final String humanReadableExplanation;
+	private final String cliArgumentName;
 	private final boolean isDefault;
 	private final boolean isValueSelectorRequired;
 		
-	VariableSelectorTypes(String name, String explanation, boolean isDefault, boolean isValueSelectorRequired) {
+	VariableSelectorTypes(String name, String explanation, String cliArgumentName, boolean isDefault, boolean isValueSelectorRequired) {
 		this.humanReadableName = name;
 		this.humanReadableExplanation = explanation;
+		this.cliArgumentName = cliArgumentName;
 		this.isDefault = isDefault;
 		this.isValueSelectorRequired = isValueSelectorRequired;
 	}
 	
 	public String getHumanReadableName() 			{ return humanReadableName; 		}
 	public String getHumanReadableExplanation()		{ return humanReadableExplanation; 	}
+	public String getCliArgumentName()				{ return cliArgumentName;			}
 	public boolean isDefault()						{ return isDefault;					}
 	public boolean isValueSelectorRequired()		{ return isValueSelectorRequired;	}
 	
@@ -81,5 +84,17 @@ public enum VariableSelectorTypes {
 			if (t.isDefault) return t;
 		
 		return null;
+	}
+	
+	public static VariableSelectorTypes getVariableSelectorOrDefault(String cliArgumentName) {
+		switch (cliArgumentName) {
+		case "MNDF" : return MIN_DOMAIN_FIRST;
+		case "MXRF" : return MAX_DEGREE_FIRST;
+		case "MDLR" : return MOST_DISLOCALITIES_FIRST;
+		case "RAND" : return RANDOM;
+		case "DOWD" : return DOM_OVER_WDEG;
+		case "ACTY" : return ACTIVITY;
+		default		: return getDefault();
+		}
 	}
 }

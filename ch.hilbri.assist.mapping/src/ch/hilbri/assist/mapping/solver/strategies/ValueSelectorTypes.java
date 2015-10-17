@@ -15,11 +15,11 @@ public enum ValueSelectorTypes {
 	
 	// Types
 	
-	MIN_VALUE_FIRST ("Min. pin index first", "Pins with the minimum index available are taken first", false),
-	MAX_VALUE_FIRST ("Max. pin index first", "Pins with the maximum index available are taken first", false),
-	RANDOM ("Random pin", "Pins are chosen at random", false),
-	CLOSEST_DISTANCE ("Closest RDC first", "Closest RDC first; pins of an RDC are selected according to input order", true),
-	CLOSEST_DISTANCE_AND_EXACT_TYPES_AND_MIN_PROT_LEVEL ("Closest RDC, matching types and min. protection level", "Pins from the closest RDC with matching types and minimum protection level first", false)
+	MIN_VALUE_FIRST ("Min. pin index first", "Pins with the minimum index available are taken first", "MNPF", false),
+	MAX_VALUE_FIRST ("Max. pin index first", "Pins with the maximum index available are taken first", "MXPF", false),
+	RANDOM ("Random pin", "Pins are chosen at random", "RAND", false),
+	CLOSEST_DISTANCE ("Closest RDC first", "Closest RDC first; pins of an RDC are selected according to input order", "CLRF", true),
+	CLOSEST_DISTANCE_AND_EXACT_TYPES_AND_MIN_PROT_LEVEL ("Closest RDC, matching types and min. protection level", "Pins from the closest RDC with matching types and minimum protection level first", "CRTF", false)
 	
 	;
 	
@@ -27,13 +27,15 @@ public enum ValueSelectorTypes {
 	
 	private	final String humanReadableName;
 	private final String humanReadableExplanation;
+	private final String cliArgumentName;
 	private final boolean isDefault;
 
 	// Constructor
 	
-	ValueSelectorTypes(String name, String explanation, boolean isDefault) {
+	ValueSelectorTypes(String name, String explanation, String cliArgumentName, boolean isDefault) {
 		this.humanReadableName = name;
 		this.humanReadableExplanation = explanation;
+		this.cliArgumentName = cliArgumentName;
 		this.isDefault = isDefault;
 	}
 	
@@ -41,6 +43,7 @@ public enum ValueSelectorTypes {
 	
 	public String getHumanReadableName() 			{ return humanReadableName; 		}
 	public String getHumanReadableExplanation()		{ return humanReadableExplanation; 	}
+	public String getCliArgumentName()				{ return cliArgumentName;			}
 	public boolean isDefault()						{ return isDefault;					}
 	
 	public IntValueSelector getValueSector(SolverVariablesContainer solverVariables, AssistModel model, long randomSeed) { 
@@ -80,5 +83,16 @@ public enum ValueSelectorTypes {
 			if (t.isDefault) return t;
 		
 		return null;
+	}
+	
+	public static ValueSelectorTypes getValueSelectorOrDefault(String cliArgumentName) {
+		switch (cliArgumentName) {
+		case "MNPF" : return MIN_VALUE_FIRST;
+		case "MXPF" : return MAX_VALUE_FIRST;
+		case "RAND" : return RANDOM;
+		case "CLRF" : return CLOSEST_DISTANCE;
+		case "CRTF" : return CLOSEST_DISTANCE_AND_EXACT_TYPES_AND_MIN_PROT_LEVEL;
+		default		: return getDefault();
+		}
 	}
 }

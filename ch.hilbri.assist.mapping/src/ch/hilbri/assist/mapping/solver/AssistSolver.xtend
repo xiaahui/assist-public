@@ -216,6 +216,7 @@ class AssistSolver {
 		val topFailedProps = solver.cstrs.map[propagators.toList]
 										 .flatten
 										 .toSet
+										 .map[it as Propagator<IntVar>]
 										 .sortBy[-counter.getFails(it)]
 		
 		var List<Propagator<IntVar>> topFailedPropsList
@@ -226,8 +227,8 @@ class AssistSolver {
 			topFailedPropsList = topFailedProps
 
 		logger.info('''Top failed propagators:''')
-		for (p : topFailedProps)
-			logger.info('''  - [«counter.getFails(p)»] «p.class.name» - Constraint: «p.constraint.name» - Variables: «FOR v : p.vars»«IF v != p.vars.head», «ENDIF»«v.name»«ENDFOR»''')
+		for (p : topFailedPropsList) 
+			logger.info('''  - [«counter.getFails(p)» fails] «p.class.simpleName» - Constraint: «p.constraint.name» - Variables: «FOR v : p.vars»«IF v != p.vars.head», «ENDIF»«v.name»«ENDFOR»''')
 	}	
 
 
