@@ -31,6 +31,7 @@ import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.List
+import org.apache.commons.math4.stat.descriptive.DescriptiveStatistics
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.Propagator
 import org.chocosolver.solver.search.loop.monitors.FailPerPropagator
@@ -177,6 +178,21 @@ class AssistSolver {
 		val vars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
 		logger.info('''After initial propagation:''') 
 		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location vars instantiated''') 
+
+		logger.info('''Some more statistical information about the variables:''')
+		for (level : HardwareArchitectureLevelType.values.sortBy[value]) {
+			val f = "%7.1f"
+			logger.info(''' - Level: >>«level»<<''')
+			val varsForLevel = solverVariables.getLocationVariables(level) 
+			val s = new DescriptiveStatistics
+			for (v : varsForLevel)	s.addValue(v.domainSize)
+			logger.info('''    . domainsize      : [ min | max | mean | std ] = [ «String.format(f, s.min)» | «String.format(f, s.max)» | «String.format(f, s.mean)» | «String.format(f, s.standardDeviation)» ]''')
+			s.clear
+			for (v : varsForLevel)	s.addValue(v.propagators.size)
+			logger.info('''    . propagator count: [ min | max | mean | std ] = [ «String.format(f, s.min)» | «String.format(f, s.max)» | «String.format(f, s.mean)» | «String.format(f, s.standardDeviation)» ]''')
+			
+		
+		}
 
 	}
 	
