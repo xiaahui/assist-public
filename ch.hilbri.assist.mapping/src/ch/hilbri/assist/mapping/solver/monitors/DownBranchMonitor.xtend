@@ -11,38 +11,46 @@ import org.slf4j.LoggerFactory
 class DownBranchMonitor implements IMonitorDownBranch {
 	
 	private SolverVariablesContainer solverVariables
-	private IntVar[] locationVariables
+	private IntVar[] locationVariablesPin
+	private IntVar[] locationVariablesCon
 	private Logger logger
 	private int bestProgress = 0
 	private AssistModel model
 	
-	private IntVar[] instantiatedVars
+	private IntVar[] instantiatedPinVars
+	private IntVar[] instantiatedConVars
 	
 	new(SolverVariablesContainer p_solverVariables, AssistModel p_model) {
 		solverVariables = p_solverVariables
-		locationVariables = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
+		locationVariablesPin = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
+		locationVariablesCon = solverVariables.getLocationVariables(HardwareArchitectureLevelType.CONNECTOR)
 		logger = LoggerFactory.getLogger(this.class)
-		instantiatedVars = locationVariables.filter[instantiated]
+		instantiatedPinVars = locationVariablesPin.filter[instantiated]
+		instantiatedConVars = locationVariablesCon.filter[instantiated]
 		model = p_model
 	}
 	
 	def calculateProgress() {
 		
-		val instantiatedVarCount = locationVariables.filter[instantiated].size 
-		val currentProgress = instantiatedVarCount * 100 / locationVariables.length
+		val instantiatedPinVarCount = locationVariablesPin.filter[instantiated].size
+		val instantiatedConVarCount = locationVariablesCon.filter[instantiated].size  
+		val currentProgressPinLevel = instantiatedPinVarCount * 100 / locationVariablesPin.length
+		val currentProgressConLevel = instantiatedConVarCount * 100 / locationVariablesCon.length
 		
 		/* Only report progress if it actually changes by at least 1% */
-		if (Math.abs(currentProgress - bestProgress) >= 1) {
-			logger.info('''Search progress: «String::format("%4d", instantiatedVarCount)» (= «currentProgress»%) of all location variables are mapped without violating any specification''')
-			bestProgress = currentProgress
+		if (Math.abs(currentProgressPinLevel - bestProgress) >= 1) {
+			logger.info('''Search progress: «String::format("%4d", instantiatedConVarCount)» / «locationVariablesCon.length» (= «String::format("%3d", currentProgressConLevel)»%) of all CONNECTOR location variables are mapped''')
+			logger.info('''                 «String::format("%4d", instantiatedPinVarCount)» / «locationVariablesPin.length» (= «String::format("%3d", currentProgressPinLevel)»%) of all PIN location variables are mapped''')
+
+			bestProgress = currentProgressPinLevel
 			
-			val curInstantiatedVars = locationVariables.filter[instantiated]
-			val newVars = curInstantiatedVars.filter[!instantiatedVars.contains(it)]
+			val curInstantiatedVars = locationVariablesPin.filter[instantiated]
+			val newVars = curInstantiatedVars.filter[!instantiatedPinVars.contains(it)]
 			
 			logger.info('''                 . instantiated vars = «newVars.size» (during last step)''')
 			logger.info('''                   [«FOR v : newVars»«IF v != newVars.head», «ENDIF»«solverVariables.getEqInterfaceForLocationVariable(v).name»«ENDFOR»]''')
 
-			instantiatedVars = curInstantiatedVars
+			instantiatedPinVars = curInstantiatedVars
 			
 			// Calculate current cable weight
 			var double sum = 0
