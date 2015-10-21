@@ -15,6 +15,7 @@ import ch.hilbri.assist.mapping.solver.constraints.RestrictInvalidDeploymentsCon
 import ch.hilbri.assist.mapping.solver.constraints.RestrictValidDeploymentsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
+import ch.hilbri.assist.mapping.solver.monitors.BacktrackingMonitor
 import ch.hilbri.assist.mapping.solver.monitors.CloseMonitor
 import ch.hilbri.assist.mapping.solver.monitors.DownBranchMonitor
 import ch.hilbri.assist.mapping.solver.monitors.PartialSolutionSaveMonitor
@@ -34,15 +35,17 @@ import java.util.List
 import org.apache.commons.math4.stat.descriptive.DescriptiveStatistics
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.Propagator
+import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.search.loop.monitors.FailPerPropagator
 import org.chocosolver.solver.search.loop.monitors.SMF
 import org.chocosolver.solver.search.solution.AllSolutionsRecorder
+import org.chocosolver.solver.search.solution.Solution
+import org.chocosolver.solver.search.strategy.ISF
 import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy
 import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.chocosolver.solver.search.strategy.ISF
 
 class AssistSolver {
 	
@@ -56,6 +59,7 @@ class AssistSolver {
 	private boolean savePartialSolution = false
 	private PartialSolutionSaveMonitor partialSolutionSaveMonitor
 	private FailPerPropagator counter
+	private int randomSeed = 12345
 
 	new (AssistModel p_model) {
 		
@@ -91,7 +95,7 @@ class AssistSolver {
 			
 		/* Create a new Solver object */
 		solver = new Solver()
-				
+		
 		/* Create a new recorder for our solutions */
 		recorder = new AllSolutionsRecorder(solver)
 		solver.set(recorder)
@@ -107,6 +111,7 @@ class AssistSolver {
 		solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 		solver.searchLoop.plugSearchMonitor(new RestartMonitor)
 		solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solverVariables, model))
+		solver.searchLoop.plugSearchMonitor(new BacktrackingMonitor(solverVariables, model))
 	
 		/* Create an empty set of constraints that will be used */
 		mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
@@ -118,7 +123,7 @@ class AssistSolver {
 		mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 		mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
-		mappingConstraintsList.add(new PreventPinPermutationsConstraint(model, solver, solverVariables))
+//		mappingConstraintsList.add(new PreventPinPermutationsConstraint(model, solver, solverVariables))
 
 		/* Attach a fail-counter */
 		counter = new FailPerPropagator(solver.cstrs, solver)
@@ -153,7 +158,7 @@ class AssistSolver {
 	
 	def setSolverSearchStrategy(VariableSelectorTypes varSelector, ValueSelectorTypes valSelector) {
 		val List<AbstractStrategy<IntVar>> heuristics = new ArrayList<AbstractStrategy<IntVar>>
-		val randomSeed = 12345
+	
 		
 //		logger.info('''Setting interface selection strategy to: "«varSelector.humanReadableName»"''')
 //		if (varSelector.isValueSelectorRequired) 
@@ -161,12 +166,12 @@ class AssistSolver {
 //		
 //		heuristics.add(varSelector.getStrategy(solverVariables, model, seed, valSelector))
 
-		val pinVars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
+
 		val conVars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.CONNECTOR)
 
 		heuristics.add(ISF.domOverWDeg(conVars, randomSeed, valSelector.getValueSector(solverVariables, model, randomSeed)))
 //		heuristics.add(ISF.domOverWDeg(pinVars, randomSeed, ISF.min_value_selector))
-		heuristics.add(ISF.custom(ISF.lexico_var_selector, ISF.min_value_selector, pinVars))
+//		heuristics.add(ISF.custom(ISF.lexico_var_selector, ISF.min_value_selector, pinVars))
 		
 		solver.set(heuristics)
 	}
@@ -204,6 +209,30 @@ class AssistSolver {
 
 		// Did we find a solution? 
 		if (recorder.solutions.size > 0) {
+			
+			// ADDED {
+			val pinVars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
+			val allPinLevelSolutions = newArrayList()
+			val allConLevelSolutions = newArrayList()
+			allConLevelSolutions.addAll(recorder.solutions)
+			
+			for (solution : allConLevelSolutions) {
+				logger.info('''Trying to find a pin-level solution for connector-level solution with index «allConLevelSolutions.indexOf(solution)»''')
+				recorder.solutions.clear
+				SMF.limitSolution(solver, 1)
+				try{
+   					solver.searchLoop.restoreRootNode
+   					solver.environment.worldPush
+   					solution.restore
+				} catch (ContradictionException e){	throw new UnsupportedOperationException("restoring the solution ended in a failure") }
+				solver.engine.flush
+				solver.set(#[ISF.domOverWDeg(pinVars, randomSeed, ISF.min_value_selector)])
+//				solver.
+//				if (solver.findAllSolutions > 0)
+//					allPinLevelSolutions.add(recorder.lastSolution)
+			}
+			// }			
+			
 			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions)
 			logger.info('''Results created:  «mappingResults.size»''')
 		} 
