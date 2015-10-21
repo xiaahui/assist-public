@@ -21,7 +21,7 @@
 <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
 <booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="false"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="ch.hilbri.assist.application.cli.AssistRunner"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-s 1 -t 0 C:\\ASSIST-Toolsuite\\Inputs\\Robert.mdsl"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-s 1 -t 120 C:\\ASSIST-Toolsuite\\Inputs\\Robert.mdsl"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="ch.hilbri.assist.application.cli"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
 </launchConfiguration>

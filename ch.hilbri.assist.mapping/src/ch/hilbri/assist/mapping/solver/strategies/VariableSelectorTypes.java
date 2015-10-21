@@ -1,9 +1,11 @@
 package ch.hilbri.assist.mapping.solver.strategies;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.chocosolver.solver.search.strategy.ISF;
 import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy;
@@ -15,12 +17,13 @@ import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 
 public enum VariableSelectorTypes {
 
-	MIN_DOMAIN_FIRST("Min domainsize first", 			"Interfaces with smallest domain are chosen first.", 											"MNDF", 	false, true),
+	MIN_DOMAIN_FIRST("Min domainsize first", 			"Interfaces with smallest domain are chosen first.", 											"MNDF", false, true),
 	MAX_DEGREE_FIRST("Max relation degree first", 		"Interfaces are selected based on their appearance in co-locality and dislocality groups", 		"MXRF", false, true),
 	MOST_DISLOCALITIES_FIRST("Max dislocalities first", "The interface which is part of the highest number of dislocality relations is chosen first", 	"MDLF", false, true),
-	RANDOM("Random", 									"Interfaces are chosen at random", 																"RAND", 	false, true),
+	RANDOM("Random", 									"Interfaces are chosen at random", 																"RAND", false, true),
 	DOM_OVER_WDEG("Domain over weighted degree", 		"Interfaces are selected based on: min({Domainsize(iface) / weight * degree(interface)})",		"DOWD", true, true),
-	ACTIVITY("Activity", "See: 'Activity-Based Search for Black-Box Constraint Programming Solvers', L. Michel and P. Van Hentenryck, 2012.", 			"ACTY", 	false, false),
+	ACTIVITY("Activity", "See: 'Activity-Based Search for Black-Box Constraint Programming Solvers', L. Michel and P. Van Hentenryck, 2012.", 			"ACTY", false, false),
+	DOM_OVER_WDEG_MULTI_LEVEL("Domain over weighted degree - multiple levels", 	"todo",																	"DWDM", false, true),
 	;
 	
 	// Properties
@@ -45,19 +48,35 @@ public enum VariableSelectorTypes {
 	public boolean isValueSelectorRequired()		{ return isValueSelectorRequired;	}
 	
 	public AbstractStrategy<IntVar> getStrategy(SolverVariablesContainer solverVariables, AssistModel model, long randomSeed, ValueSelectorTypes valSelector) {
-		IntVar[] vars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN);
+		IntVar[] pinVars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN);
+		IntVar[] conVars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.CONNECTOR);
+		IntVar[] pinAndConVars = Stream.concat(Arrays.stream(pinVars), Arrays.stream(conVars)).toArray(IntVar[]::new);
 		
 		switch (this) {
-			case DOM_OVER_WDEG:				return ISF.domOverWDeg(vars, randomSeed, valSelector.getValueSector(solverVariables, model, randomSeed));
-			case MAX_DEGREE_FIRST:			return ISF.custom(new FirstFailThenMaxRelationDegree(solverVariables, model), valSelector.getValueSector(solverVariables, model, randomSeed), vars);
-			case MIN_DOMAIN_FIRST:			return ISF.custom(ISF.minDomainSize_var_selector(), valSelector.getValueSector(solverVariables, model, randomSeed), vars); 
-			case MOST_DISLOCALITIES_FIRST:	return ISF.custom(new VariablesInMostDislocalityRelationsFirst(solverVariables, model), valSelector.getValueSector(solverVariables, model, randomSeed), vars);
-			case RANDOM:					return ISF.custom(ISF.random_var_selector(randomSeed), valSelector.getValueSector(solverVariables, model, randomSeed), vars);
-			case ACTIVITY:					return ISF.activity(vars, randomSeed);
+			case DOM_OVER_WDEG:				return ISF.domOverWDeg(pinVars, randomSeed, valSelector.getValueSector(solverVariables, model, randomSeed));
+			case MAX_DEGREE_FIRST:			return ISF.custom(new FirstFailThenMaxRelationDegree(solverVariables, model), valSelector.getValueSector(solverVariables, model, randomSeed), pinVars);
+			case MIN_DOMAIN_FIRST:			return ISF.custom(ISF.minDomainSize_var_selector(), valSelector.getValueSector(solverVariables, model, randomSeed), pinVars); 
+			case MOST_DISLOCALITIES_FIRST:	return ISF.custom(new VariablesInMostDislocalityRelationsFirst(solverVariables, model), valSelector.getValueSector(solverVariables, model, randomSeed), pinVars);
+			case RANDOM:					return ISF.custom(ISF.random_var_selector(randomSeed), valSelector.getValueSector(solverVariables, model, randomSeed), pinVars);
+			case ACTIVITY:					return ISF.activity(pinVars, randomSeed);
+			case DOM_OVER_WDEG_MULTI_LEVEL:	return ISF.custom(new DomWDMultipleLevels(solverVariables, model, pinVars, conVars), valSelector.getValueSector(solverVariables, model, randomSeed), pinAndConVars);
 		}
+		
 		return null;
 	}
 	
+	public static VariableSelectorTypes getVariableSelectorOrDefault(String cliArgumentName) {
+		switch (cliArgumentName) {
+		case "MNDF" : return MIN_DOMAIN_FIRST;
+		case "MXRF" : return MAX_DEGREE_FIRST;
+		case "MDLR" : return MOST_DISLOCALITIES_FIRST;
+		case "RAND" : return RANDOM;
+		case "DOWD" : return DOM_OVER_WDEG;
+		case "DWDM"	: return DOM_OVER_WDEG_MULTI_LEVEL;
+		case "ACTY" : return ACTIVITY;
+		default		: return getDefault();
+		}
+	}
 	/*
 	 * Sort the values, so that the default strategy is first 
 	 * and the remaining strategies are sorted by name  
@@ -82,19 +101,8 @@ public enum VariableSelectorTypes {
 	public static VariableSelectorTypes getDefault()	{ 
 		for (VariableSelectorTypes t : VariableSelectorTypes.values()) 
 			if (t.isDefault) return t;
-		
 		return null;
 	}
 	
-	public static VariableSelectorTypes getVariableSelectorOrDefault(String cliArgumentName) {
-		switch (cliArgumentName) {
-		case "MNDF" : return MIN_DOMAIN_FIRST;
-		case "MXRF" : return MAX_DEGREE_FIRST;
-		case "MDLR" : return MOST_DISLOCALITIES_FIRST;
-		case "RAND" : return RANDOM;
-		case "DOWD" : return DOM_OVER_WDEG;
-		case "ACTY" : return ACTIVITY;
-		default		: return getDefault();
-		}
-	}
+	
 }

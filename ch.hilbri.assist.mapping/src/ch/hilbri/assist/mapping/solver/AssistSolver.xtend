@@ -42,6 +42,7 @@ import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.chocosolver.solver.search.strategy.ISF
 
 class AssistSolver {
 	
@@ -152,15 +153,20 @@ class AssistSolver {
 	
 	def setSolverSearchStrategy(VariableSelectorTypes varSelector, ValueSelectorTypes valSelector) {
 		val List<AbstractStrategy<IntVar>> heuristics = new ArrayList<AbstractStrategy<IntVar>>
-		val seed = 12345678
+		val randomSeed = 12345
 		
-		logger.info('''Setting interface selection strategy to: "«varSelector.humanReadableName»"''')
-		if (varSelector.isValueSelectorRequired) 
-			logger.info('''Setting pin selection strategy to: "«valSelector.humanReadableName»"''')
-		
-		heuristics.add(
-			varSelector.getStrategy(solverVariables, model, seed, valSelector)
-		)
+//		logger.info('''Setting interface selection strategy to: "«varSelector.humanReadableName»"''')
+//		if (varSelector.isValueSelectorRequired) 
+//			logger.info('''Setting pin selection strategy to: "«valSelector.humanReadableName»"''')
+//		
+//		heuristics.add(varSelector.getStrategy(solverVariables, model, seed, valSelector))
+
+		val pinVars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
+		val conVars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.CONNECTOR)
+
+		heuristics.add(ISF.domOverWDeg(conVars, randomSeed, valSelector.getValueSector(solverVariables, model, randomSeed)))
+//		heuristics.add(ISF.domOverWDeg(pinVars, randomSeed, ISF.min_value_selector))
+		heuristics.add(ISF.custom(ISF.lexico_var_selector, ISF.min_value_selector, pinVars))
 		
 		solver.set(heuristics)
 	}
@@ -178,22 +184,8 @@ class AssistSolver {
 		val vars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
 		logger.info('''After initial propagation:''') 
 		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location vars instantiated''') 
-
-		logger.info('''Some more statistical information about the variables:''')
-		for (level : HardwareArchitectureLevelType.values.sortBy[value]) {
-			val f = "%7.1f"
-			logger.info(''' - Level: >>«level»<<''')
-			val varsForLevel = solverVariables.getLocationVariables(level) 
-			val s = new DescriptiveStatistics
-			for (v : varsForLevel)	s.addValue(v.domainSize)
-			logger.info('''    . domainsize      : [ min | max | mean | std ] = [ «String.format(f, s.min)» | «String.format(f, s.max)» | «String.format(f, s.mean)» | «String.format(f, s.standardDeviation)» ]''')
-			s.clear
-			for (v : varsForLevel)	s.addValue(v.propagators.size)
-			logger.info('''    . propagator count: [ min | max | mean | std ] = [ «String.format(f, s.min)» | «String.format(f, s.max)» | «String.format(f, s.mean)» | «String.format(f, s.standardDeviation)» ]''')
-			
 		
-		}
-
+		printVariableStatistics
 	}
 	
 	def solutionSearch() throws BasicConstraintsException {
@@ -246,6 +238,69 @@ class AssistSolver {
 		for (p : topFailedPropsList) 
 			logger.info('''  - [«counter.getFails(p)» fails] «p.class.simpleName» - Constraint: «p.constraint.name» - Variables: «FOR v : p.vars»«IF v != p.vars.head», «ENDIF»«v.name»«ENDFOR»''')
 	}	
+
+	def printVariableStatistics() {
+		val s = new DescriptiveStatistics
+		
+		logger.info('''''')
+		logger.info('''Some more statistical information about the interface location variables:''')
+
+		logger.info(''' - Domain size''')
+		logger.info('''                  «String.format("%7s", "min")»  «String.format("%7s", "max")»  «String.format("%7s", "mean")»  «String.format("%7s", "stddev")»  ''')
+		for (level : HardwareArchitectureLevelType.values.sortBy[value]) {
+			val f = "%7.1f"
+			val varsForLevel = solverVariables.getLocationVariables(level) 
+			for (v : varsForLevel)	s.addValue(v.domainSize)
+			logger.info('''     «String.format("%11s", level)»: «String.format(f, s.min)»  «String.format(f, s.max)»  «String.format(f, s.mean)»  «String.format(f, s.standardDeviation)»  («String.format("%4d", varsForLevel.filter[domainSize == s.min].length)» vars with min domainsize = «varsForLevel.filter[domainSize == s.min]»)''')
+			s.clear
+		}
+		
+		logger.info('''''')
+		s.clear
+	
+		logger.info(''' - Propagator count''')
+		logger.info('''                  «String.format("%7s", "min")»  «String.format("%7s", "max")»  «String.format("%7s", "mean")»  «String.format("%7s", "stddev")»  ''')
+		for (level : HardwareArchitectureLevelType.values.sortBy[value]) {
+			val f = "%7.1f"
+			val varsForLevel = solverVariables.getLocationVariables(level) 
+			for (v : varsForLevel)	s.addValue(v.propagators.size)
+			logger.info('''     «String.format("%11s", level)»: «String.format(f, s.min)»  «String.format(f, s.max)»  «String.format(f, s.mean)»  «String.format(f, s.standardDeviation)»  («String.format("%4d", varsForLevel.filter[propagators.size == s.max].length)» vars with max propagator count = «varsForLevel.filter[propagators.size == s.max]»)''')
+			s.clear
+		}
+		
+		logger.info('''''')
+		s.clear
+	
+		logger.info(''' - Regular DomWD scores (domainsize / propagator count)''')
+		logger.info('''                  «String.format("%7s", "min")»  «String.format("%7s", "max")»  «String.format("%7s", "mean")»  «String.format("%7s", "stddev")»  ''')				
+		for (level : HardwareArchitectureLevelType.values.sortBy[value]) {
+			val f = "%7.1f"
+			val varsForLevel = solverVariables.getLocationVariables(level)
+			for (v : varsForLevel)	s.addValue(new Double(v.domainSize) / new Double(v.propagators.size))
+			logger.info('''     «String.format("%11s", level)»: «String.format(f, s.min)»  «String.format(f, s.max)»  «String.format(f, s.mean)»  «String.format(f, s.standardDeviation)»  («String.format("%4d", varsForLevel.filter[new Double(domainSize) / new Double(propagators.size) == s.min].length)» vars with min score = «varsForLevel.filter[new Double(domainSize) / new Double(propagators.size) == s.min]»)''')
+			s.clear
+		}
+		
+		logger.info('''''')
+		s.clear
+		
+		logger.info(''' - Propagator variables count''')
+		logger.info('''                  «String.format("%7s", "min")»  «String.format("%7s", "max")»  «String.format("%7s", "mean")»  «String.format("%7s", "stddev")»  ''')				
+		for (level : HardwareArchitectureLevelType.values.sortBy[value]) {
+			val f = "%7.1f"
+			val varsForLevel = solverVariables.getLocationVariables(level)
+			for (v : varsForLevel)	{
+				val Propagator<IntVar>[] props = v.propagators
+				val variablesCount = props.map[it.nbVars].reduce[p1, p2|p1+p2]
+				s.addValue(variablesCount)
+			}
+			logger.info('''     «String.format("%11s", level)»: «String.format(f, s.min)»  «String.format(f, s.max)»  «String.format(f, s.mean)»  «String.format(f, s.standardDeviation)»  ''')
+			s.clear
+		}
+		
+		
+		logger.info('''''')
+	}
 
 
 	def ArrayList<Result> getResults() 	{ mappingResults 			}
