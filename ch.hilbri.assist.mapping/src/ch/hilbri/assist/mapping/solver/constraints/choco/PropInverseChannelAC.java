@@ -20,13 +20,16 @@ import gnu.trove.map.hash.THashMap;
 @SuppressWarnings("serial")
 public class PropInverseChannelAC extends Propagator<IntVar> {
 
-	
+	/*
+	 * This is the Remove Procedure that will be executed an each
+	 * variable that just lost some of its values
+	 */
 	private class RemProc implements UnaryIntProcedure<Integer> {
 		private int var;
 		
 		@Override
 		public UnaryIntProcedure<Integer> set(Integer idxVar) {
-			this.var = idxVar;
+			var = idxVar;
 			return this;
 		}
 
@@ -34,13 +37,13 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
 		public void execute(int val) throws ContradictionException {
 			// Removal event for an eqIface variable
 			if (var < eqIfaceVarsLength) {
-				pinVars[val].removeValue(var+1, aCause);
+				pinVars[val].removeValue(var, aCause);
 			} 
 			// Removal event for a pin variable
 			else {
 				// If we just remove the "empty" entry, nothing happens
-				if (val != 0) { 
-					eqIfaceVars[val-1].removeValue(var - eqIfaceVarsLength, aCause);
+				if (val > -1) { 
+					eqIfaceVars[val].removeValue(var - eqIfaceVarsLength, aCause);
 				}
 			}
 		}
@@ -59,7 +62,6 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
 	 * @param eqIfaceVars
 	 * @param pinVars
 	 * 
-	 *            FIXME: do not forget the connected pin interfaces
 	 */
 	public PropInverseChannelAC(IntVar[] eqIfaceVars, IntVar[] pinVars) {
 
@@ -85,9 +87,9 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
 	public void propagate(int evtmask) throws ContradictionException {
 
 		for (int i = 0; i < pinVarsLength; i++) {
-			pinVars[i].updateLowerBound(0, aCause);
-			// UpperBound: 0 (= empty) plus all interface indices
-			pinVars[i].updateUpperBound(eqIfaceVarsLength, aCause);
+			pinVars[i].updateLowerBound(-1, aCause);
+			// UpperBound: -1 (= empty) plus all interface indices
+			pinVars[i].updateUpperBound(eqIfaceVarsLength-1, aCause);
 		}
 
 		for (int i = 0; i < eqIfaceVarsLength; i++) {
@@ -102,7 +104,6 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
 		for (int i = 0; i < vars.length; i++) {
 			idms[i].unfreeze();
 		}
-
 	}
 
 	/**
@@ -119,7 +120,7 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
 
 				// modify the pinVar accordingly
 				IntVar pinVar = pinVars[eqVarValue];
-				pinVar.instantiateTo(varIdx + 1, aCause);
+				pinVar.instantiateTo(varIdx, aCause);
 
 				// We do not need to inform all other Pin-Vars
 				// that this value is missing, because the allDifferent
@@ -130,8 +131,8 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
 				int pinVarValue = pinVars[pinVarIdx].getValue();
 
 				// if that pin is not "unused" then instantiate the interface
-				if (pinVarValue > 0) {
-					IntVar eqIfaceVar = eqIfaceVars[pinVarValue - 1];
+				if (pinVarValue > -1) {
+					IntVar eqIfaceVar = eqIfaceVars[pinVarValue];
 					eqIfaceVar.instantiateTo(pinVarIdx, aCause);
 				}
 
@@ -156,8 +157,7 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
 
 			for (int v = min; v <= max; v = eqIfaceVars[var].nextValue(v)) {
 
-				// pinVar values have an offset of 1
-				if (!pinVars[v].contains(var + 1)) {
+				if (!pinVars[v].contains(var)) {
 					eqIfaceVars[var].removeValue(v, aCause);
 				}
 			}
@@ -172,11 +172,11 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
 
 			for (int v = min; v <= max; v = pinVars[var].nextValue(v)) {
 
-				// skip 0
-				if (v == 0)
+				// skip -1
+				if (v == -1)
 					continue;
 
-				if (!eqIfaceVars[v - 1].contains(var)) {
+				if (!eqIfaceVars[v].contains(var)) {
 					pinVars[var].removeValue(v, aCause);
 				}
 			}
@@ -192,7 +192,7 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
 
 			// If an EqInterface is instantiated,
 			// the corresponding pin must be instantiated to that interface
-			if (eqIfaceVars[i].isInstantiated() && !pinVars[eqIfaceVars[i].getValue()].isInstantiatedTo(i + 1))
+			if (eqIfaceVars[i].isInstantiated() && !pinVars[eqIfaceVars[i].getValue()].isInstantiatedTo(i))
 				return ESat.FALSE;
 
 			if (!eqIfaceVars[i].isInstantiated())
@@ -203,7 +203,7 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
 
 			// If a pinVar is instantiated,
 			// the corresponding interface must be instantiated to that pin
-			if (pinVars[i].isInstantiated() && !eqIfaceVars[pinVars[i].getValue() - 1].isInstantiatedTo(i))
+			if (pinVars[i].isInstantiated() && !eqIfaceVars[pinVars[i].getValue()].isInstantiatedTo(i))
 				return ESat.FALSE;
 
 			if (!pinVars[i].isInstantiated())
@@ -218,7 +218,7 @@ public class PropInverseChannelAC extends Propagator<IntVar> {
 
 	@Override
 	public String toString() {
-		return "Inverse_AC({" + eqIfaceVars[0] + "...}{" + pinVars[0] + "...})";
+		return "AssistInverse_AC({" + eqIfaceVars[0] + "...}{" + pinVars[0] + "...})";
 	}
 
 	@Override

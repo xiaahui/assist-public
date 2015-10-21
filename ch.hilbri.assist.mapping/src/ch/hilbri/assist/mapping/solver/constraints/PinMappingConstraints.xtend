@@ -18,7 +18,7 @@ class PinMappingConstraints extends AbstractMappingConstraint {
 	override generate() {
 		// Initialize the list of pinVars
 		for (pin : model.pins) {
-			val newPinVar = VF.enumerated("PinVar-" + pin.name, 0, model.eqInterfaces.length + solverVariables.pseudoInterfaces.length, solver)
+			val newPinVar = VF.enumerated("PinVar-" + pin.connector.rdc.name + "." + pin.connector.name + "." + pin.name, -1, model.eqInterfaces.length + solverVariables.pseudoInterfaces.length - 1, solver)
 			solverVariables.pinVarMap.put(pin, newPinVar)
 		}
 		

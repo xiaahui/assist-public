@@ -9,6 +9,10 @@ import org.chocosolver.solver.constraints.nary.count.PropCount_AC
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
 
+final class ACF extends AssistConstraintFactory {
+	// just syntactic sugar
+}
+
 class AssistConstraintFactory {
 
 	/**
@@ -28,10 +32,13 @@ class AssistConstraintFactory {
 
 		// We do not need to enforce the AllDifferent on the eqIfaceVars - 
 		// this is already done in the ConnectedPinsConstraint
-		// But we can still enforce an AllDifferent on the pins - but they can be 0!
-		propagators.addAll(ICF.alldifferent_except_0(pinVars).propagators)
-		val emptyPinCount = pinVars.length-eqIfaceVars.length
-		propagators.add(new PropCount_AC(pinVars, 0, VF.enumerated("", emptyPinCount, emptyPinCount, pinVars.get(0).solver)))
+		// But we can still enforce an AllDifferent on the pins - but they can be -1 multiple times!
+		propagators.addAll(ICF.alldifferent_conditionnal(pinVars, [v | !v.contains(-1)], true).propagators)
+		
+		// We enforce that a number of pins has to be -1
+		propagators.add(new PropCount_AC(pinVars, -1, VF.enumerated("", pinVars.length-eqIfaceVars.length, pinVars.length-eqIfaceVars.length, pinVars.get(0).solver)))
+		
+		// And we add the PropInverseChannelAC Propagator
 		propagators.add(new PropInverseChannelAC(eqIfaceVars, pinVars))
 
 		new Constraint("ASSISTInverseChanneling", propagators)
