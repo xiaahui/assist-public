@@ -10,7 +10,6 @@ import ch.hilbri.assist.mapping.solver.constraints.ConnectedPinsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.InterfaceTypeConstraint
 import ch.hilbri.assist.mapping.solver.constraints.PinMappingConstraints
-import ch.hilbri.assist.mapping.solver.constraints.PreventPinPermutationsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictInvalidDeploymentsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RestrictValidDeploymentsConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
@@ -35,11 +34,9 @@ import java.util.List
 import org.apache.commons.math4.stat.descriptive.DescriptiveStatistics
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.Propagator
-import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.search.loop.monitors.FailPerPropagator
 import org.chocosolver.solver.search.loop.monitors.SMF
 import org.chocosolver.solver.search.solution.AllSolutionsRecorder
-import org.chocosolver.solver.search.solution.Solution
 import org.chocosolver.solver.search.strategy.ISF
 import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy
 import org.chocosolver.solver.variables.IntVar
@@ -103,15 +100,18 @@ class AssistSolver {
 		/* Create the container for variables which are needed in the solver */
  		solverVariables = new SolverVariablesContainer(model, solver)
 		
+		/* Attach a fail-counter */
+		counter = new FailPerPropagator(solver.cstrs, solver)
+		
 		/* The same solution should not be found twice */
-		SMF.nogoodRecordingOnSolution(solverVariables.locationVariables)
+		SMF.nogoodRecordingOnSolution(solverVariables.getLocationVariables(HardwareArchitectureLevelType.CONNECTOR))
 		
 		/* Attach the search monitors */
 		solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solverVariables, model))
 		solver.searchLoop.plugSearchMonitor(new CloseMonitor)
 		solver.searchLoop.plugSearchMonitor(new RestartMonitor)
 		solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solverVariables, model))
-		solver.searchLoop.plugSearchMonitor(new BacktrackingMonitor(solverVariables, model))
+		solver.searchLoop.plugSearchMonitor(new BacktrackingMonitor(solverVariables, model, false))
 	
 		/* Create an empty set of constraints that will be used */
 		mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
@@ -123,10 +123,6 @@ class AssistSolver {
 		mappingConstraintsList.add(new RestrictInvalidDeploymentsConstraint(model, solver, solverVariables))
 		mappingConstraintsList.add(new ColocalityConstraint(model, solver, solverVariables))
 		mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
-//		mappingConstraintsList.add(new PreventPinPermutationsConstraint(model, solver, solverVariables))
-
-		/* Attach a fail-counter */
-		counter = new FailPerPropagator(solver.cstrs, solver)
 
 		/* Create a list for the results */ 
 		mappingResults = new ArrayList<Result>()  
@@ -147,31 +143,29 @@ class AssistSolver {
 	}
 
 	def setSolverTimeLimit(long timeInMs) {
-		SMF.limitTime(solver, timeInMs);
-		logger.info("Setting choco-solver search time limit to " + timeInMs + "ms");
+		SMF.limitTime(solver, timeInMs)
+		logger.info("Setting choco-solver search time limit to " + timeInMs + "ms")
 	}
 	
 	def setSolverMaxSolutions(int maxSolutions) {
-		logger.info("Setting choco-solver max solutions limit to " + maxSolutions);
-		SMF.limitSolution(solver, maxSolutions);
+		logger.info("Setting choco-solver max solutions limit to " + maxSolutions)
+		SMF.limitSolution(solver, maxSolutions)
 	}
 	
 	def setSolverSearchStrategy(VariableSelectorTypes varSelector, ValueSelectorTypes valSelector) {
 		val List<AbstractStrategy<IntVar>> heuristics = new ArrayList<AbstractStrategy<IntVar>>
 	
-		
+// 		FIXME:		
 //		logger.info('''Setting interface selection strategy to: "«varSelector.humanReadableName»"''')
 //		if (varSelector.isValueSelectorRequired) 
 //			logger.info('''Setting pin selection strategy to: "«valSelector.humanReadableName»"''')
 //		
 //		heuristics.add(varSelector.getStrategy(solverVariables, model, seed, valSelector))
 
-
 		val conVars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.CONNECTOR)
-
+		val pinVars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
 		heuristics.add(ISF.domOverWDeg(conVars, randomSeed, valSelector.getValueSector(solverVariables, model, randomSeed)))
-//		heuristics.add(ISF.domOverWDeg(pinVars, randomSeed, ISF.min_value_selector))
-//		heuristics.add(ISF.custom(ISF.lexico_var_selector, ISF.min_value_selector, pinVars))
+		heuristics.add(ISF.domOverWDeg(pinVars, randomSeed, ISF.min_value_selector))
 		
 		solver.set(heuristics)
 	}
@@ -209,30 +203,6 @@ class AssistSolver {
 
 		// Did we find a solution? 
 		if (recorder.solutions.size > 0) {
-			
-			// ADDED {
-			val pinVars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
-			val allPinLevelSolutions = newArrayList()
-			val allConLevelSolutions = newArrayList()
-			allConLevelSolutions.addAll(recorder.solutions)
-			
-			for (solution : allConLevelSolutions) {
-				logger.info('''Trying to find a pin-level solution for connector-level solution with index «allConLevelSolutions.indexOf(solution)»''')
-				recorder.solutions.clear
-				SMF.limitSolution(solver, 1)
-				try{
-   					solver.searchLoop.restoreRootNode
-   					solver.environment.worldPush
-   					solution.restore
-				} catch (ContradictionException e){	throw new UnsupportedOperationException("restoring the solution ended in a failure") }
-				solver.engine.flush
-				solver.set(#[ISF.domOverWDeg(pinVars, randomSeed, ISF.min_value_selector)])
-//				solver.
-//				if (solver.findAllSolutions > 0)
-//					allPinLevelSolutions.add(recorder.lastSolution)
-			}
-			// }			
-			
 			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions)
 			logger.info('''Results created:  «mappingResults.size»''')
 		} 
@@ -246,10 +216,9 @@ class AssistSolver {
 		} 
 		
 		printFailCounter	
-		
 	}
 	
-	def printFailCounter() {
+	private def printFailCounter() {
 		val topFailedProps = solver.cstrs.map[propagators.toList]
 										 .flatten
 										 .toSet
@@ -268,7 +237,7 @@ class AssistSolver {
 			logger.info('''  - [«counter.getFails(p)» fails] «p.class.simpleName» - Constraint: «p.constraint.name» - Variables: «FOR v : p.vars»«IF v != p.vars.head», «ENDIF»«v.name»«ENDFOR»''')
 	}	
 
-	def printVariableStatistics() {
+	private def printVariableStatistics() {
 		val s = new DescriptiveStatistics
 		
 		logger.info('''''')
