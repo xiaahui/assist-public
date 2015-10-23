@@ -87,7 +87,7 @@ Restrictions {
 			/* Store the results */
 			allResults = solver.results
 			assertNotNull(allResults)
-			assertEquals(2, allResults.length)
+			assertEquals("For " + varSelector + " & " + valSelector, 2, allResults.length)
 			
 			}
 		}

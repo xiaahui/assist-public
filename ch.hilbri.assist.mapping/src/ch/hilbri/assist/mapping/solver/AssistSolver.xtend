@@ -38,11 +38,12 @@ import org.chocosolver.solver.search.loop.monitors.FailPerPropagator
 import org.chocosolver.solver.search.loop.monitors.SMF
 import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
-import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy
 import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.chocosolver.solver.search.strategy.strategy.Once
+import ch.hilbri.assist.mapping.solver.strategies.PreferExactTypeAndMinProtectionLevel
 
 class AssistSolver {
 	
@@ -104,7 +105,7 @@ class AssistSolver {
 		counter = new FailPerPropagator(solver.cstrs, solver)
 		
 		/* The same solution should not be found twice */
-		SMF.nogoodRecordingOnSolution(solverVariables.getLocationVariables(HardwareArchitectureLevelType.CONNECTOR))
+		SMF.nogoodRecordingOnSolution(solverVariables.locationVariables)
 		
 		/* Attach the search monitors */
 		solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solverVariables, model))
@@ -143,8 +144,8 @@ class AssistSolver {
 	}
 
 	def setSolverTimeLimit(long timeInMs) {
-		SMF.limitTime(solver, timeInMs)
 		logger.info("Setting choco-solver search time limit to " + timeInMs + "ms")
+		SMF.limitTime(solver, timeInMs)
 	}
 	
 	def setSolverMaxSolutions(int maxSolutions) {
@@ -153,21 +154,22 @@ class AssistSolver {
 	}
 	
 	def setSolverSearchStrategy(VariableSelectorTypes varSelector, ValueSelectorTypes valSelector) {
-		val List<AbstractStrategy<IntVar>> heuristics = new ArrayList<AbstractStrategy<IntVar>>
-	
-// 		FIXME:		
-//		logger.info('''Setting interface selection strategy to: "«varSelector.humanReadableName»"''')
-//		if (varSelector.isValueSelectorRequired) 
-//			logger.info('''Setting pin selection strategy to: "«valSelector.humanReadableName»"''')
-//		
-//		heuristics.add(varSelector.getStrategy(solverVariables, model, seed, valSelector))
-
-		val conVars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.CONNECTOR)
-		val pinVars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
-		heuristics.add(ISF.domOverWDeg(conVars, randomSeed, valSelector.getValueSector(solverVariables, model, randomSeed)))
-		heuristics.add(ISF.domOverWDeg(pinVars, randomSeed, ISF.min_value_selector))
 		
-		solver.set(heuristics)
+	
+		logger.info('''Setting interface selection strategy to: "«varSelector.humanReadableName»"''')
+		if (varSelector.isValueSelectorRequired) 
+			logger.info('''Setting connector selection strategy to: "«valSelector.humanReadableName»"''')
+
+		// Set the search strategies
+		solver.set( #[
+						// Connector selection strategy - supplied by the user
+						varSelector.getStrategy(solverVariables, model, randomSeed, valSelector),
+		
+						// Pin selection strategy - fixed and builtin
+						new Once(solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN), 
+							     ISF.minDomainSize_var_selector, 
+							     new PreferExactTypeAndMinProtectionLevel(solverVariables, model))
+		]) 
 	}
 
 	def propagation() throws BasicConstraintsException {
@@ -179,10 +181,6 @@ class AssistSolver {
             }
 			logger.info('''   done.''')
 		}
-
-		val vars = solverVariables.getLocationVariables(HardwareArchitectureLevelType.PIN)
-		logger.info('''After initial propagation:''') 
-		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location vars instantiated''') 
 		
 		printVariableStatistics
 	}
@@ -233,7 +231,7 @@ class AssistSolver {
 			topFailedPropsList = topFailedProps
 
 		logger.info('''Top failed propagators:''')
-		for (p : topFailedPropsList) 
+		for (p : topFailedPropsList.filter[counter.getFails(it) > 0]) 
 			logger.info('''  - [«counter.getFails(p)» fails] «p.class.simpleName» - Constraint: «p.constraint.name» - Variables: «FOR v : p.vars»«IF v != p.vars.head», «ENDIF»«v.name»«ENDFOR»''')
 	}	
 

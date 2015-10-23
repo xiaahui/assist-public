@@ -50,7 +50,7 @@ class DownBranchMonitor implements IMonitorDownBranch {
 			val newVars = curInstantiatedVars.filter[!instantiatedPinVars.contains(it)]
 			
 			logger.info('''                 . instantiated vars = «newVars.size» (during last step)''')
-			logger.info('''                   [«FOR v : newVars»«IF v != newVars.head», «ENDIF»«solverVariables.getEqInterfaceForLocationVariable(v).name» -> Pin «model.pins.get(v.value).name»)«ENDFOR»]''')
+			logger.info('''                   [«FOR v : newVars»«IF v != newVars.head», «ENDIF»«solverVariables.getEqInterfaceForLocationVariable(v).name» -> «model.pins.get(v.value).connector.rdc.name».«model.pins.get(v.value).connector.name».«model.pins.get(v.value).name»«ENDFOR»]''')
 
 			instantiatedPinVars = curInstantiatedVars
 			

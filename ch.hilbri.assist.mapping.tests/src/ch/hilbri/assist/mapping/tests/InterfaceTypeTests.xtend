@@ -76,7 +76,7 @@ Interfaces {
 }
 '''	
 		loadModelAndCreateResults(input)
-		assertEquals(2, allResults.size)
+		assertEquals(1, allResults.size)
 	}
 	
 		@Test
@@ -152,6 +152,6 @@ Interfaces {
 }
 '''	
 		loadModelAndCreateResults(input)
-		assertEquals(3, allResults.size)
+		assertEquals(1, allResults.size)
 	}
 }

@@ -84,6 +84,6 @@ Interfaces {
 		'''
 		loadModelAndCreateResults(input)
 		
-		assertEquals(6, allResults.size)
+		assertEquals(4, allResults.size)
 	}
 }

@@ -8,6 +8,7 @@ import org.chocosolver.solver.constraints.^extension.Tuples
 import org.chocosolver.solver.search.loop.monitors.SMF
 import org.chocosolver.solver.search.solution.AllSolutionsRecorder
 import org.chocosolver.solver.search.strategy.ISF
+import org.chocosolver.solver.search.strategy.strategy.Once
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VF
 import org.eclipse.xtext.junit4.XtextRunner
@@ -38,30 +39,37 @@ class ChocoSolverTests {
 		val solver = new Solver
 		
 		val thread0Proc = VF.enumerated("T0Proc", 0,1,solver)
-		val thread0Core = VF.enumerated("T0Core", 0,3,solver)
+		val thread0Core = VF.enumerated("T0Core", 0,5,solver)
+		
+		val thread1Proc = VF.enumerated("T1Proc", 0,1,solver)
+		val thread1Core = VF.enumerated("T1Core", 0,5,solver)
+		
 		
 		val tuples = new Tuples(true)
 		tuples.add(0, 0) // proc0, core00
 		tuples.add(0, 1) // proc0, core01
-		tuples.add(1, 2) // proc1, core10
-		tuples.add(1, 3) // proc1, core11
+		tuples.add(0, 2) // proc0, core02
+		tuples.add(1, 3) // proc1, core10
+		tuples.add(1, 4) // proc1, core11
+		tuples.add(1, 5) // proc1, core12
 		
 		solver.post(ICF.table(#[thread0Proc, thread0Core], tuples, ""))
+		solver.post(ICF.table(#[thread1Proc, thread1Core], tuples, ""))
 
 		val recorder = new AllSolutionsRecorder(solver)
 		solver.set(recorder)
 
-		SMF.nogoodRecordingOnSolution(#[thread0Proc])
+		SMF.nogoodRecordingOnSolution(#[thread0Proc, thread0Core, thread1Proc, thread1Core])
 		
 		SMF.limitTime(solver, 10000)
 		SMF.limitSolution(solver, 1000)
 		
-		solver.set(#[ISF.domOverWDeg(#[thread0Proc], 12345, ISF.min_value_selector),
-			         ISF.domOverWDeg(#[thread0Core], 12345, ISF.min_value_selector)	])
+		solver.set(#[ISF.domOverWDeg(#[thread0Proc, thread1Proc], 12345, ISF.min_value_selector),
+			         new Once(#[thread0Core, thread1Core], ISF.minDomainSize_var_selector, ISF.min_value_selector)])
 
 		solver.propagate
 		solver.findAllSolutions
 		
-		assertEquals(2, recorder.solutions.size)
+		assertEquals(4, recorder.solutions.size)
 	}
 }
