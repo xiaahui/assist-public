@@ -4,7 +4,10 @@
 package ch.hilbri.assist.mappingdsl.ui.outline
 
 import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.datamodel.model.Compartment
+import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 import ch.hilbri.assist.datamodel.model.InvalidDeployment
+import ch.hilbri.assist.datamodel.model.RDC
 import ch.hilbri.assist.datamodel.model.ValidDeployment
 import org.eclipse.core.runtime.FileLocator
 import org.eclipse.core.runtime.Path
@@ -12,7 +15,6 @@ import org.eclipse.core.runtime.Platform
 import org.eclipse.jface.resource.ImageDescriptor
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
-import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
 
 /**
  * Customization of the default outline structure.
@@ -21,6 +23,15 @@ import ch.hilbri.assist.datamodel.model.EqInterfaceGroup
  */
 class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	
+	def _createChildren(IOutlineNode parentNode, Compartment compartment) {
+		for (rdc : compartment.rdcs)
+			createNode(parentNode, rdc)
+	}
+	
+	def _createChildren(IOutlineNode parentNode, RDC rdc) {
+		for (connector : rdc.connectors)
+			createNode(parentNode, connector)
+	}
 	
 	def _createChildren(IOutlineNode parentNode, AssistModel model) {
 		
