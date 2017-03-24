@@ -28,3 +28,6 @@
 [submodule "ch.hilbri.assist.libraries.choco/protobuffers"]
 	path = ch.hilbri.assist.libraries.choco/protobuffers
 	url = https://github.com/google/protobuf.git
+[submodule "ch.hilbri.assist.libraries.choco-sat/choco-sat"]
+	path = ch.hilbri.assist.libraries.choco-sat/choco-sat
+	url = https://github.com/chocoteam/choco-sat.git
