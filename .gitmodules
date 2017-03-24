@@ -16,9 +16,9 @@
 [submodule "ch.hilbri.assist.libraries.choco/choco-sat"]
 	path = ch.hilbri.assist.libraries.choco/choco-sat
 	url = https://github.com/chocoteam/choco-sat.git
-[submodule "ch.hilbri.assist.libraries.choco/cpprofiler"]
-	path = ch.hilbri.assist.libraries.choco/cpprofiler
-	url = https://github.com/cp-profiler/java-integration.git
 [submodule "ch.hilbri.assist.libraries.choco/cutoffseq"]
 	path = ch.hilbri.assist.libraries.choco/cutoffseq
 	url = https://github.com/chocoteam/cutoffseq.git
+[submodule "ch.hilbri.assist.libraries.choco/cp-profiler"]
+	path = ch.hilbri.assist.libraries.choco/cp-profiler
+	url = https://github.com/cp-profiler/cp-profiler

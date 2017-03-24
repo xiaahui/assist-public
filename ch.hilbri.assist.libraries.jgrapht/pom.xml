@@ -9,4 +9,5 @@
  	<version>2.1.0-SNAPSHOT</version>
  	<relativePath>../ch.hilbri.assist.releng</relativePath>
  </parent>
+ <version>1.0.1-SNAPSHOT</version>
 </project>  
