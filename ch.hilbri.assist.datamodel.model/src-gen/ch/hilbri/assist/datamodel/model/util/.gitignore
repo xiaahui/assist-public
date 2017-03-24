@@ -1,1 +1,3 @@
 !.gitignore
+/ModelAdapterFactory.java
+/ModelSwitch.java

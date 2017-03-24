@@ -21,26 +21,26 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MappingDSLGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Application___GenericPropertiesKeyword_12_0_LeftCurlyBracketKeyword_12_1_RightCurlyBracketKeyword_12_3__q;
+	protected AbstractElementAlias match_Application___PropertiesKeyword_12_0_LeftCurlyBracketKeyword_12_1_RightCurlyBracketKeyword_12_3__q;
 	protected AbstractElementAlias match_AssistModel___RestrictionsKeyword_17_0_LeftCurlyBracketKeyword_17_1_RightCurlyBracketKeyword_17_6__q;
-	protected AbstractElementAlias match_Board___GenericPropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q;
-	protected AbstractElementAlias match_Box___GenericPropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q;
-	protected AbstractElementAlias match_Compartment___GenericPropertiesKeyword_8_0_LeftCurlyBracketKeyword_8_1_RightCurlyBracketKeyword_8_3__q;
-	protected AbstractElementAlias match_Core___GenericPropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q;
-	protected AbstractElementAlias match_Network___GenericPropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q;
-	protected AbstractElementAlias match_Processor___GenericPropertiesKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q;
+	protected AbstractElementAlias match_Board___PropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q;
+	protected AbstractElementAlias match_Box___PropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q;
+	protected AbstractElementAlias match_Compartment___PropertiesKeyword_8_0_LeftCurlyBracketKeyword_8_1_RightCurlyBracketKeyword_8_3__q;
+	protected AbstractElementAlias match_Core___PropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q;
+	protected AbstractElementAlias match_Network___PropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q;
+	protected AbstractElementAlias match_Processor___PropertiesKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MappingDSLGrammarAccess) access;
-		match_Application___GenericPropertiesKeyword_12_0_LeftCurlyBracketKeyword_12_1_RightCurlyBracketKeyword_12_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getApplicationAccess().getGenericPropertiesKeyword_12_0()), new TokenAlias(false, false, grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_12_1()), new TokenAlias(false, false, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_12_3()));
+		match_Application___PropertiesKeyword_12_0_LeftCurlyBracketKeyword_12_1_RightCurlyBracketKeyword_12_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getApplicationAccess().getPropertiesKeyword_12_0()), new TokenAlias(false, false, grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_12_1()), new TokenAlias(false, false, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_12_3()));
 		match_AssistModel___RestrictionsKeyword_17_0_LeftCurlyBracketKeyword_17_1_RightCurlyBracketKeyword_17_6__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getRestrictionsKeyword_17_0()), new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_17_1()), new TokenAlias(false, false, grammarAccess.getAssistModelAccess().getRightCurlyBracketKeyword_17_6()));
-		match_Board___GenericPropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getBoardAccess().getGenericPropertiesKeyword_13_0()), new TokenAlias(false, false, grammarAccess.getBoardAccess().getLeftCurlyBracketKeyword_13_1()), new TokenAlias(false, false, grammarAccess.getBoardAccess().getRightCurlyBracketKeyword_13_3()));
-		match_Box___GenericPropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getBoxAccess().getGenericPropertiesKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getBoxAccess().getLeftCurlyBracketKeyword_5_1()), new TokenAlias(false, false, grammarAccess.getBoxAccess().getRightCurlyBracketKeyword_5_3()));
-		match_Compartment___GenericPropertiesKeyword_8_0_LeftCurlyBracketKeyword_8_1_RightCurlyBracketKeyword_8_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getCompartmentAccess().getGenericPropertiesKeyword_8_0()), new TokenAlias(false, false, grammarAccess.getCompartmentAccess().getLeftCurlyBracketKeyword_8_1()), new TokenAlias(false, false, grammarAccess.getCompartmentAccess().getRightCurlyBracketKeyword_8_3()));
-		match_Core___GenericPropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getCoreAccess().getGenericPropertiesKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getCoreAccess().getLeftCurlyBracketKeyword_5_1()), new TokenAlias(false, false, grammarAccess.getCoreAccess().getRightCurlyBracketKeyword_5_3()));
-		match_Network___GenericPropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getNetworkAccess().getGenericPropertiesKeyword_13_0()), new TokenAlias(false, false, grammarAccess.getNetworkAccess().getLeftCurlyBracketKeyword_13_1()), new TokenAlias(false, false, grammarAccess.getNetworkAccess().getRightCurlyBracketKeyword_13_3()));
-		match_Processor___GenericPropertiesKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getProcessorAccess().getGenericPropertiesKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getProcessorAccess().getLeftCurlyBracketKeyword_6_1()), new TokenAlias(false, false, grammarAccess.getProcessorAccess().getRightCurlyBracketKeyword_6_3()));
+		match_Board___PropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getBoardAccess().getPropertiesKeyword_13_0()), new TokenAlias(false, false, grammarAccess.getBoardAccess().getLeftCurlyBracketKeyword_13_1()), new TokenAlias(false, false, grammarAccess.getBoardAccess().getRightCurlyBracketKeyword_13_3()));
+		match_Box___PropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getBoxAccess().getPropertiesKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getBoxAccess().getLeftCurlyBracketKeyword_5_1()), new TokenAlias(false, false, grammarAccess.getBoxAccess().getRightCurlyBracketKeyword_5_3()));
+		match_Compartment___PropertiesKeyword_8_0_LeftCurlyBracketKeyword_8_1_RightCurlyBracketKeyword_8_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getCompartmentAccess().getPropertiesKeyword_8_0()), new TokenAlias(false, false, grammarAccess.getCompartmentAccess().getLeftCurlyBracketKeyword_8_1()), new TokenAlias(false, false, grammarAccess.getCompartmentAccess().getRightCurlyBracketKeyword_8_3()));
+		match_Core___PropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getCoreAccess().getPropertiesKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getCoreAccess().getLeftCurlyBracketKeyword_5_1()), new TokenAlias(false, false, grammarAccess.getCoreAccess().getRightCurlyBracketKeyword_5_3()));
+		match_Network___PropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getNetworkAccess().getPropertiesKeyword_13_0()), new TokenAlias(false, false, grammarAccess.getNetworkAccess().getLeftCurlyBracketKeyword_13_1()), new TokenAlias(false, false, grammarAccess.getNetworkAccess().getRightCurlyBracketKeyword_13_3()));
+		match_Processor___PropertiesKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getProcessorAccess().getPropertiesKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getProcessorAccess().getLeftCurlyBracketKeyword_6_1()), new TokenAlias(false, false, grammarAccess.getProcessorAccess().getRightCurlyBracketKeyword_6_3()));
 	}
 	
 	@Override
@@ -55,29 +55,29 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_Application___GenericPropertiesKeyword_12_0_LeftCurlyBracketKeyword_12_1_RightCurlyBracketKeyword_12_3__q.equals(syntax))
-				emit_Application___GenericPropertiesKeyword_12_0_LeftCurlyBracketKeyword_12_1_RightCurlyBracketKeyword_12_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_AssistModel___RestrictionsKeyword_17_0_LeftCurlyBracketKeyword_17_1_RightCurlyBracketKeyword_17_6__q.equals(syntax))
+			if (match_Application___PropertiesKeyword_12_0_LeftCurlyBracketKeyword_12_1_RightCurlyBracketKeyword_12_3__q.equals(syntax))
+				emit_Application___PropertiesKeyword_12_0_LeftCurlyBracketKeyword_12_1_RightCurlyBracketKeyword_12_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_AssistModel___RestrictionsKeyword_17_0_LeftCurlyBracketKeyword_17_1_RightCurlyBracketKeyword_17_6__q.equals(syntax))
 				emit_AssistModel___RestrictionsKeyword_17_0_LeftCurlyBracketKeyword_17_1_RightCurlyBracketKeyword_17_6__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Board___GenericPropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q.equals(syntax))
-				emit_Board___GenericPropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Box___GenericPropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q.equals(syntax))
-				emit_Box___GenericPropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Compartment___GenericPropertiesKeyword_8_0_LeftCurlyBracketKeyword_8_1_RightCurlyBracketKeyword_8_3__q.equals(syntax))
-				emit_Compartment___GenericPropertiesKeyword_8_0_LeftCurlyBracketKeyword_8_1_RightCurlyBracketKeyword_8_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Core___GenericPropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q.equals(syntax))
-				emit_Core___GenericPropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Network___GenericPropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q.equals(syntax))
-				emit_Network___GenericPropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Processor___GenericPropertiesKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q.equals(syntax))
-				emit_Processor___GenericPropertiesKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Board___PropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q.equals(syntax))
+				emit_Board___PropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Box___PropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q.equals(syntax))
+				emit_Box___PropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Compartment___PropertiesKeyword_8_0_LeftCurlyBracketKeyword_8_1_RightCurlyBracketKeyword_8_3__q.equals(syntax))
+				emit_Compartment___PropertiesKeyword_8_0_LeftCurlyBracketKeyword_8_1_RightCurlyBracketKeyword_8_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Core___PropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q.equals(syntax))
+				emit_Core___PropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Network___PropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q.equals(syntax))
+				emit_Network___PropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Processor___PropertiesKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q.equals(syntax))
+				emit_Processor___PropertiesKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     ('Generic properties' '{' '}')?
+	 *     ('Properties' '{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     coreUtilization=INT ';' (ambiguity) '}' (rule end)
@@ -91,7 +91,7 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] '}' ';' (ambiguity) '}' (rule end)
 	 *     romUtilization=INT ';' (ambiguity) '}' (rule end)
 	 */
-	protected void emit_Application___GenericPropertiesKeyword_12_0_LeftCurlyBracketKeyword_12_1_RightCurlyBracketKeyword_12_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Application___PropertiesKeyword_12_0_LeftCurlyBracketKeyword_12_1_RightCurlyBracketKeyword_12_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -109,70 +109,70 @@ public class MappingDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('Generic properties' '{' '}')?
+	 *     ('Properties' '{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     ioAdapters+=IOAdapter (ambiguity) '}' (rule end)
 	 *     processors+=Processor (ambiguity) '}' (rule end)
 	 */
-	protected void emit_Board___GenericPropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Board___PropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('Generic properties' '{' '}')?
+	 *     ('Properties' '{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     boards+=Board (ambiguity) '}' (rule end)
 	 */
-	protected void emit_Box___GenericPropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Box___PropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('Generic properties' '{' '}')?
+	 *     ('Properties' '{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     boxes+=Box (ambiguity) '}' (rule end)
 	 */
-	protected void emit_Compartment___GenericPropertiesKeyword_8_0_LeftCurlyBracketKeyword_8_1_RightCurlyBracketKeyword_8_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Compartment___PropertiesKeyword_8_0_LeftCurlyBracketKeyword_8_1_RightCurlyBracketKeyword_8_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('Generic properties' '{' '}')?
+	 *     ('Properties' '{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     architecture=STRING ';' (ambiguity) '}' (rule end)
 	 *     capacity=INT ';' (ambiguity) '}' (rule end)
 	 *     name=ID '{' (ambiguity) '}' (rule end)
 	 */
-	protected void emit_Core___GenericPropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Core___PropertiesKeyword_5_0_LeftCurlyBracketKeyword_5_1_RightCurlyBracketKeyword_5_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('Generic properties' '{' '}')?
+	 *     ('Properties' '{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     boards+=[Board|QualifiedName] ';' (ambiguity) '}' (rule end)
 	 */
-	protected void emit_Network___GenericPropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Network___PropertiesKeyword_13_0_LeftCurlyBracketKeyword_13_1_RightCurlyBracketKeyword_13_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('Generic properties' '{' '}')?
+	 *     ('Properties' '{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     cores+=Core (ambiguity) '}' (rule end)
 	 */
-	protected void emit_Processor___GenericPropertiesKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Processor___PropertiesKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

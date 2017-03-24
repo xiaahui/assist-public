@@ -2,7 +2,7 @@
 <feature
       id="ch.hilbri.assist.features.libraries"
       label="Libraries"
-      version="2.0.0.qualifier"
+      version="2.1.0.qualifier"
       os="linux,macosx,win32"
       ws="cocoa,gtk,win32"
       arch="x86_64">
@@ -20,7 +20,7 @@
       <import plugin="ch.hilbri.assist.libraries.logback" version="1.1.2" match="greaterOrEqual"/>
       <import plugin="org.eclipse.swt" version="3.104.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.console" version="3.6.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jface" version="3.11.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface" version="3.12.1" match="greaterOrEqual"/>
    </requires>
 
    <plugin

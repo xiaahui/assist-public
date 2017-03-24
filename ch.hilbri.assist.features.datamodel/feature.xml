@@ -2,7 +2,7 @@
 <feature
       id="ch.hilbri.assist.features.datamodel"
       label="Datamodel"
-      version="2.0.0.qualifier"
+      version="2.1.0.qualifier"
       os="linux,macosx,win32"
       ws="cocoa,gtk,win32"
       arch="x86_64">
@@ -12,21 +12,21 @@
    </license>
 
    <requires>
-      <import plugin="org.eclipse.core.runtime" version="3.11.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.ecore" version="2.11.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtext.xbase.lib" version="2.8.4" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore.xcore.lib" version="1.1.100" match="greaterOrEqual"/>
-      <import plugin="ch.hilbri.assist.datamodel.model" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.edit" version="2.11.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.resources" version="3.10.0" match="greaterOrEqual"/>
-      <import plugin="ch.hilbri.assist.datamodel.model.edit" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.ecore.xmi" version="2.11.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.edit.ui" version="2.11.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.ide" version="3.11.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.e4.ui.services" version="1.2.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtext.ui" version="2.8.4" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.e4.core.services" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.osgi.services"/>
+      <import plugin="org.eclipse.core.runtime" version="3.12.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.12.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.xbase.lib" version="2.10.0" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.datamodel.model" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.edit" version="2.12.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources" version="3.11.1" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.datamodel.model.edit" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.xmi" version="2.12.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.edit.ui" version="2.12.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.12.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.ui.services" version="1.2.100" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui" version="2.10.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.core.services" version="2.0.100" match="greaterOrEqual"/>
    </requires>
 
    <plugin

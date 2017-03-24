@@ -3,33 +3,33 @@ Eclipse-RegisterBuddy: ch.hilbri.assist.libraries.logback
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.mapping
 Bundle-SymbolicName: ch.hilbri.assist.mapping;singleton:=true
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: 2.1.0.qualifier
 Bundle-Vendor: Robert Hilbrich
-Require-Bundle: ch.hilbri.assist.application;bundle-version="2.0.0",
- ch.hilbri.assist.datamodel.model;bundle-version="2.0.0",
- ch.hilbri.assist.datamodel.model.edit;bundle-version="2.0.0",
- ch.hilbri.assist.datamodel.model.editor;bundle-version="2.0.0",
- ch.hilbri.assist.datamodel.result.mapping;bundle-version="2.0.0",
- ch.hilbri.assist.mappingdsl.ui;bundle-version="2.0.0",
+Require-Bundle: ch.hilbri.assist.application;bundle-version="2.1.0",
+ ch.hilbri.assist.datamodel.model;bundle-version="2.1.0",
+ ch.hilbri.assist.datamodel.model.edit;bundle-version="2.1.0",
+ ch.hilbri.assist.datamodel.model.editor;bundle-version="2.1.0",
+ ch.hilbri.assist.datamodel.result.mapping;bundle-version="2.1.0",
+ ch.hilbri.assist.mappingdsl.ui;bundle-version="2.1.0",
  ch.hilbri.assist.libraries.javafx;bundle-version="1.8.60",
  ch.hilbri.assist.libraries.math;bundle-version="3.2.1",
  ch.hilbri.assist.libraries.jxl;bundle-version="2.6.12",
  ch.hilbri.assist.libraries.choco;bundle-version="3.3.1",
  ch.hilbri.assist.libraries.logback;bundle-version="1.1.2",
  javax.inject;bundle-version="1.0.0",
- org.eclipse.core.databinding;bundle-version="1.5.0",
- org.eclipse.e4.core.di;bundle-version="1.5.0",
- org.eclipse.e4.core.services;bundle-version="2.0.0",
- org.eclipse.e4.ui.di;bundle-version="1.1.0",
- org.eclipse.e4.ui.model.workbench;bundle-version="1.1.100",
- org.eclipse.e4.ui.workbench;bundle-version="1.3.0",
- org.eclipse.jdt.core;bundle-version="3.11.0",
- org.eclipse.jdt.ui;bundle-version="3.11.0",
- org.eclipse.ui.forms;bundle-version="3.6.200",
- org.eclipse.zest.core;bundle-version="1.5.200",
- org.eclipse.zest.layouts;bundle-version="1.1.200",
- org.eclipse.xtext.ui;bundle-version="2.8.4",
- org.eclipse.ui.workbench;bundle-version="3.107.0"
+ org.eclipse.core.databinding;bundle-version="1.6.0",
+ org.eclipse.e4.core.di;bundle-version="1.6.1",
+ org.eclipse.e4.core.services;bundle-version="2.0.100",
+ org.eclipse.e4.ui.di;bundle-version="1.1.100",
+ org.eclipse.e4.ui.model.workbench;bundle-version="1.2.0",
+ org.eclipse.e4.ui.workbench;bundle-version="1.4.0",
+ org.eclipse.jdt.core;bundle-version="3.12.2",
+ org.eclipse.jdt.ui;bundle-version="3.12.2",
+ org.eclipse.ui.forms;bundle-version="3.7.0",
+ org.eclipse.zest.core;bundle-version="1.5.300",
+ org.eclipse.zest.layouts;bundle-version="1.1.300",
+ org.eclipse.xtext.ui;bundle-version="2.10.0",
+ org.eclipse.ui.workbench;bundle-version="3.108.2"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ch.hilbri.assist.mapping.solver,
  ch.hilbri.assist.mapping.solver.exceptions,

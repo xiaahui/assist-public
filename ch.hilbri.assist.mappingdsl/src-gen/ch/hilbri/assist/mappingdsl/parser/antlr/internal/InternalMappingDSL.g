@@ -86,9 +86,9 @@ ruleAssistModel returns [EObject current=null]
     {
     	newLeafNode(otherlv_1, grammarAccess.getAssistModelAccess().getLeftCurlyBracketKeyword_1());
     }
-	otherlv_2='System name' 
+	otherlv_2='System' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getAssistModelAccess().getSystemNameKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getAssistModelAccess().getSystemKeyword_2());
     }
 	otherlv_3='=' 
     {
@@ -108,7 +108,7 @@ ruleAssistModel returns [EObject current=null]
        			$current, 
        			"systemName",
         		lv_systemName_4_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -141,7 +141,7 @@ ruleAssistModel returns [EObject current=null]
        			$current, 
        			"hardwareContainer",
         		lv_hardwareContainer_9_0, 
-        		"HardwareElementContainer");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.HardwareElementContainer");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -159,7 +159,7 @@ ruleAssistModel returns [EObject current=null]
        			$current, 
        			"networks",
         		lv_networks_10_0, 
-        		"Network");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.Network");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -189,7 +189,7 @@ ruleAssistModel returns [EObject current=null]
        			$current, 
        			"applications",
         		lv_applications_14_0, 
-        		"Application");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.Application");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -207,7 +207,7 @@ ruleAssistModel returns [EObject current=null]
        			$current, 
        			"applicationGroups",
         		lv_applicationGroups_15_0, 
-        		"ApplicationGroup");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.ApplicationGroup");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -237,7 +237,7 @@ ruleAssistModel returns [EObject current=null]
        			$current, 
        			"dissimilarityRelations",
         		lv_dissimilarityRelations_19_0, 
-        		"DissimilarityRelation");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.DissimilarityRelation");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -255,7 +255,7 @@ ruleAssistModel returns [EObject current=null]
        			$current, 
        			"dislocalityRelations",
         		lv_dislocalityRelations_20_0, 
-        		"DislocalityRelation");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.DislocalityRelation");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -273,7 +273,7 @@ ruleAssistModel returns [EObject current=null]
        			$current, 
        			"proximityRelations",
         		lv_proximityRelations_21_0, 
-        		"ProximityRelation");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.ProximityRelation");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -291,7 +291,7 @@ ruleAssistModel returns [EObject current=null]
        			$current, 
        			"communicationRelations",
         		lv_communicationRelations_22_0, 
-        		"CommunicationRelation");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.CommunicationRelation");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -389,7 +389,7 @@ ruleCompartment returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -419,7 +419,7 @@ ruleCompartment returns [EObject current=null]
        			$current, 
        			"manufacturer",
         		lv_manufacturer_5_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -449,7 +449,7 @@ ruleCompartment returns [EObject current=null]
        			$current, 
        			"powerSupply",
         		lv_powerSupply_9_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -479,7 +479,7 @@ ruleCompartment returns [EObject current=null]
        			$current, 
        			"side",
         		lv_side_13_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -509,7 +509,7 @@ ruleCompartment returns [EObject current=null]
        			$current, 
        			"zone",
         		lv_zone_17_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -530,14 +530,14 @@ ruleCompartment returns [EObject current=null]
        			$current, 
        			"boxes",
         		lv_boxes_19_0, 
-        		"Box");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.Box");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+(	otherlv_20='Generic properties' 
+)+(	otherlv_20='Properties' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getCompartmentAccess().getGenericPropertiesKeyword_8_0());
+    	newLeafNode(otherlv_20, grammarAccess.getCompartmentAccess().getPropertiesKeyword_8_0());
     }
 	otherlv_21='{' 
     {
@@ -556,7 +556,7 @@ ruleCompartment returns [EObject current=null]
        			$current, 
        			"metricParameters",
         		lv_metricParameters_22_0, 
-        		"MetricParameter");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.MetricParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -608,7 +608,7 @@ ruleBox returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -638,7 +638,7 @@ ruleBox returns [EObject current=null]
        			$current, 
        			"manufacturer",
         		lv_manufacturer_5_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -659,14 +659,14 @@ ruleBox returns [EObject current=null]
        			$current, 
        			"boards",
         		lv_boards_7_0, 
-        		"Board");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.Board");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+(	otherlv_8='Generic properties' 
+)+(	otherlv_8='Properties' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getBoxAccess().getGenericPropertiesKeyword_5_0());
+    	newLeafNode(otherlv_8, grammarAccess.getBoxAccess().getPropertiesKeyword_5_0());
     }
 	otherlv_9='{' 
     {
@@ -685,7 +685,7 @@ ruleBox returns [EObject current=null]
        			$current, 
        			"metricParameters",
         		lv_metricParameters_10_0, 
-        		"MetricParameter");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.MetricParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -737,7 +737,7 @@ ruleBoard returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -767,7 +767,7 @@ ruleBoard returns [EObject current=null]
        			$current, 
        			"manufacturer",
         		lv_manufacturer_5_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -797,7 +797,7 @@ ruleBoard returns [EObject current=null]
        			$current, 
        			"boardType",
         		lv_boardType_9_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -827,7 +827,7 @@ ruleBoard returns [EObject current=null]
        			$current, 
        			"powerSupply",
         		lv_powerSupply_13_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -856,7 +856,7 @@ ruleBoard returns [EObject current=null]
        			$current, 
        			"assuranceLevel",
         		lv_assuranceLevel_17_0, 
-        		"DesignAssuranceLevelType");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.DesignAssuranceLevelType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -887,7 +887,7 @@ ruleBoard returns [EObject current=null]
        			$current, 
        			"side",
         		lv_side_21_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -917,7 +917,7 @@ ruleBoard returns [EObject current=null]
        			$current, 
        			"ess",
         		lv_ess_25_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -925,9 +925,9 @@ ruleBoard returns [EObject current=null]
     {
     	newLeafNode(otherlv_26, grammarAccess.getBoardAccess().getSemicolonKeyword_8_3());
     }
-)?(	otherlv_27='RAM capacity' 
+)?(	otherlv_27='RAM' 
     {
-    	newLeafNode(otherlv_27, grammarAccess.getBoardAccess().getRAMCapacityKeyword_9_0());
+    	newLeafNode(otherlv_27, grammarAccess.getBoardAccess().getRAMKeyword_9_0());
     }
 	otherlv_28='=' 
     {
@@ -947,7 +947,7 @@ ruleBoard returns [EObject current=null]
        			$current, 
        			"ramCapacity",
         		lv_ramCapacity_29_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -955,9 +955,9 @@ ruleBoard returns [EObject current=null]
     {
     	newLeafNode(otherlv_30, grammarAccess.getBoardAccess().getSemicolonKeyword_9_3());
     }
-)?(	otherlv_31='ROM capacity' 
+)?(	otherlv_31='ROM' 
     {
-    	newLeafNode(otherlv_31, grammarAccess.getBoardAccess().getROMCapacityKeyword_10_0());
+    	newLeafNode(otherlv_31, grammarAccess.getBoardAccess().getROMKeyword_10_0());
     }
 	otherlv_32='=' 
     {
@@ -977,7 +977,7 @@ ruleBoard returns [EObject current=null]
        			$current, 
        			"romCapacity",
         		lv_romCapacity_33_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -998,7 +998,7 @@ ruleBoard returns [EObject current=null]
        			$current, 
        			"processors",
         		lv_processors_35_0, 
-        		"Processor");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.Processor");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1016,14 +1016,14 @@ ruleBoard returns [EObject current=null]
        			$current, 
        			"ioAdapters",
         		lv_ioAdapters_36_0, 
-        		"IOAdapter");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.IOAdapter");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*(	otherlv_37='Generic properties' 
+)*(	otherlv_37='Properties' 
     {
-    	newLeafNode(otherlv_37, grammarAccess.getBoardAccess().getGenericPropertiesKeyword_13_0());
+    	newLeafNode(otherlv_37, grammarAccess.getBoardAccess().getPropertiesKeyword_13_0());
     }
 	otherlv_38='{' 
     {
@@ -1042,7 +1042,7 @@ ruleBoard returns [EObject current=null]
        			$current, 
        			"metricParameters",
         		lv_metricParameters_39_0, 
-        		"MetricParameter");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.MetricParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1094,7 +1094,7 @@ ruleProcessor returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -1124,7 +1124,7 @@ ruleProcessor returns [EObject current=null]
        			$current, 
        			"manufacturer",
         		lv_manufacturer_5_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -1154,7 +1154,7 @@ ruleProcessor returns [EObject current=null]
        			$current, 
        			"processorType",
         		lv_processorType_9_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -1175,14 +1175,14 @@ ruleProcessor returns [EObject current=null]
        			$current, 
        			"cores",
         		lv_cores_11_0, 
-        		"Core");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.Core");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+(	otherlv_12='Generic properties' 
+)+(	otherlv_12='Properties' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getProcessorAccess().getGenericPropertiesKeyword_6_0());
+    	newLeafNode(otherlv_12, grammarAccess.getProcessorAccess().getPropertiesKeyword_6_0());
     }
 	otherlv_13='{' 
     {
@@ -1201,7 +1201,7 @@ ruleProcessor returns [EObject current=null]
        			$current, 
        			"metricParameters",
         		lv_metricParameters_14_0, 
-        		"MetricParameter");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.MetricParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1253,7 +1253,7 @@ ruleCore returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -1283,7 +1283,7 @@ ruleCore returns [EObject current=null]
        			$current, 
        			"capacity",
         		lv_capacity_5_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -1313,7 +1313,7 @@ ruleCore returns [EObject current=null]
        			$current, 
        			"architecture",
         		lv_architecture_9_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -1321,9 +1321,9 @@ ruleCore returns [EObject current=null]
     {
     	newLeafNode(otherlv_10, grammarAccess.getCoreAccess().getSemicolonKeyword_4_3());
     }
-)?(	otherlv_11='Generic properties' 
+)?(	otherlv_11='Properties' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getCoreAccess().getGenericPropertiesKeyword_5_0());
+    	newLeafNode(otherlv_11, grammarAccess.getCoreAccess().getPropertiesKeyword_5_0());
     }
 	otherlv_12='{' 
     {
@@ -1342,7 +1342,7 @@ ruleCore returns [EObject current=null]
        			$current, 
        			"metricParameters",
         		lv_metricParameters_13_0, 
-        		"MetricParameter");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.MetricParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1376,9 +1376,9 @@ ruleIOAdapter returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='I/O adapter' 
+(	otherlv_0='Adapter' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getIOAdapterAccess().getIOAdapterKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getIOAdapterAccess().getAdapterKeyword_0());
     }
 	otherlv_1='{' 
     {
@@ -1405,7 +1405,7 @@ ruleIOAdapter returns [EObject current=null]
        			$current, 
        			"adapterType",
         		lv_adapterType_4_0, 
-        		"IOAdapterType");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.IOAdapterType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1436,7 +1436,7 @@ ruleIOAdapter returns [EObject current=null]
        			$current, 
        			"totalCount",
         		lv_totalCount_8_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -1465,7 +1465,7 @@ ruleIOAdapter returns [EObject current=null]
        			$current, 
        			"protectionLevel",
         		lv_protectionLevel_12_0, 
-        		"IOAdapterProtectionLevelType");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.IOAdapterProtectionLevelType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1517,7 +1517,7 @@ ruleNetwork returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -1547,7 +1547,7 @@ ruleNetwork returns [EObject current=null]
        			$current, 
        			"bandwidthCapacity",
         		lv_bandwidthCapacity_5_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -1616,9 +1616,9 @@ ruleNetwork returns [EObject current=null]
     {
     	newLeafNode(otherlv_13, grammarAccess.getNetworkAccess().getSemicolonKeyword_12());
     }
-(	otherlv_14='Generic properties' 
+(	otherlv_14='Properties' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getNetworkAccess().getGenericPropertiesKeyword_13_0());
+    	newLeafNode(otherlv_14, grammarAccess.getNetworkAccess().getPropertiesKeyword_13_0());
     }
 	otherlv_15='{' 
     {
@@ -1637,7 +1637,7 @@ ruleNetwork returns [EObject current=null]
        			$current, 
        			"metricParameters",
         		lv_metricParameters_16_0, 
-        		"MetricParameter");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.MetricParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1689,7 +1689,7 @@ ruleApplicationGroup returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -1770,7 +1770,7 @@ ruleApplication returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -1800,7 +1800,7 @@ ruleApplication returns [EObject current=null]
        			$current, 
        			"coreUtilization",
         		lv_coreUtilization_5_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -1808,19 +1808,27 @@ ruleApplication returns [EObject current=null]
     {
     	newLeafNode(otherlv_6, grammarAccess.getApplicationAccess().getSemicolonKeyword_3_3());
     }
-)?(	otherlv_7='Required RAM capacity' 
+)?(	otherlv_7='Required' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getApplicationAccess().getRequiredRAMCapacityKeyword_4_0());
+    	newLeafNode(otherlv_7, grammarAccess.getApplicationAccess().getRequiredKeyword_4_0());
     }
-	otherlv_8='=' 
+	otherlv_8='RAM' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getApplicationAccess().getEqualsSignKeyword_4_1());
+    	newLeafNode(otherlv_8, grammarAccess.getApplicationAccess().getRAMKeyword_4_1());
+    }
+	otherlv_9='capacity' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getApplicationAccess().getCapacityKeyword_4_2());
+    }
+	otherlv_10='=' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getApplicationAccess().getEqualsSignKeyword_4_3());
     }
 (
 (
-		lv_ramUtilization_9_0=RULE_INT
+		lv_ramUtilization_11_0=RULE_INT
 		{
-			newLeafNode(lv_ramUtilization_9_0, grammarAccess.getApplicationAccess().getRamUtilizationINTTerminalRuleCall_4_2_0()); 
+			newLeafNode(lv_ramUtilization_11_0, grammarAccess.getApplicationAccess().getRamUtilizationINTTerminalRuleCall_4_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1829,28 +1837,36 @@ ruleApplication returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"ramUtilization",
-        		lv_ramUtilization_9_0, 
-        		"INT");
+        		lv_ramUtilization_11_0, 
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
-)	otherlv_10=';' 
+)	otherlv_12=';' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getApplicationAccess().getSemicolonKeyword_4_3());
+    	newLeafNode(otherlv_12, grammarAccess.getApplicationAccess().getSemicolonKeyword_4_5());
     }
-)?(	otherlv_11='Required ROM capacity' 
+)?(	otherlv_13='Required' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getApplicationAccess().getRequiredROMCapacityKeyword_5_0());
+    	newLeafNode(otherlv_13, grammarAccess.getApplicationAccess().getRequiredKeyword_5_0());
     }
-	otherlv_12='=' 
+	otherlv_14='ROM' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getApplicationAccess().getEqualsSignKeyword_5_1());
+    	newLeafNode(otherlv_14, grammarAccess.getApplicationAccess().getROMKeyword_5_1());
+    }
+	otherlv_15='capacity' 
+    {
+    	newLeafNode(otherlv_15, grammarAccess.getApplicationAccess().getCapacityKeyword_5_2());
+    }
+	otherlv_16='=' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getApplicationAccess().getEqualsSignKeyword_5_3());
     }
 (
 (
-		lv_romUtilization_13_0=RULE_INT
+		lv_romUtilization_17_0=RULE_INT
 		{
-			newLeafNode(lv_romUtilization_13_0, grammarAccess.getApplicationAccess().getRomUtilizationINTTerminalRuleCall_5_2_0()); 
+			newLeafNode(lv_romUtilization_17_0, grammarAccess.getApplicationAccess().getRomUtilizationINTTerminalRuleCall_5_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1859,88 +1875,108 @@ ruleApplication returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"romUtilization",
-        		lv_romUtilization_13_0, 
-        		"INT");
+        		lv_romUtilization_17_0, 
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
-)	otherlv_14=';' 
+)	otherlv_18=';' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getApplicationAccess().getSemicolonKeyword_5_3());
+    	newLeafNode(otherlv_18, grammarAccess.getApplicationAccess().getSemicolonKeyword_5_5());
     }
-)?(	otherlv_15='Criticality level' 
+)?(	otherlv_19='Criticality' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getApplicationAccess().getCriticalityLevelKeyword_6_0());
+    	newLeafNode(otherlv_19, grammarAccess.getApplicationAccess().getCriticalityKeyword_6_0());
     }
-	otherlv_16='=' 
+	otherlv_20='level' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getApplicationAccess().getEqualsSignKeyword_6_1());
+    	newLeafNode(otherlv_20, grammarAccess.getApplicationAccess().getLevelKeyword_6_1());
+    }
+	otherlv_21='=' 
+    {
+    	newLeafNode(otherlv_21, grammarAccess.getApplicationAccess().getEqualsSignKeyword_6_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getApplicationAccess().getCriticalityLevelDesignAssuranceLevelTypeEnumRuleCall_6_2_0()); 
+	        newCompositeNode(grammarAccess.getApplicationAccess().getCriticalityLevelDesignAssuranceLevelTypeEnumRuleCall_6_3_0()); 
 	    }
-		lv_criticalityLevel_17_0=ruleDesignAssuranceLevelType		{
+		lv_criticalityLevel_22_0=ruleDesignAssuranceLevelType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getApplicationRule());
 	        }
        		set(
        			$current, 
        			"criticalityLevel",
-        		lv_criticalityLevel_17_0, 
-        		"DesignAssuranceLevelType");
+        		lv_criticalityLevel_22_0, 
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.DesignAssuranceLevelType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_18=';' 
+)	otherlv_23=';' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getApplicationAccess().getSemicolonKeyword_6_3());
+    	newLeafNode(otherlv_23, grammarAccess.getApplicationAccess().getSemicolonKeyword_6_4());
     }
-)?(	otherlv_19='Required IO protection' 
+)?(	otherlv_24='Required' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getApplicationAccess().getRequiredIOProtectionKeyword_7_0());
+    	newLeafNode(otherlv_24, grammarAccess.getApplicationAccess().getRequiredKeyword_7_0());
     }
-	otherlv_20='=' 
+	otherlv_25='IO' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getApplicationAccess().getEqualsSignKeyword_7_1());
+    	newLeafNode(otherlv_25, grammarAccess.getApplicationAccess().getIOKeyword_7_1());
+    }
+	otherlv_26='protection' 
+    {
+    	newLeafNode(otherlv_26, grammarAccess.getApplicationAccess().getProtectionKeyword_7_2());
+    }
+	otherlv_27='=' 
+    {
+    	newLeafNode(otherlv_27, grammarAccess.getApplicationAccess().getEqualsSignKeyword_7_3());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getApplicationAccess().getIoAdapterProtectionLevelIOAdapterProtectionLevelTypeEnumRuleCall_7_2_0()); 
+	        newCompositeNode(grammarAccess.getApplicationAccess().getIoAdapterProtectionLevelIOAdapterProtectionLevelTypeEnumRuleCall_7_4_0()); 
 	    }
-		lv_ioAdapterProtectionLevel_21_0=ruleIOAdapterProtectionLevelType		{
+		lv_ioAdapterProtectionLevel_28_0=ruleIOAdapterProtectionLevelType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getApplicationRule());
 	        }
        		set(
        			$current, 
        			"ioAdapterProtectionLevel",
-        		lv_ioAdapterProtectionLevel_21_0, 
-        		"IOAdapterProtectionLevelType");
+        		lv_ioAdapterProtectionLevel_28_0, 
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.IOAdapterProtectionLevelType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_22=';' 
+)	otherlv_29=';' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getApplicationAccess().getSemicolonKeyword_7_3());
+    	newLeafNode(otherlv_29, grammarAccess.getApplicationAccess().getSemicolonKeyword_7_5());
     }
-)?(	otherlv_23='Identical parallel threads' 
+)?(	otherlv_30='Identical' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getApplicationAccess().getIdenticalParallelThreadsKeyword_8_0());
+    	newLeafNode(otherlv_30, grammarAccess.getApplicationAccess().getIdenticalKeyword_8_0());
     }
-	otherlv_24='=' 
+	otherlv_31='parallel' 
     {
-    	newLeafNode(otherlv_24, grammarAccess.getApplicationAccess().getEqualsSignKeyword_8_1());
+    	newLeafNode(otherlv_31, grammarAccess.getApplicationAccess().getParallelKeyword_8_1());
+    }
+	otherlv_32='threads' 
+    {
+    	newLeafNode(otherlv_32, grammarAccess.getApplicationAccess().getThreadsKeyword_8_2());
+    }
+	otherlv_33='=' 
+    {
+    	newLeafNode(otherlv_33, grammarAccess.getApplicationAccess().getEqualsSignKeyword_8_3());
     }
 (
 (
-		lv_parallelThreads_25_0=RULE_INT
+		lv_parallelThreads_34_0=RULE_INT
 		{
-			newLeafNode(lv_parallelThreads_25_0, grammarAccess.getApplicationAccess().getParallelThreadsINTTerminalRuleCall_8_2_0()); 
+			newLeafNode(lv_parallelThreads_34_0, grammarAccess.getApplicationAccess().getParallelThreadsINTTerminalRuleCall_8_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1949,28 +1985,28 @@ ruleApplication returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"parallelThreads",
-        		lv_parallelThreads_25_0, 
-        		"INT");
+        		lv_parallelThreads_34_0, 
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
-)	otherlv_26=';' 
+)	otherlv_35=';' 
     {
-    	newLeafNode(otherlv_26, grammarAccess.getApplicationAccess().getSemicolonKeyword_8_3());
+    	newLeafNode(otherlv_35, grammarAccess.getApplicationAccess().getSemicolonKeyword_8_5());
     }
-)?(	otherlv_27='Developed by' 
+)?(	otherlv_36='Developer' 
     {
-    	newLeafNode(otherlv_27, grammarAccess.getApplicationAccess().getDevelopedByKeyword_9_0());
+    	newLeafNode(otherlv_36, grammarAccess.getApplicationAccess().getDeveloperKeyword_9_0());
     }
-	otherlv_28='=' 
+	otherlv_37='=' 
     {
-    	newLeafNode(otherlv_28, grammarAccess.getApplicationAccess().getEqualsSignKeyword_9_1());
+    	newLeafNode(otherlv_37, grammarAccess.getApplicationAccess().getEqualsSignKeyword_9_1());
     }
 (
 (
-		lv_developedBy_29_0=RULE_STRING
+		lv_developedBy_38_0=RULE_STRING
 		{
-			newLeafNode(lv_developedBy_29_0, grammarAccess.getApplicationAccess().getDevelopedBySTRINGTerminalRuleCall_9_2_0()); 
+			newLeafNode(lv_developedBy_38_0, grammarAccess.getApplicationAccess().getDevelopedBySTRINGTerminalRuleCall_9_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1979,40 +2015,48 @@ ruleApplication returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"developedBy",
-        		lv_developedBy_29_0, 
-        		"STRING");
+        		lv_developedBy_38_0, 
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
-)	otherlv_30=';' 
+)	otherlv_39=';' 
     {
-    	newLeafNode(otherlv_30, grammarAccess.getApplicationAccess().getSemicolonKeyword_9_3());
+    	newLeafNode(otherlv_39, grammarAccess.getApplicationAccess().getSemicolonKeyword_9_3());
     }
 )?(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getApplicationAccess().getIoAdapterRequirementsIOAdapterRequirementParserRuleCall_10_0()); 
 	    }
-		lv_ioAdapterRequirements_31_0=ruleIOAdapterRequirement		{
+		lv_ioAdapterRequirements_40_0=ruleIOAdapterRequirement		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getApplicationRule());
 	        }
        		add(
        			$current, 
        			"ioAdapterRequirements",
-        		lv_ioAdapterRequirements_31_0, 
-        		"IOAdapterRequirement");
+        		lv_ioAdapterRequirements_40_0, 
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.IOAdapterRequirement");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*(	otherlv_32='Restrict deployment to' 
+)*(	otherlv_41='Restrict' 
     {
-    	newLeafNode(otherlv_32, grammarAccess.getApplicationAccess().getRestrictDeploymentToKeyword_11_0());
+    	newLeafNode(otherlv_41, grammarAccess.getApplicationAccess().getRestrictKeyword_11_0());
     }
-	otherlv_33='{' 
+	otherlv_42='deployment' 
     {
-    	newLeafNode(otherlv_33, grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_11_1());
+    	newLeafNode(otherlv_42, grammarAccess.getApplicationAccess().getDeploymentKeyword_11_1());
+    }
+	otherlv_43='to' 
+    {
+    	newLeafNode(otherlv_43, grammarAccess.getApplicationAccess().getToKeyword_11_2());
+    }
+	otherlv_44='{' 
+    {
+    	newLeafNode(otherlv_44, grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_11_3());
     }
 (
 (
@@ -2022,16 +2066,16 @@ ruleApplication returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getApplicationAccess().getRestrictMappingToHardwareElementsHardwareElementCrossReference_11_2_0()); 
+	        newCompositeNode(grammarAccess.getApplicationAccess().getRestrictMappingToHardwareElementsHardwareElementCrossReference_11_4_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_35=',' 
+)(	otherlv_46=',' 
     {
-    	newLeafNode(otherlv_35, grammarAccess.getApplicationAccess().getCommaKeyword_11_3_0());
+    	newLeafNode(otherlv_46, grammarAccess.getApplicationAccess().getCommaKeyword_11_5_0());
     }
 (
 (
@@ -2041,54 +2085,54 @@ ruleApplication returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getApplicationAccess().getRestrictMappingToHardwareElementsHardwareElementCrossReference_11_3_1_0()); 
+	        newCompositeNode(grammarAccess.getApplicationAccess().getRestrictMappingToHardwareElementsHardwareElementCrossReference_11_5_1_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_37='}' 
+))*	otherlv_48='}' 
     {
-    	newLeafNode(otherlv_37, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_11_4());
+    	newLeafNode(otherlv_48, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_11_6());
     }
-	otherlv_38=';' 
+	otherlv_49=';' 
     {
-    	newLeafNode(otherlv_38, grammarAccess.getApplicationAccess().getSemicolonKeyword_11_5());
+    	newLeafNode(otherlv_49, grammarAccess.getApplicationAccess().getSemicolonKeyword_11_7());
     }
-)?(	otherlv_39='Generic properties' 
+)?(	otherlv_50='Properties' 
     {
-    	newLeafNode(otherlv_39, grammarAccess.getApplicationAccess().getGenericPropertiesKeyword_12_0());
+    	newLeafNode(otherlv_50, grammarAccess.getApplicationAccess().getPropertiesKeyword_12_0());
     }
-	otherlv_40='{' 
+	otherlv_51='{' 
     {
-    	newLeafNode(otherlv_40, grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_12_1());
+    	newLeafNode(otherlv_51, grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_12_1());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getApplicationAccess().getMetricParametersMetricParameterParserRuleCall_12_2_0()); 
 	    }
-		lv_metricParameters_41_0=ruleMetricParameter		{
+		lv_metricParameters_52_0=ruleMetricParameter		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getApplicationRule());
 	        }
        		add(
        			$current, 
        			"metricParameters",
-        		lv_metricParameters_41_0, 
-        		"MetricParameter");
+        		lv_metricParameters_52_0, 
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.MetricParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_42='}' 
+)*	otherlv_53='}' 
     {
-    	newLeafNode(otherlv_42, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_12_3());
+    	newLeafNode(otherlv_53, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_12_3());
     }
-)?	otherlv_43='}' 
+)?	otherlv_54='}' 
     {
-    	newLeafNode(otherlv_43, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_13());
+    	newLeafNode(otherlv_54, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_13());
     }
 )
 ;
@@ -2129,7 +2173,7 @@ ruleIOAdapterRequirement returns [EObject current=null]
        			$current, 
        			"requiredAdapterCount",
         		lv_requiredAdapterCount_1_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -2146,7 +2190,7 @@ ruleIOAdapterRequirement returns [EObject current=null]
        			$current, 
        			"adapterType",
         		lv_adapterType_2_0, 
-        		"IOAdapterType");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.IOAdapterType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2241,31 +2285,39 @@ ruleDislocalityRelation returns [EObject current=null]
 	}
 
 )
-))*	otherlv_3='dislocal up to' 
+))*	otherlv_3='dislocal' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getDislocalityRelationAccess().getDislocalUpToKeyword_2());
+    	newLeafNode(otherlv_3, grammarAccess.getDislocalityRelationAccess().getDislocalKeyword_2());
+    }
+	otherlv_4='up' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getDislocalityRelationAccess().getUpKeyword_3());
+    }
+	otherlv_5='to' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getDislocalityRelationAccess().getToKeyword_4());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDislocalityRelationAccess().getHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getDislocalityRelationAccess().getHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_5_0()); 
 	    }
-		lv_hardwareLevel_4_0=ruleHardwareArchitectureLevelType		{
+		lv_hardwareLevel_6_0=ruleHardwareArchitectureLevelType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDislocalityRelationRule());
 	        }
        		set(
        			$current, 
        			"hardwareLevel",
-        		lv_hardwareLevel_4_0, 
-        		"HardwareArchitectureLevelType");
+        		lv_hardwareLevel_6_0, 
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.HardwareArchitectureLevelType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_5=';' 
+)	otherlv_7=';' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getDislocalityRelationAccess().getSemicolonKeyword_4());
+    	newLeafNode(otherlv_7, grammarAccess.getDislocalityRelationAccess().getSemicolonKeyword_6());
     }
 )
 ;
@@ -2318,31 +2370,35 @@ ruleProximityRelation returns [EObject current=null]
 	}
 
 )
-))*	otherlv_3='on same' 
+))*	otherlv_3='on' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getProximityRelationAccess().getOnSameKeyword_2());
+    	newLeafNode(otherlv_3, grammarAccess.getProximityRelationAccess().getOnKeyword_2());
+    }
+	otherlv_4='same' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getProximityRelationAccess().getSameKeyword_3());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProximityRelationAccess().getHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getProximityRelationAccess().getHardwareLevelHardwareArchitectureLevelTypeEnumRuleCall_4_0()); 
 	    }
-		lv_hardwareLevel_4_0=ruleHardwareArchitectureLevelType		{
+		lv_hardwareLevel_5_0=ruleHardwareArchitectureLevelType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProximityRelationRule());
 	        }
        		set(
        			$current, 
        			"hardwareLevel",
-        		lv_hardwareLevel_4_0, 
-        		"HardwareArchitectureLevelType");
+        		lv_hardwareLevel_5_0, 
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.HardwareArchitectureLevelType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_5=';' 
+)	otherlv_6=';' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getProximityRelationAccess().getSemicolonKeyword_4());
+    	newLeafNode(otherlv_6, grammarAccess.getProximityRelationAccess().getSemicolonKeyword_5());
     }
 )
 ;
@@ -2413,7 +2469,7 @@ ruleCommunicationRelation returns [EObject current=null]
        			$current, 
        			"bandwidthUtilization",
         		lv_bandwidthUtilization_4_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -2476,31 +2532,39 @@ ruleDissimilarityRelation returns [EObject current=null]
 	}
 
 )
-))+	otherlv_3='dissimilar based on' 
+))+	otherlv_3='dissimilar' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getDissimilarityRelationAccess().getDissimilarBasedOnKeyword_2());
+    	newLeafNode(otherlv_3, grammarAccess.getDissimilarityRelationAccess().getDissimilarKeyword_2());
+    }
+	otherlv_4='based' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getDissimilarityRelationAccess().getBasedKeyword_3());
+    }
+	otherlv_5='on' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getDissimilarityRelationAccess().getOnKeyword_4());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDissimilarityRelationAccess().getDissimilarityClauseDissimilarityClauseParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getDissimilarityRelationAccess().getDissimilarityClauseDissimilarityClauseParserRuleCall_5_0()); 
 	    }
-		lv_dissimilarityClause_4_0=ruleDissimilarityClause		{
+		lv_dissimilarityClause_6_0=ruleDissimilarityClause		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDissimilarityRelationRule());
 	        }
        		set(
        			$current, 
        			"dissimilarityClause",
-        		lv_dissimilarityClause_4_0, 
-        		"DissimilarityClause");
+        		lv_dissimilarityClause_6_0, 
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.DissimilarityClause");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_5=';' 
+)	otherlv_7=';' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getDissimilarityRelationAccess().getSemicolonKeyword_4());
+    	newLeafNode(otherlv_7, grammarAccess.getDissimilarityRelationAccess().getSemicolonKeyword_6());
     }
 )
 ;
@@ -2594,7 +2658,7 @@ ruleDissimilarityDisjunction returns [EObject current=null]
        			$current, 
        			"dissimilarityClauses",
         		lv_dissimilarityClauses_0_0, 
-        		"DissimilarityClause");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.DissimilarityClause");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2616,7 +2680,7 @@ ruleDissimilarityDisjunction returns [EObject current=null]
        			$current, 
        			"dissimilarityClauses",
         		lv_dissimilarityClauses_2_0, 
-        		"DissimilarityClause");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.DissimilarityClause");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2655,7 +2719,7 @@ ruleDissimilarityConjunction returns [EObject current=null]
        			$current, 
        			"dissimilarityClauses",
         		lv_dissimilarityClauses_0_0, 
-        		"DissimilarityClause");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.DissimilarityClause");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2677,7 +2741,7 @@ ruleDissimilarityConjunction returns [EObject current=null]
        			$current, 
        			"dissimilarityClauses",
         		lv_dissimilarityClauses_2_0, 
-        		"DissimilarityClause");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.DissimilarityClause");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2720,7 +2784,7 @@ ruleDissimilarityEntry returns [EObject current=null]
        			$current, 
        			"compartmentAttribute",
         		lv_compartmentAttribute_1_0, 
-        		"CompartmentAttributes");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.CompartmentAttributes");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2743,7 +2807,7 @@ ruleDissimilarityEntry returns [EObject current=null]
        			$current, 
        			"boxAttribute",
         		lv_boxAttribute_3_0, 
-        		"BoxAttributes");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.BoxAttributes");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2766,7 +2830,7 @@ ruleDissimilarityEntry returns [EObject current=null]
        			$current, 
        			"boardAttribute",
         		lv_boardAttribute_5_0, 
-        		"BoardAttributes");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.BoardAttributes");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2789,7 +2853,7 @@ ruleDissimilarityEntry returns [EObject current=null]
        			$current, 
        			"processorAttribute",
         		lv_processorAttribute_7_0, 
-        		"ProcessorAttributes");
+        		"ch.hilbri.assist.mappingdsl.MappingDSL.ProcessorAttributes");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2829,7 +2893,7 @@ ruleMetricParameter returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -2851,7 +2915,7 @@ ruleMetricParameter returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_2_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )

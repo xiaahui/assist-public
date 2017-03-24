@@ -25,17 +25,15 @@ import ch.hilbri.assist.datamodel.model.Processor;
 import ch.hilbri.assist.datamodel.model.ProximityRelation;
 import ch.hilbri.assist.mappingdsl.services.MappingDSLGrammarAccess;
 import com.google.inject.Inject;
-import com.google.inject.Provider;
+import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.xtext.Action;
+import org.eclipse.xtext.Parameter;
+import org.eclipse.xtext.ParserRule;
+import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
-import org.eclipse.xtext.serializer.diagnostic.ISemanticSequencerDiagnosticProvider;
-import org.eclipse.xtext.serializer.diagnostic.ISerializationDiagnostic.Acceptor;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.GenericSequencer;
-import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEObjectProvider;
-import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
@@ -45,8 +43,13 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	private MappingDSLGrammarAccess grammarAccess;
 	
 	@Override
-	public void createSequence(EObject context, EObject semanticObject) {
-		if(semanticObject.eClass().getEPackage() == ModelPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+	public void sequence(ISerializationContext context, EObject semanticObject) {
+		EPackage epackage = semanticObject.eClass().getEPackage();
+		ParserRule rule = context.getParserRule();
+		Action action = context.getAssignedAction();
+		Set<Parameter> parameters = context.getEnabledBooleanParameters();
+		if (epackage == ModelPackage.eINSTANCE)
+			switch (semanticObject.eClass().getClassifierID()) {
 			case ModelPackage.APPLICATION:
 				sequence_Application(context, (Application) semanticObject); 
 				return; 
@@ -105,19 +108,26 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 				sequence_ProximityRelation(context, (ProximityRelation) semanticObject); 
 				return; 
 			}
-		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
+		if (errorAcceptor != null)
+			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
 	
 	/**
+	 * Contexts:
+	 *     ApplicationGroup returns ApplicationGroup
+	 *
 	 * Constraint:
 	 *     (name=ID applicationsOrGroups+=[ApplicationOrApplicationGroup|ID] applicationsOrGroups+=[ApplicationOrApplicationGroup|ID]+)
 	 */
-	protected void sequence_ApplicationGroup(EObject context, ApplicationGroup semanticObject) {
+	protected void sequence_ApplicationGroup(ISerializationContext context, ApplicationGroup semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Application returns Application
+	 *
 	 * Constraint:
 	 *     (
 	 *         name=ID 
@@ -133,12 +143,15 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         metricParameters+=MetricParameter*
 	 *     )
 	 */
-	protected void sequence_Application(EObject context, Application semanticObject) {
+	protected void sequence_Application(ISerializationContext context, Application semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     AssistModel returns AssistModel
+	 *
 	 * Constraint:
 	 *     (
 	 *         systemName=STRING 
@@ -146,20 +159,22 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         networks+=Network* 
 	 *         applications+=Application+ 
 	 *         applicationGroups+=ApplicationGroup* 
-	 *         (
-	 *             dissimilarityRelations+=DissimilarityRelation* 
-	 *             dislocalityRelations+=DislocalityRelation* 
-	 *             proximityRelations+=ProximityRelation* 
-	 *             communicationRelations+=CommunicationRelation*
-	 *         )?
+	 *         dissimilarityRelations+=DissimilarityRelation* 
+	 *         dislocalityRelations+=DislocalityRelation* 
+	 *         proximityRelations+=ProximityRelation* 
+	 *         communicationRelations+=CommunicationRelation*
 	 *     )
 	 */
-	protected void sequence_AssistModel(EObject context, AssistModel semanticObject) {
+	protected void sequence_AssistModel(ISerializationContext context, AssistModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     HardwareElementContainer returns Board
+	 *     Board returns Board
+	 *
 	 * Constraint:
 	 *     (
 	 *         name=ID 
@@ -176,30 +191,41 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         metricParameters+=MetricParameter*
 	 *     )
 	 */
-	protected void sequence_Board(EObject context, Board semanticObject) {
+	protected void sequence_Board(ISerializationContext context, Board semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     HardwareElementContainer returns Box
+	 *     Box returns Box
+	 *
 	 * Constraint:
 	 *     (name=ID manufacturer=STRING? boards+=Board+ metricParameters+=MetricParameter*)
 	 */
-	protected void sequence_Box(EObject context, Box semanticObject) {
+	protected void sequence_Box(ISerializationContext context, Box semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     CommunicationRelation returns CommunicationRelation
+	 *
 	 * Constraint:
 	 *     (applicationsOrGroups+=[ApplicationOrApplicationGroup|ID] applicationsOrGroups+=[ApplicationOrApplicationGroup|ID]* bandwidthUtilization=INT)
 	 */
-	protected void sequence_CommunicationRelation(EObject context, CommunicationRelation semanticObject) {
+	protected void sequence_CommunicationRelation(ISerializationContext context, CommunicationRelation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     HardwareElementContainer returns Compartment
+	 *     Compartment returns Compartment
+	 *
 	 * Constraint:
 	 *     (
 	 *         name=ID 
@@ -211,21 +237,27 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         metricParameters+=MetricParameter*
 	 *     )
 	 */
-	protected void sequence_Compartment(EObject context, Compartment semanticObject) {
+	protected void sequence_Compartment(ISerializationContext context, Compartment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Core returns Core
+	 *
 	 * Constraint:
 	 *     (name=ID capacity=INT? architecture=STRING? metricParameters+=MetricParameter*)
 	 */
-	protected void sequence_Core(EObject context, Core semanticObject) {
+	protected void sequence_Core(ISerializationContext context, Core semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     DislocalityRelation returns DislocalityRelation
+	 *
 	 * Constraint:
 	 *     (
 	 *         applicationsOrGroups+=[ApplicationOrApplicationGroup|ID] 
@@ -233,39 +265,54 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         hardwareLevel=HardwareArchitectureLevelType
 	 *     )
 	 */
-	protected void sequence_DislocalityRelation(EObject context, DislocalityRelation semanticObject) {
+	protected void sequence_DislocalityRelation(ISerializationContext context, DislocalityRelation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     DissimilarityClause returns DissimilarityConjunction
+	 *     DissimilarityConjunction returns DissimilarityConjunction
+	 *
 	 * Constraint:
 	 *     (dissimilarityClauses+=DissimilarityClause dissimilarityClauses+=DissimilarityClause+)
 	 */
-	protected void sequence_DissimilarityConjunction(EObject context, DissimilarityConjunction semanticObject) {
+	protected void sequence_DissimilarityConjunction(ISerializationContext context, DissimilarityConjunction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     DissimilarityClause returns DissimilarityDisjunction
+	 *     DissimilarityDisjunction returns DissimilarityDisjunction
+	 *
 	 * Constraint:
 	 *     (dissimilarityClauses+=DissimilarityClause dissimilarityClauses+=DissimilarityClause+)
 	 */
-	protected void sequence_DissimilarityDisjunction(EObject context, DissimilarityDisjunction semanticObject) {
+	protected void sequence_DissimilarityDisjunction(ISerializationContext context, DissimilarityDisjunction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     DissimilarityClause returns DissimilarityEntry
+	 *     DissimilarityEntry returns DissimilarityEntry
+	 *
 	 * Constraint:
 	 *     (compartmentAttribute=CompartmentAttributes | boxAttribute=BoxAttributes | boardAttribute=BoardAttributes | processorAttribute=ProcessorAttributes)
 	 */
-	protected void sequence_DissimilarityEntry(EObject context, DissimilarityEntry semanticObject) {
+	protected void sequence_DissimilarityEntry(ISerializationContext context, DissimilarityEntry semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     DissimilarityRelation returns DissimilarityRelation
+	 *
 	 * Constraint:
 	 *     (
 	 *         applicationsOrGroups+=[ApplicationOrApplicationGroup|ID] 
@@ -273,42 +320,50 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         dissimilarityClause=DissimilarityClause
 	 *     )
 	 */
-	protected void sequence_DissimilarityRelation(EObject context, DissimilarityRelation semanticObject) {
+	protected void sequence_DissimilarityRelation(ISerializationContext context, DissimilarityRelation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     IOAdapterRequirement returns IOAdapterRequirement
+	 *
 	 * Constraint:
 	 *     (requiredAdapterCount=INT adapterType=IOAdapterType (isExclusiveOnly?='exclusive' | isSharedAllowed?='shared'))
 	 */
-	protected void sequence_IOAdapterRequirement(EObject context, IOAdapterRequirement semanticObject) {
+	protected void sequence_IOAdapterRequirement(ISerializationContext context, IOAdapterRequirement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     IOAdapter returns IOAdapter
+	 *
 	 * Constraint:
 	 *     (adapterType=IOAdapterType totalCount=INT protectionLevel=IOAdapterProtectionLevelType?)
 	 */
-	protected void sequence_IOAdapter(EObject context, IOAdapter semanticObject) {
+	protected void sequence_IOAdapter(ISerializationContext context, IOAdapter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     MetricParameter returns MetricParameter
+	 *
 	 * Constraint:
 	 *     (name=STRING value=INT)
 	 */
-	protected void sequence_MetricParameter(EObject context, MetricParameter semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.METRIC_PARAMETER__NAME) == ValueTransient.YES)
+	protected void sequence_MetricParameter(ISerializationContext context, MetricParameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.METRIC_PARAMETER__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.METRIC_PARAMETER__NAME));
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.METRIC_PARAMETER__VALUE) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, ModelPackage.Literals.METRIC_PARAMETER__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.METRIC_PARAMETER__VALUE));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMetricParameterAccess().getNameSTRINGTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getMetricParameterAccess().getValueINTTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
@@ -316,6 +371,9 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	
 	/**
+	 * Contexts:
+	 *     Network returns Network
+	 *
 	 * Constraint:
 	 *     (
 	 *         name=ID 
@@ -326,21 +384,27 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         metricParameters+=MetricParameter*
 	 *     )
 	 */
-	protected void sequence_Network(EObject context, Network semanticObject) {
+	protected void sequence_Network(ISerializationContext context, Network semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Processor returns Processor
+	 *
 	 * Constraint:
 	 *     (name=ID manufacturer=STRING? processorType=STRING? cores+=Core+ metricParameters+=MetricParameter*)
 	 */
-	protected void sequence_Processor(EObject context, Processor semanticObject) {
+	protected void sequence_Processor(ISerializationContext context, Processor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     ProximityRelation returns ProximityRelation
+	 *
 	 * Constraint:
 	 *     (
 	 *         applicationsOrGroups+=[ApplicationOrApplicationGroup|ID] 
@@ -348,7 +412,9 @@ public class MappingDSLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         hardwareLevel=HardwareArchitectureLevelType
 	 *     )
 	 */
-	protected void sequence_ProximityRelation(EObject context, ProximityRelation semanticObject) {
+	protected void sequence_ProximityRelation(ISerializationContext context, ProximityRelation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
+	
+	
 }

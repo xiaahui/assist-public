@@ -8,10 +8,10 @@ import org.eclipse.xtext.junit4.IInjectorProvider;
 import com.google.inject.Injector;
 
 public class MappingDSLUiInjectorProvider implements IInjectorProvider {
-	
+
 	@Override
 	public Injector getInjector() {
 		return ch.hilbri.assist.mappingdsl.ui.internal.MappingDSLActivator.getInstance().getInjector("ch.hilbri.assist.mappingdsl.MappingDSL");
 	}
-	
+
 }

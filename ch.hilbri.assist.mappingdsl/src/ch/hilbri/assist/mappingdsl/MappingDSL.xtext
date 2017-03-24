@@ -4,7 +4,7 @@ import "ch.hilbri.assist.datamodel.model"
 
 AssistModel: 
 	'Global' 	'{' 
-					'System name' '=' systemName=STRING ';' 
+					'System' '=' systemName=STRING ';' 
 	'}'
 
 	'Hardware' 	'{'	
@@ -36,7 +36,7 @@ Compartment:
 		('Side' 					'=' side=STRING ';')?
 		('Zone' 					'=' zone=STRING ';')?
 		(boxes+=Box)+
-		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}'
 ;
 
@@ -45,7 +45,7 @@ Box:
 	'Box' name=ID '{'
 		('Manufacturer' 			'=' manufacturer=STRING ';')?
 		(boards+=Board)+
-		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}'
 ;
 	
@@ -57,11 +57,11 @@ Board:
 	    ('DesignAssuranceLevel' 	'=' assuranceLevel=DesignAssuranceLevelType';')?
 	    ('Side'						'=' side=STRING ';')?
 	    ('ESS'						'=' ess=STRING ';')?
-		('RAM capacity'  			'=' ramCapacity=INT ';')?
-		('ROM capacity'  			'=' romCapacity=INT ';')?
+		('RAM'  					'=' ramCapacity=INT ';')?
+		('ROM'  					'=' romCapacity=INT ';')?
 		(processors+=Processor)+
 		(ioAdapters+=IOAdapter)*
-		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}'
 ;
 
@@ -70,18 +70,18 @@ Processor:
 	    ('Manufacturer' 			'=' manufacturer=STRING ';')?
 	    ('Type'         			'=' processorType=STRING ';')?
 		(cores+=Core)+
-		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+		('Properties' '{'		(metricParameters+=MetricParameter)* '}')?
 	'}';
 
 Core:
 	'Core' name=ID '{' 
 		('Capacity' 					'=' capacity=INT ';')?
 		('Architecture' 				'=' architecture=STRING ';')?
-		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}';
 
 IOAdapter:
-	'I/O adapter' '{' 	
+	'Adapter' '{' 	
 	 				 'type' '=' adapterType=IOAdapterType ';'
 	 				'count' '=' totalCount=INT ';'
 					 ('protection-level' '=' protectionLevel=IOAdapterProtectionLevelType ';')?
@@ -92,7 +92,7 @@ Network:
 	'Network' name=ID '{'
 		'Bandwidth' 				'=' bandwidthCapacity=INT ';'
 		'Connects' boards+=[Board|QualifiedName] ',' boards+=[Board|QualifiedName] (',' boards+=[Board|QualifiedName])* ';'
-		('Generic properties' '{'	(metricParameters+=MetricParameter)* '}')?
+		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}';
 
 /* SOFTWARE */
@@ -104,15 +104,15 @@ ApplicationGroup:
 Application:
 	'Application' name=ID '{'
 		('Core-utilization' 			'=' coreUtilization=INT ';')? 
- 		('Required RAM capacity' 		'=' ramUtilization=INT ';')? 
-		('Required ROM capacity' 		'=' romUtilization=INT ';')? 
-	    ('Criticality level' 			'=' criticalityLevel=DesignAssuranceLevelType ';')?
-	    ('Required IO protection' 		'=' ioAdapterProtectionLevel=IOAdapterProtectionLevelType ';')?
-		('Identical parallel threads' 	'=' parallelThreads=INT ';')?
-		('Developed by' 				'=' developedBy=STRING ';')?
+ 		('Required' 'RAM' 'capacity' 		'=' ramUtilization=INT ';')? 
+		('Required' 'ROM' 'capacity' 		'=' romUtilization=INT ';')? 
+	    ('Criticality' 'level' 			'=' criticalityLevel=DesignAssuranceLevelType ';')?
+	    ('Required' 'IO' 'protection' 		'=' ioAdapterProtectionLevel=IOAdapterProtectionLevelType ';')?
+		('Identical' 'parallel' 'threads' 	'=' parallelThreads=INT ';')?
+		('Developer'		 				'=' developedBy=STRING ';')?
 		(ioAdapterRequirements+=IOAdapterRequirement)*
-		('Restrict deployment to' 		'{' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* '}' ';')? 
-		('Generic properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
+		('Restrict' 'deployment' 'to' 		'{' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* '}' ';')? 
+		('Properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
 	'}';
 
 IOAdapterRequirement: 
@@ -125,17 +125,17 @@ IOAdapterRequirement:
 /* RELATIONEN */
 
 DislocalityRelation:
-	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'dislocal up to' hardwareLevel=HardwareArchitectureLevelType ';';
+	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
 	
 ProximityRelation:
-	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'on same' hardwareLevel=HardwareArchitectureLevelType ';'; 
+	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'on' 'same' hardwareLevel=HardwareArchitectureLevelType ';'; 
 
 CommunicationRelation: 
 	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'require' bandwidthUtilization=INT 'bandwidth' ';';
 	
 DissimilarityRelation: 
 	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
-	'dissimilar based on'
+	'dissimilar' 'based' 'on'
 	dissimilarityClause=DissimilarityClause ';'
 ;
 
