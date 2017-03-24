@@ -25,6 +25,3 @@
 [submodule "ch.hilbri.assist.libraries.cpprof-java/java-integration"]
 	path = ch.hilbri.assist.libraries.cpprof-java/java-integration
 	url = https://github.com/cp-profiler/java-integration.git
-[submodule "ch.hilbri.assist.libraries.protobuf/protobuf"]
-	path = ch.hilbri.assist.libraries.protobuf/protobuf
-	url = https://github.com/google/protobuf.git
