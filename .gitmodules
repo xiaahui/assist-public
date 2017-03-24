@@ -28,3 +28,6 @@
 [submodule "ch.hilbri.assist.libraries.cutoffseq/cutoffseq"]
 	path = ch.hilbri.assist.libraries.cutoffseq/cutoffseq
 	url = https://github.com/chocoteam/cutoffseq.git
+[submodule "ch.hilbri.assist.libraries.cpprof-java/java-integration"]
+	path = ch.hilbri.assist.libraries.cpprof-java/java-integration
+	url = https://github.com/cp-profiler/java-integration.git
