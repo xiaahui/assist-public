@@ -1,6 +1,5 @@
 package ch.hilbri.assist.mapping.solver.monitors
 
-import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.constraints.^extension.Tuples
 import org.chocosolver.solver.search.loop.monitors.IMonitorSolution
 import org.chocosolver.solver.variables.IntVar
@@ -28,7 +27,7 @@ class SolutionFoundMonitor implements IMonitorSolution {
 			tuples.add(vars.map[it.LB])
 			
 			// post a constraint to forbid this solutions during a restart
-			vars.get(0).solver.post(ICF.table(vars, tuples, "FC")) // FC was the only algo working properly
+//			vars.get(0).solver.post(ICF.table(vars, tuples, "FC")) // FC was the only algo working properly
 		}
 	}
 	

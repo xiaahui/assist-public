@@ -7,11 +7,9 @@ import ch.hilbri.assist.mapping.solver.exceptions.InsufficientTotalROMException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
-import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
-import org.chocosolver.solver.variables.VF
 
 class ROMUtilizationConstraint extends AbstractMappingConstraint {
 	
@@ -32,7 +30,7 @@ class ROMUtilizationConstraint extends AbstractMappingConstraint {
 		}
 		
 		/* Create a set of variables - for each thread a variable which contains the ROM capacities of all cores	 */
-		val IntVar[] romCapacities = model.allThreads.map[VF.enumerated("RomCap", allRomCapacities.sort, solver)]
+//		val IntVar[] romCapacities = model.allThreads.map[VF.enumerated("RomCap", allRomCapacities.sort, solver)]
 		
 		/* **** Preparing the constraints **** */	 
 		
@@ -53,17 +51,17 @@ class ROMUtilizationConstraint extends AbstractMappingConstraint {
 			/* To which board can we map this thread? */
 			val threadLocationsBoardLevelVar = solverVariables.getThreadLocationVariable(thread, HardwareArchitectureLevelType.BOARD_VALUE)
 			
-			/* Which rom capacities are still available to use for the mapping of a thread? */
-			val threadAvailableRomCapacitiesVar = romCapacities.get(model.allThreads.indexOf(thread))
+//			/* Which rom capacities are still available to use for the mapping of a thread? */
+//			val threadAvailableRomCapacitiesVar = romCapacities.get(model.allThreads.indexOf(thread))
+//			
+//			/* Link locations and available rom capacities */
+//			solver.post(ICF.element(threadAvailableRomCapacitiesVar, allRomCapacities, threadLocationsBoardLevelVar))
+//			
+//			/* Impose that the rom capacity of the board must be greater than the required capacity of the thread */
+//			solver.post(ICF.arithm(threadAvailableRomCapacitiesVar, ">=", thread.application.romUtilization))
 			
-			/* Link locations and available rom capacities */
-			solver.post(ICF.element(threadAvailableRomCapacitiesVar, allRomCapacities, threadLocationsBoardLevelVar))
-			
-			/* Impose that the rom capacity of the board must be greater than the required capacity of the thread */
-			solver.post(ICF.arithm(threadAvailableRomCapacitiesVar, ">=", thread.application.romUtilization))
-			
-			try { solver.propagate }
-			catch (ContradictionException e) { throw new BasicConstraintsException(this)}
+//			try { solver.propagate }
+//			catch (ContradictionException e) { throw new BasicConstraintsException(this)}
 		}
 		
 		/*
@@ -75,21 +73,21 @@ class ROMUtilizationConstraint extends AbstractMappingConstraint {
 			val factorList = new ArrayList<BoolVar>
 			val utilizationList = new ArrayList<Integer>()
 			
-			for (thread : model.allThreads) {
-
-				val threadLocationsBoardLevel 	= solverVariables.getThreadLocationVariable(thread, HardwareArchitectureLevelType.BOARD_VALUE)
-				val delta 						= VF.bool("d-" + thread.name + "-" + board.name, solver)   // is this thread being deployed to this board?
-				val constraint 					= ICF.arithm(threadLocationsBoardLevel, "=", model.allBoards.indexOf(board))
-				constraint.reifyWith(delta) 		
-			
-				factorList.add(delta)
-				utilizationList.add(thread.application.romUtilization)				
-			}
-			
-			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteRomUtilizationVariable(board)))
-			
-			try { solver.propagate }
-			catch (ContradictionException e) { throw new BasicConstraintsException(this)}		
+//			for (thread : model.allThreads) {
+//
+//				val threadLocationsBoardLevel 	= solverVariables.getThreadLocationVariable(thread, HardwareArchitectureLevelType.BOARD_VALUE)
+//				val delta 						= VF.bool("d-" + thread.name + "-" + board.name, solver)   // is this thread being deployed to this board?
+//				val constraint 					= ICF.arithm(threadLocationsBoardLevel, "=", model.allBoards.indexOf(board))
+//				constraint.reifyWith(delta) 		
+//			
+//				factorList.add(delta)
+//				utilizationList.add(thread.application.romUtilization)				
+//			}
+//			
+//			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteRomUtilizationVariable(board)))
+//			
+//			try { solver.propagate }
+//			catch (ContradictionException e) { throw new BasicConstraintsException(this)}		
 		}
 		
 		propagate()

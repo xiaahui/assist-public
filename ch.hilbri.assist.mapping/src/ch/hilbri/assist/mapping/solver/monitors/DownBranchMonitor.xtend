@@ -24,23 +24,23 @@ class DownBranchMonitor implements IMonitorDownBranch {
 		
 		/* Only report progress if it actually changes by at least 1% */
 		if (Math.abs(currentProgress - bestProgress) >= 1) {
-			logger.info('''Search progress: «String::format("%3d", currentProgress)»% of all location variables are instantiated''')
+			logger.info('''Search progress: Â«String::format("%3d", currentProgress)Â»% of all location variables are instantiated''')
 			bestProgress = currentProgress
 		}	
 	}
 	
-	override afterDownLeftBranch() {
-		calculateProgress
-	}
+//	override afterDownLeftBranch() {
+//		calculateProgress
+//	}
 	
-	override afterDownRightBranch() {
-		calculateProgress
-	}
+//	override afterDownRightBranch() {
+//		calculateProgress
+//	}
+//	
+//	override beforeDownLeftBranch() {
+//	}
 	
-	override beforeDownLeftBranch() {
-	}
-	
-	override beforeDownRightBranch() {
-	}
+//	override beforeDownRightBranch() {
+//	}
 	
 }

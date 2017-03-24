@@ -1,6 +1,6 @@
 package ch.hilbri.assist.mapping.analysis.metrics.builtin;
 
-import org.apache.commons.math4.stat.descriptive.DescriptiveStatistics;
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;

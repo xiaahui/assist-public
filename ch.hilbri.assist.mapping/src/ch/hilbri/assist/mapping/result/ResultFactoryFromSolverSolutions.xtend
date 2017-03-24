@@ -19,7 +19,7 @@ import java.util.ArrayList
 import java.util.HashMap
 import java.util.List
 import java.util.Map
-import org.chocosolver.solver.search.solution.Solution
+import org.chocosolver.solver.Solution
 import org.chocosolver.solver.variables.IntVar
 import org.eclipse.emf.ecore.EObject
 

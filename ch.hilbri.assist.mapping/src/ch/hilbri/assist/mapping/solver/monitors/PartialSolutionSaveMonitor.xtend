@@ -38,17 +38,17 @@ class PartialSolutionSaveMonitor implements IMonitorDownBranch {
 		}	
 	}
 	
-	override afterDownLeftBranch() {
-		storePartialResult
-	}
-	
-	override afterDownRightBranch() {
-		storePartialResult
-	}
-	
-	override beforeDownLeftBranch() {
-	}
-	
-	override beforeDownRightBranch() {
-	}
+//	override afterDownLeftBranch() {
+//		storePartialResult
+//	}
+//	
+//	override afterDownRightBranch() {
+//		storePartialResult
+//	}
+//	
+//	override beforeDownLeftBranch() {
+//	}
+//	
+//	override beforeDownRightBranch() {
+//	}
 }

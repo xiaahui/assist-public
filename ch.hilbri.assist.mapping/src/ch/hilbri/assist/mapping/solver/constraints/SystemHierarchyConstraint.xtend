@@ -4,9 +4,7 @@ import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
-import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.constraints.^extension.Tuples
-import org.chocosolver.util.tools.ArrayUtils
 import org.eclipse.emf.ecore.EObject
 
 class SystemHierarchyConstraint extends AbstractMappingConstraint {
@@ -22,7 +20,7 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 		for (var i = 0; i < model.allThreads.size; i++) {
 			val intVar = solverVariables.getThreadLocationVariable(model.allThreads.get(i),
 				HardwareArchitectureLevelType.BOARD_VALUE)
-			solver.post(ICF.boolean_channeling(ArrayUtils.getColumn(boardIndicators, i), intVar, 0));
+//			solver.post(ICF.boolean_channeling(ArrayUtils.getColumn(boardIndicators, i), intVar, 0));
 		}
 
 		// building allowed tuples
@@ -42,7 +40,7 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 		val levels = HardwareArchitectureLevelType.CORE_VALUE .. model.hardwareLevelCount
 		for (t : model.allThreads) {
 			val varList = levels.map(l|solverVariables.getThreadLocationVariable(t, l))
-			solver.post(ICF.table(varList, tuples, ""))
+//			solver.post(ICF.table(varList, tuples, ""))
 		}
 
 		propagate()

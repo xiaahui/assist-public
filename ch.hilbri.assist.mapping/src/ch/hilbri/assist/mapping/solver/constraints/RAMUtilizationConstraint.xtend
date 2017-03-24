@@ -7,11 +7,9 @@ import ch.hilbri.assist.mapping.solver.exceptions.InsufficientTotalRAMException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
-import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
-import org.chocosolver.solver.variables.VF
 
 class RAMUtilizationConstraint extends AbstractMappingConstraint {
 	
@@ -32,7 +30,7 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 		}
 		
 		/* Create a set of variables - for each thread a variable which contains the RAM capacities of all cores	 */
-		val IntVar[] ramCapacities = model.allThreads.map[VF.enumerated("RamCap", allRamCapacities.sort, solver)]
+//		val IntVar[] ramCapacities = model.allThreads.map[VF.enumerated("RamCap", allRamCapacities.sort, solver)]
 		
 		/* **** Preparing the constraints **** */	 
 		
@@ -54,16 +52,16 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 			val threadLocationsBoardLevelVar = solverVariables.getThreadLocationVariable(thread, HardwareArchitectureLevelType.BOARD_VALUE)
 			
 			/* Which ram capacities are still available to use for the mapping of a thread? */
-			val threadAvailableRamCapacitiesVar = ramCapacities.get(model.allThreads.indexOf(thread))
+//			val threadAvailableRamCapacitiesVar = ramCapacities.get(model.allThreads.indexOf(thread))
 			
 			/* Link locations and available ram capacities */
-			solver.post(ICF.element(threadAvailableRamCapacitiesVar, allRamCapacities, threadLocationsBoardLevelVar))
+//			solver.post(ICF.element(threadAvailableRamCapacitiesVar, allRamCapacities, threadLocationsBoardLevelVar))
 			
 			/* Impose that the ram capacity of the board must be greater than the required capacity of the thread */
-			solver.post(ICF.arithm(threadAvailableRamCapacitiesVar, ">=", thread.application.ramUtilization))
+//			solver.post(ICF.arithm(threadAvailableRamCapacitiesVar, ">=", thread.application.ramUtilization))
 			
-			try { solver.propagate }
-			catch (ContradictionException e) { throw new BasicConstraintsException(this)}
+//			try { solver.propagate }
+//			catch (ContradictionException e) { throw new BasicConstraintsException(this)}
 		}
 		
 		/*
@@ -78,18 +76,18 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 			for (thread : model.allThreads) {
 
 				val threadLocationsBoardLevel 	= solverVariables.getThreadLocationVariable(thread, HardwareArchitectureLevelType.BOARD_VALUE)
-				val delta 						= VF.bool("d-" + thread.name + "-" + board.name, solver)   // is this thread being deployed to this board?
-				val constraint 					= ICF.arithm(threadLocationsBoardLevel, "=", model.allBoards.indexOf(board))
-				constraint.reifyWith(delta) 		
+//				val delta 						= VF.bool("d-" + thread.name + "-" + board.name, solver)   // is this thread being deployed to this board?
+//				val constraint 					= ICF.arithm(threadLocationsBoardLevel, "=", model.allBoards.indexOf(board))
+//				constraint.reifyWith(delta) 		
 			
-				factorList.add(delta)
-				utilizationList.add(thread.application.ramUtilization)				
+//				factorList.add(delta)
+//				utilizationList.add(thread.application.ramUtilization)				
 			}
 			
-			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteRamUtilizationVariable(board)))
+//			solver.post(ICF.scalar(factorList, utilizationList, "=", solverVariables.getAbsoluteRamUtilizationVariable(board)))
 			
-			try { solver.propagate }
-			catch (ContradictionException e) { throw new BasicConstraintsException(this)}	
+//			try { solver.propagate }
+//			catch (ContradictionException e) { throw new BasicConstraintsException(this)}	
 		}
 		
 		propagate()

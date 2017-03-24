@@ -7,7 +7,6 @@ import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
-import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 
@@ -65,10 +64,12 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			val varSetForAllDifferentConstraint = createDisjointVariableSets(varList)
 			
 			for (list : varSetForAllDifferentConstraint) {
-				solver.post(ICF.alldifferent(list, "AC"))
+//				solver.post(ICF.alldifferent(list, "AC"))
 			}
 			
-			try { solver.propagate }
+			try { 
+//				solver.propagate
+			}
 			catch (ContradictionException e) {
 				throw new BasicConstraintsException(this)
 			}

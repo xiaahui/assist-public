@@ -63,13 +63,13 @@ public class PropIntValuesUnion extends Propagator<IntVar> {
 				}
 			}
 			if (i == vars.length) {
-				union.removeValue(v, aCause);
+//				union.removeValue(v, aCause);
 			}
 		}
 		for (int i = 1; i < vars.length; i++) {
 			for (int v = vars[i].getLB(); v <= vars[i].getUB(); v = vars[i].nextValue(v)) {
 				if (!union.contains(v)) {
-					vars[i].removeValue(v, aCause);
+//					vars[i].removeValue(v, aCause);
 				}
 			}
 		}

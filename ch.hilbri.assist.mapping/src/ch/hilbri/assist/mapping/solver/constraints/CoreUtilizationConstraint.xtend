@@ -2,11 +2,10 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
-import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 
 class CoreUtilizationConstraint extends AbstractMappingConstraint {
 
@@ -46,10 +45,10 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 		val locationVars = model.allThreads.map[t|
 			solverVariables.getThreadLocationVariable(t, HardwareArchitectureLevelType.CORE_VALUE)]
 		val utilizationVars = model.allCores.map[c|solverVariables.getAbsoluteCoreUtilizationVariable(c)]
-		solver.post(ICF.bin_packing(locationVars, allCoreUtilization, utilizationVars, 0))
+//		solver.post(ICF.bin_packing(locationVars, allCoreUtilization, utilizationVars, 0))
 
 		try {
-			solver.propagate
+//			solver.propagate
 		} catch (ContradictionException e) {
 			throw new BasicConstraintsException(this)
 		}

@@ -7,9 +7,7 @@ import ch.hilbri.assist.datamodel.model.IOAdapterType
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
-import org.chocosolver.solver.constraints.ICF
 import org.chocosolver.solver.exception.ContradictionException
-import org.chocosolver.solver.variables.VF
 
 class IOAdapterConstraint extends AbstractMappingConstraint {
 
@@ -41,29 +39,29 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 			val factorList = solverVariables.getThreadBoardIndicatorVariables().get(bIdx)
 
 			for (type : usedTypes) {
-				for (level : IOAdapterProtectionLevelType.values) {
-
-					// how many adapters does this board have for the type and level
-					val suiteableIOAdapterCountVar = VF.enumerated(
-						"SuiteableIOAdapterCount-" + b.name + "-" + type + "-" + level, 0,
-						b.getSuitableAdapterCount(type, level), solver)
-
-					// how many io requests with the given type and minimum protection level does each thread require?
-					val requestCountForEachThreadWithProtectionLevelAndType = model.allThreads.map[
-						getExclusiveAdapterRequestCount(type, level)]
-
-					// Define the sum to constrain the deployment
-					solver.post(
-						ICF.scalar(factorList, requestCountForEachThreadWithProtectionLevelAndType, "=",
-							suiteableIOAdapterCountVar))
-
-					try {
-						solver.propagate
-					} catch (ContradictionException e) {
-						throw new BasicConstraintsException(this)
-					}
-
-				}
+//				for (level : IOAdapterProtectionLevelType.values) {
+//
+//					// how many adapters does this board have for the type and level
+//					val suiteableIOAdapterCountVar = VF.enumerated(
+//						"SuiteableIOAdapterCount-" + b.name + "-" + type + "-" + level, 0,
+//						b.getSuitableAdapterCount(type, level), solver)
+//
+//					// how many io requests with the given type and minimum protection level does each thread require?
+//					val requestCountForEachThreadWithProtectionLevelAndType = model.allThreads.map[
+//						getExclusiveAdapterRequestCount(type, level)]
+//
+//					// Define the sum to constrain the deployment
+//					solver.post(
+//						ICF.scalar(factorList, requestCountForEachThreadWithProtectionLevelAndType, "=",
+//							suiteableIOAdapterCountVar))
+//
+//					try {
+////						solver.propagate
+//					} catch (ContradictionException e) {
+//						throw new BasicConstraintsException(this)
+//					}
+//
+//				}
 			}
 		}
 
@@ -74,33 +72,33 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 		for (t : model.allThreads) {
 			for (exReq : t.application.ioAdapterRequirements.filter[isIsExclusiveOnly]) {
 
-				// Create a list for each board with the number of suitable adapters which satisfy type and protection level
-				// suiteableAdapterCountPerBoardList[board] = # suiteable adapters w.r.t. type and protection level
-				val suiteableAdapterCountPerBoardList = model.allBoards.map[
-					getSuitableAdapterCount(exReq.adapterType, t.application.ioAdapterProtectionLevel)]
-
-				// Create a new variable with these values as a default domain
-				val suiteableAdapterCountPerBoardVariable = VF.enumerated(
-					"IOVar-" + t.name + "-" + exReq.adapterType + "-" + t.application.ioAdapterProtectionLevel,
-					suiteableAdapterCountPerBoardList.sort, solver)
-
-				/* To which board can we map this thread? */
-				val threadLocationsBoardLevel = solverVariables.getThreadLocationVariable(t,
-					HardwareArchitectureLevelType.BOARD_VALUE)
-
-				// Link the location variables to the adapterCountVariable
-				solver.post(
-					ICF.element(suiteableAdapterCountPerBoardVariable, suiteableAdapterCountPerBoardList,
-						threadLocationsBoardLevel))
-
-				// Impose constraints on the adapterCountVariable
-				solver.post(ICF.arithm(suiteableAdapterCountPerBoardVariable, ">=", exReq.requiredAdapterCount))
-
-				try {
-					solver.propagate
-				} catch (ContradictionException e) {
-					throw new BasicConstraintsException(this)
-				}
+//				// Create a list for each board with the number of suitable adapters which satisfy type and protection level
+//				// suiteableAdapterCountPerBoardList[board] = # suiteable adapters w.r.t. type and protection level
+//				val suiteableAdapterCountPerBoardList = model.allBoards.map[
+//					getSuitableAdapterCount(exReq.adapterType, t.application.ioAdapterProtectionLevel)]
+//
+//				// Create a new variable with these values as a default domain
+//				val suiteableAdapterCountPerBoardVariable = VF.enumerated(
+//					"IOVar-" + t.name + "-" + exReq.adapterType + "-" + t.application.ioAdapterProtectionLevel,
+//					suiteableAdapterCountPerBoardList.sort, solver)
+//
+//				/* To which board can we map this thread? */
+//				val threadLocationsBoardLevel = solverVariables.getThreadLocationVariable(t,
+//					HardwareArchitectureLevelType.BOARD_VALUE)
+//
+//				// Link the location variables to the adapterCountVariable
+//				solver.post(
+//					ICF.element(suiteableAdapterCountPerBoardVariable, suiteableAdapterCountPerBoardList,
+//						threadLocationsBoardLevel))
+//
+//				// Impose constraints on the adapterCountVariable
+//				solver.post(ICF.arithm(suiteableAdapterCountPerBoardVariable, ">=", exReq.requiredAdapterCount))
+//
+//				try {
+//					solver.propagate
+//				} catch (ContradictionException e) {
+//					throw new BasicConstraintsException(this)
+//				}
 			}
 		}
 	}

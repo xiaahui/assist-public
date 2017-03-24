@@ -13,7 +13,6 @@ import java.util.HashMap
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
-import org.chocosolver.solver.variables.VF
 import org.eclipse.xtend.lib.annotations.Data
 
 @Data class SolverVariablesContainer {
@@ -21,7 +20,7 @@ import org.eclipse.xtend.lib.annotations.Data
 	HashMap<Thread, HashMap<Integer, IntVar>> threadLocationVariablesList = new HashMap
 
 	/** A list of location indicator variables for each thread (on the board layer) */
-	BoolVar[][] threadBoardIndicatorVariablesList
+//	BoolVar[][] threadBoardIndicatorVariablesList
 
 	/** A list of variables; a variable for each core which contains the absolute utilization */
 	HashMap<Core, IntVar> absoluteCoreUtilizationList = new HashMap
@@ -47,39 +46,39 @@ import org.eclipse.xtend.lib.annotations.Data
 			val m = new HashMap<Integer, IntVar>
 
 			for (var i = HardwareArchitectureLevelType.CORE_VALUE; i <= model.hardwareLevelCount; i++) {
-
-				/* Create a new location variable for each thread;
-				 * initialize its domain to 0 .. size of hardware elements in this level - 1 */
-				val newVar = VF.enumerated("Loc-" + t.name + "-L" + i, 0, model.getAllHardwareElements(i).size - 1,
-					solver)
-				m.put(i, newVar)
-
-				/* Add this solver variable to the map, so we can find corresponding thread quickly	 */
-				locationVarMap.put(newVar, t)
+//
+//				/* Create a new location variable for each thread;
+//				 * initialize its domain to 0 .. size of hardware elements in this level - 1 */
+//				val newVar = VF.enumerated("Loc-" + t.name + "-L" + i, 0, model.getAllHardwareElements(i).size - 1,
+//					solver)
+//				m.put(i, newVar)
+//
+//				/* Add this solver variable to the map, so we can find corresponding thread quickly	 */
+//				locationVarMap.put(newVar, t)
 			}
 		}
 
 		/* Initialize the board indicator variables */
-		threadBoardIndicatorVariablesList = VF.boolMatrix("d", model.allBoards.size, model.allThreads.size, solver)
+//		threadBoardIndicatorVariablesList = VF.boolMatrix("d", model.allBoards.size, model.allThreads.size, solver)
 
 		/* Initialize the hash map for all utilization variables */
-		for (c : model.allCores)
-			absoluteCoreUtilizationList.put(c, VF.bounded("AbsCoreUtil-" + c.name, 0, c.capacity, solver))
-		for (b : model.allBoards)
-			absoluteRamUtilizationList.put(b, VF.bounded("AbsRamUtil-" + b.name, 0, b.ramCapacity, solver))
-		for (b : model.allBoards)
-			absoluteRomUtilizationList.put(b, VF.bounded("AbsRomUtil-" + b.name, 0, b.romCapacity, solver))
+//		for (c : model.allCores)
+//			absoluteCoreUtilizationList.put(c, VF.bounded("AbsCoreUtil-" + c.name, 0, c.capacity, solver))
+//		for (b : model.allBoards)
+//			absoluteRamUtilizationList.put(b, VF.bounded("AbsRamUtil-" + b.name, 0, b.ramCapacity, solver))
+//		for (b : model.allBoards)
+//			absoluteRomUtilizationList.put(b, VF.bounded("AbsRomUtil-" + b.name, 0, b.romCapacity, solver))
 
-		/* Initialize the hash map for all communication-group-related location variables */
-		if (model.networks.size > 0) {
-			for (r : model.communicationRelations)
-				communicationGroupLocationVariablesList.put(r,
-					VF.enumerated("NetLoc-" + model.communicationRelations.indexOf(r), 0, model.networks.size - 1,
-						solver))
-		}
-
-		for (n : model.networks)
-			absoluteBandwidthUtilizationList.put(n, VF.bounded("AbsBandUtil-" + n.name, 0, n.bandwidthCapacity, solver))
+//		/* Initialize the hash map for all communication-group-related location variables */
+//		if (model.networks.size > 0) {
+//			for (r : model.communicationRelations)
+//				communicationGroupLocationVariablesList.put(r,
+//					VF.enumerated("NetLoc-" + model.communicationRelations.indexOf(r), 0, model.networks.size - 1,
+//						solver))
+//		}
+//
+//		for (n : model.networks)
+//			absoluteBandwidthUtilizationList.put(n, VF.bounded("AbsBandUtil-" + n.name, 0, n.bandwidthCapacity, solver))
 	}
 
 	def IntVar[] getLocationVariables() {
@@ -93,7 +92,8 @@ import org.eclipse.xtend.lib.annotations.Data
 
 	/** Returns the variable list which contains the indicators for the given board */
 	def BoolVar[][] getThreadBoardIndicatorVariables() {
-		return threadBoardIndicatorVariablesList
+//		return threadBoardIndicatorVariablesList
+		return null
 	}
 
 	/** Returns the location variable for a given relation */
