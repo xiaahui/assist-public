@@ -13,3 +13,6 @@
 [submodule "ch.hilbri.assist.libraries.math/commons-math"]
 	path = ch.hilbri.assist.libraries.math/commons-math
 	url = https://github.com/apache/commons-math
+[submodule "ch.hilbri.assist.libraries.choco/choco-solver"]
+	path = ch.hilbri.assist.libraries.choco/choco-solver
+	url = https://github.com/chocoteam/choco-solver.git
