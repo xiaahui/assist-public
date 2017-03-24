@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.choco
 Bundle-SymbolicName: ch.hilbri.assist.libraries.choco
-Bundle-Version: 3.3.1.qualifier
+Bundle-Version: 4.0.2.qualifier
 Require-Bundle: ch.hilbri.assist.libraries.args4j;bundle-version="2.0.21",
  ch.hilbri.assist.libraries.automaton;bundle-version="1.21.8",
  ch.hilbri.assist.libraries.math;bundle-version="3.2.1",
