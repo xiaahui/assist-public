@@ -28,3 +28,6 @@
 [submodule "ch.hilbri.assist.libraries.choco-sat/choco-sat"]
 	path = ch.hilbri.assist.libraries.choco-sat/choco-sat
 	url = https://github.com/chocoteam/choco-sat.git
+[submodule "ch.hilbri.assist.libraries.cutoffseq/cutoffseq"]
+	path = ch.hilbri.assist.libraries.cutoffseq/cutoffseq
+	url = https://github.com/chocoteam/cutoffseq.git
