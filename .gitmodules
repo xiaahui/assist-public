@@ -22,3 +22,6 @@
 [submodule "ch.hilbri.assist.libraries.choco/cp-profiler-java"]
 	path = ch.hilbri.assist.libraries.choco/cp-profiler-java
 	url = https://github.com/cp-profiler/java-integration.git
+[submodule "ch.hilbri.assist.libraries.choco/protobuf"]
+	path = ch.hilbri.assist.libraries.choco/protobuf
+	url = https://github.com/google/protobuf.git
