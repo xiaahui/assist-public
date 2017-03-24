@@ -652,14 +652,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 		boolean result = false;
 		EList<Processor> _processors = this.getProcessors();
 		for (final Processor p : _processors) {
-			boolean _or = false;
-			if (result) {
-				_or = true;
-			} else {
-				boolean _isNotUsed = p.isNotUsed();
-				_or = _isNotUsed;
-			}
-			result = _or;
+			result = (result || p.isNotUsed());
 		}
 		return result;
 	}

@@ -263,14 +263,7 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 		boolean result = false;
 		EList<Core> _cores = this.getCores();
 		for (final Core c : _cores) {
-			boolean _or = false;
-			if (result) {
-				_or = true;
-			} else {
-				boolean _isNotUsed = c.isNotUsed();
-				_or = _isNotUsed;
-			}
-			result = _or;
+			result = (result || c.isNotUsed());
 		}
 		return result;
 	}

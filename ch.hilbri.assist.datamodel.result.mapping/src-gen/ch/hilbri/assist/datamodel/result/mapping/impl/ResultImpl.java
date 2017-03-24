@@ -274,11 +274,9 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			EList<HardwareElement> _rootHardwareElements_1 = this.getRootHardwareElements();
 			HardwareElement _get = _rootHardwareElements_1.get(0);
 			boolean _matched = false;
-			if (!_matched) {
-				if (_get instanceof Compartment) {
-					_matched=true;
-					_switchResult = HardwareArchitectureLevelType.COMPARTMENT;
-				}
+			if (_get instanceof Compartment) {
+				_matched=true;
+				_switchResult = HardwareArchitectureLevelType.COMPARTMENT;
 			}
 			if (!_matched) {
 				if (_get instanceof Box) {
@@ -638,16 +636,14 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 */
 	public HardwareElement findResultHardwareElement(final ch.hilbri.assist.datamodel.model.HardwareElement modelHwElement) {
 		boolean _matched = false;
-		if (!_matched) {
-			if (modelHwElement instanceof ch.hilbri.assist.datamodel.model.Core) {
-				_matched=true;
-				EList<Core> _allCores = this.getAllCores();
-				for (final Core c : _allCores) {
-					ch.hilbri.assist.datamodel.model.HardwareElement _referenceObject = c.getReferenceObject();
-					boolean _equals = Objects.equal(_referenceObject, modelHwElement);
-					if (_equals) {
-						return c;
-					}
+		if (modelHwElement instanceof ch.hilbri.assist.datamodel.model.Core) {
+			_matched=true;
+			EList<Core> _allCores = this.getAllCores();
+			for (final Core c : _allCores) {
+				ch.hilbri.assist.datamodel.model.HardwareElement _referenceObject = c.getReferenceObject();
+				boolean _equals = Objects.equal(_referenceObject, modelHwElement);
+				if (_equals) {
+					return c;
 				}
 			}
 		}

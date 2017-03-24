@@ -10,7 +10,6 @@ import com.google.common.base.Objects;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -157,24 +156,12 @@ public class EvaluationImpl extends MinimalEObjectImpl.Container implements Eval
 	 */
 	public double getTotalScaledScore() {
 		Double _xifexpression = null;
-		boolean _or = false;
-		HashMap<AbstractMetric, Double> _scaledScores = this.getScaledScores();
-		boolean _equals = Objects.equal(_scaledScores, null);
-		if (_equals) {
-			_or = true;
-		} else {
-			HashMap<AbstractMetric, Double> _scaledScores_1 = this.getScaledScores();
-			Set<AbstractMetric> _keySet = _scaledScores_1.keySet();
-			int _size = _keySet.size();
-			boolean _equals_1 = (_size == 0);
-			_or = _equals_1;
-		}
-		if (_or) {
+		if ((Objects.equal(this.getScaledScores(), null) || (this.getScaledScores().keySet().size() == 0))) {
 			return 0.0;
 		}
 		else {
-			HashMap<AbstractMetric, Double> _scaledScores_2 = this.getScaledScores();
-			Collection<Double> _values = _scaledScores_2.values();
+			HashMap<AbstractMetric, Double> _scaledScores = this.getScaledScores();
+			Collection<Double> _values = _scaledScores.values();
 			final Function2<Double, Double, Double> _function = new Function2<Double, Double, Double>() {
 				public Double apply(final Double i1, final Double i2) {
 					return Double.valueOf(DoubleExtensions.operator_plus(i1, i2));
