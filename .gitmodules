@@ -25,3 +25,6 @@
 [submodule "ch.hilbri.assist.libraries.choco/protobuf"]
 	path = ch.hilbri.assist.libraries.choco/protobuf
 	url = https://github.com/google/protobuf.git
+[submodule "ch.hilbri.assist.libraries.choco/protobuffers"]
+	path = ch.hilbri.assist.libraries.choco/protobuffers
+	url = https://github.com/google/protobuf.git
