@@ -3,11 +3,11 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.choco
 Bundle-SymbolicName: ch.hilbri.assist.libraries.choco
 Bundle-Version: 4.0.2.qualifier
-Require-Bundle: ch.hilbri.assist.libraries.args4j;bundle-version="2.0.21",
+Require-Bundle: ch.hilbri.assist.libraries.args4j;bundle-version="2.33.0",
  ch.hilbri.assist.libraries.automaton;bundle-version="1.21.8",
- ch.hilbri.assist.libraries.math;bundle-version="3.2.1",
+ ch.hilbri.assist.libraries.math;bundle-version="3.6.1",
  ch.hilbri.assist.libraries.trove4j;bundle-version="3.0.3";visibility:=reexport,
- ch.hilbri.assist.libraries.jgrapht;bundle-version="0.9.1",
+ ch.hilbri.assist.libraries.jgrapht;bundle-version="1.0.1",
  ch.hilbri.assist.libraries.logback;bundle-version="1.1.2"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
