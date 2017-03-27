@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ASSIST
+Bundle-SymbolicName: ch.hilbri.assist.gui;singleton:=true
+Bundle-Version: 2.1.0.qualifier
+Bundle-Vendor: Robert Hilbrich
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
