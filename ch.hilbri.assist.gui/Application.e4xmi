@@ -1,6 +1,116 @@
 <?xml version="1.0" encoding="ASCII"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_75jaEBLXEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.application">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_Eve48BLYEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.trimmedwindow.main" label="ASSIST Window" x="0" y="0" width="800" height="1024"/>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_75jaEBLXEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.application">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_Eve48BLYEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.trimmedwindow.main" label="ASSIST" x="0" y="0" width="800" height="1024">
+    <children xsi:type="basic:PartSashContainer" xmi:id="_klSiABLaEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partsashcontainer.0" horizontal="true">
+      <children xsi:type="basic:PartSashContainer" xmi:id="_qz1H4BLaEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partsashcontainer.1" containerData="4000">
+        <children xsi:type="basic:PartStack" xmi:id="_8J-7YBLaEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partstack.0">
+          <children xsi:type="basic:Part" xmi:id="_krZ7oBLbEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.part.projectexplorer" label="Project Explorer"/>
+        </children>
+        <children xsi:type="basic:PartStack" xmi:id="_8wDc4BLaEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partstack.1">
+          <children xsi:type="basic:Part" xmi:id="_rFMvQBLbEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.part.modelexplorer" label="Model Explorer"/>
+        </children>
+      </children>
+      <children xsi:type="basic:PartSashContainer" xmi:id="_wroBsBLaEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partsashcontainer.2" containerData="10000">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_-q5Y8BLaEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partsashcontainer.3" containerData="10000" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_TX3-UBLbEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partstack.3">
+            <children xsi:type="basic:Part" xmi:id="_vanQUBLbEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.part.outline" label="Outline"/>
+          </children>
+        </children>
+        <children xsi:type="basic:PartStack" xmi:id="__z6PcBLaEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partstack.2" containerData="2000">
+          <children xsi:type="basic:Part" xmi:id="_tT8ewBLbEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.part.console" label="Console"/>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="_2a0MgBOzEeeXZoKubOdysQ" elementId="org.eclipse.ui.main.menu">
+      <children xsi:type="menu:Menu" xmi:id="_Ds2DQBO0EeeXZoKubOdysQ" elementId="org.eclipse.ui.file.menu" label="File">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_MTsLABO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.newproject" label="New Project" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/newprj_wiz.png" command="_iEtEcBOyEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Skv5YBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.newfolder" label="New Folder" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/newfolder_wiz.png" command="_mBjUgBOyEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_YOlPsBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.newother" label="New ..." command="_-xBe8BOyEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_didkIBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.open" label="Open" command="_gHLdQBOxEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_KoM5kBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.menuseparator.0"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_gL-kEBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.close" label="Close" command="_NS1YABOyEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_qVbgUBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.closeall" label="Close All" command="_ULiVMBOyEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_maDP4BO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.menuseparator.1"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_zxQhkBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.save" label="Save" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/save_edit.png" command="_AqFu0BOyEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_289BgBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.saveas" label="Save As" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/saveas_edit.png" command="_KcBi8BOyEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_5vs18BO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.saveall" label="Save All" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/saveall_edit.png" command="_Ej4q4BOyEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_yXxmIBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.menuseparator.2"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Myc84BO0EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.exit" label="Exit" command="_bAtdQBOyEeeXZoKubOdysQ"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_IB3iwBO0EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.menu.edit" label="Edit">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Sf7d0BRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.undo" label="Undo" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/undo_edit.png" command="_7PmAUBRGEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_WG2hMBRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.redo" label="Redo" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/redo_edit.png" command="_9etjQBRGEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_YVXAIBRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.menuseparator.3"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_ZVmVIBRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.cut" label="Cut" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/cut_edit.png" command="__YyDQBRGEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_bBPXkBRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.copy" label="Copy" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/copy_edit.png" command="_AsGFQBRHEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_c9DkABRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.paste" label="Paste" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/paste_edit.png" command="_CDv0sBRHEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_fqxugBRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.menuseparator.4"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_gBRi8BRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.delete" label="Delete" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/delete_edit.png" command="_KK0pgBRHEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_is2YYBRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.selectAll" label="Select All" command="_MGQbcBRHEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_mGz90BRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.menuseparator.5"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_mbfNUBRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.findreplace" label="Find/Replace" command="_QQ4o0BRHEeeXZoKubOdysQ"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_iTjSIBRJEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.menu.help" label="Help">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_jubUsBRJEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.about" label="About" command="_cE1GEBRJEeeXZoKubOdysQ"/>
+      </children>
+    </mainMenu>
+  </children>
+  <handlers xmi:id="_uPSjQBO4EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.newProject" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.NewProjectHandler" command="_iEtEcBOyEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_y2YDIBO4EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.newFolder" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.NewFolderHandler" command="_mBjUgBOyEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_1nmNkBO4EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.newOther" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.NewOtherHandler" command="_-xBe8BOyEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_4dZWABO4EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.open" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.OpenHandler" command="_gHLdQBOxEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_7BBwYBO4EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.save" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.SaveHandler" command="_AqFu0BOyEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_9UMs4BO4EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.saveAll" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.SaveAllHandler" command="_Ej4q4BOyEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_ANqNUBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.close" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.CloseHandler" command="_NS1YABOyEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_DWrMsBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.closeAll" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.CloseAllHandler" command="_ULiVMBOyEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_wKs5UBOzEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.exit" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.ExitHandler" command="_bAtdQBOyEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_VT-vQBRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.undo" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.UndoHandler" command="_7PmAUBRGEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_XVhJMBRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.redo" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.RedoHandler" command="_9etjQBRGEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_ZAePIBRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.cut" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.CutHandler" command="__YyDQBRGEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_ani6oBRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.copy" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.CopyHandler" command="_AsGFQBRHEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_cQcLEBRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.paste" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.PasterHandler" command="_CDv0sBRHEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_e6kPABRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.delete" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.DeleteHandler" command="_KK0pgBRHEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_gOpGABRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.selectAll" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.SelectAllHandler" command="_MGQbcBRHEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_iYRE8BRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.findreplace" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.FindReplaceHandler" command="_QQ4o0BRHEeeXZoKubOdysQ"/>
+  <handlers xmi:id="_fR--kBRJEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.about" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.AboutHandler" command="_cE1GEBRJEeeXZoKubOdysQ"/>
+  <bindingTables xmi:id="_fCzDkBO7EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.bindingtable.0" bindingContext="_LtOWABO7EeeXZoKubOdysQ">
+    <bindings xmi:id="_k61N8BO7EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.newProject" keySequence="M1+N" command="_iEtEcBOyEeeXZoKubOdysQ"/>
+    <bindings xmi:id="_cdm50BRGEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.save" keySequence="M1+S" command="_AqFu0BOyEeeXZoKubOdysQ"/>
+    <bindings xmi:id="_iyA3IBRGEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.saveAll" keySequence="M1+M2+S" command="_Ej4q4BOyEeeXZoKubOdysQ"/>
+    <bindings xmi:id="_srHDMBRGEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.close" keySequence="M1+W" command="_NS1YABOyEeeXZoKubOdysQ"/>
+    <bindings xmi:id="_vGIUIBRGEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.closeAll" keySequence="M1+M2+W" command="_ULiVMBOyEeeXZoKubOdysQ"/>
+    <bindings xmi:id="_5oN9YBRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.undo" keySequence="M1+Z" command="_7PmAUBRGEeeXZoKubOdysQ"/>
+    <bindings xmi:id="_7SLk0BRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.redo" keySequence="M1+Y" command="_9etjQBRGEeeXZoKubOdysQ"/>
+    <bindings xmi:id="_9fGIUBRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.cut" keySequence="M1+X" command="__YyDQBRGEeeXZoKubOdysQ"/>
+    <bindings xmi:id="__FPmwBRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.copy" keySequence="M1+C" command="_AsGFQBRHEeeXZoKubOdysQ"/>
+    <bindings xmi:id="_A3ckMBRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.paste" keySequence="M1+V" command="_CDv0sBRHEeeXZoKubOdysQ"/>
+    <bindings xmi:id="_EQMBoBRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.delete" keySequence=" DEL" command="_KK0pgBRHEeeXZoKubOdysQ"/>
+    <bindings xmi:id="_Mzam8BRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.selectAll" keySequence="M1+A" command="_MGQbcBRHEeeXZoKubOdysQ"/>
+    <bindings xmi:id="_O2QBYBRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.findreplace" keySequence="M1+F" command="_QQ4o0BRHEeeXZoKubOdysQ"/>
+  </bindingTables>
+  <rootContext xmi:id="_8AG84BO6EeeXZoKubOdysQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="Dialogs and Windows" description="Key bindings valid for dialogs and windows">
+    <children xmi:id="_HJ8_IBO7EeeXZoKubOdysQ" elementId="org.eclipse.ui.contexts.dialog" name="Dialogs only" description="Key bindings valid for dialogs"/>
+    <children xmi:id="_LtOWABO7EeeXZoKubOdysQ" elementId="org.eclipse.ui.contexts.window" name="Windows only" description="Key bindings valid for windows only"/>
+  </rootContext>
+  <commands xmi:id="_iEtEcBOyEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.command.newProject" commandName="New Project"/>
+  <commands xmi:id="_mBjUgBOyEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.command.newFolder" commandName="New Folder"/>
+  <commands xmi:id="_-xBe8BOyEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.command.newOther" commandName="New Other"/>
+  <commands xmi:id="_gHLdQBOxEeeXZoKubOdysQ" elementId="ch.hilbri.assist.command.open" commandName="Open"/>
+  <commands xmi:id="_AqFu0BOyEeeXZoKubOdysQ" elementId="org.eclipse.ui.file.save" commandName="Save"/>
+  <commands xmi:id="_Ej4q4BOyEeeXZoKubOdysQ" elementId="org.eclipse.ui.file.saveAll" commandName="Save All"/>
+  <commands xmi:id="_KcBi8BOyEeeXZoKubOdysQ" elementId="org.eclipse.ui.file.saveAs" commandName="Save As"/>
+  <commands xmi:id="_NS1YABOyEeeXZoKubOdysQ" elementId="org.eclipse.ui.file.close" commandName="Close"/>
+  <commands xmi:id="_ULiVMBOyEeeXZoKubOdysQ" elementId="org.eclipse.ui.file.closeAll" commandName="Close All"/>
+  <commands xmi:id="_bAtdQBOyEeeXZoKubOdysQ" elementId="org.eclipse.ui.file.exit" commandName="Exit"/>
+  <commands xmi:id="_7PmAUBRGEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.command.undo" commandName="Undo"/>
+  <commands xmi:id="_9etjQBRGEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.command.redo" commandName="Redo"/>
+  <commands xmi:id="__YyDQBRGEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.command.cut" commandName="Cut"/>
+  <commands xmi:id="_AsGFQBRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.command.copy" commandName="Copy"/>
+  <commands xmi:id="_CDv0sBRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.command.pase" commandName="Paste"/>
+  <commands xmi:id="_KK0pgBRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.command.delete" commandName="Delete"/>
+  <commands xmi:id="_MGQbcBRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.command.selectAll" commandName="Select All"/>
+  <commands xmi:id="_QQ4o0BRHEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.command.findreplace" commandName="Find/Replace"/>
+  <commands xmi:id="_cE1GEBRJEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.command.about" commandName="About"/>
   <addons xmi:id="_75jaERLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_75jaEhLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_75jaExLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
