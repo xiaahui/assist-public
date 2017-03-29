@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="ASCII"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_75jaEBLXEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.application">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_Eve48BLYEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.trimmedwindow.main" label="ASSIST" x="0" y="0" width="800" height="1024">
-    <children xsi:type="basic:PartSashContainer" xmi:id="_klSiABLaEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partsashcontainer.0" horizontal="true">
-      <children xsi:type="basic:PartSashContainer" xmi:id="_qz1H4BLaEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partsashcontainer.1" containerData="4000">
-        <children xsi:type="basic:PartStack" xmi:id="_8J-7YBLaEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partstack.0">
-          <children xsi:type="basic:Part" xmi:id="_krZ7oBLbEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.part.projectexplorer" label="Project Explorer"/>
-        </children>
-        <children xsi:type="basic:PartStack" xmi:id="_8wDc4BLaEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partstack.1">
-          <children xsi:type="basic:Part" xmi:id="_rFMvQBLbEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.part.modelexplorer" label="Model Explorer"/>
-        </children>
-      </children>
-      <children xsi:type="basic:PartSashContainer" xmi:id="_wroBsBLaEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partsashcontainer.2" containerData="10000">
-        <children xsi:type="basic:PartSashContainer" xmi:id="_-q5Y8BLaEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partsashcontainer.3" containerData="10000" horizontal="true">
-          <children xsi:type="basic:PartStack" xmi:id="_TX3-UBLbEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partstack.3">
-            <children xsi:type="basic:Part" xmi:id="_vanQUBLbEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.part.outline" label="Outline"/>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_75jaEBLXEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.application">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_Eve48BLYEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.trimmedwindow.main" label="ASSIST" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/ASSIST-icon-128x128.png">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_NehnYBRyEee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.perspectivestack.0">
+      <children xsi:type="advanced:Perspective" xmi:id="_OeDxwBRyEee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.perspective" label="ASSIST - Main">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_qXym0BR0Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.partsashcontainer.0" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_u5AIMBR0Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.partsashcontainer.1" containerData="3400">
+            <children xsi:type="basic:PartStack" xmi:id="_3QcUQBR0Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.partstack.navigation" containerData="3400">
+              <children xsi:type="advanced:Placeholder" xmi:id="_6PKvMBR0Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.placeholder.0" ref="_z-MLQBRyEee2Ev2eVUEQ1A"/>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_4jAvYBR0Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.partstack.outline" containerData="3400">
+              <children xsi:type="advanced:Placeholder" xmi:id="__b0aQBR0Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.placeholder.1" ref="_KHMCsBRzEee2Ev2eVUEQ1A"/>
+            </children>
           </children>
-        </children>
-        <children xsi:type="basic:PartStack" xmi:id="__z6PcBLaEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.partstack.2" containerData="2000">
-          <children xsi:type="basic:Part" xmi:id="_tT8ewBLbEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.part.console" label="Console"/>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_wMnFIBR0Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.partsashcontainer.2" containerData="10000">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_MdVIwBR1Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.partsashcontainer.3" containerData="10000" horizontal="true">
+              <children xsi:type="advanced:Placeholder" xmi:id="_SDuwkBR1Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.placeholder.3" containerData="10000" ref="_k418wBRyEee2Ev2eVUEQ1A"/>
+              <children xsi:type="basic:PartStack" xmi:id="_Te7jQBR1Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.partstack.infopart" containerData="3400"/>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_NDHWYBR1Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.partstack.0" containerData="3400">
+              <children xsi:type="advanced:Placeholder" xmi:id="_N4rFYBR1Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.placeholder.2" ref="_-xze0BRyEee2Ev2eVUEQ1A"/>
+              <children xsi:type="advanced:Placeholder" xmi:id="_aQMbsBR1Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.placeholder.4" ref="_cE1CEBR1Eee2Ev2eVUEQ1A"/>
+            </children>
+          </children>
         </children>
       </children>
     </children>
@@ -54,6 +58,14 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_jubUsBRJEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.about" label="About" command="_cE1GEBRJEeeXZoKubOdysQ"/>
       </children>
     </mainMenu>
+    <sharedElements xsi:type="advanced:Area" xmi:id="_k418wBRyEee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.area.editor" label="Editor">
+      <children xsi:type="basic:PartStack" xmi:id="_pAAmcBRyEee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.partstack.editors"/>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_tWpPgBRyEee2Ev2eVUEQ1A" elementId="org.eclipse.ui.views.PropertySheet" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views/icons/full/eview16/prop_ps.gif"/>
+    <sharedElements xsi:type="basic:Part" xmi:id="_z-MLQBRyEee2Ev2eVUEQ1A" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources/icons/full/eview16/resource_persp.gif"/>
+    <sharedElements xsi:type="basic:Part" xmi:id="_-xze0BRyEee2Ev2eVUEQ1A" elementId="org.eclipse.ui.console.ConsoleView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Console" iconURI="platform:/plugin/org.eclipse.ui.console/icons/full/cview16/console_view.gif"/>
+    <sharedElements xsi:type="basic:Part" xmi:id="_KHMCsBRzEee2Ev2eVUEQ1A" elementId="org.eclipse.ui.views.ContentOutline" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Outline" iconURI="platform:/plugin/org.eclipse.ui.views/icons/full/eview16/outline_co.gif"/>
+    <sharedElements xsi:type="basic:Part" xmi:id="_cE1CEBR1Eee2Ev2eVUEQ1A" elementId="org.eclipse.ui.views.ProgressView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Progress" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/pview.gif"/>
   </children>
   <handlers xmi:id="_uPSjQBO4EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.newProject" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.NewProjectHandler" command="_iEtEcBOyEeeXZoKubOdysQ"/>
   <handlers xmi:id="_y2YDIBO4EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.newFolder" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.NewFolderHandler" command="_mBjUgBOyEeeXZoKubOdysQ"/>

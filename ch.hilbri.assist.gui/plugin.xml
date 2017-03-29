@@ -1,18 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-
+   <extension id="application" point="org.eclipse.core.runtime.applications">
+      <application cardinality="singleton-global" icon="icons/ASSIST-icon-64x64.png" thread="main" visible="true">
+         <run
+               class="ch.hilbri.assist.gui.Application">
+         </run></application>
+   </extension>
+   
+   <extension id="product" point="org.eclipse.core.runtime.products">
+   	<product application="ch.hilbri.assist.gui.application" name="ASSIST">
+	    <property name="appName" value="ASSIST"> </property>
+	    <property name="applicationXMI" value="ch.hilbri.assist.gui/Application.e4xmi"> </property>
+  	</product>
+   </extension>
    <extension
-         id="ASSIST"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="org.eclipse.e4.ui.workbench.swt.E4Application"
-            name="ASSIST">
-         <property
-               name="appName"
-               value="ASSIST">
-         </property>
-      </product>
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="ch.hilbri.assist.gui.MainPerspectiveFactory"
+            fixed="true"
+            id="ch.hilbri.assist.gui.perspective"
+            name="ASSIST - Main">
+      </perspective>
    </extension>
 
+	<extension point="org.eclipse.ui.activities"> <!-- This is used to disable unwanted wizards and perspectives -->
+		<activity id="ch.hilbri.assist.application.activity.disable" name="disable">
+			<enabledWhen><with variable="true"><equals value="false"></equals></with></enabledWhen>
+		</activity>
+	
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.emf.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.pde.ui.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.debug.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.jdt.debug.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.jdt.junit.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.jdt.ui.wizards.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.ant.*"></activityPatternBinding>
+ 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/ch.hilbri.assist.datamodel.model.editor*"></activityPatternBinding>
+   		<activityPatternBinding
+           activityId="ch.hilbri.assist.application.activity.disable"
+           pattern=".*/org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar">
+     </activityPatternBinding>
+ </extension>
 </plugin>

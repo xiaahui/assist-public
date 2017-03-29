@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="ASSIST" uid="assist" id="ch.hilbri.assist.gui.ASSIST" application="org.eclipse.e4.ui.workbench.swt.E4Application" useFeatures="true" includeLaunchers="true">
+<product name="ASSIST" uid="assist" id="ch.hilbri.assist.gui.product" application="ch.hilbri.assist.gui.application" version="2.1.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -27,10 +27,23 @@
    </plugins>
 
    <features>
-      <feature id="ch.hilbri.assist.features.gui" version="2.1.0.qualifier"/>
+      <feature id="ch.hilbri.assist.features.gui"/>
       <feature id="org.eclipse.e4.rcp"/>
       <feature id="org.eclipse.emf.ecore"/>
       <feature id="org.eclipse.emf.common"/>
+      <feature id="org.eclipse.rcp"/>
+      <feature id="org.eclipse.platform"/>
+      <feature id="org.eclipse.equinox.p2.user.ui"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.feature"/>
+      <feature id="org.eclipse.help"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature"/>
+      <feature id="org.eclipse.equinox.p2.extras.feature"/>
+      <feature id="org.eclipse.equinox.p2.core.feature"/>
+      <feature id="org.eclipse.ecf.core.feature"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.feature"/>
+      <feature id="org.eclipse.ecf.core.ssl.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.ssl.feature"/>
    </features>
 
    <configurations>
