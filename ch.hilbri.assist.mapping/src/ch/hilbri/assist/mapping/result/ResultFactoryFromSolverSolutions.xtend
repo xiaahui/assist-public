@@ -1,6 +1,5 @@
 package ch.hilbri.assist.mapping.result
 
-import ch.hilbri.assist.application.helpers.ConsoleCommands
 import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.model.Board
 import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
@@ -210,7 +209,7 @@ class ResultFactoryFromSolverSolutions {
 			val resultCore = result.findResultHardwareElement(model.allCores.get(coreIndex)) as Core
 			
 			if (resultCore == null) {
-				ConsoleCommands.writeErrorLineToConsole("Could not find the core " + model.allCores.get(coreIndex) + " from the model in the result.");
+//				ConsoleCommands.writeErrorLineToConsole("Could not find the core " + model.allCores.get(coreIndex) + " from the model in the result.");
 				return;
 			} else {
 				/* Place this thread to the core */

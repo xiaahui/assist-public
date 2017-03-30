@@ -34,15 +34,13 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 
-import ch.hilbri.assist.application.helpers.Helpers;
-import ch.hilbri.assist.application.helpers.PathProvider;
+import com.google.inject.Injector;
+
 import ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView;
 import ch.hilbri.assist.mapping.ui.metrics.MetricsView;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.ResultsView;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import ch.hilbri.assist.mappingdsl.ui.internal.MappingDSLActivator;
-
-import com.google.inject.Injector;
 
 /**
  * A multi-page editor. This editor has 2 pages:
@@ -82,7 +80,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 	void createPage0() {
 		try {
 			MappingDSLActivator activator = MappingDSLActivator.getInstance();
-			Injector injector = activator.getInjector(PathProvider.MAPPING_MAPPINGDSL_MAPPINGDSL);
+			Injector injector = activator.getInjector("ch.hilbri.assist.mappingdsl.MappingDSL");
 			editor = injector.getInstance(XtextEditor.class);
 			int index = addPage(editor, getEditorInput());
 			setPageText(index, "Specification");
@@ -180,13 +178,13 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 		if (objApp instanceof MApplication && objModel instanceof EModelService) {
 			MApplication application = (MApplication) objApp;
 			EModelService modelService = (EModelService) objModel;
-			Helpers.addViewToBottomfield(
-					"ch.hilbri.assist.mapping.metrictable",
-					"Evaluation Metrics",
-					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricsView",
-					application, modelService, true,
-					"platform:/plugin/ch.hilbri.assist.mapping/icons/generic-file.gif"
-					);
+//			Helpers.addViewToBottomfield(
+//					"ch.hilbri.assist.mapping.metrictable",
+//					"Evaluation Metrics",
+//					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricsView",
+//					application, modelService, true,
+//					"platform:/plugin/ch.hilbri.assist.mapping/icons/generic-file.gif"
+//					);
 		}
 		
 	}
@@ -200,11 +198,11 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 		if (objApp instanceof MApplication && objModel instanceof EModelService) {
 			MApplication application = (MApplication) objApp;
 			EModelService modelService = (EModelService) objModel;
-			Helpers.addViewToInfofield(
-					"ch.hilbri.assist.mapping.infosheet",
-					"Information",
-					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView",
-					application, modelService, true);
+////			Helpers.addViewToInfofield(
+//					"ch.hilbri.assist.mapping.infosheet",
+//					"Information",
+//					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView",
+//					application, modelService, true);
 		}
 	}
 
@@ -216,7 +214,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 	public void dispose() {
 		ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
 		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-		ISelection selection = window.getSelectionService().getSelection(PathProvider.ECL_PROJECT_EXPLORER);
+		ISelection selection = window.getSelectionService().getSelection("org.eclipse.ui.navigator.ProjectExplorer");
 		
 		if (selection != null && selection.isEmpty() == false && selection instanceof IStructuredSelection) {
 			IStructuredSelection ssel = (IStructuredSelection) selection;
@@ -348,20 +346,20 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 		if (objApp instanceof MApplication && objModel instanceof EModelService) {
 			MApplication application = (MApplication) objApp;
 			EModelService modelService = (EModelService) objModel;
-			Helpers.addViewToInfofield(
-					"ch.hilbri.assist.mapping.infosheet",
-					"Information",
-					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView",
-					application, modelService, true);
+//			Helpers.addViewToInfofield(
+//					"ch.hilbri.assist.mapping.infosheet",
+//					"Information",
+//					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView",
+//					application, modelService, true);
 
 
-			Helpers.addViewToBottomfield(
-					"ch.hilbri.assist.mapping.metrictable",
-					"Evaluation Metrics",
-					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricsView",
-					application, modelService, true,
-					"platform:/plugin/ch.hilbri.assist.mapping/icons/generic-file.gif"
-					);
+//			Helpers.addViewToBottomfield(
+//					"ch.hilbri.assist.mapping.metrictable",
+//					"Evaluation Metrics",
+//					"bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricsView",
+//					application, modelService, true,
+//					"platform:/plugin/ch.hilbri.assist.mapping/icons/generic-file.gif"
+//					);
 
 		}
 		

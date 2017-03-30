@@ -42,7 +42,6 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.dialogs.ListSelectionDialog;
 import org.eclipse.wb.swt.ResourceManager;
 
-import ch.hilbri.assist.application.helpers.ConsoleCommands;
 import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
 import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
@@ -203,7 +202,10 @@ public class MetricsView {
 
 				// Triggering a build for this project
 				try { activeProject.build(IncrementalProjectBuilder.FULL_BUILD, null);	} 
-				catch (CoreException e2) { ConsoleCommands.writeErrorLineToConsole("Build error"); return; }
+				catch (CoreException e2) { 
+//					ConsoleCommands.writeErrorLineToConsole("Build error"); 
+					return; 
+				}
 
 				// Asking the user which metric is to be imported and preselect all entries
 				ListSelectionDialog dialog = new ListSelectionDialog(currentEditor.getSite().getShell(), 

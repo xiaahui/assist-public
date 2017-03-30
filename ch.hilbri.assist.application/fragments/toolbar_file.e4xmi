@@ -5,9 +5,9 @@
   <imports xsi:type="commands:Command" xmi:id="_PXLqwA6IEeSDxY5r3Lnjag" elementId="ch.hilbri.assist.application.command.newOther"/>
   <imports xsi:type="commands:Command" xmi:id="_SBK6kBJTEeS0b7yzu71Zvg" elementId="org.eclipse.ui.file.print"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_55PKMA6BEeSelv1Zem0g8g" featurename="children" parentElementId="ch.hilbri.assist.toolbar.main" positionInList="first">
-    <elements xsi:type="menu:HandledToolItem" xmi:id="_U9F5IBJTEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledtoolitem.print" label="Print" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/print.png" tooltip="Print" command="_SBK6kBJTEeS0b7yzu71Zvg"/>
-    <elements xsi:type="menu:HandledToolItem" xmi:id="_alz70A6HEeSDxY5r3Lnjag" elementId="ch.hilbri.assist.application.handledtoolitem.saveAll" label="Save All" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/saveAll.png" tooltip="Save All (Ctrl+ Shift+ S)" command="_mTRogA6HEeSDxY5r3Lnjag"/>
-    <elements xsi:type="menu:HandledToolItem" xmi:id="_Bg2b0A6CEeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledtoolitem.save" label="Save" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/toolbar/save.png" tooltip="Save (Ctrl+S)" command="_C0i4UA6CEeSelv1Zem0g8g"/>
-    <elements xsi:type="menu:HandledToolItem" xmi:id="_LUw-MA6IEeSDxY5r3Lnjag" elementId="ch.hilbri.assist.application.handledtoolitem.new" label="New" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/new_wiz.gif" tooltip="New" command="_PXLqwA6IEeSDxY5r3Lnjag"/>
+    <elements xsi:type="menu:HandledToolItem" xmi:id="_U9F5IBJTEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledtoolitem.print" label="Print" iconURI="platform:/plugin/old-application/icons/toolbar/print.png" tooltip="Print" command="_SBK6kBJTEeS0b7yzu71Zvg"/>
+    <elements xsi:type="menu:HandledToolItem" xmi:id="_alz70A6HEeSDxY5r3Lnjag" elementId="ch.hilbri.assist.application.handledtoolitem.saveAll" label="Save All" iconURI="platform:/plugin/old-application/icons/toolbar/saveAll.png" tooltip="Save All (Ctrl+ Shift+ S)" command="_mTRogA6HEeSDxY5r3Lnjag"/>
+    <elements xsi:type="menu:HandledToolItem" xmi:id="_Bg2b0A6CEeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handledtoolitem.save" label="Save" iconURI="platform:/plugin/old-application/icons/toolbar/save.png" tooltip="Save (Ctrl+S)" command="_C0i4UA6CEeSelv1Zem0g8g"/>
+    <elements xsi:type="menu:HandledToolItem" xmi:id="_LUw-MA6IEeSDxY5r3Lnjag" elementId="ch.hilbri.assist.application.handledtoolitem.new" label="New" iconURI="platform:/plugin/old-application/icons/new_wiz.gif" tooltip="New" command="_PXLqwA6IEeSDxY5r3Lnjag"/>
   </fragments>
 </fragment:ModelFragments>

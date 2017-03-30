@@ -23,8 +23,6 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
-import ch.hilbri.assist.application.helpers.PathProvider;
-
 /**
  * The "New" wizard page allows setting the container for the new file as well
  * as the file name. The page will only accept file name without the extension
@@ -110,7 +108,7 @@ public class NewMappingSpecificationWizardPage extends WizardPage {
 	private void initialize() {
 		if (selection == null) {
 			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-			selection = window.getSelectionService().getSelection(PathProvider.ECL_PROJECT_EXPLORER);
+			selection = window.getSelectionService().getSelection("org.eclipse.ui.navigator.ProjectExplorer");
 		
 		}
 		if (selection != null && selection.isEmpty() == false

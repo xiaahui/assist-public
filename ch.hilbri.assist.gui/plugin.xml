@@ -11,7 +11,7 @@
    <extension id="product" point="org.eclipse.core.runtime.products">
    	<product application="ch.hilbri.assist.gui.application" name="ASSIST">
 	    <property name="appName" value="ASSIST"> </property>
-	    <property name="applicationXMI" value="ch.hilbri.assist.gui/Application.e4xmi"> </property>
+	    <property name="applicationXMI" value="ch.hilbri.assist.gui/Application.e4xmi"></property>
   	</product>
    </extension>
    <extension
@@ -39,7 +39,8 @@
  		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/ch.hilbri.assist.datamodel.model.editor*"></activityPatternBinding>
    		<activityPatternBinding
            activityId="ch.hilbri.assist.application.activity.disable"
-           pattern=".*/org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar">
+           isEqualityPattern="true"
+           pattern="org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar">
      </activityPatternBinding>
  </extension>
 </plugin>

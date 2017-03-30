@@ -8,9 +8,9 @@
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_BAlDAAEeEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handledmenuitem.about" label="About ASSIST" command="_P7mtUAEdEeSTlPOe0qW7tA"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_5FuCEAEZEeSTlPOe0qW7tA" featurename="handlers" parentElementId="ch.hilbri.assist.application">
-    <elements xsi:type="commands:Handler" xmi:id="_XdNdkAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handler.help" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.HelpHandler" command="_MKwR4AEdEeSTlPOe0qW7tA"/>
-    <elements xsi:type="commands:Handler" xmi:id="_YOvoMAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handler.about" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.AboutHandler" command="_P7mtUAEdEeSTlPOe0qW7tA"/>
-    <elements xsi:type="commands:Handler" xmi:id="_ZPAyYAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handler.showCheatSheet" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.ShowUsageCheatSheetHandler" command="_SYuQAAEdEeSTlPOe0qW7tA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_XdNdkAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handler.help" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.HelpHandler" command="_MKwR4AEdEeSTlPOe0qW7tA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_YOvoMAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handler.about" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.AboutHandler" command="_P7mtUAEdEeSTlPOe0qW7tA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_ZPAyYAEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.handler.showCheatSheet" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.ShowUsageCheatSheetHandler" command="_SYuQAAEdEeSTlPOe0qW7tA"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_tGgeEAEZEeSTlPOe0qW7tA" featurename="commands" parentElementId="ch.hilbri.assist.application">
     <elements xsi:type="commands:Command" xmi:id="_MKwR4AEdEeSTlPOe0qW7tA" elementId="ch.hilbri.assist.application.command.help" commandName="Help"/>

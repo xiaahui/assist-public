@@ -6,11 +6,11 @@
   <imports xsi:type="commands:Command" xmi:id="_TZXg8BJxEeS0b7yzu71Zvg" elementId="org.eclipse.ui.edit.paste"/>
   <imports xsi:type="commands:Command" xmi:id="_UoBFYBJxEeS0b7yzu71Zvg" elementId="org.eclipse.ui.edit.cut"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_scaQ0AEcEeSTlPOe0qW7tA" featurename="children" parentElementId="edit">
-    <elements xsi:type="menu:HandledMenuItem" xmi:id="_kjIQgBJsEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.undo" label="&amp;Undo" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/undo.png" command="_hz0KkBJsEeS0b7yzu71Zvg"/>
-    <elements xsi:type="menu:HandledMenuItem" xmi:id="_n-KM8BJsEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.redo" label="&amp;Redo" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/redo.png" command="_nFxzcBJsEeS0b7yzu71Zvg"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_kjIQgBJsEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.undo" label="&amp;Undo" iconURI="platform:/plugin/old-application/icons/undo.png" command="_hz0KkBJsEeS0b7yzu71Zvg"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_n-KM8BJsEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.redo" label="&amp;Redo" iconURI="platform:/plugin/old-application/icons/redo.png" command="_nFxzcBJsEeS0b7yzu71Zvg"/>
     <elements xsi:type="menu:MenuSeparator" xmi:id="_aueGQBJxEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.menuseparator.0"/>
-    <elements xsi:type="menu:HandledMenuItem" xmi:id="_IkRmsBJxEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.cut" label="&amp;Cut" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/cut.png" command="_UoBFYBJxEeS0b7yzu71Zvg"/>
-    <elements xsi:type="menu:HandledMenuItem" xmi:id="_I01LMBJxEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.copy" label="&amp;Copy" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/copy.png" command="_R-k98BJxEeS0b7yzu71Zvg"/>
-    <elements xsi:type="menu:HandledMenuItem" xmi:id="_JEn6sBJxEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.paste" label="&amp;Paste" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/paste.png" command="_TZXg8BJxEeS0b7yzu71Zvg"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_IkRmsBJxEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.cut" label="&amp;Cut" iconURI="platform:/plugin/old-application/icons/cut.png" command="_UoBFYBJxEeS0b7yzu71Zvg"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_I01LMBJxEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.copy" label="&amp;Copy" iconURI="platform:/plugin/old-application/icons/copy.png" command="_R-k98BJxEeS0b7yzu71Zvg"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_JEn6sBJxEeS0b7yzu71Zvg" elementId="ch.hilbri.assist.application.handledmenuitem.paste" label="&amp;Paste" iconURI="platform:/plugin/old-application/icons/paste.png" command="_TZXg8BJxEeS0b7yzu71Zvg"/>
   </fragments>
 </fragment:ModelFragments>

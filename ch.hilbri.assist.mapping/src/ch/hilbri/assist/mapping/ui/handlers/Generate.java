@@ -5,7 +5,9 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.model.application.ui.MUIElement;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
@@ -19,8 +21,6 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor;
 
-import ch.hilbri.assist.application.helpers.ConsoleCommands;
-import ch.hilbri.assist.application.helpers.Helpers;
 import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.mapping.solver.GuiSolverJob;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
@@ -32,7 +32,10 @@ public class Generate {
 
 	@CanExecute
 	public boolean canExecute(MApplication application, EModelService service) {
-		MPart editorPart = Helpers.getActiveEditor(application, service);
+		MUIElement elem = service.find("ch.hilbri.assist.gui.partstack.editors", application);
+		MPartStack partStack = (MPartStack) elem;
+		MPart editorPart = (MPart) partStack.getSelectedElement();
+		
 		if (editorPart == null) return false;
 		
 		if (editorPart.getObject() instanceof CompatibilityEditor) {
@@ -74,8 +77,11 @@ public class Generate {
 	 */
 	@Execute
 	public Object execute(MApplication application, EModelService service, IProgressMonitor monitor) {
-				
-		MPart editorPart = Helpers.getActiveEditor(application, service);
+		
+		MUIElement elem = service.find("ch.hilbri.assist.gui.partstack.editors", application);
+		MPartStack partStack = (MPartStack) elem;
+		MPart editorPart = (MPart) partStack.getSelectedElement();
+		
 		if (editorPart == null) return null;
 		
 		if (editorPart.getObject() instanceof CompatibilityEditor) {
@@ -99,18 +105,18 @@ public class Generate {
 					/* Searching for errors inside the document? */
 					/* 1) Error with the syntax of the dsl */
 					if (resource.getErrors().size() > 0) {	
-						ConsoleCommands.writeLineToConsole("Input contains errors - it will not be processed."); 
+//						ConsoleCommands.writeLineToConsole("Input contains errors - it will not be processed."); 
 						return null; 
 					}
 					
 					if (resource.getContents().size() == 0) { 
-						ConsoleCommands.writeLineToConsole("Input is empty? It will not be processed."); 
+//						ConsoleCommands.writeLineToConsole("Input is empty? It will not be processed."); 
 						return null;
 					}
 					/* 2) Custom validation rule errors */
 					Diagnostic diagnostic = Diagnostician.INSTANCE.validate(resource.getContents().get(0));
 					if (diagnostic.getSeverity() == Diagnostic.ERROR) {
-						ConsoleCommands.writeLineToConsole("There are still some errors in the input. It will not be processed."); 
+//						ConsoleCommands.writeLineToConsole("There are still some errors in the input. It will not be processed."); 
 						return null;
 					}
 					

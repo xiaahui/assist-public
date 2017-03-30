@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ASSIST
-Bundle-SymbolicName: ch.hilbri.assist.application;singleton:=true
-Bundle-Version: 2.1.0.qualifier
+Bundle-SymbolicName: old-application;singleton:=true
+Bundle-Version: 2.0.0.qualifier
 Bundle-Vendor: Robert Hilbrich
 Export-Package: ch.hilbri.assist.application.helpers,
  org.eclipse.wb.swt
@@ -18,7 +18,6 @@ Require-Bundle: org.eclipse.core.resources;bundle-version="3.11.1",
  org.eclipse.e4.ui.services;bundle-version="1.2.100",
  org.eclipse.e4.ui.workbench;bundle-version="1.4.0",
  org.eclipse.ui;bundle-version="3.108.1",
- org.eclipse.ui.cheatsheets;bundle-version="3.9.9",
  org.eclipse.ui.console;bundle-version="3.6.201",
  org.eclipse.ui.ide;bundle-version="3.12.2",
  org.eclipse.text;bundle-version="3.6.0",

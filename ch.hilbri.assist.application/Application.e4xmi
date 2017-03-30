@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_VnmacNSzEeGBn6dQ9VPexA" elementId="ch.hilbri.assist.application">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_Vnmah9SzEeGBn6dQ9VPexA" elementId="MainWindow" label="ASSIST" iconURI="platform:/plugin/ch.hilbri.assist.application/icons/ASSIST-icon-256x256.png">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_Vnmah9SzEeGBn6dQ9VPexA" elementId="MainWindow" label="ASSIST" iconURI="platform:/plugin/old-application/icons/ASSIST-icon-256x256.png">
     <tags>shellMaximized</tags>
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_Vnmaj9SzEeGBn6dQ9VPexA" selectedElement="_VnmakNSzEeGBn6dQ9VPexA">
       <children xsi:type="advanced:Perspective" xmi:id="_VnmakNSzEeGBn6dQ9VPexA" elementId="ch.hilbri.assist.application.perspective.mainPerspective" label="Main Perspective" iconURI="">
@@ -45,7 +45,7 @@
         <tags>EditorStack</tags>
       </children>
     </sharedElements>
-    <sharedElements xsi:type="basic:Part" xmi:id="_WqRGcNS1EeGBn6dQ9VPexA" elementId="org.eclipse.ui.views.PropertySheet" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views//icons/full/eview16/prop_ps.gif" closeable="true">
+    <sharedElements xsi:type="basic:Part" xmi:id="_WqRGcNS1EeGBn6dQ9VPexA" elementId="org.eclipse.ui.views.PropertySheet" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views/icons/full/eview16/prop_ps.gif" closeable="true">
       <tags>View</tags>
       <tags>categoryTag:General</tags>
       <menus xmi:id="_HngXENSjEeGwXp2p959l3w" elementId="org.eclipse.ui.views.PropertySheet">
@@ -87,18 +87,18 @@
     </trimBars>
     <trimBars xmi:id="_SNMTMB7FEeOET5SxUf1zCg" elementId="org.eclipse.ui.trim.status" side="Bottom"/>
   </children>
-  <handlers xmi:id="_OabXcOMVEeKAx6f8J9iUKA" elementId="ch.hilbri.assist.application.handler.openhandler" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.OpenHandler" command="_5MiO4N2ZEeKSVtbcGi64NA"/>
-  <handlers xmi:id="_Br2_0N5DEeKSVtbcGi64NA" elementId="ch.hilbri.assist.application.handler.exit" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.QuitHandler" command="__57IIN5CEeKSVtbcGi64NA"/>
-  <handlers xmi:id="_LNXr0A5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.newFile" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.NewFileDialogHandler" command="_siNmEA5-EeSelv1Zem0g8g"/>
-  <handlers xmi:id="_Le12UA5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.newFolder" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.NewFolderDialogHandler" command="_sxUZEA5-EeSelv1Zem0g8g"/>
-  <handlers xmi:id="_Lvx1UA5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.newProject" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.NewProjectDialogHandler" command="_tCVQkA5-EeSelv1Zem0g8g"/>
-  <handlers xmi:id="_L_4G0A5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.newOther" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.NewOtherDialogHandler" command="_tQ0_kA5-EeSelv1Zem0g8g"/>
-  <handlers xmi:id="_MRk60A5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.close" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.CloseHandler" command="_thdckA5-EeSelv1Zem0g8g"/>
-  <handlers xmi:id="_MfYtUA5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.closeAll" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.CloseAllHandler" command="_tvHeEA5-EeSelv1Zem0g8g"/>
-  <handlers xmi:id="_Mv3ZUA5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.save" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.SaveHandler" command="_t-EgEA5-EeSelv1Zem0g8g"/>
-  <handlers xmi:id="_NBpF0A5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.saveAs" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.SaveAsHandler" command="_uQ1rEA5-EeSelv1Zem0g8g"/>
-  <handlers xmi:id="_NTMI0A5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.saveAll" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.SaveAllHandler" command="_umCfAA5-EeSelv1Zem0g8g"/>
-  <handlers xmi:id="_Njz-wA5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.revert" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.handlers.RevertHandler" command="_u4lAgA5-EeSelv1Zem0g8g"/>
+  <handlers xmi:id="_OabXcOMVEeKAx6f8J9iUKA" elementId="ch.hilbri.assist.application.handler.openhandler" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.OpenHandler" command="_5MiO4N2ZEeKSVtbcGi64NA"/>
+  <handlers xmi:id="_Br2_0N5DEeKSVtbcGi64NA" elementId="ch.hilbri.assist.application.handler.exit" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.QuitHandler" command="__57IIN5CEeKSVtbcGi64NA"/>
+  <handlers xmi:id="_LNXr0A5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.newFile" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.NewFileDialogHandler" command="_siNmEA5-EeSelv1Zem0g8g"/>
+  <handlers xmi:id="_Le12UA5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.newFolder" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.NewFolderDialogHandler" command="_sxUZEA5-EeSelv1Zem0g8g"/>
+  <handlers xmi:id="_Lvx1UA5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.newProject" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.NewProjectDialogHandler" command="_tCVQkA5-EeSelv1Zem0g8g"/>
+  <handlers xmi:id="_L_4G0A5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.newOther" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.NewOtherDialogHandler" command="_tQ0_kA5-EeSelv1Zem0g8g"/>
+  <handlers xmi:id="_MRk60A5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.close" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.CloseHandler" command="_thdckA5-EeSelv1Zem0g8g"/>
+  <handlers xmi:id="_MfYtUA5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.closeAll" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.CloseAllHandler" command="_tvHeEA5-EeSelv1Zem0g8g"/>
+  <handlers xmi:id="_Mv3ZUA5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.save" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.SaveHandler" command="_t-EgEA5-EeSelv1Zem0g8g"/>
+  <handlers xmi:id="_NBpF0A5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.saveAs" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.SaveAsHandler" command="_uQ1rEA5-EeSelv1Zem0g8g"/>
+  <handlers xmi:id="_NTMI0A5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.saveAll" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.SaveAllHandler" command="_umCfAA5-EeSelv1Zem0g8g"/>
+  <handlers xmi:id="_Njz-wA5_EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.handler.revert" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.handlers.RevertHandler" command="_u4lAgA5-EeSelv1Zem0g8g"/>
   <rootContext xmi:id="_9Dp4MnMtEeCJHNm5zvSRcQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_9Dp4M3MtEeCJHNm5zvSRcQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_9Dp4NHMtEeCJHNm5zvSRcQ" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
@@ -142,7 +142,7 @@
   <addons xmi:id="_rmlZMOSBEeKAx6f8J9iUKA" elementId="Cleanup Addon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.cleanupaddon.CleanupAddon"/>
   <addons xmi:id="_rssBMOSBEeKAx6f8J9iUKA" elementId="DnD Addon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.dndaddon.DnDAddon"/>
   <addons xmi:id="_r54vsOSBEeKAx6f8J9iUKA" elementId="MinMax Addon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
-  <addons xmi:id="_Kdy0MB7pEeOET5SxUf1zCg" elementId="ch.hilbri.assist.application.addon.0" contributionURI="bundleclass://ch.hilbri.assist.application/ch.hilbri.assist.application.addons.HandleToolbarAddon"/>
+  <addons xmi:id="_Kdy0MB7pEeOET5SxUf1zCg" elementId="ch.hilbri.assist.application.addon.0" contributionURI="bundleclass://old-application/ch.hilbri.assist.application.addons.HandleToolbarAddon"/>
   <categories xmi:id="_LDVn4EYSEeOCaISXEHfaZg" elementId="ch.hilbri.assist.application.category.keys" name="ASSIST Keys" description="Contains all keys for ASSIST"/>
   <categories xmi:id="_vlS8kA5-EeSelv1Zem0g8g" elementId="ch.hilbri.assist.application.category.fileCommands" name="File Commands" description="All commands regarding file operations"/>
 </application:Application>

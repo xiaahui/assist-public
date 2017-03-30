@@ -27,7 +27,6 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.wizards.newresource.BasicNewResourceWizard;
 
-import ch.hilbri.assist.application.helpers.PathProvider;
 
 public class NewMappingSpecificationWizard extends BasicNewResourceWizard implements INewWizard {
 
@@ -151,7 +150,7 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 	}
 
 	private void throwCoreException(String message) throws CoreException {
-		IStatus status = new Status(IStatus.ERROR, PathProvider.MAPPING, IStatus.OK, message, null);
+		IStatus status = new Status(IStatus.ERROR, "ch.hilbri.assist.mapping", IStatus.OK, message, null);
 		throw new CoreException(status);
 	}
 

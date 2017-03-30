@@ -5,8 +5,7 @@ Bundle-Name: ch.hilbri.assist.mapping
 Bundle-SymbolicName: ch.hilbri.assist.mapping;singleton:=true
 Bundle-Version: 2.1.0.qualifier
 Bundle-Vendor: Robert Hilbrich
-Require-Bundle: ch.hilbri.assist.application;bundle-version="2.1.0",
- ch.hilbri.assist.datamodel.model;bundle-version="2.1.0",
+Require-Bundle: ch.hilbri.assist.datamodel.model;bundle-version="2.1.0",
  ch.hilbri.assist.datamodel.model.edit;bundle-version="2.1.0",
  ch.hilbri.assist.datamodel.model.editor;bundle-version="2.1.0",
  ch.hilbri.assist.datamodel.result.mapping;bundle-version="2.1.0",
@@ -29,7 +28,8 @@ Require-Bundle: ch.hilbri.assist.application;bundle-version="2.1.0",
  org.eclipse.zest.core;bundle-version="1.5.300",
  org.eclipse.zest.layouts;bundle-version="1.1.300",
  org.eclipse.xtext.ui;bundle-version="2.10.0",
- org.eclipse.ui.workbench;bundle-version="3.108.2"
+ org.eclipse.ui.workbench;bundle-version="3.108.2",
+ ch.hilbri.assist.gui;bundle-version="2.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ch.hilbri.assist.mapping.solver,
  ch.hilbri.assist.mapping.solver.exceptions,
