@@ -2,6 +2,8 @@ package ch.hilbri.assist.gui;
 
 import java.net.URL;
 
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IWorkbenchPreferenceConstants;
@@ -34,11 +36,14 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 		final String PATH_OBJECT = ICONS_PATH + "obj16/";
 
 		Bundle ideBundle = Platform.getBundle(IDEWorkbenchPlugin.IDE_WORKBENCH);
-		declareWorkbenchImage(configurer, ideBundle, IDE.SharedImages.IMG_OBJ_PROJECT, PATH_OBJECT + "prj_obj.png", true);
-		declareWorkbenchImage(configurer, ideBundle, IDE.SharedImages.IMG_OBJ_PROJECT_CLOSED, PATH_OBJECT + "cprj_obj.png", true);
+		declareWorkbenchImage(configurer, ideBundle, IDE.SharedImages.IMG_OBJ_PROJECT, PATH_OBJECT + "prj_obj.png",
+				true);
+		declareWorkbenchImage(configurer, ideBundle, IDE.SharedImages.IMG_OBJ_PROJECT_CLOSED,
+				PATH_OBJECT + "cprj_obj.png", true);
 	}
 
-	private void declareWorkbenchImage(IWorkbenchConfigurer configurer_p, Bundle ideBundle, String symbolicName, String path, boolean shared) {
+	private void declareWorkbenchImage(IWorkbenchConfigurer configurer_p, Bundle ideBundle, String symbolicName,
+			String path, boolean shared) {
 		URL url = ideBundle.getEntry(path);
 		ImageDescriptor desc = ImageDescriptor.createFromURL(url);
 		configurer_p.declareImage(symbolicName, desc, shared);
@@ -54,4 +59,13 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 		return PERSPECTIVE_ID;
 	}
 
+	@Override
+	public boolean preShutdown() {
+		try {
+			ResourcesPlugin.getWorkspace().save(true, null);
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		return super.preShutdown();
+	}
 }
