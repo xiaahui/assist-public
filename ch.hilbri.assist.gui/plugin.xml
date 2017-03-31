@@ -24,7 +24,7 @@
       </perspective>
    </extension>
 
-	<!-- <extension point="org.eclipse.ui.activities"> 
+	<extension point="org.eclipse.ui.activities"> 
 		<activity id="ch.hilbri.assist.application.activity.disable" name="disable">
 			<enabledWhen><with variable="true"><equals value="false"></equals></with></enabledWhen>
 		</activity>
@@ -42,5 +42,5 @@
            isEqualityPattern="true"
            pattern="org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar">
      </activityPatternBinding>
- </extension>-->
+ </extension>
 </plugin>
