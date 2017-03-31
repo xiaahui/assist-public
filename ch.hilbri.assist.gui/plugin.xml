@@ -28,19 +28,17 @@
 		<activity id="ch.hilbri.assist.application.activity.disable" name="disable">
 			<enabledWhen><with variable="true"><equals value="false"></equals></with></enabledWhen>
 		</activity>
-	
 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.emf.*"></activityPatternBinding>
 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.pde.ui.*"></activityPatternBinding>
 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.debug.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.debug.ui.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.ui.run"></activityPatternBinding>
 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.jdt.debug.*"></activityPatternBinding>
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.jdt.debug.ui.*"></activityPatternBinding>
 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.jdt.junit.*"></activityPatternBinding>
 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.jdt.ui.wizards.*"></activityPatternBinding>
 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.ant.*"></activityPatternBinding>
  		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/ch.hilbri.assist.datamodel.model.editor*"></activityPatternBinding>
-   		<activityPatternBinding
-           activityId="ch.hilbri.assist.application.activity.disable"
-           isEqualityPattern="true"
-           pattern="org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar">
-     </activityPatternBinding>
- </extension>
-</plugin>
+   		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.ui.externaltools.*"></activityPatternBinding>
+ 	</extension>
+ </plugin>
