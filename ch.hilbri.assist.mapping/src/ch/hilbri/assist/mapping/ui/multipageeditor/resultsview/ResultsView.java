@@ -1,8 +1,5 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview;
 
-import javafx.embed.swt.FXCanvas;
-import javafx.scene.Scene;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -11,10 +8,12 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 
-import ch.hilbri.assist.datamodel.model.presentation.ModelEditorAssist;
+import ch.hilbri.assist.mapping.model.presentation.ModelEditorAssist;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.ResultsViewController;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
+import javafx.embed.swt.FXCanvas;
+import javafx.scene.Scene;
 
 public class ResultsView {
 

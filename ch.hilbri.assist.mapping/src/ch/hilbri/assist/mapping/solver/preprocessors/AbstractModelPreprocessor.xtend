@@ -1,6 +1,6 @@
 package ch.hilbri.assist.mapping.solver.preprocessors
 
-import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.mapping.model.AssistModel
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 

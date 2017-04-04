@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Mapping Model
+Bundle-SymbolicName: ch.hilbri.assist.mapping.model;singleton:=true
+Bundle-Version: 2.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: Robert Hilbrich
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: ch.hilbri.assist.mapping.model,
+ ch.hilbri.assist.mapping.model.impl,
+ ch.hilbri.assist.mapping.model.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.emf.ecore.xcore.lib
+Bundle-ActivationPolicy: lazy

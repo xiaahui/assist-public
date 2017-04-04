@@ -12,8 +12,8 @@ import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.hilbri.assist.datamodel.model.AssistModel;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
+import ch.hilbri.assist.mapping.model.AssistModel;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;

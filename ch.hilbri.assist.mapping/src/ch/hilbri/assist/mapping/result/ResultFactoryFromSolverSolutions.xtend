@@ -1,8 +1,8 @@
 package ch.hilbri.assist.mapping.result
 
-import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.Board
-import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.mapping.model.AssistModel
+import ch.hilbri.assist.mapping.model.Board
+import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.datamodel.result.mapping.Application
 import ch.hilbri.assist.datamodel.result.mapping.ApplicationGroup
 import ch.hilbri.assist.datamodel.result.mapping.Box
@@ -26,26 +26,26 @@ class ResultFactoryFromSolverSolutions {
 	
 	static MappingFactory f
 
-	static private def fillApplicationGroupMembers(ch.hilbri.assist.datamodel.model.ApplicationGroup modelAppGroup, Result result) {
+	static private def fillApplicationGroupMembers(ch.hilbri.assist.mapping.model.ApplicationGroup modelAppGroup, Result result) {
 		
 		val appGroup = result.findResultApplicationGroup(modelAppGroup)
 		if (appGroup == null) return;
 		
 		for (aog : modelAppGroup.applicationsOrGroups)
 			switch aog {
-				ch.hilbri.assist.datamodel.model.Application 		: appGroup.applications.add(result.findResultApplication(aog))
-				ch.hilbri.assist.datamodel.model.ApplicationGroup	: appGroup.applicationGroups.add(result.findResultApplicationGroup(aog))
+				ch.hilbri.assist.mapping.model.Application 		: appGroup.applications.add(result.findResultApplication(aog))
+				ch.hilbri.assist.mapping.model.ApplicationGroup	: appGroup.applicationGroups.add(result.findResultApplicationGroup(aog))
 			}	
 	}	
 	
-	static private def ApplicationGroup createApplicationGroup(ch.hilbri.assist.datamodel.model.ApplicationGroup modelAppGroup, Result result) {
+	static private def ApplicationGroup createApplicationGroup(ch.hilbri.assist.mapping.model.ApplicationGroup modelAppGroup, Result result) {
 		val appGroup 				= f.createApplicationGroup
 		appGroup.name				= modelAppGroup.name
 		appGroup.referenceObject	= modelAppGroup
 		return appGroup
 	}
 	
-	static private def Application createApplication(ch.hilbri.assist.datamodel.model.Application modelApp) {
+	static private def Application createApplication(ch.hilbri.assist.mapping.model.Application modelApp) {
 		val app = f.createApplication
 		app.name 						= modelApp.name
 		app.coreUtilization				= modelApp.coreUtilization
@@ -71,7 +71,7 @@ class ResultFactoryFromSolverSolutions {
 	static private def EObject createHardwareElements(EObject modelElement) {
 		switch modelElement {
 			
-			ch.hilbri.assist.datamodel.model.Compartment: {
+			ch.hilbri.assist.mapping.model.Compartment: {
 				val Compartment c 	= f.createCompartment
 				c.name 				= modelElement.name
 				c.manufacturer 		= modelElement.manufacturer
@@ -87,7 +87,7 @@ class ResultFactoryFromSolverSolutions {
 				return c
 			}
 			
-			ch.hilbri.assist.datamodel.model.Box: {
+			ch.hilbri.assist.mapping.model.Box: {
 				val Box b 			= f.createBox
 				b.name 				= modelElement.name
 				b.manufacturer 		= modelElement.manufacturer
@@ -122,7 +122,7 @@ class ResultFactoryFromSolverSolutions {
 				return b 
 			}
 			
-			ch.hilbri.assist.datamodel.model.Processor: {
+			ch.hilbri.assist.mapping.model.Processor: {
 				val Processor p 	= f.createProcessor
 				p.name 				= modelElement.name
 				p.manufacturer		= modelElement.manufacturer
@@ -136,7 +136,7 @@ class ResultFactoryFromSolverSolutions {
 				return p
 			}
 			
-			ch.hilbri.assist.datamodel.model.Core: {
+			ch.hilbri.assist.mapping.model.Core: {
 				val Core c 			= f.createCore
 				c.name 				= modelElement.name
 				c.architecture 		= modelElement.architecture
@@ -146,7 +146,7 @@ class ResultFactoryFromSolverSolutions {
 				return c
 			}
 			
-			ch.hilbri.assist.datamodel.model.IOAdapter: {
+			ch.hilbri.assist.mapping.model.IOAdapter: {
 				val IOAdapter i 	= f.createIOAdapter
 				i.name 				= modelElement.name
 				i.totalUnitCount	= modelElement.totalCount
@@ -223,7 +223,7 @@ class ResultFactoryFromSolverSolutions {
 
 		/* 1. Update the load information on all cores */
 		for (resultCore : result.allCores) {
-			val modelCore = resultCore.referenceObject as ch.hilbri.assist.datamodel.model.Core 
+			val modelCore = resultCore.referenceObject as ch.hilbri.assist.mapping.model.Core 
 			val absoluteUtilization = solution.getIntVal(solverVariables.getAbsoluteCoreUtilizationVariable(modelCore))
 			resultCore.setUtilization(absoluteUtilization)
 		}

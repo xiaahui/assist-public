@@ -1,13 +1,13 @@
 package ch.hilbri.assist.mapping.solver.variables
 
-import ch.hilbri.assist.datamodel.model.Application
-import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.Board
-import ch.hilbri.assist.datamodel.model.CommunicationRelation
-import ch.hilbri.assist.datamodel.model.Core
-import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.datamodel.model.Network
-import ch.hilbri.assist.datamodel.model.Thread
+import ch.hilbri.assist.mapping.model.Application
+import ch.hilbri.assist.mapping.model.AssistModel
+import ch.hilbri.assist.mapping.model.Board
+import ch.hilbri.assist.mapping.model.CommunicationRelation
+import ch.hilbri.assist.mapping.model.Core
+import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.mapping.model.Network
+import ch.hilbri.assist.mapping.model.Thread
 import java.util.ArrayList
 import java.util.HashMap
 import org.chocosolver.solver.Solver

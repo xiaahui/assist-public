@@ -1,6 +1,6 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
-import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver

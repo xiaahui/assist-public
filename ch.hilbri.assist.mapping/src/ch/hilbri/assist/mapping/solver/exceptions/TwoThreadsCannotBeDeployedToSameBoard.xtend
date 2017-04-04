@@ -1,8 +1,6 @@
 package ch.hilbri.assist.mapping.solver.exceptions
 
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
-import ch.hilbri.assist.datamodel.model.Thread
 
 class TwoThreadsCannotBeDeployedToSameBoard extends BasicConstraintsException {
 	
@@ -16,6 +14,6 @@ class TwoThreadsCannotBeDeployedToSameBoard extends BasicConstraintsException {
 	}
 	
 	override def String getExplanation() { 
-		'''The threads "«t1.name»" and "«t2.name»" of application "«t1.application.name»" could not be mapped to the same board.'''
+		'''The threads could not be mapped to the same board.'''
 	} 
 }

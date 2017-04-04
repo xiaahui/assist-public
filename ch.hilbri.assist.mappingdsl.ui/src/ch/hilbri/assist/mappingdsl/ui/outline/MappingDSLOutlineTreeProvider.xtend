@@ -3,7 +3,7 @@
 */
 package ch.hilbri.assist.mappingdsl.ui.outline
 
-import ch.hilbri.assist.datamodel.model.AssistModel
+import ch.hilbri.assist.mapping.model.AssistModel
 import org.eclipse.core.runtime.FileLocator
 import org.eclipse.core.runtime.Path
 import org.eclipse.core.runtime.Platform

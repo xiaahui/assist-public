@@ -1,7 +1,7 @@
 package ch.hilbri.assist.mapping.tests.strategies
 
-import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.ModelPackage
+import ch.hilbri.assist.mapping.model.AssistModel
+import ch.hilbri.assist.mapping.model.ModelPackage
 import ch.hilbri.assist.mapping.solver.AssistSolver
 import ch.hilbri.assist.mapping.solver.SearchType
 import ch.hilbri.assist.mapping.tests.constraints.AbstractMappingTest

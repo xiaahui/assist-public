@@ -21,7 +21,7 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor;
 
-import ch.hilbri.assist.datamodel.model.AssistModel;
+import ch.hilbri.assist.mapping.model.AssistModel;
 import ch.hilbri.assist.mapping.solver.GuiSolverJob;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.searchtypesdialog.SearchParametersDialog;

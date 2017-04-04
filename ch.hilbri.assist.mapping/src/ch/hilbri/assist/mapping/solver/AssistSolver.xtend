@@ -1,7 +1,7 @@
 package ch.hilbri.assist.mapping.solver
 
-import ch.hilbri.assist.datamodel.model.AssistModel
 import ch.hilbri.assist.datamodel.result.mapping.Result
+import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.PartialSolutionSaveMonitor

@@ -120,10 +120,10 @@
 		<module>../ch.hilbri.assist.libraries.math</module>
 		<module>../ch.hilbri.assist.libraries.trove4j</module>
 		<module>../ch.hilbri.assist.cli</module>
-		<module>../ch.hilbri.assist.datamodel.model</module>
-		<module>../ch.hilbri.assist.datamodel.model.edit</module>
-		<module>../ch.hilbri.assist.datamodel.model.editor</module>
-		<module>../ch.hilbri.assist.datamodel.result.mapping</module>
+		
+		
+		
+		
 		
 		<module>../ch.hilbri.assist.mapping</module>
 		<module>../ch.hilbri.assist.mapping.tests</module>
@@ -131,7 +131,7 @@
 		<module>../ch.hilbri.assist.mappingdsl.tests</module>
 		<module>../ch.hilbri.assist.mappingdsl.ui</module>
 		<module>../ch.hilbri.assist.releng.product.gui</module>
-		<module>../ch.hilbri.assist.features.datamodel</module>
+		
 		<module>../ch.hilbri.assist.features.libraries</module>
 		<module>../ch.hilbri.assist.features.mapping</module>
 		<module>../ch.hilbri.assist.features.documentation</module>
@@ -142,5 +142,9 @@
 		<module>../ch.hilbri.assist.libraries.protobuf</module>
 		<module>../ch.hilbri.assist.features.gui</module>
 		<module>../ch.hilbri.assist.gui</module>
+		<module>../ch.hilbri.assist.mapping.model</module>
+		<module>../ch.hilbri.assist.mapping.model.edit</module>
+		<module>../ch.hilbri.assist.mapping.model.editor</module>
+		<module>../ch.hilbri.assist.mapping.model.result</module>
 	</modules>
 </project>

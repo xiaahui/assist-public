@@ -3,10 +3,10 @@
  */
 package ch.hilbri.assist.mappingdsl.scoping
 
-import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.Board
-import ch.hilbri.assist.datamodel.model.Box
-import ch.hilbri.assist.datamodel.model.Compartment
+import ch.hilbri.assist.mapping.model.AssistModel
+import ch.hilbri.assist.mapping.model.Board
+import ch.hilbri.assist.mapping.model.Box
+import ch.hilbri.assist.mapping.model.Compartment
 import com.google.inject.Inject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.naming.IQualifiedNameProvider

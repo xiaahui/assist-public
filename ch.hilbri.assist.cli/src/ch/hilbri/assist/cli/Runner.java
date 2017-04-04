@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 
-import ch.hilbri.assist.datamodel.model.AssistModel;
-import ch.hilbri.assist.datamodel.model.ModelPackage;
+import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.ModelPackage;
 import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.solver.AssistSolver;
 import ch.hilbri.assist.mapping.solver.SearchType;

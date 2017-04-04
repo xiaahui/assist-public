@@ -1,7 +1,7 @@
 package ch.hilbri.assist.mapping.solver.preprocessors
 
-import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.impl.ModelFactoryImpl
+import ch.hilbri.assist.mapping.model.AssistModel
+import ch.hilbri.assist.mapping.model.impl.ModelFactoryImpl
 
 class CreateMissingThreads extends AbstractModelPreprocessor {
 	

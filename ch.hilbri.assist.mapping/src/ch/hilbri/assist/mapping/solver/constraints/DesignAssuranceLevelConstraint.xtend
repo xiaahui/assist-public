@@ -1,9 +1,9 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
-import ch.hilbri.assist.datamodel.model.AssistModel
-import ch.hilbri.assist.datamodel.model.DesignAssuranceLevelType
-import ch.hilbri.assist.datamodel.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.datamodel.model.Thread
+import ch.hilbri.assist.mapping.model.AssistModel
+import ch.hilbri.assist.mapping.model.Thread
+import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType
+import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.HashMap
