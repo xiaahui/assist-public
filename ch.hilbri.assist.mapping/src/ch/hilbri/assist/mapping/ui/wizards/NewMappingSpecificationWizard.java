@@ -27,18 +27,15 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.wizards.newresource.BasicNewResourceWizard;
 
-
 public class NewMappingSpecificationWizard extends BasicNewResourceWizard implements INewWizard {
 
 	private NewMappingSpecificationWizardPage page;
 	private ISelection selection;
 
-	
 	public NewMappingSpecificationWizard() {
 		super();
 		setNeedsProgressMonitor(true);
 	}
-
 
 	public NewMappingSpecificationWizard(IWorkbench workbench, IStructuredSelection selection) {
 		super();
@@ -46,8 +43,7 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 		setWindowTitle("New Mapping Specification");
 		setNeedsProgressMonitor(true);
 	}
-	
-	
+
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.selection = selection;
@@ -62,19 +58,14 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 		page = new NewMappingSpecificationWizardPage(selection);
 		addPage(page);
 	}
-	
-	
+
 	/**
-	 * The worker method. It will find the container, create the
-	 * file if missing or just replace its contents, and open
-	 * the editor on the newly created file.
+	 * The worker method. It will find the container, create the file if missing
+	 * or just replace its contents, and open the editor on the newly created
+	 * file.
 	 */
 
-	private void doFinish(
-		String containerName,
-		String fileName,
-		IProgressMonitor monitor)
-		throws CoreException {
+	private void doFinish(String containerName, String fileName, IProgressMonitor monitor) throws CoreException {
 		// create a sample file
 		monitor.beginTask("Creating " + fileName, 2);
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
@@ -98,8 +89,7 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 		monitor.setTaskName("Opening file for editing...");
 		getShell().getDisplay().asyncExec(new Runnable() {
 			public void run() {
-				IWorkbenchPage page =
-					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+				IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
 				try {
 					IDE.openEditor(page, file, true);
 				} catch (PartInitException e) {
@@ -108,11 +98,10 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 		});
 		monitor.worked(1);
 	}
-	
+
 	/**
-	 * This method is called when 'Finish' button is pressed in
-	 * the wizard. We will create an operation and run it
-	 * using wizard as execution context.
+	 * This method is called when 'Finish' button is pressed in the wizard. We
+	 * will create an operation and run it using wizard as execution context.
 	 */
 	@Override
 	public boolean performFinish() {
@@ -146,7 +135,7 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 	 */
 
 	private InputStream openContentStream() {
-	      return new ByteArrayInputStream("".getBytes());
+		return new ByteArrayInputStream("".getBytes());
 	}
 
 	private void throwCoreException(String message) throws CoreException {

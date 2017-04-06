@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ch.hilbri.assist.mapping.dsl.ui.tests
+Bundle-SymbolicName: ch.hilbri.assist.mapping.dsl.ui.tests
+Bundle-Version: 2.1.0.qualifier
+Bundle-Vendor: Robert Hilbrich
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui.workbench;resolution:=optional,
+ org.eclipse.xtext.junit4,
+ org.eclipse.xtext.xbase.junit,
+ ch.hilbri.assist.mapping.dsl.ui
+Import-Package: org.hamcrest.core,
+ org.junit;version="4.5.0",
+ org.junit.runners.model;version="4.5.0",
+ org.junit.runner;version="4.5.0",
+ org.junit.runners;version="4.5.0",
+ org.junit.runner.manipulation;version="4.5.0",
+ org.junit.runner.notification;version="4.5.0"
+Export-Package: ch.hilbri.assist.mapping.dsl.ui.tests

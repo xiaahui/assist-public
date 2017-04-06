@@ -15,7 +15,7 @@ import org.eclipse.ui.texteditor.ITextEditorActionConstants;
  * editor. Multi-page contributor replaces the contributors for the individual
  * editors in the multi-page editor.
  */
-public class MultiPageEditorContributor extends	MultiPageEditorActionBarContributor {
+public class MultiPageEditorContributor extends MultiPageEditorActionBarContributor {
 	private IEditorPart activeEditorPart;
 
 	/**
@@ -48,8 +48,7 @@ public class MultiPageEditorContributor extends	MultiPageEditorActionBarContribu
 		IActionBars actionBars = getActionBars();
 		if (actionBars != null) {
 
-			ITextEditor editor = (part instanceof ITextEditor) ? (ITextEditor) part
-					: null;
+			ITextEditor editor = (part instanceof ITextEditor) ? (ITextEditor) part : null;
 
 			actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(),
 					getAction(editor, ITextEditorActionConstants.DELETE));
@@ -67,8 +66,7 @@ public class MultiPageEditorContributor extends	MultiPageEditorActionBarContribu
 					getAction(editor, ITextEditorActionConstants.SELECT_ALL));
 			actionBars.setGlobalActionHandler(ActionFactory.FIND.getId(),
 					getAction(editor, ITextEditorActionConstants.FIND));
-			actionBars.setGlobalActionHandler(
-					IDEActionFactory.BOOKMARK.getId(),
+			actionBars.setGlobalActionHandler(IDEActionFactory.BOOKMARK.getId(),
 					getAction(editor, IDEActionFactory.BOOKMARK.getId()));
 			actionBars.updateActionBars();
 		}

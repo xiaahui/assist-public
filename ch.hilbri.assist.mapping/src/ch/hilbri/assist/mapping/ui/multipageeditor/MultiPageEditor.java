@@ -36,11 +36,11 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 
 import com.google.inject.Injector;
 
+import ch.hilbri.assist.mapping.dsl.ui.internal.DslActivator;
 import ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView;
 import ch.hilbri.assist.mapping.ui.metrics.MetricsView;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.ResultsView;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
-import ch.hilbri.assist.mappingdsl.ui.internal.MappingDSLActivator;
 
 /**
  * A multi-page editor. This editor has 2 pages:
@@ -79,8 +79,8 @@ public class MultiPageEditor extends MultiPageEditorPart implements	IResourceCha
 	 */
 	void createPage0() {
 		try {
-			MappingDSLActivator activator = MappingDSLActivator.getInstance();
-			Injector injector = activator.getInjector("ch.hilbri.assist.mappingdsl.MappingDSL");
+			DslActivator activator = DslActivator.getInstance();
+			Injector injector = activator.getInjector("ch.hilbri.assist.mapping.dsl.MappingDSL");
 			editor = injector.getInstance(XtextEditor.class);
 			int index = addPage(editor, getEditorInput());
 			setPageText(index, "Specification");

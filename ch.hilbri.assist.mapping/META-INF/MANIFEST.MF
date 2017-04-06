@@ -5,8 +5,7 @@ Bundle-Name: ch.hilbri.assist.mapping
 Bundle-SymbolicName: ch.hilbri.assist.mapping;singleton:=true
 Bundle-Version: 2.1.0.qualifier
 Bundle-Vendor: Robert Hilbrich
-Require-Bundle: ch.hilbri.assist.mappingdsl.ui,
- ch.hilbri.assist.libraries.javafx,
+Require-Bundle: ch.hilbri.assist.libraries.javafx,
  ch.hilbri.assist.libraries.math,
  ch.hilbri.assist.libraries.jxl,
  ch.hilbri.assist.libraries.choco,
@@ -29,8 +28,14 @@ Require-Bundle: ch.hilbri.assist.mappingdsl.ui,
  ch.hilbri.assist.mapping.model,
  ch.hilbri.assist.mapping.model.edit,
  ch.hilbri.assist.mapping.model.editor,
- ch.hilbri.assist.mapping.model.result
+ ch.hilbri.assist.mapping.model.result,
+ ch.hilbri.assist.mapping.dsl.ui;bundle-version="1.0.0",
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ch.hilbri.assist.mapping.solver,
  ch.hilbri.assist.mapping.solver.exceptions,
  ch.hilbri.assist.mapping.solver.monitors
+

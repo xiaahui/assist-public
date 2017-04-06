@@ -1,0 +1,50 @@
+module ch.hilbri.assist.mapping.dsl.GenerateMappingDSL
+
+import org.eclipse.xtext.xtext.generator.*
+import org.eclipse.xtext.xtext.generator.model.project.*
+
+var rootPath = ".."
+
+Workflow {
+	
+	component = XtextGenerator {
+		configuration = {
+			project = StandardProjectConfig {
+				baseName = "ch.hilbri.assist.mapping.dsl"
+				rootPath = rootPath
+				runtimeTest = {
+					enabled = true
+				}
+				eclipsePlugin = {
+					enabled = true
+				}
+				eclipsePluginTest = {
+					enabled = true
+				}
+				createEclipseMetaData = true
+			}
+			code = {
+				encoding = "windows-1252"
+				fileHeader = ""
+			}
+		}
+		language = StandardLanguage {
+			name = "ch.hilbri.assist.mapping.dsl.MappingDSL"
+			fileExtensions = "mdsl"
+			referencedResource = "platform:/resource/ch.hilbri.assist.mapping.model/model/ASSIST-Model.xcore"
+			
+			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
+
+//			fragment = org.eclipse.xtext.generator.adapter.FragmentAdapter {
+//				fragment = org.eclipse.xtext.generator.ecore2xtext.FormatterFragment {}
+//			}
+
+			serializer = {
+				generateStub = false
+			}
+			validator = {
+				//composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+			}
+		}
+	}
+}

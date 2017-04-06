@@ -1,11 +1,11 @@
 package ch.hilbri.assist.mapping.tests.strategies
 
+import ch.hilbri.assist.mapping.dsl.tests.MappingDSLInjectorProvider
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.ModelPackage
 import ch.hilbri.assist.mapping.solver.AssistSolver
 import ch.hilbri.assist.mapping.solver.SearchType
 import ch.hilbri.assist.mapping.tests.constraints.AbstractMappingTest
-import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider
 import javax.inject.Inject
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner

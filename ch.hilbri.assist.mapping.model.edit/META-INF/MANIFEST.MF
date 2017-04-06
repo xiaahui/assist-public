@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: ch.hilbri.assist.mapping.model.edit
 Bundle-SymbolicName: ch.hilbri.assist.mapping.model.edit;singleton:=true
 Bundle-Version: 2.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: ch.hilbri.assist.mapping.model.provider.ModelEditPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: Robert Hilbrich
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ch.hilbri.assist.mapping.model.provider

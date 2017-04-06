@@ -7,10 +7,10 @@ Bundle-Version: 2.1.0.qualifier
 Bundle-Vendor: Robert Hilbrich
 Export-Package: ch.hilbri.assist.cli
 Require-Bundle: ch.hilbri.assist.mapping;bundle-version="2.0.0",
- ch.hilbri.assist.mappingdsl.tests;bundle-version="2.0.0",
  com.google.inject;bundle-version="3.0.0",
  org.apache.commons.cli;bundle-version="1.2.0",
  org.eclipse.xtext.junit4;bundle-version="2.8.4",
  ch.hilbri.assist.mapping.model;bundle-version="2.1.0",
- ch.hilbri.assist.mapping.model.result;bundle-version="2.1.0"
+ ch.hilbri.assist.mapping.model.result;bundle-version="2.1.0",
+ ch.hilbri.assist.mapping.dsl.tests
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

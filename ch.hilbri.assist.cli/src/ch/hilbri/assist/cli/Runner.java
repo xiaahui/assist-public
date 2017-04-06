@@ -14,15 +14,15 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 
+import com.google.inject.Inject;
+
+import ch.hilbri.assist.datamodel.result.mapping.Result;
+import ch.hilbri.assist.mapping.dsl.tests.MappingDSLInjectorProvider;
 import ch.hilbri.assist.mapping.model.AssistModel;
 import ch.hilbri.assist.mapping.model.ModelPackage;
-import ch.hilbri.assist.datamodel.result.mapping.Result;
 import ch.hilbri.assist.mapping.solver.AssistSolver;
 import ch.hilbri.assist.mapping.solver.SearchType;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
-import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider;
-
-import com.google.inject.Inject;
 
 public class Runner {
 

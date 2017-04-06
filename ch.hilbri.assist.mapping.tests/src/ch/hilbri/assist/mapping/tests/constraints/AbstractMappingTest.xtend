@@ -1,12 +1,12 @@
 package ch.hilbri.assist.mapping.tests.constraints
 
 import ch.hilbri.assist.datamodel.result.mapping.Result
+import ch.hilbri.assist.mapping.dsl.tests.MappingDSLInjectorProvider
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.ModelPackage
 import ch.hilbri.assist.mapping.solver.AssistSolver
 import ch.hilbri.assist.mapping.solver.SearchType
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
-import ch.hilbri.assist.mappingdsl.MappingDSLInjectorProvider
 import com.google.inject.Inject
 import java.util.ArrayList
 import org.eclipse.xtext.junit4.InjectWith
