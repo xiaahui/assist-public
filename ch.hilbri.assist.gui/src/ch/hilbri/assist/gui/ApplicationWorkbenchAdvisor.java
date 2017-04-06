@@ -4,6 +4,7 @@ import java.net.URL;
 
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IWorkbenchPreferenceConstants;
@@ -59,6 +60,20 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 		return PERSPECTIVE_ID;
 	}
 
+	/*
+	 * Fixes the missing input in the project explorer
+	 * 
+	 * (see: https://dirksmetric.wordpress.com/2012/08/01/tutorial-eclipse-rcp-e4-with-3-x-views-like-project-explorer-properties-etc/)
+	 * 
+	 * 
+	 * (non-Javadoc)
+	 * @see org.eclipse.ui.application.WorkbenchAdvisor#getDefaultPageInput()
+	 */
+	@Override
+	public IAdaptable getDefaultPageInput() {
+		return ResourcesPlugin.getWorkspace().getRoot();
+	}
+	
 	@Override
 	public boolean preShutdown() {
 		try {
