@@ -26,7 +26,7 @@
 					<testSuite>ch.hilbri.assist.mapping.tests</testSuite>
 					<testClass>ch.hilbri.assist.mapping.tests.TestSuiteAllMappingTests</testClass>
 					<failIfNoTests>false</failIfNoTests>
-					<useUIHarness>true</useUIHarness>
+					<useUIHarness>false</useUIHarness>
 				</configuration>
 			</plugin>
 			
