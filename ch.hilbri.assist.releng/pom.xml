@@ -286,12 +286,6 @@
 			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/${xtextVersion}/</url>
 		</repository>
 
-		<!-- <repository> -->
-		<!-- <id>Xtext</id> -->
-		<!-- <layout>p2</layout> -->
-		<!-- <url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url> -->
-		<!-- </repository> -->
-
 		<repository>
 			<id>codehaus-snapshots</id>
 			<name>disable dead 'Codehaus Snapshots' repository, see https://bugs.eclipse.org/bugs/show_bug.cgi?id=481478</name>
