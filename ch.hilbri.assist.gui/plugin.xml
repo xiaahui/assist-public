@@ -12,6 +12,7 @@
    	<product application="ch.hilbri.assist.gui.application" name="ASSIST">
 	    <property name="appName" value="ASSIST"> </property>
 	    <property name="applicationXMI" value="ch.hilbri.assist.gui/Application.e4xmi"></property>
+	    <property name="lifeCycleURI"   value="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.splash.LifeCycleManager"></property>
   	</product>
    </extension>
    <extension
