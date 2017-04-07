@@ -1,7 +1,18 @@
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
+
 before_script: cd ch.hilbri.assist.releng
-script: mvn clean verify -U 
 
+script: mvn clean verify -U
 
+deploy:
+  provider: releases
+  api_key:
+    secure: UasB0wvz/o6Z+a3k0n3t6P1UhvnlgC3889WCuyKFbjs26U89ejXbHigJ62uEt8KkW1GQyWkpFvu+AYP35Ctl2gP5bpkpAmrZD5OGmiPJd8JPVSj+ZhXdD/+eUGoxMsNTXFJzhP8lMnjXtsTk2O2IqaZ+30twoTYzJve97qJVjTY=
+  file_glob: true
+  file: ../ch.hilbri.assist.releng.product.gui/target/products/ASSIST-*.zip
+  skip_cleanup: true
+  on:
+    repo: RobertHilbrich/assist-public
+    tags: true
