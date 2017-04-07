@@ -13,14 +13,22 @@
       </vmArgsMac>
    </launcherArgs>
 
+   <splash
+      location="ch.hilbri.assist.gui" />
    <launcher>
+      <linux icon="/ch.hilbri.assist.releng.product.gui/icons/icon.xpm"/>
       <solaris/>
       <win useIco="false">
-         <bmp/>
+         <bmp
+            winSmallHigh="/ch.hilbri.assist.gui/icons/ASSIST-launcher-icon-16x16-32bit.bmp"
+            winMediumHigh="/ch.hilbri.assist.gui/icons/ASSIST-launcher-icon-32x32-32bit.bmp"
+            winLargeHigh="/ch.hilbri.assist.gui/icons/ASSIST-launcher-icon-48x48-32bit.bmp"
+            winExtraLargeHigh="/ch.hilbri.assist.gui/icons/ASSIST-launcher-icon-256x256-32bit.bmp"/>
       </win>
    </launcher>
 
    <vm>
+      <windows include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</windows>
    </vm>
 
    <plugins>
@@ -49,6 +57,30 @@
       <feature id="org.eclipse.ecf.core.ssl.feature"/>
       <feature id="org.eclipse.ecf.filetransfer.ssl.feature"/>
       <feature id="org.eclipse.xtext.xbase.lib"/>
+      <feature id="org.eclipse.jdt"/>
+      <feature id="org.eclipse.zest"/>
+      <feature id="org.eclipse.xtext.runtime"/>
+      <feature id="org.eclipse.xtext.ui"/>
+      <feature id="org.eclipse.xtext.xbase"/>
+      <feature id="org.eclipse.xtext.xtext.ui"/>
+      <feature id="org.eclipse.xtend.sdk"/>
+      <feature id="org.eclipse.xtext.sdk"/>
+      <feature id="org.eclipse.draw2d"/>
+      <feature id="org.eclipse.xtext.examples"/>
+      <feature id="org.eclipse.xtext.xtext.ui.source"/>
+      <feature id="org.eclipse.xtext.xbase.lib.source"/>
+      <feature id="org.eclipse.xtext.ui.source"/>
+      <feature id="org.eclipse.xtext.examples.source"/>
+      <feature id="org.eclipse.xtext.xbase.source"/>
+      <feature id="org.eclipse.xtext.runtime.source"/>
+      <feature id="org.eclipse.xtext.docs"/>
+      <feature id="org.eclipse.emf.ecore.xcore.lib" version="1.2.100.v20160526-0606"/>
+      <feature id="org.eclipse.emf.edit" version="2.12.0.v20160526-0356"/>
+      <feature id="org.eclipse.emf.edit.ui" version="2.12.0.v20160526-0356"/>
+      <feature id="org.eclipse.emf.common.ui" version="2.11.0.v20160526-0356"/>
+      <feature id="org.eclipse.emf.codegen" version="2.11.0.v20160526-0356"/>
+      <feature id="org.eclipse.emf.codegen.ecore" version="2.12.0.v20160526-0356"/>
+      <feature id="org.eclipse.emf.ecore.xcore" version="1.4.0.v20160526-0606"/>
    </features>
 
    <configurations>
