@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see ch.hilbri.assist.mapping.model.ModelFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel modelPluginID='ch.hilbri.assist.mapping.model' modelDirectory='ch.hilbri.assist.mapping.model/src-gen' editDirectory='/ch.hilbri.assist.mapping.model.edit/src' editPluginID='ch.hilbri.assist.mapping.model.edit' editorDirectory='/ch.hilbri.assist.mapping.model.editor/src' editorPluginID='ch.hilbri.assist.mapping.model.editor' generateModelWizard='false' generateExampleClass='false' basePackage='ch.hilbri.assist.mapping'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel modelPluginID='ch.hilbri.assist.mapping.model' editDirectory='/ch.hilbri.assist.mapping.model.edit/src' editPluginID='ch.hilbri.assist.mapping.model.edit' editorDirectory='/ch.hilbri.assist.mapping.model.editor/src' editorPluginID='ch.hilbri.assist.mapping.model.editor' generateModelWizard='false' generateExampleClass='false' basePackage='ch.hilbri.assist.mapping'"
  *        annotation="http://www.eclipse.org/emf/2011/Xcore GenModel='http://www.eclipse.org/emf/2002/GenModel'"
  * @generated
  */
