@@ -11,7 +11,7 @@ deploy:
   api_key:
     secure: UasB0wvz/o6Z+a3k0n3t6P1UhvnlgC3889WCuyKFbjs26U89ejXbHigJ62uEt8KkW1GQyWkpFvu+AYP35Ctl2gP5bpkpAmrZD5OGmiPJd8JPVSj+ZhXdD/+eUGoxMsNTXFJzhP8lMnjXtsTk2O2IqaZ+30twoTYzJve97qJVjTY=
   file_glob: true
-  file: ../ch.hilbri.assist.releng.product.gui/target/products/ASSIST-*.zip
+  file: ../ch.hilbri.assist.releng.product.gui/target/products/ASSIST-*
   skip_cleanup: true
   on:
     repo: RobertHilbrich/assist-public

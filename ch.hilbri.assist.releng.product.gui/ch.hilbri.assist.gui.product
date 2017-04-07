@@ -7,22 +7,16 @@
    </configIni>
 
    <launcherArgs>
-      <programArgs>-clearPersistedState -clean
+      <programArgs>-clearPersistedState
       </programArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
    </launcherArgs>
 
-
-   <launcher>
-      <linux icon="/ch.hilbri.assist.releng.product.gui/icons/icon.xpm"/>
+   <launcher name="ASSIST">
       <solaris/>
       <win useIco="false">
-         <bmp
-            winSmallHigh="/ch.hilbri.assist.gui/icons/ASSIST-launcher-icon-16x16-32bit.bmp"
-            winMediumHigh="/ch.hilbri.assist.gui/icons/ASSIST-launcher-icon-32x32-32bit.bmp"
-            winLargeHigh="/ch.hilbri.assist.gui/icons/ASSIST-launcher-icon-48x48-32bit.bmp"
-            winExtraLargeHigh="/ch.hilbri.assist.gui/icons/ASSIST-launcher-icon-256x256-32bit.bmp"/>
+         <bmp/>
       </win>
    </launcher>
 
