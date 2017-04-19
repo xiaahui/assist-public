@@ -1,8 +1,8 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx;
 
-import ch.hilbri.assist.datamodel.result.mapping.HardwareElement;
-import ch.hilbri.assist.datamodel.result.mapping.Thread;
-import ch.hilbri.assist.datamodel.result.mapping.Result;
+import ch.hilbri.assist.mapping.model.result.HardwareElement;
+import ch.hilbri.assist.mapping.model.result.Thread;
+import ch.hilbri.assist.mapping.model.result.Result;
 
 /**
  * Object of the Treeitems, so that it is possible to get the underlying data 

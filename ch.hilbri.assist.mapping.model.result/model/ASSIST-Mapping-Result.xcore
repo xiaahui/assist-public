@@ -3,7 +3,7 @@
 	generateExampleClass="false"
 )
 
-package ch.hilbri.assist.datamodel.result.mapping
+package ch.hilbri.assist.mapping.model.result
 
 import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType

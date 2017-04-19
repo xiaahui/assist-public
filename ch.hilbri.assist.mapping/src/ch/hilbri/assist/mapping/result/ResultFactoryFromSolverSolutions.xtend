@@ -3,16 +3,16 @@ package ch.hilbri.assist.mapping.result
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.Board
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.datamodel.result.mapping.Application
-import ch.hilbri.assist.datamodel.result.mapping.ApplicationGroup
-import ch.hilbri.assist.datamodel.result.mapping.Box
-import ch.hilbri.assist.datamodel.result.mapping.Compartment
-import ch.hilbri.assist.datamodel.result.mapping.Core
-import ch.hilbri.assist.datamodel.result.mapping.HardwareElement
-import ch.hilbri.assist.datamodel.result.mapping.IOAdapter
-import ch.hilbri.assist.datamodel.result.mapping.MappingFactory
-import ch.hilbri.assist.datamodel.result.mapping.Processor
-import ch.hilbri.assist.datamodel.result.mapping.Result
+import ch.hilbri.assist.mapping.model.result.Application
+import ch.hilbri.assist.mapping.model.result.ApplicationGroup
+import ch.hilbri.assist.mapping.model.result.Box
+import ch.hilbri.assist.mapping.model.result.Compartment
+import ch.hilbri.assist.mapping.model.result.Core
+import ch.hilbri.assist.mapping.model.result.HardwareElement
+import ch.hilbri.assist.mapping.model.result.IOAdapter
+import ch.hilbri.assist.mapping.model.result.ResultFactory
+import ch.hilbri.assist.mapping.model.result.Processor
+import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.HashMap
@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject
 
 class ResultFactoryFromSolverSolutions {
 	
-	static MappingFactory f
+	static ResultFactory f
 
 	static private def fillApplicationGroupMembers(ch.hilbri.assist.mapping.model.ApplicationGroup modelAppGroup, Result result) {
 		
@@ -92,7 +92,7 @@ class ResultFactoryFromSolverSolutions {
 				b.name 				= modelElement.name
 				b.manufacturer 		= modelElement.manufacturer
 				for (board : modelElement.boards)
-					b.boards.add(createHardwareElements(board) as ch.hilbri.assist.datamodel.result.mapping.Board)
+					b.boards.add(createHardwareElements(board) as ch.hilbri.assist.mapping.model.result.Board)
 					
 				b.referenceObject	= modelElement
 					
@@ -100,7 +100,7 @@ class ResultFactoryFromSolverSolutions {
 			}
 			
 			Board: {
-				val ch.hilbri.assist.datamodel.result.mapping.Board b 		= f.createBoard
+				val ch.hilbri.assist.mapping.model.result.Board b 		= f.createBoard
 				b.name				= modelElement.name
 				b.manufacturer 		= modelElement.manufacturer
 				b.boardType			= modelElement.boardType
@@ -244,7 +244,7 @@ class ResultFactoryFromSolverSolutions {
 	}
 	
 	static def ArrayList<Result> create(AssistModel model, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {
-		f = MappingFactory.eINSTANCE
+		f = ResultFactory.eINSTANCE
 		
 		/* The list of results which will be returned for display */
 		val results = new ArrayList<Result>

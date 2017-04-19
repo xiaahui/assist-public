@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated ASSIST-Mapping-Result -->
       <package
-            uri="ch.hilbri.assist.datamodel.result.mapping"
-            class="ch.hilbri.assist.datamodel.result.mapping.MappingPackage"
+            uri="ch.hilbri.assist.mapping.model.result"
+            class="ch.hilbri.assist.mapping.model.result.ResultPackage"
             genModel="model/ASSIST-Mapping-Result.xcore"/>
    </extension>
 

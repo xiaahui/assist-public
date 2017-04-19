@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
-import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
-import ch.hilbri.assist.datamodel.result.mapping.Result;
+import ch.hilbri.assist.mapping.model.result.AbstractMetric;
+import ch.hilbri.assist.mapping.model.result.Result;
 
 public class ResultsAnalysis  {
 

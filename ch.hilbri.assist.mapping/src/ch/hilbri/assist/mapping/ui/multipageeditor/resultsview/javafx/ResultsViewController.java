@@ -31,13 +31,13 @@ import javafx.scene.shape.Circle;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.EObject;
 
-import ch.hilbri.assist.datamodel.result.mapping.Board;
-import ch.hilbri.assist.datamodel.result.mapping.Box;
-import ch.hilbri.assist.datamodel.result.mapping.Compartment;
-import ch.hilbri.assist.datamodel.result.mapping.Core;
-import ch.hilbri.assist.datamodel.result.mapping.Thread;
-import ch.hilbri.assist.datamodel.result.mapping.Processor;
-import ch.hilbri.assist.datamodel.result.mapping.Result;
+import ch.hilbri.assist.mapping.model.result.Board;
+import ch.hilbri.assist.mapping.model.result.Box;
+import ch.hilbri.assist.mapping.model.result.Compartment;
+import ch.hilbri.assist.mapping.model.result.Core;
+import ch.hilbri.assist.mapping.model.result.Thread;
+import ch.hilbri.assist.mapping.model.result.Processor;
+import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.GotoSolutionDialog;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 

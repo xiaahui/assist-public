@@ -1,6 +1,6 @@
 package ch.hilbri.assist.mapping.tests.constraints
 
-import ch.hilbri.assist.datamodel.result.mapping.Result
+import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.dsl.tests.MappingDSLInjectorProvider
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.ModelPackage

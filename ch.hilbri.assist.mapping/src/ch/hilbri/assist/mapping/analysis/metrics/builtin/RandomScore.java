@@ -1,8 +1,8 @@
 package ch.hilbri.assist.mapping.analysis.metrics.builtin;
 import java.util.Random;
 
-import ch.hilbri.assist.datamodel.result.mapping.Result;
-import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
+import ch.hilbri.assist.mapping.model.result.Result;
+import ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl;
 
 public class RandomScore extends AbstractMetricImpl {
 

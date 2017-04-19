@@ -14,8 +14,8 @@ import javafx.scene.control.TreeItem;
 
 import org.eclipse.ui.part.EditorPart;
 
-import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
-import ch.hilbri.assist.datamodel.result.mapping.Result;
+import ch.hilbri.assist.mapping.model.result.AbstractMetric;
+import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
 

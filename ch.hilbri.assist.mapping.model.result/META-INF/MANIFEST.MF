@@ -7,12 +7,12 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: ch.hilbri.assist.datamodel.result.mapping,
- ch.hilbri.assist.datamodel.result.mapping.impl,
- ch.hilbri.assist.datamodel.result.mapping.util
+Export-Package: ch.hilbri.assist.mapping.model.result,
+ ch.hilbri.assist.mapping.model.result.impl,
+ ch.hilbri.assist.mapping.model.result.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.emf.ecore.xcore.lib,
- ch.hilbri.assist.mapping.model;bundle-version="2.1.0";visibility:=reexport
+ ch.hilbri.assist.mapping.model;visibility:=reexport
 Bundle-ActivationPolicy: lazy

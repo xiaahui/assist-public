@@ -42,8 +42,8 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.dialogs.ListSelectionDialog;
 import org.eclipse.wb.swt.ResourceManager;
 
-import ch.hilbri.assist.datamodel.result.mapping.AbstractMetric;
-import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;
+import ch.hilbri.assist.mapping.model.result.AbstractMetric;
+import ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 
