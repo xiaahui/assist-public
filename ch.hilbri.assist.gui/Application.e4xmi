@@ -72,7 +72,7 @@
   <handlers xmi:id="_wGwX4BU8EeeuUvr86sRq3A" elementId="ch.hilbri.assist.gui.handler.0" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.NewProjectHandler" command="_iEtEcBOyEeeXZoKubOdysQ"/>
   <handlers xmi:id="_xlbVUBU8EeeuUvr86sRq3A" elementId="ch.hilbri.assist.gui.handler.1" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.NewFolderHandler" command="_mBjUgBOyEeeXZoKubOdysQ"/>
   <handlers xmi:id="_IUv_gBZGEeeXitT51bbhqg" elementId="ch.hilbri.assist.gui.handler.2" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.AboutHandler" command="_cE1GEBRJEeeXZoKubOdysQ"/>
-  <bindingTables xmi:id="_fCzDkBO7EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.bindingtable.0" bindingContext="_LtOWABO7EeeXZoKubOdysQ">
+  <bindingTables xmi:id="_fCzDkBO7EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.bindingtable.0" bindingContext="_8AG84BO6EeeXZoKubOdysQ">
     <bindings xmi:id="_k61N8BO7EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.newProject" keySequence="M1+N" command="_iEtEcBOyEeeXZoKubOdysQ"/>
     <bindings xmi:id="_cdm50BRGEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.save" keySequence="M1+S" command="_AqFu0BOyEeeXZoKubOdysQ"/>
     <bindings xmi:id="_iyA3IBRGEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.saveAll" keySequence="M1+M2+S" command="_Ej4q4BOyEeeXZoKubOdysQ"/>
