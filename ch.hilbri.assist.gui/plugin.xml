@@ -43,6 +43,10 @@
    		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.ui.externaltools.*"></activityPatternBinding>
 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.ui.wizards.new.*"></activityPatternBinding>
  		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.ui.editors.wizards.*"></activityPatternBinding> 
+ 		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.xtext.xtext.*"></activityPatternBinding> 
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.xtext.examples.*"></activityPatternBinding> 
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.xtend.ide.*"></activityPatternBinding> 
+		<activityPatternBinding activityId="ch.hilbri.assist.application.activity.disable" pattern=".*/org.eclipse.xtend.examples.*"></activityPatternBinding> 
  	</extension>
  	
  	<extension

@@ -28,7 +28,6 @@
     <mainMenu xmi:id="_2a0MgBOzEeeXZoKubOdysQ" elementId="org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_Ds2DQBO0EeeXZoKubOdysQ" elementId="org.eclipse.ui.file.menu" label="File">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_MTsLABO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.newproject" label="New Project" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/newprj_wiz.png" command="_iEtEcBOyEeeXZoKubOdysQ"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_Skv5YBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.newfolder" label="New Folder" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/newfolder_wiz.png" command="_mBjUgBOyEeeXZoKubOdysQ"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_YOlPsBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.newother" label="New ..." command="_-xBe8BOyEeeXZoKubOdysQ"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_didkIBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handledmenuitem.open" label="Open File..." command="_gHLdQBOxEeeXZoKubOdysQ"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_KoM5kBO5EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.menuseparator.0"/>
@@ -70,7 +69,6 @@
   </children>
   <handlers xmi:id="_wKs5UBOzEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.exit" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.ExitHandler" command="_bAtdQBOyEeeXZoKubOdysQ"/>
   <handlers xmi:id="_wGwX4BU8EeeuUvr86sRq3A" elementId="ch.hilbri.assist.gui.handler.0" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.NewProjectHandler" command="_iEtEcBOyEeeXZoKubOdysQ"/>
-  <handlers xmi:id="_xlbVUBU8EeeuUvr86sRq3A" elementId="ch.hilbri.assist.gui.handler.1" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.NewFolderHandler" command="_mBjUgBOyEeeXZoKubOdysQ"/>
   <handlers xmi:id="_IUv_gBZGEeeXitT51bbhqg" elementId="ch.hilbri.assist.gui.handler.2" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.AboutHandler" command="_cE1GEBRJEeeXZoKubOdysQ"/>
   <bindingTables xmi:id="_fCzDkBO7EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.bindingtable.0" bindingContext="_8AG84BO6EeeXZoKubOdysQ">
     <bindings xmi:id="_k61N8BO7EeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.newProject" keySequence="M1+N" command="_iEtEcBOyEeeXZoKubOdysQ"/>
@@ -91,8 +89,7 @@
     <children xmi:id="_HJ8_IBO7EeeXZoKubOdysQ" elementId="org.eclipse.ui.contexts.dialog" name="Dialogs only" description="Key bindings valid for dialogs"/>
     <children xmi:id="_LtOWABO7EeeXZoKubOdysQ" elementId="org.eclipse.ui.contexts.window" name="Windows only" description="Key bindings valid for windows only"/>
   </rootContext>
-  <commands xmi:id="_iEtEcBOyEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.commands.newproject" commandName="New Project"/>
-  <commands xmi:id="_mBjUgBOyEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.commands.newfolder" commandName="New Folder"/>
+  <commands xmi:id="_iEtEcBOyEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.commands.newproject" commandName="New Project" description="Create a new ASSIST project" category="_3K1eACuKEeeS6a68AYSGxg"/>
   <commands xmi:id="_-xBe8BOyEeeXZoKubOdysQ" elementId="org.eclipse.ui.newWizard" commandName="New Other"/>
   <commands xmi:id="_gHLdQBOxEeeXZoKubOdysQ" elementId="org.eclipse.ui.edit.text.openLocalFile" commandName="Open File"/>
   <commands xmi:id="_AqFu0BOyEeeXZoKubOdysQ" elementId="org.eclipse.ui.file.save" commandName="Save"/>
@@ -117,4 +114,5 @@
   <addons xmi:id="_75jaFRLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
   <addons xmi:id="_75jaFhLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
   <addons xmi:id="_75jaFxLXEeeXZoKubOdysQ" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <categories xmi:id="_3K1eACuKEeeS6a68AYSGxg" elementId="ch.hilbri.assist.gui.category.main" name="ASSIST"/>
 </application:Application>
