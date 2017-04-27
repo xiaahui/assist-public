@@ -28,11 +28,15 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.osgi.services,
  org.eclipse.jdt.core,
  org.eclipse.jdt.launching,
- org.eclipse.jdt.ui
+ org.eclipse.jdt.ui,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ ch.hilbri.assist.libraries.logback
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.inject;version="1.0.0",
  org.osgi.framework,
  org.osgi.service.component
 Bundle-Activator: ch.hilbri.assist.gui.splash.internal.SplashServicePlugin
 Bundle-ActivationPolicy: lazy
-
