@@ -20,6 +20,8 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ch.hilbri.assist.mapping.model.AssistModel;
 import ch.hilbri.assist.mapping.solver.GuiSolverJob;
@@ -77,6 +79,9 @@ public class Generate {
 	 */
 	@Execute
 	public Object execute(MApplication application, EModelService service, IProgressMonitor monitor) {
+		
+		Logger logger 			= LoggerFactory.getLogger(this.getClass());
+		logger.debug("HALLO HALLO");
 		
 		MUIElement elem = service.find("ch.hilbri.assist.gui.partstack.editors", application);
 		MPartStack partStack = (MPartStack) elem;

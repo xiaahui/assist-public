@@ -5,7 +5,7 @@ Bundle-SymbolicName: ch.hilbri.assist.gui;singleton:=true
 Bundle-Version: 2.1.0.qualifier
 Bundle-Vendor: Robert Hilbrich
 Service-Component: OSGI-INF/osgi-ISplashService-component.xml
-Export-Package: ch.hilbri.assist.gui.splash
+Export-Package: ch.hilbri.assist.gui.splash, ch.hilbri.assist.gui.logging
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui,
  org.eclipse.ui.views,
