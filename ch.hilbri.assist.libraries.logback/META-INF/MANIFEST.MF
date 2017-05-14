@@ -8,8 +8,7 @@ Bundle-ClassPath: logback-classic-1.1.2.jar,
  logback-core-1.1.2.jar,
  slf4j-api-1.7.7.jar
 Bundle-Vendor: QOS.ch
-Export-Package: ch.qos.logback.classic,
- ch.qos.logback.core,
+Export-Package: ch.qos.logback.core,
  ch.qos.logback.core.encoder,
  org.slf4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
