@@ -16,7 +16,7 @@
             contributorClass="ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditorContributor"
             default="true"
             extensions="mdsl"
-            icon="icons/icon-mapping-specification-16x16.png"
+            icon="icons/mapping-specification.png"
             id="ch.hilbri.assist.mapping.editors.mappingeditor"
             name="Mapping Specification">
       </editor>
@@ -27,7 +27,7 @@
             canFinishEarly="false"
             category="ch.hilbri.assist.categories.main"
             class="ch.hilbri.assist.mapping.ui.wizards.NewMappingSpecificationWizard"
-            icon="icons/icon-mapping-specification-16x16.png"
+            icon="icons/mapping-specification.png"
             id="ch.hilbri.assist.mapping.wizards.newMappingSpecification"
             name="Mapping - Deployment Specification"
             project="false">
