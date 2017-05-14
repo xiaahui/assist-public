@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.javafx
 Bundle-SymbolicName: ch.hilbri.assist.libraries.javafx
-Bundle-Version: 1.8.60.qualifier
+Bundle-Version: 1.8.131.qualifier
 Bundle-ClassPath: jfxrt-win.jar,
  jfxrt-mac.jar,
  jfxswt.jar
