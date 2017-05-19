@@ -10,7 +10,6 @@ import ch.hilbri.assist.mapping.model.Compartment
 import ch.hilbri.assist.mapping.model.Core
 import ch.hilbri.assist.mapping.model.DislocalityRelation
 import ch.hilbri.assist.mapping.model.DissimilarityRelation
-import ch.hilbri.assist.mapping.model.Network
 import ch.hilbri.assist.mapping.model.Processor
 import ch.hilbri.assist.mapping.model.ProximityRelation
 import com.google.inject.Inject
@@ -28,12 +27,13 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
-def text(AssistModel model) {
-		'System ' + model.systemName
+	
+	def text(AssistModel model) {
+		'System ' + model.systemName 
 	}
 
 	def image(AssistModel model) {
-		'outline_view_system_16x16.png'
+		'outlineview_system.png'
 	}
 
 	def text(Compartment comp) {
@@ -41,15 +41,15 @@ def text(AssistModel model) {
 	}
 
 	def image(Compartment comp) {
-		'outline_view_compartment_16x16.png'
+		'outlineview_hardware_node.gif'
 	}
 
 	def text(Box box) {
-		'Box ' + box.name
+		'Box ' + box.name 
 	}
 
 	def image(Box box) {
-		'outline_view_box_16x16.png'
+		'outlineview_hardware_node.gif'
 	}
 
 	def text(Board b) {
@@ -57,7 +57,7 @@ def text(AssistModel model) {
 	}
 
 	def image(Board b) {
-		'outline_view_board_16x16.png'
+		'outlineview_hardware_node.gif'
 	}
 
 	def text(Processor p) {
@@ -65,7 +65,7 @@ def text(AssistModel model) {
 	}
 
 	def image(Processor p) {
-		'outline_view_processor_16x16.png'
+		'outlineview_processor.gif'
 	}
 
 	def text(Core c) {
@@ -73,7 +73,7 @@ def text(AssistModel model) {
 	}
 
 	def image(Core c) {
-		'outline_view_core_16x16.png'
+		'outlineview_core.gif'
 	}
 
 	def text(Application a) {
@@ -81,8 +81,18 @@ def text(AssistModel model) {
 	}
 
 	def image(Application a) {
-		'outline_view_application2_16x16.png'
+		'outlineview_application.png'
 	}
+	
+	def text(ApplicationGroup g) {
+		'Group ' + g.name + ' ' + g.applicationsOrGroups
+	}
+	
+	def image(ApplicationGroup g) {
+		'outlineview_application_group.gif'
+	}
+	
+	
 
 	def text(DislocalityRelation r) {
 		val output = new StringBuilder()
@@ -102,7 +112,7 @@ def text(AssistModel model) {
 	}
 
 	def image(DislocalityRelation r) {
-		'outline_view_relation_16x16.png'
+		'outlineview_constraint.png'
 	}
 
 	def text(DissimilarityRelation r) {
@@ -121,7 +131,7 @@ def text(AssistModel model) {
 	}
 
 	def image(DissimilarityRelation r) {
-		'outline_view_relation_16x16.png'
+		'outlineview_constraint.png'
 	}
 
 	def text(ProximityRelation r) {
@@ -142,7 +152,7 @@ def text(AssistModel model) {
 	}
 
 	def image(ProximityRelation r) {
-		'outline_view_relation_16x16.png'
+		'outlineview_constraint.png'
 	}
 
 	def text(CommunicationRelation r) {
@@ -150,22 +160,15 @@ def text(AssistModel model) {
 	}
 
 	def image(CommunicationRelation r) {
-		'outline_view_communication_16x16.png'
+		'outlineview_constraint.png'
 	}
 	
-	def text(Network n) {
-		n.name + " connects " + n.boards 
-	}
-	
-	def image(Network n) {
-		'outline_view_network_16x16.png'
-	}
-	
-	def text(ApplicationGroup g) {
-		g.name + " contains " + g.applicationsOrGroups
-	}
-	
-	def image(ApplicationGroup g) {
-		'outline_view_application_group_16x16.png'
-	}
+//	def text(Network n) {
+//		n.name + " connects " + n.boards 
+//	}
+//	
+//	def image(Network n) {
+//		'outline_view_network_16x16.png'
+//	}
+//	
 }

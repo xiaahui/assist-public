@@ -3,10 +3,11 @@ package ch.hilbri.assist.mapping.dsl.ui.outline
 import ch.hilbri.assist.mapping.model.AssistModel
 import org.eclipse.core.runtime.FileLocator
 import org.eclipse.core.runtime.Path
-import org.eclipse.core.runtime.Platform
 import org.eclipse.jface.resource.ImageDescriptor
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
+import org.osgi.framework.FrameworkUtil
+import ch.hilbri.assist.mapping.model.DissimilarityRelation
 
 /**
  * Customization of the default outline structure.
@@ -14,12 +15,15 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#outline
  */
 class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
+	
+	def _isLeaf(DissimilarityRelation r) {
+		true
+	}
 
 	def _createChildren(IOutlineNode parentNode, AssistModel model) {
-		
-		val bundle = Platform.getBundle("ch.hilbri.assist.mappingdsl.ui");
-		val imgfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outline_view_folder_16x16.png"), null));
-		val imgsubfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outline_view_subfolder_16x16.png"), null));
+		val bundle = FrameworkUtil.getBundle(MappingDSLOutlineTreeProvider)
+		val imgfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_folder.png"), null));
+		val imgsubfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_category.png"), null));
 		
 		/* ---------- HARDWARE ------------- */
 		val hardwareNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Hardware", false)
@@ -35,19 +39,25 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 			for (group : model.applicationGroups)createNode(appGroupNode, group)
 		}
 		
-		/* --------- SAFETY CONSTRAINTS -------------- */
-		if (!model.dislocalityRelations.empty || !model.dissimilarityRelations.empty) {
-			val safetyRelationNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Safety", false)
+		/* --------- CONSTRAINTS -------------- */
+		if (!model.dislocalityRelations.empty || !model.dissimilarityRelations.empty || !model.proximityRelations.empty) {
+			val contraintsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Restrictions", false)
 
 			if (!model.dislocalityRelations.empty) {		
-				val dislocalRelationNode = new VirtualOutlineNode(safetyRelationNode, imgsubfolderDesc, "Dislocality Constraints", false)
+				val dislocalRelationNode = new VirtualOutlineNode(contraintsNode, imgsubfolderDesc, "Dislocality", false)
 				for (r : model.dislocalityRelations) createNode(dislocalRelationNode, r)
 			}
 
 			if (!model.dissimilarityRelations.empty) {		
-				val dissimRelationNode = new VirtualOutlineNode(safetyRelationNode, imgsubfolderDesc, "Dissimilarity Constraints", false)
+				val dissimRelationNode = new VirtualOutlineNode(contraintsNode, imgsubfolderDesc, "Dissimilarity", false)
 				for (r : model.dissimilarityRelations) createNode(dissimRelationNode, r)
 			}
+			
+			if (!model.proximityRelations.empty) {
+				val proximityRelationNode = new VirtualOutlineNode(contraintsNode, imgsubfolderDesc, "Proximity", false)
+				for (r : model.proximityRelations) createNode(proximityRelationNode, r)
+			}
+			
 		}
 		
 		/* --------- NETWORKING ---------------------- */
@@ -64,15 +74,6 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 				for (r : model.communicationRelations) createNode(commRelationNode, r)
 			}
 		}
-
-		/* ---------- PROXIMITY REQUIREMENTS --------- */
-		if (!model.proximityRelations.empty) {
-			val proximityRelationNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Proximity", false)
-			for (r : model.proximityRelations) createNode(proximityRelationNode, r)
-		}
-		
-		
-		
 		
 	}
 	
