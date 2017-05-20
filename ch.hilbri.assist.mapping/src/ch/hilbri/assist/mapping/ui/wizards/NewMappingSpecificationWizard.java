@@ -1,6 +1,5 @@
 package ch.hilbri.assist.mapping.ui.wizards;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
@@ -66,7 +65,6 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 	 */
 
 	private void doFinish(String containerName, String fileName, IProgressMonitor monitor) throws CoreException {
-		// create a sample file
 		monitor.beginTask("Creating " + fileName, 2);
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		IResource resource = root.findMember(new Path(containerName + "/Mapping"));
@@ -76,7 +74,7 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 		IContainer container = (IContainer) resource;
 		final IFile file = container.getFile(new Path(fileName));
 		try {
-			InputStream stream = openContentStream();
+			InputStream stream = DefaultMappingSpecificationContent.getDefaultContent();
 			if (file.exists()) {
 				file.setContents(stream, true, true, monitor);
 			} else {
@@ -128,14 +126,6 @@ public class NewMappingSpecificationWizard extends BasicNewResourceWizard implem
 			return false;
 		}
 		return true;
-	}
-
-	/**
-	 * We will initialize file contents with a sample text.
-	 */
-
-	private InputStream openContentStream() {
-		return new ByteArrayInputStream("".getBytes());
 	}
 
 	private void throwCoreException(String message) throws CoreException {
