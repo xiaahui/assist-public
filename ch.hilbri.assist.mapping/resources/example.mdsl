@@ -1,1 +1,25 @@
-// YEAH!
+Global {
+	System = "Example System";
+}
+
+Hardware {
+	Compartment Comp1 {
+		Manufacturer = "Manufacturer 1";
+		Box Box1 {
+			Manufacturer = "Manufacturer 1";
+			Board Board1 {
+				Manufacturer = "Manufacturer 2";
+				DesignAssuranceLevel = A;
+				Processor P1 {
+					Core C0 { Capacity = 100; }
+					Core C1 { Capacity = 100; }
+				}
+			}
+		}
+	}
+}
+
+Software {
+	Application A1 { Core-utilization = 10; }
+	Application A2 { Core-utilization = 20; }
+}
