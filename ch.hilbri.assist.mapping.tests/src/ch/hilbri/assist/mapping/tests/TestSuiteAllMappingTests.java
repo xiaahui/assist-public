@@ -4,15 +4,11 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import ch.hilbri.assist.mapping.tests.misc.ChocoSolverTests;
-import ch.hilbri.assist.mapping.tests.misc.SearchTypeTests;
-import ch.hilbri.assist.mapping.tests.strategies.BasicStrategyTest;
+import ch.hilbri.assist.mapping.tests.basics.ExampleTests;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	SearchTypeTests.class,
-	ChocoSolverTests.class,
-	BasicStrategyTest.class
+	ExampleTests.class
 })  
 
 public class TestSuiteAllMappingTests {}
