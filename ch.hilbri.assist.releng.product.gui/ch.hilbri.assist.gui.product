@@ -30,7 +30,6 @@
    <features>
       <feature id="ch.hilbri.assist.features.gui"/>
       <feature id="ch.hilbri.assist.features.mapping"/>
-      <feature id="ch.hilbri.assist.features.defaults"/>
       <feature id="ch.hilbri.assist.features.documentation"/>
       <feature id="ch.hilbri.assist.features.libraries"/>
       <feature id="org.eclipse.e4.rcp"/>

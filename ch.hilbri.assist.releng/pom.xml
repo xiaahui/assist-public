@@ -38,7 +38,7 @@
 		<module>../ch.hilbri.assist.features.libraries</module>
 		<module>../ch.hilbri.assist.features.mapping</module>
 		<module>../ch.hilbri.assist.features.documentation</module>
-		<module>../ch.hilbri.assist.features.defaults</module>
+		
 		<module>../ch.hilbri.assist.libraries.choco-sat</module>
 		<module>../ch.hilbri.assist.libraries.cpprof-java</module>
 		<module>../ch.hilbri.assist.libraries.cutoffseq</module>
