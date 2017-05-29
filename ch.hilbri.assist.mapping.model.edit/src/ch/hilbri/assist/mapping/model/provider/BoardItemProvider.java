@@ -26,7 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BoardItemProvider extends HardwareElementContainerItemProvider {
+public class BoardItemProvider extends HardwareElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -48,39 +48,14 @@ public class BoardItemProvider extends HardwareElementContainerItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addManufacturerPropertyDescriptor(object);
 			addBoardTypePropertyDescriptor(object);
 			addPowerSupplyPropertyDescriptor(object);
-			addSidePropertyDescriptor(object);
-			addEssPropertyDescriptor(object);
 			addAssuranceLevelPropertyDescriptor(object);
 			addRamCapacityPropertyDescriptor(object);
 			addRomCapacityPropertyDescriptor(object);
 			addBoxPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Manufacturer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addManufacturerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Board_manufacturer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Board_manufacturer_feature", "_UI_Board_type"),
-				 ModelPackage.Literals.BOARD__MANUFACTURER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -119,50 +94,6 @@ public class BoardItemProvider extends HardwareElementContainerItemProvider {
 				 getString("_UI_Board_powerSupply_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Board_powerSupply_feature", "_UI_Board_type"),
 				 ModelPackage.Literals.BOARD__POWER_SUPPLY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Side feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSidePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Board_side_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Board_side_feature", "_UI_Board_type"),
-				 ModelPackage.Literals.BOARD__SIDE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Ess feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEssPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Board_ess_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Board_ess_feature", "_UI_Board_type"),
-				 ModelPackage.Literals.BOARD__ESS,
 				 true,
 				 false,
 				 false,
@@ -328,11 +259,8 @@ public class BoardItemProvider extends HardwareElementContainerItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Board.class)) {
-			case ModelPackage.BOARD__MANUFACTURER:
 			case ModelPackage.BOARD__BOARD_TYPE:
 			case ModelPackage.BOARD__POWER_SUPPLY:
-			case ModelPackage.BOARD__SIDE:
-			case ModelPackage.BOARD__ESS:
 			case ModelPackage.BOARD__ASSURANCE_LEVEL:
 			case ModelPackage.BOARD__RAM_CAPACITY:
 			case ModelPackage.BOARD__ROM_CAPACITY:

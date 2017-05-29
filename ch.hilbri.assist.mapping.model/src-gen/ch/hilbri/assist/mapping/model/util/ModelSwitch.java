@@ -2,31 +2,7 @@
  */
 package ch.hilbri.assist.mapping.model.util;
 
-import ch.hilbri.assist.mapping.model.Application;
-import ch.hilbri.assist.mapping.model.ApplicationGroup;
-import ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup;
-import ch.hilbri.assist.mapping.model.AssistModel;
-import ch.hilbri.assist.mapping.model.Board;
-import ch.hilbri.assist.mapping.model.Box;
-import ch.hilbri.assist.mapping.model.CommunicationRelation;
-import ch.hilbri.assist.mapping.model.Compartment;
-import ch.hilbri.assist.mapping.model.Core;
-import ch.hilbri.assist.mapping.model.DislocalityRelation;
-import ch.hilbri.assist.mapping.model.DissimilarityClause;
-import ch.hilbri.assist.mapping.model.DissimilarityConjunction;
-import ch.hilbri.assist.mapping.model.DissimilarityDisjunction;
-import ch.hilbri.assist.mapping.model.DissimilarityEntry;
-import ch.hilbri.assist.mapping.model.DissimilarityRelation;
-import ch.hilbri.assist.mapping.model.HardwareElement;
-import ch.hilbri.assist.mapping.model.HardwareElementContainer;
-import ch.hilbri.assist.mapping.model.IOAdapter;
-import ch.hilbri.assist.mapping.model.IOAdapterRequirement;
-import ch.hilbri.assist.mapping.model.MetricParameter;
-import ch.hilbri.assist.mapping.model.ModelPackage;
-import ch.hilbri.assist.mapping.model.Network;
-import ch.hilbri.assist.mapping.model.Processor;
-import ch.hilbri.assist.mapping.model.ProximityRelation;
-import ch.hilbri.assist.mapping.model.SchedulingRelation;
+import ch.hilbri.assist.mapping.model.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -102,17 +78,9 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.HARDWARE_ELEMENT_CONTAINER: {
-				HardwareElementContainer hardwareElementContainer = (HardwareElementContainer)theEObject;
-				T result = caseHardwareElementContainer(hardwareElementContainer);
-				if (result == null) result = caseHardwareElement(hardwareElementContainer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ModelPackage.COMPARTMENT: {
 				Compartment compartment = (Compartment)theEObject;
 				T result = caseCompartment(compartment);
-				if (result == null) result = caseHardwareElementContainer(compartment);
 				if (result == null) result = caseHardwareElement(compartment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -120,7 +88,6 @@ public class ModelSwitch<T> extends Switch<T> {
 			case ModelPackage.BOX: {
 				Box box = (Box)theEObject;
 				T result = caseBox(box);
-				if (result == null) result = caseHardwareElementContainer(box);
 				if (result == null) result = caseHardwareElement(box);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -128,7 +95,6 @@ public class ModelSwitch<T> extends Switch<T> {
 			case ModelPackage.BOARD: {
 				Board board = (Board)theEObject;
 				T result = caseBoard(board);
-				if (result == null) result = caseHardwareElementContainer(board);
 				if (result == null) result = caseHardwareElement(board);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -153,12 +119,6 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.NETWORK: {
-				Network network = (Network)theEObject;
-				T result = caseNetwork(network);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ModelPackage.APPLICATION_OR_APPLICATION_GROUP: {
 				ApplicationOrApplicationGroup applicationOrApplicationGroup = (ApplicationOrApplicationGroup)theEObject;
 				T result = caseApplicationOrApplicationGroup(applicationOrApplicationGroup);
@@ -176,12 +136,6 @@ public class ModelSwitch<T> extends Switch<T> {
 				Application application = (Application)theEObject;
 				T result = caseApplication(application);
 				if (result == null) result = caseApplicationOrApplicationGroup(application);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ModelPackage.THREAD: {
-				ch.hilbri.assist.mapping.model.Thread thread = (ch.hilbri.assist.mapping.model.Thread)theEObject;
-				T result = caseThread(thread);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -236,18 +190,6 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.COMMUNICATION_RELATION: {
-				CommunicationRelation communicationRelation = (CommunicationRelation)theEObject;
-				T result = caseCommunicationRelation(communicationRelation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ModelPackage.SCHEDULING_RELATION: {
-				SchedulingRelation schedulingRelation = (SchedulingRelation)theEObject;
-				T result = caseSchedulingRelation(schedulingRelation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ModelPackage.METRIC_PARAMETER: {
 				MetricParameter metricParameter = (MetricParameter)theEObject;
 				T result = caseMetricParameter(metricParameter);
@@ -285,21 +227,6 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseHardwareElement(HardwareElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Hardware Element Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Hardware Element Container</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseHardwareElementContainer(HardwareElementContainer object) {
 		return null;
 	}
 
@@ -394,21 +321,6 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Network</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Network</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNetwork(Network object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Application Or Application Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -450,21 +362,6 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseApplication(Application object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Thread</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Thread</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseThread(ch.hilbri.assist.mapping.model.Thread object) {
 		return null;
 	}
 
@@ -585,36 +482,6 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProximityRelation(ProximityRelation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Communication Relation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Communication Relation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCommunicationRelation(CommunicationRelation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Scheduling Relation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Scheduling Relation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSchedulingRelation(SchedulingRelation object) {
 		return null;
 	}
 

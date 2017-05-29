@@ -2,14 +2,10 @@
  */
 package ch.hilbri.assist.mapping.model.impl;
 
-import ch.hilbri.assist.mapping.model.Application;
-import ch.hilbri.assist.mapping.model.ApplicationGroup;
 import ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup;
 import ch.hilbri.assist.mapping.model.DislocalityRelation;
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.model.ModelPackage;
-
-import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
@@ -126,30 +122,6 @@ public class DislocalityRelationImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getApplicationCount() {
-		int ctr = 0;
-		EList<ApplicationOrApplicationGroup> _applicationsOrGroups = this.getApplicationsOrGroups();
-		for (final ApplicationOrApplicationGroup aog : _applicationsOrGroups) {
-			{
-				if ((aog instanceof Application)) {
-					ctr++;
-				}
-				if ((aog instanceof ApplicationGroup)) {
-					int _ctr = ctr;
-					EList<Application> _allApplications = ((ApplicationGroup)aog).getAllApplications();
-					int _size = _allApplications.size();
-					ctr = (_ctr + _size);
-				}
-			}
-		}
-		return ctr;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -213,20 +185,6 @@ public class DislocalityRelationImpl extends MinimalEObjectImpl.Container implem
 				return hardwareLevel != HARDWARE_LEVEL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ModelPackage.DISLOCALITY_RELATION___GET_APPLICATION_COUNT:
-				return getApplicationCount();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

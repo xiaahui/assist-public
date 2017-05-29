@@ -66,27 +66,7 @@ public enum BoardAttributes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BOARDTYPE(0, "BOARDTYPE", "BoardType"),
-
-	/**
-	 * The '<em><b>SIDE</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #SIDE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	SIDE(0, "SIDE", "Side"),
-
-	/**
-	 * The '<em><b>ESS</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ESS_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ESS(0, "ESS", "ESS");
+	BOARDTYPE(0, "BOARDTYPE", "BoardType");
 
 	/**
 	 * The '<em><b>NONE</b></em>' literal value.
@@ -164,36 +144,6 @@ public enum BoardAttributes implements Enumerator {
 	public static final int BOARDTYPE_VALUE = 0;
 
 	/**
-	 * The '<em><b>SIDE</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>SIDE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #SIDE
-	 * @model literal="Side"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int SIDE_VALUE = 0;
-
-	/**
-	 * The '<em><b>ESS</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>ESS</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #ESS
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ESS_VALUE = 0;
-
-	/**
 	 * An array of all the '<em><b>Board Attributes</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,8 +156,6 @@ public enum BoardAttributes implements Enumerator {
 			POWERSUPPLY,
 			ASSURANCELEVEL,
 			BOARDTYPE,
-			SIDE,
-			ESS,
 		};
 
 	/**

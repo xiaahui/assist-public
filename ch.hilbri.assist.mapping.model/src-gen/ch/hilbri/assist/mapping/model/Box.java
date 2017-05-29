@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.Box#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Box#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Box#getBoards <em>Boards</em>}</li>
  * </ul>
@@ -22,34 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Box extends HardwareElementContainer {
-	/**
-	 * Returns the value of the '<em><b>Manufacturer</b></em>' attribute.
-	 * The default value is <code>""</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Manufacturer</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Manufacturer</em>' attribute.
-	 * @see #setManufacturer(String)
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getBox_Manufacturer()
-	 * @model default="" unique="false"
-	 * @generated
-	 */
-	String getManufacturer();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.Box#getManufacturer <em>Manufacturer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Manufacturer</em>' attribute.
-	 * @see #getManufacturer()
-	 * @generated
-	 */
-	void setManufacturer(String value);
-
+public interface Box extends HardwareElement {
 	/**
 	 * Returns the value of the '<em><b>Compartment</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link ch.hilbri.assist.mapping.model.Compartment#getBoxes <em>Boxes</em>}'.
@@ -100,7 +72,16 @@ public interface Box extends HardwareElementContainer {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.mapping.model.Processor%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.mapping.model.Processor%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Board%>> _boards = this.getBoards();\nfor (final <%ch.hilbri.assist.mapping.model.Board%> b : _boards)\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Processor%>> _processors = b.getProcessors();\n\tlist.addAll(_processors);\n}\nreturn list;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getBoards();'"
+	 * @generated
+	 */
+	EList<Board> getAllBoards();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Board%>> _boards = this.getBoards();\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.mapping.model.Board%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Processor%>>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.mapping.model.Board%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Processor%>>>()\n{\n\tpublic <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Processor%>> apply(final <%ch.hilbri.assist.mapping.model.Board%> it)\n\t{\n\t\treturn it.getAllProcessors();\n\t}\n};\n<%org.eclipse.emf.common.util.EList%><<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Processor%>>> _map = <%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%>.<<%ch.hilbri.assist.mapping.model.Board%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Processor%>>>map(_boards, _function);\n<%java.lang.Iterable%><<%ch.hilbri.assist.mapping.model.Processor%>> _flatten = <%com.google.common.collect.Iterables%>.<<%ch.hilbri.assist.mapping.model.Processor%>>concat(_map);\nreturn <%org.eclipse.emf.common.util.ECollections%>.<<%ch.hilbri.assist.mapping.model.Processor%>>toEList(_flatten);'"
 	 * @generated
 	 */
 	EList<Processor> getAllProcessors();
@@ -109,7 +90,7 @@ public interface Box extends HardwareElementContainer {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.mapping.model.Core%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.mapping.model.Core%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Board%>> _boards = this.getBoards();\nfor (final <%ch.hilbri.assist.mapping.model.Board%> b : _boards)\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Core%>> _allCores = b.getAllCores();\n\tlist.addAll(_allCores);\n}\nreturn list;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Board%>> _boards = this.getBoards();\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.mapping.model.Board%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Core%>>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.mapping.model.Board%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Core%>>>()\n{\n\tpublic <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Core%>> apply(final <%ch.hilbri.assist.mapping.model.Board%> it)\n\t{\n\t\treturn it.getAllCores();\n\t}\n};\n<%org.eclipse.emf.common.util.EList%><<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Core%>>> _map = <%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%>.<<%ch.hilbri.assist.mapping.model.Board%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Core%>>>map(_boards, _function);\n<%java.lang.Iterable%><<%ch.hilbri.assist.mapping.model.Core%>> _flatten = <%com.google.common.collect.Iterables%>.<<%ch.hilbri.assist.mapping.model.Core%>>concat(_map);\nreturn <%org.eclipse.emf.common.util.ECollections%>.<<%ch.hilbri.assist.mapping.model.Core%>>toEList(_flatten);'"
 	 * @generated
 	 */
 	EList<Core> getAllCores();

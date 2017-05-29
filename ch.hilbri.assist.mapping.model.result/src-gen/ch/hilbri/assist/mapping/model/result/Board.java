@@ -29,7 +29,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Board#getBox <em>Box</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Board#getProcessors <em>Processors</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Board#getIoAdapters <em>Io Adapters</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.Board#getNetworks <em>Networks</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Board#getMetricParameters <em>Metric Parameters</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Board#isNotUsed <em>Not Used</em>}</li>
  * </ul>
@@ -364,24 +363,6 @@ public interface Board extends HardwareElement {
 	 * @generated
 	 */
 	EList<IOAdapter> getIoAdapters();
-
-	/**
-	 * Returns the value of the '<em><b>Networks</b></em>' reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.result.Network}.
-	 * It is bidirectional and its opposite is '{@link ch.hilbri.assist.mapping.model.result.Network#getBoards <em>Boards</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Networks</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Networks</em>' reference list.
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getBoard_Networks()
-	 * @see ch.hilbri.assist.mapping.model.result.Network#getBoards
-	 * @model opposite="boards"
-	 * @generated
-	 */
-	EList<Network> getNetworks();
 
 	/**
 	 * Returns the value of the '<em><b>Metric Parameters</b></em>' containment reference list.

@@ -118,29 +118,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.HardwareElementContainer} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected HardwareElementContainerItemProvider hardwareElementContainerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.HardwareElementContainer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createHardwareElementContainerAdapter() {
-		if (hardwareElementContainerItemProvider == null) {
-			hardwareElementContainerItemProvider = new HardwareElementContainerItemProvider(this);
-		}
-
-		return hardwareElementContainerItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.Compartment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -279,29 +256,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.Network} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NetworkItemProvider networkItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.Network}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNetworkAdapter() {
-		if (networkItemProvider == null) {
-			networkItemProvider = new NetworkItemProvider(this);
-		}
-
-		return networkItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -368,29 +322,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		}
 
 		return applicationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.Thread} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ThreadItemProvider threadItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.Thread}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createThreadAdapter() {
-		if (threadItemProvider == null) {
-			threadItemProvider = new ThreadItemProvider(this);
-		}
-
-		return threadItemProvider;
 	}
 
 	/**
@@ -578,52 +509,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.CommunicationRelation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CommunicationRelationItemProvider communicationRelationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.CommunicationRelation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCommunicationRelationAdapter() {
-		if (communicationRelationItemProvider == null) {
-			communicationRelationItemProvider = new CommunicationRelationItemProvider(this);
-		}
-
-		return communicationRelationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.SchedulingRelation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SchedulingRelationItemProvider schedulingRelationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.SchedulingRelation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSchedulingRelationAdapter() {
-		if (schedulingRelationItemProvider == null) {
-			schedulingRelationItemProvider = new SchedulingRelationItemProvider(this);
-		}
-
-		return schedulingRelationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.MetricParameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -747,18 +632,15 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	public void dispose() {
 		if (assistModelItemProvider != null) assistModelItemProvider.dispose();
 		if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();
-		if (hardwareElementContainerItemProvider != null) hardwareElementContainerItemProvider.dispose();
 		if (compartmentItemProvider != null) compartmentItemProvider.dispose();
 		if (boxItemProvider != null) boxItemProvider.dispose();
 		if (boardItemProvider != null) boardItemProvider.dispose();
 		if (processorItemProvider != null) processorItemProvider.dispose();
 		if (coreItemProvider != null) coreItemProvider.dispose();
 		if (ioAdapterItemProvider != null) ioAdapterItemProvider.dispose();
-		if (networkItemProvider != null) networkItemProvider.dispose();
 		if (applicationOrApplicationGroupItemProvider != null) applicationOrApplicationGroupItemProvider.dispose();
 		if (applicationGroupItemProvider != null) applicationGroupItemProvider.dispose();
 		if (applicationItemProvider != null) applicationItemProvider.dispose();
-		if (threadItemProvider != null) threadItemProvider.dispose();
 		if (ioAdapterRequirementItemProvider != null) ioAdapterRequirementItemProvider.dispose();
 		if (dissimilarityRelationItemProvider != null) dissimilarityRelationItemProvider.dispose();
 		if (dissimilarityClauseItemProvider != null) dissimilarityClauseItemProvider.dispose();
@@ -767,8 +649,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (dissimilarityEntryItemProvider != null) dissimilarityEntryItemProvider.dispose();
 		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
 		if (proximityRelationItemProvider != null) proximityRelationItemProvider.dispose();
-		if (communicationRelationItemProvider != null) communicationRelationItemProvider.dispose();
-		if (schedulingRelationItemProvider != null) schedulingRelationItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 	}
 

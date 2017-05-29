@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.IOAdapter#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.IOAdapter#getTotalCount <em>Total Count</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.IOAdapter#getSharedUnitCount <em>Shared Unit Count</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.IOAdapter#getAdapterType <em>Adapter Type</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.IOAdapter#getProtectionLevel <em>Protection Level</em>}</li>
  * </ul>
@@ -80,41 +79,15 @@ public interface IOAdapter extends EObject {
 	void setTotalCount(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Shared Unit Count</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Shared Unit Count</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Shared Unit Count</em>' attribute.
-	 * @see #setSharedUnitCount(int)
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getIOAdapter_SharedUnitCount()
-	 * @model default="0" unique="false"
-	 * @generated
-	 */
-	int getSharedUnitCount();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.IOAdapter#getSharedUnitCount <em>Shared Unit Count</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Shared Unit Count</em>' attribute.
-	 * @see #getSharedUnitCount()
-	 * @generated
-	 */
-	void setSharedUnitCount(int value);
-
-	/**
 	 * Returns the value of the '<em><b>Adapter Type</b></em>' attribute.
 	 * The default value is <code>"None"</code>.
 	 * The literals are from the enumeration {@link ch.hilbri.assist.mapping.model.IOAdapterType}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Adapter Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 *  Scheduling
-	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Adapter Type</em>' attribute.
 	 * @see ch.hilbri.assist.mapping.model.IOAdapterType
 	 * @see #setAdapterType(IOAdapterType)

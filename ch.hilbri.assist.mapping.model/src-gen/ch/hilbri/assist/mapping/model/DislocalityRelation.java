@@ -69,13 +69,4 @@ public interface DislocalityRelation extends EObject {
 	 */
 	void setHardwareLevel(HardwareArchitectureLevelType value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='int ctr = 0;\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup%>> _applicationsOrGroups = this.getApplicationsOrGroups();\nfor (final <%ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup%> aog : _applicationsOrGroups)\n{\n\t{\n\t\tif ((aog instanceof <%ch.hilbri.assist.mapping.model.Application%>))\n\t\t{\n\t\t\tctr++;\n\t\t}\n\t\tif ((aog instanceof <%ch.hilbri.assist.mapping.model.ApplicationGroup%>))\n\t\t{\n\t\t\tint _ctr = ctr;\n\t\t\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Application%>> _allApplications = ((<%ch.hilbri.assist.mapping.model.ApplicationGroup%>)aog).getAllApplications();\n\t\t\tint _size = _allApplications.size();\n\t\t\tctr = (_ctr + _size);\n\t\t}\n\t}\n}\nreturn ctr;'"
-	 * @generated
-	 */
-	int getApplicationCount();
-
 } // DislocalityRelation

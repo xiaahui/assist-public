@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.Processor#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Processor#getProcessorType <em>Processor Type</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Processor#getBoard <em>Board</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Processor#getCores <em>Cores</em>}</li>
@@ -24,33 +23,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Processor extends HardwareElement {
-	/**
-	 * Returns the value of the '<em><b>Manufacturer</b></em>' attribute.
-	 * The default value is <code>""</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Manufacturer</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Manufacturer</em>' attribute.
-	 * @see #setManufacturer(String)
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getProcessor_Manufacturer()
-	 * @model default="" unique="false"
-	 * @generated
-	 */
-	String getManufacturer();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.Processor#getManufacturer <em>Manufacturer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Manufacturer</em>' attribute.
-	 * @see #getManufacturer()
-	 * @generated
-	 */
-	void setManufacturer(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Processor Type</b></em>' attribute.
 	 * The default value is <code>""</code>.
@@ -123,5 +95,14 @@ public interface Processor extends HardwareElement {
 	 * @generated
 	 */
 	EList<Core> getCores();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getCores();'"
+	 * @generated
+	 */
+	EList<Core> getAllCores();
 
 } // Processor

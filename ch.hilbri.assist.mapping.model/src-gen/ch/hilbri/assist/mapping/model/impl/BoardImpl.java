@@ -7,24 +7,21 @@ import ch.hilbri.assist.mapping.model.Box;
 import ch.hilbri.assist.mapping.model.Core;
 import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType;
 import ch.hilbri.assist.mapping.model.IOAdapter;
-import ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType;
-import ch.hilbri.assist.mapping.model.IOAdapterType;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 import ch.hilbri.assist.mapping.model.Processor;
 
-import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 
 import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -37,10 +34,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.Functions.Function2;
+import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
 
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,11 +46,8 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardImpl#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardImpl#getBoardType <em>Board Type</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardImpl#getPowerSupply <em>Power Supply</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardImpl#getSide <em>Side</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardImpl#getEss <em>Ess</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardImpl#getAssuranceLevel <em>Assurance Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardImpl#getRamCapacity <em>Ram Capacity</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardImpl#getRomCapacity <em>Rom Capacity</em>}</li>
@@ -65,27 +58,7 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  *
  * @generated
  */
-public class BoardImpl extends HardwareElementContainerImpl implements Board {
-	/**
-	 * The default value of the '{@link #getManufacturer() <em>Manufacturer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getManufacturer()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String MANUFACTURER_EDEFAULT = "";
-
-	/**
-	 * The cached value of the '{@link #getManufacturer() <em>Manufacturer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getManufacturer()
-	 * @generated
-	 * @ordered
-	 */
-	protected String manufacturer = MANUFACTURER_EDEFAULT;
-
+public class BoardImpl extends HardwareElementImpl implements Board {
 	/**
 	 * The default value of the '{@link #getBoardType() <em>Board Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -125,46 +98,6 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 	 * @ordered
 	 */
 	protected String powerSupply = POWER_SUPPLY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSide() <em>Side</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSide()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SIDE_EDEFAULT = "";
-
-	/**
-	 * The cached value of the '{@link #getSide() <em>Side</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSide()
-	 * @generated
-	 * @ordered
-	 */
-	protected String side = SIDE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getEss() <em>Ess</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEss()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ESS_EDEFAULT = "";
-
-	/**
-	 * The cached value of the '{@link #getEss() <em>Ess</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEss()
-	 * @generated
-	 * @ordered
-	 */
-	protected String ess = ESS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getAssuranceLevel() <em>Assurance Level</em>}' attribute.
@@ -270,27 +203,6 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getManufacturer() {
-		return manufacturer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setManufacturer(String newManufacturer) {
-		String oldManufacturer = manufacturer;
-		manufacturer = newManufacturer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOARD__MANUFACTURER, oldManufacturer, manufacturer));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getBoardType() {
 		return boardType;
 	}
@@ -326,48 +238,6 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 		powerSupply = newPowerSupply;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOARD__POWER_SUPPLY, oldPowerSupply, powerSupply));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getSide() {
-		return side;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSide(String newSide) {
-		String oldSide = side;
-		side = newSide;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOARD__SIDE, oldSide, side));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getEss() {
-		return ess;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEss(String newEss) {
-		String oldEss = ess;
-		ess = newEss;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOARD__ESS, oldEss, ess));
 	}
 
 	/**
@@ -522,14 +392,8 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Core> getAllCores() {
-		final BasicEList<Core> list = new BasicEList<Core>();
-		EList<Processor> _processors = this.getProcessors();
-		for (final Processor p : _processors) {
-			EList<Core> _cores = p.getCores();
-			list.addAll(_cores);
-		}
-		return list;
+	public EList<Processor> getAllProcessors() {
+		return this.getProcessors();
 	}
 
 	/**
@@ -537,65 +401,16 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getSuitableAdapterCount(final IOAdapterType paramAdapterType, final IOAdapterProtectionLevelType paramMinProtectionLevel) {
-		EList<IOAdapter> _ioAdapters = this.getIoAdapters();
-		final Function1<IOAdapter, Boolean> _function = new Function1<IOAdapter, Boolean>() {
-			public Boolean apply(final IOAdapter it) {
-				IOAdapterType _adapterType = it.getAdapterType();
-				return Boolean.valueOf(Objects.equal(_adapterType, paramAdapterType));
+	public EList<Core> getAllCores() {
+		EList<Processor> _processors = this.getProcessors();
+		final Function1<Processor, EList<Core>> _function = new Function1<Processor, EList<Core>>() {
+			public EList<Core> apply(final Processor it) {
+				return it.getAllCores();
 			}
 		};
-		final Iterable<IOAdapter> suitableTypeAdapters = IterableExtensions.<IOAdapter>filter(_ioAdapters, _function);
-		boolean _equals = Objects.equal(suitableTypeAdapters, null);
-		if (_equals) {
-			return 0;
-		}
-		final Function1<IOAdapter, Boolean> _function_1 = new Function1<IOAdapter, Boolean>() {
-			public Boolean apply(final IOAdapter it) {
-				IOAdapterProtectionLevelType _protectionLevel = it.getProtectionLevel();
-				int _ordinal = _protectionLevel.ordinal();
-				int _ordinal_1 = paramMinProtectionLevel.ordinal();
-				return Boolean.valueOf((_ordinal >= _ordinal_1));
-			}
-		};
-		final Iterable<IOAdapter> suiteableTypeAndProtectionLevel = IterableExtensions.<IOAdapter>filter(suitableTypeAdapters, _function_1);
-		boolean _equals_1 = Objects.equal(suiteableTypeAndProtectionLevel, null);
-		if (_equals_1) {
-			return 0;
-		}
-		final Function1<IOAdapter, Integer> _function_2 = new Function1<IOAdapter, Integer>() {
-			public Integer apply(final IOAdapter it) {
-				return Integer.valueOf(it.getTotalCount());
-			}
-		};
-		final int[] suiteableTypeAndProtectionLevelCount = ((int[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(IterableExtensions.<IOAdapter, Integer>map(suiteableTypeAndProtectionLevel, _function_2), int.class));
-		int _size = ((List<Integer>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(suiteableTypeAndProtectionLevelCount)).size();
-		boolean _greaterThan = (_size > 1);
-		if (_greaterThan) {
-			final Function2<Integer, Integer, Integer> _function_3 = new Function2<Integer, Integer, Integer>() {
-				public Integer apply(final Integer p1, final Integer p2) {
-					return Integer.valueOf(((p1).intValue() + (p2).intValue()));
-				}
-			};
-			return (int) IterableExtensions.<Integer>reduce(((Iterable<? extends Integer>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(suiteableTypeAndProtectionLevelCount)), _function_3);
-		}
-		else {
-			int _size_1 = ((List<Integer>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(suiteableTypeAndProtectionLevelCount)).size();
-			boolean _equals_2 = (_size_1 == 1);
-			if (_equals_2) {
-				return suiteableTypeAndProtectionLevelCount[0];
-			}
-			else {
-				int _size_2 = ((List<Integer>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(suiteableTypeAndProtectionLevelCount)).size();
-				boolean _equals_3 = (_size_2 == 0);
-				if (_equals_3) {
-					return 0;
-				}
-				else {
-					return (-1);
-				}
-			}
-		}
+		EList<EList<Core>> _map = XcoreEListExtensions.<Processor, EList<Core>>map(_processors, _function);
+		Iterable<Core> _flatten = Iterables.<Core>concat(_map);
+		return ECollections.<Core>toEList(_flatten);
 	}
 
 	/**
@@ -657,16 +472,10 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.BOARD__MANUFACTURER:
-				return getManufacturer();
 			case ModelPackage.BOARD__BOARD_TYPE:
 				return getBoardType();
 			case ModelPackage.BOARD__POWER_SUPPLY:
 				return getPowerSupply();
-			case ModelPackage.BOARD__SIDE:
-				return getSide();
-			case ModelPackage.BOARD__ESS:
-				return getEss();
 			case ModelPackage.BOARD__ASSURANCE_LEVEL:
 				return getAssuranceLevel();
 			case ModelPackage.BOARD__RAM_CAPACITY:
@@ -693,20 +502,11 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.BOARD__MANUFACTURER:
-				setManufacturer((String)newValue);
-				return;
 			case ModelPackage.BOARD__BOARD_TYPE:
 				setBoardType((String)newValue);
 				return;
 			case ModelPackage.BOARD__POWER_SUPPLY:
 				setPowerSupply((String)newValue);
-				return;
-			case ModelPackage.BOARD__SIDE:
-				setSide((String)newValue);
-				return;
-			case ModelPackage.BOARD__ESS:
-				setEss((String)newValue);
 				return;
 			case ModelPackage.BOARD__ASSURANCE_LEVEL:
 				setAssuranceLevel((DesignAssuranceLevelType)newValue);
@@ -740,20 +540,11 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.BOARD__MANUFACTURER:
-				setManufacturer(MANUFACTURER_EDEFAULT);
-				return;
 			case ModelPackage.BOARD__BOARD_TYPE:
 				setBoardType(BOARD_TYPE_EDEFAULT);
 				return;
 			case ModelPackage.BOARD__POWER_SUPPLY:
 				setPowerSupply(POWER_SUPPLY_EDEFAULT);
-				return;
-			case ModelPackage.BOARD__SIDE:
-				setSide(SIDE_EDEFAULT);
-				return;
-			case ModelPackage.BOARD__ESS:
-				setEss(ESS_EDEFAULT);
 				return;
 			case ModelPackage.BOARD__ASSURANCE_LEVEL:
 				setAssuranceLevel(ASSURANCE_LEVEL_EDEFAULT);
@@ -785,16 +576,10 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.BOARD__MANUFACTURER:
-				return MANUFACTURER_EDEFAULT == null ? manufacturer != null : !MANUFACTURER_EDEFAULT.equals(manufacturer);
 			case ModelPackage.BOARD__BOARD_TYPE:
 				return BOARD_TYPE_EDEFAULT == null ? boardType != null : !BOARD_TYPE_EDEFAULT.equals(boardType);
 			case ModelPackage.BOARD__POWER_SUPPLY:
 				return POWER_SUPPLY_EDEFAULT == null ? powerSupply != null : !POWER_SUPPLY_EDEFAULT.equals(powerSupply);
-			case ModelPackage.BOARD__SIDE:
-				return SIDE_EDEFAULT == null ? side != null : !SIDE_EDEFAULT.equals(side);
-			case ModelPackage.BOARD__ESS:
-				return ESS_EDEFAULT == null ? ess != null : !ESS_EDEFAULT.equals(ess);
 			case ModelPackage.BOARD__ASSURANCE_LEVEL:
 				return assuranceLevel != ASSURANCE_LEVEL_EDEFAULT;
 			case ModelPackage.BOARD__RAM_CAPACITY:
@@ -821,10 +606,10 @@ public class BoardImpl extends HardwareElementContainerImpl implements Board {
 		switch (operationID) {
 			case ModelPackage.BOARD___TO_STRING:
 				return toString();
+			case ModelPackage.BOARD___GET_ALL_PROCESSORS:
+				return getAllProcessors();
 			case ModelPackage.BOARD___GET_ALL_CORES:
 				return getAllCores();
-			case ModelPackage.BOARD___GET_SUITABLE_ADAPTER_COUNT__IOADAPTERTYPE_IOADAPTERPROTECTIONLEVELTYPE:
-				return getSuitableAdapterCount((IOAdapterType)arguments.get(0), (IOAdapterProtectionLevelType)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

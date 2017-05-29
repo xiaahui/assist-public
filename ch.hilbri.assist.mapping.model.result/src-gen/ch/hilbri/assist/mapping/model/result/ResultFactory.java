@@ -94,15 +94,6 @@ public interface ResultFactory extends EFactory {
 	IOAdapter createIOAdapter();
 
 	/**
-	 * Returns a new object of class '<em>Network</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Network</em>'.
-	 * @generated
-	 */
-	Network createNetwork();
-
-	/**
 	 * Returns a new object of class '<em>Application Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

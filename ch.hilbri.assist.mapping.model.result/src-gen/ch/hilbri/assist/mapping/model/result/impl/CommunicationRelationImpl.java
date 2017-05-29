@@ -13,7 +13,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -30,7 +29,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.CommunicationRelationImpl#getApplicationsOrGroups <em>Applications Or Groups</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.CommunicationRelationImpl#getBandwidthUtilization <em>Bandwidth Utilization</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.CommunicationRelationImpl#getReferenceObject <em>Reference Object</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,16 +63,6 @@ public class CommunicationRelationImpl extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected int bandwidthUtilization = BANDWIDTH_UTILIZATION_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getReferenceObject() <em>Reference Object</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferenceObject()
-	 * @generated
-	 * @ordered
-	 */
-	protected ch.hilbri.assist.mapping.model.CommunicationRelation referenceObject;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,44 +121,6 @@ public class CommunicationRelationImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ch.hilbri.assist.mapping.model.CommunicationRelation getReferenceObject() {
-		if (referenceObject != null && referenceObject.eIsProxy()) {
-			InternalEObject oldReferenceObject = (InternalEObject)referenceObject;
-			referenceObject = (ch.hilbri.assist.mapping.model.CommunicationRelation)eResolveProxy(oldReferenceObject);
-			if (referenceObject != oldReferenceObject) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultPackage.COMMUNICATION_RELATION__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
-			}
-		}
-		return referenceObject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ch.hilbri.assist.mapping.model.CommunicationRelation basicGetReferenceObject() {
-		return referenceObject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReferenceObject(ch.hilbri.assist.mapping.model.CommunicationRelation newReferenceObject) {
-		ch.hilbri.assist.mapping.model.CommunicationRelation oldReferenceObject = referenceObject;
-		referenceObject = newReferenceObject;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.COMMUNICATION_RELATION__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -178,9 +128,6 @@ public class CommunicationRelationImpl extends MinimalEObjectImpl.Container impl
 				return getApplicationsOrGroups();
 			case ResultPackage.COMMUNICATION_RELATION__BANDWIDTH_UTILIZATION:
 				return getBandwidthUtilization();
-			case ResultPackage.COMMUNICATION_RELATION__REFERENCE_OBJECT:
-				if (resolve) return getReferenceObject();
-				return basicGetReferenceObject();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,9 +148,6 @@ public class CommunicationRelationImpl extends MinimalEObjectImpl.Container impl
 			case ResultPackage.COMMUNICATION_RELATION__BANDWIDTH_UTILIZATION:
 				setBandwidthUtilization((Integer)newValue);
 				return;
-			case ResultPackage.COMMUNICATION_RELATION__REFERENCE_OBJECT:
-				setReferenceObject((ch.hilbri.assist.mapping.model.CommunicationRelation)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -222,9 +166,6 @@ public class CommunicationRelationImpl extends MinimalEObjectImpl.Container impl
 			case ResultPackage.COMMUNICATION_RELATION__BANDWIDTH_UTILIZATION:
 				setBandwidthUtilization(BANDWIDTH_UTILIZATION_EDEFAULT);
 				return;
-			case ResultPackage.COMMUNICATION_RELATION__REFERENCE_OBJECT:
-				setReferenceObject((ch.hilbri.assist.mapping.model.CommunicationRelation)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -241,8 +182,6 @@ public class CommunicationRelationImpl extends MinimalEObjectImpl.Container impl
 				return applicationsOrGroups != null && !applicationsOrGroups.isEmpty();
 			case ResultPackage.COMMUNICATION_RELATION__BANDWIDTH_UTILIZATION:
 				return bandwidthUtilization != BANDWIDTH_UTILIZATION_EDEFAULT;
-			case ResultPackage.COMMUNICATION_RELATION__REFERENCE_OBJECT:
-				return referenceObject != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -43,11 +42,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.ApplicationImpl#getRomUtilization <em>Rom Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.ApplicationImpl#getCriticalityLevel <em>Criticality Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.ApplicationImpl#getIoAdapterProtectionLevel <em>Io Adapter Protection Level</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.ApplicationImpl#getParallelThreads <em>Parallel Threads</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.ApplicationImpl#getDevelopedBy <em>Developed By</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.ApplicationImpl#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.ApplicationImpl#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.ApplicationImpl#getThreads <em>Threads</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.ApplicationImpl#getMetricParameters <em>Metric Parameters</em>}</li>
  * </ul>
  *
@@ -155,26 +152,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	protected IOAdapterProtectionLevelType ioAdapterProtectionLevel = IO_ADAPTER_PROTECTION_LEVEL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getParallelThreads() <em>Parallel Threads</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParallelThreads()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int PARALLEL_THREADS_EDEFAULT = 1;
-
-	/**
-	 * The cached value of the '{@link #getParallelThreads() <em>Parallel Threads</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParallelThreads()
-	 * @generated
-	 * @ordered
-	 */
-	protected int parallelThreads = PARALLEL_THREADS_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getDevelopedBy() <em>Developed By</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -213,16 +190,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	 * @ordered
 	 */
 	protected EList<HardwareElement> restrictMappingToHardwareElements;
-
-	/**
-	 * The cached value of the '{@link #getThreads() <em>Threads</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getThreads()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ch.hilbri.assist.mapping.model.Thread> threads;
 
 	/**
 	 * The cached value of the '{@link #getMetricParameters() <em>Metric Parameters</em>}' containment reference list.
@@ -363,27 +330,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getParallelThreads() {
-		return parallelThreads;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParallelThreads(int newParallelThreads) {
-		int oldParallelThreads = parallelThreads;
-		parallelThreads = newParallelThreads;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.APPLICATION__PARALLEL_THREADS, oldParallelThreads, parallelThreads));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getDevelopedBy() {
 		return developedBy;
 	}
@@ -429,18 +375,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ch.hilbri.assist.mapping.model.Thread> getThreads() {
-		if (threads == null) {
-			threads = new EObjectContainmentWithInverseEList<ch.hilbri.assist.mapping.model.Thread>(ch.hilbri.assist.mapping.model.Thread.class, this, ModelPackage.APPLICATION__THREADS, ModelPackage.THREAD__APPLICATION);
-		}
-		return threads;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<MetricParameter> getMetricParameters() {
 		if (metricParameters == null) {
 			metricParameters = new EObjectContainmentEList<MetricParameter>(MetricParameter.class, this, ModelPackage.APPLICATION__METRIC_PARAMETERS);
@@ -462,28 +396,11 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ModelPackage.APPLICATION__THREADS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getThreads()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ModelPackage.APPLICATION__IO_ADAPTER_REQUIREMENTS:
 				return ((InternalEList<?>)getIoAdapterRequirements()).basicRemove(otherEnd, msgs);
-			case ModelPackage.APPLICATION__THREADS:
-				return ((InternalEList<?>)getThreads()).basicRemove(otherEnd, msgs);
 			case ModelPackage.APPLICATION__METRIC_PARAMETERS:
 				return ((InternalEList<?>)getMetricParameters()).basicRemove(otherEnd, msgs);
 		}
@@ -508,16 +425,12 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 				return getCriticalityLevel();
 			case ModelPackage.APPLICATION__IO_ADAPTER_PROTECTION_LEVEL:
 				return getIoAdapterProtectionLevel();
-			case ModelPackage.APPLICATION__PARALLEL_THREADS:
-				return getParallelThreads();
 			case ModelPackage.APPLICATION__DEVELOPED_BY:
 				return getDevelopedBy();
 			case ModelPackage.APPLICATION__IO_ADAPTER_REQUIREMENTS:
 				return getIoAdapterRequirements();
 			case ModelPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
 				return getRestrictMappingToHardwareElements();
-			case ModelPackage.APPLICATION__THREADS:
-				return getThreads();
 			case ModelPackage.APPLICATION__METRIC_PARAMETERS:
 				return getMetricParameters();
 		}
@@ -548,9 +461,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 			case ModelPackage.APPLICATION__IO_ADAPTER_PROTECTION_LEVEL:
 				setIoAdapterProtectionLevel((IOAdapterProtectionLevelType)newValue);
 				return;
-			case ModelPackage.APPLICATION__PARALLEL_THREADS:
-				setParallelThreads((Integer)newValue);
-				return;
 			case ModelPackage.APPLICATION__DEVELOPED_BY:
 				setDevelopedBy((String)newValue);
 				return;
@@ -561,10 +471,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 			case ModelPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
 				getRestrictMappingToHardwareElements().clear();
 				getRestrictMappingToHardwareElements().addAll((Collection<? extends HardwareElement>)newValue);
-				return;
-			case ModelPackage.APPLICATION__THREADS:
-				getThreads().clear();
-				getThreads().addAll((Collection<? extends ch.hilbri.assist.mapping.model.Thread>)newValue);
 				return;
 			case ModelPackage.APPLICATION__METRIC_PARAMETERS:
 				getMetricParameters().clear();
@@ -597,9 +503,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 			case ModelPackage.APPLICATION__IO_ADAPTER_PROTECTION_LEVEL:
 				setIoAdapterProtectionLevel(IO_ADAPTER_PROTECTION_LEVEL_EDEFAULT);
 				return;
-			case ModelPackage.APPLICATION__PARALLEL_THREADS:
-				setParallelThreads(PARALLEL_THREADS_EDEFAULT);
-				return;
 			case ModelPackage.APPLICATION__DEVELOPED_BY:
 				setDevelopedBy(DEVELOPED_BY_EDEFAULT);
 				return;
@@ -608,9 +511,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 				return;
 			case ModelPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
 				getRestrictMappingToHardwareElements().clear();
-				return;
-			case ModelPackage.APPLICATION__THREADS:
-				getThreads().clear();
 				return;
 			case ModelPackage.APPLICATION__METRIC_PARAMETERS:
 				getMetricParameters().clear();
@@ -637,16 +537,12 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 				return criticalityLevel != CRITICALITY_LEVEL_EDEFAULT;
 			case ModelPackage.APPLICATION__IO_ADAPTER_PROTECTION_LEVEL:
 				return ioAdapterProtectionLevel != IO_ADAPTER_PROTECTION_LEVEL_EDEFAULT;
-			case ModelPackage.APPLICATION__PARALLEL_THREADS:
-				return parallelThreads != PARALLEL_THREADS_EDEFAULT;
 			case ModelPackage.APPLICATION__DEVELOPED_BY:
 				return DEVELOPED_BY_EDEFAULT == null ? developedBy != null : !DEVELOPED_BY_EDEFAULT.equals(developedBy);
 			case ModelPackage.APPLICATION__IO_ADAPTER_REQUIREMENTS:
 				return ioAdapterRequirements != null && !ioAdapterRequirements.isEmpty();
 			case ModelPackage.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
 				return restrictMappingToHardwareElements != null && !restrictMappingToHardwareElements.isEmpty();
-			case ModelPackage.APPLICATION__THREADS:
-				return threads != null && !threads.isEmpty();
 			case ModelPackage.APPLICATION__METRIC_PARAMETERS:
 				return metricParameters != null && !metricParameters.isEmpty();
 		}

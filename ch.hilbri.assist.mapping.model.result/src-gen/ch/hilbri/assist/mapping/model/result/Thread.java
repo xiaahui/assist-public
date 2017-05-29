@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Thread#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Thread#getCore <em>Core</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.Thread#getReferenceObject <em>Reference Object</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Thread#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -77,32 +76,6 @@ public interface Thread extends EObject {
 	 * @generated
 	 */
 	void setCore(Core value);
-
-	/**
-	 * Returns the value of the '<em><b>Reference Object</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reference Object</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reference Object</em>' reference.
-	 * @see #setReferenceObject(ch.hilbri.assist.mapping.model.Thread)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getThread_ReferenceObject()
-	 * @model
-	 * @generated
-	 */
-	ch.hilbri.assist.mapping.model.Thread getReferenceObject();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.Thread#getReferenceObject <em>Reference Object</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reference Object</em>' reference.
-	 * @see #getReferenceObject()
-	 * @generated
-	 */
-	void setReferenceObject(ch.hilbri.assist.mapping.model.Thread value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

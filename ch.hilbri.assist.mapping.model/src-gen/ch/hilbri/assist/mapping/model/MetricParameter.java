@@ -9,10 +9,6 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Metric Parameter</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- *  Scheduling END
- * <!-- end-model-doc -->
- *
  * <p>
  * The following features are supported:
  * </p>

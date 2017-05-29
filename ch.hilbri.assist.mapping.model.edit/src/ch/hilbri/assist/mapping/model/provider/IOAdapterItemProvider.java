@@ -62,7 +62,6 @@ public class IOAdapterItemProvider
 
 			addNamePropertyDescriptor(object);
 			addTotalCountPropertyDescriptor(object);
-			addSharedUnitCountPropertyDescriptor(object);
 			addAdapterTypePropertyDescriptor(object);
 			addProtectionLevelPropertyDescriptor(object);
 		}
@@ -105,28 +104,6 @@ public class IOAdapterItemProvider
 				 getString("_UI_IOAdapter_totalCount_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_IOAdapter_totalCount_feature", "_UI_IOAdapter_type"),
 				 ModelPackage.Literals.IO_ADAPTER__TOTAL_COUNT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Shared Unit Count feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSharedUnitCountPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IOAdapter_sharedUnitCount_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IOAdapter_sharedUnitCount_feature", "_UI_IOAdapter_type"),
-				 ModelPackage.Literals.IO_ADAPTER__SHARED_UNIT_COUNT,
 				 true,
 				 false,
 				 false,
@@ -219,7 +196,6 @@ public class IOAdapterItemProvider
 		switch (notification.getFeatureID(IOAdapter.class)) {
 			case ModelPackage.IO_ADAPTER__NAME:
 			case ModelPackage.IO_ADAPTER__TOTAL_COUNT:
-			case ModelPackage.IO_ADAPTER__SHARED_UNIT_COUNT:
 			case ModelPackage.IO_ADAPTER__ADAPTER_TYPE:
 			case ModelPackage.IO_ADAPTER__PROTECTION_LEVEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

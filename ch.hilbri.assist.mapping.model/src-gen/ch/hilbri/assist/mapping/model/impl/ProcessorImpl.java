@@ -7,6 +7,8 @@ import ch.hilbri.assist.mapping.model.Core;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 import ch.hilbri.assist.mapping.model.Processor;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -31,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.ProcessorImpl#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.ProcessorImpl#getProcessorType <em>Processor Type</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.ProcessorImpl#getBoard <em>Board</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.ProcessorImpl#getCores <em>Cores</em>}</li>
@@ -40,26 +41,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class ProcessorImpl extends HardwareElementImpl implements Processor {
-	/**
-	 * The default value of the '{@link #getManufacturer() <em>Manufacturer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getManufacturer()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String MANUFACTURER_EDEFAULT = "";
-
-	/**
-	 * The cached value of the '{@link #getManufacturer() <em>Manufacturer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getManufacturer()
-	 * @generated
-	 * @ordered
-	 */
-	protected String manufacturer = MANUFACTURER_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getProcessorType() <em>Processor Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -107,27 +88,6 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 	@Override
 	protected EClass eStaticClass() {
 		return ModelPackage.Literals.PROCESSOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getManufacturer() {
-		return manufacturer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setManufacturer(String newManufacturer) {
-		String oldManufacturer = manufacturer;
-		manufacturer = newManufacturer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PROCESSOR__MANUFACTURER, oldManufacturer, manufacturer));
 	}
 
 	/**
@@ -219,6 +179,15 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Core> getAllCores() {
+		return this.getCores();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -271,8 +240,6 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.PROCESSOR__MANUFACTURER:
-				return getManufacturer();
 			case ModelPackage.PROCESSOR__PROCESSOR_TYPE:
 				return getProcessorType();
 			case ModelPackage.PROCESSOR__BOARD:
@@ -293,9 +260,6 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.PROCESSOR__MANUFACTURER:
-				setManufacturer((String)newValue);
-				return;
 			case ModelPackage.PROCESSOR__PROCESSOR_TYPE:
 				setProcessorType((String)newValue);
 				return;
@@ -318,9 +282,6 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.PROCESSOR__MANUFACTURER:
-				setManufacturer(MANUFACTURER_EDEFAULT);
-				return;
 			case ModelPackage.PROCESSOR__PROCESSOR_TYPE:
 				setProcessorType(PROCESSOR_TYPE_EDEFAULT);
 				return;
@@ -342,8 +303,6 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.PROCESSOR__MANUFACTURER:
-				return MANUFACTURER_EDEFAULT == null ? manufacturer != null : !MANUFACTURER_EDEFAULT.equals(manufacturer);
 			case ModelPackage.PROCESSOR__PROCESSOR_TYPE:
 				return PROCESSOR_TYPE_EDEFAULT == null ? processorType != null : !PROCESSOR_TYPE_EDEFAULT.equals(processorType);
 			case ModelPackage.PROCESSOR__BOARD:
@@ -360,13 +319,25 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 	 * @generated
 	 */
 	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ModelPackage.PROCESSOR___GET_ALL_CORES:
+				return getAllCores();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (manufacturer: ");
-		result.append(manufacturer);
-		result.append(", processorType: ");
+		result.append(" (processorType: ");
 		result.append(processorType);
 		result.append(')');
 		return result.toString();

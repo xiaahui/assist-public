@@ -13,11 +13,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.Board#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Board#getBoardType <em>Board Type</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Board#getPowerSupply <em>Power Supply</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.Board#getSide <em>Side</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.Board#getEss <em>Ess</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Board#getAssuranceLevel <em>Assurance Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Board#getRamCapacity <em>Ram Capacity</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Board#getRomCapacity <em>Rom Capacity</em>}</li>
@@ -30,34 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Board extends HardwareElementContainer {
-	/**
-	 * Returns the value of the '<em><b>Manufacturer</b></em>' attribute.
-	 * The default value is <code>""</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Manufacturer</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Manufacturer</em>' attribute.
-	 * @see #setManufacturer(String)
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getBoard_Manufacturer()
-	 * @model default="" unique="false"
-	 * @generated
-	 */
-	String getManufacturer();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.Board#getManufacturer <em>Manufacturer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Manufacturer</em>' attribute.
-	 * @see #getManufacturer()
-	 * @generated
-	 */
-	void setManufacturer(String value);
-
+public interface Board extends HardwareElement {
 	/**
 	 * Returns the value of the '<em><b>Board Type</b></em>' attribute.
 	 * The default value is <code>""</code>.
@@ -111,60 +81,6 @@ public interface Board extends HardwareElementContainer {
 	 * @generated
 	 */
 	void setPowerSupply(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Side</b></em>' attribute.
-	 * The default value is <code>""</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Side</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Side</em>' attribute.
-	 * @see #setSide(String)
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getBoard_Side()
-	 * @model default="" unique="false"
-	 * @generated
-	 */
-	String getSide();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.Board#getSide <em>Side</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Side</em>' attribute.
-	 * @see #getSide()
-	 * @generated
-	 */
-	void setSide(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Ess</b></em>' attribute.
-	 * The default value is <code>""</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ess</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ess</em>' attribute.
-	 * @see #setEss(String)
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getBoard_Ess()
-	 * @model default="" unique="false"
-	 * @generated
-	 */
-	String getEss();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.Board#getEss <em>Ess</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ess</em>' attribute.
-	 * @see #getEss()
-	 * @generated
-	 */
-	void setEss(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Assurance Level</b></em>' attribute.
@@ -325,18 +241,18 @@ public interface Board extends HardwareElementContainer {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.mapping.model.Core%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.mapping.model.Core%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Processor%>> _processors = this.getProcessors();\nfor (final <%ch.hilbri.assist.mapping.model.Processor%> p : _processors)\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Core%>> _cores = p.getCores();\n\tlist.addAll(_cores);\n}\nreturn list;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getProcessors();'"
 	 * @generated
 	 */
-	EList<Core> getAllCores();
+	EList<Processor> getAllProcessors();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model unique="false" paramAdapterTypeUnique="false" paramMinProtectionLevelUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.IOAdapter%>> _ioAdapters = this.getIoAdapters();\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.mapping.model.IOAdapter%>, <%java.lang.Boolean%>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.mapping.model.IOAdapter%>, <%java.lang.Boolean%>>()\n{\n\tpublic <%java.lang.Boolean%> apply(final <%ch.hilbri.assist.mapping.model.IOAdapter%> it)\n\t{\n\t\t<%ch.hilbri.assist.mapping.model.IOAdapterType%> _adapterType = it.getAdapterType();\n\t\treturn <%java.lang.Boolean%>.valueOf(<%com.google.common.base.Objects%>.equal(_adapterType, paramAdapterType));\n\t}\n};\nfinal <%java.lang.Iterable%><<%ch.hilbri.assist.mapping.model.IOAdapter%>> suitableTypeAdapters = <%org.eclipse.xtext.xbase.lib.IterableExtensions%>.<<%ch.hilbri.assist.mapping.model.IOAdapter%>>filter(_ioAdapters, _function);\nboolean _equals = <%com.google.common.base.Objects%>.equal(suitableTypeAdapters, null);\nif (_equals)\n{\n\treturn 0;\n}\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.mapping.model.IOAdapter%>, <%java.lang.Boolean%>> _function_1 = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.mapping.model.IOAdapter%>, <%java.lang.Boolean%>>()\n{\n\tpublic <%java.lang.Boolean%> apply(final <%ch.hilbri.assist.mapping.model.IOAdapter%> it)\n\t{\n\t\t<%ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType%> _protectionLevel = it.getProtectionLevel();\n\t\tint _ordinal = _protectionLevel.ordinal();\n\t\tint _ordinal_1 = paramMinProtectionLevel.ordinal();\n\t\treturn <%java.lang.Boolean%>.valueOf((_ordinal >= _ordinal_1));\n\t}\n};\nfinal <%java.lang.Iterable%><<%ch.hilbri.assist.mapping.model.IOAdapter%>> suiteableTypeAndProtectionLevel = <%org.eclipse.xtext.xbase.lib.IterableExtensions%>.<<%ch.hilbri.assist.mapping.model.IOAdapter%>>filter(suitableTypeAdapters, _function_1);\nboolean _equals_1 = <%com.google.common.base.Objects%>.equal(suiteableTypeAndProtectionLevel, null);\nif (_equals_1)\n{\n\treturn 0;\n}\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.mapping.model.IOAdapter%>, <%java.lang.Integer%>> _function_2 = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.mapping.model.IOAdapter%>, <%java.lang.Integer%>>()\n{\n\tpublic <%java.lang.Integer%> apply(final <%ch.hilbri.assist.mapping.model.IOAdapter%> it)\n\t{\n\t\treturn <%java.lang.Integer%>.valueOf(it.getTotalCount());\n\t}\n};\nfinal int[] suiteableTypeAndProtectionLevelCount = ((int[])org.eclipse.xtext.xbase.lib.Conversions.unwrapArray(<%org.eclipse.xtext.xbase.lib.IterableExtensions%>.<<%ch.hilbri.assist.mapping.model.IOAdapter%>, <%java.lang.Integer%>>map(suiteableTypeAndProtectionLevel, _function_2), int.class));\nint _size = ((<%java.util.List%><<%java.lang.Integer%>>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(suiteableTypeAndProtectionLevelCount)).size();\nboolean _greaterThan = (_size > 1);\nif (_greaterThan)\n{\n\tfinal <%org.eclipse.xtext.xbase.lib.Functions.Function2%><<%java.lang.Integer%>, <%java.lang.Integer%>, <%java.lang.Integer%>> _function_3 = new <%org.eclipse.xtext.xbase.lib.Functions.Function2%><<%java.lang.Integer%>, <%java.lang.Integer%>, <%java.lang.Integer%>>()\n\t{\n\t\tpublic <%java.lang.Integer%> apply(final <%java.lang.Integer%> p1, final <%java.lang.Integer%> p2)\n\t\t{\n\t\t\treturn <%java.lang.Integer%>.valueOf(((p1).intValue() + (p2).intValue()));\n\t\t}\n\t};\n\treturn (int) <%org.eclipse.xtext.xbase.lib.IterableExtensions%>.<<%java.lang.Integer%>>reduce(((<%java.lang.Iterable%><? extends <%java.lang.Integer%>>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(suiteableTypeAndProtectionLevelCount)), _function_3);\n}\nelse\n{\n\tint _size_1 = ((<%java.util.List%><<%java.lang.Integer%>>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(suiteableTypeAndProtectionLevelCount)).size();\n\tboolean _equals_2 = (_size_1 == 1);\n\tif (_equals_2)\n\t{\n\t\treturn suiteableTypeAndProtectionLevelCount[0];\n\t}\n\telse\n\t{\n\t\tint _size_2 = ((<%java.util.List%><<%java.lang.Integer%>>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(suiteableTypeAndProtectionLevelCount)).size();\n\t\tboolean _equals_3 = (_size_2 == 0);\n\t\tif (_equals_3)\n\t\t{\n\t\t\treturn 0;\n\t\t}\n\t\telse\n\t\t{\n\t\t\treturn (-1);\n\t\t}\n\t}\n}'"
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Processor%>> _processors = this.getProcessors();\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.mapping.model.Processor%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Core%>>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.mapping.model.Processor%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Core%>>>()\n{\n\tpublic <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Core%>> apply(final <%ch.hilbri.assist.mapping.model.Processor%> it)\n\t{\n\t\treturn it.getAllCores();\n\t}\n};\n<%org.eclipse.emf.common.util.EList%><<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Core%>>> _map = <%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%>.<<%ch.hilbri.assist.mapping.model.Processor%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Core%>>>map(_processors, _function);\n<%java.lang.Iterable%><<%ch.hilbri.assist.mapping.model.Core%>> _flatten = <%com.google.common.collect.Iterables%>.<<%ch.hilbri.assist.mapping.model.Core%>>concat(_map);\nreturn <%org.eclipse.emf.common.util.ECollections%>.<<%ch.hilbri.assist.mapping.model.Core%>>toEList(_flatten);'"
 	 * @generated
 	 */
-	int getSuitableAdapterCount(IOAdapterType paramAdapterType, IOAdapterProtectionLevelType paramMinProtectionLevel);
+	EList<Core> getAllCores();
 
 } // Board

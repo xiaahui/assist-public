@@ -40,24 +40,6 @@ public interface ApplicationGroup extends ApplicationOrApplicationGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.mapping.model.Application%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.mapping.model.Application%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup%>> _applicationsOrGroups = this.getApplicationsOrGroups();\nfor (final <%ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup%> aog : _applicationsOrGroups)\n{\n\tif ((aog instanceof <%ch.hilbri.assist.mapping.model.Application%>))\n\t{\n\t\tlist.add(((<%ch.hilbri.assist.mapping.model.Application%>)aog));\n\t}\n\telse\n\t{\n\t\tif ((aog instanceof <%ch.hilbri.assist.mapping.model.ApplicationGroup%>))\n\t\t{\n\t\t\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Application%>> _allApplications = ((<%ch.hilbri.assist.mapping.model.ApplicationGroup%>)aog).getAllApplications();\n\t\t\tlist.addAll(_allApplications);\n\t\t}\n\t}\n}\nreturn list;'"
-	 * @generated
-	 */
-	EList<Application> getAllApplications();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.mapping.model.Thread%>> list = new <%org.eclipse.emf.common.util.BasicEList%><<%ch.hilbri.assist.mapping.model.Thread%>>();\n<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Application%>> _allApplications = this.getAllApplications();\nfor (final <%ch.hilbri.assist.mapping.model.Application%> app : _allApplications)\n{\n\t<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Thread%>> _threads = app.getThreads();\n\tlist.addAll(_threads);\n}\nreturn list;'"
-	 * @generated
-	 */
-	EList<ch.hilbri.assist.mapping.model.Thread> getAllThreads();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model unique="false"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getName();'"
 	 * @generated

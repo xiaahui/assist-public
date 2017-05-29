@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.HardwareElement#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.HardwareElement#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.HardwareElement#getMetricParameters <em>Metric Parameters</em>}</li>
  * </ul>
  *
@@ -50,6 +51,33 @@ public interface HardwareElement extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Manufacturer</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Manufacturer</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Manufacturer</em>' attribute.
+	 * @see #setManufacturer(String)
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getHardwareElement_Manufacturer()
+	 * @model default="" unique="false"
+	 * @generated
+	 */
+	String getManufacturer();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.HardwareElement#getManufacturer <em>Manufacturer</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Manufacturer</em>' attribute.
+	 * @see #getManufacturer()
+	 * @generated
+	 */
+	void setManufacturer(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Metric Parameters</b></em>' containment reference list.

@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.CommunicationRelation#getApplicationsOrGroups <em>Applications Or Groups</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.CommunicationRelation#getBandwidthUtilization <em>Bandwidth Utilization</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.CommunicationRelation#getReferenceObject <em>Reference Object</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getCommunicationRelation()
@@ -66,31 +65,5 @@ public interface CommunicationRelation extends EObject {
 	 * @generated
 	 */
 	void setBandwidthUtilization(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Reference Object</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reference Object</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reference Object</em>' reference.
-	 * @see #setReferenceObject(ch.hilbri.assist.mapping.model.CommunicationRelation)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getCommunicationRelation_ReferenceObject()
-	 * @model
-	 * @generated
-	 */
-	ch.hilbri.assist.mapping.model.CommunicationRelation getReferenceObject();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.CommunicationRelation#getReferenceObject <em>Reference Object</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reference Object</em>' reference.
-	 * @see #getReferenceObject()
-	 * @generated
-	 */
-	void setReferenceObject(ch.hilbri.assist.mapping.model.CommunicationRelation value);
 
 } // CommunicationRelation

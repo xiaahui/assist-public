@@ -15,7 +15,6 @@ import ch.hilbri.assist.mapping.model.result.HardwareElement;
 import ch.hilbri.assist.mapping.model.result.IOAdapter;
 import ch.hilbri.assist.mapping.model.result.IOAdapterRequirement;
 import ch.hilbri.assist.mapping.model.result.MetricParameter;
-import ch.hilbri.assist.mapping.model.result.Network;
 import ch.hilbri.assist.mapping.model.result.Processor;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
@@ -139,12 +138,6 @@ public class ResultSwitch<T> extends Switch<T> {
 			case ResultPackage.IO_ADAPTER: {
 				IOAdapter ioAdapter = (IOAdapter)theEObject;
 				T result = caseIOAdapter(ioAdapter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ResultPackage.NETWORK: {
-				Network network = (Network)theEObject;
-				T result = caseNetwork(network);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -332,21 +325,6 @@ public class ResultSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIOAdapter(IOAdapter object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Network</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Network</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNetwork(Network object) {
 		return null;
 	}
 

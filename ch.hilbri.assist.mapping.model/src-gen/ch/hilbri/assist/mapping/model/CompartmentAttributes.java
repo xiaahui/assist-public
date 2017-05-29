@@ -46,27 +46,7 @@ public enum CompartmentAttributes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POWERSUPPLY(0, "POWERSUPPLY", "PowerSupply"),
-
-	/**
-	 * The '<em><b>SIDE</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #SIDE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	SIDE(0, "SIDE", "Side"),
-
-	/**
-	 * The '<em><b>ZONE</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ZONE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ZONE(0, "ZONE", "Zone");
+	POWERSUPPLY(0, "POWERSUPPLY", "PowerSupply");
 
 	/**
 	 * The '<em><b>NONE</b></em>' literal value.
@@ -114,36 +94,6 @@ public enum CompartmentAttributes implements Enumerator {
 	public static final int POWERSUPPLY_VALUE = 0;
 
 	/**
-	 * The '<em><b>SIDE</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>SIDE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #SIDE
-	 * @model literal="Side"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int SIDE_VALUE = 0;
-
-	/**
-	 * The '<em><b>ZONE</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>ZONE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #ZONE
-	 * @model literal="Zone"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ZONE_VALUE = 0;
-
-	/**
 	 * An array of all the '<em><b>Compartment Attributes</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -154,8 +104,6 @@ public enum CompartmentAttributes implements Enumerator {
 			NONE,
 			MANUFACTURER,
 			POWERSUPPLY,
-			SIDE,
-			ZONE,
 		};
 
 	/**

@@ -2,31 +2,7 @@
  */
 package ch.hilbri.assist.mapping.model.util;
 
-import ch.hilbri.assist.mapping.model.Application;
-import ch.hilbri.assist.mapping.model.ApplicationGroup;
-import ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup;
-import ch.hilbri.assist.mapping.model.AssistModel;
-import ch.hilbri.assist.mapping.model.Board;
-import ch.hilbri.assist.mapping.model.Box;
-import ch.hilbri.assist.mapping.model.CommunicationRelation;
-import ch.hilbri.assist.mapping.model.Compartment;
-import ch.hilbri.assist.mapping.model.Core;
-import ch.hilbri.assist.mapping.model.DislocalityRelation;
-import ch.hilbri.assist.mapping.model.DissimilarityClause;
-import ch.hilbri.assist.mapping.model.DissimilarityConjunction;
-import ch.hilbri.assist.mapping.model.DissimilarityDisjunction;
-import ch.hilbri.assist.mapping.model.DissimilarityEntry;
-import ch.hilbri.assist.mapping.model.DissimilarityRelation;
-import ch.hilbri.assist.mapping.model.HardwareElement;
-import ch.hilbri.assist.mapping.model.HardwareElementContainer;
-import ch.hilbri.assist.mapping.model.IOAdapter;
-import ch.hilbri.assist.mapping.model.IOAdapterRequirement;
-import ch.hilbri.assist.mapping.model.MetricParameter;
-import ch.hilbri.assist.mapping.model.ModelPackage;
-import ch.hilbri.assist.mapping.model.Network;
-import ch.hilbri.assist.mapping.model.Processor;
-import ch.hilbri.assist.mapping.model.ProximityRelation;
-import ch.hilbri.assist.mapping.model.SchedulingRelation;
+import ch.hilbri.assist.mapping.model.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -100,10 +76,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createHardwareElementAdapter();
 			}
 			@Override
-			public Adapter caseHardwareElementContainer(HardwareElementContainer object) {
-				return createHardwareElementContainerAdapter();
-			}
-			@Override
 			public Adapter caseCompartment(Compartment object) {
 				return createCompartmentAdapter();
 			}
@@ -128,10 +100,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createIOAdapterAdapter();
 			}
 			@Override
-			public Adapter caseNetwork(Network object) {
-				return createNetworkAdapter();
-			}
-			@Override
 			public Adapter caseApplicationOrApplicationGroup(ApplicationOrApplicationGroup object) {
 				return createApplicationOrApplicationGroupAdapter();
 			}
@@ -142,10 +110,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseApplication(Application object) {
 				return createApplicationAdapter();
-			}
-			@Override
-			public Adapter caseThread(ch.hilbri.assist.mapping.model.Thread object) {
-				return createThreadAdapter();
 			}
 			@Override
 			public Adapter caseIOAdapterRequirement(IOAdapterRequirement object) {
@@ -178,14 +142,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseProximityRelation(ProximityRelation object) {
 				return createProximityRelationAdapter();
-			}
-			@Override
-			public Adapter caseCommunicationRelation(CommunicationRelation object) {
-				return createCommunicationRelationAdapter();
-			}
-			@Override
-			public Adapter caseSchedulingRelation(SchedulingRelation object) {
-				return createSchedulingRelationAdapter();
 			}
 			@Override
 			public Adapter caseMetricParameter(MetricParameter object) {
@@ -236,20 +192,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHardwareElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.HardwareElementContainer <em>Hardware Element Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.HardwareElementContainer
-	 * @generated
-	 */
-	public Adapter createHardwareElementContainerAdapter() {
 		return null;
 	}
 
@@ -338,20 +280,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.Network <em>Network</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.Network
-	 * @generated
-	 */
-	public Adapter createNetworkAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup <em>Application Or Application Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -390,20 +318,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApplicationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.Thread <em>Thread</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.Thread
-	 * @generated
-	 */
-	public Adapter createThreadAdapter() {
 		return null;
 	}
 
@@ -516,34 +430,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProximityRelationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.CommunicationRelation <em>Communication Relation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.CommunicationRelation
-	 * @generated
-	 */
-	public Adapter createCommunicationRelationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.SchedulingRelation <em>Scheduling Relation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.SchedulingRelation
-	 * @generated
-	 */
-	public Adapter createSchedulingRelationAdapter() {
 		return null;
 	}
 

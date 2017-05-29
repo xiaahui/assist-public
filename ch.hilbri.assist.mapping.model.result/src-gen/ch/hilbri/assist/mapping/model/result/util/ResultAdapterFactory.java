@@ -15,7 +15,6 @@ import ch.hilbri.assist.mapping.model.result.HardwareElement;
 import ch.hilbri.assist.mapping.model.result.IOAdapter;
 import ch.hilbri.assist.mapping.model.result.IOAdapterRequirement;
 import ch.hilbri.assist.mapping.model.result.MetricParameter;
-import ch.hilbri.assist.mapping.model.result.Network;
 import ch.hilbri.assist.mapping.model.result.Processor;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
@@ -118,10 +117,6 @@ public class ResultAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseIOAdapter(IOAdapter object) {
 				return createIOAdapterAdapter();
-			}
-			@Override
-			public Adapter caseNetwork(Network object) {
-				return createNetworkAdapter();
 			}
 			@Override
 			public Adapter caseApplicationGroup(ApplicationGroup object) {
@@ -298,20 +293,6 @@ public class ResultAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIOAdapterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.result.Network <em>Network</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.result.Network
-	 * @generated
-	 */
-	public Adapter createNetworkAdapter() {
 		return null;
 	}
 

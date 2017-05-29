@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ThreadImpl#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ThreadImpl#getCore <em>Core</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ThreadImpl#getReferenceObject <em>Reference Object</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ThreadImpl#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -45,16 +44,6 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 	 * @ordered
 	 */
 	protected Core core;
-
-	/**
-	 * The cached value of the '{@link #getReferenceObject() <em>Reference Object</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferenceObject()
-	 * @generated
-	 * @ordered
-	 */
-	protected ch.hilbri.assist.mapping.model.Thread referenceObject;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -179,44 +168,6 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ch.hilbri.assist.mapping.model.Thread getReferenceObject() {
-		if (referenceObject != null && referenceObject.eIsProxy()) {
-			InternalEObject oldReferenceObject = (InternalEObject)referenceObject;
-			referenceObject = (ch.hilbri.assist.mapping.model.Thread)eResolveProxy(oldReferenceObject);
-			if (referenceObject != oldReferenceObject) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultPackage.THREAD__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
-			}
-		}
-		return referenceObject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ch.hilbri.assist.mapping.model.Thread basicGetReferenceObject() {
-		return referenceObject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReferenceObject(ch.hilbri.assist.mapping.model.Thread newReferenceObject) {
-		ch.hilbri.assist.mapping.model.Thread oldReferenceObject = referenceObject;
-		referenceObject = newReferenceObject;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.THREAD__REFERENCE_OBJECT, oldReferenceObject, referenceObject));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getName() {
 		Application _application = this.getApplication();
 		String _name = _application.getName();
@@ -285,9 +236,6 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 			case ResultPackage.THREAD__CORE:
 				if (resolve) return getCore();
 				return basicGetCore();
-			case ResultPackage.THREAD__REFERENCE_OBJECT:
-				if (resolve) return getReferenceObject();
-				return basicGetReferenceObject();
 			case ResultPackage.THREAD__NAME:
 				return getName();
 		}
@@ -308,9 +256,6 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 			case ResultPackage.THREAD__CORE:
 				setCore((Core)newValue);
 				return;
-			case ResultPackage.THREAD__REFERENCE_OBJECT:
-				setReferenceObject((ch.hilbri.assist.mapping.model.Thread)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -329,9 +274,6 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 			case ResultPackage.THREAD__CORE:
 				setCore((Core)null);
 				return;
-			case ResultPackage.THREAD__REFERENCE_OBJECT:
-				setReferenceObject((ch.hilbri.assist.mapping.model.Thread)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -348,8 +290,6 @@ public class ThreadImpl extends MinimalEObjectImpl.Container implements ch.hilbr
 				return basicGetApplication() != null;
 			case ResultPackage.THREAD__CORE:
 				return core != null;
-			case ResultPackage.THREAD__REFERENCE_OBJECT:
-				return referenceObject != null;
 			case ResultPackage.THREAD__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		}

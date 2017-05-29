@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.IOAdapterImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.IOAdapterImpl#getTotalCount <em>Total Count</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.IOAdapterImpl#getSharedUnitCount <em>Shared Unit Count</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.IOAdapterImpl#getAdapterType <em>Adapter Type</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.IOAdapterImpl#getProtectionLevel <em>Protection Level</em>}</li>
  * </ul>
@@ -71,26 +70,6 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 	 * @ordered
 	 */
 	protected int totalCount = TOTAL_COUNT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSharedUnitCount() <em>Shared Unit Count</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSharedUnitCount()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int SHARED_UNIT_COUNT_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getSharedUnitCount() <em>Shared Unit Count</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSharedUnitCount()
-	 * @generated
-	 * @ordered
-	 */
-	protected int sharedUnitCount = SHARED_UNIT_COUNT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getAdapterType() <em>Adapter Type</em>}' attribute.
@@ -198,27 +177,6 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getSharedUnitCount() {
-		return sharedUnitCount;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSharedUnitCount(int newSharedUnitCount) {
-		int oldSharedUnitCount = sharedUnitCount;
-		sharedUnitCount = newSharedUnitCount;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.IO_ADAPTER__SHARED_UNIT_COUNT, oldSharedUnitCount, sharedUnitCount));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public IOAdapterType getAdapterType() {
 		return adapterType;
 	}
@@ -268,8 +226,6 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 				return getName();
 			case ModelPackage.IO_ADAPTER__TOTAL_COUNT:
 				return getTotalCount();
-			case ModelPackage.IO_ADAPTER__SHARED_UNIT_COUNT:
-				return getSharedUnitCount();
 			case ModelPackage.IO_ADAPTER__ADAPTER_TYPE:
 				return getAdapterType();
 			case ModelPackage.IO_ADAPTER__PROTECTION_LEVEL:
@@ -291,9 +247,6 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 				return;
 			case ModelPackage.IO_ADAPTER__TOTAL_COUNT:
 				setTotalCount((Integer)newValue);
-				return;
-			case ModelPackage.IO_ADAPTER__SHARED_UNIT_COUNT:
-				setSharedUnitCount((Integer)newValue);
 				return;
 			case ModelPackage.IO_ADAPTER__ADAPTER_TYPE:
 				setAdapterType((IOAdapterType)newValue);
@@ -319,9 +272,6 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 			case ModelPackage.IO_ADAPTER__TOTAL_COUNT:
 				setTotalCount(TOTAL_COUNT_EDEFAULT);
 				return;
-			case ModelPackage.IO_ADAPTER__SHARED_UNIT_COUNT:
-				setSharedUnitCount(SHARED_UNIT_COUNT_EDEFAULT);
-				return;
 			case ModelPackage.IO_ADAPTER__ADAPTER_TYPE:
 				setAdapterType(ADAPTER_TYPE_EDEFAULT);
 				return;
@@ -344,8 +294,6 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ModelPackage.IO_ADAPTER__TOTAL_COUNT:
 				return totalCount != TOTAL_COUNT_EDEFAULT;
-			case ModelPackage.IO_ADAPTER__SHARED_UNIT_COUNT:
-				return sharedUnitCount != SHARED_UNIT_COUNT_EDEFAULT;
 			case ModelPackage.IO_ADAPTER__ADAPTER_TYPE:
 				return adapterType != ADAPTER_TYPE_EDEFAULT;
 			case ModelPackage.IO_ADAPTER__PROTECTION_LEVEL:
@@ -368,8 +316,6 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 		result.append(name);
 		result.append(", totalCount: ");
 		result.append(totalCount);
-		result.append(", sharedUnitCount: ");
-		result.append(sharedUnitCount);
 		result.append(", adapterType: ");
 		result.append(adapterType);
 		result.append(", protectionLevel: ");

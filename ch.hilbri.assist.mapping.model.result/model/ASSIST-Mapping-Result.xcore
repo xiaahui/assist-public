@@ -51,8 +51,8 @@ class Result extends Comparable {
 	@GenModel(documentation="Contains a list of all applications")
 	contains Application[0..*]				applications
 	
-	@GenModel(documentation="Contains a list of all networks")
-	contains Network[0..*] 					networks
+//	@GenModel(documentation="Contains a list of all networks")
+//	contains Network[0..*] 					networks
 
 	@GenModel(documentation="Contains a list of all communication relations between applications")
 	contains CommunicationRelation[0..*]	communications
@@ -144,12 +144,12 @@ class Result extends Comparable {
 		return null	
 	}
 	
-	@GenModel(documentation="Finds a thread in the result model which represents a given thread in the input model")
-	op Thread findResultThread(ch.hilbri.assist.mapping.model.Thread modelThread) {
-		for (resultThread : allThreads) 
-			if (resultThread.referenceObject == modelThread) return resultThread
-		return null	
-	}
+//	@GenModel(documentation="Finds a thread in the result model which represents a given thread in the input model")
+//	op Thread findResultThread(ch.hilbri.assist.mapping.model.Thread modelThread) {
+//		for (resultThread : allThreads) 
+//			if (resultThread.referenceObject == modelThread) return resultThread
+//		return null	
+//	}
 	
 	@GenModel(documentation="Finds an applicationgroup in the result model which represents a given ApplicationGroup in the input model")
 	op ApplicationGroup findResultApplicationGroup(ch.hilbri.assist.mapping.model.ApplicationGroup modelAppGroup) {
@@ -245,7 +245,7 @@ class Board extends HardwareElement {
 	container Box 				box opposite boards
 	contains Processor[1..*] 	processors opposite board
 	contains IOAdapter[0..*] 	ioAdapters
-	refers Network[0..*] 		networks opposite boards
+//	refers Network[0..*] 		networks opposite boards
 	contains MetricParameter[0..*] metricParameters
 	
 	@GenModel(documentation="Is this processor used? Does it contain any mapped threads?")
@@ -319,22 +319,22 @@ class IOAdapter {
 	
 }
 
-class Network {
-	String name
-	int bandwidthCapacity
-	derived boolean isBoardLocalNetwork get { boards.size <= 1 }
-	refers Board[2..*] boards opposite networks
-	refers ch.hilbri.assist.mapping.model.Network referenceObject
-	
-	@GenModel(documentation="Returns the value for the given parameter name - or -1 if this parameter was not found")
-	op int getMetricParameterValue(String parameterName) {
-		for (parameter : referenceObject.metricParameters) {
-			if (parameter.name.equals(parameterName))
-				return parameter.value
-		}
-		return -1;
-	}
-}
+//class Network {
+//	String name
+//	int bandwidthCapacity
+//	derived boolean isBoardLocalNetwork get { boards.size <= 1 }
+//	refers Board[2..*] boards opposite networks
+//	refers ch.hilbri.assist.mapping.model.Network referenceObject
+//	
+//	@GenModel(documentation="Returns the value for the given parameter name - or -1 if this parameter was not found")
+//	op int getMetricParameterValue(String parameterName) {
+//		for (parameter : referenceObject.metricParameters) {
+//			if (parameter.name.equals(parameterName))
+//				return parameter.value
+//		}
+//		return -1;
+//	}
+//}
 
 class ApplicationGroup {
 	String name
@@ -370,7 +370,7 @@ class Application {
 class Thread {
 	container Application 	application opposite threads 
 	refers Core				core 
-	refers ch.hilbri.assist.mapping.model.Thread referenceObject
+//	refers ch.hilbri.assist.mapping.model.Thread referenceObject
 	derived String			name get { application.name + '_' + application.threads.indexOf(this) }
 }
 
@@ -385,7 +385,7 @@ class IOAdapterRequirement {
 class CommunicationRelation{
 	refers Application[1..*] applicationsOrGroups
 	int bandwidthUtilization
-	refers ch.hilbri.assist.mapping.model.CommunicationRelation referenceObject
+//	refers ch.hilbri.assist.mapping.model.CommunicationRelation referenceObject
 }
 
 abstract class AbstractMetric  {

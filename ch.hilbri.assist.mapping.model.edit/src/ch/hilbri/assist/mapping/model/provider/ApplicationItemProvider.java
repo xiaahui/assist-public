@@ -53,7 +53,6 @@ public class ApplicationItemProvider extends ApplicationOrApplicationGroupItemPr
 			addRomUtilizationPropertyDescriptor(object);
 			addCriticalityLevelPropertyDescriptor(object);
 			addIoAdapterProtectionLevelPropertyDescriptor(object);
-			addParallelThreadsPropertyDescriptor(object);
 			addDevelopedByPropertyDescriptor(object);
 			addRestrictMappingToHardwareElementsPropertyDescriptor(object);
 		}
@@ -171,28 +170,6 @@ public class ApplicationItemProvider extends ApplicationOrApplicationGroupItemPr
 	}
 
 	/**
-	 * This adds a property descriptor for the Parallel Threads feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParallelThreadsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Application_parallelThreads_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Application_parallelThreads_feature", "_UI_Application_type"),
-				 ModelPackage.Literals.APPLICATION__PARALLEL_THREADS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Developed By feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -249,7 +226,6 @@ public class ApplicationItemProvider extends ApplicationOrApplicationGroupItemPr
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModelPackage.Literals.APPLICATION__IO_ADAPTER_REQUIREMENTS);
-			childrenFeatures.add(ModelPackage.Literals.APPLICATION__THREADS);
 			childrenFeatures.add(ModelPackage.Literals.APPLICATION__METRIC_PARAMETERS);
 		}
 		return childrenFeatures;
@@ -311,12 +287,10 @@ public class ApplicationItemProvider extends ApplicationOrApplicationGroupItemPr
 			case ModelPackage.APPLICATION__ROM_UTILIZATION:
 			case ModelPackage.APPLICATION__CRITICALITY_LEVEL:
 			case ModelPackage.APPLICATION__IO_ADAPTER_PROTECTION_LEVEL:
-			case ModelPackage.APPLICATION__PARALLEL_THREADS:
 			case ModelPackage.APPLICATION__DEVELOPED_BY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.APPLICATION__IO_ADAPTER_REQUIREMENTS:
-			case ModelPackage.APPLICATION__THREADS:
 			case ModelPackage.APPLICATION__METRIC_PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -339,11 +313,6 @@ public class ApplicationItemProvider extends ApplicationOrApplicationGroupItemPr
 			(createChildParameter
 				(ModelPackage.Literals.APPLICATION__IO_ADAPTER_REQUIREMENTS,
 				 ModelFactory.eINSTANCE.createIOAdapterRequirement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.APPLICATION__THREADS,
-				 ModelFactory.eINSTANCE.createThread()));
 
 		newChildDescriptors.add
 			(createChildParameter

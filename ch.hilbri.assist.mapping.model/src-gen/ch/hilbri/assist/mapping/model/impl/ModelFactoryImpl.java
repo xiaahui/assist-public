@@ -2,41 +2,7 @@
  */
 package ch.hilbri.assist.mapping.model.impl;
 
-import ch.hilbri.assist.mapping.model.Application;
-import ch.hilbri.assist.mapping.model.ApplicationGroup;
-import ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup;
-import ch.hilbri.assist.mapping.model.AssistModel;
-import ch.hilbri.assist.mapping.model.Board;
-import ch.hilbri.assist.mapping.model.BoardAttributes;
-import ch.hilbri.assist.mapping.model.Box;
-import ch.hilbri.assist.mapping.model.BoxAttributes;
-import ch.hilbri.assist.mapping.model.CommunicationRelation;
-import ch.hilbri.assist.mapping.model.Compartment;
-import ch.hilbri.assist.mapping.model.CompartmentAttributes;
-import ch.hilbri.assist.mapping.model.Core;
-import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType;
-import ch.hilbri.assist.mapping.model.DislocalityRelation;
-import ch.hilbri.assist.mapping.model.DissimilarityClause;
-import ch.hilbri.assist.mapping.model.DissimilarityConjunction;
-import ch.hilbri.assist.mapping.model.DissimilarityDisjunction;
-import ch.hilbri.assist.mapping.model.DissimilarityEntry;
-import ch.hilbri.assist.mapping.model.DissimilarityRelation;
-import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType;
-import ch.hilbri.assist.mapping.model.HardwareElement;
-import ch.hilbri.assist.mapping.model.HardwareElementContainer;
-import ch.hilbri.assist.mapping.model.IOAdapter;
-import ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType;
-import ch.hilbri.assist.mapping.model.IOAdapterRequirement;
-import ch.hilbri.assist.mapping.model.IOAdapterType;
-import ch.hilbri.assist.mapping.model.MetricParameter;
-import ch.hilbri.assist.mapping.model.ModelFactory;
-import ch.hilbri.assist.mapping.model.ModelPackage;
-import ch.hilbri.assist.mapping.model.Network;
-import ch.hilbri.assist.mapping.model.Processor;
-import ch.hilbri.assist.mapping.model.ProcessorAttributes;
-import ch.hilbri.assist.mapping.model.ProximityRelation;
-import ch.hilbri.assist.mapping.model.ReferencePointType;
-import ch.hilbri.assist.mapping.model.SchedulingRelation;
+import ch.hilbri.assist.mapping.model.*;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -93,18 +59,15 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 		switch (eClass.getClassifierID()) {
 			case ModelPackage.ASSIST_MODEL: return createAssistModel();
 			case ModelPackage.HARDWARE_ELEMENT: return createHardwareElement();
-			case ModelPackage.HARDWARE_ELEMENT_CONTAINER: return createHardwareElementContainer();
 			case ModelPackage.COMPARTMENT: return createCompartment();
 			case ModelPackage.BOX: return createBox();
 			case ModelPackage.BOARD: return createBoard();
 			case ModelPackage.PROCESSOR: return createProcessor();
 			case ModelPackage.CORE: return createCore();
 			case ModelPackage.IO_ADAPTER: return createIOAdapter();
-			case ModelPackage.NETWORK: return createNetwork();
 			case ModelPackage.APPLICATION_OR_APPLICATION_GROUP: return createApplicationOrApplicationGroup();
 			case ModelPackage.APPLICATION_GROUP: return createApplicationGroup();
 			case ModelPackage.APPLICATION: return createApplication();
-			case ModelPackage.THREAD: return createThread();
 			case ModelPackage.IO_ADAPTER_REQUIREMENT: return createIOAdapterRequirement();
 			case ModelPackage.DISSIMILARITY_RELATION: return createDissimilarityRelation();
 			case ModelPackage.DISSIMILARITY_CLAUSE: return createDissimilarityClause();
@@ -113,8 +76,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.DISSIMILARITY_ENTRY: return createDissimilarityEntry();
 			case ModelPackage.DISLOCALITY_RELATION: return createDislocalityRelation();
 			case ModelPackage.PROXIMITY_RELATION: return createProximityRelation();
-			case ModelPackage.COMMUNICATION_RELATION: return createCommunicationRelation();
-			case ModelPackage.SCHEDULING_RELATION: return createSchedulingRelation();
 			case ModelPackage.METRIC_PARAMETER: return createMetricParameter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -129,14 +90,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case ModelPackage.HARDWARE_ARCHITECTURE_LEVEL_TYPE:
-				return createHardwareArchitectureLevelTypeFromString(eDataType, initialValue);
-			case ModelPackage.IO_ADAPTER_PROTECTION_LEVEL_TYPE:
-				return createIOAdapterProtectionLevelTypeFromString(eDataType, initialValue);
-			case ModelPackage.DESIGN_ASSURANCE_LEVEL_TYPE:
-				return createDesignAssuranceLevelTypeFromString(eDataType, initialValue);
-			case ModelPackage.IO_ADAPTER_TYPE:
-				return createIOAdapterTypeFromString(eDataType, initialValue);
 			case ModelPackage.COMPARTMENT_ATTRIBUTES:
 				return createCompartmentAttributesFromString(eDataType, initialValue);
 			case ModelPackage.BOX_ATTRIBUTES:
@@ -145,8 +98,14 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return createBoardAttributesFromString(eDataType, initialValue);
 			case ModelPackage.PROCESSOR_ATTRIBUTES:
 				return createProcessorAttributesFromString(eDataType, initialValue);
-			case ModelPackage.REFERENCE_POINT_TYPE:
-				return createReferencePointTypeFromString(eDataType, initialValue);
+			case ModelPackage.HARDWARE_ARCHITECTURE_LEVEL_TYPE:
+				return createHardwareArchitectureLevelTypeFromString(eDataType, initialValue);
+			case ModelPackage.IO_ADAPTER_PROTECTION_LEVEL_TYPE:
+				return createIOAdapterProtectionLevelTypeFromString(eDataType, initialValue);
+			case ModelPackage.DESIGN_ASSURANCE_LEVEL_TYPE:
+				return createDesignAssuranceLevelTypeFromString(eDataType, initialValue);
+			case ModelPackage.IO_ADAPTER_TYPE:
+				return createIOAdapterTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -160,14 +119,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case ModelPackage.HARDWARE_ARCHITECTURE_LEVEL_TYPE:
-				return convertHardwareArchitectureLevelTypeToString(eDataType, instanceValue);
-			case ModelPackage.IO_ADAPTER_PROTECTION_LEVEL_TYPE:
-				return convertIOAdapterProtectionLevelTypeToString(eDataType, instanceValue);
-			case ModelPackage.DESIGN_ASSURANCE_LEVEL_TYPE:
-				return convertDesignAssuranceLevelTypeToString(eDataType, instanceValue);
-			case ModelPackage.IO_ADAPTER_TYPE:
-				return convertIOAdapterTypeToString(eDataType, instanceValue);
 			case ModelPackage.COMPARTMENT_ATTRIBUTES:
 				return convertCompartmentAttributesToString(eDataType, instanceValue);
 			case ModelPackage.BOX_ATTRIBUTES:
@@ -176,8 +127,14 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return convertBoardAttributesToString(eDataType, instanceValue);
 			case ModelPackage.PROCESSOR_ATTRIBUTES:
 				return convertProcessorAttributesToString(eDataType, instanceValue);
-			case ModelPackage.REFERENCE_POINT_TYPE:
-				return convertReferencePointTypeToString(eDataType, instanceValue);
+			case ModelPackage.HARDWARE_ARCHITECTURE_LEVEL_TYPE:
+				return convertHardwareArchitectureLevelTypeToString(eDataType, instanceValue);
+			case ModelPackage.IO_ADAPTER_PROTECTION_LEVEL_TYPE:
+				return convertIOAdapterProtectionLevelTypeToString(eDataType, instanceValue);
+			case ModelPackage.DESIGN_ASSURANCE_LEVEL_TYPE:
+				return convertDesignAssuranceLevelTypeToString(eDataType, instanceValue);
+			case ModelPackage.IO_ADAPTER_TYPE:
+				return convertIOAdapterTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -201,16 +158,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public HardwareElement createHardwareElement() {
 		HardwareElementImpl hardwareElement = new HardwareElementImpl();
 		return hardwareElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HardwareElementContainer createHardwareElementContainer() {
-		HardwareElementContainerImpl hardwareElementContainer = new HardwareElementContainerImpl();
-		return hardwareElementContainer;
 	}
 
 	/**
@@ -278,16 +225,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Network createNetwork() {
-		NetworkImpl network = new NetworkImpl();
-		return network;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ApplicationOrApplicationGroup createApplicationOrApplicationGroup() {
 		ApplicationOrApplicationGroupImpl applicationOrApplicationGroup = new ApplicationOrApplicationGroupImpl();
 		return applicationOrApplicationGroup;
@@ -311,16 +248,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public Application createApplication() {
 		ApplicationImpl application = new ApplicationImpl();
 		return application;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ch.hilbri.assist.mapping.model.Thread createThread() {
-		ThreadImpl thread = new ThreadImpl();
-		return thread;
 	}
 
 	/**
@@ -408,109 +335,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CommunicationRelation createCommunicationRelation() {
-		CommunicationRelationImpl communicationRelation = new CommunicationRelationImpl();
-		return communicationRelation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchedulingRelation createSchedulingRelation() {
-		SchedulingRelationImpl schedulingRelation = new SchedulingRelationImpl();
-		return schedulingRelation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MetricParameter createMetricParameter() {
 		MetricParameterImpl metricParameter = new MetricParameterImpl();
 		return metricParameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HardwareArchitectureLevelType createHardwareArchitectureLevelTypeFromString(EDataType eDataType, String initialValue) {
-		HardwareArchitectureLevelType result = HardwareArchitectureLevelType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertHardwareArchitectureLevelTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IOAdapterProtectionLevelType createIOAdapterProtectionLevelTypeFromString(EDataType eDataType, String initialValue) {
-		IOAdapterProtectionLevelType result = IOAdapterProtectionLevelType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIOAdapterProtectionLevelTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DesignAssuranceLevelType createDesignAssuranceLevelTypeFromString(EDataType eDataType, String initialValue) {
-		DesignAssuranceLevelType result = DesignAssuranceLevelType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDesignAssuranceLevelTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IOAdapterType createIOAdapterTypeFromString(EDataType eDataType, String initialValue) {
-		IOAdapterType result = IOAdapterType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIOAdapterTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -598,8 +425,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ReferencePointType createReferencePointTypeFromString(EDataType eDataType, String initialValue) {
-		ReferencePointType result = ReferencePointType.get(initialValue);
+	public HardwareArchitectureLevelType createHardwareArchitectureLevelTypeFromString(EDataType eDataType, String initialValue) {
+		HardwareArchitectureLevelType result = HardwareArchitectureLevelType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -609,7 +436,67 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertReferencePointTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertHardwareArchitectureLevelTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IOAdapterProtectionLevelType createIOAdapterProtectionLevelTypeFromString(EDataType eDataType, String initialValue) {
+		IOAdapterProtectionLevelType result = IOAdapterProtectionLevelType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIOAdapterProtectionLevelTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DesignAssuranceLevelType createDesignAssuranceLevelTypeFromString(EDataType eDataType, String initialValue) {
+		DesignAssuranceLevelType result = DesignAssuranceLevelType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDesignAssuranceLevelTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IOAdapterType createIOAdapterTypeFromString(EDataType eDataType, String initialValue) {
+		IOAdapterType result = IOAdapterType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIOAdapterTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

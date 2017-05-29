@@ -13,7 +13,6 @@ import ch.hilbri.assist.mapping.model.result.Compartment;
 import ch.hilbri.assist.mapping.model.result.Core;
 import ch.hilbri.assist.mapping.model.result.Evaluation;
 import ch.hilbri.assist.mapping.model.result.HardwareElement;
-import ch.hilbri.assist.mapping.model.result.Network;
 import ch.hilbri.assist.mapping.model.result.Processor;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
@@ -58,7 +57,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getBottomHardwareLevel <em>Bottom Hardware Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getApplicationGroups <em>Application Groups</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getApplications <em>Applications</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getNetworks <em>Networks</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getCommunications <em>Communications</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getEvaluation <em>Evaluation</em>}</li>
  * </ul>
@@ -155,16 +153,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @ordered
 	 */
 	protected EList<Application> applications;
-
-	/**
-	 * The cached value of the '{@link #getNetworks() <em>Networks</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNetworks()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Network> networks;
 
 	/**
 	 * The cached value of the '{@link #getCommunications() <em>Communications</em>}' containment reference list.
@@ -338,18 +326,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			applications = new EObjectContainmentEList<Application>(Application.class, this, ResultPackage.RESULT__APPLICATIONS);
 		}
 		return applications;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Network> getNetworks() {
-		if (networks == null) {
-			networks = new EObjectContainmentEList<Network>(Network.class, this, ResultPackage.RESULT__NETWORKS);
-		}
-		return networks;
 	}
 
 	/**
@@ -698,23 +674,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ch.hilbri.assist.mapping.model.result.Thread findResultThread(final ch.hilbri.assist.mapping.model.Thread modelThread) {
-		EList<ch.hilbri.assist.mapping.model.result.Thread> _allThreads = this.getAllThreads();
-		for (final ch.hilbri.assist.mapping.model.result.Thread resultThread : _allThreads) {
-			ch.hilbri.assist.mapping.model.Thread _referenceObject = resultThread.getReferenceObject();
-			boolean _equals = Objects.equal(_referenceObject, modelThread);
-			if (_equals) {
-				return resultThread;
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ApplicationGroup findResultApplicationGroup(final ch.hilbri.assist.mapping.model.ApplicationGroup modelAppGroup) {
 		EList<ApplicationGroup> _applicationGroups = this.getApplicationGroups();
 		for (final ApplicationGroup resultAppGroup : _applicationGroups) {
@@ -741,8 +700,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return ((InternalEList<?>)getApplicationGroups()).basicRemove(otherEnd, msgs);
 			case ResultPackage.RESULT__APPLICATIONS:
 				return ((InternalEList<?>)getApplications()).basicRemove(otherEnd, msgs);
-			case ResultPackage.RESULT__NETWORKS:
-				return ((InternalEList<?>)getNetworks()).basicRemove(otherEnd, msgs);
 			case ResultPackage.RESULT__COMMUNICATIONS:
 				return ((InternalEList<?>)getCommunications()).basicRemove(otherEnd, msgs);
 			case ResultPackage.RESULT__EVALUATION:
@@ -773,8 +730,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return getApplicationGroups();
 			case ResultPackage.RESULT__APPLICATIONS:
 				return getApplications();
-			case ResultPackage.RESULT__NETWORKS:
-				return getNetworks();
 			case ResultPackage.RESULT__COMMUNICATIONS:
 				return getCommunications();
 			case ResultPackage.RESULT__EVALUATION:
@@ -810,10 +765,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				getApplications().clear();
 				getApplications().addAll((Collection<? extends Application>)newValue);
 				return;
-			case ResultPackage.RESULT__NETWORKS:
-				getNetworks().clear();
-				getNetworks().addAll((Collection<? extends Network>)newValue);
-				return;
 			case ResultPackage.RESULT__COMMUNICATIONS:
 				getCommunications().clear();
 				getCommunications().addAll((Collection<? extends CommunicationRelation>)newValue);
@@ -848,9 +799,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			case ResultPackage.RESULT__APPLICATIONS:
 				getApplications().clear();
 				return;
-			case ResultPackage.RESULT__NETWORKS:
-				getNetworks().clear();
-				return;
 			case ResultPackage.RESULT__COMMUNICATIONS:
 				getCommunications().clear();
 				return;
@@ -883,8 +831,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return applicationGroups != null && !applicationGroups.isEmpty();
 			case ResultPackage.RESULT__APPLICATIONS:
 				return applications != null && !applications.isEmpty();
-			case ResultPackage.RESULT__NETWORKS:
-				return networks != null && !networks.isEmpty();
 			case ResultPackage.RESULT__COMMUNICATIONS:
 				return communications != null && !communications.isEmpty();
 			case ResultPackage.RESULT__EVALUATION:
@@ -919,8 +865,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return findResultHardwareElement((ch.hilbri.assist.mapping.model.HardwareElement)arguments.get(0));
 			case ResultPackage.RESULT___FIND_RESULT_APPLICATION__APPLICATION:
 				return findResultApplication((ch.hilbri.assist.mapping.model.Application)arguments.get(0));
-			case ResultPackage.RESULT___FIND_RESULT_THREAD__THREAD:
-				return findResultThread((ch.hilbri.assist.mapping.model.Thread)arguments.get(0));
 			case ResultPackage.RESULT___FIND_RESULT_APPLICATION_GROUP__APPLICATIONGROUP:
 				return findResultApplicationGroup((ch.hilbri.assist.mapping.model.ApplicationGroup)arguments.get(0));
 		}

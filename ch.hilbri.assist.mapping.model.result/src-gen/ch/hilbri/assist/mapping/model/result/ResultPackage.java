@@ -162,22 +162,13 @@ public interface ResultPackage extends EPackage {
 	int RESULT__APPLICATIONS = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Networks</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT__NETWORKS = COMPARABLE_FEATURE_COUNT + 7;
-
-	/**
 	 * The feature id for the '<em><b>Communications</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__COMMUNICATIONS = COMPARABLE_FEATURE_COUNT + 8;
+	int RESULT__COMMUNICATIONS = COMPARABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Evaluation</b></em>' containment reference.
@@ -186,7 +177,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__EVALUATION = COMPARABLE_FEATURE_COUNT + 9;
+	int RESULT__EVALUATION = COMPARABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Result</em>' class.
@@ -195,7 +186,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 10;
+	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Compare To</em>' operation.
@@ -279,22 +270,13 @@ public interface ResultPackage extends EPackage {
 	int RESULT___FIND_RESULT_APPLICATION__APPLICATION = COMPARABLE_OPERATION_COUNT + 8;
 
 	/**
-	 * The operation id for the '<em>Find Result Thread</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT___FIND_RESULT_THREAD__THREAD = COMPARABLE_OPERATION_COUNT + 9;
-
-	/**
 	 * The operation id for the '<em>Find Result Application Group</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___FIND_RESULT_APPLICATION_GROUP__APPLICATIONGROUP = COMPARABLE_OPERATION_COUNT + 10;
+	int RESULT___FIND_RESULT_APPLICATION_GROUP__APPLICATIONGROUP = COMPARABLE_OPERATION_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Result</em>' class.
@@ -303,7 +285,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 11;
+	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.result.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -760,22 +742,13 @@ public interface ResultPackage extends EPackage {
 	int BOARD__IO_ADAPTERS = HARDWARE_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>Networks</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD__NETWORKS = HARDWARE_ELEMENT_FEATURE_COUNT + 13;
-
-	/**
 	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD__METRIC_PARAMETERS = HARDWARE_ELEMENT_FEATURE_COUNT + 14;
+	int BOARD__METRIC_PARAMETERS = HARDWARE_ELEMENT_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Not Used</b></em>' attribute.
@@ -784,7 +757,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD__NOT_USED = HARDWARE_ELEMENT_FEATURE_COUNT + 15;
+	int BOARD__NOT_USED = HARDWARE_ELEMENT_FEATURE_COUNT + 14;
 
 	/**
 	 * The number of structural features of the '<em>Board</em>' class.
@@ -793,7 +766,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 16;
+	int BOARD_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Get Metric Parameter Value</em>' operation.
@@ -1177,88 +1150,6 @@ public interface ResultPackage extends EPackage {
 	int IO_ADAPTER_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.result.impl.NetworkImpl <em>Network</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.result.impl.NetworkImpl
-	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getNetwork()
-	 * @generated
-	 */
-	int NETWORK = 9;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NETWORK__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Bandwidth Capacity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NETWORK__BANDWIDTH_CAPACITY = 1;
-
-	/**
-	 * The feature id for the '<em><b>Is Board Local Network</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NETWORK__IS_BOARD_LOCAL_NETWORK = 2;
-
-	/**
-	 * The feature id for the '<em><b>Boards</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NETWORK__BOARDS = 3;
-
-	/**
-	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NETWORK__REFERENCE_OBJECT = 4;
-
-	/**
-	 * The number of structural features of the '<em>Network</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NETWORK_FEATURE_COUNT = 5;
-
-	/**
-	 * The operation id for the '<em>Get Metric Parameter Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NETWORK___GET_METRIC_PARAMETER_VALUE__STRING = 0;
-
-	/**
-	 * The number of operations of the '<em>Network</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NETWORK_OPERATION_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.result.impl.ApplicationGroupImpl <em>Application Group</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1266,7 +1157,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getApplicationGroup()
 	 * @generated
 	 */
-	int APPLICATION_GROUP = 10;
+	int APPLICATION_GROUP = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1330,7 +1221,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getApplication()
 	 * @generated
 	 */
-	int APPLICATION = 11;
+	int APPLICATION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1475,7 +1366,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getThread()
 	 * @generated
 	 */
-	int THREAD = 12;
+	int THREAD = 11;
 
 	/**
 	 * The feature id for the '<em><b>Application</b></em>' container reference.
@@ -1496,22 +1387,13 @@ public interface ResultPackage extends EPackage {
 	int THREAD__CORE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int THREAD__REFERENCE_OBJECT = 2;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THREAD__NAME = 3;
+	int THREAD__NAME = 2;
 
 	/**
 	 * The number of structural features of the '<em>Thread</em>' class.
@@ -1520,7 +1402,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THREAD_FEATURE_COUNT = 4;
+	int THREAD_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Thread</em>' class.
@@ -1539,7 +1421,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getIOAdapterRequirement()
 	 * @generated
 	 */
-	int IO_ADAPTER_REQUIREMENT = 13;
+	int IO_ADAPTER_REQUIREMENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Adapter Type</b></em>' attribute.
@@ -1612,7 +1494,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getCommunicationRelation()
 	 * @generated
 	 */
-	int COMMUNICATION_RELATION = 14;
+	int COMMUNICATION_RELATION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
@@ -1633,22 +1515,13 @@ public interface ResultPackage extends EPackage {
 	int COMMUNICATION_RELATION__BANDWIDTH_UTILIZATION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_RELATION__REFERENCE_OBJECT = 2;
-
-	/**
 	 * The number of structural features of the '<em>Communication Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_RELATION_FEATURE_COUNT = 3;
+	int COMMUNICATION_RELATION_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Communication Relation</em>' class.
@@ -1667,7 +1540,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getAbstractMetric()
 	 * @generated
 	 */
-	int ABSTRACT_METRIC = 15;
+	int ABSTRACT_METRIC = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1740,7 +1613,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getEvaluation()
 	 * @generated
 	 */
-	int EVALUATION = 16;
+	int EVALUATION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Absolute Scores</b></em>' attribute.
@@ -1804,7 +1677,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getMetricParameter()
 	 * @generated
 	 */
-	int METRIC_PARAMETER = 17;
+	int METRIC_PARAMETER = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1850,7 +1723,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getMetricScoreMap()
 	 * @generated
 	 */
-	int METRIC_SCORE_MAP = 18;
+	int METRIC_SCORE_MAP = 17;
 
 
 	/**
@@ -1950,17 +1823,6 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResult_Applications();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.result.Result#getNetworks <em>Networks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Networks</em>'.
-	 * @see ch.hilbri.assist.mapping.model.result.Result#getNetworks()
-	 * @see #getResult()
-	 * @generated
-	 */
-	EReference getResult_Networks();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.result.Result#getCommunications <em>Communications</em>}'.
@@ -2073,16 +1935,6 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getResult__FindResultApplication__Application();
-
-	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#findResultThread(ch.hilbri.assist.mapping.model.Thread) <em>Find Result Thread</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Find Result Thread</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.result.Result#findResultThread(ch.hilbri.assist.mapping.model.Thread)
-	 * @generated
-	 */
-	EOperation getResult__FindResultThread__Thread();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#findResultApplicationGroup(ch.hilbri.assist.mapping.model.ApplicationGroup) <em>Find Result Application Group</em>}' operation.
@@ -2478,17 +2330,6 @@ public interface ResultPackage extends EPackage {
 	EReference getBoard_IoAdapters();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.result.Board#getNetworks <em>Networks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Networks</em>'.
-	 * @see ch.hilbri.assist.mapping.model.result.Board#getNetworks()
-	 * @see #getBoard()
-	 * @generated
-	 */
-	EReference getBoard_Networks();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.result.Board#getMetricParameters <em>Metric Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2811,81 +2652,6 @@ public interface ResultPackage extends EPackage {
 	EReference getIOAdapter_ReferenceObject();
 
 	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.result.Network <em>Network</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Network</em>'.
-	 * @see ch.hilbri.assist.mapping.model.result.Network
-	 * @generated
-	 */
-	EClass getNetwork();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.Network#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ch.hilbri.assist.mapping.model.result.Network#getName()
-	 * @see #getNetwork()
-	 * @generated
-	 */
-	EAttribute getNetwork_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.Network#getBandwidthCapacity <em>Bandwidth Capacity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Bandwidth Capacity</em>'.
-	 * @see ch.hilbri.assist.mapping.model.result.Network#getBandwidthCapacity()
-	 * @see #getNetwork()
-	 * @generated
-	 */
-	EAttribute getNetwork_BandwidthCapacity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.Network#isIsBoardLocalNetwork <em>Is Board Local Network</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Board Local Network</em>'.
-	 * @see ch.hilbri.assist.mapping.model.result.Network#isIsBoardLocalNetwork()
-	 * @see #getNetwork()
-	 * @generated
-	 */
-	EAttribute getNetwork_IsBoardLocalNetwork();
-
-	/**
-	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.result.Network#getBoards <em>Boards</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Boards</em>'.
-	 * @see ch.hilbri.assist.mapping.model.result.Network#getBoards()
-	 * @see #getNetwork()
-	 * @generated
-	 */
-	EReference getNetwork_Boards();
-
-	/**
-	 * Returns the meta object for the reference '{@link ch.hilbri.assist.mapping.model.result.Network#getReferenceObject <em>Reference Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Reference Object</em>'.
-	 * @see ch.hilbri.assist.mapping.model.result.Network#getReferenceObject()
-	 * @see #getNetwork()
-	 * @generated
-	 */
-	EReference getNetwork_ReferenceObject();
-
-	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Network#getMetricParameterValue(java.lang.String) <em>Get Metric Parameter Value</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Metric Parameter Value</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.result.Network#getMetricParameterValue(java.lang.String)
-	 * @generated
-	 */
-	EOperation getNetwork__GetMetricParameterValue__String();
-
-	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.result.ApplicationGroup <em>Application Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3124,17 +2890,6 @@ public interface ResultPackage extends EPackage {
 	EReference getThread_Core();
 
 	/**
-	 * Returns the meta object for the reference '{@link ch.hilbri.assist.mapping.model.result.Thread#getReferenceObject <em>Reference Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Reference Object</em>'.
-	 * @see ch.hilbri.assist.mapping.model.result.Thread#getReferenceObject()
-	 * @see #getThread()
-	 * @generated
-	 */
-	EReference getThread_ReferenceObject();
-
-	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.Thread#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3241,17 +2996,6 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCommunicationRelation_BandwidthUtilization();
-
-	/**
-	 * Returns the meta object for the reference '{@link ch.hilbri.assist.mapping.model.result.CommunicationRelation#getReferenceObject <em>Reference Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Reference Object</em>'.
-	 * @see ch.hilbri.assist.mapping.model.result.CommunicationRelation#getReferenceObject()
-	 * @see #getCommunicationRelation()
-	 * @generated
-	 */
-	EReference getCommunicationRelation_ReferenceObject();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.result.AbstractMetric <em>Abstract Metric</em>}'.
@@ -3514,14 +3258,6 @@ public interface ResultPackage extends EPackage {
 		EReference RESULT__APPLICATIONS = eINSTANCE.getResult_Applications();
 
 		/**
-		 * The meta object literal for the '<em><b>Networks</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESULT__NETWORKS = eINSTANCE.getResult_Networks();
-
-		/**
 		 * The meta object literal for the '<em><b>Communications</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3608,14 +3344,6 @@ public interface ResultPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RESULT___FIND_RESULT_APPLICATION__APPLICATION = eINSTANCE.getResult__FindResultApplication__Application();
-
-		/**
-		 * The meta object literal for the '<em><b>Find Result Thread</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RESULT___FIND_RESULT_THREAD__THREAD = eINSTANCE.getResult__FindResultThread__Thread();
 
 		/**
 		 * The meta object literal for the '<em><b>Find Result Application Group</b></em>' operation.
@@ -3922,14 +3650,6 @@ public interface ResultPackage extends EPackage {
 		EReference BOARD__IO_ADAPTERS = eINSTANCE.getBoard_IoAdapters();
 
 		/**
-		 * The meta object literal for the '<em><b>Networks</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BOARD__NETWORKS = eINSTANCE.getBoard_Networks();
-
-		/**
 		 * The meta object literal for the '<em><b>Metric Parameters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4176,64 +3896,6 @@ public interface ResultPackage extends EPackage {
 		EReference IO_ADAPTER__REFERENCE_OBJECT = eINSTANCE.getIOAdapter_ReferenceObject();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.result.impl.NetworkImpl <em>Network</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.result.impl.NetworkImpl
-		 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getNetwork()
-		 * @generated
-		 */
-		EClass NETWORK = eINSTANCE.getNetwork();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NETWORK__NAME = eINSTANCE.getNetwork_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Bandwidth Capacity</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NETWORK__BANDWIDTH_CAPACITY = eINSTANCE.getNetwork_BandwidthCapacity();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Board Local Network</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NETWORK__IS_BOARD_LOCAL_NETWORK = eINSTANCE.getNetwork_IsBoardLocalNetwork();
-
-		/**
-		 * The meta object literal for the '<em><b>Boards</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NETWORK__BOARDS = eINSTANCE.getNetwork_Boards();
-
-		/**
-		 * The meta object literal for the '<em><b>Reference Object</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NETWORK__REFERENCE_OBJECT = eINSTANCE.getNetwork_ReferenceObject();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Metric Parameter Value</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NETWORK___GET_METRIC_PARAMETER_VALUE__STRING = eINSTANCE.getNetwork__GetMetricParameterValue__String();
-
-		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.result.impl.ApplicationGroupImpl <em>Application Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4416,14 +4078,6 @@ public interface ResultPackage extends EPackage {
 		EReference THREAD__CORE = eINSTANCE.getThread_Core();
 
 		/**
-		 * The meta object literal for the '<em><b>Reference Object</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference THREAD__REFERENCE_OBJECT = eINSTANCE.getThread_ReferenceObject();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4506,14 +4160,6 @@ public interface ResultPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMMUNICATION_RELATION__BANDWIDTH_UTILIZATION = eINSTANCE.getCommunicationRelation_BandwidthUtilization();
-
-		/**
-		 * The meta object literal for the '<em><b>Reference Object</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMMUNICATION_RELATION__REFERENCE_OBJECT = eINSTANCE.getCommunicationRelation_ReferenceObject();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl <em>Abstract Metric</em>}' class.

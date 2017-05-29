@@ -2,7 +2,6 @@
  */
 package ch.hilbri.assist.mapping.model.impl;
 
-import ch.hilbri.assist.mapping.model.Application;
 import ch.hilbri.assist.mapping.model.ApplicationGroup;
 import ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup;
 import ch.hilbri.assist.mapping.model.ModelPackage;
@@ -11,7 +10,6 @@ import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -71,43 +69,6 @@ public class ApplicationGroupImpl extends ApplicationOrApplicationGroupImpl impl
 			applicationsOrGroups = new EObjectResolvingEList<ApplicationOrApplicationGroup>(ApplicationOrApplicationGroup.class, this, ModelPackage.APPLICATION_GROUP__APPLICATIONS_OR_GROUPS);
 		}
 		return applicationsOrGroups;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Application> getAllApplications() {
-		BasicEList<Application> list = new BasicEList<Application>();
-		EList<ApplicationOrApplicationGroup> _applicationsOrGroups = this.getApplicationsOrGroups();
-		for (final ApplicationOrApplicationGroup aog : _applicationsOrGroups) {
-			if ((aog instanceof Application)) {
-				list.add(((Application)aog));
-			}
-			else {
-				if ((aog instanceof ApplicationGroup)) {
-					EList<Application> _allApplications = ((ApplicationGroup)aog).getAllApplications();
-					list.addAll(_allApplications);
-				}
-			}
-		}
-		return list;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ch.hilbri.assist.mapping.model.Thread> getAllThreads() {
-		BasicEList<ch.hilbri.assist.mapping.model.Thread> list = new BasicEList<ch.hilbri.assist.mapping.model.Thread>();
-		EList<Application> _allApplications = this.getAllApplications();
-		for (final Application app : _allApplications) {
-			EList<ch.hilbri.assist.mapping.model.Thread> _threads = app.getThreads();
-			list.addAll(_threads);
-		}
-		return list;
 	}
 
 	/**
@@ -203,10 +164,6 @@ public class ApplicationGroupImpl extends ApplicationOrApplicationGroupImpl impl
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ModelPackage.APPLICATION_GROUP___GET_ALL_APPLICATIONS:
-				return getAllApplications();
-			case ModelPackage.APPLICATION_GROUP___GET_ALL_THREADS:
-				return getAllThreads();
 			case ModelPackage.APPLICATION_GROUP___TO_STRING:
 				return toString();
 		}

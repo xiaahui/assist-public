@@ -40,15 +40,6 @@ public interface ModelFactory extends EFactory {
 	HardwareElement createHardwareElement();
 
 	/**
-	 * Returns a new object of class '<em>Hardware Element Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Hardware Element Container</em>'.
-	 * @generated
-	 */
-	HardwareElementContainer createHardwareElementContainer();
-
-	/**
 	 * Returns a new object of class '<em>Compartment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,15 +94,6 @@ public interface ModelFactory extends EFactory {
 	IOAdapter createIOAdapter();
 
 	/**
-	 * Returns a new object of class '<em>Network</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Network</em>'.
-	 * @generated
-	 */
-	Network createNetwork();
-
-	/**
 	 * Returns a new object of class '<em>Application Or Application Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -137,15 +119,6 @@ public interface ModelFactory extends EFactory {
 	 * @generated
 	 */
 	Application createApplication();
-
-	/**
-	 * Returns a new object of class '<em>Thread</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Thread</em>'.
-	 * @generated
-	 */
-	Thread createThread();
 
 	/**
 	 * Returns a new object of class '<em>IO Adapter Requirement</em>'.
@@ -218,24 +191,6 @@ public interface ModelFactory extends EFactory {
 	 * @generated
 	 */
 	ProximityRelation createProximityRelation();
-
-	/**
-	 * Returns a new object of class '<em>Communication Relation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Communication Relation</em>'.
-	 * @generated
-	 */
-	CommunicationRelation createCommunicationRelation();
-
-	/**
-	 * Returns a new object of class '<em>Scheduling Relation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Scheduling Relation</em>'.
-	 * @generated
-	 */
-	SchedulingRelation createSchedulingRelation();
 
 	/**
 	 * Returns a new object of class '<em>Metric Parameter</em>'.

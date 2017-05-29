@@ -9,6 +9,10 @@ import ch.hilbri.assist.mapping.model.Core;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 import ch.hilbri.assist.mapping.model.Processor;
 
+import com.google.common.collect.Iterables;
+
+import java.lang.Iterable;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -16,7 +20,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,6 +32,10 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
+
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Box</b></em>'.
@@ -36,34 +44,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoxImpl#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoxImpl#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoxImpl#getBoards <em>Boards</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BoxImpl extends HardwareElementContainerImpl implements Box {
-	/**
-	 * The default value of the '{@link #getManufacturer() <em>Manufacturer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getManufacturer()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String MANUFACTURER_EDEFAULT = "";
-
-	/**
-	 * The cached value of the '{@link #getManufacturer() <em>Manufacturer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getManufacturer()
-	 * @generated
-	 * @ordered
-	 */
-	protected String manufacturer = MANUFACTURER_EDEFAULT;
-
+public class BoxImpl extends HardwareElementImpl implements Box {
 	/**
 	 * The cached value of the '{@link #getBoards() <em>Boards</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -91,27 +78,6 @@ public class BoxImpl extends HardwareElementContainerImpl implements Box {
 	@Override
 	protected EClass eStaticClass() {
 		return ModelPackage.Literals.BOX;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getManufacturer() {
-		return manufacturer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setManufacturer(String newManufacturer) {
-		String oldManufacturer = manufacturer;
-		manufacturer = newManufacturer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOX__MANUFACTURER, oldManufacturer, manufacturer));
 	}
 
 	/**
@@ -182,14 +148,25 @@ public class BoxImpl extends HardwareElementContainerImpl implements Box {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Board> getAllBoards() {
+		return this.getBoards();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Processor> getAllProcessors() {
-		final BasicEList<Processor> list = new BasicEList<Processor>();
 		EList<Board> _boards = this.getBoards();
-		for (final Board b : _boards) {
-			EList<Processor> _processors = b.getProcessors();
-			list.addAll(_processors);
-		}
-		return list;
+		final Function1<Board, EList<Processor>> _function = new Function1<Board, EList<Processor>>() {
+			public EList<Processor> apply(final Board it) {
+				return it.getAllProcessors();
+			}
+		};
+		EList<EList<Processor>> _map = XcoreEListExtensions.<Board, EList<Processor>>map(_boards, _function);
+		Iterable<Processor> _flatten = Iterables.<Processor>concat(_map);
+		return ECollections.<Processor>toEList(_flatten);
 	}
 
 	/**
@@ -198,13 +175,15 @@ public class BoxImpl extends HardwareElementContainerImpl implements Box {
 	 * @generated
 	 */
 	public EList<Core> getAllCores() {
-		final BasicEList<Core> list = new BasicEList<Core>();
 		EList<Board> _boards = this.getBoards();
-		for (final Board b : _boards) {
-			EList<Core> _allCores = b.getAllCores();
-			list.addAll(_allCores);
-		}
-		return list;
+		final Function1<Board, EList<Core>> _function = new Function1<Board, EList<Core>>() {
+			public EList<Core> apply(final Board it) {
+				return it.getAllCores();
+			}
+		};
+		EList<EList<Core>> _map = XcoreEListExtensions.<Board, EList<Core>>map(_boards, _function);
+		Iterable<Core> _flatten = Iterables.<Core>concat(_map);
+		return ECollections.<Core>toEList(_flatten);
 	}
 
 	/**
@@ -264,8 +243,6 @@ public class BoxImpl extends HardwareElementContainerImpl implements Box {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.BOX__MANUFACTURER:
-				return getManufacturer();
 			case ModelPackage.BOX__COMPARTMENT:
 				if (resolve) return getCompartment();
 				return basicGetCompartment();
@@ -284,9 +261,6 @@ public class BoxImpl extends HardwareElementContainerImpl implements Box {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.BOX__MANUFACTURER:
-				setManufacturer((String)newValue);
-				return;
 			case ModelPackage.BOX__COMPARTMENT:
 				setCompartment((Compartment)newValue);
 				return;
@@ -306,9 +280,6 @@ public class BoxImpl extends HardwareElementContainerImpl implements Box {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.BOX__MANUFACTURER:
-				setManufacturer(MANUFACTURER_EDEFAULT);
-				return;
 			case ModelPackage.BOX__COMPARTMENT:
 				setCompartment((Compartment)null);
 				return;
@@ -327,8 +298,6 @@ public class BoxImpl extends HardwareElementContainerImpl implements Box {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.BOX__MANUFACTURER:
-				return MANUFACTURER_EDEFAULT == null ? manufacturer != null : !MANUFACTURER_EDEFAULT.equals(manufacturer);
 			case ModelPackage.BOX__COMPARTMENT:
 				return basicGetCompartment() != null;
 			case ModelPackage.BOX__BOARDS:
@@ -345,28 +314,14 @@ public class BoxImpl extends HardwareElementContainerImpl implements Box {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case ModelPackage.BOX___GET_ALL_BOARDS:
+				return getAllBoards();
 			case ModelPackage.BOX___GET_ALL_PROCESSORS:
 				return getAllProcessors();
 			case ModelPackage.BOX___GET_ALL_CORES:
 				return getAllCores();
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (manufacturer: ");
-		result.append(manufacturer);
-		result.append(')');
-		return result.toString();
 	}
 
 } //BoxImpl

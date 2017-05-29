@@ -15,7 +15,6 @@ import ch.hilbri.assist.mapping.model.result.HardwareElement;
 import ch.hilbri.assist.mapping.model.result.IOAdapter;
 import ch.hilbri.assist.mapping.model.result.IOAdapterRequirement;
 import ch.hilbri.assist.mapping.model.result.MetricParameter;
-import ch.hilbri.assist.mapping.model.result.Network;
 import ch.hilbri.assist.mapping.model.result.Processor;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultFactory;
@@ -84,7 +83,6 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 			case ResultPackage.PROCESSOR: return createProcessor();
 			case ResultPackage.CORE: return createCore();
 			case ResultPackage.IO_ADAPTER: return createIOAdapter();
-			case ResultPackage.NETWORK: return createNetwork();
 			case ResultPackage.APPLICATION_GROUP: return createApplicationGroup();
 			case ResultPackage.APPLICATION: return createApplication();
 			case ResultPackage.THREAD: return createThread();
@@ -205,16 +203,6 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 	public IOAdapter createIOAdapter() {
 		IOAdapterImpl ioAdapter = new IOAdapterImpl();
 		return ioAdapter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Network createNetwork() {
-		NetworkImpl network = new NetworkImpl();
-		return network;
 	}
 
 	/**

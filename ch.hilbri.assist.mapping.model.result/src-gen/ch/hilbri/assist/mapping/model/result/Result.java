@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getBottomHardwareLevel <em>Bottom Hardware Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getApplicationGroups <em>Application Groups</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getApplications <em>Applications</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getNetworks <em>Networks</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getCommunications <em>Communications</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getEvaluation <em>Evaluation</em>}</li>
  * </ul>
@@ -164,21 +163,6 @@ public interface Result extends EObject, Comparable<Result> {
 	 * @generated
 	 */
 	EList<Application> getApplications();
-
-	/**
-	 * Returns the value of the '<em><b>Networks</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.result.Network}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Contains a list of all networks
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Networks</em>' containment reference list.
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getResult_Networks()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Network> getNetworks();
 
 	/**
 	 * Returns the value of the '<em><b>Communications</b></em>' containment reference list.
@@ -324,18 +308,6 @@ public interface Result extends EObject, Comparable<Result> {
 	 * @generated
 	 */
 	Application findResultApplication(ch.hilbri.assist.mapping.model.Application modelApp);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Finds a thread in the result model which represents a given thread in the input model
-	 * <!-- end-model-doc -->
-	 * @model unique="false" modelThreadUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.result.Thread%>> _allThreads = this.getAllThreads();\nfor (final <%ch.hilbri.assist.mapping.model.result.Thread%> resultThread : _allThreads)\n{\n\t<%ch.hilbri.assist.mapping.model.Thread%> _referenceObject = resultThread.getReferenceObject();\n\tboolean _equals = <%com.google.common.base.Objects%>.equal(_referenceObject, modelThread);\n\tif (_equals)\n\t{\n\t\treturn resultThread;\n\t}\n}\nreturn null;'"
-	 * @generated
-	 */
-	ch.hilbri.assist.mapping.model.result.Thread findResultThread(ch.hilbri.assist.mapping.model.Thread modelThread);
 
 	/**
 	 * <!-- begin-user-doc -->

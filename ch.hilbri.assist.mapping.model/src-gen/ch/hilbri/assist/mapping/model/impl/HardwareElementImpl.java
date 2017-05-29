@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.HardwareElementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.HardwareElementImpl#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.HardwareElementImpl#getMetricParameters <em>Metric Parameters</em>}</li>
  * </ul>
  *
@@ -56,6 +57,26 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getManufacturer() <em>Manufacturer</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getManufacturer()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MANUFACTURER_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getManufacturer() <em>Manufacturer</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getManufacturer()
+	 * @generated
+	 * @ordered
+	 */
+	protected String manufacturer = MANUFACTURER_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getMetricParameters() <em>Metric Parameters</em>}' containment reference list.
@@ -112,6 +133,27 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getManufacturer() {
+		return manufacturer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setManufacturer(String newManufacturer) {
+		String oldManufacturer = manufacturer;
+		manufacturer = newManufacturer;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.HARDWARE_ELEMENT__MANUFACTURER, oldManufacturer, manufacturer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<MetricParameter> getMetricParameters() {
 		if (metricParameters == null) {
 			metricParameters = new EObjectContainmentEList<MetricParameter>(MetricParameter.class, this, ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS);
@@ -143,6 +185,8 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case ModelPackage.HARDWARE_ELEMENT__NAME:
 				return getName();
+			case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
+				return getManufacturer();
 			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS:
 				return getMetricParameters();
 		}
@@ -160,6 +204,9 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case ModelPackage.HARDWARE_ELEMENT__NAME:
 				setName((String)newValue);
+				return;
+			case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
+				setManufacturer((String)newValue);
 				return;
 			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS:
 				getMetricParameters().clear();
@@ -180,6 +227,9 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 			case ModelPackage.HARDWARE_ELEMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
+				setManufacturer(MANUFACTURER_EDEFAULT);
+				return;
 			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS:
 				getMetricParameters().clear();
 				return;
@@ -197,6 +247,8 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case ModelPackage.HARDWARE_ELEMENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case ModelPackage.HARDWARE_ELEMENT__MANUFACTURER:
+				return MANUFACTURER_EDEFAULT == null ? manufacturer != null : !MANUFACTURER_EDEFAULT.equals(manufacturer);
 			case ModelPackage.HARDWARE_ELEMENT__METRIC_PARAMETERS:
 				return metricParameters != null && !metricParameters.isEmpty();
 		}
@@ -215,6 +267,8 @@ public class HardwareElementImpl extends MinimalEObjectImpl.Container implements
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", manufacturer: ");
+		result.append(manufacturer);
 		result.append(')');
 		return result.toString();
 	}
