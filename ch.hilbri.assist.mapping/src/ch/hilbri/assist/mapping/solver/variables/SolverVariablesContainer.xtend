@@ -1,15 +1,13 @@
 package ch.hilbri.assist.mapping.solver.variables
 
-import ch.hilbri.assist.mapping.model.Application
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.Board
-import ch.hilbri.assist.mapping.model.CommunicationRelation
 import ch.hilbri.assist.mapping.model.Core
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.mapping.model.Network
-import ch.hilbri.assist.mapping.model.Thread
+import ch.hilbri.assist.mapping.model.result.CommunicationRelation
 import java.util.ArrayList
 import java.util.HashMap
+import org.apache.commons.math3.ml.neuralnet.Network
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
@@ -42,10 +40,10 @@ import org.eclipse.xtend.lib.annotations.Data
 	/* CONSTRUCTOR */
 	new(AssistModel model, Solver solver) {
 		/* Initialize the hash map for all thread-related location variables */
-		for (t : model.allThreads) {
-			val m = new HashMap<Integer, IntVar>
-
-			for (var i = HardwareArchitectureLevelType.CORE_VALUE; i <= model.hardwareLevelCount; i++) {
+//		for (t : model.allThreads) {
+//			val m = new HashMap<Integer, IntVar>
+//
+//			for (var i = HardwareArchitectureLevelType.CORE_VALUE; i <= model.hardwareLevelCount; i++) {
 //
 //				/* Create a new location variable for each thread;
 //				 * initialize its domain to 0 .. size of hardware elements in this level - 1 */
@@ -55,8 +53,8 @@ import org.eclipse.xtend.lib.annotations.Data
 //
 //				/* Add this solver variable to the map, so we can find corresponding thread quickly	 */
 //				locationVarMap.put(newVar, t)
-			}
-		}
+//			}
+//		}
 
 		/* Initialize the board indicator variables */
 //		threadBoardIndicatorVariablesList = VF.boolMatrix("d", model.allBoards.size, model.allThreads.size, solver)
@@ -126,12 +124,12 @@ import org.eclipse.xtend.lib.annotations.Data
 		return absoluteBandwidthUtilizationList.get(n)
 	}
 
-	def Application getApplicationForLocationVariable(IntVar variable) {
-		val t = locationVarMap.get(variable)
-
-		if (t != null)
-			return t.application
-		else
-			return null
-	}
+//	def Application getApplicationForLocationVariable(IntVar variable) {
+//		val t = locationVarMap.get(variable)
+//
+//		if (t != null)
+//			return t.application
+//		else
+//			return null
+//	}
 }

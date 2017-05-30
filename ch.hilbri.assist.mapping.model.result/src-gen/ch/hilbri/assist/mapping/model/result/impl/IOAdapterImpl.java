@@ -2,7 +2,6 @@
  */
 package ch.hilbri.assist.mapping.model.result.impl;
 
-import ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType;
 import ch.hilbri.assist.mapping.model.IOAdapterType;
 
 import ch.hilbri.assist.mapping.model.result.IOAdapter;
@@ -27,7 +26,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.IOAdapterImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.IOAdapterImpl#getTotalUnitCount <em>Total Unit Count</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.IOAdapterImpl#getAdapterType <em>Adapter Type</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.IOAdapterImpl#getProtectionLevel <em>Protection Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.IOAdapterImpl#getReferenceObject <em>Reference Object</em>}</li>
  * </ul>
  *
@@ -93,26 +91,6 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 	 * @ordered
 	 */
 	protected IOAdapterType adapterType = ADAPTER_TYPE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getProtectionLevel() <em>Protection Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProtectionLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final IOAdapterProtectionLevelType PROTECTION_LEVEL_EDEFAULT = IOAdapterProtectionLevelType.NONE;
-
-	/**
-	 * The cached value of the '{@link #getProtectionLevel() <em>Protection Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProtectionLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected IOAdapterProtectionLevelType protectionLevel = PROTECTION_LEVEL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getReferenceObject() <em>Reference Object</em>}' reference.
@@ -211,27 +189,6 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IOAdapterProtectionLevelType getProtectionLevel() {
-		return protectionLevel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProtectionLevel(IOAdapterProtectionLevelType newProtectionLevel) {
-		IOAdapterProtectionLevelType oldProtectionLevel = protectionLevel;
-		protectionLevel = newProtectionLevel == null ? PROTECTION_LEVEL_EDEFAULT : newProtectionLevel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.IO_ADAPTER__PROTECTION_LEVEL, oldProtectionLevel, protectionLevel));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ch.hilbri.assist.mapping.model.IOAdapter getReferenceObject() {
 		if (referenceObject != null && referenceObject.eIsProxy()) {
 			InternalEObject oldReferenceObject = (InternalEObject)referenceObject;
@@ -279,8 +236,6 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 				return getTotalUnitCount();
 			case ResultPackage.IO_ADAPTER__ADAPTER_TYPE:
 				return getAdapterType();
-			case ResultPackage.IO_ADAPTER__PROTECTION_LEVEL:
-				return getProtectionLevel();
 			case ResultPackage.IO_ADAPTER__REFERENCE_OBJECT:
 				if (resolve) return getReferenceObject();
 				return basicGetReferenceObject();
@@ -304,9 +259,6 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 				return;
 			case ResultPackage.IO_ADAPTER__ADAPTER_TYPE:
 				setAdapterType((IOAdapterType)newValue);
-				return;
-			case ResultPackage.IO_ADAPTER__PROTECTION_LEVEL:
-				setProtectionLevel((IOAdapterProtectionLevelType)newValue);
 				return;
 			case ResultPackage.IO_ADAPTER__REFERENCE_OBJECT:
 				setReferenceObject((ch.hilbri.assist.mapping.model.IOAdapter)newValue);
@@ -332,9 +284,6 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 			case ResultPackage.IO_ADAPTER__ADAPTER_TYPE:
 				setAdapterType(ADAPTER_TYPE_EDEFAULT);
 				return;
-			case ResultPackage.IO_ADAPTER__PROTECTION_LEVEL:
-				setProtectionLevel(PROTECTION_LEVEL_EDEFAULT);
-				return;
 			case ResultPackage.IO_ADAPTER__REFERENCE_OBJECT:
 				setReferenceObject((ch.hilbri.assist.mapping.model.IOAdapter)null);
 				return;
@@ -356,8 +305,6 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 				return totalUnitCount != TOTAL_UNIT_COUNT_EDEFAULT;
 			case ResultPackage.IO_ADAPTER__ADAPTER_TYPE:
 				return adapterType != ADAPTER_TYPE_EDEFAULT;
-			case ResultPackage.IO_ADAPTER__PROTECTION_LEVEL:
-				return protectionLevel != PROTECTION_LEVEL_EDEFAULT;
 			case ResultPackage.IO_ADAPTER__REFERENCE_OBJECT:
 				return referenceObject != null;
 		}
@@ -380,8 +327,6 @@ public class IOAdapterImpl extends MinimalEObjectImpl.Container implements IOAda
 		result.append(totalUnitCount);
 		result.append(", adapterType: ");
 		result.append(adapterType);
-		result.append(", protectionLevel: ");
-		result.append(protectionLevel);
 		result.append(')');
 		return result.toString();
 	}

@@ -325,6 +325,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.Task} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskItemProvider taskItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.Task}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskAdapter() {
+		if (taskItemProvider == null) {
+			taskItemProvider = new TaskItemProvider(this);
+		}
+
+		return taskItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.IOAdapterRequirement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -641,6 +664,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (applicationOrApplicationGroupItemProvider != null) applicationOrApplicationGroupItemProvider.dispose();
 		if (applicationGroupItemProvider != null) applicationGroupItemProvider.dispose();
 		if (applicationItemProvider != null) applicationItemProvider.dispose();
+		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (ioAdapterRequirementItemProvider != null) ioAdapterRequirementItemProvider.dispose();
 		if (dissimilarityRelationItemProvider != null) dissimilarityRelationItemProvider.dispose();
 		if (dissimilarityClauseItemProvider != null) dissimilarityClauseItemProvider.dispose();

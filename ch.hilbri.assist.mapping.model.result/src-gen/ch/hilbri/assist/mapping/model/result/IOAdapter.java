@@ -2,7 +2,6 @@
  */
 package ch.hilbri.assist.mapping.model.result;
 
-import ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType;
 import ch.hilbri.assist.mapping.model.IOAdapterType;
 
 import org.eclipse.emf.ecore.EObject;
@@ -19,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.mapping.model.result.IOAdapter#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.IOAdapter#getTotalUnitCount <em>Total Unit Count</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.IOAdapter#getAdapterType <em>Adapter Type</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.IOAdapter#getProtectionLevel <em>Protection Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.IOAdapter#getReferenceObject <em>Reference Object</em>}</li>
  * </ul>
  *
@@ -108,36 +106,6 @@ public interface IOAdapter extends EObject {
 	 * @generated
 	 */
 	void setAdapterType(IOAdapterType value);
-
-	/**
-	 * Returns the value of the '<em><b>Protection Level</b></em>' attribute.
-	 * The default value is <code>"None"</code>.
-	 * The literals are from the enumeration {@link ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Protection Level</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Protection Level</em>' attribute.
-	 * @see ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType
-	 * @see #setProtectionLevel(IOAdapterProtectionLevelType)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getIOAdapter_ProtectionLevel()
-	 * @model default="None" unique="false"
-	 * @generated
-	 */
-	IOAdapterProtectionLevelType getProtectionLevel();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.IOAdapter#getProtectionLevel <em>Protection Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Protection Level</em>' attribute.
-	 * @see ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType
-	 * @see #getProtectionLevel()
-	 * @generated
-	 */
-	void setProtectionLevel(IOAdapterProtectionLevelType value);
 
 	/**
 	 * Returns the value of the '<em><b>Reference Object</b></em>' reference.

@@ -112,6 +112,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createApplicationAdapter();
 			}
 			@Override
+			public Adapter caseTask(Task object) {
+				return createTaskAdapter();
+			}
+			@Override
 			public Adapter caseIOAdapterRequirement(IOAdapterRequirement object) {
 				return createIOAdapterRequirementAdapter();
 			}
@@ -318,6 +322,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApplicationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.Task <em>Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.mapping.model.Task
+	 * @generated
+	 */
+	public Adapter createTaskAdapter() {
 		return null;
 	}
 

@@ -3,7 +3,6 @@
 package ch.hilbri.assist.mapping.model.result;
 
 import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType;
-import ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -23,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Application#getRamUtilization <em>Ram Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Application#getRomUtilization <em>Rom Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Application#getCriticalityLevel <em>Criticality Level</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.Application#getIoAdapterProtectionLevel <em>Io Adapter Protection Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Application#getParallelThreads <em>Parallel Threads</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Application#getDevelopedBy <em>Developed By</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Application#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
@@ -170,36 +168,6 @@ public interface Application extends EObject {
 	 * @generated
 	 */
 	void setCriticalityLevel(DesignAssuranceLevelType value);
-
-	/**
-	 * Returns the value of the '<em><b>Io Adapter Protection Level</b></em>' attribute.
-	 * The default value is <code>"None"</code>.
-	 * The literals are from the enumeration {@link ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Io Adapter Protection Level</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Io Adapter Protection Level</em>' attribute.
-	 * @see ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType
-	 * @see #setIoAdapterProtectionLevel(IOAdapterProtectionLevelType)
-	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getApplication_IoAdapterProtectionLevel()
-	 * @model default="None" unique="false"
-	 * @generated
-	 */
-	IOAdapterProtectionLevelType getIoAdapterProtectionLevel();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.Application#getIoAdapterProtectionLevel <em>Io Adapter Protection Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Io Adapter Protection Level</em>' attribute.
-	 * @see ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType
-	 * @see #getIoAdapterProtectionLevel()
-	 * @generated
-	 */
-	void setIoAdapterProtectionLevel(IOAdapterProtectionLevelType value);
 
 	/**
 	 * Returns the value of the '<em><b>Parallel Threads</b></em>' attribute.

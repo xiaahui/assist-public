@@ -9,12 +9,11 @@ AssistModel:
 	'}'
 
 	'Hardware' 	'{'	
-					(hardwareContainer+=HardwareElementContainer)+
-					(networks+=Network)* 
+					(compartments+=Compartment)*
 	'}'
 
 	'Software' '{'
-					(applications+=Application)+ 
+					(applications+=Application)* 
 					(applicationGroups+=ApplicationGroup)*
 	'}'
 
@@ -22,25 +21,17 @@ AssistModel:
 					(dissimilarityRelations+=DissimilarityRelation)*
 					(dislocalityRelations+=DislocalityRelation)*
 					(proximityRelations+=ProximityRelation)*
-					(communicationRelations+=CommunicationRelation)*
 	'}')?
-;
-
-HardwareElementContainer: 
-	Compartment | Box | Board
 ;
 
 Compartment: 
 	'Compartment' name=ID '{'
 		('Manufacturer' 			'=' manufacturer=STRING ';')?
 		('PowerSupply' 				'=' powerSupply=STRING ';')?
-		('Side' 					'=' side=STRING ';')?
-		('Zone' 					'=' zone=STRING ';')?
 		(boxes+=Box)+
 		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}'
 ;
-
 
 Box:
 	'Box' name=ID '{'
@@ -56,8 +47,6 @@ Board:
 		('Type' 					'=' boardType=STRING ';')?
 		('PowerSupply' 				'=' powerSupply=STRING ';')?
 	    ('DesignAssuranceLevel' 	'=' assuranceLevel=DesignAssuranceLevelType';')?
-	    ('Side'						'=' side=STRING ';')?
-	    ('ESS'						'=' ess=STRING ';')?
 		('RAM'  					'=' ramCapacity=INT ';')?
 		('ROM'  					'=' romCapacity=INT ';')?
 		(processors+=Processor)+
@@ -82,19 +71,11 @@ Core:
 	'}';
 
 IOAdapter:
-	'Adapter' '{' 	
-	 				 'type' '=' adapterType=IOAdapterType ';'
-	 				'count' '=' totalCount=INT ';'
-					 ('protection-level' '=' protectionLevel=IOAdapterProtectionLevelType ';')?
-					'}' 
+	'Adapter' name=ID '{' 	
+	 	'Type' '=' adapterType=IOAdapterType ';'
+	 	'Count' '=' totalCount=INT ';'
+	'}' 
 ;
-
-Network:
-	'Network' name=ID '{'
-		'Bandwidth' 				'=' bandwidthCapacity=INT ';'
-		'Connects' boards+=[Board|QualifiedName] ',' boards+=[Board|QualifiedName] (',' boards+=[Board|QualifiedName])* ';'
-		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
-	'}';
 
 /* SOFTWARE */
 
@@ -104,22 +85,27 @@ ApplicationGroup:
 
 Application:
 	'Application' name=ID '{'
-		('Core-utilization' 			'=' coreUtilization=INT ';')? 
- 		('Required' 'RAM' 'capacity' 		'=' ramUtilization=INT ';')? 
-		('Required' 'ROM' 'capacity' 		'=' romUtilization=INT ';')? 
-	    ('Criticality' 'level' 			'=' criticalityLevel=DesignAssuranceLevelType ';')?
-	    ('Required' 'IO' 'protection' 		'=' ioAdapterProtectionLevel=IOAdapterProtectionLevelType ';')?
-		('Identical' 'parallel' 'threads' 	'=' parallelThreads=INT ';')?
-		('Developer'		 				'=' developedBy=STRING ';')?
+	    ('CriticalityLevel' 		'=' criticalityLevel=DesignAssuranceLevelType ';')?
+		('Developer'		 		'=' developedBy=STRING ';')?
+		('RestrictDeploymentTo' '{' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* '}' ';')?
+		(tasks+=Task)+
+		('Properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
+	'}';
+
+Task:
+	'Task' name=ID '{'
+		('CoreUtilization' 			'=' coreUtilization=INT ';')? 
+ 		('RequiredRAM' 				'=' ramUtilization=INT ';')? 
+		('RequiredROM'				'=' romUtilization=INT ';')? 
 		(ioAdapterRequirements+=IOAdapterRequirement)*
-		('Restrict' 'deployment' 'to' 		'{' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* '}' ';')? 
+		('RestrictDeploymentTo'	'{' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName] (',' restrictMappingToHardwareElements+=[HardwareElement|QualifiedName])* '}' ';')? 
 		('Properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
 	'}';
 
 IOAdapterRequirement: 
 	'Requires' 	requiredAdapterCount=INT 
 				adapterType=IOAdapterType 'adapter' 
-				 (isExclusiveOnly?='exclusive' | isSharedAllowed?='shared') 
+  			 	(isExclusiveOnly?='exclusive' | isSharedAllowed?='shared') 
 	';' 
 ;
 
@@ -131,9 +117,6 @@ DislocalityRelation:
 ProximityRelation:
 	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'on' 'same' hardwareLevel=HardwareArchitectureLevelType ';'; 
 
-CommunicationRelation: 
-	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'require' bandwidthUtilization=INT 'bandwidth' ';';
-	
 DissimilarityRelation: 
 	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
 	'dissimilar' 'based' 'on'
@@ -159,9 +142,7 @@ DissimilarityEntry:
 
 enum CompartmentAttributes :
 	MANUFACTURER 	= 'Manufacturer' 	| 
-	POWERSUPPLY	 	= 'PowerSupply' 	| 
-	SIDE 		 	= 'Side' 			| 
-	ZONE		 	= 'Zone';
+	POWERSUPPLY	 	= 'PowerSupply';
 	
 enum BoxAttributes :
 	MANUFACTURER 	= 'Manufacturer';
@@ -170,9 +151,8 @@ enum BoardAttributes:
 	MANUFACTURER 	= 'Manufacturer' 			|
 	POWERSUPPLY 	= 'PowerSupply'				|
 	ASSURANCELEVEL 	= 'DesignAssuranceLevel' 	|
-	BOARDTYPE 		= 'Type'	       			|
-	ESS				= 'ESS'						|
-	SIDE			= 'Side'; 	
+	BOARDTYPE 		= 'Type';
+
 
 enum ProcessorAttributes:
 	MANUFACTURER 	= 'Manufacturer' 	| 
@@ -205,62 +185,10 @@ enum DesignAssuranceLevelType:
 	A 	= 'A'  
 ;
 
-enum IOAdapterProtectionLevelType:
-	NONE 		= 'None' 		|
-	LEVEL_1 	= 'L1'		|
-	LEVEL_2 	= 'L2'		|
-	LEVEL_3 	= 'L3'		|
-	LEVEL_4 	= 'L4'		|
-	LEVEL_5 	= 'L5'		|
-	LEVEL_6 	= 'L6'		|
-	LEVEL_7 	= 'L7'		|
-	LEVEL_8 	= 'L8'		
-;
-
 enum IOAdapterType:
 	CAN 		= 'Can'					|
 	ELB			= 'Enhanced Local Bus'	|
 	ETH			= 'Ethernet'			|
 	ANALOG 		= 'Analog'				|
 	DIGITAL		= 'Digital'				|
-	SERIAL		= 'Serial'			|
-	CUSTOM0		= 'CustomType0'		|
-	CUSTOM1		= 'CustomType1'		|
-	CUSTOM2		= 'CustomType2'		|
-	CUSTOM3		= 'CustomType3'		|
-	CUSTOM4		= 'CustomType4'		|
-	CUSTOM5		= 'CustomType5'		|
-	CUSTOM6		= 'CustomType6'		|		
-	CUSTOM7		= 'CustomType7'		|
-	CUSTOM8		= 'CustomType8'		|
-	CUSTOM9		= 'CustomType9'		|
-	CUSTOM10	= 'CustomType10'	|
-	CUSTOM11	= 'CustomType11'	|
-	CUSTOM12	= 'CustomType12'	|
-	CUSTOM13	= 'CustomType13'	|
-	CUSTOM14	= 'CustomType14'	|
-	CUSTOM15	= 'CustomType15'	|
-	CUSTOM16	= 'CustomType16'	|
-	CUSTOM17	= 'CustomType17'	|
-	CUSTOM18	= 'CustomType18'	|
-	CUSTOM19	= 'CustomType19'	|
-	CUSTOM20	= 'CustomType20'	|
-	CUSTOM21	= 'CustomType21'	|
-	CUSTOM22	= 'CustomType22'	|
-	CUSTOM23	= 'CustomType23'	|
-	CUSTOM24	= 'CustomType24'	|
-	CUSTOM25	= 'CustomType25'	|
-	CUSTOM26	= 'CustomType26'	|
-	CUSTOM27	= 'CustomType27'	|
-	CUSTOM28	= 'CustomType28'	|
-	CUSTOM29	= 'CustomType29'	|
-	CUSTOM30	= 'CustomType30'	|
-	CUSTOM31	= 'CustomType31'	|
-	CUSTOM32	= 'CustomType32'	|
-	CUSTOM33	= 'CustomType33'	|
-	CUSTOM34	= 'CustomType34'	|
-	CUSTOM35	= 'CustomType35'	|
-	CUSTOM36	= 'CustomType36'	|
-	CUSTOM37	= 'CustomType37'	|
-	CUSTOM38	= 'CustomType38'	|
-	CUSTOM39	= 'CustomType39';
+	SERIAL		= 'Serial'				;

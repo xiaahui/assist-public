@@ -3,7 +3,6 @@
 package ch.hilbri.assist.mapping.model.result.impl;
 
 import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType;
-import ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType;
 import ch.hilbri.assist.mapping.model.MetricParameter;
 
 import ch.hilbri.assist.mapping.model.result.Application;
@@ -43,7 +42,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ApplicationImpl#getRamUtilization <em>Ram Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ApplicationImpl#getRomUtilization <em>Rom Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ApplicationImpl#getCriticalityLevel <em>Criticality Level</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ApplicationImpl#getIoAdapterProtectionLevel <em>Io Adapter Protection Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ApplicationImpl#getParallelThreads <em>Parallel Threads</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ApplicationImpl#getDevelopedBy <em>Developed By</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ApplicationImpl#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
@@ -154,26 +152,6 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	 * @ordered
 	 */
 	protected DesignAssuranceLevelType criticalityLevel = CRITICALITY_LEVEL_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getIoAdapterProtectionLevel() <em>Io Adapter Protection Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIoAdapterProtectionLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final IOAdapterProtectionLevelType IO_ADAPTER_PROTECTION_LEVEL_EDEFAULT = IOAdapterProtectionLevelType.NONE;
-
-	/**
-	 * The cached value of the '{@link #getIoAdapterProtectionLevel() <em>Io Adapter Protection Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIoAdapterProtectionLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected IOAdapterProtectionLevelType ioAdapterProtectionLevel = IO_ADAPTER_PROTECTION_LEVEL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getParallelThreads() <em>Parallel Threads</em>}' attribute.
@@ -384,27 +362,6 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IOAdapterProtectionLevelType getIoAdapterProtectionLevel() {
-		return ioAdapterProtectionLevel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIoAdapterProtectionLevel(IOAdapterProtectionLevelType newIoAdapterProtectionLevel) {
-		IOAdapterProtectionLevelType oldIoAdapterProtectionLevel = ioAdapterProtectionLevel;
-		ioAdapterProtectionLevel = newIoAdapterProtectionLevel == null ? IO_ADAPTER_PROTECTION_LEVEL_EDEFAULT : newIoAdapterProtectionLevel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.APPLICATION__IO_ADAPTER_PROTECTION_LEVEL, oldIoAdapterProtectionLevel, ioAdapterProtectionLevel));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public int getParallelThreads() {
 		return parallelThreads;
 	}
@@ -581,8 +538,6 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 				return getRomUtilization();
 			case ResultPackage.APPLICATION__CRITICALITY_LEVEL:
 				return getCriticalityLevel();
-			case ResultPackage.APPLICATION__IO_ADAPTER_PROTECTION_LEVEL:
-				return getIoAdapterProtectionLevel();
 			case ResultPackage.APPLICATION__PARALLEL_THREADS:
 				return getParallelThreads();
 			case ResultPackage.APPLICATION__DEVELOPED_BY:
@@ -623,9 +578,6 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 				return;
 			case ResultPackage.APPLICATION__CRITICALITY_LEVEL:
 				setCriticalityLevel((DesignAssuranceLevelType)newValue);
-				return;
-			case ResultPackage.APPLICATION__IO_ADAPTER_PROTECTION_LEVEL:
-				setIoAdapterProtectionLevel((IOAdapterProtectionLevelType)newValue);
 				return;
 			case ResultPackage.APPLICATION__PARALLEL_THREADS:
 				setParallelThreads((Integer)newValue);
@@ -675,9 +627,6 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 			case ResultPackage.APPLICATION__CRITICALITY_LEVEL:
 				setCriticalityLevel(CRITICALITY_LEVEL_EDEFAULT);
 				return;
-			case ResultPackage.APPLICATION__IO_ADAPTER_PROTECTION_LEVEL:
-				setIoAdapterProtectionLevel(IO_ADAPTER_PROTECTION_LEVEL_EDEFAULT);
-				return;
 			case ResultPackage.APPLICATION__PARALLEL_THREADS:
 				setParallelThreads(PARALLEL_THREADS_EDEFAULT);
 				return;
@@ -718,8 +667,6 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 				return romUtilization != ROM_UTILIZATION_EDEFAULT;
 			case ResultPackage.APPLICATION__CRITICALITY_LEVEL:
 				return criticalityLevel != CRITICALITY_LEVEL_EDEFAULT;
-			case ResultPackage.APPLICATION__IO_ADAPTER_PROTECTION_LEVEL:
-				return ioAdapterProtectionLevel != IO_ADAPTER_PROTECTION_LEVEL_EDEFAULT;
 			case ResultPackage.APPLICATION__PARALLEL_THREADS:
 				return parallelThreads != PARALLEL_THREADS_EDEFAULT;
 			case ResultPackage.APPLICATION__DEVELOPED_BY:
@@ -770,8 +717,6 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 		result.append(romUtilization);
 		result.append(", criticalityLevel: ");
 		result.append(criticalityLevel);
-		result.append(", ioAdapterProtectionLevel: ");
-		result.append(ioAdapterProtectionLevel);
 		result.append(", parallelThreads: ");
 		result.append(parallelThreads);
 		result.append(", developedBy: ");

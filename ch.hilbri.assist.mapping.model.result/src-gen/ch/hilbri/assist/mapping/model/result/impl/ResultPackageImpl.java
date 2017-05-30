@@ -1003,17 +1003,8 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIOAdapter_ProtectionLevel() {
-		return (EAttribute)ioAdapterEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getIOAdapter_ReferenceObject() {
-		return (EReference)ioAdapterEClass.getEStructuralFeatures().get(4);
+		return (EReference)ioAdapterEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1120,7 +1111,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_IoAdapterProtectionLevel() {
+	public EAttribute getApplication_ParallelThreads() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1129,7 +1120,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_ParallelThreads() {
+	public EAttribute getApplication_DevelopedBy() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1138,17 +1129,8 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplication_DevelopedBy() {
-		return (EAttribute)applicationEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getApplication_IoAdapterRequirements() {
-		return (EReference)applicationEClass.getEStructuralFeatures().get(8);
+		return (EReference)applicationEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1157,7 +1139,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * @generated
 	 */
 	public EReference getApplication_RestrictMappingToHardwareElements() {
-		return (EReference)applicationEClass.getEStructuralFeatures().get(9);
+		return (EReference)applicationEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1166,7 +1148,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * @generated
 	 */
 	public EReference getApplication_Threads() {
-		return (EReference)applicationEClass.getEStructuralFeatures().get(10);
+		return (EReference)applicationEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1175,7 +1157,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * @generated
 	 */
 	public EReference getApplication_ReferenceObject() {
-		return (EReference)applicationEClass.getEStructuralFeatures().get(11);
+		return (EReference)applicationEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1560,7 +1542,6 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		createEAttribute(ioAdapterEClass, IO_ADAPTER__NAME);
 		createEAttribute(ioAdapterEClass, IO_ADAPTER__TOTAL_UNIT_COUNT);
 		createEAttribute(ioAdapterEClass, IO_ADAPTER__ADAPTER_TYPE);
-		createEAttribute(ioAdapterEClass, IO_ADAPTER__PROTECTION_LEVEL);
 		createEReference(ioAdapterEClass, IO_ADAPTER__REFERENCE_OBJECT);
 
 		applicationGroupEClass = createEClass(APPLICATION_GROUP);
@@ -1575,7 +1556,6 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		createEAttribute(applicationEClass, APPLICATION__RAM_UTILIZATION);
 		createEAttribute(applicationEClass, APPLICATION__ROM_UTILIZATION);
 		createEAttribute(applicationEClass, APPLICATION__CRITICALITY_LEVEL);
-		createEAttribute(applicationEClass, APPLICATION__IO_ADAPTER_PROTECTION_LEVEL);
 		createEAttribute(applicationEClass, APPLICATION__PARALLEL_THREADS);
 		createEAttribute(applicationEClass, APPLICATION__DEVELOPED_BY);
 		createEReference(applicationEClass, APPLICATION__IO_ADAPTER_REQUIREMENTS);
@@ -1783,7 +1763,6 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		initEAttribute(getIOAdapter_Name(), theEcorePackage.getEString(), "name", null, 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIOAdapter_TotalUnitCount(), theEcorePackage.getEInt(), "totalUnitCount", null, 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIOAdapter_AdapterType(), theModelPackage.getIOAdapterType(), "adapterType", null, 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIOAdapter_ProtectionLevel(), theModelPackage.getIOAdapterProtectionLevelType(), "protectionLevel", "None", 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIOAdapter_ReferenceObject(), theModelPackage.getIOAdapter(), null, "referenceObject", null, 0, 1, IOAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationGroupEClass, ApplicationGroup.class, "ApplicationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1798,7 +1777,6 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		initEAttribute(getApplication_RamUtilization(), theEcorePackage.getEInt(), "ramUtilization", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_RomUtilization(), theEcorePackage.getEInt(), "romUtilization", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_CriticalityLevel(), theModelPackage.getDesignAssuranceLevelType(), "criticalityLevel", "None", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getApplication_IoAdapterProtectionLevel(), theModelPackage.getIOAdapterProtectionLevelType(), "ioAdapterProtectionLevel", "None", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_ParallelThreads(), theEcorePackage.getEInt(), "parallelThreads", "1", 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_DevelopedBy(), theEcorePackage.getEString(), "developedBy", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_IoAdapterRequirements(), this.getIOAdapterRequirement(), null, "ioAdapterRequirements", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

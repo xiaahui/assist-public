@@ -1114,22 +1114,13 @@ public interface ResultPackage extends EPackage {
 	int IO_ADAPTER__ADAPTER_TYPE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Protection Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IO_ADAPTER__PROTECTION_LEVEL = 3;
-
-	/**
 	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IO_ADAPTER__REFERENCE_OBJECT = 4;
+	int IO_ADAPTER__REFERENCE_OBJECT = 3;
 
 	/**
 	 * The number of structural features of the '<em>IO Adapter</em>' class.
@@ -1138,7 +1129,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IO_ADAPTER_FEATURE_COUNT = 5;
+	int IO_ADAPTER_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>IO Adapter</em>' class.
@@ -1269,22 +1260,13 @@ public interface ResultPackage extends EPackage {
 	int APPLICATION__CRITICALITY_LEVEL = 4;
 
 	/**
-	 * The feature id for the '<em><b>Io Adapter Protection Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION__IO_ADAPTER_PROTECTION_LEVEL = 5;
-
-	/**
 	 * The feature id for the '<em><b>Parallel Threads</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__PARALLEL_THREADS = 6;
+	int APPLICATION__PARALLEL_THREADS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Developed By</b></em>' attribute.
@@ -1293,7 +1275,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__DEVELOPED_BY = 7;
+	int APPLICATION__DEVELOPED_BY = 6;
 
 	/**
 	 * The feature id for the '<em><b>Io Adapter Requirements</b></em>' reference list.
@@ -1302,7 +1284,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__IO_ADAPTER_REQUIREMENTS = 8;
+	int APPLICATION__IO_ADAPTER_REQUIREMENTS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
@@ -1311,7 +1293,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 9;
+	int APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 8;
 
 	/**
 	 * The feature id for the '<em><b>Threads</b></em>' containment reference list.
@@ -1320,7 +1302,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__THREADS = 10;
+	int APPLICATION__THREADS = 9;
 
 	/**
 	 * The feature id for the '<em><b>Reference Object</b></em>' reference.
@@ -1329,7 +1311,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__REFERENCE_OBJECT = 11;
+	int APPLICATION__REFERENCE_OBJECT = 10;
 
 	/**
 	 * The number of structural features of the '<em>Application</em>' class.
@@ -1338,7 +1320,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = 12;
+	int APPLICATION_FEATURE_COUNT = 11;
 
 	/**
 	 * The operation id for the '<em>Get Metric Parameter Value</em>' operation.
@@ -2630,17 +2612,6 @@ public interface ResultPackage extends EPackage {
 	EAttribute getIOAdapter_AdapterType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.IOAdapter#getProtectionLevel <em>Protection Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Protection Level</em>'.
-	 * @see ch.hilbri.assist.mapping.model.result.IOAdapter#getProtectionLevel()
-	 * @see #getIOAdapter()
-	 * @generated
-	 */
-	EAttribute getIOAdapter_ProtectionLevel();
-
-	/**
 	 * Returns the meta object for the reference '{@link ch.hilbri.assist.mapping.model.result.IOAdapter#getReferenceObject <em>Reference Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2769,17 +2740,6 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getApplication_CriticalityLevel();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.Application#getIoAdapterProtectionLevel <em>Io Adapter Protection Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Io Adapter Protection Level</em>'.
-	 * @see ch.hilbri.assist.mapping.model.result.Application#getIoAdapterProtectionLevel()
-	 * @see #getApplication()
-	 * @generated
-	 */
-	EAttribute getApplication_IoAdapterProtectionLevel();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.Application#getParallelThreads <em>Parallel Threads</em>}'.
@@ -3880,14 +3840,6 @@ public interface ResultPackage extends EPackage {
 		EAttribute IO_ADAPTER__ADAPTER_TYPE = eINSTANCE.getIOAdapter_AdapterType();
 
 		/**
-		 * The meta object literal for the '<em><b>Protection Level</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute IO_ADAPTER__PROTECTION_LEVEL = eINSTANCE.getIOAdapter_ProtectionLevel();
-
-		/**
 		 * The meta object literal for the '<em><b>Reference Object</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3986,14 +3938,6 @@ public interface ResultPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute APPLICATION__CRITICALITY_LEVEL = eINSTANCE.getApplication_CriticalityLevel();
-
-		/**
-		 * The meta object literal for the '<em><b>Io Adapter Protection Level</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute APPLICATION__IO_ADAPTER_PROTECTION_LEVEL = eINSTANCE.getApplication_IoAdapterProtectionLevel();
 
 		/**
 		 * The meta object literal for the '<em><b>Parallel Threads</b></em>' attribute feature.

@@ -68,6 +68,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.APPLICATION_OR_APPLICATION_GROUP: return createApplicationOrApplicationGroup();
 			case ModelPackage.APPLICATION_GROUP: return createApplicationGroup();
 			case ModelPackage.APPLICATION: return createApplication();
+			case ModelPackage.TASK: return createTask();
 			case ModelPackage.IO_ADAPTER_REQUIREMENT: return createIOAdapterRequirement();
 			case ModelPackage.DISSIMILARITY_RELATION: return createDissimilarityRelation();
 			case ModelPackage.DISSIMILARITY_CLAUSE: return createDissimilarityClause();
@@ -100,8 +101,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return createProcessorAttributesFromString(eDataType, initialValue);
 			case ModelPackage.HARDWARE_ARCHITECTURE_LEVEL_TYPE:
 				return createHardwareArchitectureLevelTypeFromString(eDataType, initialValue);
-			case ModelPackage.IO_ADAPTER_PROTECTION_LEVEL_TYPE:
-				return createIOAdapterProtectionLevelTypeFromString(eDataType, initialValue);
 			case ModelPackage.DESIGN_ASSURANCE_LEVEL_TYPE:
 				return createDesignAssuranceLevelTypeFromString(eDataType, initialValue);
 			case ModelPackage.IO_ADAPTER_TYPE:
@@ -129,8 +128,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return convertProcessorAttributesToString(eDataType, instanceValue);
 			case ModelPackage.HARDWARE_ARCHITECTURE_LEVEL_TYPE:
 				return convertHardwareArchitectureLevelTypeToString(eDataType, instanceValue);
-			case ModelPackage.IO_ADAPTER_PROTECTION_LEVEL_TYPE:
-				return convertIOAdapterProtectionLevelTypeToString(eDataType, instanceValue);
 			case ModelPackage.DESIGN_ASSURANCE_LEVEL_TYPE:
 				return convertDesignAssuranceLevelTypeToString(eDataType, instanceValue);
 			case ModelPackage.IO_ADAPTER_TYPE:
@@ -248,6 +245,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public Application createApplication() {
 		ApplicationImpl application = new ApplicationImpl();
 		return application;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Task createTask() {
+		TaskImpl task = new TaskImpl();
+		return task;
 	}
 
 	/**
@@ -437,26 +444,6 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * @generated
 	 */
 	public String convertHardwareArchitectureLevelTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IOAdapterProtectionLevelType createIOAdapterProtectionLevelTypeFromString(EDataType eDataType, String initialValue) {
-		IOAdapterProtectionLevelType result = IOAdapterProtectionLevelType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIOAdapterProtectionLevelTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

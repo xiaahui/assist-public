@@ -30,7 +30,6 @@ import ch.hilbri.assist.mapping.model.result.Compartment;
 import ch.hilbri.assist.mapping.model.result.Core;
 import ch.hilbri.assist.mapping.model.result.HardwareElement;
 import ch.hilbri.assist.mapping.model.result.IOAdapter;
-import ch.hilbri.assist.mapping.model.result.Network;
 import ch.hilbri.assist.mapping.model.result.Processor;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.Thread;
@@ -377,14 +376,7 @@ public class InfoSheetView {
 					
 					for (IOAdapter a : b.getIoAdapters()) 
 						addRowToTableComponentProperties("I/O adapters '" + a.getAdapterType() + "'", ""+a.getTotalUnitCount());
-					
-					for (Network n : b.getNetworks()) {
-						/* Do not show "virtual" networks on each board */
-						if (n.isIsBoardLocalNetwork()) continue;
-						addRowToTableComponentProperties("Network '" + n.getName() + "'", "Capacity: " + n.getBandwidthCapacity());	
-					}
-					
-					
+
 				} else if (obj instanceof Box) {
 					Box b = (Box) obj;
 					addRowToTableComponentProperties("Component Type", "Box");
@@ -405,7 +397,6 @@ public class InfoSheetView {
 				addRowToTableComponentProperties("Application Name", t.getApplication().getName());
 				addRowToTableComponentProperties("Thread ID", t.getName());
 				addRowToTableComponentProperties("Criticality", t.getApplication().getCriticalityLevel().getLiteral());
-				addRowToTableComponentProperties("IO Adapter Protection", t.getApplication().getIoAdapterProtectionLevel().getLiteral());
 				addRowToTableComponentProperties("Core utilization", "" + t.getApplication().getCoreUtilization());
 				addRowToTableComponentProperties("RAM utilization", "" + t.getApplication().getRamUtilization());
 				addRowToTableComponentProperties("ROM utilization", "" + t.getApplication().getRomUtilization());

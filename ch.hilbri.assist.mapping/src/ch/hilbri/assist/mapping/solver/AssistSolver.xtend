@@ -1,12 +1,11 @@
 package ch.hilbri.assist.mapping.solver
 
-import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.model.AssistModel
+import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.PartialSolutionSaveMonitor
 import ch.hilbri.assist.mapping.solver.preprocessors.AbstractModelPreprocessor
-import ch.hilbri.assist.mapping.solver.preprocessors.CreateMissingThreads
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.List
@@ -47,7 +46,6 @@ class AssistSolver {
 
 		/* Create all preprocessors */
 		this.modelPreprocessors = new ArrayList
-		this.modelPreprocessors.add(new CreateMissingThreads(model))
 		// FIXME: add board local networks
 					
 		/* Create a new Solver object */

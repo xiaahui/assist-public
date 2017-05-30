@@ -63,7 +63,6 @@ public class IOAdapterItemProvider
 			addNamePropertyDescriptor(object);
 			addTotalCountPropertyDescriptor(object);
 			addAdapterTypePropertyDescriptor(object);
-			addProtectionLevelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -135,28 +134,6 @@ public class IOAdapterItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Protection Level feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addProtectionLevelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IOAdapter_protectionLevel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IOAdapter_protectionLevel_feature", "_UI_IOAdapter_type"),
-				 ModelPackage.Literals.IO_ADAPTER__PROTECTION_LEVEL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns IOAdapter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -197,7 +174,6 @@ public class IOAdapterItemProvider
 			case ModelPackage.IO_ADAPTER__NAME:
 			case ModelPackage.IO_ADAPTER__TOTAL_COUNT:
 			case ModelPackage.IO_ADAPTER__ADAPTER_TYPE:
-			case ModelPackage.IO_ADAPTER__PROTECTION_LEVEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -3,9 +3,9 @@
 package ch.hilbri.assist.mapping.model.provider;
 
 
-import ch.hilbri.assist.mapping.model.Application;
 import ch.hilbri.assist.mapping.model.ModelFactory;
 import ch.hilbri.assist.mapping.model.ModelPackage;
+import ch.hilbri.assist.mapping.model.Task;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,27 +13,41 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.mapping.model.Application} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.mapping.model.Task} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ApplicationItemProvider extends ApplicationOrApplicationGroupItemProvider {
+public class TaskItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ApplicationItemProvider(AdapterFactory adapterFactory) {
+	public TaskItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -48,27 +62,29 @@ public class ApplicationItemProvider extends ApplicationOrApplicationGroupItemPr
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCriticalityLevelPropertyDescriptor(object);
-			addDevelopedByPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addCoreUtilizationPropertyDescriptor(object);
+			addRamUtilizationPropertyDescriptor(object);
+			addRomUtilizationPropertyDescriptor(object);
 			addRestrictMappingToHardwareElementsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Criticality Level feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCriticalityLevelPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Application_criticalityLevel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Application_criticalityLevel_feature", "_UI_Application_type"),
-				 ModelPackage.Literals.APPLICATION__CRITICALITY_LEVEL,
+				 getString("_UI_Task_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_name_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__NAME,
 				 true,
 				 false,
 				 false,
@@ -78,23 +94,67 @@ public class ApplicationItemProvider extends ApplicationOrApplicationGroupItemPr
 	}
 
 	/**
-	 * This adds a property descriptor for the Developed By feature.
+	 * This adds a property descriptor for the Core Utilization feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDevelopedByPropertyDescriptor(Object object) {
+	protected void addCoreUtilizationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Application_developedBy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Application_developedBy_feature", "_UI_Application_type"),
-				 ModelPackage.Literals.APPLICATION__DEVELOPED_BY,
+				 getString("_UI_Task_coreUtilization_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_coreUtilization_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__CORE_UTILIZATION,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Ram Utilization feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRamUtilizationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_ramUtilization_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_ramUtilization_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__RAM_UTILIZATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rom Utilization feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRomUtilizationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_romUtilization_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_romUtilization_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__ROM_UTILIZATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -110,9 +170,9 @@ public class ApplicationItemProvider extends ApplicationOrApplicationGroupItemPr
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Application_restrictMappingToHardwareElements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Application_restrictMappingToHardwareElements_feature", "_UI_Application_type"),
-				 ModelPackage.Literals.APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS,
+				 getString("_UI_Task_restrictMappingToHardwareElements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_restrictMappingToHardwareElements_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS,
 				 true,
 				 false,
 				 true,
@@ -133,8 +193,8 @@ public class ApplicationItemProvider extends ApplicationOrApplicationGroupItemPr
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.APPLICATION__TASKS);
-			childrenFeatures.add(ModelPackage.Literals.APPLICATION__METRIC_PARAMETERS);
+			childrenFeatures.add(ModelPackage.Literals.TASK__IO_ADAPTER_REQUIREMENTS);
+			childrenFeatures.add(ModelPackage.Literals.TASK__METRIC_PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -153,14 +213,14 @@ public class ApplicationItemProvider extends ApplicationOrApplicationGroupItemPr
 	}
 
 	/**
-	 * This returns Application.gif.
+	 * This returns Task.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Application"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Task"));
 	}
 
 	/**
@@ -171,10 +231,10 @@ public class ApplicationItemProvider extends ApplicationOrApplicationGroupItemPr
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Application)object).getName();
+		String label = ((Task)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Application_type") :
-			getString("_UI_Application_type") + " " + label;
+			getString("_UI_Task_type") :
+			getString("_UI_Task_type") + " " + label;
 	}
 	
 
@@ -189,13 +249,15 @@ public class ApplicationItemProvider extends ApplicationOrApplicationGroupItemPr
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Application.class)) {
-			case ModelPackage.APPLICATION__CRITICALITY_LEVEL:
-			case ModelPackage.APPLICATION__DEVELOPED_BY:
+		switch (notification.getFeatureID(Task.class)) {
+			case ModelPackage.TASK__NAME:
+			case ModelPackage.TASK__CORE_UTILIZATION:
+			case ModelPackage.TASK__RAM_UTILIZATION:
+			case ModelPackage.TASK__ROM_UTILIZATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ModelPackage.APPLICATION__TASKS:
-			case ModelPackage.APPLICATION__METRIC_PARAMETERS:
+			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
+			case ModelPackage.TASK__METRIC_PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -215,13 +277,24 @@ public class ApplicationItemProvider extends ApplicationOrApplicationGroupItemPr
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.APPLICATION__TASKS,
-				 ModelFactory.eINSTANCE.createTask()));
+				(ModelPackage.Literals.TASK__IO_ADAPTER_REQUIREMENTS,
+				 ModelFactory.eINSTANCE.createIOAdapterRequirement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.APPLICATION__METRIC_PARAMETERS,
+				(ModelPackage.Literals.TASK__METRIC_PARAMETERS,
 				 ModelFactory.eINSTANCE.createMetricParameter()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return ModelEditPlugin.INSTANCE;
 	}
 
 }

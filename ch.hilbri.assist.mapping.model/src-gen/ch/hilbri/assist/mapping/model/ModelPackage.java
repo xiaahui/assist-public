@@ -825,22 +825,13 @@ public interface ModelPackage extends EPackage {
 	int IO_ADAPTER__ADAPTER_TYPE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Protection Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IO_ADAPTER__PROTECTION_LEVEL = 3;
-
-	/**
 	 * The number of structural features of the '<em>IO Adapter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IO_ADAPTER_FEATURE_COUNT = 4;
+	int IO_ADAPTER_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>IO Adapter</em>' class.
@@ -972,49 +963,13 @@ public interface ModelPackage extends EPackage {
 	int APPLICATION__NAME = APPLICATION_OR_APPLICATION_GROUP__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Core Utilization</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION__CORE_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Ram Utilization</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION__RAM_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Rom Utilization</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION__ROM_UTILIZATION = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Criticality Level</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__CRITICALITY_LEVEL = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Io Adapter Protection Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION__IO_ADAPTER_PROTECTION_LEVEL = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 4;
+	int APPLICATION__CRITICALITY_LEVEL = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Developed By</b></em>' attribute.
@@ -1023,16 +978,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__DEVELOPED_BY = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION__IO_ADAPTER_REQUIREMENTS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 6;
+	int APPLICATION__DEVELOPED_BY = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
@@ -1041,7 +987,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 7;
+	int APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__TASKS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
@@ -1050,7 +1005,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__METRIC_PARAMETERS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 8;
+	int APPLICATION__METRIC_PARAMETERS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Application</em>' class.
@@ -1059,7 +1014,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 9;
+	int APPLICATION_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -1080,6 +1035,106 @@ public interface ModelPackage extends EPackage {
 	int APPLICATION_OPERATION_COUNT = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.TaskImpl <em>Task</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.mapping.model.impl.TaskImpl
+	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getTask()
+	 * @generated
+	 */
+	int TASK = 11;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Core Utilization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__CORE_UTILIZATION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Ram Utilization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__RAM_UTILIZATION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Rom Utilization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__ROM_UTILIZATION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__IO_ADAPTER_REQUIREMENTS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 5;
+
+	/**
+	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__METRIC_PARAMETERS = 6;
+
+	/**
+	 * The number of structural features of the '<em>Task</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_FEATURE_COUNT = 7;
+
+	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___TO_STRING = 0;
+
+	/**
+	 * The number of operations of the '<em>Task</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_OPERATION_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.IOAdapterRequirementImpl <em>IO Adapter Requirement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1087,7 +1142,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getIOAdapterRequirement()
 	 * @generated
 	 */
-	int IO_ADAPTER_REQUIREMENT = 11;
+	int IO_ADAPTER_REQUIREMENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Adapter Type</b></em>' attribute.
@@ -1151,7 +1206,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityRelation()
 	 * @generated
 	 */
-	int DISSIMILARITY_RELATION = 12;
+	int DISSIMILARITY_RELATION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
@@ -1197,7 +1252,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityClause()
 	 * @generated
 	 */
-	int DISSIMILARITY_CLAUSE = 13;
+	int DISSIMILARITY_CLAUSE = 14;
 
 	/**
 	 * The number of structural features of the '<em>Dissimilarity Clause</em>' class.
@@ -1225,7 +1280,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityDisjunction()
 	 * @generated
 	 */
-	int DISSIMILARITY_DISJUNCTION = 14;
+	int DISSIMILARITY_DISJUNCTION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
@@ -1262,7 +1317,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityConjunction()
 	 * @generated
 	 */
-	int DISSIMILARITY_CONJUNCTION = 15;
+	int DISSIMILARITY_CONJUNCTION = 16;
 
 	/**
 	 * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
@@ -1299,7 +1354,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityEntry()
 	 * @generated
 	 */
-	int DISSIMILARITY_ENTRY = 16;
+	int DISSIMILARITY_ENTRY = 17;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -1372,7 +1427,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDislocalityRelation()
 	 * @generated
 	 */
-	int DISLOCALITY_RELATION = 17;
+	int DISLOCALITY_RELATION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
@@ -1418,7 +1473,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getProximityRelation()
 	 * @generated
 	 */
-	int PROXIMITY_RELATION = 18;
+	int PROXIMITY_RELATION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
@@ -1464,7 +1519,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getMetricParameter()
 	 * @generated
 	 */
-	int METRIC_PARAMETER = 19;
+	int METRIC_PARAMETER = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1510,7 +1565,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getCompartmentAttributes()
 	 * @generated
 	 */
-	int COMPARTMENT_ATTRIBUTES = 20;
+	int COMPARTMENT_ATTRIBUTES = 21;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.BoxAttributes <em>Box Attributes</em>}' enum.
@@ -1520,7 +1575,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoxAttributes()
 	 * @generated
 	 */
-	int BOX_ATTRIBUTES = 21;
+	int BOX_ATTRIBUTES = 22;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.BoardAttributes <em>Board Attributes</em>}' enum.
@@ -1530,7 +1585,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoardAttributes()
 	 * @generated
 	 */
-	int BOARD_ATTRIBUTES = 22;
+	int BOARD_ATTRIBUTES = 23;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.ProcessorAttributes <em>Processor Attributes</em>}' enum.
@@ -1540,7 +1595,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getProcessorAttributes()
 	 * @generated
 	 */
-	int PROCESSOR_ATTRIBUTES = 23;
+	int PROCESSOR_ATTRIBUTES = 24;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
@@ -1550,17 +1605,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
 	 * @generated
 	 */
-	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 24;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType <em>IO Adapter Protection Level Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getIOAdapterProtectionLevelType()
-	 * @generated
-	 */
-	int IO_ADAPTER_PROTECTION_LEVEL_TYPE = 25;
+	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 25;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -2165,17 +2210,6 @@ public interface ModelPackage extends EPackage {
 	EAttribute getIOAdapter_AdapterType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.IOAdapter#getProtectionLevel <em>Protection Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Protection Level</em>'.
-	 * @see ch.hilbri.assist.mapping.model.IOAdapter#getProtectionLevel()
-	 * @see #getIOAdapter()
-	 * @generated
-	 */
-	EAttribute getIOAdapter_ProtectionLevel();
-
-	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup <em>Application Or Application Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2248,39 +2282,6 @@ public interface ModelPackage extends EPackage {
 	EClass getApplication();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.Application#getCoreUtilization <em>Core Utilization</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Core Utilization</em>'.
-	 * @see ch.hilbri.assist.mapping.model.Application#getCoreUtilization()
-	 * @see #getApplication()
-	 * @generated
-	 */
-	EAttribute getApplication_CoreUtilization();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.Application#getRamUtilization <em>Ram Utilization</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ram Utilization</em>'.
-	 * @see ch.hilbri.assist.mapping.model.Application#getRamUtilization()
-	 * @see #getApplication()
-	 * @generated
-	 */
-	EAttribute getApplication_RamUtilization();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.Application#getRomUtilization <em>Rom Utilization</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Rom Utilization</em>'.
-	 * @see ch.hilbri.assist.mapping.model.Application#getRomUtilization()
-	 * @see #getApplication()
-	 * @generated
-	 */
-	EAttribute getApplication_RomUtilization();
-
-	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.Application#getCriticalityLevel <em>Criticality Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2290,17 +2291,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getApplication_CriticalityLevel();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.Application#getIoAdapterProtectionLevel <em>Io Adapter Protection Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Io Adapter Protection Level</em>'.
-	 * @see ch.hilbri.assist.mapping.model.Application#getIoAdapterProtectionLevel()
-	 * @see #getApplication()
-	 * @generated
-	 */
-	EAttribute getApplication_IoAdapterProtectionLevel();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.Application#getDevelopedBy <em>Developed By</em>}'.
@@ -2314,17 +2304,6 @@ public interface ModelPackage extends EPackage {
 	EAttribute getApplication_DevelopedBy();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.Application#getIoAdapterRequirements <em>Io Adapter Requirements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Io Adapter Requirements</em>'.
-	 * @see ch.hilbri.assist.mapping.model.Application#getIoAdapterRequirements()
-	 * @see #getApplication()
-	 * @generated
-	 */
-	EReference getApplication_IoAdapterRequirements();
-
-	/**
 	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.Application#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2334,6 +2313,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getApplication_RestrictMappingToHardwareElements();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.Application#getTasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tasks</em>'.
+	 * @see ch.hilbri.assist.mapping.model.Application#getTasks()
+	 * @see #getApplication()
+	 * @generated
+	 */
+	EReference getApplication_Tasks();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.Application#getMetricParameters <em>Metric Parameters</em>}'.
@@ -2355,6 +2345,103 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getApplication__ToString();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.Task <em>Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Task</em>'.
+	 * @see ch.hilbri.assist.mapping.model.Task
+	 * @generated
+	 */
+	EClass getTask();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.Task#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.mapping.model.Task#getName()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.Task#getCoreUtilization <em>Core Utilization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Core Utilization</em>'.
+	 * @see ch.hilbri.assist.mapping.model.Task#getCoreUtilization()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_CoreUtilization();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.Task#getRamUtilization <em>Ram Utilization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ram Utilization</em>'.
+	 * @see ch.hilbri.assist.mapping.model.Task#getRamUtilization()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_RamUtilization();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.Task#getRomUtilization <em>Rom Utilization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rom Utilization</em>'.
+	 * @see ch.hilbri.assist.mapping.model.Task#getRomUtilization()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_RomUtilization();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.Task#getIoAdapterRequirements <em>Io Adapter Requirements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Io Adapter Requirements</em>'.
+	 * @see ch.hilbri.assist.mapping.model.Task#getIoAdapterRequirements()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EReference getTask_IoAdapterRequirements();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.Task#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Restrict Mapping To Hardware Elements</em>'.
+	 * @see ch.hilbri.assist.mapping.model.Task#getRestrictMappingToHardwareElements()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EReference getTask_RestrictMappingToHardwareElements();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.Task#getMetricParameters <em>Metric Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Metric Parameters</em>'.
+	 * @see ch.hilbri.assist.mapping.model.Task#getMetricParameters()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EReference getTask_MetricParameters();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.Task#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see ch.hilbri.assist.mapping.model.Task#toString()
+	 * @generated
+	 */
+	EOperation getTask__ToString();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.IOAdapterRequirement <em>IO Adapter Requirement</em>}'.
@@ -2704,16 +2791,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getHardwareArchitectureLevelType();
-
-	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType <em>IO Adapter Protection Level Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>IO Adapter Protection Level Type</em>'.
-	 * @see ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType
-	 * @generated
-	 */
-	EEnum getIOAdapterProtectionLevelType();
 
 	/**
 	 * Returns the meta object for enum '{@link ch.hilbri.assist.mapping.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}'.
@@ -3215,14 +3292,6 @@ public interface ModelPackage extends EPackage {
 		EAttribute IO_ADAPTER__ADAPTER_TYPE = eINSTANCE.getIOAdapter_AdapterType();
 
 		/**
-		 * The meta object literal for the '<em><b>Protection Level</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute IO_ADAPTER__PROTECTION_LEVEL = eINSTANCE.getIOAdapter_ProtectionLevel();
-
-		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationOrApplicationGroupImpl <em>Application Or Application Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3285,44 +3354,12 @@ public interface ModelPackage extends EPackage {
 		EClass APPLICATION = eINSTANCE.getApplication();
 
 		/**
-		 * The meta object literal for the '<em><b>Core Utilization</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute APPLICATION__CORE_UTILIZATION = eINSTANCE.getApplication_CoreUtilization();
-
-		/**
-		 * The meta object literal for the '<em><b>Ram Utilization</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute APPLICATION__RAM_UTILIZATION = eINSTANCE.getApplication_RamUtilization();
-
-		/**
-		 * The meta object literal for the '<em><b>Rom Utilization</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute APPLICATION__ROM_UTILIZATION = eINSTANCE.getApplication_RomUtilization();
-
-		/**
 		 * The meta object literal for the '<em><b>Criticality Level</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute APPLICATION__CRITICALITY_LEVEL = eINSTANCE.getApplication_CriticalityLevel();
-
-		/**
-		 * The meta object literal for the '<em><b>Io Adapter Protection Level</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute APPLICATION__IO_ADAPTER_PROTECTION_LEVEL = eINSTANCE.getApplication_IoAdapterProtectionLevel();
 
 		/**
 		 * The meta object literal for the '<em><b>Developed By</b></em>' attribute feature.
@@ -3333,20 +3370,20 @@ public interface ModelPackage extends EPackage {
 		EAttribute APPLICATION__DEVELOPED_BY = eINSTANCE.getApplication_DevelopedBy();
 
 		/**
-		 * The meta object literal for the '<em><b>Io Adapter Requirements</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference APPLICATION__IO_ADAPTER_REQUIREMENTS = eINSTANCE.getApplication_IoAdapterRequirements();
-
-		/**
 		 * The meta object literal for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = eINSTANCE.getApplication_RestrictMappingToHardwareElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Tasks</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPLICATION__TASKS = eINSTANCE.getApplication_Tasks();
 
 		/**
 		 * The meta object literal for the '<em><b>Metric Parameters</b></em>' containment reference list feature.
@@ -3363,6 +3400,80 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation APPLICATION___TO_STRING = eINSTANCE.getApplication__ToString();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.TaskImpl <em>Task</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.mapping.model.impl.TaskImpl
+		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getTask()
+		 * @generated
+		 */
+		EClass TASK = eINSTANCE.getTask();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__NAME = eINSTANCE.getTask_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Core Utilization</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__CORE_UTILIZATION = eINSTANCE.getTask_CoreUtilization();
+
+		/**
+		 * The meta object literal for the '<em><b>Ram Utilization</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__RAM_UTILIZATION = eINSTANCE.getTask_RamUtilization();
+
+		/**
+		 * The meta object literal for the '<em><b>Rom Utilization</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__ROM_UTILIZATION = eINSTANCE.getTask_RomUtilization();
+
+		/**
+		 * The meta object literal for the '<em><b>Io Adapter Requirements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK__IO_ADAPTER_REQUIREMENTS = eINSTANCE.getTask_IoAdapterRequirements();
+
+		/**
+		 * The meta object literal for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = eINSTANCE.getTask_RestrictMappingToHardwareElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Metric Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK__METRIC_PARAMETERS = eINSTANCE.getTask_MetricParameters();
+
+		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TASK___TO_STRING = eINSTANCE.getTask__ToString();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.IOAdapterRequirementImpl <em>IO Adapter Requirement</em>}' class.
@@ -3655,16 +3766,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum HARDWARE_ARCHITECTURE_LEVEL_TYPE = eINSTANCE.getHardwareArchitectureLevelType();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType <em>IO Adapter Protection Level Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getIOAdapterProtectionLevelType()
-		 * @generated
-		 */
-		EEnum IO_ADAPTER_PROTECTION_LEVEL_TYPE = eINSTANCE.getIOAdapterProtectionLevelType();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.

@@ -5,7 +5,6 @@ import ch.hilbri.assist.mapping.model.ApplicationGroup
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.Board
 import ch.hilbri.assist.mapping.model.Box
-import ch.hilbri.assist.mapping.model.CommunicationRelation
 import ch.hilbri.assist.mapping.model.Compartment
 import ch.hilbri.assist.mapping.model.Core
 import ch.hilbri.assist.mapping.model.DislocalityRelation
@@ -155,14 +154,6 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		'outlineview_constraint.png'
 	}
 
-	def text(CommunicationRelation r) {
-		r.applicationsOrGroups + " with bandwidth " + r.bandwidthUtilization
-	}
-
-	def image(CommunicationRelation r) {
-		'outlineview_constraint.png'
-	}
-	
 //	def text(Network n) {
 //		n.name + " connects " + n.boards 
 //	}

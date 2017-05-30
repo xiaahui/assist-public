@@ -1,13 +1,13 @@
 package ch.hilbri.assist.mapping.dsl.ui.outline
 
 import ch.hilbri.assist.mapping.model.AssistModel
+import ch.hilbri.assist.mapping.model.DissimilarityRelation
 import org.eclipse.core.runtime.FileLocator
 import org.eclipse.core.runtime.Path
 import org.eclipse.jface.resource.ImageDescriptor
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
 import org.osgi.framework.FrameworkUtil
-import ch.hilbri.assist.mapping.model.DissimilarityRelation
 
 /**
  * Customization of the default outline structure.
@@ -27,7 +27,7 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		
 		/* ---------- HARDWARE ------------- */
 		val hardwareNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Hardware", false)
-		for (hw : model.hardwareContainer)
+		for (hw : model.compartments)
 			createNode(hardwareNode, hw)
 		
 		/* ---------- APPLICATIONS AND GROUPS --------- */
@@ -59,22 +59,6 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 			}
 			
 		}
-		
-		/* --------- NETWORKING ---------------------- */
-		if (!model.networks.empty || !model.communicationRelations.empty) {
-			val networkNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Networks and Communication", false)
-
-			if (!model.networks.empty) {
-				val physNetworksNode = new VirtualOutlineNode(networkNode, imgsubfolderDesc, "Physical Networks", false)
-				for (n : model.networks) createNode(physNetworksNode, n)
-			}
-
-			if (!model.communicationRelations.empty) {
-				val commRelationNode = new VirtualOutlineNode(networkNode, imgsubfolderDesc, "Logical Communication", false)
-				for (r : model.communicationRelations) createNode(commRelationNode, r)
-			}
-		}
-		
 	}
 	
 }

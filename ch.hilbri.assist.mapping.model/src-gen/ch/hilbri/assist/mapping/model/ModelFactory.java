@@ -121,6 +121,15 @@ public interface ModelFactory extends EFactory {
 	Application createApplication();
 
 	/**
+	 * Returns a new object of class '<em>Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task</em>'.
+	 * @generated
+	 */
+	Task createTask();
+
+	/**
 	 * Returns a new object of class '<em>IO Adapter Requirement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

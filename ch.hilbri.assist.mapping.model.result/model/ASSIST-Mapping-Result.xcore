@@ -7,7 +7,6 @@ package ch.hilbri.assist.mapping.model.result
 
 import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType
 import ch.hilbri.assist.mapping.model.IOAdapterType
 import java.util.HashMap
 import org.eclipse.emf.common.util.BasicEList
@@ -313,7 +312,6 @@ class IOAdapter {
 	String name
 	int totalUnitCount
 	IOAdapterType adapterType
-	IOAdapterProtectionLevelType protectionLevel = "None"
 	refers ch.hilbri.assist.mapping.model.IOAdapter referenceObject
 	
 	
@@ -349,7 +347,6 @@ class Application {
 	int 									ramUtilization
 	int 									romUtilization
 	DesignAssuranceLevelType 				criticalityLevel 					= "None"
-	IOAdapterProtectionLevelType 			ioAdapterProtectionLevel 			= "None"
 	int 									parallelThreads 					= "1"
 	String 									developedBy
 	refers IOAdapterRequirement[0..*] 		ioAdapterRequirements

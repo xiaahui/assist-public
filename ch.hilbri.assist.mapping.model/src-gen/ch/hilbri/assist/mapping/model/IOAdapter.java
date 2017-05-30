@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.mapping.model.IOAdapter#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.IOAdapter#getTotalCount <em>Total Count</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.IOAdapter#getAdapterType <em>Adapter Type</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.IOAdapter#getProtectionLevel <em>Protection Level</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.mapping.model.ModelPackage#getIOAdapter()
@@ -107,35 +106,5 @@ public interface IOAdapter extends EObject {
 	 * @generated
 	 */
 	void setAdapterType(IOAdapterType value);
-
-	/**
-	 * Returns the value of the '<em><b>Protection Level</b></em>' attribute.
-	 * The default value is <code>"None"</code>.
-	 * The literals are from the enumeration {@link ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Protection Level</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Protection Level</em>' attribute.
-	 * @see ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType
-	 * @see #setProtectionLevel(IOAdapterProtectionLevelType)
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getIOAdapter_ProtectionLevel()
-	 * @model default="None" unique="false"
-	 * @generated
-	 */
-	IOAdapterProtectionLevelType getProtectionLevel();
-
-	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.IOAdapter#getProtectionLevel <em>Protection Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Protection Level</em>' attribute.
-	 * @see ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType
-	 * @see #getProtectionLevel()
-	 * @generated
-	 */
-	void setProtectionLevel(IOAdapterProtectionLevelType value);
 
 } // IOAdapter
