@@ -6,14 +6,18 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
@@ -28,24 +32,19 @@ public class GuiSolverJob extends Job {
 	
 	private Logger logger;
 	
-	/**
-	 * Constructor
-	 * 
-	 * @param name
-	 * @param model
-	 * @param editor 
-	 */
-	public GuiSolverJob(String name, AssistModel model, MultiPageEditor editor) {
+	public GuiSolverJob(String name, URI uri) {
 		super(name);
 		this.logger = LoggerFactory.getLogger(GuiSolverJob.class);
+		
+		/* Retrieve the ASSIST model from the URI and load on demand */ 
+		ResourceSet rs = new ResourceSetImpl();
+		Resource resource = rs.getResource(uri, true);
+		AssistModel inputModel = (AssistModel) resource.getContents().get(0);
 
-		if (editor != null) {
-			multiPageEditor = editor;
-			detailedResultsViewUiModel = multiPageEditor.getDetailedResultViewUiModel();
-			detailedResultsViewUiModel.setEditor(multiPageEditor);
-		}
-
-		this.assistSolver = new AssistSolver(model);
+		logger.debug("Loaded AssistModel from URI " + uri.toString());
+		
+		/* Now we can create the AssistSolver */
+		this.assistSolver = new AssistSolver(inputModel);
 	}
 			
 	
@@ -121,12 +120,6 @@ public class GuiSolverJob extends Job {
 		}
 	}
 	
-	/**
-	 * Show the results in the UI
-	 * 
-	 * @param allResults
-	 *            
-	 */
 	private void showResults(final ArrayList<Result> allResults) {		
 		
 		detailedResultsViewUiModel.setNewResultsList(allResults);
