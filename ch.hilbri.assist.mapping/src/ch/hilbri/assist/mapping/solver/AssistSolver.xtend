@@ -4,13 +4,10 @@ import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
-import ch.hilbri.assist.mapping.solver.monitors.PartialSolutionSaveMonitor
 import ch.hilbri.assist.mapping.solver.preprocessors.AbstractModelPreprocessor
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
-import java.util.List
 import org.chocosolver.solver.Solver
-import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy
 import org.chocosolver.solver.variables.IntVar
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
@@ -27,26 +24,13 @@ class AssistSolver {
 	private ArrayList<AbstractModelPreprocessor> 	modelPreprocessors
 	private Logger 									logger
 	private boolean 								savePartialSolution 		= false
-	private PartialSolutionSaveMonitor 				partialSolutionSaveMonitor
+//	private PartialSolutionSaveMonitor 				partialSolutionSaveMonitor
 	
 	new (AssistModel model) {
 		this.logger = LoggerFactory.getLogger(this.class)
-		logger.info('''******************************''')
-		logger.info(''' Executing a new AssistSolver''')
-		logger.info('''******************************''')
-		
-		if (Platform.getBundle("ch.hilbri.assist.application") != null) {
-			logger.info('''    Version : «Platform.getBundle("ch.hilbri.assist.application").getHeaders().get("Bundle-Version")» ''')
-			logger.info('''    Platform: «System.getProperty("os.name") + " " + System.getProperty("sun.arch.data.model") + "bit"»''')
-			logger.info('''******************************''')
-		}
-			
-		/* Get the model */
 		this.model = model
 
-		/* Create all preprocessors */
 		this.modelPreprocessors = new ArrayList
-		// FIXME: add board local networks
 					
 		/* Create a new Solver object */
 //		this.solver = new Solver()
@@ -56,7 +40,7 @@ class AssistSolver {
 //		this.solver.set(recorder)
 		
 		/* Create the container for variables which are needed in the solver */
- 		this.solverVariables = new SolverVariablesContainer(model, solver)
+// 		this.solverVariables = new SolverVariablesContainer(model, solver)
 		
 		/* Attach the search monitor */
 //		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solverVariables))
@@ -64,7 +48,7 @@ class AssistSolver {
 //		this.solver.searchLoop.plugSearchMonitor(new RestartMonitor)
 	
 		/* Create an empty set of constraints that will be used */
-//		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
+		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
 //		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
 //		this.mappingConstraintsList.add(new CoreUtilizationConstraint(model, solver, solverVariables))
 //		this.mappingConstraintsList.add(new RAMUtilizationConstraint(model, solver, solverVariables))
@@ -82,8 +66,8 @@ class AssistSolver {
 		
 		/* Create a list for the results */ 
 		this.mappingResults = new ArrayList<Result>()  
-	}
-
+	}	
+	
 	def setSavePartialSolution(boolean value) {
 		this.savePartialSolution = value
 		
@@ -108,10 +92,10 @@ class AssistSolver {
 	}
 	
 	def setSolverSearchStrategy(SearchType strategy) {
-		val List<AbstractStrategy<IntVar>> heuristics = new ArrayList<AbstractStrategy<IntVar>>
-		val seed = 23432
-		val vars = solverVariables.locationVariables
-		
+//		val List<AbstractStrategy<IntVar>> heuristics = new ArrayList<AbstractStrategy<IntVar>>
+//		val seed = 23432
+//		val vars = solverVariables.locationVariables
+//		
 		logger.info("Setting choco-solver search strategy to '" + strategy.humanReadableName + "'")
 		
 //		switch (strategy) {
@@ -140,7 +124,18 @@ class AssistSolver {
 	}
 
 
-	def runModelPreprocessors() {
+	def runInitialization() {
+		
+		logger.info('''******************************''')
+		logger.info(''' Executing a new AssistSolver''')
+		logger.info('''******************************''')
+		
+		if (Platform.getBundle("ch.hilbri.assist.application") != null) {
+			logger.info('''    Version : «Platform.getBundle("ch.hilbri.assist.application").getHeaders().get("Bundle-Version")» ''')
+			logger.info('''    Platform: «System.getProperty("os.name") + " " + System.getProperty("sun.arch.data.model") + "bit"»''')
+			logger.info('''******************************''')
+		}
+		
 		logger.info("Running pre-processors")
 		for (p : this.modelPreprocessors) { 
 			logger.info(" - Processing " + p.name)
@@ -150,22 +145,24 @@ class AssistSolver {
 		}
 	}
 	
-	def propagation() throws BasicConstraintsException {
+	def runConstraintGeneration() throws BasicConstraintsException {
 		logger.info("Starting to generate constraints for the choco-solver")
-		for (constraint : mappingConstraintsList) {
-			logger.info(''' - Starting to generate constraints for "«constraint.name»"...''')
-			if (!constraint.generate()) {
-	            logger.info('''      No effective constraints found''')
-            }
-			logger.info('''   done.''')
-		}
-		val vars = solverVariables.locationVariables
-		logger.info('''After initial propagation:''') 
-		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location variables instantiated''') 
+
+//		for (constraint : mappingConstraintsList) {
+//			logger.info(''' - Starting to generate constraints for "«constraint.name»"...''')
+//			if (!constraint.generate()) {
+//	            logger.info('''      No effective constraints found''')
+//            }
+//			logger.info('''   done.''')
+//		}
+//		val vars = solverVariables.locationVariables
+//		logger.info('''After initial propagation:''') 
+//		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location variables instantiated''') 
 	}
 	
-	def solutionSearch() throws BasicConstraintsException {
-
+	def runSolutionSearch() throws BasicConstraintsException {
+		logger.info("Starting to search for solutions")
+		
 //		// Clear old results
 //		mappingResults.clear
 //		
@@ -204,6 +201,7 @@ class AssistSolver {
 	def IntVar[] getLocationVariables() { 
 		solverVariables.getLocationVariables()
 	}
+
 	def Solver getChocoSolver() 		{ 
 		solver
 	}

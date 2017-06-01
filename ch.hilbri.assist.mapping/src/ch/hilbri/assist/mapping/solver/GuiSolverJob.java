@@ -51,18 +51,18 @@ public class GuiSolverJob extends Job {
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
 		try {
-			monitor.beginTask("Executing model preprocessors", 1);
-			assistSolver.runModelPreprocessors();
+			monitor.beginTask("Solver initialization", 1);
+			assistSolver.runInitialization();
 			monitor.worked(1);
 			
-			monitor.beginTask("Propagating all constraints", 1);
-			assistSolver.propagation();
+			monitor.beginTask("Generating all constraints", 1);
+			assistSolver.runConstraintGeneration();
 			monitor.worked(1);
 
 			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
 			
 			monitor.beginTask("Searching for solutions", 1);
-			assistSolver.solutionSearch();
+			assistSolver.runSolutionSearch();
 			monitor.worked(1);
 			
 			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
