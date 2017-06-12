@@ -25,6 +25,7 @@ class AssistModel {
 	op Board[] 			getAllBoards() 			{ compartments.map[allBoards].flatten.toEList 		}
 	op Processor[] 		getAllProcessors() 		{ compartments.map[allProcessors].flatten.toEList	}
 	op Core[] 			getAllCores() 			{ compartments.map[allCores].flatten.toEList		}
+	op Task[]			getAllTasks()			{ applications.map[allTasks].flatten.toEList		}
 }
 
 class HardwareElement {
@@ -100,7 +101,8 @@ class Application extends ApplicationOrApplicationGroup {
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
 	contains Task[1..*] 			tasks
 	contains MetricParameter[0..*] 	metricParameters
-	op String 			toString() 				{ name }
+	op String 			toString() 				{ name 	}
+	op Task[]			getAllTasks()			{ tasks }
 }
 
 class Task {

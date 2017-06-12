@@ -14,6 +14,7 @@ import ch.hilbri.assist.mapping.model.DissimilarityRelation;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 import ch.hilbri.assist.mapping.model.Processor;
 import ch.hilbri.assist.mapping.model.ProximityRelation;
+import ch.hilbri.assist.mapping.model.Task;
 
 import com.google.common.collect.Iterables;
 
@@ -336,6 +337,23 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Task> getAllTasks() {
+		EList<Application> _applications = this.getApplications();
+		final Function1<Application, EList<Task>> _function = new Function1<Application, EList<Task>>() {
+			public EList<Task> apply(final Application it) {
+				return it.getAllTasks();
+			}
+		};
+		EList<EList<Task>> _map = XcoreEListExtensions.<Application, EList<Task>>map(_applications, _function);
+		Iterable<Task> _flatten = Iterables.<Task>concat(_map);
+		return ECollections.<Task>toEList(_flatten);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -498,6 +516,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getAllProcessors();
 			case ModelPackage.ASSIST_MODEL___GET_ALL_CORES:
 				return getAllCores();
+			case ModelPackage.ASSIST_MODEL___GET_ALL_TASKS:
+				return getAllTasks();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

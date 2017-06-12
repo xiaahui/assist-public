@@ -197,4 +197,13 @@ public interface AssistModel extends EObject {
 	 */
 	EList<Core> getAllCores();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Application%>> _applications = this.getApplications();\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.mapping.model.Application%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Task%>>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%ch.hilbri.assist.mapping.model.Application%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Task%>>>()\n{\n\tpublic <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Task%>> apply(final <%ch.hilbri.assist.mapping.model.Application%> it)\n\t{\n\t\treturn it.getAllTasks();\n\t}\n};\n<%org.eclipse.emf.common.util.EList%><<%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Task%>>> _map = <%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%>.<<%ch.hilbri.assist.mapping.model.Application%>, <%org.eclipse.emf.common.util.EList%><<%ch.hilbri.assist.mapping.model.Task%>>>map(_applications, _function);\n<%java.lang.Iterable%><<%ch.hilbri.assist.mapping.model.Task%>> _flatten = <%com.google.common.collect.Iterables%>.<<%ch.hilbri.assist.mapping.model.Task%>>concat(_map);\nreturn <%org.eclipse.emf.common.util.ECollections%>.<<%ch.hilbri.assist.mapping.model.Task%>>toEList(_flatten);'"
+	 * @generated
+	 */
+	EList<Task> getAllTasks();
+
 } // AssistModel

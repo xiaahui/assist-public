@@ -188,13 +188,22 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL___GET_ALL_CORES = 4;
 
 	/**
+	 * The operation id for the '<em>Get All Tasks</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_TASKS = 5;
+
+	/**
 	 * The number of operations of the '<em>Assist Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_OPERATION_COUNT = 5;
+	int ASSIST_MODEL_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -1026,13 +1035,22 @@ public interface ModelPackage extends EPackage {
 	int APPLICATION___TO_STRING = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get All Tasks</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION___GET_ALL_TASKS = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_OPERATION_COUNT = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 1;
+	int APPLICATION_OPERATION_COUNT = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.TaskImpl <em>Task</em>}' class.
@@ -1766,6 +1784,16 @@ public interface ModelPackage extends EPackage {
 	EOperation getAssistModel__GetAllCores();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModel#getAllTasks() <em>Get All Tasks</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Tasks</em>' operation.
+	 * @see ch.hilbri.assist.mapping.model.AssistModel#getAllTasks()
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllTasks();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.HardwareElement <em>Hardware Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2345,6 +2373,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getApplication__ToString();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.Application#getAllTasks() <em>Get All Tasks</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Tasks</em>' operation.
+	 * @see ch.hilbri.assist.mapping.model.Application#getAllTasks()
+	 * @generated
+	 */
+	EOperation getApplication__GetAllTasks();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.Task <em>Task</em>}'.
@@ -2942,6 +2980,14 @@ public interface ModelPackage extends EPackage {
 		EOperation ASSIST_MODEL___GET_ALL_CORES = eINSTANCE.getAssistModel__GetAllCores();
 
 		/**
+		 * The meta object literal for the '<em><b>Get All Tasks</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_TASKS = eINSTANCE.getAssistModel__GetAllTasks();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3400,6 +3446,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation APPLICATION___TO_STRING = eINSTANCE.getApplication__ToString();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Tasks</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation APPLICATION___GET_ALL_TASKS = eINSTANCE.getApplication__GetAllTasks();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.TaskImpl <em>Task</em>}' class.
