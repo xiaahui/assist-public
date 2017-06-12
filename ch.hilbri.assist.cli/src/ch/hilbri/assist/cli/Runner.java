@@ -59,38 +59,38 @@ public class Runner {
 
 		for (String arg: cmd.getArgs()) {
 			URI uri = URI.createFileURI(arg);
-			ResourceSet rs = new ResourceSetImpl();
-			Resource resource = rs.getResource(uri, true);
+//			ResourceSet rs = new ResourceSetImpl();
+//			Resource resource = rs.getResource(uri, true);
 			
 			// This may fix some lazy binding issues which are not yet recognized as errors
-			EcoreUtil.resolveAll(resource);
+//			EcoreUtil.resolveAll(resource);
 			
 			/* Searching for errors inside the document? */
 			/* 1) Error with the syntax of the dsl */
-			if (!resource.getErrors().isEmpty()) {
-				System.err.println("Could not parse " + arg + ".");
-				for (Resource.Diagnostic error:  resource.getErrors()) {
-					System.err.println(error.getMessage());
-				}
-				continue;
-			}
-			if (resource.getContents().size() == 0) { 
-				System.err.println(arg + " has no usable data.");
-				continue;
-			}
-			final AssistModel model = (AssistModel) resource.getContents().get(0);
+//			if (!resource.getErrors().isEmpty()) {
+//				System.err.println("Could not parse " + arg + ".");
+//				for (Resource.Diagnostic error:  resource.getErrors()) {
+//					System.err.println(error.getMessage());
+//				}
+//				continue;
+//			}
+//			if (resource.getContents().size() == 0) { 
+//				System.err.println(arg + " has no usable data.");
+//				continue;
+//			}
+//			final AssistModel model = (AssistModel) resource.getContents().get(0);
 			/* 2) Custom validation rule errors // enabling those leads to an invalid jar, for a possible workaround see http://zarnekow.blogspot.de/2010/06/how-to-deploy-xtext-standalone.html?showComment=1279241626077#c7153662425903347274
 			if (Diagnostician.INSTANCE.validate(model).getSeverity() == Diagnostic.ERROR) { 
 				System.err.println("Errors on validating " + arg + ".");
 				continue;
 			}*/
-			final AssistSolver solver = new AssistSolver(model);
+			final AssistSolver solver = new AssistSolver(uri);
 			SearchType heuristic = SearchType.getDefaultSearchType();
 			switch (cmd.getOptionValue("strategy", "")) {
 				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST; break;
 				case "domwd": heuristic = SearchType.DOM_OVER_WDEG; break;
-				case "act": heuristic = SearchType.ACTIVITY; break;
-				case "imp": heuristic = SearchType.IMPACT; break;
+//				case "act": heuristic = SearchType.ACTIVITY; break;
+//				case "imp": heuristic = SearchType.IMPACT; break;
 				case "rand": heuristic = SearchType.RANDOM; break;
 				default: heuristic = SearchType.getDefaultSearchType(); break;
 			}	
@@ -102,9 +102,9 @@ public class Runner {
 				solver.setSolverTimeLimit(timeout * 1000);
 			}
 			try {
-				solver.runModelPreprocessors();
-				solver.propagation();
-				solver.solutionSearch();
+				solver.runInitialization();
+				solver.runConstraintGeneration();
+				solver.runSolutionSearch();
 				final ArrayList<Result> results = solver.getResults();
 				System.out.println(results.size() + " solutions found.");
 				// FIXME: print results
