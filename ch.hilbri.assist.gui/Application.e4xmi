@@ -66,6 +66,13 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_-xze0BRyEee2Ev2eVUEQ1A" elementId="org.eclipse.ui.console.ConsoleView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Console" iconURI="platform:/plugin/org.eclipse.ui.console/icons/full/cview16/console_view.gif"/>
     <sharedElements xsi:type="basic:Part" xmi:id="_KHMCsBRzEee2Ev2eVUEQ1A" elementId="org.eclipse.ui.views.ContentOutline" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Outline" iconURI="platform:/plugin/org.eclipse.ui.views/icons/full/eview16/outline_co.gif"/>
     <sharedElements xsi:type="basic:Part" xmi:id="_cE1CEBR1Eee2Ev2eVUEQ1A" elementId="org.eclipse.ui.views.ProgressView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Progress" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/pview.gif"/>
+    <trimBars xmi:id="_E1iW4E-PEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.gui.trimbar.main">
+      <children xsi:type="menu:ToolBar" xmi:id="_JienIE-PEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.gui.toolbar.main">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_QngwIE-PEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.gui.handledtoolitem.newproject" label="New Project" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/newprj_wiz.png" command="_iEtEcBOyEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_ieUZoE-PEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.gui.handledtoolitem.save" label="Save" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/save_edit.png" command="_AqFu0BOyEeeXZoKubOdysQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_07WVoE-PEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.gui.handledtoolitem.saveall" label="Save All" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/saveall_edit.png" command="_Ej4q4BOyEeeXZoKubOdysQ"/>
+      </children>
+    </trimBars>
   </children>
   <handlers xmi:id="_wKs5UBOzEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.handler.exit" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.ExitHandler" command="_bAtdQBOyEeeXZoKubOdysQ"/>
   <handlers xmi:id="_wGwX4BU8EeeuUvr86sRq3A" elementId="ch.hilbri.assist.gui.handler.0" contributionURI="bundleclass://ch.hilbri.assist.gui/ch.hilbri.assist.gui.handlers.NewProjectHandler" command="_iEtEcBOyEeeXZoKubOdysQ"/>

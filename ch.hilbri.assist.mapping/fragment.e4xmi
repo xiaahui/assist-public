@@ -3,10 +3,12 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="__6xnMA_bEeOdg7LCSWH6eQ" featurename="handlers" parentElementId="ch.hilbri.assist.gui.application">
     <elements xsi:type="commands:Handler" xmi:id="_M42AIA_cEeOdg7LCSWH6eQ" elementId="ch.hilbri.assist.handler.mapping.generate" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.handlers.Generate" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
     <elements xsi:type="commands:Handler" xmi:id="_ctlXwI5uEeOJBOmJqpLcrw" elementId="ch.hilbri.assist.handler.mapping.export.text" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.handlers.ExportToText" command="_k49dwI5uEeOJBOmJqpLcrw"/>
+    <elements xsi:type="commands:Handler" xmi:id="_yp1eoE-SEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.handler.mapping.newspec" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.handlers.OpenNewMappingSpecWizard" command="_dPX9oE-REeeNuqmSWeC5KA"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_AMLgQA_cEeOdg7LCSWH6eQ" featurename="commands" parentElementId="ch.hilbri.assist.gui.application">
     <elements xsi:type="commands:Command" xmi:id="_G7-ZEA_cEeOdg7LCSWH6eQ" elementId="ch.hilbri.assist.mapping.command.generate" commandName="Generate mappings"/>
     <elements xsi:type="commands:Command" xmi:id="_k49dwI5uEeOJBOmJqpLcrw" elementId="ch.hilbri.assist.mapping.command.export.text" commandName="Export current solution to text file"/>
+    <elements xsi:type="commands:Command" xmi:id="_dPX9oE-REeeNuqmSWeC5KA" elementId="ch.hilbri.assist.mapping.command.newmappingspec" commandName="New Mapping Specification"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_joYvoA_bEeOdg7LCSWH6eQ" featurename="children" parentElementId="org.eclipse.ui.main.menu" positionInList="after:ch.hilbri.assist.gui.menu.edit">
     <elements xsi:type="menu:Menu" xmi:id="_n4ghAA_bEeOdg7LCSWH6eQ" elementId="ch.hilbri.assist.mapping.menu" label="&amp;Mapping" mnemonics="">
@@ -15,7 +17,12 @@
       <children xsi:type="menu:HandledMenuItem" xmi:id="_z00ZEI5uEeOJBOmJqpLcrw" elementId="ch.hilbri.assist.mapping.menu.handledmenuitem.2" label="Export current solution to TextFile" command="_k49dwI5uEeOJBOmJqpLcrw"/>
     </elements>
   </fragments>
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="__-kKgEiQEeOdX57Z--P1Iw" featurename="children" parentElementId="ch.hilbri.assist.toolbar.main" positionInList="after:ch.hilbri.assist.application.toolbarseparator.first">
-    <elements xsi:type="menu:HandledToolItem" xmi:id="_CweRcEiREeOdX57Z--P1Iw" elementId="ch.hilbri.assist.toolbar.mapping.handledtoolitem.generate" label="Generate mappings" iconURI="platform:/plugin/ch.hilbri.assist.mapping/icons/toolbar/toolbar-mapping-generate-16x16.png" tooltip="Generate mappings for the current specification" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="__-kKgEiQEeOdX57Z--P1Iw" featurename="children" parentElementId="ch.hilbri.assist.gui.toolbar.main" positionInList="after:ch.hilbri.assist.gui.handledtoolitem.newproject">
+    <elements xsi:type="menu:HandledToolItem" xmi:id="_sOZXIE-QEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.mapping.handledtoolitem.newspec" label="New Mapping Specification" iconURI="platform:/plugin/ch.hilbri.assist.mapping/icons/new-mapping-specification.png" command="_dPX9oE-REeeNuqmSWeC5KA"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_jcnwwE-WEeeNuqmSWeC5KA" featurename="children" parentElementId="ch.hilbri.assist.gui.trimbar.main" positionInList="after:ch.hilbri.assist.gui.toolbar.main">
+    <elements xsi:type="menu:ToolBar" xmi:id="_ITXPAE-XEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.mapping.toolbar.mapping">
+      <children xsi:type="menu:HandledToolItem" xmi:id="_KJylIE-XEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.mapping.handledtoolitem.runmapping" label="Run Mapping" iconURI="platform:/plugin/ch.hilbri.assist.mapping/icons/run_mapping.png" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
+    </elements>
   </fragments>
 </fragment:ModelFragments>
