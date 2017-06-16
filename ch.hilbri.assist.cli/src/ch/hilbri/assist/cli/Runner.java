@@ -8,20 +8,15 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.Options;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 
 import com.google.inject.Inject;
 
-import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.dsl.tests.MappingDSLInjectorProvider;
 import ch.hilbri.assist.mapping.model.AssistModel;
 import ch.hilbri.assist.mapping.model.ModelPackage;
+import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.solver.AssistSolver;
-import ch.hilbri.assist.mapping.solver.SearchType;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 
 public class Runner {
@@ -85,16 +80,16 @@ public class Runner {
 				continue;
 			}*/
 			final AssistSolver solver = new AssistSolver(uri);
-			SearchType heuristic = SearchType.getDefaultSearchType();
-			switch (cmd.getOptionValue("strategy", "")) {
-				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST; break;
-				case "domwd": heuristic = SearchType.DOM_OVER_WDEG; break;
-//				case "act": heuristic = SearchType.ACTIVITY; break;
-//				case "imp": heuristic = SearchType.IMPACT; break;
-				case "rand": heuristic = SearchType.RANDOM; break;
-				default: heuristic = SearchType.getDefaultSearchType(); break;
-			}	
-			solver.setSolverSearchStrategy(heuristic);
+//			SearchType heuristic = SearchType.getDefaultSearchType();
+//			switch (cmd.getOptionValue("strategy", "")) {
+//				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST; break;
+//				case "domwd": heuristic = SearchType.DOM_OVER_WDEG; break;
+////				case "act": heuristic = SearchType.ACTIVITY; break;
+////				case "imp": heuristic = SearchType.IMPACT; break;
+//				case "rand": heuristic = SearchType.RANDOM; break;
+//				default: heuristic = SearchType.getDefaultSearchType(); break;
+//			}	
+//			solver.setSolverSearchStrategy(heuristic);
 			final int numSolutions = Integer.parseInt(cmd.getOptionValue("solutions", "100"));
 			solver.setSolverMaxSolutions(numSolutions);
 			final int timeout = Integer.parseInt(cmd.getOptionValue("timeout", "0"));
