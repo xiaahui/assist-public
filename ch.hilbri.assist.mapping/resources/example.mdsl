@@ -20,6 +20,10 @@ Hardware {
 }
 
 Software {
-	Application A1 { Core-utilization = 10; }
-	Application A2 { Core-utilization = 20; }
+	Application A1 {
+		CriticalityLevel = A;
+		Task A1_T1 {
+			CoreUtilization = 10;
+		}
+	}
 }

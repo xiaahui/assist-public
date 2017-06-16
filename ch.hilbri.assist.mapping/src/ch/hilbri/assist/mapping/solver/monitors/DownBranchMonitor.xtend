@@ -15,7 +15,7 @@ class DownBranchMonitor implements IMonitorDownBranch {
 	
 	new(SolverVariablesContainer solverVariables) {
 		this.solverVariables = solverVariables
-		this.locationVariables = solverVariables.locationVariables
+		this.locationVariables = solverVariables.locationVariablesForCoreLevel
 		this.logger = LoggerFactory.getLogger(this.class)
 	}
 	
@@ -29,18 +29,5 @@ class DownBranchMonitor implements IMonitorDownBranch {
 		}	
 	}
 	
-//	override afterDownLeftBranch() {
-//		calculateProgress
-//	}
-	
-//	override afterDownRightBranch() {
-//		calculateProgress
-//	}
-//	
-//	override beforeDownLeftBranch() {
-//	}
-	
-//	override beforeDownRightBranch() {
-//	}
 	
 }

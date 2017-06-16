@@ -20,7 +20,7 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 		val int[] allCoreCapacities = model.allCores.map[capacity]
 
 		/* How much processing capacity does each thread need? */
-		val int[] allCoreUtilization = model.allThreads.map[coreUtilization]
+		val int[] allCoreUtilization = model.allTasks.map[coreUtilization]
 
 		// - create the total sum of core utilization of all applications (+ threads)
 		val totalCoreUtilization = allCoreUtilization.reduce[p1, p2|p1 + p2]
@@ -42,9 +42,9 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 		 * 1. The sum of the utilization of all applications on each core
 		 *    must not exceed its capabilities 
 		 */
-		val locationVars = model.allThreads.map[t|
-			solverVariables.getThreadLocationVariable(t, HardwareArchitectureLevelType.CORE_VALUE)]
-		val utilizationVars = model.allCores.map[c|solverVariables.getAbsoluteCoreUtilizationVariable(c)]
+//		val locationVars = model.allThreads.map[t|
+//			solverVariables.getThreadLocationVariable(t, HardwareArchitectureLevelType.CORE_VALUE)]
+//		val utilizationVars = model.allCores.map[c|solverVariables.getAbsoluteCoreUtilizationVariable(c)]
 //		solver.post(ICF.bin_packing(locationVars, allCoreUtilization, utilizationVars, 0))
 
 		try {

@@ -7,137 +7,174 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.hilbri.assist.mapping.model.AssistModel;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
+import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes;
+import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 
 public class GuiSolverJob extends Job {
 
 	private AssistSolver assistSolver;
-
 	private DetailedResultsViewUiModel detailedResultsViewUiModel;
-		
 	private MultiPageEditor multiPageEditor;
-	
 	private Logger logger;
-	
+
 	public GuiSolverJob(String name, URI uri) {
 		super(name);
 		this.logger = LoggerFactory.getLogger(GuiSolverJob.class);
-		
-		/* Retrieve the ASSIST model from the URI and load on demand */ 
-		ResourceSet rs = new ResourceSetImpl();
-		Resource resource = rs.getResource(uri, true);
-		AssistModel inputModel = (AssistModel) resource.getContents().get(0);
-
-		logger.debug("Loaded AssistModel from URI " + uri.toString());
-		
-		/* Now we can create the AssistSolver */
-		this.assistSolver = new AssistSolver(inputModel);
+		this.assistSolver = new AssistSolver(uri);
 	}
-			
-	
+
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
 		try {
 			monitor.beginTask("Solver initialization", 1);
 			assistSolver.runInitialization();
 			monitor.worked(1);
-			
+
+			if (monitor.isCanceled())
+				return Status.CANCEL_STATUS;
+
 			monitor.beginTask("Generating all constraints", 1);
 			assistSolver.runConstraintGeneration();
 			monitor.worked(1);
 
-			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
-			
+			if (monitor.isCanceled())
+				return Status.CANCEL_STATUS;
+
 			monitor.beginTask("Searching for solutions", 1);
+			GuiSolverJobCancelChecker t = new GuiSolverJobCancelChecker(monitor);
+			t.start();
+			assistSolver.setStopCriterion(t);
 			assistSolver.runSolutionSearch();
+			t.shutdown();
 			monitor.worked(1);
 			
-			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
-			
+			if (monitor.isCanceled())
+				return Status.CANCEL_STATUS;
+
 			if (assistSolver.getResults().size() > 0) {
 				monitor.beginTask("Presenting the results", 1);
 				showResults(assistSolver.getResults());
 				monitor.worked(1);
-			} 
-			else {
+			} else {
 				String message;
-				
-				if (assistSolver.hasReachedLimit()) message = "No solutions were found during the maximum allowed search time.";
-				else						  		message = "There are no solutions for this deployment specification.";
-				
+
+				if (assistSolver.hasReachedLimit())
+					message = "No solutions were found during the maximum allowed search time.";
+				else
+					message = "There are no solutions for this deployment specification.";
+
 				Display.getDefault().asyncExec(new Runnable() {
-					public void run() {MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Result", message);}
+					public void run() {
+						MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+								"Result", message);
+					}
 				});
-				
-				detailedResultsViewUiModel.indexToDrawProperty().set(-1);
-				
-				
+
+//				detailedResultsViewUiModel.indexToDrawProperty().set(-1);
+
 			}
-		}
-		catch (BasicConstraintsException e) {
+		} catch (BasicConstraintsException e) {
 			String constraintName = e.getConstraintName();
 			String message = e.getExplanation();
 			logger.info("Inconsistency found while processing constraint \"" + constraintName + "\"");
-			logger.info("\""+ message + "\"");
+			logger.info("\"" + message + "\"");
 			showMessageInUI(constraintName, message);
 			resetView();
 		}
 		return Status.OK_STATUS;
 	}
-		
+
 	private void showMessageInUI(String constraintName, String explanation) {
-		
+
 		String title = "Specification inconsistency detected";
-		String message = "Your specifications became inconsistent. A correct deployment cannot be generated.\n\n" + 
-						 "Constraints: \"" + constraintName + "\"\n\n" +
-						 explanation + "";
-				
+		String message = "Your specifications became inconsistent. A correct deployment cannot be generated.\n\n"
+				+ "Constraints: \"" + constraintName + "\"\n\n" + explanation + "";
+
 		Display.getDefault().asyncExec(new Runnable() {
-			public void run() {MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), title, message);}
+			public void run() {
+				MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), title,
+						message);
+			}
 		});
 
 	}
-	
+
 	private void resetView() {
 		if (multiPageEditor != null) {
 			Display.getDefault().asyncExec(new Runnable() {
 				@Override
-				public void run() {	multiPageEditor.resetView(); }
+				public void run() {
+					multiPageEditor.resetView();
+				}
 			});
 		}
 	}
-	
-	private void showResults(final ArrayList<Result> allResults) {		
-		
+
+	private void showResults(final ArrayList<Result> allResults) {
+
 		detailedResultsViewUiModel.setNewResultsList(allResults);
 		detailedResultsViewUiModel.indexToDrawProperty().set(0);
-		
+
 		if (multiPageEditor != null) {
 			Display.getDefault().asyncExec(new Runnable() {
 				@Override
-				public void run() {	multiPageEditor.setActiveResultPage();	}
+				public void run() {
+					multiPageEditor.setActiveResultPage();
+				}
 			});
 		}
-		
+
 	}
 
-	public void	setMaxSolutions(int maxSolutions) 			 { assistSolver.setSolverMaxSolutions(maxSolutions); 		}
-	public void	setSearchStrategy(SearchType searchStrategy) { assistSolver.setSolverSearchStrategy(searchStrategy);	}
-	public void setMaxSearchTime(long maxTimeInmsec) 		 { assistSolver.setSolverTimeLimit(maxTimeInmsec); 			}
-	public void setSavePartialSolution(boolean value)		 { assistSolver.setSavePartialSolution(value);    			}
+	public void setMaxSolutions(int maxSolutions) {
+		assistSolver.setSolverMaxSolutions(maxSolutions);
+	}
+
+	public void setSearchStrategy(VariableSelectorTypes varSelector, ValueSelectorTypes valSelector) {
+		assistSolver.setSolverSearchStrategy(varSelector, valSelector);
+	}
+
+	public void setMaxSearchTime(long maxTimeInmsec) {
+		assistSolver.setSolverTimeLimit(maxTimeInmsec);
+	}
+
+	public void setSavePartialSolution(boolean value) {
+		assistSolver.setSavePartialSolution(value);
+	}
+
+	public ArrayList<Result> getNewMappingResults() {
+		return assistSolver.getResults();
+	}
 	
-	public ArrayList<Result> getNewMappingResults()			 { return assistSolver.getResults();						}
+	public void setEnableRestarts(boolean value, int failCounter) {
+		if (value)
+			assistSolver.setEnableRestarts(failCounter);
+	}
+	
+	public void setNoGoodRecording(boolean value) {
+		if (value)
+			assistSolver.setNoGoodRecording(2); // Board level?
+	}
+	
+	public void setEnableMinimization(boolean value) {
+		if (value)
+			assistSolver.setEnableMinimization();
+	}
+	
+	public void setEnableVerboseLogging(boolean value) {
+		if (value)
+			assistSolver.setEnableVerboseLogging();
+	}
+	
+	
 }

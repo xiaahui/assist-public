@@ -1,6 +1,7 @@
 package ch.hilbri.assist.mapping.ui.handlers;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.MApplication;
@@ -95,12 +96,15 @@ public class Generate {
 
 			/* Create a new background Job for finding all solutions */
 			GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", modelURI);
-			
-			findSolutionsJob.setSearchStrategy(searchParamDlg.getSearchType());
+			findSolutionsJob.setEnableVerboseLogging(searchParamDlg.getVerboseLogging());
+			findSolutionsJob.setSearchStrategy(searchParamDlg.getVariableSelector(), searchParamDlg.getValueSelector());
 			findSolutionsJob.setMaxSolutions(searchParamDlg.getNumberOfSolutions());
 			findSolutionsJob.setMaxSearchTime(searchParamDlg.getSearchTime());
 			findSolutionsJob.setSavePartialSolution(searchParamDlg.getSavePartialSolution());
-			
+			findSolutionsJob.setEnableRestarts(searchParamDlg.getEnableRestarts(), searchParamDlg.getRestartFailCount());
+			findSolutionsJob.setNoGoodRecording(searchParamDlg.getNoGoodRecordingRDC());
+			findSolutionsJob.setEnableMinimization(searchParamDlg.getEnableMinimization());
+			findSolutionsJob.setPriority(Job.LONG);
 			findSolutionsJob.setUser(true);
 			findSolutionsJob.schedule();
 		}

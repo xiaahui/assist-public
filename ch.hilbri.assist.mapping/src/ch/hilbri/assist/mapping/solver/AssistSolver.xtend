@@ -1,80 +1,88 @@
 package ch.hilbri.assist.mapping.solver
 
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
+import ch.hilbri.assist.mapping.solver.monitors.PartialSolutionSaveMonitor
+import ch.hilbri.assist.mapping.solver.monitors.SolutionFoundMonitor
 import ch.hilbri.assist.mapping.solver.preprocessors.AbstractModelPreprocessor
+import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
+import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
+import java.util.List
+import org.chocosolver.solver.Model
+import org.chocosolver.solver.Solution
 import org.chocosolver.solver.Solver
-import org.chocosolver.solver.variables.IntVar
+import org.chocosolver.solver.search.strategy.Search
+import org.chocosolver.util.criteria.Criterion
 import org.eclipse.core.runtime.Platform
+import org.eclipse.emf.common.util.URI
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 class AssistSolver {
 	
-	private AssistModel 							model
-	private Solver 									solver
-//	private AllSolutionsRecorder 					recorder
+	private Logger 									logger
+	private boolean									verboseLogging				= false
+	
+	private URI 									modelURI
+	
+	private Model									chocoModel
+	private Solver 									chocoSolver
+	private List<Solution> 							chocoSolutions
+	
 	private SolverVariablesContainer 				solverVariables
+	private ArrayList<AbstractModelPreprocessor> 	modelPreprocessors
 	private ArrayList<AbstractMappingConstraint> 	mappingConstraintsList
 	private ArrayList<Result> 						mappingResults
-	private ArrayList<AbstractModelPreprocessor> 	modelPreprocessors
-	private Logger 									logger
+	
 	private boolean 								savePartialSolution 		= false
-//	private PartialSolutionSaveMonitor 				partialSolutionSaveMonitor
-	
-	new (AssistModel model) {
-		this.logger = LoggerFactory.getLogger(this.class)
-		this.model = model
 
-		this.modelPreprocessors = new ArrayList
-					
-		/* Create a new Solver object */
-//		this.solver = new Solver()
-		
-		/* Create a new recorder for our solutions */
-//		this.recorder = new AllSolutionsRecorder(solver)
-//		this.solver.set(recorder)
-		
-		/* Create the container for variables which are needed in the solver */
-// 		this.solverVariables = new SolverVariablesContainer(model, solver)
-		
-		/* Attach the search monitor */
-//		this.solver.searchLoop.plugSearchMonitor(new DownBranchMonitor(solverVariables))
-//		this.solver.searchLoop.plugSearchMonitor(new CloseMonitor)
-//		this.solver.searchLoop.plugSearchMonitor(new RestartMonitor)
+	private PartialSolutionSaveMonitor 				monPartialSolutionSave
+	private SolutionFoundMonitor 					monSolutionFound
+//	private FailPerPropagator 						failCounter
 	
-		/* Create an empty set of constraints that will be used */
-		this.mappingConstraintsList = new ArrayList<AbstractMappingConstraint>()
-//		this.mappingConstraintsList.add(new SystemHierarchyConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new CoreUtilizationConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new RAMUtilizationConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new ROMUtilizationConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new NoPermutationsConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new AllApplicationThreadsOnSameBoard(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new IOAdapterConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new DesignAssuranceLevelConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new RestrictedDeploymentConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new ApplicationProximityConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new DislocalityConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new DissimilarityConstraint(model, solver, solverVariables))
-//		this.mappingConstraintsList.add(new NetworkConstraints(model, solver, solverVariables))
+	new (URI uri) {
+		logger 				= LoggerFactory.getLogger(this.class)
+
+		logger.info('''******************************''')
+		logger.info('''        ASSIST Solver         ''')
+		logger.info('''******************************''')
+
+		/* Do not print something our, if we are on the CLI */		
+		if (Platform.getBundle("ch.hilbri.assist.gui") != null) {
+			logger.info('''    Version : «Platform.getBundle("ch.hilbri.assist.gui").getHeaders().get("Bundle-Version")» ''')
+			logger.info('''    Platform: «System.getProperty("os.name") + " " + System.getProperty("sun.arch.data.model") + "bit"»''')
+			logger.info('''******************************''')
+		}
 		
+		modelURI 			= uri
+		modelPreprocessors 	= newArrayList
+		
+		chocoModel 			= new Model("ASSIST")
+		chocoSolver			= chocoModel.solver
+		chocoSolutions		= newArrayList
+		
+		solverVariables		= new SolverVariablesContainer(modelURI, chocoModel)
+		
+		mappingConstraintsList = newArrayList
+	
+		/* The identical solution for all variables should not be found twice */
+		chocoModel.solver.noGoodRecordingFromSolutions = solverVariables.allLocationVariables
+		
+		/* Attach the search monitors */
+		chocoSolver.plugMonitor(monSolutionFound = new SolutionFoundMonitor)
 		
 		/* Create a list for the results */ 
-		this.mappingResults = new ArrayList<Result>()  
+		mappingResults = newArrayList  
 	}	
 	
 	def setSavePartialSolution(boolean value) {
-		this.savePartialSolution = value
-		
+		savePartialSolution = value
 		if (value) {
 			logger.info("Enabled saving of partial solutions if no solutions are found")
-//			this.partialSolutionSaveMonitor = new PartialSolutionSaveMonitor(solver, solverVariables)
-//			this.solver.searchLoop.plugSearchMonitor(partialSolutionSaveMonitor)		
+			chocoSolver.plugMonitor(monPartialSolutionSave = new PartialSolutionSaveMonitor(chocoModel, solverVariables))
 		}
 		else {
 			logger.info("Disabled saving of partial solutions if no solutions are found")
@@ -82,71 +90,74 @@ class AssistSolver {
 	}
 
 	def setSolverTimeLimit(long timeInMs) {
-//		SMF.limitTime(solver, timeInMs);
-		logger.info("Setting choco-solver search time limit to " + timeInMs + "ms");
+		logger.info("Setting choco-solver search time limit to " + timeInMs + "ms")
+		chocoSolver.limitTime(timeInMs)
 	}
 	
 	def setSolverMaxSolutions(int maxSolutions) {
-		logger.info("Setting choco-solver max solutions limit to " + maxSolutions);
-//		SMF.limitSolution(solver, maxSolutions);
+		logger.info("Setting choco-solver max solutions limit to " + maxSolutions)
+		chocoSolver.limitSolution(maxSolutions)
 	}
 	
-	def setSolverSearchStrategy(SearchType strategy) {
-//		val List<AbstractStrategy<IntVar>> heuristics = new ArrayList<AbstractStrategy<IntVar>>
-//		val seed = 23432
-//		val vars = solverVariables.locationVariables
-//		
-		logger.info("Setting choco-solver search strategy to '" + strategy.humanReadableName + "'")
+	def setSolverSearchStrategy(VariableSelectorTypes varSelector, ValueSelectorTypes valSelector) {
+		val seed = 12345 // Calendar.instance.timeInMillis 
 		
-//		switch (strategy) {
-//			case SearchType.RANDOM: {
-//				heuristics.add(ISF.custom(ISF.random_var_selector(0), ISF.random_value_selector(0), vars))
-//			}
-//			case SearchType.MIN_DOMAIN_FIRST: {
-//				heuristics.add(ISF.minDom_LB(vars))
-//			}
-//			case SearchType.DOM_OVER_WDEG: {
-//				val valueChooser = ISF.min_value_selector
-//				heuristics.add(ISF.domOverWDeg(vars, seed, valueChooser))
-//			}
-//			case SearchType.ACTIVITY: {
-//				heuristics.add(ISF.activity(vars, seed))
-//				solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(solverVariables.getLocationVariables()))
-//			}
-//			case SearchType.IMPACT: { // possibly broken
-//				heuristics.add(ISF.impact(vars, seed))
-//			}
-//		}
-//		if (strategy != SearchType.ACTIVITY) {
-//			solver.searchLoop.plugSearchMonitor(new SolutionFoundMonitor(null))
-//		}
-//		solver.set(heuristics)
+		logger.info('''Setting interface selection strategy to: "«varSelector.humanReadableName»"''')
+		if (varSelector.isValueSelectorRequired)
+			logger.info('''Setting connector selection strategy to: "«valSelector.humanReadableName»"''')
+
+		val strategy = varSelector.getStrategy(solverVariables, modelURI, seed, valSelector)
+
+		// Set the search strategy
+		chocoSolver.setSearch(
+			strategy,
+			Search.lastConflict(strategy)
+		)
 	}
-
-
+	
+	def setEnableVerboseLogging() {
+		verboseLogging = true
+	}
+	
+	def setEnableRestarts(int maxFailCount) {
+		logger.info('''Enabling a restart after each solution and after «maxFailCount» fails''')
+		// Trigger a restart after each solution
+		// Trigger a restart after X Fails (X = 100)
+//		chocoSolver.setGeometricalRestart(1, 1, new SolutionCounter(chocoModel, 1), Integer.MAX_VALUE)
+		// TODO check if set adds or replaces
+//		chocoSolver.setGeometricalRestart(maxFailCount, 1, new FailCounter(chocoModel, 1), Integer.MAX_VALUE)
+	}
+	
+	/**
+	 * This may be posted in addition to the SMF.nogoodrecording from above to
+	 * prevent symmetric solutions on the RDC-level (or other levels)
+	 */
+	def setNoGoodRecording(int level) {
+		logger.info('''Enforcing different solutions on «level»-level''')
+		chocoSolver.noGoodRecordingFromSolutions = solverVariables.getLocationVariablesForLevel(level)
+	}
+	
+	def setEnableMinimization() {
+//		if (dataModel.globalBlock.cableWeightDataBlock == null) {
+//			logger.info('''Disabling selected minimization because of missing cable weight data in the input''')
+//		} else {
+//			logger.info('''Enabling minimization of cable weight during search''')
+//			mappingConstraintsList.add(new ObjectiveFunctionConstraint(dataModel, chocoModel, solverVariables))
+//			enableMinimization = true
+//		}
+	}
+	
+	
+	
 	def runInitialization() {
-		
-		logger.info('''******************************''')
-		logger.info(''' Executing a new AssistSolver''')
-		logger.info('''******************************''')
-		
-		if (Platform.getBundle("ch.hilbri.assist.application") != null) {
-			logger.info('''    Version : «Platform.getBundle("ch.hilbri.assist.application").getHeaders().get("Bundle-Version")» ''')
-			logger.info('''    Platform: «System.getProperty("os.name") + " " + System.getProperty("sun.arch.data.model") + "bit"»''')
-			logger.info('''******************************''')
-		}
-		
-		logger.info("Running pre-processors")
-		for (p : this.modelPreprocessors) { 
+		logger.info("Running pre-processors ... ")
+		for (p : this.modelPreprocessors)  
 			logger.info(" - Processing " + p.name)
-			if (!p.execute) {
-				logger.info('''      There is nothing to be done.''')
-			}
-		}
+		logger.info(".. done")
 	}
 	
 	def runConstraintGeneration() throws BasicConstraintsException {
-		logger.info("Starting to generate constraints for the choco-solver")
+		logger.info("Starting to generate constraints for the choco-solver ...")
 
 //		for (constraint : mappingConstraintsList) {
 //			logger.info(''' - Starting to generate constraints for "«constraint.name»"...''')
@@ -157,7 +168,8 @@ class AssistSolver {
 //		}
 //		val vars = solverVariables.locationVariables
 //		logger.info('''After initial propagation:''') 
-//		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location variables instantiated''') 
+//		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location variables instantiated''')
+		logger.info("... done") 
 	}
 	
 	def runSolutionSearch() throws BasicConstraintsException {
@@ -197,12 +209,15 @@ class AssistSolver {
 		true
 	}
 
-	// the following methods are for the tests only
-	def IntVar[] getLocationVariables() { 
-		solverVariables.getLocationVariables()
+	def setStopCriterion(Criterion c) {
+		chocoSolver.addStopCriterion(c)
 	}
 
-	def Solver getChocoSolver() 		{ 
-		solver
-	}
+
+//	// the following methods are for the tests only
+//	def IntVar[] getLocationVariables() { 
+//		solverVariables.getLocationVariables()
+//	}
+//
+
 }
