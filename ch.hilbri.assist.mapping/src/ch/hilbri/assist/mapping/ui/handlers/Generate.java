@@ -73,7 +73,7 @@ public class Generate {
 		}
 
 		/* Reset the views */
-		multipageEditor.resetView();
+//		multipageEditor.resetView();
 		
 		/* Retrieve the URI from the current model */
 		URI modelURI = xtextEditor.getDocument().priorityReadOnly(new IUnitOfWork<URI, XtextResource>() {
