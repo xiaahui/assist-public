@@ -7,12 +7,16 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ch.hilbri.assist.mapping.model.AssistModel;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes;
@@ -25,9 +29,15 @@ public class GuiSolverJob extends Job {
 	private MultiPageEditor multiPageEditor;
 	private Logger logger = LoggerFactory.getLogger(GuiSolverJob.class);
 
-	public GuiSolverJob(String name, URI uri) {
+	public GuiSolverJob(String name, URI modelURI) {
 		super(name);
-		this.assistSolver = new AssistSolver(uri);
+		/* Load the model from the URI */
+		ResourceSet rs = new ResourceSetImpl();
+		Resource resource = rs.getResource(modelURI, true);
+		AssistModel assistModel = (AssistModel) resource.getContents().get(0);
+		
+		/* Create the ASSIST Solver */
+		assistSolver = new AssistSolver(assistModel);
 	}
 
 	@Override
@@ -37,15 +47,13 @@ public class GuiSolverJob extends Job {
 			assistSolver.runInitialization();
 			monitor.worked(1);
 
-			if (monitor.isCanceled())
-				return Status.CANCEL_STATUS;
+			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
 
 			monitor.beginTask("Generating all constraints", 1);
 			assistSolver.runConstraintGeneration();
 			monitor.worked(1);
 
-			if (monitor.isCanceled())
-				return Status.CANCEL_STATUS;
+			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
 
 			monitor.beginTask("Searching for solutions", 1);
 			GuiSolverJobCancelChecker t = new GuiSolverJobCancelChecker(monitor);
@@ -55,16 +63,17 @@ public class GuiSolverJob extends Job {
 			t.shutdown();
 			monitor.worked(1);
 			
-			if (monitor.isCanceled())
-				return Status.CANCEL_STATUS;
+			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
 
 			assistSolver.createSolutions();
 			
 			if (assistSolver.getResults().size() > 0) {
 				monitor.beginTask("Presenting the results", 1);
-				showResults(assistSolver.getResults());
+				multiPageEditor.setResultsList(assistSolver.getResults());
 				monitor.worked(1);
-			} else {
+			} 
+			
+			else {
 				String message;
 
 				if (assistSolver.hasReachedLimit())
@@ -78,9 +87,6 @@ public class GuiSolverJob extends Job {
 								"Result", message);
 					}
 				});
-
-//				detailedResultsViewUiModel.indexToDrawProperty().set(-1);
-
 			}
 		} catch (BasicConstraintsException e) {
 			String constraintName = e.getConstraintName();
@@ -95,9 +101,9 @@ public class GuiSolverJob extends Job {
 
 	private void showMessageInUI(String constraintName, String explanation) {
 
-		String title = "Specification inconsistency detected";
-		String message = "Your specifications became inconsistent. A correct deployment cannot be generated.\n\n"
-				+ "Constraints: \"" + constraintName + "\"\n\n" + explanation + "";
+		String title 	= "Specification inconsistency detected";
+		String message 	= "Your specifications became inconsistent. A correct deployment cannot be generated.\n\n"
+							+ "Constraints: \"" + constraintName + "\"\n\n" + explanation + "";
 
 		Display.getDefault().asyncExec(new Runnable() {
 			public void run() {
@@ -117,22 +123,6 @@ public class GuiSolverJob extends Job {
 				}
 			});
 		}
-	}
-
-	private void showResults(final ArrayList<Result> allResults) {
-
-//		detailedResultsViewUiModel.setNewResultsList(allResults);
-//		detailedResultsViewUiModel.indexToDrawProperty().set(0);
-//
-//		if (multiPageEditor != null) {
-//			Display.getDefault().asyncExec(new Runnable() {
-//				@Override
-//				public void run() {
-////					multiPageEditor.setActiveResultPage();
-//				}
-//			});
-//		}
-
 	}
 
 	public void setMaxSolutions(int maxSolutions) {

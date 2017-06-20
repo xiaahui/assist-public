@@ -233,7 +233,7 @@ public interface ResultPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Task2 Core Map Type</em>'.
 	 * @see java.util.Map
-	 * @model instanceClass="java.util.Map<java.lang.Integer, java.lang.Integer>"
+	 * @model instanceClass="java.util.Map<ch.hilbri.assist.mapping.model.Task, ch.hilbri.assist.mapping.model.Core>"
 	 * @generated
 	 */
 	EDataType getTask2CoreMapType();

@@ -7,8 +7,6 @@ import java.util.List
 import java.util.Map
 import org.chocosolver.solver.Model
 import org.chocosolver.solver.variables.IntVar
-import org.eclipse.emf.common.util.URI
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtend.lib.annotations.Data
 
@@ -21,22 +19,17 @@ import org.eclipse.xtend.lib.annotations.Data
 	@Accessors(NONE) private Map<IntVar, String>		locationVariableToTaskMap = new HashMap
 	
 	/* CONSTRUCTOR */
-	new(URI modelURI, Model solverModel) {
-		
-		/* Load model from URI */
-		val rs = new ResourceSetImpl
-		val resource = rs.getResource(modelURI, true)
-		val inputModel = resource.getContents().get(0) as AssistModel
+	new(AssistModel assistModel, Model solverModel) {
 		
 		/* Initialize the hash map for all task-related location variables */
-		for (t : inputModel.allTasks) {
+		for (t : assistModel.allTasks) {
 
 			/* Create the location variables for each task */			
-			val locVarCore = solverModel.intVar(t.name + "-L0", 0, inputModel.allCores.length-1, false)
-			val locVarProc = solverModel.intVar(t.name + "-L1", 0, inputModel.allProcessors.length-1, false)
-			val locVarBoard = solverModel.intVar(t.name + "-L2", 0, inputModel.allBoards.length-1, false)
-			val locVarBox = solverModel.intVar(t.name + "-L3", 0, inputModel.allBoxes.length-1, false)
-			val locVarComp = solverModel.intVar(t.name + "-L4", 0, inputModel.allCompartments.length-1, false)
+			val locVarCore = solverModel.intVar(t.name + "-L0", 0, assistModel.allCores.length-1, false)
+			val locVarProc = solverModel.intVar(t.name + "-L1", 0, assistModel.allProcessors.length-1, false)
+			val locVarBoard = solverModel.intVar(t.name + "-L2", 0, assistModel.allBoards.length-1, false)
+			val locVarBox = solverModel.intVar(t.name + "-L3", 0, assistModel.allBoxes.length-1, false)
+			val locVarComp = solverModel.intVar(t.name + "-L4", 0, assistModel.allCompartments.length-1, false)
 			
 			/* Store these variables in the maps for easy retrieval later */
 			taskToLocationVariablesMap.put(t.name, #[locVarCore,locVarProc, locVarBoard, locVarBox, locVarComp])
@@ -64,7 +57,6 @@ import org.eclipse.xtend.lib.annotations.Data
 	def IntVar[] getLocationVariablesForTask(Task task) {
 		taskToLocationVariablesMap.get(task.name)
 	}
-	
 
  }
   

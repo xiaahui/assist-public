@@ -1,5 +1,6 @@
 package ch.hilbri.assist.mapping.solver
 
+import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
@@ -18,16 +19,15 @@ import org.chocosolver.solver.Solver
 import org.chocosolver.solver.search.strategy.Search
 import org.chocosolver.util.criteria.Criterion
 import org.eclipse.core.runtime.Platform
-import org.eclipse.emf.common.util.URI
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 class AssistSolver {
 	
-	private Logger 									logger
+	private Logger 									logger						= LoggerFactory.getLogger(this.class)
 	private boolean									verboseLogging				= false
 	
-	private URI 									modelURI
+	private AssistModel								assistModel
 	
 	private Model									chocoModel
 	private Solver 									chocoSolver
@@ -44,8 +44,7 @@ class AssistSolver {
 	private SolutionFoundMonitor 					monSolutionFound
 //	private FailPerPropagator 						failCounter
 	
-	new (URI uri) {
-		logger 				= LoggerFactory.getLogger(this.class)
+	new (AssistModel input) {
 
 		logger.info('''******************************''')
 		logger.info('''        ASSIST Solver         ''')
@@ -57,26 +56,24 @@ class AssistSolver {
 			logger.info('''    Platform: «System.getProperty("os.name") + " " + System.getProperty("sun.arch.data.model") + "bit"»''')
 			logger.info('''******************************''')
 		}
+
+
+		chocoModel 				= new Model("ASSIST")
+		chocoSolver				= chocoModel.solver
+		chocoSolutions			= newArrayList
+
+		assistModel				= input
+		modelPreprocessors 		= newArrayList
+		mappingConstraintsList 	= newArrayList
+		solverVariables			= new SolverVariablesContainer(assistModel, chocoModel)
+		mappingResults 			= newArrayList  
 		
-		modelURI 			= uri
-		modelPreprocessors 	= newArrayList
-		
-		chocoModel 			= new Model("ASSIST")
-		chocoSolver			= chocoModel.solver
-		chocoSolutions		= newArrayList
-		
-		solverVariables		= new SolverVariablesContainer(modelURI, chocoModel)
-		
-		mappingConstraintsList = newArrayList
-	
 		/* The identical solution for all variables should not be found twice */
+		/* FIXME: We should consolidate all solver sources into a single plugin */
 //		chocoModel.solver.noGoodRecordingFromSolutions = solverVariables.allLocationVariables
 		
 		/* Attach the search monitors */
 		chocoSolver.plugMonitor(monSolutionFound = new SolutionFoundMonitor)
-		
-		/* Create a list for the results */ 
-		mappingResults = newArrayList  
 	}	
 	
 	def setSavePartialSolution(boolean value) {
@@ -107,7 +104,7 @@ class AssistSolver {
 		if (varSelector.isValueSelectorRequired)
 			logger.info('''Setting connector selection strategy to: "«valSelector.humanReadableName»"''')
 
-		val strategy = varSelector.getStrategy(solverVariables, modelURI, seed, valSelector)
+		val strategy = varSelector.getStrategy(solverVariables, assistModel, seed, valSelector)
 
 		// Set the search strategy
 		chocoSolver.setSearch(
@@ -194,7 +191,7 @@ class AssistSolver {
 
 		// Did we find a solution? 
 		if (chocoSolutions.size > 0) {
-			mappingResults = ResultFactoryFromSolverSolutions.create(modelURI, solverVariables, chocoSolutions)
+			mappingResults = ResultFactoryFromSolverSolutions.create(assistModel, solverVariables, chocoSolutions)
 			logger.debug('''Results created:  «mappingResults.size»''')
 		} // We found no solution
 		else {

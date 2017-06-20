@@ -1,5 +1,7 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor;
 
+import java.util.List;
+
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.ErrorDialog;
@@ -13,12 +15,15 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 import com.google.inject.Injector;
 
 import ch.hilbri.assist.mapping.dsl.ui.internal.DslActivator;
+import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.ui.multipageeditor.results.DetailedResults;
 
 public class MultiPageEditor extends MultiPageEditorPart {
 
 	/** The text editor used in page 0. */
 	private XtextEditor editor;
+	
+	private List<Result> mappingResults;
 	
 	/**
 	 * Creates page 0 of the multi-page editor, which contains a Xtext editor.
@@ -84,5 +89,13 @@ public class MultiPageEditor extends MultiPageEditorPart {
 	@Override
 	public boolean isSaveAsAllowed() {
 		return true;
+	}
+	
+	public void setResultsList(List<Result> l) {
+		mappingResults = l;
+	}
+	
+	public List<Result> getResultsList() {
+		return mappingResults;
 	}
 }

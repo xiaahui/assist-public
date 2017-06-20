@@ -8,8 +8,8 @@ import org.chocosolver.solver.search.strategy.selectors.values.IntDomainMax;
 import org.chocosolver.solver.search.strategy.selectors.values.IntDomainMin;
 import org.chocosolver.solver.search.strategy.selectors.values.IntDomainRandom;
 import org.chocosolver.solver.search.strategy.selectors.values.IntValueSelector;
-import org.eclipse.emf.common.util.URI;
 
+import ch.hilbri.assist.mapping.model.AssistModel;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 
 public enum ValueSelectorTypes {
@@ -43,7 +43,7 @@ public enum ValueSelectorTypes {
 	public String getCliArgumentName()				{ return cliArgumentName;			}
 	public boolean isDefault()						{ return isDefault;					}
 	
-	public IntValueSelector getValueSector(SolverVariablesContainer solverVariables, URI modelURI, long randomSeed) { 
+	public IntValueSelector getValueSector(SolverVariablesContainer solverVariables, AssistModel assistModel, long randomSeed) { 
 		switch (this) {
 			case MIN_VALUE_FIRST:										return new IntDomainMin();
 			case MAX_VALUE_FIRST:										return new IntDomainMax();

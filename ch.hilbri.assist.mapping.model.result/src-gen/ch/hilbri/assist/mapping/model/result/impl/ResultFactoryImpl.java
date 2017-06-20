@@ -2,6 +2,9 @@
  */
 package ch.hilbri.assist.mapping.model.result.impl;
 
+import ch.hilbri.assist.mapping.model.Core;
+import ch.hilbri.assist.mapping.model.Task;
+
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultFactory;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
@@ -113,8 +116,8 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public Map<Integer, Integer> createTask2CoreMapTypeFromString(EDataType eDataType, String initialValue) {
-		return (Map<Integer, Integer>)super.createFromString(initialValue);
+	public Map<Task, Core> createTask2CoreMapTypeFromString(EDataType eDataType, String initialValue) {
+		return (Map<Task, Core>)super.createFromString(initialValue);
 	}
 
 	/**

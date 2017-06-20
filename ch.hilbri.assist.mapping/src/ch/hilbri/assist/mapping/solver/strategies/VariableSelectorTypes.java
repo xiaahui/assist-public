@@ -12,8 +12,8 @@ import org.chocosolver.solver.search.strategy.selectors.variables.ImpactBased;
 import org.chocosolver.solver.search.strategy.selectors.variables.Random;
 import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy;
 import org.chocosolver.solver.variables.IntVar;
-import org.eclipse.emf.common.util.URI;
 
+import ch.hilbri.assist.mapping.model.AssistModel;
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer;
 
 public enum VariableSelectorTypes {
@@ -48,13 +48,13 @@ public enum VariableSelectorTypes {
 	public boolean isDefault()						{ return isDefault;					}
 	public boolean isValueSelectorRequired()		{ return isValueSelectorRequired;	}
 	
-	public AbstractStrategy<IntVar> getStrategy(SolverVariablesContainer solverVariables, URI modelURI, long seed, ValueSelectorTypes valSelector) {
+	public AbstractStrategy<IntVar> getStrategy(SolverVariablesContainer solverVariables, AssistModel assistModel, long seed, ValueSelectorTypes valSelector) {
 		IntVar[] vars = solverVariables.getLocationVariablesForCoreLevel();
 		
 		switch (this) {
-			case DOM_OVER_WDEG:			return new DomOverWDeg(vars, seed, valSelector.getValueSector(solverVariables, modelURI, seed));
-			case RANDOM:				return Search.intVarSearch(new Random<>(seed), valSelector.getValueSector(solverVariables, modelURI, seed), vars);
-			case MIN_DOMAIN_FIRST:		return Search.intVarSearch(new FirstFail(vars[0].getModel()), valSelector.getValueSector(solverVariables, modelURI, seed), vars);
+			case DOM_OVER_WDEG:			return new DomOverWDeg(vars, seed, valSelector.getValueSector(solverVariables, assistModel, seed));
+			case RANDOM:				return Search.intVarSearch(new Random<>(seed), valSelector.getValueSector(solverVariables, assistModel, seed), vars);
+			case MIN_DOMAIN_FIRST:		return Search.intVarSearch(new FirstFail(vars[0].getModel()), valSelector.getValueSector(solverVariables, assistModel, seed), vars);
 			case ACTIVITY:				return Search.activityBasedSearch(vars);
 			case IMPACT:				return new ImpactBased(vars, false); 
 		}
