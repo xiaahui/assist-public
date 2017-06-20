@@ -3,8 +3,6 @@
 package ch.hilbri.assist.mapping.model.result.impl;
 
 import ch.hilbri.assist.mapping.model.AssistModel;
-import ch.hilbri.assist.mapping.model.Core;
-import ch.hilbri.assist.mapping.model.Task;
 
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
@@ -74,7 +72,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @generated
 	 * @ordered
 	 */
-	protected Map<Task, Core> task2CoreMap;
+	protected Map<Integer, Integer> task2CoreMap;
 
 	/**
 	 * The default value of the '{@link #isPartialSolution() <em>Partial Solution</em>}' attribute.
@@ -179,7 +177,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Map<Task, Core> getTask2CoreMap() {
+	public Map<Integer, Integer> getTask2CoreMap() {
 		return task2CoreMap;
 	}
 
@@ -188,8 +186,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTask2CoreMap(Map<Task, Core> newTask2CoreMap) {
-		Map<Task, Core> oldTask2CoreMap = task2CoreMap;
+	public void setTask2CoreMap(Map<Integer, Integer> newTask2CoreMap) {
+		Map<Integer, Integer> oldTask2CoreMap = task2CoreMap;
 		task2CoreMap = newTask2CoreMap;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__TASK2_CORE_MAP, oldTask2CoreMap, task2CoreMap));
@@ -253,7 +251,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				setModel((AssistModel)newValue);
 				return;
 			case ResultPackage.RESULT__TASK2_CORE_MAP:
-				setTask2CoreMap((Map<Task, Core>)newValue);
+				setTask2CoreMap((Map<Integer, Integer>)newValue);
 				return;
 			case ResultPackage.RESULT__PARTIAL_SOLUTION:
 				setPartialSolution((Boolean)newValue);
@@ -277,7 +275,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				setModel((AssistModel)null);
 				return;
 			case ResultPackage.RESULT__TASK2_CORE_MAP:
-				setTask2CoreMap((Map<Task, Core>)null);
+				setTask2CoreMap((Map<Integer, Integer>)null);
 				return;
 			case ResultPackage.RESULT__PARTIAL_SOLUTION:
 				setPartialSolution(PARTIAL_SOLUTION_EDEFAULT);

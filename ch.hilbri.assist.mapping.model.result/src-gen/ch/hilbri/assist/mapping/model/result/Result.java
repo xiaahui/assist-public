@@ -3,8 +3,6 @@
 package ch.hilbri.assist.mapping.model.result;
 
 import ch.hilbri.assist.mapping.model.AssistModel;
-import ch.hilbri.assist.mapping.model.Core;
-import ch.hilbri.assist.mapping.model.Task;
 
 import java.util.Map;
 
@@ -96,7 +94,7 @@ public interface Result extends EObject {
 	 * @model unique="false" dataType="ch.hilbri.assist.mapping.model.result.Task2CoreMapType"
 	 * @generated
 	 */
-	Map<Task, Core> getTask2CoreMap();
+	Map<Integer, Integer> getTask2CoreMap();
 
 	/**
 	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.Result#getTask2CoreMap <em>Task2 Core Map</em>}' attribute.
@@ -106,7 +104,7 @@ public interface Result extends EObject {
 	 * @see #getTask2CoreMap()
 	 * @generated
 	 */
-	void setTask2CoreMap(Map<Task, Core> value);
+	void setTask2CoreMap(Map<Integer, Integer> value);
 
 	/**
 	 * Returns the value of the '<em><b>Partial Solution</b></em>' attribute.
