@@ -9,15 +9,16 @@ import org.chocosolver.solver.Model
 import org.chocosolver.solver.variables.IntVar
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtend.lib.annotations.Data
 
 @Data class SolverVariablesContainer {
 	
 	/** A map with the tasks as keys and the list of location variables as values */
-	private Map<Task, List<IntVar>>	taskToLocationVariablesMap = new HashMap
+	@Accessors(NONE) private Map<String, List<IntVar>>	taskToLocationVariablesMap = new HashMap
 	
 	/** A map with the task for each locationVariable */
-	private Map<IntVar, Task> 		locationVariableToTaskMap = new HashMap
+	@Accessors(NONE) private Map<IntVar, String>		locationVariableToTaskMap = new HashMap
 	
 	/* CONSTRUCTOR */
 	new(URI modelURI, Model solverModel) {
@@ -38,12 +39,13 @@ import org.eclipse.xtend.lib.annotations.Data
 			val locVarComp = solverModel.intVar(t.name + "-L4", 0, inputModel.allCompartments.length-1, false)
 			
 			/* Store these variables in the maps for easy retrieval later */
-			taskToLocationVariablesMap.put(t, #[locVarCore,locVarProc, locVarBoard, locVarBox, locVarComp])
-			locationVariableToTaskMap.put(locVarCore, t)
-			locationVariableToTaskMap.put(locVarProc, t)
-			locationVariableToTaskMap.put(locVarBoard, t)
-			locationVariableToTaskMap.put(locVarBox, t)
-			locationVariableToTaskMap.put(locVarComp, t)
+			taskToLocationVariablesMap.put(t.name, #[locVarCore,locVarProc, locVarBoard, locVarBox, locVarComp])
+			
+			locationVariableToTaskMap.put(locVarCore, t.name)
+			locationVariableToTaskMap.put(locVarProc, t.name)
+			locationVariableToTaskMap.put(locVarBoard, t.name)
+			locationVariableToTaskMap.put(locVarBox, t.name)
+			locationVariableToTaskMap.put(locVarComp, t.name)
 		}
 	}
 	
@@ -58,4 +60,11 @@ import org.eclipse.xtend.lib.annotations.Data
 	def IntVar[] getLocationVariablesForCoreLevel() {
 		getLocationVariablesForLevel(0)
 	}
-}
+	
+	def IntVar[] getLocationVariablesForTask(Task task) {
+		taskToLocationVariablesMap.get(task.name)
+	}
+	
+
+ }
+  

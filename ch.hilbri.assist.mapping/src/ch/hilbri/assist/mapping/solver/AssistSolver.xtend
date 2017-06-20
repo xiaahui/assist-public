@@ -1,6 +1,7 @@
 package ch.hilbri.assist.mapping.solver
 
 import ch.hilbri.assist.mapping.model.result.Result
+import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.PartialSolutionSaveMonitor
@@ -69,7 +70,7 @@ class AssistSolver {
 		mappingConstraintsList = newArrayList
 	
 		/* The identical solution for all variables should not be found twice */
-		chocoModel.solver.noGoodRecordingFromSolutions = solverVariables.allLocationVariables
+//		chocoModel.solver.noGoodRecordingFromSolutions = solverVariables.allLocationVariables
 		
 		/* Attach the search monitors */
 		chocoSolver.plugMonitor(monSolutionFound = new SolutionFoundMonitor)
@@ -124,7 +125,6 @@ class AssistSolver {
 		// Trigger a restart after each solution
 		// Trigger a restart after X Fails (X = 100)
 //		chocoSolver.setGeometricalRestart(1, 1, new SolutionCounter(chocoModel, 1), Integer.MAX_VALUE)
-		// TODO check if set adds or replaces
 //		chocoSolver.setGeometricalRestart(maxFailCount, 1, new FailCounter(chocoModel, 1), Integer.MAX_VALUE)
 	}
 	
@@ -134,7 +134,7 @@ class AssistSolver {
 	 */
 	def setNoGoodRecording(int level) {
 		logger.info('''Enforcing different solutions on «level»-level''')
-		chocoSolver.noGoodRecordingFromSolutions = solverVariables.getLocationVariablesForLevel(level)
+//		chocoSolver.noGoodRecordingFromSolutions = solverVariables.getLocationVariablesForLevel(level)
 	}
 	
 	def setEnableMinimization() {
@@ -159,51 +159,67 @@ class AssistSolver {
 	def runConstraintGeneration() throws BasicConstraintsException {
 		logger.info("Starting to generate constraints for the choco-solver ...")
 
-//		for (constraint : mappingConstraintsList) {
-//			logger.info(''' - Starting to generate constraints for "«constraint.name»"...''')
-//			if (!constraint.generate()) {
-//	            logger.info('''      No effective constraints found''')
-//            }
-//			logger.info('''   done.''')
-//		}
-//		val vars = solverVariables.locationVariables
-//		logger.info('''After initial propagation:''') 
-//		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location variables instantiated''')
+		for (constraint : mappingConstraintsList) {
+			logger.info(''' - Starting to generate constraints for "«constraint.name»"...''')
+			if (!constraint.generate()) {
+	            logger.info('''      No effective constraints found''')
+            }
+			logger.info('''   done.''')
+		}
+		val vars = solverVariables.locationVariablesForCoreLevel
+		logger.info('''After initial propagation:''') 
+		logger.info('''      «vars.filter[instantiated].size» / «vars.size» location variables instantiated''')
 		logger.info("... done") 
 	}
 	
 	def runSolutionSearch() throws BasicConstraintsException {
 		logger.info("Starting to search for solutions")
 		
-//		// Clear old results
-//		mappingResults.clear
-//		
-//		logger.info("Initiating choco-solver - searching for a solution")
-//		solver.findAllSolutions
-//		
-//		logger.info('''Solutions found: «recorder.solutions.size»''') 
-//		
-//		logger.info('''Internal solver statistics: «solver.measures.toOneLineString»''')
-//			
-//		if (solver.hasReachedLimit)
-//			logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)")
-//
-//		// Did we find a solution? 
-//		if (recorder.solutions.size > 0) {
-//			mappingResults = ResultFactoryFromSolverSolutions.create(model, solverVariables, recorder.getSolutions)
-//			logger.info('''Results created:  «mappingResults.size»''')
-//		} 
-//		
-//		// should we save a partial solution?
-//		else if (savePartialSolution) {
-//			mappingResults = ResultFactoryFromSolverSolutions.createPartialResult(model, solverVariables, partialSolutionSaveMonitor.partialSolution)			
-//			logger.info('''Created �mappingResults.size� partial solution''')
-//		} 
+		// Clear old results
+		mappingResults.clear
+		
+		logger.info("Initiating choco-solver - searching for a solution")
+		chocoSolutions = chocoSolver.findAllSolutions()
+		
+		logger.info('''Search results ''')
+		logger.info('''  - Solutions found: «chocoSolutions.size»''')
+		
+		logger.debug('''Internal solver statistics: «chocoSolver.measures.toOneLineString»''')
+	}
+	
+	
+	def createSolutions() {
+		if (chocoSolver.stopCriterionMet) 
+			logger.info("Solver reached a limit (max. number of solutions or max. allowed search time)")
+
+		// Did we find a solution? 
+		if (chocoSolutions.size > 0) {
+			mappingResults = ResultFactoryFromSolverSolutions.create(modelURI, solverVariables, chocoSolutions)
+			logger.debug('''Results created:  «mappingResults.size»''')
+		} // We found no solution
+		else {
+
+			// Is there no solution at all? The solver must not have reached a pre-defined limit then
+			if (!chocoSolver.stopCriterionMet) {
+				logger.info("Solver searched through the entire search space without reaching a limit.")
+				logger.info("There is no solution for this specification")
+			}
+
+			// Should we at least save a partial solution?
+			if (savePartialSolution) {
+//				mappingResults = ResultFactoryFromSolverSolutions.createPartialResult(dataModel, solverVariables,
+//					partialSolutionSaveMonitor.partialSolution)
+//				logger.
+//					info('''Created «mappingResults.size» partial solution with «mappingResults.get(0).mapping.keySet.size» mapped interfaces''')
+			}
+
+		}
 	}
 	
 	def ArrayList<Result> getResults() 	{ 
 		mappingResults
 	}
+	
 	def hasReachedLimit() 				{ 
 //		solver.hasReachedLimit
 		true

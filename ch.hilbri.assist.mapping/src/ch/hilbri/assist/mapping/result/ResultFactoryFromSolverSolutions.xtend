@@ -1,267 +1,53 @@
 package ch.hilbri.assist.mapping.result
 
 import ch.hilbri.assist.mapping.model.AssistModel
-import ch.hilbri.assist.mapping.model.Board
-import ch.hilbri.assist.mapping.model.result.Application
-import ch.hilbri.assist.mapping.model.result.ApplicationGroup
-import ch.hilbri.assist.mapping.model.result.Box
-import ch.hilbri.assist.mapping.model.result.Compartment
-import ch.hilbri.assist.mapping.model.result.Core
-import ch.hilbri.assist.mapping.model.result.IOAdapter
-import ch.hilbri.assist.mapping.model.result.Processor
 import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.model.result.ResultFactory
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.HashMap
 import java.util.List
-import java.util.Map
 import org.chocosolver.solver.Solution
-import org.chocosolver.solver.variables.IntVar
-import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 class ResultFactoryFromSolverSolutions {
 	
-	static ResultFactory f
+	private static Logger logger = LoggerFactory.getLogger(ResultFactoryFromSolverSolutions)
 
-	static private def fillApplicationGroupMembers(ch.hilbri.assist.mapping.model.ApplicationGroup modelAppGroup, Result result) {
-		
-		val appGroup = result.findResultApplicationGroup(modelAppGroup)
-		if (appGroup == null) return;
-		
-		for (aog : modelAppGroup.applicationsOrGroups)
-			switch aog {
-				ch.hilbri.assist.mapping.model.Application 		: appGroup.applications.add(result.findResultApplication(aog))
-				ch.hilbri.assist.mapping.model.ApplicationGroup	: appGroup.applicationGroups.add(result.findResultApplicationGroup(aog))
-			}	
-	}	
-	
-	static private def ApplicationGroup createApplicationGroup(ch.hilbri.assist.mapping.model.ApplicationGroup modelAppGroup, Result result) {
-		val appGroup 				= f.createApplicationGroup
-		appGroup.name				= modelAppGroup.name
-		appGroup.referenceObject	= modelAppGroup
-		return appGroup
-	}
-	
-	static private def Application createApplication(ch.hilbri.assist.mapping.model.Application modelApp) {
-		val app = f.createApplication
-//		app.name 						= modelApp.name
-//		app.coreUtilization				= modelApp.coreUtilization
-//		app.ramUtilization				= modelApp.ramUtilization
-//		app.romUtilization				= modelApp.romUtilization
-//		app.criticalityLevel			= modelApp.criticalityLevel
-//		app.ioAdapterProtectionLevel	= modelApp.ioAdapterProtectionLevel
-//		app.parallelThreads				= modelApp.parallelThreads
-//		app.developedBy					= modelApp.developedBy
-//		app.referenceObject				= modelApp
-//		
-//		for (modelThread : modelApp.threads) {
-//			val t 				= f.createThread
-//			t.referenceObject 	= modelThread
-//			t.application 		= app
-//			app.threads.add(t)
-//			
-//		}
-			
-		return app
-	}
-	
-	static private def EObject createHardwareElements(EObject modelElement) {
-		switch modelElement {
-			
-			ch.hilbri.assist.mapping.model.Compartment: {
-				val Compartment c 	= f.createCompartment
-				c.name 				= modelElement.name
-				c.manufacturer 		= modelElement.manufacturer
-				c.powerSupply 		= modelElement.powerSupply
-				
-				for (box : modelElement.boxes)
-					c.boxes.add(createHardwareElements(box) as Box)
-				
-				c.referenceObject 	= modelElement
-				
-				return c
-			}
-			
-			ch.hilbri.assist.mapping.model.Box: {
-				val Box b 			= f.createBox
-				b.name 				= modelElement.name
-				b.manufacturer 		= modelElement.manufacturer
-				for (board : modelElement.boards)
-					b.boards.add(createHardwareElements(board) as ch.hilbri.assist.mapping.model.result.Board)
-					
-				b.referenceObject	= modelElement
-					
-				return b	
-			}
-			
-			Board: {
-				val ch.hilbri.assist.mapping.model.result.Board b 		= f.createBoard
-				b.name				= modelElement.name
-				b.manufacturer 		= modelElement.manufacturer
-				b.boardType			= modelElement.boardType
-				b.powerSupply		= modelElement.powerSupply
-				b.assuranceLevel	= modelElement.assuranceLevel
-				b.ramCapacity		= modelElement.ramCapacity
-				b.romCapacity		= modelElement.romCapacity
-				
-				for (proc : modelElement.processors)
-					b.processors.add(createHardwareElements(proc) as Processor)
-				
-				for (io : modelElement.ioAdapters)
-					b.ioAdapters.add(createHardwareElements(io) as IOAdapter)
-				
-				b.referenceObject	= modelElement
-					
-				return b 
-			}
-			
-			ch.hilbri.assist.mapping.model.Processor: {
-				val Processor p 	= f.createProcessor
-				p.name 				= modelElement.name
-				p.manufacturer		= modelElement.manufacturer
-				p.processorType		= modelElement.processorType
-				
-				for (core : modelElement.cores) 
-					p.cores.add(createHardwareElements(core) as Core)
-				
-				p.referenceObject	= modelElement
-					
-				return p
-			}
-			
-			ch.hilbri.assist.mapping.model.Core: {
-				val Core c 			= f.createCore
-				c.name 				= modelElement.name
-				c.architecture 		= modelElement.architecture
-				c.capacity			= modelElement.capacity
-				c.referenceObject 	= modelElement
-				
-				return c
-			}
-			
-			ch.hilbri.assist.mapping.model.IOAdapter: {
-				val IOAdapter i 	= f.createIOAdapter
-				i.name 				= modelElement.name
-				i.totalUnitCount	= modelElement.totalCount
-				i.adapterType		= modelElement.adapterType
-				i.referenceObject	= modelElement
-				return i
-			}
-		}
-		
-		return null
-	}
-	
-	
-	static private def createBasicResult(AssistModel model, String resultName) {
-		
-		
-		val result = f.createResult
-		
-		// Basic stuff
-		result.name 		= resultName
-		result.systemName 	= model.systemName
-		
-		// Hardware-Elemente
-//		for (elem : model.hardwareContainer)
-//			result.rootHardwareElements.add(createHardwareElements(elem) as HardwareElement)
-		
-		// Applikationen
-		for (modelApp : model.applications)
-			result.applications.add(createApplication(modelApp))
-		
-		// Applikationsgruppen
-		// - erst werden alle Gruppen erstellt
-		for (modelAppGroup : model.applicationGroups)
-			result.applicationGroups.add(createApplicationGroup(modelAppGroup, result))
-		// - dann werden alle Referenzen gesetzt
-		for (modelAppGroup : model.applicationGroups)
-			fillApplicationGroupMembers(modelAppGroup, result)	
-		
-		// Evaluation			
-		val e = f.createEvaluation
-		e.setAbsoluteScores(new HashMap)
-		e.setScaledScores(new HashMap)
-		result.setEvaluation(e)
-		
-		return result
-	}
-	
-	static def void addMappingFromSolution(Result result, AssistModel model, SolverVariablesContainer solverVariables, Solution solution) {
-//		for (thread : model.allThreads) {
-//			
-//			/* Which thread in the result corresponds to this model thread? */
-//			val resultThread = result.findResultThread(thread)
-//			
-//			val locVar = solverVariables.getThreadLocationVariable(thread, HardwareArchitectureLevelType.CORE_VALUE)
-//
-//			val coreIndex = solution.getIntVal(locVar)
-//			  
-//			/* To which core does this correspond in the result model? */
-//			val resultCore = result.findResultHardwareElement(model.allCores.get(coreIndex)) as Core
-//			
-//			if (resultCore == null) {
-////				ConsoleCommands.writeErrorLineToConsole("Could not find the core " + model.allCores.get(coreIndex) + " from the model in the result.");
-//				return;
-//			} else {
-//				/* Place this thread to the core */
-//				resultCore.threads.add(resultThread)
-//				resultThread.core = resultCore
-//			}
-//		}
-	}
-	
-	static def void addUtilizationInformation(Result result, AssistModel model, SolverVariablesContainer solverVariables, Solution solution) {
-//
-//		/* 1. Update the load information on all cores */
-//		for (resultCore : result.allCores) {
-//			val modelCore = resultCore.referenceObject as ch.hilbri.assist.mapping.model.Core 
-//			val absoluteUtilization = solution.getIntVal(solverVariables.getAbsoluteCoreUtilizationVariable(modelCore))
-//			resultCore.setUtilization(absoluteUtilization)
-//		}
-//		
-//		/* 2. Update the ram utilization data for all boards */
-//		for (resultBoard : result.allBoards) {
-//			val modelBoard = resultBoard.referenceObject as Board
-//			val absoluteRamUtilization = solution.getIntVal(solverVariables.getAbsoluteRamUtilizationVariable(modelBoard))
-//			resultBoard.setRamUtilization(absoluteRamUtilization)
-//		}
-//		
-//		/* 3. Update the rom utilization data for all boards */
-//		for (resultBoard : result.allBoards) {
-//			val modelBoard = resultBoard.referenceObject as Board
-//			val absoluteRomUtilization = solution.getIntVal(solverVariables.getAbsoluteRomUtilizationVariable(modelBoard))
-//			resultBoard.setRomUtilization(absoluteRomUtilization)
-//		}
-	}
-	
-	static def ArrayList<Result> create(AssistModel model, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {
-		f = ResultFactory.eINSTANCE
-		
+	static def ArrayList<Result> create(URI modelURI, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {
+
+		/* Load model from URI */
+		val rs = new ResourceSetImpl
+		val resource = rs.getResource(modelURI, true)
+		val assistModel = resource.getContents().get(0) as AssistModel
+
 		/* The list of results which will be returned for display */
-		val results = new ArrayList<Result>
-		
+		val results = newArrayList
 		
 		for (solution : solverSolutions) {
-			/* Create the basic result (hardware architecture, software architecture, ...) */
-			val result = createBasicResult(model, "Result-"+ solverSolutions.indexOf(solution))
 			
-			/* Add the deployment information */
-			addMappingFromSolution(result, model, solverVariables, solution)
-		
-			/* Add utilization information to result model */
-			addUtilizationInformation(result, model, solverVariables, solution)
-		
-			/* Add this result to the list of results which will be returned for display */	
+			val solNumber 		= solverSolutions.indexOf(solution) + 1
+			val solTotalCount  	= solverSolutions.length
+			
+			val result = ResultFactory.eINSTANCE.createResult => [
+				name = "Solution "+ solNumber + " of " + solTotalCount
+				model = assistModel
+				
+				task2CoreMap = new HashMap
+				for (task : model.allTasks) {
+					val locVars = solverVariables.getLocationVariablesForTask(task)
+					val coreIndex = solution.getIntVal(locVars.get(0))
+					val core = model.allCores.get(coreIndex)	
+					task2CoreMap.put(model.allTasks.indexOf(task), model.allCores.indexOf(core))
+				}
+			]
 			results.add(result)
-		}
+			logger.info('''Created an ASSIST solution from solver solution «solNumber» / «solTotalCount»''')
 		
+		}
 		return results
-	}
-	
-	static def ArrayList<Result> createPartialResult(AssistModel model, SolverVariablesContainer solverVariables, Map<IntVar, Integer> solverSolutions) {
-		/* FIXME */
-		null
 	}
 }

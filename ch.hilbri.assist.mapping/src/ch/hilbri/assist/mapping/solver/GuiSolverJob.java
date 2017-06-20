@@ -18,18 +18,15 @@ import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes;
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
-import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 
 public class GuiSolverJob extends Job {
 
 	private AssistSolver assistSolver;
-	private DetailedResultsViewUiModel detailedResultsViewUiModel;
 	private MultiPageEditor multiPageEditor;
-	private Logger logger;
+	private Logger logger = LoggerFactory.getLogger(GuiSolverJob.class);
 
 	public GuiSolverJob(String name, URI uri) {
 		super(name);
-		this.logger = LoggerFactory.getLogger(GuiSolverJob.class);
 		this.assistSolver = new AssistSolver(uri);
 	}
 
@@ -61,6 +58,8 @@ public class GuiSolverJob extends Job {
 			if (monitor.isCanceled())
 				return Status.CANCEL_STATUS;
 
+			assistSolver.createSolutions();
+			
 			if (assistSolver.getResults().size() > 0) {
 				monitor.beginTask("Presenting the results", 1);
 				showResults(assistSolver.getResults());
@@ -122,17 +121,17 @@ public class GuiSolverJob extends Job {
 
 	private void showResults(final ArrayList<Result> allResults) {
 
-		detailedResultsViewUiModel.setNewResultsList(allResults);
-		detailedResultsViewUiModel.indexToDrawProperty().set(0);
-
-		if (multiPageEditor != null) {
-			Display.getDefault().asyncExec(new Runnable() {
-				@Override
-				public void run() {
-//					multiPageEditor.setActiveResultPage();
-				}
-			});
-		}
+//		detailedResultsViewUiModel.setNewResultsList(allResults);
+//		detailedResultsViewUiModel.indexToDrawProperty().set(0);
+//
+//		if (multiPageEditor != null) {
+//			Display.getDefault().asyncExec(new Runnable() {
+//				@Override
+//				public void run() {
+////					multiPageEditor.setActiveResultPage();
+//				}
+//			});
+//		}
 
 	}
 
