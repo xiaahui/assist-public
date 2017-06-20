@@ -2,45 +2,22 @@
  */
 package ch.hilbri.assist.mapping.model.result.impl;
 
-import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType;
+import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.Core;
+import ch.hilbri.assist.mapping.model.Task;
 
-import ch.hilbri.assist.mapping.model.result.Application;
-import ch.hilbri.assist.mapping.model.result.ApplicationGroup;
-import ch.hilbri.assist.mapping.model.result.Board;
-import ch.hilbri.assist.mapping.model.result.Box;
-import ch.hilbri.assist.mapping.model.result.CommunicationRelation;
-import ch.hilbri.assist.mapping.model.result.Compartment;
-import ch.hilbri.assist.mapping.model.result.Core;
-import ch.hilbri.assist.mapping.model.result.Evaluation;
-import ch.hilbri.assist.mapping.model.result.HardwareElement;
-import ch.hilbri.assist.mapping.model.result.Processor;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
 
-import com.google.common.base.Objects;
-
-import java.lang.reflect.InvocationTargetException;
-
-import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
-
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,14 +28,9 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getName <em>Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getSystemName <em>System Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getRootHardwareElements <em>Root Hardware Elements</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getTopHardwareLevel <em>Top Hardware Level</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getBottomHardwareLevel <em>Bottom Hardware Level</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getApplicationGroups <em>Application Groups</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getApplications <em>Applications</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getCommunications <em>Communications</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getEvaluation <em>Evaluation</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getTask2CoreMap <em>Task2 Core Map</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#isPartialSolution <em>Partial Solution</em>}</li>
  * </ul>
  *
  * @generated
@@ -85,94 +57,44 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSystemName() <em>System Name</em>}' attribute.
+	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSystemName()
+	 * @see #getModel()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SYSTEM_NAME_EDEFAULT = null;
+	protected AssistModel model;
 
 	/**
-	 * The cached value of the '{@link #getSystemName() <em>System Name</em>}' attribute.
+	 * The cached value of the '{@link #getTask2CoreMap() <em>Task2 Core Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSystemName()
+	 * @see #getTask2CoreMap()
 	 * @generated
 	 * @ordered
 	 */
-	protected String systemName = SYSTEM_NAME_EDEFAULT;
+	protected Map<Task, Core> task2CoreMap;
 
 	/**
-	 * The cached value of the '{@link #getRootHardwareElements() <em>Root Hardware Elements</em>}' containment reference list.
+	 * The default value of the '{@link #isPartialSolution() <em>Partial Solution</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRootHardwareElements()
+	 * @see #isPartialSolution()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<HardwareElement> rootHardwareElements;
+	protected static final boolean PARTIAL_SOLUTION_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #getTopHardwareLevel() <em>Top Hardware Level</em>}' attribute.
+	 * The cached value of the '{@link #isPartialSolution() <em>Partial Solution</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTopHardwareLevel()
+	 * @see #isPartialSolution()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final HardwareArchitectureLevelType TOP_HARDWARE_LEVEL_EDEFAULT = HardwareArchitectureLevelType.CORE;
-
-	/**
-	 * The default value of the '{@link #getBottomHardwareLevel() <em>Bottom Hardware Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBottomHardwareLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final HardwareArchitectureLevelType BOTTOM_HARDWARE_LEVEL_EDEFAULT = HardwareArchitectureLevelType.CORE;
-
-	/**
-	 * The cached value of the '{@link #getApplicationGroups() <em>Application Groups</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getApplicationGroups()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ApplicationGroup> applicationGroups;
-
-	/**
-	 * The cached value of the '{@link #getApplications() <em>Applications</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getApplications()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Application> applications;
-
-	/**
-	 * The cached value of the '{@link #getCommunications() <em>Communications</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCommunications()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CommunicationRelation> communications;
-
-	/**
-	 * The cached value of the '{@link #getEvaluation() <em>Evaluation</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEvaluation()
-	 * @generated
-	 * @ordered
-	 */
-	protected Evaluation evaluation;
+	protected boolean partialSolution = PARTIAL_SOLUTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -219,8 +141,16 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSystemName() {
-		return systemName;
+	public AssistModel getModel() {
+		if (model != null && model.eIsProxy()) {
+			InternalEObject oldModel = (InternalEObject)model;
+			model = (AssistModel)eResolveProxy(oldModel);
+			if (model != oldModel) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultPackage.RESULT__MODEL, oldModel, model));
+			}
+		}
+		return model;
 	}
 
 	/**
@@ -228,11 +158,20 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSystemName(String newSystemName) {
-		String oldSystemName = systemName;
-		systemName = newSystemName;
+	public AssistModel basicGetModel() {
+		return model;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModel(AssistModel newModel) {
+		AssistModel oldModel = model;
+		model = newModel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__SYSTEM_NAME, oldSystemName, systemName));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__MODEL, oldModel, model));
 	}
 
 	/**
@@ -240,11 +179,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<HardwareElement> getRootHardwareElements() {
-		if (rootHardwareElements == null) {
-			rootHardwareElements = new EObjectContainmentEList<HardwareElement>(HardwareElement.class, this, ResultPackage.RESULT__ROOT_HARDWARE_ELEMENTS);
-		}
-		return rootHardwareElements;
+	public Map<Task, Core> getTask2CoreMap() {
+		return task2CoreMap;
 	}
 
 	/**
@@ -252,47 +188,11 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HardwareArchitectureLevelType getTopHardwareLevel() {
-		HardwareArchitectureLevelType _xifexpression = null;
-		EList<HardwareElement> _rootHardwareElements = this.getRootHardwareElements();
-		boolean _isEmpty = _rootHardwareElements.isEmpty();
-		boolean _not = (!_isEmpty);
-		if (_not) {
-			HardwareArchitectureLevelType _switchResult = null;
-			EList<HardwareElement> _rootHardwareElements_1 = this.getRootHardwareElements();
-			HardwareElement _get = _rootHardwareElements_1.get(0);
-			boolean _matched = false;
-			if (_get instanceof Compartment) {
-				_matched=true;
-				_switchResult = HardwareArchitectureLevelType.COMPARTMENT;
-			}
-			if (!_matched) {
-				if (_get instanceof Box) {
-					_matched=true;
-					_switchResult = HardwareArchitectureLevelType.BOX;
-				}
-			}
-			if (!_matched) {
-				if (_get instanceof Board) {
-					_matched=true;
-					_switchResult = HardwareArchitectureLevelType.BOARD;
-				}
-			}
-			if (!_matched) {
-				if (_get instanceof Processor) {
-					_matched=true;
-					_switchResult = HardwareArchitectureLevelType.PROCESSOR;
-				}
-			}
-			if (!_matched) {
-				if (_get instanceof Core) {
-					_matched=true;
-					_switchResult = HardwareArchitectureLevelType.CORE;
-				}
-			}
-			_xifexpression = _switchResult;
-		}
-		return _xifexpression;
+	public void setTask2CoreMap(Map<Task, Core> newTask2CoreMap) {
+		Map<Task, Core> oldTask2CoreMap = task2CoreMap;
+		task2CoreMap = newTask2CoreMap;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__TASK2_CORE_MAP, oldTask2CoreMap, task2CoreMap));
 	}
 
 	/**
@@ -300,8 +200,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HardwareArchitectureLevelType getBottomHardwareLevel() {
-		return HardwareArchitectureLevelType.CORE;
+	public boolean isPartialSolution() {
+		return partialSolution;
 	}
 
 	/**
@@ -309,403 +209,11 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ApplicationGroup> getApplicationGroups() {
-		if (applicationGroups == null) {
-			applicationGroups = new EObjectContainmentEList<ApplicationGroup>(ApplicationGroup.class, this, ResultPackage.RESULT__APPLICATION_GROUPS);
-		}
-		return applicationGroups;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Application> getApplications() {
-		if (applications == null) {
-			applications = new EObjectContainmentEList<Application>(Application.class, this, ResultPackage.RESULT__APPLICATIONS);
-		}
-		return applications;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<CommunicationRelation> getCommunications() {
-		if (communications == null) {
-			communications = new EObjectContainmentEList<CommunicationRelation>(CommunicationRelation.class, this, ResultPackage.RESULT__COMMUNICATIONS);
-		}
-		return communications;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Evaluation getEvaluation() {
-		return evaluation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEvaluation(Evaluation newEvaluation, NotificationChain msgs) {
-		Evaluation oldEvaluation = evaluation;
-		evaluation = newEvaluation;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__EVALUATION, oldEvaluation, newEvaluation);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEvaluation(Evaluation newEvaluation) {
-		if (newEvaluation != evaluation) {
-			NotificationChain msgs = null;
-			if (evaluation != null)
-				msgs = ((InternalEObject)evaluation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ResultPackage.RESULT__EVALUATION, null, msgs);
-			if (newEvaluation != null)
-				msgs = ((InternalEObject)newEvaluation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ResultPackage.RESULT__EVALUATION, null, msgs);
-			msgs = basicSetEvaluation(newEvaluation, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__EVALUATION, newEvaluation, newEvaluation));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int compareTo(final Result o) {
-		Evaluation _evaluation = null;
-		if (this!=null) {
-			_evaluation=this.getEvaluation();
-		}
-		double _totalScaledScore = _evaluation.getTotalScaledScore();
-		Evaluation _evaluation_1 = null;
-		if (o!=null) {
-			_evaluation_1=o.getEvaluation();
-		}
-		double _totalScaledScore_1 = _evaluation_1.getTotalScaledScore();
-		final double diff = (_totalScaledScore - _totalScaledScore_1);
-		if ((diff < 0.0)) {
-			return 1;
-		}
-		if ((diff > 0.0)) {
-			return (-1);
-		}
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Compartment> getAllCompartments() {
-		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
-		boolean _equals = Objects.equal(_topHardwareLevel, HardwareArchitectureLevelType.COMPARTMENT);
-		if (_equals) {
-			EList<HardwareElement> _rootHardwareElements = this.getRootHardwareElements();
-			final Function1<HardwareElement, Compartment> _function = new Function1<HardwareElement, Compartment>() {
-				public Compartment apply(final HardwareElement elem) {
-					return ((Compartment) elem);
-				}
-			};
-			return XcoreEListExtensions.<HardwareElement, Compartment>map(_rootHardwareElements, _function);
-		}
-		else {
-			return new BasicEList<Compartment>();
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Box> getAllBoxes() {
-		final BasicEList<Box> list = new BasicEList<Box>();
-		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
-		if (_topHardwareLevel != null) {
-			switch (_topHardwareLevel) {
-				case COMPARTMENT:
-					EList<HardwareElement> _rootHardwareElements = this.getRootHardwareElements();
-					for (final HardwareElement c : _rootHardwareElements) {
-						EList<Box> _boxes = ((Compartment) c).getBoxes();
-						list.addAll(_boxes);
-					}
-					break;
-				case BOX:
-					EList<HardwareElement> _rootHardwareElements_1 = this.getRootHardwareElements();
-					final Function1<HardwareElement, Box> _function = new Function1<HardwareElement, Box>() {
-						public Box apply(final HardwareElement elem) {
-							return ((Box) elem);
-						}
-					};
-					EList<Box> _map = XcoreEListExtensions.<HardwareElement, Box>map(_rootHardwareElements_1, _function);
-					list.addAll(_map);
-					break;
-				default:
-					break;
-			}
-		}
-		else {
-		}
-		return list;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Board> getAllBoards() {
-		final BasicEList<Board> list = new BasicEList<Board>();
-		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
-		if (_topHardwareLevel != null) {
-			switch (_topHardwareLevel) {
-				case COMPARTMENT:
-					EList<HardwareElement> _rootHardwareElements = this.getRootHardwareElements();
-					for (final HardwareElement c : _rootHardwareElements) {
-						EList<Board> _allBoards = ((Compartment) c).getAllBoards();
-						list.addAll(_allBoards);
-					}
-					break;
-				case BOX:
-					EList<HardwareElement> _rootHardwareElements_1 = this.getRootHardwareElements();
-					for (final HardwareElement b : _rootHardwareElements_1) {
-						EList<Board> _boards = ((Box) b).getBoards();
-						list.addAll(_boards);
-					}
-					break;
-				case BOARD:
-					EList<HardwareElement> _rootHardwareElements_2 = this.getRootHardwareElements();
-					final Function1<HardwareElement, Board> _function = new Function1<HardwareElement, Board>() {
-						public Board apply(final HardwareElement elem) {
-							return ((Board) elem);
-						}
-					};
-					EList<Board> _map = XcoreEListExtensions.<HardwareElement, Board>map(_rootHardwareElements_2, _function);
-					list.addAll(_map);
-					break;
-				default:
-					break;
-			}
-		}
-		else {
-		}
-		return list;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Processor> getAllProcessors() {
-		final BasicEList<Processor> list = new BasicEList<Processor>();
-		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
-		if (_topHardwareLevel != null) {
-			switch (_topHardwareLevel) {
-				case COMPARTMENT:
-					EList<HardwareElement> _rootHardwareElements = this.getRootHardwareElements();
-					for (final HardwareElement c : _rootHardwareElements) {
-						EList<Processor> _allProcessors = ((Compartment) c).getAllProcessors();
-						list.addAll(_allProcessors);
-					}
-					break;
-				case BOX:
-					EList<HardwareElement> _rootHardwareElements_1 = this.getRootHardwareElements();
-					for (final HardwareElement b : _rootHardwareElements_1) {
-						EList<Processor> _allProcessors_1 = ((Box) b).getAllProcessors();
-						list.addAll(_allProcessors_1);
-					}
-					break;
-				case BOARD:
-					EList<HardwareElement> _rootHardwareElements_2 = this.getRootHardwareElements();
-					for (final HardwareElement b_1 : _rootHardwareElements_2) {
-						EList<Processor> _processors = ((Board) b_1).getProcessors();
-						list.addAll(_processors);
-					}
-					break;
-				default:
-					break;
-			}
-		}
-		else {
-		}
-		return list;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Core> getAllCores() {
-		final BasicEList<Core> list = new BasicEList<Core>();
-		HardwareArchitectureLevelType _topHardwareLevel = this.getTopHardwareLevel();
-		if (_topHardwareLevel != null) {
-			switch (_topHardwareLevel) {
-				case COMPARTMENT:
-					EList<HardwareElement> _rootHardwareElements = this.getRootHardwareElements();
-					for (final HardwareElement c : _rootHardwareElements) {
-						EList<Core> _allCores = ((Compartment) c).getAllCores();
-						list.addAll(_allCores);
-					}
-					break;
-				case BOX:
-					EList<HardwareElement> _rootHardwareElements_1 = this.getRootHardwareElements();
-					for (final HardwareElement b : _rootHardwareElements_1) {
-						EList<Core> _allCores_1 = ((Box) b).getAllCores();
-						list.addAll(_allCores_1);
-					}
-					break;
-				case BOARD:
-					EList<HardwareElement> _rootHardwareElements_2 = this.getRootHardwareElements();
-					for (final HardwareElement b_1 : _rootHardwareElements_2) {
-						EList<Core> _allCores_2 = ((Board) b_1).getAllCores();
-						list.addAll(_allCores_2);
-					}
-					break;
-				default:
-					break;
-			}
-		}
-		else {
-		}
-		return list;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ch.hilbri.assist.mapping.model.result.Thread> getAllThreads() {
-		final BasicEList<ch.hilbri.assist.mapping.model.result.Thread> list = new BasicEList<ch.hilbri.assist.mapping.model.result.Thread>();
-		EList<Application> _applications = this.getApplications();
-		for (final Application a : _applications) {
-			EList<ch.hilbri.assist.mapping.model.result.Thread> _threads = a.getThreads();
-			list.addAll(_threads);
-		}
-		return list;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HardwareElement findResultHardwareElement(final ch.hilbri.assist.mapping.model.HardwareElement modelHwElement) {
-		boolean _matched = false;
-		if (modelHwElement instanceof ch.hilbri.assist.mapping.model.Core) {
-			_matched=true;
-			EList<Core> _allCores = this.getAllCores();
-			for (final Core c : _allCores) {
-				ch.hilbri.assist.mapping.model.HardwareElement _referenceObject = c.getReferenceObject();
-				boolean _equals = Objects.equal(_referenceObject, modelHwElement);
-				if (_equals) {
-					return c;
-				}
-			}
-		}
-		if (!_matched) {
-			if (modelHwElement instanceof ch.hilbri.assist.mapping.model.Processor) {
-				_matched=true;
-				EList<Processor> _allProcessors = this.getAllProcessors();
-				for (final Processor p : _allProcessors) {
-					ch.hilbri.assist.mapping.model.HardwareElement _referenceObject = p.getReferenceObject();
-					boolean _equals = Objects.equal(_referenceObject, modelHwElement);
-					if (_equals) {
-						return p;
-					}
-				}
-			}
-		}
-		if (!_matched) {
-			if (modelHwElement instanceof ch.hilbri.assist.mapping.model.Board) {
-				_matched=true;
-				EList<Board> _allBoards = this.getAllBoards();
-				for (final Board b : _allBoards) {
-					ch.hilbri.assist.mapping.model.HardwareElement _referenceObject = b.getReferenceObject();
-					boolean _equals = Objects.equal(_referenceObject, modelHwElement);
-					if (_equals) {
-						return b;
-					}
-				}
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Application findResultApplication(final ch.hilbri.assist.mapping.model.Application modelApp) {
-		EList<Application> _applications = this.getApplications();
-		for (final Application resultApp : _applications) {
-			ch.hilbri.assist.mapping.model.Application _referenceObject = resultApp.getReferenceObject();
-			boolean _equals = Objects.equal(_referenceObject, modelApp);
-			if (_equals) {
-				return resultApp;
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ApplicationGroup findResultApplicationGroup(final ch.hilbri.assist.mapping.model.ApplicationGroup modelAppGroup) {
-		EList<ApplicationGroup> _applicationGroups = this.getApplicationGroups();
-		for (final ApplicationGroup resultAppGroup : _applicationGroups) {
-			ch.hilbri.assist.mapping.model.ApplicationGroup _referenceObject = resultAppGroup.getReferenceObject();
-			boolean _equals = Objects.equal(_referenceObject, modelAppGroup);
-			if (_equals) {
-				return resultAppGroup;
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ResultPackage.RESULT__ROOT_HARDWARE_ELEMENTS:
-				return ((InternalEList<?>)getRootHardwareElements()).basicRemove(otherEnd, msgs);
-			case ResultPackage.RESULT__APPLICATION_GROUPS:
-				return ((InternalEList<?>)getApplicationGroups()).basicRemove(otherEnd, msgs);
-			case ResultPackage.RESULT__APPLICATIONS:
-				return ((InternalEList<?>)getApplications()).basicRemove(otherEnd, msgs);
-			case ResultPackage.RESULT__COMMUNICATIONS:
-				return ((InternalEList<?>)getCommunications()).basicRemove(otherEnd, msgs);
-			case ResultPackage.RESULT__EVALUATION:
-				return basicSetEvaluation(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public void setPartialSolution(boolean newPartialSolution) {
+		boolean oldPartialSolution = partialSolution;
+		partialSolution = newPartialSolution;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__PARTIAL_SOLUTION, oldPartialSolution, partialSolution));
 	}
 
 	/**
@@ -718,22 +226,13 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		switch (featureID) {
 			case ResultPackage.RESULT__NAME:
 				return getName();
-			case ResultPackage.RESULT__SYSTEM_NAME:
-				return getSystemName();
-			case ResultPackage.RESULT__ROOT_HARDWARE_ELEMENTS:
-				return getRootHardwareElements();
-			case ResultPackage.RESULT__TOP_HARDWARE_LEVEL:
-				return getTopHardwareLevel();
-			case ResultPackage.RESULT__BOTTOM_HARDWARE_LEVEL:
-				return getBottomHardwareLevel();
-			case ResultPackage.RESULT__APPLICATION_GROUPS:
-				return getApplicationGroups();
-			case ResultPackage.RESULT__APPLICATIONS:
-				return getApplications();
-			case ResultPackage.RESULT__COMMUNICATIONS:
-				return getCommunications();
-			case ResultPackage.RESULT__EVALUATION:
-				return getEvaluation();
+			case ResultPackage.RESULT__MODEL:
+				if (resolve) return getModel();
+				return basicGetModel();
+			case ResultPackage.RESULT__TASK2_CORE_MAP:
+				return getTask2CoreMap();
+			case ResultPackage.RESULT__PARTIAL_SOLUTION:
+				return isPartialSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -750,27 +249,14 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			case ResultPackage.RESULT__NAME:
 				setName((String)newValue);
 				return;
-			case ResultPackage.RESULT__SYSTEM_NAME:
-				setSystemName((String)newValue);
+			case ResultPackage.RESULT__MODEL:
+				setModel((AssistModel)newValue);
 				return;
-			case ResultPackage.RESULT__ROOT_HARDWARE_ELEMENTS:
-				getRootHardwareElements().clear();
-				getRootHardwareElements().addAll((Collection<? extends HardwareElement>)newValue);
+			case ResultPackage.RESULT__TASK2_CORE_MAP:
+				setTask2CoreMap((Map<Task, Core>)newValue);
 				return;
-			case ResultPackage.RESULT__APPLICATION_GROUPS:
-				getApplicationGroups().clear();
-				getApplicationGroups().addAll((Collection<? extends ApplicationGroup>)newValue);
-				return;
-			case ResultPackage.RESULT__APPLICATIONS:
-				getApplications().clear();
-				getApplications().addAll((Collection<? extends Application>)newValue);
-				return;
-			case ResultPackage.RESULT__COMMUNICATIONS:
-				getCommunications().clear();
-				getCommunications().addAll((Collection<? extends CommunicationRelation>)newValue);
-				return;
-			case ResultPackage.RESULT__EVALUATION:
-				setEvaluation((Evaluation)newValue);
+			case ResultPackage.RESULT__PARTIAL_SOLUTION:
+				setPartialSolution((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -787,23 +273,14 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			case ResultPackage.RESULT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ResultPackage.RESULT__SYSTEM_NAME:
-				setSystemName(SYSTEM_NAME_EDEFAULT);
+			case ResultPackage.RESULT__MODEL:
+				setModel((AssistModel)null);
 				return;
-			case ResultPackage.RESULT__ROOT_HARDWARE_ELEMENTS:
-				getRootHardwareElements().clear();
+			case ResultPackage.RESULT__TASK2_CORE_MAP:
+				setTask2CoreMap((Map<Task, Core>)null);
 				return;
-			case ResultPackage.RESULT__APPLICATION_GROUPS:
-				getApplicationGroups().clear();
-				return;
-			case ResultPackage.RESULT__APPLICATIONS:
-				getApplications().clear();
-				return;
-			case ResultPackage.RESULT__COMMUNICATIONS:
-				getCommunications().clear();
-				return;
-			case ResultPackage.RESULT__EVALUATION:
-				setEvaluation((Evaluation)null);
+			case ResultPackage.RESULT__PARTIAL_SOLUTION:
+				setPartialSolution(PARTIAL_SOLUTION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -819,56 +296,14 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		switch (featureID) {
 			case ResultPackage.RESULT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ResultPackage.RESULT__SYSTEM_NAME:
-				return SYSTEM_NAME_EDEFAULT == null ? systemName != null : !SYSTEM_NAME_EDEFAULT.equals(systemName);
-			case ResultPackage.RESULT__ROOT_HARDWARE_ELEMENTS:
-				return rootHardwareElements != null && !rootHardwareElements.isEmpty();
-			case ResultPackage.RESULT__TOP_HARDWARE_LEVEL:
-				return getTopHardwareLevel() != TOP_HARDWARE_LEVEL_EDEFAULT;
-			case ResultPackage.RESULT__BOTTOM_HARDWARE_LEVEL:
-				return getBottomHardwareLevel() != BOTTOM_HARDWARE_LEVEL_EDEFAULT;
-			case ResultPackage.RESULT__APPLICATION_GROUPS:
-				return applicationGroups != null && !applicationGroups.isEmpty();
-			case ResultPackage.RESULT__APPLICATIONS:
-				return applications != null && !applications.isEmpty();
-			case ResultPackage.RESULT__COMMUNICATIONS:
-				return communications != null && !communications.isEmpty();
-			case ResultPackage.RESULT__EVALUATION:
-				return evaluation != null;
+			case ResultPackage.RESULT__MODEL:
+				return model != null;
+			case ResultPackage.RESULT__TASK2_CORE_MAP:
+				return task2CoreMap != null;
+			case ResultPackage.RESULT__PARTIAL_SOLUTION:
+				return partialSolution != PARTIAL_SOLUTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ResultPackage.RESULT___COMPARE_TO__RESULT:
-				return compareTo((Result)arguments.get(0));
-			case ResultPackage.RESULT___GET_ALL_COMPARTMENTS:
-				return getAllCompartments();
-			case ResultPackage.RESULT___GET_ALL_BOXES:
-				return getAllBoxes();
-			case ResultPackage.RESULT___GET_ALL_BOARDS:
-				return getAllBoards();
-			case ResultPackage.RESULT___GET_ALL_PROCESSORS:
-				return getAllProcessors();
-			case ResultPackage.RESULT___GET_ALL_CORES:
-				return getAllCores();
-			case ResultPackage.RESULT___GET_ALL_THREADS:
-				return getAllThreads();
-			case ResultPackage.RESULT___FIND_RESULT_HARDWARE_ELEMENT__HARDWAREELEMENT:
-				return findResultHardwareElement((ch.hilbri.assist.mapping.model.HardwareElement)arguments.get(0));
-			case ResultPackage.RESULT___FIND_RESULT_APPLICATION__APPLICATION:
-				return findResultApplication((ch.hilbri.assist.mapping.model.Application)arguments.get(0));
-			case ResultPackage.RESULT___FIND_RESULT_APPLICATION_GROUP__APPLICATIONGROUP:
-				return findResultApplicationGroup((ch.hilbri.assist.mapping.model.ApplicationGroup)arguments.get(0));
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -883,8 +318,10 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", systemName: ");
-		result.append(systemName);
+		result.append(", task2CoreMap: ");
+		result.append(task2CoreMap);
+		result.append(", partialSolution: ");
+		result.append(partialSolution);
 		result.append(')');
 		return result.toString();
 	}
