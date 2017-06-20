@@ -1,13 +1,9 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.mapping.model.AssistModel
-import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.mapping.model.IOAdapterProtectionLevelType
 import ch.hilbri.assist.mapping.model.IOAdapterType
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Solver
-import org.chocosolver.solver.exception.ContradictionException
 
 class IOAdapterConstraint extends AbstractMappingConstraint {
 
@@ -16,29 +12,29 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 	}
 
 	override generate() {
-		val minLevel = IOAdapterProtectionLevelType.values.min
-		val usedTypes = IOAdapterType.values.filter[s|
-			!model.allThreads.filter[getExclusiveAdapterRequestCount(s, minLevel) > 0].empty]
-		if (usedTypes.empty) {
-			return false
-		}
-		generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints()
-		generate_MultipleThreads_ExclusiveRequests_incl_ProtectionLevel_Constraints(usedTypes)
+//		val minLevel = IOAdapterProtectionLevelType.values.min
+//		val usedTypes = IOAdapterType.values.filter[s|
+//			!model.allThreads.filter[getExclusiveAdapterRequestCount(s, minLevel) > 0].empty]
+//		if (usedTypes.empty) {
+//			return false
+//		}
+//		generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints()
+//		generate_MultipleThreads_ExclusiveRequests_incl_ProtectionLevel_Constraints(usedTypes)
 
 		return true
 	}
 
 	def generate_MultipleThreads_ExclusiveRequests_incl_ProtectionLevel_Constraints(IOAdapterType[] usedTypes) {
 
-		for (bIdx : 0 ..< model.allBoards.size) {
-
-			/* Contains a boolean factor for the weighted sum - is this thread mapped to this board? 
-			 * The index of this list corresponds to the thread index 
-			 * factorList[thread] = true/false <-- is this thread mapped to board b? */
-			val b = model.allBoards.get(bIdx)
-			val factorList = solverVariables.getThreadBoardIndicatorVariables().get(bIdx)
-
-			for (type : usedTypes) {
+//		for (bIdx : 0 ..< model.allBoards.size) {
+//
+//			/* Contains a boolean factor for the weighted sum - is this thread mapped to this board? 
+//			 * The index of this list corresponds to the thread index 
+//			 * factorList[thread] = true/false <-- is this thread mapped to board b? */
+//			val b = model.allBoards.get(bIdx)
+//			val factorList = solverVariables.getThreadBoardIndicatorVariables().get(bIdx)
+//
+//			for (type : usedTypes) {
 //				for (level : IOAdapterProtectionLevelType.values) {
 //
 //					// how many adapters does this board have for the type and level
@@ -62,15 +58,15 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 //					}
 //
 //				}
-			}
-		}
+//			}
+//		}
 
 	}
 
 	def generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints() {
 
-		for (t : model.allThreads) {
-			for (exReq : t.application.ioAdapterRequirements.filter[isIsExclusiveOnly]) {
+//		for (t : model.allThreads) {
+//			for (exReq : t.application.ioAdapterRequirements.filter[isIsExclusiveOnly]) {
 
 //				// Create a list for each board with the number of suitable adapters which satisfy type and protection level
 //				// suiteableAdapterCountPerBoardList[board] = # suiteable adapters w.r.t. type and protection level
@@ -99,8 +95,8 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 //				} catch (ContradictionException e) {
 //					throw new BasicConstraintsException(this)
 //				}
-			}
-		}
+//			}
+//		}
 	}
 
 }

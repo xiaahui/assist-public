@@ -2,17 +2,15 @@ package ch.hilbri.assist.mapping.result
 
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.Board
-import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.model.result.Application
 import ch.hilbri.assist.mapping.model.result.ApplicationGroup
 import ch.hilbri.assist.mapping.model.result.Box
 import ch.hilbri.assist.mapping.model.result.Compartment
 import ch.hilbri.assist.mapping.model.result.Core
-import ch.hilbri.assist.mapping.model.result.HardwareElement
 import ch.hilbri.assist.mapping.model.result.IOAdapter
-import ch.hilbri.assist.mapping.model.result.ResultFactory
 import ch.hilbri.assist.mapping.model.result.Processor
 import ch.hilbri.assist.mapping.model.result.Result
+import ch.hilbri.assist.mapping.model.result.ResultFactory
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.HashMap
@@ -47,23 +45,23 @@ class ResultFactoryFromSolverSolutions {
 	
 	static private def Application createApplication(ch.hilbri.assist.mapping.model.Application modelApp) {
 		val app = f.createApplication
-		app.name 						= modelApp.name
-		app.coreUtilization				= modelApp.coreUtilization
-		app.ramUtilization				= modelApp.ramUtilization
-		app.romUtilization				= modelApp.romUtilization
-		app.criticalityLevel			= modelApp.criticalityLevel
-		app.ioAdapterProtectionLevel	= modelApp.ioAdapterProtectionLevel
-		app.parallelThreads				= modelApp.parallelThreads
-		app.developedBy					= modelApp.developedBy
-		app.referenceObject				= modelApp
-		
-		for (modelThread : modelApp.threads) {
-			val t 				= f.createThread
-			t.referenceObject 	= modelThread
-			t.application 		= app
-			app.threads.add(t)
-			
-		}
+//		app.name 						= modelApp.name
+//		app.coreUtilization				= modelApp.coreUtilization
+//		app.ramUtilization				= modelApp.ramUtilization
+//		app.romUtilization				= modelApp.romUtilization
+//		app.criticalityLevel			= modelApp.criticalityLevel
+//		app.ioAdapterProtectionLevel	= modelApp.ioAdapterProtectionLevel
+//		app.parallelThreads				= modelApp.parallelThreads
+//		app.developedBy					= modelApp.developedBy
+//		app.referenceObject				= modelApp
+//		
+//		for (modelThread : modelApp.threads) {
+//			val t 				= f.createThread
+//			t.referenceObject 	= modelThread
+//			t.application 		= app
+//			app.threads.add(t)
+//			
+//		}
 			
 		return app
 	}
@@ -76,8 +74,6 @@ class ResultFactoryFromSolverSolutions {
 				c.name 				= modelElement.name
 				c.manufacturer 		= modelElement.manufacturer
 				c.powerSupply 		= modelElement.powerSupply
-				c.side 				= modelElement.side
-				c.zone 				= modelElement.zone
 				
 				for (box : modelElement.boxes)
 					c.boxes.add(createHardwareElements(box) as Box)
@@ -108,8 +104,6 @@ class ResultFactoryFromSolverSolutions {
 				b.assuranceLevel	= modelElement.assuranceLevel
 				b.ramCapacity		= modelElement.ramCapacity
 				b.romCapacity		= modelElement.romCapacity
-				b.side				= modelElement.side
-				b.ess				= modelElement.ess
 				
 				for (proc : modelElement.processors)
 					b.processors.add(createHardwareElements(proc) as Processor)
@@ -151,7 +145,6 @@ class ResultFactoryFromSolverSolutions {
 				i.name 				= modelElement.name
 				i.totalUnitCount	= modelElement.totalCount
 				i.adapterType		= modelElement.adapterType
-				i.protectionLevel	= modelElement.protectionLevel
 				i.referenceObject	= modelElement
 				return i
 			}
@@ -171,8 +164,8 @@ class ResultFactoryFromSolverSolutions {
 		result.systemName 	= model.systemName
 		
 		// Hardware-Elemente
-		for (elem : model.hardwareContainer)
-			result.rootHardwareElements.add(createHardwareElements(elem) as HardwareElement)
+//		for (elem : model.hardwareContainer)
+//			result.rootHardwareElements.add(createHardwareElements(elem) as HardwareElement)
 		
 		// Applikationen
 		for (modelApp : model.applications)
@@ -196,51 +189,51 @@ class ResultFactoryFromSolverSolutions {
 	}
 	
 	static def void addMappingFromSolution(Result result, AssistModel model, SolverVariablesContainer solverVariables, Solution solution) {
-		for (thread : model.allThreads) {
-			
-			/* Which thread in the result corresponds to this model thread? */
-			val resultThread = result.findResultThread(thread)
-			
-			val locVar = solverVariables.getThreadLocationVariable(thread, HardwareArchitectureLevelType.CORE_VALUE)
-
-			val coreIndex = solution.getIntVal(locVar)
-			  
-			/* To which core does this correspond in the result model? */
-			val resultCore = result.findResultHardwareElement(model.allCores.get(coreIndex)) as Core
-			
-			if (resultCore == null) {
-//				ConsoleCommands.writeErrorLineToConsole("Could not find the core " + model.allCores.get(coreIndex) + " from the model in the result.");
-				return;
-			} else {
-				/* Place this thread to the core */
-				resultCore.threads.add(resultThread)
-				resultThread.core = resultCore
-			}
-		}
+//		for (thread : model.allThreads) {
+//			
+//			/* Which thread in the result corresponds to this model thread? */
+//			val resultThread = result.findResultThread(thread)
+//			
+//			val locVar = solverVariables.getThreadLocationVariable(thread, HardwareArchitectureLevelType.CORE_VALUE)
+//
+//			val coreIndex = solution.getIntVal(locVar)
+//			  
+//			/* To which core does this correspond in the result model? */
+//			val resultCore = result.findResultHardwareElement(model.allCores.get(coreIndex)) as Core
+//			
+//			if (resultCore == null) {
+////				ConsoleCommands.writeErrorLineToConsole("Could not find the core " + model.allCores.get(coreIndex) + " from the model in the result.");
+//				return;
+//			} else {
+//				/* Place this thread to the core */
+//				resultCore.threads.add(resultThread)
+//				resultThread.core = resultCore
+//			}
+//		}
 	}
 	
 	static def void addUtilizationInformation(Result result, AssistModel model, SolverVariablesContainer solverVariables, Solution solution) {
-
-		/* 1. Update the load information on all cores */
-		for (resultCore : result.allCores) {
-			val modelCore = resultCore.referenceObject as ch.hilbri.assist.mapping.model.Core 
-			val absoluteUtilization = solution.getIntVal(solverVariables.getAbsoluteCoreUtilizationVariable(modelCore))
-			resultCore.setUtilization(absoluteUtilization)
-		}
-		
-		/* 2. Update the ram utilization data for all boards */
-		for (resultBoard : result.allBoards) {
-			val modelBoard = resultBoard.referenceObject as Board
-			val absoluteRamUtilization = solution.getIntVal(solverVariables.getAbsoluteRamUtilizationVariable(modelBoard))
-			resultBoard.setRamUtilization(absoluteRamUtilization)
-		}
-		
-		/* 3. Update the rom utilization data for all boards */
-		for (resultBoard : result.allBoards) {
-			val modelBoard = resultBoard.referenceObject as Board
-			val absoluteRomUtilization = solution.getIntVal(solverVariables.getAbsoluteRomUtilizationVariable(modelBoard))
-			resultBoard.setRomUtilization(absoluteRomUtilization)
-		}
+//
+//		/* 1. Update the load information on all cores */
+//		for (resultCore : result.allCores) {
+//			val modelCore = resultCore.referenceObject as ch.hilbri.assist.mapping.model.Core 
+//			val absoluteUtilization = solution.getIntVal(solverVariables.getAbsoluteCoreUtilizationVariable(modelCore))
+//			resultCore.setUtilization(absoluteUtilization)
+//		}
+//		
+//		/* 2. Update the ram utilization data for all boards */
+//		for (resultBoard : result.allBoards) {
+//			val modelBoard = resultBoard.referenceObject as Board
+//			val absoluteRamUtilization = solution.getIntVal(solverVariables.getAbsoluteRamUtilizationVariable(modelBoard))
+//			resultBoard.setRamUtilization(absoluteRamUtilization)
+//		}
+//		
+//		/* 3. Update the rom utilization data for all boards */
+//		for (resultBoard : result.allBoards) {
+//			val modelBoard = resultBoard.referenceObject as Board
+//			val absoluteRomUtilization = solution.getIntVal(solverVariables.getAbsoluteRomUtilizationVariable(modelBoard))
+//			resultBoard.setRomUtilization(absoluteRomUtilization)
+//		}
 	}
 	
 	static def ArrayList<Result> create(AssistModel model, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {

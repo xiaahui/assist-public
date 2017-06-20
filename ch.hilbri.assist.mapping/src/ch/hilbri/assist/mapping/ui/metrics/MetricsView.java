@@ -351,9 +351,9 @@ public class MetricsView {
 			saveTableToCurrentModel();
 			
 			/* Change editor and model */
-			DetailedResultsViewUiModel newModel = newEditor.getDetailedResultViewUiModel();
-			currentEditor = newEditor;
-			currentModel = newModel;
+//			DetailedResultsViewUiModel newModel = newEditor.getDetailedResultViewUiModel();
+//			currentEditor = newEditor;
+//			currentModel = newModel;
 			
 			/* Restore the data from the new editor */
 			restoreTableFromCurrentModel();

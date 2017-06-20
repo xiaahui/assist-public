@@ -114,7 +114,7 @@ public class GuiSolverJob extends Job {
 			Display.getDefault().asyncExec(new Runnable() {
 				@Override
 				public void run() {
-					multiPageEditor.resetView();
+//					multiPageEditor.resetView();
 				}
 			});
 		}
@@ -129,7 +129,7 @@ public class GuiSolverJob extends Job {
 			Display.getDefault().asyncExec(new Runnable() {
 				@Override
 				public void run() {
-					multiPageEditor.setActiveResultPage();
+//					multiPageEditor.setActiveResultPage();
 				}
 			});
 		}

@@ -37,7 +37,6 @@ import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.javafx.TreeObject;
 import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
 import javafx.scene.control.TreeItem;
 
@@ -214,77 +213,77 @@ public class InfoSheetView {
 	@Optional
 	public void setMetricContentProvider(@UIEventTopic(SET_INFO_VIEW_CONTENT_PROVIDER) MultiPageEditor editor) {
 
-		final DetailedResultsViewUiModel model = editor.getDetailedResultViewUiModel();
-
-		if (model.getEditor() == editor) {
-			if (this.model != model) {
-				clearForm();
-				clearListeners();
-				
-				this.model = model;
-			
-				clickListener = new ChangeListener<TreeItem<TreeObject>>() {
-
-					@Override
-					public void changed(ObservableValue<? extends TreeItem<TreeObject>> arg0, TreeItem<TreeObject> prevObject, final TreeItem<TreeObject> newObject) {
-						Display disp = form.getDisplay();
-						disp.asyncExec(new Runnable() {
-
-							@Override
-							public void run() {
-								setDeploymentNumberAndScore(model.indexToDrawProperty().get());
-								fillComponentPropertiesTable(newObject.getValue().getObject());
-							}
-						});
-					}
-				};
-				model.clickedObjectProperty().addListener(clickListener);
-				
-				drawListener = new ChangeListener<Number>() {
-
-					@Override
-					public void changed(ObservableValue<? extends Number> arg0,	Number arg1, final Number arg2) {
-						final int index = model.indexToDrawProperty().get();
-						Display disp = form.getDisplay();
-						disp.asyncExec(new Runnable() {
-							@Override
-							public void run() {
-								setDeploymentNumberAndScore(index);
-							}
-						});
-					}
-				};
-				model.indexToDrawProperty().addListener(drawListener);
-				
-				resultListener = new ListChangeListener<Result>() {
-
-					@Override
-					public void onChanged(final javafx.collections.ListChangeListener.Change<? extends Result> change) {
-						while (change.next()) {
-							if (model.getObservableResultsList().size() > 0) {
-								final int index = model.indexToDrawProperty().get();
-								Display disp = form.getDisplay();
-								disp.asyncExec(new Runnable() {
-									@Override
-									public void run() {
-										setDeploymentNumberAndScore(index);
-									}
-								});
-							} else {
-								setDeploymentNumberAndScore(-1);
-							}
-						}
-					}
-				};
-				model.getObservableResultsList().addListener(resultListener);
-				
-				if (model.getResults() != null) { 
-					setDeploymentNumberAndScore(0);
-				} else {
-					setDeploymentNumberAndScore(-1);
-				}
-			}
-		}
+//		final DetailedResultsViewUiModel model = editor.getDetailedResultViewUiModel();
+//
+//		if (model.getEditor() == editor) {
+//			if (this.model != model) {
+//				clearForm();
+//				clearListeners();
+//				
+//				this.model = model;
+//			
+//				clickListener = new ChangeListener<TreeItem<TreeObject>>() {
+//
+//					@Override
+//					public void changed(ObservableValue<? extends TreeItem<TreeObject>> arg0, TreeItem<TreeObject> prevObject, final TreeItem<TreeObject> newObject) {
+//						Display disp = form.getDisplay();
+//						disp.asyncExec(new Runnable() {
+//
+//							@Override
+//							public void run() {
+//								setDeploymentNumberAndScore(model.indexToDrawProperty().get());
+//								fillComponentPropertiesTable(newObject.getValue().getObject());
+//							}
+//						});
+//					}
+//				};
+//				model.clickedObjectProperty().addListener(clickListener);
+//				
+//				drawListener = new ChangeListener<Number>() {
+//
+//					@Override
+//					public void changed(ObservableValue<? extends Number> arg0,	Number arg1, final Number arg2) {
+//						final int index = model.indexToDrawProperty().get();
+//						Display disp = form.getDisplay();
+//						disp.asyncExec(new Runnable() {
+//							@Override
+//							public void run() {
+//								setDeploymentNumberAndScore(index);
+//							}
+//						});
+//					}
+//				};
+//				model.indexToDrawProperty().addListener(drawListener);
+//				
+//				resultListener = new ListChangeListener<Result>() {
+//
+//					@Override
+//					public void onChanged(final javafx.collections.ListChangeListener.Change<? extends Result> change) {
+//						while (change.next()) {
+//							if (model.getObservableResultsList().size() > 0) {
+//								final int index = model.indexToDrawProperty().get();
+//								Display disp = form.getDisplay();
+//								disp.asyncExec(new Runnable() {
+//									@Override
+//									public void run() {
+//										setDeploymentNumberAndScore(index);
+//									}
+//								});
+//							} else {
+//								setDeploymentNumberAndScore(-1);
+//							}
+//						}
+//					}
+//				};
+//				model.getObservableResultsList().addListener(resultListener);
+//				
+//				if (model.getResults() != null) { 
+//					setDeploymentNumberAndScore(0);
+//				} else {
+//					setDeploymentNumberAndScore(-1);
+//				}
+//			}
+//		}
 	}
 	
 	private void addRowToTableComponentProperties(String category, String value) {

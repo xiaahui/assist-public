@@ -1,13 +1,9 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
-import ch.hilbri.assist.mapping.model.Application
-import ch.hilbri.assist.mapping.model.ApplicationGroup
 import ch.hilbri.assist.mapping.model.AssistModel
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import org.chocosolver.solver.Solver
-import org.chocosolver.solver.exception.ContradictionException
 import org.chocosolver.solver.variables.IntVar
 
 class DislocalityConstraint extends AbstractMappingConstraint {
@@ -41,39 +37,39 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 		 * 3) Create an Alldifferent constraint for each set
 		 */
 		
-		for (r : model.dislocalityRelations) {
-			
-			val varList = new ArrayList<ArrayList<IntVar>>()
-			
-			for (aog : r.applicationsOrGroups) {
-				val aogList = new ArrayList<IntVar>()
-				
-				if (aog instanceof Application) 
-					for (t : aog.threads) 
-						aogList.add(solverVariables.getThreadLocationVariable(t, r.hardwareLevel.value))
-				
-				else if (aog instanceof ApplicationGroup)
-					for (t : aog.allThreads)
-						aogList.add(solverVariables.getThreadLocationVariable(t, r.hardwareLevel.value))
-	 			
-	 			else return false
-				
-				varList.add(aogList)
-			}			
-			
-			val varSetForAllDifferentConstraint = createDisjointVariableSets(varList)
-			
-			for (list : varSetForAllDifferentConstraint) {
-//				solver.post(ICF.alldifferent(list, "AC"))
-			}
-			
-			try { 
-//				solver.propagate
-			}
-			catch (ContradictionException e) {
-				throw new BasicConstraintsException(this)
-			}
-		}
+//		for (r : model.dislocalityRelations) {
+//			
+//			val varList = new ArrayList<ArrayList<IntVar>>()
+//			
+//			for (aog : r.applicationsOrGroups) {
+//				val aogList = new ArrayList<IntVar>()
+//				
+//				if (aog instanceof Application) 
+//					for (t : aog.threads) 
+//						aogList.add(solverVariables.getThreadLocationVariable(t, r.hardwareLevel.value))
+//				
+//				else if (aog instanceof ApplicationGroup)
+//					for (t : aog.allThreads)
+//						aogList.add(solverVariables.getThreadLocationVariable(t, r.hardwareLevel.value))
+//	 			
+//	 			else return false
+//				
+//				varList.add(aogList)
+//			}			
+//			
+//			val varSetForAllDifferentConstraint = createDisjointVariableSets(varList)
+//			
+//			for (list : varSetForAllDifferentConstraint) {
+////				solver.post(ICF.alldifferent(list, "AC"))
+//			}
+//			
+//			try { 
+////				solver.propagate
+//			}
+//			catch (ContradictionException e) {
+//				throw new BasicConstraintsException(this)
+//			}
+//		}
 
 		return true
 	}

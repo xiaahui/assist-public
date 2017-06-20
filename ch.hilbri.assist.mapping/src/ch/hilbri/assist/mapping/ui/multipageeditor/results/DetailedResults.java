@@ -72,23 +72,23 @@ public class DetailedResults extends Composite {
 		
 		Button btnNewButton = new Button(composite_2, SWT.NONE);
 		btnNewButton.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		btnNewButton.setText("New Button");
+		btnNewButton.setText("<<");
 		
 		Button btnNewButton_1 = new Button(composite_2, SWT.NONE);
 		btnNewButton_1.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		btnNewButton_1.setText("New Button");
+		btnNewButton_1.setText("< Previous");
 		
 		Button btnNewButton_2 = new Button(composite_2, SWT.NONE);
 		btnNewButton_2.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		btnNewButton_2.setText("New Button");
+		btnNewButton_2.setText("Got to...");
 		
 		Button btnNewButton_3 = new Button(composite_2, SWT.NONE);
 		btnNewButton_3.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		btnNewButton_3.setText("New Button");
+		btnNewButton_3.setText("Next >");
 		
 		Button btnNewButton_4 = new Button(composite_2, SWT.NONE);
 		btnNewButton_4.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		btnNewButton_4.setText("New Button");
+		btnNewButton_4.setText(">>");
 		
 		Composite composite_1 = new Composite(this, SWT.NONE);
 		composite_1.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_LIGHT_SHADOW));
