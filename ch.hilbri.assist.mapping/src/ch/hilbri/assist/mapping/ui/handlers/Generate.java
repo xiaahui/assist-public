@@ -95,7 +95,7 @@ public class Generate {
 		if (searchParamDlg.open() == org.eclipse.jface.window.Window.OK) {
 
 			/* Create a new background Job for finding all solutions */
-			GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", modelURI);
+			GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", modelURI, multipageEditor);
 			findSolutionsJob.setEnableVerboseLogging(searchParamDlg.getVerboseLogging());
 			findSolutionsJob.setSearchStrategy(searchParamDlg.getVariableSelector(), searchParamDlg.getValueSelector());
 			findSolutionsJob.setMaxSolutions(searchParamDlg.getNumberOfSolutions());

@@ -29,8 +29,12 @@ public class GuiSolverJob extends Job {
 	private MultiPageEditor multiPageEditor;
 	private Logger logger = LoggerFactory.getLogger(GuiSolverJob.class);
 
-	public GuiSolverJob(String name, URI modelURI) {
+	public GuiSolverJob(String name, URI modelURI, MultiPageEditor editor) {
 		super(name);
+		
+		/* Who is asking to get the results back? */
+		multiPageEditor = editor;
+		
 		/* Load the model from the URI */
 		ResourceSet rs = new ResourceSetImpl();
 		Resource resource = rs.getResource(modelURI, true);
@@ -69,7 +73,13 @@ public class GuiSolverJob extends Job {
 			
 			if (assistSolver.getResults().size() > 0) {
 				monitor.beginTask("Presenting the results", 1);
-				multiPageEditor.setResultsList(assistSolver.getResults());
+				Display.getDefault().asyncExec(new Runnable() {
+					public void run() {
+						multiPageEditor.setResultsList(assistSolver.getResults());
+						multiPageEditor.showResultsTab();
+					}
+				});
+				
 				monitor.worked(1);
 			} 
 			
