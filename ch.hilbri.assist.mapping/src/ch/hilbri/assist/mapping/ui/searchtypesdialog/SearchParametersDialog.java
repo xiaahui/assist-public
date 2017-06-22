@@ -38,12 +38,12 @@ public class SearchParametersDialog extends TitleAreaDialog {
 	
 	private long 		searchTime 			= 60;
 	private String 		searchTimeItem 		= null;
-	private int 		maxSolutions 		= 1;
-	private boolean		savePartialSolution = true;
-	private boolean		noGoodRecordingBoard= true;
+	private int 		maxSolutions 		= 10;
+	private boolean		savePartialSolution = false;
+	private boolean		noGoodRecordingBoard= false;
 	private boolean		verboseLogging		= false;
-	private boolean 	enableRestarts		= true;
-	private boolean		enableMinimization	= true;
+	private boolean 	enableRestarts		= false;
+	private boolean		enableMinimization	= false;
 	private int			restartFailCount	= 75;
 	
 	private VariableSelectorTypes variableSelector 	= VariableSelectorTypes.getDefault();
