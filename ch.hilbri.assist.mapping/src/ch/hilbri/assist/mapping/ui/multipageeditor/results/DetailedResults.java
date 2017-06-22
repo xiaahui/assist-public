@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -102,7 +103,7 @@ public class DetailedResults extends Composite {
 		btnFirst.setEnabled(false);
 		btnFirst.addSelectionListener(new SelectionAdapter() {
 			@Override
-			public void widgetSelected(SelectionEvent e) { showResult(0); }
+			public void widgetSelected(SelectionEvent e) { showResultIndex(0); }
 		});
 		btnFirst.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		btnFirst.setText("<<");
@@ -112,13 +113,23 @@ public class DetailedResults extends Composite {
 		btnPrev.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if (curResultIndex > 0) showResult(curResultIndex - 1);
+				if (curResultIndex > 0) showResultIndex(curResultIndex - 1);
 			}
 		});
 		btnPrev.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		btnPrev.setText("< Previous");
 		
 		btnGotoResult = new Button(compositeNavButtons, SWT.NONE);
+		btnGotoResult.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				GotoSolutionDialog dlg = new GotoSolutionDialog(e.widget.getDisplay().getActiveShell(), curResultIndex+1);
+				if (dlg.open() == Window.OK)
+					showResultIndex(dlg.getGotoSolutionIdx());
+					
+					
+			}
+		});
 		btnGotoResult.setEnabled(false);
 		btnGotoResult.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		btnGotoResult.setText("Got to...");
@@ -128,7 +139,7 @@ public class DetailedResults extends Composite {
 		btnNext.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if ((curResultIndex + 1) < mappingResults.size()) showResult(curResultIndex + 1);
+				if ((curResultIndex + 1) < mappingResults.size()) showResultIndex(curResultIndex + 1);
 			}
 		});
 		btnNext.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
@@ -139,7 +150,7 @@ public class DetailedResults extends Composite {
 		btnLast.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				showResult(mappingResults.size()-1);
+				showResultIndex(mappingResults.size()-1);
 			}
 		});
 		btnLast.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
@@ -163,7 +174,7 @@ public class DetailedResults extends Composite {
 		mappingResults = list;
 		if ((mappingResults != null) && (mappingResults.size() > 0)) {
 			btnGotoResult.setEnabled(true);
-			showResult(0);
+			showResultIndex(0);
 		}
 			
 	}
@@ -179,7 +190,11 @@ public class DetailedResults extends Composite {
 		btnGotoResult.setEnabled(false);
 	}
 	
-	private void showResult(int index) {
+	private void showResultIndex(int index) {
+		
+		if (index < 0) index = 0;
+		if (index > mappingResults.size() - 1) index = mappingResults.size() - 1;
+		
 		curResultIndex = index;
 		lblResultNum.setText(String.format("%d of %d", curResultIndex+1, mappingResults.size()));
 				

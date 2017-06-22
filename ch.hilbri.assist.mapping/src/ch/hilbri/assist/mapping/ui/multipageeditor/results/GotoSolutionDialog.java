@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.ui.multipageeditor.resultsview;
+package ch.hilbri.assist.mapping.ui.multipageeditor.results;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -82,7 +82,7 @@ public class GotoSolutionDialog extends Dialog {
 		return new Point(215, 150);
 	}
 
-	public int getGotoSolution() {
+	public int getGotoSolutionIdx() {
 		return gotoSolution;
 	}
 
