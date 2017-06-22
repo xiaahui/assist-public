@@ -1,8 +1,12 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor.results;
 
+import java.util.List;
+
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -15,10 +19,22 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+import ch.hilbri.assist.mapping.model.result.Result;
+
 public class DetailedResults extends Composite {
-	private Text text;
+	private Text textFilter;
 	private Table table;
 
+	private List<Result> mappingResults = null;
+	private int curResultIndex = -1;
+	private Button btnFirst;
+	private Button btnPrev;
+	private Button btnGotoResult;
+	private Button btnNext;
+	private Button btnLast;
+	private Composite compositeResultNumber;
+	private Label lblResultNum;
+	
 	/**
 	 * Create the composite.
 	 * @param parent
@@ -29,29 +45,41 @@ public class DetailedResults extends Composite {
 		setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		setLayout(new GridLayout(1, false));
 		
-		Label lblResult = new Label(this, SWT.NONE);
+		compositeResultNumber = new Composite(this, SWT.NONE);
+		GridLayout gl_compositeResultNumber = new GridLayout(2, false);
+		gl_compositeResultNumber.marginWidth = 0;
+		compositeResultNumber.setLayout(gl_compositeResultNumber);
+		compositeResultNumber.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		compositeResultNumber.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		
+		Label lblResult = new Label(compositeResultNumber, SWT.NONE);
 		lblResult.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		lblResult.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
-		lblResult.setText("Result");
+		lblResult.setText("Result:");
 		
-		Label lblTestTesTest = new Label(this, SWT.NONE);
-		lblTestTesTest.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		lblTestTesTest.setText("Please select filter");
+		lblResultNum = new Label(compositeResultNumber, SWT.NONE);
+		lblResultNum.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		lblResultNum.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		
-		text = new Text(this, SWT.BORDER);
-		text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		Label lblFilterHintText = new Label(this, SWT.NONE);
+		lblFilterHintText.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
+		lblFilterHintText.setText("Please select filter");
 		
-		Composite composite = new Composite(this, SWT.NONE);
-		composite.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
-		GridLayout gl_composite = new GridLayout(1, false);
-		gl_composite.marginHeight = 0;
-		gl_composite.marginWidth = 0;
-		composite.setLayout(gl_composite);
-		GridData gd_composite = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
-		gd_composite.heightHint = 172;
-		composite.setLayoutData(gd_composite);
+		textFilter = new Text(this, SWT.BORDER);
+		GridData gd_textFilter = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		gd_textFilter.widthHint = 387;
+		textFilter.setLayoutData(gd_textFilter);
 		
-		TableViewer tableViewer = new TableViewer(composite, SWT.BORDER | SWT.FULL_SELECTION);
+		Composite compositeResultData = new Composite(this, SWT.NONE);
+		compositeResultData.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		GridLayout gl_compositeResultData = new GridLayout(1, false);
+		gl_compositeResultData.marginHeight = 0;
+		gl_compositeResultData.marginWidth = 0;
+		compositeResultData.setLayout(gl_compositeResultData);
+		GridData gd_compositeResultData = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_compositeResultData.heightHint = 172;
+		compositeResultData.setLayoutData(gd_compositeResultData);
+		
+		TableViewer tableViewer = new TableViewer(compositeResultData, SWT.BORDER | SWT.FULL_SELECTION);
 		table = tableViewer.getTable();
 		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		table.setHeaderVisible(true);
@@ -62,48 +90,126 @@ public class DetailedResults extends Composite {
 		tblclmnNewColumn.setWidth(100);
 		tblclmnNewColumn.setText("New Column");
 		
-		Composite composite_2 = new Composite(this, SWT.NONE);
-		composite_2.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		RowLayout rl_composite_2 = new RowLayout(SWT.HORIZONTAL);
-		rl_composite_2.justify = true;
-		rl_composite_2.wrap = false;
-		composite_2.setLayout(rl_composite_2);
-		composite_2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		Composite compositeNavButtons = new Composite(this, SWT.NONE);
+		compositeNavButtons.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
+		RowLayout rl_compositeNavButtons = new RowLayout(SWT.HORIZONTAL);
+		rl_compositeNavButtons.justify = true;
+		rl_compositeNavButtons.wrap = false;
+		compositeNavButtons.setLayout(rl_compositeNavButtons);
+		compositeNavButtons.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
-		Button btnNewButton = new Button(composite_2, SWT.NONE);
-		btnNewButton.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		btnNewButton.setText("<<");
+		btnFirst = new Button(compositeNavButtons, SWT.NONE);
+		btnFirst.setEnabled(false);
+		btnFirst.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) { showResult(0); }
+		});
+		btnFirst.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
+		btnFirst.setText("<<");
 		
-		Button btnNewButton_1 = new Button(composite_2, SWT.NONE);
-		btnNewButton_1.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		btnNewButton_1.setText("< Previous");
+		btnPrev = new Button(compositeNavButtons, SWT.NONE);
+		btnPrev.setEnabled(false);
+		btnPrev.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (curResultIndex > 0) showResult(curResultIndex - 1);
+			}
+		});
+		btnPrev.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
+		btnPrev.setText("< Previous");
 		
-		Button btnNewButton_2 = new Button(composite_2, SWT.NONE);
-		btnNewButton_2.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		btnNewButton_2.setText("Got to...");
+		btnGotoResult = new Button(compositeNavButtons, SWT.NONE);
+		btnGotoResult.setEnabled(false);
+		btnGotoResult.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
+		btnGotoResult.setText("Got to...");
 		
-		Button btnNewButton_3 = new Button(composite_2, SWT.NONE);
-		btnNewButton_3.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		btnNewButton_3.setText("Next >");
+		btnNext = new Button(compositeNavButtons, SWT.NONE);
+		btnNext.setEnabled(false);
+		btnNext.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if ((curResultIndex + 1) < mappingResults.size()) showResult(curResultIndex + 1);
+			}
+		});
+		btnNext.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
+		btnNext.setText("Next >");
 		
-		Button btnNewButton_4 = new Button(composite_2, SWT.NONE);
-		btnNewButton_4.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		btnNewButton_4.setText(">>");
+		btnLast = new Button(compositeNavButtons, SWT.NONE);
+		btnLast.setEnabled(false);
+		btnLast.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				showResult(mappingResults.size()-1);
+			}
+		});
+		btnLast.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
+		btnLast.setText(">>");
 		
-		Composite composite_1 = new Composite(this, SWT.NONE);
-		composite_1.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_LIGHT_SHADOW));
-		composite_1.setLayout(new FillLayout(SWT.HORIZONTAL));
-		GridData gd_composite_1 = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-		gd_composite_1.widthHint = 406;
-		composite_1.setLayoutData(gd_composite_1);
+		Composite compositeScoreOverview = new Composite(this, SWT.NONE);
+		compositeScoreOverview.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_LIGHT_SHADOW));
+		compositeScoreOverview.setLayout(new FillLayout(SWT.HORIZONTAL));
+		GridData gd_compositeScoreOverview = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		gd_compositeScoreOverview.widthHint = 406;
+		compositeScoreOverview.setLayoutData(gd_compositeScoreOverview);
 		
-		Label lblIAmDiagram = new Label(composite_1, SWT.CENTER);
+		Label lblIAmDiagram = new Label(compositeScoreOverview, SWT.CENTER);
 		lblIAmDiagram.setText("I am diagram");
 
 	}
 
-	@Override
-	protected void checkSubclass() {
-		// Disable the check that prevents subclassing of SWT components
+	
+	public void setResultsList(List<Result> list) {
+		clearResults();
+		mappingResults = list;
+		if ((mappingResults != null) && (mappingResults.size() > 0)) {
+			btnGotoResult.setEnabled(true);
+			showResult(0);
+		}
+			
+	}
+
+	private void clearResults() {
+		curResultIndex = -1;			
+		lblResultNum.setText("");
+		
+		btnFirst.setEnabled(false);
+		btnPrev.setEnabled(false);
+		btnNext.setEnabled(false);
+		btnLast.setEnabled(false);
+		btnGotoResult.setEnabled(false);
+	}
+	
+	private void showResult(int index) {
+		curResultIndex = index;
+		lblResultNum.setText(String.format("%d of %d", curResultIndex+1, mappingResults.size()));
+				
+		/* We have just one result */
+		if (mappingResults.size() == 1) {
+			btnFirst.setEnabled(false);
+			btnPrev.setEnabled(false);
+			btnNext.setEnabled(false);
+			btnLast.setEnabled(false);
+		} 
+		/* We are at the beginning with more than 1 result in total */
+		else if (curResultIndex == 0) {
+			btnFirst.setEnabled(false);
+			btnPrev.setEnabled(false);
+			btnNext.setEnabled(true);
+			btnLast.setEnabled(true);			
+		} 
+		/* We are at the end with more than 1 result in total */
+		else if (curResultIndex == mappingResults.size()-1) {
+			btnFirst.setEnabled(true);
+			btnPrev.setEnabled(true);
+			btnNext.setEnabled(false);
+			btnLast.setEnabled(false);
+		} 
+		/* All other cases */
+		else {
+			btnFirst.setEnabled(true);
+			btnPrev.setEnabled(true);
+			btnNext.setEnabled(true);
+			btnLast.setEnabled(true);
+		}
 	}
 }
