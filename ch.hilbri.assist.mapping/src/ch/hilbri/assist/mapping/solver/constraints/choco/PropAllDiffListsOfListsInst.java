@@ -11,8 +11,6 @@ import gnu.trove.stack.array.TIntArrayStack;
 
 public class PropAllDiffListsOfListsInst extends Propagator<IntVar> {
 
-	private static final long serialVersionUID = -6081383872070187008L;
-
 	protected TIntArrayStack toCheck = new TIntArrayStack();
 	private int[] cumulLengths = null;
 	

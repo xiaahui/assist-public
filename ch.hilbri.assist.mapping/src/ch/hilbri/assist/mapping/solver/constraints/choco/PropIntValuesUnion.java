@@ -45,8 +45,6 @@ import org.chocosolver.util.tools.ArrayUtils;
  */
 public class PropIntValuesUnion extends Propagator<IntVar> {
 
-	private static final long serialVersionUID = 1318758300478761372L;
-
 	public PropIntValuesUnion(IntVar[] X, IntVar union) {
 		super(ArrayUtils.append(new IntVar[] { union }, X),
 				PropagatorPriority.LINEAR, false);
