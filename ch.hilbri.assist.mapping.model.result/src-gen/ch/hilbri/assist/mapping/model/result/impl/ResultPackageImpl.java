@@ -10,6 +10,7 @@ import ch.hilbri.assist.mapping.model.result.ResultPackage;
 
 import java.lang.Comparable;
 
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -48,6 +49,13 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * @generated
 	 */
 	private EDataType task2CoreMapTypeEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType stringListEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -172,8 +180,26 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getResult_DetailedMappingResults() {
+		return (EAttribute)resultEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getTask2CoreMapType() {
 		return task2CoreMapTypeEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getStringList() {
+		return stringListEDataType;
 	}
 
 	/**
@@ -211,9 +237,11 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		createEReference(resultEClass, RESULT__MODEL);
 		createEAttribute(resultEClass, RESULT__TASK2_CORE_MAP);
 		createEAttribute(resultEClass, RESULT__PARTIAL_SOLUTION);
+		createEAttribute(resultEClass, RESULT__DETAILED_MAPPING_RESULTS);
 
 		// Create data types
 		task2CoreMapTypeEDataType = createEDataType(TASK2_CORE_MAP_TYPE);
+		stringListEDataType = createEDataType(STRING_LIST);
 	}
 
 	/**
@@ -257,9 +285,11 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		initEReference(getResult_Model(), theModelPackage.getAssistModel(), null, "model", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_Task2CoreMap(), this.getTask2CoreMapType(), "task2CoreMap", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_PartialSolution(), theEcorePackage.getEBoolean(), "partialSolution", "false", 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResult_DetailedMappingResults(), this.getStringList(), "detailedMappingResults", null, 0, -1, Result.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(task2CoreMapTypeEDataType, Map.class, "Task2CoreMapType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.Map<ch.hilbri.assist.mapping.model.Task, ch.hilbri.assist.mapping.model.Core>");
+		initEDataType(stringListEDataType, List.class, "StringList", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.List<java.lang.String>");
 
 		// Create resource
 		createResource(eNS_URI);

@@ -2,22 +2,42 @@
  */
 package ch.hilbri.assist.mapping.model.result.impl;
 
+import ch.hilbri.assist.mapping.model.Application;
 import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.Board;
+import ch.hilbri.assist.mapping.model.Box;
+import ch.hilbri.assist.mapping.model.Compartment;
 import ch.hilbri.assist.mapping.model.Core;
+import ch.hilbri.assist.mapping.model.Processor;
 import ch.hilbri.assist.mapping.model.Task;
 
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
 
+import java.lang.Iterable;
+
+import java.util.List;
 import java.util.Map;
+
+import java.util.Map.Entry;
+
+import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ECollections;
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +51,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getTask2CoreMap <em>Task2 Core Map</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#isPartialSolution <em>Partial Solution</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getDetailedMappingResults <em>Detailed Mapping Results</em>}</li>
  * </ul>
  *
  * @generated
@@ -221,6 +242,48 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<List<String>> getDetailedMappingResults() {
+		Map<Task, Core> _task2CoreMap = this.getTask2CoreMap();
+		Set<Entry<Task, Core>> _entrySet = _task2CoreMap.entrySet();
+		final Function1<Entry<Task, Core>, List<String>> _function = new Function1<Entry<Task, Core>, List<String>>() {
+			public List<String> apply(final Entry<Task, Core> it) {
+				Task _key = it.getKey();
+				EObject _eContainer = _key.eContainer();
+				String _name = ((Application) _eContainer).getName();
+				Task _key_1 = it.getKey();
+				String _name_1 = _key_1.getName();
+				Core _value = it.getValue();
+				String _name_2 = _value.getName();
+				Core _value_1 = it.getValue();
+				EObject _eContainer_1 = _value_1.eContainer();
+				String _name_3 = ((Processor) _eContainer_1).getName();
+				Core _value_2 = it.getValue();
+				EObject _eContainer_2 = _value_2.eContainer();
+				EObject _eContainer_3 = _eContainer_2.eContainer();
+				String _name_4 = ((Board) _eContainer_3).getName();
+				Core _value_3 = it.getValue();
+				EObject _eContainer_4 = _value_3.eContainer();
+				EObject _eContainer_5 = _eContainer_4.eContainer();
+				EObject _eContainer_6 = _eContainer_5.eContainer();
+				String _name_5 = ((Box) _eContainer_6).getName();
+				Core _value_4 = it.getValue();
+				EObject _eContainer_7 = _value_4.eContainer();
+				EObject _eContainer_8 = _eContainer_7.eContainer();
+				EObject _eContainer_9 = _eContainer_8.eContainer();
+				EObject _eContainer_10 = _eContainer_9.eContainer();
+				String _name_6 = ((Compartment) _eContainer_10).getName();
+				return java.util.Collections.<String>unmodifiableList(org.eclipse.xtext.xbase.lib.CollectionLiterals.<String>newArrayList(_name, _name_1, _name_2, _name_3, _name_4, _name_5, _name_6));
+			}
+		};
+		Iterable<List<String>> _map = IterableExtensions.<Entry<Task, Core>, List<String>>map(_entrySet, _function);
+		return ECollections.<List<String>>toEList(_map);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -233,6 +296,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return getTask2CoreMap();
 			case ResultPackage.RESULT__PARTIAL_SOLUTION:
 				return isPartialSolution();
+			case ResultPackage.RESULT__DETAILED_MAPPING_RESULTS:
+				return getDetailedMappingResults();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -302,6 +367,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return task2CoreMap != null;
 			case ResultPackage.RESULT__PARTIAL_SOLUTION:
 				return partialSolution != PARTIAL_SOLUTION_EDEFAULT;
+			case ResultPackage.RESULT__DETAILED_MAPPING_RESULTS:
+				return !getDetailedMappingResults().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

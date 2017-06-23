@@ -134,13 +134,22 @@ public interface ResultPackage extends EPackage {
 	int RESULT__PARTIAL_SOLUTION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Detailed Mapping Results</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__DETAILED_MAPPING_RESULTS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_FEATURE_COUNT = 4;
+	int RESULT_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Result</em>' class.
@@ -160,6 +169,16 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	int TASK2_CORE_MAP_TYPE = 2;
+
+	/**
+	 * The meta object id for the '<em>String List</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.List
+	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getStringList()
+	 * @generated
+	 */
+	int STRING_LIST = 3;
 
 
 	/**
@@ -228,6 +247,17 @@ public interface ResultPackage extends EPackage {
 	EAttribute getResult_PartialSolution();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link ch.hilbri.assist.mapping.model.result.Result#getDetailedMappingResults <em>Detailed Mapping Results</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Detailed Mapping Results</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.Result#getDetailedMappingResults()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EAttribute getResult_DetailedMappingResults();
+
+	/**
 	 * Returns the meta object for data type '{@link java.util.Map <em>Task2 Core Map Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -237,6 +267,17 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getTask2CoreMapType();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.List <em>String List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>String List</em>'.
+	 * @see java.util.List
+	 * @model instanceClass="java.util.List<java.lang.String>"
+	 * @generated
+	 */
+	EDataType getStringList();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -314,6 +355,14 @@ public interface ResultPackage extends EPackage {
 		EAttribute RESULT__PARTIAL_SOLUTION = eINSTANCE.getResult_PartialSolution();
 
 		/**
+		 * The meta object literal for the '<em><b>Detailed Mapping Results</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT__DETAILED_MAPPING_RESULTS = eINSTANCE.getResult_DetailedMappingResults();
+
+		/**
 		 * The meta object literal for the '<em>Task2 Core Map Type</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -322,6 +371,16 @@ public interface ResultPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType TASK2_CORE_MAP_TYPE = eINSTANCE.getTask2CoreMapType();
+
+		/**
+		 * The meta object literal for the '<em>String List</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.List
+		 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getStringList()
+		 * @generated
+		 */
+		EDataType STRING_LIST = eINSTANCE.getStringList();
 
 	}
 

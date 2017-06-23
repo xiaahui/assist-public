@@ -2,6 +2,8 @@ package ch.hilbri.assist.mapping.ui.multipageeditor.results;
 
 import java.util.List;
 
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.window.Window;
@@ -23,11 +25,13 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import ch.hilbri.assist.mapping.model.result.Result;
 
 public class DetailedResults extends Composite {
+
 	private Text textFilter;
-	private Table table;
+	private Table tblResult;
 
 	private List<Result> mappingResults = null;
 	private int curResultIndex = -1;
+	private Result curResult = null;
 	private Button btnFirst;
 	private Button btnPrev;
 	private Button btnGotoResult;
@@ -35,6 +39,21 @@ public class DetailedResults extends Composite {
 	private Button btnLast;
 	private Composite compositeResultNumber;
 	private Label lblResultNum;
+	private TableViewer tblviewerResult;
+	private TableColumn tblclmnProcessor;
+	private TableViewerColumn tableViewerColumn_2;
+	private TableColumn tblclmnApplication;
+	private TableViewerColumn tableViewerColumn;
+	private TableColumn tblclmnTask;
+	private TableViewerColumn tableViewerColumn_1;
+	private TableColumn tblclmnCore;
+	private TableViewerColumn tableViewerColumn_3;
+	private TableColumn tblclmnBoard;
+	private TableViewerColumn tableViewerColumn_4;
+	private TableColumn tblclmnBox;
+	private TableViewerColumn tableViewerColumn_5;
+	private TableColumn tblclmnCompartment;
+	private TableViewerColumn tableViewerColumn_6;
 	
 	/**
 	 * Create the composite.
@@ -77,19 +96,93 @@ public class DetailedResults extends Composite {
 		gl_compositeResultData.marginWidth = 0;
 		compositeResultData.setLayout(gl_compositeResultData);
 		GridData gd_compositeResultData = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_compositeResultData.widthHint = 548;
 		gd_compositeResultData.heightHint = 172;
 		compositeResultData.setLayoutData(gd_compositeResultData);
 		
-		TableViewer tableViewer = new TableViewer(compositeResultData, SWT.BORDER | SWT.FULL_SELECTION);
-		table = tableViewer.getTable();
-		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
+		tblviewerResult = new TableViewer(compositeResultData, SWT.BORDER | SWT.FULL_SELECTION);
+		tblResult = tblviewerResult.getTable();
+		tblResult.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		tblResult.setHeaderVisible(true);
+		tblResult.setLinesVisible(true);
 		
-		TableViewerColumn tableViewerColumn = new TableViewerColumn(tableViewer, SWT.NONE);
-		TableColumn tblclmnNewColumn = tableViewerColumn.getColumn();
-		tblclmnNewColumn.setWidth(100);
-		tblclmnNewColumn.setText("New Column");
+		tableViewerColumn = new TableViewerColumn(tblviewerResult, SWT.NONE);
+		tableViewerColumn.setLabelProvider(new ColumnLabelProvider() {
+			@SuppressWarnings("unchecked")
+			public String getText(Object element) {
+				return element == null ? "" : ((List<String>) element).get(0);
+			}
+		});
+		tblclmnApplication = tableViewerColumn.getColumn();
+		tblclmnApplication.setWidth(100);
+		tblclmnApplication.setText("Application");
+		
+		tableViewerColumn_1 = new TableViewerColumn(tblviewerResult, SWT.NONE);
+		tableViewerColumn_1.setLabelProvider(new ColumnLabelProvider() {
+			@SuppressWarnings("unchecked")
+			public String getText(Object element) {
+				return element == null ? "" : ((List<String>) element).get(1);
+			}
+		});
+		tblclmnTask = tableViewerColumn_1.getColumn();
+		tblclmnTask.setWidth(100);
+		tblclmnTask.setText("Task");
+		
+		tableViewerColumn_3 = new TableViewerColumn(tblviewerResult, SWT.NONE);
+		tableViewerColumn_3.setLabelProvider(new ColumnLabelProvider() {
+			@SuppressWarnings("unchecked")
+			public String getText(Object element) {
+				return element == null ? "" : ((List<String>) element).get(2);
+			}
+		});
+		tblclmnCore = tableViewerColumn_3.getColumn();
+		tblclmnCore.setWidth(100);
+		tblclmnCore.setText("Core");
+		
+		tableViewerColumn_2 = new TableViewerColumn(tblviewerResult, SWT.NONE);
+		tableViewerColumn_2.setLabelProvider(new ColumnLabelProvider() {
+			@SuppressWarnings("unchecked")
+			public String getText(Object element) {
+				return element == null ? "" : ((List<String>) element).get(3);
+			}
+		});
+		tblclmnProcessor = tableViewerColumn_2.getColumn();
+		tblclmnProcessor.setWidth(100);
+		tblclmnProcessor.setText("Processor");
+		
+		tableViewerColumn_4 = new TableViewerColumn(tblviewerResult, SWT.NONE);
+		tableViewerColumn_4.setLabelProvider(new ColumnLabelProvider() {
+			@SuppressWarnings("unchecked")
+			public String getText(Object element) {
+				return element == null ? "" : ((List<String>) element).get(4);
+			}
+		});
+		tblclmnBoard = tableViewerColumn_4.getColumn();
+		tblclmnBoard.setWidth(100);
+		tblclmnBoard.setText("Board");
+		
+		tableViewerColumn_5 = new TableViewerColumn(tblviewerResult, SWT.NONE);
+		tableViewerColumn_5.setLabelProvider(new ColumnLabelProvider() {
+			@SuppressWarnings("unchecked")
+			public String getText(Object element) {
+				return element == null ? "" : ((List<String>) element).get(5);
+			}
+		});
+		tblclmnBox = tableViewerColumn_5.getColumn();
+		tblclmnBox.setWidth(100);
+		tblclmnBox.setText("Box");
+		
+		tableViewerColumn_6 = new TableViewerColumn(tblviewerResult, SWT.NONE);
+		tableViewerColumn_6.setLabelProvider(new ColumnLabelProvider() {
+			@SuppressWarnings("unchecked")
+			public String getText(Object element) {
+				return element == null ? "" : ((List<String>) element).get(6);
+			}
+		});
+		tblclmnCompartment = tableViewerColumn_6.getColumn();
+		tblclmnCompartment.setWidth(100);
+		tblclmnCompartment.setText("Compartment");
+		tblviewerResult.setContentProvider(ArrayContentProvider.getInstance());
 		
 		Composite compositeNavButtons = new Composite(this, SWT.NONE);
 		compositeNavButtons.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
@@ -103,7 +196,7 @@ public class DetailedResults extends Composite {
 		btnFirst.setEnabled(false);
 		btnFirst.addSelectionListener(new SelectionAdapter() {
 			@Override
-			public void widgetSelected(SelectionEvent e) { showResultIndex(0); }
+			public void widgetSelected(SelectionEvent e) { showResult(0); }
 		});
 		btnFirst.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		btnFirst.setText("<<");
@@ -113,7 +206,7 @@ public class DetailedResults extends Composite {
 		btnPrev.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if (curResultIndex > 0) showResultIndex(curResultIndex - 1);
+				if (curResultIndex > 0) showResult(curResultIndex - 1);
 			}
 		});
 		btnPrev.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
@@ -125,7 +218,7 @@ public class DetailedResults extends Composite {
 			public void widgetSelected(SelectionEvent e) {
 				GotoSolutionDialog dlg = new GotoSolutionDialog(e.widget.getDisplay().getActiveShell(), curResultIndex+1);
 				if (dlg.open() == Window.OK)
-					showResultIndex(dlg.getGotoSolutionIdx());
+					showResult(dlg.getGotoSolutionIdx());
 					
 					
 			}
@@ -139,7 +232,7 @@ public class DetailedResults extends Composite {
 		btnNext.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if ((curResultIndex + 1) < mappingResults.size()) showResultIndex(curResultIndex + 1);
+				if ((curResultIndex + 1) < mappingResults.size()) showResult(curResultIndex + 1);
 			}
 		});
 		btnNext.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
@@ -150,7 +243,7 @@ public class DetailedResults extends Composite {
 		btnLast.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				showResultIndex(mappingResults.size()-1);
+				showResult(mappingResults.size()-1);
 			}
 		});
 		btnLast.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
@@ -174,7 +267,7 @@ public class DetailedResults extends Composite {
 		mappingResults = list;
 		if ((mappingResults != null) && (mappingResults.size() > 0)) {
 			btnGotoResult.setEnabled(true);
-			showResultIndex(0);
+			showResult(0);
 		}
 			
 	}
@@ -183,6 +276,8 @@ public class DetailedResults extends Composite {
 		curResultIndex = -1;			
 		lblResultNum.setText("");
 		
+		tblviewerResult.setInput(null);
+		
 		btnFirst.setEnabled(false);
 		btnPrev.setEnabled(false);
 		btnNext.setEnabled(false);
@@ -190,14 +285,16 @@ public class DetailedResults extends Composite {
 		btnGotoResult.setEnabled(false);
 	}
 	
-	private void showResultIndex(int index) {
+	private void showResult(int index) {
 		
 		if (index < 0) index = 0;
 		if (index > mappingResults.size() - 1) index = mappingResults.size() - 1;
 		
 		curResultIndex = index;
+		curResult = mappingResults.get(curResultIndex);
 		lblResultNum.setText(String.format("%d of %d", curResultIndex+1, mappingResults.size()));
-				
+		tblviewerResult.setInput(curResult.getDetailedMappingResults());
+		
 		/* We have just one result */
 		if (mappingResults.size() == 1) {
 			btnFirst.setEnabled(false);

@@ -5,22 +5,45 @@
 
 package ch.hilbri.assist.mapping.model.result
 
+import ch.hilbri.assist.mapping.model.Application
 import ch.hilbri.assist.mapping.model.AssistModel
-import ch.hilbri.assist.mapping.model.Task
+import ch.hilbri.assist.mapping.model.Board
+import ch.hilbri.assist.mapping.model.Box
+import ch.hilbri.assist.mapping.model.Compartment
 import ch.hilbri.assist.mapping.model.Core
-
-
+import ch.hilbri.assist.mapping.model.Processor
+import ch.hilbri.assist.mapping.model.Task
+import java.util.List
 import java.util.Map
+ 				
 
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 type Task2CoreMapType wraps Map<Task, Core>
+type StringList wraps List<String>
 
 interface Comparable wraps Comparable<Result>{}
 
 class Result {
 	String								name
 	refers AssistModel					model	
-	Task2CoreMapType					task2CoreMap
+ 	Task2CoreMapType					task2CoreMap
 	boolean 							partialSolution = "false"
+
+	/* Returns a list of the mappings; each entry is a list of names for the mapped elements */
+	derived StringList[] detailedMappingResults get {
+ 	 	task2CoreMap.entrySet.map[ 
+  			#[
+ 				(key.eContainer as Application).name, 									// Name of the application
+ 				key.name,																// Name of the task
+ 				value.name,																// Name of the core
+ 				(value.eContainer as Processor).name,									// Name of the processor
+ 				(value.eContainer.eContainer as Board).name,							// ...
+ 				(value.eContainer.eContainer.eContainer as Box).name,
+ 				(value.eContainer.eContainer.eContainer.eContainer as Compartment).name
+ 			]
+ 		]
+ 		.toEList
+ 	}
+	
 }

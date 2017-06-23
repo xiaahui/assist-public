@@ -9,6 +9,7 @@ import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultFactory;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
 
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
@@ -80,6 +81,8 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 		switch (eDataType.getClassifierID()) {
 			case ResultPackage.TASK2_CORE_MAP_TYPE:
 				return createTask2CoreMapTypeFromString(eDataType, initialValue);
+			case ResultPackage.STRING_LIST:
+				return createStringListFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -95,6 +98,8 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 		switch (eDataType.getClassifierID()) {
 			case ResultPackage.TASK2_CORE_MAP_TYPE:
 				return convertTask2CoreMapTypeToString(eDataType, instanceValue);
+			case ResultPackage.STRING_LIST:
+				return convertStringListToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -126,6 +131,25 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 	 * @generated
 	 */
 	public String convertTask2CoreMapTypeToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public List<String> createStringListFromString(EDataType eDataType, String initialValue) {
+		return (List<String>)super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertStringListToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
 	}
 
