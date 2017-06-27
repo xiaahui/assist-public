@@ -16,7 +16,6 @@ import com.google.inject.Injector;
 
 import ch.hilbri.assist.mapping.dsl.ui.internal.DslActivator;
 import ch.hilbri.assist.mapping.model.result.Result;
-import ch.hilbri.assist.mapping.ui.multipageeditor.results.DetailedResults;
 
 public class MultiPageEditor extends MultiPageEditorPart  {
 

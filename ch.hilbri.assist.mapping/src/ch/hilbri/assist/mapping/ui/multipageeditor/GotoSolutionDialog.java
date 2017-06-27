@@ -1,4 +1,4 @@
-package ch.hilbri.assist.mapping.ui.multipageeditor.results;
+package ch.hilbri.assist.mapping.ui.multipageeditor;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
