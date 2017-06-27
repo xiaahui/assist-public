@@ -18,13 +18,12 @@ import ch.hilbri.assist.mapping.dsl.ui.internal.DslActivator;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.ui.multipageeditor.results.DetailedResults;
 
-public class MultiPageEditor extends MultiPageEditorPart {
+public class MultiPageEditor extends MultiPageEditorPart  {
 
 	/** The text editor used in page 0. */
 	private XtextEditor tabEditor;
 	private DetailedResults tabResults;
 	
-		
 	/**
 	 * Creates page 0 of the multi-page editor, which contains a Xtext editor.
 	 */
@@ -38,7 +37,7 @@ public class MultiPageEditor extends MultiPageEditorPart {
 			setPartName(tabEditor.getTitle());
 
 		} catch (PartInitException e) {
-			ErrorDialog.openError(getSite().getShell(),	"Error creating nested text editor", null, e.getStatus());
+			ErrorDialog.openError(getSite().getShell(), "Error creating nested text editor", null, e.getStatus());
 		}
 	}
 
@@ -91,12 +90,13 @@ public class MultiPageEditor extends MultiPageEditorPart {
 	public boolean isSaveAsAllowed() {
 		return true;
 	}
-	
+
 	public void setResultsList(List<Result> l) {
 		tabResults.setResultsList(l);
 	}
-	
+
 	public void showResultsTab() {
 		setActivePage(1);
 	}
+
 }

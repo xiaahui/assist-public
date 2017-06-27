@@ -2,8 +2,14 @@ package ch.hilbri.assist.mapping.ui.multipageeditor.results;
 
 import java.util.List;
 
+import org.eclipse.core.runtime.ListenerList;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.window.Window;
@@ -20,15 +26,16 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.wb.swt.SWTResourceManager;
 
 import ch.hilbri.assist.mapping.model.result.Result;
 
-public class DetailedResults extends Composite {
+public class DetailedResults extends Composite implements ISelectionProvider {
 
+	private ListenerList<ISelectionChangedListener> listeners = new ListenerList<ISelectionChangedListener>();
 	private Text textFilter;
 	private Table tblResult;
-
 	private List<Result> mappingResults = null;
 	private int curResultIndex = -1;
 	private Result curResult = null;
@@ -258,6 +265,9 @@ public class DetailedResults extends Composite {
 		
 		Label lblIAmDiagram = new Label(compositeScoreOverview, SWT.CENTER);
 		lblIAmDiagram.setText("I am diagram");
+		
+		/* Registering us as a selection provider */
+		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActivePart().getSite().setSelectionProvider(this);
 
 	}
 
@@ -276,6 +286,8 @@ public class DetailedResults extends Composite {
 		curResultIndex = -1;			
 		lblResultNum.setText("");
 		
+		setSelection(new StructuredSelection());
+		
 		tblviewerResult.setInput(null);
 		
 		btnFirst.setEnabled(false);
@@ -292,6 +304,9 @@ public class DetailedResults extends Composite {
 		
 		curResultIndex = index;
 		curResult = mappingResults.get(curResultIndex);
+		
+		setSelection(new StructuredSelection(curResult));
+		
 		lblResultNum.setText(String.format("%d of %d", curResultIndex+1, mappingResults.size()));
 		tblviewerResult.setInput(curResult.getDetailedMappingResults());
 		
@@ -324,4 +339,31 @@ public class DetailedResults extends Composite {
 			btnLast.setEnabled(true);
 		}
 	}
+	
+	
+	@Override
+	public void addSelectionChangedListener(ISelectionChangedListener listener) {
+		listeners.add(listener);
+
+	}
+
+	@Override
+	public ISelection getSelection() {
+		return new StructuredSelection();
+	}
+
+	@Override
+	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
+		listeners.remove(listener);
+	}
+
+	@Override
+	public void setSelection(ISelection selection) {
+		Object[] list = listeners.getListeners();
+		for (int i = 0; i < list.length; i++) {
+			((ISelectionChangedListener) list[i]).selectionChanged(new SelectionChangedEvent(this, selection));
+		}
+
+	}
+
 }
