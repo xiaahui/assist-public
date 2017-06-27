@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_hEoZcA_bEeOdg7LCSWH6eQ">
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_hEoZcA_bEeOdg7LCSWH6eQ">
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="__6xnMA_bEeOdg7LCSWH6eQ" featurename="handlers" parentElementId="ch.hilbri.assist.gui.application">
     <elements xsi:type="commands:Handler" xmi:id="_M42AIA_cEeOdg7LCSWH6eQ" elementId="ch.hilbri.assist.handler.mapping.generate" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.handlers.Generate" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
     <elements xsi:type="commands:Handler" xmi:id="_ctlXwI5uEeOJBOmJqpLcrw" elementId="ch.hilbri.assist.handler.mapping.export.text" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.handlers.ExportToText" command="_k49dwI5uEeOJBOmJqpLcrw"/>
@@ -24,5 +24,8 @@
     <elements xsi:type="menu:ToolBar" xmi:id="_ITXPAE-XEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.mapping.toolbar.mapping">
       <children xsi:type="menu:HandledToolItem" xmi:id="_KJylIE-XEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.mapping.handledtoolitem.runmapping" label="Run Mapping" iconURI="platform:/plugin/ch.hilbri.assist.mapping/icons/run_mapping.png" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
     </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_HgnnsFsBEeeZAv23awykxg" featurename="children" parentElementId="ch.hilbri.assist.gui.partstack.infopart">
+    <elements xsi:type="basic:Part" xmi:id="_R7edAFsBEeeZAv23awykxg" elementId="ch.hilbri.assist.mapping.part.detailedresults" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView" label="Info Sheet"/>
   </fragments>
 </fragment:ModelFragments>
