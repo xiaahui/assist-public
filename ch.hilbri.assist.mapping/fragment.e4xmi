@@ -26,6 +26,6 @@
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_HgnnsFsBEeeZAv23awykxg" featurename="children" parentElementId="ch.hilbri.assist.gui.partstack.infopart">
-    <elements xsi:type="basic:Part" xmi:id="_R7edAFsBEeeZAv23awykxg" elementId="ch.hilbri.assist.mapping.part.detailedresults" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView" label="Info Sheet"/>
+    <elements xsi:type="basic:Part" xmi:id="_R7edAFsBEeeZAv23awykxg" elementId="ch.hilbri.assist.mapping.part.detailedresults" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView" label="Overview"/>
   </fragments>
 </fragment:ModelFragments>
