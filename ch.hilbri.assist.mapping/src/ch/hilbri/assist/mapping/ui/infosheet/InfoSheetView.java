@@ -1,5 +1,8 @@
 package ch.hilbri.assist.mapping.ui.infosheet;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.eclipse.swt.SWT;
@@ -16,8 +19,6 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
@@ -30,14 +31,11 @@ public class InfoSheetView implements IPartListener2 {
 	private MultiPageEditor currentEditor;
 
 	private Label lblName;
-	private Label lblNumber;
 	private Label lblScore;
 	private Label lblComplete;
 	private Label lblSpecification;
 
 	public static InfoSheetView INSTANCE;
-
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public InfoSheetView() {
 		InfoSheetView.INSTANCE = this;
@@ -77,14 +75,6 @@ public class InfoSheetView implements IPartListener2 {
 		formToolkit.adapt(composite_1);
 		formToolkit.paintBordersFor(composite_1);
 
-		Label lblTitleSpecification = new Label(composite_1, SWT.NONE);
-		formToolkit.adapt(lblTitleSpecification, true, true);
-		lblTitleSpecification.setText("Specification:");
-
-		lblSpecification = new Label(composite_1, SWT.NONE);
-		lblSpecification.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		formToolkit.adapt(lblSpecification, true, true);
-
 		Label lblTitleName = new Label(composite_1, SWT.NONE);
 		formToolkit.adapt(lblTitleName, true, true);
 		lblTitleName.setText("Name:");
@@ -93,26 +83,29 @@ public class InfoSheetView implements IPartListener2 {
 		lblName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		formToolkit.adapt(lblName, true, true);
 
-		Label lblTitleNumber = new Label(composite_1, SWT.NONE);
-		formToolkit.adapt(lblTitleNumber, true, true);
-		lblTitleNumber.setText("Number:");
+		Label lblTitleSpecification = new Label(composite_1, SWT.NONE);
+		formToolkit.adapt(lblTitleSpecification, true, true);
+		lblTitleSpecification.setText("File:");
 
-		lblNumber = new Label(composite_1, SWT.NONE);
-		formToolkit.adapt(lblNumber, true, true);
-
-		Label lblTitleScore = new Label(composite_1, SWT.NONE);
-		formToolkit.adapt(lblTitleScore, true, true);
-		lblTitleScore.setText("Score:");
-
-		lblScore = new Label(composite_1, SWT.NONE);
-		formToolkit.adapt(lblScore, true, true);
+		lblSpecification = new Label(composite_1, SWT.NONE);
+		lblSpecification.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		formToolkit.adapt(lblSpecification, true, true);
 
 		Label lblTitleComplete = new Label(composite_1, SWT.NONE);
 		formToolkit.adapt(lblTitleComplete, true, true);
 		lblTitleComplete.setText("Complete:");
 
 		lblComplete = new Label(composite_1, SWT.NONE);
+		lblComplete.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		formToolkit.adapt(lblComplete, true, true);
+
+		Label lblTitleScore = new Label(composite_1, SWT.NONE);
+		formToolkit.adapt(lblTitleScore, true, true);
+		lblTitleScore.setText("Total Score:");
+
+		lblScore = new Label(composite_1, SWT.NONE);
+		lblScore.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		formToolkit.adapt(lblScore, true, true);
 
 		Section sctnMetrics = formToolkit.createSection(scrldfrmCurrentSolution.getBody(), Section.TITLE_BAR);
 		sctnMetrics.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -137,36 +130,27 @@ public class InfoSheetView implements IPartListener2 {
 		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getPartService().addPartListener(this);
 	}
 
-	public void setSelectedSpecification(MultiPageEditor sender) {
-			lblSpecification.setText(currentEditor.getTitle());
-	}
-	
 	public void setSelectedResult(MultiPageEditor sender, Result result) {
-		/* Did we receive the selectedResult from the sender we expect it to
-		 * receive from? */
+		/*
+		 * Did we receive the selectedResult from the sender we expect it to
+		 * receive from?
+		 */
 		if (currentEditor == sender) {
-			if (result != null) 
+			if (result != null) {
 				lblName.setText(result.getName());
-			 else 
-				clearSelectedResult();
+				lblComplete.setText(result.isPartialSolution() ? "No" : "Yes");
+				lblScore.setText(Double.toString(result.getTotalScore()));
+				lblSpecification.setText(currentEditor.getTitle());
+			} else
+				clearInfoSheet();
 		}
-		else
-			logger.debug("We received a call to select a result from an unexpected multi page editor");
 	}
-	
+
 	public void clearInfoSheet() {
-		clearSpecification();
-		clearSelectedResult();
-	}
-	
-	private void clearSpecification() {
-		if (!lblSpecification.isDisposed())
-			lblSpecification.setText("");
-	}
-	
-	private void clearSelectedResult() {
-		if (!lblName.isDisposed())
-			lblName.setText("");
+		List<Label> labels = Arrays.asList(lblName, lblComplete, lblScore, lblSpecification);
+		for (Label l : labels)
+			if (!l.isDisposed())
+				l.setText("");
 	}
 
 	@Override
@@ -174,19 +158,18 @@ public class InfoSheetView implements IPartListener2 {
 		IWorkbenchPart p = partRef.getPart(false);
 		if (p instanceof MultiPageEditor) {
 			currentEditor = (MultiPageEditor) p;
-			setSelectedSpecification(currentEditor);
 			setSelectedResult(currentEditor, currentEditor.getCurrentResult());
 		}
 	}
 
 	@Override
-	public void partDeactivated(IWorkbenchPartReference partRef) {
+	public void partClosed(IWorkbenchPartReference partRef) {
 		currentEditor = null;
 		clearInfoSheet();
 	}
 
 	@Override
-	public void partClosed(IWorkbenchPartReference partRef) {
+	public void partDeactivated(IWorkbenchPartReference partRef) {
 	}
 
 	@Override

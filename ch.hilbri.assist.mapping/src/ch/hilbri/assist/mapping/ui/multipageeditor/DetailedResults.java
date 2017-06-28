@@ -37,8 +37,7 @@ public class DetailedResults extends Composite {
 	private Button btnGotoResult;
 	private Button btnNext;
 	private Button btnLast;
-	private Composite compositeResultNumber;
-	private Label lblResultNum;
+	private Label lblSolutionName;
 	private TableViewer tblviewerResult;
 	private TableColumn tblclmnProcessor;
 	private TableViewerColumn tableViewerColumn_2;
@@ -54,7 +53,7 @@ public class DetailedResults extends Composite {
 	private TableViewerColumn tableViewerColumn_5;
 	private TableColumn tblclmnCompartment;
 	private TableViewerColumn tableViewerColumn_6;
-	
+
 	private MultiPageEditor multiPageEditor;
 
 	/**
@@ -67,26 +66,16 @@ public class DetailedResults extends Composite {
 		super(parent, style);
 		multiPageEditor = e;
 		setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		setLayout(new GridLayout(1, false));
+		setLayout(new GridLayout(2, false));
 
-		compositeResultNumber = new Composite(this, SWT.NONE);
-		GridLayout gl_compositeResultNumber = new GridLayout(2, false);
-		gl_compositeResultNumber.marginWidth = 0;
-		compositeResultNumber.setLayout(gl_compositeResultNumber);
-		compositeResultNumber.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		compositeResultNumber.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
-
-		Label lblResult = new Label(compositeResultNumber, SWT.NONE);
-		lblResult.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		lblResult.setText("Result:");
-
-		lblResultNum = new Label(compositeResultNumber, SWT.NONE);
-		lblResultNum.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		lblResultNum.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblSolutionName = new Label(this, SWT.NONE);
+		lblSolutionName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
+		lblSolutionName.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
+		lblSolutionName.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 
 		Label lblFilterHintText = new Label(this, SWT.NONE);
 		lblFilterHintText.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		lblFilterHintText.setText("Please select filter");
+		lblFilterHintText.setText("Filter:");
 
 		textFilter = new Text(this, SWT.BORDER);
 		GridData gd_textFilter = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
@@ -99,7 +88,7 @@ public class DetailedResults extends Composite {
 		gl_compositeResultData.marginHeight = 0;
 		gl_compositeResultData.marginWidth = 0;
 		compositeResultData.setLayout(gl_compositeResultData);
-		GridData gd_compositeResultData = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		GridData gd_compositeResultData = new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1);
 		gd_compositeResultData.widthHint = 548;
 		gd_compositeResultData.heightHint = 172;
 		compositeResultData.setLayoutData(gd_compositeResultData);
@@ -194,7 +183,7 @@ public class DetailedResults extends Composite {
 		rl_compositeNavButtons.justify = true;
 		rl_compositeNavButtons.wrap = false;
 		compositeNavButtons.setLayout(rl_compositeNavButtons);
-		compositeNavButtons.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		compositeNavButtons.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 
 		btnFirst = new Button(compositeNavButtons, SWT.NONE);
 		btnFirst.setEnabled(false);
@@ -260,12 +249,15 @@ public class DetailedResults extends Composite {
 		Composite compositeScoreOverview = new Composite(this, SWT.NONE);
 		compositeScoreOverview.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_LIGHT_SHADOW));
 		compositeScoreOverview.setLayout(new FillLayout(SWT.HORIZONTAL));
-		GridData gd_compositeScoreOverview = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		GridData gd_compositeScoreOverview = new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1);
 		gd_compositeScoreOverview.widthHint = 406;
 		compositeScoreOverview.setLayoutData(gd_compositeScoreOverview);
 
 		Label lblIAmDiagram = new Label(compositeScoreOverview, SWT.CENTER);
 		lblIAmDiagram.setText("I am diagram");
+
+		/* Clear the page for the initial state */
+		clearResults();
 	}
 
 	public void setResultsList(List<Result> list) {
@@ -275,21 +267,16 @@ public class DetailedResults extends Composite {
 			btnGotoResult.setEnabled(true);
 			showResult(0);
 		}
-
-	}
-	
-	public Result getCurrentResult() {
-		return curResult;
 	}
 
 	private void clearResults() {
 		curResultIndex = -1;
-		lblResultNum.setText("");
+		lblSolutionName.setText("-- No Solution --");
 
 		tblviewerResult.setInput(null);
-		
+
 		InfoSheetView.INSTANCE.setSelectedResult(multiPageEditor, null);
-		
+
 		btnFirst.setEnabled(false);
 		btnPrev.setEnabled(false);
 		btnNext.setEnabled(false);
@@ -309,9 +296,9 @@ public class DetailedResults extends Composite {
 
 		/* Send the result to the InfoView */
 		InfoSheetView.INSTANCE.setSelectedResult(multiPageEditor, curResult);
-			
+
 		/* Update our own text fields */
-		lblResultNum.setText(String.format("%d of %d", curResultIndex + 1, mappingResults.size()));
+		lblSolutionName.setText(curResult.getName());
 		tblviewerResult.setInput(curResult.getDetailedMappingResults());
 
 		/* We have just one result */
@@ -342,5 +329,9 @@ public class DetailedResults extends Composite {
 			btnNext.setEnabled(true);
 			btnLast.setEnabled(true);
 		}
+	}
+
+	public Result getCurrentResult() {
+		return curResult;
 	}
 }

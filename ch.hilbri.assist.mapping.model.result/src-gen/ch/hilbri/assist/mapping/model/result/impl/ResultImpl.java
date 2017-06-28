@@ -51,6 +51,7 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getTask2CoreMap <em>Task2 Core Map</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#isPartialSolution <em>Partial Solution</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getTotalScore <em>Total Score</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getDetailedMappingResults <em>Detailed Mapping Results</em>}</li>
  * </ul>
  *
@@ -116,6 +117,26 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @ordered
 	 */
 	protected boolean partialSolution = PARTIAL_SOLUTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTotalScore() <em>Total Score</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTotalScore()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double TOTAL_SCORE_EDEFAULT = 1.0;
+
+	/**
+	 * The cached value of the '{@link #getTotalScore() <em>Total Score</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTotalScore()
+	 * @generated
+	 * @ordered
+	 */
+	protected double totalScore = TOTAL_SCORE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -242,6 +263,27 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getTotalScore() {
+		return totalScore;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTotalScore(double newTotalScore) {
+		double oldTotalScore = totalScore;
+		totalScore = newTotalScore;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__TOTAL_SCORE, oldTotalScore, totalScore));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<List<String>> getDetailedMappingResults() {
 		Map<Task, Core> _task2CoreMap = this.getTask2CoreMap();
 		Set<Entry<Task, Core>> _entrySet = _task2CoreMap.entrySet();
@@ -296,6 +338,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return getTask2CoreMap();
 			case ResultPackage.RESULT__PARTIAL_SOLUTION:
 				return isPartialSolution();
+			case ResultPackage.RESULT__TOTAL_SCORE:
+				return getTotalScore();
 			case ResultPackage.RESULT__DETAILED_MAPPING_RESULTS:
 				return getDetailedMappingResults();
 		}
@@ -323,6 +367,9 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			case ResultPackage.RESULT__PARTIAL_SOLUTION:
 				setPartialSolution((Boolean)newValue);
 				return;
+			case ResultPackage.RESULT__TOTAL_SCORE:
+				setTotalScore((Double)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -347,6 +394,9 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			case ResultPackage.RESULT__PARTIAL_SOLUTION:
 				setPartialSolution(PARTIAL_SOLUTION_EDEFAULT);
 				return;
+			case ResultPackage.RESULT__TOTAL_SCORE:
+				setTotalScore(TOTAL_SCORE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -367,6 +417,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return task2CoreMap != null;
 			case ResultPackage.RESULT__PARTIAL_SOLUTION:
 				return partialSolution != PARTIAL_SOLUTION_EDEFAULT;
+			case ResultPackage.RESULT__TOTAL_SCORE:
+				return totalScore != TOTAL_SCORE_EDEFAULT;
 			case ResultPackage.RESULT__DETAILED_MAPPING_RESULTS:
 				return !getDetailedMappingResults().isEmpty();
 		}
@@ -389,6 +441,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		result.append(task2CoreMap);
 		result.append(", partialSolution: ");
 		result.append(partialSolution);
+		result.append(", totalScore: ");
+		result.append(totalScore);
 		result.append(')');
 		return result.toString();
 	}

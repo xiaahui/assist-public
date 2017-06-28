@@ -180,8 +180,17 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResult_DetailedMappingResults() {
+	public EAttribute getResult_TotalScore() {
 		return (EAttribute)resultEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getResult_DetailedMappingResults() {
+		return (EAttribute)resultEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -237,6 +246,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		createEReference(resultEClass, RESULT__MODEL);
 		createEAttribute(resultEClass, RESULT__TASK2_CORE_MAP);
 		createEAttribute(resultEClass, RESULT__PARTIAL_SOLUTION);
+		createEAttribute(resultEClass, RESULT__TOTAL_SCORE);
 		createEAttribute(resultEClass, RESULT__DETAILED_MAPPING_RESULTS);
 
 		// Create data types
@@ -285,6 +295,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		initEReference(getResult_Model(), theModelPackage.getAssistModel(), null, "model", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_Task2CoreMap(), this.getTask2CoreMapType(), "task2CoreMap", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_PartialSolution(), theEcorePackage.getEBoolean(), "partialSolution", "false", 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResult_TotalScore(), theEcorePackage.getEDouble(), "totalScore", "1.0", 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_DetailedMappingResults(), this.getStringList(), "detailedMappingResults", null, 0, -1, Result.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types

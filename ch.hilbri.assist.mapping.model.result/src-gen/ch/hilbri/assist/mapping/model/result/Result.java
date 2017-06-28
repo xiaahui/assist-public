@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getTask2CoreMap <em>Task2 Core Map</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#isPartialSolution <em>Partial Solution</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getTotalScore <em>Total Score</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getDetailedMappingResults <em>Detailed Mapping Results</em>}</li>
  * </ul>
  *
@@ -138,6 +139,33 @@ public interface Result extends EObject {
 	 * @generated
 	 */
 	void setPartialSolution(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Total Score</b></em>' attribute.
+	 * The default value is <code>"1.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Total Score</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Total Score</em>' attribute.
+	 * @see #setTotalScore(double)
+	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getResult_TotalScore()
+	 * @model default="1.0" unique="false"
+	 * @generated
+	 */
+	double getTotalScore();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.Result#getTotalScore <em>Total Score</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Total Score</em>' attribute.
+	 * @see #getTotalScore()
+	 * @generated
+	 */
+	void setTotalScore(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Detailed Mapping Results</b></em>' attribute list.

@@ -29,6 +29,7 @@ class Result {
 	refers AssistModel					model	
  	Task2CoreMapType					task2CoreMap
 	boolean 							partialSolution = "false"
+	double								totalScore = "1.0"
 
 	/* Returns a list of the mappings; each entry is a list of names for the mapped elements */
 	derived StringList[] detailedMappingResults get {

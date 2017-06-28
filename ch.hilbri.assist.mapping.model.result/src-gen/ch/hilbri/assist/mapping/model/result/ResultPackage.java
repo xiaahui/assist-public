@@ -134,13 +134,22 @@ public interface ResultPackage extends EPackage {
 	int RESULT__PARTIAL_SOLUTION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Total Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__TOTAL_SCORE = 4;
+
+	/**
 	 * The feature id for the '<em><b>Detailed Mapping Results</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__DETAILED_MAPPING_RESULTS = 4;
+	int RESULT__DETAILED_MAPPING_RESULTS = 5;
 
 	/**
 	 * The number of structural features of the '<em>Result</em>' class.
@@ -149,7 +158,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_FEATURE_COUNT = 5;
+	int RESULT_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Result</em>' class.
@@ -245,6 +254,17 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getResult_PartialSolution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.Result#getTotalScore <em>Total Score</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Total Score</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.Result#getTotalScore()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EAttribute getResult_TotalScore();
 
 	/**
 	 * Returns the meta object for the attribute list '{@link ch.hilbri.assist.mapping.model.result.Result#getDetailedMappingResults <em>Detailed Mapping Results</em>}'.
@@ -353,6 +373,14 @@ public interface ResultPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESULT__PARTIAL_SOLUTION = eINSTANCE.getResult_PartialSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Total Score</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT__TOTAL_SCORE = eINSTANCE.getResult_TotalScore();
 
 		/**
 		 * The meta object literal for the '<em><b>Detailed Mapping Results</b></em>' attribute list feature.
