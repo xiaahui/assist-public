@@ -45,7 +45,7 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 	 */
 
 	void createPage1() {
-		tabResults = new DetailedResults(this.getContainer(), SWT.NULL);
+		tabResults = new DetailedResults(this, this.getContainer(), SWT.NULL);
 		int index = addPage(tabResults);
 		setPageText(index, "Results");
 	}
@@ -98,4 +98,7 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 		setActivePage(1);
 	}
 
+	public Result getCurrentResult() {
+		return tabResults.getCurrentResult();
+	}
 }
