@@ -28,3 +28,6 @@
 [submodule "ch.hilbri.assist.libraries.choco/choco-sat"]
 	path = ch.hilbri.assist.libraries.choco/choco-sat
 	url = https://github.com/chocoteam/choco-sat
+[submodule "ch.hilbri.assist.libraries.choco/automaton"]
+	path = ch.hilbri.assist.libraries.choco/automaton
+	url = https://github.com/dweiss/dk.brics.automaton
