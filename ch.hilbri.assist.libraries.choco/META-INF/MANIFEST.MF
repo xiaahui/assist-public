@@ -3,17 +3,34 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ch.hilbri.assist.libraries.choco
 Bundle-SymbolicName: ch.hilbri.assist.libraries.choco
 Bundle-Version: 4.0.2.qualifier
-Require-Bundle: ch.hilbri.assist.libraries.args4j,
- ch.hilbri.assist.libraries.automaton,
- ch.hilbri.assist.libraries.trove4j;visibility:=reexport,
- ch.hilbri.assist.libraries.jgrapht,
- ch.hilbri.assist.libraries.logback,
- ch.hilbri.assist.libraries.choco-sat,
- ch.hilbri.assist.libraries.cpprof-java,
- ch.hilbri.assist.libraries.cutoffseq
+Require-Bundle: ch.hilbri.assist.libraries.jgrapht,
+ ch.hilbri.assist.libraries.logback
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: org.chocosolver.memory,
+Export-Package: gnu.trove,
+ gnu.trove.decorator,
+ gnu.trove.function,
+ gnu.trove.impl,
+ gnu.trove.impl.hash,
+ gnu.trove.impl.sync,
+ gnu.trove.impl.unmodifiable,
+ gnu.trove.iterator,
+ gnu.trove.iterator.hash,
+ gnu.trove.list,
+ gnu.trove.list.array,
+ gnu.trove.list.linked,
+ gnu.trove.map,
+ gnu.trove.map.custom_hash,
+ gnu.trove.map.hash,
+ gnu.trove.procedure,
+ gnu.trove.procedure.array,
+ gnu.trove.queue,
+ gnu.trove.set,
+ gnu.trove.set.hash,
+ gnu.trove.stack,
+ gnu.trove.stack.array,
+ gnu.trove.strategy,
+ org.chocosolver.memory,
  org.chocosolver.memory.generator,
  org.chocosolver.memory.structure,
  org.chocosolver.memory.trailing,
@@ -118,4 +135,6 @@ Export-Package: org.chocosolver.memory,
  org.chocosolver.util.procedure,
  org.chocosolver.util.sort,
  org.chocosolver.util.tools
+Bundle-ClassPath: protobuf-java-3.2.0.jar,
+ trove4j-3.0.3.jar
 
