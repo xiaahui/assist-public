@@ -10,9 +10,6 @@
 [submodule "ch.hilbri.assist.libraries.choco/protobuf"]
 	path = ch.hilbri.assist.libraries.choco/protobuf
 	url = https://github.com/google/protobuf.git
-[submodule "ch.hilbri.assist.libraries.cutoffseq/cutoffseq"]
-	path = ch.hilbri.assist.libraries.cutoffseq/cutoffseq
-	url = https://github.com/chocoteam/cutoffseq.git
 [submodule "ch.hilbri.assist.libraries.choco/choco-sat"]
 	path = ch.hilbri.assist.libraries.choco/choco-sat
 	url = https://github.com/chocoteam/choco-sat
