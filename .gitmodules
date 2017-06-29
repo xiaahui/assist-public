@@ -25,3 +25,6 @@
 [submodule "ch.hilbri.assist.libraries.cpprof-java/java-integration"]
 	path = ch.hilbri.assist.libraries.cpprof-java/java-integration
 	url = https://github.com/cp-profiler/java-integration.git
+[submodule "ch.hilbri.assist.libraries.choco/choco-sat"]
+	path = ch.hilbri.assist.libraries.choco/choco-sat
+	url = https://github.com/chocoteam/choco-sat
