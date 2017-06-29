@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: ch.hilbri.assist.libraries.choco-sat
-Bundle-SymbolicName: ch.hilbri.assist.libraries.choco-sat
-Bundle-Version: 1.0.2.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: ch.hilbri.assist.libraries.trove4j;bundle-version="3.0.3"
-Export-Package: org.chocosolver.sat
