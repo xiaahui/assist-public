@@ -37,3 +37,6 @@
 [submodule "ch.hilbri.assist.libraries.choco/cpprof-java"]
 	path = ch.hilbri.assist.libraries.choco/cpprof-java
 	url = https://github.com/cp-profiler/java-integration
+[submodule "ch.hilbri.assist.libraries.choco/cutoffseq"]
+	path = ch.hilbri.assist.libraries.choco/cutoffseq
+	url = https://github.com/chocoteam/cutoffseq
