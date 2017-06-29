@@ -1,9 +1,6 @@
 [submodule "ch.hilbri.assist.libraries.jgrapht/jgrapht"]
 	path = ch.hilbri.assist.libraries.jgrapht/jgrapht
 	url = https://github.com/jgrapht/jgrapht
-[submodule "ch.hilbri.assist.libraries.automaton/automaton"]
-	path = ch.hilbri.assist.libraries.automaton/automaton
-	url = https://github.com/dweiss/dk.brics.automaton
 [submodule "ch.hilbri.assist.libraries.math/commons-math"]
 	path = ch.hilbri.assist.libraries.math/commons-math
 	url = https://github.com/apache/commons-math
