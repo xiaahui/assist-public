@@ -36,6 +36,7 @@ public class InfoSheetView implements IPartListener2 {
 	private Label lblSpecification;
 
 	public static InfoSheetView INSTANCE;
+	private Label lblAssignmentCount;
 
 	public InfoSheetView() {
 		InfoSheetView.INSTANCE = this;
@@ -98,6 +99,14 @@ public class InfoSheetView implements IPartListener2 {
 		lblComplete = new Label(composite_1, SWT.NONE);
 		lblComplete.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		formToolkit.adapt(lblComplete, true, true);
+		
+		Label lblTitleAssignmentCount = new Label(composite_1, SWT.NONE);
+		formToolkit.adapt(lblTitleAssignmentCount, true, true);
+		lblTitleAssignmentCount.setText("Assignments:");
+		
+		lblAssignmentCount = new Label(composite_1, SWT.NONE);
+		lblAssignmentCount.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		formToolkit.adapt(lblAssignmentCount, true, true);
 
 		Label lblTitleScore = new Label(composite_1, SWT.NONE);
 		formToolkit.adapt(lblTitleScore, true, true);
@@ -141,13 +150,14 @@ public class InfoSheetView implements IPartListener2 {
 				lblComplete.setText(result.isPartialSolution() ? "No" : "Yes");
 				lblScore.setText(Double.toString(result.getTotalScore()));
 				lblSpecification.setText(currentEditor.getTitle());
+				lblAssignmentCount.setText(Integer.toString(result.getTask2CoreMap().keySet().size()));
 			} else
 				clearInfoSheet();
 		}
 	}
 
 	public void clearInfoSheet() {
-		List<Label> labels = Arrays.asList(lblName, lblComplete, lblScore, lblSpecification);
+		List<Label> labels = Arrays.asList(lblName, lblComplete, lblScore, lblSpecification, lblAssignmentCount);
 		for (Label l : labels)
 			if (!l.isDisposed())
 				l.setText("");
