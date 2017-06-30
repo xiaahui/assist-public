@@ -8,6 +8,8 @@ Bundle-Vendor: Robert Hilbrich
 Require-Bundle: ch.hilbri.assist.libraries.math,
  ch.hilbri.assist.libraries.logback,
  ch.hilbri.assist.libraries.choco-solver,
+ ch.hilbri.assist.gui;bundle-version="2.1.0",
+ org.eclipse.e4.core.commands,
  org.eclipse.ui.ide,
  org.eclipse.core.databinding;bundle-version="1.6.0",
  org.eclipse.e4.core.di;bundle-version="1.6.1",
@@ -20,8 +22,7 @@ Require-Bundle: ch.hilbri.assist.libraries.math,
  org.eclipse.xtext.ui;bundle-version="2.10.0",
  ch.hilbri.assist.mapping.model.result,
  ch.hilbri.assist.mapping.dsl.ui;bundle-version="1.0.0",
- org.eclipse.xtend.lib,
- org.eclipse.e4.core.commands
+ org.eclipse.xtend.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ch.hilbri.assist.mapping.solver,
  ch.hilbri.assist.mapping.solver.exceptions,
