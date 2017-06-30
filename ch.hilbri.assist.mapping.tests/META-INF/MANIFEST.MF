@@ -9,6 +9,5 @@ Require-Bundle:
  org.junit,
  org.eclipse.xtext.junit4,
  org.eclipse.core.runtime,
- ch.hilbri.assist.libraries.choco,
  ch.hilbri.assist.mapping.dsl.tests
 Fragment-Host: ch.hilbri.assist.mapping

@@ -23,7 +23,7 @@
 
 	<modules>
 		
-		<module>../ch.hilbri.assist.libraries.choco</module>
+		
 		<module>../ch.hilbri.assist.libraries.jgrapht</module>
 		
 		<module>../ch.hilbri.assist.libraries.javafx</module>
@@ -54,6 +54,8 @@
 		<module>../ch.hilbri.assist.mapping.dsl.tests</module>
 		<module>../ch.hilbri.assist.mapping.dsl.ui</module>
 		<module>../ch.hilbri.assist.mapping.dsl.ui.tests</module>
+		
+		<module>../ch.hilbri.assist.libraries.choco-solver</module>
 	</modules>
 
 	<dependencies>
