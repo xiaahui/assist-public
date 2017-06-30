@@ -8,6 +8,8 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyAdapter;
+import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FillLayout;
@@ -54,7 +56,8 @@ public class DetailedResults extends Composite {
 	private TableViewerColumn tableViewerColumn_5;
 	private TableColumn tblclmnCompartment;
 	private TableViewerColumn tableViewerColumn_6;
-
+	private MappingViewerFilter tableFilter;
+	
 	private MultiPageEditor multiPageEditor;
 
 	/**
@@ -78,7 +81,13 @@ public class DetailedResults extends Composite {
 		lblFilterHintText.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		lblFilterHintText.setText("Filter:");
 
-		textFilter = new Text(this, SWT.BORDER);
+		textFilter = new Text(this, SWT.BORDER | SWT.SEARCH);
+		textFilter.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent ke) {
+                tableFilter.setFilterText(textFilter.getText());
+                tblviewerResult.refresh();
+            }
+        });
 		GridData gd_textFilter = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
 		gd_textFilter.widthHint = 387;
 		textFilter.setLayoutData(gd_textFilter);
@@ -94,7 +103,10 @@ public class DetailedResults extends Composite {
 		gd_compositeResultData.heightHint = 172;
 		compositeResultData.setLayoutData(gd_compositeResultData);
 
+		tableFilter = new MappingViewerFilter();
 		tblviewerResult = new TableViewer(compositeResultData, SWT.BORDER | SWT.FULL_SELECTION);
+		tblviewerResult.setFilters(tableFilter);
+		
 		tblResult = tblviewerResult.getTable();
 		tblResult.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		tblResult.setHeaderVisible(true);
