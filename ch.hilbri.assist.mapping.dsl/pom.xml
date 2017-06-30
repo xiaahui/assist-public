@@ -140,7 +140,7 @@
 								<include>**/*</include>
 							</includes>
 							<excludes>
-								<exclude>.src-gen-keep</exclude>
+								<exclude>**/.src-gen-keep</exclude>
 							</excludes>
 						</fileset>
 						<fileset>
@@ -149,7 +149,7 @@
 								<include>**/*</include>
 							</includes>
 							<excludes>
-								<exclude>.src-gen-keep</exclude>
+								<exclude>**/.src-gen-keep</exclude>
 							</excludes>
 						</fileset>
 						<fileset>
@@ -158,7 +158,7 @@
 								<include>**/*</include>
 							</includes>
 							<excludes>
-								<exclude>.src-gen-keep</exclude>
+								<exclude>**/.src-gen-keep</exclude>
 							</excludes>
 						</fileset>
 						<fileset>
@@ -167,7 +167,7 @@
 								<include>**/*</include>
 							</includes>
 							<excludes>
-								<exclude>.src-gen-keep</exclude>
+								<exclude>**/.src-gen-keep</exclude>
 							</excludes>
 						</fileset>
 						<fileset>
@@ -176,7 +176,7 @@
 								<include>**/*</include>
 							</includes>
 							<excludes>
-								<exclude>.src-gen-keep</exclude>
+								<exclude>**/.src-gen-keep</exclude>
 							</excludes>
 						</fileset>
 						<fileset>
