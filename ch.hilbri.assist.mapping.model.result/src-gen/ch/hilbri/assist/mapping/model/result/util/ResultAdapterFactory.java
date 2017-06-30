@@ -4,6 +4,7 @@ package ch.hilbri.assist.mapping.model.result.util;
 
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
+import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -77,6 +78,10 @@ public class ResultAdapterFactory extends AdapterFactoryImpl {
 				return createResultAdapter();
 			}
 			@Override
+			public Adapter caseSingleMappingElement(SingleMappingElement object) {
+				return createSingleMappingElementAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -121,6 +126,20 @@ public class ResultAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement <em>Single Mapping Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.mapping.model.result.SingleMappingElement
+	 * @generated
+	 */
+	public Adapter createSingleMappingElementAdapter() {
 		return null;
 	}
 

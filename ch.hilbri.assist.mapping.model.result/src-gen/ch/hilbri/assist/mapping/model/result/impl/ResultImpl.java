@@ -12,11 +12,14 @@ import ch.hilbri.assist.mapping.model.Processor;
 import ch.hilbri.assist.mapping.model.Task;
 
 import ch.hilbri.assist.mapping.model.result.Result;
+import ch.hilbri.assist.mapping.model.result.ResultFactory;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
+import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
 
 import java.lang.Iterable;
 
-import java.util.List;
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Map;
 
 import java.util.Map.Entry;
@@ -38,6 +41,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
+
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,7 +58,6 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getTask2CoreMap <em>Task2 Core Map</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#isPartialSolution <em>Partial Solution</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getTotalScore <em>Total Score</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getDetailedMappingResults <em>Detailed Mapping Results</em>}</li>
  * </ul>
  *
  * @generated
@@ -284,41 +289,55 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<List<String>> getDetailedMappingResults() {
+	public EList<SingleMappingElement> getMappingElements() {
 		Map<Task, Core> _task2CoreMap = this.getTask2CoreMap();
 		Set<Entry<Task, Core>> _entrySet = _task2CoreMap.entrySet();
-		final Function1<Entry<Task, Core>, List<String>> _function = new Function1<Entry<Task, Core>, List<String>>() {
-			public List<String> apply(final Entry<Task, Core> it) {
-				Task _key = it.getKey();
-				EObject _eContainer = _key.eContainer();
-				String _name = ((Application) _eContainer).getName();
-				Task _key_1 = it.getKey();
-				String _name_1 = _key_1.getName();
-				Core _value = it.getValue();
-				String _name_2 = _value.getName();
-				Core _value_1 = it.getValue();
-				EObject _eContainer_1 = _value_1.eContainer();
-				String _name_3 = ((Processor) _eContainer_1).getName();
-				Core _value_2 = it.getValue();
-				EObject _eContainer_2 = _value_2.eContainer();
-				EObject _eContainer_3 = _eContainer_2.eContainer();
-				String _name_4 = ((Board) _eContainer_3).getName();
-				Core _value_3 = it.getValue();
-				EObject _eContainer_4 = _value_3.eContainer();
-				EObject _eContainer_5 = _eContainer_4.eContainer();
-				EObject _eContainer_6 = _eContainer_5.eContainer();
-				String _name_5 = ((Box) _eContainer_6).getName();
-				Core _value_4 = it.getValue();
-				EObject _eContainer_7 = _value_4.eContainer();
-				EObject _eContainer_8 = _eContainer_7.eContainer();
-				EObject _eContainer_9 = _eContainer_8.eContainer();
-				EObject _eContainer_10 = _eContainer_9.eContainer();
-				String _name_6 = ((Compartment) _eContainer_10).getName();
-				return java.util.Collections.<String>unmodifiableList(org.eclipse.xtext.xbase.lib.CollectionLiterals.<String>newArrayList(_name, _name_1, _name_2, _name_3, _name_4, _name_5, _name_6));
+		final Function1<Entry<Task, Core>, SingleMappingElement> _function = new Function1<Entry<Task, Core>, SingleMappingElement>() {
+			public SingleMappingElement apply(final Entry<Task, Core> it) {
+				SingleMappingElement _xblockexpression = null;
+				{
+					Task _key = it.getKey();
+					EObject _eContainer = _key.eContainer();
+					final Application application = ((Application) _eContainer);
+					final Task task = it.getKey();
+					final Core core = it.getValue();
+					Core _value = it.getValue();
+					EObject _eContainer_1 = _value.eContainer();
+					final Processor processor = ((Processor) _eContainer_1);
+					Core _value_1 = it.getValue();
+					EObject _eContainer_2 = _value_1.eContainer();
+					EObject _eContainer_3 = _eContainer_2.eContainer();
+					final Board board = ((Board) _eContainer_3);
+					Core _value_2 = it.getValue();
+					EObject _eContainer_4 = _value_2.eContainer();
+					EObject _eContainer_5 = _eContainer_4.eContainer();
+					EObject _eContainer_6 = _eContainer_5.eContainer();
+					final Box box = ((Box) _eContainer_6);
+					Core _value_3 = it.getValue();
+					EObject _eContainer_7 = _value_3.eContainer();
+					EObject _eContainer_8 = _eContainer_7.eContainer();
+					EObject _eContainer_9 = _eContainer_8.eContainer();
+					EObject _eContainer_10 = _eContainer_9.eContainer();
+					final Compartment compartment = ((Compartment) _eContainer_10);
+					SingleMappingElement _createSingleMappingElement = ResultFactory.eINSTANCE.createSingleMappingElement();
+					final Procedure1<SingleMappingElement> _function = new Procedure1<SingleMappingElement>() {
+						public void apply(final SingleMappingElement it) {
+							it.setApplication(application);
+							it.setTask(task);
+							it.setCore(core);
+							it.setProcessor(processor);
+							it.setBoard(board);
+							it.setBox(box);
+							it.setCompartment(compartment);
+						}
+					};
+					_xblockexpression = ObjectExtensions.<SingleMappingElement>operator_doubleArrow(_createSingleMappingElement, _function);
+				}
+				return _xblockexpression;
 			}
 		};
-		Iterable<List<String>> _map = IterableExtensions.<Entry<Task, Core>, List<String>>map(_entrySet, _function);
-		return ECollections.<List<String>>toEList(_map);
+		Iterable<SingleMappingElement> _map = IterableExtensions.<Entry<Task, Core>, SingleMappingElement>map(_entrySet, _function);
+		return ECollections.<SingleMappingElement>toEList(_map);
 	}
 
 	/**
@@ -340,8 +359,6 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return isPartialSolution();
 			case ResultPackage.RESULT__TOTAL_SCORE:
 				return getTotalScore();
-			case ResultPackage.RESULT__DETAILED_MAPPING_RESULTS:
-				return getDetailedMappingResults();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -419,10 +436,22 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return partialSolution != PARTIAL_SOLUTION_EDEFAULT;
 			case ResultPackage.RESULT__TOTAL_SCORE:
 				return totalScore != TOTAL_SCORE_EDEFAULT;
-			case ResultPackage.RESULT__DETAILED_MAPPING_RESULTS:
-				return !getDetailedMappingResults().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ResultPackage.RESULT___GET_MAPPING_ELEMENTS:
+				return getMappingElements();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

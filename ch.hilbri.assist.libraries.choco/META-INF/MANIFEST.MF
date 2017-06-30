@@ -7,7 +7,11 @@ Require-Bundle: ch.hilbri.assist.libraries.jgrapht,
  ch.hilbri.assist.libraries.logback
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: gnu.trove,
+Export-Package: com.github.cpprofiler,
+ com.google.protobuf,
+ com.google.protobuf.compiler,
+ dk.brics.automaton,
+ gnu.trove,
  gnu.trove.decorator,
  gnu.trove.function,
  gnu.trove.impl,
@@ -30,6 +34,7 @@ Export-Package: gnu.trove,
  gnu.trove.stack,
  gnu.trove.stack.array,
  gnu.trove.strategy,
+ org.chocosolver.cutoffseq,
  org.chocosolver.memory,
  org.chocosolver.memory.generator,
  org.chocosolver.memory.structure,
@@ -134,7 +139,9 @@ Export-Package: gnu.trove,
  org.chocosolver.util.objects.setDataStructures.swapList,
  org.chocosolver.util.procedure,
  org.chocosolver.util.sort,
- org.chocosolver.util.tools
+ org.chocosolver.util.tools,
+ org.kohsuke.args4j,
+ org.kohsuke.args4j.spi
 Bundle-ClassPath: protobuf-java-3.2.0.jar,
  trove4j-3.0.3.jar
 

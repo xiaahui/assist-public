@@ -7,6 +7,7 @@ import ch.hilbri.assist.mapping.model.ModelPackage;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultFactory;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
+import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
 
 import java.lang.Comparable;
 
@@ -16,6 +17,7 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -42,6 +44,13 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * @generated
 	 */
 	private EClass resultEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass singleMappingElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,8 +198,80 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResult_DetailedMappingResults() {
-		return (EAttribute)resultEClass.getEStructuralFeatures().get(5);
+	public EOperation getResult__GetMappingElements() {
+		return resultEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSingleMappingElement() {
+		return singleMappingElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSingleMappingElement_Application() {
+		return (EReference)singleMappingElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSingleMappingElement_Task() {
+		return (EReference)singleMappingElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSingleMappingElement_Core() {
+		return (EReference)singleMappingElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSingleMappingElement_Processor() {
+		return (EReference)singleMappingElementEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSingleMappingElement_Board() {
+		return (EReference)singleMappingElementEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSingleMappingElement_Box() {
+		return (EReference)singleMappingElementEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSingleMappingElement_Compartment() {
+		return (EReference)singleMappingElementEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -247,7 +328,16 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		createEAttribute(resultEClass, RESULT__TASK2_CORE_MAP);
 		createEAttribute(resultEClass, RESULT__PARTIAL_SOLUTION);
 		createEAttribute(resultEClass, RESULT__TOTAL_SCORE);
-		createEAttribute(resultEClass, RESULT__DETAILED_MAPPING_RESULTS);
+		createEOperation(resultEClass, RESULT___GET_MAPPING_ELEMENTS);
+
+		singleMappingElementEClass = createEClass(SINGLE_MAPPING_ELEMENT);
+		createEReference(singleMappingElementEClass, SINGLE_MAPPING_ELEMENT__APPLICATION);
+		createEReference(singleMappingElementEClass, SINGLE_MAPPING_ELEMENT__TASK);
+		createEReference(singleMappingElementEClass, SINGLE_MAPPING_ELEMENT__CORE);
+		createEReference(singleMappingElementEClass, SINGLE_MAPPING_ELEMENT__PROCESSOR);
+		createEReference(singleMappingElementEClass, SINGLE_MAPPING_ELEMENT__BOARD);
+		createEReference(singleMappingElementEClass, SINGLE_MAPPING_ELEMENT__BOX);
+		createEReference(singleMappingElementEClass, SINGLE_MAPPING_ELEMENT__COMPARTMENT);
 
 		// Create data types
 		task2CoreMapTypeEDataType = createEDataType(TASK2_CORE_MAP_TYPE);
@@ -296,7 +386,17 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		initEAttribute(getResult_Task2CoreMap(), this.getTask2CoreMapType(), "task2CoreMap", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_PartialSolution(), theEcorePackage.getEBoolean(), "partialSolution", "false", 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_TotalScore(), theEcorePackage.getEDouble(), "totalScore", "1.0", 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResult_DetailedMappingResults(), this.getStringList(), "detailedMappingResults", null, 0, -1, Result.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getResult__GetMappingElements(), this.getSingleMappingElement(), "getMappingElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		initEClass(singleMappingElementEClass, SingleMappingElement.class, "SingleMappingElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSingleMappingElement_Application(), theModelPackage.getApplication(), null, "application", null, 0, 1, SingleMappingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleMappingElement_Task(), theModelPackage.getTask(), null, "task", null, 0, 1, SingleMappingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleMappingElement_Core(), theModelPackage.getCore(), null, "core", null, 0, 1, SingleMappingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleMappingElement_Processor(), theModelPackage.getProcessor(), null, "processor", null, 0, 1, SingleMappingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleMappingElement_Board(), theModelPackage.getBoard(), null, "board", null, 0, 1, SingleMappingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleMappingElement_Box(), theModelPackage.getBox(), null, "box", null, 0, 1, SingleMappingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleMappingElement_Compartment(), theModelPackage.getCompartment(), null, "compartment", null, 0, 1, SingleMappingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(task2CoreMapTypeEDataType, Map.class, "Task2CoreMapType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.Map<ch.hilbri.assist.mapping.model.Task, ch.hilbri.assist.mapping.model.Core>");

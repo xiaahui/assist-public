@@ -8,6 +8,7 @@ import ch.hilbri.assist.mapping.model.Task;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultFactory;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
+import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
 
 import java.util.List;
 import java.util.Map;
@@ -66,6 +67,7 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ResultPackage.RESULT: return createResult();
+			case ResultPackage.SINGLE_MAPPING_ELEMENT: return createSingleMappingElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -113,6 +115,16 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 	public Result createResult() {
 		ResultImpl result = new ResultImpl();
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SingleMappingElement createSingleMappingElement() {
+		SingleMappingElementImpl singleMappingElement = new SingleMappingElementImpl();
+		return singleMappingElement;
 	}
 
 	/**

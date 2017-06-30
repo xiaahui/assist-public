@@ -5,6 +5,7 @@ package ch.hilbri.assist.mapping.model.result;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -143,22 +144,22 @@ public interface ResultPackage extends EPackage {
 	int RESULT__TOTAL_SCORE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Detailed Mapping Results</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT__DETAILED_MAPPING_RESULTS = 5;
-
-	/**
 	 * The number of structural features of the '<em>Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_FEATURE_COUNT = 6;
+	int RESULT_FEATURE_COUNT = 5;
+
+	/**
+	 * The operation id for the '<em>Get Mapping Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_MAPPING_ELEMENTS = 0;
 
 	/**
 	 * The number of operations of the '<em>Result</em>' class.
@@ -167,7 +168,98 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_OPERATION_COUNT = 0;
+	int RESULT_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl <em>Single Mapping Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl
+	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getSingleMappingElement()
+	 * @generated
+	 */
+	int SINGLE_MAPPING_ELEMENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Application</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT__APPLICATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT__TASK = 1;
+
+	/**
+	 * The feature id for the '<em><b>Core</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT__CORE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Processor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT__PROCESSOR = 3;
+
+	/**
+	 * The feature id for the '<em><b>Board</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT__BOARD = 4;
+
+	/**
+	 * The feature id for the '<em><b>Box</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT__BOX = 5;
+
+	/**
+	 * The feature id for the '<em><b>Compartment</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT__COMPARTMENT = 6;
+
+	/**
+	 * The number of structural features of the '<em>Single Mapping Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT_FEATURE_COUNT = 7;
+
+	/**
+	 * The number of operations of the '<em>Single Mapping Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_MAPPING_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '<em>Task2 Core Map Type</em>' data type.
@@ -177,7 +269,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getTask2CoreMapType()
 	 * @generated
 	 */
-	int TASK2_CORE_MAP_TYPE = 2;
+	int TASK2_CORE_MAP_TYPE = 3;
 
 	/**
 	 * The meta object id for the '<em>String List</em>' data type.
@@ -187,7 +279,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getStringList()
 	 * @generated
 	 */
-	int STRING_LIST = 3;
+	int STRING_LIST = 4;
 
 
 	/**
@@ -267,15 +359,101 @@ public interface ResultPackage extends EPackage {
 	EAttribute getResult_TotalScore();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link ch.hilbri.assist.mapping.model.result.Result#getDetailedMappingResults <em>Detailed Mapping Results</em>}'.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#getMappingElements() <em>Get Mapping Elements</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Detailed Mapping Results</em>'.
-	 * @see ch.hilbri.assist.mapping.model.result.Result#getDetailedMappingResults()
-	 * @see #getResult()
+	 * @return the meta object for the '<em>Get Mapping Elements</em>' operation.
+	 * @see ch.hilbri.assist.mapping.model.result.Result#getMappingElements()
 	 * @generated
 	 */
-	EAttribute getResult_DetailedMappingResults();
+	EOperation getResult__GetMappingElements();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement <em>Single Mapping Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Single Mapping Element</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.SingleMappingElement
+	 * @generated
+	 */
+	EClass getSingleMappingElement();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getApplication <em>Application</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Application</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.SingleMappingElement#getApplication()
+	 * @see #getSingleMappingElement()
+	 * @generated
+	 */
+	EReference getSingleMappingElement_Application();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getTask <em>Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Task</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.SingleMappingElement#getTask()
+	 * @see #getSingleMappingElement()
+	 * @generated
+	 */
+	EReference getSingleMappingElement_Task();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getCore <em>Core</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Core</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.SingleMappingElement#getCore()
+	 * @see #getSingleMappingElement()
+	 * @generated
+	 */
+	EReference getSingleMappingElement_Core();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getProcessor <em>Processor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Processor</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.SingleMappingElement#getProcessor()
+	 * @see #getSingleMappingElement()
+	 * @generated
+	 */
+	EReference getSingleMappingElement_Processor();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getBoard <em>Board</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Board</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.SingleMappingElement#getBoard()
+	 * @see #getSingleMappingElement()
+	 * @generated
+	 */
+	EReference getSingleMappingElement_Board();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getBox <em>Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Box</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.SingleMappingElement#getBox()
+	 * @see #getSingleMappingElement()
+	 * @generated
+	 */
+	EReference getSingleMappingElement_Box();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getCompartment <em>Compartment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Compartment</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.SingleMappingElement#getCompartment()
+	 * @see #getSingleMappingElement()
+	 * @generated
+	 */
+	EReference getSingleMappingElement_Compartment();
 
 	/**
 	 * Returns the meta object for data type '{@link java.util.Map <em>Task2 Core Map Type</em>}'.
@@ -383,12 +561,78 @@ public interface ResultPackage extends EPackage {
 		EAttribute RESULT__TOTAL_SCORE = eINSTANCE.getResult_TotalScore();
 
 		/**
-		 * The meta object literal for the '<em><b>Detailed Mapping Results</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Get Mapping Elements</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RESULT__DETAILED_MAPPING_RESULTS = eINSTANCE.getResult_DetailedMappingResults();
+		EOperation RESULT___GET_MAPPING_ELEMENTS = eINSTANCE.getResult__GetMappingElements();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl <em>Single Mapping Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl
+		 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getSingleMappingElement()
+		 * @generated
+		 */
+		EClass SINGLE_MAPPING_ELEMENT = eINSTANCE.getSingleMappingElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Application</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_MAPPING_ELEMENT__APPLICATION = eINSTANCE.getSingleMappingElement_Application();
+
+		/**
+		 * The meta object literal for the '<em><b>Task</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_MAPPING_ELEMENT__TASK = eINSTANCE.getSingleMappingElement_Task();
+
+		/**
+		 * The meta object literal for the '<em><b>Core</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_MAPPING_ELEMENT__CORE = eINSTANCE.getSingleMappingElement_Core();
+
+		/**
+		 * The meta object literal for the '<em><b>Processor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_MAPPING_ELEMENT__PROCESSOR = eINSTANCE.getSingleMappingElement_Processor();
+
+		/**
+		 * The meta object literal for the '<em><b>Board</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_MAPPING_ELEMENT__BOARD = eINSTANCE.getSingleMappingElement_Board();
+
+		/**
+		 * The meta object literal for the '<em><b>Box</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_MAPPING_ELEMENT__BOX = eINSTANCE.getSingleMappingElement_Box();
+
+		/**
+		 * The meta object literal for the '<em><b>Compartment</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_MAPPING_ELEMENT__COMPARTMENT = eINSTANCE.getSingleMappingElement_Compartment();
 
 		/**
 		 * The meta object literal for the '<em>Task2 Core Map Type</em>' data type.

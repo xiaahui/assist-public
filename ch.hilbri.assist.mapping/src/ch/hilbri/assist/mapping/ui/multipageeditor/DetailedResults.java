@@ -23,6 +23,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
 import ch.hilbri.assist.mapping.model.result.Result;
+import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
 import ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView;
 
 public class DetailedResults extends Composite {
@@ -101,9 +102,9 @@ public class DetailedResults extends Composite {
 
 		tableViewerColumn = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn.setLabelProvider(new ColumnLabelProvider() {
-			@SuppressWarnings("unchecked")
 			public String getText(Object element) {
-				return element == null ? "" : ((List<String>) element).get(0);
+				return ((element == null) || !(element instanceof SingleMappingElement)) ? "" : 
+					((SingleMappingElement) element).getApplication().getName();
 			}
 		});
 		tblclmnApplication = tableViewerColumn.getColumn();
@@ -112,9 +113,9 @@ public class DetailedResults extends Composite {
 
 		tableViewerColumn_1 = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn_1.setLabelProvider(new ColumnLabelProvider() {
-			@SuppressWarnings("unchecked")
 			public String getText(Object element) {
-				return element == null ? "" : ((List<String>) element).get(1);
+				return ((element == null) || !(element instanceof SingleMappingElement)) ? "" : 
+					((SingleMappingElement) element).getTask().getName();
 			}
 		});
 		tblclmnTask = tableViewerColumn_1.getColumn();
@@ -123,9 +124,9 @@ public class DetailedResults extends Composite {
 
 		tableViewerColumn_3 = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn_3.setLabelProvider(new ColumnLabelProvider() {
-			@SuppressWarnings("unchecked")
 			public String getText(Object element) {
-				return element == null ? "" : ((List<String>) element).get(2);
+				return ((element == null) || !(element instanceof SingleMappingElement)) ? "" : 
+					((SingleMappingElement) element).getCore().getName();
 			}
 		});
 		tblclmnCore = tableViewerColumn_3.getColumn();
@@ -134,9 +135,9 @@ public class DetailedResults extends Composite {
 
 		tableViewerColumn_2 = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn_2.setLabelProvider(new ColumnLabelProvider() {
-			@SuppressWarnings("unchecked")
 			public String getText(Object element) {
-				return element == null ? "" : ((List<String>) element).get(3);
+				return ((element == null) || !(element instanceof SingleMappingElement)) ? "" : 
+					((SingleMappingElement) element).getProcessor().getName();
 			}
 		});
 		tblclmnProcessor = tableViewerColumn_2.getColumn();
@@ -145,9 +146,9 @@ public class DetailedResults extends Composite {
 
 		tableViewerColumn_4 = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn_4.setLabelProvider(new ColumnLabelProvider() {
-			@SuppressWarnings("unchecked")
 			public String getText(Object element) {
-				return element == null ? "" : ((List<String>) element).get(4);
+				return ((element == null) || !(element instanceof SingleMappingElement)) ? "" : 
+					((SingleMappingElement) element).getBoard().getName();
 			}
 		});
 		tblclmnBoard = tableViewerColumn_4.getColumn();
@@ -156,9 +157,9 @@ public class DetailedResults extends Composite {
 
 		tableViewerColumn_5 = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn_5.setLabelProvider(new ColumnLabelProvider() {
-			@SuppressWarnings("unchecked")
 			public String getText(Object element) {
-				return element == null ? "" : ((List<String>) element).get(5);
+				return ((element == null) || !(element instanceof SingleMappingElement)) ? "" : 
+					((SingleMappingElement) element).getBox().getName();
 			}
 		});
 		tblclmnBox = tableViewerColumn_5.getColumn();
@@ -167,9 +168,9 @@ public class DetailedResults extends Composite {
 
 		tableViewerColumn_6 = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn_6.setLabelProvider(new ColumnLabelProvider() {
-			@SuppressWarnings("unchecked")
 			public String getText(Object element) {
-				return element == null ? "" : ((List<String>) element).get(6);
+				return ((element == null) || !(element instanceof SingleMappingElement)) ? "" : 
+					((SingleMappingElement) element).getCompartment().getName();
 			}
 		});
 		tblclmnCompartment = tableViewerColumn_6.getColumn();
@@ -299,7 +300,7 @@ public class DetailedResults extends Composite {
 
 		/* Update our own text fields */
 		lblSolutionName.setText(curResult.getName());
-		tblviewerResult.setInput(curResult.getDetailedMappingResults());
+		tblviewerResult.setInput(curResult.getMappingElements());
 
 		/* We have just one result */
 		if (mappingResults.size() == 1) {

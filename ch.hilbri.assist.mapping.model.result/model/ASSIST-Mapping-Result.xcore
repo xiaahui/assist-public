@@ -31,20 +31,40 @@ class Result {
 	boolean 							partialSolution = "false"
 	double								totalScore = "1.0"
 
-	/* Returns a list of the mappings; each entry is a list of names for the mapped elements */
-	derived StringList[] detailedMappingResults get {
- 	 	task2CoreMap.entrySet.map[ 
-  			#[
- 				(key.eContainer as Application).name, 									// Name of the application
- 				key.name,																// Name of the task
- 				value.name,																// Name of the core
- 				(value.eContainer as Processor).name,									// Name of the processor
- 				(value.eContainer.eContainer as Board).name,							// ...
- 				(value.eContainer.eContainer.eContainer as Box).name,
- 				(value.eContainer.eContainer.eContainer.eContainer as Compartment).name
- 			]
- 		]
- 		.toEList
- 	}
-	
+	/* This creates the list of mapping elements; each elements contains all hardware / software elements */
+	op SingleMappingElement[]			getMappingElements() {
+		task2CoreMap.entrySet.map[ 
+
+			/* Retrieve the entries from the map */
+			val application = key.eContainer as Application
+			val task		= key
+			val core		= value
+			val processor 	= value.eContainer as Processor
+			val board		= value.eContainer.eContainer as Board
+			val box			= value.eContainer.eContainer.eContainer as Box
+			val compartment = value.eContainer.eContainer.eContainer.eContainer as Compartment
+			
+			/* Create the SingleMappingElement based on that data */
+			ResultFactory.eINSTANCE.createSingleMappingElement => [
+				it.application 	= application
+				it.task 		= task 
+				it.core 		= core
+				it.processor	= processor
+				it.board		= board
+				it.box			= box
+				it.compartment	= compartment	
+			]
+			
+		].toEList
+	}
+}
+
+class SingleMappingElement {
+	refers 	Application		application
+	refers 	Task			task
+	refers 	Core			core
+	refers	Processor		processor
+	refers	Board			board
+	refers 	Box				box
+	refers	Compartment		compartment
 }
