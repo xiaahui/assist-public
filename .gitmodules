@@ -16,9 +16,6 @@
 [submodule "ch.hilbri.assist.libraries.choco/automaton"]
 	path = ch.hilbri.assist.libraries.choco/automaton
 	url = https://github.com/dweiss/dk.brics.automaton
-[submodule "ch.hilbri.assist.libraries.choco/args4j"]
-	path = ch.hilbri.assist.libraries.choco/args4j
-	url = https://github.com/kohsuke/args4j
 [submodule "ch.hilbri.assist.libraries.choco/cpprof-java"]
 	path = ch.hilbri.assist.libraries.choco/cpprof-java
 	url = https://github.com/cp-profiler/java-integration
