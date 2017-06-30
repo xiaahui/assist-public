@@ -4,6 +4,7 @@ package ch.hilbri.assist.mapping.model.result.impl;
 
 import ch.hilbri.assist.mapping.model.ModelPackage;
 
+import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultFactory;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
@@ -51,6 +52,13 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * @generated
 	 */
 	private EClass singleMappingElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractMetricEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -279,6 +287,51 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAbstractMetric() {
+		return abstractMetricEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAbstractMetric_Name() {
+		return (EAttribute)abstractMetricEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAbstractMetric_BuiltIn() {
+		return (EAttribute)abstractMetricEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAbstractMetric_HigherScoreIsBetter() {
+		return (EAttribute)abstractMetricEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAbstractMetric__ComputeAbsoluteScore__Result() {
+		return abstractMetricEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getTask2CoreMapType() {
 		return task2CoreMapTypeEDataType;
 	}
@@ -339,6 +392,12 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		createEReference(singleMappingElementEClass, SINGLE_MAPPING_ELEMENT__BOX);
 		createEReference(singleMappingElementEClass, SINGLE_MAPPING_ELEMENT__COMPARTMENT);
 
+		abstractMetricEClass = createEClass(ABSTRACT_METRIC);
+		createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__NAME);
+		createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__BUILT_IN);
+		createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER);
+		createEOperation(abstractMetricEClass, ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__RESULT);
+
 		// Create data types
 		task2CoreMapTypeEDataType = createEDataType(TASK2_CORE_MAP_TYPE);
 		stringListEDataType = createEDataType(STRING_LIST);
@@ -397,6 +456,14 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		initEReference(getSingleMappingElement_Board(), theModelPackage.getBoard(), null, "board", null, 0, 1, SingleMappingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSingleMappingElement_Box(), theModelPackage.getBox(), null, "box", null, 0, 1, SingleMappingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSingleMappingElement_Compartment(), theModelPackage.getCompartment(), null, "compartment", null, 0, 1, SingleMappingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(abstractMetricEClass, AbstractMetric.class, "AbstractMetric", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAbstractMetric_Name(), theEcorePackage.getEString(), "name", null, 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractMetric_BuiltIn(), theEcorePackage.getEBoolean(), "builtIn", null, 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractMetric_HigherScoreIsBetter(), theEcorePackage.getEBoolean(), "higherScoreIsBetter", null, 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = initEOperation(getAbstractMetric__ComputeAbsoluteScore__Result(), theEcorePackage.getEDouble(), "computeAbsoluteScore", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getResult(), "result", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(task2CoreMapTypeEDataType, Map.class, "Task2CoreMapType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.Map<ch.hilbri.assist.mapping.model.Task, ch.hilbri.assist.mapping.model.Core>");

@@ -262,6 +262,70 @@ public interface ResultPackage extends EPackage {
 	int SINGLE_MAPPING_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl <em>Abstract Metric</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl
+	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getAbstractMetric()
+	 * @generated
+	 */
+	int ABSTRACT_METRIC = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Built In</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC__BUILT_IN = 1;
+
+	/**
+	 * The feature id for the '<em><b>Higher Score Is Better</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER = 2;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Metric</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC_FEATURE_COUNT = 3;
+
+	/**
+	 * The operation id for the '<em>Compute Absolute Score</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__RESULT = 0;
+
+	/**
+	 * The number of operations of the '<em>Abstract Metric</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC_OPERATION_COUNT = 1;
+
+	/**
 	 * The meta object id for the '<em>Task2 Core Map Type</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -269,7 +333,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getTask2CoreMapType()
 	 * @generated
 	 */
-	int TASK2_CORE_MAP_TYPE = 3;
+	int TASK2_CORE_MAP_TYPE = 4;
 
 	/**
 	 * The meta object id for the '<em>String List</em>' data type.
@@ -279,7 +343,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getStringList()
 	 * @generated
 	 */
-	int STRING_LIST = 4;
+	int STRING_LIST = 5;
 
 
 	/**
@@ -454,6 +518,59 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSingleMappingElement_Compartment();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.result.AbstractMetric <em>Abstract Metric</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Metric</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.AbstractMetric
+	 * @generated
+	 */
+	EClass getAbstractMetric();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.AbstractMetric#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.AbstractMetric#getName()
+	 * @see #getAbstractMetric()
+	 * @generated
+	 */
+	EAttribute getAbstractMetric_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.AbstractMetric#isBuiltIn <em>Built In</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Built In</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.AbstractMetric#isBuiltIn()
+	 * @see #getAbstractMetric()
+	 * @generated
+	 */
+	EAttribute getAbstractMetric_BuiltIn();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.AbstractMetric#isHigherScoreIsBetter <em>Higher Score Is Better</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Higher Score Is Better</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.AbstractMetric#isHigherScoreIsBetter()
+	 * @see #getAbstractMetric()
+	 * @generated
+	 */
+	EAttribute getAbstractMetric_HigherScoreIsBetter();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.AbstractMetric#computeAbsoluteScore(ch.hilbri.assist.mapping.model.result.Result) <em>Compute Absolute Score</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compute Absolute Score</em>' operation.
+	 * @see ch.hilbri.assist.mapping.model.result.AbstractMetric#computeAbsoluteScore(ch.hilbri.assist.mapping.model.result.Result)
+	 * @generated
+	 */
+	EOperation getAbstractMetric__ComputeAbsoluteScore__Result();
 
 	/**
 	 * Returns the meta object for data type '{@link java.util.Map <em>Task2 Core Map Type</em>}'.
@@ -633,6 +750,48 @@ public interface ResultPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SINGLE_MAPPING_ELEMENT__COMPARTMENT = eINSTANCE.getSingleMappingElement_Compartment();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl <em>Abstract Metric</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl
+		 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getAbstractMetric()
+		 * @generated
+		 */
+		EClass ABSTRACT_METRIC = eINSTANCE.getAbstractMetric();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_METRIC__NAME = eINSTANCE.getAbstractMetric_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Built In</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_METRIC__BUILT_IN = eINSTANCE.getAbstractMetric_BuiltIn();
+
+		/**
+		 * The meta object literal for the '<em><b>Higher Score Is Better</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER = eINSTANCE.getAbstractMetric_HigherScoreIsBetter();
+
+		/**
+		 * The meta object literal for the '<em><b>Compute Absolute Score</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__RESULT = eINSTANCE.getAbstractMetric__ComputeAbsoluteScore__Result();
 
 		/**
 		 * The meta object literal for the '<em>Task2 Core Map Type</em>' data type.

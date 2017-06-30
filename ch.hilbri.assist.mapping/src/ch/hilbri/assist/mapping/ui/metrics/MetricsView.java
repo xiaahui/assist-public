@@ -1,7 +1,6 @@
 package ch.hilbri.assist.mapping.ui.metrics;
 
 import java.io.IOException;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -18,7 +17,6 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ColumnPixelData;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -45,7 +43,6 @@ import org.eclipse.wb.swt.ResourceManager;
 import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
-import ch.hilbri.assist.mapping.ui.multipageeditor.resultsview.model.DetailedResultsViewUiModel;
 
 public class MetricsView {
 	
@@ -66,7 +63,6 @@ public class MetricsView {
 	
 	/* A reference to the UI model which contains the results and the current metrics */
 	private MultiPageEditor currentEditor;
-	private DetailedResultsViewUiModel currentModel;
 
 	/* A list which holds the current entries in the table (selected metrics) */
 	private List<AbstractMetric> tblSelectedMetricsData; 
@@ -120,7 +116,7 @@ public class MetricsView {
 			
 			public void widgetSelected(SelectionEvent event) {
 				
-				if (currentModel == null) return;
+//				if (currentModel == null) return;
 				
 				// Do nothing, if nothing is selected
 				if ((cbxAvailableMetrics.getSelectionIndex() == -1) || 
@@ -140,21 +136,21 @@ public class MetricsView {
 				// Create a new metrics instance
 				// we need to do this since we do not know the specific 
 				// class of the abstract metric - could be custom!
-				Class<? extends AbstractMetric> metricClass = currentModel.getAvailableMetricsList().get(selectedMetricIndex).getClass();
-				Constructor<?> metricClassConstructor = metricClass.getConstructors()[0];
+//				Class<? extends AbstractMetric> metricClass = currentModel.getAvailableMetricsList().get(selectedMetricIndex).getClass();
+//				Constructor<?> metricClassConstructor = metricClass.getConstructors()[0];
 		
-				try {
+//				try {
 					// Create a new instance
-					AbstractMetric newMetricObject = (AbstractMetric) metricClassConstructor.newInstance();
-					newMetricObject.setWeight(selectedWeight);
+//					AbstractMetric newMetricObject = (AbstractMetric) metricClassConstructor.newInstance();
+//					newMetricObject.setWeight(selectedWeight);
 
 					// Add new entry to data
-					tblSelectedMetricsData.add(newMetricObject);
+//					tblSelectedMetricsData.add(newMetricObject);
 					
 					// Add input to table
 					tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
 					
-				} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) { e.printStackTrace(); }
+//				} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) { e.printStackTrace(); }
 				
 				// Store updated table in the model
 				saveTableToCurrentModel();
@@ -218,9 +214,9 @@ public class MetricsView {
 				if (dialog.open() != Window.OK) return;
 				
 				// Clear old custom metrics in the currentModel
-				for (AbstractMetric m : currentModel.getAvailableMetricsList()) 
-					if (!m.isBuiltIn())
-						currentModel.getAvailableMetricsList().remove(m);
+//				for (AbstractMetric m : currentModel.getAvailableMetricsList()) 
+//					if (!m.isBuiltIn())
+//						currentModel.getAvailableMetricsList().remove(m);
 				
 				try {
 					
@@ -244,7 +240,7 @@ public class MetricsView {
 					}
 					
 					// Add the new metrics
-					currentModel.getAvailableMetricsList().addAll(newCustomMetrics);
+//					currentModel.getAvailableMetricsList().addAll(newCustomMetrics);
 					
 				} catch (ClassNotFoundException | IOException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e1) {
 					e1.printStackTrace();
@@ -267,25 +263,25 @@ public class MetricsView {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if (currentModel != null) {
-
-					if ((currentModel.getResults() != null) && (currentModel.getResults().size() > 0)) {
-						
-						ProgressMonitorDialog progressDialog = new ProgressMonitorDialog(currentEditor.getSite().getShell());
-						try {
-							progressDialog.run(true, false, new EvaluateJob(currentModel));
-						} catch (InvocationTargetException | InterruptedException e1) {
-							e1.printStackTrace();
-						}
-					}
-					else {
-						MessageDialog dlg = new MessageDialog(null, "No results found", null, 
-											"No results were found for analysis. Please generate valid deployments.", 
-											MessageDialog.INFORMATION, 
-											new String[] { "OK" }, 0);
-						dlg.open();
-					}
-				}
+//				if (currentModel != null) {
+//
+//					if ((currentModel.getResults() != null) && (currentModel.getResults().size() > 0)) {
+//						
+//						ProgressMonitorDialog progressDialog = new ProgressMonitorDialog(currentEditor.getSite().getShell());
+//						try {
+//							progressDialog.run(true, false, new EvaluateJob(currentModel));
+//						} catch (InvocationTargetException | InterruptedException e1) {
+//							e1.printStackTrace();
+//						}
+//					}
+//					else {
+//						MessageDialog dlg = new MessageDialog(null, "No results found", null, 
+//											"No results were found for analysis. Please generate valid deployments.", 
+//											MessageDialog.INFORMATION, 
+//											new String[] { "OK" }, 0);
+//						dlg.open();
+//					}
+//				}
 			}
 			
 		});
@@ -373,7 +369,7 @@ public class MetricsView {
 	private void processMessageEditorClosed(@UIEventTopic(MSG_CURRENT_EDITOR_CLOSED) MultiPageEditor closedEditor) {
 		/* Did the editor for our current model close? */
 		if (currentEditor == closedEditor) { 
-			currentModel = null;
+//			currentModel = null;
 			currentEditor = null;
 		} 
 	}
@@ -396,7 +392,7 @@ public class MetricsView {
 			saveTableToCurrentModel();
 			
 			// Set currentModels/Editors to null
-			currentModel = null;
+//			currentModel = null;
 			currentEditor = null;
 			
 			// Clear the UI
@@ -408,16 +404,16 @@ public class MetricsView {
 	
 	
 	private void fillComboBoxWithAvailableMetrics() {
-		if (currentModel != null) {
-			
-			String[] newItems = new String[currentModel.getAvailableMetricsList().size()];
-			int ctr = 0;
-			
-			for (AbstractMetric metric : currentModel.getAvailableMetricsList()) 
-				newItems[ctr++] = metric.getName() + " (" + (metric.isBuiltIn()? "built-in" : "custom") + ")";
-			
-			cbxAvailableMetrics.setItems(newItems);
-		}
+//		if (currentModel != null) {
+//			
+//			String[] newItems = new String[currentModel.getAvailableMetricsList().size()];
+//			int ctr = 0;
+//			
+//			for (AbstractMetric metric : currentModel.getAvailableMetricsList()) 
+//				newItems[ctr++] = metric.getName() + " (" + (metric.isBuiltIn()? "built-in" : "custom") + ")";
+//			
+//			cbxAvailableMetrics.setItems(newItems);
+//		}
 	}
 	
 	void removeEntryFromTable(AbstractMetric entry) {
@@ -433,27 +429,27 @@ public class MetricsView {
 	}
 	
 	void saveTableToCurrentModel() {
-		if (currentModel != null) {
-			currentModel.getSelectedMetricsList().clear();
-			currentModel.getSelectedMetricsList().addAll(tblSelectedMetricsData);
-		}
+//		if (currentModel != null) {
+//			currentModel.getSelectedMetricsList().clear();
+//			currentModel.getSelectedMetricsList().addAll(tblSelectedMetricsData);
+//		}
 	}
 	
 	void restoreTableFromCurrentModel() {
-		if (currentModel != null) {
-			
-			// Remove the old stuff
-			tblSelectedMetricsData.clear();
-			lblProvider.clearAllButtons();
-
-			// Get the new stuff
-			tblSelectedMetricsData.addAll(currentModel.getSelectedMetricsList());
-			tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
-			
-			// Clear pre-selection
-			cbxAvailableMetrics.deselectAll();
-			cbxWeight.deselectAll();
-		}
+//		if (currentModel != null) {
+//			
+//			// Remove the old stuff
+//			tblSelectedMetricsData.clear();
+//			lblProvider.clearAllButtons();
+//
+//			// Get the new stuff
+//			tblSelectedMetricsData.addAll(currentModel.getSelectedMetricsList());
+//			tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
+//			
+//			// Clear pre-selection
+//			cbxAvailableMetrics.deselectAll();
+//			cbxWeight.deselectAll();
+//		}
 	}
 	
 }

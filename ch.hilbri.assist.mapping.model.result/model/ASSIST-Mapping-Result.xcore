@@ -68,3 +68,11 @@ class SingleMappingElement {
 	refers 	Box				box
 	refers	Compartment		compartment
 }
+
+abstract class AbstractMetric {
+	String name
+	boolean builtIn
+	boolean higherScoreIsBetter
+	
+	op double computeAbsoluteScore(Result result)
+}

@@ -2,6 +2,7 @@
  */
 package ch.hilbri.assist.mapping.model.result.util;
 
+import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
 import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
@@ -86,6 +87,12 @@ public class ResultSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ResultPackage.ABSTRACT_METRIC: {
+				AbstractMetric abstractMetric = (AbstractMetric)theEObject;
+				T result = caseAbstractMetric(abstractMetric);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -132,6 +139,21 @@ public class ResultSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSingleMappingElement(SingleMappingElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Metric</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Metric</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractMetric(AbstractMetric object) {
 		return null;
 	}
 

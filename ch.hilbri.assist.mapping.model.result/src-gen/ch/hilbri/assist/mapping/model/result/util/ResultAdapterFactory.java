@@ -2,6 +2,7 @@
  */
 package ch.hilbri.assist.mapping.model.result.util;
 
+import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
 import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
@@ -82,6 +83,10 @@ public class ResultAdapterFactory extends AdapterFactoryImpl {
 				return createSingleMappingElementAdapter();
 			}
 			@Override
+			public Adapter caseAbstractMetric(AbstractMetric object) {
+				return createAbstractMetricAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -140,6 +145,20 @@ public class ResultAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSingleMappingElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.result.AbstractMetric <em>Abstract Metric</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.mapping.model.result.AbstractMetric
+	 * @generated
+	 */
+	public Adapter createAbstractMetricAdapter() {
 		return null;
 	}
 
