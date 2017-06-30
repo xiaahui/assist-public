@@ -185,6 +185,31 @@
 					</filesets>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.3</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<tasks>
+							<!--  We want to keep the folders src-gen in the git - but they are empty. So they need some minimal content! -->
+								<echo file="${basedir}/../ch.hilbri.assist.mapping.dsl/src-gen/.src-gen-keep" message="" />
+								<echo file="${basedir}/../ch.hilbri.assist.mapping.dsl.ide/src-gen/.src-gen-keep" message="" />
+								<echo file="${basedir}/../ch.hilbri.assist.mapping.dsl.tests/src-gen/.src-gen-keep" message="" />
+								<echo file="${basedir}/../ch.hilbri.assist.mapping.dsl.ui/src-gen/.src-gen-keep" message="" />
+								<echo file="${basedir}/../ch.hilbri.assist.mapping.dsl.ui.tests/src-gen/.src-gen-keep" message="" />
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 		<pluginManagement>
 			<plugins>
