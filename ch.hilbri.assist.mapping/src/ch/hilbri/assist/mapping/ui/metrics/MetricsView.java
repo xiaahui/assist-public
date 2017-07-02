@@ -8,14 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.e4.core.di.annotations.Optional;
-import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ColumnPixelData;
@@ -39,11 +36,11 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.dialogs.ListSelectionDialog;
 import org.eclipse.wb.swt.ResourceManager;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
-import org.eclipse.wb.swt.SWTResourceManager;
 
 public class MetricsView {
 	
@@ -79,33 +76,34 @@ public class MetricsView {
 	@PostConstruct
 	public void createControls(final Composite parentMain) {
 		parentMain.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		GridLayout gl_parentMain = new GridLayout(8, false);
-		gl_parentMain.horizontalSpacing = 10;
-		parentMain.setLayout(gl_parentMain);
+		parentMain.setLayout(new FillLayout(SWT.HORIZONTAL));
 		
-		Label lblSelectMetricType = new Label(parentMain, SWT.NONE);
-		lblSelectMetricType.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		Composite mainComposite = new Composite(parentMain, SWT.NONE);
+		mainComposite.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		GridLayout gl_mainComposite = new GridLayout(8, false);
+		gl_mainComposite.horizontalSpacing = 10;
+		mainComposite.setLayout(gl_mainComposite);
+		
+		Label lblSelectMetricType = new Label(mainComposite, SWT.NONE);
+		lblSelectMetricType.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblSelectMetricType.setText("Metric:");
 		
-		cbxAvailableMetrics = new Combo(parentMain, SWT.READ_ONLY);
-		GridData gd_cbxAvailableMetrics = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
-		gd_cbxAvailableMetrics.widthHint = 260;
+		cbxAvailableMetrics = new Combo(mainComposite, SWT.READ_ONLY);
+		GridData gd_cbxAvailableMetrics = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+		gd_cbxAvailableMetrics.widthHint = 241;
 		cbxAvailableMetrics.setLayoutData(gd_cbxAvailableMetrics);
-	
-		Label lblWeight = new Label(parentMain, SWT.NONE);
-		lblWeight.setFont(SWTResourceManager.getFont(".SF NS Text", 12, SWT.NORMAL));
-		lblWeight.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		cbxAvailableMetrics.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		
+		Label lblWeight = new Label(mainComposite, SWT.NONE);
+		lblWeight.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblWeight.setText("Weight:");
 		
-		cbxWeight = new Combo(parentMain, SWT.READ_ONLY);
+		cbxWeight = new Combo(mainComposite, SWT.READ_ONLY);
+		cbxWeight.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		cbxWeight.setItems(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"});
 		cbxWeight.setVisibleItemCount(5);
-		cbxWeight.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		
-		/*
-		 * ADD Metric
-		 */
-		Button btnAddMetric = new Button(parentMain, SWT.NONE);
+		Button btnAddMetric = new Button(mainComposite, SWT.NONE);
+		btnAddMetric.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		btnAddMetric.setText("Add Metric");
 		btnAddMetric.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/add.gif"));
 		btnAddMetric.addSelectionListener(new SelectionListener() {
@@ -128,8 +126,8 @@ public class MetricsView {
 				}
 				
 				// Create new MetricTableEntry
-				int selectedMetricIndex = cbxAvailableMetrics.getSelectionIndex();
-				int selectedWeight = Integer.parseInt(cbxWeight.getItem(cbxWeight.getSelectionIndex()));
+//				int selectedMetricIndex = cbxAvailableMetrics.getSelectionIndex();
+//				int selectedWeight = Integer.parseInt(cbxWeight.getItem(cbxWeight.getSelectionIndex()));
 				
 				// Create a new metrics instance
 				// we need to do this since we do not know the specific 
@@ -159,11 +157,8 @@ public class MetricsView {
 		    }
 			});
 		
-		/*
-		 * Load metrics
-		 */
-		
-		Button btnReloadMetrics = new Button(parentMain, SWT.NONE);
+		Button btnReloadMetrics = new Button(mainComposite, SWT.NONE);
+		btnReloadMetrics.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		btnReloadMetrics.setText("Load custom metrics");
 		btnReloadMetrics.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/refresh.gif"));
 		btnReloadMetrics.addSelectionListener(new SelectionListener() {
@@ -251,7 +246,8 @@ public class MetricsView {
 		});
 		
 		
-		Button btnEvaluateResults = new Button(parentMain, SWT.NONE);
+		Button btnEvaluateResults = new Button(mainComposite, SWT.NONE);
+		btnEvaluateResults.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		btnEvaluateResults.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/evaluate.gif"));
 		btnEvaluateResults.setText("Evaluate results");
 		btnEvaluateResults.addSelectionListener(new SelectionListener() {
@@ -284,12 +280,17 @@ public class MetricsView {
 			
 		});
 		
-		Label label = new Label(parentMain, SWT.NONE);
-		label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-				
-		Group grpSelectedMetrics = new Group(parentMain, SWT.NONE);
-		grpSelectedMetrics.setLayout(new FillLayout(SWT.HORIZONTAL));
-		grpSelectedMetrics.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 8, 1));
+		Label lblOverflow = new Label(mainComposite, SWT.NONE);
+		lblOverflow.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblOverflow.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
+		Group grpSelectedMetrics = new Group(mainComposite, SWT.NONE);
+		grpSelectedMetrics.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 8, 1));
+		grpSelectedMetrics.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		FillLayout fl_grpSelectedMetrics = new FillLayout(SWT.HORIZONTAL);
+		fl_grpSelectedMetrics.marginHeight = 5;
+		fl_grpSelectedMetrics.marginWidth = 5;
+		grpSelectedMetrics.setLayout(fl_grpSelectedMetrics);
 		grpSelectedMetrics.setText("Selected Metrics");
 		
 		Composite composite = new Composite(grpSelectedMetrics, SWT.NONE);
