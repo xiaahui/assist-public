@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl#isBuiltIn <em>Built In</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl#isHigherScoreIsBetter <em>Higher Score Is Better</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl#getWeight <em>Weight</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,6 +93,26 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 	 * @ordered
 	 */
 	protected boolean higherScoreIsBetter = HIGHER_SCORE_IS_BETTER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getWeight() <em>Weight</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int WEIGHT_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getWeight() <em>Weight</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected int weight = WEIGHT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,6 +201,27 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getWeight() {
+		return weight;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWeight(int newWeight) {
+		int oldWeight = weight;
+		weight = newWeight;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.ABSTRACT_METRIC__WEIGHT, oldWeight, weight));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public double computeAbsoluteScore(Result result) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -200,6 +242,8 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 				return isBuiltIn();
 			case ResultPackage.ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER:
 				return isHigherScoreIsBetter();
+			case ResultPackage.ABSTRACT_METRIC__WEIGHT:
+				return getWeight();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -220,6 +264,9 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 				return;
 			case ResultPackage.ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER:
 				setHigherScoreIsBetter((Boolean)newValue);
+				return;
+			case ResultPackage.ABSTRACT_METRIC__WEIGHT:
+				setWeight((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -242,6 +289,9 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 			case ResultPackage.ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER:
 				setHigherScoreIsBetter(HIGHER_SCORE_IS_BETTER_EDEFAULT);
 				return;
+			case ResultPackage.ABSTRACT_METRIC__WEIGHT:
+				setWeight(WEIGHT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -260,6 +310,8 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 				return builtIn != BUILT_IN_EDEFAULT;
 			case ResultPackage.ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER:
 				return higherScoreIsBetter != HIGHER_SCORE_IS_BETTER_EDEFAULT;
+			case ResultPackage.ABSTRACT_METRIC__WEIGHT:
+				return weight != WEIGHT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -294,6 +346,8 @@ public abstract class AbstractMetricImpl extends MinimalEObjectImpl.Container im
 		result.append(builtIn);
 		result.append(", higherScoreIsBetter: ");
 		result.append(higherScoreIsBetter);
+		result.append(", weight: ");
+		result.append(weight);
 		result.append(')');
 		return result.toString();
 	}

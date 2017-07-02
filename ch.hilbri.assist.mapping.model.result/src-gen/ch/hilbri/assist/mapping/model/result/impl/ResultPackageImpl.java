@@ -323,6 +323,15 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAbstractMetric_Weight() {
+		return (EAttribute)abstractMetricEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getAbstractMetric__ComputeAbsoluteScore__Result() {
 		return abstractMetricEClass.getEOperations().get(0);
 	}
@@ -396,6 +405,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__NAME);
 		createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__BUILT_IN);
 		createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER);
+		createEAttribute(abstractMetricEClass, ABSTRACT_METRIC__WEIGHT);
 		createEOperation(abstractMetricEClass, ABSTRACT_METRIC___COMPUTE_ABSOLUTE_SCORE__RESULT);
 
 		// Create data types
@@ -461,6 +471,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		initEAttribute(getAbstractMetric_Name(), theEcorePackage.getEString(), "name", null, 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractMetric_BuiltIn(), theEcorePackage.getEBoolean(), "builtIn", null, 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractMetric_HigherScoreIsBetter(), theEcorePackage.getEBoolean(), "higherScoreIsBetter", null, 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractMetric_Weight(), theEcorePackage.getEInt(), "weight", null, 0, 1, AbstractMetric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getAbstractMetric__ComputeAbsoluteScore__Result(), theEcorePackage.getEDouble(), "computeAbsoluteScore", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getResult(), "result", 0, 1, !IS_UNIQUE, IS_ORDERED);

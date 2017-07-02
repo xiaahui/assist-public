@@ -299,13 +299,22 @@ public interface ResultPackage extends EPackage {
 	int ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER = 2;
 
 	/**
+	 * The feature id for the '<em><b>Weight</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_METRIC__WEIGHT = 3;
+
+	/**
 	 * The number of structural features of the '<em>Abstract Metric</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_METRIC_FEATURE_COUNT = 3;
+	int ABSTRACT_METRIC_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Compute Absolute Score</em>' operation.
@@ -563,6 +572,17 @@ public interface ResultPackage extends EPackage {
 	EAttribute getAbstractMetric_HigherScoreIsBetter();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.AbstractMetric#getWeight <em>Weight</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Weight</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.AbstractMetric#getWeight()
+	 * @see #getAbstractMetric()
+	 * @generated
+	 */
+	EAttribute getAbstractMetric_Weight();
+
+	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.AbstractMetric#computeAbsoluteScore(ch.hilbri.assist.mapping.model.result.Result) <em>Compute Absolute Score</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -784,6 +804,14 @@ public interface ResultPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ABSTRACT_METRIC__HIGHER_SCORE_IS_BETTER = eINSTANCE.getAbstractMetric_HigherScoreIsBetter();
+
+		/**
+		 * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_METRIC__WEIGHT = eINSTANCE.getAbstractMetric_Weight();
 
 		/**
 		 * The meta object literal for the '<em><b>Compute Absolute Score</b></em>' operation.
