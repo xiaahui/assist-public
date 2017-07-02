@@ -13,12 +13,12 @@ public class ResultsAnalysis  {
 		
 		// Resultate der vorigen Metriken l�schen
 		
-		for (Result result : results) {
+//		for (Result result : results) {
 //			result.getEvaluation().getAbsoluteScores().clear();
 //			result.getEvaluation().getMetricsUsed().clear();
 //			result.getEvaluation().getMetricsUsed().addAll(metrics);
 //			result.getEvaluation().getScaledScores().clear();
-		}
+//		}
 		
 		for (AbstractMetric metric : metrics) {
 			
@@ -32,7 +32,7 @@ public class ResultsAnalysis  {
 			}
 			
 			/* 2. Schritt: fuer jedes Result den skalierten Score berechnen */
-			for (Result result : results) {
+//			for (Result result : results) {
 //				if (statistics.getMax() - statistics.getMin() != 0) {
 //					double absoluteScore = result.getEvaluation().getAbsoluteScores().get(metric);
 //					double scaledScore = (absoluteScore - statistics.getMin()) / (statistics.getMax() - statistics.getMin());
@@ -53,6 +53,6 @@ public class ResultsAnalysis  {
 				 */
 //					result.getEvaluation().getScaledScores().put(metric, 0.0);
 //			}
-		}
+//		}
 	}
 }
