@@ -59,7 +59,6 @@ public class InfoSheetView implements IPartListener2 {
 
 		ScrolledForm scrldfrmCurrentSolution = formToolkit.createScrolledForm(composite);
 		formToolkit.paintBordersFor(scrldfrmCurrentSolution);
-		scrldfrmCurrentSolution.setText("Current Solution");
 		GridLayout gridLayout = new GridLayout(1, false);
 		gridLayout.marginWidth = 0;
 		scrldfrmCurrentSolution.getBody().setLayout(gridLayout);
