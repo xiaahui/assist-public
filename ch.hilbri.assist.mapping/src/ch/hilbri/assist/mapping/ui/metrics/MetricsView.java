@@ -43,14 +43,10 @@ import org.eclipse.wb.swt.ResourceManager;
 import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 public class MetricsView {
 	
-	/* Internal messages from the detailed results view, so we get notified if the editor changes */
-	public static final String	MSG_CURRENT_EDITOR_SWITCHED	= "assist/mapping/current_editor_switched";
-	public static final String	MSG_CURRENT_EDITOR_CLOSED	= "assist/mapping/current_editor_closed";
-	public static final String  MSG_CURRENT_EDITOR_LOST_FOCUS = "assist/mapping/current_editor_lost_focus";
-
 	/* Table which contains metric entries */
 	private Table tblSelectedMetrics;
 	private TableViewer tblSelectedMetricsViewer;
@@ -82,6 +78,7 @@ public class MetricsView {
 	 */
 	@PostConstruct
 	public void createControls(final Composite parentMain) {
+		parentMain.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		GridLayout gl_parentMain = new GridLayout(8, false);
 		gl_parentMain.horizontalSpacing = 10;
 		parentMain.setLayout(gl_parentMain);
@@ -96,6 +93,7 @@ public class MetricsView {
 		cbxAvailableMetrics.setLayoutData(gd_cbxAvailableMetrics);
 	
 		Label lblWeight = new Label(parentMain, SWT.NONE);
+		lblWeight.setFont(SWTResourceManager.getFont(".SF NS Text", 12, SWT.NORMAL));
 		lblWeight.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblWeight.setText("Weight:");
 		
@@ -292,7 +290,7 @@ public class MetricsView {
 		Group grpSelectedMetrics = new Group(parentMain, SWT.NONE);
 		grpSelectedMetrics.setLayout(new FillLayout(SWT.HORIZONTAL));
 		grpSelectedMetrics.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 8, 1));
-		grpSelectedMetrics.setText("Selected metrics");
+		grpSelectedMetrics.setText("Selected Metrics");
 		
 		Composite composite = new Composite(grpSelectedMetrics, SWT.NONE);
 		TableColumnLayout tcl_composite = new TableColumnLayout();
@@ -336,72 +334,7 @@ public class MetricsView {
 		tblSelectedMetricsViewer.setContentProvider(new MetricTableContentProvider());
 	}
 	
-	/**
-	 * The method receives the broadcast from a Mapping Editor with the model of the focused editor.
-	 */
-	@Inject
-	@Optional
-	private void processMessageEditorSwitched(@UIEventTopic(MSG_CURRENT_EDITOR_SWITCHED) MultiPageEditor newEditor) {
-		if (newEditor != currentEditor) {
-			/* Store the current metric selection */
-			saveTableToCurrentModel();
-			
-			/* Change editor and model */
-//			DetailedResultsViewUiModel newModel = newEditor.getDetailedResultViewUiModel();
-//			currentEditor = newEditor;
-//			currentModel = newModel;
-			
-			/* Restore the data from the new editor */
-			restoreTableFromCurrentModel();
-			
-			/* Fill the combobox with available metrics */
-			fillComboBoxWithAvailableMetrics();
-		}
-	}
-
-	/**
-	 * In case an editor is closed, this method gets a broadcast and clears the table.
-	 * 
-	 * @param closedEditor
-	 */
-	@Inject
-	@Optional
-	private void processMessageEditorClosed(@UIEventTopic(MSG_CURRENT_EDITOR_CLOSED) MultiPageEditor closedEditor) {
-		/* Did the editor for our current model close? */
-		if (currentEditor == closedEditor) { 
-//			currentModel = null;
-			currentEditor = null;
-		} 
-	}
-	
-	
-	/**
-	 * In case an editor lost focus we have to clear the table
-	 */
-	/**
-	 * In case an editor is closed, this method gets a broadcast and clears the table.
-	 * 
-	 * @param editor
-	 */
-	@Inject
-	@Optional
-	private void processMessageEditorLostFocus(@UIEventTopic(MSG_CURRENT_EDITOR_LOST_FOCUS) MultiPageEditor editor) {
-		/* Did the editor for our current model close? */
-		if (currentEditor == editor) { 
-			
-			saveTableToCurrentModel();
-			
-			// Set currentModels/Editors to null
-//			currentModel = null;
-			currentEditor = null;
-			
-			// Clear the UI
-			tblSelectedMetricsData.clear();
-			tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
-			lblProvider.clearAllButtons();
-		} 
-	}
-	
+		
 	
 	private void fillComboBoxWithAvailableMetrics() {
 //		if (currentModel != null) {

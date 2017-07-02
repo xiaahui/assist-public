@@ -17,7 +17,7 @@
               <children xsi:type="advanced:Placeholder" xmi:id="_SDuwkBR1Eee2Ev2eVUEQ1A" elementId="org.eclipse.ui.editorss" containerData="10000" ref="_k418wBRyEee2Ev2eVUEQ1A"/>
               <children xsi:type="basic:PartStack" xmi:id="_Te7jQBR1Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.partstack.infopart" containerData="3400"/>
             </children>
-            <children xsi:type="basic:PartStack" xmi:id="_NDHWYBR1Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.partstack.0" containerData="3400">
+            <children xsi:type="basic:PartStack" xmi:id="_NDHWYBR1Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.partstack.bottom" containerData="3400">
               <children xsi:type="advanced:Placeholder" xmi:id="_N4rFYBR1Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.placeholder.2" ref="_-xze0BRyEee2Ev2eVUEQ1A"/>
               <children xsi:type="advanced:Placeholder" xmi:id="_aQMbsBR1Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.placeholder.4" ref="_cE1CEBR1Eee2Ev2eVUEQ1A"/>
             </children>

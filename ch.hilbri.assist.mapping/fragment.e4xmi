@@ -28,4 +28,7 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_HgnnsFsBEeeZAv23awykxg" featurename="children" parentElementId="ch.hilbri.assist.gui.partstack.infopart">
     <elements xsi:type="basic:Part" xmi:id="_R7edAFsBEeeZAv23awykxg" elementId="ch.hilbri.assist.mapping.part.detailedresults" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView" label="Overview"/>
   </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ek9aMF8sEeeg1tnu8OUyoQ" featurename="children" parentElementId="ch.hilbri.assist.gui.partstack.bottom">
+    <elements xsi:type="basic:Part" xmi:id="_ixg6MF8sEeeg1tnu8OUyoQ" elementId="ch.hilbri.assist.mapping.part.metrics" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricsView" label="Evaluation Metrics"/>
+  </fragments>
 </fragment:ModelFragments>
