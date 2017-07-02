@@ -3,10 +3,13 @@ package ch.hilbri.assist.mapping.ui.metrics;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
@@ -42,16 +45,16 @@ public class MetricTableEntryLabelProvider extends CellLabelProvider {
 			break;
 		
 		case 1:
-//			cell.setText(metricTableEntry.getName());
+			cell.setText(metricTableEntry.getName());
 			break;
 		
 		case 2:
-//			if (metricTableEntry.isBuiltIn()) cell.setText("Built-in");
-//			else cell.setText("Custom");
+			if (metricTableEntry.isBuiltIn()) cell.setText("Built-in");
+			else cell.setText("Custom");
 			break;
 		
 		case 3:
-//			cell.setText(String.valueOf(metricTableEntry.getWeight()));
+			cell.setText(Integer.toString(metricTableEntry.getWeight()));
 			break;
 		
 		case 4:
@@ -64,21 +67,21 @@ public class MetricTableEntryLabelProvider extends CellLabelProvider {
 			else {
 				btnRemove = new Button((Composite) cell.getViewerRow().getControl(), SWT.NONE);
 				btnRemove.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/remove.gif"));
-//				btnRemove.addSelectionListener(new SelectionListener() {
-//					@Override
-//					public void widgetSelected(SelectionEvent e) {
-//						MessageDialog metricRemoveDialog = new MessageDialog(
-//								null, "Remove Metric", null, "Are you sure you want to remove the Metric \"" + metricTableEntry.getName() + "\"?",
-//								MessageDialog.QUESTION, new String[] {"Yes", "No" }, 1);
-//						
-//						if (metricRemoveDialog.open() == 0) 
-//							metricsView.removeEntryFromTable(metricTableEntry);
-//						
-//					}
-//
-//					@Override
-//					public void widgetDefaultSelected(SelectionEvent e) {}
-//				});
+				btnRemove.addSelectionListener(new SelectionListener() {
+					@Override
+					public void widgetSelected(SelectionEvent e) {
+						MessageDialog metricRemoveDialog = new MessageDialog(
+								null, "Remove Metric", null, "Are you sure you want to remove the Metric \"" + metricTableEntry.getName() + "\"?",
+								MessageDialog.QUESTION, new String[] {"Yes", "No" }, 1);
+						
+						if (metricRemoveDialog.open() == 0) 
+							metricsView.removeEntryFromTable(metricTableEntry);
+						
+					}
+
+					@Override
+					public void widgetDefaultSelected(SelectionEvent e) {}
+				});
 				
 				allRemoveButtons.put(cell.getElement(), btnRemove);
 			}
