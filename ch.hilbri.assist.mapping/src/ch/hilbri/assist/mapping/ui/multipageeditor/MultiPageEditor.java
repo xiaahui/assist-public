@@ -15,6 +15,7 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 import com.google.inject.Injector;
 
 import ch.hilbri.assist.mapping.dsl.ui.internal.DslActivator;
+import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.Result;
 
 public class MultiPageEditor extends MultiPageEditorPart  {
@@ -100,5 +101,13 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 
 	public Result getCurrentResult() {
 		return tabResults.getCurrentResult();
+	}
+	
+	public List<AbstractMetric> getSelectedMetricsList() {
+		return tabResults.getSelectedMetricsList();
+	}
+	
+	public List<AbstractMetric> getAvailableMetricsList() {
+		return tabResults.getAvailableMetricsList();
 	}
 }

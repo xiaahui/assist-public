@@ -1,5 +1,6 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -24,6 +25,8 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
+import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
 import ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView;
@@ -33,6 +36,9 @@ public class DetailedResults extends Composite {
 	private Text textFilter;
 	private Table tblResult;
 	private List<Result> mappingResults = null;
+	private List<AbstractMetric> selectedMetricsList = new ArrayList<AbstractMetric>();
+	private List<AbstractMetric> availableMetricsList = new ArrayList<AbstractMetric>();
+
 	private int curResultIndex = -1;
 	private Result curResult = null;
 	private Button btnFirst;
@@ -269,6 +275,10 @@ public class DetailedResults extends Composite {
 		Label lblIAmDiagram = new Label(compositeScoreOverview, SWT.CENTER);
 		lblIAmDiagram.setText("I am diagram");
 
+		/* Preload the available metrics list */
+		availableMetricsList.add(new RandomScore());
+		
+		
 		/* Clear the page for the initial state */
 		clearResults();
 	}
@@ -346,5 +356,13 @@ public class DetailedResults extends Composite {
 
 	public Result getCurrentResult() {
 		return curResult;
+	}
+	
+	public List<AbstractMetric> getSelectedMetricsList() {
+		return selectedMetricsList;
+	}
+	
+	public List<AbstractMetric> getAvailableMetricsList() {
+		return availableMetricsList;
 	}
 }
