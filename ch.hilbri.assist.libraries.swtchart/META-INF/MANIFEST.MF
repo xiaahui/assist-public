@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ch.hilbri.assist.libraries.swtchart
+Bundle-SymbolicName: ch.hilbri.assist.libraries.swtchart
+Bundle-Version: 0.10.0.qualifier
+Bundle-Vendor: SWTChart.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
