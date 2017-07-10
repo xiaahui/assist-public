@@ -29,9 +29,10 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import org.swtchart.Chart;
 import org.swtchart.IAxis;
 import org.swtchart.ILineSeries;
+import org.swtchart.ILineSeries.PlotSymbolType;
 import org.swtchart.ISeries.SeriesType;
 import org.swtchart.LineStyle;
-import org.swtchart.ILineSeries.PlotSymbolType;
+import org.swtchart.Range;
 
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
 import ch.hilbri.assist.mapping.model.result.AbstractMetric;
@@ -303,7 +304,7 @@ public class DetailedResults extends Composite {
 		xaxes.getTitle().setText("Solutions");
 		xaxes.getGrid().setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
 		xaxes.getGrid().setStyle(LineStyle.DOT);
-
+				
 		IAxis yaxes = scoreOverview.getAxisSet().getYAxes()[0];
 		yaxes.getTick().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
 		yaxes.getTick().setFont(SWTResourceManager.getFont("Segoe UI", 7, SWT.NORMAL));
@@ -312,7 +313,8 @@ public class DetailedResults extends Composite {
 		yaxes.getTitle().setText("Score");
 		yaxes.getGrid().setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
 		yaxes.getGrid().setStyle(LineStyle.DOT);
-
+		yaxes.getTick().setTickMarkStepHint(30);
+				
 		/* Preload the available metrics list */
 		availableMetricsList.add(new RandomScore());
 
@@ -342,6 +344,8 @@ public class DetailedResults extends Composite {
 		lineSeries.setLineColor(SWTResourceManager.getColor(SWT.COLOR_BLACK));
 		scoreOverview.getLegend().setVisible(false);
 		scoreOverview.getAxisSet().adjustRange();
+		Range oldRange = scoreOverview.getAxisSet().getYAxes()[0].getRange();
+		scoreOverview.getAxisSet().getYAxes()[0].setRange(new Range(0, oldRange.upper));
 		
 	}
 
