@@ -19,11 +19,15 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
+import org.swtchart.Chart;
+import org.swtchart.IAxis;
+import org.swtchart.LineStyle;
 
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
 import ch.hilbri.assist.mapping.model.result.AbstractMetric;
@@ -63,8 +67,9 @@ public class DetailedResults extends Composite {
 	private TableColumn tblclmnCompartment;
 	private TableViewerColumn tableViewerColumn_6;
 	private MappingViewerFilter tableFilter;
-	
+
 	private MultiPageEditor multiPageEditor;
+	private Group grpScoreDistribution;
 
 	/**
 	 * Create the composite.
@@ -89,11 +94,11 @@ public class DetailedResults extends Composite {
 
 		textFilter = new Text(this, SWT.BORDER | SWT.SEARCH);
 		textFilter.addKeyListener(new KeyAdapter() {
-            public void keyReleased(KeyEvent ke) {
-                tableFilter.setFilterText(textFilter.getText());
-                tblviewerResult.refresh();
-            }
-        });
+			public void keyReleased(KeyEvent ke) {
+				tableFilter.setFilterText(textFilter.getText());
+				tblviewerResult.refresh();
+			}
+		});
 		GridData gd_textFilter = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
 		gd_textFilter.widthHint = 387;
 		textFilter.setLayoutData(gd_textFilter);
@@ -112,7 +117,7 @@ public class DetailedResults extends Composite {
 		tableFilter = new MappingViewerFilter();
 		tblviewerResult = new TableViewer(compositeResultData, SWT.BORDER | SWT.FULL_SELECTION);
 		tblviewerResult.setFilters(tableFilter);
-		
+
 		tblResult = tblviewerResult.getTable();
 		tblResult.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		tblResult.setHeaderVisible(true);
@@ -121,8 +126,8 @@ public class DetailedResults extends Composite {
 		tableViewerColumn = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn.setLabelProvider(new ColumnLabelProvider() {
 			public String getText(Object element) {
-				return ((element == null) || !(element instanceof SingleMappingElement)) ? "" : 
-					((SingleMappingElement) element).getApplication().getName();
+				return ((element == null) || !(element instanceof SingleMappingElement)) ? ""
+						: ((SingleMappingElement) element).getApplication().getName();
 			}
 		});
 		tblclmnApplication = tableViewerColumn.getColumn();
@@ -132,8 +137,8 @@ public class DetailedResults extends Composite {
 		tableViewerColumn_1 = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn_1.setLabelProvider(new ColumnLabelProvider() {
 			public String getText(Object element) {
-				return ((element == null) || !(element instanceof SingleMappingElement)) ? "" : 
-					((SingleMappingElement) element).getTask().getName();
+				return ((element == null) || !(element instanceof SingleMappingElement)) ? ""
+						: ((SingleMappingElement) element).getTask().getName();
 			}
 		});
 		tblclmnTask = tableViewerColumn_1.getColumn();
@@ -143,8 +148,8 @@ public class DetailedResults extends Composite {
 		tableViewerColumn_3 = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn_3.setLabelProvider(new ColumnLabelProvider() {
 			public String getText(Object element) {
-				return ((element == null) || !(element instanceof SingleMappingElement)) ? "" : 
-					((SingleMappingElement) element).getCore().getName();
+				return ((element == null) || !(element instanceof SingleMappingElement)) ? ""
+						: ((SingleMappingElement) element).getCore().getName();
 			}
 		});
 		tblclmnCore = tableViewerColumn_3.getColumn();
@@ -154,8 +159,8 @@ public class DetailedResults extends Composite {
 		tableViewerColumn_2 = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn_2.setLabelProvider(new ColumnLabelProvider() {
 			public String getText(Object element) {
-				return ((element == null) || !(element instanceof SingleMappingElement)) ? "" : 
-					((SingleMappingElement) element).getProcessor().getName();
+				return ((element == null) || !(element instanceof SingleMappingElement)) ? ""
+						: ((SingleMappingElement) element).getProcessor().getName();
 			}
 		});
 		tblclmnProcessor = tableViewerColumn_2.getColumn();
@@ -165,8 +170,8 @@ public class DetailedResults extends Composite {
 		tableViewerColumn_4 = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn_4.setLabelProvider(new ColumnLabelProvider() {
 			public String getText(Object element) {
-				return ((element == null) || !(element instanceof SingleMappingElement)) ? "" : 
-					((SingleMappingElement) element).getBoard().getName();
+				return ((element == null) || !(element instanceof SingleMappingElement)) ? ""
+						: ((SingleMappingElement) element).getBoard().getName();
 			}
 		});
 		tblclmnBoard = tableViewerColumn_4.getColumn();
@@ -176,8 +181,8 @@ public class DetailedResults extends Composite {
 		tableViewerColumn_5 = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn_5.setLabelProvider(new ColumnLabelProvider() {
 			public String getText(Object element) {
-				return ((element == null) || !(element instanceof SingleMappingElement)) ? "" : 
-					((SingleMappingElement) element).getBox().getName();
+				return ((element == null) || !(element instanceof SingleMappingElement)) ? ""
+						: ((SingleMappingElement) element).getBox().getName();
 			}
 		});
 		tblclmnBox = tableViewerColumn_5.getColumn();
@@ -187,8 +192,8 @@ public class DetailedResults extends Composite {
 		tableViewerColumn_6 = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn_6.setLabelProvider(new ColumnLabelProvider() {
 			public String getText(Object element) {
-				return ((element == null) || !(element instanceof SingleMappingElement)) ? "" : 
-					((SingleMappingElement) element).getCompartment().getName();
+				return ((element == null) || !(element instanceof SingleMappingElement)) ? ""
+						: ((SingleMappingElement) element).getCompartment().getName();
 			}
 		});
 		tblclmnCompartment = tableViewerColumn_6.getColumn();
@@ -268,17 +273,44 @@ public class DetailedResults extends Composite {
 		Composite compositeScoreOverview = new Composite(this, SWT.NONE);
 		compositeScoreOverview.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_LIGHT_SHADOW));
 		compositeScoreOverview.setLayout(new FillLayout(SWT.HORIZONTAL));
-		GridData gd_compositeScoreOverview = new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1);
+		GridData gd_compositeScoreOverview = new GridData(SWT.FILL, SWT.BOTTOM, true, false, 2, 1);
+		gd_compositeScoreOverview.heightHint = 150;
+		gd_compositeScoreOverview.minimumHeight = 150;
 		gd_compositeScoreOverview.widthHint = 406;
 		compositeScoreOverview.setLayoutData(gd_compositeScoreOverview);
 
-		Label lblIAmDiagram = new Label(compositeScoreOverview, SWT.CENTER);
-		lblIAmDiagram.setText("I am diagram");
+		grpScoreDistribution = new Group(compositeScoreOverview, SWT.NONE);
+		grpScoreDistribution.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
+		FillLayout fl_grpScoreDistribution = new FillLayout(SWT.HORIZONTAL);
+		fl_grpScoreDistribution.marginWidth = 5;
+		fl_grpScoreDistribution.marginHeight = 5;
+		grpScoreDistribution.setLayout(fl_grpScoreDistribution);
+
+		Chart scoreOverview = new Chart(grpScoreDistribution, SWT.NONE);
+		scoreOverview.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
+		scoreOverview.getTitle().setVisible(false);
+
+		IAxis xaxes = scoreOverview.getAxisSet().getXAxes()[0];
+		xaxes.getTick().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
+		xaxes.getTick().setFont(SWTResourceManager.getFont("Segoe UI", 7, SWT.NORMAL));
+		xaxes.getTitle().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
+		xaxes.getTitle().setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
+		xaxes.getTitle().setText("Solutions");
+		xaxes.getGrid().setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		xaxes.getGrid().setStyle(LineStyle.DOT);
+
+		IAxis yaxes = scoreOverview.getAxisSet().getYAxes()[0];
+		yaxes.getTick().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
+		yaxes.getTick().setFont(SWTResourceManager.getFont("Segoe UI", 7, SWT.NORMAL));
+		yaxes.getTitle().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
+		yaxes.getTitle().setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
+		yaxes.getTitle().setText("Score");
+		yaxes.getGrid().setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		yaxes.getGrid().setStyle(LineStyle.DOT);
 
 		/* Preload the available metrics list */
 		availableMetricsList.add(new RandomScore());
-		
-		
+
 		/* Clear the page for the initial state */
 		clearResults();
 	}
@@ -357,11 +389,11 @@ public class DetailedResults extends Composite {
 	public Result getCurrentResult() {
 		return curResult;
 	}
-	
+
 	public List<AbstractMetric> getSelectedMetricsList() {
 		return selectedMetricsList;
 	}
-	
+
 	public List<AbstractMetric> getAvailableMetricsList() {
 		return availableMetricsList;
 	}
