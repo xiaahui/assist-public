@@ -28,8 +28,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.swtchart.Chart;
 import org.swtchart.IAxis;
-import org.swtchart.ILineSeries;
-import org.swtchart.ILineSeries.PlotSymbolType;
+import org.swtchart.IBarSeries;
 import org.swtchart.ISeries.SeriesType;
 import org.swtchart.LineStyle;
 import org.swtchart.Range;
@@ -303,8 +302,10 @@ public class DetailedResults extends Composite {
 		xaxes.getTitle().setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
 		xaxes.getTitle().setText("Solutions");
 		xaxes.getGrid().setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
-		xaxes.getGrid().setStyle(LineStyle.DOT);
-				
+		xaxes.getGrid().setStyle(LineStyle.NONE);
+		xaxes.setCategorySeries(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
+		xaxes.enableCategory(true);
+
 		IAxis yaxes = scoreOverview.getAxisSet().getYAxes()[0];
 		yaxes.getTick().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
 		yaxes.getTick().setFont(SWTResourceManager.getFont("Segoe UI", 7, SWT.NORMAL));
@@ -314,7 +315,9 @@ public class DetailedResults extends Composite {
 		yaxes.getGrid().setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
 		yaxes.getGrid().setStyle(LineStyle.DOT);
 		yaxes.getTick().setTickMarkStepHint(30);
-				
+		
+		scoreOverview.getAxisSet().adjustRange();
+
 		/* Preload the available metrics list */
 		availableMetricsList.add(new RandomScore());
 
@@ -331,22 +334,22 @@ public class DetailedResults extends Composite {
 		}
 
 		/* Update the score chart */
-		ILineSeries lineSeries = (ILineSeries) scoreOverview.getSeriesSet().createSeries(SeriesType.LINE, "scores");
-		List<Double> yValueList = mappingResults.stream()
-						.map(r -> r.getTotalScore())
-						.collect(Collectors.toCollection(ArrayList<Double>::new));
+
+		List<Double> yValueList = mappingResults.stream().map(r -> r.getTotalScore()).collect(Collectors.toList());
 		double[] yValues = yValueList.stream().mapToDouble(Double::doubleValue).toArray();
-		double[] xValues = mappingResults.stream().map(r -> mappingResults.indexOf(r) + 1.0).mapToDouble(Double::doubleValue).toArray();
-		lineSeries.setYSeries(yValues);
-		lineSeries.setXSeries(xValues);
-		lineSeries.setSymbolType(PlotSymbolType.CIRCLE);
-		lineSeries.setSymbolSize(3);
-		lineSeries.setLineColor(SWTResourceManager.getColor(SWT.COLOR_BLACK));
+		String[] xValues = mappingResults.stream().map(r -> Integer.toString(mappingResults.indexOf(r) + 1))
+				.collect(Collectors.toList()).toArray(new String[0]);
+
+		IBarSeries barSeries = (IBarSeries) scoreOverview.getSeriesSet().createSeries(SeriesType.BAR, "scores");
+		barSeries.setYSeries(yValues);
+		barSeries.setBarPadding(40);
+		barSeries.setBarColor(SWTResourceManager.getColor(227, 234, 243));
+		scoreOverview.getAxisSet().getXAxes()[0].setCategorySeries(xValues);
 		scoreOverview.getLegend().setVisible(false);
 		scoreOverview.getAxisSet().adjustRange();
 		Range oldRange = scoreOverview.getAxisSet().getYAxes()[0].getRange();
 		scoreOverview.getAxisSet().getYAxes()[0].setRange(new Range(0, oldRange.upper));
-		
+
 	}
 
 	private void clearResults() {
