@@ -26,7 +26,7 @@
 		
 		<module>../ch.hilbri.assist.libraries.jgrapht</module>
 		
-		<module>../ch.hilbri.assist.libraries.javafx</module>
+		
 		<module>../ch.hilbri.assist.libraries.jxl</module>
 		<module>../ch.hilbri.assist.libraries.logback</module>
 		<module>../ch.hilbri.assist.libraries.math</module>

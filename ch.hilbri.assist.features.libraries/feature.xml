@@ -18,12 +18,6 @@
    </requires>
 
    <plugin
-         id="ch.hilbri.assist.libraries.javafx"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
          id="ch.hilbri.assist.libraries.jgrapht"
          download-size="0"
          install-size="0"
