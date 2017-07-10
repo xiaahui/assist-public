@@ -2,6 +2,7 @@ package ch.hilbri.assist.mapping.ui.multipageeditor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
@@ -27,7 +28,10 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.swtchart.Chart;
 import org.swtchart.IAxis;
+import org.swtchart.ILineSeries;
+import org.swtchart.ISeries.SeriesType;
 import org.swtchart.LineStyle;
+import org.swtchart.ILineSeries.PlotSymbolType;
 
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
 import ch.hilbri.assist.mapping.model.result.AbstractMetric;
@@ -70,6 +74,7 @@ public class DetailedResults extends Composite {
 
 	private MultiPageEditor multiPageEditor;
 	private Group grpScoreDistribution;
+	private Chart scoreOverview;
 
 	/**
 	 * Create the composite.
@@ -286,7 +291,7 @@ public class DetailedResults extends Composite {
 		fl_grpScoreDistribution.marginHeight = 5;
 		grpScoreDistribution.setLayout(fl_grpScoreDistribution);
 
-		Chart scoreOverview = new Chart(grpScoreDistribution, SWT.NONE);
+		scoreOverview = new Chart(grpScoreDistribution, SWT.NONE);
 		scoreOverview.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		scoreOverview.getTitle().setVisible(false);
 
@@ -322,6 +327,22 @@ public class DetailedResults extends Composite {
 			btnGotoResult.setEnabled(true);
 			showResult(0);
 		}
+
+		/* Update the score chart */
+		ILineSeries lineSeries = (ILineSeries) scoreOverview.getSeriesSet().createSeries(SeriesType.LINE, "scores");
+		List<Double> yValueList = mappingResults.stream()
+						.map(r -> r.getTotalScore())
+						.collect(Collectors.toCollection(ArrayList<Double>::new));
+		double[] yValues = yValueList.stream().mapToDouble(Double::doubleValue).toArray();
+		double[] xValues = mappingResults.stream().map(r -> mappingResults.indexOf(r) + 1.0).mapToDouble(Double::doubleValue).toArray();
+		lineSeries.setYSeries(yValues);
+		lineSeries.setXSeries(xValues);
+		lineSeries.setSymbolType(PlotSymbolType.CIRCLE);
+		lineSeries.setSymbolSize(3);
+		lineSeries.setLineColor(SWTResourceManager.getColor(SWT.COLOR_BLACK));
+		scoreOverview.getLegend().setVisible(false);
+		scoreOverview.getAxisSet().adjustRange();
+		
 	}
 
 	private void clearResults() {
