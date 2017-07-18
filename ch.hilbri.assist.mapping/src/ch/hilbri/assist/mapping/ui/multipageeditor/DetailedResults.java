@@ -38,6 +38,7 @@ import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
 import ch.hilbri.assist.mapping.ui.infosheet.InfoSheetView;
+import ch.hilbri.assist.mapping.ui.metrics.MetricsView;
 
 public class DetailedResults extends Composite {
 
@@ -315,7 +316,7 @@ public class DetailedResults extends Composite {
 		yaxes.getGrid().setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
 		yaxes.getGrid().setStyle(LineStyle.DOT);
 		yaxes.getTick().setTickMarkStepHint(30);
-		
+
 		scoreOverview.getAxisSet().adjustRange();
 
 		/* Preload the available metrics list */
@@ -334,7 +335,6 @@ public class DetailedResults extends Composite {
 		}
 
 		/* Update the score chart */
-
 		List<Double> yValueList = mappingResults.stream().map(r -> r.getTotalScore()).collect(Collectors.toList());
 		double[] yValues = yValueList.stream().mapToDouble(Double::doubleValue).toArray();
 		String[] xValues = mappingResults.stream().map(r -> Integer.toString(mappingResults.indexOf(r) + 1))
@@ -350,6 +350,11 @@ public class DetailedResults extends Composite {
 		Range oldRange = scoreOverview.getAxisSet().getYAxes()[0].getRange();
 		scoreOverview.getAxisSet().getYAxes()[0].setRange(new Range(0, oldRange.upper));
 
+		/*
+		 * Let the metrics view know, that we might have new results - so it may
+		 * have to enable a button
+		 */
+		MetricsView.INSTANCE.refreshEntries(multiPageEditor);
 	}
 
 	private void clearResults() {
@@ -417,9 +422,12 @@ public class DetailedResults extends Composite {
 	public Result getCurrentResult() {
 		return curResult;
 	}
-	
+
 	public int getMappingResultsCount() {
-		return mappingResults.size();
+		if (mappingResults == null)
+			return -1;
+		else
+			return mappingResults.size();
 	}
 
 	public List<AbstractMetric> getSelectedMetricsList() {

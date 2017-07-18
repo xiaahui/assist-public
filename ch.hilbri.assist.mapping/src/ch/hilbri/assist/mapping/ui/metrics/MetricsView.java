@@ -50,7 +50,11 @@ import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 
 /* We need to implement IPartListener2, because we want to get notified, if the active editor changes */
 public class MetricsView implements IPartListener2 {
-
+	
+	/* We would like to have a reference to this view so that others
+	 * can refresh the content too 	 */
+	public static MetricsView INSTANCE;
+	
 	/* Table which contains metric entries */
 	private Table tblSelectedMetrics;
 	private TableViewer tblSelectedMetricsViewer;
@@ -73,11 +77,17 @@ public class MetricsView implements IPartListener2 {
 	private MetricTableEntryLabelProvider lblProvider;
 	private Button btnEvaluateResults;
 
+	/* Public constructor to store the handle for us */
+	public MetricsView() {
+		INSTANCE = this;
+	}
+	
 	/**
 	 * Create contents of the view part.
 	 */
 	@PostConstruct
 	public void createControls(final Composite parentMain) {
+		
 		parentMain.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		parentMain.setLayout(new FillLayout(SWT.HORIZONTAL));
 
@@ -372,7 +382,7 @@ public class MetricsView implements IPartListener2 {
 	 * that is indeed a multipageditor and if we can retrieve some metrics from
 	 * it
 	 */
-	void refreshEntries(IWorkbenchPart partRef) {
+	public void refreshEntries(IWorkbenchPart partRef) {
 		// Should we clear the current editor?
 		if (partRef == null) {
 			currentEditor = null;
