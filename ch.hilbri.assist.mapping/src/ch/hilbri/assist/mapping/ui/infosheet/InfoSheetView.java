@@ -135,6 +135,7 @@ public class InfoSheetView implements IPartListener2 {
 		formToolkit.adapt(composite_3);
 		formToolkit.paintBordersFor(composite_3);
 
+		// We want to get notified, when the active part changes 
 		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getPartService().addPartListener(this);
 	}
 

@@ -7,6 +7,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 
@@ -38,6 +39,7 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPartListener2;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartReference;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ListSelectionDialog;
 import org.eclipse.wb.swt.ResourceManager;
 import org.eclipse.wb.swt.SWTResourceManager;
@@ -154,13 +156,13 @@ public class MetricsView implements IPartListener2 {
 				}
 
 				// Store updated table in the model
-				saveTableToCurrentModel();
+				// saveTableToCurrentModel();
 
 				// Clear selection
 				cbxAvailableMetrics.deselectAll();
-				
+
 				cbxWeight.deselectAll();
-				
+
 			}
 		});
 
@@ -256,8 +258,8 @@ public class MetricsView implements IPartListener2 {
 				}
 
 				// Refresh UI with updated data from the UI model
-				restoreTableFromCurrentModel();
-				fillComboBoxWithAvailableMetrics();
+				// restoreTableFromCurrentModel();
+				// fillComboBoxWithAvailableMetrics();
 			}
 		});
 
@@ -356,21 +358,37 @@ public class MetricsView implements IPartListener2 {
 		tcl_composite.setColumnData(tblclmnRemove, new ColumnPixelData(60, true, true));
 		tblclmnRemove.setText("Remove");
 		tblSelectedMetricsViewer.setContentProvider(new MetricTableContentProvider());
+
+		// We want to get notified, when the active part changes
+		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getPartService().addPartListener(this);
+
+		// We could have been created lazyly - so we should try to find out
+		// about the current editor
+		switchToEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor());
+
 	}
 
-	private void fillComboBoxWithAvailableMetrics() {
-		// if (currentModel != null) {
-		//
-		// String[] newItems = new
-		// String[currentModel.getAvailableMetricsList().size()];
-		// int ctr = 0;
-		//
-		// for (AbstractMetric metric : currentModel.getAvailableMetricsList())
-		// newItems[ctr++] = metric.getName() + " (" + (metric.isBuiltIn()?
-		// "built-in" : "custom") + ")";
-		//
-		// cbxAvailableMetrics.setItems(newItems);
-		// }
+	/*
+	 * We want to switch to a new editor window - so we need to find out, if
+	 * that is indeed a multipageditor and if we can retrieve some metrics from
+	 * it
+	 */
+	void switchToEditor(IWorkbenchPart partRef) {
+		// Should we clear the current editor?
+		if (partRef == null) {
+			currentEditor = null;
+		} 
+		// Apparantly, there is a real editor to talk to 
+		else if (partRef instanceof MultiPageEditor) {
+			// Store the current editor that we think we are dealing with now
+			currentEditor = (MultiPageEditor) partRef;
+
+			// Pre load the list of available metrics
+			String[] newItems = currentEditor.getAvailableMetricsList().stream()
+					.map(m -> m.getName() + " (" + (m.isBuiltIn() ? "built-in" : "custom") + ")")
+					.collect(Collectors.toList()).toArray(new String[0]);
+			cbxAvailableMetrics.setItems(newItems);
+		}
 	}
 
 	void removeEntryFromTable(AbstractMetric entry) {
@@ -382,46 +400,45 @@ public class MetricsView implements IPartListener2 {
 		tblSelectedMetricsViewer.setInput(currentEditor.getSelectedMetricsList());
 
 		// Update the UI model
-		saveTableToCurrentModel();
+		// saveTableToCurrentModel();
 	}
 
-	void saveTableToCurrentModel() {
-		// if (currentModel != null) {
-		// currentModel.getSelectedMetricsList().clear();
-		// currentModel.getSelectedMetricsList().addAll(tblSelectedMetricsData);
-		// }
-	}
+	// void saveTableToCurrentModel() {
+	// if (currentModel != null) {
+	// currentModel.getSelectedMetricsList().clear();
+	// currentModel.getSelectedMetricsList().addAll(tblSelectedMetricsData);
+	// }
+	// }
 
-	void restoreTableFromCurrentModel() {
-		// if (currentModel != null) {
-		//
-		// // Remove the old stuff
-		// tblSelectedMetricsData.clear();
-		// lblProvider.clearAllButtons();
-		//
-		// // Get the new stuff
-		// tblSelectedMetricsData.addAll(currentModel.getSelectedMetricsList());
-		// tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
-		//
-		// // Clear pre-selection
-		// cbxAvailableMetrics.deselectAll();
-		// cbxWeight.deselectAll();
-		// }
-	}
+	// void restoreTableFromCurrentModel() {
+	// if (currentModel != null) {
+	//
+	// // Remove the old stuff
+	// tblSelectedMetricsData.clear();
+	// lblProvider.clearAllButtons();
+	//
+	// // Get the new stuff
+	// tblSelectedMetricsData.addAll(currentModel.getSelectedMetricsList());
+	// tblSelectedMetricsViewer.setInput(tblSelectedMetricsData);
+	//
+	// // Clear pre-selection
+	// cbxAvailableMetrics.deselectAll();
+	// cbxWeight.deselectAll();
+	// }
+	// }
 
 	@Override
 	public void partActivated(IWorkbenchPartReference partRef) {
-		IWorkbenchPart p = partRef.getPart(false);
-		if (p instanceof MultiPageEditor) {
-			currentEditor = (MultiPageEditor) p;
-			// Set Selected Metrics
-		}
+		switchToEditor(partRef.getPart(false));
 	}
 
 	@Override
 	public void partClosed(IWorkbenchPartReference partRef) {
-		currentEditor = null;
-		/* Clear the sheet */
+		switchToEditor(null);
+	}
+
+	@Override
+	public void partOpened(IWorkbenchPartReference partRef) {
 	}
 
 	@Override
@@ -438,10 +455,6 @@ public class MetricsView implements IPartListener2 {
 
 	@Override
 	public void partInputChanged(IWorkbenchPartReference partRef) {
-	}
-
-	@Override
-	public void partOpened(IWorkbenchPartReference partRef) {
 	}
 
 	@Override
