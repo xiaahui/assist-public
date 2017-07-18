@@ -103,6 +103,10 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 		return tabResults.getCurrentResult();
 	}
 	
+	public int getMappingResultsCount() {
+		return tabResults.getMappingResultsCount();
+	}
+	
 	public List<AbstractMetric> getSelectedMetricsList() {
 		return tabResults.getSelectedMetricsList();
 	}

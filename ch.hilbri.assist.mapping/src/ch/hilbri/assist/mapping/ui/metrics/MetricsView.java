@@ -71,6 +71,7 @@ public class MetricsView implements IPartListener2 {
 
 	/* We need this reference to clear the buttons */
 	private MetricTableEntryLabelProvider lblProvider;
+	private Button btnEvaluateResults;
 
 	/**
 	 * Create contents of the view part.
@@ -116,12 +117,14 @@ public class MetricsView implements IPartListener2 {
 
 			public void widgetSelected(SelectionEvent event) {
 
+				// Do nothing if we do not have an editor which we are working
+				// with
 				if (currentEditor == null)
 					return;
 
 				// Do nothing, if nothing is selected
 				if ((cbxAvailableMetrics.getSelectionIndex() == -1) || (cbxWeight.getSelectionIndex() == -1)) {
-					MessageDialog dlg = new MessageDialog(null, "Select metric and weight", null,
+					MessageDialog dlg = new MessageDialog(null, "Selection of metric and weight required", null,
 							"Please select a metric and a weight from the drop down lists.", MessageDialog.INFORMATION,
 							new String[] { "OK" }, 0);
 					dlg.open();
@@ -150,23 +153,18 @@ public class MetricsView implements IPartListener2 {
 					// Add input to table
 					tblSelectedMetricsViewer.setInput(currentEditor.getSelectedMetricsList());
 
-				} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
-						| InvocationTargetException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 
-				// Store updated table in the model
-				// saveTableToCurrentModel();
-
 				// Clear selection
 				cbxAvailableMetrics.deselectAll();
-
 				cbxWeight.deselectAll();
-
 			}
 		});
 
 		Button btnReloadMetrics = new Button(mainComposite, SWT.NONE);
+		btnReloadMetrics.setEnabled(false);
 		btnReloadMetrics.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		btnReloadMetrics.setText("Load custom metrics");
 		btnReloadMetrics.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/refresh.gif"));
@@ -263,7 +261,8 @@ public class MetricsView implements IPartListener2 {
 			}
 		});
 
-		Button btnEvaluateResults = new Button(mainComposite, SWT.NONE);
+		btnEvaluateResults = new Button(mainComposite, SWT.NONE);
+		btnEvaluateResults.setEnabled(false);
 		btnEvaluateResults.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		btnEvaluateResults.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/evaluate.gif"));
 		btnEvaluateResults.setText("Evaluate results");
@@ -364,7 +363,7 @@ public class MetricsView implements IPartListener2 {
 
 		// We could have been created lazyly - so we should try to find out
 		// about the current editor
-		switchToEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor());
+		refreshEntries(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor());
 
 	}
 
@@ -373,21 +372,28 @@ public class MetricsView implements IPartListener2 {
 	 * that is indeed a multipageditor and if we can retrieve some metrics from
 	 * it
 	 */
-	void switchToEditor(IWorkbenchPart partRef) {
+	void refreshEntries(IWorkbenchPart partRef) {
 		// Should we clear the current editor?
 		if (partRef == null) {
 			currentEditor = null;
-		} 
-		// Apparantly, there is a real editor to talk to 
+		}
+		// Apparantly, there is a real editor to talk to
 		else if (partRef instanceof MultiPageEditor) {
 			// Store the current editor that we think we are dealing with now
 			currentEditor = (MultiPageEditor) partRef;
 
-			// Pre load the list of available metrics
+			// Load the list of available metrics
 			String[] newItems = currentEditor.getAvailableMetricsList().stream()
 					.map(m -> m.getName() + " (" + (m.isBuiltIn() ? "built-in" : "custom") + ")")
 					.collect(Collectors.toList()).toArray(new String[0]);
 			cbxAvailableMetrics.setItems(newItems);
+			
+			// Load the list of selected metrics to the table
+			lblProvider.clearAllButtons();
+			tblSelectedMetricsViewer.setInput(currentEditor.getSelectedMetricsList());
+			
+			// If there are some results to be evaluated, then we should enable the button
+			btnEvaluateResults.setEnabled(currentEditor.getMappingResultsCount() > 0);
 		}
 	}
 
@@ -429,12 +435,12 @@ public class MetricsView implements IPartListener2 {
 
 	@Override
 	public void partActivated(IWorkbenchPartReference partRef) {
-		switchToEditor(partRef.getPart(false));
+		refreshEntries(partRef.getPart(false));
 	}
 
 	@Override
 	public void partClosed(IWorkbenchPartReference partRef) {
-		switchToEditor(null);
+		refreshEntries(null);
 	}
 
 	@Override

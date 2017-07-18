@@ -417,6 +417,10 @@ public class DetailedResults extends Composite {
 	public Result getCurrentResult() {
 		return curResult;
 	}
+	
+	public int getMappingResultsCount() {
+		return mappingResults.size();
+	}
 
 	public List<AbstractMetric> getSelectedMetricsList() {
 		return selectedMetricsList;
