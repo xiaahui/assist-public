@@ -1,5 +1,6 @@
 package ch.hilbri.assist.mapping.ui.multipageeditor;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,7 +29,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.swtchart.Chart;
 import org.swtchart.IAxis;
-import org.swtchart.IBarSeries;
+import org.swtchart.ILineSeries;
 import org.swtchart.ISeries.SeriesType;
 import org.swtchart.LineStyle;
 import org.swtchart.Range;
@@ -299,18 +300,18 @@ public class DetailedResults extends Composite {
 		IAxis xaxes = scoreOverview.getAxisSet().getXAxes()[0];
 		xaxes.getTick().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
 		xaxes.getTick().setFont(SWTResourceManager.getFont("Segoe UI", 7, SWT.NORMAL));
-		xaxes.getTitle().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
+		xaxes.getTitle().setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
 		xaxes.getTitle().setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
 		xaxes.getTitle().setText("Solutions");
 		xaxes.getGrid().setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
 		xaxes.getGrid().setStyle(LineStyle.NONE);
-		xaxes.setCategorySeries(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-		xaxes.enableCategory(true);
+		xaxes.setRange(new Range(0, 10));
+		xaxes.getTick().setFormat(new DecimalFormat("#"));
 
 		IAxis yaxes = scoreOverview.getAxisSet().getYAxes()[0];
 		yaxes.getTick().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
 		yaxes.getTick().setFont(SWTResourceManager.getFont("Segoe UI", 7, SWT.NORMAL));
-		yaxes.getTitle().setForeground(SWTResourceManager.getColor(SWT.COLOR_DARK_GRAY));
+		yaxes.getTitle().setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
 		yaxes.getTitle().setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
 		yaxes.getTitle().setText("Score");
 		yaxes.getGrid().setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
@@ -328,27 +329,36 @@ public class DetailedResults extends Composite {
 
 	public void setResultsList(List<Result> list) {
 		clearResults();
+
 		mappingResults = list;
 		if ((mappingResults != null) && (mappingResults.size() > 0)) {
+
+			/* Update the score chart */
+			double[] xValues = new double[mappingResults.size()];
+			for (int i = 1; i <= mappingResults.size(); i++)
+				xValues[i-1] = i;
+			List<Double> yValueList = mappingResults.stream().map(r -> r.getTotalScore()).collect(Collectors.toList());
+			double[] yValues = yValueList.stream().mapToDouble(Double::doubleValue).toArray();
+
+			ILineSeries lineSeries = (ILineSeries) scoreOverview.getSeriesSet().createSeries(SeriesType.LINE, "scores");
+			lineSeries.setYSeries(yValues);
+			lineSeries.setXSeries(xValues);
+			lineSeries.setSymbolSize(3);
+			lineSeries.setSymbolColor(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+			lineSeries.setLineColor(SWTResourceManager.getColor(227, 234, 243));
+			lineSeries.setLineWidth(4);
+
+			scoreOverview.getLegend().setVisible(false);
+			scoreOverview.getAxisSet().adjustRange();
+			
+			// Let the y range start from 0
+			Range oldRange = scoreOverview.getAxisSet().getYAxes()[0].getRange();
+			scoreOverview.getAxisSet().getYAxes()[0].setRange(new Range(0, oldRange.upper));
+
 			btnGotoResult.setEnabled(true);
+
 			showResult(0);
 		}
-
-		/* Update the score chart */
-		List<Double> yValueList = mappingResults.stream().map(r -> r.getTotalScore()).collect(Collectors.toList());
-		double[] yValues = yValueList.stream().mapToDouble(Double::doubleValue).toArray();
-		String[] xValues = mappingResults.stream().map(r -> Integer.toString(mappingResults.indexOf(r) + 1))
-				.collect(Collectors.toList()).toArray(new String[0]);
-
-		IBarSeries barSeries = (IBarSeries) scoreOverview.getSeriesSet().createSeries(SeriesType.BAR, "scores");
-		barSeries.setYSeries(yValues);
-		barSeries.setBarPadding(40);
-		barSeries.setBarColor(SWTResourceManager.getColor(227, 234, 243));
-		scoreOverview.getAxisSet().getXAxes()[0].setCategorySeries(xValues);
-		scoreOverview.getLegend().setVisible(false);
-		scoreOverview.getAxisSet().adjustRange();
-		Range oldRange = scoreOverview.getAxisSet().getYAxes()[0].getRange();
-		scoreOverview.getAxisSet().getYAxes()[0].setRange(new Range(0, oldRange.upper));
 
 		/*
 		 * Let the metrics view know, that we might have new results - so it may
@@ -389,6 +399,21 @@ public class DetailedResults extends Composite {
 		lblSolutionName.setText(curResult.getName());
 		tblviewerResult.setInput(curResult.getMappingElements());
 
+		/* Update the chart */
+		/* - delete the old selection */
+		if (scoreOverview.getSeriesSet().getSeries("selection") != null)
+			scoreOverview.getSeriesSet().deleteSeries("selection");
+		/* - create a new selection */
+		double[] xValues = {curResultIndex + 1};
+		double[] yValues = {curResult.getTotalScore()};
+		ILineSeries lineSeries = (ILineSeries) scoreOverview.getSeriesSet().createSeries(SeriesType.LINE, "selection");
+		lineSeries.setYSeries(yValues);
+		lineSeries.setXSeries(xValues);
+		lineSeries.setSymbolSize(4);
+		lineSeries.setSymbolColor(SWTResourceManager.getColor(SWT.COLOR_RED));
+		scoreOverview.redraw();
+
+		/* Update the navigation buttons */
 		/* We have just one result */
 		if (mappingResults.size() == 1) {
 			btnFirst.setEnabled(false);
