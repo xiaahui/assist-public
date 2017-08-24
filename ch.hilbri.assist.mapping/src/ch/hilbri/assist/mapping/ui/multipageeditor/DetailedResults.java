@@ -337,7 +337,7 @@ public class DetailedResults extends Composite {
 			double[] xValues = new double[mappingResults.size()];
 			for (int i = 1; i <= mappingResults.size(); i++)
 				xValues[i-1] = i;
-			List<Double> yValueList = mappingResults.stream().map(r -> r.getTotalScore()).collect(Collectors.toList());
+			List<Double> yValueList = mappingResults.stream().map(r -> r.getScaledTotalScore()).collect(Collectors.toList());
 			double[] yValues = yValueList.stream().mapToDouble(Double::doubleValue).toArray();
 
 			ILineSeries lineSeries = (ILineSeries) scoreOverview.getSeriesSet().createSeries(SeriesType.LINE, "scores");
@@ -364,7 +364,8 @@ public class DetailedResults extends Composite {
 		 * Let the metrics view know, that we might have new results - so it may
 		 * have to enable a button
 		 */
-		MetricsView.INSTANCE.refreshEntries(multiPageEditor);
+		if (MetricsView.INSTANCE != null)
+			MetricsView.INSTANCE.refreshEntries(multiPageEditor);
 	}
 
 	private void clearResults() {
@@ -405,7 +406,7 @@ public class DetailedResults extends Composite {
 			scoreOverview.getSeriesSet().deleteSeries("selection");
 		/* - create a new selection */
 		double[] xValues = {curResultIndex + 1};
-		double[] yValues = {curResult.getTotalScore()};
+		double[] yValues = {curResult.getScaledTotalScore()};
 		ILineSeries lineSeries = (ILineSeries) scoreOverview.getSeriesSet().createSeries(SeriesType.LINE, "selection");
 		lineSeries.setYSeries(yValues);
 		lineSeries.setXSeries(xValues);
@@ -448,6 +449,10 @@ public class DetailedResults extends Composite {
 		return curResult;
 	}
 
+	public List<Result> getMappingResults() {
+		return mappingResults;
+	}
+	
 	public int getMappingResultsCount() {
 		if (mappingResults == null)
 			return -1;

@@ -1,30 +1,39 @@
 package ch.hilbri.assist.mapping.ui.metrics;
 
+import java.util.List;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.swt.widgets.Display;
 
+import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
+import ch.hilbri.assist.mapping.model.result.AbstractMetric;
+import ch.hilbri.assist.mapping.model.result.Result;
+import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 
 class EvaluateJob implements IRunnableWithProgress {
 
-//	private DetailedResultsViewUiModel model;
-//	private List<AbstractMetric> selectedMetrics;
+	private List<Result> allResults;
+	private List<AbstractMetric> selectedMetrics;
+	private MultiPageEditor currentEditor;
 
-//	public EvaluateJob(DetailedResultsViewUiModel model) {
-//		this.model = model;
-//		this.selectedMetrics = model.getSelectedMetricsList();
-//	}
+	public EvaluateJob(MultiPageEditor e) {
+		this.allResults = e.getMappingResultsList();
+		this.selectedMetrics = e.getSelectedMetricsList();
+		this.currentEditor = e;
+	}
 
 	@Override
 	public void run(IProgressMonitor monitor) {
 		monitor.beginTask("Evaluating results...", IProgressMonitor.UNKNOWN);
 		
-//		if (model != null) {
-//			ResultsAnalysis.evaluate(model.getResults(), selectedMetrics);
+		ResultsAnalysis.evaluate(allResults, selectedMetrics);
 		
-//			Collections.sort(model.getResults());
-		
-//			model.refreshResultsList();
-//		}
+		Display.getDefault().syncExec(new Runnable() {
+		    public void run() {
+		    	currentEditor.setMappingResultsList(allResults);
+		    }
+		});
 		
 		monitor.done();
 	}

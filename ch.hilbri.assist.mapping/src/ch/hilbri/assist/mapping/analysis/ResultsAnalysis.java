@@ -7,52 +7,49 @@ import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.Result;
 
-public class ResultsAnalysis  {
+public class ResultsAnalysis {
 
 	public static void evaluate(List<Result> results, List<AbstractMetric> metrics) {
-		
-		// Resultate der vorigen Metriken l�schen
-		
-//		for (Result result : results) {
-//			result.getEvaluation().getAbsoluteScores().clear();
-//			result.getEvaluation().getMetricsUsed().clear();
-//			result.getEvaluation().getMetricsUsed().addAll(metrics);
-//			result.getEvaluation().getScaledScores().clear();
-//		}
-		
+
+		// Delete results from previous evaluations
+		for (Result result : results) {
+			result.getMetricAbsoluteScoresMap().clear();
+			result.getMetricScaledScoresMap().clear();
+		}
+
+		// Execute each metric for the results and store the results
 		for (AbstractMetric metric : metrics) {
-			
 			DescriptiveStatistics statistics = new DescriptiveStatistics();
-			
-			/* 1. Schritt: fuer jedes Result den absoluten Score berechnen - und speichern */
-			for (Result result : results) { 
+
+			/* 1) Calculate the absolute score for each result */
+			for (Result result : results) {
 				double absoluteScore = metric.computeAbsoluteScore(result);
-//				result.getEvaluation().getAbsoluteScores().put(metric, absoluteScore);
+				result.getMetricAbsoluteScoresMap().put(metric, absoluteScore);
 				statistics.addValue(absoluteScore);
 			}
-			
-			/* 2. Schritt: fuer jedes Result den skalierten Score berechnen */
-//			for (Result result : results) {
-//				if (statistics.getMax() - statistics.getMin() != 0) {
-//					double absoluteScore = result.getEvaluation().getAbsoluteScores().get(metric);
-//					double scaledScore = (absoluteScore - statistics.getMin()) / (statistics.getMax() - statistics.getMin());
-					
-					/* Invertieren wenn noetig */
-//					if (!metric.isHigherScoreIsBetter()) scaledScore = 1 - scaledScore;
-					
-					/* Gewichtung vornehmen */
-//					double weightedScaledScore = scaledScore * metric.getWeight();
-					
-					/* In das Resultat zuruckschreiben */
-//					result.getEvaluation().getScaledScores().put(metric, weightedScaledScore);
-				}
-//				else 
-				/* wir haben entweder nur einen Wert oder alle Werte sind
-				 * identisch, dann nuetzt uns diese Metrik nichts fuer eine
-				 * Sortierung und wir setzen den Beitrag dieser Metrik auf Null
-				 */
-//					result.getEvaluation().getScaledScores().put(metric, 0.0);
-//			}
-//		}
+
+			/* 2) Calculate the scaled score for each metric */
+			for (Result result : results) {
+				if (statistics.getMax() - statistics.getMin() != 0) {
+					double absoluteScore = result.getMetricAbsoluteScoresMap().get(metric);
+					double scaledScore = (absoluteScore - statistics.getMin())
+							/ (statistics.getMax() - statistics.getMin());
+
+					/* Invert if necessary */
+					if (!metric.isHigherScoreIsBetter())
+						scaledScore = 1 - scaledScore;
+
+					/* add weights */
+					double weightedScaledScore = scaledScore * metric.getWeight();
+
+					result.getMetricScaledScoresMap().put(metric, weightedScaledScore);
+				} else
+					/*
+					 * There is only one value - so the scaled value does not
+					 * help for sorting; we set it to 0 in this case
+					 */
+					result.getMetricScaledScoresMap().put(metric, 0.0);
+			}
+		}
 	}
 }

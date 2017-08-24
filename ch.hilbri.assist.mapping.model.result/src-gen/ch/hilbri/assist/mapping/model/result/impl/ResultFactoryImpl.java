@@ -5,11 +5,13 @@ package ch.hilbri.assist.mapping.model.result.impl;
 import ch.hilbri.assist.mapping.model.Core;
 import ch.hilbri.assist.mapping.model.Task;
 
+import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultFactory;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
 import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -66,6 +68,7 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case ResultPackage.METRIC_SCORE_PAIR: return (EObject)createMetricScorePair();
 			case ResultPackage.RESULT: return createResult();
 			case ResultPackage.SINGLE_MAPPING_ELEMENT: return createSingleMappingElement();
 			default:
@@ -112,6 +115,16 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Map.Entry<AbstractMetric, Double> createMetricScorePair() {
+		MetricScorePairImpl metricScorePair = new MetricScorePairImpl();
+		return metricScorePair;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Result createResult() {
 		ResultImpl result = new ResultImpl();
 		return result;
@@ -133,8 +146,8 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public Map<Task, Core> createTask2CoreMapTypeFromString(EDataType eDataType, String initialValue) {
-		return (Map<Task, Core>)super.createFromString(initialValue);
+	public HashMap<Task, Core> createTask2CoreMapTypeFromString(EDataType eDataType, String initialValue) {
+		return (HashMap<Task, Core>)super.createFromString(initialValue);
 	}
 
 	/**

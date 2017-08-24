@@ -89,6 +89,52 @@ public interface ResultPackage extends EPackage {
 	int COMPARABLE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.result.impl.MetricScorePairImpl <em>Metric Score Pair</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.mapping.model.result.impl.MetricScorePairImpl
+	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getMetricScorePair()
+	 * @generated
+	 */
+	int METRIC_SCORE_PAIR = 1;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_SCORE_PAIR__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_SCORE_PAIR__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Metric Score Pair</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_SCORE_PAIR_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Metric Score Pair</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METRIC_SCORE_PAIR_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl <em>Result</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,7 +142,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getResult()
 	 * @generated
 	 */
-	int RESULT = 1;
+	int RESULT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -105,7 +151,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__NAME = 0;
+	int RESULT__NAME = COMPARABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' reference.
@@ -114,7 +160,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__MODEL = 1;
+	int RESULT__MODEL = COMPARABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Task2 Core Map</b></em>' attribute.
@@ -123,7 +169,25 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__TASK2_CORE_MAP = 2;
+	int RESULT__TASK2_CORE_MAP = COMPARABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Metric Absolute Scores Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__METRIC_ABSOLUTE_SCORES_MAP = COMPARABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Metric Scaled Scores Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__METRIC_SCALED_SCORES_MAP = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Partial Solution</b></em>' attribute.
@@ -132,16 +196,25 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__PARTIAL_SOLUTION = 3;
+	int RESULT__PARTIAL_SOLUTION = COMPARABLE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Total Score</b></em>' attribute.
+	 * The feature id for the '<em><b>Absolute Total Score</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__TOTAL_SCORE = 4;
+	int RESULT__ABSOLUTE_TOTAL_SCORE = COMPARABLE_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Scaled Total Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__SCALED_TOTAL_SCORE = COMPARABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Result</em>' class.
@@ -150,7 +223,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_FEATURE_COUNT = 5;
+	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get Mapping Elements</em>' operation.
@@ -159,7 +232,16 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___GET_MAPPING_ELEMENTS = 0;
+	int RESULT___GET_MAPPING_ELEMENTS = COMPARABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Compare To</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___COMPARE_TO__RESULT = COMPARABLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Result</em>' class.
@@ -168,7 +250,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_OPERATION_COUNT = 1;
+	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl <em>Single Mapping Element</em>}' class.
@@ -178,7 +260,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getSingleMappingElement()
 	 * @generated
 	 */
-	int SINGLE_MAPPING_ELEMENT = 2;
+	int SINGLE_MAPPING_ELEMENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Application</b></em>' reference.
@@ -269,7 +351,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getAbstractMetric()
 	 * @generated
 	 */
-	int ABSTRACT_METRIC = 3;
+	int ABSTRACT_METRIC = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -338,11 +420,11 @@ public interface ResultPackage extends EPackage {
 	 * The meta object id for the '<em>Task2 Core Map Type</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see java.util.Map
+	 * @see java.util.HashMap
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getTask2CoreMapType()
 	 * @generated
 	 */
-	int TASK2_CORE_MAP_TYPE = 4;
+	int TASK2_CORE_MAP_TYPE = 5;
 
 	/**
 	 * The meta object id for the '<em>String List</em>' data type.
@@ -352,7 +434,7 @@ public interface ResultPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getStringList()
 	 * @generated
 	 */
-	int STRING_LIST = 5;
+	int STRING_LIST = 6;
 
 
 	/**
@@ -365,6 +447,40 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getComparable();
+
+	/**
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Metric Score Pair</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Metric Score Pair</em>'.
+	 * @see java.util.Map.Entry
+	 * @model keyType="ch.hilbri.assist.mapping.model.result.AbstractMetric"
+	 *        valueUnique="false" valueDataType="org.eclipse.emf.ecore.EDoubleObject"
+	 * @generated
+	 */
+	EClass getMetricScorePair();
+
+	/**
+	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Key</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getMetricScorePair()
+	 * @generated
+	 */
+	EReference getMetricScorePair_Key();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getMetricScorePair()
+	 * @generated
+	 */
+	EAttribute getMetricScorePair_Value();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.result.Result <em>Result</em>}'.
@@ -410,6 +526,28 @@ public interface ResultPackage extends EPackage {
 	EAttribute getResult_Task2CoreMap();
 
 	/**
+	 * Returns the meta object for the map '{@link ch.hilbri.assist.mapping.model.result.Result#getMetricAbsoluteScoresMap <em>Metric Absolute Scores Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Metric Absolute Scores Map</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.Result#getMetricAbsoluteScoresMap()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EReference getResult_MetricAbsoluteScoresMap();
+
+	/**
+	 * Returns the meta object for the map '{@link ch.hilbri.assist.mapping.model.result.Result#getMetricScaledScoresMap <em>Metric Scaled Scores Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Metric Scaled Scores Map</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.Result#getMetricScaledScoresMap()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EReference getResult_MetricScaledScoresMap();
+
+	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.Result#isPartialSolution <em>Partial Solution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -421,15 +559,26 @@ public interface ResultPackage extends EPackage {
 	EAttribute getResult_PartialSolution();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.Result#getTotalScore <em>Total Score</em>}'.
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.Result#getAbsoluteTotalScore <em>Absolute Total Score</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Total Score</em>'.
-	 * @see ch.hilbri.assist.mapping.model.result.Result#getTotalScore()
+	 * @return the meta object for the attribute '<em>Absolute Total Score</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.Result#getAbsoluteTotalScore()
 	 * @see #getResult()
 	 * @generated
 	 */
-	EAttribute getResult_TotalScore();
+	EAttribute getResult_AbsoluteTotalScore();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.Result#getScaledTotalScore <em>Scaled Total Score</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scaled Total Score</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.Result#getScaledTotalScore()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EAttribute getResult_ScaledTotalScore();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#getMappingElements() <em>Get Mapping Elements</em>}' operation.
@@ -440,6 +589,16 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getResult__GetMappingElements();
+
+	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#compareTo(ch.hilbri.assist.mapping.model.result.Result) <em>Compare To</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Compare To</em>' operation.
+	 * @see ch.hilbri.assist.mapping.model.result.Result#compareTo(ch.hilbri.assist.mapping.model.result.Result)
+	 * @generated
+	 */
+	EOperation getResult__CompareTo__Result();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement <em>Single Mapping Element</em>}'.
@@ -593,12 +752,12 @@ public interface ResultPackage extends EPackage {
 	EOperation getAbstractMetric__ComputeAbsoluteScore__Result();
 
 	/**
-	 * Returns the meta object for data type '{@link java.util.Map <em>Task2 Core Map Type</em>}'.
+	 * Returns the meta object for data type '{@link java.util.HashMap <em>Task2 Core Map Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Task2 Core Map Type</em>'.
-	 * @see java.util.Map
-	 * @model instanceClass="java.util.Map<ch.hilbri.assist.mapping.model.Task, ch.hilbri.assist.mapping.model.Core>"
+	 * @see java.util.HashMap
+	 * @model instanceClass="java.util.HashMap<ch.hilbri.assist.mapping.model.Task, ch.hilbri.assist.mapping.model.Core>"
 	 * @generated
 	 */
 	EDataType getTask2CoreMapType();
@@ -648,6 +807,32 @@ public interface ResultPackage extends EPackage {
 		EClass COMPARABLE = eINSTANCE.getComparable();
 
 		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.result.impl.MetricScorePairImpl <em>Metric Score Pair</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.mapping.model.result.impl.MetricScorePairImpl
+		 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getMetricScorePair()
+		 * @generated
+		 */
+		EClass METRIC_SCORE_PAIR = eINSTANCE.getMetricScorePair();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METRIC_SCORE_PAIR__KEY = eINSTANCE.getMetricScorePair_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METRIC_SCORE_PAIR__VALUE = eINSTANCE.getMetricScorePair_Value();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl <em>Result</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -682,6 +867,22 @@ public interface ResultPackage extends EPackage {
 		EAttribute RESULT__TASK2_CORE_MAP = eINSTANCE.getResult_Task2CoreMap();
 
 		/**
+		 * The meta object literal for the '<em><b>Metric Absolute Scores Map</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESULT__METRIC_ABSOLUTE_SCORES_MAP = eINSTANCE.getResult_MetricAbsoluteScoresMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Metric Scaled Scores Map</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESULT__METRIC_SCALED_SCORES_MAP = eINSTANCE.getResult_MetricScaledScoresMap();
+
+		/**
 		 * The meta object literal for the '<em><b>Partial Solution</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -690,12 +891,20 @@ public interface ResultPackage extends EPackage {
 		EAttribute RESULT__PARTIAL_SOLUTION = eINSTANCE.getResult_PartialSolution();
 
 		/**
-		 * The meta object literal for the '<em><b>Total Score</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Absolute Total Score</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RESULT__TOTAL_SCORE = eINSTANCE.getResult_TotalScore();
+		EAttribute RESULT__ABSOLUTE_TOTAL_SCORE = eINSTANCE.getResult_AbsoluteTotalScore();
+
+		/**
+		 * The meta object literal for the '<em><b>Scaled Total Score</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT__SCALED_TOTAL_SCORE = eINSTANCE.getResult_ScaledTotalScore();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Mapping Elements</b></em>' operation.
@@ -704,6 +913,14 @@ public interface ResultPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RESULT___GET_MAPPING_ELEMENTS = eINSTANCE.getResult__GetMappingElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Compare To</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___COMPARE_TO__RESULT = eINSTANCE.getResult__CompareTo__Result();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl <em>Single Mapping Element</em>}' class.
@@ -825,7 +1042,7 @@ public interface ResultPackage extends EPackage {
 		 * The meta object literal for the '<em>Task2 Core Map Type</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see java.util.Map
+		 * @see java.util.HashMap
 		 * @see ch.hilbri.assist.mapping.model.result.impl.ResultPackageImpl#getTask2CoreMapType()
 		 * @generated
 		 */

@@ -148,7 +148,7 @@ public class InfoSheetView implements IPartListener2 {
 			if (result != null) {
 				lblName.setText(result.getName());
 				lblComplete.setText(result.isPartialSolution() ? "No" : "Yes");
-				lblScore.setText(Double.toString(result.getTotalScore()));
+				lblScore.setText(Double.toString(result.getAbsoluteTotalScore()));
 				lblSpecification.setText(currentEditor.getTitle());
 				lblAssignmentCount.setText(Integer.toString(result.getTask2CoreMap().keySet().size()));
 			} else
@@ -168,7 +168,7 @@ public class InfoSheetView implements IPartListener2 {
 		IWorkbenchPart p = partRef.getPart(false);
 		if (p instanceof MultiPageEditor) {
 			currentEditor = (MultiPageEditor) p;
-			setSelectedResult(currentEditor, currentEditor.getCurrentResult());
+			setSelectedResult(currentEditor, currentEditor.getCurrentMappingResult());
 		}
 	}
 

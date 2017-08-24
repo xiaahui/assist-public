@@ -91,16 +91,20 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 		return true;
 	}
 
-	public void setResultsList(List<Result> l) {
-		tabResults.setResultsList(l);
-	}
-
 	public void showResultsTab() {
 		setActivePage(1);
 	}
 
-	public Result getCurrentResult() {
+	public Result getCurrentMappingResult() {
 		return tabResults.getCurrentResult();
+	}
+	
+	public void setMappingResultsList(List<Result> l) {
+		tabResults.setResultsList(l);
+	}
+
+	public List<Result> getMappingResultsList() {
+		return tabResults.getMappingResults();
 	}
 	
 	public int getMappingResultsCount() {

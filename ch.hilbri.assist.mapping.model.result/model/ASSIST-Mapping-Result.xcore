@@ -14,22 +14,45 @@ import ch.hilbri.assist.mapping.model.Core
 import ch.hilbri.assist.mapping.model.Processor
 import ch.hilbri.assist.mapping.model.Task
 import java.util.List
-import java.util.Map
+import java.util.HashMap
  				
 
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
-type Task2CoreMapType wraps Map<Task, Core>
+type Task2CoreMapType wraps HashMap<Task, Core>
 type StringList wraps List<String>
 
 interface Comparable wraps Comparable<Result>{}
 
-class Result {
+// Hack to get a Map in Xcore
+// https://stackoverflow.com/questions/41387196/how-to-define-a-map-in-xcore
+class MetricScorePair wraps java.util.Map$Entry {
+    refers AbstractMetric key
+    Double value
+}
+
+class Result extends Comparable {
 	String								name
 	refers AssistModel					model	
  	Task2CoreMapType					task2CoreMap
-	boolean 							partialSolution = "false"
-	double								totalScore = "1.0"
+ 	contains MetricScorePair[]			metricAbsoluteScoresMap 
+ 	contains MetricScorePair[]			metricScaledScoresMap
+ 	boolean 							partialSolution = "false"
+	
+	derived double absoluteTotalScore get {
+		if (metricAbsoluteScoresMap.keySet.empty) 
+			0.0
+		else 
+			metricAbsoluteScoresMap.values.reduce[p1, p2|p1+p2]
+	}
+
+	derived double scaledTotalScore get {
+		if (metricScaledScoresMap.keySet.empty) 
+			0.0
+		else 
+			metricScaledScoresMap.values.reduce[p1, p2|p1+p2]
+	}
+
 
 	/* This creates the list of mapping elements; each elements contains all hardware / software elements */
 	op SingleMappingElement[]			getMappingElements() {
@@ -56,6 +79,10 @@ class Result {
 			]
 			
 		].toEList
+	}
+	
+	op int compareTo(Result o) {
+		Double.compare(o.scaledTotalScore, scaledTotalScore)
 	}
 }
 
