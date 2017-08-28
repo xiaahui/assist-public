@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 import javax.annotation.PostConstruct;
 
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -11,6 +14,8 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.IPartListener2;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartReference;
@@ -21,15 +26,9 @@ import org.eclipse.ui.forms.widgets.Section;
 
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.jface.viewers.ArrayContentProvider;
-import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.jface.viewers.TableViewerColumn;
 
 /* Needs to implement IPartListener2 to get notified, if the active editor changes */
 public class InfoSheetView implements IPartListener2 {
-
 	private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
 
 	private MultiPageEditor currentEditor;
@@ -44,6 +43,10 @@ public class InfoSheetView implements IPartListener2 {
 	private Label lblAbsoluteScore;
 	private Table tblResultMetrics;
 	private TableViewer tblViewerResultMetrics;
+	private Table tableHardwareComponents;
+	private Table tableSoftwareComponents;
+	private TableViewer tblViewerHwComponents;
+	private TableViewer tblViewerSwComponents;
 
 	public InfoSheetView() {
 		InfoSheetView.INSTANCE = this;
@@ -174,9 +177,67 @@ public class InfoSheetView implements IPartListener2 {
 		sctnComponents.setText("Components");
 
 		Composite composite_3 = new Composite(scrldfrmCurrentSolution.getBody(), SWT.NONE);
+		GridLayout gl_composite_3 = new GridLayout(1, false);
+		gl_composite_3.marginTop = 5;
+		composite_3.setLayout(gl_composite_3);
 		composite_3.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		formToolkit.adapt(composite_3);
 		formToolkit.paintBordersFor(composite_3);
+		
+		Section sctnHardware = formToolkit.createSection(composite_3, Section.SHORT_TITLE_BAR);
+		sctnHardware.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		formToolkit.paintBordersFor(sctnHardware);
+		sctnHardware.setText("Hardware");
+		
+		tblViewerHwComponents = new TableViewer(composite_3, SWT.HIDE_SELECTION);
+		tableHardwareComponents = tblViewerHwComponents.getTable();
+		tableHardwareComponents.setHeaderVisible(true);
+		tableHardwareComponents.setLinesVisible(true);
+		tableHardwareComponents.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		formToolkit.paintBordersFor(tableHardwareComponents);
+		
+		TableViewerColumn tableViewerColumn_3 = new TableViewerColumn(tblViewerHwComponents, SWT.NONE);
+		TableColumn tblclmnComponent = tableViewerColumn_3.getColumn();
+		tblclmnComponent.setWidth(100);
+		tblclmnComponent.setText("Component");
+		
+		TableViewerColumn tableViewerColumn_4 = new TableViewerColumn(tblViewerHwComponents, SWT.NONE);
+		TableColumn tblclmnProperty = tableViewerColumn_4.getColumn();
+		tblclmnProperty.setWidth(100);
+		tblclmnProperty.setText("Property");
+		
+		TableViewerColumn tableViewerColumn_5 = new TableViewerColumn(tblViewerHwComponents, SWT.NONE);
+		TableColumn tblclmnValue = tableViewerColumn_5.getColumn();
+		tblclmnValue.setWidth(100);
+		tblclmnValue.setText("Value");
+		tblViewerHwComponents.setLabelProvider(new ComponentLabelProvider());
+		
+		Section sctnSoftware = formToolkit.createSection(composite_3, Section.SHORT_TITLE_BAR);
+		sctnSoftware.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		formToolkit.paintBordersFor(sctnSoftware);
+		sctnSoftware.setText("Software");
+		
+		tblViewerSwComponents = new TableViewer(composite_3, SWT.HIDE_SELECTION);
+		tableSoftwareComponents = tblViewerSwComponents.getTable();
+		tableSoftwareComponents.setLinesVisible(true);
+		tableSoftwareComponents.setHeaderVisible(true);
+		tableSoftwareComponents.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		formToolkit.paintBordersFor(tableSoftwareComponents);
+		
+		TableViewerColumn tableViewerColumn_6 = new TableViewerColumn(tblViewerSwComponents, SWT.NONE);
+		TableColumn tblclmnApplication = tableViewerColumn_6.getColumn();
+		tblclmnApplication.setWidth(100);
+		tblclmnApplication.setText("Application");
+		
+		TableViewerColumn tableViewerColumn_7 = new TableViewerColumn(tblViewerSwComponents, SWT.NONE);
+		TableColumn tblclmnProperty_1 = tableViewerColumn_7.getColumn();
+		tblclmnProperty_1.setWidth(100);
+		tblclmnProperty_1.setText("Property");
+		
+		TableViewerColumn tableViewerColumn_8 = new TableViewerColumn(tblViewerSwComponents, SWT.NONE);
+		TableColumn tblclmnValue_1 = tableViewerColumn_8.getColumn();
+		tblclmnValue_1.setWidth(100);
+		tblclmnValue_1.setText("Value");
 
 		// We want to get notified, when the active part changes
 		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getPartService().addPartListener(this);
@@ -197,6 +258,9 @@ public class InfoSheetView implements IPartListener2 {
 				lblAssignmentCount.setText(Integer.toString(result.getTask2CoreMap().keySet().size()));
 				tblViewerResultMetrics.setInput(new MetricScoresTupleList(result.getMetricAbsoluteScoresMap(),
 						result.getMetricScaledScoresMap()));
+				tblViewerHwComponents.setContentProvider(new HardwareComponentsContentProvider(currentEditor.getCurrentMappingResult()));
+				tblViewerHwComponents.setInput(currentEditor.getCurrentMappingResult().getMappingElements().get(0));
+				
 			} else
 				clearInfoSheet();
 		}
