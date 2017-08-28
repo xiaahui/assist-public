@@ -1,7 +1,6 @@
 package ch.hilbri.assist.mapping.ui.infosheet;
 
 import java.util.Arrays;
-import java.util.List;
 
 import javax.annotation.PostConstruct;
 
@@ -22,6 +21,11 @@ import org.eclipse.ui.forms.widgets.Section;
 
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.jface.viewers.TableViewerColumn;
 
 /* Needs to implement IPartListener2 to get notified, if the active editor changes */
 public class InfoSheetView implements IPartListener2 {
@@ -31,12 +35,15 @@ public class InfoSheetView implements IPartListener2 {
 	private MultiPageEditor currentEditor;
 
 	private Label lblName;
-	private Label lblScore;
+	private Label lblScaledScore;
 	private Label lblComplete;
 	private Label lblSpecification;
 
 	public static InfoSheetView INSTANCE;
 	private Label lblAssignmentCount;
+	private Label lblAbsoluteScore;
+	private Table tblResultMetrics;
+	private TableViewer tblViewerResultMetrics;
 
 	public InfoSheetView() {
 		InfoSheetView.INSTANCE = this;
@@ -54,7 +61,9 @@ public class InfoSheetView implements IPartListener2 {
 		parent.setLayout(gl_parent);
 
 		Composite composite = new Composite(parent, SWT.NONE);
-		composite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		GridData gd_composite = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_composite.widthHint = 321;
+		composite.setLayoutData(gd_composite);
 		composite.setLayout(new FillLayout(SWT.HORIZONTAL));
 
 		ScrolledForm scrldfrmCurrentSolution = formToolkit.createScrolledForm(composite);
@@ -83,6 +92,38 @@ public class InfoSheetView implements IPartListener2 {
 		lblName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		formToolkit.adapt(lblName, true, true);
 
+		Label lblTitleComplete = new Label(composite_1, SWT.NONE);
+		formToolkit.adapt(lblTitleComplete, true, true);
+		lblTitleComplete.setText("Complete:");
+
+		lblComplete = new Label(composite_1, SWT.NONE);
+		lblComplete.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		formToolkit.adapt(lblComplete, true, true);
+
+		Label lblTitleAssignmentCount = new Label(composite_1, SWT.NONE);
+		formToolkit.adapt(lblTitleAssignmentCount, true, true);
+		lblTitleAssignmentCount.setText("Assignments:");
+
+		lblAssignmentCount = new Label(composite_1, SWT.NONE);
+		lblAssignmentCount.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		formToolkit.adapt(lblAssignmentCount, true, true);
+
+		Label lblTitleScaledScore = new Label(composite_1, SWT.NONE);
+		formToolkit.adapt(lblTitleScaledScore, true, true);
+		lblTitleScaledScore.setText("Score (scaled):");
+
+		lblScaledScore = new Label(composite_1, SWT.NONE);
+		lblScaledScore.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		formToolkit.adapt(lblScaledScore, true, true);
+
+		Label lblTitleAbsoluteScore = new Label(composite_1, SWT.NONE);
+		formToolkit.adapt(lblTitleAbsoluteScore, true, true);
+		lblTitleAbsoluteScore.setText("Score (absolute):");
+
+		lblAbsoluteScore = new Label(composite_1, SWT.NONE);
+		lblAbsoluteScore.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		formToolkit.adapt(lblAbsoluteScore, true, true);
+		
 		Label lblTitleSpecification = new Label(composite_1, SWT.NONE);
 		formToolkit.adapt(lblTitleSpecification, true, true);
 		lblTitleSpecification.setText("File:");
@@ -91,39 +132,41 @@ public class InfoSheetView implements IPartListener2 {
 		lblSpecification.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		formToolkit.adapt(lblSpecification, true, true);
 
-		Label lblTitleComplete = new Label(composite_1, SWT.NONE);
-		formToolkit.adapt(lblTitleComplete, true, true);
-		lblTitleComplete.setText("Complete:");
-
-		lblComplete = new Label(composite_1, SWT.NONE);
-		lblComplete.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		formToolkit.adapt(lblComplete, true, true);
-		
-		Label lblTitleAssignmentCount = new Label(composite_1, SWT.NONE);
-		formToolkit.adapt(lblTitleAssignmentCount, true, true);
-		lblTitleAssignmentCount.setText("Assignments:");
-		
-		lblAssignmentCount = new Label(composite_1, SWT.NONE);
-		lblAssignmentCount.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		formToolkit.adapt(lblAssignmentCount, true, true);
-
-		Label lblTitleScore = new Label(composite_1, SWT.NONE);
-		formToolkit.adapt(lblTitleScore, true, true);
-		lblTitleScore.setText("Total Score:");
-
-		lblScore = new Label(composite_1, SWT.NONE);
-		lblScore.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		formToolkit.adapt(lblScore, true, true);
-
 		Section sctnMetrics = formToolkit.createSection(scrldfrmCurrentSolution.getBody(), Section.TITLE_BAR);
 		sctnMetrics.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		formToolkit.paintBordersFor(sctnMetrics);
 		sctnMetrics.setText("Metrics");
 
 		Composite composite_2 = new Composite(scrldfrmCurrentSolution.getBody(), SWT.NONE);
-		composite_2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		composite_2.setLayout(new FillLayout(SWT.HORIZONTAL));
+		GridData gd_composite_2 = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
+		gd_composite_2.heightHint = 100;
+		composite_2.setLayoutData(gd_composite_2);
 		formToolkit.adapt(composite_2);
 		formToolkit.paintBordersFor(composite_2);
+
+		tblViewerResultMetrics = new TableViewer(composite_2, SWT.FULL_SELECTION | SWT.HIDE_SELECTION);
+		tblViewerResultMetrics.setContentProvider(ArrayContentProvider.getInstance());
+		tblResultMetrics = tblViewerResultMetrics.getTable();
+		tblResultMetrics.setLinesVisible(true);
+		tblResultMetrics.setHeaderVisible(true);
+		formToolkit.paintBordersFor(tblResultMetrics);
+
+		TableViewerColumn tableViewerColumn = new TableViewerColumn(tblViewerResultMetrics, SWT.NONE);
+		TableColumn tblclmnMetricName = tableViewerColumn.getColumn();
+		tblclmnMetricName.setWidth(100);
+		tblclmnMetricName.setText("Name");
+		
+		TableViewerColumn tableViewerColumn_2 = new TableViewerColumn(tblViewerResultMetrics, SWT.NONE);
+		TableColumn tblclmnScorescaled = tableViewerColumn_2.getColumn();
+		tblclmnScorescaled.setWidth(100);
+		tblclmnScorescaled.setText("Score (scaled)");
+
+		TableViewerColumn tableViewerColumn_1 = new TableViewerColumn(tblViewerResultMetrics, SWT.NONE);
+		TableColumn tblclmnScore = tableViewerColumn_1.getColumn();
+		tblclmnScore.setWidth(100);
+		tblclmnScore.setText("Score (absolute)");
+		tblViewerResultMetrics.setLabelProvider(new MetricScoresTableLabelProvider());
 
 		Section sctnComponents = formToolkit.createSection(scrldfrmCurrentSolution.getBody(), Section.TITLE_BAR);
 		sctnComponents.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -135,7 +178,7 @@ public class InfoSheetView implements IPartListener2 {
 		formToolkit.adapt(composite_3);
 		formToolkit.paintBordersFor(composite_3);
 
-		// We want to get notified, when the active part changes 
+		// We want to get notified, when the active part changes
 		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getPartService().addPartListener(this);
 	}
 
@@ -148,17 +191,21 @@ public class InfoSheetView implements IPartListener2 {
 			if (result != null) {
 				lblName.setText(result.getName());
 				lblComplete.setText(result.isPartialSolution() ? "No" : "Yes");
-				lblScore.setText(Double.toString(result.getAbsoluteTotalScore()));
+				lblScaledScore.setText(String.format("%.3f", result.getScaledTotalScore()));
+				lblAbsoluteScore.setText(String.format("%.3f", result.getAbsoluteTotalScore()));
 				lblSpecification.setText(currentEditor.getTitle());
 				lblAssignmentCount.setText(Integer.toString(result.getTask2CoreMap().keySet().size()));
+				tblViewerResultMetrics.setInput(new MetricScoresTupleList(result.getMetricAbsoluteScoresMap(),
+						result.getMetricScaledScoresMap()));
 			} else
 				clearInfoSheet();
 		}
 	}
 
 	public void clearInfoSheet() {
-		List<Label> labels = Arrays.asList(lblName, lblComplete, lblScore, lblSpecification, lblAssignmentCount);
-		for (Label l : labels)
+
+		for (Label l : Arrays.asList(lblName, lblComplete, lblScaledScore, lblAbsoluteScore, lblSpecification,
+				lblAssignmentCount))
 			if (!l.isDisposed())
 				l.setText("");
 	}

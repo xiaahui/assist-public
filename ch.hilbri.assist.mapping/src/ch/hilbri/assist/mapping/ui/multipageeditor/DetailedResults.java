@@ -281,8 +281,8 @@ public class DetailedResults extends Composite {
 		compositeScoreOverview.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_LIGHT_SHADOW));
 		compositeScoreOverview.setLayout(new FillLayout(SWT.HORIZONTAL));
 		GridData gd_compositeScoreOverview = new GridData(SWT.FILL, SWT.BOTTOM, true, false, 2, 1);
-		gd_compositeScoreOverview.heightHint = 150;
-		gd_compositeScoreOverview.minimumHeight = 150;
+		gd_compositeScoreOverview.heightHint = 180;
+		gd_compositeScoreOverview.minimumHeight = 180;
 		gd_compositeScoreOverview.widthHint = 406;
 		compositeScoreOverview.setLayoutData(gd_compositeScoreOverview);
 
@@ -313,7 +313,7 @@ public class DetailedResults extends Composite {
 		yaxes.getTick().setFont(SWTResourceManager.getFont("Segoe UI", 7, SWT.NORMAL));
 		yaxes.getTitle().setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
 		yaxes.getTitle().setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
-		yaxes.getTitle().setText("Score");
+		yaxes.getTitle().setText("Total score (scaled)");
 		yaxes.getGrid().setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
 		yaxes.getGrid().setStyle(LineStyle.DOT);
 		yaxes.getTick().setTickMarkStepHint(30);
