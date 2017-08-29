@@ -141,7 +141,7 @@ public class InfoSheetView implements IPartListener2 {
 		Composite composite_2 = new Composite(scrldfrmCurrentSolution.getBody(), SWT.NONE);
 		composite_2.setLayout(new FillLayout(SWT.HORIZONTAL));
 		GridData gd_composite_2 = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
-		gd_composite_2.heightHint = 100;
+		gd_composite_2.heightHint = 103;
 		composite_2.setLayoutData(gd_composite_2);
 		formToolkit.adapt(composite_2);
 		formToolkit.paintBordersFor(composite_2);
@@ -155,18 +155,18 @@ public class InfoSheetView implements IPartListener2 {
 
 		TableViewerColumn tableViewerColumn = new TableViewerColumn(tblViewerResultMetrics, SWT.NONE);
 		TableColumn tblclmnMetricName = tableViewerColumn.getColumn();
-		tblclmnMetricName.setWidth(100);
+		tblclmnMetricName.setWidth(90);
 		tblclmnMetricName.setText("Name");
 		
 		TableViewerColumn tableViewerColumn_2 = new TableViewerColumn(tblViewerResultMetrics, SWT.NONE);
 		TableColumn tblclmnScorescaled = tableViewerColumn_2.getColumn();
-		tblclmnScorescaled.setWidth(100);
-		tblclmnScorescaled.setText("Score (scaled)");
+		tblclmnScorescaled.setWidth(80);
+		tblclmnScorescaled.setText("Score");
 
 		TableViewerColumn tableViewerColumn_1 = new TableViewerColumn(tblViewerResultMetrics, SWT.NONE);
 		TableColumn tblclmnScore = tableViewerColumn_1.getColumn();
-		tblclmnScore.setWidth(100);
-		tblclmnScore.setText("Score (absolute)");
+		tblclmnScore.setWidth(80);
+		tblclmnScore.setText("Score (abs.)");
 		tblViewerResultMetrics.setLabelProvider(new MetricScoresTableLabelProvider());
 
 		Section sctnComponents = formToolkit.createSection(scrldfrmCurrentSolution.getBody(), Section.TITLE_BAR);
@@ -184,17 +184,17 @@ public class InfoSheetView implements IPartListener2 {
 		tblComponents = tblViewerComponents.getTable();
 		tblComponents.setHeaderVisible(true);
 		tblComponents.setLinesVisible(true);
-		tblViewerComponents.setContentProvider(new ComponentsContentProvider(null));
+		tblViewerComponents.setContentProvider(new ComponentContentProvider(null));
 		formToolkit.paintBordersFor(tblComponents);
 		
 		TableViewerColumn tableViewerColumn_4 = new TableViewerColumn(tblViewerComponents, SWT.NONE);
 		TableColumn tblclmnProperty = tableViewerColumn_4.getColumn();
-		tblclmnProperty.setWidth(100);
+		tblclmnProperty.setWidth(150);
 		tblclmnProperty.setText("Property");
 		
 		TableViewerColumn tableViewerColumn_5 = new TableViewerColumn(tblViewerComponents, SWT.NONE);
 		TableColumn tblclmnValue = tableViewerColumn_5.getColumn();
-		tblclmnValue.setWidth(200);
+		tblclmnValue.setWidth(100);
 		tblclmnValue.setText("Value");
 		tblViewerComponents.setLabelProvider(new ComponentLabelProvider());
 
@@ -229,7 +229,7 @@ public class InfoSheetView implements IPartListener2 {
 				lblAssignmentCount.setText(Integer.toString(result.getTask2CoreMap().keySet().size()));
 				tblViewerResultMetrics.setInput(new MetricScoresTupleList(result.getMetricAbsoluteScoresMap(),
 						result.getMetricScaledScoresMap()));
-				tblViewerComponents.setContentProvider(new ComponentsContentProvider(currentEditor.getCurrentMappingResult()));
+				tblViewerComponents.setContentProvider(new ComponentContentProvider(currentEditor.getCurrentMappingResult()));
 				
 			} else
 				clearInfoSheet();

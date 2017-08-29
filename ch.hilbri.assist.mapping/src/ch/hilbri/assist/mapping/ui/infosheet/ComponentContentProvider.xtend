@@ -12,7 +12,7 @@ import ch.hilbri.assist.mapping.model.result.Result
 import java.util.ArrayList
 import org.eclipse.jface.viewers.IStructuredContentProvider
 
-class ComponentsContentProvider implements IStructuredContentProvider {
+class ComponentContentProvider implements IStructuredContentProvider {
 	AssistModel model
 
 	new(Result result) {
@@ -21,7 +21,7 @@ class ComponentsContentProvider implements IStructuredContentProvider {
 		else
 			model = null
 	}
-
+	
 	// inputElement = SingleMappingElement
 	override Object[] getElements(Object inputElement) {
 		if (model === null)
@@ -33,53 +33,58 @@ class ComponentsContentProvider implements IStructuredContentProvider {
 			if (inputElement instanceof Application)
 				data.addAll(#[
 					#["Type", "Application"],
-					#["Name", inputElement.name],
-					#["Criticality level", inputElement.criticalityLevel.toString],
-					#["Developed by", inputElement.developedBy]
+					#["Name", inputElement.name.valueOrDefault],
+					#["Criticality level", inputElement.criticalityLevel.toString.valueOrDefault],
+					#["Developed by", inputElement.developedBy.valueOrDefault]
 				])
 			else if (inputElement instanceof Task)
 				data.addAll(#[
 					#["Type", "Task"],
-					#["Name", inputElement.name],
-					#["Core utilization", "" + inputElement.coreUtilization],
-					#["RAM utilization", "" + inputElement.ramUtilization],
-					#["ROM utilization", "" + inputElement.romUtilization]
+					#["Name", inputElement.name.valueOrDefault],
+					#["Core utilization", Integer.toString(inputElement.coreUtilization).valueOrDefault],
+					#["RAM utilization", Integer.toString(inputElement.ramUtilization).valueOrDefault],
+					#["ROM utilization", Integer.toString(inputElement.romUtilization).valueOrDefault]
 				])
 			else if (inputElement instanceof Core)
 				data.addAll(#[
 					#["Type", "Core"],
-					#["Name", inputElement.name],
-					#["Architecture", inputElement.architecture]
+					#["Name", inputElement.name.valueOrDefault],
+					#["Architecture", inputElement.architecture.valueOrDefault]
 				])
 			else if (inputElement instanceof Processor)
 				data.addAll(#[
 					#["Type", "Processor"],
-					#["Name", inputElement.name],
-					#["Processor type", inputElement.processorType]
+					#["Name", inputElement.name.valueOrDefault],
+					#["Processor type", inputElement.processorType.valueOrDefault]
 				])
 			else if (inputElement instanceof Board)
 				data.addAll(#[
 					#["Type", "Board"],
-					#["Name", inputElement.name],
-					#["Board type", inputElement.boardType],
-					#["Power supply", inputElement.powerSupply],
-					#["Design assurance level", inputElement.assuranceLevel.toString],
-					#["RAM", "" + inputElement.ramCapacity],
-					#["ROM", "" + inputElement.romCapacity]
+					#["Name", inputElement.name.valueOrDefault],
+					#["Board type", inputElement.boardType.valueOrDefault],
+					#["Power supply", inputElement.powerSupply.valueOrDefault],
+					#["Design assurance level", inputElement.assuranceLevel.toString.valueOrDefault],
+					#["RAM utilization", Integer.toString(inputElement.ramCapacity).valueOrDefault],
+					#["ROM utilization", Integer.toString(inputElement.romCapacity).valueOrDefault]
 				])
 			else if (inputElement instanceof Box)
 				data.addAll(#[
 					#["Type", "Box"],
-					#["Name", inputElement.name]
+					#["Name", inputElement.name.valueOrDefault]
 				])
 			else if (inputElement instanceof Compartment)
 				data.addAll(#[
 					#["Type", "Compartment"],
-					#["Name", inputElement.name],
-					#["Power Supply", inputElement.powerSupply]
+					#["Name", inputElement.name.valueOrDefault],
+					#["Power Supply", inputElement.powerSupply.valueOrDefault]
 				])
 
 			return data
 		}
+	}
+	
+	def String getValueOrDefault(String value) {
+		if (value.isNullOrEmpty) "-"
+		else 					value
 	}
 }
