@@ -10,7 +10,6 @@ class ComponentLabelProvider extends LabelProvider implements ITableLabelProvide
 	}
 	// We expect a list of strings
 	public String getColumnText(Object element, int columnIndex) {
-	
 		
 		if (element instanceof String[])
 			return ((String[]) element)[columnIndex];

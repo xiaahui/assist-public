@@ -11,6 +11,7 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.TableCursor;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -21,10 +22,13 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.swtchart.Chart;
@@ -77,6 +81,7 @@ public class DetailedResults extends Composite {
 	private MultiPageEditor multiPageEditor;
 	private Group grpScoreDistribution;
 	private Chart scoreOverview;
+	private TableCursor tableCursorResult;
 
 	/**
 	 * Create the composite.
@@ -122,13 +127,19 @@ public class DetailedResults extends Composite {
 		compositeResultData.setLayoutData(gd_compositeResultData);
 
 		tableFilter = new MappingViewerFilter();
-		tblviewerResult = new TableViewer(compositeResultData, SWT.BORDER | SWT.FULL_SELECTION);
+		tblviewerResult = new TableViewer(compositeResultData, SWT.BORDER | SWT.HIDE_SELECTION);
 		tblviewerResult.setFilters(tableFilter);
 
 		tblResult = tblviewerResult.getTable();
 		tblResult.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		tblResult.setHeaderVisible(true);
 		tblResult.setLinesVisible(true);
+		tblResult.addListener(SWT.EraseItem, new Listener() {   
+		    @Override
+		    public void handleEvent(Event event) {
+		        event.detail &= ~SWT.HOT;
+		    }
+		});
 
 		tableViewerColumn = new TableViewerColumn(tblviewerResult, SWT.NONE);
 		tableViewerColumn.setLabelProvider(new ColumnLabelProvider() {
@@ -206,6 +217,20 @@ public class DetailedResults extends Composite {
 		tblclmnCompartment = tableViewerColumn_6.getColumn();
 		tblclmnCompartment.setWidth(100);
 		tblclmnCompartment.setText("Compartment");
+		
+		tableCursorResult = new TableCursor(tblResult, SWT.NONE);
+		tableCursorResult.setForeground(SWTResourceManager.getColor(0, 0, 0));
+		tableCursorResult.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
+		tableCursorResult.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent event) {
+				TableItem item = tableCursorResult.getRow();
+				if (item.getData() instanceof SingleMappingElement) {
+					SingleMappingElement elem = (SingleMappingElement) item.getData();
+					int column = tableCursorResult.getColumn();
+					InfoSheetView.INSTANCE.setSelectedComponent(multiPageEditor, elem.getProcessor());
+				}
+			}
+		});
 		tblviewerResult.setContentProvider(ArrayContentProvider.getInstance());
 
 		Composite compositeNavButtons = new Composite(this, SWT.NONE);
