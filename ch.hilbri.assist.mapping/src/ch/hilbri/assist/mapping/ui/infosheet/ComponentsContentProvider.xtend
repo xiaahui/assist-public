@@ -30,21 +30,54 @@ class ComponentsContentProvider implements IStructuredContentProvider {
 
 			val data = new ArrayList<String[]>
 
-			if (inputElement instanceof Application) {
-				data.add(#["App", "App"])
-			} else if (inputElement instanceof Task) {
-				data.add(#["Task", "Task"])
-			} else if (inputElement instanceof Core) {
-				data.add(#["Core", "Core"])
-			} else if (inputElement instanceof Processor) {
-				data.add(#["Processor", "Processor"])
-			} else if (inputElement instanceof Board) {
-				data.add(#["Board", "Board"])
-			} else if (inputElement instanceof Box) {
-				data.add(#["Box", "Box"])
-			} else if (inputElement instanceof Compartment) {
-				data.add(#["Comp", "Comp"])
-			}
+			if (inputElement instanceof Application)
+				data.addAll(#[
+					#["Type", "Application"],
+					#["Name", inputElement.name],
+					#["Criticality level", inputElement.criticalityLevel.toString],
+					#["Developed by", inputElement.developedBy]
+				])
+			else if (inputElement instanceof Task)
+				data.addAll(#[
+					#["Type", "Task"],
+					#["Name", inputElement.name],
+					#["Core utilization", "" + inputElement.coreUtilization],
+					#["RAM utilization", "" + inputElement.ramUtilization],
+					#["ROM utilization", "" + inputElement.romUtilization]
+				])
+			else if (inputElement instanceof Core)
+				data.addAll(#[
+					#["Type", "Core"],
+					#["Name", inputElement.name],
+					#["Architecture", inputElement.architecture]
+				])
+			else if (inputElement instanceof Processor)
+				data.addAll(#[
+					#["Type", "Processor"],
+					#["Name", inputElement.name],
+					#["Processor type", inputElement.processorType]
+				])
+			else if (inputElement instanceof Board)
+				data.addAll(#[
+					#["Type", "Board"],
+					#["Name", inputElement.name],
+					#["Board type", inputElement.boardType],
+					#["Power supply", inputElement.powerSupply],
+					#["Design assurance level", inputElement.assuranceLevel.toString],
+					#["RAM", "" + inputElement.ramCapacity],
+					#["ROM", "" + inputElement.romCapacity]
+				])
+			else if (inputElement instanceof Box)
+				data.addAll(#[
+					#["Type", "Box"],
+					#["Name", inputElement.name]
+				])
+			else if (inputElement instanceof Compartment)
+				data.addAll(#[
+					#["Type", "Compartment"],
+					#["Name", inputElement.name],
+					#["Power Supply", inputElement.powerSupply]
+				])
 
 			return data
 		}
