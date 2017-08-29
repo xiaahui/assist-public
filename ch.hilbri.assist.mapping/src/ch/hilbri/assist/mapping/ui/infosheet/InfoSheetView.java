@@ -43,7 +43,7 @@ public class InfoSheetView implements IPartListener2 {
 	private Label lblAbsoluteScore;
 	private Table tblResultMetrics;
 	private TableViewer tblViewerResultMetrics;
-	private Table tableComponents;
+	private Table tblComponents;
 	private TableViewer tblViewerComponents;
 
 	public InfoSheetView() {
@@ -136,7 +136,7 @@ public class InfoSheetView implements IPartListener2 {
 		Section sctnMetrics = formToolkit.createSection(scrldfrmCurrentSolution.getBody(), Section.TITLE_BAR);
 		sctnMetrics.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		formToolkit.paintBordersFor(sctnMetrics);
-		sctnMetrics.setText("Metrics");
+		sctnMetrics.setText("Evaluation");
 
 		Composite composite_2 = new Composite(scrldfrmCurrentSolution.getBody(), SWT.NONE);
 		composite_2.setLayout(new FillLayout(SWT.HORIZONTAL));
@@ -172,7 +172,7 @@ public class InfoSheetView implements IPartListener2 {
 		Section sctnComponents = formToolkit.createSection(scrldfrmCurrentSolution.getBody(), Section.TITLE_BAR);
 		sctnComponents.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		formToolkit.paintBordersFor(sctnComponents);
-		sctnComponents.setText("Selected Component");
+		sctnComponents.setText("Component Information");
 
 		Composite composite_3 = new Composite(scrldfrmCurrentSolution.getBody(), SWT.NONE);
 		composite_3.setLayout(new FillLayout(SWT.HORIZONTAL));
@@ -180,11 +180,12 @@ public class InfoSheetView implements IPartListener2 {
 		formToolkit.adapt(composite_3);
 		formToolkit.paintBordersFor(composite_3);
 		
-		tblViewerComponents = new TableViewer(composite_3, SWT.HIDE_SELECTION);
-		tableComponents = tblViewerComponents.getTable();
-		tableComponents.setHeaderVisible(true);
-		tableComponents.setLinesVisible(true);
-		formToolkit.paintBordersFor(tableComponents);
+		tblViewerComponents = new TableViewer(composite_3, SWT.FULL_SELECTION | SWT.HIDE_SELECTION);
+		tblComponents = tblViewerComponents.getTable();
+		tblComponents.setHeaderVisible(true);
+		tblComponents.setLinesVisible(true);
+		tblViewerComponents.setContentProvider(new ComponentsContentProvider(null));
+		formToolkit.paintBordersFor(tblComponents);
 		
 		TableViewerColumn tableViewerColumn_4 = new TableViewerColumn(tblViewerComponents, SWT.NONE);
 		TableColumn tblclmnProperty = tableViewerColumn_4.getColumn();
@@ -193,7 +194,7 @@ public class InfoSheetView implements IPartListener2 {
 		
 		TableViewerColumn tableViewerColumn_5 = new TableViewerColumn(tblViewerComponents, SWT.NONE);
 		TableColumn tblclmnValue = tableViewerColumn_5.getColumn();
-		tblclmnValue.setWidth(125);
+		tblclmnValue.setWidth(200);
 		tblclmnValue.setText("Value");
 		tblViewerComponents.setLabelProvider(new ComponentLabelProvider());
 
@@ -241,8 +242,12 @@ public class InfoSheetView implements IPartListener2 {
 				lblAssignmentCount))
 			if (!l.isDisposed())
 				l.setText("");
-		tblViewerResultMetrics.setInput(null);
-		tblViewerComponents.setInput(null);
+		
+		if (!tblResultMetrics.isDisposed())
+			tblViewerResultMetrics.setInput(null);
+		
+		if (!tblComponents.isDisposed())
+			tblViewerComponents.setInput(null);
 	}
 
 	@Override

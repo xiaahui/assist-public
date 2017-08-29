@@ -227,7 +227,33 @@ public class DetailedResults extends Composite {
 				if (item.getData() instanceof SingleMappingElement) {
 					SingleMappingElement elem = (SingleMappingElement) item.getData();
 					int column = tableCursorResult.getColumn();
-					InfoSheetView.INSTANCE.setSelectedComponent(multiPageEditor, elem.getProcessor());
+					Object comp;
+					switch (column) {
+					case 0:
+						comp = elem.getApplication();
+						break;
+					case 1:
+						comp = elem.getTask();
+						break;
+					case 2:
+						comp = elem.getCore();
+						break;
+					case 3:
+						comp = elem.getProcessor();
+						break;
+					case 4:
+						comp = elem.getBoard();
+						break;
+					case 5:
+						comp = elem.getBox();
+						break;
+					case 6:
+						comp = elem.getCompartment();
+						break;
+					default:
+						comp = null;
+					}
+					InfoSheetView.INSTANCE.setSelectedComponent(multiPageEditor, comp);
 				}
 			}
 		});
