@@ -55,11 +55,14 @@ public class DetailedResults extends Composite {
 
 	private int curResultIndex = -1;
 	private Result curResult = null;
+	private Object curSelectedComponent = null;
+	
 	private Button btnFirst;
 	private Button btnPrev;
 	private Button btnGotoResult;
 	private Button btnNext;
 	private Button btnLast;
+	
 	private Label lblSolutionName;
 	private TableViewer tblviewerResult;
 	private TableColumn tblclmnProcessor;
@@ -253,7 +256,8 @@ public class DetailedResults extends Composite {
 					default:
 						comp = null;
 					}
-					InfoSheetView.INSTANCE.setSelectedComponent(multiPageEditor, comp);
+					curSelectedComponent = comp;
+					InfoSheetView.INSTANCE.setSelectedComponent(multiPageEditor, curSelectedComponent);
 				}
 			}
 		});
@@ -498,6 +502,10 @@ public class DetailedResults extends Composite {
 
 	public Result getCurrentResult() {
 		return curResult;
+	}
+	
+	public Object getSelectedComponent() {
+		return curSelectedComponent;
 	}
 
 	public List<Result> getMappingResults() {

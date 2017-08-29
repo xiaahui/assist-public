@@ -99,6 +99,10 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 		return tabResults.getCurrentResult();
 	}
 	
+	public Object getSelectedComponent() {
+		return tabResults.getSelectedComponent();
+	}
+	
 	public void setMappingResultsList(List<Result> l) {
 		tabResults.setResultsList(l);
 	}

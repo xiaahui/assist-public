@@ -256,6 +256,7 @@ public class InfoSheetView implements IPartListener2 {
 		if (p instanceof MultiPageEditor) {
 			currentEditor = (MultiPageEditor) p;
 			setSelectedResult(currentEditor, currentEditor.getCurrentMappingResult());
+			setSelectedComponent(currentEditor, currentEditor.getSelectedComponent());
 		}
 	}
 
