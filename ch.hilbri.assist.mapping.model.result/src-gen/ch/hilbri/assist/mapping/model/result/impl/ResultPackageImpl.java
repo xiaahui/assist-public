@@ -129,6 +129,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
+		EcorePackage.eINSTANCE.eClass();
 		ModelPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects

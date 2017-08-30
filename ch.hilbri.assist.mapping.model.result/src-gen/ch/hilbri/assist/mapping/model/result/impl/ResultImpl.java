@@ -17,16 +17,11 @@ import ch.hilbri.assist.mapping.model.result.ResultFactory;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
 import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
 
-import java.lang.Iterable;
-
 import java.lang.reflect.InvocationTargetException;
 
-import java.util.Collection;
 import java.util.HashMap;
 
 import java.util.Map.Entry;
-
-import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -328,21 +323,17 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 */
 	public double getAbsoluteTotalScore() {
 		Double _xifexpression = null;
-		EMap<AbstractMetric, Double> _metricAbsoluteScoresMap = this.getMetricAbsoluteScoresMap();
-		Set<AbstractMetric> _keySet = _metricAbsoluteScoresMap.keySet();
-		boolean _isEmpty = _keySet.isEmpty();
+		boolean _isEmpty = this.getMetricAbsoluteScoresMap().keySet().isEmpty();
 		if (_isEmpty) {
 			_xifexpression = Double.valueOf(0.0);
 		}
 		else {
-			EMap<AbstractMetric, Double> _metricAbsoluteScoresMap_1 = this.getMetricAbsoluteScoresMap();
-			Collection<Double> _values = _metricAbsoluteScoresMap_1.values();
 			final Function2<Double, Double, Double> _function = new Function2<Double, Double, Double>() {
 				public Double apply(final Double p1, final Double p2) {
 					return Double.valueOf(DoubleExtensions.operator_plus(p1, p2));
 				}
 			};
-			_xifexpression = IterableExtensions.<Double>reduce(_values, _function);
+			_xifexpression = IterableExtensions.<Double>reduce(this.getMetricAbsoluteScoresMap().values(), _function);
 		}
 		return (_xifexpression).doubleValue();
 	}
@@ -354,21 +345,17 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 */
 	public double getScaledTotalScore() {
 		Double _xifexpression = null;
-		EMap<AbstractMetric, Double> _metricScaledScoresMap = this.getMetricScaledScoresMap();
-		Set<AbstractMetric> _keySet = _metricScaledScoresMap.keySet();
-		boolean _isEmpty = _keySet.isEmpty();
+		boolean _isEmpty = this.getMetricScaledScoresMap().keySet().isEmpty();
 		if (_isEmpty) {
 			_xifexpression = Double.valueOf(0.0);
 		}
 		else {
-			EMap<AbstractMetric, Double> _metricScaledScoresMap_1 = this.getMetricScaledScoresMap();
-			Collection<Double> _values = _metricScaledScoresMap_1.values();
 			final Function2<Double, Double, Double> _function = new Function2<Double, Double, Double>() {
 				public Double apply(final Double p1, final Double p2) {
 					return Double.valueOf(DoubleExtensions.operator_plus(p1, p2));
 				}
 			};
-			_xifexpression = IterableExtensions.<Double>reduce(_values, _function);
+			_xifexpression = IterableExtensions.<Double>reduce(this.getMetricScaledScoresMap().values(), _function);
 		}
 		return (_xifexpression).doubleValue();
 	}
@@ -379,35 +366,22 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @generated
 	 */
 	public EList<SingleMappingElement> getMappingElements() {
-		HashMap<Task, Core> _task2CoreMap = this.getTask2CoreMap();
-		Set<Entry<Task, Core>> _entrySet = _task2CoreMap.entrySet();
 		final Function1<Entry<Task, Core>, SingleMappingElement> _function = new Function1<Entry<Task, Core>, SingleMappingElement>() {
 			public SingleMappingElement apply(final Entry<Task, Core> it) {
 				SingleMappingElement _xblockexpression = null;
 				{
-					Task _key = it.getKey();
-					EObject _eContainer = _key.eContainer();
+					EObject _eContainer = it.getKey().eContainer();
 					final Application application = ((Application) _eContainer);
 					final Task task = it.getKey();
 					final Core core = it.getValue();
-					Core _value = it.getValue();
-					EObject _eContainer_1 = _value.eContainer();
+					EObject _eContainer_1 = it.getValue().eContainer();
 					final Processor processor = ((Processor) _eContainer_1);
-					Core _value_1 = it.getValue();
-					EObject _eContainer_2 = _value_1.eContainer();
-					EObject _eContainer_3 = _eContainer_2.eContainer();
-					final Board board = ((Board) _eContainer_3);
-					Core _value_2 = it.getValue();
-					EObject _eContainer_4 = _value_2.eContainer();
-					EObject _eContainer_5 = _eContainer_4.eContainer();
-					EObject _eContainer_6 = _eContainer_5.eContainer();
-					final Box box = ((Box) _eContainer_6);
-					Core _value_3 = it.getValue();
-					EObject _eContainer_7 = _value_3.eContainer();
-					EObject _eContainer_8 = _eContainer_7.eContainer();
-					EObject _eContainer_9 = _eContainer_8.eContainer();
-					EObject _eContainer_10 = _eContainer_9.eContainer();
-					final Compartment compartment = ((Compartment) _eContainer_10);
+					EObject _eContainer_2 = it.getValue().eContainer().eContainer();
+					final Board board = ((Board) _eContainer_2);
+					EObject _eContainer_3 = it.getValue().eContainer().eContainer().eContainer();
+					final Box box = ((Box) _eContainer_3);
+					EObject _eContainer_4 = it.getValue().eContainer().eContainer().eContainer().eContainer();
+					final Compartment compartment = ((Compartment) _eContainer_4);
 					SingleMappingElement _createSingleMappingElement = ResultFactory.eINSTANCE.createSingleMappingElement();
 					final Procedure1<SingleMappingElement> _function = new Procedure1<SingleMappingElement>() {
 						public void apply(final SingleMappingElement it) {
@@ -425,8 +399,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return _xblockexpression;
 			}
 		};
-		Iterable<SingleMappingElement> _map = IterableExtensions.<Entry<Task, Core>, SingleMappingElement>map(_entrySet, _function);
-		return ECollections.<SingleMappingElement>toEList(_map);
+		return ECollections.<SingleMappingElement>toEList(IterableExtensions.<Entry<Task, Core>, SingleMappingElement>map(this.getTask2CoreMap().entrySet(), _function));
 	}
 
 	/**
@@ -435,9 +408,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @generated
 	 */
 	public int compareTo(final Result o) {
-		double _scaledTotalScore = o.getScaledTotalScore();
-		double _scaledTotalScore_1 = this.getScaledTotalScore();
-		return Double.compare(_scaledTotalScore, _scaledTotalScore_1);
+		return Double.compare(o.getScaledTotalScore(), this.getScaledTotalScore());
 	}
 
 	/**

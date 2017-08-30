@@ -443,7 +443,7 @@ public interface ResultPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Comparable</em>'.
 	 * @see java.lang.Comparable<ch.hilbri.assist.mapping.model.result.Result>
-	 * @model instanceClass="java.lang.Comparable<ch.hilbri.assist.mapping.model.result.Result>"
+	 * @model instanceClass="java.lang.Comparable&lt;ch.hilbri.assist.mapping.model.result.Result&gt;"
 	 * @generated
 	 */
 	EClass getComparable();
@@ -757,7 +757,7 @@ public interface ResultPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Task2 Core Map Type</em>'.
 	 * @see java.util.HashMap
-	 * @model instanceClass="java.util.HashMap<ch.hilbri.assist.mapping.model.Task, ch.hilbri.assist.mapping.model.Core>"
+	 * @model instanceClass="java.util.HashMap&lt;ch.hilbri.assist.mapping.model.Task, ch.hilbri.assist.mapping.model.Core&gt;"
 	 * @generated
 	 */
 	EDataType getTask2CoreMapType();
@@ -768,7 +768,7 @@ public interface ResultPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>String List</em>'.
 	 * @see java.util.List
-	 * @model instanceClass="java.util.List<java.lang.String>"
+	 * @model instanceClass="java.util.List&lt;java.lang.String&gt;"
 	 * @generated
 	 */
 	EDataType getStringList();
