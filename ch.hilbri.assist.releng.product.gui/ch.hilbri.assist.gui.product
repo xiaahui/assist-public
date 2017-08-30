@@ -14,7 +14,6 @@
    </launcherArgs>
 
    <launcher name="ASSIST">
-      <solaris/>
       <win useIco="false">
          <bmp/>
       </win>
@@ -48,21 +47,31 @@
       <feature id="org.eclipse.ecf.filetransfer.feature"/>
       <feature id="org.eclipse.ecf.core.ssl.feature"/>
       <feature id="org.eclipse.ecf.filetransfer.ssl.feature"/>
-      <feature id="org.eclipse.xtext.sdk" version="2.10.0.v201605250459"/>
       <feature id="org.eclipse.xtext.xtext.ui"/>
       <feature id="org.eclipse.xtext.xbase.lib"/>
       <feature id="org.eclipse.xtend.sdk"/>
       <feature id="org.eclipse.xtext.runtime"/>
       <feature id="org.eclipse.xtext.xbase"/>
       <feature id="org.eclipse.xtext.examples"/>
-      <feature id="org.eclipse.xtext.xtext.ui.source"/>
-      <feature id="org.eclipse.xtext.xbase.lib.source"/>
-      <feature id="org.eclipse.xtext.ui.source"/>
-      <feature id="org.eclipse.xtext.examples.source"/>
       <feature id="org.eclipse.xtext.ui"/>
-      <feature id="org.eclipse.xtext.xbase.source"/>
-      <feature id="org.eclipse.xtext.runtime.source"/>
       <feature id="org.eclipse.xtext.docs"/>
+      <feature id="org.eclipse.jdt"/>
+      <feature id="org.eclipse.xtext.sdk"/>
+      <feature id="org.eclipse.emf.ecore.xcore.sdk"/>
+      <feature id="org.eclipse.xtext.redist"/>
+      <feature id="org.eclipse.emf.ecore.xcore.ui.source"/>
+      <feature id="org.eclipse.emf.mwe2.language.sdk"/>
+      <feature id="org.eclipse.emf.mwe2.runtime.sdk"/>
+      <feature id="org.eclipse.emf.mwe2.launcher"/>
+      <feature id="org.eclipse.emf.mwe2.launcher.source"/>
+      <feature id="org.eclipse.emf.ecore.xcore.ui"/>
+      <feature id="org.eclipse.emf.ecore.xcore.source"/>
+      <feature id="org.eclipse.emf.ecore.xcore.lib.source"/>
+      <feature id="org.eclipse.emf.ecore.xcore"/>
+      <feature id="org.eclipse.emf.ecore.xcore.lib"/>
+      <feature id="org.eclipse.e4.core.tools.feature"/>
+      <feature id="org.eclipse.pde"/>
+      <feature id="org.eclipse.wb.rcp.feature"/>
    </features>
 
    <configurations>
