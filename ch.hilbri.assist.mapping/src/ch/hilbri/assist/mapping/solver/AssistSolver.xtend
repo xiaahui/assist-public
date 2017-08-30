@@ -51,7 +51,7 @@ class AssistSolver {
 		logger.info('''******************************''')
 
 		/* Do not print something our, if we are on the CLI */		
-		if (Platform.getBundle("ch.hilbri.assist.gui") != null) {
+		if (Platform.getBundle("ch.hilbri.assist.gui") !== null) {
 			logger.info('''    Version : «Platform.getBundle("ch.hilbri.assist.gui").getHeaders().get("Bundle-Version")» ''')
 			logger.info('''    Platform: «System.getProperty("os.name") + " " + System.getProperty("sun.arch.data.model") + "bit"»''')
 			logger.info('''******************************''')

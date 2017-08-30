@@ -16,7 +16,7 @@ class ComponentContentProvider implements IStructuredContentProvider {
 	AssistModel model
 
 	new(Result result) {
-		if (result != null)
+		if (result !== null)
 			model = result.model
 		else
 			model = null
