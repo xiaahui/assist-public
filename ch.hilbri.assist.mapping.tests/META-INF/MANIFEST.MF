@@ -9,5 +9,9 @@ Require-Bundle:
  org.junit,
  org.eclipse.xtext.junit4,
  org.eclipse.core.runtime,
- ch.hilbri.assist.mapping.dsl.tests
+ ch.hilbri.assist.mapping.dsl.tests,
+ org.eclipse.xtext.xbase.junit,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtext.testing,
+ org.eclipse.xtext.xbase.testing
 Fragment-Host: ch.hilbri.assist.mapping
