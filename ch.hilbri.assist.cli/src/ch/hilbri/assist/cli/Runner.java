@@ -11,7 +11,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.xtext.junit4.util.ParseHelper;
+import org.eclipse.xtext.testing.util.ParseHelper;
 
 import com.google.inject.Inject;
 
