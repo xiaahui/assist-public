@@ -12,8 +12,6 @@ import ch.hilbri.assist.mapping.model.Processor;
 
 import com.google.common.collect.Iterables;
 
-import java.lang.Iterable;
-
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -402,15 +400,12 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * @generated
 	 */
 	public EList<Core> getAllCores() {
-		EList<Processor> _processors = this.getProcessors();
 		final Function1<Processor, EList<Core>> _function = new Function1<Processor, EList<Core>>() {
 			public EList<Core> apply(final Processor it) {
 				return it.getAllCores();
 			}
 		};
-		EList<EList<Core>> _map = XcoreEListExtensions.<Processor, EList<Core>>map(_processors, _function);
-		Iterable<Core> _flatten = Iterables.<Core>concat(_map);
-		return ECollections.<Core>toEList(_flatten);
+		return ECollections.<Core>toEList(Iterables.<Core>concat(XcoreEListExtensions.<Processor, EList<Core>>map(this.getProcessors(), _function)));
 	}
 
 	/**

@@ -11,8 +11,6 @@ import ch.hilbri.assist.mapping.model.Processor;
 
 import com.google.common.collect.Iterables;
 
-import java.lang.Iterable;
-
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -147,15 +145,12 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 	 * @generated
 	 */
 	public EList<Board> getAllBoards() {
-		EList<Box> _boxes = this.getBoxes();
 		final Function1<Box, EList<Board>> _function = new Function1<Box, EList<Board>>() {
 			public EList<Board> apply(final Box it) {
 				return it.getAllBoards();
 			}
 		};
-		EList<EList<Board>> _map = XcoreEListExtensions.<Box, EList<Board>>map(_boxes, _function);
-		Iterable<Board> _flatten = Iterables.<Board>concat(_map);
-		return ECollections.<Board>toEList(_flatten);
+		return ECollections.<Board>toEList(Iterables.<Board>concat(XcoreEListExtensions.<Box, EList<Board>>map(this.getBoxes(), _function)));
 	}
 
 	/**
@@ -164,15 +159,12 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 	 * @generated
 	 */
 	public EList<Processor> getAllProcessors() {
-		EList<Box> _boxes = this.getBoxes();
 		final Function1<Box, EList<Processor>> _function = new Function1<Box, EList<Processor>>() {
 			public EList<Processor> apply(final Box it) {
 				return it.getAllProcessors();
 			}
 		};
-		EList<EList<Processor>> _map = XcoreEListExtensions.<Box, EList<Processor>>map(_boxes, _function);
-		Iterable<Processor> _flatten = Iterables.<Processor>concat(_map);
-		return ECollections.<Processor>toEList(_flatten);
+		return ECollections.<Processor>toEList(Iterables.<Processor>concat(XcoreEListExtensions.<Box, EList<Processor>>map(this.getBoxes(), _function)));
 	}
 
 	/**
@@ -181,15 +173,12 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 	 * @generated
 	 */
 	public EList<Core> getAllCores() {
-		EList<Box> _boxes = this.getBoxes();
 		final Function1<Box, EList<Core>> _function = new Function1<Box, EList<Core>>() {
 			public EList<Core> apply(final Box it) {
 				return it.getAllCores();
 			}
 		};
-		EList<EList<Core>> _map = XcoreEListExtensions.<Box, EList<Core>>map(_boxes, _function);
-		Iterable<Core> _flatten = Iterables.<Core>concat(_map);
-		return ECollections.<Core>toEList(_flatten);
+		return ECollections.<Core>toEList(Iterables.<Core>concat(XcoreEListExtensions.<Box, EList<Core>>map(this.getBoxes(), _function)));
 	}
 
 	/**

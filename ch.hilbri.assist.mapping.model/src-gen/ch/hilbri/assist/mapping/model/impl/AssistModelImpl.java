@@ -18,8 +18,6 @@ import ch.hilbri.assist.mapping.model.Task;
 
 import com.google.common.collect.Iterables;
 
-import java.lang.Iterable;
-
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -270,15 +268,12 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @generated
 	 */
 	public EList<Box> getAllBoxes() {
-		EList<Compartment> _compartments = this.getCompartments();
 		final Function1<Compartment, EList<Box>> _function = new Function1<Compartment, EList<Box>>() {
 			public EList<Box> apply(final Compartment it) {
 				return it.getAllBoxes();
 			}
 		};
-		EList<EList<Box>> _map = XcoreEListExtensions.<Compartment, EList<Box>>map(_compartments, _function);
-		Iterable<Box> _flatten = Iterables.<Box>concat(_map);
-		return ECollections.<Box>toEList(_flatten);
+		return ECollections.<Box>toEList(Iterables.<Box>concat(XcoreEListExtensions.<Compartment, EList<Box>>map(this.getCompartments(), _function)));
 	}
 
 	/**
@@ -287,15 +282,12 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @generated
 	 */
 	public EList<Board> getAllBoards() {
-		EList<Compartment> _compartments = this.getCompartments();
 		final Function1<Compartment, EList<Board>> _function = new Function1<Compartment, EList<Board>>() {
 			public EList<Board> apply(final Compartment it) {
 				return it.getAllBoards();
 			}
 		};
-		EList<EList<Board>> _map = XcoreEListExtensions.<Compartment, EList<Board>>map(_compartments, _function);
-		Iterable<Board> _flatten = Iterables.<Board>concat(_map);
-		return ECollections.<Board>toEList(_flatten);
+		return ECollections.<Board>toEList(Iterables.<Board>concat(XcoreEListExtensions.<Compartment, EList<Board>>map(this.getCompartments(), _function)));
 	}
 
 	/**
@@ -304,15 +296,12 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @generated
 	 */
 	public EList<Processor> getAllProcessors() {
-		EList<Compartment> _compartments = this.getCompartments();
 		final Function1<Compartment, EList<Processor>> _function = new Function1<Compartment, EList<Processor>>() {
 			public EList<Processor> apply(final Compartment it) {
 				return it.getAllProcessors();
 			}
 		};
-		EList<EList<Processor>> _map = XcoreEListExtensions.<Compartment, EList<Processor>>map(_compartments, _function);
-		Iterable<Processor> _flatten = Iterables.<Processor>concat(_map);
-		return ECollections.<Processor>toEList(_flatten);
+		return ECollections.<Processor>toEList(Iterables.<Processor>concat(XcoreEListExtensions.<Compartment, EList<Processor>>map(this.getCompartments(), _function)));
 	}
 
 	/**
@@ -321,15 +310,12 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @generated
 	 */
 	public EList<Core> getAllCores() {
-		EList<Compartment> _compartments = this.getCompartments();
 		final Function1<Compartment, EList<Core>> _function = new Function1<Compartment, EList<Core>>() {
 			public EList<Core> apply(final Compartment it) {
 				return it.getAllCores();
 			}
 		};
-		EList<EList<Core>> _map = XcoreEListExtensions.<Compartment, EList<Core>>map(_compartments, _function);
-		Iterable<Core> _flatten = Iterables.<Core>concat(_map);
-		return ECollections.<Core>toEList(_flatten);
+		return ECollections.<Core>toEList(Iterables.<Core>concat(XcoreEListExtensions.<Compartment, EList<Core>>map(this.getCompartments(), _function)));
 	}
 
 	/**
@@ -338,15 +324,12 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @generated
 	 */
 	public EList<Task> getAllTasks() {
-		EList<Application> _applications = this.getApplications();
 		final Function1<Application, EList<Task>> _function = new Function1<Application, EList<Task>>() {
 			public EList<Task> apply(final Application it) {
 				return it.getAllTasks();
 			}
 		};
-		EList<EList<Task>> _map = XcoreEListExtensions.<Application, EList<Task>>map(_applications, _function);
-		Iterable<Task> _flatten = Iterables.<Task>concat(_map);
-		return ECollections.<Task>toEList(_flatten);
+		return ECollections.<Task>toEList(Iterables.<Task>concat(XcoreEListExtensions.<Application, EList<Task>>map(this.getApplications(), _function)));
 	}
 
 	/**

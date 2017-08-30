@@ -11,8 +11,6 @@ import ch.hilbri.assist.mapping.model.Processor;
 
 import com.google.common.collect.Iterables;
 
-import java.lang.Iterable;
-
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -158,15 +156,12 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 	 * @generated
 	 */
 	public EList<Processor> getAllProcessors() {
-		EList<Board> _boards = this.getBoards();
 		final Function1<Board, EList<Processor>> _function = new Function1<Board, EList<Processor>>() {
 			public EList<Processor> apply(final Board it) {
 				return it.getAllProcessors();
 			}
 		};
-		EList<EList<Processor>> _map = XcoreEListExtensions.<Board, EList<Processor>>map(_boards, _function);
-		Iterable<Processor> _flatten = Iterables.<Processor>concat(_map);
-		return ECollections.<Processor>toEList(_flatten);
+		return ECollections.<Processor>toEList(Iterables.<Processor>concat(XcoreEListExtensions.<Board, EList<Processor>>map(this.getBoards(), _function)));
 	}
 
 	/**
@@ -175,15 +170,12 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 	 * @generated
 	 */
 	public EList<Core> getAllCores() {
-		EList<Board> _boards = this.getBoards();
 		final Function1<Board, EList<Core>> _function = new Function1<Board, EList<Core>>() {
 			public EList<Core> apply(final Board it) {
 				return it.getAllCores();
 			}
 		};
-		EList<EList<Core>> _map = XcoreEListExtensions.<Board, EList<Core>>map(_boards, _function);
-		Iterable<Core> _flatten = Iterables.<Core>concat(_map);
-		return ECollections.<Core>toEList(_flatten);
+		return ECollections.<Core>toEList(Iterables.<Core>concat(XcoreEListExtensions.<Board, EList<Core>>map(this.getBoards(), _function)));
 	}
 
 	/**
