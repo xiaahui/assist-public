@@ -9,7 +9,7 @@
 
 	<properties>
 		<tycho.version>1.0.0</tycho.version>
-		<xtextVersion>2.10.0</xtextVersion>
+		<xtextVersion>2.12.0</xtextVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -22,15 +22,10 @@
 	</properties>
 
 	<modules>
-		
-		
 		<module>../ch.hilbri.assist.libraries.jgrapht</module>
-		
-		
 		<module>../ch.hilbri.assist.libraries.jxl</module>
 		<module>../ch.hilbri.assist.libraries.logback</module>
 		<module>../ch.hilbri.assist.libraries.math</module>
-		
 		<module>../ch.hilbri.assist.cli</module>
 		<module>../ch.hilbri.assist.mapping</module>
 		<module>../ch.hilbri.assist.mapping.tests</module>
@@ -38,11 +33,6 @@
 		<module>../ch.hilbri.assist.features.libraries</module>
 		<module>../ch.hilbri.assist.features.mapping</module>
 		<module>../ch.hilbri.assist.features.documentation</module>
-		
-		
-		
-		
-		
 		<module>../ch.hilbri.assist.features.gui</module>
 		<module>../ch.hilbri.assist.gui</module>
 		<module>../ch.hilbri.assist.mapping.model</module>
@@ -54,7 +44,6 @@
 		<module>../ch.hilbri.assist.mapping.dsl.tests</module>
 		<module>../ch.hilbri.assist.mapping.dsl.ui</module>
 		<module>../ch.hilbri.assist.mapping.dsl.ui.tests</module>
-		
 		<module>../ch.hilbri.assist.libraries.choco-solver</module>
 		<module>../ch.hilbri.assist.libraries.swtchart</module>
 	</modules>
@@ -91,7 +80,6 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -276,11 +264,18 @@
 
 	<repositories>
 
+<!-- 		<repository> -->
+<!-- 			<id>Neon</id> -->
+<!-- 			<layout>p2</layout> -->
+<!-- 			<url>http://download.eclipse.org/releases/neon/</url> -->
+<!-- 		</repository> -->
+
 		<repository>
-			<id>Neon</id>
+			<id>Oxygen</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/neon/</url>
+			<url>http://download.eclipse.org/releases/oxygen/</url>
 		</repository>
+	
 
 		<repository>
 			<id>Xtext Update Site</id>
@@ -314,8 +309,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
-
-
 
 </project>
