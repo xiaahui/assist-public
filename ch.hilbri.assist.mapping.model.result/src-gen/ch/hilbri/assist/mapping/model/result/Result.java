@@ -240,6 +240,24 @@ public interface Result extends EObject, Comparable<Result> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model unique="false" coreUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;, &lt;%java.lang.Boolean%&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;, &lt;%java.lang.Boolean%&gt;&gt;()\n{\n\tpublic &lt;%java.lang.Boolean%&gt; apply(final &lt;%ch.hilbri.assist.mapping.model.Task%&gt; it)\n\t{\n\t\t&lt;%ch.hilbri.assist.mapping.model.Core%&gt; _get = &lt;%this%&gt;.getTask2CoreMap().get(it);\n\t\treturn &lt;%java.lang.Boolean%&gt;.valueOf(&lt;%com.google.common.base.Objects%&gt;.equal(_get, core));\n\t}\n};\nreturn &lt;%org.eclipse.emf.common.util.ECollections%&gt;.&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt;toEList(&lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt;filter(this.getTask2CoreMap().keySet(), _function));'"
+	 * @generated
+	 */
+	EList<Task> getMappedTasksForCore(Core core);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" coreUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%java.lang.Integer%&gt; _xblockexpression = null;\n{\n\tfinal &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt; taskList = this.getMappedTasksForCore(core);\n\t&lt;%java.lang.Integer%&gt; _xifexpression = null;\n\tboolean _isNullOrEmpty = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.isNullOrEmpty(taskList);\n\tboolean _not = (!_isNullOrEmpty);\n\tif (_not)\n\t{\n\t\tfinal &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;, &lt;%java.lang.Integer%&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;, &lt;%java.lang.Integer%&gt;&gt;()\n\t\t{\n\t\t\tpublic &lt;%java.lang.Integer%&gt; apply(final &lt;%ch.hilbri.assist.mapping.model.Task%&gt; it)\n\t\t\t{\n\t\t\t\treturn &lt;%java.lang.Integer%&gt;.valueOf(it.getCoreUtilization());\n\t\t\t}\n\t\t};\n\t\tfinal &lt;%org.eclipse.xtext.xbase.lib.Functions.Function2%&gt;&lt;&lt;%java.lang.Integer%&gt;, &lt;%java.lang.Integer%&gt;, &lt;%java.lang.Integer%&gt;&gt; _function_1 = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function2%&gt;&lt;&lt;%java.lang.Integer%&gt;, &lt;%java.lang.Integer%&gt;, &lt;%java.lang.Integer%&gt;&gt;()\n\t\t{\n\t\t\tpublic &lt;%java.lang.Integer%&gt; apply(final &lt;%java.lang.Integer%&gt; p1, final &lt;%java.lang.Integer%&gt; p2)\n\t\t\t{\n\t\t\t\treturn &lt;%java.lang.Integer%&gt;.valueOf(((p1).intValue() + (p2).intValue()));\n\t\t\t}\n\t\t};\n\t\t_xifexpression = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.&lt;&lt;%java.lang.Integer%&gt;&gt;reduce(&lt;%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%&gt;.&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;, &lt;%java.lang.Integer%&gt;&gt;map(taskList, _function), _function_1);\n\t}\n\telse\n\t{\n\t\t_xifexpression = &lt;%java.lang.Integer%&gt;.valueOf(0);\n\t}\n\t_xblockexpression = _xifexpression;\n}\nreturn (_xblockexpression).intValue();'"
+	 * @generated
+	 */
+	int getCoreUtilization(Core core);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 *  This creates the list of mapping elements; each elements contains all hardware / software elements
 	 * <!-- end-model-doc -->

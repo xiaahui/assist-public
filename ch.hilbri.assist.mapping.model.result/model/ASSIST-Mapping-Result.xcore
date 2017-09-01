@@ -54,6 +54,18 @@ class Result extends Comparable {
 			metricScaledScoresMap.values.reduce[p1, p2|p1+p2]
 	}
 
+	op Task[] getMappedTasksForCore(Core core) {
+		task2CoreMap.keySet.filter[task2CoreMap.get(it) == core].toEList
+	}
+	
+	op int getCoreUtilization(Core core) {
+		val taskList = getMappedTasksForCore(core)
+		if (!taskList.isNullOrEmpty) 
+			taskList.map[it.coreUtilization].reduce[p1, p2|p1 + p2]
+		else
+			0
+	}
+
 
 	/* This creates the list of mapping elements; each elements contains all hardware / software elements */
 	op SingleMappingElement[]			getMappingElements() {

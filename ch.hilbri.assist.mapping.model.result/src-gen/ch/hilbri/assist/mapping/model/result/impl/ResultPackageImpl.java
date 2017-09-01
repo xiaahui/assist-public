@@ -278,7 +278,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__GetMappingElements() {
+	public EOperation getResult__GetMappedTasksForCore__Core() {
 		return resultEClass.getEOperations().get(0);
 	}
 
@@ -287,8 +287,26 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__CompareTo__Result() {
+	public EOperation getResult__GetCoreUtilization__Core() {
 		return resultEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getResult__GetMappingElements() {
+		return resultEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getResult__CompareTo__Result() {
+		return resultEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -479,6 +497,8 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		createEAttribute(resultEClass, RESULT__PARTIAL_SOLUTION);
 		createEAttribute(resultEClass, RESULT__ABSOLUTE_TOTAL_SCORE);
 		createEAttribute(resultEClass, RESULT__SCALED_TOTAL_SCORE);
+		createEOperation(resultEClass, RESULT___GET_MAPPED_TASKS_FOR_CORE__CORE);
+		createEOperation(resultEClass, RESULT___GET_CORE_UTILIZATION__CORE);
 		createEOperation(resultEClass, RESULT___GET_MAPPING_ELEMENTS);
 		createEOperation(resultEClass, RESULT___COMPARE_TO__RESULT);
 
@@ -555,9 +575,15 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		initEAttribute(getResult_AbsoluteTotalScore(), theEcorePackage.getEDouble(), "absoluteTotalScore", null, 0, 1, Result.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_ScaledTotalScore(), theEcorePackage.getEDouble(), "scaledTotalScore", null, 0, 1, Result.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
+		EOperation op = initEOperation(getResult__GetMappedTasksForCore__Core(), theModelPackage.getTask(), "getMappedTasksForCore", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theModelPackage.getCore(), "core", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getResult__GetCoreUtilization__Core(), theEcorePackage.getEInt(), "getCoreUtilization", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theModelPackage.getCore(), "core", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getResult__GetMappingElements(), this.getSingleMappingElement(), "getMappingElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getResult__CompareTo__Result(), theEcorePackage.getEInt(), "compareTo", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getResult__CompareTo__Result(), theEcorePackage.getEInt(), "compareTo", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getResult(), "o", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(singleMappingElementEClass, SingleMappingElement.class, "SingleMappingElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

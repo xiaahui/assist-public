@@ -39,6 +39,7 @@ import org.swtchart.ISeries.SeriesType;
 import org.swtchart.LineStyle;
 import org.swtchart.Range;
 
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxFreeCapacity;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
 import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.Result;
@@ -414,6 +415,7 @@ public class DetailedResults extends Composite {
 		
 		/* Preload the available metrics list */
 		availableMetricsList.add(new RandomScore());
+		availableMetricsList.add(new MaxFreeCapacity());
 
 		/* Clear the page for the initial state */
 		clearResults();

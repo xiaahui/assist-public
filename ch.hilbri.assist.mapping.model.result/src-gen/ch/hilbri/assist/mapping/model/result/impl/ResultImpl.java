@@ -17,6 +17,8 @@ import ch.hilbri.assist.mapping.model.result.ResultFactory;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
 import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
 
+import com.google.common.base.Objects;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.HashMap;
@@ -40,6 +42,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
 
 import org.eclipse.xtext.xbase.lib.DoubleExtensions;
 
@@ -407,6 +411,54 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Task> getMappedTasksForCore(final Core core) {
+		final Function1<Task, Boolean> _function = new Function1<Task, Boolean>() {
+			public Boolean apply(final Task it) {
+				Core _get = ResultImpl.this.getTask2CoreMap().get(it);
+				return Boolean.valueOf(Objects.equal(_get, core));
+			}
+		};
+		return ECollections.<Task>toEList(IterableExtensions.<Task>filter(this.getTask2CoreMap().keySet(), _function));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getCoreUtilization(final Core core) {
+		Integer _xblockexpression = null;
+		{
+			final EList<Task> taskList = this.getMappedTasksForCore(core);
+			Integer _xifexpression = null;
+			boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(taskList);
+			boolean _not = (!_isNullOrEmpty);
+			if (_not) {
+				final Function1<Task, Integer> _function = new Function1<Task, Integer>() {
+					public Integer apply(final Task it) {
+						return Integer.valueOf(it.getCoreUtilization());
+					}
+				};
+				final Function2<Integer, Integer, Integer> _function_1 = new Function2<Integer, Integer, Integer>() {
+					public Integer apply(final Integer p1, final Integer p2) {
+						return Integer.valueOf(((p1).intValue() + (p2).intValue()));
+					}
+				};
+				_xifexpression = IterableExtensions.<Integer>reduce(XcoreEListExtensions.<Task, Integer>map(taskList, _function), _function_1);
+			}
+			else {
+				_xifexpression = Integer.valueOf(0);
+			}
+			_xblockexpression = _xifexpression;
+		}
+		return (_xblockexpression).intValue();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<SingleMappingElement> getMappingElements() {
 		final Function1<Entry<Task, Core>, SingleMappingElement> _function = new Function1<Entry<Task, Core>, SingleMappingElement>() {
 			public SingleMappingElement apply(final Entry<Task, Core> it) {
@@ -607,6 +659,10 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case ResultPackage.RESULT___GET_MAPPED_TASKS_FOR_CORE__CORE:
+				return getMappedTasksForCore((Core)arguments.get(0));
+			case ResultPackage.RESULT___GET_CORE_UTILIZATION__CORE:
+				return getCoreUtilization((Core)arguments.get(0));
 			case ResultPackage.RESULT___GET_MAPPING_ELEMENTS:
 				return getMappingElements();
 			case ResultPackage.RESULT___COMPARE_TO__RESULT:
