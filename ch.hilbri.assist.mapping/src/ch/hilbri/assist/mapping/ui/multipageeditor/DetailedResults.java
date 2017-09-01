@@ -30,6 +30,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.wb.swt.ResourceManager;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.swtchart.Chart;
 import org.swtchart.IAxis;
@@ -85,6 +86,8 @@ public class DetailedResults extends Composite {
 	private Group grpScoreDistribution;
 	private Chart scoreOverview;
 	private TableCursor tableCursorResult;
+	private Button btnSortScore;
+	private Button btnSortName;
 
 	/**
 	 * Create the composite.
@@ -107,7 +110,7 @@ public class DetailedResults extends Composite {
 		lblFilterHintText.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		lblFilterHintText.setText("Filter:");
 
-		textFilter = new Text(this, SWT.BORDER | SWT.SEARCH);
+		textFilter = new Text(this, SWT.BORDER | SWT.SEARCH | SWT.ICON_SEARCH);
 		textFilter.addKeyListener(new KeyAdapter() {
 			public void keyReleased(KeyEvent ke) {
 				tableFilter.setFilterText(textFilter.getText());
@@ -272,6 +275,7 @@ public class DetailedResults extends Composite {
 		compositeNavButtons.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 
 		btnFirst = new Button(compositeNavButtons, SWT.NONE);
+		btnFirst.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/first_result.png"));
 		btnFirst.setEnabled(false);
 		btnFirst.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -280,9 +284,10 @@ public class DetailedResults extends Composite {
 			}
 		});
 		btnFirst.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		btnFirst.setText("<<");
+		btnFirst.setText("First");
 
 		btnPrev = new Button(compositeNavButtons, SWT.NONE);
+		btnPrev.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/result_prev.gif"));
 		btnPrev.setEnabled(false);
 		btnPrev.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -292,9 +297,10 @@ public class DetailedResults extends Composite {
 			}
 		});
 		btnPrev.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		btnPrev.setText("< Previous");
+		btnPrev.setText("Previous");
 
 		btnGotoResult = new Button(compositeNavButtons, SWT.NONE);
+		btnGotoResult.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/goto_input.png"));
 		btnGotoResult.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -310,6 +316,7 @@ public class DetailedResults extends Composite {
 		btnGotoResult.setText("Got to...");
 
 		btnNext = new Button(compositeNavButtons, SWT.NONE);
+		btnNext.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/result_next.gif"));
 		btnNext.setEnabled(false);
 		btnNext.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -319,9 +326,10 @@ public class DetailedResults extends Composite {
 			}
 		});
 		btnNext.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		btnNext.setText("Next >");
+		btnNext.setText("Next");
 
 		btnLast = new Button(compositeNavButtons, SWT.NONE);
+		btnLast.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/last_result.png"));
 		btnLast.setEnabled(false);
 		btnLast.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -330,8 +338,36 @@ public class DetailedResults extends Composite {
 			}
 		});
 		btnLast.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
-		btnLast.setText(">>");
-
+		btnLast.setText("Last");
+		
+		btnSortScore = new Button(compositeNavButtons, SWT.NONE);
+		btnSortScore.setEnabled(false);
+		btnSortScore.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/results_sort_score.png"));
+		btnSortScore.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				// We want decending sort order
+				mappingResults.sort((r1, r2) -> Double.compare(r2.getScaledTotalScore(),r1.getScaledTotalScore()));
+				setResultsList(mappingResults);
+			}
+		});
+		btnSortScore.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
+		btnSortScore.setText("Sort by score");
+		
+		btnSortName = new Button(compositeNavButtons, SWT.NONE);
+		btnSortName.setEnabled(false);
+		btnSortName.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/results_sort_id.png"));
+		btnSortName.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				mappingResults.sort((r1, r2)-> Integer.compare(r1.getIndex(), r2.getIndex()));
+				setResultsList(mappingResults);
+			}
+		});
+		btnSortName.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
+		btnSortName.setText("Sort by index");
+		
+	
 		Composite compositeScoreOverview = new Composite(this, SWT.NONE);
 		compositeScoreOverview.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_LIGHT_SHADOW));
 		compositeScoreOverview.setLayout(new FillLayout(SWT.HORIZONTAL));
@@ -374,7 +410,8 @@ public class DetailedResults extends Composite {
 		yaxes.getTick().setTickMarkStepHint(30);
 
 		scoreOverview.getAxisSet().adjustRange();
-
+		
+		
 		/* Preload the available metrics list */
 		availableMetricsList.add(new RandomScore());
 
@@ -411,6 +448,9 @@ public class DetailedResults extends Composite {
 			scoreOverview.getAxisSet().getYAxes()[0].setRange(new Range(0, oldRange.upper));
 
 			btnGotoResult.setEnabled(true);
+			btnSortName.setEnabled(true);
+			btnSortScore.setEnabled(true);
+			
 
 			showResult(0);
 		}
@@ -436,6 +476,8 @@ public class DetailedResults extends Composite {
 		btnNext.setEnabled(false);
 		btnLast.setEnabled(false);
 		btnGotoResult.setEnabled(false);
+		btnSortName.setEnabled(false);
+		btnSortScore.setEnabled(false);
 	}
 
 	private void showResult(int index) {

@@ -33,6 +33,7 @@ class MetricScorePair wraps java.util.Map$Entry {
 
 class Result extends Comparable {
 	String								name
+	int									index
 	refers AssistModel					model	
  	Task2CoreMapType					task2CoreMap
  	contains MetricScorePair[]			metricAbsoluteScoresMap 

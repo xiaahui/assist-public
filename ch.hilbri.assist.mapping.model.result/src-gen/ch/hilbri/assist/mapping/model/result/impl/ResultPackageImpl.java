@@ -206,8 +206,17 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getResult_Index() {
+		return (EAttribute)resultEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getResult_Model() {
-		return (EReference)resultEClass.getEStructuralFeatures().get(1);
+		return (EReference)resultEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -216,7 +225,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * @generated
 	 */
 	public EAttribute getResult_Task2CoreMap() {
-		return (EAttribute)resultEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)resultEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -225,15 +234,6 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * @generated
 	 */
 	public EReference getResult_MetricAbsoluteScoresMap() {
-		return (EReference)resultEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getResult_MetricScaledScoresMap() {
 		return (EReference)resultEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -242,8 +242,8 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResult_PartialSolution() {
-		return (EAttribute)resultEClass.getEStructuralFeatures().get(5);
+	public EReference getResult_MetricScaledScoresMap() {
+		return (EReference)resultEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -251,7 +251,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResult_AbsoluteTotalScore() {
+	public EAttribute getResult_PartialSolution() {
 		return (EAttribute)resultEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -260,8 +260,17 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResult_ScaledTotalScore() {
+	public EAttribute getResult_AbsoluteTotalScore() {
 		return (EAttribute)resultEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getResult_ScaledTotalScore() {
+		return (EAttribute)resultEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -462,6 +471,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 
 		resultEClass = createEClass(RESULT);
 		createEAttribute(resultEClass, RESULT__NAME);
+		createEAttribute(resultEClass, RESULT__INDEX);
 		createEReference(resultEClass, RESULT__MODEL);
 		createEAttribute(resultEClass, RESULT__TASK2_CORE_MAP);
 		createEReference(resultEClass, RESULT__METRIC_ABSOLUTE_SCORES_MAP);
@@ -536,6 +546,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 
 		initEClass(resultEClass, Result.class, "Result", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResult_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResult_Index(), theEcorePackage.getEInt(), "index", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResult_Model(), theModelPackage.getAssistModel(), null, "model", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_Task2CoreMap(), this.getTask2CoreMapType(), "task2CoreMap", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResult_MetricAbsoluteScoresMap(), this.getMetricScorePair(), null, "metricAbsoluteScoresMap", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getIndex <em>Index</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getTask2CoreMap <em>Task2 Core Map</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.Result#getMetricAbsoluteScoresMap <em>Metric Absolute Scores Map</em>}</li>
@@ -64,6 +65,32 @@ public interface Result extends EObject, Comparable<Result> {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Index</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Index</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Index</em>' attribute.
+	 * @see #setIndex(int)
+	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getResult_Index()
+	 * @model unique="false"
+	 * @generated
+	 */
+	int getIndex();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.Result#getIndex <em>Index</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Index</em>' attribute.
+	 * @see #getIndex()
+	 * @generated
+	 */
+	void setIndex(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Model</b></em>' reference.

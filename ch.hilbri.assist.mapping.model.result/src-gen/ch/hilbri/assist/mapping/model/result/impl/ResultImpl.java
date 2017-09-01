@@ -60,6 +60,7 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getIndex <em>Index</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getTask2CoreMap <em>Task2 Core Map</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.result.impl.ResultImpl#getMetricAbsoluteScoresMap <em>Metric Absolute Scores Map</em>}</li>
@@ -91,6 +92,26 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getIndex() <em>Index</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIndex()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int INDEX_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getIndex() <em>Index</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIndex()
+	 * @generated
+	 * @ordered
+	 */
+	protected int index = INDEX_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
@@ -210,6 +231,27 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getIndex() {
+		return index;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIndex(int newIndex) {
+		int oldIndex = index;
+		index = newIndex;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__INDEX, oldIndex, index));
 	}
 
 	/**
@@ -437,6 +479,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		switch (featureID) {
 			case ResultPackage.RESULT__NAME:
 				return getName();
+			case ResultPackage.RESULT__INDEX:
+				return getIndex();
 			case ResultPackage.RESULT__MODEL:
 				if (resolve) return getModel();
 				return basicGetModel();
@@ -470,6 +514,9 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			case ResultPackage.RESULT__NAME:
 				setName((String)newValue);
 				return;
+			case ResultPackage.RESULT__INDEX:
+				setIndex((Integer)newValue);
+				return;
 			case ResultPackage.RESULT__MODEL:
 				setModel((AssistModel)newValue);
 				return;
@@ -500,6 +547,9 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			case ResultPackage.RESULT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case ResultPackage.RESULT__INDEX:
+				setIndex(INDEX_EDEFAULT);
+				return;
 			case ResultPackage.RESULT__MODEL:
 				setModel((AssistModel)null);
 				return;
@@ -529,6 +579,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		switch (featureID) {
 			case ResultPackage.RESULT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case ResultPackage.RESULT__INDEX:
+				return index != INDEX_EDEFAULT;
 			case ResultPackage.RESULT__MODEL:
 				return model != null;
 			case ResultPackage.RESULT__TASK2_CORE_MAP:
@@ -575,6 +627,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", index: ");
+		result.append(index);
 		result.append(", task2CoreMap: ");
 		result.append(task2CoreMap);
 		result.append(", partialSolution: ");

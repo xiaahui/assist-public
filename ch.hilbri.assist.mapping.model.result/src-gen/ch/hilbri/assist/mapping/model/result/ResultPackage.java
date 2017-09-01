@@ -154,13 +154,22 @@ public interface ResultPackage extends EPackage {
 	int RESULT__NAME = COMPARABLE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Index</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__INDEX = COMPARABLE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__MODEL = COMPARABLE_FEATURE_COUNT + 1;
+	int RESULT__MODEL = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Task2 Core Map</b></em>' attribute.
@@ -169,7 +178,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__TASK2_CORE_MAP = COMPARABLE_FEATURE_COUNT + 2;
+	int RESULT__TASK2_CORE_MAP = COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Metric Absolute Scores Map</b></em>' map.
@@ -178,7 +187,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__METRIC_ABSOLUTE_SCORES_MAP = COMPARABLE_FEATURE_COUNT + 3;
+	int RESULT__METRIC_ABSOLUTE_SCORES_MAP = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Metric Scaled Scores Map</b></em>' map.
@@ -187,7 +196,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__METRIC_SCALED_SCORES_MAP = COMPARABLE_FEATURE_COUNT + 4;
+	int RESULT__METRIC_SCALED_SCORES_MAP = COMPARABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Partial Solution</b></em>' attribute.
@@ -196,7 +205,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__PARTIAL_SOLUTION = COMPARABLE_FEATURE_COUNT + 5;
+	int RESULT__PARTIAL_SOLUTION = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Absolute Total Score</b></em>' attribute.
@@ -205,7 +214,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__ABSOLUTE_TOTAL_SCORE = COMPARABLE_FEATURE_COUNT + 6;
+	int RESULT__ABSOLUTE_TOTAL_SCORE = COMPARABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Scaled Total Score</b></em>' attribute.
@@ -214,7 +223,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__SCALED_TOTAL_SCORE = COMPARABLE_FEATURE_COUNT + 7;
+	int RESULT__SCALED_TOTAL_SCORE = COMPARABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Result</em>' class.
@@ -223,7 +232,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 8;
+	int RESULT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Get Mapping Elements</em>' operation.
@@ -502,6 +511,17 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getResult_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.result.Result#getIndex <em>Index</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Index</em>'.
+	 * @see ch.hilbri.assist.mapping.model.result.Result#getIndex()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EAttribute getResult_Index();
 
 	/**
 	 * Returns the meta object for the reference '{@link ch.hilbri.assist.mapping.model.result.Result#getModel <em>Model</em>}'.
@@ -849,6 +869,14 @@ public interface ResultPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESULT__NAME = eINSTANCE.getResult_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Index</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT__INDEX = eINSTANCE.getResult_Index();
 
 		/**
 		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.

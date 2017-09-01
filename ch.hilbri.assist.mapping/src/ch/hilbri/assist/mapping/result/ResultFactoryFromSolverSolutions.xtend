@@ -27,6 +27,7 @@ class ResultFactoryFromSolverSolutions {
 			
 			val result = ResultFactory.eINSTANCE.createResult => [
 				name 			= "Solution "+ solNumber + " of " + solTotalCount
+				index			= solNumber - 1
 				model 			= assistModel
 				task2CoreMap 	= new HashMap
 				for (task : model.allTasks) {
