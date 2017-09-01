@@ -40,7 +40,9 @@ import org.swtchart.LineStyle;
 import org.swtchart.Range;
 
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxFreeCapacity;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.MinOrganizationsPerBoard;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.UniformCoreLoadDistribution;
 import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
@@ -412,10 +414,11 @@ public class DetailedResults extends Composite {
 
 		scoreOverview.getAxisSet().adjustRange();
 		
-		
 		/* Preload the available metrics list */
-		availableMetricsList.add(new RandomScore());
 		availableMetricsList.add(new MaxFreeCapacity());
+		availableMetricsList.add(new UniformCoreLoadDistribution());
+		availableMetricsList.add(new MinOrganizationsPerBoard());
+		availableMetricsList.add(new RandomScore());
 
 		/* Clear the page for the initial state */
 		clearResults();

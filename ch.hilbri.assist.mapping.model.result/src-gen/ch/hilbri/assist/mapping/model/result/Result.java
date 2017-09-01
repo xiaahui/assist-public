@@ -253,7 +253,16 @@ public interface Result extends EObject, Comparable<Result> {
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%java.lang.Integer%&gt; _xblockexpression = null;\n{\n\tfinal &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt; taskList = this.getMappedTasksForCore(core);\n\t&lt;%java.lang.Integer%&gt; _xifexpression = null;\n\tboolean _isNullOrEmpty = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.isNullOrEmpty(taskList);\n\tboolean _not = (!_isNullOrEmpty);\n\tif (_not)\n\t{\n\t\tfinal &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;, &lt;%java.lang.Integer%&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;, &lt;%java.lang.Integer%&gt;&gt;()\n\t\t{\n\t\t\tpublic &lt;%java.lang.Integer%&gt; apply(final &lt;%ch.hilbri.assist.mapping.model.Task%&gt; it)\n\t\t\t{\n\t\t\t\treturn &lt;%java.lang.Integer%&gt;.valueOf(it.getCoreUtilization());\n\t\t\t}\n\t\t};\n\t\tfinal &lt;%org.eclipse.xtext.xbase.lib.Functions.Function2%&gt;&lt;&lt;%java.lang.Integer%&gt;, &lt;%java.lang.Integer%&gt;, &lt;%java.lang.Integer%&gt;&gt; _function_1 = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function2%&gt;&lt;&lt;%java.lang.Integer%&gt;, &lt;%java.lang.Integer%&gt;, &lt;%java.lang.Integer%&gt;&gt;()\n\t\t{\n\t\t\tpublic &lt;%java.lang.Integer%&gt; apply(final &lt;%java.lang.Integer%&gt; p1, final &lt;%java.lang.Integer%&gt; p2)\n\t\t\t{\n\t\t\t\treturn &lt;%java.lang.Integer%&gt;.valueOf(((p1).intValue() + (p2).intValue()));\n\t\t\t}\n\t\t};\n\t\t_xifexpression = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%&gt;.&lt;&lt;%java.lang.Integer%&gt;&gt;reduce(&lt;%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%&gt;.&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;, &lt;%java.lang.Integer%&gt;&gt;map(taskList, _function), _function_1);\n\t}\n\telse\n\t{\n\t\t_xifexpression = &lt;%java.lang.Integer%&gt;.valueOf(0);\n\t}\n\t_xblockexpression = _xifexpression;\n}\nreturn (_xblockexpression).intValue();'"
 	 * @generated
 	 */
-	int getCoreUtilization(Core core);
+	int getAbsoluteCoreUtilization(Core core);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" coreUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='double _xifexpression = (double) 0;\nint _capacity = core.getCapacity();\nboolean _greaterThan = (_capacity &gt; 0);\nif (_greaterThan)\n{\n\tint _absoluteCoreUtilization = this.getAbsoluteCoreUtilization(core);\n\t&lt;%java.lang.Double%&gt; _double = new &lt;%java.lang.Double%&gt;(_absoluteCoreUtilization);\n\tint _capacity_1 = core.getCapacity();\n\t&lt;%java.lang.Double%&gt; _double_1 = new &lt;%java.lang.Double%&gt;(_capacity_1);\n\t_xifexpression = &lt;%org.eclipse.xtext.xbase.lib.DoubleExtensions%&gt;.operator_divide(_double, _double_1);\n}\nelse\n{\n\t_xifexpression = (-1.0);\n}\nreturn _xifexpression;'"
+	 * @generated
+	 */
+	double getRelativeCoreUtilization(Core core);
 
 	/**
 	 * <!-- begin-user-doc -->

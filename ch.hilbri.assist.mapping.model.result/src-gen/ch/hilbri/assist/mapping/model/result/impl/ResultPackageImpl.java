@@ -287,7 +287,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__GetCoreUtilization__Core() {
+	public EOperation getResult__GetAbsoluteCoreUtilization__Core() {
 		return resultEClass.getEOperations().get(1);
 	}
 
@@ -296,7 +296,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__GetMappingElements() {
+	public EOperation getResult__GetRelativeCoreUtilization__Core() {
 		return resultEClass.getEOperations().get(2);
 	}
 
@@ -305,8 +305,17 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__CompareTo__Result() {
+	public EOperation getResult__GetMappingElements() {
 		return resultEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getResult__CompareTo__Result() {
+		return resultEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -498,7 +507,8 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		createEAttribute(resultEClass, RESULT__ABSOLUTE_TOTAL_SCORE);
 		createEAttribute(resultEClass, RESULT__SCALED_TOTAL_SCORE);
 		createEOperation(resultEClass, RESULT___GET_MAPPED_TASKS_FOR_CORE__CORE);
-		createEOperation(resultEClass, RESULT___GET_CORE_UTILIZATION__CORE);
+		createEOperation(resultEClass, RESULT___GET_ABSOLUTE_CORE_UTILIZATION__CORE);
+		createEOperation(resultEClass, RESULT___GET_RELATIVE_CORE_UTILIZATION__CORE);
 		createEOperation(resultEClass, RESULT___GET_MAPPING_ELEMENTS);
 		createEOperation(resultEClass, RESULT___COMPARE_TO__RESULT);
 
@@ -578,7 +588,10 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		EOperation op = initEOperation(getResult__GetMappedTasksForCore__Core(), theModelPackage.getTask(), "getMappedTasksForCore", 0, -1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theModelPackage.getCore(), "core", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getResult__GetCoreUtilization__Core(), theEcorePackage.getEInt(), "getCoreUtilization", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getResult__GetAbsoluteCoreUtilization__Core(), theEcorePackage.getEInt(), "getAbsoluteCoreUtilization", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theModelPackage.getCore(), "core", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getResult__GetRelativeCoreUtilization__Core(), theEcorePackage.getEDouble(), "getRelativeCoreUtilization", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theModelPackage.getCore(), "core", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getResult__GetMappingElements(), this.getSingleMappingElement(), "getMappingElements", 0, -1, !IS_UNIQUE, IS_ORDERED);

@@ -22,8 +22,8 @@ class MaxFreeCapacity extends AbstractMetricImpl {
 			if (!result.task2CoreMap.values.contains(core)) unusedCores++
 			
 			// some task would like to use this core - see how much free space we got
-			if ((core.capacity - result.getCoreUtilization(core)) > maxRemainingCoreCapacity)
-				maxRemainingCoreCapacity = core.capacity - result.getCoreUtilization(core)
+			if ((core.capacity - result.getAbsoluteCoreUtilization(core)) > maxRemainingCoreCapacity)
+				maxRemainingCoreCapacity = core.capacity - result.getAbsoluteCoreUtilization(core)
 		}
 		
 

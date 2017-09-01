@@ -426,7 +426,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getCoreUtilization(final Core core) {
+	public int getAbsoluteCoreUtilization(final Core core) {
 		Integer _xblockexpression = null;
 		{
 			final EList<Task> taskList = this.getMappedTasksForCore(core);
@@ -452,6 +452,28 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 			_xblockexpression = _xifexpression;
 		}
 		return (_xblockexpression).intValue();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getRelativeCoreUtilization(final Core core) {
+		double _xifexpression = (double) 0;
+		int _capacity = core.getCapacity();
+		boolean _greaterThan = (_capacity > 0);
+		if (_greaterThan) {
+			int _absoluteCoreUtilization = this.getAbsoluteCoreUtilization(core);
+			Double _double = new Double(_absoluteCoreUtilization);
+			int _capacity_1 = core.getCapacity();
+			Double _double_1 = new Double(_capacity_1);
+			_xifexpression = DoubleExtensions.operator_divide(_double, _double_1);
+		}
+		else {
+			_xifexpression = (-1.0);
+		}
+		return _xifexpression;
 	}
 
 	/**
@@ -661,8 +683,10 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		switch (operationID) {
 			case ResultPackage.RESULT___GET_MAPPED_TASKS_FOR_CORE__CORE:
 				return getMappedTasksForCore((Core)arguments.get(0));
-			case ResultPackage.RESULT___GET_CORE_UTILIZATION__CORE:
-				return getCoreUtilization((Core)arguments.get(0));
+			case ResultPackage.RESULT___GET_ABSOLUTE_CORE_UTILIZATION__CORE:
+				return getAbsoluteCoreUtilization((Core)arguments.get(0));
+			case ResultPackage.RESULT___GET_RELATIVE_CORE_UTILIZATION__CORE:
+				return getRelativeCoreUtilization((Core)arguments.get(0));
 			case ResultPackage.RESULT___GET_MAPPING_ELEMENTS:
 				return getMappingElements();
 			case ResultPackage.RESULT___COMPARE_TO__RESULT:
