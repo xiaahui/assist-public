@@ -31,4 +31,7 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ek9aMF8sEeeg1tnu8OUyoQ" featurename="children" parentElementId="ch.hilbri.assist.gui.partstack.bottom">
     <elements xsi:type="basic:Part" xmi:id="_ixg6MF8sEeeg1tnu8OUyoQ" elementId="ch.hilbri.assist.mapping.part.metrics" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.metrics.MetricsView" label="Evaluation" iconURI="platform:/plugin/ch.hilbri.assist.mapping/metrics.png"/>
   </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_39RJQI_fEeeUZMzfl9NCEg" featurename="bindings" parentElementId="ch.hilbri.assist.gui.bindingtable.0">
+    <elements xsi:type="commands:KeyBinding" xmi:id="_AjTyAI_gEeeUZMzfl9NCEg" elementId="ch.hilbri.assist.mapping.keybinding.0" keySequence="M1+M" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
+  </fragments>
 </fragment:ModelFragments>
