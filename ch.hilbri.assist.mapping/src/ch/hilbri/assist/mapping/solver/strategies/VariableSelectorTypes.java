@@ -49,7 +49,11 @@ public enum VariableSelectorTypes {
 	public boolean isValueSelectorRequired()		{ return isValueSelectorRequired;	}
 	
 	public AbstractStrategy<IntVar> getStrategy(SolverVariablesContainer solverVariables, AssistModel assistModel, long seed, ValueSelectorTypes valSelector) {
-		IntVar[] vars = solverVariables.getLocationVariablesForCoreLevel();
+		
+		/* I think we should try to iterate over all variables - not just the core level */
+		// IntVar[] vars = solverVariables.getLocationVariablesForCoreLevel();
+		IntVar[] vars = solverVariables.getAllLocationVariables();
+		
 		
 		switch (this) {
 			case DOM_OVER_WDEG:			return new DomOverWDeg(vars, seed, valSelector.getValueSector(solverVariables, assistModel, seed));
