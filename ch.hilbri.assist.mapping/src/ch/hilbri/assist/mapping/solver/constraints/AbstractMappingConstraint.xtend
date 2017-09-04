@@ -3,7 +3,7 @@ package ch.hilbri.assist.mapping.solver.constraints
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
-import org.chocosolver.solver.Solver
+import org.chocosolver.solver.Model
 import org.chocosolver.solver.exception.ContradictionException
 import org.slf4j.Logger
 
@@ -19,7 +19,7 @@ abstract class AbstractMappingConstraint {
 	protected AssistModel 				model
 	
 	/** A reference to the store of the constraint solver */
-	protected Solver 					solver
+	protected Model	 					chocoModel
 	
 	/** A reference to the container of all solver variables */
 	protected SolverVariablesContainer 	solverVariables
@@ -32,10 +32,10 @@ abstract class AbstractMappingConstraint {
 	 * @param solver Reference to the solver instance
 	 * @param solverVariables Reference to the container with all solver variables
 	 */
-	new(String name, AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
+	new(String name, AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
 		this.name = name
 		this.model = model
-		this.solver = solver
+		this.chocoModel = chocoModel
 		this.solverVariables = solverVariables
 	}
 	
@@ -55,7 +55,7 @@ abstract class AbstractMappingConstraint {
 	 */
 	def void propagate() throws BasicConstraintsException {
 		try {
-			solver.propagate()
+			chocoModel.solver.propagate()
 		}
 		catch (ContradictionException e) {
 			throw new BasicConstraintsException(this)

@@ -3,12 +3,12 @@ package ch.hilbri.assist.mapping.solver.constraints
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.IOAdapterType
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
-import org.chocosolver.solver.Solver
+import org.chocosolver.solver.Model
 
 class IOAdapterConstraint extends AbstractMappingConstraint {
 
-	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("i/o adapter", model, solver, solverVariables)
+	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
+		super("i/o adapter", model, chocoModel, solverVariables)
 	}
 
 	override generate() {
@@ -20,12 +20,10 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 //		}
 //		generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints()
 //		generate_MultipleThreads_ExclusiveRequests_incl_ProtectionLevel_Constraints(usedTypes)
-
 		return true
 	}
 
 	def generate_MultipleThreads_ExclusiveRequests_incl_ProtectionLevel_Constraints(IOAdapterType[] usedTypes) {
-
 //		for (bIdx : 0 ..< model.allBoards.size) {
 //
 //			/* Contains a boolean factor for the weighted sum - is this thread mapped to this board? 
@@ -60,14 +58,11 @@ class IOAdapterConstraint extends AbstractMappingConstraint {
 //				}
 //			}
 //		}
-
 	}
 
 	def generate_SingleThread_ExclusiveRequests_incl_ProtectionLevel_Constraints() {
-
 //		for (t : model.allThreads) {
 //			for (exReq : t.application.ioAdapterRequirements.filter[isIsExclusiveOnly]) {
-
 //				// Create a list for each board with the number of suitable adapters which satisfy type and protection level
 //				// suiteableAdapterCountPerBoardList[board] = # suiteable adapters w.r.t. type and protection level
 //				val suiteableAdapterCountPerBoardList = model.allBoards.map[

@@ -2,12 +2,12 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
-import org.chocosolver.solver.Solver
+import org.chocosolver.solver.Model
 
 class SystemHierarchyConstraint extends AbstractMappingConstraint {
 
-	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("system hierarchy", model, solver, solverVariables)
+	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
+		super("system hierarchy", model, chocoModel, solverVariables)
 	}
 
 	override generate() {

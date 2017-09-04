@@ -2,14 +2,14 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
-import org.chocosolver.solver.Solver
+import org.chocosolver.solver.Model
 
 class RAMUtilizationConstraint extends AbstractMappingConstraint {
-	
-	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("ram capacity", model, solver, solverVariables)
+
+	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
+		super("ram capacity", model, chocoModel, solverVariables)
 	}
-	
+
 	override generate() {
 //		/* **** Preparations **** */
 //		
@@ -84,8 +84,7 @@ class RAMUtilizationConstraint extends AbstractMappingConstraint {
 //		}
 //		
 //		propagate()
-		
 		return true
 	}
-	
+
 }

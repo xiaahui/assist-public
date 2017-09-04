@@ -3,13 +3,13 @@ package ch.hilbri.assist.mapping.solver.constraints
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
-import org.chocosolver.solver.Solver
+import org.chocosolver.solver.Model
 import org.chocosolver.solver.exception.ContradictionException
 
 class CoreUtilizationConstraint extends AbstractMappingConstraint {
 
-	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("core capacity", model, solver, solverVariables)
+	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
+		super("core capacity", model, chocoModel, solverVariables)
 	}
 
 	override generate() {
@@ -45,7 +45,6 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 //			solverVariables.getThreadLocationVariable(t, HardwareArchitectureLevelType.CORE_VALUE)]
 //		val utilizationVars = model.allCores.map[c|solverVariables.getAbsoluteCoreUtilizationVariable(c)]
 //		solver.post(ICF.bin_packing(locationVars, allCoreUtilization, utilizationVars, 0))
-
 		try {
 //			solver.propagate
 		} catch (ContradictionException e) {

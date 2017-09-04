@@ -2,16 +2,16 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
-import org.chocosolver.solver.Solver
+import org.chocosolver.solver.Model
 
 class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
-	
-	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("design assurance level", model, solver, solverVariables)
+
+	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
+		super("design assurance level", model, chocoModel, solverVariables)
 	}
-	
+
 	override generate() {
-		
+
 //		if (model.allThreads.filter[application.criticalityLevel > DesignAssuranceLevelType.NONE].empty) {
 //			return false
 //		}
@@ -50,7 +50,6 @@ class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 //				throw new BasicConstraintsException(this)
 //			}
 //		}
-		
 		return true
 	}
 }

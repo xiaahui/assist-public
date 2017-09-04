@@ -3,17 +3,17 @@ package ch.hilbri.assist.mapping.solver.constraints
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
-import org.chocosolver.solver.Solver
+import org.chocosolver.solver.Model
 import org.chocosolver.solver.variables.IntVar
 
 class DislocalityConstraint extends AbstractMappingConstraint {
-	
-	new(AssistModel model, Solver solver, SolverVariablesContainer solverVariables) {
-		super("dislocality", model, solver, solverVariables)
+
+	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
+		super("dislocality", model, chocoModel, solverVariables)
 	}
-	
+
 	override generate() {
-		
+
 		/*
 		 * A dislocality relation can be specified for applications and applicationGroups;
 		 * 
@@ -36,7 +36,6 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 		 * 
 		 * 3) Create an Alldifferent constraint for each set
 		 */
-		
 //		for (r : model.dislocalityRelations) {
 //			
 //			val varList = new ArrayList<ArrayList<IntVar>>()
@@ -70,39 +69,35 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 //				throw new BasicConstraintsException(this)
 //			}
 //		}
-
 		return true
 	}
-	
-	
+
 	def ArrayList<ArrayList<IntVar>> createDisjointVariableSets(ArrayList<ArrayList<IntVar>> locationVariables) {
-		
+
 		if (locationVariables.size == 1) {
 			val newList = new ArrayList<ArrayList<IntVar>>()
-			for (v : locationVariables.get(0)) { 
+			for (v : locationVariables.get(0)) {
 				val l = new ArrayList<IntVar>()
 				l.add(v)
 				newList.add(l)
 			}
 			return newList
-		} 
-		
-		else {
+		} else {
 			val tmpList = new ArrayList<ArrayList<IntVar>>(locationVariables)
 			tmpList.remove(0)
 			val returnList = createDisjointVariableSets(tmpList);
-		
+
 			val newList = new ArrayList<ArrayList<IntVar>>();
-			for (v : locationVariables.get(0)) 
-				for (list : returnList) {	
+			for (v : locationVariables.get(0))
+				for (list : returnList) {
 					val l = new ArrayList<IntVar>();
 					l.add(v);
 					l.addAll(list);
 					newList.add(l);
 				}
-			
+
 			return newList;
 		}
 	}
-	
+
 }
