@@ -5,17 +5,10 @@ import java.io.File
 import java.nio.file.Files
 import java.nio.file.Paths
 import org.junit.Test
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 
 import static org.junit.Assert.*
 
 class ExampleTests extends AbstractMappingTest {
-
-	private Logger logger 
-	new() {
-		logger = LoggerFactory.getLogger(ExampleTests)	
-	} 
 	
 	@Test
 	def void exampleSpecFileTest() {

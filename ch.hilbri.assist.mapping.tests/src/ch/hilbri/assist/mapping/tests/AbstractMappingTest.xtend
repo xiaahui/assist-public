@@ -23,7 +23,7 @@ class AbstractMappingTest {
 	protected AssistModel model
 	protected ArrayList<Result> allResults
 
-	private Logger logger
+	public Logger logger
 
 	new() {
 		logger = LoggerFactory.getLogger(AbstractMappingTest)
