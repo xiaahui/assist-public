@@ -239,4 +239,9 @@ class AssistSolver {
 	def setStopCriterion(Criterion c) {
 		chocoSolver.addStopCriterion(c)
 	}
+	
+	/** For the tests */
+	def SolverVariablesContainer getSolverVariablesContainer() {
+		solverVariables
+	}
 }
