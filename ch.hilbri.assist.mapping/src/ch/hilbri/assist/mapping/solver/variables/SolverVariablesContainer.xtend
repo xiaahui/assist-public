@@ -7,6 +7,8 @@ import java.util.HashMap
 import java.util.List
 import java.util.Map
 import org.chocosolver.solver.Model
+import org.chocosolver.solver.constraints.^extension.Tuples
+import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
 
 class SolverVariablesContainer {
@@ -19,7 +21,7 @@ class SolverVariablesContainer {
 	
 	/** A matrix of variables as indicators for each task
 	 *  d_{i,j} = {0,1}   <-- if d_{i,j} = 1 then task_i is mapped to core_j */
-	private var IntVar[][] indVarsCoreLevel
+	private var BoolVar[][] indVarsCoreLevel
 	
 	/** Store a reference to the ASSIST Input model */
 	private AssistModel assistModel
@@ -51,11 +53,37 @@ class SolverVariablesContainer {
 			locationVariableToTaskMap.put(locVarBoard, t.name)
 			locationVariableToTaskMap.put(locVarBox, t.name)
 			locationVariableToTaskMap.put(locVarComp, t.name)
-			
-			/* We need to create indicator variables for the core-level;
-			 * d_{i,j} = {0,1}   <-- if d_{i,j} = 1 then task_i is mapped to core_j */
-			indVarsCoreLevel = solverModel.intVarMatrix("indVarCore", assistModel.allTasks.size, assistModel.allCores.size, #[0,1])
 		}
+		
+		/* We need to create indicator variables for the core-level;
+		 * d_{i,j} = {0,1}   <-- if d_{i,j} = 1 then task_i is mapped to core_j */
+		indVarsCoreLevel = solverModel.boolVarMatrix("indVarCore", assistModel.allTasks.size, assistModel.allCores.size)
+	
+		for (t : assistModel.allTasks) { 
+			/* We go through each core and create the link to the location variable */
+			for (j : 0 ..< assistModel.allCores.size) {
+				val indicatorVar = getIndVarsCoreLevel(t).get(j)
+				val locationVar = getLocationVariablesForTask(t).get(0)
+				
+				/* We try to define the valid tuples for the relationship between locationVariable of task t
+				 * and the indicatorVariable_j, which is only true, if task t is placed on core_j  (false otherwise) */
+				 
+				val tuples = new Tuples(true)
+				for (iter : 0 ..< assistModel.allCores.size)     // = all possible values for location variable of t
+					if (iter != j)								
+						tuples.add(iter, 0)						// task t is not placed on core j  --> false	
+					else									
+						tuples.add(iter, 1)						// task t is placed on core j  --> true	
+				
+				/* Post the table constraint to link the variables */
+				solverModel.table(#[locationVar, indicatorVar], tuples, "GAC3rm+").post
+			}
+			
+			/* Each task can be placed to only one core - only one indicator variable of a task can be true (= 1) */
+			solverModel.count(1, getIndVarsCoreLevel(t), solverModel.intVar(1)).post
+		}
+		
+		solverModel.solver.propagate()
 	}
 	
 	def IntVar[] getAllLocationVariables() {
@@ -74,20 +102,20 @@ class SolverVariablesContainer {
 		taskToLocationVariablesMap.get(task.name)
 	}
 
-	def IntVar[] getIndVarsCoreLevel(Task task) {
+	def BoolVar[] getIndVarsCoreLevel(Task task) {
 		indVarsCoreLevel.get(assistModel.allTasks.indexOf(task))
 	}
 	
-	def IntVar[] getIndVarsCoreLevel_TaskIdx(int taskIdx) {
+	def BoolVar[] getIndVarsCoreLevel_TaskIdx(int taskIdx) {
 		getIndVarsCoreLevel(assistModel.allTasks.get(taskIdx))
 	}
 	
-	def IntVar[] getIndVarsCoreLevel(Core core) {
+	def BoolVar[] getIndVarsCoreLevel(Core core) {
 		val coreIdx = assistModel.allCores.indexOf(core)
 		indVarsCoreLevel.map[it.get(coreIdx)]
 	}
 
-	def IntVar[] getIndVarsCoreLevel_CoreIdx(int coreIdx) {
+	def BoolVar[] getIndVarsCoreLevel_CoreIdx(int coreIdx) {
 		getIndVarsCoreLevel(assistModel.allCores.get(coreIdx))
 	}
 
