@@ -1,25 +1,37 @@
 package ch.hilbri.assist.mapping.solver.variables
 
 import ch.hilbri.assist.mapping.model.AssistModel
+import ch.hilbri.assist.mapping.model.Core
 import ch.hilbri.assist.mapping.model.Task
 import java.util.HashMap
 import java.util.List
 import java.util.Map
 import org.chocosolver.solver.Model
 import org.chocosolver.solver.variables.IntVar
-import org.eclipse.xtend.lib.annotations.Accessors
-import org.eclipse.xtend.lib.annotations.Data
 
-@Data class SolverVariablesContainer {
+class SolverVariablesContainer {
 	
 	/** A map with the tasks as keys and the list of location variables as values */
-	@Accessors(NONE) private Map<String, List<IntVar>>	taskToLocationVariablesMap = new HashMap
+	private Map<String, List<IntVar>>	taskToLocationVariablesMap = new HashMap
 	
 	/** A map with the task for each locationVariable */
-	@Accessors(NONE) private Map<IntVar, String>		locationVariableToTaskMap = new HashMap
+	private Map<IntVar, String>		locationVariableToTaskMap = new HashMap
+	
+	/** A matrix of variables as indicators for each task
+	 *  d_{i,j} = {0,1}   <-- if d_{i,j} = 1 then task_i is mapped to core_j */
+	private var IntVar[][] indVarsCoreLevel
+	
+	/** Store a reference to the ASSIST Input model */
+	private AssistModel assistModel
+	
+	/** Store a reference to the choco solver */
+	private Model solverModel
 	
 	/* CONSTRUCTOR */
 	new(AssistModel assistModel, Model solverModel) {
+		
+		this.assistModel = assistModel
+		this.solverModel = solverModel
 		
 		/* Initialize the hash map for all task-related location variables */
 		for (t : assistModel.allTasks) {
@@ -39,6 +51,10 @@ import org.eclipse.xtend.lib.annotations.Data
 			locationVariableToTaskMap.put(locVarBoard, t.name)
 			locationVariableToTaskMap.put(locVarBox, t.name)
 			locationVariableToTaskMap.put(locVarComp, t.name)
+			
+			/* We need to create indicator variables for the core-level;
+			 * d_{i,j} = {0,1}   <-- if d_{i,j} = 1 then task_i is mapped to core_j */
+			indVarsCoreLevel = solverModel.intVarMatrix("indVarCore", assistModel.allTasks.size, assistModel.allCores.size, #[0,1])
 		}
 	}
 	
@@ -57,6 +73,24 @@ import org.eclipse.xtend.lib.annotations.Data
 	def IntVar[] getLocationVariablesForTask(Task task) {
 		taskToLocationVariablesMap.get(task.name)
 	}
+
+	def IntVar[] getIndVarsCoreLevel(Task task) {
+		indVarsCoreLevel.get(assistModel.allTasks.indexOf(task))
+	}
+	
+	def IntVar[] getIndVarsCoreLevel_TaskIdx(int taskIdx) {
+		getIndVarsCoreLevel(assistModel.allTasks.get(taskIdx))
+	}
+	
+	def IntVar[] getIndVarsCoreLevel(Core core) {
+		val coreIdx = assistModel.allCores.indexOf(core)
+		indVarsCoreLevel.map[it.get(coreIdx)]
+	}
+
+	def IntVar[] getIndVarsCoreLevel_CoreIdx(int coreIdx) {
+		getIndVarsCoreLevel(assistModel.allCores.get(coreIdx))
+	}
+
 
  }
   
