@@ -244,4 +244,8 @@ class AssistSolver {
 	def SolverVariablesContainer getSolverVariablesContainer() {
 		solverVariables
 	}
+	
+	def List<Solution> getChocoSolutions() {
+		chocoSolutions
+	}
 }
