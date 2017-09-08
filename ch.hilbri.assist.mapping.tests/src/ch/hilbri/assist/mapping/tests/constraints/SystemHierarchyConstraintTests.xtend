@@ -148,7 +148,7 @@ Software {
 		assistSolver.runConstraintGeneration
 		assistSolver.runSolutionSearch
 		
-		Assert.assertEquals(8, assistSolver.chocoSolutions.length)
+		Assert.assertEquals(16, assistSolver.chocoSolutions.length)
 		
 		
 	}

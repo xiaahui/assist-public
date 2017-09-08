@@ -4,7 +4,6 @@ import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Model
 import org.chocosolver.solver.constraints.^extension.Tuples
-import org.eclipse.emf.ecore.EObject
 
 class SystemHierarchyConstraint extends AbstractMappingConstraint {
 
@@ -17,19 +16,21 @@ class SystemHierarchyConstraint extends AbstractMappingConstraint {
 		// Building a table constraint for each layer in the location hierarchy
 
 		val tuples = new Tuples(true)
-		val cores = model.allCores
-		for (int coreIdx : 0 ..< cores.length) {
-			var index = newArrayList
-			var eObj = cores.get(coreIdx) as EObject
-				
-			while (eObj.eContainer !== null) {
-				val parent = eObj.eContainer
-				val eObjIdx = parent.eContents.indexOf(eObj)
-				index.add(eObjIdx)
-				eObj = parent				
-			}		
 		
-			tuples.add(index)
+		for (int coreIdx : 0 ..< model.allCores.length) {
+		
+			val core = model.allCores.get(coreIdx)
+			val processor = core.processor
+			val board = processor.board
+			val box = board.box
+			val compartment = box.compartment
+			
+			val processorIdx = model.allProcessors.indexOf(processor)
+			val boardIdx = model.allBoards.indexOf(board)
+			val boxIdx = model.allBoxes.indexOf(box)
+			val compartmentIdx = model.allCompartments.indexOf(compartment)
+		
+			tuples.add(#[coreIdx, processorIdx, boardIdx, boxIdx, compartmentIdx])
 		}
 
 		// building table constraints reflecting the location hierarchy		
