@@ -6,8 +6,16 @@ import ch.hilbri.assist.mapping.tests.constraints.SystemHierarchyConstraintTests
 import org.junit.runner.RunWith
 import org.junit.runners.Suite
 import org.junit.runners.Suite.SuiteClasses
+import ch.hilbri.assist.mapping.tests.constraints.CoreUtilizationConstraintTests
 
 @RunWith(Suite) 
-@SuiteClasses(#[ExampleTests, IndicatorVariablesTests, SystemHierarchyConstraintTests])
-class TestSuiteAllMappingTests {
-}
+@SuiteClasses(
+	#[
+		ExampleTests, 
+		IndicatorVariablesTests, 
+		SystemHierarchyConstraintTests,
+		CoreUtilizationConstraintTests
+	]
+)
+
+class TestSuiteAllMappingTests {}
