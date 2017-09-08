@@ -5,11 +5,6 @@ import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint
-import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint
-import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
-import ch.hilbri.assist.mapping.solver.constraints.IOAdapterConstraint
-import ch.hilbri.assist.mapping.solver.constraints.RAMUtilizationConstraint
-import ch.hilbri.assist.mapping.solver.constraints.ROMUtilizationConstraint
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.PartialSolutionSaveMonitor
@@ -73,12 +68,7 @@ class AssistSolver {
 		
 		mappingConstraintsList 	= newArrayList
 		mappingConstraintsList.add(new SystemHierarchyConstraint(assistModel, chocoModel, solverVariables))
-		mappingConstraintsList.add(new DislocalityConstraint(assistModel, chocoModel, solverVariables))
-		mappingConstraintsList.add(new DesignAssuranceLevelConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new CoreUtilizationConstraint(assistModel, chocoModel, solverVariables))
-		mappingConstraintsList.add(new IOAdapterConstraint(assistModel, chocoModel, solverVariables))
-		mappingConstraintsList.add(new RAMUtilizationConstraint(assistModel, chocoModel, solverVariables))
-		mappingConstraintsList.add(new ROMUtilizationConstraint(assistModel, chocoModel, solverVariables))
 		
 		mappingResults 			= newArrayList  
 		

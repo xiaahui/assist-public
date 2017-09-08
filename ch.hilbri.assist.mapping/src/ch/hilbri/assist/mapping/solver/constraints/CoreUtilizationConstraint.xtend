@@ -1,10 +1,8 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.mapping.model.AssistModel
-import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Model
-import org.chocosolver.solver.exception.ContradictionException
 
 class CoreUtilizationConstraint extends AbstractMappingConstraint {
 
@@ -14,42 +12,14 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 
 	override generate() {
 
-		/* **** Preparations **** */
-		/* How much processing capacity does each core offer? */
-		val int[] allCoreCapacities = model.allCores.map[capacity]
+		for (core : model.allCores) {
+			val indVars = solverVariables.getIndVarsCoreLevel(core) // is this task mapped to this core?
+			val taskUtils = model.allTasks.map[coreUtilization]     // how much capacity does it require
+			
+			chocoModel.scalar(indVars, taskUtils, "<=", core.capacity).post
+		}		
 
-		/* How much processing capacity does each thread need? */
-		val int[] allCoreUtilization = model.allTasks.map[coreUtilization]
-
-		// - create the total sum of core utilization of all applications (+ threads)
-		val totalCoreUtilization = allCoreUtilization.reduce[p1, p2|p1 + p2]
-
-		if (totalCoreUtilization <= allCoreCapacities.min) {
-			return false
-		}
-
-		/* **** Preparing the constraints **** */
-		/* 0. The total sum of all threads's core utilization should
-		 *    be less than the total sum of all core capacities
-		 *    (This is a valid approach, because each applications core utilization is specified independently from the core)
-		 */
-		if (totalCoreUtilization > allCoreCapacities.reduce[p1, p2|p1 + p2]) {
-			throw new BasicConstraintsException(this)
-		}
-
-		/*
-		 * 1. The sum of the utilization of all applications on each core
-		 *    must not exceed its capabilities 
-		 */
-//		val locationVars = model.allThreads.map[t|
-//			solverVariables.getThreadLocationVariable(t, HardwareArchitectureLevelType.CORE_VALUE)]
-//		val utilizationVars = model.allCores.map[c|solverVariables.getAbsoluteCoreUtilizationVariable(c)]
-//		solver.post(ICF.bin_packing(locationVars, allCoreUtilization, utilizationVars, 0))
-		try {
-//			solver.propagate
-		} catch (ContradictionException e) {
-			throw new BasicConstraintsException(this)
-		}
+		propagate()
 
 		return true
 	}

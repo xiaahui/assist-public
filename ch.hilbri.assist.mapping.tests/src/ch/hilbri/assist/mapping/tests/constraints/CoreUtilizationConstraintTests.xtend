@@ -58,7 +58,7 @@ Software {
 	Application A1 {
 		Task A1_T1 { CoreUtilization = 1; }
 		Task A1_T2 { CoreUtilization = 2; }
-		Task A1_T1 { CoreUtilization = 3; }
+		Task A1_T3 { CoreUtilization = 3; }
 	}
 }
 		''')
@@ -73,12 +73,20 @@ Software {
 		assistSolver.runSolutionSearch
 		assistSolver.createSolutions
 
+		Assert.assertEquals(5, assistSolver.results.size)
+
 		for (result : assistSolver.results) {
 			for (core : assistModel.allCores) {
-				val utilizationSum = result.getMappedTasksForCore(core).map[coreUtilization].reduce[p1, p2|p1 + p2]
-				Assert.
-					assertTrue('''The utilization of the core «core.name» should not exceed its capacity (capacity: «core.capacity», utilization: «utilizationSum»)''',
-						utilizationSum <= core.capacity)
+				val mappedTasks = result.getMappedTasksForCore(core)
+
+				if (!mappedTasks.isNullOrEmpty) {
+					val utilizationSum = mappedTasks.map[coreUtilization].reduce[p1, p2|p1 + p2]
+					val msg = '''Utilization of «core.name» exceeds capacity (cap.: «core.capacity», util.: «utilizationSum»)'''
+					Assert.assertTrue(msg, utilizationSum <= core.capacity)
+				} 
+				else
+					Assert.assertTrue(mappedTasks === null || mappedTasks.length == 0) 
+				
 			}
 		}
 	}
