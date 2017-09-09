@@ -22,8 +22,8 @@ Hardware {
 		Box C1_B1 {
 			Board C1_B1_B1 {
 				Processor C1_B1_B1_P1 {
-					Core C1_B1_B1_P1_C0 { Capacity = 100; }
-					Core C1_B1_B1_P1_C1 { Capacity = 100; }
+					Core C1_B1_B1_P1_C0 { }
+					Core C1_B1_B1_P1_C1 { }
 				}
 			}
 		}
@@ -31,8 +31,8 @@ Hardware {
 		Box C1_B2 {
 			Board C1_B2_B1 {
 				Processor C1_B2_B1_P1 {
-					Core C1_B2_B1_P1_C0 { Capacity = 100; }
-					Core C1_B2_B1_P1_C1 { Capacity = 100; }
+					Core C1_B2_B1_P1_C0 { }
+					Core C1_B2_B1_P1_C1 { }
 				}
 			}
 		}
@@ -42,8 +42,8 @@ Hardware {
 		Box C2_B1 {
 			Board C2_B1_B1 {
 				Processor C2_B1_B1_P1 {
-					Core C2_B1_B1_P1_C0 { Capacity = 100; }
-					Core C2_B1_B1_P1_C1 { Capacity = 100; }
+					Core C2_B1_B1_P1_C0 { }
+					Core C2_B1_B1_P1_C1 { }
 				}
 			}
 		}
@@ -51,8 +51,8 @@ Hardware {
 		Box C2_B2 {
 			Board C2_B2_B1 {
 				Processor C2_B2_B1_P1 {
-					Core C2_B2_B1_P1_C0 { Capacity = 100; }
-					Core C2_B2_B1_P1_C1 { Capacity = 100; }
+					Core C2_B2_B1_P1_C0 { }
+					Core C2_B2_B1_P1_C1 { }
 				}
 			}
 		}
@@ -61,9 +61,7 @@ Hardware {
 
 Software {
 	Application A1 {
-		Task A1_T1 {
-			CoreUtilization = 10;
-		}
+		Task A1_T1 {	}
 	}
 }
 		''')
