@@ -13,7 +13,7 @@ class CoreUtilizationConstraint extends AbstractMappingConstraint {
 	override generate() {
 
 		for (core : model.allCores) {
-			val indVars = solverVariables.getIndVarsCoreLevel(core) // is this task mapped to this core?
+			val indVars = solverVariables.getIndVars(core) 			// is this task mapped to this core?
 			val taskUtils = model.allTasks.map[coreUtilization]     // how much capacity does it require
 			
 			chocoModel.scalar(indVars, taskUtils, "<=", core.capacity).post

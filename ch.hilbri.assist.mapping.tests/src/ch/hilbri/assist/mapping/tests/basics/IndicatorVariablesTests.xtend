@@ -70,7 +70,7 @@ Software {
 				val coreIdxForTask = solution.getIntVal(solverVariablesContainer.getLocationVariablesForTask(task).get(0))
 				
 				/* Go through all indicator variables for this task and check that they are 0 for all other cores than coreIdx */
-				val indicatorVariables = solverVariablesContainer.getIndVarsCoreLevel(task)
+				val indicatorVariables = solverVariablesContainer.getIndVars(task, 0)
 				for (i : 0 ..< assistModel.allCores.size) {
 					val indicatorVariableValue = solution.getIntVal(indicatorVariables.get(i))
 					if (i != coreIdxForTask)
@@ -82,7 +82,7 @@ Software {
 			
 			/* Now we check the reverse - take the indicator variables for each core and relate that to the placement of the tasks */
 			for (coreIter : 0..< assistModel.allCores.size) {
-				val indVars = solverVariablesContainer.getIndVarsCoreLevel(assistModel.allCores.get(coreIter))
+				val indVars = solverVariablesContainer.getIndVars(assistModel.allCores.get(coreIter))
 				for (indVarIter : 0..< indVars.size) {
 					// Now we look at the task with the id indVarIter
 					// Where is it going to be mapped to?
