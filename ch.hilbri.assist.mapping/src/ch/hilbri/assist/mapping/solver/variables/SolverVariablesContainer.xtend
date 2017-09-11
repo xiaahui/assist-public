@@ -19,9 +19,19 @@ class SolverVariablesContainer {
 	/** A map with the task for each locationVariable */
 	private Map<IntVar, String>		locationVariableToTaskMap = new HashMap
 	
-	/** A matrix of variables as indicators for each task
-	 *  d_{i,j} = {0,1}   <-- if d_{i,j} = 1 then task_i is mapped to core_j */
-	private var BoolVar[][] indVarsCoreLevel
+	/** A 3d matrix of variables as indicators for each task
+	 * 	
+	 * 	d[i][l][j] = {0,1}
+	 * 				- Task i
+	 * 				- Hardware level l (core = 0, processor = 1, ...)
+	 * 				- Hardware component index j
+	 * 
+	 *  => Is task i mapped to component with index j on level l? 
+	 * 
+	 * We could not use a 3D array because of limitations in xtend, 
+	 * therefore, we had to resort to Lists of Lists of Lists
+	 * */ 
+	private var List<List<List<BoolVar>>> indVars
 	
 	/** Store a reference to the ASSIST Input model */
 	private AssistModel assistModel
@@ -55,9 +65,24 @@ class SolverVariablesContainer {
 			locationVariableToTaskMap.put(locVarComp, t.name)
 		}
 		
-		/* We need to create indicator variables for the core-level;
-		 * d_{i,j} = {0,1}   <-- if d_{i,j} = 1 then task_i is mapped to core_j */
-		indVarsCoreLevel = solverModel.boolVarMatrix("indVarCore", assistModel.allTasks.size, assistModel.allCores.size)
+		/* 	d[i][l][j] = {0,1}
+		 * 				- Task i
+		 * 				- Hardware level l (core = 0, processor = 1, ...)
+		 * 				- Hardware component index j */
+		
+		/* Tasks */
+		indVars = newArrayList
+		for (i : 0 ..< assistModel.allTasks.size) {
+			
+			/* For each task, add a new list to hold the levels */
+			indVars.add(newArrayList)
+
+			/* Hardware level */
+			for (l : 0 ..< 5 ) 
+				/* For each component on that level, add the boolean variables */
+				indVars.get(i).add(solverModel.boolVarArray("IndV-" + i + "-" + l, assistModel.getAllHardwareElements(l).size))
+		}
+		
 	
 		for (t : assistModel.allTasks) { 
 			/* We go through each core and create the link to the location variable */
@@ -103,22 +128,20 @@ class SolverVariablesContainer {
 	}
 
 	def BoolVar[] getIndVarsCoreLevel(Task task) {
-		indVarsCoreLevel.get(assistModel.allTasks.indexOf(task))
+		indVars.get(assistModel.allTasks.indexOf(task)).get(0)
+	}
+
+	def BoolVar[] getIndVarsCoreLevel(Core core) {
+		val coreIdx = assistModel.allCores.indexOf(core)
+		indVars.map[get(0).get(coreIdx)]
 	}
 	
 	def BoolVar[] getIndVarsCoreLevel_TaskIdx(int taskIdx) {
 		getIndVarsCoreLevel(assistModel.allTasks.get(taskIdx))
 	}
-	
-	def BoolVar[] getIndVarsCoreLevel(Core core) {
-		val coreIdx = assistModel.allCores.indexOf(core)
-		indVarsCoreLevel.map[it.get(coreIdx)]
-	}
 
 	def BoolVar[] getIndVarsCoreLevel_CoreIdx(int coreIdx) {
 		getIndVarsCoreLevel(assistModel.allCores.get(coreIdx))
 	}
-
-
  }
   

@@ -26,6 +26,15 @@ class AssistModel {
 	op Processor[] 		getAllProcessors() 		{ compartments.map[allProcessors].flatten.toEList	}
 	op Core[] 			getAllCores() 			{ compartments.map[allCores].flatten.toEList		}
 	op Task[]			getAllTasks()			{ applications.map[allTasks].flatten.toEList		}
+	
+	op HardwareElement[] getAllHardwareElements(int level) {
+		if (level == 0) 		allCores.map[it as HardwareElement]
+		else if (level == 1)	allProcessors.map[it as HardwareElement]
+		else if (level == 2)	allBoards.map[it as HardwareElement]
+		else if (level == 3)	allBoxes.map[it as HardwareElement]
+		else if (level == 4)	allCompartments.map[it as HardwareElement]
+		else					null
+	}
 }
 
 class HardwareElement {

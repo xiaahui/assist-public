@@ -197,13 +197,22 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL___GET_ALL_TASKS = 5;
 
 	/**
+	 * The operation id for the '<em>Get All Hardware Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = 6;
+
+	/**
 	 * The number of operations of the '<em>Assist Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_OPERATION_COUNT = 6;
+	int ASSIST_MODEL_OPERATION_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -1794,6 +1803,16 @@ public interface ModelPackage extends EPackage {
 	EOperation getAssistModel__GetAllTasks();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModel#getAllHardwareElements(int) <em>Get All Hardware Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Hardware Elements</em>' operation.
+	 * @see ch.hilbri.assist.mapping.model.AssistModel#getAllHardwareElements(int)
+	 * @generated
+	 */
+	EOperation getAssistModel__GetAllHardwareElements__int();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.HardwareElement <em>Hardware Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2986,6 +3005,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ASSIST_MODEL___GET_ALL_TASKS = eINSTANCE.getAssistModel__GetAllTasks();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = eINSTANCE.getAssistModel__GetAllHardwareElements__int();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.

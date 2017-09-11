@@ -441,6 +441,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getAssistModel__GetAllHardwareElements__int() {
+		return assistModelEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getHardwareElement() {
 		return hardwareElementEClass;
 	}
@@ -1378,6 +1387,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_PROCESSORS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_CORES);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_TASKS);
+		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT);
 
 		hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
 		createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
@@ -1565,6 +1575,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEOperation(getAssistModel__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getAssistModel__GetAllTasks(), this.getTask(), "getAllTasks", 0, -1, !IS_UNIQUE, IS_ORDERED);
+
+		EOperation op = initEOperation(getAssistModel__GetAllHardwareElements__int(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEInt(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHardwareElement_Name(), theEcorePackage.getEString(), "name", "", 0, 1, HardwareElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

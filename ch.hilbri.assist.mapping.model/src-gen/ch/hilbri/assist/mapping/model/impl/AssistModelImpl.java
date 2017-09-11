@@ -11,6 +11,7 @@ import ch.hilbri.assist.mapping.model.Compartment;
 import ch.hilbri.assist.mapping.model.Core;
 import ch.hilbri.assist.mapping.model.DislocalityRelation;
 import ch.hilbri.assist.mapping.model.DissimilarityRelation;
+import ch.hilbri.assist.mapping.model.HardwareElement;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 import ch.hilbri.assist.mapping.model.Processor;
 import ch.hilbri.assist.mapping.model.ProximityRelation;
@@ -337,6 +338,75 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<HardwareElement> getAllHardwareElements(final int level) {
+		EList<HardwareElement> _xifexpression = null;
+		if ((level == 0)) {
+			final Function1<Core, HardwareElement> _function = new Function1<Core, HardwareElement>() {
+				public HardwareElement apply(final Core it) {
+					return ((HardwareElement) it);
+				}
+			};
+			_xifexpression = XcoreEListExtensions.<Core, HardwareElement>map(this.getAllCores(), _function);
+		}
+		else {
+			EList<HardwareElement> _xifexpression_1 = null;
+			if ((level == 1)) {
+				final Function1<Processor, HardwareElement> _function_1 = new Function1<Processor, HardwareElement>() {
+					public HardwareElement apply(final Processor it) {
+						return ((HardwareElement) it);
+					}
+				};
+				_xifexpression_1 = XcoreEListExtensions.<Processor, HardwareElement>map(this.getAllProcessors(), _function_1);
+			}
+			else {
+				EList<HardwareElement> _xifexpression_2 = null;
+				if ((level == 2)) {
+					final Function1<Board, HardwareElement> _function_2 = new Function1<Board, HardwareElement>() {
+						public HardwareElement apply(final Board it) {
+							return ((HardwareElement) it);
+						}
+					};
+					_xifexpression_2 = XcoreEListExtensions.<Board, HardwareElement>map(this.getAllBoards(), _function_2);
+				}
+				else {
+					EList<HardwareElement> _xifexpression_3 = null;
+					if ((level == 3)) {
+						final Function1<Box, HardwareElement> _function_3 = new Function1<Box, HardwareElement>() {
+							public HardwareElement apply(final Box it) {
+								return ((HardwareElement) it);
+							}
+						};
+						_xifexpression_3 = XcoreEListExtensions.<Box, HardwareElement>map(this.getAllBoxes(), _function_3);
+					}
+					else {
+						EList<HardwareElement> _xifexpression_4 = null;
+						if ((level == 4)) {
+							final Function1<Compartment, HardwareElement> _function_4 = new Function1<Compartment, HardwareElement>() {
+								public HardwareElement apply(final Compartment it) {
+									return ((HardwareElement) it);
+								}
+							};
+							_xifexpression_4 = XcoreEListExtensions.<Compartment, HardwareElement>map(this.getAllCompartments(), _function_4);
+						}
+						else {
+							_xifexpression_4 = null;
+						}
+						_xifexpression_3 = _xifexpression_4;
+					}
+					_xifexpression_2 = _xifexpression_3;
+				}
+				_xifexpression_1 = _xifexpression_2;
+			}
+			_xifexpression = _xifexpression_1;
+		}
+		return _xifexpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -501,6 +571,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getAllCores();
 			case ModelPackage.ASSIST_MODEL___GET_ALL_TASKS:
 				return getAllTasks();
+			case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT:
+				return getAllHardwareElements((Integer)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
