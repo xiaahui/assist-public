@@ -98,4 +98,91 @@ Software {
 		}
 	}
 	
+		@Test
+	def void Test1ROM() {
+		val assistModel = parser.parse('''
+Global {
+	System = "Example System";
+}
+		
+Hardware {
+
+	Compartment C1 {
+		Box C1_B1 {
+			Board C1_B1_B1 {
+				ROM = 0;
+				Processor C1_B1_B1_P1 {
+					Core C1_B1_B1_P1_C0 { }
+				}
+			}
+		}
+	
+		Box C1_B2 {
+			Board C1_B2_B1 {
+				ROM = 4;
+				Processor C1_B2_B1_P1 {
+					Core C1_B2_B1_P1_C0 { }
+				}
+			}
+		}
+	}
+
+	Compartment C2 {
+		Box C2_B1 {
+			Board C2_B1_B1 {
+				ROM = 2;
+				Processor C2_B1_B1_P1 {
+					Core C2_B1_B1_P1_C0 { }
+				}
+			}
+		}
+	
+		Box C2_B2 {
+			Board C2_B2_B1 {
+				ROM = 12;
+				Processor C2_B2_B1_P1 {
+					Core C2_B2_B1_P1_C0 { }
+				}
+			}
+		}
+	}				
+}			
+
+Software {
+	Application A1 {
+		Task A1_T1 { RequiredROM = 2; }
+		Task A1_T2 { RequiredROM = 3; }
+		Task A1_T3 { RequiredROM = 4; } 
+	}
+}
+		''')
+		Assert.assertNotNull(assistModel)
+		Assert.assertTrue(assistModel.eResource.errors.isEmpty)
+
+		val assistSolver = new AssistSolver(assistModel)
+		assistSolver.setSolverSearchStrategy(VariableSelectorTypes.^default, ValueSelectorTypes.^default)
+		assistSolver.solverMaxSolutions = 1000
+		assistSolver.runInitialization
+		assistSolver.runConstraintGeneration
+		assistSolver.runSolutionSearch
+		assistSolver.createSolutions
+
+		Assert.assertTrue(assistSolver.results.size > 0)
+//		Assert.assertEquals(5, assistSolver.results.size)
+
+		for (result : assistSolver.results) {
+			for (board : assistModel.allBoards) {
+				
+				val Task[] mappedTasks = board.allCores.map[result.getMappedTasksForCore(it)].flatten
+				
+				if (!mappedTasks.isNullOrEmpty) {
+					val utilizationSum = mappedTasks.map[romUtilization].reduce[p1, p2|p1 + p2]
+					val msg = '''Utilization of «board.name» exceeds capacity (cap.: «board.romCapacity», util.: «utilizationSum»)'''
+					Assert.assertTrue(msg, utilizationSum <= board.romCapacity)
+				} 
+				else
+					Assert.assertTrue(mappedTasks === null || mappedTasks.length == 0) 
+			}
+		}
+	}
 }
