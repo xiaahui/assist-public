@@ -82,16 +82,17 @@ class SolverVariablesContainer {
 			indVars.add(newArrayList)
 
 			/* Hardware level */
-			for (l : 0 ..< 5)
+			for (l : 0 ..< 5) {
 				/* For each component on that level, add the boolean variables */
-				indVars.get(i).add(
-					solverModel.boolVarArray("IndV-" + i + "-" + l, assistModel.getAllHardwareElements(l).size))
+				val boolVarArray = solverModel.boolVarArray("d[" + i + "][" + l + "]", assistModel.getAllHardwareElements(l).size)
+				indVars.get(i).add(boolVarArray)
+			}
 		}
 
 		for (t : assistModel.allTasks) {
 
 			/* Go through all levels */
-			for (l : 0 ..< 1) {
+			for (l : 0 ..< 5) {
 
 				/* We go through each hardware element on this level
 				 * and create the link to the location variable			 */
