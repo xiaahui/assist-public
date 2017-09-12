@@ -23,6 +23,8 @@ import org.chocosolver.util.criteria.Criterion
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.constraints.RAMorROMCapacityConstraint
+import ch.hilbri.assist.mapping.solver.constraints.RAMorROMCapacityConstraint.RessourceType
 
 class AssistSolver {
 	
@@ -69,7 +71,9 @@ class AssistSolver {
 		mappingConstraintsList 	= newArrayList
 		mappingConstraintsList.add(new SystemHierarchyConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new CoreUtilizationConstraint(assistModel, chocoModel, solverVariables))
-		
+		mappingConstraintsList.add(new RAMorROMCapacityConstraint(assistModel, chocoModel, solverVariables, RessourceType.RAM))
+		mappingConstraintsList.add(new RAMorROMCapacityConstraint(assistModel, chocoModel, solverVariables, RessourceType.ROM))
+				
 		mappingResults 			= newArrayList  
 		
 		/* The identical solution for all variables should not be found twice */
