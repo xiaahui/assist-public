@@ -20,7 +20,7 @@ AssistModel:
 	('Restrictions' '{'
 					(dissimilarityRelations+=DissimilarityRelation)*
 					(dislocalityRelations+=DislocalityRelation)*
-					(proximityRelations+=ProximityRelation)*
+					(proximityRelations+=ColocalityRelation)*
 	'}')?
 ;
 
@@ -114,8 +114,12 @@ IOAdapterRequirement:
 DislocalityRelation:
 	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
 	
-ProximityRelation:
-	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'on' 'same' hardwareLevel=HardwareArchitectureLevelType ';'; 
+ColocalityRelation:
+	applicationsOrGroups+=[ApplicationOrApplicationGroup|QualifiedName]
+	(',' (applicationsOrGroups+=[ApplicationOrApplicationGroup]))* 
+	'on' 'same' 
+	hardwareLevel=HardwareArchitectureLevelType 
+	';'; 
 
 DissimilarityRelation: 
 	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+

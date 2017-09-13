@@ -19,7 +19,7 @@ class AssistModel {
 	contains 		ApplicationGroup[0..*] 		applicationGroups
 	contains 		DissimilarityRelation[0..*] dissimilarityRelations
 	contains 		DislocalityRelation[0..*] 	dislocalityRelations
-	contains 		ProximityRelation[0..*] 	proximityRelations
+	contains 		ColocalityRelation[0..*] 	proximityRelations
 	op Compartment[] 	getAllCompartments()  	{ compartments }
 	op Box[] 			getAllBoxes() 			{ compartments.map[allBoxes].flatten.toEList		}
 	op Board[] 			getAllBoards() 			{ compartments.map[allBoards].flatten.toEList 		}
@@ -201,8 +201,8 @@ class DislocalityRelation{
 	HardwareArchitectureLevelType hardwareLevel
 }
 
-class ProximityRelation{
-	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
+class ColocalityRelation {
+	refers ApplicationOrApplicationGroup[0..*] applicationsOrGroups
 	HardwareArchitectureLevelType hardwareLevel
 }
 

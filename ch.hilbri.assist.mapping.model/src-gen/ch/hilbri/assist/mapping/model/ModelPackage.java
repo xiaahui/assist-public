@@ -1493,14 +1493,14 @@ public interface ModelPackage extends EPackage {
 	int DISLOCALITY_RELATION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.ProximityRelationImpl <em>Proximity Relation</em>}' class.
+	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.ColocalityRelationImpl <em>Colocality Relation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.impl.ProximityRelationImpl
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getProximityRelation()
+	 * @see ch.hilbri.assist.mapping.model.impl.ColocalityRelationImpl
+	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getColocalityRelation()
 	 * @generated
 	 */
-	int PROXIMITY_RELATION = 19;
+	int COLOCALITY_RELATION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
@@ -1509,7 +1509,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXIMITY_RELATION__APPLICATIONS_OR_GROUPS = 0;
+	int COLOCALITY_RELATION__APPLICATIONS_OR_GROUPS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Hardware Level</b></em>' attribute.
@@ -1518,25 +1518,25 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXIMITY_RELATION__HARDWARE_LEVEL = 1;
+	int COLOCALITY_RELATION__HARDWARE_LEVEL = 1;
 
 	/**
-	 * The number of structural features of the '<em>Proximity Relation</em>' class.
+	 * The number of structural features of the '<em>Colocality Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROXIMITY_RELATION_FEATURE_COUNT = 2;
+	int COLOCALITY_RELATION_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Proximity Relation</em>' class.
+	 * The number of operations of the '<em>Colocality Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROXIMITY_RELATION_OPERATION_COUNT = 0;
+	int COLOCALITY_RELATION_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.MetricParameterImpl <em>Metric Parameter</em>}' class.
@@ -2736,36 +2736,36 @@ public interface ModelPackage extends EPackage {
 	EAttribute getDislocalityRelation_HardwareLevel();
 
 	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.ProximityRelation <em>Proximity Relation</em>}'.
+	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.ColocalityRelation <em>Colocality Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Proximity Relation</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ProximityRelation
+	 * @return the meta object for class '<em>Colocality Relation</em>'.
+	 * @see ch.hilbri.assist.mapping.model.ColocalityRelation
 	 * @generated
 	 */
-	EClass getProximityRelation();
+	EClass getColocalityRelation();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.ProximityRelation#getApplicationsOrGroups <em>Applications Or Groups</em>}'.
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.ColocalityRelation#getApplicationsOrGroups <em>Applications Or Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Applications Or Groups</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ProximityRelation#getApplicationsOrGroups()
-	 * @see #getProximityRelation()
+	 * @see ch.hilbri.assist.mapping.model.ColocalityRelation#getApplicationsOrGroups()
+	 * @see #getColocalityRelation()
 	 * @generated
 	 */
-	EReference getProximityRelation_ApplicationsOrGroups();
+	EReference getColocalityRelation_ApplicationsOrGroups();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.ProximityRelation#getHardwareLevel <em>Hardware Level</em>}'.
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.ColocalityRelation#getHardwareLevel <em>Hardware Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Hardware Level</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ProximityRelation#getHardwareLevel()
-	 * @see #getProximityRelation()
+	 * @see ch.hilbri.assist.mapping.model.ColocalityRelation#getHardwareLevel()
+	 * @see #getColocalityRelation()
 	 * @generated
 	 */
-	EAttribute getProximityRelation_HardwareLevel();
+	EAttribute getColocalityRelation_HardwareLevel();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.MetricParameter <em>Metric Parameter</em>}'.
@@ -3747,14 +3747,14 @@ public interface ModelPackage extends EPackage {
 		EAttribute DISLOCALITY_RELATION__HARDWARE_LEVEL = eINSTANCE.getDislocalityRelation_HardwareLevel();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.ProximityRelationImpl <em>Proximity Relation</em>}' class.
+		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.ColocalityRelationImpl <em>Colocality Relation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.impl.ProximityRelationImpl
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getProximityRelation()
+		 * @see ch.hilbri.assist.mapping.model.impl.ColocalityRelationImpl
+		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getColocalityRelation()
 		 * @generated
 		 */
-		EClass PROXIMITY_RELATION = eINSTANCE.getProximityRelation();
+		EClass COLOCALITY_RELATION = eINSTANCE.getColocalityRelation();
 
 		/**
 		 * The meta object literal for the '<em><b>Applications Or Groups</b></em>' reference list feature.
@@ -3762,7 +3762,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROXIMITY_RELATION__APPLICATIONS_OR_GROUPS = eINSTANCE.getProximityRelation_ApplicationsOrGroups();
+		EReference COLOCALITY_RELATION__APPLICATIONS_OR_GROUPS = eINSTANCE.getColocalityRelation_ApplicationsOrGroups();
 
 		/**
 		 * The meta object literal for the '<em><b>Hardware Level</b></em>' attribute feature.
@@ -3770,7 +3770,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROXIMITY_RELATION__HARDWARE_LEVEL = eINSTANCE.getProximityRelation_HardwareLevel();
+		EAttribute COLOCALITY_RELATION__HARDWARE_LEVEL = eINSTANCE.getColocalityRelation_HardwareLevel();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.MetricParameterImpl <em>Metric Parameter</em>}' class.

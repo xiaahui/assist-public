@@ -217,7 +217,7 @@ public class AssistModelItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ModelPackage.Literals.ASSIST_MODEL__PROXIMITY_RELATIONS,
-				 ModelFactory.eINSTANCE.createProximityRelation()));
+				 ModelFactory.eINSTANCE.createColocalityRelation()));
 	}
 
 	/**

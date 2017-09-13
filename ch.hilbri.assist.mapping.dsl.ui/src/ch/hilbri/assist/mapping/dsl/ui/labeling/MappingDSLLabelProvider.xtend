@@ -5,12 +5,12 @@ import ch.hilbri.assist.mapping.model.ApplicationGroup
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.Board
 import ch.hilbri.assist.mapping.model.Box
+import ch.hilbri.assist.mapping.model.ColocalityRelation
 import ch.hilbri.assist.mapping.model.Compartment
 import ch.hilbri.assist.mapping.model.Core
 import ch.hilbri.assist.mapping.model.DislocalityRelation
 import ch.hilbri.assist.mapping.model.DissimilarityRelation
 import ch.hilbri.assist.mapping.model.Processor
-import ch.hilbri.assist.mapping.model.ProximityRelation
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
@@ -133,7 +133,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		'outlineview_constraint.png'
 	}
 
-	def text(ProximityRelation r) {
+	def text(ColocalityRelation r) {
 		val output = new StringBuilder()
 		
 		output.append("[")
@@ -150,7 +150,7 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		return output.toString
 	}
 
-	def image(ProximityRelation r) {
+	def image(ColocalityRelation r) {
 		'outlineview_constraint.png'
 	}
 

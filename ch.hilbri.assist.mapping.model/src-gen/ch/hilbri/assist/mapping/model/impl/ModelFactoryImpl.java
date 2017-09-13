@@ -76,7 +76,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.DISSIMILARITY_CONJUNCTION: return createDissimilarityConjunction();
 			case ModelPackage.DISSIMILARITY_ENTRY: return createDissimilarityEntry();
 			case ModelPackage.DISLOCALITY_RELATION: return createDislocalityRelation();
-			case ModelPackage.PROXIMITY_RELATION: return createProximityRelation();
+			case ModelPackage.COLOCALITY_RELATION: return createColocalityRelation();
 			case ModelPackage.METRIC_PARAMETER: return createMetricParameter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -332,9 +332,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProximityRelation createProximityRelation() {
-		ProximityRelationImpl proximityRelation = new ProximityRelationImpl();
-		return proximityRelation;
+	public ColocalityRelation createColocalityRelation() {
+		ColocalityRelationImpl colocalityRelation = new ColocalityRelationImpl();
+		return colocalityRelation;
 	}
 
 	/**

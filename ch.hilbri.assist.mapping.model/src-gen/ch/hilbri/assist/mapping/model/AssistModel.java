@@ -138,7 +138,7 @@ public interface AssistModel extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Proximity Relations</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.ProximityRelation}.
+	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.ColocalityRelation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Proximity Relations</em>' containment reference list isn't clear,
@@ -150,7 +150,7 @@ public interface AssistModel extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ProximityRelation> getProximityRelations();
+	EList<ColocalityRelation> getProximityRelations();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -190,9 +190,9 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.PROXIMITY_RELATION: {
-				ProximityRelation proximityRelation = (ProximityRelation)theEObject;
-				T result = caseProximityRelation(proximityRelation);
+			case ModelPackage.COLOCALITY_RELATION: {
+				ColocalityRelation colocalityRelation = (ColocalityRelation)theEObject;
+				T result = caseColocalityRelation(colocalityRelation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -492,17 +492,17 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Proximity Relation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Colocality Relation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Proximity Relation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Colocality Relation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProximityRelation(ProximityRelation object) {
+	public T caseColocalityRelation(ColocalityRelation object) {
 		return null;
 	}
 

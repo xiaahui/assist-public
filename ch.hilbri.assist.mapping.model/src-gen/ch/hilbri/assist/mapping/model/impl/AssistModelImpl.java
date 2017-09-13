@@ -7,6 +7,7 @@ import ch.hilbri.assist.mapping.model.ApplicationGroup;
 import ch.hilbri.assist.mapping.model.AssistModel;
 import ch.hilbri.assist.mapping.model.Board;
 import ch.hilbri.assist.mapping.model.Box;
+import ch.hilbri.assist.mapping.model.ColocalityRelation;
 import ch.hilbri.assist.mapping.model.Compartment;
 import ch.hilbri.assist.mapping.model.Core;
 import ch.hilbri.assist.mapping.model.DislocalityRelation;
@@ -14,7 +15,6 @@ import ch.hilbri.assist.mapping.model.DissimilarityRelation;
 import ch.hilbri.assist.mapping.model.HardwareElement;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 import ch.hilbri.assist.mapping.model.Processor;
-import ch.hilbri.assist.mapping.model.ProximityRelation;
 import ch.hilbri.assist.mapping.model.Task;
 
 import com.google.common.collect.Iterables;
@@ -140,7 +140,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ProximityRelation> proximityRelations;
+	protected EList<ColocalityRelation> proximityRelations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,9 +247,9 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ProximityRelation> getProximityRelations() {
+	public EList<ColocalityRelation> getProximityRelations() {
 		if (proximityRelations == null) {
-			proximityRelations = new EObjectContainmentEList<ProximityRelation>(ProximityRelation.class, this, ModelPackage.ASSIST_MODEL__PROXIMITY_RELATIONS);
+			proximityRelations = new EObjectContainmentEList<ColocalityRelation>(ColocalityRelation.class, this, ModelPackage.ASSIST_MODEL__PROXIMITY_RELATIONS);
 		}
 		return proximityRelations;
 	}
@@ -486,7 +486,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return;
 			case ModelPackage.ASSIST_MODEL__PROXIMITY_RELATIONS:
 				getProximityRelations().clear();
-				getProximityRelations().addAll((Collection<? extends ProximityRelation>)newValue);
+				getProximityRelations().addAll((Collection<? extends ColocalityRelation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

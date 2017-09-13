@@ -3,9 +3,9 @@
 package ch.hilbri.assist.mapping.model.provider;
 
 
+import ch.hilbri.assist.mapping.model.ColocalityRelation;
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.model.ModelPackage;
-import ch.hilbri.assist.mapping.model.ProximityRelation;
 
 import java.util.Collection;
 import java.util.List;
@@ -27,12 +27,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.mapping.model.ProximityRelation} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.mapping.model.ColocalityRelation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProximityRelationItemProvider 
+public class ColocalityRelationItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -46,7 +46,7 @@ public class ProximityRelationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProximityRelationItemProvider(AdapterFactory adapterFactory) {
+	public ColocalityRelationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -78,9 +78,9 @@ public class ProximityRelationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ProximityRelation_applicationsOrGroups_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ProximityRelation_applicationsOrGroups_feature", "_UI_ProximityRelation_type"),
-				 ModelPackage.Literals.PROXIMITY_RELATION__APPLICATIONS_OR_GROUPS,
+				 getString("_UI_ColocalityRelation_applicationsOrGroups_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColocalityRelation_applicationsOrGroups_feature", "_UI_ColocalityRelation_type"),
+				 ModelPackage.Literals.COLOCALITY_RELATION__APPLICATIONS_OR_GROUPS,
 				 true,
 				 false,
 				 true,
@@ -100,9 +100,9 @@ public class ProximityRelationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ProximityRelation_hardwareLevel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ProximityRelation_hardwareLevel_feature", "_UI_ProximityRelation_type"),
-				 ModelPackage.Literals.PROXIMITY_RELATION__HARDWARE_LEVEL,
+				 getString("_UI_ColocalityRelation_hardwareLevel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColocalityRelation_hardwareLevel_feature", "_UI_ColocalityRelation_type"),
+				 ModelPackage.Literals.COLOCALITY_RELATION__HARDWARE_LEVEL,
 				 true,
 				 false,
 				 false,
@@ -112,14 +112,14 @@ public class ProximityRelationItemProvider
 	}
 
 	/**
-	 * This returns ProximityRelation.gif.
+	 * This returns ColocalityRelation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProximityRelation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ColocalityRelation"));
 	}
 
 	/**
@@ -130,11 +130,11 @@ public class ProximityRelationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		HardwareArchitectureLevelType labelValue = ((ProximityRelation)object).getHardwareLevel();
+		HardwareArchitectureLevelType labelValue = ((ColocalityRelation)object).getHardwareLevel();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ProximityRelation_type") :
-			getString("_UI_ProximityRelation_type") + " " + label;
+			getString("_UI_ColocalityRelation_type") :
+			getString("_UI_ColocalityRelation_type") + " " + label;
 	}
 	
 
@@ -149,8 +149,8 @@ public class ProximityRelationItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ProximityRelation.class)) {
-			case ModelPackage.PROXIMITY_RELATION__HARDWARE_LEVEL:
+		switch (notification.getFeatureID(ColocalityRelation.class)) {
+			case ModelPackage.COLOCALITY_RELATION__HARDWARE_LEVEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

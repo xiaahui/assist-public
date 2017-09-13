@@ -10,6 +10,7 @@ import ch.hilbri.assist.mapping.model.Board;
 import ch.hilbri.assist.mapping.model.BoardAttributes;
 import ch.hilbri.assist.mapping.model.Box;
 import ch.hilbri.assist.mapping.model.BoxAttributes;
+import ch.hilbri.assist.mapping.model.ColocalityRelation;
 import ch.hilbri.assist.mapping.model.Compartment;
 import ch.hilbri.assist.mapping.model.CompartmentAttributes;
 import ch.hilbri.assist.mapping.model.Core;
@@ -30,7 +31,6 @@ import ch.hilbri.assist.mapping.model.ModelFactory;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 import ch.hilbri.assist.mapping.model.Processor;
 import ch.hilbri.assist.mapping.model.ProcessorAttributes;
-import ch.hilbri.assist.mapping.model.ProximityRelation;
 import ch.hilbri.assist.mapping.model.Task;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -188,7 +188,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass proximityRelationEClass = null;
+	private EClass colocalityRelationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1233,8 +1233,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProximityRelation() {
-		return proximityRelationEClass;
+	public EClass getColocalityRelation() {
+		return colocalityRelationEClass;
 	}
 
 	/**
@@ -1242,8 +1242,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProximityRelation_ApplicationsOrGroups() {
-		return (EReference)proximityRelationEClass.getEStructuralFeatures().get(0);
+	public EReference getColocalityRelation_ApplicationsOrGroups() {
+		return (EReference)colocalityRelationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1251,8 +1251,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProximityRelation_HardwareLevel() {
-		return (EAttribute)proximityRelationEClass.getEStructuralFeatures().get(1);
+	public EAttribute getColocalityRelation_HardwareLevel() {
+		return (EAttribute)colocalityRelationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1494,9 +1494,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(dislocalityRelationEClass, DISLOCALITY_RELATION__APPLICATIONS_OR_GROUPS);
 		createEAttribute(dislocalityRelationEClass, DISLOCALITY_RELATION__HARDWARE_LEVEL);
 
-		proximityRelationEClass = createEClass(PROXIMITY_RELATION);
-		createEReference(proximityRelationEClass, PROXIMITY_RELATION__APPLICATIONS_OR_GROUPS);
-		createEAttribute(proximityRelationEClass, PROXIMITY_RELATION__HARDWARE_LEVEL);
+		colocalityRelationEClass = createEClass(COLOCALITY_RELATION);
+		createEReference(colocalityRelationEClass, COLOCALITY_RELATION__APPLICATIONS_OR_GROUPS);
+		createEAttribute(colocalityRelationEClass, COLOCALITY_RELATION__HARDWARE_LEVEL);
 
 		metricParameterEClass = createEClass(METRIC_PARAMETER);
 		createEAttribute(metricParameterEClass, METRIC_PARAMETER__NAME);
@@ -1562,7 +1562,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getAssistModel_ApplicationGroups(), this.getApplicationGroup(), null, "applicationGroups", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_DissimilarityRelations(), this.getDissimilarityRelation(), null, "dissimilarityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_DislocalityRelations(), this.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_ProximityRelations(), this.getProximityRelation(), null, "proximityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModel_ProximityRelations(), this.getColocalityRelation(), null, "proximityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAssistModel__GetAllCompartments(), this.getCompartment(), "getAllCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
@@ -1700,9 +1700,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getDislocalityRelation_ApplicationsOrGroups(), this.getApplicationOrApplicationGroup(), null, "applicationsOrGroups", null, 1, -1, DislocalityRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDislocalityRelation_HardwareLevel(), this.getHardwareArchitectureLevelType(), "hardwareLevel", null, 0, 1, DislocalityRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(proximityRelationEClass, ProximityRelation.class, "ProximityRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProximityRelation_ApplicationsOrGroups(), this.getApplicationOrApplicationGroup(), null, "applicationsOrGroups", null, 1, -1, ProximityRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProximityRelation_HardwareLevel(), this.getHardwareArchitectureLevelType(), "hardwareLevel", null, 0, 1, ProximityRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(colocalityRelationEClass, ColocalityRelation.class, "ColocalityRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getColocalityRelation_ApplicationsOrGroups(), this.getApplicationOrApplicationGroup(), null, "applicationsOrGroups", null, 0, -1, ColocalityRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColocalityRelation_HardwareLevel(), this.getHardwareArchitectureLevelType(), "hardwareLevel", null, 0, 1, ColocalityRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(metricParameterEClass, MetricParameter.class, "MetricParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMetricParameter_Name(), theEcorePackage.getEString(), "name", "", 0, 1, MetricParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

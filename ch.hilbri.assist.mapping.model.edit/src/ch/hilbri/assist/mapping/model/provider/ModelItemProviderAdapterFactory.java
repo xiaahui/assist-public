@@ -509,26 +509,26 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.ProximityRelation} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.ColocalityRelation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProximityRelationItemProvider proximityRelationItemProvider;
+	protected ColocalityRelationItemProvider colocalityRelationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.ProximityRelation}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.ColocalityRelation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createProximityRelationAdapter() {
-		if (proximityRelationItemProvider == null) {
-			proximityRelationItemProvider = new ProximityRelationItemProvider(this);
+	public Adapter createColocalityRelationAdapter() {
+		if (colocalityRelationItemProvider == null) {
+			colocalityRelationItemProvider = new ColocalityRelationItemProvider(this);
 		}
 
-		return proximityRelationItemProvider;
+		return colocalityRelationItemProvider;
 	}
 
 	/**
@@ -672,7 +672,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (dissimilarityConjunctionItemProvider != null) dissimilarityConjunctionItemProvider.dispose();
 		if (dissimilarityEntryItemProvider != null) dissimilarityEntryItemProvider.dispose();
 		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
-		if (proximityRelationItemProvider != null) proximityRelationItemProvider.dispose();
+		if (colocalityRelationItemProvider != null) colocalityRelationItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 	}
 

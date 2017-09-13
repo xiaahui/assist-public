@@ -193,13 +193,13 @@ public interface ModelFactory extends EFactory {
 	DislocalityRelation createDislocalityRelation();
 
 	/**
-	 * Returns a new object of class '<em>Proximity Relation</em>'.
+	 * Returns a new object of class '<em>Colocality Relation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Proximity Relation</em>'.
+	 * @return a new object of class '<em>Colocality Relation</em>'.
 	 * @generated
 	 */
-	ProximityRelation createProximityRelation();
+	ColocalityRelation createColocalityRelation();
 
 	/**
 	 * Returns a new object of class '<em>Metric Parameter</em>'.

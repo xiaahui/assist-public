@@ -144,8 +144,8 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createDislocalityRelationAdapter();
 			}
 			@Override
-			public Adapter caseProximityRelation(ProximityRelation object) {
-				return createProximityRelationAdapter();
+			public Adapter caseColocalityRelation(ColocalityRelation object) {
+				return createColocalityRelationAdapter();
 			}
 			@Override
 			public Adapter caseMetricParameter(MetricParameter object) {
@@ -438,16 +438,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.ProximityRelation <em>Proximity Relation</em>}'.
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.ColocalityRelation <em>Colocality Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.ProximityRelation
+	 * @see ch.hilbri.assist.mapping.model.ColocalityRelation
 	 * @generated
 	 */
-	public Adapter createProximityRelationAdapter() {
+	public Adapter createColocalityRelationAdapter() {
 		return null;
 	}
 
