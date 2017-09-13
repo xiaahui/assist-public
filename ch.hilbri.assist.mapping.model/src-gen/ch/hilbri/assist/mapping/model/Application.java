@@ -101,6 +101,7 @@ public interface Application extends ApplicationOrApplicationGroup {
 	/**
 	 * Returns the value of the '<em><b>Tasks</b></em>' containment reference list.
 	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.Task}.
+	 * It is bidirectional and its opposite is '{@link ch.hilbri.assist.mapping.model.Task#getApplication <em>Application</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Tasks</em>' containment reference list isn't clear,
@@ -109,7 +110,8 @@ public interface Application extends ApplicationOrApplicationGroup {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Tasks</em>' containment reference list.
 	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getApplication_Tasks()
-	 * @model containment="true" required="true"
+	 * @see ch.hilbri.assist.mapping.model.Task#getApplication
+	 * @model opposite="application" containment="true" required="true"
 	 * @generated
 	 */
 	EList<Task> getTasks();

@@ -108,17 +108,18 @@ class Application extends ApplicationOrApplicationGroup {
 	DesignAssuranceLevelType criticalityLevel 				= "None"
 	String developedBy										= ""
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
-	contains Task[1..*] 			tasks
+	contains Task[1..*] 			tasks opposite application
 	contains MetricParameter[0..*] 	metricParameters
 	op String 			toString() 				{ name 	}
 	op Task[]			getAllTasks()			{ tasks }
 }
 
 class Task {
-	String name = ""
-	int coreUtilization 									= "0"
+	String name 												= "" 
+	int coreUtilization 										= "0"
 	int ramUtilization 										= "0"
 	int romUtilization										= "0"
+	container Application application opposite tasks
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
 	contains MetricParameter[0..*] metricParameters

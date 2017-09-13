@@ -2,6 +2,7 @@
  */
 package ch.hilbri.assist.mapping.model.impl;
 
+import ch.hilbri.assist.mapping.model.Application;
 import ch.hilbri.assist.mapping.model.HardwareElement;
 import ch.hilbri.assist.mapping.model.IOAdapterRequirement;
 import ch.hilbri.assist.mapping.model.MetricParameter;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -39,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getCoreUtilization <em>Core Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getRamUtilization <em>Ram Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getRomUtilization <em>Rom Utilization</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getMetricParameters <em>Metric Parameters</em>}</li>
@@ -265,6 +268,57 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Application getApplication() {
+		if (eContainerFeatureID() != ModelPackage.TASK__APPLICATION) return null;
+		return (Application)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Application basicGetApplication() {
+		if (eContainerFeatureID() != ModelPackage.TASK__APPLICATION) return null;
+		return (Application)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetApplication(Application newApplication, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newApplication, ModelPackage.TASK__APPLICATION, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setApplication(Application newApplication) {
+		if (newApplication != eInternalContainer() || (eContainerFeatureID() != ModelPackage.TASK__APPLICATION && newApplication != null)) {
+			if (EcoreUtil.isAncestor(this, newApplication))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newApplication != null)
+				msgs = ((InternalEObject)newApplication).eInverseAdd(this, ModelPackage.APPLICATION__TASKS, Application.class, msgs);
+			msgs = basicSetApplication(newApplication, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__APPLICATION, newApplication, newApplication));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<IOAdapterRequirement> getIoAdapterRequirements() {
 		if (ioAdapterRequirements == null) {
 			ioAdapterRequirements = new EObjectContainmentEList<IOAdapterRequirement>(IOAdapterRequirement.class, this, ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS);
@@ -311,14 +365,46 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ModelPackage.TASK__APPLICATION:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetApplication((Application)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ModelPackage.TASK__APPLICATION:
+				return basicSetApplication(null, msgs);
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
 				return ((InternalEList<?>)getIoAdapterRequirements()).basicRemove(otherEnd, msgs);
 			case ModelPackage.TASK__METRIC_PARAMETERS:
 				return ((InternalEList<?>)getMetricParameters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case ModelPackage.TASK__APPLICATION:
+				return eInternalContainer().eInverseRemove(this, ModelPackage.APPLICATION__TASKS, Application.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -337,6 +423,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return getRamUtilization();
 			case ModelPackage.TASK__ROM_UTILIZATION:
 				return getRomUtilization();
+			case ModelPackage.TASK__APPLICATION:
+				if (resolve) return getApplication();
+				return basicGetApplication();
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
 				return getIoAdapterRequirements();
 			case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
@@ -367,6 +456,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return;
 			case ModelPackage.TASK__ROM_UTILIZATION:
 				setRomUtilization((Integer)newValue);
+				return;
+			case ModelPackage.TASK__APPLICATION:
+				setApplication((Application)newValue);
 				return;
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
 				getIoAdapterRequirements().clear();
@@ -404,6 +496,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 			case ModelPackage.TASK__ROM_UTILIZATION:
 				setRomUtilization(ROM_UTILIZATION_EDEFAULT);
 				return;
+			case ModelPackage.TASK__APPLICATION:
+				setApplication((Application)null);
+				return;
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
 				getIoAdapterRequirements().clear();
 				return;
@@ -433,6 +528,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return ramUtilization != RAM_UTILIZATION_EDEFAULT;
 			case ModelPackage.TASK__ROM_UTILIZATION:
 				return romUtilization != ROM_UTILIZATION_EDEFAULT;
+			case ModelPackage.TASK__APPLICATION:
+				return basicGetApplication() != null;
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
 				return ioAdapterRequirements != null && !ioAdapterRequirements.isEmpty();
 			case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:

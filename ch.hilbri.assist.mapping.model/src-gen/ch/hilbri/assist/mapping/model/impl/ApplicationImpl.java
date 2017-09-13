@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -196,7 +197,7 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	 */
 	public EList<Task> getTasks() {
 		if (tasks == null) {
-			tasks = new EObjectContainmentEList<Task>(Task.class, this, ModelPackage.APPLICATION__TASKS);
+			tasks = new EObjectContainmentWithInverseEList<Task>(Task.class, this, ModelPackage.APPLICATION__TASKS, ModelPackage.TASK__APPLICATION);
 		}
 		return tasks;
 	}
@@ -229,6 +230,21 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	 */
 	public EList<Task> getAllTasks() {
 		return this.getTasks();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ModelPackage.APPLICATION__TASKS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTasks()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

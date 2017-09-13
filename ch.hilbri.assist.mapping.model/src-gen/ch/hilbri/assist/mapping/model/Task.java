@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.mapping.model.Task#getCoreUtilization <em>Core Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Task#getRamUtilization <em>Ram Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Task#getRomUtilization <em>Rom Utilization</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.Task#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Task#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Task#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Task#getMetricParameters <em>Metric Parameters</em>}</li>
@@ -136,6 +137,34 @@ public interface Task extends EObject {
 	 * @generated
 	 */
 	void setRomUtilization(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Application</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link ch.hilbri.assist.mapping.model.Application#getTasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Application</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Application</em>' container reference.
+	 * @see #setApplication(Application)
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getTask_Application()
+	 * @see ch.hilbri.assist.mapping.model.Application#getTasks
+	 * @model opposite="tasks" transient="false"
+	 * @generated
+	 */
+	Application getApplication();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.Task#getApplication <em>Application</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Application</em>' container reference.
+	 * @see #getApplication()
+	 * @generated
+	 */
+	void setApplication(Application value);
 
 	/**
 	 * Returns the value of the '<em><b>Io Adapter Requirements</b></em>' containment reference list.

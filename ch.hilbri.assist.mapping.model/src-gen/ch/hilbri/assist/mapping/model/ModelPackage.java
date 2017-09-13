@@ -1108,13 +1108,22 @@ public interface ModelPackage extends EPackage {
 	int TASK__ROM_UTILIZATION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Application</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__APPLICATION = 4;
+
+	/**
 	 * The feature id for the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__IO_ADAPTER_REQUIREMENTS = 4;
+	int TASK__IO_ADAPTER_REQUIREMENTS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
@@ -1123,7 +1132,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 5;
+	int TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 6;
 
 	/**
 	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
@@ -1132,7 +1141,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__METRIC_PARAMETERS = 6;
+	int TASK__METRIC_PARAMETERS = 7;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -1141,7 +1150,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_FEATURE_COUNT = 7;
+	int TASK_FEATURE_COUNT = 8;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -2458,6 +2467,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getTask_RomUtilization();
 
 	/**
+	 * Returns the meta object for the container reference '{@link ch.hilbri.assist.mapping.model.Task#getApplication <em>Application</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Application</em>'.
+	 * @see ch.hilbri.assist.mapping.model.Task#getApplication()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EReference getTask_Application();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.Task#getIoAdapterRequirements <em>Io Adapter Requirements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3523,6 +3543,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TASK__ROM_UTILIZATION = eINSTANCE.getTask_RomUtilization();
+
+		/**
+		 * The meta object literal for the '<em><b>Application</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK__APPLICATION = eINSTANCE.getTask_Application();
 
 		/**
 		 * The meta object literal for the '<em><b>Io Adapter Requirements</b></em>' containment reference list feature.

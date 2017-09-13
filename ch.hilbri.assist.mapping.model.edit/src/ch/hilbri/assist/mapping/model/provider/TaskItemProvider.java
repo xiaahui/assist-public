@@ -66,6 +66,7 @@ public class TaskItemProvider
 			addCoreUtilizationPropertyDescriptor(object);
 			addRamUtilizationPropertyDescriptor(object);
 			addRomUtilizationPropertyDescriptor(object);
+			addApplicationPropertyDescriptor(object);
 			addRestrictMappingToHardwareElementsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -155,6 +156,28 @@ public class TaskItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Application feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addApplicationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_application_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_application_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__APPLICATION,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

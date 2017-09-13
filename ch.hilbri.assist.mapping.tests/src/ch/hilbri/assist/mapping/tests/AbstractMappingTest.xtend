@@ -18,8 +18,6 @@ import org.slf4j.LoggerFactory
 class AbstractMappingTest {
 
 	protected String input
-	protected AssistModel model
-
 	protected Logger logger
 
 	new() {
