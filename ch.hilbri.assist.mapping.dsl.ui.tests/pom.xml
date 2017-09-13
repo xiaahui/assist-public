@@ -24,6 +24,12 @@
 				<configuration>
 					<failIfNoTests>false</failIfNoTests>
 					<useUIHarness>false</useUIHarness>
+					<dependencies>
+						<dependency>
+							<type>eclipse-plugin</type>
+							<artifactId>org.eclipse.xtext.logging</artifactId>
+						</dependency>
+					</dependencies>
 				</configuration>
 			</plugin>
 			<plugin>

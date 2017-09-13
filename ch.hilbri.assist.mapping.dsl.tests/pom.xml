@@ -22,6 +22,12 @@
 				<version>${tycho.version}</version>
 				<configuration>
 					<failIfNoTests>false</failIfNoTests>
+					<dependencies>
+						<dependency>
+							<type>eclipse-plugin</type>
+							<artifactId>org.eclipse.xtext.logging</artifactId>
+						</dependency>
+					</dependencies>
 				</configuration>
 			</plugin>
 		</plugins>
