@@ -12,12 +12,12 @@
 
 	<build>
 		<plugins>
-		
+
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-surefire-plugin</artifactId>
@@ -27,9 +27,15 @@
 					<testClass>ch.hilbri.assist.mapping.tests.TestSuiteAllMappingTests</testClass>
 					<failIfNoTests>false</failIfNoTests>
 					<useUIHarness>false</useUIHarness>
+					<dependencies>
+						<dependency>
+							<type>eclipse-plugin</type>
+							<artifactId>org.eclipse.xtext.logging</artifactId>
+						</dependency>
+					</dependencies>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
@@ -48,7 +54,7 @@
 					</dependency-resolution>
 				</configuration>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 </project>
