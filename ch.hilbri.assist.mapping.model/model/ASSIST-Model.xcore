@@ -17,15 +17,15 @@ class AssistModel {
 	contains 		Compartment[1..*] 			compartments
 	contains 		Application[1..*] 			applications
 	contains 		ApplicationGroup[0..*] 		applicationGroups
-	contains 		DissimilarityRelation[0..*] dissimilarityRelations
+	contains 		DissimilarityRelation[0..*] 	dissimilarityRelations
 	contains 		DislocalityRelation[0..*] 	dislocalityRelations
-	contains 		ColocalityRelation[0..*] 	proximityRelations
+	contains 		ColocalityRelation[0..*] 	colocalityRelations
 	op Compartment[] 	getAllCompartments()  	{ compartments }
 	op Box[] 			getAllBoxes() 			{ compartments.map[allBoxes].flatten.toEList		}
-	op Board[] 			getAllBoards() 			{ compartments.map[allBoards].flatten.toEList 		}
+	op Board[] 			getAllBoards() 			{ compartments.map[allBoards].flatten.toEList 	}
 	op Processor[] 		getAllProcessors() 		{ compartments.map[allProcessors].flatten.toEList	}
 	op Core[] 			getAllCores() 			{ compartments.map[allCores].flatten.toEList		}
-	op Task[]			getAllTasks()			{ applications.map[allTasks].flatten.toEList		}
+	op Task[]			getAllTasks()			{ applications.map[tasks].flatten.toEList			}
 	
 	op HardwareElement[] getAllHardwareElements(int level) {
 		if (level == 0) 		allCores.map[it as HardwareElement]
@@ -111,7 +111,6 @@ class Application extends ApplicationOrApplicationGroup {
 	contains Task[1..*] 			tasks opposite application
 	contains MetricParameter[0..*] 	metricParameters
 	op String 			toString() 				{ name 	}
-	op Task[]			getAllTasks()			{ tasks }
 }
 
 class Task {
@@ -213,11 +212,11 @@ class MetricParameter {
 }
 
 enum HardwareArchitectureLevelType {
-	CORE 		as "Core" 			= 1 
-	PROCESSOR 	as "Processor"		= 2
-	BOARD		as "Board"			= 3
-	BOX			as "Box"			= 4
-	COMPARTMENT	as "Compartment"	= 5
+	CORE 		as "Core" 			= 0
+	PROCESSOR 	as "Processor"		= 1
+	BOARD		as "Board"			= 2
+	BOX			as "Box"				= 3
+	COMPARTMENT	as "Compartment"		= 4
 }
 
 enum DesignAssuranceLevelType {

@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getApplicationGroups <em>Application Groups</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getDissimilarityRelations <em>Dissimilarity Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getProximityRelations <em>Proximity Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getColocalityRelations <em>Colocality Relations</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModel()
@@ -137,20 +137,20 @@ public interface AssistModel extends EObject {
 	EList<DislocalityRelation> getDislocalityRelations();
 
 	/**
-	 * Returns the value of the '<em><b>Proximity Relations</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Colocality Relations</b></em>' containment reference list.
 	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.ColocalityRelation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Proximity Relations</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Colocality Relations</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Proximity Relations</em>' containment reference list.
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModel_ProximityRelations()
+	 * @return the value of the '<em>Colocality Relations</em>' containment reference list.
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModel_ColocalityRelations()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ColocalityRelation> getProximityRelations();
+	EList<ColocalityRelation> getColocalityRelations();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -201,7 +201,7 @@ public interface AssistModel extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Application%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Application%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt;&gt;()\n{\n\tpublic &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt; apply(final &lt;%ch.hilbri.assist.mapping.model.Application%&gt; it)\n\t{\n\t\treturn it.getAllTasks();\n\t}\n};\nreturn &lt;%org.eclipse.emf.common.util.ECollections%&gt;.&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt;toEList(&lt;%com.google.common.collect.Iterables%&gt;.&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt;concat(&lt;%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%&gt;.&lt;&lt;%ch.hilbri.assist.mapping.model.Application%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt;&gt;map(this.getApplications(), _function)));'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Application%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt;&gt; _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Application%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt;&gt;()\n{\n\tpublic &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt; apply(final &lt;%ch.hilbri.assist.mapping.model.Application%&gt; it)\n\t{\n\t\treturn it.getTasks();\n\t}\n};\nreturn &lt;%org.eclipse.emf.common.util.ECollections%&gt;.&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt;toEList(&lt;%com.google.common.collect.Iterables%&gt;.&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt;concat(&lt;%org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions%&gt;.&lt;&lt;%ch.hilbri.assist.mapping.model.Application%&gt;, &lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt;&gt;map(this.getApplications(), _function)));'"
 	 * @generated
 	 */
 	EList<Task> getAllTasks();

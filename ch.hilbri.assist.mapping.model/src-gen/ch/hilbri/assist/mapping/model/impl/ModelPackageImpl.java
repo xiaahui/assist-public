@@ -378,7 +378,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_ProximityRelations() {
+	public EReference getAssistModel_ColocalityRelations() {
 		return (EReference)assistModelEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -945,15 +945,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getApplication__GetAllTasks() {
-		return applicationEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getTask() {
 		return taskEClass;
 	}
@@ -1389,7 +1380,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(assistModelEClass, ASSIST_MODEL__APPLICATION_GROUPS);
 		createEReference(assistModelEClass, ASSIST_MODEL__DISSIMILARITY_RELATIONS);
 		createEReference(assistModelEClass, ASSIST_MODEL__DISLOCALITY_RELATIONS);
-		createEReference(assistModelEClass, ASSIST_MODEL__PROXIMITY_RELATIONS);
+		createEReference(assistModelEClass, ASSIST_MODEL__COLOCALITY_RELATIONS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_COMPARTMENTS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_BOXES);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_BOARDS);
@@ -1462,7 +1453,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(applicationEClass, APPLICATION__TASKS);
 		createEReference(applicationEClass, APPLICATION__METRIC_PARAMETERS);
 		createEOperation(applicationEClass, APPLICATION___TO_STRING);
-		createEOperation(applicationEClass, APPLICATION___GET_ALL_TASKS);
 
 		taskEClass = createEClass(TASK);
 		createEAttribute(taskEClass, TASK__NAME);
@@ -1572,7 +1562,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getAssistModel_ApplicationGroups(), this.getApplicationGroup(), null, "applicationGroups", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_DissimilarityRelations(), this.getDissimilarityRelation(), null, "dissimilarityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_DislocalityRelations(), this.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_ProximityRelations(), this.getColocalityRelation(), null, "proximityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModel_ColocalityRelations(), this.getColocalityRelation(), null, "colocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAssistModel__GetAllCompartments(), this.getCompartment(), "getAllCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
@@ -1667,8 +1657,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getApplication_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getApplication__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getApplication__GetAllTasks(), this.getTask(), "getAllTasks", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTask_Name(), theEcorePackage.getEString(), "name", "", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

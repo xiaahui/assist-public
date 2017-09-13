@@ -20,7 +20,7 @@ AssistModel:
 	('Restrictions' '{'
 					(dissimilarityRelations+=DissimilarityRelation)*
 					(dislocalityRelations+=DislocalityRelation)*
-					(proximityRelations+=ColocalityRelation)*
+					(colocalityRelations+=ColocalityRelation)*
 	'}')?
 ;
 

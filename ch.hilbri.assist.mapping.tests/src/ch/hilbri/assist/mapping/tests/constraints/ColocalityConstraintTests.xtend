@@ -143,7 +143,7 @@ Restrictions {
 		assistSolver.runSolutionSearch
 		assistSolver.createSolutions
 
-		Assert.assertTrue("There should be some results", assistSolver.results.size > 0)
+		Assert.assertTrue("There should be some results", assistSolver.results.size == 9)
 		
 		for (result : assistSolver.results) {
 			/* Check that in each result, all tasks of A1, A2 are being placed on the same processor */
@@ -223,7 +223,7 @@ Restrictions {
 		assistSolver.runSolutionSearch
 		assistSolver.createSolutions
 
-		Assert.assertTrue("There should be some results", assistSolver.results.size > 0)
+		Assert.assertTrue("There should be some results", assistSolver.results.size == 15)
 		
 		for (result : assistSolver.results) {
 			/* Check that in each result, all tasks of A1, A2 are being placed on the same compartment */

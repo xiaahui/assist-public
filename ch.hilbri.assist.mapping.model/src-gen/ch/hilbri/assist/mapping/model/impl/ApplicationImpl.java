@@ -228,15 +228,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Task> getAllTasks() {
-		return this.getTasks();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -391,8 +382,6 @@ public class ApplicationImpl extends ApplicationOrApplicationGroupImpl implement
 		switch (operationID) {
 			case ModelPackage.APPLICATION___TO_STRING:
 				return toString();
-			case ModelPackage.APPLICATION___GET_ALL_TASKS:
-				return getAllTasks();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

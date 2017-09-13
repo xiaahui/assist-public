@@ -107,7 +107,7 @@ public class AssistModelItemProvider
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__APPLICATION_GROUPS);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISSIMILARITY_RELATIONS);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__PROXIMITY_RELATIONS);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COLOCALITY_RELATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -171,7 +171,7 @@ public class AssistModelItemProvider
 			case ModelPackage.ASSIST_MODEL__APPLICATION_GROUPS:
 			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
 			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
-			case ModelPackage.ASSIST_MODEL__PROXIMITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -216,7 +216,7 @@ public class AssistModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__PROXIMITY_RELATIONS,
+				(ModelPackage.Literals.ASSIST_MODEL__COLOCALITY_RELATIONS,
 				 ModelFactory.eINSTANCE.createColocalityRelation()));
 	}
 

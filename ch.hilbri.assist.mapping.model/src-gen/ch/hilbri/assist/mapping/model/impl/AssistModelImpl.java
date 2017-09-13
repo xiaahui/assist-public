@@ -56,7 +56,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getApplicationGroups <em>Application Groups</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getDissimilarityRelations <em>Dissimilarity Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getDislocalityRelations <em>Dislocality Relations</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getProximityRelations <em>Proximity Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getColocalityRelations <em>Colocality Relations</em>}</li>
  * </ul>
  *
  * @generated
@@ -133,14 +133,14 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	protected EList<DislocalityRelation> dislocalityRelations;
 
 	/**
-	 * The cached value of the '{@link #getProximityRelations() <em>Proximity Relations</em>}' containment reference list.
+	 * The cached value of the '{@link #getColocalityRelations() <em>Colocality Relations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProximityRelations()
+	 * @see #getColocalityRelations()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ColocalityRelation> proximityRelations;
+	protected EList<ColocalityRelation> colocalityRelations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,11 +247,11 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ColocalityRelation> getProximityRelations() {
-		if (proximityRelations == null) {
-			proximityRelations = new EObjectContainmentEList<ColocalityRelation>(ColocalityRelation.class, this, ModelPackage.ASSIST_MODEL__PROXIMITY_RELATIONS);
+	public EList<ColocalityRelation> getColocalityRelations() {
+		if (colocalityRelations == null) {
+			colocalityRelations = new EObjectContainmentEList<ColocalityRelation>(ColocalityRelation.class, this, ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS);
 		}
-		return proximityRelations;
+		return colocalityRelations;
 	}
 
 	/**
@@ -327,7 +327,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	public EList<Task> getAllTasks() {
 		final Function1<Application, EList<Task>> _function = new Function1<Application, EList<Task>>() {
 			public EList<Task> apply(final Application it) {
-				return it.getAllTasks();
+				return it.getTasks();
 			}
 		};
 		return ECollections.<Task>toEList(Iterables.<Task>concat(XcoreEListExtensions.<Application, EList<Task>>map(this.getApplications(), _function)));
@@ -420,8 +420,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return ((InternalEList<?>)getDissimilarityRelations()).basicRemove(otherEnd, msgs);
 			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
 				return ((InternalEList<?>)getDislocalityRelations()).basicRemove(otherEnd, msgs);
-			case ModelPackage.ASSIST_MODEL__PROXIMITY_RELATIONS:
-				return ((InternalEList<?>)getProximityRelations()).basicRemove(otherEnd, msgs);
+			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
+				return ((InternalEList<?>)getColocalityRelations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -446,8 +446,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getDissimilarityRelations();
 			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
 				return getDislocalityRelations();
-			case ModelPackage.ASSIST_MODEL__PROXIMITY_RELATIONS:
-				return getProximityRelations();
+			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
+				return getColocalityRelations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -484,9 +484,9 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				getDislocalityRelations().clear();
 				getDislocalityRelations().addAll((Collection<? extends DislocalityRelation>)newValue);
 				return;
-			case ModelPackage.ASSIST_MODEL__PROXIMITY_RELATIONS:
-				getProximityRelations().clear();
-				getProximityRelations().addAll((Collection<? extends ColocalityRelation>)newValue);
+			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
+				getColocalityRelations().clear();
+				getColocalityRelations().addAll((Collection<? extends ColocalityRelation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -518,8 +518,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
 				getDislocalityRelations().clear();
 				return;
-			case ModelPackage.ASSIST_MODEL__PROXIMITY_RELATIONS:
-				getProximityRelations().clear();
+			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
+				getColocalityRelations().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -545,8 +545,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return dissimilarityRelations != null && !dissimilarityRelations.isEmpty();
 			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
 				return dislocalityRelations != null && !dislocalityRelations.isEmpty();
-			case ModelPackage.ASSIST_MODEL__PROXIMITY_RELATIONS:
-				return proximityRelations != null && !proximityRelations.isEmpty();
+			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
+				return colocalityRelations != null && !colocalityRelations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

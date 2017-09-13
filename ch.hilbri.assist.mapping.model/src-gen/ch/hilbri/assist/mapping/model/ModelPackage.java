@@ -125,13 +125,13 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL__DISLOCALITY_RELATIONS = 5;
 
 	/**
-	 * The feature id for the '<em><b>Proximity Relations</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Colocality Relations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__PROXIMITY_RELATIONS = 6;
+	int ASSIST_MODEL__COLOCALITY_RELATIONS = 6;
 
 	/**
 	 * The number of structural features of the '<em>Assist Model</em>' class.
@@ -1044,22 +1044,13 @@ public interface ModelPackage extends EPackage {
 	int APPLICATION___TO_STRING = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get All Tasks</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION___GET_ALL_TASKS = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_OPERATION_COUNT = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 2;
+	int APPLICATION_OPERATION_COUNT = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.TaskImpl <em>Task</em>}' class.
@@ -1741,15 +1732,15 @@ public interface ModelPackage extends EPackage {
 	EReference getAssistModel_DislocalityRelations();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModel#getProximityRelations <em>Proximity Relations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModel#getColocalityRelations <em>Colocality Relations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Proximity Relations</em>'.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getProximityRelations()
+	 * @return the meta object for the containment reference list '<em>Colocality Relations</em>'.
+	 * @see ch.hilbri.assist.mapping.model.AssistModel#getColocalityRelations()
 	 * @see #getAssistModel()
 	 * @generated
 	 */
-	EReference getAssistModel_ProximityRelations();
+	EReference getAssistModel_ColocalityRelations();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModel#getAllCompartments() <em>Get All Compartments</em>}' operation.
@@ -2403,16 +2394,6 @@ public interface ModelPackage extends EPackage {
 	EOperation getApplication__ToString();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.Application#getAllTasks() <em>Get All Tasks</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Tasks</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.Application#getAllTasks()
-	 * @generated
-	 */
-	EOperation getApplication__GetAllTasks();
-
-	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.Task <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2971,12 +2952,12 @@ public interface ModelPackage extends EPackage {
 		EReference ASSIST_MODEL__DISLOCALITY_RELATIONS = eINSTANCE.getAssistModel_DislocalityRelations();
 
 		/**
-		 * The meta object literal for the '<em><b>Proximity Relations</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Colocality Relations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSIST_MODEL__PROXIMITY_RELATIONS = eINSTANCE.getAssistModel_ProximityRelations();
+		EReference ASSIST_MODEL__COLOCALITY_RELATIONS = eINSTANCE.getAssistModel_ColocalityRelations();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Compartments</b></em>' operation.
@@ -3493,14 +3474,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation APPLICATION___TO_STRING = eINSTANCE.getApplication__ToString();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Tasks</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation APPLICATION___GET_ALL_TASKS = eINSTANCE.getApplication__GetAllTasks();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.TaskImpl <em>Task</em>}' class.

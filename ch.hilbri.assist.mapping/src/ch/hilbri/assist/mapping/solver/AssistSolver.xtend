@@ -25,6 +25,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import ch.hilbri.assist.mapping.solver.constraints.RAMorROMCapacityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RAMorROMCapacityConstraint.RessourceType
+import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
 
 class AssistSolver {
 	
@@ -38,11 +39,11 @@ class AssistSolver {
 	private List<Solution> 							chocoSolutions
 	
 	private SolverVariablesContainer 				solverVariables
-	private ArrayList<AbstractModelPreprocessor> 	modelPreprocessors
-	private ArrayList<AbstractMappingConstraint> 	mappingConstraintsList
+	private ArrayList<AbstractModelPreprocessor> 		modelPreprocessors
+	private ArrayList<AbstractMappingConstraint> 		mappingConstraintsList
 	private ArrayList<Result> 						mappingResults
 	
-	private boolean 								savePartialSolution 		= false
+	private boolean 									savePartialSolution 		= false
 
 	private PartialSolutionSaveMonitor 				monPartialSolutionSave
 	private SolutionFoundMonitor 					monSolutionFound
@@ -73,11 +74,12 @@ class AssistSolver {
 		mappingConstraintsList.add(new CoreUtilizationConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new RAMorROMCapacityConstraint(assistModel, chocoModel, solverVariables, RessourceType.RAM))
 		mappingConstraintsList.add(new RAMorROMCapacityConstraint(assistModel, chocoModel, solverVariables, RessourceType.ROM))
+		mappingConstraintsList.add(new ColocalityConstraint(assistModel, chocoModel, solverVariables))
 				
 		mappingResults 			= newArrayList  
 		
 		/* The identical solution for all variables should not be found twice */
-		/* FIXME: We should consolidate all solver sources into a single plugin */
+		/* FIXME #22: We should consolidate all solver sources into a single plugin */
 //		chocoModel.solver.noGoodRecordingFromSolutions = solverVariables.allLocationVariables
 		
 		/* Attach the search monitors */

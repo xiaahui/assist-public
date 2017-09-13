@@ -40,7 +40,7 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		}
 		
 		/* --------- CONSTRAINTS -------------- */
-		if (!model.dislocalityRelations.empty || !model.dissimilarityRelations.empty || !model.proximityRelations.empty) {
+		if (!model.dislocalityRelations.empty || !model.dissimilarityRelations.empty || !model.colocalityRelations.empty) {
 			val contraintsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Restrictions", false)
 
 			if (!model.dislocalityRelations.empty) {		
@@ -53,9 +53,9 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 				for (r : model.dissimilarityRelations) createNode(dissimRelationNode, r)
 			}
 			
-			if (!model.proximityRelations.empty) {
+			if (!model.colocalityRelations.empty) {
 				val proximityRelationNode = new VirtualOutlineNode(contraintsNode, imgsubfolderDesc, "Proximity", false)
-				for (r : model.proximityRelations) createNode(proximityRelationNode, r)
+				for (r : model.colocalityRelations) createNode(proximityRelationNode, r)
 			}
 			
 		}
