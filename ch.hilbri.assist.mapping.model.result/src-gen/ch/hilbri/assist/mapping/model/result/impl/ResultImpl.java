@@ -8,6 +8,7 @@ import ch.hilbri.assist.mapping.model.Board;
 import ch.hilbri.assist.mapping.model.Box;
 import ch.hilbri.assist.mapping.model.Compartment;
 import ch.hilbri.assist.mapping.model.Core;
+import ch.hilbri.assist.mapping.model.HardwareElement;
 import ch.hilbri.assist.mapping.model.Processor;
 import ch.hilbri.assist.mapping.model.Task;
 
@@ -481,6 +482,50 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public HardwareElement getHardwareElementForTask(final Task task, final int level) {
+		HardwareElement _xifexpression = null;
+		if ((level == 0)) {
+			_xifexpression = this.getTask2CoreMap().get(task);
+		}
+		else {
+			HardwareElement _xifexpression_1 = null;
+			if ((level == 1)) {
+				_xifexpression_1 = this.getTask2CoreMap().get(task).getProcessor();
+			}
+			else {
+				HardwareElement _xifexpression_2 = null;
+				if ((level == 2)) {
+					_xifexpression_2 = this.getTask2CoreMap().get(task).getProcessor().getBoard();
+				}
+				else {
+					HardwareElement _xifexpression_3 = null;
+					if ((level == 3)) {
+						_xifexpression_3 = this.getTask2CoreMap().get(task).getProcessor().getBoard().getBox();
+					}
+					else {
+						Compartment _xifexpression_4 = null;
+						if ((level == 4)) {
+							_xifexpression_4 = this.getTask2CoreMap().get(task).getProcessor().getBoard().getBox().getCompartment();
+						}
+						else {
+							_xifexpression_4 = null;
+						}
+						_xifexpression_3 = _xifexpression_4;
+					}
+					_xifexpression_2 = _xifexpression_3;
+				}
+				_xifexpression_1 = _xifexpression_2;
+			}
+			_xifexpression = _xifexpression_1;
+		}
+		return _xifexpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<SingleMappingElement> getMappingElements() {
 		final Function1<Entry<Task, Core>, SingleMappingElement> _function = new Function1<Entry<Task, Core>, SingleMappingElement>() {
 			public SingleMappingElement apply(final Entry<Task, Core> it) {
@@ -687,6 +732,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return getAbsoluteCoreUtilization((Core)arguments.get(0));
 			case ResultPackage.RESULT___GET_RELATIVE_CORE_UTILIZATION__CORE:
 				return getRelativeCoreUtilization((Core)arguments.get(0));
+			case ResultPackage.RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__TASK_INT:
+				return getHardwareElementForTask((Task)arguments.get(0), (Integer)arguments.get(1));
 			case ResultPackage.RESULT___GET_MAPPING_ELEMENTS:
 				return getMappingElements();
 			case ResultPackage.RESULT___COMPARE_TO__RESULT:

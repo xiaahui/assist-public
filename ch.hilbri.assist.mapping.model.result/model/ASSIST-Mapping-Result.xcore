@@ -13,8 +13,9 @@ import ch.hilbri.assist.mapping.model.Compartment
 import ch.hilbri.assist.mapping.model.Core
 import ch.hilbri.assist.mapping.model.Processor
 import ch.hilbri.assist.mapping.model.Task
-import java.util.List
+import ch.hilbri.assist.mapping.model.HardwareElement
 import java.util.HashMap
+import java.util.List
  				
 
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
@@ -71,6 +72,22 @@ class Result extends Comparable {
 			new Double(getAbsoluteCoreUtilization(core)) / new Double(core.capacity)
 		else
 			-1.0
+	}
+	
+	/* Return the hardware element of the level level that the task task is being mapped to */
+	op HardwareElement getHardwareElementForTask(Task task, int level) {
+		if (level == 0) 
+			task2CoreMap.get(task)
+		else if (level == 1)
+			task2CoreMap.get(task).processor 
+		else if (level == 2)
+			task2CoreMap.get(task).processor.board
+		else if (level == 3)
+			task2CoreMap.get(task).processor.board.box
+		else if (level == 4)
+			task2CoreMap.get(task).processor.board.box.compartment
+		else
+			null
 	}
 
 

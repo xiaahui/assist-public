@@ -4,6 +4,7 @@ package ch.hilbri.assist.mapping.model.result;
 
 import ch.hilbri.assist.mapping.model.AssistModel;
 import ch.hilbri.assist.mapping.model.Core;
+import ch.hilbri.assist.mapping.model.HardwareElement;
 import ch.hilbri.assist.mapping.model.Task;
 
 import java.lang.Comparable;
@@ -263,6 +264,18 @@ public interface Result extends EObject, Comparable<Result> {
 	 * @generated
 	 */
 	double getRelativeCoreUtilization(Core core);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 *  Return the hardware element of the level level that the task task is being mapped to
+	 * <!-- end-model-doc -->
+	 * @model unique="false" taskUnique="false" levelUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%ch.hilbri.assist.mapping.model.HardwareElement%&gt; _xifexpression = null;\nif ((level == 0))\n{\n\t_xifexpression = this.getTask2CoreMap().get(task);\n}\nelse\n{\n\t&lt;%ch.hilbri.assist.mapping.model.HardwareElement%&gt; _xifexpression_1 = null;\n\tif ((level == 1))\n\t{\n\t\t_xifexpression_1 = this.getTask2CoreMap().get(task).getProcessor();\n\t}\n\telse\n\t{\n\t\t&lt;%ch.hilbri.assist.mapping.model.HardwareElement%&gt; _xifexpression_2 = null;\n\t\tif ((level == 2))\n\t\t{\n\t\t\t_xifexpression_2 = this.getTask2CoreMap().get(task).getProcessor().getBoard();\n\t\t}\n\t\telse\n\t\t{\n\t\t\t&lt;%ch.hilbri.assist.mapping.model.HardwareElement%&gt; _xifexpression_3 = null;\n\t\t\tif ((level == 3))\n\t\t\t{\n\t\t\t\t_xifexpression_3 = this.getTask2CoreMap().get(task).getProcessor().getBoard().getBox();\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\t&lt;%ch.hilbri.assist.mapping.model.Compartment%&gt; _xifexpression_4 = null;\n\t\t\t\tif ((level == 4))\n\t\t\t\t{\n\t\t\t\t\t_xifexpression_4 = this.getTask2CoreMap().get(task).getProcessor().getBoard().getBox().getCompartment();\n\t\t\t\t}\n\t\t\t\telse\n\t\t\t\t{\n\t\t\t\t\t_xifexpression_4 = null;\n\t\t\t\t}\n\t\t\t\t_xifexpression_3 = _xifexpression_4;\n\t\t\t}\n\t\t\t_xifexpression_2 = _xifexpression_3;\n\t\t}\n\t\t_xifexpression_1 = _xifexpression_2;\n\t}\n\t_xifexpression = _xifexpression_1;\n}\nreturn _xifexpression;'"
+	 * @generated
+	 */
+	HardwareElement getHardwareElementForTask(Task task, int level);
 
 	/**
 	 * <!-- begin-user-doc -->

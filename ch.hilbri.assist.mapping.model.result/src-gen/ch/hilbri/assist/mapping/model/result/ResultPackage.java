@@ -262,13 +262,22 @@ public interface ResultPackage extends EPackage {
 	int RESULT___GET_RELATIVE_CORE_UTILIZATION__CORE = COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Get Hardware Element For Task</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__TASK_INT = COMPARABLE_OPERATION_COUNT + 3;
+
+	/**
 	 * The operation id for the '<em>Get Mapping Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___GET_MAPPING_ELEMENTS = COMPARABLE_OPERATION_COUNT + 3;
+	int RESULT___GET_MAPPING_ELEMENTS = COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Compare To</em>' operation.
@@ -277,7 +286,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___COMPARE_TO__RESULT = COMPARABLE_OPERATION_COUNT + 4;
+	int RESULT___COMPARE_TO__RESULT = COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Result</em>' class.
@@ -286,7 +295,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 5;
+	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl <em>Single Mapping Element</em>}' class.
@@ -658,6 +667,16 @@ public interface ResultPackage extends EPackage {
 	EOperation getResult__GetRelativeCoreUtilization__Core();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#getHardwareElementForTask(ch.hilbri.assist.mapping.model.Task, int) <em>Get Hardware Element For Task</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Hardware Element For Task</em>' operation.
+	 * @see ch.hilbri.assist.mapping.model.result.Result#getHardwareElementForTask(ch.hilbri.assist.mapping.model.Task, int)
+	 * @generated
+	 */
+	EOperation getResult__GetHardwareElementForTask__Task_int();
+
+	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#getMappingElements() <em>Get Mapping Elements</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1014,6 +1033,14 @@ public interface ResultPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RESULT___GET_RELATIVE_CORE_UTILIZATION__CORE = eINSTANCE.getResult__GetRelativeCoreUtilization__Core();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Hardware Element For Task</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__TASK_INT = eINSTANCE.getResult__GetHardwareElementForTask__Task_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Mapping Elements</b></em>' operation.

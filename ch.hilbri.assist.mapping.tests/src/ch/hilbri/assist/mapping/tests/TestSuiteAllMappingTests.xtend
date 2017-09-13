@@ -8,6 +8,7 @@ import org.junit.runners.Suite
 import org.junit.runners.Suite.SuiteClasses
 import ch.hilbri.assist.mapping.tests.constraints.CoreUtilizationConstraintTests
 import ch.hilbri.assist.mapping.tests.constraints.RAMorROMConstraintTests
+import ch.hilbri.assist.mapping.tests.constraints.ColocalityConstraintTests
 
 @RunWith(Suite) 
 @SuiteClasses(
@@ -16,7 +17,8 @@ import ch.hilbri.assist.mapping.tests.constraints.RAMorROMConstraintTests
 		IndicatorVariablesTests, 
 		SystemHierarchyConstraintTests,
 		CoreUtilizationConstraintTests,
-		RAMorROMConstraintTests
+		RAMorROMConstraintTests,
+		ColocalityConstraintTests
 	]
 )
 

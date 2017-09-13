@@ -305,7 +305,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__GetMappingElements() {
+	public EOperation getResult__GetHardwareElementForTask__Task_int() {
 		return resultEClass.getEOperations().get(3);
 	}
 
@@ -314,8 +314,17 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getResult__CompareTo__Result() {
+	public EOperation getResult__GetMappingElements() {
 		return resultEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getResult__CompareTo__Result() {
+		return resultEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -509,6 +518,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		createEOperation(resultEClass, RESULT___GET_MAPPED_TASKS_FOR_CORE__CORE);
 		createEOperation(resultEClass, RESULT___GET_ABSOLUTE_CORE_UTILIZATION__CORE);
 		createEOperation(resultEClass, RESULT___GET_RELATIVE_CORE_UTILIZATION__CORE);
+		createEOperation(resultEClass, RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__TASK_INT);
 		createEOperation(resultEClass, RESULT___GET_MAPPING_ELEMENTS);
 		createEOperation(resultEClass, RESULT___COMPARE_TO__RESULT);
 
@@ -593,6 +603,10 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 
 		op = initEOperation(getResult__GetRelativeCoreUtilization__Core(), theEcorePackage.getEDouble(), "getRelativeCoreUtilization", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theModelPackage.getCore(), "core", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getResult__GetHardwareElementForTask__Task_int(), theModelPackage.getHardwareElement(), "getHardwareElementForTask", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theModelPackage.getTask(), "task", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEInt(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getResult__GetMappingElements(), this.getSingleMappingElement(), "getMappingElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
