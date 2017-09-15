@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ASSIST
 Bundle-SymbolicName: ch.hilbri.assist.gui;singleton:=true
-Bundle-Version: 2.1.0.qualifier
+Bundle-Version: 2.2.0.qualifier
 Bundle-Vendor: Robert Hilbrich
 Service-Component: OSGI-INF/osgi-ISplashService-component.xml
 Export-Package: ch.hilbri.assist.gui.splash, ch.hilbri.assist.gui.logging
