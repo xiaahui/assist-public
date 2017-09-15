@@ -26,6 +26,7 @@ import org.slf4j.LoggerFactory
 import ch.hilbri.assist.mapping.solver.constraints.RAMorROMCapacityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RAMorROMCapacityConstraint.RessourceType
 import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
+import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 
 class AssistSolver {
 	
@@ -75,6 +76,8 @@ class AssistSolver {
 		mappingConstraintsList.add(new RAMorROMCapacityConstraint(assistModel, chocoModel, solverVariables, RessourceType.RAM))
 		mappingConstraintsList.add(new RAMorROMCapacityConstraint(assistModel, chocoModel, solverVariables, RessourceType.ROM))
 		mappingConstraintsList.add(new ColocalityConstraint(assistModel, chocoModel, solverVariables))
+		mappingConstraintsList.add(new DislocalityConstraint(assistModel, chocoModel, solverVariables))
+
 				
 		mappingResults 			= newArrayList  
 		
