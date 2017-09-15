@@ -9,15 +9,13 @@ import org.chocosolver.util.tools.ArrayUtils;
 
 /**
  * Maintain a link between a integer variable and the union of values taken by
- * an array of integer variables.
- * Inspired by PropSetIntValuesUnion.
+ * an array of integer variables. Inspired by PropSetIntValuesUnion.
  */
 
 public class PropIntValuesUnion extends Propagator<IntVar> {
 
 	public PropIntValuesUnion(IntVar[] X, IntVar union) {
-		super(ArrayUtils.append(new IntVar[] { union }, X),
-				PropagatorPriority.LINEAR, false);
+		super(ArrayUtils.append(new IntVar[] { union }, X), PropagatorPriority.LINEAR, false);
 	}
 
 	@Override
