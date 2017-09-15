@@ -2,6 +2,7 @@ package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.mapping.model.Application
 import ch.hilbri.assist.mapping.model.AssistModel
+import ch.hilbri.assist.mapping.solver.constraints.choco.ACF
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Model
 
@@ -43,6 +44,17 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				
 				/* We want to make these vars take different values */
 				chocoModel.allDifferent(taskVars).post
+			}
+			
+			/*
+			 * Now we need to look at the complicated case
+			 * 
+			 */
+			else {
+				val taskList = relation.applicationsOrGroups.map[(it as Application).tasks]
+				val taskVars = taskList.map[it.map[solverVariables.getLocationVariablesForTask(it).get(level)]]
+				val domainUnionVars = taskVars.map[chocoModel.intVar("DomainVarForGroup-" + taskVars.indexOf(it), 0, model.getAllHardwareElements(level).size-1, false)]
+				chocoModel.post(ACF.allDifferent(taskVars, domainUnionVars))
 			}
 		 }
 		 propagate()

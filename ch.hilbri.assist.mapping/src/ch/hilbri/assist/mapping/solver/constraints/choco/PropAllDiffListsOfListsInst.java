@@ -72,41 +72,41 @@ public class PropAllDiffListsOfListsInst extends Propagator<IntVar> {
     }
 
     protected void fixpoint() throws ContradictionException {
-//        try {
-//            while (toCheck.size() > 0) {
-//            	final int vIdx = toCheck.pop();
-//            	final int val = vars[vIdx].getValue();
-//                
-//                // Remove that value from all other vars in all other sets
-//            	int lIdx = 0; // counter for the sub-lists
-//            	
-//            	// Can we skip the first sub-list?
-//            	final boolean inList = (vIdx < cumulLengths[0]);
-//                
-//            	// Go through all variables
-//            	for (int i = (inList ? cumulLengths[0] : 0); i < vars.length; i++) {
-//                	// Are we at the end of a sub-list?
-//            		if (i == cumulLengths[lIdx]) {
-//                		lIdx++;  // go to the next sub-list
-//                		// is the variable in the now current sub-list
-//                		if (vIdx >= cumulLengths[lIdx-1] && vIdx < cumulLengths[lIdx]) {
-//                			// Skip this sub-list
-//                			i = cumulLengths[lIdx] - 1; // because of the i++ in the for loop
-//                			continue;
-//                		}
-//                	}
-//            		if (vars[i].removeValue(val, aCause)) {
-//            			if (vars[i].isInstantiated()) {
-//            				toCheck.push(i);
-//                		}
-//                	}
-//                }
-//            }
-//        }
-//        catch (ContradictionException cex) {
-//            toCheck.clear();
-//            throw cex;
-//        }
+        try {
+            while (toCheck.size() > 0) {
+            	final int vIdx = toCheck.pop();
+            	final int val = vars[vIdx].getValue();
+                
+                // Remove that value from all other vars in all other sets
+            	int lIdx = 0; // counter for the sub-lists
+            	
+            	// Can we skip the first sub-list?
+            	final boolean inList = (vIdx < cumulLengths[0]);
+                
+            	// Go through all variables
+            	for (int i = (inList ? cumulLengths[0] : 0); i < vars.length; i++) {
+                	// Are we at the end of a sub-list?
+            		if (i == cumulLengths[lIdx]) {
+                		lIdx++;  // go to the next sub-list
+                		// is the variable in the now current sub-list
+                		if (vIdx >= cumulLengths[lIdx-1] && vIdx < cumulLengths[lIdx]) {
+                			// Skip this sub-list
+                			i = cumulLengths[lIdx] - 1; // because of the i++ in the for loop
+                			continue;
+                		}
+                	}
+            		if (vars[i].removeValue(val, this)) {
+            			if (vars[i].isInstantiated()) {
+            				toCheck.push(i);
+                		}
+                	}
+                }
+            }
+        }
+        catch (ContradictionException cex) {
+            toCheck.clear();
+            throw cex;
+        }
     }
     
     
