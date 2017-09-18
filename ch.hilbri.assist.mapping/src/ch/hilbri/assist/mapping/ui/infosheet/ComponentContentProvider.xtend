@@ -11,20 +11,24 @@ import ch.hilbri.assist.mapping.model.Task
 import ch.hilbri.assist.mapping.model.result.Result
 import java.util.ArrayList
 import org.eclipse.jface.viewers.IStructuredContentProvider
+import java.text.DecimalFormat
 
 class ComponentContentProvider implements IStructuredContentProvider {
-	AssistModel model
+	AssistModel assistModel
+	Result assistResult
 
 	new(Result result) {
-		if (result !== null)
-			model = result.model
+		if (result !== null) {
+			assistModel = result.model
+			assistResult = result
+		}
 		else
-			model = null
+			assistModel = null
 	}
 	
 	// inputElement = SingleMappingElement
 	override Object[] getElements(Object inputElement) {
-		if (model === null)
+		if (assistModel === null)
 			return newArrayOfSize(0)
 		else {
 
@@ -49,13 +53,15 @@ class ComponentContentProvider implements IStructuredContentProvider {
 				data.addAll(#[
 					#["Type", "Core"],
 					#["Name", inputElement.name.valueOrDefault],
-					#["Architecture", inputElement.architecture.valueOrDefault]
+					#["Architecture", inputElement.architecture.valueOrDefault],
+					#["Utilization", inputElement.utilization]
 				])
 			else if (inputElement instanceof Processor)
 				data.addAll(#[
 					#["Type", "Processor"],
 					#["Name", inputElement.name.valueOrDefault],
-					#["Processor type", inputElement.processorType.valueOrDefault]
+					#["Processor type", inputElement.processorType.valueOrDefault],
+					#["Utilization", inputElement.utilization]
 				])
 			else if (inputElement instanceof Board)
 				data.addAll(#[
@@ -86,5 +92,31 @@ class ComponentContentProvider implements IStructuredContentProvider {
 	def String getValueOrDefault(String value) {
 		if (value.isNullOrEmpty) "-"
 		else 					value
+	}
+		
+	/* Calculate the load on the core that is induced  */	
+	def String getUtilization(Core core) {
+		val tasks = assistResult.getMappedTasksForCore(core)
+		if (!tasks.isNullOrEmpty) {
+			val load = 100.0 * tasks.map[coreUtilization].reduce[p1, p2|p1+p2] / core.capacity
+			return new DecimalFormat("#.#").format(load) + "%"
+		}
+		else
+			return "0.0%"
+	}
+	
+	/* Calculate the load on the processor that is induced by the result */
+	def String getUtilization(Processor proc) {
+		val tasks = proc.cores.map[assistResult.getMappedTasksForCore(it)]
+							  .filter[!it.isNullOrEmpty]
+							  .flatten
+		
+		if (!tasks.isNullOrEmpty) {
+			val load = 100.0 * tasks.map[coreUtilization].reduce[p1, p2|p1+p2] / 
+							   proc.cores.map[capacity].reduce[p1, p2|p1+p2]
+			return new DecimalFormat("#.#").format(load)+"%"
+		}
+		else
+			return "0.0%"
 	}
 }
