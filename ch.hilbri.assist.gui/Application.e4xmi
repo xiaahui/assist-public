@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_75jaEBLXEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.application">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_Eve48BLYEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.trimmedwindow.main" label="ASSIST" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/ASSIST-icon-128x128.png">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_Eve48BLYEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.trimmedwindow.main" label="ASSIST" iconURI="platform:/plugin/ch.hilbri.assist.gui/icons/ASSIST-icon-128x128.png" bindingContexts="_SdnD4JyjEeeMRoGz8_M2mg">
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_NehnYBRyEee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.perspectivestack.0">
       <children xsi:type="advanced:Perspective" xmi:id="_OeDxwBRyEee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.perspective" label="ASSIST - Main">
         <children xsi:type="basic:PartSashContainer" xmi:id="_qXym0BR0Eee2Ev2eVUEQ1A" elementId="ch.hilbri.assist.gui.partsashcontainer.0" horizontal="true">
@@ -92,9 +92,12 @@
     <bindings xmi:id="_Mzam8BRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.selectAll" keySequence="M1+A" command="_MGQbcBRHEeeXZoKubOdysQ"/>
     <bindings xmi:id="_O2QBYBRIEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.keybinding.findreplace" keySequence="M1+F" command="_QQ4o0BRHEeeXZoKubOdysQ"/>
   </bindingTables>
+  <bindingTables xmi:id="_bWGukJyjEeeMRoGz8_M2mg" elementId="ch.hilbri.assist.gui.bindingtable.1" bindingContext="_SdnD4JyjEeeMRoGz8_M2mg"/>
   <rootContext xmi:id="_8AG84BO6EeeXZoKubOdysQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="Dialogs and Windows" description="Key bindings valid for dialogs and windows">
     <children xmi:id="_HJ8_IBO7EeeXZoKubOdysQ" elementId="org.eclipse.ui.contexts.dialog" name="Dialogs only" description="Key bindings valid for dialogs"/>
-    <children xmi:id="_LtOWABO7EeeXZoKubOdysQ" elementId="org.eclipse.ui.contexts.window" name="Windows only" description="Key bindings valid for windows only"/>
+    <children xmi:id="_LtOWABO7EeeXZoKubOdysQ" elementId="org.eclipse.ui.contexts.window" name="Windows only" description="Key bindings valid for windows only">
+      <children xmi:id="_SdnD4JyjEeeMRoGz8_M2mg" elementId="ch.hilbri.assist.gui.bindingcontext.assistwindows" name="ASSIST Windows Context"/>
+    </children>
   </rootContext>
   <commands xmi:id="_iEtEcBOyEeeXZoKubOdysQ" elementId="ch.hilbri.assist.gui.commands.newproject" commandName="New Project" description="Create a new ASSIST project" category="_3K1eACuKEeeS6a68AYSGxg"/>
   <commands xmi:id="_-xBe8BOyEeeXZoKubOdysQ" elementId="org.eclipse.ui.newWizard" commandName="New Other"/>
