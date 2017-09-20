@@ -53,8 +53,8 @@ import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 public class MetricsView implements IPartListener2 {
 
 	/*
-	 * We would like to have a reference to this view so that others can refresh
-	 * the content too
+	 * We would like to have a reference to this view so that others can refresh the
+	 * content too
 	 */
 	public static MetricsView INSTANCE;
 
@@ -71,8 +71,8 @@ public class MetricsView implements IPartListener2 {
 	private Combo cbxWeight;
 
 	/*
-	 * A reference to the current multipage editor which contains the results
-	 * and the current metrics
+	 * A reference to the current multipage editor which contains the results and
+	 * the current metrics
 	 */
 	private MultiPageEditor currentEditor;
 
@@ -90,7 +90,7 @@ public class MetricsView implements IPartListener2 {
 	 */
 	@PostConstruct
 	public void createControls(final Composite parentMain) {
-		
+
 		parentMain.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		parentMain.setLayout(new FillLayout(SWT.HORIZONTAL));
 
@@ -177,7 +177,6 @@ public class MetricsView implements IPartListener2 {
 		});
 
 		Button btnReloadMetrics = new Button(mainComposite, SWT.NONE);
-		btnReloadMetrics.setEnabled(false);
 		btnReloadMetrics.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		btnReloadMetrics.setText("Load custom metrics");
 		btnReloadMetrics.setImage(ResourceManager.getPluginImage("ch.hilbri.assist.mapping", "icons/refresh.gif"));
@@ -229,15 +228,14 @@ public class MetricsView implements IPartListener2 {
 					return;
 
 				// Clear old custom metrics in the currentModel
-				// for (AbstractMetric m :
-				// currentModel.getAvailableMetricsList())
-				// if (!m.isBuiltIn())
-				// currentModel.getAvailableMetricsList().remove(m);
+				for (AbstractMetric m : currentEditor.getAvailableMetricsList())
+					if (!m.isBuiltIn())
+						currentEditor.getAvailableMetricsList().remove(m);
 
 				try {
 
 					// Create the classloader for our new metrics
-					URL url = new URL("file:/" + metricsPath.toPortableString());
+					URL url = new URL("file://" + metricsPath.toPortableString());
 					URLClassLoader classLoader = URLClassLoader.newInstance(new URL[] { url },
 							getClass().getClassLoader());
 
@@ -260,7 +258,7 @@ public class MetricsView implements IPartListener2 {
 					}
 
 					// Add the new metrics
-					// currentModel.getAvailableMetricsList().addAll(newCustomMetrics);
+					currentEditor.getAvailableMetricsList().addAll(newCustomMetrics);
 
 				} catch (ClassNotFoundException | IOException | InstantiationException | IllegalAccessException
 						| IllegalArgumentException | InvocationTargetException | NoSuchMethodException
@@ -269,6 +267,7 @@ public class MetricsView implements IPartListener2 {
 				}
 
 				// Refresh UI with updated data from the UI model
+				refreshEntries(currentEditor);
 				// restoreTableFromCurrentModel();
 				// fillComboBoxWithAvailableMetrics();
 			}
@@ -288,75 +287,91 @@ public class MetricsView implements IPartListener2 {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if (currentEditor != null && currentEditor.getMappingResultsCount() > 0)  {
-					ProgressMonitorDialog progressDialog = new ProgressMonitorDialog(currentEditor.getSite().getShell());
+				if (currentEditor != null && currentEditor.getMappingResultsCount() > 0) {
+					ProgressMonitorDialog progressDialog = new ProgressMonitorDialog(
+							currentEditor.getSite().getShell());
 					try {
-						 progressDialog.run(true, false, new EvaluateJob(currentEditor));
+						progressDialog.run(true, false, new EvaluateJob(currentEditor));
 					} catch (InvocationTargetException | InterruptedException e1) {
-							e1.printStackTrace();
+						e1.printStackTrace();
 					}
 				}
-				
+
 				else {
-						 MessageDialog dlg = new MessageDialog(null, "No results found", null,
-							 "No results were found for analysis. Please generate valid deployments.",
-							 MessageDialog.INFORMATION, new String[] { "OK" }, 0);
-							 dlg.open();
+					MessageDialog dlg = new MessageDialog(null, "No results found", null,
+							"No results were found for analysis. Please generate valid deployments.",
+							MessageDialog.INFORMATION, new String[] { "OK" }, 0);
+					dlg.open();
 				}
 			}
-	});
+		});
 
-	Label lblOverflow = new Label(mainComposite,
-			SWT.NONE);lblOverflow.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));lblOverflow.setLayoutData(new GridData(SWT.FILL,SWT.CENTER,true,false,1,1));
+		Label lblOverflow = new Label(mainComposite, SWT.NONE);
+		lblOverflow.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		lblOverflow.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
-	Group grpSelectedMetrics = new Group(mainComposite,
-			SWT.NONE);grpSelectedMetrics.setLayoutData(new GridData(SWT.FILL,SWT.FILL,true,true,8,1));grpSelectedMetrics.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
-	FillLayout fl_grpSelectedMetrics = new FillLayout(
-			SWT.HORIZONTAL);fl_grpSelectedMetrics.marginHeight=5;fl_grpSelectedMetrics.marginWidth=5;grpSelectedMetrics.setLayout(fl_grpSelectedMetrics);grpSelectedMetrics.setText("Selected Metrics");
+		Group grpSelectedMetrics = new Group(mainComposite, SWT.NONE);
+		grpSelectedMetrics.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 8, 1));
+		grpSelectedMetrics.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		FillLayout fl_grpSelectedMetrics = new FillLayout(SWT.HORIZONTAL);
+		fl_grpSelectedMetrics.marginHeight = 5;
+		fl_grpSelectedMetrics.marginWidth = 5;
+		grpSelectedMetrics.setLayout(fl_grpSelectedMetrics);
+		grpSelectedMetrics.setText("Selected Metrics");
 
-	Composite composite = new Composite(grpSelectedMetrics, SWT.NONE);
-	TableColumnLayout tcl_composite = new TableColumnLayout();composite.setLayout(tcl_composite);
+		Composite composite = new Composite(grpSelectedMetrics, SWT.NONE);
+		TableColumnLayout tcl_composite = new TableColumnLayout();
+		composite.setLayout(tcl_composite);
 
-	tblSelectedMetricsViewer=new TableViewer(composite,SWT.BORDER|SWT.FULL_SELECTION);tblSelectedMetrics=tblSelectedMetricsViewer.getTable();tblSelectedMetrics.setHeaderVisible(true);tblSelectedMetrics.setLinesVisible(true);
+		tblSelectedMetricsViewer = new TableViewer(composite, SWT.BORDER | SWT.FULL_SELECTION);
+		tblSelectedMetrics = tblSelectedMetricsViewer.getTable();
+		tblSelectedMetrics.setHeaderVisible(true);
+		tblSelectedMetrics.setLinesVisible(true);
 
-	TableViewerColumn tableViewerColumn = new TableViewerColumn(tblSelectedMetricsViewer,
-			SWT.NONE);tableViewerColumn.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics,this));
-	TableColumn tblclmnIndex = tableViewerColumn
-			.getColumn();tcl_composite.setColumnData(tblclmnIndex,new ColumnPixelData(60,true,true));tblclmnIndex.setText("Index");
+		TableViewerColumn tableViewerColumn = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
+		tableViewerColumn.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+		TableColumn tblclmnIndex = tableViewerColumn.getColumn();
+		tcl_composite.setColumnData(tblclmnIndex, new ColumnPixelData(60, true, true));
+		tblclmnIndex.setText("Index");
 
-	TableViewerColumn tableViewerColumn_1 = new TableViewerColumn(tblSelectedMetricsViewer,
-			SWT.NONE);tableViewerColumn_1.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics,this));
-	TableColumn tblclmnMetric = tableViewerColumn_1
-			.getColumn();tcl_composite.setColumnData(tblclmnMetric,new ColumnPixelData(260,true,true));tblclmnMetric.setText("Metric");
+		TableViewerColumn tableViewerColumn_1 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
+		tableViewerColumn_1.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+		TableColumn tblclmnMetric = tableViewerColumn_1.getColumn();
+		tcl_composite.setColumnData(tblclmnMetric, new ColumnPixelData(260, true, true));
+		tblclmnMetric.setText("Metric");
 
-	TableViewerColumn tableViewerColumn_2 = new TableViewerColumn(tblSelectedMetricsViewer,
-			SWT.NONE);tableViewerColumn_2.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics,this));
-	TableColumn tblclmnType = tableViewerColumn_2
-			.getColumn();tcl_composite.setColumnData(tblclmnType,new ColumnPixelData(90,true,true));tblclmnType.setText("Type");
+		TableViewerColumn tableViewerColumn_2 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
+		tableViewerColumn_2.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+		TableColumn tblclmnType = tableViewerColumn_2.getColumn();
+		tcl_composite.setColumnData(tblclmnType, new ColumnPixelData(90, true, true));
+		tblclmnType.setText("Type");
 
-	TableViewerColumn tableViewerColumn_3 = new TableViewerColumn(tblSelectedMetricsViewer,
-			SWT.NONE);tableViewerColumn_3.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics,this));
-	TableColumn tblclmnWeight = tableViewerColumn_3
-			.getColumn();tcl_composite.setColumnData(tblclmnWeight,new ColumnPixelData(60,true,true));tblclmnWeight.setText("Weight");
+		TableViewerColumn tableViewerColumn_3 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
+		tableViewerColumn_3.setLabelProvider(new MetricTableEntryLabelProvider(tblSelectedMetrics, this));
+		TableColumn tblclmnWeight = tableViewerColumn_3.getColumn();
+		tcl_composite.setColumnData(tblclmnWeight, new ColumnPixelData(60, true, true));
+		tblclmnWeight.setText("Weight");
 
-	TableViewerColumn tableViewerColumn_4 = new TableViewerColumn(tblSelectedMetricsViewer,
-			SWT.NONE);lblProvider=new MetricTableEntryLabelProvider(tblSelectedMetrics,this);tableViewerColumn_4.setLabelProvider(lblProvider);
-	TableColumn tblclmnRemove = tableViewerColumn_4
-			.getColumn();tcl_composite.setColumnData(tblclmnRemove,new ColumnPixelData(60,true,true));tblclmnRemove.setText("Remove");tblSelectedMetricsViewer.setContentProvider(new MetricTableContentProvider());
+		TableViewerColumn tableViewerColumn_4 = new TableViewerColumn(tblSelectedMetricsViewer, SWT.NONE);
+		lblProvider = new MetricTableEntryLabelProvider(tblSelectedMetrics, this);
+		tableViewerColumn_4.setLabelProvider(lblProvider);
+		TableColumn tblclmnRemove = tableViewerColumn_4.getColumn();
+		tcl_composite.setColumnData(tblclmnRemove, new ColumnPixelData(60, true, true));
+		tblclmnRemove.setText("Remove");
+		tblSelectedMetricsViewer.setContentProvider(new MetricTableContentProvider());
 
-	// We want to get notified, when the active part changes
-	PlatformUI.getWorkbench().getActiveWorkbenchWindow().getPartService().addPartListener(this);
+		// We want to get notified, when the active part changes
+		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getPartService().addPartListener(this);
 
-	// We could have been created lazyly - so we should try to find out
-	// about the current editor
-	refreshEntries(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor());
+		// We could have been created lazyly - so we should try to find out
+		// about the current editor
+		refreshEntries(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor());
 
 	}
 
 	/*
-	 * We want to switch to a new editor window - so we need to find out, if
-	 * that is indeed a multipageditor and if we can retrieve some metrics from
-	 * it
+	 * We want to switch to a new editor window - so we need to find out, if that is
+	 * indeed a multipageditor and if we can retrieve some metrics from it
 	 */
 	public void refreshEntries(IWorkbenchPart partRef) {
 		// Should we clear the current editor?
@@ -373,11 +388,11 @@ public class MetricsView implements IPartListener2 {
 					.map(m -> m.getName() + " (" + (m.isBuiltIn() ? "built-in" : "custom") + ")")
 					.collect(Collectors.toList()).toArray(new String[0]);
 			cbxAvailableMetrics.setItems(newItems);
-			
+
 			// Load the list of selected metrics to the table
 			lblProvider.clearAllButtons();
 			tblSelectedMetricsViewer.setInput(currentEditor.getSelectedMetricsList());
-			
+
 			// If there are some results to be evaluated, then we should enable the button
 			btnEvaluateResults.setEnabled(currentEditor.getMappingResultsCount() > 0);
 		}

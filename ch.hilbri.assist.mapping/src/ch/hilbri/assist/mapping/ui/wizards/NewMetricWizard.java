@@ -87,8 +87,8 @@ public class NewMetricWizard extends Wizard implements INewWizard {
 		packageName = packageName.length() > 0 ? "package " + packageName
 				+ ";\n\n" : "";
 		String contents = packageName
-				+ "import ch.hilbri.assist.datamodel.result.mapping.Result;\n"
-				+ "import ch.hilbri.assist.datamodel.result.mapping.impl.AbstractMetricImpl;\n\n"
+				+ "import ch.hilbri.assist.mapping.model.result.Result;\n"
+				+ "import ch.hilbri.assist.mapping.model.result.impl.AbstractMetricImpl;\n\n"
 				+
 
 				"public class " + fileName + " extends AbstractMetricImpl { \n" +
