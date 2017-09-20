@@ -228,9 +228,11 @@ public class MetricsView implements IPartListener2 {
 					return;
 
 				// Clear old custom metrics in the currentModel
+				List<AbstractMetric> removalList = new ArrayList<AbstractMetric>();
 				for (AbstractMetric m : currentEditor.getAvailableMetricsList())
 					if (!m.isBuiltIn())
-						currentEditor.getAvailableMetricsList().remove(m);
+						removalList.add(m);
+				currentEditor.getAvailableMetricsList().removeAll(removalList);
 
 				try {
 
