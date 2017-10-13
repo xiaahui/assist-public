@@ -44,11 +44,12 @@ public class ASSISTClasspathContainer implements IClasspathContainer {
 	private Path getLibraryPath(Bundle bundle) {
 		String path = "";
 		
-		URL fileURL = FileLocator.find(bundle, new Path("bin"), null);
+		/* We try to find out, whether we are looking at the Eclipse project path ... */
+		URL fileURL = FileLocator.find(bundle, new Path("target/classes"), null);
 		
+		/* ... or a jar file */
 		if (fileURL == null)
 			fileURL = FileLocator.find(bundle, new Path(""), null);
-		
 				
 		URL resolvedURL = null;
 
@@ -81,5 +82,4 @@ public class ASSISTClasspathContainer implements IClasspathContainer {
 	public IPath getPath() {
 		return new Path("ch.hilbri.assist.gui.classpathContainer");
 	}
-
 }
