@@ -4,7 +4,11 @@ import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
+import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint
+import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
+import ch.hilbri.assist.mapping.solver.constraints.RAMorROMCapacityConstraint
+import ch.hilbri.assist.mapping.solver.constraints.RAMorROMCapacityConstraint.RessourceType
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.monitors.PartialSolutionSaveMonitor
@@ -18,15 +22,13 @@ import java.util.List
 import org.chocosolver.solver.Model
 import org.chocosolver.solver.Solution
 import org.chocosolver.solver.Solver
+import org.chocosolver.solver.search.limits.FailCounter
+import org.chocosolver.solver.search.limits.SolutionCounter
 import org.chocosolver.solver.search.strategy.Search
 import org.chocosolver.util.criteria.Criterion
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.constraints.RAMorROMCapacityConstraint
-import ch.hilbri.assist.mapping.solver.constraints.RAMorROMCapacityConstraint.RessourceType
-import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
-import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 
 class AssistSolver {
 	
@@ -48,7 +50,6 @@ class AssistSolver {
 
 	private PartialSolutionSaveMonitor 				monPartialSolutionSave
 	private SolutionFoundMonitor 					monSolutionFound
-//	private FailPerPropagator 						failCounter
 	
 	new (AssistModel input) {
 
@@ -81,7 +82,7 @@ class AssistSolver {
 				
 		mappingResults 			= newArrayList  
 		
-		/* The identical solution for all variables should not be found twice */
+		/* The identical solution for all variables should not be found twice - if restarts are used */
 		chocoModel.solver.noGoodRecordingFromSolutions = solverVariables.allLocationVariables
 		
 		/* Attach the search monitors */
@@ -131,10 +132,11 @@ class AssistSolver {
 	
 	def setEnableRestarts(int maxFailCount) {
 		logger.info('''Enabling a restart after each solution and after «maxFailCount» fails''')
+
 		// Trigger a restart after each solution
+		chocoSolver.setGeometricalRestart(1, 1, new SolutionCounter(chocoModel, 1), Integer.MAX_VALUE)
 		// Trigger a restart after X Fails (X = 100)
-//		chocoSolver.setGeometricalRestart(1, 1, new SolutionCounter(chocoModel, 1), Integer.MAX_VALUE)
-//		chocoSolver.setGeometricalRestart(maxFailCount, 1, new FailCounter(chocoModel, 1), Integer.MAX_VALUE)
+		chocoSolver.setGeometricalRestart(maxFailCount, 1, new FailCounter(chocoModel, 1), Integer.MAX_VALUE)
 	}
 	
 	/**
@@ -148,16 +150,10 @@ class AssistSolver {
 	}
 	
 	def setEnableMinimization() {
-//		if (dataModel.globalBlock.cableWeightDataBlock == null) {
-//			logger.info('''Disabling selected minimization because of missing cable weight data in the input''')
-//		} else {
-//			logger.info('''Enabling minimization of cable weight during search''')
-//			mappingConstraintsList.add(new ObjectiveFunctionConstraint(dataModel, chocoModel, solverVariables))
-//			enableMinimization = true
-//		}
+//		logger.info('''Enabling minimization of cable weight during search''')
+//		mappingConstraintsList.add(new ObjectiveFunctionConstraint(dataModel, chocoModel, solverVariables))
+//		enableMinimization = true
 	}
-	
-	
 	
 	def runInitialization() {
 		logger.info("Running pre-processors ... ")
@@ -206,7 +202,9 @@ class AssistSolver {
 		if (chocoSolutions.size > 0) {
 			mappingResults = ResultFactoryFromSolverSolutions.create(assistModel, solverVariables, chocoSolutions)
 			logger.debug('''Results created:  «mappingResults.size»''')
-		} // We found no solution
+		} 
+		
+		// We found no solution
 		else {
 
 			// Is there no solution at all? The solver must not have reached a pre-defined limit then
@@ -230,9 +228,8 @@ class AssistSolver {
 		mappingResults
 	}
 	
-	def hasReachedLimit() 				{ 
-//		solver.hasReachedLimit
-		true
+	def stopCriterionMet() 				{
+		chocoSolver.stopCriterionMet 
 	}
 
 	def setStopCriterion(Criterion c) {
@@ -244,6 +241,7 @@ class AssistSolver {
 		solverVariables
 	}
 	
+	/** For the tests */
 	def List<Solution> getChocoSolutions() {
 		chocoSolutions
 	}

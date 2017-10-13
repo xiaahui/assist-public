@@ -167,7 +167,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		lblTaskExplanation = new Label(grpStrategy, SWT.WRAP | SWT.SHADOW_IN);
 		lblTaskExplanation.setFont(SWTResourceManager.getFont("Segoe UI", 8, SWT.NORMAL));
 		lblTaskExplanation.setText("Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text ");
-		lblTaskExplanation.setBounds(167, 65, 398, 37);
+		lblTaskExplanation.setBounds(167, 65, 398, 45);
 		
 		Label lblPinselection = new Label(grpStrategy, SWT.NONE);
 		lblPinselection.setText("Pin Selection:");
@@ -196,6 +196,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		grpMiscOptions.setBounds(10, 264, 584, 191);
 		
 		Button btnSavePartialSolution = new Button(grpMiscOptions, SWT.CHECK);
+		btnSavePartialSolution.setEnabled(false);
 		btnSavePartialSolution.setSelection(true);
 		btnSavePartialSolution.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -218,6 +219,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		});
 
 		Button btnVerboseLoggingOutput = new Button(grpMiscOptions, SWT.CHECK);
+		btnVerboseLoggingOutput.setEnabled(false);
 		btnVerboseLoggingOutput.setSelection(false);
 		btnVerboseLoggingOutput.setBounds(35, 158, 539, 24);
 		btnVerboseLoggingOutput.setText("Detailed logging output");
@@ -261,6 +263,7 @@ public class SearchParametersDialog extends TitleAreaDialog {
 		});
 
 		Button btnEnableMinimization = new Button(grpMiscOptions, SWT.CHECK);
+		btnEnableMinimization.setEnabled(false);
 		btnEnableMinimization.setSelection(true);
 		btnEnableMinimization.setBounds(35, 25, 539, 24);
 		btnEnableMinimization.setText("Enforce optimization during search");

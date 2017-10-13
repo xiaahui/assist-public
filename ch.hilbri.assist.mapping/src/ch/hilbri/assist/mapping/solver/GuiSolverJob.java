@@ -86,7 +86,7 @@ public class GuiSolverJob extends Job {
 			else {
 				String message;
 
-				if (assistSolver.hasReachedLimit())
+				if (assistSolver.stopCriterionMet())
 					message = "No solutions were found during the maximum allowed search time.";
 				else
 					message = "There are no solutions for this deployment specification.";
