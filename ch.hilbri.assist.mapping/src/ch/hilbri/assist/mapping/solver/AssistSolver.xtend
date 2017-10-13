@@ -144,7 +144,8 @@ class AssistSolver {
 	 */
 	def setNoGoodRecording(int level) {
 		logger.info('''Enforcing different solutions on «level»-level''')
-//		chocoSolver.noGoodRecordingFromSolutions = solverVariables.getLocationVariablesForLevel(level)
+		chocoSolver.noGoodRecordingFromSolutions = solverVariables.getLocationVariablesForLevel(level)
+
 	}
 	
 	def setEnableMinimization() {

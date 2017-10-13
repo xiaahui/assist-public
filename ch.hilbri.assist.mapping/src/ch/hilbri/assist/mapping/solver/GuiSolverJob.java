@@ -162,7 +162,7 @@ public class GuiSolverJob extends Job {
 	
 	public void setNoGoodRecording(boolean value) {
 		if (value)
-			assistSolver.setNoGoodRecording(2); // Board level?
+			assistSolver.setNoGoodRecording(2); // Board level
 	}
 	
 	public void setEnableMinimization(boolean value) {
