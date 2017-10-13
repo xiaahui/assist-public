@@ -82,8 +82,7 @@ class AssistSolver {
 		mappingResults 			= newArrayList  
 		
 		/* The identical solution for all variables should not be found twice */
-		/* FIXME #22: We should consolidate all solver sources into a single plugin */
-//		chocoModel.solver.noGoodRecordingFromSolutions = solverVariables.allLocationVariables
+		chocoModel.solver.noGoodRecordingFromSolutions = solverVariables.allLocationVariables
 		
 		/* Attach the search monitors */
 		chocoSolver.plugMonitor(monSolutionFound = new SolutionFoundMonitor)
