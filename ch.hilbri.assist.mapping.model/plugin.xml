@@ -5,7 +5,7 @@
       <package
             uri="ch.hilbri.assist.mapping.model"
             class="ch.hilbri.assist.mapping.model.ModelPackage"
-            genModel="model/ASSIST-Model.xcore"/>
+            genModel="model/ASSIST-Mapping-Model.xcore"/>
    </extension>
 
 </plugin>

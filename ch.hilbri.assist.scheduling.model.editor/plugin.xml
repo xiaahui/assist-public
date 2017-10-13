@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ASSIST-Scheduling-Model -->
+      <editor
+            id="ch.hilbri.assist.scheduling.model.presentation.ModelEditorID"
+            name="%_UI_ModelEditor_label"
+            icon="icons/full/obj16/ModelModelFile.gif"
+            extensions="model"
+            class="ch.hilbri.assist.scheduling.model.presentation.ModelEditor"
+            contributorClass="ch.hilbri.assist.scheduling.model.presentation.ModelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

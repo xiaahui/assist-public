@@ -46,6 +46,9 @@
 		<module>../ch.hilbri.assist.mapping.dsl.ui.tests</module>
 		<module>../ch.hilbri.assist.libraries.choco-solver</module>
 		<module>../ch.hilbri.assist.libraries.swtchart</module>
+		<module>../ch.hilbri.assist.scheduling.model</module>
+		<module>../ch.hilbri.assist.scheduling.model.edit</module>
+		<module>../ch.hilbri.assist.scheduling.model.editor</module>
 	</modules>
 
 	<dependencies>
