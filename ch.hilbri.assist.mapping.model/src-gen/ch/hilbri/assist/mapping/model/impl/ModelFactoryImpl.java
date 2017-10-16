@@ -69,6 +69,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.APPLICATION_GROUP: return createApplicationGroup();
 			case ModelPackage.APPLICATION: return createApplication();
 			case ModelPackage.TASK: return createTask();
+			case ModelPackage.BOARD_ALTERNATIVES: return createBoardAlternatives();
+			case ModelPackage.BOARD_ALTERNATIVE: return createBoardAlternative();
 			case ModelPackage.IO_ADAPTER_REQUIREMENT: return createIOAdapterRequirement();
 			case ModelPackage.DISSIMILARITY_RELATION: return createDissimilarityRelation();
 			case ModelPackage.DISSIMILARITY_CLAUSE: return createDissimilarityClause();
@@ -255,6 +257,26 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public Task createTask() {
 		TaskImpl task = new TaskImpl();
 		return task;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BoardAlternatives createBoardAlternatives() {
+		BoardAlternativesImpl boardAlternatives = new BoardAlternativesImpl();
+		return boardAlternatives;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BoardAlternative createBoardAlternative() {
+		BoardAlternativeImpl boardAlternative = new BoardAlternativeImpl();
+		return boardAlternative;
 	}
 
 	/**

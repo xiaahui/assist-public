@@ -145,6 +145,18 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModelPackage.BOARD_ALTERNATIVES: {
+				BoardAlternatives boardAlternatives = (BoardAlternatives)theEObject;
+				T result = caseBoardAlternatives(boardAlternatives);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.BOARD_ALTERNATIVE: {
+				BoardAlternative boardAlternative = (BoardAlternative)theEObject;
+				T result = caseBoardAlternative(boardAlternative);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModelPackage.IO_ADAPTER_REQUIREMENT: {
 				IOAdapterRequirement ioAdapterRequirement = (IOAdapterRequirement)theEObject;
 				T result = caseIOAdapterRequirement(ioAdapterRequirement);
@@ -383,6 +395,36 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTask(Task object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Board Alternatives</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Board Alternatives</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBoardAlternatives(BoardAlternatives object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Board Alternative</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Board Alternative</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBoardAlternative(BoardAlternative object) {
 		return null;
 	}
 

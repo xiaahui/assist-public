@@ -36,7 +36,8 @@ Compartment:
 Box:
 	'Box' name=ID '{'
 		('Manufacturer' 			'=' manufacturer=STRING ';')?
-		(boards+=Board)+
+		(boards+=Board)*
+		(boardAlternatives+=BoardAlternatives)*
 		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}'
 ;
@@ -75,6 +76,20 @@ IOAdapter:
 	 	'Type' '=' adapterType=IOAdapterType ';'
 	 	'Count' '=' totalCount=INT ';'
 	'}' 
+;
+
+/* Variability modeling */
+
+BoardAlternatives: 
+	'Alternatives' '{' 
+		(alternatives+=BoardAlternative)+
+	'}'
+;
+
+BoardAlternative: 
+	'Alternative' name=ID '{'
+		boards+=Board
+	'}'
 ;
 
 /* SOFTWARE */

@@ -130,6 +130,24 @@ public interface ModelFactory extends EFactory {
 	Task createTask();
 
 	/**
+	 * Returns a new object of class '<em>Board Alternatives</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Board Alternatives</em>'.
+	 * @generated
+	 */
+	BoardAlternatives createBoardAlternatives();
+
+	/**
+	 * Returns a new object of class '<em>Board Alternative</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Board Alternative</em>'.
+	 * @generated
+	 */
+	BoardAlternative createBoardAlternative();
+
+	/**
 	 * Returns a new object of class '<em>IO Adapter Requirement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

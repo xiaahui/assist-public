@@ -348,6 +348,52 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.BoardAlternatives} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoardAlternativesItemProvider boardAlternativesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.BoardAlternatives}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoardAlternativesAdapter() {
+		if (boardAlternativesItemProvider == null) {
+			boardAlternativesItemProvider = new BoardAlternativesItemProvider(this);
+		}
+
+		return boardAlternativesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.BoardAlternative} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoardAlternativeItemProvider boardAlternativeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.BoardAlternative}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoardAlternativeAdapter() {
+		if (boardAlternativeItemProvider == null) {
+			boardAlternativeItemProvider = new BoardAlternativeItemProvider(this);
+		}
+
+		return boardAlternativeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.IOAdapterRequirement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -665,6 +711,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (applicationGroupItemProvider != null) applicationGroupItemProvider.dispose();
 		if (applicationItemProvider != null) applicationItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
+		if (boardAlternativesItemProvider != null) boardAlternativesItemProvider.dispose();
+		if (boardAlternativeItemProvider != null) boardAlternativeItemProvider.dispose();
 		if (ioAdapterRequirementItemProvider != null) ioAdapterRequirementItemProvider.dispose();
 		if (dissimilarityRelationItemProvider != null) dissimilarityRelationItemProvider.dispose();
 		if (dissimilarityClauseItemProvider != null) dissimilarityClauseItemProvider.dispose();

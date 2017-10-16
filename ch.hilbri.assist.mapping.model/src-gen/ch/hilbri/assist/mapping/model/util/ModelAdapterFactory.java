@@ -116,6 +116,14 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createTaskAdapter();
 			}
 			@Override
+			public Adapter caseBoardAlternatives(BoardAlternatives object) {
+				return createBoardAlternativesAdapter();
+			}
+			@Override
+			public Adapter caseBoardAlternative(BoardAlternative object) {
+				return createBoardAlternativeAdapter();
+			}
+			@Override
 			public Adapter caseIOAdapterRequirement(IOAdapterRequirement object) {
 				return createIOAdapterRequirementAdapter();
 			}
@@ -336,6 +344,34 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTaskAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.BoardAlternatives <em>Board Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.mapping.model.BoardAlternatives
+	 * @generated
+	 */
+	public Adapter createBoardAlternativesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.BoardAlternative <em>Board Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.mapping.model.BoardAlternative
+	 * @generated
+	 */
+	public Adapter createBoardAlternativeAdapter() {
 		return null;
 	}
 

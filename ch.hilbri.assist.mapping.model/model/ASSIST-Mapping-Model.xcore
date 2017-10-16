@@ -54,7 +54,8 @@ class Compartment extends HardwareElement {
 
 class Box extends HardwareElement {
 	container Compartment compartment opposite boxes
-	contains Board[1..*] boards opposite box
+	contains Board[0..*] boards opposite box
+	contains BoardAlternatives[0..*] boardAlternatives
 		
 	op Board[] 			getAllBoards() 			{ boards }
 	op Processor[] 		getAllProcessors() 		{ boards.map[allProcessors].flatten.toEList	}
@@ -125,15 +126,26 @@ class Task {
 	op String 			toString() 				{ name }
 }
 
+/* *********************************************** */
+/*      VARIABILITY MODELING                       */
+/* *********************************************** */
+class BoardAlternatives {  // XOR
+	contains BoardAlternative[1..*] alternatives
+}
+
+class BoardAlternative {
+	String name
+	contains Board[1..*] boards 
+}
 
 /* *********************************************** */
 /*   REQUIREMENTS / RELATIONS                      */
 /* *********************************************** */
 class IOAdapterRequirement {	
-	IOAdapterType 					adapterType				= "None"
+	IOAdapterType 				adapterType				= "None"
 	int 							requiredAdapterCount 	= "0"
-	boolean 						isSharedAllowed 		= "false"
-	boolean 						isExclusiveOnly 		= "false"
+	boolean 						isSharedAllowed 			= "false"
+	boolean 						isExclusiveOnly 			= "false"
 }
 
 
