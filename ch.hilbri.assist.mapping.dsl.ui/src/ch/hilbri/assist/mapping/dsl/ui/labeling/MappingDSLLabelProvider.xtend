@@ -14,6 +14,7 @@ import ch.hilbri.assist.mapping.model.Processor
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import ch.hilbri.assist.mapping.model.Task
 
 /**
  * Provides labels for EObjects.
@@ -75,12 +76,20 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		'outlineview_core.gif'
 	}
 
+	def text(Task t) {
+		'Task' + t.name
+	}
+	
+	def image(Task t) {
+		'outlineview_task.png'
+	}
+
 	def text(Application a) {
 		'Application ' + a.name
 	}
 
 	def image(Application a) {
-		'outlineview_application.png'
+		'outlineview_application.gif'
 	}
 	
 	def text(ApplicationGroup g) {
