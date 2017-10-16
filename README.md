@@ -11,6 +11,10 @@ ASSIST has been initially developed as a proof of concept for the dissertation o
 
 ![ASSIST Screenshot](ch.hilbri.assist.releng.product.gui/icons/ASSIST-Screenshot.jpg)
 
+## Downloads
+
+Can be found [here](https://github.com/RobertHilbrich/assist-public/releases).
+
 ## Benefits
 
 The benefits for the systems engineer are:
