@@ -130,12 +130,12 @@ class Task {
 /*      VARIABILITY MODELING                       */
 /* *********************************************** */
 class BoardAlternatives {  // XOR
-	contains BoardAlternative[1..*] alternatives
+	contains BoardAlternative[0..*] alternatives
 }
 
 class BoardAlternative {
 	String name
-	contains Board[1..*] boards 
+	contains Board[0..*] boards 
 }
 
 /* *********************************************** */

@@ -38,7 +38,7 @@ public interface BoardAlternatives extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Alternatives</em>' containment reference list.
 	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getBoardAlternatives_Alternatives()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<BoardAlternative> getAlternatives();
