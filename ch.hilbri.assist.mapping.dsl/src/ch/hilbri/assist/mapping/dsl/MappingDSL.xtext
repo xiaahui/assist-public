@@ -14,6 +14,7 @@ AssistModel:
 
 	'Software' '{'
 					(applications+=Application)* 
+					(applicationAlternatives+=ApplicationAlternatives)*
 	'}'
 
 	('Restrictions' '{'
@@ -24,8 +25,8 @@ AssistModel:
 
 Compartment: 
 	'Compartment' name=ID '{'
-		('Manufacturer' 			'=' manufacturer=STRING ';')?
-		('PowerSupply' 				'=' powerSupply=STRING ';')?
+		('Manufacturer' 	'=' manufacturer=STRING 	';')?
+		('PowerSupply' 	'=' powerSupply=STRING 	';')?
 		(boxes+=Box)+
 		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}'
@@ -44,7 +45,7 @@ Board:
 	'Board' name=ID '{'
 		('Manufacturer' 			'=' manufacturer=STRING ';')?
 		('Type' 					'=' boardType=STRING ';')?
-		('PowerSupply' 				'=' powerSupply=STRING ';')?
+		('PowerSupply' 			'=' powerSupply=STRING ';')?
 	    ('DesignAssuranceLevel' 	'=' assuranceLevel=DesignAssuranceLevelType';')?
 		('RAM'  					'=' ramCapacity=INT ';')?
 		('ROM'  					'=' romCapacity=INT ';')?
@@ -89,6 +90,20 @@ BoardAlternative:
 		(boards+=Board)*
 	'}'
 ;
+
+ApplicationAlternatives: 
+	'Alternatives' '{'
+		(alternatives+=ApplicationAlternative)
+	'}'
+;
+
+
+ApplicationAlternative: 
+	'Alternative' name=ID  '{'
+		(applications+=Application)*
+	'}'
+;
+
 
 /* SOFTWARE */
 
