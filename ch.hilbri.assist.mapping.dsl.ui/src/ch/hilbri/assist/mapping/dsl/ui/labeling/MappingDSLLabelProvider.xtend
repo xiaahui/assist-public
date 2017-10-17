@@ -4,6 +4,8 @@ import ch.hilbri.assist.mapping.model.Application
 import ch.hilbri.assist.mapping.model.ApplicationGroup
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.Board
+import ch.hilbri.assist.mapping.model.BoardAlternative
+import ch.hilbri.assist.mapping.model.BoardAlternatives
 import ch.hilbri.assist.mapping.model.Box
 import ch.hilbri.assist.mapping.model.ColocalityRelation
 import ch.hilbri.assist.mapping.model.Compartment
@@ -11,10 +13,10 @@ import ch.hilbri.assist.mapping.model.Core
 import ch.hilbri.assist.mapping.model.DislocalityRelation
 import ch.hilbri.assist.mapping.model.DissimilarityRelation
 import ch.hilbri.assist.mapping.model.Processor
+import ch.hilbri.assist.mapping.model.Task
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
-import ch.hilbri.assist.mapping.model.Task
 
 /**
  * Provides labels for EObjects.
@@ -163,12 +165,20 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		'outlineview_constraint.png'
 	}
 
-//	def text(Network n) {
-//		n.name + " connects " + n.boards 
-//	}
-//	
-//	def image(Network n) {
-//		'outline_view_network_16x16.png'
-//	}
-//	
+	def text(BoardAlternatives b) {
+		'Alternatives'
+	}
+	
+	def image(BoardAlternatives b) {
+		'outlineview_alternatives.png'
+	}
+	
+	def text(BoardAlternative b) {
+		b.name
+	}
+	
+	def image(BoardAlternative b) {
+		'outlineview_alternative.gif'
+	}
+	
 }
