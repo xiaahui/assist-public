@@ -98,22 +98,13 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL__APPLICATIONS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Application Groups</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Application Alternatives</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__APPLICATION_GROUPS = 3;
-
-	/**
-	 * The feature id for the '<em><b>Dissimilarity Relations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL__DISSIMILARITY_RELATIONS = 4;
+	int ASSIST_MODEL__APPLICATION_ALTERNATIVES = 3;
 
 	/**
 	 * The feature id for the '<em><b>Dislocality Relations</b></em>' containment reference list.
@@ -122,7 +113,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__DISLOCALITY_RELATIONS = 5;
+	int ASSIST_MODEL__DISLOCALITY_RELATIONS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Colocality Relations</b></em>' containment reference list.
@@ -131,7 +122,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__COLOCALITY_RELATIONS = 6;
+	int ASSIST_MODEL__COLOCALITY_RELATIONS = 5;
 
 	/**
 	 * The number of structural features of the '<em>Assist Model</em>' class.
@@ -140,7 +131,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_FEATURE_COUNT = 7;
+	int ASSIST_MODEL_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Get All Compartments</em>' operation.
@@ -870,107 +861,6 @@ public interface ModelPackage extends EPackage {
 	int IO_ADAPTER_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationOrApplicationGroupImpl <em>Application Or Application Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.impl.ApplicationOrApplicationGroupImpl
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getApplicationOrApplicationGroup()
-	 * @generated
-	 */
-	int APPLICATION_OR_APPLICATION_GROUP = 8;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_OR_APPLICATION_GROUP__NAME = 0;
-
-	/**
-	 * The number of structural features of the '<em>Application Or Application Group</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT = 1;
-
-	/**
-	 * The operation id for the '<em>To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_OR_APPLICATION_GROUP___TO_STRING = 0;
-
-	/**
-	 * The number of operations of the '<em>Application Or Application Group</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationGroupImpl <em>Application Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.impl.ApplicationGroupImpl
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getApplicationGroup()
-	 * @generated
-	 */
-	int APPLICATION_GROUP = 9;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_GROUP__NAME = APPLICATION_OR_APPLICATION_GROUP__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_GROUP__APPLICATIONS_OR_GROUPS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Application Group</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_GROUP_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_GROUP___TO_STRING = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Application Group</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_GROUP_OPERATION_COUNT = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationImpl <em>Application</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -978,7 +868,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getApplication()
 	 * @generated
 	 */
-	int APPLICATION = 10;
+	int APPLICATION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -987,16 +877,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__NAME = APPLICATION_OR_APPLICATION_GROUP__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Criticality Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION__CRITICALITY_LEVEL = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 0;
+	int APPLICATION__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Developed By</b></em>' attribute.
@@ -1005,16 +886,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__DEVELOPED_BY = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 1;
+	int APPLICATION__DEVELOPED_BY = 1;
 
 	/**
-	 * The feature id for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
+	 * The feature id for the '<em><b>Criticality Level</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 2;
+	int APPLICATION__CRITICALITY_LEVEL = 2;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -1023,7 +904,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__TASKS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 3;
+	int APPLICATION__TASKS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
@@ -1032,7 +913,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__METRIC_PARAMETERS = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 4;
+	int APPLICATION__METRIC_PARAMETERS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 5;
 
 	/**
 	 * The number of structural features of the '<em>Application</em>' class.
@@ -1041,7 +931,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = APPLICATION_OR_APPLICATION_GROUP_FEATURE_COUNT + 5;
+	int APPLICATION_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -1050,7 +940,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION___TO_STRING = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 0;
+	int APPLICATION___TO_STRING = 0;
 
 	/**
 	 * The number of operations of the '<em>Application</em>' class.
@@ -1059,7 +949,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_OPERATION_COUNT = APPLICATION_OR_APPLICATION_GROUP_OPERATION_COUNT + 1;
+	int APPLICATION_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.TaskImpl <em>Task</em>}' class.
@@ -1069,7 +959,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getTask()
 	 * @generated
 	 */
-	int TASK = 11;
+	int TASK = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1178,7 +1068,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoardAlternatives()
 	 * @generated
 	 */
-	int BOARD_ALTERNATIVES = 12;
+	int BOARD_ALTERNATIVES = 10;
 
 	/**
 	 * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
@@ -1215,7 +1105,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoardAlternative()
 	 * @generated
 	 */
-	int BOARD_ALTERNATIVE = 13;
+	int BOARD_ALTERNATIVE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1252,6 +1142,89 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOARD_ALTERNATIVE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationAlternativesImpl <em>Application Alternatives</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.mapping.model.impl.ApplicationAlternativesImpl
+	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getApplicationAlternatives()
+	 * @generated
+	 */
+	int APPLICATION_ALTERNATIVES = 12;
+
+	/**
+	 * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_ALTERNATIVES__ALTERNATIVES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Application Alternatives</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_ALTERNATIVES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Application Alternatives</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_ALTERNATIVES_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationAlternativeImpl <em>Application Alternative</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.mapping.model.impl.ApplicationAlternativeImpl
+	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getApplicationAlternative()
+	 * @generated
+	 */
+	int APPLICATION_ALTERNATIVE = 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_ALTERNATIVE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Applications</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_ALTERNATIVE__APPLICATIONS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Application Alternative</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_ALTERNATIVE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Application Alternative</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_ALTERNATIVE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.IOAdapterRequirementImpl <em>IO Adapter Requirement</em>}' class.
@@ -1318,227 +1291,6 @@ public interface ModelPackage extends EPackage {
 	int IO_ADAPTER_REQUIREMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityRelationImpl <em>Dissimilarity Relation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.impl.DissimilarityRelationImpl
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityRelation()
-	 * @generated
-	 */
-	int DISSIMILARITY_RELATION = 15;
-
-	/**
-	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_RELATION__APPLICATIONS_OR_GROUPS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Dissimilarity Clause</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_RELATION__DISSIMILARITY_CLAUSE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Dissimilarity Relation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_RELATION_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Dissimilarity Relation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_RELATION_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityClauseImpl <em>Dissimilarity Clause</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.impl.DissimilarityClauseImpl
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityClause()
-	 * @generated
-	 */
-	int DISSIMILARITY_CLAUSE = 16;
-
-	/**
-	 * The number of structural features of the '<em>Dissimilarity Clause</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_CLAUSE_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Dissimilarity Clause</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_CLAUSE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityDisjunctionImpl <em>Dissimilarity Disjunction</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.impl.DissimilarityDisjunctionImpl
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityDisjunction()
-	 * @generated
-	 */
-	int DISSIMILARITY_DISJUNCTION = 17;
-
-	/**
-	 * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Dissimilarity Disjunction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_DISJUNCTION_FEATURE_COUNT = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Dissimilarity Disjunction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_DISJUNCTION_OPERATION_COUNT = DISSIMILARITY_CLAUSE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityConjunctionImpl <em>Dissimilarity Conjunction</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.impl.DissimilarityConjunctionImpl
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityConjunction()
-	 * @generated
-	 */
-	int DISSIMILARITY_CONJUNCTION = 18;
-
-	/**
-	 * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_CONJUNCTION__DISSIMILARITY_CLAUSES = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Dissimilarity Conjunction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_CONJUNCTION_FEATURE_COUNT = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Dissimilarity Conjunction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_CONJUNCTION_OPERATION_COUNT = DISSIMILARITY_CLAUSE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityEntryImpl <em>Dissimilarity Entry</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.impl.DissimilarityEntryImpl
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityEntry()
-	 * @generated
-	 */
-	int DISSIMILARITY_ENTRY = 19;
-
-	/**
-	 * The feature id for the '<em><b>Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_ENTRY__LEVEL = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Compartment Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_ENTRY__COMPARTMENT_ATTRIBUTE = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Box Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_ENTRY__BOX_ATTRIBUTE = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Board Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_ENTRY__BOARD_ATTRIBUTE = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Processor Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_ENTRY__PROCESSOR_ATTRIBUTE = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Dissimilarity Entry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_ENTRY_FEATURE_COUNT = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of operations of the '<em>Dissimilarity Entry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_ENTRY_OPERATION_COUNT = DISSIMILARITY_CLAUSE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.DislocalityRelationImpl <em>Dislocality Relation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1546,16 +1298,16 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDislocalityRelation()
 	 * @generated
 	 */
-	int DISLOCALITY_RELATION = 20;
+	int DISLOCALITY_RELATION = 15;
 
 	/**
-	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
+	 * The feature id for the '<em><b>Applications</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISLOCALITY_RELATION__APPLICATIONS_OR_GROUPS = 0;
+	int DISLOCALITY_RELATION__APPLICATIONS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Hardware Level</b></em>' attribute.
@@ -1592,16 +1344,16 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getColocalityRelation()
 	 * @generated
 	 */
-	int COLOCALITY_RELATION = 21;
+	int COLOCALITY_RELATION = 16;
 
 	/**
-	 * The feature id for the '<em><b>Applications Or Groups</b></em>' reference list.
+	 * The feature id for the '<em><b>Applications</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLOCALITY_RELATION__APPLICATIONS_OR_GROUPS = 0;
+	int COLOCALITY_RELATION__APPLICATIONS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Hardware Level</b></em>' attribute.
@@ -1638,7 +1390,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getMetricParameter()
 	 * @generated
 	 */
-	int METRIC_PARAMETER = 22;
+	int METRIC_PARAMETER = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1677,46 +1429,6 @@ public interface ModelPackage extends EPackage {
 	int METRIC_PARAMETER_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.CompartmentAttributes <em>Compartment Attributes</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.CompartmentAttributes
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getCompartmentAttributes()
-	 * @generated
-	 */
-	int COMPARTMENT_ATTRIBUTES = 23;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.BoxAttributes <em>Box Attributes</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.BoxAttributes
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoxAttributes()
-	 * @generated
-	 */
-	int BOX_ATTRIBUTES = 24;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.BoardAttributes <em>Board Attributes</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.BoardAttributes
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoardAttributes()
-	 * @generated
-	 */
-	int BOARD_ATTRIBUTES = 25;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.ProcessorAttributes <em>Processor Attributes</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.ProcessorAttributes
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getProcessorAttributes()
-	 * @generated
-	 */
-	int PROCESSOR_ATTRIBUTES = 26;
-
-	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1724,7 +1436,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
 	 * @generated
 	 */
-	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 27;
+	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 18;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -1734,7 +1446,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
 	 * @generated
 	 */
-	int DESIGN_ASSURANCE_LEVEL_TYPE = 28;
+	int DESIGN_ASSURANCE_LEVEL_TYPE = 19;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.IOAdapterType <em>IO Adapter Type</em>}' enum.
@@ -1744,7 +1456,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getIOAdapterType()
 	 * @generated
 	 */
-	int IO_ADAPTER_TYPE = 29;
+	int IO_ADAPTER_TYPE = 20;
 
 
 	/**
@@ -1791,26 +1503,15 @@ public interface ModelPackage extends EPackage {
 	EReference getAssistModel_Applications();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModel#getApplicationGroups <em>Application Groups</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModel#getApplicationAlternatives <em>Application Alternatives</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Application Groups</em>'.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getApplicationGroups()
+	 * @return the meta object for the containment reference list '<em>Application Alternatives</em>'.
+	 * @see ch.hilbri.assist.mapping.model.AssistModel#getApplicationAlternatives()
 	 * @see #getAssistModel()
 	 * @generated
 	 */
-	EReference getAssistModel_ApplicationGroups();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModel#getDissimilarityRelations <em>Dissimilarity Relations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dissimilarity Relations</em>'.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getDissimilarityRelations()
-	 * @see #getAssistModel()
-	 * @generated
-	 */
-	EReference getAssistModel_DissimilarityRelations();
+	EReference getAssistModel_ApplicationAlternatives();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}'.
@@ -2360,68 +2061,6 @@ public interface ModelPackage extends EPackage {
 	EAttribute getIOAdapter_AdapterType();
 
 	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup <em>Application Or Application Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Application Or Application Group</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup
-	 * @generated
-	 */
-	EClass getApplicationOrApplicationGroup();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup#getName()
-	 * @see #getApplicationOrApplicationGroup()
-	 * @generated
-	 */
-	EAttribute getApplicationOrApplicationGroup_Name();
-
-	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup#toString() <em>To String</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>To String</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup#toString()
-	 * @generated
-	 */
-	EOperation getApplicationOrApplicationGroup__ToString();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.ApplicationGroup <em>Application Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Application Group</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ApplicationGroup
-	 * @generated
-	 */
-	EClass getApplicationGroup();
-
-	/**
-	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.ApplicationGroup#getApplicationsOrGroups <em>Applications Or Groups</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Applications Or Groups</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ApplicationGroup#getApplicationsOrGroups()
-	 * @see #getApplicationGroup()
-	 * @generated
-	 */
-	EReference getApplicationGroup_ApplicationsOrGroups();
-
-	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.ApplicationGroup#toString() <em>To String</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>To String</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.ApplicationGroup#toString()
-	 * @generated
-	 */
-	EOperation getApplicationGroup__ToString();
-
-	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.Application <em>Application</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2432,15 +2071,15 @@ public interface ModelPackage extends EPackage {
 	EClass getApplication();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.Application#getCriticalityLevel <em>Criticality Level</em>}'.
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.Application#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Criticality Level</em>'.
-	 * @see ch.hilbri.assist.mapping.model.Application#getCriticalityLevel()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.mapping.model.Application#getName()
 	 * @see #getApplication()
 	 * @generated
 	 */
-	EAttribute getApplication_CriticalityLevel();
+	EAttribute getApplication_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.Application#getDevelopedBy <em>Developed By</em>}'.
@@ -2454,15 +2093,15 @@ public interface ModelPackage extends EPackage {
 	EAttribute getApplication_DevelopedBy();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.Application#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}'.
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.Application#getCriticalityLevel <em>Criticality Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Restrict Mapping To Hardware Elements</em>'.
-	 * @see ch.hilbri.assist.mapping.model.Application#getRestrictMappingToHardwareElements()
+	 * @return the meta object for the attribute '<em>Criticality Level</em>'.
+	 * @see ch.hilbri.assist.mapping.model.Application#getCriticalityLevel()
 	 * @see #getApplication()
 	 * @generated
 	 */
-	EReference getApplication_RestrictMappingToHardwareElements();
+	EAttribute getApplication_CriticalityLevel();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.Application#getTasks <em>Tasks</em>}'.
@@ -2485,6 +2124,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getApplication_MetricParameters();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.Application#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Restrict Mapping To Hardware Elements</em>'.
+	 * @see ch.hilbri.assist.mapping.model.Application#getRestrictMappingToHardwareElements()
+	 * @see #getApplication()
+	 * @generated
+	 */
+	EReference getApplication_RestrictMappingToHardwareElements();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.Application#toString() <em>To String</em>}' operation.
@@ -2658,6 +2308,59 @@ public interface ModelPackage extends EPackage {
 	EReference getBoardAlternative_Boards();
 
 	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.ApplicationAlternatives <em>Application Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Application Alternatives</em>'.
+	 * @see ch.hilbri.assist.mapping.model.ApplicationAlternatives
+	 * @generated
+	 */
+	EClass getApplicationAlternatives();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.ApplicationAlternatives#getAlternatives <em>Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Alternatives</em>'.
+	 * @see ch.hilbri.assist.mapping.model.ApplicationAlternatives#getAlternatives()
+	 * @see #getApplicationAlternatives()
+	 * @generated
+	 */
+	EReference getApplicationAlternatives_Alternatives();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.ApplicationAlternative <em>Application Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Application Alternative</em>'.
+	 * @see ch.hilbri.assist.mapping.model.ApplicationAlternative
+	 * @generated
+	 */
+	EClass getApplicationAlternative();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.ApplicationAlternative#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.mapping.model.ApplicationAlternative#getName()
+	 * @see #getApplicationAlternative()
+	 * @generated
+	 */
+	EAttribute getApplicationAlternative_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.ApplicationAlternative#getApplications <em>Applications</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Applications</em>'.
+	 * @see ch.hilbri.assist.mapping.model.ApplicationAlternative#getApplications()
+	 * @see #getApplicationAlternative()
+	 * @generated
+	 */
+	EReference getApplicationAlternative_Applications();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.IOAdapterRequirement <em>IO Adapter Requirement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2712,155 +2415,6 @@ public interface ModelPackage extends EPackage {
 	EAttribute getIOAdapterRequirement_IsExclusiveOnly();
 
 	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.DissimilarityRelation <em>Dissimilarity Relation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Dissimilarity Relation</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityRelation
-	 * @generated
-	 */
-	EClass getDissimilarityRelation();
-
-	/**
-	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.DissimilarityRelation#getApplicationsOrGroups <em>Applications Or Groups</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Applications Or Groups</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityRelation#getApplicationsOrGroups()
-	 * @see #getDissimilarityRelation()
-	 * @generated
-	 */
-	EReference getDissimilarityRelation_ApplicationsOrGroups();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link ch.hilbri.assist.mapping.model.DissimilarityRelation#getDissimilarityClause <em>Dissimilarity Clause</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Dissimilarity Clause</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityRelation#getDissimilarityClause()
-	 * @see #getDissimilarityRelation()
-	 * @generated
-	 */
-	EReference getDissimilarityRelation_DissimilarityClause();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.DissimilarityClause <em>Dissimilarity Clause</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Dissimilarity Clause</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityClause
-	 * @generated
-	 */
-	EClass getDissimilarityClause();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.DissimilarityDisjunction <em>Dissimilarity Disjunction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Dissimilarity Disjunction</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityDisjunction
-	 * @generated
-	 */
-	EClass getDissimilarityDisjunction();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.DissimilarityDisjunction#getDissimilarityClauses <em>Dissimilarity Clauses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dissimilarity Clauses</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityDisjunction#getDissimilarityClauses()
-	 * @see #getDissimilarityDisjunction()
-	 * @generated
-	 */
-	EReference getDissimilarityDisjunction_DissimilarityClauses();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.DissimilarityConjunction <em>Dissimilarity Conjunction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Dissimilarity Conjunction</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityConjunction
-	 * @generated
-	 */
-	EClass getDissimilarityConjunction();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.DissimilarityConjunction#getDissimilarityClauses <em>Dissimilarity Clauses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dissimilarity Clauses</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityConjunction#getDissimilarityClauses()
-	 * @see #getDissimilarityConjunction()
-	 * @generated
-	 */
-	EReference getDissimilarityConjunction_DissimilarityClauses();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry <em>Dissimilarity Entry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Dissimilarity Entry</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityEntry
-	 * @generated
-	 */
-	EClass getDissimilarityEntry();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry#getLevel <em>Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Level</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityEntry#getLevel()
-	 * @see #getDissimilarityEntry()
-	 * @generated
-	 */
-	EAttribute getDissimilarityEntry_Level();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry#getCompartmentAttribute <em>Compartment Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Compartment Attribute</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityEntry#getCompartmentAttribute()
-	 * @see #getDissimilarityEntry()
-	 * @generated
-	 */
-	EAttribute getDissimilarityEntry_CompartmentAttribute();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry#getBoxAttribute <em>Box Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Box Attribute</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityEntry#getBoxAttribute()
-	 * @see #getDissimilarityEntry()
-	 * @generated
-	 */
-	EAttribute getDissimilarityEntry_BoxAttribute();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry#getBoardAttribute <em>Board Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Board Attribute</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityEntry#getBoardAttribute()
-	 * @see #getDissimilarityEntry()
-	 * @generated
-	 */
-	EAttribute getDissimilarityEntry_BoardAttribute();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry#getProcessorAttribute <em>Processor Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Processor Attribute</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityEntry#getProcessorAttribute()
-	 * @see #getDissimilarityEntry()
-	 * @generated
-	 */
-	EAttribute getDissimilarityEntry_ProcessorAttribute();
-
-	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.DislocalityRelation <em>Dislocality Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2871,15 +2425,15 @@ public interface ModelPackage extends EPackage {
 	EClass getDislocalityRelation();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.DislocalityRelation#getApplicationsOrGroups <em>Applications Or Groups</em>}'.
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.DislocalityRelation#getApplications <em>Applications</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Applications Or Groups</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DislocalityRelation#getApplicationsOrGroups()
+	 * @return the meta object for the reference list '<em>Applications</em>'.
+	 * @see ch.hilbri.assist.mapping.model.DislocalityRelation#getApplications()
 	 * @see #getDislocalityRelation()
 	 * @generated
 	 */
-	EReference getDislocalityRelation_ApplicationsOrGroups();
+	EReference getDislocalityRelation_Applications();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.DislocalityRelation#getHardwareLevel <em>Hardware Level</em>}'.
@@ -2903,15 +2457,15 @@ public interface ModelPackage extends EPackage {
 	EClass getColocalityRelation();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.ColocalityRelation#getApplicationsOrGroups <em>Applications Or Groups</em>}'.
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.ColocalityRelation#getApplications <em>Applications</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Applications Or Groups</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ColocalityRelation#getApplicationsOrGroups()
+	 * @return the meta object for the reference list '<em>Applications</em>'.
+	 * @see ch.hilbri.assist.mapping.model.ColocalityRelation#getApplications()
 	 * @see #getColocalityRelation()
 	 * @generated
 	 */
-	EReference getColocalityRelation_ApplicationsOrGroups();
+	EReference getColocalityRelation_Applications();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.ColocalityRelation#getHardwareLevel <em>Hardware Level</em>}'.
@@ -2955,46 +2509,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMetricParameter_Value();
-
-	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.mapping.model.CompartmentAttributes <em>Compartment Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Compartment Attributes</em>'.
-	 * @see ch.hilbri.assist.mapping.model.CompartmentAttributes
-	 * @generated
-	 */
-	EEnum getCompartmentAttributes();
-
-	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.mapping.model.BoxAttributes <em>Box Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Box Attributes</em>'.
-	 * @see ch.hilbri.assist.mapping.model.BoxAttributes
-	 * @generated
-	 */
-	EEnum getBoxAttributes();
-
-	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.mapping.model.BoardAttributes <em>Board Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Board Attributes</em>'.
-	 * @see ch.hilbri.assist.mapping.model.BoardAttributes
-	 * @generated
-	 */
-	EEnum getBoardAttributes();
-
-	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.mapping.model.ProcessorAttributes <em>Processor Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Processor Attributes</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ProcessorAttributes
-	 * @generated
-	 */
-	EEnum getProcessorAttributes();
 
 	/**
 	 * Returns the meta object for enum '{@link ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}'.
@@ -3084,20 +2598,12 @@ public interface ModelPackage extends EPackage {
 		EReference ASSIST_MODEL__APPLICATIONS = eINSTANCE.getAssistModel_Applications();
 
 		/**
-		 * The meta object literal for the '<em><b>Application Groups</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Application Alternatives</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSIST_MODEL__APPLICATION_GROUPS = eINSTANCE.getAssistModel_ApplicationGroups();
-
-		/**
-		 * The meta object literal for the '<em><b>Dissimilarity Relations</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ASSIST_MODEL__DISSIMILARITY_RELATIONS = eINSTANCE.getAssistModel_DissimilarityRelations();
+		EReference ASSIST_MODEL__APPLICATION_ALTERNATIVES = eINSTANCE.getAssistModel_ApplicationAlternatives();
 
 		/**
 		 * The meta object literal for the '<em><b>Dislocality Relations</b></em>' containment reference list feature.
@@ -3530,58 +3036,6 @@ public interface ModelPackage extends EPackage {
 		EAttribute IO_ADAPTER__ADAPTER_TYPE = eINSTANCE.getIOAdapter_AdapterType();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationOrApplicationGroupImpl <em>Application Or Application Group</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.impl.ApplicationOrApplicationGroupImpl
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getApplicationOrApplicationGroup()
-		 * @generated
-		 */
-		EClass APPLICATION_OR_APPLICATION_GROUP = eINSTANCE.getApplicationOrApplicationGroup();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute APPLICATION_OR_APPLICATION_GROUP__NAME = eINSTANCE.getApplicationOrApplicationGroup_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>To String</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation APPLICATION_OR_APPLICATION_GROUP___TO_STRING = eINSTANCE.getApplicationOrApplicationGroup__ToString();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationGroupImpl <em>Application Group</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.impl.ApplicationGroupImpl
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getApplicationGroup()
-		 * @generated
-		 */
-		EClass APPLICATION_GROUP = eINSTANCE.getApplicationGroup();
-
-		/**
-		 * The meta object literal for the '<em><b>Applications Or Groups</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference APPLICATION_GROUP__APPLICATIONS_OR_GROUPS = eINSTANCE.getApplicationGroup_ApplicationsOrGroups();
-
-		/**
-		 * The meta object literal for the '<em><b>To String</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation APPLICATION_GROUP___TO_STRING = eINSTANCE.getApplicationGroup__ToString();
-
-		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationImpl <em>Application</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3592,12 +3046,12 @@ public interface ModelPackage extends EPackage {
 		EClass APPLICATION = eINSTANCE.getApplication();
 
 		/**
-		 * The meta object literal for the '<em><b>Criticality Level</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute APPLICATION__CRITICALITY_LEVEL = eINSTANCE.getApplication_CriticalityLevel();
+		EAttribute APPLICATION__NAME = eINSTANCE.getApplication_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Developed By</b></em>' attribute feature.
@@ -3608,12 +3062,12 @@ public interface ModelPackage extends EPackage {
 		EAttribute APPLICATION__DEVELOPED_BY = eINSTANCE.getApplication_DevelopedBy();
 
 		/**
-		 * The meta object literal for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Criticality Level</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = eINSTANCE.getApplication_RestrictMappingToHardwareElements();
+		EAttribute APPLICATION__CRITICALITY_LEVEL = eINSTANCE.getApplication_CriticalityLevel();
 
 		/**
 		 * The meta object literal for the '<em><b>Tasks</b></em>' containment reference list feature.
@@ -3630,6 +3084,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference APPLICATION__METRIC_PARAMETERS = eINSTANCE.getApplication_MetricParameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = eINSTANCE.getApplication_RestrictMappingToHardwareElements();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
@@ -3766,6 +3228,50 @@ public interface ModelPackage extends EPackage {
 		EReference BOARD_ALTERNATIVE__BOARDS = eINSTANCE.getBoardAlternative_Boards();
 
 		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationAlternativesImpl <em>Application Alternatives</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.mapping.model.impl.ApplicationAlternativesImpl
+		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getApplicationAlternatives()
+		 * @generated
+		 */
+		EClass APPLICATION_ALTERNATIVES = eINSTANCE.getApplicationAlternatives();
+
+		/**
+		 * The meta object literal for the '<em><b>Alternatives</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPLICATION_ALTERNATIVES__ALTERNATIVES = eINSTANCE.getApplicationAlternatives_Alternatives();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationAlternativeImpl <em>Application Alternative</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.mapping.model.impl.ApplicationAlternativeImpl
+		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getApplicationAlternative()
+		 * @generated
+		 */
+		EClass APPLICATION_ALTERNATIVE = eINSTANCE.getApplicationAlternative();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPLICATION_ALTERNATIVE__NAME = eINSTANCE.getApplicationAlternative_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Applications</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPLICATION_ALTERNATIVE__APPLICATIONS = eINSTANCE.getApplicationAlternative_Applications();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.IOAdapterRequirementImpl <em>IO Adapter Requirement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3808,128 +3314,6 @@ public interface ModelPackage extends EPackage {
 		EAttribute IO_ADAPTER_REQUIREMENT__IS_EXCLUSIVE_ONLY = eINSTANCE.getIOAdapterRequirement_IsExclusiveOnly();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityRelationImpl <em>Dissimilarity Relation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.impl.DissimilarityRelationImpl
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityRelation()
-		 * @generated
-		 */
-		EClass DISSIMILARITY_RELATION = eINSTANCE.getDissimilarityRelation();
-
-		/**
-		 * The meta object literal for the '<em><b>Applications Or Groups</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISSIMILARITY_RELATION__APPLICATIONS_OR_GROUPS = eINSTANCE.getDissimilarityRelation_ApplicationsOrGroups();
-
-		/**
-		 * The meta object literal for the '<em><b>Dissimilarity Clause</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISSIMILARITY_RELATION__DISSIMILARITY_CLAUSE = eINSTANCE.getDissimilarityRelation_DissimilarityClause();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityClauseImpl <em>Dissimilarity Clause</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.impl.DissimilarityClauseImpl
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityClause()
-		 * @generated
-		 */
-		EClass DISSIMILARITY_CLAUSE = eINSTANCE.getDissimilarityClause();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityDisjunctionImpl <em>Dissimilarity Disjunction</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.impl.DissimilarityDisjunctionImpl
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityDisjunction()
-		 * @generated
-		 */
-		EClass DISSIMILARITY_DISJUNCTION = eINSTANCE.getDissimilarityDisjunction();
-
-		/**
-		 * The meta object literal for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES = eINSTANCE.getDissimilarityDisjunction_DissimilarityClauses();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityConjunctionImpl <em>Dissimilarity Conjunction</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.impl.DissimilarityConjunctionImpl
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityConjunction()
-		 * @generated
-		 */
-		EClass DISSIMILARITY_CONJUNCTION = eINSTANCE.getDissimilarityConjunction();
-
-		/**
-		 * The meta object literal for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISSIMILARITY_CONJUNCTION__DISSIMILARITY_CLAUSES = eINSTANCE.getDissimilarityConjunction_DissimilarityClauses();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityEntryImpl <em>Dissimilarity Entry</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.impl.DissimilarityEntryImpl
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityEntry()
-		 * @generated
-		 */
-		EClass DISSIMILARITY_ENTRY = eINSTANCE.getDissimilarityEntry();
-
-		/**
-		 * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DISSIMILARITY_ENTRY__LEVEL = eINSTANCE.getDissimilarityEntry_Level();
-
-		/**
-		 * The meta object literal for the '<em><b>Compartment Attribute</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DISSIMILARITY_ENTRY__COMPARTMENT_ATTRIBUTE = eINSTANCE.getDissimilarityEntry_CompartmentAttribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Box Attribute</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DISSIMILARITY_ENTRY__BOX_ATTRIBUTE = eINSTANCE.getDissimilarityEntry_BoxAttribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Board Attribute</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DISSIMILARITY_ENTRY__BOARD_ATTRIBUTE = eINSTANCE.getDissimilarityEntry_BoardAttribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Processor Attribute</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DISSIMILARITY_ENTRY__PROCESSOR_ATTRIBUTE = eINSTANCE.getDissimilarityEntry_ProcessorAttribute();
-
-		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.DislocalityRelationImpl <em>Dislocality Relation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3940,12 +3324,12 @@ public interface ModelPackage extends EPackage {
 		EClass DISLOCALITY_RELATION = eINSTANCE.getDislocalityRelation();
 
 		/**
-		 * The meta object literal for the '<em><b>Applications Or Groups</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Applications</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DISLOCALITY_RELATION__APPLICATIONS_OR_GROUPS = eINSTANCE.getDislocalityRelation_ApplicationsOrGroups();
+		EReference DISLOCALITY_RELATION__APPLICATIONS = eINSTANCE.getDislocalityRelation_Applications();
 
 		/**
 		 * The meta object literal for the '<em><b>Hardware Level</b></em>' attribute feature.
@@ -3966,12 +3350,12 @@ public interface ModelPackage extends EPackage {
 		EClass COLOCALITY_RELATION = eINSTANCE.getColocalityRelation();
 
 		/**
-		 * The meta object literal for the '<em><b>Applications Or Groups</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Applications</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COLOCALITY_RELATION__APPLICATIONS_OR_GROUPS = eINSTANCE.getColocalityRelation_ApplicationsOrGroups();
+		EReference COLOCALITY_RELATION__APPLICATIONS = eINSTANCE.getColocalityRelation_Applications();
 
 		/**
 		 * The meta object literal for the '<em><b>Hardware Level</b></em>' attribute feature.
@@ -4006,46 +3390,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute METRIC_PARAMETER__VALUE = eINSTANCE.getMetricParameter_Value();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.CompartmentAttributes <em>Compartment Attributes</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.CompartmentAttributes
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getCompartmentAttributes()
-		 * @generated
-		 */
-		EEnum COMPARTMENT_ATTRIBUTES = eINSTANCE.getCompartmentAttributes();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.BoxAttributes <em>Box Attributes</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.BoxAttributes
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoxAttributes()
-		 * @generated
-		 */
-		EEnum BOX_ATTRIBUTES = eINSTANCE.getBoxAttributes();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.BoardAttributes <em>Board Attributes</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.BoardAttributes
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoardAttributes()
-		 * @generated
-		 */
-		EEnum BOARD_ATTRIBUTES = eINSTANCE.getBoardAttributes();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.ProcessorAttributes <em>Processor Attributes</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.ProcessorAttributes
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getProcessorAttributes()
-		 * @generated
-		 */
-		EEnum PROCESSOR_ATTRIBUTES = eINSTANCE.getProcessorAttributes();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.

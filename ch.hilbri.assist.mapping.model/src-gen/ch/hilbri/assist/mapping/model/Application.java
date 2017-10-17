@@ -4,6 +4,8 @@ package ch.hilbri.assist.mapping.model;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Application</b></em>'.
@@ -13,47 +15,45 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.Application#getCriticalityLevel <em>Criticality Level</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.Application#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Application#getDevelopedBy <em>Developed By</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.Application#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.Application#getCriticalityLevel <em>Criticality Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Application#getTasks <em>Tasks</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Application#getMetricParameters <em>Metric Parameters</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.Application#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.mapping.model.ModelPackage#getApplication()
  * @model
  * @generated
  */
-public interface Application extends ApplicationOrApplicationGroup {
+public interface Application extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Criticality Level</b></em>' attribute.
-	 * The default value is <code>"None"</code>.
-	 * The literals are from the enumeration {@link ch.hilbri.assist.mapping.model.DesignAssuranceLevelType}.
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Criticality Level</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Criticality Level</em>' attribute.
-	 * @see ch.hilbri.assist.mapping.model.DesignAssuranceLevelType
-	 * @see #setCriticalityLevel(DesignAssuranceLevelType)
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getApplication_CriticalityLevel()
-	 * @model default="None" unique="false"
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getApplication_Name()
+	 * @model default="" unique="false"
 	 * @generated
 	 */
-	DesignAssuranceLevelType getCriticalityLevel();
+	String getName();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.Application#getCriticalityLevel <em>Criticality Level</em>}' attribute.
+	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.Application#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Criticality Level</em>' attribute.
-	 * @see ch.hilbri.assist.mapping.model.DesignAssuranceLevelType
-	 * @see #getCriticalityLevel()
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
 	 * @generated
 	 */
-	void setCriticalityLevel(DesignAssuranceLevelType value);
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Developed By</b></em>' attribute.
@@ -83,20 +83,34 @@ public interface Application extends ApplicationOrApplicationGroup {
 	void setDevelopedBy(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.HardwareElement}.
+	 * Returns the value of the '<em><b>Criticality Level</b></em>' attribute.
+	 * The default value is <code>"None"</code>.
+	 * The literals are from the enumeration {@link ch.hilbri.assist.mapping.model.DesignAssuranceLevelType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Restrict Mapping To Hardware Elements</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Criticality Level</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Restrict Mapping To Hardware Elements</em>' reference list.
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getApplication_RestrictMappingToHardwareElements()
-	 * @model
+	 * @return the value of the '<em>Criticality Level</em>' attribute.
+	 * @see ch.hilbri.assist.mapping.model.DesignAssuranceLevelType
+	 * @see #setCriticalityLevel(DesignAssuranceLevelType)
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getApplication_CriticalityLevel()
+	 * @model default="None" unique="false"
 	 * @generated
 	 */
-	EList<HardwareElement> getRestrictMappingToHardwareElements();
+	DesignAssuranceLevelType getCriticalityLevel();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.Application#getCriticalityLevel <em>Criticality Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Criticality Level</em>' attribute.
+	 * @see ch.hilbri.assist.mapping.model.DesignAssuranceLevelType
+	 * @see #getCriticalityLevel()
+	 * @generated
+	 */
+	void setCriticalityLevel(DesignAssuranceLevelType value);
 
 	/**
 	 * Returns the value of the '<em><b>Tasks</b></em>' containment reference list.
@@ -131,6 +145,22 @@ public interface Application extends ApplicationOrApplicationGroup {
 	 * @generated
 	 */
 	EList<MetricParameter> getMetricParameters();
+
+	/**
+	 * Returns the value of the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
+	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.HardwareElement}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Restrict Mapping To Hardware Elements</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Restrict Mapping To Hardware Elements</em>' reference list.
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getApplication_RestrictMappingToHardwareElements()
+	 * @model
+	 * @generated
+	 */
+	EList<HardwareElement> getRestrictMappingToHardwareElements();
 
 	/**
 	 * <!-- begin-user-doc -->

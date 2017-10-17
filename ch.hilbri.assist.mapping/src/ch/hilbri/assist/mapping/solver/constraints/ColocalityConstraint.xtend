@@ -15,7 +15,7 @@ class ColocalityConstraint extends AbstractMappingConstraint {
 		
 		for (relation : model.colocalityRelations) {
 			val level = relation.hardwareLevel.value
-			val tasks = relation.applicationsOrGroups.filter[it instanceof Application]
+			val tasks = relation.applications.filter[it instanceof Application]
 													.map[(it as Application).tasks]
 													.flatten
 													.toSet

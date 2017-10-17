@@ -256,52 +256,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ApplicationOrApplicationGroupItemProvider applicationOrApplicationGroupItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createApplicationOrApplicationGroupAdapter() {
-		if (applicationOrApplicationGroupItemProvider == null) {
-			applicationOrApplicationGroupItemProvider = new ApplicationOrApplicationGroupItemProvider(this);
-		}
-
-		return applicationOrApplicationGroupItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.ApplicationGroup} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ApplicationGroupItemProvider applicationGroupItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.ApplicationGroup}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createApplicationGroupAdapter() {
-		if (applicationGroupItemProvider == null) {
-			applicationGroupItemProvider = new ApplicationGroupItemProvider(this);
-		}
-
-		return applicationGroupItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.Application} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -394,6 +348,52 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.ApplicationAlternatives} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ApplicationAlternativesItemProvider applicationAlternativesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.ApplicationAlternatives}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createApplicationAlternativesAdapter() {
+		if (applicationAlternativesItemProvider == null) {
+			applicationAlternativesItemProvider = new ApplicationAlternativesItemProvider(this);
+		}
+
+		return applicationAlternativesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.ApplicationAlternative} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ApplicationAlternativeItemProvider applicationAlternativeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.ApplicationAlternative}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createApplicationAlternativeAdapter() {
+		if (applicationAlternativeItemProvider == null) {
+			applicationAlternativeItemProvider = new ApplicationAlternativeItemProvider(this);
+		}
+
+		return applicationAlternativeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.IOAdapterRequirement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -414,121 +414,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		}
 
 		return ioAdapterRequirementItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.DissimilarityRelation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DissimilarityRelationItemProvider dissimilarityRelationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.DissimilarityRelation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDissimilarityRelationAdapter() {
-		if (dissimilarityRelationItemProvider == null) {
-			dissimilarityRelationItemProvider = new DissimilarityRelationItemProvider(this);
-		}
-
-		return dissimilarityRelationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.DissimilarityClause} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DissimilarityClauseItemProvider dissimilarityClauseItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.DissimilarityClause}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDissimilarityClauseAdapter() {
-		if (dissimilarityClauseItemProvider == null) {
-			dissimilarityClauseItemProvider = new DissimilarityClauseItemProvider(this);
-		}
-
-		return dissimilarityClauseItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.DissimilarityDisjunction} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DissimilarityDisjunctionItemProvider dissimilarityDisjunctionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.DissimilarityDisjunction}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDissimilarityDisjunctionAdapter() {
-		if (dissimilarityDisjunctionItemProvider == null) {
-			dissimilarityDisjunctionItemProvider = new DissimilarityDisjunctionItemProvider(this);
-		}
-
-		return dissimilarityDisjunctionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.DissimilarityConjunction} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DissimilarityConjunctionItemProvider dissimilarityConjunctionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.DissimilarityConjunction}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDissimilarityConjunctionAdapter() {
-		if (dissimilarityConjunctionItemProvider == null) {
-			dissimilarityConjunctionItemProvider = new DissimilarityConjunctionItemProvider(this);
-		}
-
-		return dissimilarityConjunctionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.DissimilarityEntry} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DissimilarityEntryItemProvider dissimilarityEntryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.DissimilarityEntry}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDissimilarityEntryAdapter() {
-		if (dissimilarityEntryItemProvider == null) {
-			dissimilarityEntryItemProvider = new DissimilarityEntryItemProvider(this);
-		}
-
-		return dissimilarityEntryItemProvider;
 	}
 
 	/**
@@ -707,18 +592,13 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (processorItemProvider != null) processorItemProvider.dispose();
 		if (coreItemProvider != null) coreItemProvider.dispose();
 		if (ioAdapterItemProvider != null) ioAdapterItemProvider.dispose();
-		if (applicationOrApplicationGroupItemProvider != null) applicationOrApplicationGroupItemProvider.dispose();
-		if (applicationGroupItemProvider != null) applicationGroupItemProvider.dispose();
 		if (applicationItemProvider != null) applicationItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (boardAlternativesItemProvider != null) boardAlternativesItemProvider.dispose();
 		if (boardAlternativeItemProvider != null) boardAlternativeItemProvider.dispose();
+		if (applicationAlternativesItemProvider != null) applicationAlternativesItemProvider.dispose();
+		if (applicationAlternativeItemProvider != null) applicationAlternativeItemProvider.dispose();
 		if (ioAdapterRequirementItemProvider != null) ioAdapterRequirementItemProvider.dispose();
-		if (dissimilarityRelationItemProvider != null) dissimilarityRelationItemProvider.dispose();
-		if (dissimilarityClauseItemProvider != null) dissimilarityClauseItemProvider.dispose();
-		if (dissimilarityDisjunctionItemProvider != null) dissimilarityDisjunctionItemProvider.dispose();
-		if (dissimilarityConjunctionItemProvider != null) dissimilarityConjunctionItemProvider.dispose();
-		if (dissimilarityEntryItemProvider != null) dissimilarityEntryItemProvider.dispose();
 		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
 		if (colocalityRelationItemProvider != null) colocalityRelationItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();

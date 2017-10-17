@@ -119,23 +119,9 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.APPLICATION_OR_APPLICATION_GROUP: {
-				ApplicationOrApplicationGroup applicationOrApplicationGroup = (ApplicationOrApplicationGroup)theEObject;
-				T result = caseApplicationOrApplicationGroup(applicationOrApplicationGroup);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ModelPackage.APPLICATION_GROUP: {
-				ApplicationGroup applicationGroup = (ApplicationGroup)theEObject;
-				T result = caseApplicationGroup(applicationGroup);
-				if (result == null) result = caseApplicationOrApplicationGroup(applicationGroup);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ModelPackage.APPLICATION: {
 				Application application = (Application)theEObject;
 				T result = caseApplication(application);
-				if (result == null) result = caseApplicationOrApplicationGroup(application);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -157,42 +143,21 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModelPackage.APPLICATION_ALTERNATIVES: {
+				ApplicationAlternatives applicationAlternatives = (ApplicationAlternatives)theEObject;
+				T result = caseApplicationAlternatives(applicationAlternatives);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.APPLICATION_ALTERNATIVE: {
+				ApplicationAlternative applicationAlternative = (ApplicationAlternative)theEObject;
+				T result = caseApplicationAlternative(applicationAlternative);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModelPackage.IO_ADAPTER_REQUIREMENT: {
 				IOAdapterRequirement ioAdapterRequirement = (IOAdapterRequirement)theEObject;
 				T result = caseIOAdapterRequirement(ioAdapterRequirement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ModelPackage.DISSIMILARITY_RELATION: {
-				DissimilarityRelation dissimilarityRelation = (DissimilarityRelation)theEObject;
-				T result = caseDissimilarityRelation(dissimilarityRelation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ModelPackage.DISSIMILARITY_CLAUSE: {
-				DissimilarityClause dissimilarityClause = (DissimilarityClause)theEObject;
-				T result = caseDissimilarityClause(dissimilarityClause);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ModelPackage.DISSIMILARITY_DISJUNCTION: {
-				DissimilarityDisjunction dissimilarityDisjunction = (DissimilarityDisjunction)theEObject;
-				T result = caseDissimilarityDisjunction(dissimilarityDisjunction);
-				if (result == null) result = caseDissimilarityClause(dissimilarityDisjunction);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ModelPackage.DISSIMILARITY_CONJUNCTION: {
-				DissimilarityConjunction dissimilarityConjunction = (DissimilarityConjunction)theEObject;
-				T result = caseDissimilarityConjunction(dissimilarityConjunction);
-				if (result == null) result = caseDissimilarityClause(dissimilarityConjunction);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ModelPackage.DISSIMILARITY_ENTRY: {
-				DissimilarityEntry dissimilarityEntry = (DissimilarityEntry)theEObject;
-				T result = caseDissimilarityEntry(dissimilarityEntry);
-				if (result == null) result = caseDissimilarityClause(dissimilarityEntry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -339,36 +304,6 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Application Or Application Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Application Or Application Group</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseApplicationOrApplicationGroup(ApplicationOrApplicationGroup object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Application Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Application Group</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseApplicationGroup(ApplicationGroup object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Application</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -429,6 +364,36 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Application Alternatives</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Application Alternatives</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseApplicationAlternatives(ApplicationAlternatives object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Application Alternative</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Application Alternative</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseApplicationAlternative(ApplicationAlternative object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IO Adapter Requirement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -440,81 +405,6 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIOAdapterRequirement(IOAdapterRequirement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dissimilarity Relation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Dissimilarity Relation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDissimilarityRelation(DissimilarityRelation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dissimilarity Clause</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Dissimilarity Clause</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDissimilarityClause(DissimilarityClause object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dissimilarity Disjunction</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Dissimilarity Disjunction</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDissimilarityDisjunction(DissimilarityDisjunction object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dissimilarity Conjunction</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Dissimilarity Conjunction</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDissimilarityConjunction(DissimilarityConjunction object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dissimilarity Entry</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Dissimilarity Entry</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDissimilarityEntry(DissimilarityEntry object) {
 		return null;
 	}
 

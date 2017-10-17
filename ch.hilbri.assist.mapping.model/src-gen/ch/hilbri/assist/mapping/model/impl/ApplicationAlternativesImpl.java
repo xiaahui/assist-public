@@ -2,8 +2,8 @@
  */
 package ch.hilbri.assist.mapping.model.impl;
 
-import ch.hilbri.assist.mapping.model.DissimilarityClause;
-import ch.hilbri.assist.mapping.model.DissimilarityDisjunction;
+import ch.hilbri.assist.mapping.model.ApplicationAlternative;
+import ch.hilbri.assist.mapping.model.ApplicationAlternatives;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 
 import java.util.Collection;
@@ -15,39 +15,41 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Dissimilarity Disjunction</b></em>'.
+ * An implementation of the model object '<em><b>Application Alternatives</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.DissimilarityDisjunctionImpl#getDissimilarityClauses <em>Dissimilarity Clauses</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.ApplicationAlternativesImpl#getAlternatives <em>Alternatives</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DissimilarityDisjunctionImpl extends DissimilarityClauseImpl implements DissimilarityDisjunction {
+public class ApplicationAlternativesImpl extends MinimalEObjectImpl.Container implements ApplicationAlternatives {
 	/**
-	 * The cached value of the '{@link #getDissimilarityClauses() <em>Dissimilarity Clauses</em>}' containment reference list.
+	 * The cached value of the '{@link #getAlternatives() <em>Alternatives</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDissimilarityClauses()
+	 * @see #getAlternatives()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DissimilarityClause> dissimilarityClauses;
+	protected EList<ApplicationAlternative> alternatives;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DissimilarityDisjunctionImpl() {
+	protected ApplicationAlternativesImpl() {
 		super();
 	}
 
@@ -58,7 +60,7 @@ public class DissimilarityDisjunctionImpl extends DissimilarityClauseImpl implem
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ModelPackage.Literals.DISSIMILARITY_DISJUNCTION;
+		return ModelPackage.Literals.APPLICATION_ALTERNATIVES;
 	}
 
 	/**
@@ -66,11 +68,11 @@ public class DissimilarityDisjunctionImpl extends DissimilarityClauseImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DissimilarityClause> getDissimilarityClauses() {
-		if (dissimilarityClauses == null) {
-			dissimilarityClauses = new EObjectContainmentEList<DissimilarityClause>(DissimilarityClause.class, this, ModelPackage.DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES);
+	public EList<ApplicationAlternative> getAlternatives() {
+		if (alternatives == null) {
+			alternatives = new EObjectContainmentEList<ApplicationAlternative>(ApplicationAlternative.class, this, ModelPackage.APPLICATION_ALTERNATIVES__ALTERNATIVES);
 		}
-		return dissimilarityClauses;
+		return alternatives;
 	}
 
 	/**
@@ -81,8 +83,8 @@ public class DissimilarityDisjunctionImpl extends DissimilarityClauseImpl implem
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModelPackage.DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES:
-				return ((InternalEList<?>)getDissimilarityClauses()).basicRemove(otherEnd, msgs);
+			case ModelPackage.APPLICATION_ALTERNATIVES__ALTERNATIVES:
+				return ((InternalEList<?>)getAlternatives()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -95,8 +97,8 @@ public class DissimilarityDisjunctionImpl extends DissimilarityClauseImpl implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES:
-				return getDissimilarityClauses();
+			case ModelPackage.APPLICATION_ALTERNATIVES__ALTERNATIVES:
+				return getAlternatives();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,9 +112,9 @@ public class DissimilarityDisjunctionImpl extends DissimilarityClauseImpl implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES:
-				getDissimilarityClauses().clear();
-				getDissimilarityClauses().addAll((Collection<? extends DissimilarityClause>)newValue);
+			case ModelPackage.APPLICATION_ALTERNATIVES__ALTERNATIVES:
+				getAlternatives().clear();
+				getAlternatives().addAll((Collection<? extends ApplicationAlternative>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -126,8 +128,8 @@ public class DissimilarityDisjunctionImpl extends DissimilarityClauseImpl implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES:
-				getDissimilarityClauses().clear();
+			case ModelPackage.APPLICATION_ALTERNATIVES__ALTERNATIVES:
+				getAlternatives().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -141,10 +143,10 @@ public class DissimilarityDisjunctionImpl extends DissimilarityClauseImpl implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES:
-				return dissimilarityClauses != null && !dissimilarityClauses.isEmpty();
+			case ModelPackage.APPLICATION_ALTERNATIVES__ALTERNATIVES:
+				return alternatives != null && !alternatives.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //DissimilarityDisjunctionImpl
+} //ApplicationAlternativesImpl

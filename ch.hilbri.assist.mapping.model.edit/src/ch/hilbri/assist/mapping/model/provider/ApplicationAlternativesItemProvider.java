@@ -3,7 +3,7 @@
 package ch.hilbri.assist.mapping.model.provider;
 
 
-import ch.hilbri.assist.mapping.model.DissimilarityDisjunction;
+import ch.hilbri.assist.mapping.model.ApplicationAlternatives;
 import ch.hilbri.assist.mapping.model.ModelFactory;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 
@@ -13,25 +13,40 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.mapping.model.DissimilarityDisjunction} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.mapping.model.ApplicationAlternatives} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DissimilarityDisjunctionItemProvider extends DissimilarityClauseItemProvider {
+public class ApplicationAlternativesItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DissimilarityDisjunctionItemProvider(AdapterFactory adapterFactory) {
+	public ApplicationAlternativesItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,7 +77,7 @@ public class DissimilarityDisjunctionItemProvider extends DissimilarityClauseIte
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES);
+			childrenFeatures.add(ModelPackage.Literals.APPLICATION_ALTERNATIVES__ALTERNATIVES);
 		}
 		return childrenFeatures;
 	}
@@ -81,14 +96,14 @@ public class DissimilarityDisjunctionItemProvider extends DissimilarityClauseIte
 	}
 
 	/**
-	 * This returns DissimilarityDisjunction.gif.
+	 * This returns ApplicationAlternatives.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DissimilarityDisjunction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationAlternatives"));
 	}
 
 	/**
@@ -99,7 +114,7 @@ public class DissimilarityDisjunctionItemProvider extends DissimilarityClauseIte
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DissimilarityDisjunction_type");
+		return getString("_UI_ApplicationAlternatives_type");
 	}
 	
 
@@ -114,8 +129,8 @@ public class DissimilarityDisjunctionItemProvider extends DissimilarityClauseIte
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DissimilarityDisjunction.class)) {
-			case ModelPackage.DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES:
+		switch (notification.getFeatureID(ApplicationAlternatives.class)) {
+			case ModelPackage.APPLICATION_ALTERNATIVES__ALTERNATIVES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -135,23 +150,19 @@ public class DissimilarityDisjunctionItemProvider extends DissimilarityClauseIte
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES,
-				 ModelFactory.eINSTANCE.createDissimilarityClause()));
+				(ModelPackage.Literals.APPLICATION_ALTERNATIVES__ALTERNATIVES,
+				 ModelFactory.eINSTANCE.createApplicationAlternative()));
+	}
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES,
-				 ModelFactory.eINSTANCE.createDissimilarityDisjunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES,
-				 ModelFactory.eINSTANCE.createDissimilarityConjunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES,
-				 ModelFactory.eINSTANCE.createDissimilarityEntry()));
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return ModelEditPlugin.INSTANCE;
 	}
 
 }

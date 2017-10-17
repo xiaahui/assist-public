@@ -1,7 +1,6 @@
 package ch.hilbri.assist.mapping.dsl.ui.outline
 
 import ch.hilbri.assist.mapping.model.AssistModel
-import ch.hilbri.assist.mapping.model.DissimilarityRelation
 import org.eclipse.core.runtime.FileLocator
 import org.eclipse.core.runtime.Path
 import org.eclipse.jface.resource.ImageDescriptor
@@ -16,9 +15,9 @@ import org.osgi.framework.FrameworkUtil
  */
 class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	
-	def _isLeaf(DissimilarityRelation r) {
-		true
-	}
+//	def _isLeaf(DissimilarityRelation r) {
+//		true
+//	}
 
 	def _createChildren(IOutlineNode parentNode, AssistModel model) {
 		val bundle = FrameworkUtil.getBundle(MappingDSLOutlineTreeProvider)
@@ -34,13 +33,13 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		val applicationsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Applications", false)
 		for (sw : model.applications) createNode(applicationsNode, sw)
 		
-		if (!model.applicationGroups.empty) {
-			val appGroupNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Application Groups", false)
-			for (group : model.applicationGroups)createNode(appGroupNode, group)
-		}
+//		if (!model.applicationGroups.empty) {
+//			val appGroupNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Application Groups", false)
+//			for (group : model.applicationGroups)createNode(appGroupNode, group)
+//		}
 		
 		/* --------- CONSTRAINTS -------------- */
-		if (!model.dislocalityRelations.empty || !model.dissimilarityRelations.empty || !model.colocalityRelations.empty) {
+		if (!model.dislocalityRelations.empty || !model.colocalityRelations.empty) {
 			val contraintsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Restrictions", false)
 
 			if (!model.dislocalityRelations.empty) {		
@@ -48,10 +47,10 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 				for (r : model.dislocalityRelations) createNode(dislocalRelationNode, r)
 			}
 
-			if (!model.dissimilarityRelations.empty) {		
-				val dissimRelationNode = new VirtualOutlineNode(contraintsNode, imgsubfolderDesc, "Dissimilarity", false)
-				for (r : model.dissimilarityRelations) createNode(dissimRelationNode, r)
-			}
+//			if (!model.dissimilarityRelations.empty) {		
+//				val dissimRelationNode = new VirtualOutlineNode(contraintsNode, imgsubfolderDesc, "Dissimilarity", false)
+//				for (r : model.dissimilarityRelations) createNode(dissimRelationNode, r)
+//			}
 			
 			if (!model.colocalityRelations.empty) {
 				val proximityRelationNode = new VirtualOutlineNode(contraintsNode, imgsubfolderDesc, "Proximity", false)

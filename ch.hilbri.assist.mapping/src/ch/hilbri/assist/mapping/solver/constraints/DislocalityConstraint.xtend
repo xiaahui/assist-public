@@ -36,10 +36,10 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 		 	 * to the location variables.
 		 	 * 
 		 	 * */
-		 	if (relation.applicationsOrGroups.filter[!(it instanceof Application)].isNullOrEmpty &&
-		 		relation.applicationsOrGroups.map[(it as Application).tasks].filter[size > 1].isNullOrEmpty) {
+		 	if (relation.applications.filter[!(it instanceof Application)].isNullOrEmpty &&
+		 		relation.applications.map[(it as Application).tasks].filter[size > 1].isNullOrEmpty) {
 				
-				val tasks = relation.applicationsOrGroups.map[(it as Application).tasks].flatten.toSet
+				val tasks = relation.applications.map[(it as Application).tasks].flatten.toSet
 				val taskVars = tasks.map[solverVariables.getLocationVariablesForTask(it).get(level)]
 				
 				/* We want to make these vars take different values */
@@ -51,7 +51,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			 * 
 			 */
 			else {
-				val taskList = relation.applicationsOrGroups.map[(it as Application).tasks]
+				val taskList = relation.applications.map[(it as Application).tasks]
 				val taskVars = taskList.map[it.map[solverVariables.getLocationVariablesForTask(it).get(level)]]
 				val domainUnionVars = taskVars.map[chocoModel.intVar("DomainVarForGroup-" + taskVars.indexOf(it), 0, model.getAllHardwareElements(level).size-1, false)]
 				chocoModel.post(ACF.allDifferent(taskVars, domainUnionVars))

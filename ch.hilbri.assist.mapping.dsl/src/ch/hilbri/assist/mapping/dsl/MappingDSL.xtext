@@ -14,11 +14,9 @@ AssistModel:
 
 	'Software' '{'
 					(applications+=Application)* 
-					(applicationGroups+=ApplicationGroup)*
 	'}'
 
 	('Restrictions' '{'
-					(dissimilarityRelations+=DissimilarityRelation)*
 					(dislocalityRelations+=DislocalityRelation)*
 					(colocalityRelations+=ColocalityRelation)*
 	'}')?
@@ -94,9 +92,9 @@ BoardAlternative:
 
 /* SOFTWARE */
 
-ApplicationGroup: 
-	'Group' name=ID '{' applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+ '}'
-;
+//ApplicationGroup: 
+//	'Group' name=ID '{' applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+ '}'
+//;
 
 Application:
 	'Application' name=ID '{'
@@ -127,56 +125,52 @@ IOAdapterRequirement:
 /* RELATIONEN */
 
 DislocalityRelation:
-	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])* 'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
+	applications+=[Application] (',' applications+=[Application])* 'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
 	
 ColocalityRelation:
-	applicationsOrGroups+=[ApplicationOrApplicationGroup|QualifiedName]
-	(',' (applicationsOrGroups+=[ApplicationOrApplicationGroup]))* 
-	'on' 'same' 
-	hardwareLevel=HardwareArchitectureLevelType 
-	';'; 
+	applications+=[Application|QualifiedName] (',' (applications+=[Application]))* 'on' 'same' 	hardwareLevel=HardwareArchitectureLevelType ';'; 
 
-DissimilarityRelation: 
-	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
-	'dissimilar' 'based' 'on'
-	dissimilarityClause=DissimilarityClause ';'
-;
-
-DissimilarityClause:  
-	DissimilarityEntry | ( '(' (=>DissimilarityDisjunction | DissimilarityConjunction) ')' ) // Der Pfeil ist wichtig!
-;
-
-DissimilarityDisjunction: 
-	dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ ;
-
-DissimilarityConjunction: 
-	dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ ;
-
-DissimilarityEntry: 
-	( 'Compartment.' compartmentAttribute= CompartmentAttributes ) 	|
-	( 'Box.' boxAttribute = BoxAttributes) 							|
-	( 'Board.' boardAttribute = BoardAttributes)					|
-	( 'Processor.' processorAttribute = ProcessorAttributes)
-;
-
-enum CompartmentAttributes :
-	MANUFACTURER 	= 'Manufacturer' 	| 
-	POWERSUPPLY	 	= 'PowerSupply';
-	
-enum BoxAttributes :
-	MANUFACTURER 	= 'Manufacturer';
-	
-enum BoardAttributes:
-	MANUFACTURER 	= 'Manufacturer' 			|
-	POWERSUPPLY 	= 'PowerSupply'				|
-	ASSURANCELEVEL 	= 'DesignAssuranceLevel' 	|
-	BOARDTYPE 		= 'Type';
-
-
-enum ProcessorAttributes:
-	MANUFACTURER 	= 'Manufacturer' 	| 
-	PROCESSORTYPE	= 'ProcessorType' 
-;
+//DissimilarityRelation: 
+//	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
+//	'dissimilar' 'based' 'on'
+//	dissimilarityClause=DissimilarityClause ';'
+//;
+//
+//DissimilarityClause:  
+//	DissimilarityEntry | ( '(' (=>DissimilarityDisjunction | DissimilarityConjunction) ')' ) // Der Pfeil ist wichtig!
+//;
+//
+//DissimilarityDisjunction: 
+//	dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ ;
+//
+//DissimilarityConjunction: 
+//	dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ ;
+//
+//DissimilarityEntry: 
+//	( 'Compartment.' compartmentAttribute= CompartmentAttributes ) 	|
+//	( 'Box.' boxAttribute = BoxAttributes) 							|
+//	( 'Board.' boardAttribute = BoardAttributes)					|
+//	( 'Processor.' processorAttribute = ProcessorAttributes)
+//;
+//
+//enum CompartmentAttributes :
+//	MANUFACTURER 	= 'Manufacturer' 	| 
+//	POWERSUPPLY	 	= 'PowerSupply';
+//	
+//enum BoxAttributes :
+//	MANUFACTURER 	= 'Manufacturer';
+//	
+//enum BoardAttributes:
+//	MANUFACTURER 	= 'Manufacturer' 			|
+//	POWERSUPPLY 	= 'PowerSupply'				|
+//	ASSURANCELEVEL 	= 'DesignAssuranceLevel' 	|
+//	BOARDTYPE 		= 'Type';
+//
+//
+//enum ProcessorAttributes:
+//	MANUFACTURER 	= 'Manufacturer' 	| 
+//	PROCESSORTYPE	= 'ProcessorType' 
+//;
 
 MetricParameter:  
 	name=STRING '=' value=INT ';'

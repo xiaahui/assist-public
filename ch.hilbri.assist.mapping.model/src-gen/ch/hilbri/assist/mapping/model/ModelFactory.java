@@ -94,24 +94,6 @@ public interface ModelFactory extends EFactory {
 	IOAdapter createIOAdapter();
 
 	/**
-	 * Returns a new object of class '<em>Application Or Application Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Application Or Application Group</em>'.
-	 * @generated
-	 */
-	ApplicationOrApplicationGroup createApplicationOrApplicationGroup();
-
-	/**
-	 * Returns a new object of class '<em>Application Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Application Group</em>'.
-	 * @generated
-	 */
-	ApplicationGroup createApplicationGroup();
-
-	/**
 	 * Returns a new object of class '<em>Application</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,6 +130,24 @@ public interface ModelFactory extends EFactory {
 	BoardAlternative createBoardAlternative();
 
 	/**
+	 * Returns a new object of class '<em>Application Alternatives</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Application Alternatives</em>'.
+	 * @generated
+	 */
+	ApplicationAlternatives createApplicationAlternatives();
+
+	/**
+	 * Returns a new object of class '<em>Application Alternative</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Application Alternative</em>'.
+	 * @generated
+	 */
+	ApplicationAlternative createApplicationAlternative();
+
+	/**
 	 * Returns a new object of class '<em>IO Adapter Requirement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,51 +155,6 @@ public interface ModelFactory extends EFactory {
 	 * @generated
 	 */
 	IOAdapterRequirement createIOAdapterRequirement();
-
-	/**
-	 * Returns a new object of class '<em>Dissimilarity Relation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dissimilarity Relation</em>'.
-	 * @generated
-	 */
-	DissimilarityRelation createDissimilarityRelation();
-
-	/**
-	 * Returns a new object of class '<em>Dissimilarity Clause</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dissimilarity Clause</em>'.
-	 * @generated
-	 */
-	DissimilarityClause createDissimilarityClause();
-
-	/**
-	 * Returns a new object of class '<em>Dissimilarity Disjunction</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dissimilarity Disjunction</em>'.
-	 * @generated
-	 */
-	DissimilarityDisjunction createDissimilarityDisjunction();
-
-	/**
-	 * Returns a new object of class '<em>Dissimilarity Conjunction</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dissimilarity Conjunction</em>'.
-	 * @generated
-	 */
-	DissimilarityConjunction createDissimilarityConjunction();
-
-	/**
-	 * Returns a new object of class '<em>Dissimilarity Entry</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dissimilarity Entry</em>'.
-	 * @generated
-	 */
-	DissimilarityEntry createDissimilarityEntry();
 
 	/**
 	 * Returns a new object of class '<em>Dislocality Relation</em>'.

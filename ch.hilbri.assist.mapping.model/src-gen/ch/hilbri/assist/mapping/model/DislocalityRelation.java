@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.DislocalityRelation#getApplicationsOrGroups <em>Applications Or Groups</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.DislocalityRelation#getApplications <em>Applications</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.DislocalityRelation#getHardwareLevel <em>Hardware Level</em>}</li>
  * </ul>
  *
@@ -25,20 +25,20 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface DislocalityRelation extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Applications Or Groups</b></em>' reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup}.
+	 * Returns the value of the '<em><b>Applications</b></em>' reference list.
+	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.Application}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Applications Or Groups</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Applications</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Applications Or Groups</em>' reference list.
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getDislocalityRelation_ApplicationsOrGroups()
+	 * @return the value of the '<em>Applications</em>' reference list.
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getDislocalityRelation_Applications()
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<ApplicationOrApplicationGroup> getApplicationsOrGroups();
+	EList<Application> getApplications();
 
 	/**
 	 * Returns the value of the '<em><b>Hardware Level</b></em>' attribute.

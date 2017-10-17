@@ -100,14 +100,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createIOAdapterAdapter();
 			}
 			@Override
-			public Adapter caseApplicationOrApplicationGroup(ApplicationOrApplicationGroup object) {
-				return createApplicationOrApplicationGroupAdapter();
-			}
-			@Override
-			public Adapter caseApplicationGroup(ApplicationGroup object) {
-				return createApplicationGroupAdapter();
-			}
-			@Override
 			public Adapter caseApplication(Application object) {
 				return createApplicationAdapter();
 			}
@@ -124,28 +116,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createBoardAlternativeAdapter();
 			}
 			@Override
+			public Adapter caseApplicationAlternatives(ApplicationAlternatives object) {
+				return createApplicationAlternativesAdapter();
+			}
+			@Override
+			public Adapter caseApplicationAlternative(ApplicationAlternative object) {
+				return createApplicationAlternativeAdapter();
+			}
+			@Override
 			public Adapter caseIOAdapterRequirement(IOAdapterRequirement object) {
 				return createIOAdapterRequirementAdapter();
-			}
-			@Override
-			public Adapter caseDissimilarityRelation(DissimilarityRelation object) {
-				return createDissimilarityRelationAdapter();
-			}
-			@Override
-			public Adapter caseDissimilarityClause(DissimilarityClause object) {
-				return createDissimilarityClauseAdapter();
-			}
-			@Override
-			public Adapter caseDissimilarityDisjunction(DissimilarityDisjunction object) {
-				return createDissimilarityDisjunctionAdapter();
-			}
-			@Override
-			public Adapter caseDissimilarityConjunction(DissimilarityConjunction object) {
-				return createDissimilarityConjunctionAdapter();
-			}
-			@Override
-			public Adapter caseDissimilarityEntry(DissimilarityEntry object) {
-				return createDissimilarityEntryAdapter();
 			}
 			@Override
 			public Adapter caseDislocalityRelation(DislocalityRelation object) {
@@ -292,34 +272,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup <em>Application Or Application Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup
-	 * @generated
-	 */
-	public Adapter createApplicationOrApplicationGroupAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.ApplicationGroup <em>Application Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.ApplicationGroup
-	 * @generated
-	 */
-	public Adapter createApplicationGroupAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.Application <em>Application</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -376,6 +328,34 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.ApplicationAlternatives <em>Application Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.mapping.model.ApplicationAlternatives
+	 * @generated
+	 */
+	public Adapter createApplicationAlternativesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.ApplicationAlternative <em>Application Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.mapping.model.ApplicationAlternative
+	 * @generated
+	 */
+	public Adapter createApplicationAlternativeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.IOAdapterRequirement <em>IO Adapter Requirement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -386,76 +366,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIOAdapterRequirementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.DissimilarityRelation <em>Dissimilarity Relation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityRelation
-	 * @generated
-	 */
-	public Adapter createDissimilarityRelationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.DissimilarityClause <em>Dissimilarity Clause</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityClause
-	 * @generated
-	 */
-	public Adapter createDissimilarityClauseAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.DissimilarityDisjunction <em>Dissimilarity Disjunction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityDisjunction
-	 * @generated
-	 */
-	public Adapter createDissimilarityDisjunctionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.DissimilarityConjunction <em>Dissimilarity Conjunction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityConjunction
-	 * @generated
-	 */
-	public Adapter createDissimilarityConjunctionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry <em>Dissimilarity Entry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityEntry
-	 * @generated
-	 */
-	public Adapter createDissimilarityEntryAdapter() {
 		return null;
 	}
 

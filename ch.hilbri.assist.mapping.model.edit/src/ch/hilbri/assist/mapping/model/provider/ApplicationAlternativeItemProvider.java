@@ -3,7 +3,8 @@
 package ch.hilbri.assist.mapping.model.provider;
 
 
-import ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup;
+import ch.hilbri.assist.mapping.model.ApplicationAlternative;
+import ch.hilbri.assist.mapping.model.ModelFactory;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 
 import java.util.Collection;
@@ -13,6 +14,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -26,12 +29,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.mapping.model.ApplicationAlternative} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ApplicationOrApplicationGroupItemProvider 
+public class ApplicationAlternativeItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +48,7 @@ public class ApplicationOrApplicationGroupItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ApplicationOrApplicationGroupItemProvider(AdapterFactory adapterFactory) {
+	public ApplicationAlternativeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -76,9 +79,9 @@ public class ApplicationOrApplicationGroupItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ApplicationOrApplicationGroup_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ApplicationOrApplicationGroup_name_feature", "_UI_ApplicationOrApplicationGroup_type"),
-				 ModelPackage.Literals.APPLICATION_OR_APPLICATION_GROUP__NAME,
+				 getString("_UI_ApplicationAlternative_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ApplicationAlternative_name_feature", "_UI_ApplicationAlternative_type"),
+				 ModelPackage.Literals.APPLICATION_ALTERNATIVE__NAME,
 				 true,
 				 false,
 				 false,
@@ -88,14 +91,44 @@ public class ApplicationOrApplicationGroupItemProvider
 	}
 
 	/**
-	 * This returns ApplicationOrApplicationGroup.gif.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(ModelPackage.Literals.APPLICATION_ALTERNATIVE__APPLICATIONS);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns ApplicationAlternative.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationOrApplicationGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationAlternative"));
 	}
 
 	/**
@@ -106,10 +139,10 @@ public class ApplicationOrApplicationGroupItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ApplicationOrApplicationGroup)object).getName();
+		String label = ((ApplicationAlternative)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ApplicationOrApplicationGroup_type") :
-			getString("_UI_ApplicationOrApplicationGroup_type") + " " + label;
+			getString("_UI_ApplicationAlternative_type") :
+			getString("_UI_ApplicationAlternative_type") + " " + label;
 	}
 	
 
@@ -124,9 +157,12 @@ public class ApplicationOrApplicationGroupItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ApplicationOrApplicationGroup.class)) {
-			case ModelPackage.APPLICATION_OR_APPLICATION_GROUP__NAME:
+		switch (notification.getFeatureID(ApplicationAlternative.class)) {
+			case ModelPackage.APPLICATION_ALTERNATIVE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case ModelPackage.APPLICATION_ALTERNATIVE__APPLICATIONS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -142,6 +178,11 @@ public class ApplicationOrApplicationGroupItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.APPLICATION_ALTERNATIVE__APPLICATIONS,
+				 ModelFactory.eINSTANCE.createApplication()));
 	}
 
 	/**

@@ -2,7 +2,7 @@
  */
 package ch.hilbri.assist.mapping.model.impl;
 
-import ch.hilbri.assist.mapping.model.ApplicationOrApplicationGroup;
+import ch.hilbri.assist.mapping.model.Application;
 import ch.hilbri.assist.mapping.model.DislocalityRelation;
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.model.ModelPackage;
@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.DislocalityRelationImpl#getApplicationsOrGroups <em>Applications Or Groups</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.DislocalityRelationImpl#getApplications <em>Applications</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.DislocalityRelationImpl#getHardwareLevel <em>Hardware Level</em>}</li>
  * </ul>
  *
@@ -36,14 +36,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class DislocalityRelationImpl extends MinimalEObjectImpl.Container implements DislocalityRelation {
 	/**
-	 * The cached value of the '{@link #getApplicationsOrGroups() <em>Applications Or Groups</em>}' reference list.
+	 * The cached value of the '{@link #getApplications() <em>Applications</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getApplicationsOrGroups()
+	 * @see #getApplications()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ApplicationOrApplicationGroup> applicationsOrGroups;
+	protected EList<Application> applications;
 
 	/**
 	 * The default value of the '{@link #getHardwareLevel() <em>Hardware Level</em>}' attribute.
@@ -89,11 +89,11 @@ public class DislocalityRelationImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ApplicationOrApplicationGroup> getApplicationsOrGroups() {
-		if (applicationsOrGroups == null) {
-			applicationsOrGroups = new EObjectResolvingEList<ApplicationOrApplicationGroup>(ApplicationOrApplicationGroup.class, this, ModelPackage.DISLOCALITY_RELATION__APPLICATIONS_OR_GROUPS);
+	public EList<Application> getApplications() {
+		if (applications == null) {
+			applications = new EObjectResolvingEList<Application>(Application.class, this, ModelPackage.DISLOCALITY_RELATION__APPLICATIONS);
 		}
-		return applicationsOrGroups;
+		return applications;
 	}
 
 	/**
@@ -125,8 +125,8 @@ public class DislocalityRelationImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.DISLOCALITY_RELATION__APPLICATIONS_OR_GROUPS:
-				return getApplicationsOrGroups();
+			case ModelPackage.DISLOCALITY_RELATION__APPLICATIONS:
+				return getApplications();
 			case ModelPackage.DISLOCALITY_RELATION__HARDWARE_LEVEL:
 				return getHardwareLevel();
 		}
@@ -142,9 +142,9 @@ public class DislocalityRelationImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.DISLOCALITY_RELATION__APPLICATIONS_OR_GROUPS:
-				getApplicationsOrGroups().clear();
-				getApplicationsOrGroups().addAll((Collection<? extends ApplicationOrApplicationGroup>)newValue);
+			case ModelPackage.DISLOCALITY_RELATION__APPLICATIONS:
+				getApplications().clear();
+				getApplications().addAll((Collection<? extends Application>)newValue);
 				return;
 			case ModelPackage.DISLOCALITY_RELATION__HARDWARE_LEVEL:
 				setHardwareLevel((HardwareArchitectureLevelType)newValue);
@@ -161,8 +161,8 @@ public class DislocalityRelationImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.DISLOCALITY_RELATION__APPLICATIONS_OR_GROUPS:
-				getApplicationsOrGroups().clear();
+			case ModelPackage.DISLOCALITY_RELATION__APPLICATIONS:
+				getApplications().clear();
 				return;
 			case ModelPackage.DISLOCALITY_RELATION__HARDWARE_LEVEL:
 				setHardwareLevel(HARDWARE_LEVEL_EDEFAULT);
@@ -179,8 +179,8 @@ public class DislocalityRelationImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.DISLOCALITY_RELATION__APPLICATIONS_OR_GROUPS:
-				return applicationsOrGroups != null && !applicationsOrGroups.isEmpty();
+			case ModelPackage.DISLOCALITY_RELATION__APPLICATIONS:
+				return applications != null && !applications.isEmpty();
 			case ModelPackage.DISLOCALITY_RELATION__HARDWARE_LEVEL:
 				return hardwareLevel != HARDWARE_LEVEL_EDEFAULT;
 		}

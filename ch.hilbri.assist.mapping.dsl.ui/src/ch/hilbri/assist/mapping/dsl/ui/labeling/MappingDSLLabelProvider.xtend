@@ -1,7 +1,6 @@
 package ch.hilbri.assist.mapping.dsl.ui.labeling
 
 import ch.hilbri.assist.mapping.model.Application
-import ch.hilbri.assist.mapping.model.ApplicationGroup
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.Board
 import ch.hilbri.assist.mapping.model.BoardAlternative
@@ -11,7 +10,6 @@ import ch.hilbri.assist.mapping.model.ColocalityRelation
 import ch.hilbri.assist.mapping.model.Compartment
 import ch.hilbri.assist.mapping.model.Core
 import ch.hilbri.assist.mapping.model.DislocalityRelation
-import ch.hilbri.assist.mapping.model.DissimilarityRelation
 import ch.hilbri.assist.mapping.model.Processor
 import ch.hilbri.assist.mapping.model.Task
 import com.google.inject.Inject
@@ -94,24 +92,13 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		'outlineview_application.gif'
 	}
 	
-	def text(ApplicationGroup g) {
-		'Group ' + g.name + ' ' + g.applicationsOrGroups
-	}
-	
-	def image(ApplicationGroup g) {
-		'outlineview_application_group.gif'
-	}
-	
-	
-
 	def text(DislocalityRelation r) {
 		val output = new StringBuilder()
 		
 		output.append("[")
-		for (aog : r.applicationsOrGroups) {
+		for (aog : r.applications) {
 			if (aog instanceof Application) output.append(aog.name)
-			if (aog instanceof ApplicationGroup) output.append(aog.name)
-			if (r.applicationsOrGroups.last != aog) output.append(", ")
+			if (r.applications.last != aog) output.append(", ")
 		}
 		output.append("]")
 		output.append(" dislocal up to ")
@@ -125,33 +112,32 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		'outlineview_constraint.png'
 	}
 
-	def text(DissimilarityRelation r) {
-		val output = new StringBuilder()
-		
-		output.append("[")
-		for (aog : r.applicationsOrGroups) {
-			if (aog instanceof Application) output.append(aog.name)
-			if (aog instanceof ApplicationGroup) output.append(aog.name)
-			if (r.applicationsOrGroups.last != aog) output.append(", ")
-		}
-		output.append("]")
-		output.append(" dissimilar ")
-		
-		return output.toString
-	}
-
-	def image(DissimilarityRelation r) {
-		'outlineview_constraint.png'
-	}
+//	def text(DissimilarityRelation r) {
+//		val output = new StringBuilder()
+//		
+//		output.append("[")
+//		for (aog : r.applicationsOrGroups) {
+//			if (aog instanceof Application) output.append(aog.name)
+//			if (aog instanceof ApplicationGroup) output.append(aog.name)
+//			if (r.applicationsOrGroups.last != aog) output.append(", ")
+//		}
+//		output.append("]")
+//		output.append(" dissimilar ")
+//		
+//		return output.toString
+//	}
+//
+//	def image(DissimilarityRelation r) {
+//		'outlineview_constraint.png'
+//	}
 
 	def text(ColocalityRelation r) {
 		val output = new StringBuilder()
 		
 		output.append("[")
-		for (aog : r.applicationsOrGroups) {
+		for (aog : r.applications) {
 			if (aog instanceof Application) output.append(aog.name)
-			if (aog instanceof ApplicationGroup) output.append(aog.name)
-			if (r.applicationsOrGroups.last != aog) output.append(", ")
+			if (r.applications.last != aog) output.append(", ")
 		}
 		output.append("]")
 		output.append(" on same ")

@@ -61,26 +61,26 @@ public class ColocalityRelationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addApplicationsOrGroupsPropertyDescriptor(object);
+			addApplicationsPropertyDescriptor(object);
 			addHardwareLevelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Applications Or Groups feature.
+	 * This adds a property descriptor for the Applications feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addApplicationsOrGroupsPropertyDescriptor(Object object) {
+	protected void addApplicationsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ColocalityRelation_applicationsOrGroups_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ColocalityRelation_applicationsOrGroups_feature", "_UI_ColocalityRelation_type"),
-				 ModelPackage.Literals.COLOCALITY_RELATION__APPLICATIONS_OR_GROUPS,
+				 getString("_UI_ColocalityRelation_applications_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColocalityRelation_applications_feature", "_UI_ColocalityRelation_type"),
+				 ModelPackage.Literals.COLOCALITY_RELATION__APPLICATIONS,
 				 true,
 				 false,
 				 true,
