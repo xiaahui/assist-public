@@ -32,6 +32,7 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		/* ---------- APPLICATIONS AND GROUPS --------- */
 		val applicationsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Applications", false)
 		for (sw : model.applications) createNode(applicationsNode, sw)
+		for (al : model.applicationAlternatives) createNode(applicationsNode, al)
 		
 //		if (!model.applicationGroups.empty) {
 //			val appGroupNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Application Groups", false)
