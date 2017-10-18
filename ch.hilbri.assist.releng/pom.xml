@@ -57,6 +57,8 @@
 		<module>../ch.hilbri.assist.dse.dsl.tests</module>
 		<module>../ch.hilbri.assist.dse.dsl.ui</module>
 		<module>../ch.hilbri.assist.dse.dsl.ui.tests</module>
+		<module>../ch.hilbri.assist.features.dse</module>
+		<module>../ch.hilbri.assist.features.scheduling</module>
 	</modules>
 
 	<dependencies>

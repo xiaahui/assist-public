@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="ch.hilbri.assist.features.dse"
+      label="Dse"
+      version="2.3.0.qualifier"
+      provider-name="Robert Hilbrich"
+      os="linux,macosx,win32"
+      ws="cocoa,gtk,win32"
+      arch="x86_64">
+
+   <license url="">
+      EPL v2
+   </license>
+
+   <requires>
+      <import plugin="org.junit" version="4.12.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.testing"/>
+      <import plugin="org.eclipse.xtext.xbase.testing"/>
+      <import plugin="org.eclipse.xtext.xbase.lib"/>
+      <import plugin="org.hamcrest.core"/>
+      <import plugin="org.eclipse.xtext.junit4"/>
+      <import plugin="org.eclipse.xtext.xbase.junit"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.xtext.ui"/>
+      <import plugin="org.eclipse.xtext.ui.shared"/>
+      <import plugin="org.eclipse.xtext.ui.codetemplates.ui"/>
+      <import plugin="org.eclipse.ui.editors" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.compare"/>
+      <import plugin="org.eclipse.xtext.builder"/>
+      <import plugin="org.apache.log4j"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="ch.hilbri.assist.mapping.model"/>
+      <import plugin="ch.hilbri.assist.mapping.model.edit"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.xtext"/>
+      <import plugin="org.eclipse.xtext.xbase"/>
+      <import plugin="org.eclipse.equinox.common" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.antlr.runtime"/>
+      <import plugin="org.eclipse.xtext.util"/>
+      <import plugin="org.eclipse.xtend.lib"/>
+      <import plugin="org.eclipse.emf.ecore.xcore.lib"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.xtext.ide"/>
+      <import plugin="org.eclipse.xtext.xbase.ide"/>
+   </requires>
+
+   <plugin
+         id="ch.hilbri.assist.dse.dsl.tests"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.dse.dsl.ui.tests"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.dse.dsl.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.dse.model.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.dse.dsl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.dse.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.dse.model.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.dse.dsl.ide"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
