@@ -5,6 +5,8 @@ package ch.hilbri.assist.dse.model.util;
 import ch.hilbri.assist.dse.model.*;
 
 import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.Box;
+import ch.hilbri.assist.mapping.model.HardwareElement;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -74,8 +76,36 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createAssistModelDSEAdapter();
 			}
 			@Override
+			public Adapter caseBoxDSE(BoxDSE object) {
+				return createBoxDSEAdapter();
+			}
+			@Override
+			public Adapter caseBoardAlternatives(BoardAlternatives object) {
+				return createBoardAlternativesAdapter();
+			}
+			@Override
+			public Adapter caseBoardAlternative(BoardAlternative object) {
+				return createBoardAlternativeAdapter();
+			}
+			@Override
+			public Adapter caseApplicationAlternatives(ApplicationAlternatives object) {
+				return createApplicationAlternativesAdapter();
+			}
+			@Override
+			public Adapter caseApplicationAlternative(ApplicationAlternative object) {
+				return createApplicationAlternativeAdapter();
+			}
+			@Override
 			public Adapter caseAssistModel(AssistModel object) {
 				return createAssistModelAdapter();
+			}
+			@Override
+			public Adapter caseHardwareElement(HardwareElement object) {
+				return createHardwareElementAdapter();
+			}
+			@Override
+			public Adapter caseBox(Box object) {
+				return createBoxAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -112,6 +142,76 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.dse.model.BoxDSE <em>Box DSE</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.dse.model.BoxDSE
+	 * @generated
+	 */
+	public Adapter createBoxDSEAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.dse.model.BoardAlternatives <em>Board Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.dse.model.BoardAlternatives
+	 * @generated
+	 */
+	public Adapter createBoardAlternativesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.dse.model.BoardAlternative <em>Board Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.dse.model.BoardAlternative
+	 * @generated
+	 */
+	public Adapter createBoardAlternativeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.dse.model.ApplicationAlternatives <em>Application Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.dse.model.ApplicationAlternatives
+	 * @generated
+	 */
+	public Adapter createApplicationAlternativesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.dse.model.ApplicationAlternative <em>Application Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.dse.model.ApplicationAlternative
+	 * @generated
+	 */
+	public Adapter createApplicationAlternativeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.AssistModel <em>Assist Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -122,6 +222,34 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAssistModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.HardwareElement <em>Hardware Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.mapping.model.HardwareElement
+	 * @generated
+	 */
+	public Adapter createHardwareElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.Box <em>Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.mapping.model.Box
+	 * @generated
+	 */
+	public Adapter createBoxAdapter() {
 		return null;
 	}
 

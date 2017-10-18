@@ -1,10 +1,11 @@
 /**
  */
-package ch.hilbri.assist.mapping.model.impl;
+package ch.hilbri.assist.dse.model.impl;
 
-import ch.hilbri.assist.mapping.model.Board;
-import ch.hilbri.assist.mapping.model.BoardAlternative;
-import ch.hilbri.assist.mapping.model.ModelPackage;
+import ch.hilbri.assist.dse.model.ApplicationAlternative;
+import ch.hilbri.assist.dse.model.ModelPackage;
+
+import ch.hilbri.assist.mapping.model.Application;
 
 import java.util.Collection;
 
@@ -24,19 +25,19 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Board Alternative</b></em>'.
+ * An implementation of the model object '<em><b>Application Alternative</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardAlternativeImpl#getName <em>Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardAlternativeImpl#getBoards <em>Boards</em>}</li>
+ *   <li>{@link ch.hilbri.assist.dse.model.impl.ApplicationAlternativeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.dse.model.impl.ApplicationAlternativeImpl#getApplications <em>Applications</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implements BoardAlternative {
+public class ApplicationAlternativeImpl extends MinimalEObjectImpl.Container implements ApplicationAlternative {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -58,21 +59,21 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getBoards() <em>Boards</em>}' containment reference list.
+	 * The cached value of the '{@link #getApplications() <em>Applications</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBoards()
+	 * @see #getApplications()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Board> boards;
+	protected EList<Application> applications;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BoardAlternativeImpl() {
+	protected ApplicationAlternativeImpl() {
 		super();
 	}
 
@@ -83,7 +84,7 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ModelPackage.Literals.BOARD_ALTERNATIVE;
+		return ModelPackage.Literals.APPLICATION_ALTERNATIVE;
 	}
 
 	/**
@@ -104,7 +105,7 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOARD_ALTERNATIVE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.APPLICATION_ALTERNATIVE__NAME, oldName, name));
 	}
 
 	/**
@@ -112,11 +113,11 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Board> getBoards() {
-		if (boards == null) {
-			boards = new EObjectContainmentEList<Board>(Board.class, this, ModelPackage.BOARD_ALTERNATIVE__BOARDS);
+	public EList<Application> getApplications() {
+		if (applications == null) {
+			applications = new EObjectContainmentEList<Application>(Application.class, this, ModelPackage.APPLICATION_ALTERNATIVE__APPLICATIONS);
 		}
-		return boards;
+		return applications;
 	}
 
 	/**
@@ -127,8 +128,8 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModelPackage.BOARD_ALTERNATIVE__BOARDS:
-				return ((InternalEList<?>)getBoards()).basicRemove(otherEnd, msgs);
+			case ModelPackage.APPLICATION_ALTERNATIVE__APPLICATIONS:
+				return ((InternalEList<?>)getApplications()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -141,10 +142,10 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.BOARD_ALTERNATIVE__NAME:
+			case ModelPackage.APPLICATION_ALTERNATIVE__NAME:
 				return getName();
-			case ModelPackage.BOARD_ALTERNATIVE__BOARDS:
-				return getBoards();
+			case ModelPackage.APPLICATION_ALTERNATIVE__APPLICATIONS:
+				return getApplications();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -158,12 +159,12 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.BOARD_ALTERNATIVE__NAME:
+			case ModelPackage.APPLICATION_ALTERNATIVE__NAME:
 				setName((String)newValue);
 				return;
-			case ModelPackage.BOARD_ALTERNATIVE__BOARDS:
-				getBoards().clear();
-				getBoards().addAll((Collection<? extends Board>)newValue);
+			case ModelPackage.APPLICATION_ALTERNATIVE__APPLICATIONS:
+				getApplications().clear();
+				getApplications().addAll((Collection<? extends Application>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -177,11 +178,11 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.BOARD_ALTERNATIVE__NAME:
+			case ModelPackage.APPLICATION_ALTERNATIVE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ModelPackage.BOARD_ALTERNATIVE__BOARDS:
-				getBoards().clear();
+			case ModelPackage.APPLICATION_ALTERNATIVE__APPLICATIONS:
+				getApplications().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -195,10 +196,10 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.BOARD_ALTERNATIVE__NAME:
+			case ModelPackage.APPLICATION_ALTERNATIVE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ModelPackage.BOARD_ALTERNATIVE__BOARDS:
-				return boards != null && !boards.isEmpty();
+			case ModelPackage.APPLICATION_ALTERNATIVE__APPLICATIONS:
+				return applications != null && !applications.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -219,4 +220,4 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
 		return result.toString();
 	}
 
-} //BoardAlternativeImpl
+} //ApplicationAlternativeImpl

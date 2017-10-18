@@ -17,10 +17,9 @@ class AssistModel {
 
 	contains 		Compartment[1..*] 				compartments
 	contains 		Application[1..*] 				applications
-	contains 		ApplicationAlternatives[0..*] 	applicationAlternatives
-//	contains 		DissimilarityRelation[0..*] 		dissimilarityRelations
 	contains 		DislocalityRelation[0..*] 		dislocalityRelations
 	contains 		ColocalityRelation[0..*] 		colocalityRelations
+//	contains 		DissimilarityRelation[0..*] 		dissimilarityRelations
 	
 	op Compartment[] 	getAllCompartments()  	{ compartments }
 	op Box[] 			getAllBoxes() 			{ compartments.map[allBoxes].flatten.toEList		}
@@ -57,7 +56,6 @@ class Compartment extends HardwareElement {
 class Box extends HardwareElement {
 	container Compartment compartment opposite boxes
 	contains Board[0..*] boards opposite box
-	contains BoardAlternatives[0..*] boardAlternatives
 		
 	op Board[] 			getAllBoards() 			{ boards }
 	op Processor[] 		getAllProcessors() 		{ boards.map[allProcessors].flatten.toEList	}
@@ -68,11 +66,13 @@ class Board extends HardwareElement {
 	String 							boardType		= ""
 	String 							powerSupply		= ""
 	DesignAssuranceLevelType 		assuranceLevel 	= "None"
-	int 							ramCapacity 	= "0"
-	int 							romCapacity 	= "0"
-	container 	Box 				box opposite boards
-	contains 	Processor[1..*] 	processors opposite board
+	int 								ramCapacity 	= "0"
+	int 								romCapacity 	= "0"
+	
+	container 	Box 				box 			opposite boards
+	contains 	Processor[1..*] 	processors 	opposite board
 	contains 	IOAdapter[0..*] 	ioAdapters
+	
 	op String			toString() 				{ name 										}
 	op Processor[] 		getAllProcessors() 		{ processors 								}
 	op Core[] 			getAllCores() 			{ processors.map[allCores].flatten.toEList	}
@@ -115,34 +115,16 @@ class Task {
 	int coreUtilization 										= "0"
 	int ramUtilization 										= "0"
 	int romUtilization										= "0"
+
 	container Application application opposite tasks
+
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
-	refers HardwareElement[0..*] restrictMappingToHardwareElements
 	contains MetricParameter[0..*] metricParameters
+
+	refers HardwareElement[0..*] restrictMappingToHardwareElements
+
 	op String 			toString() 				{ name }
 }
-
-/* *********************************************** */
-/*      VARIABILITY MODELING                       */
-/* *********************************************** */
-class BoardAlternatives {  // XOR
-	contains BoardAlternative[0..*] alternatives
-}
-
-class BoardAlternative {
-	String name
-	contains Board[0..*] boards 
-}
-
-class ApplicationAlternatives {  // XOR
-	contains ApplicationAlternative[0..*] alternatives
-}
-
-class ApplicationAlternative {
-	String name
-	contains Application[0..*] applications
-}
-
 
 /* *********************************************** */
 /*   REQUIREMENTS / RELATIONS                      */
@@ -153,7 +135,6 @@ class IOAdapterRequirement {
 	boolean 						isSharedAllowed 			= "false"
 	boolean 						isExclusiveOnly 			= "false"
 }
-
 
 //class DissimilarityRelation {
 //	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups

@@ -3,7 +3,6 @@
 package ch.hilbri.assist.mapping.model.impl;
 
 import ch.hilbri.assist.mapping.model.Application;
-import ch.hilbri.assist.mapping.model.ApplicationAlternatives;
 import ch.hilbri.assist.mapping.model.AssistModel;
 import ch.hilbri.assist.mapping.model.Board;
 import ch.hilbri.assist.mapping.model.Box;
@@ -52,7 +51,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getSystemName <em>System Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getCompartments <em>Compartments</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getApplications <em>Applications</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getApplicationAlternatives <em>Application Alternatives</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getDislocalityRelations <em>Dislocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getColocalityRelations <em>Colocality Relations</em>}</li>
  * </ul>
@@ -99,16 +97,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @ordered
 	 */
 	protected EList<Application> applications;
-
-	/**
-	 * The cached value of the '{@link #getApplicationAlternatives() <em>Application Alternatives</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getApplicationAlternatives()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ApplicationAlternatives> applicationAlternatives;
 
 	/**
 	 * The cached value of the '{@link #getDislocalityRelations() <em>Dislocality Relations</em>}' containment reference list.
@@ -192,18 +180,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			applications = new EObjectContainmentEList<Application>(Application.class, this, ModelPackage.ASSIST_MODEL__APPLICATIONS);
 		}
 		return applications;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ApplicationAlternatives> getApplicationAlternatives() {
-		if (applicationAlternatives == null) {
-			applicationAlternatives = new EObjectContainmentEList<ApplicationAlternatives>(ApplicationAlternatives.class, this, ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES);
-		}
-		return applicationAlternatives;
 	}
 
 	/**
@@ -390,8 +366,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return ((InternalEList<?>)getCompartments()).basicRemove(otherEnd, msgs);
 			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
 				return ((InternalEList<?>)getApplications()).basicRemove(otherEnd, msgs);
-			case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
-				return ((InternalEList<?>)getApplicationAlternatives()).basicRemove(otherEnd, msgs);
 			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
 				return ((InternalEList<?>)getDislocalityRelations()).basicRemove(otherEnd, msgs);
 			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
@@ -414,8 +388,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getCompartments();
 			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
 				return getApplications();
-			case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
-				return getApplicationAlternatives();
 			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
 				return getDislocalityRelations();
 			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
@@ -443,10 +415,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
 				getApplications().clear();
 				getApplications().addAll((Collection<? extends Application>)newValue);
-				return;
-			case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
-				getApplicationAlternatives().clear();
-				getApplicationAlternatives().addAll((Collection<? extends ApplicationAlternatives>)newValue);
 				return;
 			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
 				getDislocalityRelations().clear();
@@ -477,9 +445,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
 				getApplications().clear();
 				return;
-			case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
-				getApplicationAlternatives().clear();
-				return;
 			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
 				getDislocalityRelations().clear();
 				return;
@@ -504,8 +469,6 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return compartments != null && !compartments.isEmpty();
 			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
 				return applications != null && !applications.isEmpty();
-			case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
-				return applicationAlternatives != null && !applicationAlternatives.isEmpty();
 			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
 				return dislocalityRelations != null && !dislocalityRelations.isEmpty();
 			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:

@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getSystemName <em>System Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getCompartments <em>Compartments</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getApplications <em>Applications</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getApplicationAlternatives <em>Application Alternatives</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getColocalityRelations <em>Colocality Relations</em>}</li>
  * </ul>
@@ -86,22 +85,6 @@ public interface AssistModel extends EObject {
 	 * @generated
 	 */
 	EList<Application> getApplications();
-
-	/**
-	 * Returns the value of the '<em><b>Application Alternatives</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.ApplicationAlternatives}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Application Alternatives</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Application Alternatives</em>' containment reference list.
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModel_ApplicationAlternatives()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ApplicationAlternatives> getApplicationAlternatives();
 
 	/**
 	 * Returns the value of the '<em><b>Dislocality Relations</b></em>' containment reference list.

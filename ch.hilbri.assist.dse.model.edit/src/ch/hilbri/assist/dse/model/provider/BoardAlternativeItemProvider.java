@@ -1,38 +1,54 @@
 /**
  */
-package ch.hilbri.assist.mapping.model.provider;
+package ch.hilbri.assist.dse.model.provider;
 
 
-import ch.hilbri.assist.mapping.model.Box;
+import ch.hilbri.assist.dse.model.BoardAlternative;
+import ch.hilbri.assist.dse.model.ModelPackage;
+
 import ch.hilbri.assist.mapping.model.ModelFactory;
-import ch.hilbri.assist.mapping.model.ModelPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.mapping.model.Box} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.dse.model.BoardAlternative} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class BoxItemProvider extends HardwareElementItemProvider {
+public class BoardAlternativeItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BoxItemProvider(AdapterFactory adapterFactory) {
+	public BoardAlternativeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -47,29 +63,29 @@ public class BoxItemProvider extends HardwareElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCompartmentPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Compartment feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCompartmentPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Box_compartment_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Box_compartment_feature", "_UI_Box_type"),
-				 ModelPackage.Literals.BOX__COMPARTMENT,
+				 getString("_UI_BoardAlternative_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BoardAlternative_name_feature", "_UI_BoardAlternative_type"),
+				 ModelPackage.Literals.BOARD_ALTERNATIVE__NAME,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -86,7 +102,7 @@ public class BoxItemProvider extends HardwareElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.BOX__BOARDS);
+			childrenFeatures.add(ModelPackage.Literals.BOARD_ALTERNATIVE__BOARDS);
 		}
 		return childrenFeatures;
 	}
@@ -105,14 +121,14 @@ public class BoxItemProvider extends HardwareElementItemProvider {
 	}
 
 	/**
-	 * This returns Box.gif.
+	 * This returns BoardAlternative.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Box"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BoardAlternative"));
 	}
 
 	/**
@@ -123,10 +139,10 @@ public class BoxItemProvider extends HardwareElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Box)object).getName();
+		String label = ((BoardAlternative)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Box_type") :
-			getString("_UI_Box_type") + " " + label;
+			getString("_UI_BoardAlternative_type") :
+			getString("_UI_BoardAlternative_type") + " " + label;
 	}
 	
 
@@ -141,8 +157,11 @@ public class BoxItemProvider extends HardwareElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Box.class)) {
-			case ModelPackage.BOX__BOARDS:
+		switch (notification.getFeatureID(BoardAlternative.class)) {
+			case ModelPackage.BOARD_ALTERNATIVE__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case ModelPackage.BOARD_ALTERNATIVE__BOARDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -162,8 +181,19 @@ public class BoxItemProvider extends HardwareElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.BOX__BOARDS,
+				(ModelPackage.Literals.BOARD_ALTERNATIVE__BOARDS,
 				 ModelFactory.eINSTANCE.createBoard()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return ModelEditPlugin.INSTANCE;
 	}
 
 }

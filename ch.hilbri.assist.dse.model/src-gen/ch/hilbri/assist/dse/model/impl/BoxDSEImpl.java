@@ -1,10 +1,12 @@
 /**
  */
-package ch.hilbri.assist.mapping.model.impl;
+package ch.hilbri.assist.dse.model.impl;
 
-import ch.hilbri.assist.mapping.model.BoardAlternative;
-import ch.hilbri.assist.mapping.model.BoardAlternatives;
-import ch.hilbri.assist.mapping.model.ModelPackage;
+import ch.hilbri.assist.dse.model.BoardAlternatives;
+import ch.hilbri.assist.dse.model.BoxDSE;
+import ch.hilbri.assist.dse.model.ModelPackage;
+
+import ch.hilbri.assist.mapping.model.impl.BoxImpl;
 
 import java.util.Collection;
 
@@ -15,41 +17,39 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Board Alternatives</b></em>'.
+ * An implementation of the model object '<em><b>Box DSE</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardAlternativesImpl#getAlternatives <em>Alternatives</em>}</li>
+ *   <li>{@link ch.hilbri.assist.dse.model.impl.BoxDSEImpl#getBoardAlternatives <em>Board Alternatives</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BoardAlternativesImpl extends MinimalEObjectImpl.Container implements BoardAlternatives {
+public class BoxDSEImpl extends BoxImpl implements BoxDSE {
 	/**
-	 * The cached value of the '{@link #getAlternatives() <em>Alternatives</em>}' containment reference list.
+	 * The cached value of the '{@link #getBoardAlternatives() <em>Board Alternatives</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAlternatives()
+	 * @see #getBoardAlternatives()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BoardAlternative> alternatives;
+	protected EList<BoardAlternatives> boardAlternatives;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BoardAlternativesImpl() {
+	protected BoxDSEImpl() {
 		super();
 	}
 
@@ -60,7 +60,7 @@ public class BoardAlternativesImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ModelPackage.Literals.BOARD_ALTERNATIVES;
+		return ModelPackage.Literals.BOX_DSE;
 	}
 
 	/**
@@ -68,11 +68,11 @@ public class BoardAlternativesImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BoardAlternative> getAlternatives() {
-		if (alternatives == null) {
-			alternatives = new EObjectContainmentEList<BoardAlternative>(BoardAlternative.class, this, ModelPackage.BOARD_ALTERNATIVES__ALTERNATIVES);
+	public EList<BoardAlternatives> getBoardAlternatives() {
+		if (boardAlternatives == null) {
+			boardAlternatives = new EObjectContainmentEList<BoardAlternatives>(BoardAlternatives.class, this, ModelPackage.BOX_DSE__BOARD_ALTERNATIVES);
 		}
-		return alternatives;
+		return boardAlternatives;
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class BoardAlternativesImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModelPackage.BOARD_ALTERNATIVES__ALTERNATIVES:
-				return ((InternalEList<?>)getAlternatives()).basicRemove(otherEnd, msgs);
+			case ModelPackage.BOX_DSE__BOARD_ALTERNATIVES:
+				return ((InternalEList<?>)getBoardAlternatives()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,8 +97,8 @@ public class BoardAlternativesImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.BOARD_ALTERNATIVES__ALTERNATIVES:
-				return getAlternatives();
+			case ModelPackage.BOX_DSE__BOARD_ALTERNATIVES:
+				return getBoardAlternatives();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,9 +112,9 @@ public class BoardAlternativesImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.BOARD_ALTERNATIVES__ALTERNATIVES:
-				getAlternatives().clear();
-				getAlternatives().addAll((Collection<? extends BoardAlternative>)newValue);
+			case ModelPackage.BOX_DSE__BOARD_ALTERNATIVES:
+				getBoardAlternatives().clear();
+				getBoardAlternatives().addAll((Collection<? extends BoardAlternatives>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,8 +128,8 @@ public class BoardAlternativesImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.BOARD_ALTERNATIVES__ALTERNATIVES:
-				getAlternatives().clear();
+			case ModelPackage.BOX_DSE__BOARD_ALTERNATIVES:
+				getBoardAlternatives().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -143,10 +143,10 @@ public class BoardAlternativesImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.BOARD_ALTERNATIVES__ALTERNATIVES:
-				return alternatives != null && !alternatives.isEmpty();
+			case ModelPackage.BOX_DSE__BOARD_ALTERNATIVES:
+				return boardAlternatives != null && !boardAlternatives.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //BoardAlternativesImpl
+} //BoxDSEImpl

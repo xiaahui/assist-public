@@ -302,98 +302,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.BoardAlternatives} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BoardAlternativesItemProvider boardAlternativesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.BoardAlternatives}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBoardAlternativesAdapter() {
-		if (boardAlternativesItemProvider == null) {
-			boardAlternativesItemProvider = new BoardAlternativesItemProvider(this);
-		}
-
-		return boardAlternativesItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.BoardAlternative} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BoardAlternativeItemProvider boardAlternativeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.BoardAlternative}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBoardAlternativeAdapter() {
-		if (boardAlternativeItemProvider == null) {
-			boardAlternativeItemProvider = new BoardAlternativeItemProvider(this);
-		}
-
-		return boardAlternativeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.ApplicationAlternatives} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ApplicationAlternativesItemProvider applicationAlternativesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.ApplicationAlternatives}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createApplicationAlternativesAdapter() {
-		if (applicationAlternativesItemProvider == null) {
-			applicationAlternativesItemProvider = new ApplicationAlternativesItemProvider(this);
-		}
-
-		return applicationAlternativesItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.ApplicationAlternative} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ApplicationAlternativeItemProvider applicationAlternativeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.ApplicationAlternative}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createApplicationAlternativeAdapter() {
-		if (applicationAlternativeItemProvider == null) {
-			applicationAlternativeItemProvider = new ApplicationAlternativeItemProvider(this);
-		}
-
-		return applicationAlternativeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.IOAdapterRequirement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -594,10 +502,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (ioAdapterItemProvider != null) ioAdapterItemProvider.dispose();
 		if (applicationItemProvider != null) applicationItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
-		if (boardAlternativesItemProvider != null) boardAlternativesItemProvider.dispose();
-		if (boardAlternativeItemProvider != null) boardAlternativeItemProvider.dispose();
-		if (applicationAlternativesItemProvider != null) applicationAlternativesItemProvider.dispose();
-		if (applicationAlternativeItemProvider != null) applicationAlternativeItemProvider.dispose();
 		if (ioAdapterRequirementItemProvider != null) ioAdapterRequirementItemProvider.dispose();
 		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
 		if (colocalityRelationItemProvider != null) colocalityRelationItemProvider.dispose();

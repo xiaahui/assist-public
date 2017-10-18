@@ -2,11 +2,9 @@
  */
 package ch.hilbri.assist.dse.model.impl;
 
-import ch.hilbri.assist.dse.model.ApplicationAlternatives;
-import ch.hilbri.assist.dse.model.AssistModelDSE;
+import ch.hilbri.assist.dse.model.BoardAlternative;
+import ch.hilbri.assist.dse.model.BoardAlternatives;
 import ch.hilbri.assist.dse.model.ModelPackage;
-
-import ch.hilbri.assist.mapping.model.impl.AssistModelImpl;
 
 import java.util.Collection;
 
@@ -17,39 +15,41 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Assist Model DSE</b></em>'.
+ * An implementation of the model object '<em><b>Board Alternatives</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.dse.model.impl.AssistModelDSEImpl#getApplicationAlternatives <em>Application Alternatives</em>}</li>
+ *   <li>{@link ch.hilbri.assist.dse.model.impl.BoardAlternativesImpl#getAlternatives <em>Alternatives</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDSE {
+public class BoardAlternativesImpl extends MinimalEObjectImpl.Container implements BoardAlternatives {
 	/**
-	 * The cached value of the '{@link #getApplicationAlternatives() <em>Application Alternatives</em>}' containment reference list.
+	 * The cached value of the '{@link #getAlternatives() <em>Alternatives</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getApplicationAlternatives()
+	 * @see #getAlternatives()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ApplicationAlternatives> applicationAlternatives;
+	protected EList<BoardAlternative> alternatives;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AssistModelDSEImpl() {
+	protected BoardAlternativesImpl() {
 		super();
 	}
 
@@ -60,7 +60,7 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ModelPackage.Literals.ASSIST_MODEL_DSE;
+		return ModelPackage.Literals.BOARD_ALTERNATIVES;
 	}
 
 	/**
@@ -68,11 +68,11 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ApplicationAlternatives> getApplicationAlternatives() {
-		if (applicationAlternatives == null) {
-			applicationAlternatives = new EObjectContainmentEList<ApplicationAlternatives>(ApplicationAlternatives.class, this, ModelPackage.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES);
+	public EList<BoardAlternative> getAlternatives() {
+		if (alternatives == null) {
+			alternatives = new EObjectContainmentEList<BoardAlternative>(BoardAlternative.class, this, ModelPackage.BOARD_ALTERNATIVES__ALTERNATIVES);
 		}
-		return applicationAlternatives;
+		return alternatives;
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES:
-				return ((InternalEList<?>)getApplicationAlternatives()).basicRemove(otherEnd, msgs);
+			case ModelPackage.BOARD_ALTERNATIVES__ALTERNATIVES:
+				return ((InternalEList<?>)getAlternatives()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,8 +97,8 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES:
-				return getApplicationAlternatives();
+			case ModelPackage.BOARD_ALTERNATIVES__ALTERNATIVES:
+				return getAlternatives();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,9 +112,9 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES:
-				getApplicationAlternatives().clear();
-				getApplicationAlternatives().addAll((Collection<? extends ApplicationAlternatives>)newValue);
+			case ModelPackage.BOARD_ALTERNATIVES__ALTERNATIVES:
+				getAlternatives().clear();
+				getAlternatives().addAll((Collection<? extends BoardAlternative>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,8 +128,8 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES:
-				getApplicationAlternatives().clear();
+			case ModelPackage.BOARD_ALTERNATIVES__ALTERNATIVES:
+				getAlternatives().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -143,10 +143,10 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES:
-				return applicationAlternatives != null && !applicationAlternatives.isEmpty();
+			case ModelPackage.BOARD_ALTERNATIVES__ALTERNATIVES:
+				return alternatives != null && !alternatives.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //AssistModelDSEImpl
+} //BoardAlternativesImpl

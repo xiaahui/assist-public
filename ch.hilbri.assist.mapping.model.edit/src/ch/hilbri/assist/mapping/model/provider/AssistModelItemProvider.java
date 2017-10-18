@@ -104,7 +104,6 @@ public class AssistModelItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__APPLICATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__APPLICATION_ALTERNATIVES);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COLOCALITY_RELATIONS);
 		}
@@ -167,7 +166,6 @@ public class AssistModelItemProvider
 				return;
 			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
 			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
-			case ModelPackage.ASSIST_MODEL__APPLICATION_ALTERNATIVES:
 			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
 			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -196,11 +194,6 @@ public class AssistModelItemProvider
 			(createChildParameter
 				(ModelPackage.Literals.ASSIST_MODEL__APPLICATIONS,
 				 ModelFactory.eINSTANCE.createApplication()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__APPLICATION_ALTERNATIVES,
-				 ModelFactory.eINSTANCE.createApplicationAlternatives()));
 
 		newChildDescriptors.add
 			(createChildParameter

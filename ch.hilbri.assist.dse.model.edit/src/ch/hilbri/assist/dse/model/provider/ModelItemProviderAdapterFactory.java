@@ -95,6 +95,121 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.dse.model.BoxDSE} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoxDSEItemProvider boxDSEItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.dse.model.BoxDSE}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoxDSEAdapter() {
+		if (boxDSEItemProvider == null) {
+			boxDSEItemProvider = new BoxDSEItemProvider(this);
+		}
+
+		return boxDSEItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.dse.model.BoardAlternatives} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoardAlternativesItemProvider boardAlternativesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.dse.model.BoardAlternatives}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoardAlternativesAdapter() {
+		if (boardAlternativesItemProvider == null) {
+			boardAlternativesItemProvider = new BoardAlternativesItemProvider(this);
+		}
+
+		return boardAlternativesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.dse.model.BoardAlternative} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoardAlternativeItemProvider boardAlternativeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.dse.model.BoardAlternative}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoardAlternativeAdapter() {
+		if (boardAlternativeItemProvider == null) {
+			boardAlternativeItemProvider = new BoardAlternativeItemProvider(this);
+		}
+
+		return boardAlternativeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.dse.model.ApplicationAlternatives} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ApplicationAlternativesItemProvider applicationAlternativesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.dse.model.ApplicationAlternatives}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createApplicationAlternativesAdapter() {
+		if (applicationAlternativesItemProvider == null) {
+			applicationAlternativesItemProvider = new ApplicationAlternativesItemProvider(this);
+		}
+
+		return applicationAlternativesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.dse.model.ApplicationAlternative} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ApplicationAlternativeItemProvider applicationAlternativeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.dse.model.ApplicationAlternative}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createApplicationAlternativeAdapter() {
+		if (applicationAlternativeItemProvider == null) {
+			applicationAlternativeItemProvider = new ApplicationAlternativeItemProvider(this);
+		}
+
+		return applicationAlternativeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,6 +309,11 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	 */
 	public void dispose() {
 		if (assistModelDSEItemProvider != null) assistModelDSEItemProvider.dispose();
+		if (boxDSEItemProvider != null) boxDSEItemProvider.dispose();
+		if (boardAlternativesItemProvider != null) boardAlternativesItemProvider.dispose();
+		if (boardAlternativeItemProvider != null) boardAlternativeItemProvider.dispose();
+		if (applicationAlternativesItemProvider != null) applicationAlternativesItemProvider.dispose();
+		if (applicationAlternativeItemProvider != null) applicationAlternativeItemProvider.dispose();
 	}
 
 }

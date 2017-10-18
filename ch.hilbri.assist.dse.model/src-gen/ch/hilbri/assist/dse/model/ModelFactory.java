@@ -31,6 +31,51 @@ public interface ModelFactory extends EFactory {
 	AssistModelDSE createAssistModelDSE();
 
 	/**
+	 * Returns a new object of class '<em>Box DSE</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Box DSE</em>'.
+	 * @generated
+	 */
+	BoxDSE createBoxDSE();
+
+	/**
+	 * Returns a new object of class '<em>Board Alternatives</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Board Alternatives</em>'.
+	 * @generated
+	 */
+	BoardAlternatives createBoardAlternatives();
+
+	/**
+	 * Returns a new object of class '<em>Board Alternative</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Board Alternative</em>'.
+	 * @generated
+	 */
+	BoardAlternative createBoardAlternative();
+
+	/**
+	 * Returns a new object of class '<em>Application Alternatives</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Application Alternatives</em>'.
+	 * @generated
+	 */
+	ApplicationAlternatives createApplicationAlternatives();
+
+	/**
+	 * Returns a new object of class '<em>Application Alternative</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Application Alternative</em>'.
+	 * @generated
+	 */
+	ApplicationAlternative createApplicationAlternative();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

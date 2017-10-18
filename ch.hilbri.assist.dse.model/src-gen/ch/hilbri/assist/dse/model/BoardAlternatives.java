@@ -1,6 +1,6 @@
 /**
  */
-package ch.hilbri.assist.mapping.model;
+package ch.hilbri.assist.dse.model;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -8,24 +8,24 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Application Alternatives</b></em>'.
+ * A representation of the model object '<em><b>Board Alternatives</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.ApplicationAlternatives#getAlternatives <em>Alternatives</em>}</li>
+ *   <li>{@link ch.hilbri.assist.dse.model.BoardAlternatives#getAlternatives <em>Alternatives</em>}</li>
  * </ul>
  *
- * @see ch.hilbri.assist.mapping.model.ModelPackage#getApplicationAlternatives()
+ * @see ch.hilbri.assist.dse.model.ModelPackage#getBoardAlternatives()
  * @model
  * @generated
  */
-public interface ApplicationAlternatives extends EObject {
+public interface BoardAlternatives extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Alternatives</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.ApplicationAlternative}.
+	 * The list contents are of type {@link ch.hilbri.assist.dse.model.BoardAlternative}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Alternatives</em>' containment reference list isn't clear,
@@ -33,10 +33,10 @@ public interface ApplicationAlternatives extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Alternatives</em>' containment reference list.
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getApplicationAlternatives_Alternatives()
+	 * @see ch.hilbri.assist.dse.model.ModelPackage#getBoardAlternatives_Alternatives()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ApplicationAlternative> getAlternatives();
+	EList<BoardAlternative> getAlternatives();
 
-} // ApplicationAlternatives
+} // BoardAlternatives

@@ -1,10 +1,10 @@
 /**
  */
-package ch.hilbri.assist.mapping.model.impl;
+package ch.hilbri.assist.dse.model.impl;
 
-import ch.hilbri.assist.mapping.model.ApplicationAlternative;
-import ch.hilbri.assist.mapping.model.ApplicationAlternatives;
-import ch.hilbri.assist.mapping.model.ModelPackage;
+import ch.hilbri.assist.dse.model.ApplicationAlternative;
+import ch.hilbri.assist.dse.model.ApplicationAlternatives;
+import ch.hilbri.assist.dse.model.ModelPackage;
 
 import java.util.Collection;
 
@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.ApplicationAlternativesImpl#getAlternatives <em>Alternatives</em>}</li>
+ *   <li>{@link ch.hilbri.assist.dse.model.impl.ApplicationAlternativesImpl#getAlternatives <em>Alternatives</em>}</li>
  * </ul>
  *
  * @generated

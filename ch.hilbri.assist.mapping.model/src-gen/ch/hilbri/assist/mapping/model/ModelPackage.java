@@ -98,22 +98,13 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL__APPLICATIONS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Application Alternatives</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL__APPLICATION_ALTERNATIVES = 3;
-
-	/**
 	 * The feature id for the '<em><b>Dislocality Relations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__DISLOCALITY_RELATIONS = 4;
+	int ASSIST_MODEL__DISLOCALITY_RELATIONS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Colocality Relations</b></em>' containment reference list.
@@ -122,7 +113,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__COLOCALITY_RELATIONS = 5;
+	int ASSIST_MODEL__COLOCALITY_RELATIONS = 4;
 
 	/**
 	 * The number of structural features of the '<em>Assist Model</em>' class.
@@ -131,7 +122,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_FEATURE_COUNT = 6;
+	int ASSIST_MODEL_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Get All Compartments</em>' operation.
@@ -425,22 +416,13 @@ public interface ModelPackage extends EPackage {
 	int BOX__BOARDS = HARDWARE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Board Alternatives</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOX__BOARD_ALTERNATIVES = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Box</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOX_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
+	int BOX_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get All Boards</em>' operation.
@@ -1016,22 +998,22 @@ public interface ModelPackage extends EPackage {
 	int TASK__IO_ADAPTER_REQUIREMENTS = 5;
 
 	/**
-	 * The feature id for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 6;
-
-	/**
 	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__METRIC_PARAMETERS = 7;
+	int TASK__METRIC_PARAMETERS = 6;
+
+	/**
+	 * The feature id for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 7;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -1061,172 +1043,6 @@ public interface ModelPackage extends EPackage {
 	int TASK_OPERATION_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.BoardAlternativesImpl <em>Board Alternatives</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.impl.BoardAlternativesImpl
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoardAlternatives()
-	 * @generated
-	 */
-	int BOARD_ALTERNATIVES = 10;
-
-	/**
-	 * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD_ALTERNATIVES__ALTERNATIVES = 0;
-
-	/**
-	 * The number of structural features of the '<em>Board Alternatives</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD_ALTERNATIVES_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Board Alternatives</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD_ALTERNATIVES_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.BoardAlternativeImpl <em>Board Alternative</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.impl.BoardAlternativeImpl
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoardAlternative()
-	 * @generated
-	 */
-	int BOARD_ALTERNATIVE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD_ALTERNATIVE__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Boards</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD_ALTERNATIVE__BOARDS = 1;
-
-	/**
-	 * The number of structural features of the '<em>Board Alternative</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD_ALTERNATIVE_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Board Alternative</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD_ALTERNATIVE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationAlternativesImpl <em>Application Alternatives</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.impl.ApplicationAlternativesImpl
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getApplicationAlternatives()
-	 * @generated
-	 */
-	int APPLICATION_ALTERNATIVES = 12;
-
-	/**
-	 * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_ALTERNATIVES__ALTERNATIVES = 0;
-
-	/**
-	 * The number of structural features of the '<em>Application Alternatives</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_ALTERNATIVES_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Application Alternatives</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_ALTERNATIVES_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationAlternativeImpl <em>Application Alternative</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.impl.ApplicationAlternativeImpl
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getApplicationAlternative()
-	 * @generated
-	 */
-	int APPLICATION_ALTERNATIVE = 13;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_ALTERNATIVE__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Applications</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_ALTERNATIVE__APPLICATIONS = 1;
-
-	/**
-	 * The number of structural features of the '<em>Application Alternative</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_ALTERNATIVE_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Application Alternative</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_ALTERNATIVE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.IOAdapterRequirementImpl <em>IO Adapter Requirement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1234,7 +1050,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getIOAdapterRequirement()
 	 * @generated
 	 */
-	int IO_ADAPTER_REQUIREMENT = 14;
+	int IO_ADAPTER_REQUIREMENT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Adapter Type</b></em>' attribute.
@@ -1298,7 +1114,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDislocalityRelation()
 	 * @generated
 	 */
-	int DISLOCALITY_RELATION = 15;
+	int DISLOCALITY_RELATION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Applications</b></em>' reference list.
@@ -1344,7 +1160,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getColocalityRelation()
 	 * @generated
 	 */
-	int COLOCALITY_RELATION = 16;
+	int COLOCALITY_RELATION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Applications</b></em>' reference list.
@@ -1390,7 +1206,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getMetricParameter()
 	 * @generated
 	 */
-	int METRIC_PARAMETER = 17;
+	int METRIC_PARAMETER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1436,7 +1252,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
 	 * @generated
 	 */
-	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 18;
+	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 14;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -1446,7 +1262,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
 	 * @generated
 	 */
-	int DESIGN_ASSURANCE_LEVEL_TYPE = 19;
+	int DESIGN_ASSURANCE_LEVEL_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.IOAdapterType <em>IO Adapter Type</em>}' enum.
@@ -1456,7 +1272,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getIOAdapterType()
 	 * @generated
 	 */
-	int IO_ADAPTER_TYPE = 20;
+	int IO_ADAPTER_TYPE = 16;
 
 
 	/**
@@ -1501,17 +1317,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAssistModel_Applications();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModel#getApplicationAlternatives <em>Application Alternatives</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Application Alternatives</em>'.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getApplicationAlternatives()
-	 * @see #getAssistModel()
-	 * @generated
-	 */
-	EReference getAssistModel_ApplicationAlternatives();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}'.
@@ -1751,17 +1556,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBox_Boards();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.Box#getBoardAlternatives <em>Board Alternatives</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Board Alternatives</em>'.
-	 * @see ch.hilbri.assist.mapping.model.Box#getBoardAlternatives()
-	 * @see #getBox()
-	 * @generated
-	 */
-	EReference getBox_BoardAlternatives();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.Box#getAllBoards() <em>Get All Boards</em>}' operation.
@@ -2223,17 +2017,6 @@ public interface ModelPackage extends EPackage {
 	EReference getTask_IoAdapterRequirements();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.Task#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Restrict Mapping To Hardware Elements</em>'.
-	 * @see ch.hilbri.assist.mapping.model.Task#getRestrictMappingToHardwareElements()
-	 * @see #getTask()
-	 * @generated
-	 */
-	EReference getTask_RestrictMappingToHardwareElements();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.Task#getMetricParameters <em>Metric Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2245,6 +2028,17 @@ public interface ModelPackage extends EPackage {
 	EReference getTask_MetricParameters();
 
 	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.mapping.model.Task#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Restrict Mapping To Hardware Elements</em>'.
+	 * @see ch.hilbri.assist.mapping.model.Task#getRestrictMappingToHardwareElements()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EReference getTask_RestrictMappingToHardwareElements();
+
+	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.Task#toString() <em>To String</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2253,112 +2047,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTask__ToString();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.BoardAlternatives <em>Board Alternatives</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Board Alternatives</em>'.
-	 * @see ch.hilbri.assist.mapping.model.BoardAlternatives
-	 * @generated
-	 */
-	EClass getBoardAlternatives();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.BoardAlternatives#getAlternatives <em>Alternatives</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Alternatives</em>'.
-	 * @see ch.hilbri.assist.mapping.model.BoardAlternatives#getAlternatives()
-	 * @see #getBoardAlternatives()
-	 * @generated
-	 */
-	EReference getBoardAlternatives_Alternatives();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.BoardAlternative <em>Board Alternative</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Board Alternative</em>'.
-	 * @see ch.hilbri.assist.mapping.model.BoardAlternative
-	 * @generated
-	 */
-	EClass getBoardAlternative();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.BoardAlternative#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ch.hilbri.assist.mapping.model.BoardAlternative#getName()
-	 * @see #getBoardAlternative()
-	 * @generated
-	 */
-	EAttribute getBoardAlternative_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.BoardAlternative#getBoards <em>Boards</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Boards</em>'.
-	 * @see ch.hilbri.assist.mapping.model.BoardAlternative#getBoards()
-	 * @see #getBoardAlternative()
-	 * @generated
-	 */
-	EReference getBoardAlternative_Boards();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.ApplicationAlternatives <em>Application Alternatives</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Application Alternatives</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ApplicationAlternatives
-	 * @generated
-	 */
-	EClass getApplicationAlternatives();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.ApplicationAlternatives#getAlternatives <em>Alternatives</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Alternatives</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ApplicationAlternatives#getAlternatives()
-	 * @see #getApplicationAlternatives()
-	 * @generated
-	 */
-	EReference getApplicationAlternatives_Alternatives();
-
-	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.ApplicationAlternative <em>Application Alternative</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Application Alternative</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ApplicationAlternative
-	 * @generated
-	 */
-	EClass getApplicationAlternative();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.ApplicationAlternative#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ApplicationAlternative#getName()
-	 * @see #getApplicationAlternative()
-	 * @generated
-	 */
-	EAttribute getApplicationAlternative_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.ApplicationAlternative#getApplications <em>Applications</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Applications</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ApplicationAlternative#getApplications()
-	 * @see #getApplicationAlternative()
-	 * @generated
-	 */
-	EReference getApplicationAlternative_Applications();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.IOAdapterRequirement <em>IO Adapter Requirement</em>}'.
@@ -2598,14 +2286,6 @@ public interface ModelPackage extends EPackage {
 		EReference ASSIST_MODEL__APPLICATIONS = eINSTANCE.getAssistModel_Applications();
 
 		/**
-		 * The meta object literal for the '<em><b>Application Alternatives</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ASSIST_MODEL__APPLICATION_ALTERNATIVES = eINSTANCE.getAssistModel_ApplicationAlternatives();
-
-		/**
 		 * The meta object literal for the '<em><b>Dislocality Relations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2794,14 +2474,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOX__BOARDS = eINSTANCE.getBox_Boards();
-
-		/**
-		 * The meta object literal for the '<em><b>Board Alternatives</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BOX__BOARD_ALTERNATIVES = eINSTANCE.getBox_BoardAlternatives();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Boards</b></em>' operation.
@@ -3160,14 +2832,6 @@ public interface ModelPackage extends EPackage {
 		EReference TASK__IO_ADAPTER_REQUIREMENTS = eINSTANCE.getTask_IoAdapterRequirements();
 
 		/**
-		 * The meta object literal for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = eINSTANCE.getTask_RestrictMappingToHardwareElements();
-
-		/**
 		 * The meta object literal for the '<em><b>Metric Parameters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3176,100 +2840,20 @@ public interface ModelPackage extends EPackage {
 		EReference TASK__METRIC_PARAMETERS = eINSTANCE.getTask_MetricParameters();
 
 		/**
+		 * The meta object literal for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = eINSTANCE.getTask_RestrictMappingToHardwareElements();
+
+		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation TASK___TO_STRING = eINSTANCE.getTask__ToString();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.BoardAlternativesImpl <em>Board Alternatives</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.impl.BoardAlternativesImpl
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoardAlternatives()
-		 * @generated
-		 */
-		EClass BOARD_ALTERNATIVES = eINSTANCE.getBoardAlternatives();
-
-		/**
-		 * The meta object literal for the '<em><b>Alternatives</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BOARD_ALTERNATIVES__ALTERNATIVES = eINSTANCE.getBoardAlternatives_Alternatives();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.BoardAlternativeImpl <em>Board Alternative</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.impl.BoardAlternativeImpl
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoardAlternative()
-		 * @generated
-		 */
-		EClass BOARD_ALTERNATIVE = eINSTANCE.getBoardAlternative();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BOARD_ALTERNATIVE__NAME = eINSTANCE.getBoardAlternative_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Boards</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BOARD_ALTERNATIVE__BOARDS = eINSTANCE.getBoardAlternative_Boards();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationAlternativesImpl <em>Application Alternatives</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.impl.ApplicationAlternativesImpl
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getApplicationAlternatives()
-		 * @generated
-		 */
-		EClass APPLICATION_ALTERNATIVES = eINSTANCE.getApplicationAlternatives();
-
-		/**
-		 * The meta object literal for the '<em><b>Alternatives</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference APPLICATION_ALTERNATIVES__ALTERNATIVES = eINSTANCE.getApplicationAlternatives_Alternatives();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.ApplicationAlternativeImpl <em>Application Alternative</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.impl.ApplicationAlternativeImpl
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getApplicationAlternative()
-		 * @generated
-		 */
-		EClass APPLICATION_ALTERNATIVE = eINSTANCE.getApplicationAlternative();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute APPLICATION_ALTERNATIVE__NAME = eINSTANCE.getApplicationAlternative_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Applications</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference APPLICATION_ALTERNATIVE__APPLICATIONS = eINSTANCE.getApplicationAlternative_Applications();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.IOAdapterRequirementImpl <em>IO Adapter Requirement</em>}' class.

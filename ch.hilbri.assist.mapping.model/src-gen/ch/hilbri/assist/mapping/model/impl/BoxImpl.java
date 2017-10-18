@@ -3,7 +3,6 @@
 package ch.hilbri.assist.mapping.model.impl;
 
 import ch.hilbri.assist.mapping.model.Board;
-import ch.hilbri.assist.mapping.model.BoardAlternatives;
 import ch.hilbri.assist.mapping.model.Box;
 import ch.hilbri.assist.mapping.model.Compartment;
 import ch.hilbri.assist.mapping.model.Core;
@@ -27,7 +26,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -46,7 +44,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoxImpl#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoxImpl#getBoards <em>Boards</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoxImpl#getBoardAlternatives <em>Board Alternatives</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,16 +58,6 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 	 * @ordered
 	 */
 	protected EList<Board> boards;
-
-	/**
-	 * The cached value of the '{@link #getBoardAlternatives() <em>Board Alternatives</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBoardAlternatives()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<BoardAlternatives> boardAlternatives;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -159,18 +146,6 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BoardAlternatives> getBoardAlternatives() {
-		if (boardAlternatives == null) {
-			boardAlternatives = new EObjectContainmentEList<BoardAlternatives>(BoardAlternatives.class, this, ModelPackage.BOX__BOARD_ALTERNATIVES);
-		}
-		return boardAlternatives;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Board> getAllBoards() {
 		return this.getBoards();
 	}
@@ -234,8 +209,6 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 				return basicSetCompartment(null, msgs);
 			case ModelPackage.BOX__BOARDS:
 				return ((InternalEList<?>)getBoards()).basicRemove(otherEnd, msgs);
-			case ModelPackage.BOX__BOARD_ALTERNATIVES:
-				return ((InternalEList<?>)getBoardAlternatives()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -267,8 +240,6 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 				return basicGetCompartment();
 			case ModelPackage.BOX__BOARDS:
 				return getBoards();
-			case ModelPackage.BOX__BOARD_ALTERNATIVES:
-				return getBoardAlternatives();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -289,10 +260,6 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 				getBoards().clear();
 				getBoards().addAll((Collection<? extends Board>)newValue);
 				return;
-			case ModelPackage.BOX__BOARD_ALTERNATIVES:
-				getBoardAlternatives().clear();
-				getBoardAlternatives().addAll((Collection<? extends BoardAlternatives>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -311,9 +278,6 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 			case ModelPackage.BOX__BOARDS:
 				getBoards().clear();
 				return;
-			case ModelPackage.BOX__BOARD_ALTERNATIVES:
-				getBoardAlternatives().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -330,8 +294,6 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 				return basicGetCompartment() != null;
 			case ModelPackage.BOX__BOARDS:
 				return boards != null && !boards.isEmpty();
-			case ModelPackage.BOX__BOARD_ALTERNATIVES:
-				return boardAlternatives != null && !boardAlternatives.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

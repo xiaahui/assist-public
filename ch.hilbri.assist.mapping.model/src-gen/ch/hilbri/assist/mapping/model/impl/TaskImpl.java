@@ -43,8 +43,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getRomUtilization <em>Rom Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getMetricParameters <em>Metric Parameters</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -141,16 +141,6 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	protected EList<IOAdapterRequirement> ioAdapterRequirements;
 
 	/**
-	 * The cached value of the '{@link #getRestrictMappingToHardwareElements() <em>Restrict Mapping To Hardware Elements</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRestrictMappingToHardwareElements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<HardwareElement> restrictMappingToHardwareElements;
-
-	/**
 	 * The cached value of the '{@link #getMetricParameters() <em>Metric Parameters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,6 +149,16 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * @ordered
 	 */
 	protected EList<MetricParameter> metricParameters;
+
+	/**
+	 * The cached value of the '{@link #getRestrictMappingToHardwareElements() <em>Restrict Mapping To Hardware Elements</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRestrictMappingToHardwareElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<HardwareElement> restrictMappingToHardwareElements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -331,11 +331,11 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<HardwareElement> getRestrictMappingToHardwareElements() {
-		if (restrictMappingToHardwareElements == null) {
-			restrictMappingToHardwareElements = new EObjectResolvingEList<HardwareElement>(HardwareElement.class, this, ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
+	public EList<MetricParameter> getMetricParameters() {
+		if (metricParameters == null) {
+			metricParameters = new EObjectContainmentEList<MetricParameter>(MetricParameter.class, this, ModelPackage.TASK__METRIC_PARAMETERS);
 		}
-		return restrictMappingToHardwareElements;
+		return metricParameters;
 	}
 
 	/**
@@ -343,11 +343,11 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MetricParameter> getMetricParameters() {
-		if (metricParameters == null) {
-			metricParameters = new EObjectContainmentEList<MetricParameter>(MetricParameter.class, this, ModelPackage.TASK__METRIC_PARAMETERS);
+	public EList<HardwareElement> getRestrictMappingToHardwareElements() {
+		if (restrictMappingToHardwareElements == null) {
+			restrictMappingToHardwareElements = new EObjectResolvingEList<HardwareElement>(HardwareElement.class, this, ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
 		}
-		return metricParameters;
+		return restrictMappingToHardwareElements;
 	}
 
 	/**
@@ -428,10 +428,10 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return basicGetApplication();
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
 				return getIoAdapterRequirements();
-			case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
-				return getRestrictMappingToHardwareElements();
 			case ModelPackage.TASK__METRIC_PARAMETERS:
 				return getMetricParameters();
+			case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
+				return getRestrictMappingToHardwareElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -464,13 +464,13 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				getIoAdapterRequirements().clear();
 				getIoAdapterRequirements().addAll((Collection<? extends IOAdapterRequirement>)newValue);
 				return;
-			case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
-				getRestrictMappingToHardwareElements().clear();
-				getRestrictMappingToHardwareElements().addAll((Collection<? extends HardwareElement>)newValue);
-				return;
 			case ModelPackage.TASK__METRIC_PARAMETERS:
 				getMetricParameters().clear();
 				getMetricParameters().addAll((Collection<? extends MetricParameter>)newValue);
+				return;
+			case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
+				getRestrictMappingToHardwareElements().clear();
+				getRestrictMappingToHardwareElements().addAll((Collection<? extends HardwareElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -502,11 +502,11 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
 				getIoAdapterRequirements().clear();
 				return;
-			case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
-				getRestrictMappingToHardwareElements().clear();
-				return;
 			case ModelPackage.TASK__METRIC_PARAMETERS:
 				getMetricParameters().clear();
+				return;
+			case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
+				getRestrictMappingToHardwareElements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -532,10 +532,10 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return basicGetApplication() != null;
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
 				return ioAdapterRequirements != null && !ioAdapterRequirements.isEmpty();
-			case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
-				return restrictMappingToHardwareElements != null && !restrictMappingToHardwareElements.isEmpty();
 			case ModelPackage.TASK__METRIC_PARAMETERS:
 				return metricParameters != null && !metricParameters.isEmpty();
+			case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
+				return restrictMappingToHardwareElements != null && !restrictMappingToHardwareElements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

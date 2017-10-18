@@ -21,8 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.mapping.model.Task#getRomUtilization <em>Rom Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Task#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Task#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.Task#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Task#getMetricParameters <em>Metric Parameters</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.Task#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.mapping.model.ModelPackage#getTask()
@@ -183,22 +183,6 @@ public interface Task extends EObject {
 	EList<IOAdapterRequirement> getIoAdapterRequirements();
 
 	/**
-	 * Returns the value of the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.HardwareElement}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Restrict Mapping To Hardware Elements</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Restrict Mapping To Hardware Elements</em>' reference list.
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getTask_RestrictMappingToHardwareElements()
-	 * @model
-	 * @generated
-	 */
-	EList<HardwareElement> getRestrictMappingToHardwareElements();
-
-	/**
 	 * Returns the value of the '<em><b>Metric Parameters</b></em>' containment reference list.
 	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.MetricParameter}.
 	 * <!-- begin-user-doc -->
@@ -213,6 +197,22 @@ public interface Task extends EObject {
 	 * @generated
 	 */
 	EList<MetricParameter> getMetricParameters();
+
+	/**
+	 * Returns the value of the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
+	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.HardwareElement}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Restrict Mapping To Hardware Elements</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Restrict Mapping To Hardware Elements</em>' reference list.
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getTask_RestrictMappingToHardwareElements()
+	 * @model
+	 * @generated
+	 */
+	EList<HardwareElement> getRestrictMappingToHardwareElements();
 
 	/**
 	 * <!-- begin-user-doc -->

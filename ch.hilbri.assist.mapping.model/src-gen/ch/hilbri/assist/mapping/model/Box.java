@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.Box#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Box#getBoards <em>Boards</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.Box#getBoardAlternatives <em>Board Alternatives</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.mapping.model.ModelPackage#getBox()
@@ -68,22 +67,6 @@ public interface Box extends HardwareElement {
 	 * @generated
 	 */
 	EList<Board> getBoards();
-
-	/**
-	 * Returns the value of the '<em><b>Board Alternatives</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.BoardAlternatives}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Board Alternatives</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Board Alternatives</em>' containment reference list.
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getBox_BoardAlternatives()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<BoardAlternatives> getBoardAlternatives();
 
 	/**
 	 * <!-- begin-user-doc -->

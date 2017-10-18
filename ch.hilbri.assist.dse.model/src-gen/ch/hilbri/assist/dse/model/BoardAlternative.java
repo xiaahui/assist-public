@@ -1,6 +1,8 @@
 /**
  */
-package ch.hilbri.assist.mapping.model;
+package ch.hilbri.assist.dse.model;
+
+import ch.hilbri.assist.mapping.model.Board;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -15,11 +17,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.BoardAlternative#getName <em>Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.BoardAlternative#getBoards <em>Boards</em>}</li>
+ *   <li>{@link ch.hilbri.assist.dse.model.BoardAlternative#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.dse.model.BoardAlternative#getBoards <em>Boards</em>}</li>
  * </ul>
  *
- * @see ch.hilbri.assist.mapping.model.ModelPackage#getBoardAlternative()
+ * @see ch.hilbri.assist.dse.model.ModelPackage#getBoardAlternative()
  * @model
  * @generated
  */
@@ -34,14 +36,14 @@ public interface BoardAlternative extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getBoardAlternative_Name()
+	 * @see ch.hilbri.assist.dse.model.ModelPackage#getBoardAlternative_Name()
 	 * @model unique="false"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.BoardAlternative#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link ch.hilbri.assist.dse.model.BoardAlternative#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -60,7 +62,7 @@ public interface BoardAlternative extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Boards</em>' containment reference list.
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getBoardAlternative_Boards()
+	 * @see ch.hilbri.assist.dse.model.ModelPackage#getBoardAlternative_Boards()
 	 * @model containment="true"
 	 * @generated
 	 */

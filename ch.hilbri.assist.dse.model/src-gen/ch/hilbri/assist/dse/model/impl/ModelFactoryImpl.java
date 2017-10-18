@@ -57,6 +57,11 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ModelPackage.ASSIST_MODEL_DSE: return createAssistModelDSE();
+			case ModelPackage.BOX_DSE: return createBoxDSE();
+			case ModelPackage.BOARD_ALTERNATIVES: return createBoardAlternatives();
+			case ModelPackage.BOARD_ALTERNATIVE: return createBoardAlternative();
+			case ModelPackage.APPLICATION_ALTERNATIVES: return createApplicationAlternatives();
+			case ModelPackage.APPLICATION_ALTERNATIVE: return createApplicationAlternative();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -70,6 +75,56 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public AssistModelDSE createAssistModelDSE() {
 		AssistModelDSEImpl assistModelDSE = new AssistModelDSEImpl();
 		return assistModelDSE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BoxDSE createBoxDSE() {
+		BoxDSEImpl boxDSE = new BoxDSEImpl();
+		return boxDSE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BoardAlternatives createBoardAlternatives() {
+		BoardAlternativesImpl boardAlternatives = new BoardAlternativesImpl();
+		return boardAlternatives;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BoardAlternative createBoardAlternative() {
+		BoardAlternativeImpl boardAlternative = new BoardAlternativeImpl();
+		return boardAlternative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApplicationAlternatives createApplicationAlternatives() {
+		ApplicationAlternativesImpl applicationAlternatives = new ApplicationAlternativesImpl();
+		return applicationAlternatives;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApplicationAlternative createApplicationAlternative() {
+		ApplicationAlternativeImpl applicationAlternative = new ApplicationAlternativeImpl();
+		return applicationAlternative;
 	}
 
 	/**
