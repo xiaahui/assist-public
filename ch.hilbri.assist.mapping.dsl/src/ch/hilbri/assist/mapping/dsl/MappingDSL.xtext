@@ -14,7 +14,6 @@ AssistModel:
 
 	'Software' '{'
 					(applications+=Application)* 
-					(applicationAlternatives+=ApplicationAlternatives)*
 	'}'
 
 	('Restrictions' '{'
@@ -36,7 +35,6 @@ Box:
 	'Box' name=ID '{'
 		('Manufacturer' 			'=' manufacturer=STRING ';')?
 		(boards+=Board)*
-		(boardAlternatives+=BoardAlternatives)*
 		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
 	'}'
 ;
@@ -76,34 +74,6 @@ IOAdapter:
 	 	'Count' '=' totalCount=INT ';'
 	'}' 
 ;
-
-/* Variability modeling */
-
-BoardAlternatives: 
-	'Alternatives' '{' 
-		(alternatives+=BoardAlternative)+
-	'}'
-;
-
-BoardAlternative: 
-	'Alternative' name=ID '{'
-		(boards+=Board)*
-	'}'
-;
-
-ApplicationAlternatives: 
-	'Alternatives' '{'
-		(alternatives+=ApplicationAlternative)+
-	'}'
-;
-
-
-ApplicationAlternative: 
-	'Alternative' name=ID  '{'
-		(applications+=Application)*
-	'}'
-;
-
 
 /* SOFTWARE */
 

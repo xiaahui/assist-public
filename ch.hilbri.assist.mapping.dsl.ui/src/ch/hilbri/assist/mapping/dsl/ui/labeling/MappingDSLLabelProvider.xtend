@@ -1,12 +1,8 @@
 package ch.hilbri.assist.mapping.dsl.ui.labeling
 
 import ch.hilbri.assist.mapping.model.Application
-import ch.hilbri.assist.mapping.model.ApplicationAlternative
-import ch.hilbri.assist.mapping.model.ApplicationAlternatives
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.Board
-import ch.hilbri.assist.mapping.model.BoardAlternative
-import ch.hilbri.assist.mapping.model.BoardAlternatives
 import ch.hilbri.assist.mapping.model.Box
 import ch.hilbri.assist.mapping.model.ColocalityRelation
 import ch.hilbri.assist.mapping.model.Compartment
@@ -153,37 +149,5 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		'outlineview_constraint.png'
 	}
 
-	def text(BoardAlternatives b) {
-		'Alternatives'
-	}
-	
-	def image(BoardAlternatives b) {
-		'outlineview_alternatives.png'
-	}
-	
-	def text(BoardAlternative b) {
-		b.name
-	}
-	
-	def image(BoardAlternative b) {
-		'outlineview_alternative.gif'
-	}
-
-	def text(ApplicationAlternatives a) {
-		'Alternatives'
-	}
-	
-	def image(ApplicationAlternatives a) {
-		'outlineview_alternatives.png'
-	}
-
-	def text(ApplicationAlternative a) {
-		a.name
-	}
-	
-	def image(ApplicationAlternative a) {
-		'outlineview_alternative.gif'
-	}
-	
 	
 }
