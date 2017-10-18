@@ -49,6 +49,9 @@
 		<module>../ch.hilbri.assist.scheduling.model</module>
 		<module>../ch.hilbri.assist.scheduling.model.edit</module>
 		<module>../ch.hilbri.assist.scheduling.model.editor</module>
+		<module>../ch.hilbri.assist.dse.model</module>
+		<module>../ch.hilbri.assist.dse.model.edit</module>
+		<module>../ch.hilbri.assist.dse.model.editor</module>
 	</modules>
 
 	<dependencies>
