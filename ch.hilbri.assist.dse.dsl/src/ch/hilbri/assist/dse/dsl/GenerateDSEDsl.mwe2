@@ -1,0 +1,52 @@
+module ch.hilbri.assist.dse.dsl.GenerateDSEDsl
+
+import org.eclipse.xtext.xtext.generator.*
+import org.eclipse.xtext.xtext.generator.model.project.*
+
+var rootPath = ".."
+
+Workflow {
+	
+	component = XtextGenerator {
+		configuration = {
+			project = StandardProjectConfig {
+				baseName = "ch.hilbri.assist.dse.dsl"
+				rootPath = rootPath
+				runtimeTest = {
+					enabled = true
+				}
+				eclipsePlugin = {
+					enabled = true
+				}
+				eclipsePluginTest = {
+					enabled = true
+				}
+				createEclipseMetaData = true
+			}
+			code = {
+				encoding = "UTF-8"
+				lineDelimiter = "\n"
+				fileHeader = ""
+			}
+		}
+		language = StandardLanguage {
+			name = "ch.hilbri.assist.dse.dsl.DSEDsl"
+			fileExtensions = "ddsl"
+			referencedResource = "platform:/resource/ch.hilbri.assist.dse.model/model/ASSIST-DSE-Model.xcore"
+			referencedResource = "platform:/resource/ch.hilbri.assist.mapping.model/model/ASSIST-Mapping-Model.xcore"
+			
+			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
+
+			formatter = {
+				generateStub = true
+			}
+
+			serializer = {
+				generateStub = false
+			}
+			validator = {
+				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+			}
+		}
+	}
+}
