@@ -35,6 +35,10 @@ Workflow {
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
+			formatter = {
+				generateStub = true
+			}
+
 //			fragment = org.eclipse.xtext.generator.adapter.FragmentAdapter {
 //				fragment = org.eclipse.xtext.generator.ecore2xtext.FormatterFragment {}
 //			}
