@@ -68,9 +68,9 @@ public class AboutDialog extends TitleAreaDialog {
 	    lblHttpassisthilbrich.setBounds(100, 287, 147, 15);
 	    lblHttpassisthilbrich.setText("http://assist.hilbri.ch");
 	    
-	    Label lblLicenseHeader = new Label(container, SWT.NONE);
-	    lblLicenseHeader.setBounds(100, 308, 338, 15);
-	    lblLicenseHeader.setText("Eclipse Public License 2.0");
+	    Label lblLicenseName = new Label(container, SWT.NONE);
+	    lblLicenseName.setBounds(100, 308, 338, 15);
+	    lblLicenseName.setText("Eclipse Public License 2.0");
 	    
 	    Label lblMainAuthor = new Label(container, SWT.NONE);
 	    lblMainAuthor.setBounds(10, 245, 72, 15);
