@@ -60,6 +60,7 @@
 		<module>../ch.hilbri.assist.features.dse</module>
 		<module>../ch.hilbri.assist.features.scheduling</module>
 		<module>../ch.hilbri.assist.dse</module>
+		<module>../ch.hilbri.assist.scheduling</module>
 	</modules>
 
 	<dependencies>
