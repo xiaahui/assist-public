@@ -41,7 +41,7 @@ public class AboutDialog extends TitleAreaDialog {
 		Composite container = new Composite(area, SWT.NONE);
 	    container.setLayout(null);
 	    GridData gd_container = new GridData(SWT.FILL, SWT.FILL, true, true);
-	    gd_container.heightHint = 306;
+	    gd_container.heightHint = 343;
 	    container.setLayoutData(gd_container);
 	    
 	    Label lblNewLabel = new Label(container, SWT.NONE);
@@ -68,9 +68,9 @@ public class AboutDialog extends TitleAreaDialog {
 	    lblHttpassisthilbrich.setBounds(100, 287, 147, 15);
 	    lblHttpassisthilbrich.setText("http://assist.hilbri.ch");
 	    
-	    Label lblNewLabel_1 = new Label(container, SWT.NONE);
-	    lblNewLabel_1.setBounds(100, 308, 211, 15);
-	    lblNewLabel_1.setText("GNU General Public License (GPLv3)");
+	    Label lblLicenseHeader = new Label(container, SWT.NONE);
+	    lblLicenseHeader.setBounds(100, 308, 338, 15);
+	    lblLicenseHeader.setText("Eclipse Public License 2.0");
 	    
 	    Label lblMainAuthor = new Label(container, SWT.NONE);
 	    lblMainAuthor.setBounds(10, 245, 72, 15);
