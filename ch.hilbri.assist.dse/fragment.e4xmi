@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_P75VgLSTEeemw6Ys4OcW_g">
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_p-jJoLSUEeemw6Ys4OcW_g" featurename="children" parentElementId="org.eclipse.ui.main.menu" positionInList="after:ch.hilbri.assist.gui.menu.edit">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_p-jJoLSUEeemw6Ys4OcW_g" featurename="children" parentElementId="org.eclipse.ui.main.menu" positionInList="index:2">
     <elements xsi:type="menu:Menu" xmi:id="_8cbaMLSUEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.dse.menu" label="&amp;Exploration">
       <children xsi:type="menu:HandledMenuItem" xmi:id="_FUwFwLSVEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.dse.handledmenuitem.evaluatedesignspace" label="Evaluate Design Space"/>
       <children xsi:type="menu:MenuSeparator" xmi:id="_KIapELSVEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.dse.menuseparator.0"/>
