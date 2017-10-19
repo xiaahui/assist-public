@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<psf version="2.0">
+<provider id="org.eclipse.egit.core.GitProvider">
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.cli"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.dse.dsl"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.dse.dsl.ide"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.dse.dsl.tests"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.dse.dsl.ui"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.dse.dsl.ui.tests"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.dse.model"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.dse.model.edit"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.dse.model.editor"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.features.documentation"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.features.dse"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.features.gui"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.features.libraries"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.features.mapping"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.features.scheduling"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.gui"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.libraries.choco-solver"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.libraries.jgrapht"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.libraries.jxl"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.libraries.logback"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.libraries.math"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.libraries.swtchart"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.dsl"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.dsl.ide"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.dsl.tests"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.dsl.ui"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.dsl.ui.tests"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.model"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.model.edit"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.model.editor"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.model.result"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.tests"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.releng"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.releng.product.gui"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.scheduling.model"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.scheduling.model.edit"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.scheduling.model.editor"/>
+</provider>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1508390431263_2" label="Applications" name="Applications">
+<item elementID="=ch.hilbri.assist.cli" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.gui" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1508390457671_3" label="Design Space Exploration" name="Design Space Exploration">
+<item elementID="=ch.hilbri.assist.dse.model" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.dse.model.edit" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.dse.dsl.ui" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.dse.dsl" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.dse.dsl.ide" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.dse.dsl.tests" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.dse.dsl.ui.tests" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.dse.model.editor" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1508390575842_9" label="Features" name="Features">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ch.hilbri.assist.features.gui" type="4"/>
+<item elementID="=ch.hilbri.assist.features.dse" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ch.hilbri.assist.features.scheduling" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ch.hilbri.assist.features.documentation" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ch.hilbri.assist.features.mapping" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ch.hilbri.assist.features.libraries" type="4"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1508390597855_10" label="Libraries" name="Libraries">
+<item elementID="=ch.hilbri.assist.libraries.swtchart" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.libraries.choco-solver" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.libraries.logback" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.libraries.math" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.libraries.jxl" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.libraries.jgrapht" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1508390478718_4" label="Mapping" name="Mapping">
+<item elementID="=ch.hilbri.assist.mapping.model" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.mapping.dsl.ui.tests" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.mapping.model.editor" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.mapping.tests" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.mapping.dsl" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.mapping.model.edit" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.mapping" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.mapping.dsl.ui" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.mapping.dsl.ide" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.mapping.dsl.tests" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.mapping.model.result" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1508390614521_11" label="Release Engineering" name="Release Engineering">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ch.hilbri.assist.releng" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ch.hilbri.assist.releng.product.gui" type="4"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1508390496974_5" label="Scheduling" name="Scheduling">
+<item elementID="=ch.hilbri.assist.scheduling.model" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.scheduling.model.edit" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.scheduling.model.editor" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+</psf>
