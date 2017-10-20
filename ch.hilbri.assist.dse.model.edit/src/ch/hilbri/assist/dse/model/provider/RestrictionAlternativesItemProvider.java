@@ -3,11 +3,9 @@
 package ch.hilbri.assist.dse.model.provider;
 
 
-import ch.hilbri.assist.dse.model.AssistModelDSE;
-
 import ch.hilbri.assist.dse.model.ModelFactory;
 import ch.hilbri.assist.dse.model.ModelPackage;
-import ch.hilbri.assist.mapping.model.provider.AssistModelItemProvider;
+import ch.hilbri.assist.dse.model.RestrictionAlternatives;
 
 import java.util.Collection;
 import java.util.List;
@@ -18,23 +16,37 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.dse.model.AssistModelDSE} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.dse.model.RestrictionAlternatives} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AssistModelDSEItemProvider extends AssistModelItemProvider {
+public class RestrictionAlternativesItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssistModelDSEItemProvider(AdapterFactory adapterFactory) {
+	public RestrictionAlternativesItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -65,8 +77,7 @@ public class AssistModelDSEItemProvider extends AssistModelItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES);
+			childrenFeatures.add(ModelPackage.Literals.RESTRICTION_ALTERNATIVES__ALTERNATIVES);
 		}
 		return childrenFeatures;
 	}
@@ -85,14 +96,14 @@ public class AssistModelDSEItemProvider extends AssistModelItemProvider {
 	}
 
 	/**
-	 * This returns AssistModelDSE.gif.
+	 * This returns RestrictionAlternatives.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AssistModelDSE"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RestrictionAlternatives"));
 	}
 
 	/**
@@ -103,10 +114,7 @@ public class AssistModelDSEItemProvider extends AssistModelItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AssistModelDSE)object).getSystemName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_AssistModelDSE_type") :
-			getString("_UI_AssistModelDSE_type") + " " + label;
+		return getString("_UI_RestrictionAlternatives_type");
 	}
 	
 
@@ -121,9 +129,8 @@ public class AssistModelDSEItemProvider extends AssistModelItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AssistModelDSE.class)) {
-			case ModelPackage.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES:
-			case ModelPackage.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES:
+		switch (notification.getFeatureID(RestrictionAlternatives.class)) {
+			case ModelPackage.RESTRICTION_ALTERNATIVES__ALTERNATIVES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -143,13 +150,8 @@ public class AssistModelDSEItemProvider extends AssistModelItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES,
-				 ModelFactory.eINSTANCE.createApplicationAlternatives()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES,
-				 ModelFactory.eINSTANCE.createRestrictionAlternatives()));
+				(ModelPackage.Literals.RESTRICTION_ALTERNATIVES__ALTERNATIVES,
+				 ModelFactory.eINSTANCE.createRestrictionAlternative()));
 	}
 
 	/**

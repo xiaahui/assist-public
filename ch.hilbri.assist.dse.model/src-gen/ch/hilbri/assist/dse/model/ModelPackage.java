@@ -123,13 +123,22 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Restriction Alternatives</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Assist Model DSE</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE_FEATURE_COUNT = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_FEATURE_COUNT + 1;
+	int ASSIST_MODEL_DSE_FEATURE_COUNT = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get All Compartments</em>' operation.
@@ -478,6 +487,98 @@ public interface ModelPackage extends EPackage {
 	 */
 	int APPLICATION_ALTERNATIVE_OPERATION_COUNT = 0;
 
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.dse.model.impl.RestrictionAlternativesImpl <em>Restriction Alternatives</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.dse.model.impl.RestrictionAlternativesImpl
+	 * @see ch.hilbri.assist.dse.model.impl.ModelPackageImpl#getRestrictionAlternatives()
+	 * @generated
+	 */
+	int RESTRICTION_ALTERNATIVES = 6;
+
+	/**
+	 * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTRICTION_ALTERNATIVES__ALTERNATIVES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Restriction Alternatives</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTRICTION_ALTERNATIVES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Restriction Alternatives</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTRICTION_ALTERNATIVES_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.dse.model.impl.RestrictionAlternativeImpl <em>Restriction Alternative</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.dse.model.impl.RestrictionAlternativeImpl
+	 * @see ch.hilbri.assist.dse.model.impl.ModelPackageImpl#getRestrictionAlternative()
+	 * @generated
+	 */
+	int RESTRICTION_ALTERNATIVE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTRICTION_ALTERNATIVE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Dislocality Relations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Colocality Relations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Restriction Alternative</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTRICTION_ALTERNATIVE_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Restriction Alternative</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTRICTION_ALTERNATIVE_OPERATION_COUNT = 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.dse.model.AssistModelDSE <em>Assist Model DSE</em>}'.
@@ -499,6 +600,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAssistModelDSE_ApplicationAlternatives();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.dse.model.AssistModelDSE#getRestrictionAlternatives <em>Restriction Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Restriction Alternatives</em>'.
+	 * @see ch.hilbri.assist.dse.model.AssistModelDSE#getRestrictionAlternatives()
+	 * @see #getAssistModelDSE()
+	 * @generated
+	 */
+	EReference getAssistModelDSE_RestrictionAlternatives();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.dse.model.BoxDSE <em>Box DSE</em>}'.
@@ -628,6 +740,70 @@ public interface ModelPackage extends EPackage {
 	EReference getApplicationAlternative_Applications();
 
 	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.dse.model.RestrictionAlternatives <em>Restriction Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Restriction Alternatives</em>'.
+	 * @see ch.hilbri.assist.dse.model.RestrictionAlternatives
+	 * @generated
+	 */
+	EClass getRestrictionAlternatives();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.dse.model.RestrictionAlternatives#getAlternatives <em>Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Alternatives</em>'.
+	 * @see ch.hilbri.assist.dse.model.RestrictionAlternatives#getAlternatives()
+	 * @see #getRestrictionAlternatives()
+	 * @generated
+	 */
+	EReference getRestrictionAlternatives_Alternatives();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.dse.model.RestrictionAlternative <em>Restriction Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Restriction Alternative</em>'.
+	 * @see ch.hilbri.assist.dse.model.RestrictionAlternative
+	 * @generated
+	 */
+	EClass getRestrictionAlternative();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.dse.model.RestrictionAlternative#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.dse.model.RestrictionAlternative#getName()
+	 * @see #getRestrictionAlternative()
+	 * @generated
+	 */
+	EAttribute getRestrictionAlternative_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.dse.model.RestrictionAlternative#getDislocalityRelations <em>Dislocality Relations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Dislocality Relations</em>'.
+	 * @see ch.hilbri.assist.dse.model.RestrictionAlternative#getDislocalityRelations()
+	 * @see #getRestrictionAlternative()
+	 * @generated
+	 */
+	EReference getRestrictionAlternative_DislocalityRelations();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.dse.model.RestrictionAlternative#getColocalityRelations <em>Colocality Relations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Colocality Relations</em>'.
+	 * @see ch.hilbri.assist.dse.model.RestrictionAlternative#getColocalityRelations()
+	 * @see #getRestrictionAlternative()
+	 * @generated
+	 */
+	EReference getRestrictionAlternative_ColocalityRelations();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -667,6 +843,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES = eINSTANCE.getAssistModelDSE_ApplicationAlternatives();
+
+		/**
+		 * The meta object literal for the '<em><b>Restriction Alternatives</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES = eINSTANCE.getAssistModelDSE_RestrictionAlternatives();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.dse.model.impl.BoxDSEImpl <em>Box DSE</em>}' class.
@@ -773,6 +957,58 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference APPLICATION_ALTERNATIVE__APPLICATIONS = eINSTANCE.getApplicationAlternative_Applications();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.dse.model.impl.RestrictionAlternativesImpl <em>Restriction Alternatives</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.dse.model.impl.RestrictionAlternativesImpl
+		 * @see ch.hilbri.assist.dse.model.impl.ModelPackageImpl#getRestrictionAlternatives()
+		 * @generated
+		 */
+		EClass RESTRICTION_ALTERNATIVES = eINSTANCE.getRestrictionAlternatives();
+
+		/**
+		 * The meta object literal for the '<em><b>Alternatives</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESTRICTION_ALTERNATIVES__ALTERNATIVES = eINSTANCE.getRestrictionAlternatives_Alternatives();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.dse.model.impl.RestrictionAlternativeImpl <em>Restriction Alternative</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.dse.model.impl.RestrictionAlternativeImpl
+		 * @see ch.hilbri.assist.dse.model.impl.ModelPackageImpl#getRestrictionAlternative()
+		 * @generated
+		 */
+		EClass RESTRICTION_ALTERNATIVE = eINSTANCE.getRestrictionAlternative();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESTRICTION_ALTERNATIVE__NAME = eINSTANCE.getRestrictionAlternative_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Dislocality Relations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS = eINSTANCE.getRestrictionAlternative_DislocalityRelations();
+
+		/**
+		 * The meta object literal for the '<em><b>Colocality Relations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS = eINSTANCE.getRestrictionAlternative_ColocalityRelations();
 
 	}
 

@@ -76,6 +76,24 @@ public interface ModelFactory extends EFactory {
 	ApplicationAlternative createApplicationAlternative();
 
 	/**
+	 * Returns a new object of class '<em>Restriction Alternatives</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Restriction Alternatives</em>'.
+	 * @generated
+	 */
+	RestrictionAlternatives createRestrictionAlternatives();
+
+	/**
+	 * Returns a new object of class '<em>Restriction Alternative</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Restriction Alternative</em>'.
+	 * @generated
+	 */
+	RestrictionAlternative createRestrictionAlternative();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

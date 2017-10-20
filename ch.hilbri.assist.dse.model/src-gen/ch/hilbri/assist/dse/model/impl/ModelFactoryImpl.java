@@ -62,6 +62,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.BOARD_ALTERNATIVE: return createBoardAlternative();
 			case ModelPackage.APPLICATION_ALTERNATIVES: return createApplicationAlternatives();
 			case ModelPackage.APPLICATION_ALTERNATIVE: return createApplicationAlternative();
+			case ModelPackage.RESTRICTION_ALTERNATIVES: return createRestrictionAlternatives();
+			case ModelPackage.RESTRICTION_ALTERNATIVE: return createRestrictionAlternative();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -125,6 +127,26 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public ApplicationAlternative createApplicationAlternative() {
 		ApplicationAlternativeImpl applicationAlternative = new ApplicationAlternativeImpl();
 		return applicationAlternative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RestrictionAlternatives createRestrictionAlternatives() {
+		RestrictionAlternativesImpl restrictionAlternatives = new RestrictionAlternativesImpl();
+		return restrictionAlternatives;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RestrictionAlternative createRestrictionAlternative() {
+		RestrictionAlternativeImpl restrictionAlternative = new RestrictionAlternativeImpl();
+		return restrictionAlternative;
 	}
 
 	/**

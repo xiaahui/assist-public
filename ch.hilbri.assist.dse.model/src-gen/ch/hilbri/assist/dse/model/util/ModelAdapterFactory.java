@@ -96,6 +96,14 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createApplicationAlternativeAdapter();
 			}
 			@Override
+			public Adapter caseRestrictionAlternatives(RestrictionAlternatives object) {
+				return createRestrictionAlternativesAdapter();
+			}
+			@Override
+			public Adapter caseRestrictionAlternative(RestrictionAlternative object) {
+				return createRestrictionAlternativeAdapter();
+			}
+			@Override
 			public Adapter caseAssistModel(AssistModel object) {
 				return createAssistModelAdapter();
 			}
@@ -208,6 +216,34 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApplicationAlternativeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.dse.model.RestrictionAlternatives <em>Restriction Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.dse.model.RestrictionAlternatives
+	 * @generated
+	 */
+	public Adapter createRestrictionAlternativesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.dse.model.RestrictionAlternative <em>Restriction Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.dse.model.RestrictionAlternative
+	 * @generated
+	 */
+	public Adapter createRestrictionAlternativeAdapter() {
 		return null;
 	}
 

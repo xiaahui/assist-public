@@ -5,6 +5,7 @@ package ch.hilbri.assist.dse.model.impl;
 import ch.hilbri.assist.dse.model.ApplicationAlternatives;
 import ch.hilbri.assist.dse.model.AssistModelDSE;
 import ch.hilbri.assist.dse.model.ModelPackage;
+import ch.hilbri.assist.dse.model.RestrictionAlternatives;
 
 import ch.hilbri.assist.mapping.model.impl.AssistModelImpl;
 
@@ -29,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.dse.model.impl.AssistModelDSEImpl#getApplicationAlternatives <em>Application Alternatives</em>}</li>
+ *   <li>{@link ch.hilbri.assist.dse.model.impl.AssistModelDSEImpl#getRestrictionAlternatives <em>Restriction Alternatives</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,6 +45,16 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 	 * @ordered
 	 */
 	protected EList<ApplicationAlternatives> applicationAlternatives;
+
+	/**
+	 * The cached value of the '{@link #getRestrictionAlternatives() <em>Restriction Alternatives</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRestrictionAlternatives()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RestrictionAlternatives> restrictionAlternatives;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,11 +92,25 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<RestrictionAlternatives> getRestrictionAlternatives() {
+		if (restrictionAlternatives == null) {
+			restrictionAlternatives = new EObjectContainmentEList<RestrictionAlternatives>(RestrictionAlternatives.class, this, ModelPackage.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES);
+		}
+		return restrictionAlternatives;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ModelPackage.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES:
 				return ((InternalEList<?>)getApplicationAlternatives()).basicRemove(otherEnd, msgs);
+			case ModelPackage.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES:
+				return ((InternalEList<?>)getRestrictionAlternatives()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -99,6 +125,8 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 		switch (featureID) {
 			case ModelPackage.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES:
 				return getApplicationAlternatives();
+			case ModelPackage.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES:
+				return getRestrictionAlternatives();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,6 +144,10 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 				getApplicationAlternatives().clear();
 				getApplicationAlternatives().addAll((Collection<? extends ApplicationAlternatives>)newValue);
 				return;
+			case ModelPackage.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES:
+				getRestrictionAlternatives().clear();
+				getRestrictionAlternatives().addAll((Collection<? extends RestrictionAlternatives>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -131,6 +163,9 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 			case ModelPackage.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES:
 				getApplicationAlternatives().clear();
 				return;
+			case ModelPackage.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES:
+				getRestrictionAlternatives().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -145,6 +180,8 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 		switch (featureID) {
 			case ModelPackage.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES:
 				return applicationAlternatives != null && !applicationAlternatives.isEmpty();
+			case ModelPackage.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES:
+				return restrictionAlternatives != null && !restrictionAlternatives.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
