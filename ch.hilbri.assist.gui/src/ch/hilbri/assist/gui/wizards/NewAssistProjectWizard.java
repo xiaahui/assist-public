@@ -100,25 +100,29 @@ public class NewAssistProjectWizard extends Wizard implements INewWizard {
 		} catch (JavaModelException e) { e.printStackTrace(); }
 		
 		// (3) We have not yet the source folder created: 
+		IFolder dseSourceFolder = project.getFolder("Exploration");
 		IFolder mappingSourceFolder = project.getFolder("Mapping");
 		IFolder schedulingSourceFolder = project.getFolder("Scheduling");
 		
 		try {
+			dseSourceFolder.create(false, true, null);
 			mappingSourceFolder.create(false, true, null);
 			schedulingSourceFolder.create(false, true, null);
 		} catch (CoreException e) {	e.printStackTrace(); }
 		
 		// (4) Now the created source folder should be added to the class entries of the project, otherwise compilation will fail:
 		try {
+			IPackageFragmentRoot dsePackageRoot = javaProject.getPackageFragmentRoot(dseSourceFolder);
 			IPackageFragmentRoot mappingPackageRoot = javaProject.getPackageFragmentRoot(mappingSourceFolder);
 			IPackageFragmentRoot schedulingPackageRoot = javaProject.getPackageFragmentRoot(schedulingSourceFolder);
 			
-			IClasspathEntry[] cpEntries = new IClasspathEntry[4];
+			IClasspathEntry[] cpEntries = new IClasspathEntry[5];
 
-			cpEntries[0] = JavaCore.newSourceEntry(mappingPackageRoot.getPath());
-			cpEntries[1] = JavaCore.newSourceEntry(schedulingPackageRoot.getPath());
-			cpEntries[2] = JavaCore.newContainerEntry(new Path("ch.hilbri.assist.gui.classpathContainer"));
-			cpEntries[3] = JavaRuntime.getDefaultJREContainerEntry();
+			cpEntries[0] = JavaCore.newSourceEntry(dsePackageRoot.getPath());
+			cpEntries[1] = JavaCore.newSourceEntry(mappingPackageRoot.getPath());
+			cpEntries[2] = JavaCore.newSourceEntry(schedulingPackageRoot.getPath());
+			cpEntries[3] = JavaCore.newContainerEntry(new Path("ch.hilbri.assist.gui.classpathContainer"));
+			cpEntries[4] = JavaRuntime.getDefaultJREContainerEntry();
 
 			javaProject.setRawClasspath(cpEntries, null);
 			
