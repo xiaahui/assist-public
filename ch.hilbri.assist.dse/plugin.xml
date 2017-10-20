@@ -8,5 +8,20 @@
             uri="fragment.e4xmi">
       </fragment>
    </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+         <wizard
+            canFinishEarly="false"
+            category="ch.hilbri.assist.categories.main"
+            class="ch.hilbri.assist.dse.ui.wizards.NewDSESpecificationWizard"
+            icon="icons/dse-specification.gif"
+            id="ch.hilbri.assist.dse.wizards.newDSESpecification"
+            name="Design Space Exploration - Specification"
+            project="false">
+         <description>
+            This wizard creates a new design space exploration specification file with *.ddsl extension.
+         </description>
+      </wizard>
+   </extension>on>
 
 </plugin>

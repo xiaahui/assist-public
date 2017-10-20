@@ -8,8 +8,9 @@
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
 			extensions="ddsl"
+			icon="icons/dse-specification.gif"
 			id="ch.hilbri.assist.dse.dsl.DSEDsl"
-			name="DSEDsl Editor">
+			name="Design Space Exploration Specification">
 		</editor>
 	</extension>
 	<extension
