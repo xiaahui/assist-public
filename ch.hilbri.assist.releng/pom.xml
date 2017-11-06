@@ -100,6 +100,27 @@
 	<build>
 
 		<plugins>
+
+			<plugin>
+				<groupId>org.eluder.coveralls</groupId>
+				<artifactId>coveralls-maven-plugin</artifactId>
+				<version>4.3.0</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.6.201602180812</version>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
@@ -279,18 +300,18 @@
 
 	<repositories>
 
-<!-- 		<repository> -->
-<!-- 			<id>Neon</id> -->
-<!-- 			<layout>p2</layout> -->
-<!-- 			<url>http://download.eclipse.org/releases/neon/</url> -->
-<!-- 		</repository> -->
+		<!-- <repository> -->
+		<!-- <id>Neon</id> -->
+		<!-- <layout>p2</layout> -->
+		<!-- <url>http://download.eclipse.org/releases/neon/</url> -->
+		<!-- </repository> -->
 
 		<repository>
 			<id>Oxygen</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/oxygen/</url>
 		</repository>
-	
+
 
 		<repository>
 			<id>Xtext Update Site</id>

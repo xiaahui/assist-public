@@ -7,6 +7,9 @@ before_script: cd ch.hilbri.assist.releng
 
 script: mvn clean verify -U
 
+after_success:
+  - mvn clean test jacoco:report coveralls:report
+
 notifications:
   email:
     recipients:
@@ -14,7 +17,6 @@ notifications:
     on_success: always 
     on_failure: always 
     
-
 deploy:
   provider: releases
   api_key:
