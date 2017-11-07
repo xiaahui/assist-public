@@ -8,7 +8,7 @@ before_script: cd ch.hilbri.assist.releng
 script: mvn clean verify -U
 
 after_success:
-  - mvn clean test jacoco:report coveralls:report
+  - mvn test jacoco:report coveralls:report
 
 notifications:
   email:
