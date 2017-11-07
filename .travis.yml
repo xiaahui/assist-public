@@ -5,10 +5,7 @@ jdk:
 
 before_script: cd ch.hilbri.assist.releng
 
-script: mvn clean verify 
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+script: mvn clean verify -U
 
 notifications:
   email:
