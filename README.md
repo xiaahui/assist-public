@@ -1,7 +1,7 @@
 Architecture Synthesis for Safety-Critical Systems - ASSIST 
 ==============================================================
 
-[![Build Status](https://travis-ci.org/RobertHilbrich/assist-public.svg?branch=master)](https://travis-ci.org/RobertHilbrich/assist-public) [![codecov](https://codecov.io/gh/RobertHilbrich/assist-public/branch/master/graph/badge.svg)](https://codecov.io/gh/RobertHilbrich/assist-public)
+[![Build Status](https://travis-ci.org/RobertHilbrich/assist-public.svg?branch=master)](https://travis-ci.org/RobertHilbrich/assist-public)
 
 
 ## Overview 
