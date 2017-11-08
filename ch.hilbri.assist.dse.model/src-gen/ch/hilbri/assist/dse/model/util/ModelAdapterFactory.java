@@ -104,6 +104,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createRestrictionAlternativeAdapter();
 			}
 			@Override
+			public Adapter caseExplorationCandidate(ExplorationCandidate object) {
+				return createExplorationCandidateAdapter();
+			}
+			@Override
 			public Adapter caseAssistModel(AssistModel object) {
 				return createAssistModelAdapter();
 			}
@@ -244,6 +248,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRestrictionAlternativeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.dse.model.ExplorationCandidate <em>Exploration Candidate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.dse.model.ExplorationCandidate
+	 * @generated
+	 */
+	public Adapter createExplorationCandidateAdapter() {
 		return null;
 	}
 

@@ -8,6 +8,7 @@ import ch.hilbri.assist.dse.model.AssistModelDSE;
 import ch.hilbri.assist.dse.model.BoardAlternative;
 import ch.hilbri.assist.dse.model.BoardAlternatives;
 import ch.hilbri.assist.dse.model.BoxDSE;
+import ch.hilbri.assist.dse.model.ExplorationCandidate;
 import ch.hilbri.assist.dse.model.ModelFactory;
 import ch.hilbri.assist.dse.model.ModelPackage;
 import ch.hilbri.assist.dse.model.RestrictionAlternative;
@@ -83,6 +84,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass restrictionAlternativeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass explorationCandidateEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -174,6 +182,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EReference getAssistModelDSE_RestrictionAlternatives() {
 		return (EReference)assistModelDSEEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssistModelDSE_ExplorationCandidates() {
+		return (EReference)assistModelDSEEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -343,6 +360,51 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getExplorationCandidate() {
+		return explorationCandidateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExplorationCandidate_Name() {
+		return (EAttribute)explorationCandidateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExplorationCandidate_BoardAlternatives() {
+		return (EReference)explorationCandidateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExplorationCandidate_ApplicationAlternatives() {
+		return (EReference)explorationCandidateEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExplorationCandidate_RestrictionAlternatives() {
+		return (EReference)explorationCandidateEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModelFactory getModelFactory() {
 		return (ModelFactory)getEFactoryInstance();
 	}
@@ -369,6 +431,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		assistModelDSEEClass = createEClass(ASSIST_MODEL_DSE);
 		createEReference(assistModelDSEEClass, ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES);
 		createEReference(assistModelDSEEClass, ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES);
+		createEReference(assistModelDSEEClass, ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES);
 
 		boxDSEEClass = createEClass(BOX_DSE);
 		createEReference(boxDSEEClass, BOX_DSE__BOARD_ALTERNATIVES);
@@ -394,6 +457,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(restrictionAlternativeEClass, RESTRICTION_ALTERNATIVE__NAME);
 		createEReference(restrictionAlternativeEClass, RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS);
 		createEReference(restrictionAlternativeEClass, RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS);
+
+		explorationCandidateEClass = createEClass(EXPLORATION_CANDIDATE);
+		createEAttribute(explorationCandidateEClass, EXPLORATION_CANDIDATE__NAME);
+		createEReference(explorationCandidateEClass, EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES);
+		createEReference(explorationCandidateEClass, EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES);
+		createEReference(explorationCandidateEClass, EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES);
 	}
 
 	/**
@@ -435,6 +504,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(assistModelDSEEClass, AssistModelDSE.class, "AssistModelDSE", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAssistModelDSE_ApplicationAlternatives(), this.getApplicationAlternatives(), null, "applicationAlternatives", null, 0, -1, AssistModelDSE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModelDSE_RestrictionAlternatives(), this.getRestrictionAlternatives(), null, "restrictionAlternatives", null, 0, -1, AssistModelDSE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModelDSE_ExplorationCandidates(), this.getExplorationCandidate(), null, "explorationCandidates", null, 0, -1, AssistModelDSE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(boxDSEEClass, BoxDSE.class, "BoxDSE", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBoxDSE_BoardAlternatives(), this.getBoardAlternatives(), null, "boardAlternatives", null, 0, -1, BoxDSE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -460,6 +530,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getRestrictionAlternative_Name(), theEcorePackage.getEString(), "name", null, 0, 1, RestrictionAlternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRestrictionAlternative_DislocalityRelations(), theModelPackage_1.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, RestrictionAlternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRestrictionAlternative_ColocalityRelations(), theModelPackage_1.getColocalityRelation(), null, "colocalityRelations", null, 0, -1, RestrictionAlternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(explorationCandidateEClass, ExplorationCandidate.class, "ExplorationCandidate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExplorationCandidate_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ExplorationCandidate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExplorationCandidate_BoardAlternatives(), this.getBoardAlternative(), null, "boardAlternatives", null, 0, -1, ExplorationCandidate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExplorationCandidate_ApplicationAlternatives(), this.getApplicationAlternative(), null, "applicationAlternatives", null, 0, -1, ExplorationCandidate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExplorationCandidate_RestrictionAlternatives(), this.getRestrictionAlternative(), null, "restrictionAlternatives", null, 0, -1, ExplorationCandidate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

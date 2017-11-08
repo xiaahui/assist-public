@@ -256,6 +256,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.dse.model.ExplorationCandidate} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExplorationCandidateItemProvider explorationCandidateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.dse.model.ExplorationCandidate}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExplorationCandidateAdapter() {
+		if (explorationCandidateItemProvider == null) {
+			explorationCandidateItemProvider = new ExplorationCandidateItemProvider(this);
+		}
+
+		return explorationCandidateItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -362,6 +385,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (applicationAlternativeItemProvider != null) applicationAlternativeItemProvider.dispose();
 		if (restrictionAlternativesItemProvider != null) restrictionAlternativesItemProvider.dispose();
 		if (restrictionAlternativeItemProvider != null) restrictionAlternativeItemProvider.dispose();
+		if (explorationCandidateItemProvider != null) explorationCandidateItemProvider.dispose();
 	}
 
 }

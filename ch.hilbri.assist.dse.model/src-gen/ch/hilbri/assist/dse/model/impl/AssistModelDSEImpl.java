@@ -4,6 +4,7 @@ package ch.hilbri.assist.dse.model.impl;
 
 import ch.hilbri.assist.dse.model.ApplicationAlternatives;
 import ch.hilbri.assist.dse.model.AssistModelDSE;
+import ch.hilbri.assist.dse.model.ExplorationCandidate;
 import ch.hilbri.assist.dse.model.ModelPackage;
 import ch.hilbri.assist.dse.model.RestrictionAlternatives;
 
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link ch.hilbri.assist.dse.model.impl.AssistModelDSEImpl#getApplicationAlternatives <em>Application Alternatives</em>}</li>
  *   <li>{@link ch.hilbri.assist.dse.model.impl.AssistModelDSEImpl#getRestrictionAlternatives <em>Restriction Alternatives</em>}</li>
+ *   <li>{@link ch.hilbri.assist.dse.model.impl.AssistModelDSEImpl#getExplorationCandidates <em>Exploration Candidates</em>}</li>
  * </ul>
  *
  * @generated
@@ -55,6 +57,16 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 	 * @ordered
 	 */
 	protected EList<RestrictionAlternatives> restrictionAlternatives;
+
+	/**
+	 * The cached value of the '{@link #getExplorationCandidates() <em>Exploration Candidates</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExplorationCandidates()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ExplorationCandidate> explorationCandidates;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,6 +116,18 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ExplorationCandidate> getExplorationCandidates() {
+		if (explorationCandidates == null) {
+			explorationCandidates = new EObjectContainmentEList<ExplorationCandidate>(ExplorationCandidate.class, this, ModelPackage.ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES);
+		}
+		return explorationCandidates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -111,6 +135,8 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 				return ((InternalEList<?>)getApplicationAlternatives()).basicRemove(otherEnd, msgs);
 			case ModelPackage.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES:
 				return ((InternalEList<?>)getRestrictionAlternatives()).basicRemove(otherEnd, msgs);
+			case ModelPackage.ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES:
+				return ((InternalEList<?>)getExplorationCandidates()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -127,6 +153,8 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 				return getApplicationAlternatives();
 			case ModelPackage.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES:
 				return getRestrictionAlternatives();
+			case ModelPackage.ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES:
+				return getExplorationCandidates();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -148,6 +176,10 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 				getRestrictionAlternatives().clear();
 				getRestrictionAlternatives().addAll((Collection<? extends RestrictionAlternatives>)newValue);
 				return;
+			case ModelPackage.ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES:
+				getExplorationCandidates().clear();
+				getExplorationCandidates().addAll((Collection<? extends ExplorationCandidate>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -166,6 +198,9 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 			case ModelPackage.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES:
 				getRestrictionAlternatives().clear();
 				return;
+			case ModelPackage.ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES:
+				getExplorationCandidates().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -182,6 +217,8 @@ public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDS
 				return applicationAlternatives != null && !applicationAlternatives.isEmpty();
 			case ModelPackage.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES:
 				return restrictionAlternatives != null && !restrictionAlternatives.isEmpty();
+			case ModelPackage.ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES:
+				return explorationCandidates != null && !explorationCandidates.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

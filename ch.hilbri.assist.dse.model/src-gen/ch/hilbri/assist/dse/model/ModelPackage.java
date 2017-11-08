@@ -132,13 +132,22 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Exploration Candidates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Assist Model DSE</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE_FEATURE_COUNT = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_FEATURE_COUNT + 2;
+	int ASSIST_MODEL_DSE_FEATURE_COUNT = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get All Compartments</em>' operation.
@@ -579,6 +588,70 @@ public interface ModelPackage extends EPackage {
 	 */
 	int RESTRICTION_ALTERNATIVE_OPERATION_COUNT = 0;
 
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.dse.model.impl.ExplorationCandidateImpl <em>Exploration Candidate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.dse.model.impl.ExplorationCandidateImpl
+	 * @see ch.hilbri.assist.dse.model.impl.ModelPackageImpl#getExplorationCandidate()
+	 * @generated
+	 */
+	int EXPLORATION_CANDIDATE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPLORATION_CANDIDATE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Board Alternatives</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Application Alternatives</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Restriction Alternatives</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES = 3;
+
+	/**
+	 * The number of structural features of the '<em>Exploration Candidate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPLORATION_CANDIDATE_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Exploration Candidate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPLORATION_CANDIDATE_OPERATION_COUNT = 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.dse.model.AssistModelDSE <em>Assist Model DSE</em>}'.
@@ -611,6 +684,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAssistModelDSE_RestrictionAlternatives();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.dse.model.AssistModelDSE#getExplorationCandidates <em>Exploration Candidates</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Exploration Candidates</em>'.
+	 * @see ch.hilbri.assist.dse.model.AssistModelDSE#getExplorationCandidates()
+	 * @see #getAssistModelDSE()
+	 * @generated
+	 */
+	EReference getAssistModelDSE_ExplorationCandidates();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.dse.model.BoxDSE <em>Box DSE</em>}'.
@@ -804,6 +888,60 @@ public interface ModelPackage extends EPackage {
 	EReference getRestrictionAlternative_ColocalityRelations();
 
 	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.dse.model.ExplorationCandidate <em>Exploration Candidate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Exploration Candidate</em>'.
+	 * @see ch.hilbri.assist.dse.model.ExplorationCandidate
+	 * @generated
+	 */
+	EClass getExplorationCandidate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.dse.model.ExplorationCandidate#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.dse.model.ExplorationCandidate#getName()
+	 * @see #getExplorationCandidate()
+	 * @generated
+	 */
+	EAttribute getExplorationCandidate_Name();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.dse.model.ExplorationCandidate#getBoardAlternatives <em>Board Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Board Alternatives</em>'.
+	 * @see ch.hilbri.assist.dse.model.ExplorationCandidate#getBoardAlternatives()
+	 * @see #getExplorationCandidate()
+	 * @generated
+	 */
+	EReference getExplorationCandidate_BoardAlternatives();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.dse.model.ExplorationCandidate#getApplicationAlternatives <em>Application Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Application Alternatives</em>'.
+	 * @see ch.hilbri.assist.dse.model.ExplorationCandidate#getApplicationAlternatives()
+	 * @see #getExplorationCandidate()
+	 * @generated
+	 */
+	EReference getExplorationCandidate_ApplicationAlternatives();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ch.hilbri.assist.dse.model.ExplorationCandidate#getRestrictionAlternatives <em>Restriction Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Restriction Alternatives</em>'.
+	 * @see ch.hilbri.assist.dse.model.ExplorationCandidate#getRestrictionAlternatives()
+	 * @see #getExplorationCandidate()
+	 * @generated
+	 */
+	EReference getExplorationCandidate_RestrictionAlternatives();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -851,6 +989,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES = eINSTANCE.getAssistModelDSE_RestrictionAlternatives();
+
+		/**
+		 * The meta object literal for the '<em><b>Exploration Candidates</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES = eINSTANCE.getAssistModelDSE_ExplorationCandidates();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.dse.model.impl.BoxDSEImpl <em>Box DSE</em>}' class.
@@ -1009,6 +1155,48 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS = eINSTANCE.getRestrictionAlternative_ColocalityRelations();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.dse.model.impl.ExplorationCandidateImpl <em>Exploration Candidate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.dse.model.impl.ExplorationCandidateImpl
+		 * @see ch.hilbri.assist.dse.model.impl.ModelPackageImpl#getExplorationCandidate()
+		 * @generated
+		 */
+		EClass EXPLORATION_CANDIDATE = eINSTANCE.getExplorationCandidate();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXPLORATION_CANDIDATE__NAME = eINSTANCE.getExplorationCandidate_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Board Alternatives</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXPLORATION_CANDIDATE__BOARD_ALTERNATIVES = eINSTANCE.getExplorationCandidate_BoardAlternatives();
+
+		/**
+		 * The meta object literal for the '<em><b>Application Alternatives</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXPLORATION_CANDIDATE__APPLICATION_ALTERNATIVES = eINSTANCE.getExplorationCandidate_ApplicationAlternatives();
+
+		/**
+		 * The meta object literal for the '<em><b>Restriction Alternatives</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXPLORATION_CANDIDATE__RESTRICTION_ALTERNATIVES = eINSTANCE.getExplorationCandidate_RestrictionAlternatives();
 
 	}
 

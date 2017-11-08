@@ -67,6 +67,7 @@ public class AssistModelDSEItemProvider extends AssistModelItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES);
 			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES);
 		}
 		return childrenFeatures;
 	}
@@ -124,6 +125,7 @@ public class AssistModelDSEItemProvider extends AssistModelItemProvider {
 		switch (notification.getFeatureID(AssistModelDSE.class)) {
 			case ModelPackage.ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES:
 			case ModelPackage.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES:
+			case ModelPackage.ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -150,6 +152,11 @@ public class AssistModelDSEItemProvider extends AssistModelItemProvider {
 			(createChildParameter
 				(ModelPackage.Literals.ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES,
 				 ModelFactory.eINSTANCE.createRestrictionAlternatives()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES,
+				 ModelFactory.eINSTANCE.createExplorationCandidate()));
 	}
 
 	/**

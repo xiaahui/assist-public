@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link ch.hilbri.assist.dse.model.AssistModelDSE#getApplicationAlternatives <em>Application Alternatives</em>}</li>
  *   <li>{@link ch.hilbri.assist.dse.model.AssistModelDSE#getRestrictionAlternatives <em>Restriction Alternatives</em>}</li>
+ *   <li>{@link ch.hilbri.assist.dse.model.AssistModelDSE#getExplorationCandidates <em>Exploration Candidates</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.dse.model.ModelPackage#getAssistModelDSE()
@@ -55,5 +56,21 @@ public interface AssistModelDSE extends AssistModel {
 	 * @generated
 	 */
 	EList<RestrictionAlternatives> getRestrictionAlternatives();
+
+	/**
+	 * Returns the value of the '<em><b>Exploration Candidates</b></em>' containment reference list.
+	 * The list contents are of type {@link ch.hilbri.assist.dse.model.ExplorationCandidate}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Exploration Candidates</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Exploration Candidates</em>' containment reference list.
+	 * @see ch.hilbri.assist.dse.model.ModelPackage#getAssistModelDSE_ExplorationCandidates()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ExplorationCandidate> getExplorationCandidates();
 
 } // AssistModelDSE

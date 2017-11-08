@@ -23,6 +23,10 @@ AssistModelDSE:
 					(colocalityRelations+=ColocalityRelation)*
 					(restrictionAlternatives+=RestrictionAlternatives)*
 	'}')?
+	
+	('Candidates' '{'
+					(explorationCandidates+=ExplorationCandidate)*
+	'}')?
 ;
 
 /* HARDWARE */
@@ -157,48 +161,17 @@ DislocalityRelation returns model::DislocalityRelation:
 ColocalityRelation returns model::ColocalityRelation:
 	applications+=[model::Application|QualifiedName] (',' (applications+=[model::Application]))* 'on' 'same' 	hardwareLevel=HardwareArchitectureLevelType ';'; 
 
-//DissimilarityRelation: 
-//	applicationsOrGroups+=[ApplicationOrApplicationGroup] (',' applicationsOrGroups+=[ApplicationOrApplicationGroup])+
-//	'dissimilar' 'based' 'on'
-//	dissimilarityClause=DissimilarityClause ';'
-//;
-//
-//DissimilarityClause:  
-//	DissimilarityEntry | ( '(' (=>DissimilarityDisjunction | DissimilarityConjunction) ')' ) // Der Pfeil ist wichtig!
-//;
-//
-//DissimilarityDisjunction: 
-//	dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ ;
-//
-//DissimilarityConjunction: 
-//	dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ ;
-//
-//DissimilarityEntry: 
-//	( 'Compartment.' compartmentAttribute= CompartmentAttributes ) 	|
-//	( 'Box.' boxAttribute = BoxAttributes) 							|
-//	( 'Board.' boardAttribute = BoardAttributes)					|
-//	( 'Processor.' processorAttribute = ProcessorAttributes)
-//;
-//
-//enum CompartmentAttributes :
-//	MANUFACTURER 	= 'Manufacturer' 	| 
-//	POWERSUPPLY	 	= 'PowerSupply';
-//	
-//enum BoxAttributes :
-//	MANUFACTURER 	= 'Manufacturer';
-//	
-//enum BoardAttributes:
-//	MANUFACTURER 	= 'Manufacturer' 			|
-//	POWERSUPPLY 	= 'PowerSupply'				|
-//	ASSURANCELEVEL 	= 'DesignAssuranceLevel' 	|
-//	BOARDTYPE 		= 'Type';
-//
-//
-//enum ProcessorAttributes:
-//	MANUFACTURER 	= 'Manufacturer' 	| 
-//	PROCESSORTYPE	= 'ProcessorType' 
-//;
 
+/* Exploration Candidates */
+/* ********************** */
+
+ExplorationCandidate returns ExplorationCandidate:
+	name=ID '{'
+		('Boards' 		'=' boardAlternatives+=[BoardAlternative] 				(',' boardAlternatives+=[BoardAlternative])* 				';')?
+		('Applications' '=' applicationAlternatives+=[ApplicationAlternative] 	(',' applicationAlternatives+=[ApplicationAlternative])* 	';')?
+		('Restrictions' '=' restrictionAlternatives+=[RestrictionAlternative] 	(',' restrictionAlternatives+=[RestrictionAlternative])* 	';')?
+	'}' 
+;
 
 /* Generic Stuff */
 /* ************* */
