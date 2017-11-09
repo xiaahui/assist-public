@@ -6,7 +6,6 @@ import org.eclipse.xtext.xtext.generator.model.project.*
 var rootPath = ".."
 
 Workflow {
-	
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
@@ -49,4 +48,11 @@ Workflow {
 			}
 		}
 	}
+
+	/* This creates the .src-gen-keep files in the subfolders for git */
+	component = CreateSrcGenKeepFiles { path = "./src-gen/.src-gen-keep" }
+	component = CreateSrcGenKeepFiles { path = "../ch.hilbri.assist.dse.dsl.ide/src-gen/.src-gen-keep" 			}
+	component = CreateSrcGenKeepFiles { path = "../ch.hilbri.assist.dse.dsl.tests/src-gen/.src-gen-keep" 		}
+	component = CreateSrcGenKeepFiles { path = "../ch.hilbri.assist.dse.dsl.ui/src-gen/.src-gen-keep" 			}
+	component = CreateSrcGenKeepFiles { path = "../ch.hilbri.assist.dse.dsl.ui.tests/src-gen/.src-gen-keep" 	}
 }
