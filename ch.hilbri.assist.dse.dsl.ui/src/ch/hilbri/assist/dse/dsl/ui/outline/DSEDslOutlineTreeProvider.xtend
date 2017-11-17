@@ -58,7 +58,13 @@ class DSEDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 				for (a : model.restrictionAlternatives)
 					createNode(restrictionsNode, a)
 			}
-
+		}
+		
+		/* ------- CANDIDATES -------------- */
+		if (!model.explorationCandidates.empty) {
+			val candidatesNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Exploration Candidates", false)
+			for (c : model.explorationCandidates)
+				createNode(candidatesNode, c)
 		}
 	}
 

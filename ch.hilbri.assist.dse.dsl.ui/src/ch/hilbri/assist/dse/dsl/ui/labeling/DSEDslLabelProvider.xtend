@@ -20,6 +20,7 @@ import ch.hilbri.assist.mapping.model.Task
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import ch.hilbri.assist.dse.model.ExplorationCandidate
 
 /**
  * Provides labels for EObjects.
@@ -34,7 +35,7 @@ class DSEDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	def text(AssistModel model) {
-		'System ' + model.systemName
+		model.systemName
 	}
 
 	def image(AssistModel model) {
@@ -189,6 +190,14 @@ class DSEDslLabelProvider extends DefaultEObjectLabelProvider {
 	
 	def image(RestrictionAlternative a) {
 		'outlineview_alternative.gif'
+	}
+	
+	def text(ExplorationCandidate c) {
+		c.name
+	}
+	
+	def image(ExplorationCandidate c) {
+		'outlineview_system.png'
 	}
 
 }
