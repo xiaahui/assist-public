@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getApplications <em>Applications</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getColocalityRelations <em>Colocality Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getDissimilarityRelations <em>Dissimilarity Relations</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModel()
@@ -117,6 +118,22 @@ public interface AssistModel extends EObject {
 	 * @generated
 	 */
 	EList<ColocalityRelation> getColocalityRelations();
+
+	/**
+	 * Returns the value of the '<em><b>Dissimilarity Relations</b></em>' containment reference list.
+	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.DissimilarityRelation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dissimilarity Relations</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dissimilarity Relations</em>' containment reference list.
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModel_DissimilarityRelations()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DissimilarityRelation> getDissimilarityRelations();
 
 	/**
 	 * <!-- begin-user-doc -->

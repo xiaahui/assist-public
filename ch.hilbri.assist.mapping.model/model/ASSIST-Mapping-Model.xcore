@@ -1,65 +1,75 @@
-@GenModel(
-	modelPluginID="ch.hilbri.assist.mapping.model",
-	editDirectory="/ch.hilbri.assist.mapping.model.edit/src", 
-	editPluginID="ch.hilbri.assist.mapping.model.edit",
-	editorDirectory="/ch.hilbri.assist.mapping.model.editor/src", 
-	editorPluginID="ch.hilbri.assist.mapping.model.editor",
-	generateModelWizard="false", 
-	generateExampleClass="false" 
- )
-
+@GenModel(modelPluginID="ch.hilbri.assist.mapping.model", editDirectory="/ch.hilbri.assist.mapping.model.edit/src",
+	editPluginID="ch.hilbri.assist.mapping.model.edit", editorDirectory="/ch.hilbri.assist.mapping.model.editor/src",
+	editorPluginID="ch.hilbri.assist.mapping.model.editor", generateModelWizard="false", generateExampleClass="false")
 package ch.hilbri.assist.mapping.model
 
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 class AssistModel {
 	String	systemName	= ""
-
 	contains 		Compartment[1..*] 				compartments
 	contains 		Application[1..*] 				applications
 	contains 		DislocalityRelation[0..*] 		dislocalityRelations
 	contains 		ColocalityRelation[0..*] 		colocalityRelations
-//	contains 		DissimilarityRelation[0..*] 		dissimilarityRelations
-	
-	op Compartment[] 	getAllCompartments()  	{ compartments }
-	op Box[] 			getAllBoxes() 			{ compartments.map[allBoxes].flatten.toEList		}
-	op Board[] 			getAllBoards() 			{ compartments.map[allBoards].flatten.toEList 	}
-	op Processor[] 		getAllProcessors() 		{ compartments.map[allProcessors].flatten.toEList	}
-	op Core[] 			getAllCores() 			{ compartments.map[allCores].flatten.toEList		}
-	op Task[]			getAllTasks()			{ applications.map[tasks].flatten.toEList			}
+	contains 		DissimilarityRelation[0..*] 		dissimilarityRelations
+
+	op Compartment[] 	getAllCompartments() 	{ compartments										}
+	op Box[] 			getAllBoxes() 			{ compartments.map[allBoxes].flatten.toEList			}
+	op Board[] 			getAllBoards() 			{ compartments.map[allBoards].flatten.toEList			}
+	op Processor[] 		getAllProcessors() 		{ compartments.map[allProcessors].flatten.toEList		}
+	op Core[] 			getAllCores() 			{ compartments.map[allCores].flatten.toEList			}
+	op Task[]			getAllTasks() 			{ applications.map[tasks].flatten.toEList				}
 	
 	op HardwareElement[] getAllHardwareElements(int level) {
-		if (level == 0) 		allCores.map[it as HardwareElement]
-		else if (level == 1)	allProcessors.map[it as HardwareElement]
-		else if (level == 2)	allBoards.map[it as HardwareElement]
-		else if (level == 3)	allBoxes.map[it as HardwareElement]
-		else if (level == 4)	allCompartments.map[it as HardwareElement]
-		else					null
+		if (level == 0)
+			allCores.map[it as HardwareElement]
+		else if (level == 1)
+			allProcessors.map[it as HardwareElement]
+		else if (level == 2)
+			allBoards.map[it as HardwareElement]
+		else if (level == 3)
+			allBoxes.map[it as HardwareElement]
+		else if (level == 4) 
+			allCompartments.map[it as HardwareElement] 
+		else null
 	}
 }
 
 class HardwareElement {
-	 String name = ""
-	 String manufacturer  = ""
-	 contains MetricParameter[0..*] metricParameters
+	String name = ""
+	String manufacturer  = ""
+	contains MetricParameter[0..*] metricParameters
 }
 
 class Compartment extends HardwareElement {
 	String powerSupply	= ""
 	contains Box[1..*] boxes opposite compartment
-	op Box[] 			getAllBoxes() 			{ boxes }
-	op Board[] 			getAllBoards() 			{ boxes.map[allBoards].flatten.toEList		}
-	op Processor[] 		getAllProcessors() 		{ boxes.map[allProcessors].flatten.toEList	}
-	op Core[] 			getAllCores() 			{ boxes.map[allCores].flatten.toEList		}
+	op Box[] 			getAllBoxes() {
+		boxes
+	}
+	op Board[] 			getAllBoards() {
+		boxes.map[allBoards].flatten.toEList
+	}
+	op Processor[] 		getAllProcessors() {
+		boxes.map[allProcessors].flatten.toEList
+	}
+	op Core[] 			getAllCores() {
+		boxes.map[allCores].flatten.toEList
+	}
 }
 
 class Box extends HardwareElement {
 	container Compartment compartment opposite boxes
 	contains Board[0..*] boards opposite box
-		
-	op Board[] 			getAllBoards() 			{ boards }
-	op Processor[] 		getAllProcessors() 		{ boards.map[allProcessors].flatten.toEList	}
-	op Core[] 			getAllCores() 			{ boards.map[allCores].flatten.toEList		}
+	op Board[] 			getAllBoards() {
+		boards
+	}
+	op Processor[] 		getAllProcessors() {
+		boards.map[allProcessors].flatten.toEList
+	}
+	op Core[] 			getAllCores() {
+		boards.map[allCores].flatten.toEList
+	}
 }
 
 class Board extends HardwareElement {
@@ -68,21 +78,27 @@ class Board extends HardwareElement {
 	DesignAssuranceLevelType 		assuranceLevel 	= "None"
 	int 								ramCapacity 	= "0"
 	int 								romCapacity 	= "0"
-	
 	container 	Box 				box 			opposite boards
 	contains 	Processor[1..*] 	processors 	opposite board
 	contains 	IOAdapter[0..*] 	ioAdapters
-	
-	op String			toString() 				{ name 										}
-	op Processor[] 		getAllProcessors() 		{ processors 								}
-	op Core[] 			getAllCores() 			{ processors.map[allCores].flatten.toEList	}
+	op String			toString() {
+		name
+	}
+	op Processor[] 		getAllProcessors() {
+		processors
+	}
+	op Core[] 			getAllCores() {
+		processors.map[allCores].flatten.toEList
+	}
 }
 
 class Processor extends HardwareElement {
 	String processorType = ""
 	container Board board opposite processors
-	contains Core[1..*] cores opposite processor 
-	op Core[] getAllCores()	{ cores	}
+	contains Core[1..*] cores opposite processor
+	op Core[] getAllCores() {
+		cores
+	}
 }
 
 class Core extends HardwareElement {
@@ -101,99 +117,37 @@ class Application {
 	String 						name 				= ""
 	String 						developedBy			= ""
 	DesignAssuranceLevelType 	criticalityLevel		= "None"
-
 	contains Task[1..*] 				tasks 				opposite application
 	contains MetricParameter[0..*] 	metricParameters
-
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
-
-	op String 			toString() 				{ name 	}
+	op String 			toString() {
+		name
+	}
 }
 
 class Task {
-	String name 												= "" 
+	String name 												= ""
 	int coreUtilization 										= "0"
 	int ramUtilization 										= "0"
 	int romUtilization										= "0"
-
 	container Application application opposite tasks
-
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
 	contains MetricParameter[0..*] metricParameters
-
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
-
-	op String 			toString() 				{ name }
+	op String 			toString() {
+		name
+	}
 }
 
 /* *********************************************** */
 /*   REQUIREMENTS / RELATIONS                      */
 /* *********************************************** */
-class IOAdapterRequirement {	
+class IOAdapterRequirement {
 	IOAdapterType 				adapterType				= "None"
 	int 							requiredAdapterCount 	= "0"
 	boolean 						isSharedAllowed 			= "false"
 	boolean 						isExclusiveOnly 			= "false"
 }
-
-//class DissimilarityRelation {
-//	refers ApplicationOrApplicationGroup[1..*] applicationsOrGroups
-//	contains DissimilarityClause[1] dissimilarityClause
-//}
-
-//class DissimilarityClause {}
-
-// OR
-//class DissimilarityDisjunction extends DissimilarityClause {
-//	contains DissimilarityClause[2..*] dissimilarityClauses
-//}
-
-// AND
-//class DissimilarityConjunction extends DissimilarityClause  {
-//	contains DissimilarityClause[2..*] dissimilarityClauses
-//}
-
-//class DissimilarityEntry extends DissimilarityClause {
-//	
-//	derived HardwareArchitectureLevelType level get {
-//		if (compartmentAttribute != CompartmentAttributes.NONE)  HardwareArchitectureLevelType.COMPARTMENT
-//		else if (boxAttribute != BoxAttributes.NONE) 			 HardwareArchitectureLevelType.BOX
-//		else if (boardAttribute != BoardAttributes.NONE)		 HardwareArchitectureLevelType.BOARD
-//		else if (processorAttribute != ProcessorAttributes.NONE) HardwareArchitectureLevelType.PROCESSOR
-//		else null
-//	}
-//	
-//	CompartmentAttributes 	compartmentAttribute 	= "None"
-//	BoxAttributes 			boxAttribute			= "None"
-//	BoardAttributes 		boardAttribute			= "None"
-//	ProcessorAttributes 	processorAttribute		= "None"
-//}
-//
-//enum CompartmentAttributes{
-//	NONE 			as "None"
-//	MANUFACTURER	as "Manufacturer"
-//	POWERSUPPLY		as "PowerSupply"
-//}
-//
-//enum BoxAttributes{
-//	NONE			as "None"
-//	MANUFACTURER	as "Manufacturer"	
-//}
-//
-//enum BoardAttributes{
-//	NONE			as "None"
-//	MANUFACTURER	as "Manufacturer"
-//	POWERSUPPLY		as "PowerSupply"
-//	ASSURANCELEVEL	as "AssuranceLevel"
-//	BOARDTYPE		as "BoardType"
-//}
-//
-//enum ProcessorAttributes{
-//	NONE			as "None"
-//	MANUFACTURER	as "Manufacturer"
-//	PROCESSORTYPE	as "ProcessorType"
-//}
-
 
 class DislocalityRelation{
 	refers Application[1..*] applications
@@ -203,6 +157,73 @@ class DislocalityRelation{
 class ColocalityRelation {
 	refers Application[0..*] applications
 	HardwareArchitectureLevelType hardwareLevel
+}
+
+class DissimilarityRelation {
+	refers Application[0..*] applications
+	contains DissimilarityClause[1] dissimilarityClause
+}
+
+class DissimilarityClause {
+}
+
+class DissimilarityEntry extends DissimilarityClause {
+	CompartmentAttributes 	compartmentAttribute 	= "None"
+	BoxAttributes 			boxAttribute				= "None"
+	BoardAttributes 			boardAttribute			= "None"
+	ProcessorAttributes 		processorAttribute		= "None"
+	CoreAttributes			coreAttribute			= "None"
+	
+	derived HardwareArchitectureLevelType hardwareLevel get {
+		if (compartmentAttribute != CompartmentAttributes.NONE)
+			HardwareArchitectureLevelType.COMPARTMENT
+		else if (boxAttribute != BoxAttributes.NONE)
+			HardwareArchitectureLevelType.BOX
+		else if (boardAttribute != BoardAttributes.NONE)
+			HardwareArchitectureLevelType.BOARD
+		else if (processorAttribute != ProcessorAttributes.NONE) 
+			HardwareArchitectureLevelType.PROCESSOR 
+		else 
+			HardwareArchitectureLevelType.CORE
+	}
+}
+
+// OR
+//class DissimilarityDisjunction extends DissimilarityClause {
+//	contains DissimilarityClause[2..*] dissimilarityClauses
+//}
+// AND
+//class DissimilarityConjunction extends DissimilarityClause  {
+//	contains DissimilarityClause[2..*] dissimilarityClauses
+//}
+enum CompartmentAttributes {
+	NONE 			as "None"
+	MANUFACTURER		as "Manufacturer"
+	POWERSUPPLY		as "PowerSupply"
+}
+
+enum BoxAttributes {
+	NONE				as "None"
+	MANUFACTURER		as "Manufacturer"
+}
+
+enum BoardAttributes {
+	NONE				as "None"
+	MANUFACTURER		as "Manufacturer"
+	BOARDTYPE		as "Type"
+	POWERSUPPLY		as "PowerSupply"
+	ASSURANCELEVEL	as "DesignAssuranceLevel"
+}
+
+enum ProcessorAttributes {
+	NONE				as "None"
+	MANUFACTURER		as "Manufacturer"
+	PROCESSORTYPE	as "Type"
+}
+
+enum CoreAttributes {
+	NONE				as "None"
+	ARCHITECTURE		as "Architecture"
 }
 
 class MetricParameter {

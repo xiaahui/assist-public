@@ -10,6 +10,7 @@ import ch.hilbri.assist.mapping.model.ColocalityRelation;
 import ch.hilbri.assist.mapping.model.Compartment;
 import ch.hilbri.assist.mapping.model.Core;
 import ch.hilbri.assist.mapping.model.DislocalityRelation;
+import ch.hilbri.assist.mapping.model.DissimilarityRelation;
 import ch.hilbri.assist.mapping.model.HardwareElement;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 import ch.hilbri.assist.mapping.model.Processor;
@@ -53,6 +54,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getApplications <em>Applications</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getDislocalityRelations <em>Dislocality Relations</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getColocalityRelations <em>Colocality Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getDissimilarityRelations <em>Dissimilarity Relations</em>}</li>
  * </ul>
  *
  * @generated
@@ -117,6 +119,16 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @ordered
 	 */
 	protected EList<ColocalityRelation> colocalityRelations;
+
+	/**
+	 * The cached value of the '{@link #getDissimilarityRelations() <em>Dissimilarity Relations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDissimilarityRelations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DissimilarityRelation> dissimilarityRelations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -204,6 +216,18 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			colocalityRelations = new EObjectContainmentEList<ColocalityRelation>(ColocalityRelation.class, this, ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS);
 		}
 		return colocalityRelations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DissimilarityRelation> getDissimilarityRelations() {
+		if (dissimilarityRelations == null) {
+			dissimilarityRelations = new EObjectContainmentEList<DissimilarityRelation>(DissimilarityRelation.class, this, ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS);
+		}
+		return dissimilarityRelations;
 	}
 
 	/**
@@ -370,6 +394,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return ((InternalEList<?>)getDislocalityRelations()).basicRemove(otherEnd, msgs);
 			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
 				return ((InternalEList<?>)getColocalityRelations()).basicRemove(otherEnd, msgs);
+			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
+				return ((InternalEList<?>)getDissimilarityRelations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -392,6 +418,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return getDislocalityRelations();
 			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
 				return getColocalityRelations();
+			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
+				return getDissimilarityRelations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -424,6 +452,10 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				getColocalityRelations().clear();
 				getColocalityRelations().addAll((Collection<? extends ColocalityRelation>)newValue);
 				return;
+			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
+				getDissimilarityRelations().clear();
+				getDissimilarityRelations().addAll((Collection<? extends DissimilarityRelation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -451,6 +483,9 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
 				getColocalityRelations().clear();
 				return;
+			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
+				getDissimilarityRelations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -473,6 +508,8 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 				return dislocalityRelations != null && !dislocalityRelations.isEmpty();
 			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
 				return colocalityRelations != null && !colocalityRelations.isEmpty();
+			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
+				return dissimilarityRelations != null && !dissimilarityRelations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

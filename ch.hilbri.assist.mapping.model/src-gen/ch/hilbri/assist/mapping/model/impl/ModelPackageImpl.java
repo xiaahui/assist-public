@@ -5,12 +5,19 @@ package ch.hilbri.assist.mapping.model.impl;
 import ch.hilbri.assist.mapping.model.Application;
 import ch.hilbri.assist.mapping.model.AssistModel;
 import ch.hilbri.assist.mapping.model.Board;
+import ch.hilbri.assist.mapping.model.BoardAttributes;
 import ch.hilbri.assist.mapping.model.Box;
+import ch.hilbri.assist.mapping.model.BoxAttributes;
 import ch.hilbri.assist.mapping.model.ColocalityRelation;
 import ch.hilbri.assist.mapping.model.Compartment;
+import ch.hilbri.assist.mapping.model.CompartmentAttributes;
 import ch.hilbri.assist.mapping.model.Core;
+import ch.hilbri.assist.mapping.model.CoreAttributes;
 import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType;
 import ch.hilbri.assist.mapping.model.DislocalityRelation;
+import ch.hilbri.assist.mapping.model.DissimilarityClause;
+import ch.hilbri.assist.mapping.model.DissimilarityEntry;
+import ch.hilbri.assist.mapping.model.DissimilarityRelation;
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.model.HardwareElement;
 import ch.hilbri.assist.mapping.model.IOAdapter;
@@ -20,6 +27,7 @@ import ch.hilbri.assist.mapping.model.MetricParameter;
 import ch.hilbri.assist.mapping.model.ModelFactory;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 import ch.hilbri.assist.mapping.model.Processor;
+import ch.hilbri.assist.mapping.model.ProcessorAttributes;
 import ch.hilbri.assist.mapping.model.Task;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -135,7 +143,63 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass dissimilarityRelationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dissimilarityClauseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dissimilarityEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass metricParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum compartmentAttributesEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum boxAttributesEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum boardAttributesEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum processorAttributesEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum coreAttributesEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -274,6 +338,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EReference getAssistModel_ColocalityRelations() {
 		return (EReference)assistModelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssistModel_DissimilarityRelations() {
+		return (EReference)assistModelEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -983,6 +1056,105 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDissimilarityRelation() {
+		return dissimilarityRelationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDissimilarityRelation_Applications() {
+		return (EReference)dissimilarityRelationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDissimilarityRelation_DissimilarityClause() {
+		return (EReference)dissimilarityRelationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDissimilarityClause() {
+		return dissimilarityClauseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDissimilarityEntry() {
+		return dissimilarityEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDissimilarityEntry_CompartmentAttribute() {
+		return (EAttribute)dissimilarityEntryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDissimilarityEntry_BoxAttribute() {
+		return (EAttribute)dissimilarityEntryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDissimilarityEntry_BoardAttribute() {
+		return (EAttribute)dissimilarityEntryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDissimilarityEntry_ProcessorAttribute() {
+		return (EAttribute)dissimilarityEntryEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDissimilarityEntry_CoreAttribute() {
+		return (EAttribute)dissimilarityEntryEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDissimilarityEntry_HardwareLevel() {
+		return (EAttribute)dissimilarityEntryEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMetricParameter() {
 		return metricParameterEClass;
 	}
@@ -1003,6 +1175,51 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EAttribute getMetricParameter_Value() {
 		return (EAttribute)metricParameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCompartmentAttributes() {
+		return compartmentAttributesEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getBoxAttributes() {
+		return boxAttributesEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getBoardAttributes() {
+		return boardAttributesEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getProcessorAttributes() {
+		return processorAttributesEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCoreAttributes() {
+		return coreAttributesEEnum;
 	}
 
 	/**
@@ -1066,6 +1283,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(assistModelEClass, ASSIST_MODEL__APPLICATIONS);
 		createEReference(assistModelEClass, ASSIST_MODEL__DISLOCALITY_RELATIONS);
 		createEReference(assistModelEClass, ASSIST_MODEL__COLOCALITY_RELATIONS);
+		createEReference(assistModelEClass, ASSIST_MODEL__DISSIMILARITY_RELATIONS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_COMPARTMENTS);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_BOXES);
 		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_BOARDS);
@@ -1157,11 +1375,30 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(colocalityRelationEClass, COLOCALITY_RELATION__APPLICATIONS);
 		createEAttribute(colocalityRelationEClass, COLOCALITY_RELATION__HARDWARE_LEVEL);
 
+		dissimilarityRelationEClass = createEClass(DISSIMILARITY_RELATION);
+		createEReference(dissimilarityRelationEClass, DISSIMILARITY_RELATION__APPLICATIONS);
+		createEReference(dissimilarityRelationEClass, DISSIMILARITY_RELATION__DISSIMILARITY_CLAUSE);
+
+		dissimilarityClauseEClass = createEClass(DISSIMILARITY_CLAUSE);
+
+		dissimilarityEntryEClass = createEClass(DISSIMILARITY_ENTRY);
+		createEAttribute(dissimilarityEntryEClass, DISSIMILARITY_ENTRY__COMPARTMENT_ATTRIBUTE);
+		createEAttribute(dissimilarityEntryEClass, DISSIMILARITY_ENTRY__BOX_ATTRIBUTE);
+		createEAttribute(dissimilarityEntryEClass, DISSIMILARITY_ENTRY__BOARD_ATTRIBUTE);
+		createEAttribute(dissimilarityEntryEClass, DISSIMILARITY_ENTRY__PROCESSOR_ATTRIBUTE);
+		createEAttribute(dissimilarityEntryEClass, DISSIMILARITY_ENTRY__CORE_ATTRIBUTE);
+		createEAttribute(dissimilarityEntryEClass, DISSIMILARITY_ENTRY__HARDWARE_LEVEL);
+
 		metricParameterEClass = createEClass(METRIC_PARAMETER);
 		createEAttribute(metricParameterEClass, METRIC_PARAMETER__NAME);
 		createEAttribute(metricParameterEClass, METRIC_PARAMETER__VALUE);
 
 		// Create enums
+		compartmentAttributesEEnum = createEEnum(COMPARTMENT_ATTRIBUTES);
+		boxAttributesEEnum = createEEnum(BOX_ATTRIBUTES);
+		boardAttributesEEnum = createEEnum(BOARD_ATTRIBUTES);
+		processorAttributesEEnum = createEEnum(PROCESSOR_ATTRIBUTES);
+		coreAttributesEEnum = createEEnum(CORE_ATTRIBUTES);
 		hardwareArchitectureLevelTypeEEnum = createEEnum(HARDWARE_ARCHITECTURE_LEVEL_TYPE);
 		designAssuranceLevelTypeEEnum = createEEnum(DESIGN_ASSURANCE_LEVEL_TYPE);
 		ioAdapterTypeEEnum = createEEnum(IO_ADAPTER_TYPE);
@@ -1203,6 +1440,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		boardEClass.getESuperTypes().add(this.getHardwareElement());
 		processorEClass.getESuperTypes().add(this.getHardwareElement());
 		coreEClass.getESuperTypes().add(this.getHardwareElement());
+		dissimilarityEntryEClass.getESuperTypes().add(this.getDissimilarityClause());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(assistModelEClass, AssistModel.class, "AssistModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1211,6 +1449,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getAssistModel_Applications(), this.getApplication(), null, "applications", null, 1, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_DislocalityRelations(), this.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModel_ColocalityRelations(), this.getColocalityRelation(), null, "colocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModel_DissimilarityRelations(), this.getDissimilarityRelation(), null, "dissimilarityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAssistModel__GetAllCompartments(), this.getCompartment(), "getAllCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
@@ -1323,11 +1562,50 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getColocalityRelation_Applications(), this.getApplication(), null, "applications", null, 0, -1, ColocalityRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColocalityRelation_HardwareLevel(), this.getHardwareArchitectureLevelType(), "hardwareLevel", null, 0, 1, ColocalityRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(dissimilarityRelationEClass, DissimilarityRelation.class, "DissimilarityRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDissimilarityRelation_Applications(), this.getApplication(), null, "applications", null, 0, -1, DissimilarityRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDissimilarityRelation_DissimilarityClause(), this.getDissimilarityClause(), null, "dissimilarityClause", null, 1, 1, DissimilarityRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dissimilarityClauseEClass, DissimilarityClause.class, "DissimilarityClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dissimilarityEntryEClass, DissimilarityEntry.class, "DissimilarityEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDissimilarityEntry_CompartmentAttribute(), this.getCompartmentAttributes(), "compartmentAttribute", "None", 0, 1, DissimilarityEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDissimilarityEntry_BoxAttribute(), this.getBoxAttributes(), "boxAttribute", "None", 0, 1, DissimilarityEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDissimilarityEntry_BoardAttribute(), this.getBoardAttributes(), "boardAttribute", "None", 0, 1, DissimilarityEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDissimilarityEntry_ProcessorAttribute(), this.getProcessorAttributes(), "processorAttribute", "None", 0, 1, DissimilarityEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDissimilarityEntry_CoreAttribute(), this.getCoreAttributes(), "coreAttribute", "None", 0, 1, DissimilarityEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDissimilarityEntry_HardwareLevel(), this.getHardwareArchitectureLevelType(), "hardwareLevel", null, 0, 1, DissimilarityEntry.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
 		initEClass(metricParameterEClass, MetricParameter.class, "MetricParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMetricParameter_Name(), theEcorePackage.getEString(), "name", "", 0, 1, MetricParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMetricParameter_Value(), theEcorePackage.getEInt(), "value", "0", 0, 1, MetricParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(compartmentAttributesEEnum, CompartmentAttributes.class, "CompartmentAttributes");
+		addEEnumLiteral(compartmentAttributesEEnum, CompartmentAttributes.NONE);
+		addEEnumLiteral(compartmentAttributesEEnum, CompartmentAttributes.MANUFACTURER);
+		addEEnumLiteral(compartmentAttributesEEnum, CompartmentAttributes.POWERSUPPLY);
+
+		initEEnum(boxAttributesEEnum, BoxAttributes.class, "BoxAttributes");
+		addEEnumLiteral(boxAttributesEEnum, BoxAttributes.NONE);
+		addEEnumLiteral(boxAttributesEEnum, BoxAttributes.MANUFACTURER);
+
+		initEEnum(boardAttributesEEnum, BoardAttributes.class, "BoardAttributes");
+		addEEnumLiteral(boardAttributesEEnum, BoardAttributes.NONE);
+		addEEnumLiteral(boardAttributesEEnum, BoardAttributes.MANUFACTURER);
+		addEEnumLiteral(boardAttributesEEnum, BoardAttributes.BOARDTYPE);
+		addEEnumLiteral(boardAttributesEEnum, BoardAttributes.POWERSUPPLY);
+		addEEnumLiteral(boardAttributesEEnum, BoardAttributes.ASSURANCELEVEL);
+
+		initEEnum(processorAttributesEEnum, ProcessorAttributes.class, "ProcessorAttributes");
+		addEEnumLiteral(processorAttributesEEnum, ProcessorAttributes.NONE);
+		addEEnumLiteral(processorAttributesEEnum, ProcessorAttributes.MANUFACTURER);
+		addEEnumLiteral(processorAttributesEEnum, ProcessorAttributes.PROCESSORTYPE);
+
+		initEEnum(coreAttributesEEnum, CoreAttributes.class, "CoreAttributes");
+		addEEnumLiteral(coreAttributesEEnum, CoreAttributes.NONE);
+		addEEnumLiteral(coreAttributesEEnum, CoreAttributes.ARCHITECTURE);
+
 		initEEnum(hardwareArchitectureLevelTypeEEnum, HardwareArchitectureLevelType.class, "HardwareArchitectureLevelType");
 		addEEnumLiteral(hardwareArchitectureLevelTypeEEnum, HardwareArchitectureLevelType.CORE);
 		addEEnumLiteral(hardwareArchitectureLevelTypeEEnum, HardwareArchitectureLevelType.PROCESSOR);

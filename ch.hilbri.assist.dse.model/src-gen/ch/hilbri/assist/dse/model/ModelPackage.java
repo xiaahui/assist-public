@@ -114,6 +114,15 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL_DSE__COLOCALITY_RELATIONS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS;
 
 	/**
+	 * The feature id for the '<em><b>Dissimilarity Relations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_DSE__DISSIMILARITY_RELATIONS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS;
+
+	/**
 	 * The feature id for the '<em><b>Application Alternatives</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

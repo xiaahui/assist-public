@@ -139,6 +139,33 @@ public interface ModelFactory extends EFactory {
 	ColocalityRelation createColocalityRelation();
 
 	/**
+	 * Returns a new object of class '<em>Dissimilarity Relation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dissimilarity Relation</em>'.
+	 * @generated
+	 */
+	DissimilarityRelation createDissimilarityRelation();
+
+	/**
+	 * Returns a new object of class '<em>Dissimilarity Clause</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dissimilarity Clause</em>'.
+	 * @generated
+	 */
+	DissimilarityClause createDissimilarityClause();
+
+	/**
+	 * Returns a new object of class '<em>Dissimilarity Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dissimilarity Entry</em>'.
+	 * @generated
+	 */
+	DissimilarityEntry createDissimilarityEntry();
+
+	/**
 	 * Returns a new object of class '<em>Metric Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

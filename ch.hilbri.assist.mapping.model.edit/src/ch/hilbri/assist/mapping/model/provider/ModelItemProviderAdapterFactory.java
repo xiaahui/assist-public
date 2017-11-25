@@ -371,6 +371,75 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.DissimilarityRelation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DissimilarityRelationItemProvider dissimilarityRelationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.DissimilarityRelation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDissimilarityRelationAdapter() {
+		if (dissimilarityRelationItemProvider == null) {
+			dissimilarityRelationItemProvider = new DissimilarityRelationItemProvider(this);
+		}
+
+		return dissimilarityRelationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.DissimilarityClause} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DissimilarityClauseItemProvider dissimilarityClauseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.DissimilarityClause}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDissimilarityClauseAdapter() {
+		if (dissimilarityClauseItemProvider == null) {
+			dissimilarityClauseItemProvider = new DissimilarityClauseItemProvider(this);
+		}
+
+		return dissimilarityClauseItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.DissimilarityEntry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DissimilarityEntryItemProvider dissimilarityEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.DissimilarityEntry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDissimilarityEntryAdapter() {
+		if (dissimilarityEntryItemProvider == null) {
+			dissimilarityEntryItemProvider = new DissimilarityEntryItemProvider(this);
+		}
+
+		return dissimilarityEntryItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.MetricParameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -505,6 +574,9 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (ioAdapterRequirementItemProvider != null) ioAdapterRequirementItemProvider.dispose();
 		if (dislocalityRelationItemProvider != null) dislocalityRelationItemProvider.dispose();
 		if (colocalityRelationItemProvider != null) colocalityRelationItemProvider.dispose();
+		if (dissimilarityRelationItemProvider != null) dissimilarityRelationItemProvider.dispose();
+		if (dissimilarityClauseItemProvider != null) dissimilarityClauseItemProvider.dispose();
+		if (dissimilarityEntryItemProvider != null) dissimilarityEntryItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 	}
 

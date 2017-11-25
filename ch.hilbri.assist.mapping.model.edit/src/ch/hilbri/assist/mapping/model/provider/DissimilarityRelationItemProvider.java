@@ -3,7 +3,7 @@
 package ch.hilbri.assist.mapping.model.provider;
 
 
-import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.DissimilarityRelation;
 import ch.hilbri.assist.mapping.model.ModelFactory;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 
@@ -24,17 +24,16 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.mapping.model.AssistModel} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.mapping.model.DissimilarityRelation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AssistModelItemProvider 
+public class DissimilarityRelationItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +47,7 @@ public class AssistModelItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssistModelItemProvider(AdapterFactory adapterFactory) {
+	public DissimilarityRelationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,29 +62,29 @@ public class AssistModelItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSystemNamePropertyDescriptor(object);
+			addApplicationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the System Name feature.
+	 * This adds a property descriptor for the Applications feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSystemNamePropertyDescriptor(Object object) {
+	protected void addApplicationsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssistModel_systemName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_systemName_feature", "_UI_AssistModel_type"),
-				 ModelPackage.Literals.ASSIST_MODEL__SYSTEM_NAME,
+				 getString("_UI_DissimilarityRelation_applications_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DissimilarityRelation_applications_feature", "_UI_DissimilarityRelation_type"),
+				 ModelPackage.Literals.DISSIMILARITY_RELATION__APPLICATIONS,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -102,11 +101,7 @@ public class AssistModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__APPLICATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COLOCALITY_RELATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISSIMILARITY_RELATIONS);
+			childrenFeatures.add(ModelPackage.Literals.DISSIMILARITY_RELATION__DISSIMILARITY_CLAUSE);
 		}
 		return childrenFeatures;
 	}
@@ -125,14 +120,14 @@ public class AssistModelItemProvider
 	}
 
 	/**
-	 * This returns AssistModel.gif.
+	 * This returns DissimilarityRelation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AssistModel"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DissimilarityRelation"));
 	}
 
 	/**
@@ -143,10 +138,7 @@ public class AssistModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AssistModel)object).getSystemName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_AssistModel_type") :
-			getString("_UI_AssistModel_type") + " " + label;
+		return getString("_UI_DissimilarityRelation_type");
 	}
 	
 
@@ -161,15 +153,8 @@ public class AssistModelItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AssistModel.class)) {
-			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
-			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
-			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
-			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
-			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
+		switch (notification.getFeatureID(DissimilarityRelation.class)) {
+			case ModelPackage.DISSIMILARITY_RELATION__DISSIMILARITY_CLAUSE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -189,28 +174,13 @@ public class AssistModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS,
-				 ModelFactory.eINSTANCE.createCompartment()));
+				(ModelPackage.Literals.DISSIMILARITY_RELATION__DISSIMILARITY_CLAUSE,
+				 ModelFactory.eINSTANCE.createDissimilarityClause()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__APPLICATIONS,
-				 ModelFactory.eINSTANCE.createApplication()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS,
-				 ModelFactory.eINSTANCE.createDislocalityRelation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__COLOCALITY_RELATIONS,
-				 ModelFactory.eINSTANCE.createColocalityRelation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__DISSIMILARITY_RELATIONS,
-				 ModelFactory.eINSTANCE.createDissimilarityRelation()));
+				(ModelPackage.Literals.DISSIMILARITY_RELATION__DISSIMILARITY_CLAUSE,
+				 ModelFactory.eINSTANCE.createDissimilarityEntry()));
 	}
 
 	/**

@@ -120,6 +120,18 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createColocalityRelationAdapter();
 			}
 			@Override
+			public Adapter caseDissimilarityRelation(DissimilarityRelation object) {
+				return createDissimilarityRelationAdapter();
+			}
+			@Override
+			public Adapter caseDissimilarityClause(DissimilarityClause object) {
+				return createDissimilarityClauseAdapter();
+			}
+			@Override
+			public Adapter caseDissimilarityEntry(DissimilarityEntry object) {
+				return createDissimilarityEntryAdapter();
+			}
+			@Override
 			public Adapter caseMetricParameter(MetricParameter object) {
 				return createMetricParameterAdapter();
 			}
@@ -322,6 +334,48 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createColocalityRelationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.DissimilarityRelation <em>Dissimilarity Relation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.mapping.model.DissimilarityRelation
+	 * @generated
+	 */
+	public Adapter createDissimilarityRelationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.DissimilarityClause <em>Dissimilarity Clause</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.mapping.model.DissimilarityClause
+	 * @generated
+	 */
+	public Adapter createDissimilarityClauseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry <em>Dissimilarity Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.mapping.model.DissimilarityEntry
+	 * @generated
+	 */
+	public Adapter createDissimilarityEntryAdapter() {
 		return null;
 	}
 

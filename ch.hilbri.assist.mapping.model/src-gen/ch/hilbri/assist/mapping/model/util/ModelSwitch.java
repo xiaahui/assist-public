@@ -149,6 +149,25 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModelPackage.DISSIMILARITY_RELATION: {
+				DissimilarityRelation dissimilarityRelation = (DissimilarityRelation)theEObject;
+				T result = caseDissimilarityRelation(dissimilarityRelation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.DISSIMILARITY_CLAUSE: {
+				DissimilarityClause dissimilarityClause = (DissimilarityClause)theEObject;
+				T result = caseDissimilarityClause(dissimilarityClause);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.DISSIMILARITY_ENTRY: {
+				DissimilarityEntry dissimilarityEntry = (DissimilarityEntry)theEObject;
+				T result = caseDissimilarityEntry(dissimilarityEntry);
+				if (result == null) result = caseDissimilarityClause(dissimilarityEntry);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModelPackage.METRIC_PARAMETER: {
 				MetricParameter metricParameter = (MetricParameter)theEObject;
 				T result = caseMetricParameter(metricParameter);
@@ -351,6 +370,51 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseColocalityRelation(ColocalityRelation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Dissimilarity Relation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Dissimilarity Relation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDissimilarityRelation(DissimilarityRelation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Dissimilarity Clause</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Dissimilarity Clause</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDissimilarityClause(DissimilarityClause object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Dissimilarity Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Dissimilarity Entry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDissimilarityEntry(DissimilarityEntry object) {
 		return null;
 	}
 
