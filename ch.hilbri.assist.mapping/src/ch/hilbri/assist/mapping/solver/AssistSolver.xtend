@@ -79,11 +79,11 @@ class AssistSolver {
 		mappingConstraintsList.add(new ColocalityConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new DislocalityConstraint(assistModel, chocoModel, solverVariables))
 
-				
 		mappingResults 			= newArrayList  
 		
 		/* The identical solution for all variables should not be found twice - if restarts are used */
-		chocoModel.solver.noGoodRecordingFromSolutions = solverVariables.allLocationVariables
+		// Bug in Choco - maybe use more recent version? NoGoodPropagator.initialize is not called
+		// chocoModel.solver.noGoodRecordingFromSolutions = solverVariables.allLocationVariables
 		
 		/* Attach the search monitors */
 		chocoSolver.plugMonitor(monSolutionFound = new SolutionFoundMonitor)
