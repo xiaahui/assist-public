@@ -51,11 +51,4 @@ Workflow {
 			}
 		}
 	}
-
-	/* This creates the .src-gen-keep files in the subfolders for git */
-	component = CreateSrcGenKeepFiles { path = "./src-gen/.src-gen-keep" }
-	component = CreateSrcGenKeepFiles { path = "../ch.hilbri.assist.mapping.dsl.ide/src-gen/.src-gen-keep" 			}
-	component = CreateSrcGenKeepFiles { path = "../ch.hilbri.assist.mapping.dsl.tests/src-gen/.src-gen-keep" 		}
-	component = CreateSrcGenKeepFiles { path = "../ch.hilbri.assist.mapping.dsl.ui/src-gen/.src-gen-keep" 			}
-	component = CreateSrcGenKeepFiles { path = "../ch.hilbri.assist.mapping.dsl.ui.tests/src-gen/.src-gen-keep" 	}
 }
