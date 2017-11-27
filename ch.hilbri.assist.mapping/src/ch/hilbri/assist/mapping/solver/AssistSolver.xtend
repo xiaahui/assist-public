@@ -29,6 +29,7 @@ import org.chocosolver.util.criteria.Criterion
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.solver.constraints.DissimilarityConstraint
 
 class AssistSolver {
 	
@@ -42,8 +43,8 @@ class AssistSolver {
 	private List<Solution> 							chocoSolutions
 	
 	private SolverVariablesContainer 				solverVariables
-	private ArrayList<AbstractModelPreprocessor> 		modelPreprocessors
-	private ArrayList<AbstractMappingConstraint> 		mappingConstraintsList
+	private ArrayList<AbstractModelPreprocessor> 	modelPreprocessors
+	private ArrayList<AbstractMappingConstraint> 	mappingConstraintsList
 	private ArrayList<Result> 						mappingResults
 	
 	private boolean 									savePartialSolution 		= false
@@ -78,6 +79,7 @@ class AssistSolver {
 		mappingConstraintsList.add(new RAMorROMCapacityConstraint(assistModel, chocoModel, solverVariables, RessourceType.ROM))
 		mappingConstraintsList.add(new ColocalityConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new DislocalityConstraint(assistModel, chocoModel, solverVariables))
+		mappingConstraintsList.add(new DissimilarityConstraint(assistModel, chocoModel, solverVariables))
 
 		mappingResults 			= newArrayList  
 		
