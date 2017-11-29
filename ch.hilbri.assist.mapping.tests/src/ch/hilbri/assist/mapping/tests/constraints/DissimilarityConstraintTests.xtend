@@ -4,6 +4,7 @@ import ch.hilbri.assist.mapping.solver.AssistSolver
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mapping.tests.AbstractMappingTest
+import java.util.HashSet
 import org.junit.Assert
 import org.junit.Test
 
@@ -303,5 +304,89 @@ Restrictions {
 		}
 	}
 
+
+	@Test
+	def void testMultipleTasks1() {
+		val assistModel = parser.parse('''
+Global { System = "Example System"; }
+		
+Hardware {
+
+	Compartment C1 {
+		Box C1_B1 {
+			Board C1_B1_B1 {
+				Manufacturer = "MA";
+				Processor C1_B1_B1_P1 {
+					Core C1_B1_B1_P1_C0 { }
+				}
+			}
+		}
+	
+		Box C1_B2 {
+			Board C1_B2_B1 {
+				Manufacturer = "MA";
+				Processor C1_B2_B1_P1 {
+					Core C1_B2_B1_P1_C0 { }
+				}
+			}
+		}
+	}
+
+	Compartment C2 {
+		Box C2_B1 {
+			Board C2_B1_B1 {
+				Manufacturer = "MC";
+				Processor C2_B1_B1_P1 {
+					Core C2_B1_B1_P1_C0 { }
+				}
+			}
+		}
+	}				
+}			
+
+Software {
+	Application A1 { 
+		Task A1_T1 {}
+		Task A1_T2 {}
+	}
+	Application A2 { 
+		Task A2_T1 {}
+	}
+}
+
+Restrictions {
+	A1, A2 dissimilar based on Board.Manufacturer;
+}
+		''')
+		Assert.assertNotNull(assistModel)
+		Assert.assertTrue(assistModel.eResource.errors.isEmpty)
+		
+		val assistSolver = new AssistSolver(assistModel)
+		assistSolver.setSolverSearchStrategy(VariableSelectorTypes.^default, ValueSelectorTypes.^default)
+		assistSolver.solverMaxSolutions = 1000
+		assistSolver.runInitialization
+		assistSolver.runConstraintGeneration
+		assistSolver.runSolutionSearch
+		assistSolver.createSolutions
+
+		Assert.assertEquals(6, assistSolver.results.size)
+		
+		for (result : assistSolver.results) {
+			/* Calculate which board.manufacturers are used by A1 tasks */			
+			val tasksApplicationA1 = assistModel.allTasks.filter[application.name == "A1"]
+			Assert.assertEquals(2, tasksApplicationA1.size)
+			val A1ResultsManufacturers = tasksApplicationA1.map[result.getHardwareElementForTask(it, 2).manufacturer].toSet
+
+			/* Calculate which board.manufacturers are used by A2 tasks */			
+			val tasksApplicationA2 = assistModel.allTasks.filter[application.name == "A2"]
+			Assert.assertEquals(2, tasksApplicationA2.size)
+			val A2ResultsManufacturers = tasksApplicationA2.map[result.getHardwareElementForTask(it, 2).manufacturer].toSet
+			
+			/* Find the intersection between these sets - it should be empty */
+			val intersection = new HashSet(A1ResultsManufacturers)
+			intersection.retainAll(A2ResultsManufacturers)
+			Assert.assertTrue(intersection.isEmpty)			
+		}
+	}
 
 }

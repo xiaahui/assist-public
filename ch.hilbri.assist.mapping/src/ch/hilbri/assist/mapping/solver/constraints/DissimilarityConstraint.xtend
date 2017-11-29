@@ -62,7 +62,6 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 			return chocoModel.allDifferent(taskDissimValueVars)
 				
 		} else {
-			logger.info("We have a problem with the dissimilarity constraints. Feature not implemented")
 			return null
 		}	
 	}
