@@ -3,6 +3,7 @@ package ch.hilbri.assist.mapping.solver.constraints
 import ch.hilbri.assist.mapping.model.Application
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.DissimilarityEntry
+import ch.hilbri.assist.mapping.solver.constraints.choco.ACF
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.List
 import org.chocosolver.solver.Model
@@ -37,7 +38,7 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 			val dissimilarityValues = dissimilarityValuesList.toSet.toList
 
 			// Tasks which are affected by this constraint
-			val tasks = applications.map[tasks].flatten.toSet
+			val tasks = applications.map[tasks].flatten
 
 			// Location Variables for each affected task
 			val taskLocationVars = tasks.map[solverVariables.getLocationVariablesForTask(it).get(hardwareLevelIdx)]	
@@ -62,7 +63,35 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 			return chocoModel.allDifferent(taskDissimValueVars)
 				
 		} else {
-			return null
+			/* Now we have to face the advanced case - we have multiple tasks in an application, so we
+			 * should be careful, that these tasks could be placed to the same hardware element		 */
+			
+			val hardwareLevelIdx = entry.hardwareLevel.value
+			val dissimilarityValuesList = entry.dissimValues
+			val dissimilarityValues = dissimilarityValuesList.toSet.toList
+			val tasks = applications.map[tasks] // this is a list of a list of tasks
+			val taskLocationVars = tasks.map[map[solverVariables.getLocationVariablesForTask(it).get(hardwareLevelIdx)]]
+			val taskDissimValueVars = newArrayList()
+			for (group : tasks) 
+				taskDissimValueVars.add(chocoModel.intVarArray(group.size, 0, dissimilarityValues.size, false).toList)
+			
+			val tuples = new Tuples(true)
+			for (hwElementIdx : 0 ..< model.getAllHardwareElements(hardwareLevelIdx).size) {
+				val dissimValue = dissimilarityValuesList.get(hwElementIdx)
+				val dissimValueIdx = dissimilarityValues.indexOf(dissimValue)
+				tuples.add(hwElementIdx, dissimValueIdx)
+			}
+			
+			for (i : 0 ..< taskLocationVars.size) {
+				for (j : 0 ..< taskLocationVars.get(i).size) {
+					val var1 = taskLocationVars.get(i).get(j)
+					val var2 = taskDissimValueVars.get(i).get(j)
+					chocoModel.table(#[var1, var2], tuples, "GAC3rm+").post
+				}
+			}
+					
+			val domainUnionVars = taskDissimValueVars.map[chocoModel.intVar(0, dissimilarityValues.size-1, false)]
+			return ACF.allDifferent(taskDissimValueVars, domainUnionVars)
 		}	
 	}
 	
