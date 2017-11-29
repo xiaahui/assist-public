@@ -136,36 +136,20 @@ DissimilarityClause:
 //	dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ ;
 
 DissimilarityEntry: 
-	( 'Compartment' '.' compartmentAttribute=CompartmentAttributes ) 	|
-	( 'Box' 			'.'	boxAttribute=BoxAttributes)					|
-	( 'Board' 		'.' boardAttribute=BoardAttributes)				|
-	( 'Processor' 	'.' processorAttribute=ProcessorAttributes)		|
-	( 'Core'			'.' coreAttribute=CoreAttributes)
+	dissimilarityAttribute=DissimilarityAttributes
 ;
 
-enum CompartmentAttributes :
-	MANUFACTURER 	= 'Manufacturer' 	| 
-	POWERSUPPLY	 	= 'PowerSupply'
-;
-	
-enum BoxAttributes :
-	MANUFACTURER 	= 'Manufacturer'
-;
-	
-enum BoardAttributes:
-	MANUFACTURER 	= 'Manufacturer' 			|
-	POWERSUPPLY 		= 'PowerSupply'				|
-	ASSURANCELEVEL 	= 'DesignAssuranceLevel' 	|
-	BOARDTYPE 		= 'Type'
-;
-
-enum ProcessorAttributes:
-	MANUFACTURER 	= 'Manufacturer' 	| 
-	PROCESSORTYPE	= 'ProcessorType' 
-;
-
-enum CoreAttributes:
-	ARCHITECTURE 	= 'Architecture'
+enum DissimilarityAttributes:
+	COMPARTMENT_MANUFACTURER		= 'Compartment.Manufacturer'			|
+	COMPARTMENT_POWERSUPPLY		= 'Compartment.PowerSupply'			|
+	BOX_MANUFACTURER				= 'Box.Manufacturer'					|
+	BOARD_MANUFACTURER			= 'Board.Manufacturer'				|
+	BOARD_BOARDTYPE				= 'Board.Type'						|
+	BOARD_POWERSUPPLY			= 'Board.PowerSupply'				|
+	BOARD_ASSURANCELEVEL			= 'Board.DesignAssuranceLevel'		|
+	PROCESSOR_MANUFACTURER		= 'Processor.Manufacturer'			|
+	PROCESSOR_PROCESSORTYPE		= 'Processor.Type'					|
+	CORE_ARCHITECTURE			= 'Core.Architecture'
 ;
 
 MetricParameter:  

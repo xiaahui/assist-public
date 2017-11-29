@@ -3,7 +3,7 @@
 package ch.hilbri.assist.mapping.model.provider;
 
 
-import ch.hilbri.assist.mapping.model.CompartmentAttributes;
+import ch.hilbri.assist.mapping.model.DissimilarityAttributes;
 import ch.hilbri.assist.mapping.model.DissimilarityEntry;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 
@@ -46,14 +46,32 @@ public class DissimilarityEntryItemProvider extends DissimilarityClauseItemProvi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCompartmentAttributePropertyDescriptor(object);
-			addBoxAttributePropertyDescriptor(object);
-			addBoardAttributePropertyDescriptor(object);
-			addProcessorAttributePropertyDescriptor(object);
-			addCoreAttributePropertyDescriptor(object);
+			addDissimilarityAttributePropertyDescriptor(object);
 			addHardwareLevelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Dissimilarity Attribute feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDissimilarityAttributePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DissimilarityEntry_dissimilarityAttribute_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DissimilarityEntry_dissimilarityAttribute_feature", "_UI_DissimilarityEntry_type"),
+				 ModelPackage.Literals.DISSIMILARITY_ENTRY__DISSIMILARITY_ATTRIBUTE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -71,116 +89,6 @@ public class DissimilarityEntryItemProvider extends DissimilarityClauseItemProvi
 				 getString("_UI_PropertyDescriptor_description", "_UI_DissimilarityEntry_hardwareLevel_feature", "_UI_DissimilarityEntry_type"),
 				 ModelPackage.Literals.DISSIMILARITY_ENTRY__HARDWARE_LEVEL,
 				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Compartment Attribute feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCompartmentAttributePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DissimilarityEntry_compartmentAttribute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DissimilarityEntry_compartmentAttribute_feature", "_UI_DissimilarityEntry_type"),
-				 ModelPackage.Literals.DISSIMILARITY_ENTRY__COMPARTMENT_ATTRIBUTE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Box Attribute feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBoxAttributePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DissimilarityEntry_boxAttribute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DissimilarityEntry_boxAttribute_feature", "_UI_DissimilarityEntry_type"),
-				 ModelPackage.Literals.DISSIMILARITY_ENTRY__BOX_ATTRIBUTE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Board Attribute feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBoardAttributePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DissimilarityEntry_boardAttribute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DissimilarityEntry_boardAttribute_feature", "_UI_DissimilarityEntry_type"),
-				 ModelPackage.Literals.DISSIMILARITY_ENTRY__BOARD_ATTRIBUTE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Processor Attribute feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addProcessorAttributePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DissimilarityEntry_processorAttribute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DissimilarityEntry_processorAttribute_feature", "_UI_DissimilarityEntry_type"),
-				 ModelPackage.Literals.DISSIMILARITY_ENTRY__PROCESSOR_ATTRIBUTE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Core Attribute feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCoreAttributePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DissimilarityEntry_coreAttribute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DissimilarityEntry_coreAttribute_feature", "_UI_DissimilarityEntry_type"),
-				 ModelPackage.Literals.DISSIMILARITY_ENTRY__CORE_ATTRIBUTE,
-				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -207,7 +115,7 @@ public class DissimilarityEntryItemProvider extends DissimilarityClauseItemProvi
 	 */
 	@Override
 	public String getText(Object object) {
-		CompartmentAttributes labelValue = ((DissimilarityEntry)object).getCompartmentAttribute();
+		DissimilarityAttributes labelValue = ((DissimilarityEntry)object).getDissimilarityAttribute();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DissimilarityEntry_type") :
@@ -227,11 +135,7 @@ public class DissimilarityEntryItemProvider extends DissimilarityClauseItemProvi
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DissimilarityEntry.class)) {
-			case ModelPackage.DISSIMILARITY_ENTRY__COMPARTMENT_ATTRIBUTE:
-			case ModelPackage.DISSIMILARITY_ENTRY__BOX_ATTRIBUTE:
-			case ModelPackage.DISSIMILARITY_ENTRY__BOARD_ATTRIBUTE:
-			case ModelPackage.DISSIMILARITY_ENTRY__PROCESSOR_ATTRIBUTE:
-			case ModelPackage.DISSIMILARITY_ENTRY__CORE_ATTRIBUTE:
+			case ModelPackage.DISSIMILARITY_ENTRY__DISSIMILARITY_ATTRIBUTE:
 			case ModelPackage.DISSIMILARITY_ENTRY__HARDWARE_LEVEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

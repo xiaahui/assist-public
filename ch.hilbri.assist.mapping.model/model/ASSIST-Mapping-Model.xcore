@@ -21,17 +21,12 @@ class AssistModel {
 	op Task[]			getAllTasks() 			{ applications.map[tasks].flatten.toEList				}
 	
 	op HardwareElement[] getAllHardwareElements(int level) {
-		if (level == 0)
-			allCores.map[it as HardwareElement]
-		else if (level == 1)
-			allProcessors.map[it as HardwareElement]
-		else if (level == 2)
-			allBoards.map[it as HardwareElement]
-		else if (level == 3)
-			allBoxes.map[it as HardwareElement]
-		else if (level == 4) 
-			allCompartments.map[it as HardwareElement] 
-		else null
+		if (level == 0)			allCores.map[it as HardwareElement]
+		else if (level == 1)		allProcessors.map[it as HardwareElement]
+		else if (level == 2)		allBoards.map[it as HardwareElement]
+		else if (level == 3)		allBoxes.map[it as HardwareElement]
+		else if (level == 4)		allCompartments.map[it as HardwareElement] 
+		else 					null
 	}
 }
 
@@ -44,61 +39,39 @@ class HardwareElement {
 class Compartment extends HardwareElement {
 	String powerSupply	= ""
 	contains Box[1..*] boxes opposite compartment
-	op Box[] 			getAllBoxes() {
-		boxes
-	}
-	op Board[] 			getAllBoards() {
-		boxes.map[allBoards].flatten.toEList
-	}
-	op Processor[] 		getAllProcessors() {
-		boxes.map[allProcessors].flatten.toEList
-	}
-	op Core[] 			getAllCores() {
-		boxes.map[allCores].flatten.toEList
-	}
+	op Box[] 			getAllBoxes() 		{ boxes	}
+	op Board[] 			getAllBoards() 		{ boxes.map[allBoards].flatten.toEList 		}
+	op Processor[] 		getAllProcessors() 	{ boxes.map[allProcessors].flatten.toEList 	}
+	op Core[] 			getAllCores() 		{ boxes.map[allCores].flatten.toEList		}
 }
 
 class Box extends HardwareElement {
 	container Compartment compartment opposite boxes
 	contains Board[0..*] boards opposite box
-	op Board[] 			getAllBoards() {
-		boards
-	}
-	op Processor[] 		getAllProcessors() {
-		boards.map[allProcessors].flatten.toEList
-	}
-	op Core[] 			getAllCores() {
-		boards.map[allCores].flatten.toEList
-	}
+	op Board[] 			getAllBoards() 		{ boards }
+	op Processor[] 		getAllProcessors() 	{ boards.map[allProcessors].flatten.toEList 	}
+	op Core[] 			getAllCores() 		{ boards.map[allCores].flatten.toEList		}
 }
 
 class Board extends HardwareElement {
 	String 							boardType		= ""
 	String 							powerSupply		= ""
 	DesignAssuranceLevelType 		assuranceLevel 	= "None"
-	int 								ramCapacity 	= "0"
-	int 								romCapacity 	= "0"
+	int 								ramCapacity 		= "0"
+	int 								romCapacity 		= "0"
 	container 	Box 				box 			opposite boards
 	contains 	Processor[1..*] 	processors 	opposite board
 	contains 	IOAdapter[0..*] 	ioAdapters
-	op String			toString() {
-		name
-	}
-	op Processor[] 		getAllProcessors() {
-		processors
-	}
-	op Core[] 			getAllCores() {
-		processors.map[allCores].flatten.toEList
-	}
+	op String			toString() 			{ name }
+	op Processor[] 		getAllProcessors() 	{ processors }
+	op Core[] 			getAllCores() 		{ processors.map[allCores].flatten.toEList }
 }
 
 class Processor extends HardwareElement {
 	String processorType = ""
 	container Board board opposite processors
 	contains Core[1..*] cores opposite processor
-	op Core[] getAllCores() {
-		cores
-	}
+	op Core[] getAllCores() { cores }
 }
 
 class Core extends HardwareElement {
@@ -120,9 +93,7 @@ class Application {
 	contains Task[1..*] 				tasks 				opposite application
 	contains MetricParameter[0..*] 	metricParameters
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
-	op String 			toString() {
-		name
-	}
+	op String 			toString() { name }
 }
 
 class Task {
@@ -134,9 +105,7 @@ class Task {
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
 	contains MetricParameter[0..*] metricParameters
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
-	op String 			toString() {
-		name
-	}
+	op String 			toString() { name }
 }
 
 /* *********************************************** */
@@ -164,28 +133,37 @@ class DissimilarityRelation {
 	contains DissimilarityClause[1] dissimilarityClause
 }
 
-class DissimilarityClause {
-}
+class DissimilarityClause {}
 
 class DissimilarityEntry extends DissimilarityClause {
-	CompartmentAttributes 	compartmentAttribute 	= "None"
-	BoxAttributes 			boxAttribute				= "None"
-	BoardAttributes 			boardAttribute			= "None"
-	ProcessorAttributes 		processorAttribute		= "None"
-	CoreAttributes			coreAttribute			= "None"
-	
+	DissimilarityAttributes dissimilarityAttribute
 	derived HardwareArchitectureLevelType hardwareLevel get {
-		if (compartmentAttribute != CompartmentAttributes.NONE)
-			HardwareArchitectureLevelType.COMPARTMENT
-		else if (boxAttribute != BoxAttributes.NONE)
-			HardwareArchitectureLevelType.BOX
-		else if (boardAttribute != BoardAttributes.NONE)
-			HardwareArchitectureLevelType.BOARD
-		else if (processorAttribute != ProcessorAttributes.NONE) 
-			HardwareArchitectureLevelType.PROCESSOR 
-		else 
-			HardwareArchitectureLevelType.CORE
+		switch (dissimilarityAttribute) {
+			case COMPARTMENT_MANUFACTURER: 	{ return HardwareArchitectureLevelType.COMPARTMENT 	}	
+			case COMPARTMENT_POWERSUPPLY: 	{ return HardwareArchitectureLevelType.COMPARTMENT	}
+			case BOX_MANUFACTURER: 			{ return HardwareArchitectureLevelType.BOX			}
+			case BOARD_MANUFACTURER: 		{ return HardwareArchitectureLevelType.BOARD			}
+			case BOARD_BOARDTYPE: 			{ return HardwareArchitectureLevelType.BOARD			}		
+			case BOARD_POWERSUPPLY: 			{ return HardwareArchitectureLevelType.BOARD			}
+			case BOARD_ASSURANCELEVEL: 		{ return HardwareArchitectureLevelType.BOARD			}
+			case PROCESSOR_MANUFACTURER: 	{ return HardwareArchitectureLevelType.BOARD			}
+			case PROCESSOR_PROCESSORTYPE: 	{ return HardwareArchitectureLevelType.BOARD			}
+			case CORE_ARCHITECTURE: 			{ return HardwareArchitectureLevelType.BOARD			}
+		}
 	}
+}
+
+enum DissimilarityAttributes {
+	COMPARTMENT_MANUFACTURER		as "Compartment.Manufacturer"
+	COMPARTMENT_POWERSUPPLY		as "Compartment.PowerSupply"
+	BOX_MANUFACTURER				as "Box.Manufacturer"
+	BOARD_MANUFACTURER			as "Board.Manufacturer"
+	BOARD_BOARDTYPE				as "Board.Type"
+	BOARD_POWERSUPPLY			as "Board.PowerSupply"
+	BOARD_ASSURANCELEVEL			as "Board.DesignAssuranceLevel"
+	PROCESSOR_MANUFACTURER		as "Processor.Manufacturer"
+	PROCESSOR_PROCESSORTYPE		as "Processor.Type"
+	CORE_ARCHITECTURE			as "Core.Architecture"
 }
 
 // OR
@@ -196,35 +174,6 @@ class DissimilarityEntry extends DissimilarityClause {
 //class DissimilarityConjunction extends DissimilarityClause  {
 //	contains DissimilarityClause[2..*] dissimilarityClauses
 //}
-enum CompartmentAttributes {
-	NONE 			as "None"
-	MANUFACTURER		as "Manufacturer"
-	POWERSUPPLY		as "PowerSupply"
-}
-
-enum BoxAttributes {
-	NONE				as "None"
-	MANUFACTURER		as "Manufacturer"
-}
-
-enum BoardAttributes {
-	NONE				as "None"
-	MANUFACTURER		as "Manufacturer"
-	BOARDTYPE		as "Type"
-	POWERSUPPLY		as "PowerSupply"
-	ASSURANCELEVEL	as "DesignAssuranceLevel"
-}
-
-enum ProcessorAttributes {
-	NONE				as "None"
-	MANUFACTURER		as "Manufacturer"
-	PROCESSORTYPE	as "Type"
-}
-
-enum CoreAttributes {
-	NONE				as "None"
-	ARCHITECTURE		as "Architecture"
-}
 
 class MetricParameter {
 	String name = ""

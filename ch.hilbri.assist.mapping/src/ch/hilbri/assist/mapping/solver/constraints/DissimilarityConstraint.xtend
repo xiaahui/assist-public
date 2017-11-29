@@ -68,46 +68,17 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 	}
 	
 	private def getDissimValues(DissimilarityEntry entry) {
-		switch entry.hardwareLevel {
-				case CORE: {
-					switch entry.coreAttribute {
-						case ARCHITECTURE: 		{ model.allCores.map[architecture]		 		}
-						case NONE: 				{ #[] 											}
-					} 
-				}
-				
-				case PROCESSOR: {
-					switch entry.processorAttribute {
-						case MANUFACTURER: 		{ model.allProcessors.map[manufacturer] 		}
-						case PROCESSORTYPE: 	{ model.allProcessors.map[processorType]		}
-						case NONE: 				{ #[]											}
-					}
-				}
-				
-				case BOARD: {
-					switch entry.boardAttribute {
-						case MANUFACTURER: 		{ model.allBoards.map[manufacturer]				}
-						case BOARDTYPE: 		{ model.allBoards.map[boardType]				}
-						case POWERSUPPLY: 		{ model.allBoards.map[powerSupply]				}
-						case ASSURANCELEVEL: 	{ model.allBoards.map[assuranceLevel.literal]	}
-						case NONE: 				{ #[]											}
-					}
-				}
-				
-				case BOX: {
-					switch entry.boxAttribute {
-						case MANUFACTURER: 		{ model.allBoxes.map[manufacturer]				}
-						case NONE: 				{ #[]											}
-					}
-				}
-				
-				case COMPARTMENT: {
-					switch entry.compartmentAttribute {
-						case MANUFACTURER: 		{ model.allCompartments.map[manufacturer]		}
-						case POWERSUPPLY: 		{ model.allCompartments.map[powerSupply]		}
-						case NONE: 				{ #[]											}
-					}
-				}
+		switch entry.dissimilarityAttribute {
+			case COMPARTMENT_MANUFACTURER: 	{ model.allCompartments.map[manufacturer]			}
+			case COMPARTMENT_POWERSUPPLY: 	{ model.allCompartments.map[powerSupply]			}
+			case BOX_MANUFACTURER: 			{ model.allBoxes.map[manufacturer]				}
+			case BOARD_MANUFACTURER: 		{ model.allBoards.map[manufacturer]				}
+			case BOARD_BOARDTYPE: 			{ model.allBoards.map[boardType]					}
+			case BOARD_POWERSUPPLY: 			{ model.allBoards.map[powerSupply]				}
+			case BOARD_ASSURANCELEVEL: 		{ model.allBoards.map[assuranceLevel.literal]		}
+			case PROCESSOR_MANUFACTURER: 	{ model.allProcessors.map[manufacturer]			}
+			case PROCESSOR_PROCESSORTYPE: 	{ model.allProcessors.map[processorType]			}
+			case CORE_ARCHITECTURE: 			{ model.allCores.map[architecture]				}
 		}
 	}
 }

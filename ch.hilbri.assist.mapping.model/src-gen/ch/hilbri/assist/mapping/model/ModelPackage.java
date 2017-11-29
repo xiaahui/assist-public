@@ -1292,49 +1292,13 @@ public interface ModelPackage extends EPackage {
 	int DISSIMILARITY_ENTRY = 15;
 
 	/**
-	 * The feature id for the '<em><b>Compartment Attribute</b></em>' attribute.
+	 * The feature id for the '<em><b>Dissimilarity Attribute</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISSIMILARITY_ENTRY__COMPARTMENT_ATTRIBUTE = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Box Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_ENTRY__BOX_ATTRIBUTE = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Board Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_ENTRY__BOARD_ATTRIBUTE = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Processor Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_ENTRY__PROCESSOR_ATTRIBUTE = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Core Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISSIMILARITY_ENTRY__CORE_ATTRIBUTE = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 4;
+	int DISSIMILARITY_ENTRY__DISSIMILARITY_ATTRIBUTE = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Hardware Level</b></em>' attribute.
@@ -1343,7 +1307,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISSIMILARITY_ENTRY__HARDWARE_LEVEL = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 5;
+	int DISSIMILARITY_ENTRY__HARDWARE_LEVEL = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Dissimilarity Entry</em>' class.
@@ -1352,7 +1316,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISSIMILARITY_ENTRY_FEATURE_COUNT = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 6;
+	int DISSIMILARITY_ENTRY_FEATURE_COUNT = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Dissimilarity Entry</em>' class.
@@ -1410,54 +1374,14 @@ public interface ModelPackage extends EPackage {
 	int METRIC_PARAMETER_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.CompartmentAttributes <em>Compartment Attributes</em>}' enum.
+	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.DissimilarityAttributes <em>Dissimilarity Attributes</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.CompartmentAttributes
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getCompartmentAttributes()
+	 * @see ch.hilbri.assist.mapping.model.DissimilarityAttributes
+	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityAttributes()
 	 * @generated
 	 */
-	int COMPARTMENT_ATTRIBUTES = 17;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.BoxAttributes <em>Box Attributes</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.BoxAttributes
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoxAttributes()
-	 * @generated
-	 */
-	int BOX_ATTRIBUTES = 18;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.BoardAttributes <em>Board Attributes</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.BoardAttributes
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoardAttributes()
-	 * @generated
-	 */
-	int BOARD_ATTRIBUTES = 19;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.ProcessorAttributes <em>Processor Attributes</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.ProcessorAttributes
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getProcessorAttributes()
-	 * @generated
-	 */
-	int PROCESSOR_ATTRIBUTES = 20;
-
-	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.CoreAttributes <em>Core Attributes</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.CoreAttributes
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getCoreAttributes()
-	 * @generated
-	 */
-	int CORE_ATTRIBUTES = 21;
+	int DISSIMILARITY_ATTRIBUTES = 17;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
@@ -1467,7 +1391,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
 	 * @generated
 	 */
-	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 22;
+	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 18;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -1477,7 +1401,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
 	 * @generated
 	 */
-	int DESIGN_ASSURANCE_LEVEL_TYPE = 23;
+	int DESIGN_ASSURANCE_LEVEL_TYPE = 19;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.IOAdapterType <em>IO Adapter Type</em>}' enum.
@@ -1487,7 +1411,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getIOAdapterType()
 	 * @generated
 	 */
-	int IO_ADAPTER_TYPE = 24;
+	int IO_ADAPTER_TYPE = 20;
 
 
 	/**
@@ -2445,59 +2369,15 @@ public interface ModelPackage extends EPackage {
 	EClass getDissimilarityEntry();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry#getCompartmentAttribute <em>Compartment Attribute</em>}'.
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry#getDissimilarityAttribute <em>Dissimilarity Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Compartment Attribute</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityEntry#getCompartmentAttribute()
+	 * @return the meta object for the attribute '<em>Dissimilarity Attribute</em>'.
+	 * @see ch.hilbri.assist.mapping.model.DissimilarityEntry#getDissimilarityAttribute()
 	 * @see #getDissimilarityEntry()
 	 * @generated
 	 */
-	EAttribute getDissimilarityEntry_CompartmentAttribute();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry#getBoxAttribute <em>Box Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Box Attribute</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityEntry#getBoxAttribute()
-	 * @see #getDissimilarityEntry()
-	 * @generated
-	 */
-	EAttribute getDissimilarityEntry_BoxAttribute();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry#getBoardAttribute <em>Board Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Board Attribute</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityEntry#getBoardAttribute()
-	 * @see #getDissimilarityEntry()
-	 * @generated
-	 */
-	EAttribute getDissimilarityEntry_BoardAttribute();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry#getProcessorAttribute <em>Processor Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Processor Attribute</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityEntry#getProcessorAttribute()
-	 * @see #getDissimilarityEntry()
-	 * @generated
-	 */
-	EAttribute getDissimilarityEntry_ProcessorAttribute();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry#getCoreAttribute <em>Core Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Core Attribute</em>'.
-	 * @see ch.hilbri.assist.mapping.model.DissimilarityEntry#getCoreAttribute()
-	 * @see #getDissimilarityEntry()
-	 * @generated
-	 */
-	EAttribute getDissimilarityEntry_CoreAttribute();
+	EAttribute getDissimilarityEntry_DissimilarityAttribute();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry#getHardwareLevel <em>Hardware Level</em>}'.
@@ -2543,54 +2423,14 @@ public interface ModelPackage extends EPackage {
 	EAttribute getMetricParameter_Value();
 
 	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.mapping.model.CompartmentAttributes <em>Compartment Attributes</em>}'.
+	 * Returns the meta object for enum '{@link ch.hilbri.assist.mapping.model.DissimilarityAttributes <em>Dissimilarity Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Compartment Attributes</em>'.
-	 * @see ch.hilbri.assist.mapping.model.CompartmentAttributes
+	 * @return the meta object for enum '<em>Dissimilarity Attributes</em>'.
+	 * @see ch.hilbri.assist.mapping.model.DissimilarityAttributes
 	 * @generated
 	 */
-	EEnum getCompartmentAttributes();
-
-	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.mapping.model.BoxAttributes <em>Box Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Box Attributes</em>'.
-	 * @see ch.hilbri.assist.mapping.model.BoxAttributes
-	 * @generated
-	 */
-	EEnum getBoxAttributes();
-
-	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.mapping.model.BoardAttributes <em>Board Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Board Attributes</em>'.
-	 * @see ch.hilbri.assist.mapping.model.BoardAttributes
-	 * @generated
-	 */
-	EEnum getBoardAttributes();
-
-	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.mapping.model.ProcessorAttributes <em>Processor Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Processor Attributes</em>'.
-	 * @see ch.hilbri.assist.mapping.model.ProcessorAttributes
-	 * @generated
-	 */
-	EEnum getProcessorAttributes();
-
-	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.mapping.model.CoreAttributes <em>Core Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Core Attributes</em>'.
-	 * @see ch.hilbri.assist.mapping.model.CoreAttributes
-	 * @generated
-	 */
-	EEnum getCoreAttributes();
+	EEnum getDissimilarityAttributes();
 
 	/**
 	 * Returns the meta object for enum '{@link ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}'.
@@ -3398,44 +3238,12 @@ public interface ModelPackage extends EPackage {
 		EClass DISSIMILARITY_ENTRY = eINSTANCE.getDissimilarityEntry();
 
 		/**
-		 * The meta object literal for the '<em><b>Compartment Attribute</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Dissimilarity Attribute</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DISSIMILARITY_ENTRY__COMPARTMENT_ATTRIBUTE = eINSTANCE.getDissimilarityEntry_CompartmentAttribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Box Attribute</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DISSIMILARITY_ENTRY__BOX_ATTRIBUTE = eINSTANCE.getDissimilarityEntry_BoxAttribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Board Attribute</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DISSIMILARITY_ENTRY__BOARD_ATTRIBUTE = eINSTANCE.getDissimilarityEntry_BoardAttribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Processor Attribute</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DISSIMILARITY_ENTRY__PROCESSOR_ATTRIBUTE = eINSTANCE.getDissimilarityEntry_ProcessorAttribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Core Attribute</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DISSIMILARITY_ENTRY__CORE_ATTRIBUTE = eINSTANCE.getDissimilarityEntry_CoreAttribute();
+		EAttribute DISSIMILARITY_ENTRY__DISSIMILARITY_ATTRIBUTE = eINSTANCE.getDissimilarityEntry_DissimilarityAttribute();
 
 		/**
 		 * The meta object literal for the '<em><b>Hardware Level</b></em>' attribute feature.
@@ -3472,54 +3280,14 @@ public interface ModelPackage extends EPackage {
 		EAttribute METRIC_PARAMETER__VALUE = eINSTANCE.getMetricParameter_Value();
 
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.CompartmentAttributes <em>Compartment Attributes</em>}' enum.
+		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.DissimilarityAttributes <em>Dissimilarity Attributes</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.CompartmentAttributes
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getCompartmentAttributes()
+		 * @see ch.hilbri.assist.mapping.model.DissimilarityAttributes
+		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityAttributes()
 		 * @generated
 		 */
-		EEnum COMPARTMENT_ATTRIBUTES = eINSTANCE.getCompartmentAttributes();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.BoxAttributes <em>Box Attributes</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.BoxAttributes
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoxAttributes()
-		 * @generated
-		 */
-		EEnum BOX_ATTRIBUTES = eINSTANCE.getBoxAttributes();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.BoardAttributes <em>Board Attributes</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.BoardAttributes
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getBoardAttributes()
-		 * @generated
-		 */
-		EEnum BOARD_ATTRIBUTES = eINSTANCE.getBoardAttributes();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.ProcessorAttributes <em>Processor Attributes</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.ProcessorAttributes
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getProcessorAttributes()
-		 * @generated
-		 */
-		EEnum PROCESSOR_ATTRIBUTES = eINSTANCE.getProcessorAttributes();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.CoreAttributes <em>Core Attributes</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.CoreAttributes
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getCoreAttributes()
-		 * @generated
-		 */
-		EEnum CORE_ATTRIBUTES = eINSTANCE.getCoreAttributes();
+		EEnum DISSIMILARITY_ATTRIBUTES = eINSTANCE.getDissimilarityAttributes();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.

@@ -87,16 +87,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case ModelPackage.COMPARTMENT_ATTRIBUTES:
-				return createCompartmentAttributesFromString(eDataType, initialValue);
-			case ModelPackage.BOX_ATTRIBUTES:
-				return createBoxAttributesFromString(eDataType, initialValue);
-			case ModelPackage.BOARD_ATTRIBUTES:
-				return createBoardAttributesFromString(eDataType, initialValue);
-			case ModelPackage.PROCESSOR_ATTRIBUTES:
-				return createProcessorAttributesFromString(eDataType, initialValue);
-			case ModelPackage.CORE_ATTRIBUTES:
-				return createCoreAttributesFromString(eDataType, initialValue);
+			case ModelPackage.DISSIMILARITY_ATTRIBUTES:
+				return createDissimilarityAttributesFromString(eDataType, initialValue);
 			case ModelPackage.HARDWARE_ARCHITECTURE_LEVEL_TYPE:
 				return createHardwareArchitectureLevelTypeFromString(eDataType, initialValue);
 			case ModelPackage.DESIGN_ASSURANCE_LEVEL_TYPE:
@@ -116,16 +108,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case ModelPackage.COMPARTMENT_ATTRIBUTES:
-				return convertCompartmentAttributesToString(eDataType, instanceValue);
-			case ModelPackage.BOX_ATTRIBUTES:
-				return convertBoxAttributesToString(eDataType, instanceValue);
-			case ModelPackage.BOARD_ATTRIBUTES:
-				return convertBoardAttributesToString(eDataType, instanceValue);
-			case ModelPackage.PROCESSOR_ATTRIBUTES:
-				return convertProcessorAttributesToString(eDataType, instanceValue);
-			case ModelPackage.CORE_ATTRIBUTES:
-				return convertCoreAttributesToString(eDataType, instanceValue);
+			case ModelPackage.DISSIMILARITY_ATTRIBUTES:
+				return convertDissimilarityAttributesToString(eDataType, instanceValue);
 			case ModelPackage.HARDWARE_ARCHITECTURE_LEVEL_TYPE:
 				return convertHardwareArchitectureLevelTypeToString(eDataType, instanceValue);
 			case ModelPackage.DESIGN_ASSURANCE_LEVEL_TYPE:
@@ -312,8 +296,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompartmentAttributes createCompartmentAttributesFromString(EDataType eDataType, String initialValue) {
-		CompartmentAttributes result = CompartmentAttributes.get(initialValue);
+	public DissimilarityAttributes createDissimilarityAttributesFromString(EDataType eDataType, String initialValue) {
+		DissimilarityAttributes result = DissimilarityAttributes.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -323,87 +307,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertCompartmentAttributesToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BoxAttributes createBoxAttributesFromString(EDataType eDataType, String initialValue) {
-		BoxAttributes result = BoxAttributes.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertBoxAttributesToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BoardAttributes createBoardAttributesFromString(EDataType eDataType, String initialValue) {
-		BoardAttributes result = BoardAttributes.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertBoardAttributesToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessorAttributes createProcessorAttributesFromString(EDataType eDataType, String initialValue) {
-		ProcessorAttributes result = ProcessorAttributes.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertProcessorAttributesToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CoreAttributes createCoreAttributesFromString(EDataType eDataType, String initialValue) {
-		CoreAttributes result = CoreAttributes.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertCoreAttributesToString(EDataType eDataType, Object instanceValue) {
+	public String convertDissimilarityAttributesToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
