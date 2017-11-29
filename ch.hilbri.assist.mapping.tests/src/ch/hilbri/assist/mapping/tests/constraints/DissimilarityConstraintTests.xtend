@@ -321,7 +321,15 @@ Hardware {
 				}
 			}
 		}
-	
+		
+		Box C1_B2 {
+			Board C1_B2_B1 {
+				Manufacturer = "MA";
+				Processor C1_B1_B1_P1 {
+					Core C1_B1_B1_P1_C0 { }
+				}
+			}
+		}
 	}
 
 	Compartment C2 {
@@ -361,7 +369,7 @@ Restrictions {
 		assistSolver.runSolutionSearch
 		assistSolver.createSolutions
 
-//		Assert.assertEquals(6, assistSolver.results.size)
+		Assert.assertEquals(6, assistSolver.results.size)
 		
 		for (result : assistSolver.results) {
 			/* Calculate which board.manufacturers are used by A1 tasks */			
