@@ -30,6 +30,7 @@ import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import ch.hilbri.assist.mapping.solver.constraints.DissimilarityConstraint
+import org.chocosolver.solver.constraints.nary.nogood.NogoodConstraint
 
 class AssistSolver {
 	
@@ -84,8 +85,11 @@ class AssistSolver {
 		mappingResults 			= newArrayList  
 		
 		/* The identical solution for all variables should not be found twice - if restarts are used */
-		// Bug in Choco - maybe use more recent version? NoGoodPropagator.initialize is not called
-		// chocoModel.solver.noGoodRecordingFromSolutions = solverVariables.allLocationVariables
+		// We have to initialize this stuff here - it is initialized when we call solve()
+		// but obviously fails, when we call propagate() earlier during constraint generation
+		chocoModel.solver.noGoodRecordingFromSolutions = solverVariables.allLocationVariables
+		val noGoodConstraint = chocoModel.getHook(Model.NOGOODS_HOOK_NAME) as NogoodConstraint
+		noGoodConstraint.propNogoods.initialize()
 		
 		/* Attach the search monitors */
 		chocoSolver.plugMonitor(monSolutionFound = new SolutionFoundMonitor)
