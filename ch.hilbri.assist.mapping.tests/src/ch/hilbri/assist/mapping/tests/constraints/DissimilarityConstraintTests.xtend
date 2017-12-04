@@ -453,13 +453,11 @@ Restrictions {
 		Assert.assertEquals(6, assistSolver.results.size)
 		
 		for (result : assistSolver.results) {
-			/* Calculate which board.manufacturers are used by A1 tasks */			
 			val tasksApplicationA1 = assistModel.allTasks.filter[application.name == "A1"]
 			Assert.assertEquals(1, tasksApplicationA1.size)
 			val A1BoardManufacturer = tasksApplicationA1.map[result.getHardwareElementForTask(it, 2).manufacturer].head
 			val A1CompManufacturer  = tasksApplicationA1.map[result.getHardwareElementForTask(it, 4).manufacturer].head
 
-			/* Calculate which board.manufacturers are used by A2 tasks */			
 			val tasksApplicationA2 = assistModel.allTasks.filter[application.name == "A2"]
 			Assert.assertEquals(1, tasksApplicationA2.size)
 			val A2BoardManufacturers = tasksApplicationA2.map[result.getHardwareElementForTask(it, 2).manufacturer].head
