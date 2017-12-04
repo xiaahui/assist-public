@@ -9,6 +9,9 @@ import java.util.List
 import org.chocosolver.solver.Model
 import org.chocosolver.solver.constraints.Constraint
 import org.chocosolver.solver.constraints.^extension.Tuples
+import ch.hilbri.assist.mapping.model.DissimilarityClause
+import ch.hilbri.assist.mapping.model.DissimilarityConjunction
+import ch.hilbri.assist.mapping.model.DissimilarityDisjunction
 
 class DissimilarityConstraint extends AbstractMappingConstraint {
 	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
@@ -20,19 +23,33 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 		
 		for (dissimRelation : model.dissimilarityRelations) {
 			val dissimClause  = dissimRelation.dissimilarityClause
-			if (dissimClause instanceof DissimilarityEntry) {
-				val constraint = generateConstraint(dissimRelation.applications, dissimClause)
-				if (constraint !== null) {
-					chocoModel.post(constraint)
-					worked = true	
-				}				 	
-			}
+			val constraint = generateConstraint(dissimRelation.applications, dissimClause)
+			if (constraint !== null) {
+				chocoModel.post(constraint)
+				worked = true	
+			}				 	
 		}
-	
 		return worked
 	}
 	
-	private def Constraint generateConstraint(List<Application> applications, DissimilarityEntry entry) {
+
+	private def Constraint generateConstraint(List<Application> applications, DissimilarityClause clause) {
+		if (clause instanceof DissimilarityConjunction) {
+			val constraints = clause.dissimilarityClauses.map[generateConstraint(applications, it)]
+			return chocoModel.and(constraints)
+		} 
+		else if (clause instanceof DissimilarityDisjunction) {
+			val constraints = clause.dissimilarityClauses.map[generateConstraint(applications, it)]
+			return chocoModel.or(constraints)
+		} 
+		else if (clause instanceof DissimilarityEntry) {
+			return generateBasicConstraint(applications, clause)
+		}
+		else 
+			return null
+	}
+	
+	private def Constraint generateBasicConstraint(List<Application> applications, DissimilarityEntry entry) {
 		
 		// Which level in the hardware hierarchy is affected?	
 		val hardwareLevelIdx = entry.hardwareLevel.value
@@ -93,16 +110,16 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 	/* Just a helper function to have the code more concise */
 	private def getDissimValues(DissimilarityEntry entry) {
 		switch entry.dissimilarityAttribute {
-			case COMPARTMENT_MANUFACTURER: 	{ model.allCompartments.map[manufacturer]			}
-			case COMPARTMENT_POWERSUPPLY: 	{ model.allCompartments.map[powerSupply]			}
+			case COMPARTMENT_MANUFACTURER: 	{ model.allCompartments.map[manufacturer]		}
+			case COMPARTMENT_POWERSUPPLY: 	{ model.allCompartments.map[powerSupply]		}
 			case BOX_MANUFACTURER: 			{ model.allBoxes.map[manufacturer]				}
 			case BOARD_MANUFACTURER: 		{ model.allBoards.map[manufacturer]				}
-			case BOARD_BOARDTYPE: 			{ model.allBoards.map[boardType]					}
-			case BOARD_POWERSUPPLY: 			{ model.allBoards.map[powerSupply]				}
-			case BOARD_ASSURANCELEVEL: 		{ model.allBoards.map[assuranceLevel.literal]		}
+			case BOARD_BOARDTYPE: 			{ model.allBoards.map[boardType]				}
+			case BOARD_POWERSUPPLY: 		{ model.allBoards.map[powerSupply]				}
+			case BOARD_ASSURANCELEVEL: 		{ model.allBoards.map[assuranceLevel.literal]	}
 			case PROCESSOR_MANUFACTURER: 	{ model.allProcessors.map[manufacturer]			}
-			case PROCESSOR_PROCESSORTYPE: 	{ model.allProcessors.map[processorType]			}
-			case CORE_ARCHITECTURE: 			{ model.allCores.map[architecture]				}
+			case PROCESSOR_PROCESSORTYPE: 	{ model.allProcessors.map[processorType]		}
+			case CORE_ARCHITECTURE: 		{ model.allCores.map[architecture]				}
 		}
 	}
 }
