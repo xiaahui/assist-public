@@ -157,6 +157,24 @@ public interface ModelFactory extends EFactory {
 	DissimilarityClause createDissimilarityClause();
 
 	/**
+	 * Returns a new object of class '<em>Dissimilarity Disjunction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dissimilarity Disjunction</em>'.
+	 * @generated
+	 */
+	DissimilarityDisjunction createDissimilarityDisjunction();
+
+	/**
+	 * Returns a new object of class '<em>Dissimilarity Conjunction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dissimilarity Conjunction</em>'.
+	 * @generated
+	 */
+	DissimilarityConjunction createDissimilarityConjunction();
+
+	/**
 	 * Returns a new object of class '<em>Dissimilarity Entry</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

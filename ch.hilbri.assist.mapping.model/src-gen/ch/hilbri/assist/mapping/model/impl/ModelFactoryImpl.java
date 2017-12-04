@@ -72,6 +72,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.COLOCALITY_RELATION: return createColocalityRelation();
 			case ModelPackage.DISSIMILARITY_RELATION: return createDissimilarityRelation();
 			case ModelPackage.DISSIMILARITY_CLAUSE: return createDissimilarityClause();
+			case ModelPackage.DISSIMILARITY_DISJUNCTION: return createDissimilarityDisjunction();
+			case ModelPackage.DISSIMILARITY_CONJUNCTION: return createDissimilarityConjunction();
 			case ModelPackage.DISSIMILARITY_ENTRY: return createDissimilarityEntry();
 			case ModelPackage.METRIC_PARAMETER: return createMetricParameter();
 			default:
@@ -269,6 +271,26 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public DissimilarityClause createDissimilarityClause() {
 		DissimilarityClauseImpl dissimilarityClause = new DissimilarityClauseImpl();
 		return dissimilarityClause;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DissimilarityDisjunction createDissimilarityDisjunction() {
+		DissimilarityDisjunctionImpl dissimilarityDisjunction = new DissimilarityDisjunctionImpl();
+		return dissimilarityDisjunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DissimilarityConjunction createDissimilarityConjunction() {
+		DissimilarityConjunctionImpl dissimilarityConjunction = new DissimilarityConjunctionImpl();
+		return dissimilarityConjunction;
 	}
 
 	/**

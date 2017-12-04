@@ -111,42 +111,38 @@ IOAdapterRequirement:
 /* RELATIONEN */
 
 DislocalityRelation:
-	applications+=[Application] (',' applications+=[Application])* 'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';'
-;
+	applications+=[Application] (',' applications+=[Application])* 'dislocal' 'up' 'to' hardwareLevel=HardwareArchitectureLevelType ';';
 	
 ColocalityRelation:
-	applications+=[Application|QualifiedName] (',' (applications+=[Application]))* 'on' 'same' 	hardwareLevel=HardwareArchitectureLevelType ';'
-; 
+	applications+=[Application|QualifiedName] (',' (applications+=[Application]))* 'on' 'same' 	hardwareLevel=HardwareArchitectureLevelType ';'; 
 
 DissimilarityRelation: 
 	applications+=[Application|QualifiedName] (',' (applications+=[Application]))*
 	'dissimilar' 'based' 'on'
-	dissimilarityClause=DissimilarityClause ';'
-;
+	dissimilarityClause=DissimilarityClause ';';
 
 DissimilarityClause:  
-	DissimilarityEntry 
-	//| ( '(' (=>DissimilarityDisjunction | DissimilarityConjunction) ')' ) // Der Pfeil ist wichtig!
-;
-
-//DissimilarityDisjunction: 
-//	dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ ;
-
-//DissimilarityConjunction: 
-//	dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ ;
+	DissimilarityEntry | 
+	(=>DissimilarityDisjunction | DissimilarityConjunction);  
 
 DissimilarityEntry: 
-	dissimilarityAttribute=DissimilarityAttributes
-;
+	dissimilarityAttribute=DissimilarityAttributes;
+
+DissimilarityDisjunction: 
+	'(' dissimilarityClauses+=DissimilarityClause ( 'OR' dissimilarityClauses+=DissimilarityClause)+ 	')' ;
+
+DissimilarityConjunction: 
+	'(' dissimilarityClauses+=DissimilarityClause ( 'AND' dissimilarityClauses+=DissimilarityClause)+ 	')';
+
 
 enum DissimilarityAttributes:
-	COMPARTMENT_MANUFACTURER		= 'Compartment.Manufacturer'			|
+	COMPARTMENT_MANUFACTURER	= 'Compartment.Manufacturer'		|
 	COMPARTMENT_POWERSUPPLY		= 'Compartment.PowerSupply'			|
-	BOX_MANUFACTURER				= 'Box.Manufacturer'					|
+	BOX_MANUFACTURER			= 'Box.Manufacturer'				|
 	BOARD_MANUFACTURER			= 'Board.Manufacturer'				|
 	BOARD_BOARDTYPE				= 'Board.Type'						|
 	BOARD_POWERSUPPLY			= 'Board.PowerSupply'				|
-	BOARD_ASSURANCELEVEL			= 'Board.DesignAssuranceLevel'		|
+	BOARD_ASSURANCELEVEL		= 'Board.DesignAssuranceLevel'		|
 	PROCESSOR_MANUFACTURER		= 'Processor.Manufacturer'			|
 	PROCESSOR_PROCESSORTYPE		= 'Processor.Type'					|
 	CORE_ARCHITECTURE			= 'Core.Architecture'

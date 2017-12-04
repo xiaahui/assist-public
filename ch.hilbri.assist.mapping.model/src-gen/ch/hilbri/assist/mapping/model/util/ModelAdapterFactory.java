@@ -128,6 +128,14 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createDissimilarityClauseAdapter();
 			}
 			@Override
+			public Adapter caseDissimilarityDisjunction(DissimilarityDisjunction object) {
+				return createDissimilarityDisjunctionAdapter();
+			}
+			@Override
+			public Adapter caseDissimilarityConjunction(DissimilarityConjunction object) {
+				return createDissimilarityConjunctionAdapter();
+			}
+			@Override
 			public Adapter caseDissimilarityEntry(DissimilarityEntry object) {
 				return createDissimilarityEntryAdapter();
 			}
@@ -362,6 +370,34 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDissimilarityClauseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.DissimilarityDisjunction <em>Dissimilarity Disjunction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.mapping.model.DissimilarityDisjunction
+	 * @generated
+	 */
+	public Adapter createDissimilarityDisjunctionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.DissimilarityConjunction <em>Dissimilarity Conjunction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.mapping.model.DissimilarityConjunction
+	 * @generated
+	 */
+	public Adapter createDissimilarityConjunctionAdapter() {
 		return null;
 	}
 

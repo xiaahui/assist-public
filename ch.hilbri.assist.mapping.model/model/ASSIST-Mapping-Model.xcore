@@ -135,6 +135,16 @@ class DissimilarityRelation {
 
 class DissimilarityClause {}
 
+// OR
+class DissimilarityDisjunction extends DissimilarityClause {
+	contains DissimilarityClause[2..*] dissimilarityClauses
+}
+// AND
+class DissimilarityConjunction extends DissimilarityClause  {
+	contains DissimilarityClause[2..*] dissimilarityClauses
+}
+
+// Basic Case
 class DissimilarityEntry extends DissimilarityClause {
 	DissimilarityAttributes dissimilarityAttribute
 	derived HardwareArchitectureLevelType hardwareLevel get {
@@ -142,38 +152,29 @@ class DissimilarityEntry extends DissimilarityClause {
 			case COMPARTMENT_MANUFACTURER: 	{ return HardwareArchitectureLevelType.COMPARTMENT 	}	
 			case COMPARTMENT_POWERSUPPLY: 	{ return HardwareArchitectureLevelType.COMPARTMENT	}
 			case BOX_MANUFACTURER: 			{ return HardwareArchitectureLevelType.BOX			}
-			case BOARD_MANUFACTURER: 		{ return HardwareArchitectureLevelType.BOARD			}
-			case BOARD_BOARDTYPE: 			{ return HardwareArchitectureLevelType.BOARD			}		
-			case BOARD_POWERSUPPLY: 			{ return HardwareArchitectureLevelType.BOARD			}
-			case BOARD_ASSURANCELEVEL: 		{ return HardwareArchitectureLevelType.BOARD			}
-			case PROCESSOR_MANUFACTURER: 	{ return HardwareArchitectureLevelType.BOARD			}
-			case PROCESSOR_PROCESSORTYPE: 	{ return HardwareArchitectureLevelType.BOARD			}
-			case CORE_ARCHITECTURE: 			{ return HardwareArchitectureLevelType.BOARD			}
+			case BOARD_MANUFACTURER: 		{ return HardwareArchitectureLevelType.BOARD		}
+			case BOARD_BOARDTYPE: 			{ return HardwareArchitectureLevelType.BOARD		}		
+			case BOARD_POWERSUPPLY: 		{ return HardwareArchitectureLevelType.BOARD		}
+			case BOARD_ASSURANCELEVEL: 		{ return HardwareArchitectureLevelType.BOARD		}
+			case PROCESSOR_MANUFACTURER: 	{ return HardwareArchitectureLevelType.PROCESSOR	}
+			case PROCESSOR_PROCESSORTYPE: 	{ return HardwareArchitectureLevelType.PROCESSOR	}
+			case CORE_ARCHITECTURE: 		{ return HardwareArchitectureLevelType.CORE			}
 		}
 	}
 }
 
 enum DissimilarityAttributes {
-	COMPARTMENT_MANUFACTURER		as "Compartment.Manufacturer"
+	COMPARTMENT_MANUFACTURER	as "Compartment.Manufacturer"
 	COMPARTMENT_POWERSUPPLY		as "Compartment.PowerSupply"
-	BOX_MANUFACTURER				as "Box.Manufacturer"
+	BOX_MANUFACTURER			as "Box.Manufacturer"
 	BOARD_MANUFACTURER			as "Board.Manufacturer"
 	BOARD_BOARDTYPE				as "Board.Type"
 	BOARD_POWERSUPPLY			as "Board.PowerSupply"
-	BOARD_ASSURANCELEVEL			as "Board.DesignAssuranceLevel"
+	BOARD_ASSURANCELEVEL		as "Board.DesignAssuranceLevel"
 	PROCESSOR_MANUFACTURER		as "Processor.Manufacturer"
 	PROCESSOR_PROCESSORTYPE		as "Processor.Type"
 	CORE_ARCHITECTURE			as "Core.Architecture"
 }
-
-// OR
-//class DissimilarityDisjunction extends DissimilarityClause {
-//	contains DissimilarityClause[2..*] dissimilarityClauses
-//}
-// AND
-//class DissimilarityConjunction extends DissimilarityClause  {
-//	contains DissimilarityClause[2..*] dissimilarityClauses
-//}
 
 class MetricParameter {
 	String name = ""

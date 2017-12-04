@@ -440,6 +440,52 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.DissimilarityDisjunction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DissimilarityDisjunctionItemProvider dissimilarityDisjunctionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.DissimilarityDisjunction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDissimilarityDisjunctionAdapter() {
+		if (dissimilarityDisjunctionItemProvider == null) {
+			dissimilarityDisjunctionItemProvider = new DissimilarityDisjunctionItemProvider(this);
+		}
+
+		return dissimilarityDisjunctionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.DissimilarityConjunction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DissimilarityConjunctionItemProvider dissimilarityConjunctionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.DissimilarityConjunction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDissimilarityConjunctionAdapter() {
+		if (dissimilarityConjunctionItemProvider == null) {
+			dissimilarityConjunctionItemProvider = new DissimilarityConjunctionItemProvider(this);
+		}
+
+		return dissimilarityConjunctionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.MetricParameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -576,6 +622,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		if (colocalityRelationItemProvider != null) colocalityRelationItemProvider.dispose();
 		if (dissimilarityRelationItemProvider != null) dissimilarityRelationItemProvider.dispose();
 		if (dissimilarityClauseItemProvider != null) dissimilarityClauseItemProvider.dispose();
+		if (dissimilarityDisjunctionItemProvider != null) dissimilarityDisjunctionItemProvider.dispose();
+		if (dissimilarityConjunctionItemProvider != null) dissimilarityConjunctionItemProvider.dispose();
 		if (dissimilarityEntryItemProvider != null) dissimilarityEntryItemProvider.dispose();
 		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 	}

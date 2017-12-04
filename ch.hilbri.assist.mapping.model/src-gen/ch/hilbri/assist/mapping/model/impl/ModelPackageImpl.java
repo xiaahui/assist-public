@@ -13,6 +13,8 @@ import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType;
 import ch.hilbri.assist.mapping.model.DislocalityRelation;
 import ch.hilbri.assist.mapping.model.DissimilarityAttributes;
 import ch.hilbri.assist.mapping.model.DissimilarityClause;
+import ch.hilbri.assist.mapping.model.DissimilarityConjunction;
+import ch.hilbri.assist.mapping.model.DissimilarityDisjunction;
 import ch.hilbri.assist.mapping.model.DissimilarityEntry;
 import ch.hilbri.assist.mapping.model.DissimilarityRelation;
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType;
@@ -147,6 +149,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass dissimilarityClauseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dissimilarityDisjunctionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dissimilarityConjunctionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1060,6 +1076,42 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDissimilarityDisjunction() {
+		return dissimilarityDisjunctionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDissimilarityDisjunction_DissimilarityClauses() {
+		return (EReference)dissimilarityDisjunctionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDissimilarityConjunction() {
+		return dissimilarityConjunctionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDissimilarityConjunction_DissimilarityClauses() {
+		return (EReference)dissimilarityConjunctionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDissimilarityEntry() {
 		return dissimilarityEntryEClass;
 	}
@@ -1277,6 +1329,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		dissimilarityClauseEClass = createEClass(DISSIMILARITY_CLAUSE);
 
+		dissimilarityDisjunctionEClass = createEClass(DISSIMILARITY_DISJUNCTION);
+		createEReference(dissimilarityDisjunctionEClass, DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES);
+
+		dissimilarityConjunctionEClass = createEClass(DISSIMILARITY_CONJUNCTION);
+		createEReference(dissimilarityConjunctionEClass, DISSIMILARITY_CONJUNCTION__DISSIMILARITY_CLAUSES);
+
 		dissimilarityEntryEClass = createEClass(DISSIMILARITY_ENTRY);
 		createEAttribute(dissimilarityEntryEClass, DISSIMILARITY_ENTRY__DISSIMILARITY_ATTRIBUTE);
 		createEAttribute(dissimilarityEntryEClass, DISSIMILARITY_ENTRY__HARDWARE_LEVEL);
@@ -1328,6 +1386,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		boardEClass.getESuperTypes().add(this.getHardwareElement());
 		processorEClass.getESuperTypes().add(this.getHardwareElement());
 		coreEClass.getESuperTypes().add(this.getHardwareElement());
+		dissimilarityDisjunctionEClass.getESuperTypes().add(this.getDissimilarityClause());
+		dissimilarityConjunctionEClass.getESuperTypes().add(this.getDissimilarityClause());
 		dissimilarityEntryEClass.getESuperTypes().add(this.getDissimilarityClause());
 
 		// Initialize classes, features, and operations; add parameters
@@ -1455,6 +1515,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getDissimilarityRelation_DissimilarityClause(), this.getDissimilarityClause(), null, "dissimilarityClause", null, 1, 1, DissimilarityRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dissimilarityClauseEClass, DissimilarityClause.class, "DissimilarityClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dissimilarityDisjunctionEClass, DissimilarityDisjunction.class, "DissimilarityDisjunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDissimilarityDisjunction_DissimilarityClauses(), this.getDissimilarityClause(), null, "dissimilarityClauses", null, 2, -1, DissimilarityDisjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dissimilarityConjunctionEClass, DissimilarityConjunction.class, "DissimilarityConjunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDissimilarityConjunction_DissimilarityClauses(), this.getDissimilarityClause(), null, "dissimilarityClauses", null, 2, -1, DissimilarityConjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dissimilarityEntryEClass, DissimilarityEntry.class, "DissimilarityEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDissimilarityEntry_DissimilarityAttribute(), this.getDissimilarityAttributes(), "dissimilarityAttribute", null, 0, 1, DissimilarityEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

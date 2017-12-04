@@ -122,11 +122,11 @@ public class DissimilarityEntryImpl extends DissimilarityClauseImpl implements D
 				case BOARD_ASSURANCELEVEL:
 					return HardwareArchitectureLevelType.BOARD;
 				case PROCESSOR_MANUFACTURER:
-					return HardwareArchitectureLevelType.BOARD;
+					return HardwareArchitectureLevelType.PROCESSOR;
 				case PROCESSOR_PROCESSORTYPE:
-					return HardwareArchitectureLevelType.BOARD;
+					return HardwareArchitectureLevelType.PROCESSOR;
 				case CORE_ARCHITECTURE:
-					return HardwareArchitectureLevelType.BOARD;
+					return HardwareArchitectureLevelType.CORE;
 				default:
 					break;
 			}

@@ -1282,6 +1282,80 @@ public interface ModelPackage extends EPackage {
 	int DISSIMILARITY_CLAUSE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityDisjunctionImpl <em>Dissimilarity Disjunction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.mapping.model.impl.DissimilarityDisjunctionImpl
+	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityDisjunction()
+	 * @generated
+	 */
+	int DISSIMILARITY_DISJUNCTION = 15;
+
+	/**
+	 * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Dissimilarity Disjunction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISSIMILARITY_DISJUNCTION_FEATURE_COUNT = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Dissimilarity Disjunction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISSIMILARITY_DISJUNCTION_OPERATION_COUNT = DISSIMILARITY_CLAUSE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityConjunctionImpl <em>Dissimilarity Conjunction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.mapping.model.impl.DissimilarityConjunctionImpl
+	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityConjunction()
+	 * @generated
+	 */
+	int DISSIMILARITY_CONJUNCTION = 16;
+
+	/**
+	 * The feature id for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISSIMILARITY_CONJUNCTION__DISSIMILARITY_CLAUSES = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Dissimilarity Conjunction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISSIMILARITY_CONJUNCTION_FEATURE_COUNT = DISSIMILARITY_CLAUSE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Dissimilarity Conjunction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISSIMILARITY_CONJUNCTION_OPERATION_COUNT = DISSIMILARITY_CLAUSE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityEntryImpl <em>Dissimilarity Entry</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1289,7 +1363,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityEntry()
 	 * @generated
 	 */
-	int DISSIMILARITY_ENTRY = 15;
+	int DISSIMILARITY_ENTRY = 17;
 
 	/**
 	 * The feature id for the '<em><b>Dissimilarity Attribute</b></em>' attribute.
@@ -1335,7 +1409,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getMetricParameter()
 	 * @generated
 	 */
-	int METRIC_PARAMETER = 16;
+	int METRIC_PARAMETER = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1381,7 +1455,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityAttributes()
 	 * @generated
 	 */
-	int DISSIMILARITY_ATTRIBUTES = 17;
+	int DISSIMILARITY_ATTRIBUTES = 19;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
@@ -1391,7 +1465,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
 	 * @generated
 	 */
-	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 18;
+	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 20;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -1401,7 +1475,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
 	 * @generated
 	 */
-	int DESIGN_ASSURANCE_LEVEL_TYPE = 19;
+	int DESIGN_ASSURANCE_LEVEL_TYPE = 21;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.IOAdapterType <em>IO Adapter Type</em>}' enum.
@@ -1411,7 +1485,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getIOAdapterType()
 	 * @generated
 	 */
-	int IO_ADAPTER_TYPE = 20;
+	int IO_ADAPTER_TYPE = 22;
 
 
 	/**
@@ -2359,6 +2433,48 @@ public interface ModelPackage extends EPackage {
 	EClass getDissimilarityClause();
 
 	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.DissimilarityDisjunction <em>Dissimilarity Disjunction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Dissimilarity Disjunction</em>'.
+	 * @see ch.hilbri.assist.mapping.model.DissimilarityDisjunction
+	 * @generated
+	 */
+	EClass getDissimilarityDisjunction();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.DissimilarityDisjunction#getDissimilarityClauses <em>Dissimilarity Clauses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Dissimilarity Clauses</em>'.
+	 * @see ch.hilbri.assist.mapping.model.DissimilarityDisjunction#getDissimilarityClauses()
+	 * @see #getDissimilarityDisjunction()
+	 * @generated
+	 */
+	EReference getDissimilarityDisjunction_DissimilarityClauses();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.DissimilarityConjunction <em>Dissimilarity Conjunction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Dissimilarity Conjunction</em>'.
+	 * @see ch.hilbri.assist.mapping.model.DissimilarityConjunction
+	 * @generated
+	 */
+	EClass getDissimilarityConjunction();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.DissimilarityConjunction#getDissimilarityClauses <em>Dissimilarity Clauses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Dissimilarity Clauses</em>'.
+	 * @see ch.hilbri.assist.mapping.model.DissimilarityConjunction#getDissimilarityClauses()
+	 * @see #getDissimilarityConjunction()
+	 * @generated
+	 */
+	EReference getDissimilarityConjunction_DissimilarityClauses();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.DissimilarityEntry <em>Dissimilarity Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3226,6 +3342,42 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DISSIMILARITY_CLAUSE = eINSTANCE.getDissimilarityClause();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityDisjunctionImpl <em>Dissimilarity Disjunction</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.mapping.model.impl.DissimilarityDisjunctionImpl
+		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityDisjunction()
+		 * @generated
+		 */
+		EClass DISSIMILARITY_DISJUNCTION = eINSTANCE.getDissimilarityDisjunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DISSIMILARITY_DISJUNCTION__DISSIMILARITY_CLAUSES = eINSTANCE.getDissimilarityDisjunction_DissimilarityClauses();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityConjunctionImpl <em>Dissimilarity Conjunction</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.mapping.model.impl.DissimilarityConjunctionImpl
+		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getDissimilarityConjunction()
+		 * @generated
+		 */
+		EClass DISSIMILARITY_CONJUNCTION = eINSTANCE.getDissimilarityConjunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Dissimilarity Clauses</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DISSIMILARITY_CONJUNCTION__DISSIMILARITY_CLAUSES = eINSTANCE.getDissimilarityConjunction_DissimilarityClauses();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.DissimilarityEntryImpl <em>Dissimilarity Entry</em>}' class.
