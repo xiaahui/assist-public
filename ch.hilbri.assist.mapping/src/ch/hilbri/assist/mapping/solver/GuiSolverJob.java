@@ -17,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes;
@@ -162,7 +163,7 @@ public class GuiSolverJob extends Job {
 	
 	public void setNoGoodRecording(boolean value) {
 		if (value)
-			assistSolver.setNoGoodRecording(2); // Board level
+			assistSolver.setNoGoodRecording(HardwareArchitectureLevelType.BOARD); // Board level
 	}
 	
 	public void setEnableMinimization(boolean value) {

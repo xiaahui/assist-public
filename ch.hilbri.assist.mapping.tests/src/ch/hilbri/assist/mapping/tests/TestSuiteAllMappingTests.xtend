@@ -11,6 +11,7 @@ import ch.hilbri.assist.mapping.tests.constraints.RAMorROMConstraintTests
 import ch.hilbri.assist.mapping.tests.constraints.ColocalityConstraintTests
 import ch.hilbri.assist.mapping.tests.constraints.DislocalityConstraintTests
 import ch.hilbri.assist.mapping.tests.constraints.DissimilarityConstraintTests
+import ch.hilbri.assist.mapping.tests.other.PropNoGoodTests
 
 @RunWith(Suite) 
 @SuiteClasses(
@@ -22,7 +23,8 @@ import ch.hilbri.assist.mapping.tests.constraints.DissimilarityConstraintTests
 		RAMorROMConstraintTests,
 		ColocalityConstraintTests,
 		DislocalityConstraintTests,
-		DissimilarityConstraintTests
+		DissimilarityConstraintTests,
+		PropNoGoodTests
 	]
 )
 

@@ -15,6 +15,7 @@ import org.chocosolver.solver.Model
 import org.chocosolver.solver.constraints.^extension.Tuples
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
+import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
 
 class SolverVariablesContainer {
 
@@ -132,7 +133,11 @@ class SolverVariablesContainer {
 	def IntVar[] getLocationVariablesForLevel(int level) {
 		taskToLocationVariablesMap.values.map[get(level)]
 	}
-
+	
+	def IntVar[] getLocationVariablesForLevel(HardwareArchitectureLevelType level) {
+		getLocationVariablesForLevel(level.value)
+	}
+	
 	def IntVar[] getLocationVariablesForCoreLevel() {
 		getLocationVariablesForLevel(0)
 	}

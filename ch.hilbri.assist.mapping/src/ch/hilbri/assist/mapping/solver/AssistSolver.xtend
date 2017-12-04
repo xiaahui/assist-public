@@ -1,12 +1,14 @@
 package ch.hilbri.assist.mapping.solver
 
 import ch.hilbri.assist.mapping.model.AssistModel
+import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
+import ch.hilbri.assist.mapping.solver.constraints.DissimilarityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RAMorROMCapacityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RAMorROMCapacityConstraint.RessourceType
 import ch.hilbri.assist.mapping.solver.constraints.SystemHierarchyConstraint
@@ -29,8 +31,6 @@ import org.chocosolver.util.criteria.Criterion
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.solver.constraints.DissimilarityConstraint
-import org.chocosolver.solver.constraints.nary.nogood.NogoodConstraint
 
 class AssistSolver {
 	
@@ -84,15 +84,9 @@ class AssistSolver {
 
 		mappingResults 			= newArrayList  
 		
-		/* The identical solution for all variables should not be found twice - if restarts are used */
-		// We have to initialize this stuff here - it is initialized when we call solve()
-		// but obviously fails, when we call propagate() earlier during constraint generation
-		chocoModel.solver.noGoodRecordingFromSolutions = solverVariables.allLocationVariables
-		val noGoodConstraint = chocoModel.getHook(Model.NOGOODS_HOOK_NAME) as NogoodConstraint
-		noGoodConstraint.propNogoods.initialize()
-		
 		/* Attach the search monitors */
 		chocoSolver.plugMonitor(monSolutionFound = new SolutionFoundMonitor)
+		
 	}	
 	
 	def setSavePartialSolution(boolean value) {
@@ -149,10 +143,11 @@ class AssistSolver {
 	 * This may be posted in addition to the SMF.nogoodrecording from above to
 	 * prevent symmetric solutions on the RDC-level (or other levels)
 	 */
-	def setNoGoodRecording(int level) {
+	def setNoGoodRecording(HardwareArchitectureLevelType level) {
 		logger.info('''Enforcing different solutions on «level»-level''')
-		chocoSolver.noGoodRecordingFromSolutions = solverVariables.getLocationVariablesForLevel(level)
-
+		
+		// Reset the previous nogood setting and initialize nogood
+		chocoSolver.noGoodRecordingFromSolutions = solverVariables.getLocationVariablesForLevel(level.value)
 	}
 	
 	def setEnableMinimization() {
