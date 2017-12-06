@@ -12,6 +12,7 @@ import ch.hilbri.assist.mapping.tests.constraints.ColocalityConstraintTests
 import ch.hilbri.assist.mapping.tests.constraints.DislocalityConstraintTests
 import ch.hilbri.assist.mapping.tests.constraints.DissimilarityConstraintTests
 import ch.hilbri.assist.mapping.tests.other.PropNoGoodTests
+import ch.hilbri.assist.mapping.tests.benchmarking.BenchmarkingTests
 
 @RunWith(Suite) 
 @SuiteClasses(
@@ -24,7 +25,8 @@ import ch.hilbri.assist.mapping.tests.other.PropNoGoodTests
 		ColocalityConstraintTests,
 		DislocalityConstraintTests,
 		DissimilarityConstraintTests,
-		PropNoGoodTests
+		PropNoGoodTests,
+		BenchmarkingTests
 	]
 )
 

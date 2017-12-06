@@ -12,4 +12,5 @@ Require-Bundle: com.google.guava,
  ch.hilbri.assist.mapping.model,
  ch.hilbri.assist.mapping.model.edit,
  ch.hilbri.assist.mapping.model.editor
+Export-Package: ch.hilbri.assist.mapping.benchmarking.generator
 
