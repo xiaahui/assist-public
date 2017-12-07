@@ -14,16 +14,16 @@ class BenchmarkingTests extends AbstractMappingTest {
 	@Test
 	def void testExampleGenerator() {
 		
-		val compRange 	= #[1,  2]
-		val boxRange 	= #[2,  4]
-		val boardRange 	= #[2,  4]
-		val procRange 	= #[1,  2]
-		val coreRange 	= #[2,  4]
-		val appRange 	= #[20, 24]
-		val taskRange 	= #[6, 10]
-		val dislocRelRange = #[10, 16]
-		val dislocAppRange = #[6, 20]
-		val dislocLevels = #[HardwareArchitectureLevelType.BOARD, HardwareArchitectureLevelType.BOX, HardwareArchitectureLevelType.COMPARTMENT]
+		val compRange 		= #[2, 2]
+		val boxRange 		= #[4, 6]
+		val boardRange 		= #[4, 6]
+		val procRange 		= #[1, 2]
+		val coreRange 		= #[2, 4]
+		val appRange 		= #[16, 24]
+		val taskRange 		= #[2, 8]
+		val dislocRelRange 	= #[32, 32]
+		val dislocAppRange 	= #[4, 6]
+		val dislocLevels 	= #[HardwareArchitectureLevelType.BOARD, HardwareArchitectureLevelType.BOX]
 		
 		val AssistModel assistModel = MappingExampleGenerator.generateSingleRandomized(compRange, boxRange, boardRange, procRange, coreRange, appRange, taskRange, dislocRelRange, dislocAppRange, dislocLevels)
 		
@@ -40,5 +40,9 @@ class BenchmarkingTests extends AbstractMappingTest {
 		assistSolver.runSolutionSearch
 
 		Assert.assertTrue(assistSolver.chocoSolutions.size > 0)
+		
+		val filePath = "C:/Users/hilb_ro/tmp/file.mdsl"
+		MappingExampleGenerator.saveToFile(assistModel, filePath)
+		
 	}	
 }

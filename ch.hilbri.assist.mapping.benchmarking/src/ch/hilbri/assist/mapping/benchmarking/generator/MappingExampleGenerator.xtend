@@ -1,13 +1,15 @@
 package ch.hilbri.assist.mapping.benchmarking.generator
 
 import ch.hilbri.assist.mapping.model.AssistModel
+import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.model.ModelFactory
+import java.io.IOException
+import java.util.Collections
 import java.util.List
 import java.util.concurrent.ThreadLocalRandom
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.junit.Assert
-import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
 
 class MappingExampleGenerator {
 
@@ -182,5 +184,17 @@ class MappingExampleGenerator {
 		resource.contents.add(assistModel)
 		
 		return assistModel
+	}
+	
+	static def saveToFile(AssistModel assistModel, String filePath) {
+		val resSet = new ResourceSetImpl
+		val resource = resSet.createResource(URI.createFileURI(filePath))
+		resource.contents.add(assistModel)
+
+        try {
+            resource.save(Collections.EMPTY_MAP);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 }
