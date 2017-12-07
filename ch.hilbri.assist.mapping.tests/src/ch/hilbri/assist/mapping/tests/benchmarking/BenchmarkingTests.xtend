@@ -40,10 +40,9 @@ class BenchmarkingTests extends AbstractMappingTest {
 		assistSolver.runConstraintGeneration
 		assistSolver.runSolutionSearch
 
-		Assert.assertTrue("The problem should be solvable", assistSolver.chocoSolutions.size > 0)
-		
-		val filePath = "C:/Users/hilb_ro/tmp/file.mdsl"
-		MappingExampleGenerator.saveToFile(assistModel, filePath)
+		//Assert.assertTrue("The problem should be solvable", assistSolver.chocoSolutions.size > 0)
+		//val filePath = "C:/Users/hilb_ro/tmp/file.mdsl"
+		//MappingExampleGenerator.saveToFile(assistModel, filePath)
 		
 	}	
 }

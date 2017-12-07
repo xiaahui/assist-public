@@ -86,10 +86,12 @@ Software {
 		assistSolverDefault.solverMaxSolutions = 1000
 		assistSolverDefault.runInitialization
 		assistSolverDefault.runConstraintGeneration
+		assistSolverDefault.noGoodRecording = HardwareArchitectureLevelType.CORE
+		assistSolverDefault.noGoodRecording = HardwareArchitectureLevelType.PROCESSOR
 		assistSolverDefault.runSolutionSearch
 		assistSolverDefault.createSolutions
 
-		Assert.assertEquals(6, assistSolverDefault.results.size)
+		Assert.assertEquals(3, assistSolverDefault.results.size)
 		
 				
 	}
