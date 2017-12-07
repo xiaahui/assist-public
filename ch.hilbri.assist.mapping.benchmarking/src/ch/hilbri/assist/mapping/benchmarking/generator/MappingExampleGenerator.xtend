@@ -101,6 +101,7 @@ class MappingExampleGenerator {
 		/* Start cracking ... */
 		val factory = ModelFactory.eINSTANCE
 		val assistModel = factory.createAssistModel()
+		assistModel.systemName = "Example System"
 
 		/* Creating the hardware tree */
 		for (compCount : 1 ..< rng.nextInt(compCountMin, compCountMax + 1) + 1) {
