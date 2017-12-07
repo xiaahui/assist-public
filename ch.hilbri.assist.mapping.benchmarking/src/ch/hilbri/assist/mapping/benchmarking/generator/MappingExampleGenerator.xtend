@@ -7,6 +7,7 @@ import java.util.concurrent.ThreadLocalRandom
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.junit.Assert
+import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
 
 class MappingExampleGenerator {
 
@@ -16,8 +17,8 @@ class MappingExampleGenerator {
 
 	
 	/* Just a facade */
-	static def AssistModel generateSingle(int compCount, int boxCount, int boardCount, int procCount, int coreCount, int appCount, int taskCount) {
-		generateSingleRandomized(compCount, compCount, boxCount, boxCount, boardCount, boardCount, procCount, procCount, coreCount, coreCount, appCount, appCount, taskCount, taskCount)
+	static def AssistModel generateSingle(int compCount, int boxCount, int boardCount, int procCount, int coreCount, int appCount, int taskCount, int dislocRelCount, int dislocAppCount, List<HardwareArchitectureLevelType> dislocLevels) {
+		generateSingleRandomized(compCount, compCount, boxCount, boxCount, boardCount, boardCount, procCount, procCount, coreCount, coreCount, appCount, appCount, taskCount, taskCount, dislocRelCount, dislocRelCount, dislocAppCount, dislocAppCount, dislocLevels)
 	}
 
 	/* Just a facade */
@@ -28,8 +29,10 @@ class MappingExampleGenerator {
 		List<Integer> procCount, 
 		List<Integer> coreCount, 
 		List<Integer> appCount, 
-		List<Integer> taskCount
-	) 
+		List<Integer> taskCount,
+		List<Integer> dislocRelCount,
+		List<Integer> dislocAppCount,
+		List<HardwareArchitectureLevelType> dislocLevels)  
 	{
 		Assert.assertTrue(compCount.size == 2)
 		Assert.assertTrue(boxCount.size == 2)
@@ -40,16 +43,23 @@ class MappingExampleGenerator {
 		Assert.assertTrue(taskCount.size == 2)
 		
 		generateSingleRandomized(
-			compCount.head, 	compCount.last, 
-			boxCount.head, 		boxCount.last, 
-			boardCount.head, 	boardCount.last, 
-			procCount.head, 	procCount.last, 
-			coreCount.head, 	coreCount.last, 
-			appCount.head, 		appCount.last, 
-			taskCount.head, 	taskCount.last
+			compCount.head, 		compCount.last, 
+			boxCount.head, 			boxCount.last, 
+			boardCount.head, 		boardCount.last, 
+			procCount.head, 		procCount.last, 
+			coreCount.head, 		coreCount.last, 
+			appCount.head, 			appCount.last, 
+			taskCount.head, 		taskCount.last,
+			dislocRelCount.head,	dislocRelCount.last,
+			dislocAppCount.head,	dislocAppCount.last,
+			dislocLevels	
 		)
 	}
 	
+	/**
+	 * REAL WORK IS DONE HERE!
+	 * 
+	 */
 	static def AssistModel generateSingleRandomized(
 		int compCountMin, 	int compCountMax, 
 		int boxCountMin,  	int boxCountMax, 
@@ -57,7 +67,10 @@ class MappingExampleGenerator {
 		int procCountMin, 	int procCountMax, 
 		int coreCountMin,	int coreCountMax,
 		int appCountMin,	int appCountMax,
-		int taskCountMin,	int taskCountMax) 
+		int taskCountMin,	int taskCountMax,
+		int dislocRelCountMin, int dislocRelCountMax,
+		int dislocAppCountMin, int dislocAppCountMax,
+		List<HardwareArchitectureLevelType> dislocLevels) 
 	{
 		/* Check validity of input arguments */
 		Assert.assertTrue(compCountMin > 0)	
@@ -67,6 +80,9 @@ class MappingExampleGenerator {
 		Assert.assertTrue(coreCountMin > 0)
 		Assert.assertTrue(appCountMin > 0)
 		Assert.assertTrue(taskCountMin > 0)
+		Assert.assertTrue(dislocRelCountMin > 0)
+		Assert.assertTrue(dislocAppCountMin > 0)
+		Assert.assertTrue(dislocLevels.size > 0)
 
 		Assert.assertTrue(compCountMin  <= compCountMax)	
 		Assert.assertTrue(boxCountMin   <= boxCountMax)
@@ -75,25 +91,12 @@ class MappingExampleGenerator {
 		Assert.assertTrue(coreCountMin  <= coreCountMax)
 		Assert.assertTrue(appCountMin   <= appCountMax)
 		Assert.assertTrue(taskCountMin  <= taskCountMax)
+		Assert.assertTrue(dislocRelCountMin <= dislocRelCountMax)
+		Assert.assertTrue(dislocAppCountMin <= dislocAppCountMax)
 
 		/* Start cracking ... */
 		val factory = ModelFactory.eINSTANCE
 		val assistModel = factory.createAssistModel()
-
-		/* Creating the applications */
-		for (appCount : 1 ..< rng.nextInt(appCountMin, appCountMax + 1) + 1) {
-			val application = factory.createApplication
-			application.name = '''Application_«appCount»'''
-			assistModel.applications.add(application)	
-				
-			for (taskCount : 1 ..< rng.nextInt(taskCountMin, taskCountMax + 1) + 1) {	
-				val task = factory.createTask
-				task.name = '''Task_«appCount».«taskCount»'''
-				application.tasks.add(task)						
-			}
-
-					
-		}	
 
 		/* Creating the hardware tree */
 		for (compCount : 1 ..< rng.nextInt(compCountMin, compCountMax + 1) + 1) {
@@ -126,6 +129,54 @@ class MappingExampleGenerator {
 			}
 		}
 
+		/* Creating the applications */
+		for (appCount : 1 ..< rng.nextInt(appCountMin, appCountMax + 1) + 1) {
+			val application = factory.createApplication
+			application.name = '''Application_«appCount»'''
+			assistModel.applications.add(application)	
+				
+			for (taskCount : 1 ..< rng.nextInt(taskCountMin, taskCountMax + 1) + 1) {	
+				val task = factory.createTask
+				task.name = '''Task_«appCount».«taskCount»'''
+				application.tasks.add(task)						
+			}
+		}
+		
+		/* Creating the dislocality requirements */
+		for (dislocRelCount : 1 ..< rng.nextInt(dislocRelCountMin, dislocRelCountMax + 1) + 1) {
+			val dislocality = factory.createDislocalityRelation
+			assistModel.dislocalityRelations.add(dislocality)
+			
+			/* Define the level of the dislocality relation (where should they differ? Processor? Board? Box?) 
+			 * Choice is made uniformly among the set of given levels											 */
+			dislocality.hardwareLevel = dislocLevels.get(rng.nextInt(0, dislocLevels.size))		
+			
+			/* We should not try to have a dislocality relations with more applications than we actually have */
+			var dislocAppCountLimit = rng.nextInt(dislocAppCountMin, dislocAppCountMax + 1)
+			if (dislocAppCountLimit > assistModel.applications.size)
+				dislocAppCountLimit = assistModel.applications.size
+			
+			for (dislocAppCount : 1 ..< dislocAppCountLimit + 1) {
+				/* Choose an application randomly that was not already added */
+				var boolean applicationAdded = false
+				while (!applicationAdded) {
+					val selectedApplication = assistModel.applications.get(rng.nextInt(0, assistModel.applications.size))
+					if (!dislocality.applications.contains(selectedApplication)) 
+						applicationAdded = dislocality.applications.add(selectedApplication)
+				}
+			}
+		}	
+
+		/* Enforce all applications to have their tasks on the same board */
+		for (app : assistModel.applications) {
+			val colocality = factory.createColocalityRelation
+			colocality.applications.add(app)
+			colocality.hardwareLevel = HardwareArchitectureLevelType.BOARD
+			assistModel.colocalityRelations.add(colocality)
+		}
+			
+			
+		/* Prepare everything to have the model persisted - if desired */
 		val resSet = new ResourceSetImpl
 		val resource = resSet.createResource(URI.createURI("test.mdsl"))
 		resource.contents.add(assistModel)
