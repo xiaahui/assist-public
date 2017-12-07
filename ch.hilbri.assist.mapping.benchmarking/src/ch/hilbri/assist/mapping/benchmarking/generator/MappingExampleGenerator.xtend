@@ -16,6 +16,7 @@ class MappingExampleGenerator {
 	/* Our random number generator
 	 * (@see https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java)	 */
 	static val rng = ThreadLocalRandom.current
+	
 
 	
 	/* Just a facade */
@@ -74,6 +75,7 @@ class MappingExampleGenerator {
 		int dislocAppCountMin, int dislocAppCountMax,
 		List<HardwareArchitectureLevelType> dislocLevels) 
 	{
+	
 		/* Check validity of input arguments */
 		Assert.assertTrue(compCountMin > 0)	
 		Assert.assertTrue(boxCountMin > 0)
@@ -108,22 +110,22 @@ class MappingExampleGenerator {
 
 			for (boxCount : 1 ..< rng.nextInt(boxCountMin, boxCountMax + 1) + 1) {
 				val box = factory.createBox
-				box.name = '''Box_«compCount».«boxCount»'''
+				box.name = '''Box_«compCount»_«boxCount»'''
 				compartment.boxes.add(box)
 				
 				for (boardCount : 1 ..< rng.nextInt(boardCountMin, boardCountMax + 1) + 1) {
 					val board = factory.createBoard
-					board.name = '''Board_«compCount».«boxCount».«boardCount»'''
+					board.name = '''Board_«compCount»_«boxCount»_«boardCount»'''
 					box.boards.add(board)
 			
 					for (procCount : 1 ..< rng.nextInt(procCountMin, procCountMax + 1) + 1) {
 						val processor = factory.createProcessor
-						processor.name = '''Processor_«compCount».«boxCount».«boardCount».«procCount»'''
+						processor.name = '''Processor_«compCount»_«boxCount»_«boardCount»_«procCount»'''
 						board.processors.add(processor)			
 						
 						for (coreCount : 1 ..< rng.nextInt(coreCountMin, coreCountMax + 1) + 1) {
 							val core = factory.createCore
-							core.name = '''Core_«compCount».«boxCount».«boardCount».«procCount».«coreCount»'''
+							core.name = '''Core_«compCount»_«boxCount»_«boardCount»_«procCount»_«coreCount»'''
 							processor.cores.add(core)														
 						}
 					}
@@ -139,7 +141,7 @@ class MappingExampleGenerator {
 				
 			for (taskCount : 1 ..< rng.nextInt(taskCountMin, taskCountMax + 1) + 1) {	
 				val task = factory.createTask
-				task.name = '''Task_«appCount».«taskCount»'''
+				task.name = '''Task_«appCount»_«taskCount»'''
 				application.tasks.add(task)						
 			}
 		}

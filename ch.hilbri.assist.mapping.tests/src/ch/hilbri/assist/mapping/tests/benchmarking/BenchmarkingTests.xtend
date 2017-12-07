@@ -21,7 +21,7 @@ class BenchmarkingTests extends AbstractMappingTest {
 		val coreRange 		= #[2, 4]
 		val appRange 		= #[16, 24]
 		val taskRange 		= #[2, 8]
-		val dislocRelRange 	= #[32, 32]
+		val dislocRelRange 	= #[24, 32]
 		val dislocAppRange 	= #[4, 6]
 		val dislocLevels 	= #[HardwareArchitectureLevelType.BOARD, HardwareArchitectureLevelType.BOX]
 		
@@ -35,6 +35,7 @@ class BenchmarkingTests extends AbstractMappingTest {
 		val assistSolver = new AssistSolver(assistModel)
 		assistSolver.setSolverSearchStrategy(VariableSelectorTypes.^default, ValueSelectorTypes.^default)
 		assistSolver.solverMaxSolutions = 1
+		assistSolver.solverTimeLimit = 60*100 // 60 seconds
 		assistSolver.runInitialization
 		assistSolver.runConstraintGeneration
 		assistSolver.runSolutionSearch
