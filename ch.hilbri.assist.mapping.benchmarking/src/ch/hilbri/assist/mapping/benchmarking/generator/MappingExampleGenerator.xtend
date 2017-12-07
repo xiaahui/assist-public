@@ -43,8 +43,9 @@ class MappingExampleGenerator {
 		assistModel.compartments.add(compartment)
 		
         val resSet = new ResourceSetImpl
-        val resource = resSet.createResource(URI.createURI("test.mdsl"));
+        val resource = resSet.createResource(URI.createURI("test.mdsl"))  
         resource.contents.add(assistModel)
+        
 		return assistModel
 	}
 }
