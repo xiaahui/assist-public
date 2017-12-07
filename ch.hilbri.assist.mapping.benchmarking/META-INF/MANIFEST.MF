@@ -11,6 +11,8 @@ Require-Bundle: com.google.guava,
  org.eclipse.xtend.lib.macro,
  ch.hilbri.assist.mapping.model,
  ch.hilbri.assist.mapping.model.edit,
- ch.hilbri.assist.mapping.model.editor
+ ch.hilbri.assist.mapping.model.editor,
+ org.junit,
+ org.eclipse.xtext.junit4
 Export-Package: ch.hilbri.assist.mapping.benchmarking.generator
 

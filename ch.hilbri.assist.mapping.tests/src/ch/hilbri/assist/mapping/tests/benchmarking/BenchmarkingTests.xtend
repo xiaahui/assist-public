@@ -12,7 +12,16 @@ import org.junit.Test
 class BenchmarkingTests extends AbstractMappingTest {
 	@Test
 	def void testExampleGenerator() {
-		val AssistModel assistModel = MappingExampleGenerator.generate
+		
+		val compRange 	= #[3,  5]
+		val boxRange 	= #[2,  6]
+		val boardRange 	= #[2,  4]
+		val procRange 	= #[1,  2]
+		val coreRange 	= #[2,  8]
+		val appRange 	= #[6, 10]
+		val taskRange 	= #[2, 10]
+		
+		val AssistModel assistModel = MappingExampleGenerator.generateSingleRandomized(compRange, boxRange, boardRange, procRange, coreRange, appRange, taskRange)
 		
 		Assert.assertNotNull("Model should not be null", assistModel)
 		Assert.assertTrue("Model should not contain errors", assistModel.eResource.errors.isEmpty)
