@@ -12,9 +12,11 @@
    </license>
 
    <requires>
-      <import plugin="ch.hilbri.assist.libraries.math" version="3.2.1" match="greaterOrEqual"/>
-      <import plugin="ch.hilbri.assist.libraries.logback" version="1.1.2" match="greaterOrEqual"/>
+      <import plugin="ch.hilbri.assist.gui"/>
+      <import plugin="ch.hilbri.assist.libraries.math"/>
+      <import plugin="ch.hilbri.assist.libraries.logback"/>
       <import plugin="ch.hilbri.assist.libraries.choco-solver"/>
+      <import plugin="ch.hilbri.assist.libraries.swtchart"/>
       <import plugin="org.eclipse.xtend.lib"/>
       <import plugin="org.eclipse.e4.core.commands"/>
       <import plugin="org.eclipse.ui.ide" version="3.12.2" match="greaterOrEqual"/>
@@ -49,6 +51,8 @@
       <import plugin="org.junit" version="4.7.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.junit4" version="2.10.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.xbase.junit"/>
+      <import plugin="org.eclipse.xtext.testing"/>
+      <import plugin="org.eclipse.xtext.xbase.testing"/>
       <import plugin="org.hamcrest.core"/>
       <import plugin="org.eclipse.xtext.ui.shared" version="2.10.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.ui.codetemplates.ui" version="2.10.0" match="greaterOrEqual"/>
@@ -57,10 +61,8 @@
       <import plugin="org.eclipse.ui" version="3.108.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.compare" version="3.7.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.builder" version="2.10.0" match="greaterOrEqual"/>
-      <import plugin="ch.hilbri.assist.gui"/>
-      <import plugin="ch.hilbri.assist.libraries.swtchart"/>
-      <import plugin="org.eclipse.xtext.testing"/>
-      <import plugin="org.eclipse.xtext.xbase.testing"/>
+      <import plugin="com.google.guava"/>
+      <import plugin="org.eclipse.xtend.lib.macro"/>
    </requires>
 
    <plugin
@@ -121,6 +123,13 @@
 
    <plugin
          id="ch.hilbri.assist.mapping.dsl.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.mapping.benchmarking"
          download-size="0"
          install-size="0"
          version="0.0.0"
