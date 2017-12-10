@@ -8,16 +8,70 @@ import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mapping.tests.AbstractMappingTest
 import java.io.File
+import java.nio.file.Files
 import java.nio.file.Paths
+import java.util.ArrayList
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.junit.Assert
 import org.junit.Test
+
+class BenchmarkingEntry {
+	@Accessors String name
+	@Accessors int constraintCount
+	@Accessors int variableCount	
+	@Accessors long failCount	
+	@Accessors long backtrackCount	
+	@Accessors long resolutionTimeInNS
+
+	public override String toString() {
+		'''«name»: «constraintCount» constraints, «variableCount» variables, «failCount» fails, «backtrackCount» backtracks, «resolutionTimeInNS / 1000000.0» resolution time (ms)'''
+	}	
+}
 
 class BenchmarkingTests extends AbstractMappingTest {
 	
 	@Test
 	def void benchmarkSyntheticExamples() {
-		// do nothing at the moment
-		// see ExampleTests for implementation details
+
+		val benchmarkingList = new ArrayList<BenchmarkingEntry>
+
+		val pathURL = class.protectionDomain.codeSource.location
+		val pathURI = (new File(pathURL.file).toURI)
+		val path = Paths.get(pathURI)
+		val subPath = path.subpath(0, path.nameCount - 3)
+
+		for (i : 0 ..< 21)  {
+			val finalPath = Paths.get(path.root.toString, subPath.toString, '''ch.hilbri.assist.mapping.tests/resources/example-«i».mdsl''')
+			logger.debug('''Loading file «finalPath.toString»''')
+			val input = new String(Files.readAllBytes(finalPath))
+			val r = resourceHelper.resource(input)	
+			Assert.assertEquals("There should be 0 errors in the mdsl file", 0, r.errors.size)
+
+			val assistModel = r.contents.head as AssistModel
+			val assistSolver = new AssistSolver(assistModel)
+			assistSolver.setSolverSearchStrategy(VariableSelectorTypes.^default, ValueSelectorTypes.^default)
+			assistSolver.solverMaxSolutions = 1
+			assistSolver.solverTimeLimit = 60*100 // 60 seconds
+			assistSolver.runInitialization
+			assistSolver.runConstraintGeneration
+			assistSolver.runSolutionSearch
+
+			Assert.assertTrue(assistSolver.chocoSolutions.size > 0) 
+			logger.debug('''------------------------------------''')
+			
+			val entry = new BenchmarkingEntry
+			entry.name = finalPath.toString
+			entry.constraintCount = assistSolver.chocoModel.nbCstrs
+			entry.variableCount = assistSolver.chocoModel.nbVars
+			entry.resolutionTimeInNS = assistSolver.chocoModel.solver.measures.timeCountInNanoSeconds
+			entry.failCount = assistSolver.chocoModel.solver.measures.failCount
+			entry.backtrackCount = assistSolver.chocoModel.solver.measures.backTrackCount
+			
+			benchmarkingList.add(entry)
+		}
+		
+		for (e : benchmarkingList)
+			logger.debug(e.toString())
 	}
 	
 	@Test

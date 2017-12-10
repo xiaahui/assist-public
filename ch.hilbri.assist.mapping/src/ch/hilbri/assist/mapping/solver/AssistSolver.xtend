@@ -246,4 +246,9 @@ class AssistSolver {
 	def List<Solution> getChocoSolutions() {
 		chocoSolutions
 	}
+	
+	/** For benchmarking tests */
+	def Model getChocoModel() {
+		chocoModel
+	}
 }
