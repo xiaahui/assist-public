@@ -6,6 +6,24 @@ import org.chocosolver.solver.constraints.nary.alldifferent.PropAllDiffAC
 import org.chocosolver.solver.variables.IntVar
 
 class AssistConstraintFactory {
+	
+	def static Constraint allDifferent(List<List<IntVar>> VARS) {
+		val cumulLengths = newArrayList
+
+		for (i : 0 ..< VARS.size) {
+			val subList = VARS.get(i)
+			val subListSize = subList.length
+			if(i == 0) {
+				cumulLengths.add(subListSize) 
+			}
+			else {
+				cumulLengths.add(subListSize + cumulLengths.last)
+			}
+		}
+
+		return new Constraint("AllDifferent", #[new PropAllDiffListsOfListsInst(cumulLengths, VARS.flatten)])	
+	}
+	
 	def static Constraint allDifferent(List<List<IntVar>> VARS, IntVar[] domainUnionVars) {
 		val cumulLengths = newArrayList
 

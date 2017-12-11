@@ -19,7 +19,6 @@ public class PropAllDiffListsOfListsInst extends Propagator<IntVar> {
     // CONSTRUCTORS
     //***********************************************************************************
 
-	
 	public PropAllDiffListsOfListsInst(int[] cumulLengths, IntVar[] flatVariablesList) {
 		super(flatVariablesList, PropagatorPriority.UNARY, true);
 		// cumulLengths needs to be strictly monotone increasing (no empty lists) and the last entry must be equal to the number of vars, maybe we should check here
@@ -52,22 +51,6 @@ public class PropAllDiffListsOfListsInst extends Propagator<IntVar> {
     @Override
     public void propagate(int varIdx, int mask) throws ContradictionException {
 		toCheck.push(varIdx);
-/*        
-    	int ctr = 0;
-    	
-    	outerloop:
-    	for (int i = 0; i < variables.length; i++) {
-    		for (int j = 0; j < variables[i].length; j++) {
-    			if (ctr == varIdx) {
-    				toCheck.push(i);
-    				toCheck.push(j);
-    				break outerloop;
-    			} else {
-    				ctr++;
-    			}
-    		}
-    	}
-*/    	        
         fixpoint();
     }
 
