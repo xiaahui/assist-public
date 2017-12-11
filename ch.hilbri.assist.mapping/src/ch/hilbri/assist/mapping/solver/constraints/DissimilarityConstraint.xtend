@@ -102,7 +102,7 @@ class DissimilarityConstraint extends AbstractMappingConstraint {
 		else {
 			// See DislocalityConstraint for another instance of this usage
 			val domainUnionVars = taskDissimValueVars.map[chocoModel.intVar(0, dissimilarityValues.size-1, false)]
-			return ACF.allDifferent(taskDissimValueVars, domainUnionVars)
+			return ACF.allDifferent_values_union(taskDissimValueVars, domainUnionVars)
 		}	
 	}
 	

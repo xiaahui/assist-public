@@ -15,11 +15,11 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 	 * Define the mode / implementation of the dislocality constraint
 	 */
 	enum DislocalityConstraintImplementations {
-		ALLDIFFERENT_SETVARS, 			// Use union to set vars
-		ALLDIFFERENT_ALL_INTVARS, 		// Use an alldifferent for all vars (recursive)
-		REMOVE_ON_INSTANTIATION			// Act only on instantiation to remove variables in list of intvar lists		
+		ALLDIFFERENT_VALUES_UNION, 			// Use union to set vars
+		ALLDIFFERENT_FULL_LIST, 				// Use an alldifferent for all vars (recursive)
+		ALLDIFFERENT_INSTANTIATION_ONLY		// Act only on instantiation to remove variables in list of intvar lists		
 	}
-	DislocalityConstraintImplementations mode = DislocalityConstraintImplementations.ALLDIFFERENT_ALL_INTVARS
+	DislocalityConstraintImplementations mode = DislocalityConstraintImplementations.ALLDIFFERENT_FULL_LIST
 	
 	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
 		super("dislocality", model, chocoModel, solverVariables)
@@ -69,19 +69,19 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				
 				switch (mode) {
 					/* Best performing default implementation */
-					case ALLDIFFERENT_SETVARS: {
+					case ALLDIFFERENT_VALUES_UNION: {
 						val domainUnionVars = taskVars.map[chocoModel.intVar("DomainVarForGroup-" + taskVars.indexOf(it), 0, model.getAllHardwareElements(level).size-1, false)]
-						chocoModel.post(ACF.allDifferent(taskVars, domainUnionVars))		
+						chocoModel.post(ACF.allDifferent_values_union(taskVars, domainUnionVars))		
 					}
 					
 					/* Post an alldifferent for every variable relation - resource intensive! */
-					case ALLDIFFERENT_ALL_INTVARS: {
+					case ALLDIFFERENT_FULL_LIST: {
 						recursiveConstraintBuild(taskVars, 0, new ArrayList<IntVar>)		
 					}
 					
 					/* Only react on instantiation - should be weak in propagation, but yield the same results */
-					case REMOVE_ON_INSTANTIATION: {
-						chocoModel.post(ACF.allDifferent(taskVars))
+					case ALLDIFFERENT_INSTANTIATION_ONLY: {
+						chocoModel.post(ACF.allDifferent_instantiation_only(taskVars))
 					}
 				}
 			}
