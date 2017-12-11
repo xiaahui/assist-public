@@ -19,7 +19,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 		ALLDIFFERENT_FULL_LIST, 				// Use an alldifferent for all vars (recursive)
 		ALLDIFFERENT_INSTANTIATION_ONLY		// Act only on instantiation to remove variables in list of intvar lists		
 	}
-	DislocalityConstraintImplementations mode = DislocalityConstraintImplementations.ALLDIFFERENT_FULL_LIST
+	DislocalityConstraintImplementations mode = DislocalityConstraintImplementations.ALLDIFFERENT_VALUES_UNION
 	
 	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
 		super("dislocality", model, chocoModel, solverVariables)
