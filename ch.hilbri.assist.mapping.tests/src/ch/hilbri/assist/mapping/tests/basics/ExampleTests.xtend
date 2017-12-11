@@ -49,9 +49,8 @@ class ExampleTests extends AbstractMappingTest {
 
 			val assistModel = r.contents.head as AssistModel
 			val assistSolver = new AssistSolver(assistModel)
-			assistSolver.setSolverSearchStrategy(VariableSelectorTypes.^default, ValueSelectorTypes.^default)
+			assistSolver.setSolverSearchStrategy(VariableSelectorTypes.DOM_OVER_WDEG, ValueSelectorTypes.MIN_VALUE_FIRST)
 			assistSolver.solverMaxSolutions = 1
-			assistSolver.solverTimeLimit = 60*100 // 60 seconds
 			assistSolver.runInitialization
 			assistSolver.runConstraintGeneration
 			assistSolver.runSolutionSearch

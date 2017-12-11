@@ -4,7 +4,10 @@ import ch.hilbri.assist.mapping.model.Application
 import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.solver.constraints.choco.ACF
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
+import java.util.ArrayList
+import java.util.List
 import org.chocosolver.solver.Model
+import org.chocosolver.solver.variables.IntVar
 
 class DislocalityConstraint extends AbstractMappingConstraint {
 
@@ -53,8 +56,16 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 			else {
 				val taskList = relation.applications.map[(it as Application).tasks]
 				val taskVars = taskList.map[it.map[solverVariables.getLocationVariablesForTask(it).get(level)]]
-				val domainUnionVars = taskVars.map[chocoModel.intVar("DomainVarForGroup-" + taskVars.indexOf(it), 0, model.getAllHardwareElements(level).size-1, false)]
-				chocoModel.post(ACF.allDifferent(taskVars, domainUnionVars))
+				
+				var useUnionApproach = true
+				
+				if (useUnionApproach) {
+					val domainUnionVars = taskVars.map[chocoModel.intVar("DomainVarForGroup-" + taskVars.indexOf(it), 0, model.getAllHardwareElements(level).size-1, false)]
+					chocoModel.post(ACF.allDifferent(taskVars, domainUnionVars))
+				}
+				else {
+					recursiveConstraintBuild(taskVars, 0, new ArrayList<IntVar>)
+				}
 			}
 		 }
 		 propagate()
@@ -64,5 +75,17 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 	}
 
 	
-
+	def void recursiveConstraintBuild(List<List<IntVar>> intVarList, int idx, List<IntVar> conflict) {
+		val subList = intVarList.get(idx) 
+		for (intVar: subList) {
+			conflict.add(intVar)
+			if (idx == intVarList.size - 1) {
+				chocoModel.allDifferent(conflict).post				
+			} else {
+				recursiveConstraintBuild(intVarList, idx+1, conflict)
+			}
+			conflict.remove(conflict.size-1)
+		}
+		
+	}
 }
