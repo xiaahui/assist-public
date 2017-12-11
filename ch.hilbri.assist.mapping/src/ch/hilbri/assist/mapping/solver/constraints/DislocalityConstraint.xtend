@@ -70,8 +70,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 				switch (mode) {
 					/* Best performing default implementation */
 					case ALLDIFFERENT_VALUES_UNION: {
-						val domainUnionVars = taskVars.map[chocoModel.intVar("DomainVarForGroup-" + taskVars.indexOf(it), 0, model.getAllHardwareElements(level).size-1, false)]
-						chocoModel.post(ACF.allDifferent_values_union(taskVars, domainUnionVars))		
+						chocoModel.post(ACF.allDifferent_values_union(taskVars))		
 					}
 					
 					/* Post an alldifferent for every variable relation - resource intensive! */

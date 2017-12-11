@@ -26,7 +26,18 @@ class AssistConstraintFactory {
 		return new Constraint("AllDifferent", #[new PropAllDiffListsOfListsInst(cumulLengths, VARS.flatten)])	
 	}
 	
-	def static Constraint allDifferent_values_union(List<List<IntVar>> VARS, IntVar[] domainUnionVars) {
+	def static Constraint allDifferent_values_union(List<List<IntVar>> VARS) { 
+		
+		val chocoModel = VARS.head.head.model
+		
+		val domainUnionVars = newArrayList
+		for (varList : VARS) {
+			val minValue = varList.map[LB].min
+			val maxValue = varList.map[UB].max
+			val intVar = chocoModel.intVar(minValue, maxValue, false)
+			domainUnionVars.add(intVar) 
+		}
+				
 		val cumulLengths = newArrayList
 
 		for (i : 0 ..< VARS.size) {
