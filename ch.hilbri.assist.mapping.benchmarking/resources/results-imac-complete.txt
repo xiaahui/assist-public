@@ -1,5 +1,4 @@
-Union 
-
+UNION 
 [17:28:12.747] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-0.mdsl: 38740 constraints, 38752 variables, 463 fails, 926 backtracks, 4588.937911 resolution time (ms)
 [17:28:12.747] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-1.mdsl: 42367 constraints, 42421 variables, 187 fails, 372 backtracks, 1752.108146 resolution time (ms)
 [17:28:12.747] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-2.mdsl: 31235 constraints, 31274 variables, 256 fails, 512 backtracks, 1874.385725 resolution time (ms)
@@ -21,9 +20,7 @@ Union
 [17:28:12.747] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-18.mdsl: 30097 constraints, 30160 variables, 104 fails, 205 backtracks, 388.957668 resolution time (ms)
 [17:28:12.747] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-19.mdsl: 46039 constraints, 46122 variables, 473 fails, 946 backtracks, 5006.708507 resolution time (ms)
 [17:28:12.747] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-20.mdsl: 24039 constraints, 24107 variables, 848 fails, 1696 backtracks, 5342.669823 resolution time (ms)
-
-FULL List
-
+FULL
 [19:49:44.485] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-0.mdsl: 93516 constraints, 38597 variables, 119 fails, 237 backtracks, 16612.873517 resolution time (ms)
 [19:49:44.485] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-1.mdsl: 126916 constraints, 42296 variables, 179 fails, 358 backtracks, 23112.58199 resolution time (ms)
 [19:49:44.485] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-2.mdsl: 96525 constraints, 31152 variables, 1562 fails, 3124 backtracks, 168050.301688 resolution time (ms)
@@ -45,9 +42,7 @@ FULL List
 [19:49:44.486] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-18.mdsl: 60771 constraints, 30032 variables, 382 fails, 764 backtracks, 21088.389006 resolution time (ms)
 [19:49:44.486] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-19.mdsl: 233240 constraints, 45993 variables, 456 fails, 912 backtracks, 162057.988434 resolution time (ms)
 [19:49:44.486] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-20.mdsl: 148450 constraints, 23978 variables, 3128 fails, 6256 backtracks, 653208.038489 resolution time (ms)
-
-Instantiation only
-
+INSTANTIATION
 [19:55:01.463] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-0.mdsl: 38740 constraints, 38597 variables, 923 fails, 1846 backtracks, 6790.473042 resolution time (ms)
 [19:55:01.463] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-1.mdsl: 42367 constraints, 42296 variables, 311 fails, 619 backtracks, 2150.334395 resolution time (ms)
 [19:55:01.463] /Users/robert/Git-Repositories/ASSIST-Code/ch.hilbri.assist.mapping.tests/resources/example-2.mdsl: 31235 constraints, 31152 variables, 693 fails, 1386 backtracks, 2580.755037 resolution time (ms)
