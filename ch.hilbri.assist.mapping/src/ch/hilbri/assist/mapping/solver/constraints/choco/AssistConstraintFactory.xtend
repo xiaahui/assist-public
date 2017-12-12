@@ -56,7 +56,7 @@ class AssistConstraintFactory {
 		for (int i : 0 ..< VARS.size)
 			propagators.add(new PropIntValuesUnion(VARS.get(i), domainUnionVars.get(i)))
 
-		propagators.add(new PropAllDiffListsOfListsInst(cumulLengths, VARS.flatten))
+		//propagators.add(new PropAllDiffListsOfListsInst(cumulLengths, VARS.flatten))
 		propagators.add(new PropAllDiffAC(domainUnionVars))
 
 		return new Constraint("AllDifferent", propagators)
