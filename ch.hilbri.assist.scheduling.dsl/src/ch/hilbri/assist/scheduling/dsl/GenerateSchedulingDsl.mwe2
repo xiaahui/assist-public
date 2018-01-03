@@ -1,4 +1,4 @@
-module ch.hilbri.assist.mapping.dsl.GenerateMappingDSL
+module ch.hilbri.assist.scheduling.dsl.GenerateSchedulingDsl
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
@@ -10,7 +10,7 @@ Workflow {
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
-				baseName = "ch.hilbri.assist.mapping.dsl"
+				baseName = "ch.hilbri.assist.scheduling.dsl"
 				rootPath = rootPath
 				runtimeTest = {
 					enabled = true
@@ -24,14 +24,15 @@ Workflow {
 				createEclipseMetaData = true
 			}
 			code = {
-				encoding = "utf-8"
+				encoding = "UTF-8"
+				lineDelimiter = "\n"
 				fileHeader = ""
 			}
 		}
 		language = StandardLanguage {
-			name = "ch.hilbri.assist.mapping.dsl.MappingDSL"
-			fileExtensions = "mdsl"
-			referencedResource = "platform:/resource/ch.hilbri.assist.mapping.model/model/ASSIST-Mapping-Model.xcore"
+			name = "ch.hilbri.assist.scheduling.dsl.SchedulingDsl"
+			fileExtensions = "sdsl"
+			referencedResource = "platform:/resource/ch.hilbri.assist.scheduling.model/model/ASSIST-Scheduling-Model.xcore"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
@@ -42,6 +43,7 @@ Workflow {
 			serializer = {
 				generateStub = false
 			}
+			
 			validator = {
 				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}

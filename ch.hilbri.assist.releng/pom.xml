@@ -62,6 +62,11 @@
 		<module>../ch.hilbri.assist.dse</module>
 		<module>../ch.hilbri.assist.scheduling</module>
 		<module>../ch.hilbri.assist.mapping.benchmarking</module>
+		<module>../ch.hilbri.assist.scheduling.dsl</module>
+		<module>../ch.hilbri.assist.scheduling.dsl.ide</module>
+		<module>../ch.hilbri.assist.scheduling.dsl.tests</module>
+		<module>../ch.hilbri.assist.scheduling.dsl.ui</module>
+		<module>../ch.hilbri.assist.scheduling.dsl.ui.tests</module>
 	</modules>
 
 	<dependencies>
