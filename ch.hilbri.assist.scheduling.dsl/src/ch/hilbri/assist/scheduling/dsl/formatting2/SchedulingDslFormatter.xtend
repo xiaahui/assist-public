@@ -15,7 +15,7 @@ import org.eclipse.xtext.formatting2.IFormattableDocument
 
 class SchedulingDslFormatter extends AbstractFormatter2 {
 	
-	@Inject extension SchedulingDslGrammarAccess
+//	@Inject extension SchedulingDslGrammarAccess
 
 	def dispatch void format(AssistModelScheduling assistModelScheduling, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
