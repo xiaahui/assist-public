@@ -2,6 +2,7 @@
 <psf version="2.0">
 <provider id="org.eclipse.egit.core.GitProvider">
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.cli"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.dse"/>
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.dse.dsl"/>
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.dse.dsl.ide"/>
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.dse.dsl.tests"/>
@@ -24,6 +25,7 @@
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.libraries.math"/>
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.libraries.swtchart"/>
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.benchmarking"/>
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.dsl"/>
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.dsl.ide"/>
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.dsl.tests"/>
@@ -36,6 +38,12 @@
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.mapping.tests"/>
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.releng"/>
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.releng.product.gui"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.scheduling"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.scheduling.dsl"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.scheduling.dsl.ide"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.scheduling.dsl.tests"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.scheduling.dsl.ui"/>
+<project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.scheduling.dsl.ui.tests"/>
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.scheduling.model"/>
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.scheduling.model.edit"/>
 <project reference="1.0,https://github.com/RobertHilbrich/assist-private,master,ch.hilbri.assist.scheduling.model.editor"/>
@@ -53,6 +61,7 @@
 <item elementID="=ch.hilbri.assist.dse.dsl.tests" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ch.hilbri.assist.dse.dsl.ui.tests" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ch.hilbri.assist.dse.model.editor" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.dse" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1508390575842_9" label="Features" name="Features">
 <item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ch.hilbri.assist.features.gui" type="4"/>
@@ -75,6 +84,7 @@
 <item elementID="=ch.hilbri.assist.mapping.dsl.ui.tests" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ch.hilbri.assist.mapping.model.editor" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ch.hilbri.assist.mapping.tests" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.mapping.benchmarking" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ch.hilbri.assist.mapping.dsl" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ch.hilbri.assist.mapping.model.edit" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ch.hilbri.assist.mapping" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -90,6 +100,12 @@
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1508390496974_5" label="Scheduling" name="Scheduling">
 <item elementID="=ch.hilbri.assist.scheduling.model" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ch.hilbri.assist.scheduling.model.edit" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.scheduling" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ch.hilbri.assist.scheduling.model.editor" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.scheduling.dsl" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.scheduling.dsl.ide" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.scheduling.dsl.ui" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.scheduling.dsl.tests" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.hilbri.assist.scheduling.dsl.ui.tests" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
 </psf>
