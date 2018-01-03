@@ -4,7 +4,7 @@ package ch.hilbri.assist.dse.model.util;
 
 import ch.hilbri.assist.dse.model.*;
 
-import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.AssistModelMapping;
 import ch.hilbri.assist.mapping.model.Box;
 import ch.hilbri.assist.mapping.model.HardwareElement;
 
@@ -73,7 +73,7 @@ public class ModelSwitch<T> extends Switch<T> {
 			case ModelPackage.ASSIST_MODEL_DSE: {
 				AssistModelDSE assistModelDSE = (AssistModelDSE)theEObject;
 				T result = caseAssistModelDSE(assistModelDSE);
-				if (result == null) result = caseAssistModel(assistModelDSE);
+				if (result == null) result = caseAssistModelMapping(assistModelDSE);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -267,17 +267,17 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Assist Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Assist Model Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Assist Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Assist Model Mapping</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAssistModel(AssistModel object) {
+	public T caseAssistModelMapping(AssistModelMapping object) {
 		return null;
 	}
 

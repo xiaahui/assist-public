@@ -3,7 +3,7 @@
 package ch.hilbri.assist.mapping.model.result.impl;
 
 import ch.hilbri.assist.mapping.model.Application;
-import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.AssistModelMapping;
 import ch.hilbri.assist.mapping.model.Board;
 import ch.hilbri.assist.mapping.model.Box;
 import ch.hilbri.assist.mapping.model.Compartment;
@@ -126,7 +126,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @generated
 	 * @ordered
 	 */
-	protected AssistModel model;
+	protected AssistModelMapping model;
 
 	/**
 	 * The cached value of the '{@link #getTask2CoreMap() <em>Task2 Core Map</em>}' attribute.
@@ -264,10 +264,10 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssistModel getModel() {
+	public AssistModelMapping getModel() {
 		if (model != null && model.eIsProxy()) {
 			InternalEObject oldModel = (InternalEObject)model;
-			model = (AssistModel)eResolveProxy(oldModel);
+			model = (AssistModelMapping)eResolveProxy(oldModel);
 			if (model != oldModel) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultPackage.RESULT__MODEL, oldModel, model));
@@ -281,7 +281,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssistModel basicGetModel() {
+	public AssistModelMapping basicGetModel() {
 		return model;
 	}
 
@@ -290,8 +290,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setModel(AssistModel newModel) {
-		AssistModel oldModel = model;
+	public void setModel(AssistModelMapping newModel) {
+		AssistModelMapping oldModel = model;
 		model = newModel;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__MODEL, oldModel, model));
@@ -637,7 +637,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				setIndex((Integer)newValue);
 				return;
 			case ResultPackage.RESULT__MODEL:
-				setModel((AssistModel)newValue);
+				setModel((AssistModelMapping)newValue);
 				return;
 			case ResultPackage.RESULT__TASK2_CORE_MAP:
 				setTask2CoreMap((HashMap<Task, Core>)newValue);
@@ -670,7 +670,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				setIndex(INDEX_EDEFAULT);
 				return;
 			case ResultPackage.RESULT__MODEL:
-				setModel((AssistModel)null);
+				setModel((AssistModelMapping)null);
 				return;
 			case ResultPackage.RESULT__TASK2_CORE_MAP:
 				setTask2CoreMap((HashMap<Task, Core>)null);

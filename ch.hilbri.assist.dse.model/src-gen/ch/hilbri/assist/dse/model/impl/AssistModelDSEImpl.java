@@ -8,7 +8,7 @@ import ch.hilbri.assist.dse.model.ExplorationCandidate;
 import ch.hilbri.assist.dse.model.ModelPackage;
 import ch.hilbri.assist.dse.model.RestrictionAlternatives;
 
-import ch.hilbri.assist.mapping.model.impl.AssistModelImpl;
+import ch.hilbri.assist.mapping.model.impl.AssistModelMappingImpl;
 
 import java.util.Collection;
 
@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class AssistModelDSEImpl extends AssistModelImpl implements AssistModelDSE {
+public class AssistModelDSEImpl extends AssistModelMappingImpl implements AssistModelDSE {
 	/**
 	 * The cached value of the '{@link #getApplicationAlternatives() <em>Application Alternatives</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

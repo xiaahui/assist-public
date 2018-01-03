@@ -1,6 +1,5 @@
 package ch.hilbri.assist.mapping.solver
 
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
@@ -31,13 +30,14 @@ import org.chocosolver.util.criteria.Criterion
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 class AssistSolver {
 	
 	private Logger 									logger						= LoggerFactory.getLogger(this.class)
 	private boolean									verboseLogging				= false
 	
-	private AssistModel								assistModel
+	private AssistModelMapping								assistModel
 	
 	private Model									chocoModel
 	private Solver 									chocoSolver
@@ -53,7 +53,7 @@ class AssistSolver {
 	private PartialSolutionSaveMonitor 				monPartialSolutionSave
 	private SolutionFoundMonitor 					monSolutionFound
 	
-	new (AssistModel input) {
+	new (AssistModelMapping input) {
 
 		logger.info('''******************************''')
 		logger.info('''        ASSIST Solver         ''')

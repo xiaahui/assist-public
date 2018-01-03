@@ -1,16 +1,16 @@
 package ch.hilbri.assist.mapping.solver.preprocessors
 
-import ch.hilbri.assist.mapping.model.AssistModel
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 abstract class AbstractModelPreprocessor {
 	
-	protected AssistModel model
+	protected AssistModelMapping model
 	protected Logger logger
 	public String name
 	
-	new(AssistModel model, String name) {
+	new(AssistModelMapping model, String name) {
 		this.model = model
 		this.logger = LoggerFactory.getLogger(this.class)
 		this.name = name

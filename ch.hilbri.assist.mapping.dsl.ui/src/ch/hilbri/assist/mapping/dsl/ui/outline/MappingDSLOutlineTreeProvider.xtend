@@ -1,12 +1,12 @@
 package ch.hilbri.assist.mapping.dsl.ui.outline
 
-import ch.hilbri.assist.mapping.model.AssistModel
 import org.eclipse.core.runtime.FileLocator
 import org.eclipse.core.runtime.Path
 import org.eclipse.jface.resource.ImageDescriptor
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
 import org.osgi.framework.FrameworkUtil
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 /**
  * Customization of the default outline structure.
@@ -19,7 +19,7 @@ class MappingDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 //		true
 //	}
 
-	def _createChildren(IOutlineNode parentNode, AssistModel model) {
+	def _createChildren(IOutlineNode parentNode, AssistModelMapping model) {
 		val bundle = FrameworkUtil.getBundle(MappingDSLOutlineTreeProvider)
 		val imgfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_folder.png"), null));
 		val imgsubfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_category.png"), null));

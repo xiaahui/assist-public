@@ -1,7 +1,6 @@
 package ch.hilbri.assist.mapping.dsl.ui.labeling
 
 import ch.hilbri.assist.mapping.model.Application
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.Board
 import ch.hilbri.assist.mapping.model.Box
 import ch.hilbri.assist.mapping.model.ColocalityRelation
@@ -13,6 +12,7 @@ import ch.hilbri.assist.mapping.model.Task
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 /**
  * Provides labels for EObjects.
@@ -26,11 +26,11 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		super(delegate);
 	}
 	
-	def text(AssistModel model) {
-		model.systemName 
+	def text(AssistModelMapping model) {
+		model.getSystemName 
 	}
 
-	def image(AssistModel model) {
+	def image(AssistModelMapping model) {
 		'outlineview_system.png'
 	}
 

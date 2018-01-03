@@ -66,9 +66,9 @@ public class ModelSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ModelPackage.ASSIST_MODEL: {
-				AssistModel assistModel = (AssistModel)theEObject;
-				T result = caseAssistModel(assistModel);
+			case ModelPackage.ASSIST_MODEL_MAPPING: {
+				AssistModelMapping assistModelMapping = (AssistModelMapping)theEObject;
+				T result = caseAssistModelMapping(assistModelMapping);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -193,17 +193,17 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Assist Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Assist Model Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Assist Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Assist Model Mapping</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAssistModel(AssistModel object) {
+	public T caseAssistModelMapping(AssistModelMapping object) {
 		return null;
 	}
 

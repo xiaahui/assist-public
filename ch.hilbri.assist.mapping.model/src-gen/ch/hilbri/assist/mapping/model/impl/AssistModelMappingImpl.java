@@ -3,7 +3,7 @@
 package ch.hilbri.assist.mapping.model.impl;
 
 import ch.hilbri.assist.mapping.model.Application;
-import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.AssistModelMapping;
 import ch.hilbri.assist.mapping.model.Board;
 import ch.hilbri.assist.mapping.model.Box;
 import ch.hilbri.assist.mapping.model.ColocalityRelation;
@@ -43,23 +43,23 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Assist Model</b></em>'.
+ * An implementation of the model object '<em><b>Assist Model Mapping</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getSystemName <em>System Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getCompartments <em>Compartments</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getApplications <em>Applications</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getDislocalityRelations <em>Dislocality Relations</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getColocalityRelations <em>Colocality Relations</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl#getDissimilarityRelations <em>Dissimilarity Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelMappingImpl#getSystemName <em>System Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelMappingImpl#getCompartments <em>Compartments</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelMappingImpl#getApplications <em>Applications</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelMappingImpl#getDislocalityRelations <em>Dislocality Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelMappingImpl#getColocalityRelations <em>Colocality Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.AssistModelMappingImpl#getDissimilarityRelations <em>Dissimilarity Relations</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AssistModelImpl extends MinimalEObjectImpl.Container implements AssistModel {
+public class AssistModelMappingImpl extends MinimalEObjectImpl.Container implements AssistModelMapping {
 	/**
 	 * The default value of the '{@link #getSystemName() <em>System Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -135,7 +135,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AssistModelImpl() {
+	protected AssistModelMappingImpl() {
 		super();
 	}
 
@@ -146,7 +146,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ModelPackage.Literals.ASSIST_MODEL;
+		return ModelPackage.Literals.ASSIST_MODEL_MAPPING;
 	}
 
 	/**
@@ -167,7 +167,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 		String oldSystemName = systemName;
 		systemName = newSystemName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL__SYSTEM_NAME, oldSystemName, systemName));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL_MAPPING__SYSTEM_NAME, oldSystemName, systemName));
 	}
 
 	/**
@@ -177,7 +177,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 */
 	public EList<Compartment> getCompartments() {
 		if (compartments == null) {
-			compartments = new EObjectContainmentEList<Compartment>(Compartment.class, this, ModelPackage.ASSIST_MODEL__COMPARTMENTS);
+			compartments = new EObjectContainmentEList<Compartment>(Compartment.class, this, ModelPackage.ASSIST_MODEL_MAPPING__COMPARTMENTS);
 		}
 		return compartments;
 	}
@@ -189,7 +189,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 */
 	public EList<Application> getApplications() {
 		if (applications == null) {
-			applications = new EObjectContainmentEList<Application>(Application.class, this, ModelPackage.ASSIST_MODEL__APPLICATIONS);
+			applications = new EObjectContainmentEList<Application>(Application.class, this, ModelPackage.ASSIST_MODEL_MAPPING__APPLICATIONS);
 		}
 		return applications;
 	}
@@ -201,7 +201,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 */
 	public EList<DislocalityRelation> getDislocalityRelations() {
 		if (dislocalityRelations == null) {
-			dislocalityRelations = new EObjectContainmentEList<DislocalityRelation>(DislocalityRelation.class, this, ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS);
+			dislocalityRelations = new EObjectContainmentEList<DislocalityRelation>(DislocalityRelation.class, this, ModelPackage.ASSIST_MODEL_MAPPING__DISLOCALITY_RELATIONS);
 		}
 		return dislocalityRelations;
 	}
@@ -213,7 +213,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 */
 	public EList<ColocalityRelation> getColocalityRelations() {
 		if (colocalityRelations == null) {
-			colocalityRelations = new EObjectContainmentEList<ColocalityRelation>(ColocalityRelation.class, this, ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS);
+			colocalityRelations = new EObjectContainmentEList<ColocalityRelation>(ColocalityRelation.class, this, ModelPackage.ASSIST_MODEL_MAPPING__COLOCALITY_RELATIONS);
 		}
 		return colocalityRelations;
 	}
@@ -225,7 +225,7 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	 */
 	public EList<DissimilarityRelation> getDissimilarityRelations() {
 		if (dissimilarityRelations == null) {
-			dissimilarityRelations = new EObjectContainmentEList<DissimilarityRelation>(DissimilarityRelation.class, this, ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS);
+			dissimilarityRelations = new EObjectContainmentEList<DissimilarityRelation>(DissimilarityRelation.class, this, ModelPackage.ASSIST_MODEL_MAPPING__DISSIMILARITY_RELATIONS);
 		}
 		return dissimilarityRelations;
 	}
@@ -386,15 +386,15 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__COMPARTMENTS:
 				return ((InternalEList<?>)getCompartments()).basicRemove(otherEnd, msgs);
-			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__APPLICATIONS:
 				return ((InternalEList<?>)getApplications()).basicRemove(otherEnd, msgs);
-			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__DISLOCALITY_RELATIONS:
 				return ((InternalEList<?>)getDislocalityRelations()).basicRemove(otherEnd, msgs);
-			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__COLOCALITY_RELATIONS:
 				return ((InternalEList<?>)getColocalityRelations()).basicRemove(otherEnd, msgs);
-			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__DISSIMILARITY_RELATIONS:
 				return ((InternalEList<?>)getDissimilarityRelations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -408,17 +408,17 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
+			case ModelPackage.ASSIST_MODEL_MAPPING__SYSTEM_NAME:
 				return getSystemName();
-			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__COMPARTMENTS:
 				return getCompartments();
-			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__APPLICATIONS:
 				return getApplications();
-			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__DISLOCALITY_RELATIONS:
 				return getDislocalityRelations();
-			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__COLOCALITY_RELATIONS:
 				return getColocalityRelations();
-			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__DISSIMILARITY_RELATIONS:
 				return getDissimilarityRelations();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -433,26 +433,26 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
+			case ModelPackage.ASSIST_MODEL_MAPPING__SYSTEM_NAME:
 				setSystemName((String)newValue);
 				return;
-			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__COMPARTMENTS:
 				getCompartments().clear();
 				getCompartments().addAll((Collection<? extends Compartment>)newValue);
 				return;
-			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__APPLICATIONS:
 				getApplications().clear();
 				getApplications().addAll((Collection<? extends Application>)newValue);
 				return;
-			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__DISLOCALITY_RELATIONS:
 				getDislocalityRelations().clear();
 				getDislocalityRelations().addAll((Collection<? extends DislocalityRelation>)newValue);
 				return;
-			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__COLOCALITY_RELATIONS:
 				getColocalityRelations().clear();
 				getColocalityRelations().addAll((Collection<? extends ColocalityRelation>)newValue);
 				return;
-			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__DISSIMILARITY_RELATIONS:
 				getDissimilarityRelations().clear();
 				getDissimilarityRelations().addAll((Collection<? extends DissimilarityRelation>)newValue);
 				return;
@@ -468,22 +468,22 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
+			case ModelPackage.ASSIST_MODEL_MAPPING__SYSTEM_NAME:
 				setSystemName(SYSTEM_NAME_EDEFAULT);
 				return;
-			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__COMPARTMENTS:
 				getCompartments().clear();
 				return;
-			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__APPLICATIONS:
 				getApplications().clear();
 				return;
-			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__DISLOCALITY_RELATIONS:
 				getDislocalityRelations().clear();
 				return;
-			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__COLOCALITY_RELATIONS:
 				getColocalityRelations().clear();
 				return;
-			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__DISSIMILARITY_RELATIONS:
 				getDissimilarityRelations().clear();
 				return;
 		}
@@ -498,17 +498,17 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
+			case ModelPackage.ASSIST_MODEL_MAPPING__SYSTEM_NAME:
 				return SYSTEM_NAME_EDEFAULT == null ? systemName != null : !SYSTEM_NAME_EDEFAULT.equals(systemName);
-			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__COMPARTMENTS:
 				return compartments != null && !compartments.isEmpty();
-			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__APPLICATIONS:
 				return applications != null && !applications.isEmpty();
-			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__DISLOCALITY_RELATIONS:
 				return dislocalityRelations != null && !dislocalityRelations.isEmpty();
-			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__COLOCALITY_RELATIONS:
 				return colocalityRelations != null && !colocalityRelations.isEmpty();
-			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__DISSIMILARITY_RELATIONS:
 				return dissimilarityRelations != null && !dissimilarityRelations.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -522,19 +522,19 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ModelPackage.ASSIST_MODEL___GET_ALL_COMPARTMENTS:
+			case ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_COMPARTMENTS:
 				return getAllCompartments();
-			case ModelPackage.ASSIST_MODEL___GET_ALL_BOXES:
+			case ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_BOXES:
 				return getAllBoxes();
-			case ModelPackage.ASSIST_MODEL___GET_ALL_BOARDS:
+			case ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_BOARDS:
 				return getAllBoards();
-			case ModelPackage.ASSIST_MODEL___GET_ALL_PROCESSORS:
+			case ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_PROCESSORS:
 				return getAllProcessors();
-			case ModelPackage.ASSIST_MODEL___GET_ALL_CORES:
+			case ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_CORES:
 				return getAllCores();
-			case ModelPackage.ASSIST_MODEL___GET_ALL_TASKS:
+			case ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_TASKS:
 				return getAllTasks();
-			case ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT:
+			case ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_HARDWARE_ELEMENTS__INT:
 				return getAllHardwareElements((Integer)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
@@ -556,4 +556,4 @@ public class AssistModelImpl extends MinimalEObjectImpl.Container implements Ass
 		return result.toString();
 	}
 
-} //AssistModelImpl
+} //AssistModelMappingImpl

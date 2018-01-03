@@ -1,11 +1,11 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Model
 import org.chocosolver.solver.exception.ContradictionException
 import org.slf4j.Logger
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 abstract class AbstractMappingConstraint {
 	
@@ -16,7 +16,7 @@ abstract class AbstractMappingConstraint {
 	protected String					name
 	
 	/** A reference to the central data model */
-	protected AssistModel 				model
+	protected AssistModelMapping 				model
 	
 	/** A reference to the store of the constraint solver */
 	protected Model	 					chocoModel
@@ -32,7 +32,7 @@ abstract class AbstractMappingConstraint {
 	 * @param solver Reference to the solver instance
 	 * @param solverVariables Reference to the container with all solver variables
 	 */
-	new(String name, AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
+	new(String name, AssistModelMapping model, Model chocoModel, SolverVariablesContainer solverVariables) {
 		this.name = name
 		this.model = model
 		this.chocoModel = chocoModel

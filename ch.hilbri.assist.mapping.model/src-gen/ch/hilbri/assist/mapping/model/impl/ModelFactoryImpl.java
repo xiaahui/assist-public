@@ -57,7 +57,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ModelPackage.ASSIST_MODEL: return createAssistModel();
+			case ModelPackage.ASSIST_MODEL_MAPPING: return createAssistModelMapping();
 			case ModelPackage.HARDWARE_ELEMENT: return createHardwareElement();
 			case ModelPackage.COMPARTMENT: return createCompartment();
 			case ModelPackage.BOX: return createBox();
@@ -128,9 +128,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssistModel createAssistModel() {
-		AssistModelImpl assistModel = new AssistModelImpl();
-		return assistModel;
+	public AssistModelMapping createAssistModelMapping() {
+		AssistModelMappingImpl assistModelMapping = new AssistModelMappingImpl();
+		return assistModelMapping;
 	}
 
 	/**

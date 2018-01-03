@@ -1,7 +1,6 @@
 package ch.hilbri.assist.mapping.ui.infosheet
 
 import ch.hilbri.assist.mapping.model.Application
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.Board
 import ch.hilbri.assist.mapping.model.Box
 import ch.hilbri.assist.mapping.model.Compartment
@@ -12,9 +11,10 @@ import ch.hilbri.assist.mapping.model.result.Result
 import java.util.ArrayList
 import org.eclipse.jface.viewers.IStructuredContentProvider
 import java.text.DecimalFormat
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 class ComponentContentProvider implements IStructuredContentProvider {
-	AssistModel assistModel
+	AssistModelMapping assistModel
 	Result assistResult
 
 	new(Result result) {

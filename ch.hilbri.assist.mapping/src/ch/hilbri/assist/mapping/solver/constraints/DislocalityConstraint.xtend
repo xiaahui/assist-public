@@ -1,13 +1,13 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.mapping.model.Application
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.solver.constraints.choco.ACF
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import java.util.ArrayList
 import java.util.List
 import org.chocosolver.solver.Model
 import org.chocosolver.solver.variables.IntVar
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 class DislocalityConstraint extends AbstractMappingConstraint {
 
@@ -21,7 +21,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 	}
 	DislocalityConstraintImplementations mode = DislocalityConstraintImplementations.ALLDIFFERENT_VALUES_UNION
 	
-	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
+	new(AssistModelMapping model, Model chocoModel, SolverVariablesContainer solverVariables) {
 		super("dislocality", model, chocoModel, solverVariables)
 	}
 

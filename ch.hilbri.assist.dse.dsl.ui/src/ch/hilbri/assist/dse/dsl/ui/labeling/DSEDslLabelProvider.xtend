@@ -8,7 +8,6 @@ import ch.hilbri.assist.dse.model.BoxDSE
 import ch.hilbri.assist.dse.model.RestrictionAlternative
 import ch.hilbri.assist.dse.model.RestrictionAlternatives
 import ch.hilbri.assist.mapping.model.Application
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.Board
 import ch.hilbri.assist.mapping.model.Box
 import ch.hilbri.assist.mapping.model.ColocalityRelation
@@ -21,6 +20,7 @@ import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 import ch.hilbri.assist.dse.model.ExplorationCandidate
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 /**
  * Provides labels for EObjects.
@@ -34,11 +34,11 @@ class DSEDslLabelProvider extends DefaultEObjectLabelProvider {
 		super(delegate);
 	}
 
-	def text(AssistModel model) {
-		model.systemName
+	def text(AssistModelMapping model) {
+		model.getSystemName
 	}
 
-	def image(AssistModel model) {
+	def image(AssistModelMapping model) {
 		'outlineview_system.png'
 	}
 

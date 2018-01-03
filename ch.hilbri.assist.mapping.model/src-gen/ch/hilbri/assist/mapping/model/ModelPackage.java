@@ -61,14 +61,14 @@ public interface ModelPackage extends EPackage {
 	ModelPackage eINSTANCE = ch.hilbri.assist.mapping.model.impl.ModelPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl <em>Assist Model</em>}' class.
+	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.AssistModelMappingImpl <em>Assist Model Mapping</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.mapping.model.impl.AssistModelImpl
-	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getAssistModel()
+	 * @see ch.hilbri.assist.mapping.model.impl.AssistModelMappingImpl
+	 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getAssistModelMapping()
 	 * @generated
 	 */
-	int ASSIST_MODEL = 0;
+	int ASSIST_MODEL_MAPPING = 0;
 
 	/**
 	 * The feature id for the '<em><b>System Name</b></em>' attribute.
@@ -77,7 +77,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__SYSTEM_NAME = 0;
+	int ASSIST_MODEL_MAPPING__SYSTEM_NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Compartments</b></em>' containment reference list.
@@ -86,7 +86,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__COMPARTMENTS = 1;
+	int ASSIST_MODEL_MAPPING__COMPARTMENTS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Applications</b></em>' containment reference list.
@@ -95,7 +95,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__APPLICATIONS = 2;
+	int ASSIST_MODEL_MAPPING__APPLICATIONS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Dislocality Relations</b></em>' containment reference list.
@@ -104,7 +104,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__DISLOCALITY_RELATIONS = 3;
+	int ASSIST_MODEL_MAPPING__DISLOCALITY_RELATIONS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Colocality Relations</b></em>' containment reference list.
@@ -113,7 +113,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__COLOCALITY_RELATIONS = 4;
+	int ASSIST_MODEL_MAPPING__COLOCALITY_RELATIONS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Dissimilarity Relations</b></em>' containment reference list.
@@ -122,16 +122,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL__DISSIMILARITY_RELATIONS = 5;
+	int ASSIST_MODEL_MAPPING__DISSIMILARITY_RELATIONS = 5;
 
 	/**
-	 * The number of structural features of the '<em>Assist Model</em>' class.
+	 * The number of structural features of the '<em>Assist Model Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_FEATURE_COUNT = 6;
+	int ASSIST_MODEL_MAPPING_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Get All Compartments</em>' operation.
@@ -140,7 +140,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_ALL_COMPARTMENTS = 0;
+	int ASSIST_MODEL_MAPPING___GET_ALL_COMPARTMENTS = 0;
 
 	/**
 	 * The operation id for the '<em>Get All Boxes</em>' operation.
@@ -149,7 +149,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_ALL_BOXES = 1;
+	int ASSIST_MODEL_MAPPING___GET_ALL_BOXES = 1;
 
 	/**
 	 * The operation id for the '<em>Get All Boards</em>' operation.
@@ -158,7 +158,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_ALL_BOARDS = 2;
+	int ASSIST_MODEL_MAPPING___GET_ALL_BOARDS = 2;
 
 	/**
 	 * The operation id for the '<em>Get All Processors</em>' operation.
@@ -167,7 +167,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_ALL_PROCESSORS = 3;
+	int ASSIST_MODEL_MAPPING___GET_ALL_PROCESSORS = 3;
 
 	/**
 	 * The operation id for the '<em>Get All Cores</em>' operation.
@@ -176,7 +176,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_ALL_CORES = 4;
+	int ASSIST_MODEL_MAPPING___GET_ALL_CORES = 4;
 
 	/**
 	 * The operation id for the '<em>Get All Tasks</em>' operation.
@@ -185,7 +185,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_ALL_TASKS = 5;
+	int ASSIST_MODEL_MAPPING___GET_ALL_TASKS = 5;
 
 	/**
 	 * The operation id for the '<em>Get All Hardware Elements</em>' operation.
@@ -194,16 +194,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = 6;
+	int ASSIST_MODEL_MAPPING___GET_ALL_HARDWARE_ELEMENTS__INT = 6;
 
 	/**
-	 * The number of operations of the '<em>Assist Model</em>' class.
+	 * The number of operations of the '<em>Assist Model Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_OPERATION_COUNT = 7;
+	int ASSIST_MODEL_MAPPING_OPERATION_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.
@@ -1489,150 +1489,150 @@ public interface ModelPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.AssistModel <em>Assist Model</em>}'.
+	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.AssistModelMapping <em>Assist Model Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Assist Model</em>'.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel
+	 * @return the meta object for class '<em>Assist Model Mapping</em>'.
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping
 	 * @generated
 	 */
-	EClass getAssistModel();
+	EClass getAssistModelMapping();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.AssistModel#getSystemName <em>System Name</em>}'.
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getSystemName <em>System Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>System Name</em>'.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getSystemName()
-	 * @see #getAssistModel()
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping#getSystemName()
+	 * @see #getAssistModelMapping()
 	 * @generated
 	 */
-	EAttribute getAssistModel_SystemName();
+	EAttribute getAssistModelMapping_SystemName();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModel#getCompartments <em>Compartments</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getCompartments <em>Compartments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Compartments</em>'.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getCompartments()
-	 * @see #getAssistModel()
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping#getCompartments()
+	 * @see #getAssistModelMapping()
 	 * @generated
 	 */
-	EReference getAssistModel_Compartments();
+	EReference getAssistModelMapping_Compartments();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModel#getApplications <em>Applications</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getApplications <em>Applications</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Applications</em>'.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getApplications()
-	 * @see #getAssistModel()
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping#getApplications()
+	 * @see #getAssistModelMapping()
 	 * @generated
 	 */
-	EReference getAssistModel_Applications();
+	EReference getAssistModelMapping_Applications();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getDislocalityRelations <em>Dislocality Relations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Dislocality Relations</em>'.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getDislocalityRelations()
-	 * @see #getAssistModel()
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping#getDislocalityRelations()
+	 * @see #getAssistModelMapping()
 	 * @generated
 	 */
-	EReference getAssistModel_DislocalityRelations();
+	EReference getAssistModelMapping_DislocalityRelations();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModel#getColocalityRelations <em>Colocality Relations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getColocalityRelations <em>Colocality Relations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Colocality Relations</em>'.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getColocalityRelations()
-	 * @see #getAssistModel()
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping#getColocalityRelations()
+	 * @see #getAssistModelMapping()
 	 * @generated
 	 */
-	EReference getAssistModel_ColocalityRelations();
+	EReference getAssistModelMapping_ColocalityRelations();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModel#getDissimilarityRelations <em>Dissimilarity Relations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getDissimilarityRelations <em>Dissimilarity Relations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Dissimilarity Relations</em>'.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getDissimilarityRelations()
-	 * @see #getAssistModel()
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping#getDissimilarityRelations()
+	 * @see #getAssistModelMapping()
 	 * @generated
 	 */
-	EReference getAssistModel_DissimilarityRelations();
+	EReference getAssistModelMapping_DissimilarityRelations();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModel#getAllCompartments() <em>Get All Compartments</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getAllCompartments() <em>Get All Compartments</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get All Compartments</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getAllCompartments()
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping#getAllCompartments()
 	 * @generated
 	 */
-	EOperation getAssistModel__GetAllCompartments();
+	EOperation getAssistModelMapping__GetAllCompartments();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModel#getAllBoxes() <em>Get All Boxes</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getAllBoxes() <em>Get All Boxes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get All Boxes</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getAllBoxes()
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping#getAllBoxes()
 	 * @generated
 	 */
-	EOperation getAssistModel__GetAllBoxes();
+	EOperation getAssistModelMapping__GetAllBoxes();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModel#getAllBoards() <em>Get All Boards</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getAllBoards() <em>Get All Boards</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get All Boards</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getAllBoards()
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping#getAllBoards()
 	 * @generated
 	 */
-	EOperation getAssistModel__GetAllBoards();
+	EOperation getAssistModelMapping__GetAllBoards();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModel#getAllProcessors() <em>Get All Processors</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getAllProcessors() <em>Get All Processors</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get All Processors</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getAllProcessors()
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping#getAllProcessors()
 	 * @generated
 	 */
-	EOperation getAssistModel__GetAllProcessors();
+	EOperation getAssistModelMapping__GetAllProcessors();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModel#getAllCores() <em>Get All Cores</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getAllCores() <em>Get All Cores</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get All Cores</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getAllCores()
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping#getAllCores()
 	 * @generated
 	 */
-	EOperation getAssistModel__GetAllCores();
+	EOperation getAssistModelMapping__GetAllCores();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModel#getAllTasks() <em>Get All Tasks</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getAllTasks() <em>Get All Tasks</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get All Tasks</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getAllTasks()
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping#getAllTasks()
 	 * @generated
 	 */
-	EOperation getAssistModel__GetAllTasks();
+	EOperation getAssistModelMapping__GetAllTasks();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModel#getAllHardwareElements(int) <em>Get All Hardware Elements</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getAllHardwareElements(int) <em>Get All Hardware Elements</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get All Hardware Elements</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel#getAllHardwareElements(int)
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping#getAllHardwareElements(int)
 	 * @generated
 	 */
-	EOperation getAssistModel__GetAllHardwareElements__int();
+	EOperation getAssistModelMapping__GetAllHardwareElements__int();
 
 	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.HardwareElement <em>Hardware Element</em>}'.
@@ -2602,14 +2602,14 @@ public interface ModelPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.AssistModelImpl <em>Assist Model</em>}' class.
+		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.AssistModelMappingImpl <em>Assist Model Mapping</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.mapping.model.impl.AssistModelImpl
-		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getAssistModel()
+		 * @see ch.hilbri.assist.mapping.model.impl.AssistModelMappingImpl
+		 * @see ch.hilbri.assist.mapping.model.impl.ModelPackageImpl#getAssistModelMapping()
 		 * @generated
 		 */
-		EClass ASSIST_MODEL = eINSTANCE.getAssistModel();
+		EClass ASSIST_MODEL_MAPPING = eINSTANCE.getAssistModelMapping();
 
 		/**
 		 * The meta object literal for the '<em><b>System Name</b></em>' attribute feature.
@@ -2617,7 +2617,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ASSIST_MODEL__SYSTEM_NAME = eINSTANCE.getAssistModel_SystemName();
+		EAttribute ASSIST_MODEL_MAPPING__SYSTEM_NAME = eINSTANCE.getAssistModelMapping_SystemName();
 
 		/**
 		 * The meta object literal for the '<em><b>Compartments</b></em>' containment reference list feature.
@@ -2625,7 +2625,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSIST_MODEL__COMPARTMENTS = eINSTANCE.getAssistModel_Compartments();
+		EReference ASSIST_MODEL_MAPPING__COMPARTMENTS = eINSTANCE.getAssistModelMapping_Compartments();
 
 		/**
 		 * The meta object literal for the '<em><b>Applications</b></em>' containment reference list feature.
@@ -2633,7 +2633,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSIST_MODEL__APPLICATIONS = eINSTANCE.getAssistModel_Applications();
+		EReference ASSIST_MODEL_MAPPING__APPLICATIONS = eINSTANCE.getAssistModelMapping_Applications();
 
 		/**
 		 * The meta object literal for the '<em><b>Dislocality Relations</b></em>' containment reference list feature.
@@ -2641,7 +2641,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSIST_MODEL__DISLOCALITY_RELATIONS = eINSTANCE.getAssistModel_DislocalityRelations();
+		EReference ASSIST_MODEL_MAPPING__DISLOCALITY_RELATIONS = eINSTANCE.getAssistModelMapping_DislocalityRelations();
 
 		/**
 		 * The meta object literal for the '<em><b>Colocality Relations</b></em>' containment reference list feature.
@@ -2649,7 +2649,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSIST_MODEL__COLOCALITY_RELATIONS = eINSTANCE.getAssistModel_ColocalityRelations();
+		EReference ASSIST_MODEL_MAPPING__COLOCALITY_RELATIONS = eINSTANCE.getAssistModelMapping_ColocalityRelations();
 
 		/**
 		 * The meta object literal for the '<em><b>Dissimilarity Relations</b></em>' containment reference list feature.
@@ -2657,7 +2657,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSIST_MODEL__DISSIMILARITY_RELATIONS = eINSTANCE.getAssistModel_DissimilarityRelations();
+		EReference ASSIST_MODEL_MAPPING__DISSIMILARITY_RELATIONS = eINSTANCE.getAssistModelMapping_DissimilarityRelations();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Compartments</b></em>' operation.
@@ -2665,7 +2665,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ASSIST_MODEL___GET_ALL_COMPARTMENTS = eINSTANCE.getAssistModel__GetAllCompartments();
+		EOperation ASSIST_MODEL_MAPPING___GET_ALL_COMPARTMENTS = eINSTANCE.getAssistModelMapping__GetAllCompartments();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Boxes</b></em>' operation.
@@ -2673,7 +2673,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ASSIST_MODEL___GET_ALL_BOXES = eINSTANCE.getAssistModel__GetAllBoxes();
+		EOperation ASSIST_MODEL_MAPPING___GET_ALL_BOXES = eINSTANCE.getAssistModelMapping__GetAllBoxes();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Boards</b></em>' operation.
@@ -2681,7 +2681,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ASSIST_MODEL___GET_ALL_BOARDS = eINSTANCE.getAssistModel__GetAllBoards();
+		EOperation ASSIST_MODEL_MAPPING___GET_ALL_BOARDS = eINSTANCE.getAssistModelMapping__GetAllBoards();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Processors</b></em>' operation.
@@ -2689,7 +2689,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ASSIST_MODEL___GET_ALL_PROCESSORS = eINSTANCE.getAssistModel__GetAllProcessors();
+		EOperation ASSIST_MODEL_MAPPING___GET_ALL_PROCESSORS = eINSTANCE.getAssistModelMapping__GetAllProcessors();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Cores</b></em>' operation.
@@ -2697,7 +2697,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ASSIST_MODEL___GET_ALL_CORES = eINSTANCE.getAssistModel__GetAllCores();
+		EOperation ASSIST_MODEL_MAPPING___GET_ALL_CORES = eINSTANCE.getAssistModelMapping__GetAllCores();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Tasks</b></em>' operation.
@@ -2705,7 +2705,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ASSIST_MODEL___GET_ALL_TASKS = eINSTANCE.getAssistModel__GetAllTasks();
+		EOperation ASSIST_MODEL_MAPPING___GET_ALL_TASKS = eINSTANCE.getAssistModelMapping__GetAllTasks();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Hardware Elements</b></em>' operation.
@@ -2713,7 +2713,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT = eINSTANCE.getAssistModel__GetAllHardwareElements__int();
+		EOperation ASSIST_MODEL_MAPPING___GET_ALL_HARDWARE_ELEMENTS__INT = eINSTANCE.getAssistModelMapping__GetAllHardwareElements__int();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.impl.HardwareElementImpl <em>Hardware Element</em>}' class.

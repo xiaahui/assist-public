@@ -7,7 +7,7 @@ import ch.hilbri.assist.dse.model.AssistModelDSE;
 
 import ch.hilbri.assist.dse.model.ModelFactory;
 import ch.hilbri.assist.dse.model.ModelPackage;
-import ch.hilbri.assist.mapping.model.provider.AssistModelItemProvider;
+import ch.hilbri.assist.mapping.model.provider.AssistModelMappingItemProvider;
 
 import java.util.Collection;
 import java.util.List;
@@ -27,7 +27,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AssistModelDSEItemProvider extends AssistModelItemProvider {
+public class AssistModelDSEItemProvider extends AssistModelMappingItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

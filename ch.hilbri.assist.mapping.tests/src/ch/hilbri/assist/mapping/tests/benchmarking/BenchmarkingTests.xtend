@@ -1,7 +1,6 @@
 package ch.hilbri.assist.mapping.tests.benchmarking
 
 import ch.hilbri.assist.mapping.benchmarking.generator.MappingExampleGenerator
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.solver.AssistSolver
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
@@ -14,6 +13,7 @@ import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.junit.Assert
 import org.junit.Test
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 class BenchmarkingEntry {
 	@Accessors String name
@@ -47,7 +47,7 @@ class BenchmarkingTests extends AbstractMappingTest {
 			val r = resourceHelper.resource(input)	
 			Assert.assertEquals("There should be 0 errors in the mdsl file", 0, r.errors.size)
 
-			val assistModel = r.contents.head as AssistModel
+			val assistModel = r.contents.head as AssistModelMapping
 			val assistSolver = new AssistSolver(assistModel)
 			assistSolver.setSolverSearchStrategy(VariableSelectorTypes.DOM_OVER_WDEG, ValueSelectorTypes.MIN_VALUE_FIRST)
 			assistSolver.solverMaxSolutions = 1
@@ -97,7 +97,7 @@ class BenchmarkingTests extends AbstractMappingTest {
 			val dislocAppRange 	= #[4, 6]
 			val dislocLevels 	= #[HardwareArchitectureLevelType.BOARD, HardwareArchitectureLevelType.BOX]
 		
-			val AssistModel assistModel = MappingExampleGenerator.generateSingleRandomized(compRange, boxRange, boardRange, procRange, coreRange, appRange, taskRange, dislocRelRange, dislocAppRange, dislocLevels)
+			val AssistModelMapping assistModel = MappingExampleGenerator.generateSingleRandomized(compRange, boxRange, boardRange, procRange, coreRange, appRange, taskRange, dislocRelRange, dislocAppRange, dislocLevels)
 		
 			Assert.assertNotNull("Model should not be null", assistModel)
 			Assert.assertTrue("Model should not contain errors", assistModel.eResource.errors.isEmpty)

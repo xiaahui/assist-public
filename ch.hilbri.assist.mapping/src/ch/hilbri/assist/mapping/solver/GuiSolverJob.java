@@ -16,7 +16,7 @@ import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.AssistModelMapping;
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
@@ -39,7 +39,7 @@ public class GuiSolverJob extends Job {
 		/* Load the model from the URI */
 		ResourceSet rs = new ResourceSetImpl();
 		Resource resource = rs.getResource(modelURI, true);
-		AssistModel assistModel = (AssistModel) resource.getContents().get(0);
+		AssistModelMapping assistModel = (AssistModelMapping) resource.getContents().get(0);
 		
 		/* Create the ASSIST Solver */
 		assistSolver = new AssistSolver(assistModel);

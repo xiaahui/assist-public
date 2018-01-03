@@ -6,14 +6,13 @@
 package ch.hilbri.assist.mapping.model.result
 
 import ch.hilbri.assist.mapping.model.Application
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.Board
 import ch.hilbri.assist.mapping.model.Box
 import ch.hilbri.assist.mapping.model.Compartment
 import ch.hilbri.assist.mapping.model.Core
+import ch.hilbri.assist.mapping.model.HardwareElement
 import ch.hilbri.assist.mapping.model.Processor
 import ch.hilbri.assist.mapping.model.Task
-import ch.hilbri.assist.mapping.model.HardwareElement
 import java.util.HashMap
 import java.util.List
  				
@@ -35,7 +34,7 @@ class MetricScorePair wraps java.util.Map$Entry {
 class Result extends Comparable {
 	String								name
 	int									index
-	refers AssistModel					model	
+	refers ch.hilbri.assist.mapping.model.AssistModelMapping					model	
  	Task2CoreMapType					task2CoreMap
  	contains MetricScorePair[]			metricAbsoluteScoresMap 
  	contains MetricScorePair[]			metricScaledScoresMap

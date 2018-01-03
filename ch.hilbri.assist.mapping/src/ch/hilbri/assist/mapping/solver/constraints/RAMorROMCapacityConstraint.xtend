@@ -1,9 +1,9 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Model
 import ch.hilbri.assist.mapping.solver.constraints.RAMorROMCapacityConstraint.RessourceType
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 class RAMorROMCapacityConstraint extends AbstractMappingConstraint {
 	
@@ -11,7 +11,7 @@ class RAMorROMCapacityConstraint extends AbstractMappingConstraint {
 	
 	private RessourceType type
 	
-	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables, RessourceType type) {
+	new(AssistModelMapping model, Model chocoModel, SolverVariablesContainer solverVariables, RessourceType type) {
 		super(type.name.toLowerCase + " capacity", model, chocoModel, solverVariables)
 		this.type = type
 	}

@@ -2,11 +2,11 @@ package ch.hilbri.assist.mapping.dsl.formatting2
 
 //import ch.hilbri.assist.mapping.dsl.services.MappingDSLGrammarAccess
 
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.Core
 import ch.hilbri.assist.mapping.model.Task
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 //import ch.hilbri.assist.mapping.model.ModelPackage
 
@@ -14,7 +14,7 @@ class MappingDSLFormatter extends AbstractFormatter2 {
 	
 //	@Inject extension MappingDSLGrammarAccess
 
-	def dispatch void format(AssistModel assistModel, extension IFormattableDocument document) {
+	def dispatch void format(AssistModelMapping assistModel, extension IFormattableDocument document) {
 		for (region : textRegionAccess.regionForRootEObject.allRegionsFor.keywords(";"))
 			region.prepend[noSpace].append[newLine]
 		

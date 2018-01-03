@@ -497,7 +497,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		assistModelDSEEClass.getESuperTypes().add(theModelPackage_1.getAssistModel());
+		assistModelDSEEClass.getESuperTypes().add(theModelPackage_1.getAssistModelMapping());
 		boxDSEEClass.getESuperTypes().add(theModelPackage_1.getBox());
 
 		// Initialize classes, features, and operations; add parameters

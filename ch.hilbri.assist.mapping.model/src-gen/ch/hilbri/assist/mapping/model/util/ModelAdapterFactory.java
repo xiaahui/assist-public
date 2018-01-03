@@ -68,8 +68,8 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	protected ModelSwitch<Adapter> modelSwitch =
 		new ModelSwitch<Adapter>() {
 			@Override
-			public Adapter caseAssistModel(AssistModel object) {
-				return createAssistModelAdapter();
+			public Adapter caseAssistModelMapping(AssistModelMapping object) {
+				return createAssistModelMappingAdapter();
 			}
 			@Override
 			public Adapter caseHardwareElement(HardwareElement object) {
@@ -164,16 +164,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.AssistModel <em>Assist Model</em>}'.
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.AssistModelMapping <em>Assist Model Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.AssistModel
+	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping
 	 * @generated
 	 */
-	public Adapter createAssistModelAdapter() {
+	public Adapter createAssistModelMappingAdapter() {
 		return null;
 	}
 

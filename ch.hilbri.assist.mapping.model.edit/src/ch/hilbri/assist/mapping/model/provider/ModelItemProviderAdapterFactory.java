@@ -72,26 +72,26 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.AssistModel} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.mapping.model.AssistModelMapping} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AssistModelItemProvider assistModelItemProvider;
+	protected AssistModelMappingItemProvider assistModelMappingItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.AssistModel}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.mapping.model.AssistModelMapping}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAssistModelAdapter() {
-		if (assistModelItemProvider == null) {
-			assistModelItemProvider = new AssistModelItemProvider(this);
+	public Adapter createAssistModelMappingAdapter() {
+		if (assistModelMappingItemProvider == null) {
+			assistModelMappingItemProvider = new AssistModelMappingItemProvider(this);
 		}
 
-		return assistModelItemProvider;
+		return assistModelMappingItemProvider;
 	}
 
 	/**
@@ -607,7 +607,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	 * @generated
 	 */
 	public void dispose() {
-		if (assistModelItemProvider != null) assistModelItemProvider.dispose();
+		if (assistModelMappingItemProvider != null) assistModelMappingItemProvider.dispose();
 		if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();
 		if (compartmentItemProvider != null) compartmentItemProvider.dispose();
 		if (boxItemProvider != null) boxItemProvider.dispose();

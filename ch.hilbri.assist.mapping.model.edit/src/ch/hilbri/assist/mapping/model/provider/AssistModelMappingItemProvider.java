@@ -3,7 +3,7 @@
 package ch.hilbri.assist.mapping.model.provider;
 
 
-import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.AssistModelMapping;
 import ch.hilbri.assist.mapping.model.ModelFactory;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 
@@ -29,12 +29,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ch.hilbri.assist.mapping.model.AssistModel} object.
+ * This is the item provider adapter for a {@link ch.hilbri.assist.mapping.model.AssistModelMapping} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AssistModelItemProvider 
+public class AssistModelMappingItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +48,7 @@ public class AssistModelItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssistModelItemProvider(AdapterFactory adapterFactory) {
+	public AssistModelMappingItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -79,9 +79,9 @@ public class AssistModelItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssistModel_systemName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModel_systemName_feature", "_UI_AssistModel_type"),
-				 ModelPackage.Literals.ASSIST_MODEL__SYSTEM_NAME,
+				 getString("_UI_AssistModelMapping_systemName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModelMapping_systemName_feature", "_UI_AssistModelMapping_type"),
+				 ModelPackage.Literals.ASSIST_MODEL_MAPPING__SYSTEM_NAME,
 				 true,
 				 false,
 				 false,
@@ -102,11 +102,11 @@ public class AssistModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__APPLICATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__COLOCALITY_RELATIONS);
-			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL__DISSIMILARITY_RELATIONS);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL_MAPPING__COMPARTMENTS);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL_MAPPING__APPLICATIONS);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL_MAPPING__DISLOCALITY_RELATIONS);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL_MAPPING__COLOCALITY_RELATIONS);
+			childrenFeatures.add(ModelPackage.Literals.ASSIST_MODEL_MAPPING__DISSIMILARITY_RELATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -125,14 +125,14 @@ public class AssistModelItemProvider
 	}
 
 	/**
-	 * This returns AssistModel.gif.
+	 * This returns AssistModelMapping.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AssistModel"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AssistModelMapping"));
 	}
 
 	/**
@@ -143,10 +143,10 @@ public class AssistModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AssistModel)object).getSystemName();
+		String label = ((AssistModelMapping)object).getSystemName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AssistModel_type") :
-			getString("_UI_AssistModel_type") + " " + label;
+			getString("_UI_AssistModelMapping_type") :
+			getString("_UI_AssistModelMapping_type") + " " + label;
 	}
 	
 
@@ -161,15 +161,15 @@ public class AssistModelItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AssistModel.class)) {
-			case ModelPackage.ASSIST_MODEL__SYSTEM_NAME:
+		switch (notification.getFeatureID(AssistModelMapping.class)) {
+			case ModelPackage.ASSIST_MODEL_MAPPING__SYSTEM_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ModelPackage.ASSIST_MODEL__COMPARTMENTS:
-			case ModelPackage.ASSIST_MODEL__APPLICATIONS:
-			case ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS:
-			case ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS:
-			case ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__COMPARTMENTS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__APPLICATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__DISLOCALITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__COLOCALITY_RELATIONS:
+			case ModelPackage.ASSIST_MODEL_MAPPING__DISSIMILARITY_RELATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -189,27 +189,27 @@ public class AssistModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__COMPARTMENTS,
+				(ModelPackage.Literals.ASSIST_MODEL_MAPPING__COMPARTMENTS,
 				 ModelFactory.eINSTANCE.createCompartment()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__APPLICATIONS,
+				(ModelPackage.Literals.ASSIST_MODEL_MAPPING__APPLICATIONS,
 				 ModelFactory.eINSTANCE.createApplication()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__DISLOCALITY_RELATIONS,
+				(ModelPackage.Literals.ASSIST_MODEL_MAPPING__DISLOCALITY_RELATIONS,
 				 ModelFactory.eINSTANCE.createDislocalityRelation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__COLOCALITY_RELATIONS,
+				(ModelPackage.Literals.ASSIST_MODEL_MAPPING__COLOCALITY_RELATIONS,
 				 ModelFactory.eINSTANCE.createColocalityRelation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.ASSIST_MODEL__DISSIMILARITY_RELATIONS,
+				(ModelPackage.Literals.ASSIST_MODEL_MAPPING__DISSIMILARITY_RELATIONS,
 				 ModelFactory.eINSTANCE.createDissimilarityRelation()));
 	}
 

@@ -2,7 +2,7 @@
  */
 package ch.hilbri.assist.mapping.model.result;
 
-import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.AssistModelMapping;
 import ch.hilbri.assist.mapping.model.Core;
 import ch.hilbri.assist.mapping.model.HardwareElement;
 import ch.hilbri.assist.mapping.model.Task;
@@ -102,12 +102,12 @@ public interface Result extends EObject, Comparable<Result> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Model</em>' reference.
-	 * @see #setModel(AssistModel)
+	 * @see #setModel(AssistModelMapping)
 	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getResult_Model()
 	 * @model
 	 * @generated
 	 */
-	AssistModel getModel();
+	AssistModelMapping getModel();
 
 	/**
 	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.Result#getModel <em>Model</em>}' reference.
@@ -117,7 +117,7 @@ public interface Result extends EObject, Comparable<Result> {
 	 * @see #getModel()
 	 * @generated
 	 */
-	void setModel(AssistModel value);
+	void setModel(AssistModelMapping value);
 
 	/**
 	 * Returns the value of the '<em><b>Task2 Core Map</b></em>' attribute.

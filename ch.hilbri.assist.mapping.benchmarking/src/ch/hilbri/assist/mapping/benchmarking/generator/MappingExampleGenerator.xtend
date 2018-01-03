@@ -1,6 +1,5 @@
 package ch.hilbri.assist.mapping.benchmarking.generator
 
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.model.ModelFactory
 import java.io.IOException
@@ -10,6 +9,7 @@ import java.util.concurrent.ThreadLocalRandom
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.junit.Assert
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 class MappingExampleGenerator {
 
@@ -20,12 +20,12 @@ class MappingExampleGenerator {
 
 	
 	/* Just a facade */
-	static def AssistModel generateSingle(int compCount, int boxCount, int boardCount, int procCount, int coreCount, int appCount, int taskCount, int dislocRelCount, int dislocAppCount, List<HardwareArchitectureLevelType> dislocLevels) {
+	static def AssistModelMapping generateSingle(int compCount, int boxCount, int boardCount, int procCount, int coreCount, int appCount, int taskCount, int dislocRelCount, int dislocAppCount, List<HardwareArchitectureLevelType> dislocLevels) {
 		generateSingleRandomized(compCount, compCount, boxCount, boxCount, boardCount, boardCount, procCount, procCount, coreCount, coreCount, appCount, appCount, taskCount, taskCount, dislocRelCount, dislocRelCount, dislocAppCount, dislocAppCount, dislocLevels)
 	}
 
 	/* Just a facade */
-	static def AssistModel generateSingleRandomized(
+	static def AssistModelMapping generateSingleRandomized(
 		List<Integer> compCount, 
 		List<Integer> boxCount, 
 		List<Integer> boardCount, 
@@ -63,7 +63,7 @@ class MappingExampleGenerator {
 	 * REAL WORK IS DONE HERE!
 	 * 
 	 */
-	static def AssistModel generateSingleRandomized(
+	static def AssistModelMapping generateSingleRandomized(
 		int compCountMin, 	int compCountMax, 
 		int boxCountMin,  	int boxCountMax, 
 		int boardCountMin, 	int boardCountMax, 
@@ -100,7 +100,7 @@ class MappingExampleGenerator {
 
 		/* Start cracking ... */
 		val factory = ModelFactory.eINSTANCE
-		val assistModel = factory.createAssistModel()
+		val assistModel = factory.createAssistModelMapping()
 		assistModel.systemName = "Example System"
 
 		/* Creating the hardware tree */
@@ -189,7 +189,7 @@ class MappingExampleGenerator {
 		return assistModel
 	}
 	
-	static def saveToFile(AssistModel assistModel, String filePath) {
+	static def saveToFile(AssistModelMapping assistModel, String filePath) {
 		val resSet = new ResourceSetImpl
 		val resource = resSet.createResource(URI.createFileURI(filePath))
 		resource.contents.add(assistModel)

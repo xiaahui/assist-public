@@ -68,8 +68,52 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	protected ModelSwitch<Adapter> modelSwitch =
 		new ModelSwitch<Adapter>() {
 			@Override
-			public Adapter caseAssistModel(AssistModel object) {
-				return createAssistModelAdapter();
+			public Adapter caseAssistModelScheduling(AssistModelScheduling object) {
+				return createAssistModelSchedulingAdapter();
+			}
+			@Override
+			public Adapter caseHardwareElement(HardwareElement object) {
+				return createHardwareElementAdapter();
+			}
+			@Override
+			public Adapter caseCompartment(Compartment object) {
+				return createCompartmentAdapter();
+			}
+			@Override
+			public Adapter caseBox(Box object) {
+				return createBoxAdapter();
+			}
+			@Override
+			public Adapter caseBoard(Board object) {
+				return createBoardAdapter();
+			}
+			@Override
+			public Adapter caseProcessor(Processor object) {
+				return createProcessorAdapter();
+			}
+			@Override
+			public Adapter caseCore(Core object) {
+				return createCoreAdapter();
+			}
+			@Override
+			public Adapter caseIOAdapter(IOAdapter object) {
+				return createIOAdapterAdapter();
+			}
+			@Override
+			public Adapter caseApplication(Application object) {
+				return createApplicationAdapter();
+			}
+			@Override
+			public Adapter caseTask(Task object) {
+				return createTaskAdapter();
+			}
+			@Override
+			public Adapter caseIOAdapterRequirement(IOAdapterRequirement object) {
+				return createIOAdapterRequirementAdapter();
+			}
+			@Override
+			public Adapter caseMetricParameter(MetricParameter object) {
+				return createMetricParameterAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -92,16 +136,170 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.AssistModel <em>Assist Model</em>}'.
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.AssistModelScheduling <em>Assist Model Scheduling</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ch.hilbri.assist.scheduling.model.AssistModel
+	 * @see ch.hilbri.assist.scheduling.model.AssistModelScheduling
 	 * @generated
 	 */
-	public Adapter createAssistModelAdapter() {
+	public Adapter createAssistModelSchedulingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.HardwareElement <em>Hardware Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.scheduling.model.HardwareElement
+	 * @generated
+	 */
+	public Adapter createHardwareElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.Compartment <em>Compartment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.scheduling.model.Compartment
+	 * @generated
+	 */
+	public Adapter createCompartmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.Box <em>Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.scheduling.model.Box
+	 * @generated
+	 */
+	public Adapter createBoxAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.Board <em>Board</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.scheduling.model.Board
+	 * @generated
+	 */
+	public Adapter createBoardAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.Processor <em>Processor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.scheduling.model.Processor
+	 * @generated
+	 */
+	public Adapter createProcessorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.Core <em>Core</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.scheduling.model.Core
+	 * @generated
+	 */
+	public Adapter createCoreAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.IOAdapter <em>IO Adapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.scheduling.model.IOAdapter
+	 * @generated
+	 */
+	public Adapter createIOAdapterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.Application <em>Application</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.scheduling.model.Application
+	 * @generated
+	 */
+	public Adapter createApplicationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.Task <em>Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.scheduling.model.Task
+	 * @generated
+	 */
+	public Adapter createTaskAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.IOAdapterRequirement <em>IO Adapter Requirement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.scheduling.model.IOAdapterRequirement
+	 * @generated
+	 */
+	public Adapter createIOAdapterRequirementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.MetricParameter <em>Metric Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.scheduling.model.MetricParameter
+	 * @generated
+	 */
+	public Adapter createMetricParameterAdapter() {
 		return null;
 	}
 

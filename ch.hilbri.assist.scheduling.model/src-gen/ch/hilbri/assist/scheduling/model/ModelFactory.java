@@ -22,13 +22,112 @@ public interface ModelFactory extends EFactory {
 	ModelFactory eINSTANCE = ch.hilbri.assist.scheduling.model.impl.ModelFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Assist Model</em>'.
+	 * Returns a new object of class '<em>Assist Model Scheduling</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Assist Model</em>'.
+	 * @return a new object of class '<em>Assist Model Scheduling</em>'.
 	 * @generated
 	 */
-	AssistModel createAssistModel();
+	AssistModelScheduling createAssistModelScheduling();
+
+	/**
+	 * Returns a new object of class '<em>Hardware Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Hardware Element</em>'.
+	 * @generated
+	 */
+	HardwareElement createHardwareElement();
+
+	/**
+	 * Returns a new object of class '<em>Compartment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compartment</em>'.
+	 * @generated
+	 */
+	Compartment createCompartment();
+
+	/**
+	 * Returns a new object of class '<em>Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Box</em>'.
+	 * @generated
+	 */
+	Box createBox();
+
+	/**
+	 * Returns a new object of class '<em>Board</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Board</em>'.
+	 * @generated
+	 */
+	Board createBoard();
+
+	/**
+	 * Returns a new object of class '<em>Processor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Processor</em>'.
+	 * @generated
+	 */
+	Processor createProcessor();
+
+	/**
+	 * Returns a new object of class '<em>Core</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Core</em>'.
+	 * @generated
+	 */
+	Core createCore();
+
+	/**
+	 * Returns a new object of class '<em>IO Adapter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>IO Adapter</em>'.
+	 * @generated
+	 */
+	IOAdapter createIOAdapter();
+
+	/**
+	 * Returns a new object of class '<em>Application</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Application</em>'.
+	 * @generated
+	 */
+	Application createApplication();
+
+	/**
+	 * Returns a new object of class '<em>Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task</em>'.
+	 * @generated
+	 */
+	Task createTask();
+
+	/**
+	 * Returns a new object of class '<em>IO Adapter Requirement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>IO Adapter Requirement</em>'.
+	 * @generated
+	 */
+	IOAdapterRequirement createIOAdapterRequirement();
+
+	/**
+	 * Returns a new object of class '<em>Metric Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Metric Parameter</em>'.
+	 * @generated
+	 */
+	MetricParameter createMetricParameter();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -75,7 +75,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE__SYSTEM_NAME = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL__SYSTEM_NAME;
+	int ASSIST_MODEL_DSE__SYSTEM_NAME = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING__SYSTEM_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Compartments</b></em>' containment reference list.
@@ -84,7 +84,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE__COMPARTMENTS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL__COMPARTMENTS;
+	int ASSIST_MODEL_DSE__COMPARTMENTS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING__COMPARTMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Applications</b></em>' containment reference list.
@@ -93,7 +93,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE__APPLICATIONS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL__APPLICATIONS;
+	int ASSIST_MODEL_DSE__APPLICATIONS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING__APPLICATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Dislocality Relations</b></em>' containment reference list.
@@ -102,7 +102,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE__DISLOCALITY_RELATIONS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL__DISLOCALITY_RELATIONS;
+	int ASSIST_MODEL_DSE__DISLOCALITY_RELATIONS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING__DISLOCALITY_RELATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Colocality Relations</b></em>' containment reference list.
@@ -111,7 +111,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE__COLOCALITY_RELATIONS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL__COLOCALITY_RELATIONS;
+	int ASSIST_MODEL_DSE__COLOCALITY_RELATIONS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING__COLOCALITY_RELATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Dissimilarity Relations</b></em>' containment reference list.
@@ -120,7 +120,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE__DISSIMILARITY_RELATIONS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL__DISSIMILARITY_RELATIONS;
+	int ASSIST_MODEL_DSE__DISSIMILARITY_RELATIONS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING__DISSIMILARITY_RELATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Application Alternatives</b></em>' containment reference list.
@@ -129,7 +129,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_FEATURE_COUNT + 0;
+	int ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Restriction Alternatives</b></em>' containment reference list.
@@ -138,7 +138,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_FEATURE_COUNT + 1;
+	int ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Exploration Candidates</b></em>' containment reference list.
@@ -147,7 +147,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_FEATURE_COUNT + 2;
+	int ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Assist Model DSE</em>' class.
@@ -156,7 +156,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE_FEATURE_COUNT = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_FEATURE_COUNT + 3;
+	int ASSIST_MODEL_DSE_FEATURE_COUNT = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get All Compartments</em>' operation.
@@ -165,7 +165,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE___GET_ALL_COMPARTMENTS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL___GET_ALL_COMPARTMENTS;
+	int ASSIST_MODEL_DSE___GET_ALL_COMPARTMENTS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_COMPARTMENTS;
 
 	/**
 	 * The operation id for the '<em>Get All Boxes</em>' operation.
@@ -174,7 +174,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE___GET_ALL_BOXES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL___GET_ALL_BOXES;
+	int ASSIST_MODEL_DSE___GET_ALL_BOXES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_BOXES;
 
 	/**
 	 * The operation id for the '<em>Get All Boards</em>' operation.
@@ -183,7 +183,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE___GET_ALL_BOARDS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL___GET_ALL_BOARDS;
+	int ASSIST_MODEL_DSE___GET_ALL_BOARDS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_BOARDS;
 
 	/**
 	 * The operation id for the '<em>Get All Processors</em>' operation.
@@ -192,7 +192,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE___GET_ALL_PROCESSORS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL___GET_ALL_PROCESSORS;
+	int ASSIST_MODEL_DSE___GET_ALL_PROCESSORS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_PROCESSORS;
 
 	/**
 	 * The operation id for the '<em>Get All Cores</em>' operation.
@@ -201,7 +201,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE___GET_ALL_CORES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL___GET_ALL_CORES;
+	int ASSIST_MODEL_DSE___GET_ALL_CORES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_CORES;
 
 	/**
 	 * The operation id for the '<em>Get All Tasks</em>' operation.
@@ -210,7 +210,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE___GET_ALL_TASKS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL___GET_ALL_TASKS;
+	int ASSIST_MODEL_DSE___GET_ALL_TASKS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_TASKS;
 
 	/**
 	 * The operation id for the '<em>Get All Hardware Elements</em>' operation.
@@ -219,7 +219,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE___GET_ALL_HARDWARE_ELEMENTS__INT = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT;
+	int ASSIST_MODEL_DSE___GET_ALL_HARDWARE_ELEMENTS__INT = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_HARDWARE_ELEMENTS__INT;
 
 	/**
 	 * The number of operations of the '<em>Assist Model DSE</em>' class.
@@ -228,7 +228,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE_OPERATION_COUNT = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_OPERATION_COUNT + 0;
+	int ASSIST_MODEL_DSE_OPERATION_COUNT = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.dse.model.impl.BoxDSEImpl <em>Box DSE</em>}' class.

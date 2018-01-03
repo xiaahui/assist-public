@@ -3,7 +3,7 @@
 package ch.hilbri.assist.mapping.model.impl;
 
 import ch.hilbri.assist.mapping.model.Application;
-import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.AssistModelMapping;
 import ch.hilbri.assist.mapping.model.Board;
 import ch.hilbri.assist.mapping.model.Box;
 import ch.hilbri.assist.mapping.model.ColocalityRelation;
@@ -50,7 +50,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass assistModelEClass = null;
+	private EClass assistModelMappingEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -275,8 +275,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAssistModel() {
-		return assistModelEClass;
+	public EClass getAssistModelMapping() {
+		return assistModelMappingEClass;
 	}
 
 	/**
@@ -284,8 +284,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAssistModel_SystemName() {
-		return (EAttribute)assistModelEClass.getEStructuralFeatures().get(0);
+	public EAttribute getAssistModelMapping_SystemName() {
+		return (EAttribute)assistModelMappingEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -293,8 +293,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_Compartments() {
-		return (EReference)assistModelEClass.getEStructuralFeatures().get(1);
+	public EReference getAssistModelMapping_Compartments() {
+		return (EReference)assistModelMappingEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -302,8 +302,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_Applications() {
-		return (EReference)assistModelEClass.getEStructuralFeatures().get(2);
+	public EReference getAssistModelMapping_Applications() {
+		return (EReference)assistModelMappingEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -311,8 +311,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_DislocalityRelations() {
-		return (EReference)assistModelEClass.getEStructuralFeatures().get(3);
+	public EReference getAssistModelMapping_DislocalityRelations() {
+		return (EReference)assistModelMappingEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -320,8 +320,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_ColocalityRelations() {
-		return (EReference)assistModelEClass.getEStructuralFeatures().get(4);
+	public EReference getAssistModelMapping_ColocalityRelations() {
+		return (EReference)assistModelMappingEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -329,8 +329,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssistModel_DissimilarityRelations() {
-		return (EReference)assistModelEClass.getEStructuralFeatures().get(5);
+	public EReference getAssistModelMapping_DissimilarityRelations() {
+		return (EReference)assistModelMappingEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -338,8 +338,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetAllCompartments() {
-		return assistModelEClass.getEOperations().get(0);
+	public EOperation getAssistModelMapping__GetAllCompartments() {
+		return assistModelMappingEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -347,8 +347,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetAllBoxes() {
-		return assistModelEClass.getEOperations().get(1);
+	public EOperation getAssistModelMapping__GetAllBoxes() {
+		return assistModelMappingEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -356,8 +356,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetAllBoards() {
-		return assistModelEClass.getEOperations().get(2);
+	public EOperation getAssistModelMapping__GetAllBoards() {
+		return assistModelMappingEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -365,8 +365,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetAllProcessors() {
-		return assistModelEClass.getEOperations().get(3);
+	public EOperation getAssistModelMapping__GetAllProcessors() {
+		return assistModelMappingEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -374,8 +374,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetAllCores() {
-		return assistModelEClass.getEOperations().get(4);
+	public EOperation getAssistModelMapping__GetAllCores() {
+		return assistModelMappingEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -383,8 +383,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetAllTasks() {
-		return assistModelEClass.getEOperations().get(5);
+	public EOperation getAssistModelMapping__GetAllTasks() {
+		return assistModelMappingEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -392,8 +392,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAssistModel__GetAllHardwareElements__int() {
-		return assistModelEClass.getEOperations().get(6);
+	public EOperation getAssistModelMapping__GetAllHardwareElements__int() {
+		return assistModelMappingEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -1225,20 +1225,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		assistModelEClass = createEClass(ASSIST_MODEL);
-		createEAttribute(assistModelEClass, ASSIST_MODEL__SYSTEM_NAME);
-		createEReference(assistModelEClass, ASSIST_MODEL__COMPARTMENTS);
-		createEReference(assistModelEClass, ASSIST_MODEL__APPLICATIONS);
-		createEReference(assistModelEClass, ASSIST_MODEL__DISLOCALITY_RELATIONS);
-		createEReference(assistModelEClass, ASSIST_MODEL__COLOCALITY_RELATIONS);
-		createEReference(assistModelEClass, ASSIST_MODEL__DISSIMILARITY_RELATIONS);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_COMPARTMENTS);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_BOXES);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_BOARDS);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_PROCESSORS);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_CORES);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_TASKS);
-		createEOperation(assistModelEClass, ASSIST_MODEL___GET_ALL_HARDWARE_ELEMENTS__INT);
+		assistModelMappingEClass = createEClass(ASSIST_MODEL_MAPPING);
+		createEAttribute(assistModelMappingEClass, ASSIST_MODEL_MAPPING__SYSTEM_NAME);
+		createEReference(assistModelMappingEClass, ASSIST_MODEL_MAPPING__COMPARTMENTS);
+		createEReference(assistModelMappingEClass, ASSIST_MODEL_MAPPING__APPLICATIONS);
+		createEReference(assistModelMappingEClass, ASSIST_MODEL_MAPPING__DISLOCALITY_RELATIONS);
+		createEReference(assistModelMappingEClass, ASSIST_MODEL_MAPPING__COLOCALITY_RELATIONS);
+		createEReference(assistModelMappingEClass, ASSIST_MODEL_MAPPING__DISSIMILARITY_RELATIONS);
+		createEOperation(assistModelMappingEClass, ASSIST_MODEL_MAPPING___GET_ALL_COMPARTMENTS);
+		createEOperation(assistModelMappingEClass, ASSIST_MODEL_MAPPING___GET_ALL_BOXES);
+		createEOperation(assistModelMappingEClass, ASSIST_MODEL_MAPPING___GET_ALL_BOARDS);
+		createEOperation(assistModelMappingEClass, ASSIST_MODEL_MAPPING___GET_ALL_PROCESSORS);
+		createEOperation(assistModelMappingEClass, ASSIST_MODEL_MAPPING___GET_ALL_CORES);
+		createEOperation(assistModelMappingEClass, ASSIST_MODEL_MAPPING___GET_ALL_TASKS);
+		createEOperation(assistModelMappingEClass, ASSIST_MODEL_MAPPING___GET_ALL_HARDWARE_ELEMENTS__INT);
 
 		hardwareElementEClass = createEClass(HARDWARE_ELEMENT);
 		createEAttribute(hardwareElementEClass, HARDWARE_ELEMENT__NAME);
@@ -1391,27 +1391,27 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		dissimilarityEntryEClass.getESuperTypes().add(this.getDissimilarityClause());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(assistModelEClass, AssistModel.class, "AssistModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAssistModel_SystemName(), theEcorePackage.getEString(), "systemName", "", 0, 1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_Compartments(), this.getCompartment(), null, "compartments", null, 1, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_Applications(), this.getApplication(), null, "applications", null, 1, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_DislocalityRelations(), this.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_ColocalityRelations(), this.getColocalityRelation(), null, "colocalityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssistModel_DissimilarityRelations(), this.getDissimilarityRelation(), null, "dissimilarityRelations", null, 0, -1, AssistModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(assistModelMappingEClass, AssistModelMapping.class, "AssistModelMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAssistModelMapping_SystemName(), theEcorePackage.getEString(), "systemName", "", 0, 1, AssistModelMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModelMapping_Compartments(), this.getCompartment(), null, "compartments", null, 1, -1, AssistModelMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModelMapping_Applications(), this.getApplication(), null, "applications", null, 1, -1, AssistModelMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModelMapping_DislocalityRelations(), this.getDislocalityRelation(), null, "dislocalityRelations", null, 0, -1, AssistModelMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModelMapping_ColocalityRelations(), this.getColocalityRelation(), null, "colocalityRelations", null, 0, -1, AssistModelMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssistModelMapping_DissimilarityRelations(), this.getDissimilarityRelation(), null, "dissimilarityRelations", null, 0, -1, AssistModelMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getAssistModel__GetAllCompartments(), this.getCompartment(), "getAllCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getAssistModelMapping__GetAllCompartments(), this.getCompartment(), "getAllCompartments", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getAssistModel__GetAllBoxes(), this.getBox(), "getAllBoxes", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getAssistModelMapping__GetAllBoxes(), this.getBox(), "getAllBoxes", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getAssistModel__GetAllBoards(), this.getBoard(), "getAllBoards", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getAssistModelMapping__GetAllBoards(), this.getBoard(), "getAllBoards", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getAssistModel__GetAllProcessors(), this.getProcessor(), "getAllProcessors", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getAssistModelMapping__GetAllProcessors(), this.getProcessor(), "getAllProcessors", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getAssistModel__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getAssistModelMapping__GetAllCores(), this.getCore(), "getAllCores", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getAssistModel__GetAllTasks(), this.getTask(), "getAllTasks", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getAssistModelMapping__GetAllTasks(), this.getTask(), "getAllTasks", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getAssistModel__GetAllHardwareElements__int(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getAssistModelMapping__GetAllHardwareElements__int(), this.getHardwareElement(), "getAllHardwareElements", 0, -1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcorePackage.getEInt(), "level", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(hardwareElementEClass, HardwareElement.class, "HardwareElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

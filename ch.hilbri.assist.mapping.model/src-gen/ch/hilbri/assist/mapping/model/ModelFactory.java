@@ -22,13 +22,13 @@ public interface ModelFactory extends EFactory {
 	ModelFactory eINSTANCE = ch.hilbri.assist.mapping.model.impl.ModelFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Assist Model</em>'.
+	 * Returns a new object of class '<em>Assist Model Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Assist Model</em>'.
+	 * @return a new object of class '<em>Assist Model Mapping</em>'.
 	 * @generated
 	 */
-	AssistModel createAssistModel();
+	AssistModelMapping createAssistModelMapping();
 
 	/**
 	 * Returns a new object of class '<em>Hardware Element</em>'.

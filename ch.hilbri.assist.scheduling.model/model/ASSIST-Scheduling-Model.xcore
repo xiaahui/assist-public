@@ -12,7 +12,154 @@ package ch.hilbri.assist.scheduling.model
 
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
-class AssistModel {
+class AssistModelScheduling {
+	String			systemName	= ""
+	contains 		Compartment[1..*] 				compartments
+	contains 		Application[1..*] 				applications
+	
+	op Compartment[] 	getAllCompartments() 	{ compartments										}
+	op Box[] 			getAllBoxes() 			{ compartments.map[allBoxes].flatten.toEList			}
+	op Board[] 			getAllBoards() 			{ compartments.map[allBoards].flatten.toEList			}
+	op Processor[] 		getAllProcessors() 		{ compartments.map[allProcessors].flatten.toEList		}
+	op Core[] 			getAllCores() 			{ compartments.map[allCores].flatten.toEList			}
+	op Task[]			getAllTasks() 			{ applications.map[tasks].flatten.toEList				}
+	
+	op HardwareElement[] getAllHardwareElements(int level) {
+		if (level == 0)			allCores.map[it as HardwareElement]
+		else if (level == 1)		allProcessors.map[it as HardwareElement]
+		else if (level == 2)		allBoards.map[it as HardwareElement]
+		else if (level == 3)		allBoxes.map[it as HardwareElement]
+		else if (level == 4)		allCompartments.map[it as HardwareElement] 
+		else 					null
+	}
+}
+
+class HardwareElement {
+	String name = ""
+	String manufacturer  = ""
+	contains MetricParameter[0..*] metricParameters
+}
 
 
+class Compartment extends HardwareElement {
+	String powerSupply	= ""
+	contains Box[1..*] boxes opposite compartment
+	op Box[] 			getAllBoxes() 		{ boxes	}
+	op Board[] 			getAllBoards() 		{ boxes.map[allBoards].flatten.toEList 		}
+	op Processor[] 		getAllProcessors() 	{ boxes.map[allProcessors].flatten.toEList 	}
+	op Core[] 			getAllCores() 		{ boxes.map[allCores].flatten.toEList		}
+}
+
+class Box extends HardwareElement {
+	container Compartment compartment opposite boxes
+	contains Board[0..*] boards opposite box
+	op Board[] 			getAllBoards() 		{ boards }
+	op Processor[] 		getAllProcessors() 	{ boards.map[allProcessors].flatten.toEList 	}
+	op Core[] 			getAllCores() 		{ boards.map[allCores].flatten.toEList		}
+}
+
+class Board extends HardwareElement {
+	String 							boardType		= ""
+	String 							powerSupply		= ""
+	DesignAssuranceLevelType 		assuranceLevel 	= "None"
+	int 							ramCapacity 	= "0"
+	int 							romCapacity 	= "0"
+	container 	Box 				box 			opposite boards
+	contains 	Processor[1..*] 	processors 		opposite board
+	contains 	IOAdapter[0..*] 	ioAdapters
+	op String			toString() 			{ name }
+	op Processor[] 		getAllProcessors() 	{ processors }
+	op Core[] 			getAllCores() 		{ processors.map[allCores].flatten.toEList }
+}
+
+class Processor extends HardwareElement {
+	String processorType = ""
+	container Board board opposite processors
+	contains Core[1..*] cores opposite processor
+	op Core[] getAllCores() { cores }
+}
+
+class Core extends HardwareElement {
+	String architecture = ""
+	int capacity = "0"
+	container Processor processor opposite cores
+}
+
+class IOAdapter {
+	String name = ""
+	int totalCount = "0"
+	IOAdapterType adapterType = "None"
+}
+
+class Application {
+	String 						name 				= ""
+	String 						developedBy			= ""
+	DesignAssuranceLevelType 	criticalityLevel	= "None"
+	contains Task[1..*] 				tasks 				opposite application
+	contains MetricParameter[0..*] 	metricParameters
+	refers HardwareElement[0..*] restrictMappingToHardwareElements
+	op String 			toString() { name }
+}
+
+class Task {
+	String name 												= ""
+	int ramUtilization 											= "0"
+	int romUtilization											= "0"
+	container Application application opposite tasks
+	
+	refers Core[1] assignedCore
+	
+	int duration 												= "-1"
+	int period													= "-1"
+	int earlyTolerance											= "-1"
+	int lateTolerance											= "-1"
+	int maxStartTime											= "-1"
+	int maxEndTime												= "-1"
+	int addInitTime												= "-1"
+	int slices													= "-1"
+	int minSliceDuration										= "-1"
+	
+	contains IOAdapterRequirement[0..*] ioAdapterRequirements
+	contains MetricParameter[0..*] metricParameters
+	op String 			toString() { name }
+}
+
+class IOAdapterRequirement {
+	IOAdapterType 				adapterType				= "None"
+	int 						requiredAdapterCount 	= "0"
+	boolean 					isSharedAllowed 		= "false"
+	boolean 					isExclusiveOnly 		= "false"
+}
+
+
+class MetricParameter {
+	String name = ""
+	int value = "0"
+}
+
+enum HardwareArchitectureLevelType {
+	CORE 		as "Core" 			= 0
+	PROCESSOR 	as "Processor"		= 1
+	BOARD		as "Board"			= 2
+	BOX			as "Box"				= 3
+	COMPARTMENT	as "Compartment"		= 4
+}
+
+enum DesignAssuranceLevelType {
+	NONE 		as "None"
+	QS 			as "QS"
+	D 			as "D"
+	C 			as "C"
+	B 			as "B"
+	A 			as "A"
+}
+
+enum IOAdapterType {
+	NONE		as "None"
+	CAN 		as "Can"
+	ELB			as "Enhanced Local Bus"
+	ETH			as "Ethernet"
+	ANALOG 		as "Analog"
+	DIGITAL		as "Digital"
+	SERIAL		as "Serial"
 }

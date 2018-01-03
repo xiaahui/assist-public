@@ -2,7 +2,7 @@
  */
 package ch.hilbri.assist.dse.model;
 
-import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.AssistModelMapping;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface AssistModelDSE extends AssistModel {
+public interface AssistModelDSE extends AssistModelMapping {
 	/**
 	 * Returns the value of the '<em><b>Application Alternatives</b></em>' containment reference list.
 	 * The list contents are of type {@link ch.hilbri.assist.dse.model.ApplicationAlternatives}.

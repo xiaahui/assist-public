@@ -1,6 +1,5 @@
 package ch.hilbri.assist.mapping.tests.basics
 
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.solver.AssistSolver
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
@@ -12,6 +11,7 @@ import org.junit.Assert
 import org.junit.Test
 
 import static org.junit.Assert.*
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 class ExampleTests extends AbstractMappingTest {
 	
@@ -47,7 +47,7 @@ class ExampleTests extends AbstractMappingTest {
 			val r = resourceHelper.resource(input)	
 			Assert.assertEquals("There should be 0 errors in the mdsl file", 0, r.errors.size)
 
-			val assistModel = r.contents.head as AssistModel
+			val assistModel = r.contents.head as AssistModelMapping
 			val assistSolver = new AssistSolver(assistModel)
 			assistSolver.setSolverSearchStrategy(VariableSelectorTypes.DOM_OVER_WDEG, ValueSelectorTypes.MIN_VALUE_FIRST)
 			assistSolver.solverMaxSolutions = 1

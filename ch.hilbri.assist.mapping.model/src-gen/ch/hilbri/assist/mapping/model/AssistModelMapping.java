@@ -8,26 +8,26 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Assist Model</b></em>'.
+ * A representation of the model object '<em><b>Assist Model Mapping</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getSystemName <em>System Name</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getCompartments <em>Compartments</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getApplications <em>Applications</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getDislocalityRelations <em>Dislocality Relations</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getColocalityRelations <em>Colocality Relations</em>}</li>
- *   <li>{@link ch.hilbri.assist.mapping.model.AssistModel#getDissimilarityRelations <em>Dissimilarity Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getSystemName <em>System Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getCompartments <em>Compartments</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getApplications <em>Applications</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getDislocalityRelations <em>Dislocality Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getColocalityRelations <em>Colocality Relations</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getDissimilarityRelations <em>Dissimilarity Relations</em>}</li>
  * </ul>
  *
- * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModel()
+ * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModelMapping()
  * @model
  * @generated
  */
-public interface AssistModel extends EObject {
+public interface AssistModelMapping extends EObject {
 	/**
 	 * Returns the value of the '<em><b>System Name</b></em>' attribute.
 	 * The default value is <code>""</code>.
@@ -39,14 +39,14 @@ public interface AssistModel extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>System Name</em>' attribute.
 	 * @see #setSystemName(String)
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModel_SystemName()
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModelMapping_SystemName()
 	 * @model default="" unique="false"
 	 * @generated
 	 */
 	String getSystemName();
 
 	/**
-	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.AssistModel#getSystemName <em>System Name</em>}' attribute.
+	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.AssistModelMapping#getSystemName <em>System Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>System Name</em>' attribute.
@@ -65,7 +65,7 @@ public interface AssistModel extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Compartments</em>' containment reference list.
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModel_Compartments()
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModelMapping_Compartments()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
@@ -81,7 +81,7 @@ public interface AssistModel extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Applications</em>' containment reference list.
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModel_Applications()
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModelMapping_Applications()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
@@ -97,7 +97,7 @@ public interface AssistModel extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dislocality Relations</em>' containment reference list.
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModel_DislocalityRelations()
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModelMapping_DislocalityRelations()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -113,7 +113,7 @@ public interface AssistModel extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Colocality Relations</em>' containment reference list.
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModel_ColocalityRelations()
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModelMapping_ColocalityRelations()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -129,7 +129,7 @@ public interface AssistModel extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dissimilarity Relations</em>' containment reference list.
-	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModel_DissimilarityRelations()
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getAssistModelMapping_DissimilarityRelations()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -198,4 +198,4 @@ public interface AssistModel extends EObject {
 	 */
 	EList<HardwareElement> getAllHardwareElements(int level);
 
-} // AssistModel
+} // AssistModelMapping

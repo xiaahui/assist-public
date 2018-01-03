@@ -72,26 +72,279 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.scheduling.model.AssistModel} instances.
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.scheduling.model.AssistModelScheduling} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AssistModelItemProvider assistModelItemProvider;
+	protected AssistModelSchedulingItemProvider assistModelSchedulingItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ch.hilbri.assist.scheduling.model.AssistModel}.
+	 * This creates an adapter for a {@link ch.hilbri.assist.scheduling.model.AssistModelScheduling}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAssistModelAdapter() {
-		if (assistModelItemProvider == null) {
-			assistModelItemProvider = new AssistModelItemProvider(this);
+	public Adapter createAssistModelSchedulingAdapter() {
+		if (assistModelSchedulingItemProvider == null) {
+			assistModelSchedulingItemProvider = new AssistModelSchedulingItemProvider(this);
 		}
 
-		return assistModelItemProvider;
+		return assistModelSchedulingItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.scheduling.model.HardwareElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HardwareElementItemProvider hardwareElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.scheduling.model.HardwareElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHardwareElementAdapter() {
+		if (hardwareElementItemProvider == null) {
+			hardwareElementItemProvider = new HardwareElementItemProvider(this);
+		}
+
+		return hardwareElementItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.scheduling.model.Compartment} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompartmentItemProvider compartmentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.scheduling.model.Compartment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompartmentAdapter() {
+		if (compartmentItemProvider == null) {
+			compartmentItemProvider = new CompartmentItemProvider(this);
+		}
+
+		return compartmentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.scheduling.model.Box} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoxItemProvider boxItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.scheduling.model.Box}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoxAdapter() {
+		if (boxItemProvider == null) {
+			boxItemProvider = new BoxItemProvider(this);
+		}
+
+		return boxItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.scheduling.model.Board} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoardItemProvider boardItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.scheduling.model.Board}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoardAdapter() {
+		if (boardItemProvider == null) {
+			boardItemProvider = new BoardItemProvider(this);
+		}
+
+		return boardItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.scheduling.model.Processor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProcessorItemProvider processorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.scheduling.model.Processor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProcessorAdapter() {
+		if (processorItemProvider == null) {
+			processorItemProvider = new ProcessorItemProvider(this);
+		}
+
+		return processorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.scheduling.model.Core} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CoreItemProvider coreItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.scheduling.model.Core}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCoreAdapter() {
+		if (coreItemProvider == null) {
+			coreItemProvider = new CoreItemProvider(this);
+		}
+
+		return coreItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.scheduling.model.IOAdapter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IOAdapterItemProvider ioAdapterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.scheduling.model.IOAdapter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIOAdapterAdapter() {
+		if (ioAdapterItemProvider == null) {
+			ioAdapterItemProvider = new IOAdapterItemProvider(this);
+		}
+
+		return ioAdapterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.scheduling.model.Application} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ApplicationItemProvider applicationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.scheduling.model.Application}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createApplicationAdapter() {
+		if (applicationItemProvider == null) {
+			applicationItemProvider = new ApplicationItemProvider(this);
+		}
+
+		return applicationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.scheduling.model.Task} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskItemProvider taskItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.scheduling.model.Task}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskAdapter() {
+		if (taskItemProvider == null) {
+			taskItemProvider = new TaskItemProvider(this);
+		}
+
+		return taskItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.scheduling.model.IOAdapterRequirement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IOAdapterRequirementItemProvider ioAdapterRequirementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.scheduling.model.IOAdapterRequirement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIOAdapterRequirementAdapter() {
+		if (ioAdapterRequirementItemProvider == null) {
+			ioAdapterRequirementItemProvider = new IOAdapterRequirementItemProvider(this);
+		}
+
+		return ioAdapterRequirementItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ch.hilbri.assist.scheduling.model.MetricParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MetricParameterItemProvider metricParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ch.hilbri.assist.scheduling.model.MetricParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMetricParameterAdapter() {
+		if (metricParameterItemProvider == null) {
+			metricParameterItemProvider = new MetricParameterItemProvider(this);
+		}
+
+		return metricParameterItemProvider;
 	}
 
 	/**
@@ -193,7 +446,18 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	 * @generated
 	 */
 	public void dispose() {
-		if (assistModelItemProvider != null) assistModelItemProvider.dispose();
+		if (assistModelSchedulingItemProvider != null) assistModelSchedulingItemProvider.dispose();
+		if (hardwareElementItemProvider != null) hardwareElementItemProvider.dispose();
+		if (compartmentItemProvider != null) compartmentItemProvider.dispose();
+		if (boxItemProvider != null) boxItemProvider.dispose();
+		if (boardItemProvider != null) boardItemProvider.dispose();
+		if (processorItemProvider != null) processorItemProvider.dispose();
+		if (coreItemProvider != null) coreItemProvider.dispose();
+		if (ioAdapterItemProvider != null) ioAdapterItemProvider.dispose();
+		if (applicationItemProvider != null) applicationItemProvider.dispose();
+		if (taskItemProvider != null) taskItemProvider.dispose();
+		if (ioAdapterRequirementItemProvider != null) ioAdapterRequirementItemProvider.dispose();
+		if (metricParameterItemProvider != null) metricParameterItemProvider.dispose();
 	}
 
 }

@@ -1,6 +1,5 @@
 package ch.hilbri.assist.mapping.solver.variables
 
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.Board
 import ch.hilbri.assist.mapping.model.Box
 import ch.hilbri.assist.mapping.model.Compartment
@@ -16,6 +15,7 @@ import org.chocosolver.solver.constraints.^extension.Tuples
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 class SolverVariablesContainer {
 
@@ -40,13 +40,13 @@ class SolverVariablesContainer {
 	private var List<List<List<BoolVar>>> indVars
 
 	/** Store a reference to the ASSIST Input model */
-	private AssistModel assistModel
+	private AssistModelMapping assistModel
 
 	/** Store a reference to the choco solver */
 	private Model solverModel
 
 	/* CONSTRUCTOR */
-	new(AssistModel assistModel, Model solverModel) {
+	new(AssistModelMapping assistModel, Model solverModel) {
 
 		this.assistModel = assistModel
 		this.solverModel = solverModel

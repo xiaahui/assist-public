@@ -1,7 +1,6 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
 import ch.hilbri.assist.mapping.model.Application
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.DissimilarityEntry
 import ch.hilbri.assist.mapping.solver.constraints.choco.ACF
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
@@ -12,9 +11,10 @@ import org.chocosolver.solver.constraints.^extension.Tuples
 import ch.hilbri.assist.mapping.model.DissimilarityClause
 import ch.hilbri.assist.mapping.model.DissimilarityConjunction
 import ch.hilbri.assist.mapping.model.DissimilarityDisjunction
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 class DissimilarityConstraint extends AbstractMappingConstraint {
-	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
+	new(AssistModelMapping model, Model chocoModel, SolverVariablesContainer solverVariables) {
 		super("dissimilarity", model, chocoModel, solverVariables)
 	}
 

@@ -16,7 +16,7 @@ import org.eclipse.xtext.testing.util.ParseHelper;
 import com.google.inject.Inject;
 
 import ch.hilbri.assist.mapping.dsl.tests.MappingDSLInjectorProvider;
-import ch.hilbri.assist.mapping.model.AssistModel;
+import ch.hilbri.assist.mapping.model.AssistModelMapping;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.solver.AssistSolver;
@@ -25,7 +25,7 @@ import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 public class Runner {
 
 	@Inject
-	protected ParseHelper<AssistModel> parser;
+	protected ParseHelper<AssistModelMapping> parser;
 
 	public static void main(String[] args) throws Exception {
 		final Options options = new Options();
@@ -76,7 +76,7 @@ public class Runner {
 //				System.err.println(arg + " has no usable data.");
 //				continue;
 //			}
-			final AssistModel model = (AssistModel) resource.getContents().get(0);
+			final AssistModelMapping model = (AssistModelMapping) resource.getContents().get(0);
 			/* 2) Custom validation rule errors // enabling those leads to an invalid jar, for a possible workaround see http://zarnekow.blogspot.de/2010/06/how-to-deploy-xtext-standalone.html?showComment=1279241626077#c7153662425903347274
 			if (Diagnostician.INSTANCE.validate(model).getSeverity() == Diagnostic.ERROR) { 
 				System.err.println("Errors on validating " + arg + ".");

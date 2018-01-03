@@ -1,13 +1,13 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
-import ch.hilbri.assist.mapping.model.AssistModel
 import ch.hilbri.assist.mapping.model.IOAdapterType
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Model
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 class IOAdapterConstraint extends AbstractMappingConstraint {
 
-	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
+	new(AssistModelMapping model, Model chocoModel, SolverVariablesContainer solverVariables) {
 		super("i/o adapter", model, chocoModel, solverVariables)
 	}
 
