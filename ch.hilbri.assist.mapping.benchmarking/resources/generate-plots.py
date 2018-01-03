@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-examples = np.arange(21)
+examples = np.arange(20)
 width = 0.25
 
 constraints_full = []
@@ -23,7 +23,7 @@ fails_union = []
 backtracks_union = []
 resolution_union = []
 
-file = open("results-imac2-full.txt", "r")
+file = open("C:\\ASSIST-Toolsuite\\ASSIST-Code-Public\\ch.hilbri.assist.mapping.benchmarking\\resources\\results-imac2-full.txt", "r")
 for line in file:
     constraints = int(line.split(': ')[1].split(', ')[0].split(' ')[0])
     variables = int(line.split(': ')[1].split(', ')[1].split(' ')[0])
@@ -38,7 +38,7 @@ for line in file:
     resolution_full.append(resolution)
 file.close()
 
-file = open("results-imac2-inst-only.txt", "r")
+file = open("C:\\ASSIST-Toolsuite\\ASSIST-Code-Public\\ch.hilbri.assist.mapping.benchmarking\\resources\\results-imac2-inst-only.txt", "r")
 for line in file:
     constraints = int(line.split(': ')[1].split(', ')[0].split(' ')[0])
     variables = int(line.split(': ')[1].split(', ')[1].split(' ')[0])
@@ -53,7 +53,7 @@ for line in file:
     resolution_inst_only.append(resolution)
 file.close()
 
-file = open("results-imac2-union.txt", "r")
+file = open("C:\\ASSIST-Toolsuite\\ASSIST-Code-Public\\ch.hilbri.assist.mapping.benchmarking\\resources\\results-imac2-union.txt", "r")
 for line in file:
     constraints = int(line.split(': ')[1].split(', ')[0].split(' ')[0])
     variables = int(line.split(': ')[1].split(', ')[1].split(' ')[0])
@@ -68,15 +68,77 @@ for line in file:
     resolution_union.append(resolution)
 file.close()
 
-fig, ax = plt.subplots()
+def generateConstraintCountPlot():
+    fig, ax = plt.subplots(figsize=(7.3, 2))
+    ax.bar(examples - 0.5 * width, constraints_full[:-1], width, color='r', label='element-wise')
+    ax.bar(examples + 0.5 * width, constraints_inst_only[:-1], width, color='b', label='instantiation-only')
+    ax.bar(examples + 1.5 * width, constraints_union[:-1], width, color='g', label='combined')
 
-ax.bar(examples - 0.5 * width, constraints_full, width, color='r')
-ax.bar(examples + 0.5 * width, constraints_inst_only, width, color='b')
-ax.bar(examples + 1.5 * width, constraints_union, width, color='g')
+    ax.set_ylabel('# Constraints')
+    ax.set_xlabel('Example')
+    #ax.set_title('Constraints in all examples')
+    ax.set_xticks(examples + width / 2)
+    ax.set_xticklabels(np.arange(20)+1)
+    ax.legend(loc='upper right')
+    plt.subplots_adjust(top=1, bottom=0.22, left=0.14, right=1)
+    plt.show()
 
-ax.set_ylabel('Constraints')
-ax.set_xlabel('Example')
-ax.set_title('Constraints in all examples')
-ax.set_xticks(examples + width / 2)
-ax.set_xticklabels(np.arange(21))
-plt.show()
+def generateVarCountPlot():
+    fig, ax = plt.subplots(figsize=(7.3, 2))
+    ax.bar(examples - 0.5 * width, variables_full[:-1], width, color='r', label='element-wise')
+    ax.bar(examples + 0.5 * width, variables_inst_only[:-1], width, color='b', label='instantiation-only')
+    ax.bar(examples + 1.5 * width, variables_union[:-1], width, color='g', label='combined')
+
+    ax.set_ylabel('# Variables')
+    ax.set_xlabel('Example')
+    ax.set_xticks(examples + width / 2)
+    ax.set_xticklabels(np.arange(20)+1)
+    ax.legend(loc='upper right')
+    plt.subplots_adjust(top=1, bottom=0.22, left=0.14, right=1)
+    plt.show()
+
+def generateResolutionTimePlot():
+    fig, ax = plt.subplots(figsize=(7.3, 2))
+    ax.bar(examples - 0.5 * width, resolution_full[:-1], width, color='r', label='element-wise')
+    ax.bar(examples + 0.5 * width, resolution_inst_only[:-1], width, color='b', label='instantiation-only')
+    ax.bar(examples + 1.5 * width, resolution_union[:-1], width, color='g', label='combined')
+
+    ax.set_ylabel('Resolution [ms]')
+    ax.set_xlabel('Example')
+    ax.set_xticks(examples + width / 2)
+    ax.set_xticklabels(np.arange(20)+1)
+    ax.set_yscale("log", nonposy='clip')
+    ax.legend(loc='upper right')
+    plt.subplots_adjust(top=0.98, bottom=0.22, left=0.14, right=1)
+    plt.show()
+
+def generateFailsPlot():
+    fig, ax = plt.subplots(figsize=(7.3, 2))
+    ax.bar(examples - 0.5 * width, fails_full[:-1], width, color='r', label='element-wise')
+    ax.bar(examples + 0.5 * width, fails_inst_only[:-1], width, color='b', label='instantiation-only')
+    ax.bar(examples + 1.5 * width, fails_union[:-1], width, color='g', label='combined')
+
+    ax.set_ylabel('# Fails')
+    ax.set_xlabel('Example')
+    ax.set_xticks(examples + width / 2)
+    ax.set_xticklabels(np.arange(20)+1)
+    ax.legend(loc='upper right')
+    plt.subplots_adjust(top=1, bottom=0.22, left=0.14, right=1)
+    plt.show()
+
+def generateBacktracksPlot():
+    fig, ax = plt.subplots(figsize=(7.3, 2))
+    ax.bar(examples - 0.5 * width, backtracks_full[:-1], width, color='r', label='element-wise')
+    ax.bar(examples + 0.5 * width, backtracks_inst_only[:-1], width, color='b', label='instantiation-only')
+    ax.bar(examples + 1.5 * width, backtracks_union[:-1], width, color='g', label='combined')
+
+    ax.set_ylabel('# Backtracks')
+    ax.set_xlabel('Example')
+    ax.set_xticks(examples + width / 2)
+    ax.set_xticklabels(np.arange(20)+1)
+    ax.legend(loc='upper right')
+    plt.subplots_adjust(top=1, bottom=0.22, left=0.14, right=1)
+    plt.show()
+
+generateResolutionTimePlot()
+
