@@ -92,7 +92,7 @@ class DislocalityConstraint extends AbstractMappingConstraint {
 	}
 
 	
-	def void recursiveConstraintBuild(List<List<IntVar>> intVarList, int idx, List<IntVar> conflict) {
+	private def void recursiveConstraintBuild(List<List<IntVar>> intVarList, int idx, List<IntVar> conflict) {
 		val subList = intVarList.get(idx) 
 		for (intVar: subList) {
 			conflict.add(intVar)
