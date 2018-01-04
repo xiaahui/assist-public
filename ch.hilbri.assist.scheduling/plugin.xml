@@ -15,7 +15,7 @@
             canFinishEarly="false"
             category="ch.hilbri.assist.categories.main"
             class="ch.hilbri.assist.scheduling.ui.wizards.NewSchedulingSpecificationWizard"
-            icon="icons/scheduling-specification.png"
+            icon="icons/scheduling-specification.gif"
             id="ch.hilbri.assist.scheduling.wizards.newSchedulingSpecification"
             name="Scheduling - Specification"
             project="false">
