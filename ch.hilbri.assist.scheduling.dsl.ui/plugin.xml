@@ -3,14 +3,14 @@
 <plugin>
 	<extension
 		point="org.eclipse.ui.editors">
-		<editor
+		<!-- <editor
 			class="ch.hilbri.assist.scheduling.dsl.ui.SchedulingDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
 			extensions="sdsl"
 			id="ch.hilbri.assist.scheduling.dsl.SchedulingDsl"
 			name="SchedulingDsl Editor">
-		</editor>
+		</editor> -->
 	</extension>
 	<extension
 		point="org.eclipse.ui.handlers">

@@ -9,8 +9,8 @@
             uri="fragment.e4xmi">
       </fragment>
    </extension>
-   <extension
-         point="org.eclipse.ui.editors">
+   
+   <extension point="org.eclipse.ui.editors">
       <editor
             class="ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor"
             contributorClass="ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditorContributor"
@@ -21,8 +21,8 @@
             name="Mapping Specification">
       </editor>
    </extension>
-   <extension
-         point="org.eclipse.ui.newWizards">
+   
+   <extension point="org.eclipse.ui.newWizards">
       <wizard
             canFinishEarly="false"
             category="ch.hilbri.assist.categories.main"
@@ -35,6 +35,7 @@
             This wizard creates a new mapping specification file with *.mdsl extension.
          </description>
       </wizard>
+      
       <wizard
             canFinishEarly="true"
             category="ch.hilbri.assist.categories.main"

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
 <plugin>
 
    <extension
@@ -9,8 +10,19 @@
       </fragment>
    </extension>
    
-   <extension
-         point="org.eclipse.ui.newWizards">
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            class="ch.hilbri.assist.scheduling.ui.multipageeditor.MultiPageEditor"
+            contributorClass="ch.hilbri.assist.scheduling.ui.multipageeditor.MultiPageEditorContributor"
+            default="true"
+            extensions="sdsl"
+            icon="icons/scheduling-specification.gif"
+            id="ch.hilbri.assist.scheduling.editors.schedulingeditor"
+            name="Scheduling Specification">
+      </editor>
+   </extension>
+     
+   <extension point="org.eclipse.ui.newWizards">
       <wizard
             canFinishEarly="false"
             category="ch.hilbri.assist.categories.main"
