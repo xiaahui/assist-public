@@ -1,18 +1,19 @@
 package ch.hilbri.assist.mapping.dsl.ui.labeling
 
 import ch.hilbri.assist.mapping.model.Application
+import ch.hilbri.assist.mapping.model.AssistModelMapping
 import ch.hilbri.assist.mapping.model.Board
 import ch.hilbri.assist.mapping.model.Box
 import ch.hilbri.assist.mapping.model.ColocalityRelation
 import ch.hilbri.assist.mapping.model.Compartment
 import ch.hilbri.assist.mapping.model.Core
 import ch.hilbri.assist.mapping.model.DislocalityRelation
+import ch.hilbri.assist.mapping.model.DissimilarityRelation
 import ch.hilbri.assist.mapping.model.Processor
 import ch.hilbri.assist.mapping.model.Task
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
-import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 /**
  * Provides labels for EObjects.
@@ -110,24 +111,23 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		'outlineview_constraint.png'
 	}
 
-//	def text(DissimilarityRelation r) {
-//		val output = new StringBuilder()
-//		
-//		output.append("[")
-//		for (aog : r.applicationsOrGroups) {
-//			if (aog instanceof Application) output.append(aog.name)
-//			if (aog instanceof ApplicationGroup) output.append(aog.name)
-//			if (r.applicationsOrGroups.last != aog) output.append(", ")
-//		}
-//		output.append("]")
-//		output.append(" dissimilar ")
-//		
-//		return output.toString
-//	}
-//
-//	def image(DissimilarityRelation r) {
-//		'outlineview_constraint.png'
-//	}
+	def text(DissimilarityRelation r) {
+		val output = new StringBuilder()
+		
+		output.append("[")
+		for (aog : r.applications) {
+			if (aog instanceof Application) output.append(aog.name)
+			if (r.applications.last != aog) output.append(", ")
+		}
+		output.append("]")
+		output.append(" dissimilar ")
+		
+		return output.toString
+	}
+
+	def image(DissimilarityRelation r) {
+		'outlineview_constraint.png'
+	}
 
 	def text(ColocalityRelation r) {
 		val output = new StringBuilder()
