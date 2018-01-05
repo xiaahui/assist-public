@@ -23,7 +23,9 @@ Software {
 	Application A1 {
 		CriticalityLevel = A;
 		Task A1_T1 {
-			CoreUtilization = 10;
+			AssignedCore = Comp1.Box1.Board1.P1.C0;
+			Duration = 1;
+			Period = 2;
 		}
 	}
 }

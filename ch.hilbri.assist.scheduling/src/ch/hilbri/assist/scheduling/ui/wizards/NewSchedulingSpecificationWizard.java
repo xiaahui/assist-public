@@ -103,7 +103,7 @@ public class NewSchedulingSpecificationWizard extends BasicNewResourceWizard imp
 	@Override
 	public boolean performFinish() {
 		final String containerName = page.getContainerName();
-		final String fileName = page.getFileName() + ".mdsl";
+		final String fileName = page.getFileName() + ".sdsl";
 		IRunnableWithProgress op = new IRunnableWithProgress() {
 			public void run(IProgressMonitor monitor) throws InvocationTargetException {
 				try {
@@ -128,7 +128,7 @@ public class NewSchedulingSpecificationWizard extends BasicNewResourceWizard imp
 	}
 
 	private void throwCoreException(String message) throws CoreException {
-		IStatus status = new Status(IStatus.ERROR, "ch.hilbri.assist.mapping", IStatus.OK, message, null);
+		IStatus status = new Status(IStatus.ERROR, "ch.hilbri.assist.scheduling", IStatus.OK, message, null);
 		throw new CoreException(status);
 	}
 
