@@ -3,6 +3,7 @@ package ch.hilbri.assist.scheduling.ui.multipageeditor;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.swt.SWT;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.ide.IDE;
@@ -17,6 +18,7 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 
 	/** The text editor used in page 0. */
 	private XtextEditor tabEditor;
+	private DetailedResults tabResults;
 
 	
 	/**
@@ -41,9 +43,9 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 	 */
 
 	void createPage1() {
-//		tabResults = new DetailedResults(this, this.getContainer(), SWT.NULL);
-//		int index = addPage(tabResults);
-//		setPageText(index, "Results");
+		tabResults = new DetailedResults(this, this.getContainer(), SWT.NULL);
+		int index = addPage(tabResults);
+		setPageText(index, "Results");
 	}
 
 	/**
@@ -51,7 +53,7 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 	 */
 	protected void createPages() {
 		createPage0();
-//		createPage1();
+		createPage1();
 
 		this.setPartName(tabEditor.getTitle());
 		this.setActivePage(0);
