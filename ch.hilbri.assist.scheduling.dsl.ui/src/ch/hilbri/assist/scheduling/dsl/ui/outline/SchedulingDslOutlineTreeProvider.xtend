@@ -3,7 +3,13 @@
  */
 package ch.hilbri.assist.scheduling.dsl.ui.outline
 
+import ch.hilbri.assist.scheduling.model.AssistModelScheduling
+import org.eclipse.core.runtime.FileLocator
+import org.eclipse.core.runtime.Path
+import org.eclipse.jface.resource.ImageDescriptor
+import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
+import org.osgi.framework.FrameworkUtil
 
 /**
  * Customization of the default outline structure.
@@ -12,4 +18,20 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
  */
 class SchedulingDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 
+	def _createChildren(IOutlineNode parentNode, AssistModelScheduling model) {
+		val bundle = FrameworkUtil.getBundle(class)
+		val imgfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_folder.png"), null));
+//		val imgsubfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_category.png"), null));
+		
+		/* ---------- HARDWARE ------------- */
+		val hardwareNode = new VirtualOutlineNode(parentNode, imgfolderDesc , "Hardware", false)
+		for (hw : model.compartments)
+			createNode(hardwareNode, hw)
+		
+		/* ---------- APPLICATIONS AND GROUPS --------- */
+		val applicationsNode = new VirtualOutlineNode(parentNode, imgfolderDesc, "Applications", false)
+		for (sw : model.applications) createNode(applicationsNode, sw)
+		
+		
+	}
 }
