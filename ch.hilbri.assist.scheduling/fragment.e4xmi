@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_Y0cjMLSWEeemw6Ys4OcW_g">
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_Y0cjMLSWEeemw6Ys4OcW_g">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_BDiuoPHzEeebxrQqvplQ4g" featurename="handlers" parentElementId="ch.hilbri.assist.gui.application">
+    <elements xsi:type="commands:Handler" xmi:id="_KiPdsPHzEeebxrQqvplQ4g" elementId="ch.hilbri.assist.scheduling.handler.generate" contributionURI="bundleclass://ch.hilbri.assist.scheduling/ch.hilbri.assist.scheduling.ui.handlers.Generate" command="_qNXoIPHyEeebxrQqvplQ4g"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_kfh7kPHyEeebxrQqvplQ4g" featurename="commands" parentElementId="ch.hilbri.assist.gui.application">
+    <elements xsi:type="commands:Command" xmi:id="_qNXoIPHyEeebxrQqvplQ4g" elementId="ch.hilbri.assist.scheduling.command.generate" commandName="Generate schedules"/>
+    <elements xsi:type="commands:Command" xmi:id="_yAXDUPHyEeebxrQqvplQ4g" elementId="ch.hilbri.assist.scheduling.command.export.text" commandName="Export current schedule to text"/>
+    <elements xsi:type="commands:Command" xmi:id="_5QZicPHyEeebxrQqvplQ4g" elementId="ch.hilbri.assist.scheduling.command.newschedulingspec" commandName="New Scheduling Specification"/>
+  </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_BoyfcLSXEeemw6Ys4OcW_g" featurename="children" parentElementId="org.eclipse.ui.main.menu" positionInList="index:4">
     <elements xsi:type="menu:Menu" xmi:id="_gVby8LSXEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.scheduling.menu.scheduling" label="&amp;Scheduling">
-      <children xsi:type="menu:HandledMenuItem" xmi:id="_MYQS0LSXEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.scheduling.handledmenuitem.generateschedule" label="Generate Schedule" enabled="false"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_MYQS0LSXEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.scheduling.handledmenuitem.generateschedule" label="Generate Schedule" enabled="false" command="_qNXoIPHyEeebxrQqvplQ4g"/>
       <children xsi:type="menu:MenuSeparator" xmi:id="_PTQEULSXEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.scheduling.menuseparator.0"/>
-      <children xsi:type="menu:HandledMenuItem" xmi:id="_QKvtALSXEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.scheduling.handledmenuitem.exportschedule" label="Export Schedule"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_QKvtALSXEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.scheduling.handledmenuitem.exportschedule" label="Export Schedule" enabled="false" command="_yAXDUPHyEeebxrQqvplQ4g"/>
     </elements>
   </fragments>
 </fragment:ModelFragments>

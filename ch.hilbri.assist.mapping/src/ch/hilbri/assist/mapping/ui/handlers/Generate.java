@@ -32,7 +32,8 @@ public class Generate {
 		 * Mapping generation should only be allowed, if we are actually looking at a
 		 * mapping problem
 		 */
-		if (!EditorUtils.getActiveXtextEditor().getLanguageName().equals("ch.hilbri.assist.mapping.dsl.MappingDSL"))
+		XtextEditor editor = EditorUtils.getActiveXtextEditor(); 
+		if (editor != null && !editor.getLanguageName().equals("ch.hilbri.assist.mapping.dsl.MappingDSL"))
 			return false;
 
 		/*
