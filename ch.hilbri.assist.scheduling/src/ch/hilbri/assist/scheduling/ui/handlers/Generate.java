@@ -6,15 +6,25 @@ import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.part.MultiPageEditorSite;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.utils.EditorUtils;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+
+import ch.hilbri.assist.scheduling.model.AssistModelScheduling;
+import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult;
+import ch.hilbri.assist.scheduling.results.ResultFactoryFromSolverSolutions;
+import ch.hilbri.assist.scheduling.ui.multipageeditor.MultiPageEditor;
 
 public class Generate {
 
@@ -73,30 +83,41 @@ public class Generate {
 					"Could not locate the current Xtext editor.");
 			return;
 		}
+		
+		
 
-//		MultiPageEditor multipageEditor = (MultiPageEditor) ((MultiPageEditorSite) xtextEditor.getSite())
-//				.getMultiPageEditor();
-//		if (multipageEditor == null) {
-//			MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error",
-//					"Could not locate the MultiPageEditor.");
-//			return;
-//		}
-//
+		MultiPageEditor multipageEditor = (MultiPageEditor) ((MultiPageEditorSite) xtextEditor.getSite())
+				.getMultiPageEditor();
+		if (multipageEditor == null) {
+			MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error",
+					"Could not locate the MultiPageEditor.");
+			return;
+		}
+
 //		/* Reset the views */
 //		// multipageEditor.resetView();
-//
-//		/* Retrieve the URI from the current model */
-//		URI modelURI = xtextEditor.getDocument().priorityReadOnly(new IUnitOfWork<URI, XtextResource>() {
-//			public URI exec(XtextResource model) throws Exception {
-//				return model.getURI();
-//			}
-//		});
-//
-//		if (modelURI == null) {
-//			MessageDialog.openError(xtextEditor.getShell(), "Error", "Could not locate the URI for the input model.");
-//			return;
-//		}
-//
+
+		/* Retrieve the URI from the current model */
+		URI modelURI = xtextEditor.getDocument().priorityReadOnly(new IUnitOfWork<URI, XtextResource>() {
+			public URI exec(XtextResource model) throws Exception {
+				return model.getURI();
+			}
+		});
+
+		if (modelURI == null) {
+			MessageDialog.openError(xtextEditor.getShell(), "Error", "Could not locate the URI for the input model.");
+			return;
+		}
+
+		/* FIXME - Just temporary stuff to mimick the solver */
+		/* BEGIN */
+		ResourceSet rs = new ResourceSetImpl();
+		Resource resource = rs.getResource(modelURI, true);
+		AssistModelScheduling assistModel = (AssistModelScheduling) resource.getContents().get(0);
+		AssistModelSchedulingResult result = ResultFactoryFromSolverSolutions.create(assistModel);
+		multipageEditor.setAndShowResults(result);
+		/* END */
+		
 //		/*
 //		 * Open the dialog to choose between simple and advanced mode for finding
 //		 * solutions

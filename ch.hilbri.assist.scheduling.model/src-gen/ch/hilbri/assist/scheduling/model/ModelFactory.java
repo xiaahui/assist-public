@@ -130,6 +130,24 @@ public interface ModelFactory extends EFactory {
 	MetricParameter createMetricParameter();
 
 	/**
+	 * Returns a new object of class '<em>Assist Model Scheduling Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Assist Model Scheduling Result</em>'.
+	 * @generated
+	 */
+	AssistModelSchedulingResult createAssistModelSchedulingResult();
+
+	/**
+	 * Returns a new object of class '<em>Task Execution Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Execution Instance</em>'.
+	 * @generated
+	 */
+	TaskExecutionInstance createTaskExecutionInstance();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -4,6 +4,9 @@ Bundle-Name: ch.hilbri.assist.scheduling
 Bundle-SymbolicName: ch.hilbri.assist.scheduling;singleton:=true
 Bundle-Version: 2.3.0.qualifier
 Require-Bundle: ch.hilbri.assist.gui,
+ ch.hilbri.assist.scheduling.model,
+ ch.hilbri.assist.scheduling.model.edit,
+ ch.hilbri.assist.scheduling.model.editor,
  ch.hilbri.assist.libraries.math,
  ch.hilbri.assist.libraries.logback,
  ch.hilbri.assist.libraries.choco-solver,

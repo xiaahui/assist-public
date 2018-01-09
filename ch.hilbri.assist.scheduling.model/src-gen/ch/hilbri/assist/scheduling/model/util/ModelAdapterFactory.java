@@ -116,6 +116,14 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createMetricParameterAdapter();
 			}
 			@Override
+			public Adapter caseAssistModelSchedulingResult(AssistModelSchedulingResult object) {
+				return createAssistModelSchedulingResultAdapter();
+			}
+			@Override
+			public Adapter caseTaskExecutionInstance(TaskExecutionInstance object) {
+				return createTaskExecutionInstanceAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -300,6 +308,34 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMetricParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult <em>Assist Model Scheduling Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult
+	 * @generated
+	 */
+	public Adapter createAssistModelSchedulingResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.scheduling.model.TaskExecutionInstance <em>Task Execution Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ch.hilbri.assist.scheduling.model.TaskExecutionInstance
+	 * @generated
+	 */
+	public Adapter createTaskExecutionInstanceAdapter() {
 		return null;
 	}
 

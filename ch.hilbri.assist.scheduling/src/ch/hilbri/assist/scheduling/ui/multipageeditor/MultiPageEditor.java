@@ -13,6 +13,7 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 import com.google.inject.Injector;
 
 import ch.hilbri.assist.scheduling.dsl.ui.internal.DslActivator;
+import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult;
 
 public class MultiPageEditor extends MultiPageEditorPart  {
 
@@ -90,5 +91,10 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 
 	public void showResultsTab() {
 		setActivePage(1);
+	}
+	
+	public void setAndShowResults(AssistModelSchedulingResult result) {
+		tabResults.setResult(result);
+		showResultsTab();
 	}
 }

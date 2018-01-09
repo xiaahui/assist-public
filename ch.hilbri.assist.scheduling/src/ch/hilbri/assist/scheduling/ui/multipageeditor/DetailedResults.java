@@ -8,6 +8,7 @@ import org.eclipse.nebula.widgets.ganttchart.GanttEvent;
 import org.eclipse.nebula.widgets.ganttchart.GanttFlags;
 import org.eclipse.nebula.widgets.ganttchart.GanttGroup;
 import org.eclipse.nebula.widgets.ganttchart.GanttSection;
+import org.eclipse.nebula.widgets.ganttchart.IColorManager;
 import org.eclipse.nebula.widgets.ganttchart.ISettings;
 import org.eclipse.nebula.widgets.ganttchart.themes.ColorThemeWindowsBlue;
 import org.eclipse.swt.SWT;
@@ -15,28 +16,40 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult;
+
 public class DetailedResults extends Composite {
 	@SuppressWarnings("unused")
 	private MultiPageEditor multiPageEditor;
+	private GanttChart ganttChart;
+	private Composite ganttComposite;	
+	
+	/* Settings for the Gantt-Chart */
+	private final int ganttFlags 				= GanttFlags.H_SCROLL_FIXED_RANGE | SWT.SINGLE;
+	private final ISettings ganttSettings 		= new TestSettings();
+	private final IColorManager ganttColorTheme = new ColorThemeWindowsBlue();
 
 	public DetailedResults(MultiPageEditor mpe, Composite parent, int style) {
 		super(parent, style);
 		multiPageEditor = mpe;
 
 		setLayout(new FillLayout(SWT.HORIZONTAL));
-		Composite composite = new Composite(this, SWT.NONE);
+		ganttComposite = new Composite(this, SWT.NONE);
+		ganttComposite.setLayout(new FillLayout(SWT.HORIZONTAL));
 
-		final ISettings ganttSettings = new TestSettings();
-		composite.setLayout(new FillLayout(SWT.HORIZONTAL));
-
-		int flags = GanttFlags.H_SCROLL_FIXED_RANGE | SWT.SINGLE;
-
-		GanttChart ganttChart = new GanttChart(composite, flags, ganttSettings, new ColorThemeWindowsBlue());
+		ganttChart = new GanttChart(ganttComposite, ganttFlags, ganttSettings, ganttColorTheme);
 		ganttChart.getGanttComposite().setDrawHorizontalLinesOverride(true);
 		ganttChart.getGanttComposite().setUseAdvancedTooltips(false);
 		ganttChart.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
-
-		Calendar cal = (Calendar) ganttSettings.getDDayRootCalendar().clone();
+	}
+	
+	public void setResult(AssistModelSchedulingResult result) {
+		
+		/* Remove the old chart and create a new one */
+		ganttChart.dispose();
+		ganttChart = new GanttChart(ganttComposite, ganttFlags, ganttSettings, ganttColorTheme);
+		
+		Calendar cal = (Calendar) ganttChart.getSettings().getDDayRootCalendar().clone();
 
 		final Calendar start1 = (Calendar) cal.clone();
 		final Calendar end1 = (Calendar) start1.clone();
@@ -55,9 +68,12 @@ public class DetailedResults extends Composite {
 
 		GanttSection section = new GanttSection(ganttChart, "Core 1");
 		section.addGanttEvent(groupOne);
+		
+		/* This is necessary to avoid redraw problems */
+		layout(true, true);
 	}
 
-	class TestSettings extends AbstractSettings {
+	private class TestSettings extends AbstractSettings {
 		public boolean drawHeader() {
 			return true;
 		}

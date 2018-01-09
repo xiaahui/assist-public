@@ -4,6 +4,7 @@ package ch.hilbri.assist.scheduling.model;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -1207,6 +1208,98 @@ public interface ModelPackage extends EPackage {
 	int METRIC_PARAMETER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingResultImpl <em>Assist Model Scheduling Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingResultImpl
+	 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getAssistModelSchedulingResult()
+	 * @generated
+	 */
+	int ASSIST_MODEL_SCHEDULING_RESULT = 12;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_SCHEDULING_RESULT__MODEL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Schedule</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_SCHEDULING_RESULT__SCHEDULE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Assist Model Scheduling Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_SCHEDULING_RESULT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Assist Model Scheduling Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_SCHEDULING_RESULT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.scheduling.model.impl.TaskExecutionInstanceImpl <em>Task Execution Instance</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.scheduling.model.impl.TaskExecutionInstanceImpl
+	 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getTaskExecutionInstance()
+	 * @generated
+	 */
+	int TASK_EXECUTION_INSTANCE = 13;
+
+	/**
+	 * The feature id for the '<em><b>Begin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EXECUTION_INSTANCE__BEGIN = 0;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EXECUTION_INSTANCE__END = 1;
+
+	/**
+	 * The number of structural features of the '<em>Task Execution Instance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EXECUTION_INSTANCE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Task Execution Instance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EXECUTION_INSTANCE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.scheduling.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1214,7 +1307,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
 	 * @generated
 	 */
-	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 12;
+	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 14;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -1224,7 +1317,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
 	 * @generated
 	 */
-	int DESIGN_ASSURANCE_LEVEL_TYPE = 13;
+	int DESIGN_ASSURANCE_LEVEL_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.scheduling.model.IOAdapterType <em>IO Adapter Type</em>}' enum.
@@ -1234,7 +1327,17 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getIOAdapterType()
 	 * @generated
 	 */
-	int IO_ADAPTER_TYPE = 14;
+	int IO_ADAPTER_TYPE = 16;
+
+	/**
+	 * The meta object id for the '<em>Task2 Execution Instances Map Type</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.HashMap
+	 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
+	 * @generated
+	 */
+	int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 17;
 
 
 	/**
@@ -2163,6 +2266,70 @@ public interface ModelPackage extends EPackage {
 	EAttribute getMetricParameter_Value();
 
 	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult <em>Assist Model Scheduling Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Assist Model Scheduling Result</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult
+	 * @generated
+	 */
+	EClass getAssistModelSchedulingResult();
+
+	/**
+	 * Returns the meta object for the reference '{@link ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult#getModel <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Model</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult#getModel()
+	 * @see #getAssistModelSchedulingResult()
+	 * @generated
+	 */
+	EReference getAssistModelSchedulingResult_Model();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult#getSchedule <em>Schedule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Schedule</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult#getSchedule()
+	 * @see #getAssistModelSchedulingResult()
+	 * @generated
+	 */
+	EAttribute getAssistModelSchedulingResult_Schedule();
+
+	/**
+	 * Returns the meta object for class '{@link ch.hilbri.assist.scheduling.model.TaskExecutionInstance <em>Task Execution Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Task Execution Instance</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.TaskExecutionInstance
+	 * @generated
+	 */
+	EClass getTaskExecutionInstance();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.TaskExecutionInstance#getBegin <em>Begin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Begin</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.TaskExecutionInstance#getBegin()
+	 * @see #getTaskExecutionInstance()
+	 * @generated
+	 */
+	EAttribute getTaskExecutionInstance_Begin();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.TaskExecutionInstance#getEnd <em>End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>End</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.TaskExecutionInstance#getEnd()
+	 * @see #getTaskExecutionInstance()
+	 * @generated
+	 */
+	EAttribute getTaskExecutionInstance_End();
+
+	/**
 	 * Returns the meta object for enum '{@link ch.hilbri.assist.scheduling.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2191,6 +2358,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getIOAdapterType();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.HashMap <em>Task2 Execution Instances Map Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Task2 Execution Instances Map Type</em>'.
+	 * @see java.util.HashMap
+	 * @model instanceClass="java.util.HashMap&lt;ch.hilbri.assist.scheduling.model.Task, java.util.List&lt;ch.hilbri.assist.scheduling.model.TaskExecutionInstance&gt;&gt;"
+	 * @generated
+	 */
+	EDataType getTask2ExecutionInstancesMapType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2936,6 +3114,58 @@ public interface ModelPackage extends EPackage {
 		EAttribute METRIC_PARAMETER__VALUE = eINSTANCE.getMetricParameter_Value();
 
 		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingResultImpl <em>Assist Model Scheduling Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingResultImpl
+		 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getAssistModelSchedulingResult()
+		 * @generated
+		 */
+		EClass ASSIST_MODEL_SCHEDULING_RESULT = eINSTANCE.getAssistModelSchedulingResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSIST_MODEL_SCHEDULING_RESULT__MODEL = eINSTANCE.getAssistModelSchedulingResult_Model();
+
+		/**
+		 * The meta object literal for the '<em><b>Schedule</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSIST_MODEL_SCHEDULING_RESULT__SCHEDULE = eINSTANCE.getAssistModelSchedulingResult_Schedule();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.scheduling.model.impl.TaskExecutionInstanceImpl <em>Task Execution Instance</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.scheduling.model.impl.TaskExecutionInstanceImpl
+		 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getTaskExecutionInstance()
+		 * @generated
+		 */
+		EClass TASK_EXECUTION_INSTANCE = eINSTANCE.getTaskExecutionInstance();
+
+		/**
+		 * The meta object literal for the '<em><b>Begin</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK_EXECUTION_INSTANCE__BEGIN = eINSTANCE.getTaskExecutionInstance_Begin();
+
+		/**
+		 * The meta object literal for the '<em><b>End</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK_EXECUTION_INSTANCE__END = eINSTANCE.getTaskExecutionInstance_End();
+
+		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.scheduling.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2964,6 +3194,16 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum IO_ADAPTER_TYPE = eINSTANCE.getIOAdapterType();
+
+		/**
+		 * The meta object literal for the '<em>Task2 Execution Instances Map Type</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.HashMap
+		 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
+		 * @generated
+		 */
+		EDataType TASK2_EXECUTION_INSTANCES_MAP_TYPE = eINSTANCE.getTask2ExecutionInstancesMapType();
 
 	}
 

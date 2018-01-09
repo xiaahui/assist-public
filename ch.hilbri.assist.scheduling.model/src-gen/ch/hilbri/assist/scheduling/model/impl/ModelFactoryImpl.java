@@ -4,6 +4,9 @@ package ch.hilbri.assist.scheduling.model.impl;
 
 import ch.hilbri.assist.scheduling.model.*;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -69,6 +72,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.TASK: return createTask();
 			case ModelPackage.IO_ADAPTER_REQUIREMENT: return createIOAdapterRequirement();
 			case ModelPackage.METRIC_PARAMETER: return createMetricParameter();
+			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT: return createAssistModelSchedulingResult();
+			case ModelPackage.TASK_EXECUTION_INSTANCE: return createTaskExecutionInstance();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -88,6 +93,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return createDesignAssuranceLevelTypeFromString(eDataType, initialValue);
 			case ModelPackage.IO_ADAPTER_TYPE:
 				return createIOAdapterTypeFromString(eDataType, initialValue);
+			case ModelPackage.TASK2_EXECUTION_INSTANCES_MAP_TYPE:
+				return createTask2ExecutionInstancesMapTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -107,6 +114,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 				return convertDesignAssuranceLevelTypeToString(eDataType, instanceValue);
 			case ModelPackage.IO_ADAPTER_TYPE:
 				return convertIOAdapterTypeToString(eDataType, instanceValue);
+			case ModelPackage.TASK2_EXECUTION_INSTANCES_MAP_TYPE:
+				return convertTask2ExecutionInstancesMapTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -237,6 +246,26 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AssistModelSchedulingResult createAssistModelSchedulingResult() {
+		AssistModelSchedulingResultImpl assistModelSchedulingResult = new AssistModelSchedulingResultImpl();
+		return assistModelSchedulingResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskExecutionInstance createTaskExecutionInstance() {
+		TaskExecutionInstanceImpl taskExecutionInstance = new TaskExecutionInstanceImpl();
+		return taskExecutionInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public HardwareArchitectureLevelType createHardwareArchitectureLevelTypeFromString(EDataType eDataType, String initialValue) {
 		HardwareArchitectureLevelType result = HardwareArchitectureLevelType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -290,6 +319,25 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 */
 	public String convertIOAdapterTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public HashMap<Task, List<TaskExecutionInstance>> createTask2ExecutionInstancesMapTypeFromString(EDataType eDataType, String initialValue) {
+		return (HashMap<Task, List<TaskExecutionInstance>>)super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTask2ExecutionInstancesMapTypeToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
 	}
 
 	/**

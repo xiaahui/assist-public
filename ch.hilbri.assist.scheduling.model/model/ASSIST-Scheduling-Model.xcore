@@ -10,7 +10,11 @@
 
 package ch.hilbri.assist.scheduling.model
 
+import java.util.HashMap
+import java.util.List
+
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
+
 
 class AssistModelScheduling {
 	String			systemName	= ""
@@ -162,4 +166,20 @@ enum IOAdapterType {
 	ANALOG 		as "Analog"
 	DIGITAL		as "Digital"
 	SERIAL		as "Serial"
+}
+
+/* 
+ * RESULTS
+ */
+
+type Task2ExecutionInstancesMapType wraps HashMap<Task, List<TaskExecutionInstance>> 
+
+class AssistModelSchedulingResult {
+	refers AssistModelScheduling 	model
+	Task2ExecutionInstancesMapType 	schedule
+}
+
+class TaskExecutionInstance {
+	int begin = "-1"
+	int end   = "-1"
 }

@@ -4,6 +4,7 @@ package ch.hilbri.assist.scheduling.model.impl;
 
 import ch.hilbri.assist.scheduling.model.Application;
 import ch.hilbri.assist.scheduling.model.AssistModelScheduling;
+import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult;
 import ch.hilbri.assist.scheduling.model.Board;
 import ch.hilbri.assist.scheduling.model.Box;
 import ch.hilbri.assist.scheduling.model.Compartment;
@@ -19,9 +20,13 @@ import ch.hilbri.assist.scheduling.model.ModelFactory;
 import ch.hilbri.assist.scheduling.model.ModelPackage;
 import ch.hilbri.assist.scheduling.model.Processor;
 import ch.hilbri.assist.scheduling.model.Task;
+import ch.hilbri.assist.scheduling.model.TaskExecutionInstance;
+
+import java.util.HashMap;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -126,6 +131,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass assistModelSchedulingResultEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskExecutionInstanceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum hardwareArchitectureLevelTypeEEnum = null;
 
 	/**
@@ -141,6 +160,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EEnum ioAdapterTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType task2ExecutionInstancesMapTypeEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -994,6 +1020,60 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAssistModelSchedulingResult() {
+		return assistModelSchedulingResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssistModelSchedulingResult_Model() {
+		return (EReference)assistModelSchedulingResultEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAssistModelSchedulingResult_Schedule() {
+		return (EAttribute)assistModelSchedulingResultEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTaskExecutionInstance() {
+		return taskExecutionInstanceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaskExecutionInstance_Begin() {
+		return (EAttribute)taskExecutionInstanceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaskExecutionInstance_End() {
+		return (EAttribute)taskExecutionInstanceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getHardwareArchitectureLevelType() {
 		return hardwareArchitectureLevelTypeEEnum;
 	}
@@ -1014,6 +1094,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EEnum getIOAdapterType() {
 		return ioAdapterTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getTask2ExecutionInstancesMapType() {
+		return task2ExecutionInstancesMapTypeEDataType;
 	}
 
 	/**
@@ -1143,10 +1232,21 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(metricParameterEClass, METRIC_PARAMETER__NAME);
 		createEAttribute(metricParameterEClass, METRIC_PARAMETER__VALUE);
 
+		assistModelSchedulingResultEClass = createEClass(ASSIST_MODEL_SCHEDULING_RESULT);
+		createEReference(assistModelSchedulingResultEClass, ASSIST_MODEL_SCHEDULING_RESULT__MODEL);
+		createEAttribute(assistModelSchedulingResultEClass, ASSIST_MODEL_SCHEDULING_RESULT__SCHEDULE);
+
+		taskExecutionInstanceEClass = createEClass(TASK_EXECUTION_INSTANCE);
+		createEAttribute(taskExecutionInstanceEClass, TASK_EXECUTION_INSTANCE__BEGIN);
+		createEAttribute(taskExecutionInstanceEClass, TASK_EXECUTION_INSTANCE__END);
+
 		// Create enums
 		hardwareArchitectureLevelTypeEEnum = createEEnum(HARDWARE_ARCHITECTURE_LEVEL_TYPE);
 		designAssuranceLevelTypeEEnum = createEEnum(DESIGN_ASSURANCE_LEVEL_TYPE);
 		ioAdapterTypeEEnum = createEEnum(IO_ADAPTER_TYPE);
+
+		// Create data types
+		task2ExecutionInstancesMapTypeEDataType = createEDataType(TASK2_EXECUTION_INSTANCES_MAP_TYPE);
 	}
 
 	/**
@@ -1307,6 +1407,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getMetricParameter_Name(), theEcorePackage.getEString(), "name", "", 0, 1, MetricParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMetricParameter_Value(), theEcorePackage.getEInt(), "value", "0", 0, 1, MetricParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(assistModelSchedulingResultEClass, AssistModelSchedulingResult.class, "AssistModelSchedulingResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAssistModelSchedulingResult_Model(), this.getAssistModelScheduling(), null, "model", null, 0, 1, AssistModelSchedulingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssistModelSchedulingResult_Schedule(), this.getTask2ExecutionInstancesMapType(), "schedule", null, 0, 1, AssistModelSchedulingResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(taskExecutionInstanceEClass, TaskExecutionInstance.class, "TaskExecutionInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaskExecutionInstance_Begin(), theEcorePackage.getEInt(), "begin", "-1", 0, 1, TaskExecutionInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTaskExecutionInstance_End(), theEcorePackage.getEInt(), "end", "-1", 0, 1, TaskExecutionInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(hardwareArchitectureLevelTypeEEnum, HardwareArchitectureLevelType.class, "HardwareArchitectureLevelType");
 		addEEnumLiteral(hardwareArchitectureLevelTypeEEnum, HardwareArchitectureLevelType.CORE);
@@ -1331,6 +1439,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.ANALOG);
 		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.DIGITAL);
 		addEEnumLiteral(ioAdapterTypeEEnum, IOAdapterType.SERIAL);
+
+		// Initialize data types
+		initEDataType(task2ExecutionInstancesMapTypeEDataType, HashMap.class, "Task2ExecutionInstancesMapType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.HashMap<ch.hilbri.assist.scheduling.model.Task, java.util.List<ch.hilbri.assist.scheduling.model.TaskExecutionInstance>>");
 
 		// Create resource
 		createResource(eNS_URI);
