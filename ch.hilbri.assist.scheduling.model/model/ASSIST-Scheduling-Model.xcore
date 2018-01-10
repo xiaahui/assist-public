@@ -87,6 +87,13 @@ class Core extends HardwareElement {
 	String architecture = ""
 	int capacity = "0"
 	container Processor processor opposite cores
+	derived String fullName get {
+		processor.board.box.compartment.name + "." +
+		processor.board.box.name + "." +
+		processor.board.name + "." +
+		processor.name + "." +
+		name
+	}
 }
 
 class IOAdapter {

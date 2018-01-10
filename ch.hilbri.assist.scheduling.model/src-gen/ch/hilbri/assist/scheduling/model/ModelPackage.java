@@ -753,13 +753,22 @@ public interface ModelPackage extends EPackage {
 	int CORE__PROCESSOR = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORE__FULL_NAME = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Core</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CORE_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
+	int CORE_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Core</em>' class.
@@ -1855,6 +1864,17 @@ public interface ModelPackage extends EPackage {
 	EReference getCore_Processor();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.Core#getFullName <em>Full Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Full Name</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.Core#getFullName()
+	 * @see #getCore()
+	 * @generated
+	 */
+	EAttribute getCore_FullName();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.scheduling.model.IOAdapter <em>IO Adapter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2798,6 +2818,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CORE__PROCESSOR = eINSTANCE.getCore_Processor();
+
+		/**
+		 * The meta object literal for the '<em><b>Full Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CORE__FULL_NAME = eINSTANCE.getCore_FullName();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.scheduling.model.impl.IOAdapterImpl <em>IO Adapter</em>}' class.

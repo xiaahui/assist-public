@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.CoreImpl#getArchitecture <em>Architecture</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.CoreImpl#getCapacity <em>Capacity</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.CoreImpl#getProcessor <em>Processor</em>}</li>
+ *   <li>{@link ch.hilbri.assist.scheduling.model.impl.CoreImpl#getFullName <em>Full Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,6 +72,16 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * @ordered
 	 */
 	protected int capacity = CAPACITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FULL_NAME_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,6 +200,27 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getFullName() {
+		String _name = this.getProcessor().getBoard().getBox().getCompartment().getName();
+		String _plus = (_name + ".");
+		String _name_1 = this.getProcessor().getBoard().getBox().getName();
+		String _plus_1 = (_plus + _name_1);
+		String _plus_2 = (_plus_1 + ".");
+		String _name_2 = this.getProcessor().getBoard().getName();
+		String _plus_3 = (_plus_2 + _name_2);
+		String _plus_4 = (_plus_3 + ".");
+		String _name_3 = this.getProcessor().getName();
+		String _plus_5 = (_plus_4 + _name_3);
+		String _plus_6 = (_plus_5 + ".");
+		String _name_4 = this.getName();
+		return (_plus_6 + _name_4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -243,6 +275,8 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 			case ModelPackage.CORE__PROCESSOR:
 				if (resolve) return getProcessor();
 				return basicGetProcessor();
+			case ModelPackage.CORE__FULL_NAME:
+				return getFullName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -303,6 +337,8 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 				return capacity != CAPACITY_EDEFAULT;
 			case ModelPackage.CORE__PROCESSOR:
 				return basicGetProcessor() != null;
+			case ModelPackage.CORE__FULL_NAME:
+				return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
 		}
 		return super.eIsSet(featureID);
 	}

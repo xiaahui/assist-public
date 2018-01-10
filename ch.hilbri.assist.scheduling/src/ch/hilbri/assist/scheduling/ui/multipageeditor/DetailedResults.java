@@ -1,8 +1,10 @@
 package ch.hilbri.assist.scheduling.ui.multipageeditor;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import org.eclipse.nebula.widgets.ganttchart.AbstractSettings;
 import org.eclipse.nebula.widgets.ganttchart.GanttChart;
 import org.eclipse.nebula.widgets.ganttchart.GanttEvent;
 import org.eclipse.nebula.widgets.ganttchart.GanttFlags;
@@ -17,6 +19,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.wb.swt.SWTResourceManager;
 
 import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult;
+import ch.hilbri.assist.scheduling.model.Core;
+import ch.hilbri.assist.scheduling.model.Task;
+import ch.hilbri.assist.scheduling.model.TaskExecutionInstance;
 
 public class DetailedResults extends Composite {
 	@SuppressWarnings("unused")
@@ -26,7 +31,7 @@ public class DetailedResults extends Composite {
 	
 	/* Settings for the Gantt-Chart */
 	private final int ganttFlags 				= GanttFlags.H_SCROLL_FIXED_RANGE | SWT.SINGLE;
-	private final ISettings ganttSettings 		= new TestSettings();
+	private final ISettings ganttSettings 		= new GanttSettings();
 	private final IColorManager ganttColorTheme = new ColorThemeWindowsBlue();
 
 	public DetailedResults(MultiPageEditor mpe, Composite parent, int style) {
@@ -38,105 +43,55 @@ public class DetailedResults extends Composite {
 		ganttComposite.setLayout(new FillLayout(SWT.HORIZONTAL));
 
 		ganttChart = new GanttChart(ganttComposite, ganttFlags, ganttSettings, ganttColorTheme);
-		ganttChart.getGanttComposite().setDrawHorizontalLinesOverride(true);
-		ganttChart.getGanttComposite().setUseAdvancedTooltips(false);
-		ganttChart.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		ganttChart.getGanttComposite().setFont(SWTResourceManager.getFont("Segoe UI", 8, SWT.NORMAL));
 	}
+	
+	
 	
 	public void setResult(AssistModelSchedulingResult result) {
 		
 		/* Remove the old chart and create a new one */
 		ganttChart.dispose();
 		ganttChart = new GanttChart(ganttComposite, ganttFlags, ganttSettings, ganttColorTheme);
+		ganttChart.getGanttComposite().setFont(SWTResourceManager.getFont("Segoe UI", 8, SWT.NORMAL));
+
+		/* Create the sections for all cores */
+		Map<Core, GanttSection> coreSections = new HashMap<Core, GanttSection>();
+		for (Core core : result.getModel().getAllCores()) 
+			coreSections.put(core, new GanttSection(ganttChart, core.getFullName()));
 		
-		Calendar cal = (Calendar) ganttChart.getSettings().getDDayRootCalendar().clone();
-
-		final Calendar start1 = (Calendar) cal.clone();
-		final Calendar end1 = (Calendar) start1.clone();
-		end1.add(Calendar.DATE, 10);
-		GanttEvent event1 = new GanttEvent(ganttChart, "Task A1.1", start1, end1, 0);
-
-		final Calendar start2 = (Calendar) cal.clone();
-		start2.add(Calendar.DATE, 20);
-		final Calendar end2 = (Calendar) start2.clone();
-		end2.add(Calendar.DATE, 10);
-		GanttEvent event2 = new GanttEvent(ganttChart, "Task A1.2", start2, end2, 0);
-
-		GanttGroup groupOne = new GanttGroup(ganttChart);
-		groupOne.addEvent(event1);
-		groupOne.addEvent(event2);
-
-		GanttSection section = new GanttSection(ganttChart, "Core 1");
-		section.addGanttEvent(groupOne);
-		
+		/* Create all the events */
+		for (Task task : result.getModel().getAllTasks()) {
+			/* Is there a schedule for this task in the result? */
+			if (result.getSchedule().containsKey(task)) {
+				/* Create all events for this task */
+				List<TaskExecutionInstance> taskSchedule = result.getSchedule().get(task);
+				GanttSection coreSection = coreSections.get(task.getAssignedCore());
+				createEventsForExecutionInstances(task, taskSchedule, coreSection);
+			}
+		}
+			
 		/* This is necessary to avoid redraw problems */
 		layout(true, true);
 	}
+	
+	private void createEventsForExecutionInstances(Task task, List<TaskExecutionInstance> schedule, GanttSection coreSection) {
+		Calendar cal = (Calendar) ganttChart.getSettings().getDDayRootCalendar().clone();
 
-	private class TestSettings extends AbstractSettings {
-		public boolean drawHeader() {
-			return true;
+		GanttGroup group = new GanttGroup(ganttChart);
+		for (TaskExecutionInstance instance : schedule) {
+			final Calendar start = (Calendar) cal.clone();
+			start.add(Calendar.DATE, instance.getBegin());
+
+			final Calendar end = (Calendar) cal.clone();
+			end.add(Calendar.DATE, instance.getEnd());
+
+			String eventName = task.getApplication().getName() + "." + task.getName() + " [" + schedule.indexOf(instance) +"]"; 
+			GanttEvent event = new GanttEvent(ganttChart, eventName, start, end, 0);
+			group.addEvent(event);
 		}
-
-		public int getSectionSide() {
-			return SWT.LEFT;
-		}
-
-		public boolean drawHorizontalLines() {
-			return true;
-		}
-
-		public int getInitialView() {
-			return ISettings.VIEW_D_DAY;
-		}
-
-		public boolean drawFullPercentageBar() {
-			return false;
-		}
-
-		public boolean lockHeaderOnVerticalScroll() {
-			return true;
-		}
-
-		public boolean showDefaultMenuItemsOnEventRightClick() {
-			return false;
-		}
-
-		public boolean allowHeaderSelection() {
-			return false;
-		}
-
-		public String getTextDisplayFormat() {
-			return "";
-		}
-
-		public int getCalendarStartupDateOffset() {
-			return 0;
-		}
-
-		public String getDefaultAdvancedTooltipHelpText() {
-			return "";
-		}
-
-		public String getDefaultAdvancedTooltipTitle() {
-			return "\\b\\c027050082#name#";
-		}
-
-		public String getDefaultAdvancedTooltipTextExtended() {
-			StringBuffer buf = new StringBuffer();
-			return buf.toString();// "\\ceStart Date: \\b#sd#\nEnd Date: \\b#ed#\nRevised Start: \\b#rs#\nRevised
-									// End: \\b#re#\nDay Span: \\b#days# days\nPercent Complete: \\b#pc#%";
-		}
-
-		public String getDefaultAdvancedTooltipText() {
-			StringBuffer buf = new StringBuffer();
-			return buf.toString();
-		}
-
-		public boolean enableTodayLineUpdater() {
-			return true;
-		}
-
+		
+		coreSection.addGanttEvent(group);
 	}
 
 }
