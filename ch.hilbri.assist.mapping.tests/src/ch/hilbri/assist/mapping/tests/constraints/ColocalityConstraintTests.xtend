@@ -1,11 +1,11 @@
 package ch.hilbri.assist.mapping.tests.constraints
 
-import ch.hilbri.assist.mapping.solver.AssistSolver
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mapping.tests.AbstractMappingTest
 import org.junit.Assert
 import org.junit.Test
+import ch.hilbri.assist.mapping.solver.AssistMappingSolver
 
 class ColocalityConstraintTests extends AbstractMappingTest {
 	@Test
@@ -61,7 +61,7 @@ Restrictions {
 		Assert.assertNotNull(assistModel)
 		Assert.assertTrue(assistModel.eResource.errors.isEmpty)
 
-		val assistSolver = new AssistSolver(assistModel)
+		val assistSolver = new AssistMappingSolver(assistModel)
 		assistSolver.setSolverSearchStrategy(VariableSelectorTypes.^default, ValueSelectorTypes.^default)
 		assistSolver.solverMaxSolutions = 1000
 		assistSolver.runInitialization
@@ -135,7 +135,7 @@ Restrictions {
 		Assert.assertNotNull(assistModel)
 		Assert.assertTrue(assistModel.eResource.errors.isEmpty)
 
-		val assistSolver = new AssistSolver(assistModel)
+		val assistSolver = new AssistMappingSolver(assistModel)
 		assistSolver.setSolverSearchStrategy(VariableSelectorTypes.^default, ValueSelectorTypes.^default)
 		assistSolver.solverMaxSolutions = 1000
 		assistSolver.runInitialization
@@ -215,7 +215,7 @@ Restrictions {
 		Assert.assertNotNull(assistModel)
 		Assert.assertTrue(assistModel.eResource.errors.isEmpty)
 
-		val assistSolver = new AssistSolver(assistModel)
+		val assistSolver = new AssistMappingSolver(assistModel)
 		assistSolver.setSolverSearchStrategy(VariableSelectorTypes.^default, ValueSelectorTypes.^default)
 		assistSolver.solverMaxSolutions = 1000
 		assistSolver.runInitialization

@@ -26,7 +26,7 @@ import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
 
 public class GuiSolverJob extends Job {
 
-	private AssistSolver assistSolver;
+	private AssistMappingSolver assistSolver;
 	private MultiPageEditor multiPageEditor;
 	private Logger logger = LoggerFactory.getLogger(GuiSolverJob.class);
 
@@ -42,7 +42,7 @@ public class GuiSolverJob extends Job {
 		AssistModelMapping assistModel = (AssistModelMapping) resource.getContents().get(0);
 		
 		/* Create the ASSIST Solver */
-		assistSolver = new AssistSolver(assistModel);
+		assistSolver = new AssistMappingSolver(assistModel);
 	}
 
 	@Override

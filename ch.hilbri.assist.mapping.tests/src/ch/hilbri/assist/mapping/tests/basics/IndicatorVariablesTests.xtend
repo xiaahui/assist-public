@@ -1,12 +1,11 @@
 package ch.hilbri.assist.mapping.tests.basics
 
-import ch.hilbri.assist.mapping.solver.AssistSolver
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mapping.tests.AbstractMappingTest
 import org.junit.Test
 import org.junit.Assert
-
+import ch.hilbri.assist.mapping.solver.AssistMappingSolver
 
 class IndicatorVariablesTests extends AbstractMappingTest {
 	@Test
@@ -50,7 +49,7 @@ Software {
 	}
 }		
 		 ''')
-		val assistSolver = new AssistSolver(assistModel)
+		val assistSolver = new AssistMappingSolver(assistModel)
 		val solverVariablesContainer = assistSolver.solverVariablesContainer
 		assistSolver.setSolverSearchStrategy(VariableSelectorTypes.^default, ValueSelectorTypes.^default)
 		assistSolver.solverMaxSolutions = 1000

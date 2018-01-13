@@ -2,7 +2,6 @@ package ch.hilbri.assist.mapping.tests.benchmarking
 
 import ch.hilbri.assist.mapping.benchmarking.generator.MappingExampleGenerator
 import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.mapping.solver.AssistSolver
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mapping.tests.AbstractMappingTest
@@ -14,6 +13,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.junit.Assert
 import org.junit.Test
 import ch.hilbri.assist.mapping.model.AssistModelMapping
+import ch.hilbri.assist.mapping.solver.AssistMappingSolver
 
 class BenchmarkingEntry {
 	@Accessors String name
@@ -48,7 +48,7 @@ class BenchmarkingTests extends AbstractMappingTest {
 			Assert.assertEquals("There should be 0 errors in the mdsl file", 0, r.errors.size)
 
 			val assistModel = r.contents.head as AssistModelMapping
-			val assistSolver = new AssistSolver(assistModel)
+			val assistSolver = new AssistMappingSolver(assistModel)
 			assistSolver.setSolverSearchStrategy(VariableSelectorTypes.DOM_OVER_WDEG, ValueSelectorTypes.MIN_VALUE_FIRST)
 			assistSolver.solverMaxSolutions = 1
 			assistSolver.runInitialization
@@ -104,7 +104,7 @@ class BenchmarkingTests extends AbstractMappingTest {
 			Assert.assertTrue("Model should have at least one application", assistModel.applications.size > 0)
 			Assert.assertTrue("Model should have at least one core for deployment", assistModel.allCores.size > 0)
 		
-			val assistSolver = new AssistSolver(assistModel)
+			val assistSolver = new AssistMappingSolver(assistModel)
 			assistSolver.setSolverSearchStrategy(VariableSelectorTypes.^default, ValueSelectorTypes.^default)
 			assistSolver.solverMaxSolutions = 1
 			assistSolver.solverTimeLimit = 60*100 // 60 seconds

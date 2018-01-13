@@ -19,7 +19,7 @@ import ch.hilbri.assist.mapping.dsl.tests.MappingDSLInjectorProvider;
 import ch.hilbri.assist.mapping.model.AssistModelMapping;
 import ch.hilbri.assist.mapping.model.ModelPackage;
 import ch.hilbri.assist.mapping.model.result.Result;
-import ch.hilbri.assist.mapping.solver.AssistSolver;
+import ch.hilbri.assist.mapping.solver.AssistMappingSolver;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 
 public class Runner {
@@ -82,7 +82,7 @@ public class Runner {
 				System.err.println("Errors on validating " + arg + ".");
 				continue;
 			}*/
-			final AssistSolver solver = new AssistSolver(model);
+			final AssistMappingSolver solver = new AssistMappingSolver(model);
 //			SearchType heuristic = SearchType.getDefaultSearchType();
 //			switch (cmd.getOptionValue("strategy", "")) {
 //				case "ff": heuristic = SearchType.MIN_DOMAIN_FIRST; break;
