@@ -4,17 +4,18 @@ import ch.hilbri.assist.scheduling.model.AssistModelScheduling
 import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult
 import ch.hilbri.assist.scheduling.model.ModelFactory
 import java.util.HashMap
+import java.util.List
 
 class ResultFactoryFromSolverSolutions {
 	
 //	private static Logger logger = LoggerFactory.getLogger(ResultFactoryFromSolverSolutions)
 
-	static def AssistModelSchedulingResult create(AssistModelScheduling assistModel) {
+	static def List<AssistModelSchedulingResult> create(AssistModelScheduling assistModel) {
 
 		val f = ModelFactory.eINSTANCE
 	
 		/* Create a dummy result for one or two tasks */
-		f.createAssistModelSchedulingResult => [
+		val result = f.createAssistModelSchedulingResult => [
 			model = assistModel
 			schedule = new HashMap
 			
@@ -35,6 +36,8 @@ class ResultFactoryFromSolverSolutions {
 				]
 				schedule.put(task2, task2_schedule)				
 			}
-		]	
+		]
+		
+		return #[result]
 	}
 }

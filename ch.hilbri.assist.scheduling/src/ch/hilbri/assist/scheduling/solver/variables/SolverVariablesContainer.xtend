@@ -2,6 +2,7 @@ package ch.hilbri.assist.scheduling.solver.variables
 
 import ch.hilbri.assist.scheduling.model.AssistModelScheduling
 import org.chocosolver.solver.Model
+import org.chocosolver.solver.variables.IntVar
 
 class SolverVariablesContainer {
 
@@ -18,6 +19,10 @@ class SolverVariablesContainer {
 		this.solverModel = solverModel
 
 		solverModel.solver.propagate()
+	}
+	
+	def IntVar[] getAllVariables() {
+		null
 	}
 
 }

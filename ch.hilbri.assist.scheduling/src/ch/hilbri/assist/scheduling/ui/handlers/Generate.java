@@ -114,7 +114,7 @@ public class Generate {
 		ResourceSet rs = new ResourceSetImpl();
 		Resource resource = rs.getResource(modelURI, true);
 		AssistModelScheduling assistModel = (AssistModelScheduling) resource.getContents().get(0);
-		AssistModelSchedulingResult result = ResultFactoryFromSolverSolutions.create(assistModel);
+		AssistModelSchedulingResult result = ResultFactoryFromSolverSolutions.create(assistModel).get(0);
 		multipageEditor.setAndShowResults(result);
 		/* END */
 		
