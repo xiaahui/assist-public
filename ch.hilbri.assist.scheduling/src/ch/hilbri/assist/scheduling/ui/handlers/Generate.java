@@ -1,5 +1,7 @@
 package ch.hilbri.assist.scheduling.ui.handlers;
 
+import java.util.List;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -114,8 +116,8 @@ public class Generate {
 		ResourceSet rs = new ResourceSetImpl();
 		Resource resource = rs.getResource(modelURI, true);
 		AssistModelScheduling assistModel = (AssistModelScheduling) resource.getContents().get(0);
-		AssistModelSchedulingResult result = ResultFactoryFromSolverSolutions.create(assistModel).get(0);
-		multipageEditor.setAndShowResults(result);
+		List<AssistModelSchedulingResult> results = ResultFactoryFromSolverSolutions.create(assistModel);
+		multipageEditor.setAndShowResults(results);
 		/* END */
 		
 //		/*

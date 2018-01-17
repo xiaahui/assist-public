@@ -1,5 +1,7 @@
 package ch.hilbri.assist.scheduling.ui.multipageeditor;
 
+import java.util.List;
+
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.ErrorDialog;
@@ -93,8 +95,8 @@ public class MultiPageEditor extends MultiPageEditorPart  {
 		setActivePage(1);
 	}
 	
-	public void setAndShowResults(AssistModelSchedulingResult result) {
-		tabResults.setResult(result);
+	public void setAndShowResults(List<AssistModelSchedulingResult> results) {
+		tabResults.setResult(results.get(0));
 		showResultsTab();
 	}
 }
