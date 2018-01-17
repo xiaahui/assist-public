@@ -135,6 +135,9 @@ class AssistSchedulingSolver {
 		logger.info('''  - Solutions found: «chocoSolutions.size»''')
 		
 		logger.debug('''Internal solver statistics: «chocoSolver.measures.toOneLineString»''')
+		
+		/* FIXME to simulate a long calculation */
+		Thread.sleep(5000);
 	}
 	
 	

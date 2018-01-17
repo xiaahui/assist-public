@@ -1,17 +1,13 @@
 package ch.hilbri.assist.scheduling.ui.handlers;
 
-import java.util.List;
-
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -23,9 +19,9 @@ import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.utils.EditorUtils;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
-import ch.hilbri.assist.scheduling.model.AssistModelScheduling;
-import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult;
-import ch.hilbri.assist.scheduling.results.ResultFactoryFromSolverSolutions;
+import ch.hilbri.assist.scheduling.solver.GuiSolverJob;
+import ch.hilbri.assist.scheduling.solver.strategies.ValueSelectorTypes;
+import ch.hilbri.assist.scheduling.solver.strategies.VariableSelectorTypes;
 import ch.hilbri.assist.scheduling.ui.multipageeditor.MultiPageEditor;
 
 public class Generate {
@@ -111,36 +107,14 @@ public class Generate {
 			return;
 		}
 
-		/* FIXME - Just temporary stuff to mimick the solver */
-		/* BEGIN */
-		ResourceSet rs = new ResourceSetImpl();
-		Resource resource = rs.getResource(modelURI, true);
-		AssistModelScheduling assistModel = (AssistModelScheduling) resource.getContents().get(0);
-		List<AssistModelSchedulingResult> results = ResultFactoryFromSolverSolutions.create(assistModel);
-		multipageEditor.setAndShowResults(results);
-		/* END */
-		
-//		/*
-//		 * Open the dialog to choose between simple and advanced mode for finding
-//		 * solutions
-//		 */
-//		SearchParametersDialog searchParamDlg = new SearchParametersDialog(xtextEditor.getShell());
-//		if (searchParamDlg.open() == org.eclipse.jface.window.Window.OK) {
-//
-//			/* Create a new background Job for finding all solutions */
-//			GuiSolverJob findSolutionsJob = new GuiSolverJob("Find all mappings", modelURI, multipageEditor);
-//			findSolutionsJob.setEnableVerboseLogging(searchParamDlg.getVerboseLogging());
-//			findSolutionsJob.setSearchStrategy(searchParamDlg.getVariableSelector(), searchParamDlg.getValueSelector());
-//			findSolutionsJob.setMaxSolutions(searchParamDlg.getNumberOfSolutions());
-//			findSolutionsJob.setMaxSearchTime(searchParamDlg.getSearchTime());
-//			findSolutionsJob.setSavePartialSolution(searchParamDlg.getSavePartialSolution());
-//			findSolutionsJob.setEnableRestarts(searchParamDlg.getEnableRestarts(),
-//					searchParamDlg.getRestartFailCount());
-//			findSolutionsJob.setNoGoodRecording(searchParamDlg.getNoGoodRecordingRDC());
-//			findSolutionsJob.setEnableMinimization(searchParamDlg.getEnableMinimization());
-//			findSolutionsJob.setPriority(Job.LONG);
-//			findSolutionsJob.setUser(true);
-//			findSolutionsJob.schedule();
-//		}
+		/* Create a new background job for finding solutions */
+		GuiSolverJob findSolutionsJob = new GuiSolverJob("Find a schedule", modelURI, multipageEditor);
+		findSolutionsJob.setEnableVerboseLogging(true);
+		findSolutionsJob.setSearchStrategy(VariableSelectorTypes.getDefault(), ValueSelectorTypes.getDefault());
+		findSolutionsJob.setMaxSolutions(1);
+		findSolutionsJob.setMaxSearchTime(50000);
+		findSolutionsJob.setPriority(Job.LONG);
+		findSolutionsJob.setUser(true);
+		findSolutionsJob.schedule();
 	}
 }

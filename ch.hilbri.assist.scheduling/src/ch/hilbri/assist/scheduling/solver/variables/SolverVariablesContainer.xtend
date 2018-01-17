@@ -22,7 +22,8 @@ class SolverVariablesContainer {
 	}
 	
 	def IntVar[] getAllVariables() {
-		null
+		/* FIXME: Return a fake variable for now  */
+		#[solverModel.intVar(1, 10)]
 	}
 
 }
