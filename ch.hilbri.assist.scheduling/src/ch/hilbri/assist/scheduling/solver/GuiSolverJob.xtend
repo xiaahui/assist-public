@@ -20,6 +20,7 @@ import ch.hilbri.assist.scheduling.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.scheduling.solver.strategies.ValueSelectorTypes
 import ch.hilbri.assist.scheduling.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.scheduling.ui.multipageeditor.MultiPageEditor
+import ch.hilbri.assist.scheduling.solver.exceptions.HyperPeriodLengthException
 
 class GuiSolverJob extends Job {
 
@@ -84,24 +85,27 @@ class GuiSolverJob extends Job {
 				}
 			}
 			
-		} catch (BasicConstraintsException e) {
+		} 
+		catch (HyperPeriodLengthException e) {
+			logger.info('''Hyperperiod length was invalid.''')
+			logger.info('''«e.explanation»''')
+			val title = "Hyperperiod length is not correct"
+			val message = '''«e.explanation»'''
+			Display::^default.asyncExec([MessageDialog::openError(PlatformUI::workbench.activeWorkbenchWindow.shell, title, message)] as Runnable)
+		}
+		catch (BasicConstraintsException e) {
 			var String constraintName = e.getConstraintName()
-			var String message = e.getExplanation()
 			logger.info('''Inconsistency found while processing constraint "«constraintName»"''')
-			logger.info('''"«message»"''')
-			showMessageInUI(constraintName, message)
+			logger.info('''"«e.explanation»"''')
+			val title = "Specification inconsistency detected"
+			val message = '''
+Your specifications became inconsistent. A correct deployment cannot be generated. 
+Constraints: "«constraintName»" 
+«e.explanation»'''
+			Display::^default.asyncExec([MessageDialog::openError(PlatformUI::workbench.activeWorkbenchWindow.shell, title, message)] as Runnable)
 		}
 
 		return Status::OK_STATUS
-	}
-
-	def private void showMessageInUI(String constraintName, String explanation) {
-		val title = "Specification inconsistency detected"
-		val message = '''
-Your specifications became inconsistent. A correct deployment cannot be generated. 
-Constraints: "«constraintName»" 
-«explanation»'''
-		Display::^default.asyncExec([MessageDialog::openError(PlatformUI::workbench.activeWorkbenchWindow.shell, title, message)] as Runnable)
 	}
 
 	def void setMaxSolutions(int maxSolutions) {

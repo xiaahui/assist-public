@@ -20,6 +20,7 @@ import org.chocosolver.util.criteria.Criterion
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import ch.hilbri.assist.scheduling.solver.exceptions.HyperPeriodLengthException
 
 class AssistSchedulingSolver {
 	
@@ -111,6 +112,11 @@ class AssistSchedulingSolver {
 	}
 	
 	def runConstraintGeneration() throws BasicConstraintsException {
+		
+		logger.info("Checking the length of the hyperperiod ...")
+		if (solverVariables.hypLength < 0 || solverVariables.hypLength > 3000)
+			throw new HyperPeriodLengthException(solverVariables.hypLength)
+		
 		logger.info("Starting to generate constraints for the choco-solver ...")
 
 		for (constraint : schedulingConstraintsList) {
@@ -135,9 +141,6 @@ class AssistSchedulingSolver {
 		logger.info('''  - Solutions found: «chocoSolutions.size»''')
 		
 		logger.debug('''Internal solver statistics: «chocoSolver.measures.toOneLineString»''')
-		
-		/* FIXME to simulate a long calculation */
-		Thread.sleep(5000);
 	}
 	
 	
