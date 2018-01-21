@@ -145,6 +145,10 @@ class SolverVariablesContainer {
 	def IntVar[] getLocationVariablesForTask(Task task) {
 		taskToLocationVariablesMap.get(task.name)
 	}
+	
+	def IntVar getLocationVariableForTaskAndLevel(Task task, HardwareArchitectureLevelType level) {
+		getLocationVariablesForTask(task).get(level.value)
+	}
 
 	/**
 	 * Retrieves the indication variables for the provided task and the hardware level

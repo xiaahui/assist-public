@@ -190,12 +190,12 @@ enum HardwareArchitectureLevelType {
 }
 
 enum DesignAssuranceLevelType {
-	NONE 		as "None"
-	QS 			as "QS"
-	D 			as "D"
-	C 			as "C"
-	B 			as "B"
-	A 			as "A"
+	NONE 		as "None"			= 0
+	QS 			as "QS"				= 1
+	D 			as "D"				= 2
+	C 			as "C"				= 3
+	B 			as "B"				= 4
+	A 			as "A"				= 5
 }
 
 enum IOAdapterType {

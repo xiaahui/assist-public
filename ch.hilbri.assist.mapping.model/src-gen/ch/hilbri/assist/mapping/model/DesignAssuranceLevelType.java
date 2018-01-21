@@ -36,7 +36,7 @@ public enum DesignAssuranceLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	QS(0, "QS", "QS"),
+	QS(1, "QS", "QS"),
 
 	/**
 	 * The '<em><b>D</b></em>' literal object.
@@ -46,7 +46,7 @@ public enum DesignAssuranceLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	D(0, "D", "D"),
+	D(2, "D", "D"),
 
 	/**
 	 * The '<em><b>C</b></em>' literal object.
@@ -56,7 +56,7 @@ public enum DesignAssuranceLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	C(0, "C", "C"),
+	C(3, "C", "C"),
 
 	/**
 	 * The '<em><b>B</b></em>' literal object.
@@ -66,7 +66,7 @@ public enum DesignAssuranceLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	B(0, "B", "B"),
+	B(4, "B", "B"),
 
 	/**
 	 * The '<em><b>A</b></em>' literal object.
@@ -76,7 +76,7 @@ public enum DesignAssuranceLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	A(0, "A", "A");
+	A(5, "A", "A");
 
 	/**
 	 * The '<em><b>NONE</b></em>' literal value.
@@ -106,7 +106,7 @@ public enum DesignAssuranceLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int QS_VALUE = 0;
+	public static final int QS_VALUE = 1;
 
 	/**
 	 * The '<em><b>D</b></em>' literal value.
@@ -121,7 +121,7 @@ public enum DesignAssuranceLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int D_VALUE = 0;
+	public static final int D_VALUE = 2;
 
 	/**
 	 * The '<em><b>C</b></em>' literal value.
@@ -136,7 +136,7 @@ public enum DesignAssuranceLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int C_VALUE = 0;
+	public static final int C_VALUE = 3;
 
 	/**
 	 * The '<em><b>B</b></em>' literal value.
@@ -151,7 +151,7 @@ public enum DesignAssuranceLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int B_VALUE = 0;
+	public static final int B_VALUE = 4;
 
 	/**
 	 * The '<em><b>A</b></em>' literal value.
@@ -166,7 +166,7 @@ public enum DesignAssuranceLevelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int A_VALUE = 0;
+	public static final int A_VALUE = 5;
 
 	/**
 	 * An array of all the '<em><b>Design Assurance Level Type</b></em>' enumerators.
@@ -239,6 +239,11 @@ public enum DesignAssuranceLevelType implements Enumerator {
 	public static DesignAssuranceLevelType get(int value) {
 		switch (value) {
 			case NONE_VALUE: return NONE;
+			case QS_VALUE: return QS;
+			case D_VALUE: return D;
+			case C_VALUE: return C;
+			case B_VALUE: return B;
+			case A_VALUE: return A;
 		}
 		return null;
 	}

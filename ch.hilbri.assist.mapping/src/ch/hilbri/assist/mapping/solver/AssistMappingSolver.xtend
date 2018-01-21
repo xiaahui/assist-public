@@ -31,6 +31,7 @@ import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import ch.hilbri.assist.mapping.model.AssistModelMapping
+import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint
 
 class AssistMappingSolver {
 	
@@ -75,6 +76,7 @@ class AssistMappingSolver {
 		
 		mappingConstraintsList 	= newArrayList
 		mappingConstraintsList.add(new SystemHierarchyConstraint(assistModel, chocoModel, solverVariables))
+		mappingConstraintsList.add(new DesignAssuranceLevelConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new CoreUtilizationConstraint(assistModel, chocoModel, solverVariables))
 		mappingConstraintsList.add(new RAMorROMCapacityConstraint(assistModel, chocoModel, solverVariables, RessourceType.RAM))
 		mappingConstraintsList.add(new RAMorROMCapacityConstraint(assistModel, chocoModel, solverVariables, RessourceType.ROM))

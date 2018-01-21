@@ -1,8 +1,10 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
+import ch.hilbri.assist.mapping.model.AssistModelMapping
+import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Model
-import ch.hilbri.assist.mapping.model.AssistModelMapping
+import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
 
 class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 
@@ -11,45 +13,26 @@ class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 	}
 
 	override generate() {
-
-//		if (model.allThreads.filter[application.criticalityLevel > DesignAssuranceLevelType.NONE].empty) {
-//			return false
-//		}
-//		/* 1. Create a value list for each thread which contains its demand for a given type */
-//		// allDesignAssuranceLevelRequests[thread] = demand as integer (NONE = 0, QS = 1, ..., A=5)
-//		var allDesignAssuranceLevelRequests = new HashMap<Thread, Integer>()
-//		for (t : model.allThreads) allDesignAssuranceLevelRequests.put(t, t.application.criticalityLevel.ordinal)
-//
-//		/* 2. Create a list of available dals for each board */		
-//		// allAvailableDesignAssuranceLevels[boardIndex] = dal as integer (NONE = 0, QS = 1, ..., A=5)
-//		val allAvailableDesignAssuranceLevels = model.allBoards.map[assuranceLevel.ordinal]
-//		
-//		/* 3. Create a list of variables for each board */
-//		// designAssuranceLevelVariables[thread] = Var <- Domain = allAvailableDesignAssuranceLevels
-//		var designAssuranceLevelVariables = new HashMap<Thread, IntVar>()
-//		for (t : model.allThreads) {
-////			designAssuranceLevelVariables.put(t, VF.enumerated("DALVar-" + t.name, allAvailableDesignAssuranceLevels, solver))			
-//		}
-//
-//		/* 5. Create the connection between the location variables and the designAssuranceLevelVariables for each thread 
-//		 *    and limit the values  */
-//		// Element(designAssuranceLevelVariables[thread], allAvailableDesignAssuranceLevels, Loc2[thread])
-//		// designAssuranceLevelVariables[thread] >= allDesignAssuranceLevelRequests[thread]
-//				
-//		for (t : model.allThreads) {
-//			/* To which board can we map this thread? */
-//			val threadLocationsBoardLevel = solverVariables.getThreadLocationVariable(t, HardwareArchitectureLevelType.BOARD_VALUE)
-//			
-////			solver.post(ICF.element(designAssuranceLevelVariables.get(t), allAvailableDesignAssuranceLevels, threadLocationsBoardLevel))
-////			solver.post(ICF.arithm(designAssuranceLevelVariables.get(t), ">=",allDesignAssuranceLevelRequests.get(t)))
-//
-//			try { 
-////				solver.propagate
-//			}
-//			catch (ContradictionException e) {
-//				throw new BasicConstraintsException(this)
-//			}
-//		}
+		
+		/* If there is no application with a criticality level specified, we do not have to do anything */
+		if (model.allTasks.filter[application.criticalityLevel > DesignAssuranceLevelType.NONE].nullOrEmpty) 
+			return false
+		
+		/* 
+		 * Go through the list of all tasks with criticality levels specified and find out, which
+		 * boards would be suitable 										 
+		 */
+		for (task : model.allTasks.filter[application.criticalityLevel > DesignAssuranceLevelType.NONE]) {
+			val criticalityLevel = task.application.criticalityLevel
+			
+			/* Filter every board with at least this design assurance level */
+			val suitableBoardsIdx = model.allBoards.filter[assuranceLevel >= criticalityLevel].map[model.allBoards.indexOf(it)]
+			 	
+			/* Restrict the board location variable for this task accordingly */
+			val taskVar = solverVariables.getLocationVariableForTaskAndLevel(task, HardwareArchitectureLevelType.BOARD)
+			chocoModel.member(taskVar, suitableBoardsIdx).post()
+		}
+		
 		return true
 	}
 }
