@@ -582,20 +582,28 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 		{
 			final StringBuilder sb = new StringBuilder();
 			String _name = this.getName();
-			String _plus = ("Result: " + _name);
+			String _plus = ("Result        : " + _name);
 			String _plus_1 = (_plus + " (");
 			int _index = this.getIndex();
 			String _plus_2 = (_plus_1 + Integer.valueOf(_index));
 			String _plus_3 = (_plus_2 + ")\n");
 			sb.append(_plus_3);
+			double _absoluteTotalScore = this.getAbsoluteTotalScore();
+			String _plus_4 = ("Absolute Score: " + Double.valueOf(_absoluteTotalScore));
+			String _plus_5 = (_plus_4 + "\n");
+			sb.append(_plus_5);
+			double _scaledTotalScore = this.getScaledTotalScore();
+			String _plus_6 = ("Relative Score: " + Double.valueOf(_scaledTotalScore));
+			String _plus_7 = (_plus_6 + "\n");
+			sb.append(_plus_7);
 			EList<Task> _allTasks = this.getModel().getAllTasks();
 			for (final Task task : _allTasks) {
 				String _fullName = task.getFullName();
-				String _plus_4 = (_fullName + "\t->\t");
+				String _plus_8 = (_fullName + "\t->\t");
 				String _fullName_1 = this.getTask2CoreMap().get(task).getFullName();
-				String _plus_5 = (_plus_4 + _fullName_1);
-				String _plus_6 = (_plus_5 + "\n");
-				sb.append(_plus_6);
+				String _plus_9 = (_plus_8 + _fullName_1);
+				String _plus_10 = (_plus_9 + "\n");
+				sb.append(_plus_10);
 			}
 			_xblockexpression = sb.toString();
 		}

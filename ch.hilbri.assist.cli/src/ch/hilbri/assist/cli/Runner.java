@@ -1,10 +1,12 @@
 package ch.hilbri.assist.cli;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Options;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -15,9 +17,14 @@ import org.eclipse.xtext.testing.util.ParseHelper;
 
 import com.google.inject.Inject;
 
+import ch.hilbri.assist.mapping.analysis.ResultsAnalysis;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxFreeCapacity;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
+import ch.hilbri.assist.mapping.analysis.metrics.builtin.UniformCoreLoadDistribution;
 import ch.hilbri.assist.mapping.dsl.tests.MappingDSLInjectorProvider;
 import ch.hilbri.assist.mapping.model.AssistModelMapping;
 import ch.hilbri.assist.mapping.model.ModelPackage;
+import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.solver.AssistMappingSolver;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
@@ -33,6 +40,12 @@ public class Runner {
 		final Options options = new Options();
 		options.addOption("s", "solutions", true, "number of solution to find");
 		options.addOption("t", "timeout", true, "timeout in seconds");
+		options.addOption("u", "uniform-load", false, "use metric: uniform load");
+		options.addOption("c", "max-free-capacity", false, "use metric: max free capacity");
+		options.addOption("r", "random-score", false, "use metric: random score");
+		options.addOption("h", "help", false, "show help");
+		
+		
 		final CommandLineParser parser = new BasicParser();
 		final CommandLine cmd = parser.parse(options, args);
 		
@@ -40,6 +53,14 @@ public class Runner {
 		final Runner runner = new Runner();
 		new MappingDSLInjectorProvider().getInjector().injectMembers(runner);
 
+		if (cmd.hasOption("h")) {
+			// automatically generate the help statement
+			HelpFormatter formatter = new HelpFormatter();
+			formatter.printHelp( "java -jar ASSIST-Mapping.jar <Options> file.mdsl", options );
+			return;
+		}
+		
+		
 		for (String arg: cmd.getArgs()) {
 			URI uri = URI.createFileURI(arg);
 			ResourceSet rs = new ResourceSetImpl();
@@ -84,6 +105,31 @@ public class Runner {
 				solver.createSolutions();
 				final ArrayList<Result> results = solver.getResults();
 				System.out.println(results.size() + " solutions found.");
+				
+				if (cmd.hasOption("u")) {
+					List<AbstractMetric> list = new ArrayList<AbstractMetric>();
+					AbstractMetric metric = new UniformCoreLoadDistribution();
+					metric.setWeight(1);
+					list.add(metric);
+					System.out.println("Evaluating solutions according to uniform core load metric");
+					ResultsAnalysis.evaluate(results, list);
+				}
+				else if (cmd.hasOption("c")) {
+					List<AbstractMetric> list = new ArrayList<AbstractMetric>();
+					AbstractMetric metric = new MaxFreeCapacity();
+					metric.setWeight(1);
+					list.add(metric);
+					System.out.println("Evaluating solutions according to max free capacity metric");
+					ResultsAnalysis.evaluate(results, list);
+				}
+				else if (cmd.hasOption("r")) {
+					List<AbstractMetric> list = new ArrayList<AbstractMetric>();
+					AbstractMetric metric = new RandomScore();
+					metric.setWeight(1);
+					list.add(metric);
+					System.out.println("Evaluating solutions according to random score metric");
+					ResultsAnalysis.evaluate(results, list);
+				}
 				
 				for (Result result : results) {
 					System.out.println(result);
