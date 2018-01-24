@@ -577,6 +577,36 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String toString() {
+		String _xblockexpression = null;
+		{
+			final StringBuilder sb = new StringBuilder();
+			String _name = this.getName();
+			String _plus = ("Result: " + _name);
+			String _plus_1 = (_plus + " (");
+			int _index = this.getIndex();
+			String _plus_2 = (_plus_1 + Integer.valueOf(_index));
+			String _plus_3 = (_plus_2 + ")\n");
+			sb.append(_plus_3);
+			EList<Task> _allTasks = this.getModel().getAllTasks();
+			for (final Task task : _allTasks) {
+				String _fullName = task.getFullName();
+				String _plus_4 = (_fullName + "\t->\t");
+				String _fullName_1 = this.getTask2CoreMap().get(task).getFullName();
+				String _plus_5 = (_plus_4 + _fullName_1);
+				String _plus_6 = (_plus_5 + "\n");
+				sb.append(_plus_6);
+			}
+			_xblockexpression = sb.toString();
+		}
+		return _xblockexpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -738,30 +768,10 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				return getMappingElements();
 			case ResultPackage.RESULT___COMPARE_TO__RESULT:
 				return compareTo((Result)arguments.get(0));
+			case ResultPackage.RESULT___TO_STRING:
+				return toString();
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", index: ");
-		result.append(index);
-		result.append(", task2CoreMap: ");
-		result.append(task2CoreMap);
-		result.append(", partialSolution: ");
-		result.append(partialSolution);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ResultImpl

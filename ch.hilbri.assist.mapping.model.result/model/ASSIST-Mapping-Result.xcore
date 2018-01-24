@@ -120,6 +120,15 @@ class Result extends Comparable {
 	op int compareTo(Result o) {
 		Double.compare(o.scaledTotalScore, scaledTotalScore)
 	}
+	
+	op String toString() {
+		val sb = new StringBuilder
+		sb.append("Result: " + name + " (" + index + ")\n")
+		for (task : model.allTasks) {
+			sb.append(task.fullName + "\t->\t" + task2CoreMap.get(task).fullName + '\n')
+		}
+		sb.toString
+	}
 }
 
 class SingleMappingElement {

@@ -52,6 +52,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardImpl#getBox <em>Box</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardImpl#getProcessors <em>Processors</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardImpl#getIoAdapters <em>Io Adapters</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoardImpl#getFullName <em>Full Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -176,6 +177,16 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * @ordered
 	 */
 	protected EList<IOAdapter> ioAdapters;
+
+	/**
+	 * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FULL_NAME_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -381,6 +392,18 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getFullName() {
+		String _fullName = this.getBox().getFullName();
+		String _plus = (_fullName + ".");
+		String _name = this.getName();
+		return (_plus + _name);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String toString() {
 		return this.getName();
 	}
@@ -484,6 +507,8 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 				return getProcessors();
 			case ModelPackage.BOARD__IO_ADAPTERS:
 				return getIoAdapters();
+			case ModelPackage.BOARD__FULL_NAME:
+				return getFullName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -587,6 +612,8 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 				return processors != null && !processors.isEmpty();
 			case ModelPackage.BOARD__IO_ADAPTERS:
 				return ioAdapters != null && !ioAdapters.isEmpty();
+			case ModelPackage.BOARD__FULL_NAME:
+				return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
 		}
 		return super.eIsSet(featureID);
 	}

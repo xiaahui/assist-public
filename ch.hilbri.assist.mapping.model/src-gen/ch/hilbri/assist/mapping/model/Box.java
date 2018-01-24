@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.Box#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Box#getBoards <em>Boards</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.Box#getFullName <em>Full Name</em>}</li>
  * </ul>
  *
  * @see ch.hilbri.assist.mapping.model.ModelPackage#getBox()
@@ -67,6 +68,22 @@ public interface Box extends HardwareElement {
 	 * @generated
 	 */
 	EList<Board> getBoards();
+
+	/**
+	 * Returns the value of the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Full Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Full Name</em>' attribute.
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getBox_FullName()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _fullName = this.getCompartment().getFullName();\n&lt;%java.lang.String%&gt; _plus = (_fullName + \".\");\n&lt;%java.lang.String%&gt; _name = this.getName();\nreturn (_plus + _name);'"
+	 * @generated
+	 */
+	String getFullName();
 
 	/**
 	 * <!-- begin-user-doc -->

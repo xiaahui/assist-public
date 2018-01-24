@@ -286,6 +286,15 @@ public interface ModelPackage extends EPackage {
 	int BOX_DSE__BOARDS = ch.hilbri.assist.mapping.model.ModelPackage.BOX__BOARDS;
 
 	/**
+	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_DSE__FULL_NAME = ch.hilbri.assist.mapping.model.ModelPackage.BOX__FULL_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Board Alternatives</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

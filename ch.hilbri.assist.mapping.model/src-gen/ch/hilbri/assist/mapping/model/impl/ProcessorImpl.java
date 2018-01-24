@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.ProcessorImpl#getProcessorType <em>Processor Type</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.ProcessorImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.ProcessorImpl#getBoard <em>Board</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.ProcessorImpl#getCores <em>Cores</em>}</li>
  * </ul>
@@ -60,6 +61,16 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 	 * @ordered
 	 */
 	protected String processorType = PROCESSOR_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FULL_NAME_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getCores() <em>Cores</em>}' containment reference list.
@@ -109,6 +120,18 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 		processorType = newProcessorType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PROCESSOR__PROCESSOR_TYPE, oldProcessorType, processorType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getFullName() {
+		String _fullName = this.getBoard().getFullName();
+		String _plus = (_fullName + ".");
+		String _name = this.getName();
+		return (_plus + _name);
 	}
 
 	/**
@@ -242,6 +265,8 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 		switch (featureID) {
 			case ModelPackage.PROCESSOR__PROCESSOR_TYPE:
 				return getProcessorType();
+			case ModelPackage.PROCESSOR__FULL_NAME:
+				return getFullName();
 			case ModelPackage.PROCESSOR__BOARD:
 				if (resolve) return getBoard();
 				return basicGetBoard();
@@ -305,6 +330,8 @@ public class ProcessorImpl extends HardwareElementImpl implements Processor {
 		switch (featureID) {
 			case ModelPackage.PROCESSOR__PROCESSOR_TYPE:
 				return PROCESSOR_TYPE_EDEFAULT == null ? processorType != null : !PROCESSOR_TYPE_EDEFAULT.equals(processorType);
+			case ModelPackage.PROCESSOR__FULL_NAME:
+				return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
 			case ModelPackage.PROCESSOR__BOARD:
 				return basicGetBoard() != null;
 			case ModelPackage.PROCESSOR__CORES:

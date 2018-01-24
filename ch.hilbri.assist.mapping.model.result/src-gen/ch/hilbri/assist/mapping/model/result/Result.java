@@ -298,4 +298,13 @@ public interface Result extends EObject, Comparable<Result> {
 	 */
 	int compareTo(Result o);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%java.lang.String%&gt; _xblockexpression = null;\n{\n\tfinal &lt;%java.lang.StringBuilder%&gt; sb = new &lt;%java.lang.StringBuilder%&gt;();\n\t&lt;%java.lang.String%&gt; _name = this.getName();\n\t&lt;%java.lang.String%&gt; _plus = (\"Result: \" + _name);\n\t&lt;%java.lang.String%&gt; _plus_1 = (_plus + \" (\");\n\tint _index = this.getIndex();\n\t&lt;%java.lang.String%&gt; _plus_2 = (_plus_1 + &lt;%java.lang.Integer%&gt;.valueOf(_index));\n\t&lt;%java.lang.String%&gt; _plus_3 = (_plus_2 + \")\\n\");\n\tsb.append(_plus_3);\n\t&lt;%org.eclipse.emf.common.util.EList%&gt;&lt;&lt;%ch.hilbri.assist.mapping.model.Task%&gt;&gt; _allTasks = this.getModel().getAllTasks();\n\tfor (final &lt;%ch.hilbri.assist.mapping.model.Task%&gt; task : _allTasks)\n\t{\n\t\t&lt;%java.lang.String%&gt; _fullName = task.getFullName();\n\t\t&lt;%java.lang.String%&gt; _plus_4 = (_fullName + \"\\t-&gt;\\t\");\n\t\t&lt;%java.lang.String%&gt; _fullName_1 = this.getTask2CoreMap().get(task).getFullName();\n\t\t&lt;%java.lang.String%&gt; _plus_5 = (_plus_4 + _fullName_1);\n\t\t&lt;%java.lang.String%&gt; _plus_6 = (_plus_5 + \"\\n\");\n\t\tsb.append(_plus_6);\n\t}\n\t_xblockexpression = sb.toString();\n}\nreturn _xblockexpression;'"
+	 * @generated
+	 */
+	String toString();
+
 } // Result

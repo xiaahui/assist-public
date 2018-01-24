@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.mapping.model.Task#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Task#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Task#getMetricParameters <em>Metric Parameters</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.Task#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Task#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  * </ul>
  *
@@ -197,6 +198,22 @@ public interface Task extends EObject {
 	 * @generated
 	 */
 	EList<MetricParameter> getMetricParameters();
+
+	/**
+	 * Returns the value of the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Full Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Full Name</em>' attribute.
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getTask_FullName()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _name = this.getApplication().getName();\n&lt;%java.lang.String%&gt; _plus = (_name + \".\");\n&lt;%java.lang.String%&gt; _name_1 = this.getName();\nreturn (_plus + _name_1);'"
+	 * @generated
+	 */
+	String getFullName();
 
 	/**
 	 * Returns the value of the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.

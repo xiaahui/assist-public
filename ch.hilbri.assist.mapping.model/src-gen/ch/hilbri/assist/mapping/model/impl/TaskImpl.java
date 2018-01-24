@@ -44,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getApplication <em>Application</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getMetricParameters <em>Metric Parameters</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.TaskImpl#getRestrictMappingToHardwareElements <em>Restrict Mapping To Hardware Elements</em>}</li>
  * </ul>
  *
@@ -149,6 +150,16 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * @ordered
 	 */
 	protected EList<MetricParameter> metricParameters;
+
+	/**
+	 * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FULL_NAME_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getRestrictMappingToHardwareElements() <em>Restrict Mapping To Hardware Elements</em>}' reference list.
@@ -343,6 +354,18 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getFullName() {
+		String _name = this.getApplication().getName();
+		String _plus = (_name + ".");
+		String _name_1 = this.getName();
+		return (_plus + _name_1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<HardwareElement> getRestrictMappingToHardwareElements() {
 		if (restrictMappingToHardwareElements == null) {
 			restrictMappingToHardwareElements = new EObjectResolvingEList<HardwareElement>(HardwareElement.class, this, ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS);
@@ -430,6 +453,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return getIoAdapterRequirements();
 			case ModelPackage.TASK__METRIC_PARAMETERS:
 				return getMetricParameters();
+			case ModelPackage.TASK__FULL_NAME:
+				return getFullName();
 			case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
 				return getRestrictMappingToHardwareElements();
 		}
@@ -534,6 +559,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return ioAdapterRequirements != null && !ioAdapterRequirements.isEmpty();
 			case ModelPackage.TASK__METRIC_PARAMETERS:
 				return metricParameters != null && !metricParameters.isEmpty();
+			case ModelPackage.TASK__FULL_NAME:
+				return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
 			case ModelPackage.TASK__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS:
 				return restrictMappingToHardwareElements != null && !restrictMappingToHardwareElements.isEmpty();
 		}

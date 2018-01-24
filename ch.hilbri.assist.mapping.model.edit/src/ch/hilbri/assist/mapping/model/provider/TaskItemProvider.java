@@ -67,6 +67,7 @@ public class TaskItemProvider
 			addRamUtilizationPropertyDescriptor(object);
 			addRomUtilizationPropertyDescriptor(object);
 			addApplicationPropertyDescriptor(object);
+			addFullNamePropertyDescriptor(object);
 			addRestrictMappingToHardwareElementsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -87,6 +88,28 @@ public class TaskItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Task_name_feature", "_UI_Task_type"),
 				 ModelPackage.Literals.TASK__NAME,
 				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Full Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFullNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_fullName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_fullName_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__FULL_NAME,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -277,6 +300,7 @@ public class TaskItemProvider
 			case ModelPackage.TASK__CORE_UTILIZATION:
 			case ModelPackage.TASK__RAM_UTILIZATION:
 			case ModelPackage.TASK__ROM_UTILIZATION:
+			case ModelPackage.TASK__FULL_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:

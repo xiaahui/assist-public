@@ -44,6 +44,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoxImpl#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoxImpl#getBoards <em>Boards</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.BoxImpl#getFullName <em>Full Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,6 +59,16 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 	 * @ordered
 	 */
 	protected EList<Board> boards;
+
+	/**
+	 * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FULL_NAME_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -139,6 +150,18 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 			boards = new EObjectContainmentWithInverseEList<Board>(Board.class, this, ModelPackage.BOX__BOARDS, ModelPackage.BOARD__BOX);
 		}
 		return boards;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getFullName() {
+		String _fullName = this.getCompartment().getFullName();
+		String _plus = (_fullName + ".");
+		String _name = this.getName();
+		return (_plus + _name);
 	}
 
 	/**
@@ -240,6 +263,8 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 				return basicGetCompartment();
 			case ModelPackage.BOX__BOARDS:
 				return getBoards();
+			case ModelPackage.BOX__FULL_NAME:
+				return getFullName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -294,6 +319,8 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 				return basicGetCompartment() != null;
 			case ModelPackage.BOX__BOARDS:
 				return boards != null && !boards.isEmpty();
+			case ModelPackage.BOX__FULL_NAME:
+				return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
 		}
 		return super.eIsSet(featureID);
 	}

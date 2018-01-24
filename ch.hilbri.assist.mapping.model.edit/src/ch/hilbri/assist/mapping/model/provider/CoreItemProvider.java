@@ -46,6 +46,7 @@ public class CoreItemProvider extends HardwareElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addArchitecturePropertyDescriptor(object);
+			addFullNamePropertyDescriptor(object);
 			addCapacityPropertyDescriptor(object);
 			addProcessorPropertyDescriptor(object);
 		}
@@ -67,6 +68,28 @@ public class CoreItemProvider extends HardwareElementItemProvider {
 				 getString("_UI_PropertyDescriptor_description", "_UI_Core_architecture_feature", "_UI_Core_type"),
 				 ModelPackage.Literals.CORE__ARCHITECTURE,
 				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Full Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFullNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Core_fullName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Core_fullName_feature", "_UI_Core_type"),
+				 ModelPackage.Literals.CORE__FULL_NAME,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -157,6 +180,7 @@ public class CoreItemProvider extends HardwareElementItemProvider {
 
 		switch (notification.getFeatureID(Core.class)) {
 			case ModelPackage.CORE__ARCHITECTURE:
+			case ModelPackage.CORE__FULL_NAME:
 			case ModelPackage.CORE__CAPACITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

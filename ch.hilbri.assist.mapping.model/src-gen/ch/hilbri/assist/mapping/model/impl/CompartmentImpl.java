@@ -42,6 +42,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.CompartmentImpl#getPowerSupply <em>Power Supply</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.impl.CompartmentImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.impl.CompartmentImpl#getBoxes <em>Boxes</em>}</li>
  * </ul>
  *
@@ -67,6 +68,16 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 	 * @ordered
 	 */
 	protected String powerSupply = POWER_SUPPLY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FULL_NAME_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getBoxes() <em>Boxes</em>}' containment reference list.
@@ -116,6 +127,15 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 		powerSupply = newPowerSupply;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.COMPARTMENT__POWER_SUPPLY, oldPowerSupply, powerSupply));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getFullName() {
+		return this.getName();
 	}
 
 	/**
@@ -220,6 +240,8 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 		switch (featureID) {
 			case ModelPackage.COMPARTMENT__POWER_SUPPLY:
 				return getPowerSupply();
+			case ModelPackage.COMPARTMENT__FULL_NAME:
+				return getFullName();
 			case ModelPackage.COMPARTMENT__BOXES:
 				return getBoxes();
 		}
@@ -274,6 +296,8 @@ public class CompartmentImpl extends HardwareElementImpl implements Compartment 
 		switch (featureID) {
 			case ModelPackage.COMPARTMENT__POWER_SUPPLY:
 				return POWER_SUPPLY_EDEFAULT == null ? powerSupply != null : !POWER_SUPPLY_EDEFAULT.equals(powerSupply);
+			case ModelPackage.COMPARTMENT__FULL_NAME:
+				return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
 			case ModelPackage.COMPARTMENT__BOXES:
 				return boxes != null && !boxes.isEmpty();
 		}

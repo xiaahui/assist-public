@@ -289,13 +289,22 @@ public interface ResultPackage extends EPackage {
 	int RESULT___COMPARE_TO__RESULT = COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT___TO_STRING = COMPARABLE_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 6;
+	int RESULT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl <em>Single Mapping Element</em>}' class.
@@ -697,6 +706,16 @@ public interface ResultPackage extends EPackage {
 	EOperation getResult__CompareTo__Result();
 
 	/**
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#toString() <em>To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To String</em>' operation.
+	 * @see ch.hilbri.assist.mapping.model.result.Result#toString()
+	 * @generated
+	 */
+	EOperation getResult__ToString();
+
+	/**
 	 * Returns the meta object for class '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement <em>Single Mapping Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1057,6 +1076,14 @@ public interface ResultPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RESULT___COMPARE_TO__RESULT = eINSTANCE.getResult__CompareTo__Result();
+
+		/**
+		 * The meta object literal for the '<em><b>To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RESULT___TO_STRING = eINSTANCE.getResult__ToString();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.mapping.model.result.impl.SingleMappingElementImpl <em>Single Mapping Element</em>}' class.

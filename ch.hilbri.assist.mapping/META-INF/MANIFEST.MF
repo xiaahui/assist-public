@@ -27,5 +27,6 @@ Require-Bundle: ch.hilbri.assist.gui,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ch.hilbri.assist.mapping.solver,
  ch.hilbri.assist.mapping.solver.exceptions,
- ch.hilbri.assist.mapping.solver.monitors
+ ch.hilbri.assist.mapping.solver.monitors,
+ ch.hilbri.assist.mapping.solver.strategies
 

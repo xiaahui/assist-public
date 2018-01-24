@@ -13,6 +13,7 @@ package ch.hilbri.assist.mapping.model;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.mapping.model.Core#getArchitecture <em>Architecture</em>}</li>
+ *   <li>{@link ch.hilbri.assist.mapping.model.Core#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Core#getCapacity <em>Capacity</em>}</li>
  *   <li>{@link ch.hilbri.assist.mapping.model.Core#getProcessor <em>Processor</em>}</li>
  * </ul>
@@ -48,6 +49,22 @@ public interface Core extends HardwareElement {
 	 * @generated
 	 */
 	void setArchitecture(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Full Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Full Name</em>' attribute.
+	 * @see ch.hilbri.assist.mapping.model.ModelPackage#getCore_FullName()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _fullName = this.getProcessor().getFullName();\n&lt;%java.lang.String%&gt; _plus = (_fullName + \".\");\n&lt;%java.lang.String%&gt; _name = this.getName();\nreturn (_plus + _name);'"
+	 * @generated
+	 */
+	String getFullName();
 
 	/**
 	 * Returns the value of the '<em><b>Capacity</b></em>' attribute.

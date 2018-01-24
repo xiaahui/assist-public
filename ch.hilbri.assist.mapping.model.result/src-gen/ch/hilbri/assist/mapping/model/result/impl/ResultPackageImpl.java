@@ -332,6 +332,15 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getResult__ToString() {
+		return resultEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSingleMappingElement() {
 		return singleMappingElementEClass;
 	}
@@ -521,6 +530,7 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 		createEOperation(resultEClass, RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__TASK_INT);
 		createEOperation(resultEClass, RESULT___GET_MAPPING_ELEMENTS);
 		createEOperation(resultEClass, RESULT___COMPARE_TO__RESULT);
+		createEOperation(resultEClass, RESULT___TO_STRING);
 
 		singleMappingElementEClass = createEClass(SINGLE_MAPPING_ELEMENT);
 		createEReference(singleMappingElementEClass, SINGLE_MAPPING_ELEMENT__APPLICATION);
@@ -612,6 +622,8 @@ public class ResultPackageImpl extends EPackageImpl implements ResultPackage {
 
 		op = initEOperation(getResult__CompareTo__Result(), theEcorePackage.getEInt(), "compareTo", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getResult(), "o", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getResult__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(singleMappingElementEClass, SingleMappingElement.class, "SingleMappingElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSingleMappingElement_Application(), theModelPackage.getApplication(), null, "application", null, 0, 1, SingleMappingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

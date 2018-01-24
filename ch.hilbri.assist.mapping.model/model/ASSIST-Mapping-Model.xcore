@@ -38,6 +38,7 @@ class HardwareElement {
 
 class Compartment extends HardwareElement {
 	String powerSupply	= ""
+	derived String fullName get { name }
 	contains Box[1..*] boxes opposite compartment
 	op Box[] 			getAllBoxes() 		{ boxes	}
 	op Board[] 			getAllBoards() 		{ boxes.map[allBoards].flatten.toEList 		}
@@ -48,6 +49,7 @@ class Compartment extends HardwareElement {
 class Box extends HardwareElement {
 	container Compartment compartment opposite boxes
 	contains Board[0..*] boards opposite box
+	derived String fullName get { compartment.fullName + "." + name }
 	op Board[] 			getAllBoards() 		{ boards }
 	op Processor[] 		getAllProcessors() 	{ boards.map[allProcessors].flatten.toEList 	}
 	op Core[] 			getAllCores() 		{ boards.map[allCores].flatten.toEList		}
@@ -62,6 +64,7 @@ class Board extends HardwareElement {
 	container 	Box 				box 			opposite boards
 	contains 	Processor[1..*] 	processors 	opposite board
 	contains 	IOAdapter[0..*] 	ioAdapters
+	derived String fullName get { box.fullName + "." + name }
 	op String			toString() 			{ name }
 	op Processor[] 		getAllProcessors() 	{ processors }
 	op Core[] 			getAllCores() 		{ processors.map[allCores].flatten.toEList }
@@ -69,6 +72,7 @@ class Board extends HardwareElement {
 
 class Processor extends HardwareElement {
 	String processorType = ""
+	derived String fullName get { board.fullName + "." + name }
 	container Board board opposite processors
 	contains Core[1..*] cores opposite processor
 	op Core[] getAllCores() { cores }
@@ -76,6 +80,7 @@ class Processor extends HardwareElement {
 
 class Core extends HardwareElement {
 	String architecture = ""
+	derived String fullName get { processor.fullName + "." + name }
 	int capacity = "0"
 	container Processor processor opposite cores
 }
@@ -104,6 +109,7 @@ class Task {
 	container Application application opposite tasks
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
 	contains MetricParameter[0..*] metricParameters
+	derived String fullName get { application.name + "." + name }
 	refers HardwareElement[0..*] restrictMappingToHardwareElements
 	op String 			toString() { name }
 }
