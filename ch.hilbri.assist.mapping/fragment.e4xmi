@@ -22,7 +22,7 @@
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_jcnwwE-WEeeNuqmSWeC5KA" featurename="children" parentElementId="ch.hilbri.assist.gui.trimbar.main" positionInList="after:ch.hilbri.assist.gui.toolbar.main">
     <elements xsi:type="menu:ToolBar" xmi:id="_ITXPAE-XEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.mapping.toolbar.mapping">
-      <children xsi:type="menu:HandledToolItem" xmi:id="_KJylIE-XEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.mapping.handledtoolitem.runmapping" label="Run Mapping" iconURI="platform:/plugin/ch.hilbri.assist.mapping/icons/run_mapping.png" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
+      <children xsi:type="menu:HandledToolItem" xmi:id="_KJylIE-XEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.mapping.handledtoolitem.runmapping" label="Generate Mapping" iconURI="platform:/plugin/ch.hilbri.assist.mapping/icons/run_mapping.png" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_HgnnsFsBEeeZAv23awykxg" featurename="children" parentElementId="ch.hilbri.assist.gui.partstack.infopart">

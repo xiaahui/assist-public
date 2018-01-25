@@ -16,7 +16,12 @@
       <children xsi:type="menu:HandledMenuItem" xmi:id="_QKvtALSXEeemw6Ys4OcW_g" elementId="ch.hilbri.assist.scheduling.handledmenuitem.exportschedule" label="Export Schedule" enabled="false" command="_yAXDUPHyEeebxrQqvplQ4g"/>
     </elements>
   </fragments>
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_wvmz0PH3EeebxrQqvplQ4g" featurename="children" parentElementId="ch.hilbri.assist.gui.toolbar.main" positionInList="after:ch.hilbri.assist.gui.handledtoolitem.newproject">
-    <elements xsi:type="menu:HandledToolItem" xmi:id="_99iNsPH3EeebxrQqvplQ4g" elementId="ch.hilbri.assist.scheduling.handledtoolitem.newspec" label="New Scheduling Specification" iconURI="platform:/plugin/ch.hilbri.assist.scheduling/icons/new-scheduling-specification.gif" command="_5QZicPHyEeebxrQqvplQ4g"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_wvmz0PH3EeebxrQqvplQ4g" featurename="children" parentElementId="ch.hilbri.assist.gui.toolbar.main" positionInList="after:ch.hilbri.assist.mapping.handledtoolitem.newspec">
+    <elements xsi:type="menu:HandledToolItem" xmi:id="_99iNsPH3EeebxrQqvplQ4g" elementId="ch.hilbri.assist.scheduling.handledtoolitem.newspec" label="New Scheduling Specification" iconURI="platform:/plugin/ch.hilbri.assist.scheduling/icons/new-scheduling-specification.png" command="_5QZicPHyEeebxrQqvplQ4g"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_6YGHoAHHEeiNy-Y3MSQtpg" featurename="children" parentElementId="ch.hilbri.assist.gui.trimbar.main" positionInList="after:ch.hilbri.assist.mapping.toolbar.mapping">
+    <elements xsi:type="menu:ToolBar" xmi:id="_CqVDkAHIEeiNy-Y3MSQtpg" elementId="ch.hilbri.assist.scheduling.toolbar.scheduling">
+      <children xsi:type="menu:HandledToolItem" xmi:id="_E0YgUAHIEeiNy-Y3MSQtpg" elementId="ch.hilbri.assist.scheduling.handledtoolitem.runscheduling" label="Generate Schedule" iconURI="platform:/plugin/ch.hilbri.assist.scheduling/icons/run_scheduling.png" command="_qNXoIPHyEeebxrQqvplQ4g"/>
+    </elements>
   </fragments>
 </fragment:ModelFragments>
