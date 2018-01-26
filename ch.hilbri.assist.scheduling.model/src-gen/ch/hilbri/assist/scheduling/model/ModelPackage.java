@@ -281,13 +281,22 @@ public interface ModelPackage extends EPackage {
 	int COMPARTMENT__POWER_SUPPLY = HARDWARE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARTMENT__FULL_NAME = HARDWARE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Boxes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARTMENT__BOXES = HARDWARE_ELEMENT_FEATURE_COUNT + 1;
+	int COMPARTMENT__BOXES = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Compartment</em>' class.
@@ -296,7 +305,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARTMENT_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
+	int COMPARTMENT_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get All Boxes</em>' operation.
@@ -381,13 +390,22 @@ public interface ModelPackage extends EPackage {
 	int BOX__METRIC_PARAMETERS = HARDWARE_ELEMENT__METRIC_PARAMETERS;
 
 	/**
+	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX__FULL_NAME = HARDWARE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Compartment</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOX__COMPARTMENT = HARDWARE_ELEMENT_FEATURE_COUNT + 0;
+	int BOX__COMPARTMENT = HARDWARE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Boards</b></em>' containment reference list.
@@ -396,7 +414,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOX__BOARDS = HARDWARE_ELEMENT_FEATURE_COUNT + 1;
+	int BOX__BOARDS = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Box</em>' class.
@@ -405,7 +423,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOX_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
+	int BOX_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get All Boards</em>' operation.
@@ -526,13 +544,22 @@ public interface ModelPackage extends EPackage {
 	int BOARD__ROM_CAPACITY = HARDWARE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD__FULL_NAME = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Box</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD__BOX = HARDWARE_ELEMENT_FEATURE_COUNT + 5;
+	int BOARD__BOX = HARDWARE_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Processors</b></em>' containment reference list.
@@ -541,7 +568,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD__PROCESSORS = HARDWARE_ELEMENT_FEATURE_COUNT + 6;
+	int BOARD__PROCESSORS = HARDWARE_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Io Adapters</b></em>' containment reference list.
@@ -550,7 +577,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD__IO_ADAPTERS = HARDWARE_ELEMENT_FEATURE_COUNT + 7;
+	int BOARD__IO_ADAPTERS = HARDWARE_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Board</em>' class.
@@ -559,7 +586,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 8;
+	int BOARD_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -644,13 +671,22 @@ public interface ModelPackage extends EPackage {
 	int PROCESSOR__PROCESSOR_TYPE = HARDWARE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSOR__FULL_NAME = HARDWARE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Board</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSOR__BOARD = HARDWARE_ELEMENT_FEATURE_COUNT + 1;
+	int PROCESSOR__BOARD = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Cores</b></em>' containment reference list.
@@ -659,7 +695,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSOR__CORES = HARDWARE_ELEMENT_FEATURE_COUNT + 2;
+	int PROCESSOR__CORES = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Processor</em>' class.
@@ -668,7 +704,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSOR_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 3;
+	int PROCESSOR_FEATURE_COUNT = HARDWARE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get All Cores</em>' operation.
@@ -854,13 +890,22 @@ public interface ModelPackage extends EPackage {
 	int APPLICATION__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__FULL_NAME = 1;
+
+	/**
 	 * The feature id for the '<em><b>Developed By</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__DEVELOPED_BY = 1;
+	int APPLICATION__DEVELOPED_BY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Criticality Level</b></em>' attribute.
@@ -869,7 +914,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__CRITICALITY_LEVEL = 2;
+	int APPLICATION__CRITICALITY_LEVEL = 3;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -878,7 +923,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__TASKS = 3;
+	int APPLICATION__TASKS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
@@ -887,7 +932,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__METRIC_PARAMETERS = 4;
+	int APPLICATION__METRIC_PARAMETERS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Restrict Mapping To Hardware Elements</b></em>' reference list.
@@ -896,7 +941,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 5;
+	int APPLICATION__RESTRICT_MAPPING_TO_HARDWARE_ELEMENTS = 6;
 
 	/**
 	 * The number of structural features of the '<em>Application</em>' class.
@@ -905,7 +950,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = 6;
+	int APPLICATION_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -972,13 +1017,22 @@ public interface ModelPackage extends EPackage {
 	int TASK__APPLICATION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__FULL_NAME = 4;
+
+	/**
 	 * The feature id for the '<em><b>Assigned Core</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__ASSIGNED_CORE = 4;
+	int TASK__ASSIGNED_CORE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Duration</b></em>' attribute.
@@ -987,7 +1041,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__DURATION = 5;
+	int TASK__DURATION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Period</b></em>' attribute.
@@ -996,7 +1050,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__PERIOD = 6;
+	int TASK__PERIOD = 7;
 
 	/**
 	 * The feature id for the '<em><b>Early Tolerance</b></em>' attribute.
@@ -1005,7 +1059,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__EARLY_TOLERANCE = 7;
+	int TASK__EARLY_TOLERANCE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Late Tolerance</b></em>' attribute.
@@ -1014,7 +1068,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__LATE_TOLERANCE = 8;
+	int TASK__LATE_TOLERANCE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Max Start Time</b></em>' attribute.
@@ -1023,7 +1077,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__MAX_START_TIME = 9;
+	int TASK__MAX_START_TIME = 10;
 
 	/**
 	 * The feature id for the '<em><b>Max End Time</b></em>' attribute.
@@ -1032,7 +1086,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__MAX_END_TIME = 10;
+	int TASK__MAX_END_TIME = 11;
 
 	/**
 	 * The feature id for the '<em><b>Add Init Time</b></em>' attribute.
@@ -1041,7 +1095,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__ADD_INIT_TIME = 11;
+	int TASK__ADD_INIT_TIME = 12;
 
 	/**
 	 * The feature id for the '<em><b>Slices</b></em>' attribute.
@@ -1050,7 +1104,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__SLICES = 12;
+	int TASK__SLICES = 13;
 
 	/**
 	 * The feature id for the '<em><b>Min Slice Duration</b></em>' attribute.
@@ -1059,7 +1113,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__MIN_SLICE_DURATION = 13;
+	int TASK__MIN_SLICE_DURATION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
@@ -1068,7 +1122,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__IO_ADAPTER_REQUIREMENTS = 14;
+	int TASK__IO_ADAPTER_REQUIREMENTS = 15;
 
 	/**
 	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
@@ -1077,7 +1131,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__METRIC_PARAMETERS = 15;
+	int TASK__METRIC_PARAMETERS = 16;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -1086,7 +1140,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_FEATURE_COUNT = 16;
+	int TASK_FEATURE_COUNT = 17;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -1227,13 +1281,22 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL_SCHEDULING_RESULT = 12;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_SCHEDULING_RESULT__NAME = 0;
+
+	/**
 	 * The feature id for the '<em><b>Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_SCHEDULING_RESULT__MODEL = 0;
+	int ASSIST_MODEL_SCHEDULING_RESULT__MODEL = 1;
 
 	/**
 	 * The feature id for the '<em><b>Schedule</b></em>' attribute.
@@ -1242,7 +1305,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_SCHEDULING_RESULT__SCHEDULE = 1;
+	int ASSIST_MODEL_SCHEDULING_RESULT__SCHEDULE = 2;
 
 	/**
 	 * The number of structural features of the '<em>Assist Model Scheduling Result</em>' class.
@@ -1251,7 +1314,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_SCHEDULING_RESULT_FEATURE_COUNT = 2;
+	int ASSIST_MODEL_SCHEDULING_RESULT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Assist Model Scheduling Result</em>' class.
@@ -1527,6 +1590,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getCompartment_PowerSupply();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.Compartment#getFullName <em>Full Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Full Name</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.Compartment#getFullName()
+	 * @see #getCompartment()
+	 * @generated
+	 */
+	EAttribute getCompartment_FullName();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.scheduling.model.Compartment#getBoxes <em>Boxes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1586,6 +1660,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBox();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.Box#getFullName <em>Full Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Full Name</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.Box#getFullName()
+	 * @see #getBox()
+	 * @generated
+	 */
+	EAttribute getBox_FullName();
 
 	/**
 	 * Returns the meta object for the container reference '{@link ch.hilbri.assist.scheduling.model.Box#getCompartment <em>Compartment</em>}'.
@@ -1705,6 +1790,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getBoard_RomCapacity();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.Board#getFullName <em>Full Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Full Name</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.Board#getFullName()
+	 * @see #getBoard()
+	 * @generated
+	 */
+	EAttribute getBoard_FullName();
+
+	/**
 	 * Returns the meta object for the container reference '{@link ch.hilbri.assist.scheduling.model.Board#getBox <em>Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1787,6 +1883,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProcessor_ProcessorType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.Processor#getFullName <em>Full Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Full Name</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.Processor#getFullName()
+	 * @see #getProcessor()
+	 * @generated
+	 */
+	EAttribute getProcessor_FullName();
 
 	/**
 	 * Returns the meta object for the container reference '{@link ch.hilbri.assist.scheduling.model.Processor#getBoard <em>Board</em>}'.
@@ -1939,6 +2046,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getApplication_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.Application#getFullName <em>Full Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Full Name</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.Application#getFullName()
+	 * @see #getApplication()
+	 * @generated
+	 */
+	EAttribute getApplication_FullName();
+
+	/**
 	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.Application#getDevelopedBy <em>Developed By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2056,6 +2174,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTask_Application();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.Task#getFullName <em>Full Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Full Name</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.Task#getFullName()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_FullName();
 
 	/**
 	 * Returns the meta object for the reference '{@link ch.hilbri.assist.scheduling.model.Task#getAssignedCore <em>Assigned Core</em>}'.
@@ -2294,6 +2423,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAssistModelSchedulingResult();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult#getName()
+	 * @see #getAssistModelSchedulingResult()
+	 * @generated
+	 */
+	EAttribute getAssistModelSchedulingResult_Name();
 
 	/**
 	 * Returns the meta object for the reference '{@link ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult#getModel <em>Model</em>}'.
@@ -2556,6 +2696,14 @@ public interface ModelPackage extends EPackage {
 		EAttribute COMPARTMENT__POWER_SUPPLY = eINSTANCE.getCompartment_PowerSupply();
 
 		/**
+		 * The meta object literal for the '<em><b>Full Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPARTMENT__FULL_NAME = eINSTANCE.getCompartment_FullName();
+
+		/**
 		 * The meta object literal for the '<em><b>Boxes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2604,6 +2752,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BOX = eINSTANCE.getBox();
+
+		/**
+		 * The meta object literal for the '<em><b>Full Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOX__FULL_NAME = eINSTANCE.getBox_FullName();
 
 		/**
 		 * The meta object literal for the '<em><b>Compartment</b></em>' container reference feature.
@@ -2696,6 +2852,14 @@ public interface ModelPackage extends EPackage {
 		EAttribute BOARD__ROM_CAPACITY = eINSTANCE.getBoard_RomCapacity();
 
 		/**
+		 * The meta object literal for the '<em><b>Full Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOARD__FULL_NAME = eINSTANCE.getBoard_FullName();
+
+		/**
 		 * The meta object literal for the '<em><b>Box</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2760,6 +2924,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROCESSOR__PROCESSOR_TYPE = eINSTANCE.getProcessor_ProcessorType();
+
+		/**
+		 * The meta object literal for the '<em><b>Full Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROCESSOR__FULL_NAME = eINSTANCE.getProcessor_FullName();
 
 		/**
 		 * The meta object literal for the '<em><b>Board</b></em>' container reference feature.
@@ -2880,6 +3052,14 @@ public interface ModelPackage extends EPackage {
 		EAttribute APPLICATION__NAME = eINSTANCE.getApplication_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Full Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPLICATION__FULL_NAME = eINSTANCE.getApplication_FullName();
+
+		/**
 		 * The meta object literal for the '<em><b>Developed By</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2968,6 +3148,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TASK__APPLICATION = eINSTANCE.getTask_Application();
+
+		/**
+		 * The meta object literal for the '<em><b>Full Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__FULL_NAME = eINSTANCE.getTask_FullName();
 
 		/**
 		 * The meta object literal for the '<em><b>Assigned Core</b></em>' reference feature.
@@ -3150,6 +3338,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ASSIST_MODEL_SCHEDULING_RESULT = eINSTANCE.getAssistModelSchedulingResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSIST_MODEL_SCHEDULING_RESULT__NAME = eINSTANCE.getAssistModelSchedulingResult_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.

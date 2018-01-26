@@ -49,6 +49,7 @@ public class ProcessorItemProvider extends HardwareElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addProcessorTypePropertyDescriptor(object);
+			addFullNamePropertyDescriptor(object);
 			addBoardPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -69,6 +70,28 @@ public class ProcessorItemProvider extends HardwareElementItemProvider {
 				 getString("_UI_PropertyDescriptor_description", "_UI_Processor_processorType_feature", "_UI_Processor_type"),
 				 ModelPackage.Literals.PROCESSOR__PROCESSOR_TYPE,
 				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Full Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFullNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Processor_fullName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Processor_fullName_feature", "_UI_Processor_type"),
+				 ModelPackage.Literals.PROCESSOR__FULL_NAME,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -167,6 +190,7 @@ public class ProcessorItemProvider extends HardwareElementItemProvider {
 
 		switch (notification.getFeatureID(Processor.class)) {
 			case ModelPackage.PROCESSOR__PROCESSOR_TYPE:
+			case ModelPackage.PROCESSOR__FULL_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.PROCESSOR__CORES:

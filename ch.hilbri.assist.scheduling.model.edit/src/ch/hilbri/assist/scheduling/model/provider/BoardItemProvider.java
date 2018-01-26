@@ -53,6 +53,7 @@ public class BoardItemProvider extends HardwareElementItemProvider {
 			addAssuranceLevelPropertyDescriptor(object);
 			addRamCapacityPropertyDescriptor(object);
 			addRomCapacityPropertyDescriptor(object);
+			addFullNamePropertyDescriptor(object);
 			addBoxPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -169,6 +170,28 @@ public class BoardItemProvider extends HardwareElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Full Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFullNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Board_fullName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Board_fullName_feature", "_UI_Board_type"),
+				 ModelPackage.Literals.BOARD__FULL_NAME,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Box feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -264,6 +287,7 @@ public class BoardItemProvider extends HardwareElementItemProvider {
 			case ModelPackage.BOARD__ASSURANCE_LEVEL:
 			case ModelPackage.BOARD__RAM_CAPACITY:
 			case ModelPackage.BOARD__ROM_CAPACITY:
+			case ModelPackage.BOARD__FULL_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.BOARD__PROCESSORS:

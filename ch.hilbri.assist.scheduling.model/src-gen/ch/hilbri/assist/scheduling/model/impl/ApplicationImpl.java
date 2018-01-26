@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.ApplicationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.scheduling.model.impl.ApplicationImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.ApplicationImpl#getDevelopedBy <em>Developed By</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.ApplicationImpl#getCriticalityLevel <em>Criticality Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.ApplicationImpl#getTasks <em>Tasks</em>}</li>
@@ -67,6 +68,16 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FULL_NAME_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getDevelopedBy() <em>Developed By</em>}' attribute.
@@ -176,6 +187,15 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.APPLICATION__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getFullName() {
+		return this.getName();
 	}
 
 	/**
@@ -306,6 +326,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 		switch (featureID) {
 			case ModelPackage.APPLICATION__NAME:
 				return getName();
+			case ModelPackage.APPLICATION__FULL_NAME:
+				return getFullName();
 			case ModelPackage.APPLICATION__DEVELOPED_BY:
 				return getDevelopedBy();
 			case ModelPackage.APPLICATION__CRITICALITY_LEVEL:
@@ -394,6 +416,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 		switch (featureID) {
 			case ModelPackage.APPLICATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case ModelPackage.APPLICATION__FULL_NAME:
+				return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
 			case ModelPackage.APPLICATION__DEVELOPED_BY:
 				return DEVELOPED_BY_EDEFAULT == null ? developedBy != null : !DEVELOPED_BY_EDEFAULT.equals(developedBy);
 			case ModelPackage.APPLICATION__CRITICALITY_LEVEL:

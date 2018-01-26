@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingResultImpl#getName <em>Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingResultImpl#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingResultImpl#getSchedule <em>Schedule</em>}</li>
  * </ul>
@@ -34,6 +35,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class AssistModelSchedulingResultImpl extends MinimalEObjectImpl.Container implements AssistModelSchedulingResult {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -71,6 +92,27 @@ public class AssistModelSchedulingResultImpl extends MinimalEObjectImpl.Containe
 	@Override
 	protected EClass eStaticClass() {
 		return ModelPackage.Literals.ASSIST_MODEL_SCHEDULING_RESULT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__NAME, oldName, name));
 	}
 
 	/**
@@ -140,6 +182,8 @@ public class AssistModelSchedulingResultImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__NAME:
+				return getName();
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__MODEL:
 				if (resolve) return getModel();
 				return basicGetModel();
@@ -158,6 +202,9 @@ public class AssistModelSchedulingResultImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__NAME:
+				setName((String)newValue);
+				return;
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__MODEL:
 				setModel((AssistModelScheduling)newValue);
 				return;
@@ -176,6 +223,9 @@ public class AssistModelSchedulingResultImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__MODEL:
 				setModel((AssistModelScheduling)null);
 				return;
@@ -194,6 +244,8 @@ public class AssistModelSchedulingResultImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__MODEL:
 				return model != null;
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__SCHEDULE:
@@ -212,7 +264,9 @@ public class AssistModelSchedulingResultImpl extends MinimalEObjectImpl.Containe
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (schedule: ");
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", schedule: ");
 		result.append(schedule);
 		result.append(')');
 		return result.toString();

@@ -5,11 +5,7 @@ package ch.hilbri.assist.scheduling.model.provider;
 
 import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult;
 import ch.hilbri.assist.scheduling.model.ModelPackage;
-
-import ch.hilbri.assist.scheduling.model.Task;
-import ch.hilbri.assist.scheduling.model.TaskExecutionInstance;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -63,10 +59,33 @@ public class AssistModelSchedulingResultItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 			addModelPropertyDescriptor(object);
 			addSchedulePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AssistModelSchedulingResult_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModelSchedulingResult_name_feature", "_UI_AssistModelSchedulingResult_type"),
+				 ModelPackage.Literals.ASSIST_MODEL_SCHEDULING_RESULT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -132,8 +151,7 @@ public class AssistModelSchedulingResultItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		HashMap<Task, List<TaskExecutionInstance>> labelValue = ((AssistModelSchedulingResult)object).getSchedule();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((AssistModelSchedulingResult)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AssistModelSchedulingResult_type") :
 			getString("_UI_AssistModelSchedulingResult_type") + " " + label;
@@ -152,6 +170,7 @@ public class AssistModelSchedulingResultItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AssistModelSchedulingResult.class)) {
+			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__NAME:
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__SCHEDULE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

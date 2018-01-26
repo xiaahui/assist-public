@@ -3,41 +3,51 @@ package ch.hilbri.assist.scheduling.results
 import ch.hilbri.assist.scheduling.model.AssistModelScheduling
 import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult
 import ch.hilbri.assist.scheduling.model.ModelFactory
+import ch.hilbri.assist.scheduling.solver.variables.SolverVariablesContainer
 import java.util.HashMap
 import java.util.List
+import org.chocosolver.solver.Solution
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 class ResultFactoryFromSolverSolutions {
 	
-//	private static Logger logger = LoggerFactory.getLogger(ResultFactoryFromSolverSolutions)
+	private static Logger logger = LoggerFactory.getLogger(ResultFactoryFromSolverSolutions)
 
-	static def List<AssistModelSchedulingResult> create(AssistModelScheduling assistModel) {
+	static def List<AssistModelSchedulingResult> create(AssistModelScheduling assistModel, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {
 
-		val f = ModelFactory.eINSTANCE
-	
-		/* Create a dummy result for one or two tasks */
-		val result = f.createAssistModelSchedulingResult => [
-			model = assistModel
-			schedule = new HashMap
+		val results = newArrayList
+
+		for (solution : solverSolutions) {
+			val solNumber 		= solverSolutions.indexOf(solution) + 1
+			val solTotalCount  	= solverSolutions.length
 			
-			val task = assistModel.allTasks.head
-			val task_schedule = #[
-				f.createTaskExecutionInstance => [begin = 1; end = 5],
-				f.createTaskExecutionInstance => [begin = 7; end = 10],
-				f.createTaskExecutionInstance => [begin = 11; end = 14],
-				f.createTaskExecutionInstance => [begin = 17; end = 18]
+			val f = ModelFactory.eINSTANCE
+			val result = f.createAssistModelSchedulingResult => [
+				name = "Solution "+ solNumber + " of " + solTotalCount
+				model = assistModel
+
+				/* Create the schedule */
+				schedule = new HashMap
+			
+				for (task : assistModel.allTasks) {
+					/* Create the list of execution instances for the result */
+					val task_schedule = newArrayList
+			
+					/* Go through the model and retrieve the values */
+					for (instance : solverVariables.getSolverTasks(task)) {
+						val beginValue 	= solution.getIntVal(instance.start)
+						val endValue 	= solution.getIntVal(instance.end) 
+						task_schedule.add(f.createTaskExecutionInstance => [begin = beginValue; end = endValue])
+					}
+					
+					schedule.put(task, task_schedule)
+				}			
 			]
-			schedule.put(task, task_schedule)				
-		
-			if (assistModel.allTasks.head != assistModel.allTasks.last) {
-				val task2 = assistModel.allTasks.last
-				val task2_schedule = #[
-					f.createTaskExecutionInstance => [begin = 1; end = 12],
-					f.createTaskExecutionInstance => [begin = 14; end = 22]
-				]
-				schedule.put(task2, task2_schedule)				
-			}
-		]
-		
-		return #[result]
+			
+			results.add(result)	
+			logger.info('''Created an ASSIST solution from solver solution «solNumber» / «solTotalCount»''')	
+		}
+		return results
 	}
 }

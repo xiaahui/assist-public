@@ -116,7 +116,7 @@ public interface Core extends HardwareElement {
 	 * @return the value of the '<em>Full Name</em>' attribute.
 	 * @see ch.hilbri.assist.scheduling.model.ModelPackage#getCore_FullName()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _name = this.getProcessor().getBoard().getBox().getCompartment().getName();\n&lt;%java.lang.String%&gt; _plus = (_name + \".\");\n&lt;%java.lang.String%&gt; _name_1 = this.getProcessor().getBoard().getBox().getName();\n&lt;%java.lang.String%&gt; _plus_1 = (_plus + _name_1);\n&lt;%java.lang.String%&gt; _plus_2 = (_plus_1 + \".\");\n&lt;%java.lang.String%&gt; _name_2 = this.getProcessor().getBoard().getName();\n&lt;%java.lang.String%&gt; _plus_3 = (_plus_2 + _name_2);\n&lt;%java.lang.String%&gt; _plus_4 = (_plus_3 + \".\");\n&lt;%java.lang.String%&gt; _name_3 = this.getProcessor().getName();\n&lt;%java.lang.String%&gt; _plus_5 = (_plus_4 + _name_3);\n&lt;%java.lang.String%&gt; _plus_6 = (_plus_5 + \".\");\n&lt;%java.lang.String%&gt; _name_4 = this.getName();\nreturn (_plus_6 + _name_4);'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _fullName = this.getProcessor().getFullName();\n&lt;%java.lang.String%&gt; _plus = (_fullName + \".\");\n&lt;%java.lang.String%&gt; _name = this.getName();\nreturn (_plus + _name);'"
 	 * @generated
 	 */
 	String getFullName();

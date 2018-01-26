@@ -1,10 +1,15 @@
 package ch.hilbri.assist.scheduling.solver.variables
 
 import ch.hilbri.assist.scheduling.model.AssistModelScheduling
+import java.util.ArrayList
+import java.util.List
+import java.util.Map
 import org.apache.commons.math3.util.ArithmeticUtils
 import org.chocosolver.solver.Model
 import org.chocosolver.solver.variables.IntVar
+import org.chocosolver.solver.variables.Task
 import org.eclipse.xtend.lib.annotations.Accessors
+import java.util.HashMap
 
 class SolverVariablesContainer {
 
@@ -17,6 +22,9 @@ class SolverVariablesContainer {
 	/** Length of the hyperPeriod */
 	@Accessors(PUBLIC_GETTER) int hypLength = -1
 
+	/** Store a reference to the variables */
+	private Map<ch.hilbri.assist.scheduling.model.Task, List<Task>> task2executionInstancesMap = new HashMap
+
 	/* CONSTRUCTOR */
 	new(AssistModelScheduling assistModel, Model solverModel) {
 
@@ -27,11 +35,37 @@ class SolverVariablesContainer {
 
 		if (!assistModel.allTasks.isNullOrEmpty) 
 			hypLength = assistModel.allTasks.map[period].reduce[p1, p2 | ArithmeticUtils.lcm(p1,p2)]
+			
+		/* Go through the list of tasks and create a task container for each execution instance */
+		for (task : assistModel.allTasks) {
+			
+			/* How many times will this be executed during the hyperperiod? 
+			 * --> should be an int and positiv --> because hypLength was computed based on lcm */
+			val executionCount = hypLength / task.period
+			val executionInstanceList = new ArrayList<Task>
+			for (i : 0 ..< executionCount) {
+				val executionInstanceName = task.fullName + '''[«i»]'''
+				val startVar = solverModel.intVar(executionInstanceName + "_Start", 0, hypLength - task.duration)
+				val durationVar = solverModel.intVar(executionInstanceName + "_Duration", task.duration, task.duration)
+				val endVar = solverModel.intVar(executionInstanceName + "_End", 0, hypLength)
+				val taskContainer = new Task(startVar, durationVar, endVar)
+				executionInstanceList.add(taskContainer)
+			}
+			task2executionInstancesMap.put(task, executionInstanceList)
+		}
 	}
 	
+	
+	/** Retrieve all IntVars from the execution instance list */
 	def IntVar[] getAllVariables() {
-		/* FIXME: Return a fake variable for now  */
-		#[solverModel.intVar(1, 10)]
+		task2executionInstancesMap.values.flatten  									// just a list of tasks
+										 .map[#[it.start, it.duration, it.end]]		// extract intVars from tasks
+										 .flatten									// just a list of intVars
+	}
+	
+	/** Retrieve the solver tasks for an ASSIST task */
+	def List<Task> getSolverTasks(ch.hilbri.assist.scheduling.model.Task task) {
+		task2executionInstancesMap.get(task)
 	}
 
 }

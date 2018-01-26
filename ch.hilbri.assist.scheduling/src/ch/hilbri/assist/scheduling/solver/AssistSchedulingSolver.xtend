@@ -150,7 +150,7 @@ class AssistSchedulingSolver {
 
 		// Did we find a solution? 
 		if (chocoSolutions.size > 0) {
-			schedulingResults = ResultFactoryFromSolverSolutions.create(assistModel) // (..., solverVariables, chocoSolutions)
+			schedulingResults = ResultFactoryFromSolverSolutions.create(assistModel, solverVariables, chocoSolutions)
 			logger.debug('''Results created:  «schedulingResults.size»''')
 		} 
 		

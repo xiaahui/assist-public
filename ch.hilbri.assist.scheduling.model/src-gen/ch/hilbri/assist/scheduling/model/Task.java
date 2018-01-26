@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.scheduling.model.Task#getRamUtilization <em>Ram Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Task#getRomUtilization <em>Rom Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Task#getApplication <em>Application</em>}</li>
+ *   <li>{@link ch.hilbri.assist.scheduling.model.Task#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Task#getAssignedCore <em>Assigned Core</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Task#getDuration <em>Duration</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Task#getPeriod <em>Period</em>}</li>
@@ -146,6 +147,22 @@ public interface Task extends EObject {
 	 * @generated
 	 */
 	void setApplication(Application value);
+
+	/**
+	 * Returns the value of the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Full Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Full Name</em>' attribute.
+	 * @see ch.hilbri.assist.scheduling.model.ModelPackage#getTask_FullName()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _name = this.getApplication().getName();\n&lt;%java.lang.String%&gt; _plus = (_name + \".\");\n&lt;%java.lang.String%&gt; _name_1 = this.getName();\nreturn (_plus + _name_1);'"
+	 * @generated
+	 */
+	String getFullName();
 
 	/**
 	 * Returns the value of the '<em><b>Assigned Core</b></em>' reference.

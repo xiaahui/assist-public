@@ -84,7 +84,7 @@ public class DetailedResults extends Composite {
 			start.add(Calendar.DATE, instance.getBegin());
 
 			final Calendar end = (Calendar) cal.clone();
-			end.add(Calendar.DATE, instance.getEnd());
+			end.add(Calendar.DATE, instance.getEnd()-1);
 
 			String eventName = task.getApplication().getName() + "." + task.getName() + " [" + schedule.indexOf(instance) +"]"; 
 			GanttEvent event = new GanttEvent(ganttChart, eventName, start, end, 0);

@@ -64,6 +64,7 @@ public class ApplicationItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addFullNamePropertyDescriptor(object);
 			addDevelopedByPropertyDescriptor(object);
 			addCriticalityLevelPropertyDescriptor(object);
 			addRestrictMappingToHardwareElementsPropertyDescriptor(object);
@@ -86,6 +87,28 @@ public class ApplicationItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Application_name_feature", "_UI_Application_type"),
 				 ModelPackage.Literals.APPLICATION__NAME,
 				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Full Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFullNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Application_fullName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Application_fullName_feature", "_UI_Application_type"),
+				 ModelPackage.Literals.APPLICATION__FULL_NAME,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -229,6 +252,7 @@ public class ApplicationItemProvider
 
 		switch (notification.getFeatureID(Application.class)) {
 			case ModelPackage.APPLICATION__NAME:
+			case ModelPackage.APPLICATION__FULL_NAME:
 			case ModelPackage.APPLICATION__DEVELOPED_BY:
 			case ModelPackage.APPLICATION__CRITICALITY_LEVEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

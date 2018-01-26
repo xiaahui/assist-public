@@ -49,6 +49,7 @@ public class CompartmentItemProvider extends HardwareElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addPowerSupplyPropertyDescriptor(object);
+			addFullNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -68,6 +69,28 @@ public class CompartmentItemProvider extends HardwareElementItemProvider {
 				 getString("_UI_PropertyDescriptor_description", "_UI_Compartment_powerSupply_feature", "_UI_Compartment_type"),
 				 ModelPackage.Literals.COMPARTMENT__POWER_SUPPLY,
 				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Full Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFullNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Compartment_fullName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Compartment_fullName_feature", "_UI_Compartment_type"),
+				 ModelPackage.Literals.COMPARTMENT__FULL_NAME,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -144,6 +167,7 @@ public class CompartmentItemProvider extends HardwareElementItemProvider {
 
 		switch (notification.getFeatureID(Compartment.class)) {
 			case ModelPackage.COMPARTMENT__POWER_SUPPLY:
+			case ModelPackage.COMPARTMENT__FULL_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.COMPARTMENT__BOXES:

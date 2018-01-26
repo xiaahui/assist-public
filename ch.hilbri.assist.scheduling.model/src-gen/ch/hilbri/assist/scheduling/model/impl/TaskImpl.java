@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.TaskImpl#getRamUtilization <em>Ram Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.TaskImpl#getRomUtilization <em>Rom Utilization</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.TaskImpl#getApplication <em>Application</em>}</li>
+ *   <li>{@link ch.hilbri.assist.scheduling.model.impl.TaskImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.TaskImpl#getAssignedCore <em>Assigned Core</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.TaskImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.TaskImpl#getPeriod <em>Period</em>}</li>
@@ -116,6 +117,16 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * @ordered
 	 */
 	protected int romUtilization = ROM_UTILIZATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FULL_NAME_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getAssignedCore() <em>Assigned Core</em>}' reference.
@@ -465,6 +476,18 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getFullName() {
+		String _name = this.getApplication().getName();
+		String _plus = (_name + ".");
+		String _name_1 = this.getName();
+		return (_plus + _name_1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Core getAssignedCore() {
 		if (assignedCore != null && assignedCore.eIsProxy()) {
 			InternalEObject oldAssignedCore = (InternalEObject)assignedCore;
@@ -785,6 +808,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 			case ModelPackage.TASK__APPLICATION:
 				if (resolve) return getApplication();
 				return basicGetApplication();
+			case ModelPackage.TASK__FULL_NAME:
+				return getFullName();
 			case ModelPackage.TASK__ASSIGNED_CORE:
 				if (resolve) return getAssignedCore();
 				return basicGetAssignedCore();
@@ -953,6 +978,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return romUtilization != ROM_UTILIZATION_EDEFAULT;
 			case ModelPackage.TASK__APPLICATION:
 				return basicGetApplication() != null;
+			case ModelPackage.TASK__FULL_NAME:
+				return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
 			case ModelPackage.TASK__ASSIGNED_CORE:
 				return assignedCore != null;
 			case ModelPackage.TASK__DURATION:

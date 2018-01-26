@@ -201,19 +201,10 @@ public class CoreImpl extends HardwareElementImpl implements Core {
 	 * @generated
 	 */
 	public String getFullName() {
-		String _name = this.getProcessor().getBoard().getBox().getCompartment().getName();
-		String _plus = (_name + ".");
-		String _name_1 = this.getProcessor().getBoard().getBox().getName();
-		String _plus_1 = (_plus + _name_1);
-		String _plus_2 = (_plus_1 + ".");
-		String _name_2 = this.getProcessor().getBoard().getName();
-		String _plus_3 = (_plus_2 + _name_2);
-		String _plus_4 = (_plus_3 + ".");
-		String _name_3 = this.getProcessor().getName();
-		String _plus_5 = (_plus_4 + _name_3);
-		String _plus_6 = (_plus_5 + ".");
-		String _name_4 = this.getName();
-		return (_plus_6 + _name_4);
+		String _fullName = this.getProcessor().getFullName();
+		String _plus = (_fullName + ".");
+		String _name = this.getName();
+		return (_plus + _name);
 	}
 
 	/**

@@ -42,6 +42,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link ch.hilbri.assist.scheduling.model.impl.BoxImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.BoxImpl#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.BoxImpl#getBoards <em>Boards</em>}</li>
  * </ul>
@@ -49,6 +50,16 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * @generated
  */
 public class BoxImpl extends HardwareElementImpl implements Box {
+	/**
+	 * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FULL_NAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getBoards() <em>Boards</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -76,6 +87,18 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 	@Override
 	protected EClass eStaticClass() {
 		return ModelPackage.Literals.BOX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getFullName() {
+		String _fullName = this.getCompartment().getFullName();
+		String _plus = (_fullName + ".");
+		String _name = this.getName();
+		return (_plus + _name);
 	}
 
 	/**
@@ -235,6 +258,8 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ModelPackage.BOX__FULL_NAME:
+				return getFullName();
 			case ModelPackage.BOX__COMPARTMENT:
 				if (resolve) return getCompartment();
 				return basicGetCompartment();
@@ -290,6 +315,8 @@ public class BoxImpl extends HardwareElementImpl implements Box {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ModelPackage.BOX__FULL_NAME:
+				return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
 			case ModelPackage.BOX__COMPARTMENT:
 				return basicGetCompartment() != null;
 			case ModelPackage.BOX__BOARDS:

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Application#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.scheduling.model.Application#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Application#getDevelopedBy <em>Developed By</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Application#getCriticalityLevel <em>Criticality Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Application#getTasks <em>Tasks</em>}</li>
@@ -54,6 +55,22 @@ public interface Application extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Full Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Full Name</em>' attribute.
+	 * @see ch.hilbri.assist.scheduling.model.ModelPackage#getApplication_FullName()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='return this.getName();'"
+	 * @generated
+	 */
+	String getFullName();
 
 	/**
 	 * Returns the value of the '<em><b>Developed By</b></em>' attribute.

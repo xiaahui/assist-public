@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Processor#getProcessorType <em>Processor Type</em>}</li>
+ *   <li>{@link ch.hilbri.assist.scheduling.model.Processor#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Processor#getBoard <em>Board</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Processor#getCores <em>Cores</em>}</li>
  * </ul>
@@ -49,6 +50,22 @@ public interface Processor extends HardwareElement {
 	 * @generated
 	 */
 	void setProcessorType(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Full Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Full Name</em>' attribute.
+	 * @see ch.hilbri.assist.scheduling.model.ModelPackage#getProcessor_FullName()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _fullName = this.getBoard().getFullName();\n&lt;%java.lang.String%&gt; _plus = (_fullName + \".\");\n&lt;%java.lang.String%&gt; _name = this.getName();\nreturn (_plus + _name);'"
+	 * @generated
+	 */
+	String getFullName();
 
 	/**
 	 * Returns the value of the '<em><b>Board</b></em>' container reference.

@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link ch.hilbri.assist.scheduling.model.Box#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Box#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Box#getBoards <em>Boards</em>}</li>
  * </ul>
@@ -22,6 +23,22 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Box extends HardwareElement {
+	/**
+	 * Returns the value of the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Full Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Full Name</em>' attribute.
+	 * @see ch.hilbri.assist.scheduling.model.ModelPackage#getBox_FullName()
+	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _fullName = this.getCompartment().getFullName();\n&lt;%java.lang.String%&gt; _plus = (_fullName + \".\");\n&lt;%java.lang.String%&gt; _name = this.getName();\nreturn (_plus + _name);'"
+	 * @generated
+	 */
+	String getFullName();
+
 	/**
 	 * Returns the value of the '<em><b>Compartment</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link ch.hilbri.assist.scheduling.model.Compartment#getBoxes <em>Boxes</em>}'.

@@ -49,6 +49,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.BoardImpl#getAssuranceLevel <em>Assurance Level</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.BoardImpl#getRamCapacity <em>Ram Capacity</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.BoardImpl#getRomCapacity <em>Rom Capacity</em>}</li>
+ *   <li>{@link ch.hilbri.assist.scheduling.model.impl.BoardImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.BoardImpl#getBox <em>Box</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.BoardImpl#getProcessors <em>Processors</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.BoardImpl#getIoAdapters <em>Io Adapters</em>}</li>
@@ -156,6 +157,16 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * @ordered
 	 */
 	protected int romCapacity = ROM_CAPACITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FULL_NAME_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getProcessors() <em>Processors</em>}' containment reference list.
@@ -299,6 +310,18 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 		romCapacity = newRomCapacity;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOARD__ROM_CAPACITY, oldRomCapacity, romCapacity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getFullName() {
+		String _fullName = this.getBox().getFullName();
+		String _plus = (_fullName + ".");
+		String _name = this.getName();
+		return (_plus + _name);
 	}
 
 	/**
@@ -477,6 +500,8 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 				return getRamCapacity();
 			case ModelPackage.BOARD__ROM_CAPACITY:
 				return getRomCapacity();
+			case ModelPackage.BOARD__FULL_NAME:
+				return getFullName();
 			case ModelPackage.BOARD__BOX:
 				if (resolve) return getBox();
 				return basicGetBox();
@@ -581,6 +606,8 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 				return ramCapacity != RAM_CAPACITY_EDEFAULT;
 			case ModelPackage.BOARD__ROM_CAPACITY:
 				return romCapacity != ROM_CAPACITY_EDEFAULT;
+			case ModelPackage.BOARD__FULL_NAME:
+				return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
 			case ModelPackage.BOARD__BOX:
 				return basicGetBox() != null;
 			case ModelPackage.BOARD__PROCESSORS:
