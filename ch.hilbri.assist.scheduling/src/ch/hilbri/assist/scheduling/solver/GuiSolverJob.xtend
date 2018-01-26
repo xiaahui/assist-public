@@ -80,7 +80,7 @@ class GuiSolverJob extends Job {
 					val message = "No solutions were found during the maximum allowed search time." 
 					Display::^default.asyncExec([MessageDialog::openError(PlatformUI::workbench.activeWorkbenchWindow.shell, "Result", message)] as Runnable)
 				} else {
-					val message = "There are no solutions for this deployment specification."
+					val message = "There are no solutions for this scheduling specification."
 					Display::^default.asyncExec([MessageDialog::openError(PlatformUI::workbench.activeWorkbenchWindow.shell, "Result", message)] as Runnable)
 				}
 			}

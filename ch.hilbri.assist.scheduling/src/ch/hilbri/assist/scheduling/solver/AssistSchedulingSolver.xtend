@@ -21,6 +21,7 @@ import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import ch.hilbri.assist.scheduling.solver.exceptions.HyperPeriodLengthException
+import ch.hilbri.assist.scheduling.solver.constraints.OnlyOneTaskPerTimePerCoreConstraint
 
 class AssistSchedulingSolver {
 	
@@ -61,6 +62,7 @@ class AssistSchedulingSolver {
 		solverVariables			= new SolverVariablesContainer(assistModel, chocoModel)
 		
 		schedulingConstraintsList 	= newArrayList
+		schedulingConstraintsList.add(new OnlyOneTaskPerTimePerCoreConstraint(assistModel, chocoModel, solverVariables))
 
 		schedulingResults 			= newArrayList  
 	}	
