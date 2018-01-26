@@ -183,6 +183,7 @@ type Task2ExecutionInstancesMapType wraps HashMap<Task, List<TaskExecutionInstan
 
 class AssistModelSchedulingResult {
 	String name = ""
+	int hyperPeriodLength = "-1"
 	refers AssistModelScheduling 	model
 	Task2ExecutionInstancesMapType 	schedule
 }

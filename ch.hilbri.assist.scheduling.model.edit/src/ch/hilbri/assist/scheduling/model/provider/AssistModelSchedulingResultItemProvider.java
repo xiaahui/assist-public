@@ -60,6 +60,7 @@ public class AssistModelSchedulingResultItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addHyperPeriodLengthPropertyDescriptor(object);
 			addModelPropertyDescriptor(object);
 			addSchedulePropertyDescriptor(object);
 		}
@@ -84,6 +85,28 @@ public class AssistModelSchedulingResultItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Hyper Period Length feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHyperPeriodLengthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AssistModelSchedulingResult_hyperPeriodLength_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModelSchedulingResult_hyperPeriodLength_feature", "_UI_AssistModelSchedulingResult_type"),
+				 ModelPackage.Literals.ASSIST_MODEL_SCHEDULING_RESULT__HYPER_PERIOD_LENGTH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -171,6 +194,7 @@ public class AssistModelSchedulingResultItemProvider
 
 		switch (notification.getFeatureID(AssistModelSchedulingResult.class)) {
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__NAME:
+			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__HYPER_PERIOD_LENGTH:
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__SCHEDULE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

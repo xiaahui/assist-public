@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingResultImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingResultImpl#getHyperPeriodLength <em>Hyper Period Length</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingResultImpl#getModel <em>Model</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingResultImpl#getSchedule <em>Schedule</em>}</li>
  * </ul>
@@ -54,6 +55,26 @@ public class AssistModelSchedulingResultImpl extends MinimalEObjectImpl.Containe
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getHyperPeriodLength() <em>Hyper Period Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHyperPeriodLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int HYPER_PERIOD_LENGTH_EDEFAULT = -1;
+
+	/**
+	 * The cached value of the '{@link #getHyperPeriodLength() <em>Hyper Period Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHyperPeriodLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected int hyperPeriodLength = HYPER_PERIOD_LENGTH_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
@@ -113,6 +134,27 @@ public class AssistModelSchedulingResultImpl extends MinimalEObjectImpl.Containe
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getHyperPeriodLength() {
+		return hyperPeriodLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHyperPeriodLength(int newHyperPeriodLength) {
+		int oldHyperPeriodLength = hyperPeriodLength;
+		hyperPeriodLength = newHyperPeriodLength;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__HYPER_PERIOD_LENGTH, oldHyperPeriodLength, hyperPeriodLength));
 	}
 
 	/**
@@ -184,6 +226,8 @@ public class AssistModelSchedulingResultImpl extends MinimalEObjectImpl.Containe
 		switch (featureID) {
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__NAME:
 				return getName();
+			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__HYPER_PERIOD_LENGTH:
+				return getHyperPeriodLength();
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__MODEL:
 				if (resolve) return getModel();
 				return basicGetModel();
@@ -204,6 +248,9 @@ public class AssistModelSchedulingResultImpl extends MinimalEObjectImpl.Containe
 		switch (featureID) {
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__NAME:
 				setName((String)newValue);
+				return;
+			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__HYPER_PERIOD_LENGTH:
+				setHyperPeriodLength((Integer)newValue);
 				return;
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__MODEL:
 				setModel((AssistModelScheduling)newValue);
@@ -226,6 +273,9 @@ public class AssistModelSchedulingResultImpl extends MinimalEObjectImpl.Containe
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__HYPER_PERIOD_LENGTH:
+				setHyperPeriodLength(HYPER_PERIOD_LENGTH_EDEFAULT);
+				return;
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__MODEL:
 				setModel((AssistModelScheduling)null);
 				return;
@@ -246,6 +296,8 @@ public class AssistModelSchedulingResultImpl extends MinimalEObjectImpl.Containe
 		switch (featureID) {
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__HYPER_PERIOD_LENGTH:
+				return hyperPeriodLength != HYPER_PERIOD_LENGTH_EDEFAULT;
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__MODEL:
 				return model != null;
 			case ModelPackage.ASSIST_MODEL_SCHEDULING_RESULT__SCHEDULE:
@@ -266,6 +318,8 @@ public class AssistModelSchedulingResultImpl extends MinimalEObjectImpl.Containe
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", hyperPeriodLength: ");
+		result.append(hyperPeriodLength);
 		result.append(", schedule: ");
 		result.append(schedule);
 		result.append(')');

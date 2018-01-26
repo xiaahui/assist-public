@@ -1290,13 +1290,22 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL_SCHEDULING_RESULT__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Hyper Period Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_SCHEDULING_RESULT__HYPER_PERIOD_LENGTH = 1;
+
+	/**
 	 * The feature id for the '<em><b>Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_SCHEDULING_RESULT__MODEL = 1;
+	int ASSIST_MODEL_SCHEDULING_RESULT__MODEL = 2;
 
 	/**
 	 * The feature id for the '<em><b>Schedule</b></em>' attribute.
@@ -1305,7 +1314,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_SCHEDULING_RESULT__SCHEDULE = 2;
+	int ASSIST_MODEL_SCHEDULING_RESULT__SCHEDULE = 3;
 
 	/**
 	 * The number of structural features of the '<em>Assist Model Scheduling Result</em>' class.
@@ -1314,7 +1323,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_SCHEDULING_RESULT_FEATURE_COUNT = 3;
+	int ASSIST_MODEL_SCHEDULING_RESULT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Assist Model Scheduling Result</em>' class.
@@ -2436,6 +2445,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getAssistModelSchedulingResult_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult#getHyperPeriodLength <em>Hyper Period Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hyper Period Length</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult#getHyperPeriodLength()
+	 * @see #getAssistModelSchedulingResult()
+	 * @generated
+	 */
+	EAttribute getAssistModelSchedulingResult_HyperPeriodLength();
+
+	/**
 	 * Returns the meta object for the reference '{@link ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult#getModel <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3346,6 +3366,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ASSIST_MODEL_SCHEDULING_RESULT__NAME = eINSTANCE.getAssistModelSchedulingResult_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Hyper Period Length</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSIST_MODEL_SCHEDULING_RESULT__HYPER_PERIOD_LENGTH = eINSTANCE.getAssistModelSchedulingResult_HyperPeriodLength();
 
 		/**
 		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.

@@ -9,6 +9,7 @@ import org.eclipse.nebula.widgets.ganttchart.GanttChart;
 import org.eclipse.nebula.widgets.ganttchart.GanttEvent;
 import org.eclipse.nebula.widgets.ganttchart.GanttFlags;
 import org.eclipse.nebula.widgets.ganttchart.GanttGroup;
+import org.eclipse.nebula.widgets.ganttchart.GanttPhase;
 import org.eclipse.nebula.widgets.ganttchart.GanttSection;
 import org.eclipse.nebula.widgets.ganttchart.IColorManager;
 import org.eclipse.nebula.widgets.ganttchart.ISettings;
@@ -57,8 +58,10 @@ public class DetailedResults extends Composite {
 
 		/* Create the sections for all cores */
 		Map<Core, GanttSection> coreSections = new HashMap<Core, GanttSection>();
-		for (Core core : result.getModel().getAllCores()) 
-			coreSections.put(core, new GanttSection(ganttChart, core.getFullName()));
+		for (Core core : result.getModel().getAllCores()) {
+			GanttSection newSection = new GanttSection(ganttChart, core.getName());
+			coreSections.put(core, newSection);
+		}
 		
 		/* Create all the events */
 		for (Task task : result.getModel().getAllTasks()) {
@@ -70,7 +73,16 @@ public class DetailedResults extends Composite {
 				createEventsForExecutionInstances(task, taskSchedule, coreSection);
 			}
 		}
-			
+		
+		/* Create a gantt phase for the hyper period */
+		Calendar cal = (Calendar) ganttChart.getSettings().getDDayRootCalendar().clone();
+		final Calendar start = (Calendar) cal.clone();
+		final Calendar end = (Calendar) cal.clone();
+		end.add(Calendar.DATE, result.getHyperPeriodLength());
+		GanttPhase phase = new GanttPhase(ganttChart, start, end, "Hyperperiod (length=" + result.getHyperPeriodLength() + ")");
+		phase.setMoveable(false);
+		phase.setResizable(false);
+		
 		/* This is necessary to avoid redraw problems */
 		layout(true, true);
 	}

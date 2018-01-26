@@ -26,6 +26,7 @@ class ResultFactoryFromSolverSolutions {
 			val result = f.createAssistModelSchedulingResult => [
 				name = "Solution "+ solNumber + " of " + solTotalCount
 				model = assistModel
+				hyperPeriodLength = solverVariables.hypLength
 
 				/* Create the schedule */
 				schedule = new HashMap
