@@ -1,6 +1,7 @@
 package ch.hilbri.assist.scheduling.ui.multipageeditor;
 
 import org.eclipse.nebula.widgets.ganttchart.AbstractSettings;
+import org.eclipse.nebula.widgets.ganttchart.ISectionDetailContentReplacer;
 import org.eclipse.nebula.widgets.ganttchart.ISettings;
 import org.eclipse.swt.SWT;
 
@@ -16,7 +17,7 @@ class GanttSettings extends AbstractSettings {
 	public boolean showDateTips() {
 		return false;
 	}
-	
+
 	public int getSectionSide() {
 		return SWT.LEFT;
 	}
@@ -40,7 +41,7 @@ class GanttSettings extends AbstractSettings {
 	public boolean showMenuItemsOnRightClick() {
 		return false;
 	}
-	
+
 	public boolean showDefaultMenuItemsOnEventRightClick() {
 		return false;
 	}
@@ -79,7 +80,7 @@ class GanttSettings extends AbstractSettings {
 	public boolean enableTodayLineUpdater() {
 		return true;
 	}
-	
+
 	public boolean enableDragAndDrop() {
 		return false;
 	}
@@ -87,5 +88,30 @@ class GanttSettings extends AbstractSettings {
 	public boolean showZoomLevelBox() {
 		return true;
 	}
+
+	public boolean drawSectionDetails() {
+		return true;
+	}
+
+	public int getSectionDetailWidth() {
+		return 100;
+	}
+
+	public String getSectionDetailTitle() {
+		return "\\b\\s8\\ceCore: #name#";
+	}
+	
+    public String getSectionDetailText() {
+		return "\\ceTasks: #ne#";
+    }
+    
+    public ISectionDetailContentReplacer getSectionDetailContentReplacer() {
+    	return null;
+    }
+	
+    public boolean allowBlankAreaDragAndDropToMoveDates() {
+		return false;
+	}
+	
 
 }

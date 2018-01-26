@@ -79,7 +79,7 @@ public class DetailedResults extends Composite {
 		final Calendar start = (Calendar) cal.clone();
 		final Calendar end = (Calendar) cal.clone();
 		end.add(Calendar.DATE, result.getHyperPeriodLength());
-		GanttPhase phase = new GanttPhase(ganttChart, start, end, "Hyperperiod (length=" + result.getHyperPeriodLength() + ")");
+		GanttPhase phase = new GanttPhase(ganttChart, start, end, "Hyperperiod [0, " + result.getHyperPeriodLength() + "]");
 		phase.setMoveable(false);
 		phase.setResizable(false);
 		
