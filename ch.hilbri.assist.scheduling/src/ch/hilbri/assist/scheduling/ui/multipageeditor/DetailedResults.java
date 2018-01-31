@@ -12,28 +12,32 @@ import org.eclipse.nebula.widgets.ganttchart.GanttGroup;
 import org.eclipse.nebula.widgets.ganttchart.GanttPhase;
 import org.eclipse.nebula.widgets.ganttchart.GanttSection;
 import org.eclipse.nebula.widgets.ganttchart.IColorManager;
+import org.eclipse.nebula.widgets.ganttchart.ISectionDetailContentReplacer;
 import org.eclipse.nebula.widgets.ganttchart.ISettings;
 import org.eclipse.nebula.widgets.ganttchart.themes.ColorThemeWindowsBlue;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.wb.swt.SWTResourceManager;
 
 import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult;
 import ch.hilbri.assist.scheduling.model.Core;
+import ch.hilbri.assist.scheduling.model.Processor;
 import ch.hilbri.assist.scheduling.model.Task;
 import ch.hilbri.assist.scheduling.model.TaskExecutionInstance;
 
-public class DetailedResults extends Composite {
+public class DetailedResults extends Composite implements ISectionDetailContentReplacer {
 	@SuppressWarnings("unused")
 	private MultiPageEditor multiPageEditor;
 	private GanttChart ganttChart;
 	private Composite ganttComposite;	
 	
+	private Map<Processor, GanttSection> processorSections;
+	private Map<Core, GanttGroup> coreGroups;
+	
 	/* Settings for the Gantt-Chart */
 	private final int ganttFlags 				= GanttFlags.H_SCROLL_FIXED_RANGE | SWT.SINGLE;
-	private final ISettings ganttSettings 		= new GanttSettings();
-	private final IColorManager ganttColorTheme = new ColorThemeWindowsBlue();
+	private final ISettings ganttSettings 		= new GanttSettings(this);
+	private final IColorManager ganttColorTheme 	= new ColorThemeWindowsBlue();
 
 	public DetailedResults(MultiPageEditor mpe, Composite parent, int style) {
 		super(parent, style);
@@ -44,7 +48,7 @@ public class DetailedResults extends Composite {
 		ganttComposite.setLayout(new FillLayout(SWT.HORIZONTAL));
 
 		ganttChart = new GanttChart(ganttComposite, ganttFlags, ganttSettings, ganttColorTheme);
-		ganttChart.getGanttComposite().setFont(SWTResourceManager.getFont("Segoe UI", 8, SWT.NORMAL));
+//		ganttChart.getGanttComposite().setFont(SWTResourceManager.getFont("Segoe UI", 8, SWT.NORMAL));
 	}
 	
 	
@@ -54,13 +58,21 @@ public class DetailedResults extends Composite {
 		/* Remove the old chart and create a new one */
 		ganttChart.dispose();
 		ganttChart = new GanttChart(ganttComposite, ganttFlags, ganttSettings, ganttColorTheme);
-		ganttChart.getGanttComposite().setFont(SWTResourceManager.getFont("Segoe UI", 8, SWT.NORMAL));
+//		ganttChart.getGanttComposite().setFont(SWTResourceManager.getFont("Segoe UI", 8, SWT.NORMAL));
 
-		/* Create the sections for all cores */
-		Map<Core, GanttSection> coreSections = new HashMap<Core, GanttSection>();
+		/* We want to create:
+		 *    - a gantt section for each processor
+		 *    - a gantt group for each core within the section of each processor
+		 */
+		processorSections = new HashMap<Processor, GanttSection>();
+		for (Processor proc : result.getModel().getAllProcessors()) 
+			processorSections.put(proc, new GanttSection(ganttChart, ""));
+		
+		coreGroups = new HashMap<Core, GanttGroup>();
 		for (Core core : result.getModel().getAllCores()) {
-			GanttSection newSection = new GanttSection(ganttChart, core.getName());
-			coreSections.put(core, newSection);
+			GanttGroup newGroup = new GanttGroup(ganttChart);
+			coreGroups.put(core, newGroup);
+			processorSections.get(core.getProcessor()).addGanttEvent(newGroup);
 		}
 		
 		/* Create all the events */
@@ -69,8 +81,8 @@ public class DetailedResults extends Composite {
 			if (result.getSchedule().containsKey(task)) {
 				/* Create all events for this task */
 				List<TaskExecutionInstance> taskSchedule = result.getSchedule().get(task);
-				GanttSection coreSection = coreSections.get(task.getAssignedCore());
-				createEventsForExecutionInstances(task, taskSchedule, coreSection);
+				GanttGroup coreGroup = coreGroups.get(task.getAssignedCore());
+				createEventsForExecutionInstances(task, taskSchedule, coreGroup);
 			}
 		}
 		
@@ -87,10 +99,9 @@ public class DetailedResults extends Composite {
 		layout(true, true);
 	}
 	
-	private void createEventsForExecutionInstances(Task task, List<TaskExecutionInstance> schedule, GanttSection coreSection) {
+	private void createEventsForExecutionInstances(Task task, List<TaskExecutionInstance> schedule, GanttGroup coreGroup) {
 		Calendar cal = (Calendar) ganttChart.getSettings().getDDayRootCalendar().clone();
 
-		GanttGroup group = new GanttGroup(ganttChart);
 		for (TaskExecutionInstance instance : schedule) {
 			final Calendar start = (Calendar) cal.clone();
 			start.add(Calendar.DATE, instance.getBegin());
@@ -100,10 +111,13 @@ public class DetailedResults extends Composite {
 
 			String eventName = task.getApplication().getName() + "." + task.getName() + " [" + schedule.indexOf(instance) +"]"; 
 			GanttEvent event = new GanttEvent(ganttChart, eventName, start, end, 0);
-			group.addEvent(event);
+			coreGroup.addEvent(event);
 		}
-		
-		coreSection.addGanttEvent(group);
+	}
+
+	@Override
+	public String replaceSectionDetailPlaceHolder(GanttSection section, String sectionDetailPattern) {
+		return "HuhU";
 	}
 
 }

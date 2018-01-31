@@ -6,6 +6,12 @@ import org.eclipse.nebula.widgets.ganttchart.ISettings;
 import org.eclipse.swt.SWT;
 
 class GanttSettings extends AbstractSettings {
+	private DetailedResults resultsView;
+	
+	public GanttSettings(DetailedResults detailedResults) {
+		resultsView = detailedResults;
+	}
+
 	public boolean drawHeader() {
 		return true;
 	}
@@ -93,25 +99,55 @@ class GanttSettings extends AbstractSettings {
 		return true;
 	}
 
+	public boolean drawSectionBar() {
+		return true;
+	}
+
 	public int getSectionDetailWidth() {
 		return 100;
 	}
 
-	public String getSectionDetailTitle() {
-		return "\\b\\s8\\ceCore: #name#";
+	public int getSectionBarWidth() {
+		return 5;
 	}
-	
-    public String getSectionDetailText() {
-		return "\\ceTasks: #ne#";
-    }
-    
-    public ISectionDetailContentReplacer getSectionDetailContentReplacer() {
-    	return null;
-    }
-	
-    public boolean allowBlankAreaDragAndDropToMoveDates() {
+
+	public int getMinimumSectionHeight() {
+		return 40;
+	}
+
+	public int getSectionTextSpacer() {
+		return 0;
+	}
+
+	public String getSectionDetailTitle() {
+		return "TITLE";
+	}
+
+	public String getSectionDetailText() {
+		return "DETAILS";
+	}
+
+	public ISectionDetailContentReplacer getSectionDetailContentReplacer() {
+		return resultsView;
+	}
+
+	public boolean allowBlankAreaDragAndDropToMoveDates() {
 		return false;
 	}
-	
 
+	public boolean enableResizing() {
+		return false;
+	}
+
+	public boolean allowArrowKeysToScrollChart() {
+		return false;
+	}
+
+	public boolean drawSelectionMarkerAroundSelectedEvent() {
+		return false;
+	}
+
+	public int getPhasesHeaderHeight() {
+		return 24;
+	}
 }
