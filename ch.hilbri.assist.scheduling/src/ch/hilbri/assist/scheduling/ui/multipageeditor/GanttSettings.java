@@ -104,7 +104,7 @@ class GanttSettings extends AbstractSettings {
 	}
 
 	public int getSectionDetailWidth() {
-		return 100;
+		return 150;
 	}
 
 	public int getSectionBarWidth() {
@@ -112,7 +112,7 @@ class GanttSettings extends AbstractSettings {
 	}
 
 	public int getMinimumSectionHeight() {
-		return 40;
+		return 80;
 	}
 
 	public int getSectionTextSpacer() {

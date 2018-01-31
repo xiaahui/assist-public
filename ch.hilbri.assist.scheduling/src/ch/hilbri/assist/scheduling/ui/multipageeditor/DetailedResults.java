@@ -31,8 +31,10 @@ public class DetailedResults extends Composite implements ISectionDetailContentR
 	private GanttChart ganttChart;
 	private Composite ganttComposite;	
 	
-	private Map<Processor, GanttSection> processorSections;
-	private Map<Core, GanttGroup> coreGroups;
+	/* We need to store the links between processors and sections */
+	private Map<Processor, GanttSection> processor2ganttsectionsMap;
+	private Map<GanttSection, Processor> ganttsections2processorMap;
+	private Map<Core, GanttGroup> core2ganttgroupsMap;
 	
 	/* Settings for the Gantt-Chart */
 	private final int ganttFlags 				= GanttFlags.H_SCROLL_FIXED_RANGE | SWT.SINGLE;
@@ -61,18 +63,22 @@ public class DetailedResults extends Composite implements ISectionDetailContentR
 //		ganttChart.getGanttComposite().setFont(SWTResourceManager.getFont("Segoe UI", 8, SWT.NORMAL));
 
 		/* We want to create:
-		 *    - a gantt section for each processor
+		 *    - a gantt section for each processor (both links)
 		 *    - a gantt group for each core within the section of each processor
 		 */
-		processorSections = new HashMap<Processor, GanttSection>();
-		for (Processor proc : result.getModel().getAllProcessors()) 
-			processorSections.put(proc, new GanttSection(ganttChart, ""));
+		processor2ganttsectionsMap = new HashMap<Processor, GanttSection>();
+		ganttsections2processorMap = new HashMap<GanttSection, Processor>();
+		for (Processor proc : result.getModel().getAllProcessors())  {
+			GanttSection newSection = new GanttSection(ganttChart, "");  // we want to have an empty name of the section to avoid UI clutter
+			processor2ganttsectionsMap.put(proc, newSection);
+			ganttsections2processorMap.put(newSection, proc);
+		}
 		
-		coreGroups = new HashMap<Core, GanttGroup>();
+		core2ganttgroupsMap = new HashMap<Core, GanttGroup>();
 		for (Core core : result.getModel().getAllCores()) {
 			GanttGroup newGroup = new GanttGroup(ganttChart);
-			coreGroups.put(core, newGroup);
-			processorSections.get(core.getProcessor()).addGanttEvent(newGroup);
+			core2ganttgroupsMap.put(core, newGroup);
+			processor2ganttsectionsMap.get(core.getProcessor()).addGanttEvent(newGroup);
 		}
 		
 		/* Create all the events */
@@ -81,7 +87,7 @@ public class DetailedResults extends Composite implements ISectionDetailContentR
 			if (result.getSchedule().containsKey(task)) {
 				/* Create all events for this task */
 				List<TaskExecutionInstance> taskSchedule = result.getSchedule().get(task);
-				GanttGroup coreGroup = coreGroups.get(task.getAssignedCore());
+				GanttGroup coreGroup = core2ganttgroupsMap.get(task.getAssignedCore());
 				createEventsForExecutionInstances(task, taskSchedule, coreGroup);
 			}
 		}
@@ -115,9 +121,48 @@ public class DetailedResults extends Composite implements ISectionDetailContentR
 		}
 	}
 
+	/* This is called to retrieve the text details for the section details in the gantt chart 
+	 * 
+	 * the magic keywords TITLE/DETAILS are defined in the GanttSettings class
+	 * */
 	@Override
 	public String replaceSectionDetailPlaceHolder(GanttSection section, String sectionDetailPattern) {
-		return "HuhU";
+		Processor proc = ganttsections2processorMap.get(section);
+		if (proc == null)
+			return "<unknown processor>";
+		
+		/* We are asked about the title */
+		if (sectionDetailPattern.toUpperCase().equals("TITLE")) {
+			/* Reduce the length of the name if it would become too long */
+			String procName = proc.getName();
+			if (procName.length() > 15) 
+				procName = procName.substring(0, 15) + "...";
+			return procName;
+		} 
+		
+		/* We are asked about the details for this processor */
+		else if (sectionDetailPattern.toUpperCase().equals("DETAILS")) {
+			String board = proc.getBoard().getName();
+			if (board.length() > 15) board = board.substring(0, 15) + "...";
+			
+			String vendor = proc.getManufacturer();
+			if (vendor.isEmpty()) vendor = "-";
+			if (vendor.length() > 15) vendor = vendor.substring(0, 15) + "...";
+				
+			String ptype = proc.getProcessorType();
+			if (ptype.isEmpty()) ptype = "-";
+			if (ptype.length() > 15) ptype = ptype.substring(0, 15) + "...";
+			
+			String coreCount = "" + proc.getCores().size();
+			
+			// s9 - size 9pt, b - bold font
+			return  	"\\s9Board:  \\s9\\b" + board    + "\n" + 
+					"\\s9Vendor: \\s9\\b" + vendor 	+ "\n" + 
+					"\\s9Type:   \\s9\\b" + ptype	+ "\n" + 
+					"\\s9Cores:  \\s9\\b" + coreCount    
+					;
+		} else
+			return "<unknown pattern>";
 	}
 
 }
