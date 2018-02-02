@@ -156,10 +156,10 @@ public class DetailedResults extends Composite implements ISectionDetailContentR
 			String coreCount = "" + proc.getCores().size();
 			
 			// s9 - size 9pt, b - bold font
-			return  	"\\s9Board:  \\s9\\b" + board    + "\n" + 
-					"\\s9Vendor: \\s9\\b" + vendor 	+ "\n" + 
-					"\\s9Type:   \\s9\\b" + ptype	+ "\n" + 
-					"\\s9Cores:  \\s9\\b" + coreCount    
+			return  	"\\s8Board:  \\s8\\b" + board    + "\n" + 
+					"\\s8Vendor: \\s8\\b" + vendor 	+ "\n" + 
+					"\\s8Type:   \\s8\\b" + ptype	+ "\n" + 
+					"\\s8Cores:  \\s8\\b" + coreCount    
 					;
 		} else
 			return "<unknown pattern>";
