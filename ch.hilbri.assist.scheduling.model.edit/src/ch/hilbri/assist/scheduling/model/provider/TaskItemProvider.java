@@ -78,6 +78,7 @@ public class TaskItemProvider
 			addAddInitTimePropertyDescriptor(object);
 			addSlicesPropertyDescriptor(object);
 			addMinSliceDurationPropertyDescriptor(object);
+			addPeriodicityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -413,6 +414,28 @@ public class TaskItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Periodicity feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPeriodicityPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_periodicity_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_periodicity_feature", "_UI_Task_type"),
+				 ModelPackage.Literals.TASK__PERIODICITY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -494,6 +517,7 @@ public class TaskItemProvider
 			case ModelPackage.TASK__ADD_INIT_TIME:
 			case ModelPackage.TASK__SLICES:
 			case ModelPackage.TASK__MIN_SLICE_DURATION:
+			case ModelPackage.TASK__PERIODICITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:

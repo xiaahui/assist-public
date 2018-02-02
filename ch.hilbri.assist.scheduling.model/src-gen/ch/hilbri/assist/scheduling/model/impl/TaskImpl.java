@@ -7,6 +7,7 @@ import ch.hilbri.assist.scheduling.model.Core;
 import ch.hilbri.assist.scheduling.model.IOAdapterRequirement;
 import ch.hilbri.assist.scheduling.model.MetricParameter;
 import ch.hilbri.assist.scheduling.model.ModelPackage;
+import ch.hilbri.assist.scheduling.model.PeriodicityType;
 import ch.hilbri.assist.scheduling.model.Task;
 
 import java.lang.reflect.InvocationTargetException;
@@ -51,6 +52,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.TaskImpl#getAddInitTime <em>Add Init Time</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.TaskImpl#getSlices <em>Slices</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.TaskImpl#getMinSliceDuration <em>Min Slice Duration</em>}</li>
+ *   <li>{@link ch.hilbri.assist.scheduling.model.impl.TaskImpl#getPeriodicity <em>Periodicity</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.TaskImpl#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.TaskImpl#getMetricParameters <em>Metric Parameters</em>}</li>
  * </ul>
@@ -317,6 +319,26 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * @ordered
 	 */
 	protected int minSliceDuration = MIN_SLICE_DURATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPeriodicity() <em>Periodicity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPeriodicity()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final PeriodicityType PERIODICITY_EDEFAULT = PeriodicityType.FIXED;
+
+	/**
+	 * The cached value of the '{@link #getPeriodicity() <em>Periodicity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPeriodicity()
+	 * @generated
+	 * @ordered
+	 */
+	protected PeriodicityType periodicity = PERIODICITY_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getIoAdapterRequirements() <em>Io Adapter Requirements</em>}' containment reference list.
@@ -715,6 +737,27 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PeriodicityType getPeriodicity() {
+		return periodicity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPeriodicity(PeriodicityType newPeriodicity) {
+		PeriodicityType oldPeriodicity = periodicity;
+		periodicity = newPeriodicity == null ? PERIODICITY_EDEFAULT : newPeriodicity;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.TASK__PERIODICITY, oldPeriodicity, periodicity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<IOAdapterRequirement> getIoAdapterRequirements() {
 		if (ioAdapterRequirements == null) {
 			ioAdapterRequirements = new EObjectContainmentEList<IOAdapterRequirement>(IOAdapterRequirement.class, this, ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS);
@@ -831,6 +874,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return getSlices();
 			case ModelPackage.TASK__MIN_SLICE_DURATION:
 				return getMinSliceDuration();
+			case ModelPackage.TASK__PERIODICITY:
+				return getPeriodicity();
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
 				return getIoAdapterRequirements();
 			case ModelPackage.TASK__METRIC_PARAMETERS:
@@ -889,6 +934,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return;
 			case ModelPackage.TASK__MIN_SLICE_DURATION:
 				setMinSliceDuration((Integer)newValue);
+				return;
+			case ModelPackage.TASK__PERIODICITY:
+				setPeriodicity((PeriodicityType)newValue);
 				return;
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
 				getIoAdapterRequirements().clear();
@@ -952,6 +1000,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 			case ModelPackage.TASK__MIN_SLICE_DURATION:
 				setMinSliceDuration(MIN_SLICE_DURATION_EDEFAULT);
 				return;
+			case ModelPackage.TASK__PERIODICITY:
+				setPeriodicity(PERIODICITY_EDEFAULT);
+				return;
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
 				getIoAdapterRequirements().clear();
 				return;
@@ -1000,6 +1051,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return slices != SLICES_EDEFAULT;
 			case ModelPackage.TASK__MIN_SLICE_DURATION:
 				return minSliceDuration != MIN_SLICE_DURATION_EDEFAULT;
+			case ModelPackage.TASK__PERIODICITY:
+				return periodicity != PERIODICITY_EDEFAULT;
 			case ModelPackage.TASK__IO_ADAPTER_REQUIREMENTS:
 				return ioAdapterRequirements != null && !ioAdapterRequirements.isEmpty();
 			case ModelPackage.TASK__METRIC_PARAMETERS:

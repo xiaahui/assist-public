@@ -18,6 +18,7 @@ import ch.hilbri.assist.scheduling.model.IOAdapterType;
 import ch.hilbri.assist.scheduling.model.MetricParameter;
 import ch.hilbri.assist.scheduling.model.ModelFactory;
 import ch.hilbri.assist.scheduling.model.ModelPackage;
+import ch.hilbri.assist.scheduling.model.PeriodicityType;
 import ch.hilbri.assist.scheduling.model.Processor;
 import ch.hilbri.assist.scheduling.model.Task;
 import ch.hilbri.assist.scheduling.model.TaskExecutionInstance;
@@ -139,6 +140,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass taskExecutionInstanceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum periodicityTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -984,8 +992,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTask_Periodicity() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getTask_IoAdapterRequirements() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(15);
+		return (EReference)taskEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -994,7 +1011,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EReference getTask_MetricParameters() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(16);
+		return (EReference)taskEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -1155,6 +1172,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getPeriodicityType() {
+		return periodicityTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getHardwareArchitectureLevelType() {
 		return hardwareArchitectureLevelTypeEEnum;
 	}
@@ -1306,6 +1332,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(taskEClass, TASK__ADD_INIT_TIME);
 		createEAttribute(taskEClass, TASK__SLICES);
 		createEAttribute(taskEClass, TASK__MIN_SLICE_DURATION);
+		createEAttribute(taskEClass, TASK__PERIODICITY);
 		createEReference(taskEClass, TASK__IO_ADAPTER_REQUIREMENTS);
 		createEReference(taskEClass, TASK__METRIC_PARAMETERS);
 		createEOperation(taskEClass, TASK___TO_STRING);
@@ -1331,6 +1358,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(taskExecutionInstanceEClass, TASK_EXECUTION_INSTANCE__END);
 
 		// Create enums
+		periodicityTypeEEnum = createEEnum(PERIODICITY_TYPE);
 		hardwareArchitectureLevelTypeEEnum = createEEnum(HARDWARE_ARCHITECTURE_LEVEL_TYPE);
 		designAssuranceLevelTypeEEnum = createEEnum(DESIGN_ASSURANCE_LEVEL_TYPE);
 		ioAdapterTypeEEnum = createEEnum(IO_ADAPTER_TYPE);
@@ -1489,6 +1517,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getTask_AddInitTime(), theEcorePackage.getEInt(), "addInitTime", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_Slices(), theEcorePackage.getEInt(), "slices", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_MinSliceDuration(), theEcorePackage.getEInt(), "minSliceDuration", "-1", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Periodicity(), this.getPeriodicityType(), "periodicity", "fixed", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_IoAdapterRequirements(), this.getIOAdapterRequirement(), null, "ioAdapterRequirements", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_MetricParameters(), this.getMetricParameter(), null, "metricParameters", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1515,6 +1544,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getTaskExecutionInstance_End(), theEcorePackage.getEInt(), "end", "-1", 0, 1, TaskExecutionInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(periodicityTypeEEnum, PeriodicityType.class, "PeriodicityType");
+		addEEnumLiteral(periodicityTypeEEnum, PeriodicityType.FIXED);
+		addEEnumLiteral(periodicityTypeEEnum, PeriodicityType.FLEXIBLE);
+
 		initEEnum(hardwareArchitectureLevelTypeEEnum, HardwareArchitectureLevelType.class, "HardwareArchitectureLevelType");
 		addEEnumLiteral(hardwareArchitectureLevelTypeEEnum, HardwareArchitectureLevelType.CORE);
 		addEEnumLiteral(hardwareArchitectureLevelTypeEEnum, HardwareArchitectureLevelType.PROCESSOR);

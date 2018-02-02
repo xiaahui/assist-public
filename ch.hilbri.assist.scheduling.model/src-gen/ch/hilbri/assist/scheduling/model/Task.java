@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ch.hilbri.assist.scheduling.model.Task#getAddInitTime <em>Add Init Time</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Task#getSlices <em>Slices</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Task#getMinSliceDuration <em>Min Slice Duration</em>}</li>
+ *   <li>{@link ch.hilbri.assist.scheduling.model.Task#getPeriodicity <em>Periodicity</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Task#getIoAdapterRequirements <em>Io Adapter Requirements</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.Task#getMetricParameters <em>Metric Parameters</em>}</li>
  * </ul>
@@ -432,6 +433,36 @@ public interface Task extends EObject {
 	 * @generated
 	 */
 	void setMinSliceDuration(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Periodicity</b></em>' attribute.
+	 * The default value is <code>"fixed"</code>.
+	 * The literals are from the enumeration {@link ch.hilbri.assist.scheduling.model.PeriodicityType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Periodicity</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Periodicity</em>' attribute.
+	 * @see ch.hilbri.assist.scheduling.model.PeriodicityType
+	 * @see #setPeriodicity(PeriodicityType)
+	 * @see ch.hilbri.assist.scheduling.model.ModelPackage#getTask_Periodicity()
+	 * @model default="fixed" unique="false"
+	 * @generated
+	 */
+	PeriodicityType getPeriodicity();
+
+	/**
+	 * Sets the value of the '{@link ch.hilbri.assist.scheduling.model.Task#getPeriodicity <em>Periodicity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Periodicity</em>' attribute.
+	 * @see ch.hilbri.assist.scheduling.model.PeriodicityType
+	 * @see #getPeriodicity()
+	 * @generated
+	 */
+	void setPeriodicity(PeriodicityType value);
 
 	/**
 	 * Returns the value of the '<em><b>Io Adapter Requirements</b></em>' containment reference list.

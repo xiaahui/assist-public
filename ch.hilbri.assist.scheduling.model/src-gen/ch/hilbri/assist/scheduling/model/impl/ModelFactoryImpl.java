@@ -87,6 +87,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case ModelPackage.PERIODICITY_TYPE:
+				return createPeriodicityTypeFromString(eDataType, initialValue);
 			case ModelPackage.HARDWARE_ARCHITECTURE_LEVEL_TYPE:
 				return createHardwareArchitectureLevelTypeFromString(eDataType, initialValue);
 			case ModelPackage.DESIGN_ASSURANCE_LEVEL_TYPE:
@@ -108,6 +110,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case ModelPackage.PERIODICITY_TYPE:
+				return convertPeriodicityTypeToString(eDataType, instanceValue);
 			case ModelPackage.HARDWARE_ARCHITECTURE_LEVEL_TYPE:
 				return convertHardwareArchitectureLevelTypeToString(eDataType, instanceValue);
 			case ModelPackage.DESIGN_ASSURANCE_LEVEL_TYPE:
@@ -259,6 +263,26 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public TaskExecutionInstance createTaskExecutionInstance() {
 		TaskExecutionInstanceImpl taskExecutionInstance = new TaskExecutionInstanceImpl();
 		return taskExecutionInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PeriodicityType createPeriodicityTypeFromString(EDataType eDataType, String initialValue) {
+		PeriodicityType result = PeriodicityType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPeriodicityTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

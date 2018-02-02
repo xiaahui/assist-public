@@ -86,15 +86,16 @@ Task:
 		('RequiredROM'				'=' romUtilization=INT ';')? 
 		
 		 'AssignedCore'				'=' assignedCore=[Core|QualifiedName] ';'
-		 'Duration'					'=' duration=INT ';'
-		 'Period'					'=' period=INT ';'
- 	    ('EarlyTolerance'			'=' earlyTolerance=INT 		';')?
-		('LateTolerance'			'=' lateTolerance=INT 		';')?
-		('MaxStartTime'				'=' maxStartTime=INT		';')?
-		('MaxEndTime'				'=' maxEndTime=INT			';')?
-		('InitTime'					'=' addInitTime=INT			';')?
-		('Slices'					'=' slices=INT				';')?
-		('MinSliceDuration'			'=' minSliceDuration=INT 	';')?
+		 'Duration'					'=' duration=INT 				';'
+		 'Period'					'=' period=INT 					';'
+		('Periodicity'				'=' periodicity=PeriodicityType ';')? 
+ 	    ('EarlyTolerance'			'=' earlyTolerance=INT 			';')?
+		('LateTolerance'			'=' lateTolerance=INT 			';')?
+		('MaxStartTime'				'=' maxStartTime=INT			';')?
+		('MaxEndTime'				'=' maxEndTime=INT				';')?
+		('InitTime'					'=' addInitTime=INT				';')?
+		('Slices'					'=' slices=INT					';')?
+		('MinSliceDuration'			'=' minSliceDuration=INT 		';')?
 		
 		('Properties' 			'{'	(metricParameters+=MetricParameter)* '}')?
 	'}';
@@ -115,6 +116,11 @@ QualifiedName:
 ;
 
 /* ENUMS */
+enum PeriodicityType:
+	FIXED 		= 'fixed' 		|
+	FLEXIBLE	= 'flexible'
+;
+
 enum HardwareArchitectureLevelType:
 	CORE 		= 'Core'		|
 	PROCESSOR 	= 'Processor'	|

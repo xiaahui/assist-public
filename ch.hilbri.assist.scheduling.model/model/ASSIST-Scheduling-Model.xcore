@@ -130,6 +130,8 @@ class Task {
 	int slices													= "-1"
 	int minSliceDuration										= "-1"
 	
+	PeriodicityType periodicity									= "fixed"
+	
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
 	contains MetricParameter[0..*] metricParameters
 	op String 			toString() { name }
@@ -146,6 +148,11 @@ class IOAdapterRequirement {
 class MetricParameter {
 	String name = ""
 	int value = "0"
+}
+
+enum PeriodicityType {
+	FIXED 		as "fixed" 		= 0
+	FLEXIBLE	as "flexible"	= 1
 }
 
 enum HardwareArchitectureLevelType {

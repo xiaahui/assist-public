@@ -1116,13 +1116,22 @@ public interface ModelPackage extends EPackage {
 	int TASK__MIN_SLICE_DURATION = 14;
 
 	/**
+	 * The feature id for the '<em><b>Periodicity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__PERIODICITY = 15;
+
+	/**
 	 * The feature id for the '<em><b>Io Adapter Requirements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__IO_ADAPTER_REQUIREMENTS = 15;
+	int TASK__IO_ADAPTER_REQUIREMENTS = 16;
 
 	/**
 	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
@@ -1131,7 +1140,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__METRIC_PARAMETERS = 16;
+	int TASK__METRIC_PARAMETERS = 17;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -1140,7 +1149,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_FEATURE_COUNT = 17;
+	int TASK_FEATURE_COUNT = 18;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -1381,6 +1390,16 @@ public interface ModelPackage extends EPackage {
 	int TASK_EXECUTION_INSTANCE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ch.hilbri.assist.scheduling.model.PeriodicityType <em>Periodicity Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ch.hilbri.assist.scheduling.model.PeriodicityType
+	 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getPeriodicityType()
+	 * @generated
+	 */
+	int PERIODICITY_TYPE = 14;
+
+	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.scheduling.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1388,7 +1407,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getHardwareArchitectureLevelType()
 	 * @generated
 	 */
-	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 14;
+	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
@@ -1398,7 +1417,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
 	 * @generated
 	 */
-	int DESIGN_ASSURANCE_LEVEL_TYPE = 15;
+	int DESIGN_ASSURANCE_LEVEL_TYPE = 16;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.scheduling.model.IOAdapterType <em>IO Adapter Type</em>}' enum.
@@ -1408,7 +1427,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getIOAdapterType()
 	 * @generated
 	 */
-	int IO_ADAPTER_TYPE = 16;
+	int IO_ADAPTER_TYPE = 17;
 
 	/**
 	 * The meta object id for the '<em>Task2 Execution Instances Map Type</em>' data type.
@@ -1418,7 +1437,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
 	 * @generated
 	 */
-	int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 17;
+	int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 18;
 
 
 	/**
@@ -2306,6 +2325,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getTask_MinSliceDuration();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.Task#getPeriodicity <em>Periodicity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Periodicity</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.Task#getPeriodicity()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_Periodicity();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.scheduling.model.Task#getIoAdapterRequirements <em>Io Adapter Requirements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2508,6 +2538,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTaskExecutionInstance_End();
+
+	/**
+	 * Returns the meta object for enum '{@link ch.hilbri.assist.scheduling.model.PeriodicityType <em>Periodicity Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Periodicity Type</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.PeriodicityType
+	 * @generated
+	 */
+	EEnum getPeriodicityType();
 
 	/**
 	 * Returns the meta object for enum '{@link ch.hilbri.assist.scheduling.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}'.
@@ -3258,6 +3298,14 @@ public interface ModelPackage extends EPackage {
 		EAttribute TASK__MIN_SLICE_DURATION = eINSTANCE.getTask_MinSliceDuration();
 
 		/**
+		 * The meta object literal for the '<em><b>Periodicity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__PERIODICITY = eINSTANCE.getTask_Periodicity();
+
+		/**
 		 * The meta object literal for the '<em><b>Io Adapter Requirements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3416,6 +3464,16 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TASK_EXECUTION_INSTANCE__END = eINSTANCE.getTaskExecutionInstance_End();
+
+		/**
+		 * The meta object literal for the '{@link ch.hilbri.assist.scheduling.model.PeriodicityType <em>Periodicity Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ch.hilbri.assist.scheduling.model.PeriodicityType
+		 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getPeriodicityType()
+		 * @generated
+		 */
+		EEnum PERIODICITY_TYPE = eINSTANCE.getPeriodicityType();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.scheduling.model.HardwareArchitectureLevelType <em>Hardware Architecture Level Type</em>}' enum.
