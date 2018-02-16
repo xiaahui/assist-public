@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory
 import ch.hilbri.assist.scheduling.solver.exceptions.HyperPeriodLengthException
 import ch.hilbri.assist.scheduling.solver.constraints.OnlyOneTaskPerTimePerCoreConstraint
 import ch.hilbri.assist.scheduling.solver.constraints.ExecutionInstanceOrderConstraint
+import ch.hilbri.assist.scheduling.solver.constraints.EnforcePeriodicityConstraint
 
 class AssistSchedulingSolver {
 	
@@ -62,9 +63,10 @@ class AssistSchedulingSolver {
 		modelPreprocessors 		= newArrayList
 		solverVariables			= new SolverVariablesContainer(assistModel, chocoModel)
 		
-		schedulingConstraintsList 	= newArrayList
+		schedulingConstraintsList = newArrayList
 		schedulingConstraintsList.add(new OnlyOneTaskPerTimePerCoreConstraint(assistModel, chocoModel, solverVariables))
 		schedulingConstraintsList.add(new ExecutionInstanceOrderConstraint(assistModel, chocoModel, solverVariables))
+		schedulingConstraintsList.add(new EnforcePeriodicityConstraint(assistModel, chocoModel, solverVariables))
 
 		schedulingResults 			= newArrayList  
 	}	
