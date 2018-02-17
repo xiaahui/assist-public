@@ -436,7 +436,7 @@ public interface Task extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Periodicity</b></em>' attribute.
-	 * The default value is <code>"fixed"</code>.
+	 * The default value is <code>"strict"</code>.
 	 * The literals are from the enumeration {@link ch.hilbri.assist.scheduling.model.PeriodicityType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -448,7 +448,7 @@ public interface Task extends EObject {
 	 * @see ch.hilbri.assist.scheduling.model.PeriodicityType
 	 * @see #setPeriodicity(PeriodicityType)
 	 * @see ch.hilbri.assist.scheduling.model.ModelPackage#getTask_Periodicity()
-	 * @model default="fixed" unique="false"
+	 * @model default="strict" unique="false"
 	 * @generated
 	 */
 	PeriodicityType getPeriodicity();

@@ -117,8 +117,8 @@ QualifiedName:
 
 /* ENUMS */
 enum PeriodicityType:
-	FIXED 		= 'fixed' 		|
-	FLEXIBLE	= 'flexible'
+	STRICT 		= 'strict' 		|
+	FLEXIBLE		= 'flexible'
 ;
 
 enum HardwareArchitectureLevelType:

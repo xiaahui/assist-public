@@ -328,7 +328,7 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PeriodicityType PERIODICITY_EDEFAULT = PeriodicityType.FIXED;
+	protected static final PeriodicityType PERIODICITY_EDEFAULT = PeriodicityType.STRICT;
 
 	/**
 	 * The cached value of the '{@link #getPeriodicity() <em>Periodicity</em>}' attribute.

@@ -112,7 +112,7 @@ class Application {
 }
 
 class Task {
-	String name 												= ""
+	String name 													= ""
 	int ramUtilization 											= "0"
 	int romUtilization											= "0"
 	container Application application opposite tasks
@@ -124,13 +124,13 @@ class Task {
 	int period													= "-1"
 	int earlyTolerance											= "-1"
 	int lateTolerance											= "-1"
-	int maxStartTime											= "-1"
+	int maxStartTime												= "-1"
 	int maxEndTime												= "-1"
 	int addInitTime												= "-1"
 	int slices													= "-1"
-	int minSliceDuration										= "-1"
+	int minSliceDuration											= "-1"
 	
-	PeriodicityType periodicity									= "fixed"
+	PeriodicityType periodicity									= "strict"
 	
 	contains IOAdapterRequirement[0..*] ioAdapterRequirements
 	contains MetricParameter[0..*] metricParameters
@@ -151,8 +151,8 @@ class MetricParameter {
 }
 
 enum PeriodicityType {
-	FIXED 		as "fixed" 		= 0
-	FLEXIBLE	as "flexible"	= 1
+	STRICT 		as "strict" 		= 0
+	FLEXIBLE		as "flexible"	= 1
 }
 
 enum HardwareArchitectureLevelType {

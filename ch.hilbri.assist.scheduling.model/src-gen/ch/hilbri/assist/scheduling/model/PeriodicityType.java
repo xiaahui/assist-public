@@ -19,14 +19,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum PeriodicityType implements Enumerator {
 	/**
-	 * The '<em><b>FIXED</b></em>' literal object.
+	 * The '<em><b>STRICT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #FIXED_VALUE
+	 * @see #STRICT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	FIXED(0, "FIXED", "fixed"),
+	STRICT(0, "STRICT", "strict"),
 
 	/**
 	 * The '<em><b>FLEXIBLE</b></em>' literal object.
@@ -39,19 +39,19 @@ public enum PeriodicityType implements Enumerator {
 	FLEXIBLE(1, "FLEXIBLE", "flexible");
 
 	/**
-	 * The '<em><b>FIXED</b></em>' literal value.
+	 * The '<em><b>STRICT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>FIXED</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>STRICT</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #FIXED
-	 * @model literal="fixed"
+	 * @see #STRICT
+	 * @model literal="strict"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FIXED_VALUE = 0;
+	public static final int STRICT_VALUE = 0;
 
 	/**
 	 * The '<em><b>FLEXIBLE</b></em>' literal value.
@@ -76,7 +76,7 @@ public enum PeriodicityType implements Enumerator {
 	 */
 	private static final PeriodicityType[] VALUES_ARRAY =
 		new PeriodicityType[] {
-			FIXED,
+			STRICT,
 			FLEXIBLE,
 		};
 
@@ -134,7 +134,7 @@ public enum PeriodicityType implements Enumerator {
 	 */
 	public static PeriodicityType get(int value) {
 		switch (value) {
-			case FIXED_VALUE: return FIXED;
+			case STRICT_VALUE: return STRICT;
 			case FLEXIBLE_VALUE: return FLEXIBLE;
 		}
 		return null;

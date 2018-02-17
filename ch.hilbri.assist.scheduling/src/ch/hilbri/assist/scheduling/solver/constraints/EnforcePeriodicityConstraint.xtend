@@ -4,6 +4,7 @@ import ch.hilbri.assist.scheduling.model.AssistModelScheduling
 import ch.hilbri.assist.scheduling.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Model
 import ch.hilbri.assist.scheduling.solver.exceptions.BasicConstraintsException
+import ch.hilbri.assist.scheduling.model.PeriodicityType
 
 class EnforcePeriodicityConstraint extends AbstractSchedulingConstraint {
 
@@ -28,6 +29,18 @@ class EnforcePeriodicityConstraint extends AbstractSchedulingConstraint {
 				// i * period + duration <= task.end < (i+1) * period 
 				// (additional -1 is used to express less than relation)
 				chocoModel.member(instance.end,  i * task.period + task.duration, (i+1) * task.period - 1).post()
+				
+				// If the periodicity is strict, then between two successive beginning there has to be exactly period length
+				if (task.periodicity == PeriodicityType.STRICT) {
+					if (i > 0) {
+						val beginPrevVar = instances.get(i-1).start
+						val beginCurVar  = instances.get(i).start
+						
+						// We post the constraint in the following form:
+						// beginCur - beginPrev = period
+						chocoModel.arithm(beginCurVar, "-", beginPrevVar, "=", task.period).post()
+					}
+				}
 			}
 
 		}
