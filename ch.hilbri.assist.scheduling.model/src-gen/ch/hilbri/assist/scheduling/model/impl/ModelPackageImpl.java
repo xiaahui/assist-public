@@ -263,8 +263,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAssistModelScheduling_MinHypPeriodLength() {
+		return (EAttribute)assistModelSchedulingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getAssistModelScheduling_Compartments() {
-		return (EReference)assistModelSchedulingEClass.getEStructuralFeatures().get(1);
+		return (EReference)assistModelSchedulingEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -273,7 +282,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EReference getAssistModelScheduling_Applications() {
-		return (EReference)assistModelSchedulingEClass.getEStructuralFeatures().get(2);
+		return (EReference)assistModelSchedulingEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1242,6 +1251,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		// Create classes and their features
 		assistModelSchedulingEClass = createEClass(ASSIST_MODEL_SCHEDULING);
 		createEAttribute(assistModelSchedulingEClass, ASSIST_MODEL_SCHEDULING__SYSTEM_NAME);
+		createEAttribute(assistModelSchedulingEClass, ASSIST_MODEL_SCHEDULING__MIN_HYP_PERIOD_LENGTH);
 		createEReference(assistModelSchedulingEClass, ASSIST_MODEL_SCHEDULING__COMPARTMENTS);
 		createEReference(assistModelSchedulingEClass, ASSIST_MODEL_SCHEDULING__APPLICATIONS);
 		createEOperation(assistModelSchedulingEClass, ASSIST_MODEL_SCHEDULING___GET_ALL_COMPARTMENTS);
@@ -1407,6 +1417,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(assistModelSchedulingEClass, AssistModelScheduling.class, "AssistModelScheduling", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAssistModelScheduling_SystemName(), theEcorePackage.getEString(), "systemName", "", 0, 1, AssistModelScheduling.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssistModelScheduling_MinHypPeriodLength(), theEcorePackage.getEInt(), "minHypPeriodLength", "-1", 0, 1, AssistModelScheduling.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModelScheduling_Compartments(), this.getCompartment(), null, "compartments", null, 1, -1, AssistModelScheduling.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssistModelScheduling_Applications(), this.getApplication(), null, "applications", null, 1, -1, AssistModelScheduling.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

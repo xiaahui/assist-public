@@ -64,6 +64,7 @@ public class AssistModelSchedulingItemProvider
 			super.getPropertyDescriptors(object);
 
 			addSystemNamePropertyDescriptor(object);
+			addMinHypPeriodLengthPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,6 +87,28 @@ public class AssistModelSchedulingItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Min Hyp Period Length feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinHypPeriodLengthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AssistModelScheduling_minHypPeriodLength_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssistModelScheduling_minHypPeriodLength_feature", "_UI_AssistModelScheduling_type"),
+				 ModelPackage.Literals.ASSIST_MODEL_SCHEDULING__MIN_HYP_PERIOD_LENGTH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -160,6 +183,7 @@ public class AssistModelSchedulingItemProvider
 
 		switch (notification.getFeatureID(AssistModelScheduling.class)) {
 			case ModelPackage.ASSIST_MODEL_SCHEDULING__SYSTEM_NAME:
+			case ModelPackage.ASSIST_MODEL_SCHEDULING__MIN_HYP_PERIOD_LENGTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.ASSIST_MODEL_SCHEDULING__COMPARTMENTS:

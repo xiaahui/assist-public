@@ -33,9 +33,23 @@ class SolverVariablesContainer {
 
 		solverModel.solver.propagate()
 
+		/* Set the hyperperiod length - based on the least common multiple of their periods */
 		if (!assistModel.allTasks.isNullOrEmpty) 
 			hypLength = assistModel.allTasks.map[period].reduce[p1, p2 | ArithmeticUtils.lcm(p1,p2)]
+		
+		/* It is possible to configure a longer hyperperiod as part of the input 
+		 * if it is specified (> 0) and larger than our current hyperperiod, 
+		 * then we have to prolong our current hyperperiod */
+		if ((assistModel.minHypPeriodLength > 0) && (assistModel.minHypPeriodLength > hypLength)) {
 			
+			// We just have to multiply the hypLength (based on lcm) so often, that is more than the configured limit
+			if (assistModel.minHypPeriodLength % hypLength == 0) 
+				hypLength = assistModel.minHypPeriodLength
+			else
+				hypLength = hypLength * ((assistModel.minHypPeriodLength / hypLength) + 1)
+		}
+		
+		
 		/* Go through the list of tasks and create a task container for each execution instance */
 		for (task : assistModel.allTasks) {
 			

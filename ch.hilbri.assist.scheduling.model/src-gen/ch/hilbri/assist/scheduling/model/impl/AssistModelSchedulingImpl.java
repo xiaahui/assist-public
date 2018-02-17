@@ -47,6 +47,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * </p>
  * <ul>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingImpl#getSystemName <em>System Name</em>}</li>
+ *   <li>{@link ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingImpl#getMinHypPeriodLength <em>Min Hyp Period Length</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingImpl#getCompartments <em>Compartments</em>}</li>
  *   <li>{@link ch.hilbri.assist.scheduling.model.impl.AssistModelSchedulingImpl#getApplications <em>Applications</em>}</li>
  * </ul>
@@ -73,6 +74,26 @@ public class AssistModelSchedulingImpl extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected String systemName = SYSTEM_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMinHypPeriodLength() <em>Min Hyp Period Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinHypPeriodLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIN_HYP_PERIOD_LENGTH_EDEFAULT = -1;
+
+	/**
+	 * The cached value of the '{@link #getMinHypPeriodLength() <em>Min Hyp Period Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinHypPeriodLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected int minHypPeriodLength = MIN_HYP_PERIOD_LENGTH_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getCompartments() <em>Compartments</em>}' containment reference list.
@@ -132,6 +153,27 @@ public class AssistModelSchedulingImpl extends MinimalEObjectImpl.Container impl
 		systemName = newSystemName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL_SCHEDULING__SYSTEM_NAME, oldSystemName, systemName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMinHypPeriodLength() {
+		return minHypPeriodLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinHypPeriodLength(int newMinHypPeriodLength) {
+		int oldMinHypPeriodLength = minHypPeriodLength;
+		minHypPeriodLength = newMinHypPeriodLength;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ASSIST_MODEL_SCHEDULING__MIN_HYP_PERIOD_LENGTH, oldMinHypPeriodLength, minHypPeriodLength));
 	}
 
 	/**
@@ -332,6 +374,8 @@ public class AssistModelSchedulingImpl extends MinimalEObjectImpl.Container impl
 		switch (featureID) {
 			case ModelPackage.ASSIST_MODEL_SCHEDULING__SYSTEM_NAME:
 				return getSystemName();
+			case ModelPackage.ASSIST_MODEL_SCHEDULING__MIN_HYP_PERIOD_LENGTH:
+				return getMinHypPeriodLength();
 			case ModelPackage.ASSIST_MODEL_SCHEDULING__COMPARTMENTS:
 				return getCompartments();
 			case ModelPackage.ASSIST_MODEL_SCHEDULING__APPLICATIONS:
@@ -351,6 +395,9 @@ public class AssistModelSchedulingImpl extends MinimalEObjectImpl.Container impl
 		switch (featureID) {
 			case ModelPackage.ASSIST_MODEL_SCHEDULING__SYSTEM_NAME:
 				setSystemName((String)newValue);
+				return;
+			case ModelPackage.ASSIST_MODEL_SCHEDULING__MIN_HYP_PERIOD_LENGTH:
+				setMinHypPeriodLength((Integer)newValue);
 				return;
 			case ModelPackage.ASSIST_MODEL_SCHEDULING__COMPARTMENTS:
 				getCompartments().clear();
@@ -375,6 +422,9 @@ public class AssistModelSchedulingImpl extends MinimalEObjectImpl.Container impl
 			case ModelPackage.ASSIST_MODEL_SCHEDULING__SYSTEM_NAME:
 				setSystemName(SYSTEM_NAME_EDEFAULT);
 				return;
+			case ModelPackage.ASSIST_MODEL_SCHEDULING__MIN_HYP_PERIOD_LENGTH:
+				setMinHypPeriodLength(MIN_HYP_PERIOD_LENGTH_EDEFAULT);
+				return;
 			case ModelPackage.ASSIST_MODEL_SCHEDULING__COMPARTMENTS:
 				getCompartments().clear();
 				return;
@@ -395,6 +445,8 @@ public class AssistModelSchedulingImpl extends MinimalEObjectImpl.Container impl
 		switch (featureID) {
 			case ModelPackage.ASSIST_MODEL_SCHEDULING__SYSTEM_NAME:
 				return SYSTEM_NAME_EDEFAULT == null ? systemName != null : !SYSTEM_NAME_EDEFAULT.equals(systemName);
+			case ModelPackage.ASSIST_MODEL_SCHEDULING__MIN_HYP_PERIOD_LENGTH:
+				return minHypPeriodLength != MIN_HYP_PERIOD_LENGTH_EDEFAULT;
 			case ModelPackage.ASSIST_MODEL_SCHEDULING__COMPARTMENTS:
 				return compartments != null && !compartments.isEmpty();
 			case ModelPackage.ASSIST_MODEL_SCHEDULING__APPLICATIONS:
@@ -441,6 +493,8 @@ public class AssistModelSchedulingImpl extends MinimalEObjectImpl.Container impl
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (systemName: ");
 		result.append(systemName);
+		result.append(", minHypPeriodLength: ");
+		result.append(minHypPeriodLength);
 		result.append(')');
 		return result.toString();
 	}

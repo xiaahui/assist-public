@@ -5,7 +5,8 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 AssistModelScheduling returns AssistModelScheduling:
 	'Global' 	'{' 
-					'System' '=' systemName=STRING ';' 
+					'System' 				'=' systemName=STRING 		';' 
+					('MinimumHyperPeriod' 	'=' minHypPeriodLength=INT 	';')?
 	'}'
 
 	'Hardware' 	'{'	
@@ -19,7 +20,7 @@ AssistModelScheduling returns AssistModelScheduling:
 
 Compartment: 
 	'Compartment' name=ID '{'
-		('Manufacturer' 	'=' manufacturer=STRING 	';')?
+		('Manufacturer' 		'=' manufacturer=STRING 	';')?
 		('PowerSupply' 		'=' powerSupply=STRING 	';')?
 		(boxes+=Box)+
 		('Properties' '{'	(metricParameters+=MetricParameter)* '}')?
@@ -38,7 +39,7 @@ Board:
 	'Board' name=ID '{'
 		('Manufacturer' 			'=' manufacturer=STRING ';')?
 		('Type' 					'=' boardType=STRING ';')?
-		('PowerSupply' 				'=' powerSupply=STRING ';')?
+		('PowerSupply' 			'=' powerSupply=STRING ';')?
 	    ('DesignAssuranceLevel' 	'=' assuranceLevel=DesignAssuranceLevelType';')?
 		('RAM'  					'=' ramCapacity=INT ';')?
 		('ROM'  					'=' romCapacity=INT ';')?

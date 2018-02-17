@@ -81,13 +81,22 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL_SCHEDULING__SYSTEM_NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Min Hyp Period Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_SCHEDULING__MIN_HYP_PERIOD_LENGTH = 1;
+
+	/**
 	 * The feature id for the '<em><b>Compartments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_SCHEDULING__COMPARTMENTS = 1;
+	int ASSIST_MODEL_SCHEDULING__COMPARTMENTS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Applications</b></em>' containment reference list.
@@ -96,7 +105,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_SCHEDULING__APPLICATIONS = 2;
+	int ASSIST_MODEL_SCHEDULING__APPLICATIONS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Assist Model Scheduling</em>' class.
@@ -105,7 +114,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_SCHEDULING_FEATURE_COUNT = 3;
+	int ASSIST_MODEL_SCHEDULING_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Get All Compartments</em>' operation.
@@ -1462,6 +1471,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getAssistModelScheduling_SystemName();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ch.hilbri.assist.scheduling.model.AssistModelScheduling#getMinHypPeriodLength <em>Min Hyp Period Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min Hyp Period Length</em>'.
+	 * @see ch.hilbri.assist.scheduling.model.AssistModelScheduling#getMinHypPeriodLength()
+	 * @see #getAssistModelScheduling()
+	 * @generated
+	 */
+	EAttribute getAssistModelScheduling_MinHypPeriodLength();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link ch.hilbri.assist.scheduling.model.AssistModelScheduling#getCompartments <em>Compartments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2630,6 +2650,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ASSIST_MODEL_SCHEDULING__SYSTEM_NAME = eINSTANCE.getAssistModelScheduling_SystemName();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Hyp Period Length</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSIST_MODEL_SCHEDULING__MIN_HYP_PERIOD_LENGTH = eINSTANCE.getAssistModelScheduling_MinHypPeriodLength();
 
 		/**
 		 * The meta object literal for the '<em><b>Compartments</b></em>' containment reference list feature.
