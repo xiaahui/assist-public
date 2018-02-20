@@ -4,16 +4,19 @@
     <elements xsi:type="commands:Handler" xmi:id="_M42AIA_cEeOdg7LCSWH6eQ" elementId="ch.hilbri.assist.handler.mapping.generate" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.handlers.Generate" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
     <elements xsi:type="commands:Handler" xmi:id="_ctlXwI5uEeOJBOmJqpLcrw" elementId="ch.hilbri.assist.handler.mapping.export.text" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.handlers.ExportToText" command="_k49dwI5uEeOJBOmJqpLcrw"/>
     <elements xsi:type="commands:Handler" xmi:id="_yp1eoE-SEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.handler.mapping.newspec" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.handlers.OpenNewMappingSpecWizard" command="_dPX9oE-REeeNuqmSWeC5KA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_MfE6cBZpEeiKuaPkQlwP4Q" elementId="ch.hilbri.assist.mapping.handler.export.scheduling" contributionURI="bundleclass://ch.hilbri.assist.mapping/ch.hilbri.assist.mapping.ui.handlers.ExportToScheduling" command="_wdSDoBZoEeiKuaPkQlwP4Q"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_AMLgQA_cEeOdg7LCSWH6eQ" featurename="commands" parentElementId="ch.hilbri.assist.gui.application">
     <elements xsi:type="commands:Command" xmi:id="_G7-ZEA_cEeOdg7LCSWH6eQ" elementId="ch.hilbri.assist.mapping.command.generate" commandName="Generate mappings"/>
     <elements xsi:type="commands:Command" xmi:id="_k49dwI5uEeOJBOmJqpLcrw" elementId="ch.hilbri.assist.mapping.command.export.text" commandName="Export current solution to text file"/>
     <elements xsi:type="commands:Command" xmi:id="_dPX9oE-REeeNuqmSWeC5KA" elementId="ch.hilbri.assist.mapping.command.newmappingspec" commandName="New Mapping Specification"/>
+    <elements xsi:type="commands:Command" xmi:id="_wdSDoBZoEeiKuaPkQlwP4Q" elementId="ch.hilbri.assist.mapping.command.export.scheduling" commandName="Export current solution to scheduling"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_joYvoA_bEeOdg7LCSWH6eQ" featurename="children" parentElementId="org.eclipse.ui.main.menu" positionInList="index:3">
     <elements xsi:type="menu:Menu" xmi:id="_n4ghAA_bEeOdg7LCSWH6eQ" elementId="ch.hilbri.assist.mapping.menu" label="&amp;Mapping" mnemonics="">
       <children xsi:type="menu:HandledMenuItem" xmi:id="_tbwHIA_bEeOdg7LCSWH6eQ" elementId="ch.hilbri.assist.mapping.menu.handledmenuitem.0" label="Generate Mappings" command="_G7-ZEA_cEeOdg7LCSWH6eQ"/>
       <children xsi:type="menu:MenuSeparator" xmi:id="_xD8noFNMEeOLk9AINn96_w" elementId="ch.hilbri.assist.mapping.menu.menuseparator.0"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_HfLcgBZqEeiKuaPkQlwP4Q" elementId="ch.hilbri.assist.mapping.menu.handledmenuitem.exportcurrentsolutiontoscheduling" label="Export current solution to Scheduling" command="_wdSDoBZoEeiKuaPkQlwP4Q"/>
       <children xsi:type="menu:HandledMenuItem" xmi:id="_z00ZEI5uEeOJBOmJqpLcrw" elementId="ch.hilbri.assist.mapping.menu.handledmenuitem.2" label="Export current solution to TextFile" command="_k49dwI5uEeOJBOmJqpLcrw"/>
     </elements>
   </fragments>
