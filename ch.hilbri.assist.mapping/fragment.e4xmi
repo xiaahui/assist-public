@@ -17,7 +17,7 @@
       <children xsi:type="menu:HandledMenuItem" xmi:id="_z00ZEI5uEeOJBOmJqpLcrw" elementId="ch.hilbri.assist.mapping.menu.handledmenuitem.2" label="Export current solution to TextFile" command="_k49dwI5uEeOJBOmJqpLcrw"/>
     </elements>
   </fragments>
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="__-kKgEiQEeOdX57Z--P1Iw" featurename="children" parentElementId="ch.hilbri.assist.gui.toolbar.main" positionInList="after:ch.hilbri.assist.gui.handledtoolitem.newproject">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="__-kKgEiQEeOdX57Z--P1Iw" featurename="children" parentElementId="ch.hilbri.assist.gui.toolbar.main" positionInList="">
     <elements xsi:type="menu:HandledToolItem" xmi:id="_sOZXIE-QEeeNuqmSWeC5KA" elementId="ch.hilbri.assist.mapping.handledtoolitem.newspec" label="New Mapping Specification" iconURI="platform:/plugin/ch.hilbri.assist.mapping/icons/new-mapping-specification.png" command="_dPX9oE-REeeNuqmSWeC5KA"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_jcnwwE-WEeeNuqmSWeC5KA" featurename="children" parentElementId="ch.hilbri.assist.gui.trimbar.main" positionInList="after:ch.hilbri.assist.gui.toolbar.main">
