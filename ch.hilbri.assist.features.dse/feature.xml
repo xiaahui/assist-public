@@ -31,8 +31,6 @@
       <import plugin="org.eclipse.xtext.builder"/>
       <import plugin="org.apache.log4j"/>
       <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="ch.hilbri.assist.mapping.model"/>
-      <import plugin="ch.hilbri.assist.mapping.model.edit"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.xtext"/>
       <import plugin="org.eclipse.xtext.xbase"/>
@@ -46,6 +44,15 @@
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.xtext.ide"/>
       <import plugin="org.eclipse.xtext.xbase.ide"/>
+      <import plugin="org.eclipse.e4.ui.model.workbench"/>
+      <import plugin="org.eclipse.e4.core.commands"/>
+      <import plugin="org.eclipse.core.databinding"/>
+      <import plugin="org.eclipse.e4.core.di"/>
+      <import plugin="org.eclipse.e4.ui.di"/>
+      <import plugin="org.eclipse.e4.ui.workbench"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.jdt.ui"/>
+      <import plugin="org.eclipse.ui.forms"/>
    </requires>
 
    <plugin
@@ -106,6 +113,27 @@
 
    <plugin
          id="ch.hilbri.assist.dse"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.model.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.hilbri.assist.model.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"
