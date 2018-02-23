@@ -14,8 +14,8 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 
 import com.google.inject.Injector;
 
+import ch.hilbri.assist.model.AssistModelSchedulingResult;
 import ch.hilbri.assist.scheduling.dsl.ui.internal.DslActivator;
-import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult;
 
 public class MultiPageEditor extends MultiPageEditorPart  {
 

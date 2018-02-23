@@ -6,7 +6,7 @@ Bundle-SymbolicName: ch.hilbri.assist.scheduling.dsl.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: ch.hilbri.assist.scheduling.dsl,
  ch.hilbri.assist.scheduling.dsl.ide,
- ch.hilbri.assist.scheduling.model,
+ ch.hilbri.assist.model,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,

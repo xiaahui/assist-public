@@ -3,7 +3,7 @@
  */
 package ch.hilbri.assist.scheduling.dsl.ui.outline
 
-import ch.hilbri.assist.scheduling.model.AssistModelScheduling
+import ch.hilbri.assist.model.AssistModel
 import org.eclipse.core.runtime.FileLocator
 import org.eclipse.core.runtime.Path
 import org.eclipse.jface.resource.ImageDescriptor
@@ -18,7 +18,7 @@ import org.osgi.framework.FrameworkUtil
  */
 class SchedulingDslOutlineTreeProvider extends DefaultOutlineTreeProvider {
 
-	def _createChildren(IOutlineNode parentNode, AssistModelScheduling model) {
+	def _createChildren(IOutlineNode parentNode, AssistModel model) {
 		val bundle = FrameworkUtil.getBundle(class)
 		val imgfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_folder.png"), null));
 //		val imgsubfolderDesc = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path("icons/outlineview_category.png"), null));

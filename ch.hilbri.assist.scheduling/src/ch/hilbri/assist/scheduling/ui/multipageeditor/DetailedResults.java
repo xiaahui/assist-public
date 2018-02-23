@@ -19,11 +19,11 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 
-import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult;
-import ch.hilbri.assist.scheduling.model.Core;
-import ch.hilbri.assist.scheduling.model.Processor;
-import ch.hilbri.assist.scheduling.model.Task;
-import ch.hilbri.assist.scheduling.model.TaskExecutionInstance;
+import ch.hilbri.assist.model.AssistModelSchedulingResult;
+import ch.hilbri.assist.model.Core;
+import ch.hilbri.assist.model.Processor;
+import ch.hilbri.assist.model.Task;
+import ch.hilbri.assist.model.TaskExecutionInstance;
 
 public class DetailedResults extends Composite implements ISectionDetailContentReplacer {
 	@SuppressWarnings("unused")

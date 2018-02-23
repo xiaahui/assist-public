@@ -1,8 +1,8 @@
 package ch.hilbri.assist.scheduling.results
 
-import ch.hilbri.assist.scheduling.model.AssistModelScheduling
-import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult
-import ch.hilbri.assist.scheduling.model.ModelFactory
+import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.AssistModelSchedulingResult
+import ch.hilbri.assist.model.ModelFactory
 import ch.hilbri.assist.scheduling.solver.variables.SolverVariablesContainer
 import java.util.HashMap
 import java.util.List
@@ -14,7 +14,7 @@ class ResultFactoryFromSolverSolutions {
 	
 	private static Logger logger = LoggerFactory.getLogger(ResultFactoryFromSolverSolutions)
 
-	static def List<AssistModelSchedulingResult> create(AssistModelScheduling assistModel, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {
+	static def List<AssistModelSchedulingResult> create(AssistModel assistModel, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {
 
 		val results = newArrayList
 

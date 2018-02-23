@@ -1,14 +1,14 @@
 package ch.hilbri.assist.scheduling.solver.constraints
 
-import ch.hilbri.assist.scheduling.model.AssistModelScheduling
+import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.PeriodicityType
+import ch.hilbri.assist.scheduling.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.scheduling.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Model
-import ch.hilbri.assist.scheduling.solver.exceptions.BasicConstraintsException
-import ch.hilbri.assist.scheduling.model.PeriodicityType
 
 class EnforcePeriodicityConstraint extends AbstractSchedulingConstraint {
 
-	new(AssistModelScheduling model, Model chocoModel, SolverVariablesContainer solverVariables) {
+	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
 		super("Enforce periodicity", model, chocoModel, solverVariables)
 	}
 

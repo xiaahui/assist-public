@@ -1,13 +1,13 @@
 package ch.hilbri.assist.scheduling.solver.constraints
 
-import ch.hilbri.assist.scheduling.model.AssistModelScheduling
+import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.scheduling.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.scheduling.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Model
 
 class ExecutionInstanceOrderConstraint extends AbstractSchedulingConstraint {
 	
-	new(AssistModelScheduling model, Model chocoModel, SolverVariablesContainer solverVariables) {
+	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
 		super("Order of execution instances", model, chocoModel, solverVariables)
 	}
 	

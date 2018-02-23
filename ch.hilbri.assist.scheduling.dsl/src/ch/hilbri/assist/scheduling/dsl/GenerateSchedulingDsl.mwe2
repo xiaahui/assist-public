@@ -32,8 +32,7 @@ Workflow {
 		language = StandardLanguage {
 			name = "ch.hilbri.assist.scheduling.dsl.SchedulingDsl"
 			fileExtensions = "sdsl"
-			referencedResource = "platform:/resource/ch.hilbri.assist.scheduling.model/model/ASSIST-Scheduling-Model.xcore"
-			referencedResource = "platform:/resource/ch.hilbri.assist.mapping.model/model/ASSIST-Mapping-Model.xcore"
+			referencedResource = "platform:/resource/ch.hilbri.assist.model/model/ASSIST-Model.xcore"
 						
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 

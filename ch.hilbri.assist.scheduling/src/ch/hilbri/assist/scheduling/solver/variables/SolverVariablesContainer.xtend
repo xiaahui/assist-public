@@ -1,7 +1,8 @@
 package ch.hilbri.assist.scheduling.solver.variables
 
-import ch.hilbri.assist.scheduling.model.AssistModelScheduling
+import ch.hilbri.assist.model.AssistModel
 import java.util.ArrayList
+import java.util.HashMap
 import java.util.List
 import java.util.Map
 import org.apache.commons.math3.util.ArithmeticUtils
@@ -9,12 +10,11 @@ import org.chocosolver.solver.Model
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.Task
 import org.eclipse.xtend.lib.annotations.Accessors
-import java.util.HashMap
 
 class SolverVariablesContainer {
 
 	/** Store a reference to the ASSIST Input model */
-	private AssistModelScheduling assistModel
+	private AssistModel assistModel
 
 	/** Store a reference to the choco solver */
 	private Model solverModel
@@ -23,10 +23,10 @@ class SolverVariablesContainer {
 	@Accessors(PUBLIC_GETTER) int hypLength = -1
 
 	/** Store a reference to the variables */
-	private Map<ch.hilbri.assist.scheduling.model.Task, List<Task>> task2executionInstancesMap = new HashMap
+	private Map<ch.hilbri.assist.model.Task, List<Task>> task2executionInstancesMap = new HashMap
 
 	/* CONSTRUCTOR */
-	new(AssistModelScheduling assistModel, Model solverModel) {
+	new(AssistModel assistModel, Model solverModel) {
 
 		this.assistModel = assistModel
 		this.solverModel = solverModel
@@ -78,7 +78,7 @@ class SolverVariablesContainer {
 	}
 	
 	/** Retrieve the solver tasks for an ASSIST task */
-	def List<Task> getSolverTasks(ch.hilbri.assist.scheduling.model.Task task) {
+	def List<Task> getSolverTasks(ch.hilbri.assist.model.Task task) {
 		task2executionInstancesMap.get(task)
 	}
 

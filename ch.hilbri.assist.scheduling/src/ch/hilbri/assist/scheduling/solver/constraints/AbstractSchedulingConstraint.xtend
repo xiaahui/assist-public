@@ -1,6 +1,6 @@
 package ch.hilbri.assist.scheduling.solver.constraints
 
-import ch.hilbri.assist.scheduling.model.AssistModelScheduling
+import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.scheduling.solver.exceptions.BasicConstraintsException
 import ch.hilbri.assist.scheduling.solver.variables.SolverVariablesContainer
 import org.chocosolver.solver.Model
@@ -16,7 +16,7 @@ abstract class AbstractSchedulingConstraint {
 	protected String name
 
 	/** A reference to the central data model */
-	protected AssistModelScheduling model
+	protected AssistModel model
 
 	/** A reference to the store of the constraint solver */
 	protected Model chocoModel
@@ -32,7 +32,7 @@ abstract class AbstractSchedulingConstraint {
 	 * @param solver Reference to the solver instance
 	 * @param solverVariables Reference to the container with all solver variables
 	 */
-	new(String name, AssistModelScheduling model, Model chocoModel, SolverVariablesContainer solverVariables) {
+	new(String name, AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
 		this.name = name
 		this.model = model
 		this.chocoModel = chocoModel

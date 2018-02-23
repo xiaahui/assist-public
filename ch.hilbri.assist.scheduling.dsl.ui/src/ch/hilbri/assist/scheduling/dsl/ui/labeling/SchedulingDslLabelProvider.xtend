@@ -1,13 +1,13 @@
 package ch.hilbri.assist.scheduling.dsl.ui.labeling
 
-import ch.hilbri.assist.scheduling.model.Application
-import ch.hilbri.assist.scheduling.model.AssistModelScheduling
-import ch.hilbri.assist.scheduling.model.Board
-import ch.hilbri.assist.scheduling.model.Box
-import ch.hilbri.assist.scheduling.model.Compartment
-import ch.hilbri.assist.scheduling.model.Core
-import ch.hilbri.assist.scheduling.model.Processor
-import ch.hilbri.assist.scheduling.model.Task
+import ch.hilbri.assist.model.Application
+import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.Board
+import ch.hilbri.assist.model.Box
+import ch.hilbri.assist.model.Compartment
+import ch.hilbri.assist.model.Core
+import ch.hilbri.assist.model.Processor
+import ch.hilbri.assist.model.Task
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
@@ -25,11 +25,11 @@ class SchedulingDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 
-	def text(AssistModelScheduling model) {
+	def text(AssistModel model) {
 		model.getSystemName 
 	}
 
-	def image(AssistModelScheduling model) {
+	def image(AssistModel model) {
 		'outlineview_system.png'
 	}
 

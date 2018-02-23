@@ -1,10 +1,14 @@
 package ch.hilbri.assist.scheduling.solver
 
-import ch.hilbri.assist.scheduling.model.AssistModelScheduling
-import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult
+import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.AssistModelSchedulingResult
 import ch.hilbri.assist.scheduling.results.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.scheduling.solver.constraints.AbstractSchedulingConstraint
+import ch.hilbri.assist.scheduling.solver.constraints.EnforcePeriodicityConstraint
+import ch.hilbri.assist.scheduling.solver.constraints.ExecutionInstanceOrderConstraint
+import ch.hilbri.assist.scheduling.solver.constraints.OnlyOneTaskPerTimePerCoreConstraint
 import ch.hilbri.assist.scheduling.solver.exceptions.BasicConstraintsException
+import ch.hilbri.assist.scheduling.solver.exceptions.HyperPeriodLengthException
 import ch.hilbri.assist.scheduling.solver.preprocessors.AbstractModelPreprocessor
 import ch.hilbri.assist.scheduling.solver.strategies.ValueSelectorTypes
 import ch.hilbri.assist.scheduling.solver.strategies.VariableSelectorTypes
@@ -20,17 +24,13 @@ import org.chocosolver.util.criteria.Criterion
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.scheduling.solver.exceptions.HyperPeriodLengthException
-import ch.hilbri.assist.scheduling.solver.constraints.OnlyOneTaskPerTimePerCoreConstraint
-import ch.hilbri.assist.scheduling.solver.constraints.ExecutionInstanceOrderConstraint
-import ch.hilbri.assist.scheduling.solver.constraints.EnforcePeriodicityConstraint
 
 class AssistSchedulingSolver {
 	
 	private Logger 									logger						= LoggerFactory.getLogger(this.class)
 	private boolean									verboseLogging				= false
 	
-	private AssistModelScheduling					assistModel
+	private AssistModel								assistModel
 	
 	private Model									chocoModel
 	private Solver 									chocoSolver
@@ -43,7 +43,7 @@ class AssistSchedulingSolver {
 	
 	private boolean 									savePartialSolution 		= false
 	
-	new (AssistModelScheduling input) {
+	new (AssistModel input) {
 
 		logger.info('''******************************''')
 		logger.info('''        ASSIST Solver         ''')

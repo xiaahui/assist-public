@@ -1,14 +1,13 @@
 package ch.hilbri.assist.scheduling.solver.constraints
 
-import ch.hilbri.assist.scheduling.solver.constraints.AbstractSchedulingConstraint
+import ch.hilbri.assist.model.AssistModel
 import ch.hilbri.assist.scheduling.solver.exceptions.BasicConstraintsException
-import ch.hilbri.assist.scheduling.model.AssistModelScheduling
-import org.chocosolver.solver.Model
 import ch.hilbri.assist.scheduling.solver.variables.SolverVariablesContainer
+import org.chocosolver.solver.Model
 
 class OnlyOneTaskPerTimePerCoreConstraint extends AbstractSchedulingConstraint {
 	
-	new(AssistModelScheduling model, Model chocoModel, SolverVariablesContainer solverVariables) {
+	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
 		super("Only one task per time per core", model, chocoModel, solverVariables)
 	}
 	

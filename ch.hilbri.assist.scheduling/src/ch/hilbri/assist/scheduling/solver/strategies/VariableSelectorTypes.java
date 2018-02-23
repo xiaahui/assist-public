@@ -12,7 +12,7 @@ import org.chocosolver.solver.search.strategy.selectors.variables.Random;
 import org.chocosolver.solver.search.strategy.strategy.AbstractStrategy;
 import org.chocosolver.solver.variables.IntVar;
 
-import ch.hilbri.assist.scheduling.model.AssistModelScheduling;
+import ch.hilbri.assist.model.AssistModel;
 import ch.hilbri.assist.scheduling.solver.variables.SolverVariablesContainer;
 
 public enum VariableSelectorTypes {
@@ -43,7 +43,7 @@ public enum VariableSelectorTypes {
 	public boolean isDefault()						{ return isDefault;					}
 	public boolean isValueSelectorRequired()		{ return isValueSelectorRequired;	}
 	
-	public AbstractStrategy<IntVar> getStrategy(SolverVariablesContainer solverVariables, AssistModelScheduling assistModel, long seed, ValueSelectorTypes valSelector) {
+	public AbstractStrategy<IntVar> getStrategy(SolverVariablesContainer solverVariables, AssistModel assistModel, long seed, ValueSelectorTypes valSelector) {
 		
 		/* I think we should try to iterate over all variables - not just the core level */
 		// IntVar[] vars = solverVariables.getLocationVariablesForCoreLevel();

@@ -1,5 +1,12 @@
 package ch.hilbri.assist.scheduling.solver
 
+import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.AssistModelSchedulingResult
+import ch.hilbri.assist.scheduling.solver.exceptions.BasicConstraintsException
+import ch.hilbri.assist.scheduling.solver.exceptions.HyperPeriodLengthException
+import ch.hilbri.assist.scheduling.solver.strategies.ValueSelectorTypes
+import ch.hilbri.assist.scheduling.solver.strategies.VariableSelectorTypes
+import ch.hilbri.assist.scheduling.ui.multipageeditor.MultiPageEditor
 import java.util.List
 import org.eclipse.core.runtime.IProgressMonitor
 import org.eclipse.core.runtime.IStatus
@@ -14,13 +21,6 @@ import org.eclipse.swt.widgets.Display
 import org.eclipse.ui.PlatformUI
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.scheduling.model.AssistModelScheduling
-import ch.hilbri.assist.scheduling.model.AssistModelSchedulingResult
-import ch.hilbri.assist.scheduling.solver.exceptions.BasicConstraintsException
-import ch.hilbri.assist.scheduling.solver.strategies.ValueSelectorTypes
-import ch.hilbri.assist.scheduling.solver.strategies.VariableSelectorTypes
-import ch.hilbri.assist.scheduling.ui.multipageeditor.MultiPageEditor
-import ch.hilbri.assist.scheduling.solver.exceptions.HyperPeriodLengthException
 
 class GuiSolverJob extends Job {
 
@@ -37,7 +37,7 @@ class GuiSolverJob extends Job {
 		/* Load the model from the URI */
 		var ResourceSet rs = new ResourceSetImpl()
 		var Resource resource = rs.getResource(modelURI, true)
-		var AssistModelScheduling assistModel = resource.getContents().get(0) as AssistModelScheduling
+		var AssistModel assistModel = resource.getContents().get(0) as AssistModel
 		
 		/* Create the ASSIST Solver */
 		assistSolver = new AssistSchedulingSolver(assistModel)
