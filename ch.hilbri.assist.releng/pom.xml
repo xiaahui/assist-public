@@ -35,9 +35,9 @@
 		<module>../ch.hilbri.assist.features.documentation</module>
 		<module>../ch.hilbri.assist.features.gui</module>
 		<module>../ch.hilbri.assist.gui</module>
-		<module>../ch.hilbri.assist.mapping.model</module>
-		<module>../ch.hilbri.assist.mapping.model.edit</module>
-		<module>../ch.hilbri.assist.mapping.model.editor</module>
+		
+		
+		
 		<module>../ch.hilbri.assist.mapping.model.result</module>
 		<module>../ch.hilbri.assist.mapping.dsl</module>
 		<module>../ch.hilbri.assist.mapping.dsl.ide</module>
@@ -46,9 +46,9 @@
 		<module>../ch.hilbri.assist.mapping.dsl.ui.tests</module>
 		<module>../ch.hilbri.assist.libraries.choco-solver</module>
 		<module>../ch.hilbri.assist.libraries.swtchart</module>
-		<module>../ch.hilbri.assist.scheduling.model</module>
-		<module>../ch.hilbri.assist.scheduling.model.edit</module>
-		<module>../ch.hilbri.assist.scheduling.model.editor</module>
+		
+		
+		
 		<module>../ch.hilbri.assist.dse.model</module>
 		<module>../ch.hilbri.assist.dse.model.edit</module>
 		<module>../ch.hilbri.assist.dse.model.editor</module>
