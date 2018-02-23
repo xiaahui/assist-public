@@ -2,6 +2,8 @@
  */
 package ch.hilbri.assist.scheduling.model;
 
+import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -86,7 +88,7 @@ public interface Board extends HardwareElement {
 	/**
 	 * Returns the value of the '<em><b>Assurance Level</b></em>' attribute.
 	 * The default value is <code>"None"</code>.
-	 * The literals are from the enumeration {@link ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType}.
+	 * The literals are from the enumeration {@link ch.hilbri.assist.mapping.model.DesignAssuranceLevelType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Assurance Level</em>' attribute isn't clear,
@@ -94,7 +96,7 @@ public interface Board extends HardwareElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Assurance Level</em>' attribute.
-	 * @see ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType
+	 * @see ch.hilbri.assist.mapping.model.DesignAssuranceLevelType
 	 * @see #setAssuranceLevel(DesignAssuranceLevelType)
 	 * @see ch.hilbri.assist.scheduling.model.ModelPackage#getBoard_AssuranceLevel()
 	 * @model default="None" unique="false"
@@ -107,7 +109,7 @@ public interface Board extends HardwareElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Assurance Level</em>' attribute.
-	 * @see ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType
+	 * @see ch.hilbri.assist.mapping.model.DesignAssuranceLevelType
 	 * @see #getAssuranceLevel()
 	 * @generated
 	 */

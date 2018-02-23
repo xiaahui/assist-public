@@ -2,6 +2,8 @@
  */
 package ch.hilbri.assist.scheduling.model;
 
+import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -102,7 +104,7 @@ public interface Application extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Criticality Level</b></em>' attribute.
 	 * The default value is <code>"None"</code>.
-	 * The literals are from the enumeration {@link ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType}.
+	 * The literals are from the enumeration {@link ch.hilbri.assist.mapping.model.DesignAssuranceLevelType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Criticality Level</em>' attribute isn't clear,
@@ -110,7 +112,7 @@ public interface Application extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Criticality Level</em>' attribute.
-	 * @see ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType
+	 * @see ch.hilbri.assist.mapping.model.DesignAssuranceLevelType
 	 * @see #setCriticalityLevel(DesignAssuranceLevelType)
 	 * @see ch.hilbri.assist.scheduling.model.ModelPackage#getApplication_CriticalityLevel()
 	 * @model default="None" unique="false"
@@ -123,7 +125,7 @@ public interface Application extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Criticality Level</em>' attribute.
-	 * @see ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType
+	 * @see ch.hilbri.assist.mapping.model.DesignAssuranceLevelType
 	 * @see #getCriticalityLevel()
 	 * @generated
 	 */

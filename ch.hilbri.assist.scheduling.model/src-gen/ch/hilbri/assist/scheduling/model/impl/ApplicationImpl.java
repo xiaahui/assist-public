@@ -2,8 +2,9 @@
  */
 package ch.hilbri.assist.scheduling.model.impl;
 
+import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType;
+
 import ch.hilbri.assist.scheduling.model.Application;
-import ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType;
 import ch.hilbri.assist.scheduling.model.HardwareElement;
 import ch.hilbri.assist.scheduling.model.MetricParameter;
 import ch.hilbri.assist.scheduling.model.ModelPackage;

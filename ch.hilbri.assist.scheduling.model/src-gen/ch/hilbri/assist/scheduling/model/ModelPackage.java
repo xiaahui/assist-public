@@ -1419,16 +1419,6 @@ public interface ModelPackage extends EPackage {
 	int HARDWARE_ARCHITECTURE_LEVEL_TYPE = 15;
 
 	/**
-	 * The meta object id for the '{@link ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType
-	 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
-	 * @generated
-	 */
-	int DESIGN_ASSURANCE_LEVEL_TYPE = 16;
-
-	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.scheduling.model.IOAdapterType <em>IO Adapter Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1436,7 +1426,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getIOAdapterType()
 	 * @generated
 	 */
-	int IO_ADAPTER_TYPE = 17;
+	int IO_ADAPTER_TYPE = 16;
 
 	/**
 	 * The meta object id for the '<em>Task2 Execution Instances Map Type</em>' data type.
@@ -1446,7 +1436,7 @@ public interface ModelPackage extends EPackage {
 	 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getTask2ExecutionInstancesMapType()
 	 * @generated
 	 */
-	int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 18;
+	int TASK2_EXECUTION_INSTANCES_MAP_TYPE = 17;
 
 
 	/**
@@ -2580,16 +2570,6 @@ public interface ModelPackage extends EPackage {
 	EEnum getHardwareArchitectureLevelType();
 
 	/**
-	 * Returns the meta object for enum '{@link ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Design Assurance Level Type</em>'.
-	 * @see ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType
-	 * @generated
-	 */
-	EEnum getDesignAssuranceLevelType();
-
-	/**
 	 * Returns the meta object for enum '{@link ch.hilbri.assist.scheduling.model.IOAdapterType <em>IO Adapter Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3512,16 +3492,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum HARDWARE_ARCHITECTURE_LEVEL_TYPE = eINSTANCE.getHardwareArchitectureLevelType();
-
-		/**
-		 * The meta object literal for the '{@link ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType <em>Design Assurance Level Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType
-		 * @see ch.hilbri.assist.scheduling.model.impl.ModelPackageImpl#getDesignAssuranceLevelType()
-		 * @generated
-		 */
-		EEnum DESIGN_ASSURANCE_LEVEL_TYPE = eINSTANCE.getDesignAssuranceLevelType();
 
 		/**
 		 * The meta object literal for the '{@link ch.hilbri.assist.scheduling.model.IOAdapterType <em>IO Adapter Type</em>}' enum.

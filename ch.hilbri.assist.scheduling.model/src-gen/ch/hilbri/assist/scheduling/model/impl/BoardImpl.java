@@ -2,10 +2,11 @@
  */
 package ch.hilbri.assist.scheduling.model.impl;
 
+import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType;
+
 import ch.hilbri.assist.scheduling.model.Board;
 import ch.hilbri.assist.scheduling.model.Box;
 import ch.hilbri.assist.scheduling.model.Core;
-import ch.hilbri.assist.scheduling.model.DesignAssuranceLevelType;
 import ch.hilbri.assist.scheduling.model.IOAdapter;
 import ch.hilbri.assist.scheduling.model.ModelPackage;
 import ch.hilbri.assist.scheduling.model.Processor;
