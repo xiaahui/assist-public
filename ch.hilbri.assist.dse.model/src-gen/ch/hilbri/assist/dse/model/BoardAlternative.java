@@ -2,8 +2,6 @@
  */
 package ch.hilbri.assist.dse.model;
 
-import ch.hilbri.assist.mapping.model.Board;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -54,7 +52,7 @@ public interface BoardAlternative extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Boards</b></em>' containment reference list.
-	 * The list contents are of type {@link ch.hilbri.assist.mapping.model.Board}.
+	 * The list contents are of type {@link java.lang.Object}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Boards</em>' containment reference list isn't clear,
@@ -63,9 +61,9 @@ public interface BoardAlternative extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Boards</em>' containment reference list.
 	 * @see ch.hilbri.assist.dse.model.ModelPackage#getBoardAlternative_Boards()
-	 * @model containment="true"
+	 * @model type="org.eclipse.emf.ecore.EJavaObject" containment="true"
 	 * @generated
 	 */
-	EList<Board> getBoards();
+	EList<Object> getBoards();
 
 } // BoardAlternative

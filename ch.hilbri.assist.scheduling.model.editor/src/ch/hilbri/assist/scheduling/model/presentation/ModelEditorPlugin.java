@@ -2,7 +2,6 @@
  */
 package ch.hilbri.assist.scheduling.model.presentation;
 
-import ch.hilbri.assist.mapping.model.provider.ModelEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
@@ -41,7 +40,6 @@ public final class ModelEditorPlugin extends EMFPlugin {
 	public ModelEditorPlugin() {
 		super
 			(new ResourceLocator [] {
-				ModelEditPlugin.INSTANCE,
 			});
 	}
 

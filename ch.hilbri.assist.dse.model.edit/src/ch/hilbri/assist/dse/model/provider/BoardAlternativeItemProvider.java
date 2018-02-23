@@ -5,8 +5,6 @@ package ch.hilbri.assist.dse.model.provider;
 
 import ch.hilbri.assist.dse.model.BoardAlternative;
 import ch.hilbri.assist.dse.model.ModelPackage;
-
-import ch.hilbri.assist.mapping.model.ModelFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -178,11 +176,6 @@ public class BoardAlternativeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.BOARD_ALTERNATIVE__BOARDS,
-				 ModelFactory.eINSTANCE.createBoard()));
 	}
 
 	/**

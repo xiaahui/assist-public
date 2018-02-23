@@ -6,7 +6,6 @@ package ch.hilbri.assist.dse.model.provider;
 import ch.hilbri.assist.dse.model.BoxDSE;
 import ch.hilbri.assist.dse.model.ModelFactory;
 import ch.hilbri.assist.dse.model.ModelPackage;
-import ch.hilbri.assist.mapping.model.provider.BoxItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -17,6 +16,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -25,7 +25,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BoxDSEItemProvider extends BoxItemProvider {
+public class BoxDSEItemProvider extends ItemProviderAdapter {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -100,10 +100,7 @@ public class BoxDSEItemProvider extends BoxItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BoxDSE)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BoxDSE_type") :
-			getString("_UI_BoxDSE_type") + " " + label;
+		return getString("_UI_BoxDSE_type");
 	}
 	
 

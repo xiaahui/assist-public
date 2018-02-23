@@ -2,8 +2,6 @@
  */
 package ch.hilbri.assist.scheduling.model.impl;
 
-import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType;
-
 import ch.hilbri.assist.scheduling.model.Board;
 import ch.hilbri.assist.scheduling.model.Box;
 import ch.hilbri.assist.scheduling.model.Core;
@@ -107,7 +105,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DesignAssuranceLevelType ASSURANCE_LEVEL_EDEFAULT = DesignAssuranceLevelType.NONE;
+	protected static final Object ASSURANCE_LEVEL_EDEFAULT; // TODO The default value literal "None" is not valid.
 
 	/**
 	 * The cached value of the '{@link #getAssuranceLevel() <em>Assurance Level</em>}' attribute.
@@ -117,7 +115,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * @generated
 	 * @ordered
 	 */
-	protected DesignAssuranceLevelType assuranceLevel = ASSURANCE_LEVEL_EDEFAULT;
+	protected Object assuranceLevel = ASSURANCE_LEVEL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRamCapacity() <em>Ram Capacity</em>}' attribute.
@@ -255,7 +253,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DesignAssuranceLevelType getAssuranceLevel() {
+	public Object getAssuranceLevel() {
 		return assuranceLevel;
 	}
 
@@ -264,9 +262,9 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAssuranceLevel(DesignAssuranceLevelType newAssuranceLevel) {
-		DesignAssuranceLevelType oldAssuranceLevel = assuranceLevel;
-		assuranceLevel = newAssuranceLevel == null ? ASSURANCE_LEVEL_EDEFAULT : newAssuranceLevel;
+	public void setAssuranceLevel(Object newAssuranceLevel) {
+		Object oldAssuranceLevel = assuranceLevel;
+		assuranceLevel = newAssuranceLevel;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOARD__ASSURANCE_LEVEL, oldAssuranceLevel, assuranceLevel));
 	}
@@ -530,7 +528,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 				setPowerSupply((String)newValue);
 				return;
 			case ModelPackage.BOARD__ASSURANCE_LEVEL:
-				setAssuranceLevel((DesignAssuranceLevelType)newValue);
+				setAssuranceLevel(newValue);
 				return;
 			case ModelPackage.BOARD__RAM_CAPACITY:
 				setRamCapacity((Integer)newValue);
@@ -602,7 +600,7 @@ public class BoardImpl extends HardwareElementImpl implements Board {
 			case ModelPackage.BOARD__POWER_SUPPLY:
 				return POWER_SUPPLY_EDEFAULT == null ? powerSupply != null : !POWER_SUPPLY_EDEFAULT.equals(powerSupply);
 			case ModelPackage.BOARD__ASSURANCE_LEVEL:
-				return assuranceLevel != ASSURANCE_LEVEL_EDEFAULT;
+				return ASSURANCE_LEVEL_EDEFAULT == null ? assuranceLevel != null : !ASSURANCE_LEVEL_EDEFAULT.equals(assuranceLevel);
 			case ModelPackage.BOARD__RAM_CAPACITY:
 				return ramCapacity != RAM_CAPACITY_EDEFAULT;
 			case ModelPackage.BOARD__ROM_CAPACITY:

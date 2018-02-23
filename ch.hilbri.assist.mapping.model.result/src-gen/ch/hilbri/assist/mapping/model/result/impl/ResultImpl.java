@@ -2,19 +2,8 @@
  */
 package ch.hilbri.assist.mapping.model.result.impl;
 
-import ch.hilbri.assist.mapping.model.Application;
-import ch.hilbri.assist.mapping.model.AssistModelMapping;
-import ch.hilbri.assist.mapping.model.Board;
-import ch.hilbri.assist.mapping.model.Box;
-import ch.hilbri.assist.mapping.model.Compartment;
-import ch.hilbri.assist.mapping.model.Core;
-import ch.hilbri.assist.mapping.model.HardwareElement;
-import ch.hilbri.assist.mapping.model.Processor;
-import ch.hilbri.assist.mapping.model.Task;
-
 import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.Result;
-import ch.hilbri.assist.mapping.model.result.ResultFactory;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
 import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
 
@@ -23,8 +12,6 @@ import com.google.common.base.Objects;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.HashMap;
-
-import java.util.Map.Entry;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -44,17 +31,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.eclipse.emf.ecore.xcore.lib.XcoreEListExtensions;
-
 import org.eclipse.xtext.xbase.lib.DoubleExtensions;
 
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.Functions.Function2;
 
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.ObjectExtensions;
-
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 /**
  * <!-- begin-user-doc -->
@@ -126,7 +108,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @generated
 	 * @ordered
 	 */
-	protected AssistModelMapping model;
+	protected Object model;
 
 	/**
 	 * The cached value of the '{@link #getTask2CoreMap() <em>Task2 Core Map</em>}' attribute.
@@ -136,7 +118,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @generated
 	 * @ordered
 	 */
-	protected HashMap<Task, Core> task2CoreMap;
+	protected HashMap<Object, Object> task2CoreMap;
 
 	/**
 	 * The cached value of the '{@link #getMetricAbsoluteScoresMap() <em>Metric Absolute Scores Map</em>}' map.
@@ -264,10 +246,10 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssistModelMapping getModel() {
-		if (model != null && model.eIsProxy()) {
+	public Object getModel() {
+		if (model != null && ((EObject)model).eIsProxy()) {
 			InternalEObject oldModel = (InternalEObject)model;
-			model = (AssistModelMapping)eResolveProxy(oldModel);
+			model = (Object)eResolveProxy(oldModel);
 			if (model != oldModel) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultPackage.RESULT__MODEL, oldModel, model));
@@ -281,7 +263,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssistModelMapping basicGetModel() {
+	public Object basicGetModel() {
 		return model;
 	}
 
@@ -290,8 +272,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setModel(AssistModelMapping newModel) {
-		AssistModelMapping oldModel = model;
+	public void setModel(Object newModel) {
+		Object oldModel = model;
 		model = newModel;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__MODEL, oldModel, model));
@@ -302,7 +284,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HashMap<Task, Core> getTask2CoreMap() {
+	public HashMap<Object, Object> getTask2CoreMap() {
 		return task2CoreMap;
 	}
 
@@ -311,8 +293,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTask2CoreMap(HashMap<Task, Core> newTask2CoreMap) {
-		HashMap<Task, Core> oldTask2CoreMap = task2CoreMap;
+	public void setTask2CoreMap(HashMap<Object, Object> newTask2CoreMap) {
+		HashMap<Object, Object> oldTask2CoreMap = task2CoreMap;
 		task2CoreMap = newTask2CoreMap;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResultPackage.RESULT__TASK2_CORE_MAP, oldTask2CoreMap, task2CoreMap));
@@ -412,14 +394,14 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Task> getMappedTasksForCore(final Core core) {
-		final Function1<Task, Boolean> _function = new Function1<Task, Boolean>() {
-			public Boolean apply(final Task it) {
-				Core _get = ResultImpl.this.getTask2CoreMap().get(it);
+	public EList<Object> getMappedTasksForCore(final Object core) {
+		final Function1<Object, Boolean> _function = new Function1<Object, Boolean>() {
+			public Boolean apply(final Object it) {
+				Object _get = ResultImpl.this.getTask2CoreMap().get(it);
 				return Boolean.valueOf(Objects.equal(_get, core));
 			}
 		};
-		return ECollections.<Task>toEList(IterableExtensions.<Task>filter(this.getTask2CoreMap().keySet(), _function));
+		return ECollections.<Object>toEList(IterableExtensions.<Object>filter(this.getTask2CoreMap().keySet(), _function));
 	}
 
 	/**
@@ -427,32 +409,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getAbsoluteCoreUtilization(final Core core) {
-		Integer _xblockexpression = null;
-		{
-			final EList<Task> taskList = this.getMappedTasksForCore(core);
-			Integer _xifexpression = null;
-			boolean _isNullOrEmpty = IterableExtensions.isNullOrEmpty(taskList);
-			boolean _not = (!_isNullOrEmpty);
-			if (_not) {
-				final Function1<Task, Integer> _function = new Function1<Task, Integer>() {
-					public Integer apply(final Task it) {
-						return Integer.valueOf(it.getCoreUtilization());
-					}
-				};
-				final Function2<Integer, Integer, Integer> _function_1 = new Function2<Integer, Integer, Integer>() {
-					public Integer apply(final Integer p1, final Integer p2) {
-						return Integer.valueOf(((p1).intValue() + (p2).intValue()));
-					}
-				};
-				_xifexpression = IterableExtensions.<Integer>reduce(XcoreEListExtensions.<Task, Integer>map(taskList, _function), _function_1);
-			}
-			else {
-				_xifexpression = Integer.valueOf(0);
-			}
-			_xblockexpression = _xifexpression;
-		}
-		return (_xblockexpression).intValue();
+	public int getAbsoluteCoreUtilization(final Object core) {
+		throw new Error("Unresolved compilation problems: The method or field coreUtilization is undefined for the type Object");
 	}
 
 	/**
@@ -460,21 +418,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getRelativeCoreUtilization(final Core core) {
-		double _xifexpression = (double) 0;
-		int _capacity = core.getCapacity();
-		boolean _greaterThan = (_capacity > 0);
-		if (_greaterThan) {
-			int _absoluteCoreUtilization = this.getAbsoluteCoreUtilization(core);
-			Double _double = new Double(_absoluteCoreUtilization);
-			int _capacity_1 = core.getCapacity();
-			Double _double_1 = new Double(_capacity_1);
-			_xifexpression = DoubleExtensions.operator_divide(_double, _double_1);
-		}
-		else {
-			_xifexpression = (-1.0);
-		}
-		return _xifexpression;
+	public double getRelativeCoreUtilization(final Object core) {
+		throw new Error("Unresolved compilation problems: The method or field capacity is undefined for the type Object");
 	}
 
 	/**
@@ -482,43 +427,8 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HardwareElement getHardwareElementForTask(final Task task, final int level) {
-		HardwareElement _xifexpression = null;
-		if ((level == 0)) {
-			_xifexpression = this.getTask2CoreMap().get(task);
-		}
-		else {
-			HardwareElement _xifexpression_1 = null;
-			if ((level == 1)) {
-				_xifexpression_1 = this.getTask2CoreMap().get(task).getProcessor();
-			}
-			else {
-				HardwareElement _xifexpression_2 = null;
-				if ((level == 2)) {
-					_xifexpression_2 = this.getTask2CoreMap().get(task).getProcessor().getBoard();
-				}
-				else {
-					HardwareElement _xifexpression_3 = null;
-					if ((level == 3)) {
-						_xifexpression_3 = this.getTask2CoreMap().get(task).getProcessor().getBoard().getBox();
-					}
-					else {
-						Compartment _xifexpression_4 = null;
-						if ((level == 4)) {
-							_xifexpression_4 = this.getTask2CoreMap().get(task).getProcessor().getBoard().getBox().getCompartment();
-						}
-						else {
-							_xifexpression_4 = null;
-						}
-						_xifexpression_3 = _xifexpression_4;
-					}
-					_xifexpression_2 = _xifexpression_3;
-				}
-				_xifexpression_1 = _xifexpression_2;
-			}
-			_xifexpression = _xifexpression_1;
-		}
-		return _xifexpression;
+	public Object getHardwareElementForTask(final Object task, final int level) {
+		throw new Error("Unresolved compilation problems: The method or field processor is undefined for the type Object");
 	}
 
 	/**
@@ -527,40 +437,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @generated
 	 */
 	public EList<SingleMappingElement> getMappingElements() {
-		final Function1<Entry<Task, Core>, SingleMappingElement> _function = new Function1<Entry<Task, Core>, SingleMappingElement>() {
-			public SingleMappingElement apply(final Entry<Task, Core> it) {
-				SingleMappingElement _xblockexpression = null;
-				{
-					EObject _eContainer = it.getKey().eContainer();
-					final Application application = ((Application) _eContainer);
-					final Task task = it.getKey();
-					final Core core = it.getValue();
-					EObject _eContainer_1 = it.getValue().eContainer();
-					final Processor processor = ((Processor) _eContainer_1);
-					EObject _eContainer_2 = it.getValue().eContainer().eContainer();
-					final Board board = ((Board) _eContainer_2);
-					EObject _eContainer_3 = it.getValue().eContainer().eContainer().eContainer();
-					final Box box = ((Box) _eContainer_3);
-					EObject _eContainer_4 = it.getValue().eContainer().eContainer().eContainer().eContainer();
-					final Compartment compartment = ((Compartment) _eContainer_4);
-					SingleMappingElement _createSingleMappingElement = ResultFactory.eINSTANCE.createSingleMappingElement();
-					final Procedure1<SingleMappingElement> _function = new Procedure1<SingleMappingElement>() {
-						public void apply(final SingleMappingElement it) {
-							it.setApplication(application);
-							it.setTask(task);
-							it.setCore(core);
-							it.setProcessor(processor);
-							it.setBoard(board);
-							it.setBox(box);
-							it.setCompartment(compartment);
-						}
-					};
-					_xblockexpression = ObjectExtensions.<SingleMappingElement>operator_doubleArrow(_createSingleMappingElement, _function);
-				}
-				return _xblockexpression;
-			}
-		};
-		return ECollections.<SingleMappingElement>toEList(IterableExtensions.<Entry<Task, Core>, SingleMappingElement>map(this.getTask2CoreMap().entrySet(), _function));
+		throw new Error("Unresolved compilation problems: Application cannot be resolved to a type.");
 	}
 
 	/**
@@ -578,36 +455,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	 * @generated
 	 */
 	public String toString() {
-		String _xblockexpression = null;
-		{
-			final StringBuilder sb = new StringBuilder();
-			String _name = this.getName();
-			String _plus = ("Result        : " + _name);
-			String _plus_1 = (_plus + " (");
-			int _index = this.getIndex();
-			String _plus_2 = (_plus_1 + Integer.valueOf(_index));
-			String _plus_3 = (_plus_2 + ")\n");
-			sb.append(_plus_3);
-			double _absoluteTotalScore = this.getAbsoluteTotalScore();
-			String _plus_4 = ("Absolute Score: " + Double.valueOf(_absoluteTotalScore));
-			String _plus_5 = (_plus_4 + "\n");
-			sb.append(_plus_5);
-			double _scaledTotalScore = this.getScaledTotalScore();
-			String _plus_6 = ("Relative Score: " + Double.valueOf(_scaledTotalScore));
-			String _plus_7 = (_plus_6 + "\n");
-			sb.append(_plus_7);
-			EList<Task> _allTasks = this.getModel().getAllTasks();
-			for (final Task task : _allTasks) {
-				String _fullName = task.getFullName();
-				String _plus_8 = (_fullName + "\t->\t");
-				String _fullName_1 = this.getTask2CoreMap().get(task).getFullName();
-				String _plus_9 = (_plus_8 + _fullName_1);
-				String _plus_10 = (_plus_9 + "\n");
-				sb.append(_plus_10);
-			}
-			_xblockexpression = sb.toString();
-		}
-		return _xblockexpression;
+		throw new Error("Unresolved compilation problems: The method or field allTasks is undefined for the type Object");
 	}
 
 	/**
@@ -675,10 +523,10 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				setIndex((Integer)newValue);
 				return;
 			case ResultPackage.RESULT__MODEL:
-				setModel((AssistModelMapping)newValue);
+				setModel(newValue);
 				return;
 			case ResultPackage.RESULT__TASK2_CORE_MAP:
-				setTask2CoreMap((HashMap<Task, Core>)newValue);
+				setTask2CoreMap((HashMap<Object, Object>)newValue);
 				return;
 			case ResultPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP:
 				((EStructuralFeature.Setting)getMetricAbsoluteScoresMap()).set(newValue);
@@ -708,10 +556,10 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 				setIndex(INDEX_EDEFAULT);
 				return;
 			case ResultPackage.RESULT__MODEL:
-				setModel((AssistModelMapping)null);
+				setModel((Object)null);
 				return;
 			case ResultPackage.RESULT__TASK2_CORE_MAP:
-				setTask2CoreMap((HashMap<Task, Core>)null);
+				setTask2CoreMap((HashMap<Object, Object>)null);
 				return;
 			case ResultPackage.RESULT__METRIC_ABSOLUTE_SCORES_MAP:
 				getMetricAbsoluteScoresMap().clear();
@@ -764,14 +612,14 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ResultPackage.RESULT___GET_MAPPED_TASKS_FOR_CORE__CORE:
-				return getMappedTasksForCore((Core)arguments.get(0));
-			case ResultPackage.RESULT___GET_ABSOLUTE_CORE_UTILIZATION__CORE:
-				return getAbsoluteCoreUtilization((Core)arguments.get(0));
-			case ResultPackage.RESULT___GET_RELATIVE_CORE_UTILIZATION__CORE:
-				return getRelativeCoreUtilization((Core)arguments.get(0));
-			case ResultPackage.RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__TASK_INT:
-				return getHardwareElementForTask((Task)arguments.get(0), (Integer)arguments.get(1));
+			case ResultPackage.RESULT___GET_MAPPED_TASKS_FOR_CORE__OBJECT:
+				return getMappedTasksForCore(arguments.get(0));
+			case ResultPackage.RESULT___GET_ABSOLUTE_CORE_UTILIZATION__OBJECT:
+				return getAbsoluteCoreUtilization(arguments.get(0));
+			case ResultPackage.RESULT___GET_RELATIVE_CORE_UTILIZATION__OBJECT:
+				return getRelativeCoreUtilization(arguments.get(0));
+			case ResultPackage.RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__OBJECT_INT:
+				return getHardwareElementForTask(arguments.get(0), (Integer)arguments.get(1));
 			case ResultPackage.RESULT___GET_MAPPING_ELEMENTS:
 				return getMappingElements();
 			case ResultPackage.RESULT___COMPARE_TO__RESULT:

@@ -1,7 +1,7 @@
 package ch.hilbri.assist.mapping.benchmarking.generator
 
-import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
-import ch.hilbri.assist.mapping.model.ModelFactory
+import ch.hilbri.assist.model.main.AssistModel
+import ch.hilbri.assist.model.main.HardwareArchitectureLevelType
 import java.io.IOException
 import java.util.Collections
 import java.util.List
@@ -9,7 +9,6 @@ import java.util.concurrent.ThreadLocalRandom
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.junit.Assert
-import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 class MappingExampleGenerator {
 
@@ -20,12 +19,12 @@ class MappingExampleGenerator {
 
 	
 	/* Just a facade */
-	static def AssistModelMapping generateSingle(int compCount, int boxCount, int boardCount, int procCount, int coreCount, int appCount, int taskCount, int dislocRelCount, int dislocAppCount, List<HardwareArchitectureLevelType> dislocLevels) {
+	static def AssistModel generateSingle(int compCount, int boxCount, int boardCount, int procCount, int coreCount, int appCount, int taskCount, int dislocRelCount, int dislocAppCount, List<HardwareArchitectureLevelType> dislocLevels) {
 		generateSingleRandomized(compCount, compCount, boxCount, boxCount, boardCount, boardCount, procCount, procCount, coreCount, coreCount, appCount, appCount, taskCount, taskCount, dislocRelCount, dislocRelCount, dislocAppCount, dislocAppCount, dislocLevels)
 	}
 
 	/* Just a facade */
-	static def AssistModelMapping generateSingleRandomized(
+	static def AssistModel generateSingleRandomized(
 		List<Integer> compCount, 
 		List<Integer> boxCount, 
 		List<Integer> boardCount, 
@@ -63,7 +62,7 @@ class MappingExampleGenerator {
 	 * REAL WORK IS DONE HERE!
 	 * 
 	 */
-	static def AssistModelMapping generateSingleRandomized(
+	static def AssistModel generateSingleRandomized(
 		int compCountMin, 	int compCountMax, 
 		int boxCountMin,  	int boxCountMax, 
 		int boardCountMin, 	int boardCountMax, 
@@ -189,7 +188,7 @@ class MappingExampleGenerator {
 		return assistModel
 	}
 	
-	static def saveToFile(AssistModelMapping assistModel, String filePath) {
+	static def saveToFile(AssistModel assistModel, String filePath) {
 		val resSet = new ResourceSetImpl
 		val resource = resSet.createResource(URI.createFileURI(filePath))
 		resource.contents.add(assistModel)

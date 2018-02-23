@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,67 +70,13 @@ public interface ModelPackage extends EPackage {
 	int ASSIST_MODEL_DSE = 0;
 
 	/**
-	 * The feature id for the '<em><b>System Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL_DSE__SYSTEM_NAME = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING__SYSTEM_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Compartments</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL_DSE__COMPARTMENTS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING__COMPARTMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Applications</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL_DSE__APPLICATIONS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING__APPLICATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Dislocality Relations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL_DSE__DISLOCALITY_RELATIONS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING__DISLOCALITY_RELATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Colocality Relations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL_DSE__COLOCALITY_RELATIONS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING__COLOCALITY_RELATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Dissimilarity Relations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIST_MODEL_DSE__DISSIMILARITY_RELATIONS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING__DISSIMILARITY_RELATIONS;
-
-	/**
 	 * The feature id for the '<em><b>Application Alternatives</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING_FEATURE_COUNT + 0;
+	int ASSIST_MODEL_DSE__APPLICATION_ALTERNATIVES = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Restriction Alternatives</b></em>' containment reference list.
@@ -138,7 +85,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING_FEATURE_COUNT + 1;
+	int ASSIST_MODEL_DSE__RESTRICTION_ALTERNATIVES = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Exploration Candidates</b></em>' containment reference list.
@@ -147,7 +94,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING_FEATURE_COUNT + 2;
+	int ASSIST_MODEL_DSE__EXPLORATION_CANDIDATES = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Assist Model DSE</em>' class.
@@ -156,70 +103,142 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE_FEATURE_COUNT = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING_FEATURE_COUNT + 3;
+	int ASSIST_MODEL_DSE_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get All Compartments</em>' operation.
+	 * The operation id for the '<em>EClass</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE___GET_ALL_COMPARTMENTS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_COMPARTMENTS;
+	int ASSIST_MODEL_DSE___ECLASS = EcorePackage.EOBJECT___ECLASS;
 
 	/**
-	 * The operation id for the '<em>Get All Boxes</em>' operation.
+	 * The operation id for the '<em>EIs Proxy</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE___GET_ALL_BOXES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_BOXES;
+	int ASSIST_MODEL_DSE___EIS_PROXY = EcorePackage.EOBJECT___EIS_PROXY;
 
 	/**
-	 * The operation id for the '<em>Get All Boards</em>' operation.
+	 * The operation id for the '<em>EResource</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE___GET_ALL_BOARDS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_BOARDS;
+	int ASSIST_MODEL_DSE___ERESOURCE = EcorePackage.EOBJECT___ERESOURCE;
 
 	/**
-	 * The operation id for the '<em>Get All Processors</em>' operation.
+	 * The operation id for the '<em>EContainer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE___GET_ALL_PROCESSORS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_PROCESSORS;
+	int ASSIST_MODEL_DSE___ECONTAINER = EcorePackage.EOBJECT___ECONTAINER;
 
 	/**
-	 * The operation id for the '<em>Get All Cores</em>' operation.
+	 * The operation id for the '<em>EContaining Feature</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE___GET_ALL_CORES = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_CORES;
+	int ASSIST_MODEL_DSE___ECONTAINING_FEATURE = EcorePackage.EOBJECT___ECONTAINING_FEATURE;
 
 	/**
-	 * The operation id for the '<em>Get All Tasks</em>' operation.
+	 * The operation id for the '<em>EContainment Feature</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE___GET_ALL_TASKS = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_TASKS;
+	int ASSIST_MODEL_DSE___ECONTAINMENT_FEATURE = EcorePackage.EOBJECT___ECONTAINMENT_FEATURE;
 
 	/**
-	 * The operation id for the '<em>Get All Hardware Elements</em>' operation.
+	 * The operation id for the '<em>EContents</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE___GET_ALL_HARDWARE_ELEMENTS__INT = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING___GET_ALL_HARDWARE_ELEMENTS__INT;
+	int ASSIST_MODEL_DSE___ECONTENTS = EcorePackage.EOBJECT___ECONTENTS;
+
+	/**
+	 * The operation id for the '<em>EAll Contents</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_DSE___EALL_CONTENTS = EcorePackage.EOBJECT___EALL_CONTENTS;
+
+	/**
+	 * The operation id for the '<em>ECross References</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_DSE___ECROSS_REFERENCES = EcorePackage.EOBJECT___ECROSS_REFERENCES;
+
+	/**
+	 * The operation id for the '<em>EGet</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_DSE___EGET__ESTRUCTURALFEATURE = EcorePackage.EOBJECT___EGET__ESTRUCTURALFEATURE;
+
+	/**
+	 * The operation id for the '<em>EGet</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_DSE___EGET__ESTRUCTURALFEATURE_BOOLEAN = EcorePackage.EOBJECT___EGET__ESTRUCTURALFEATURE_BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>ESet</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_DSE___ESET__ESTRUCTURALFEATURE_OBJECT = EcorePackage.EOBJECT___ESET__ESTRUCTURALFEATURE_OBJECT;
+
+	/**
+	 * The operation id for the '<em>EIs Set</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_DSE___EIS_SET__ESTRUCTURALFEATURE = EcorePackage.EOBJECT___EIS_SET__ESTRUCTURALFEATURE;
+
+	/**
+	 * The operation id for the '<em>EUnset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_DSE___EUNSET__ESTRUCTURALFEATURE = EcorePackage.EOBJECT___EUNSET__ESTRUCTURALFEATURE;
+
+	/**
+	 * The operation id for the '<em>EInvoke</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIST_MODEL_DSE___EINVOKE__EOPERATION_ELIST = EcorePackage.EOBJECT___EINVOKE__EOPERATION_ELIST;
 
 	/**
 	 * The number of operations of the '<em>Assist Model DSE</em>' class.
@@ -228,7 +247,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIST_MODEL_DSE_OPERATION_COUNT = ch.hilbri.assist.mapping.model.ModelPackage.ASSIST_MODEL_MAPPING_OPERATION_COUNT + 0;
+	int ASSIST_MODEL_DSE_OPERATION_COUNT = EcorePackage.EOBJECT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.dse.model.impl.BoxDSEImpl <em>Box DSE</em>}' class.
@@ -241,67 +260,13 @@ public interface ModelPackage extends EPackage {
 	int BOX_DSE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOX_DSE__NAME = ch.hilbri.assist.mapping.model.ModelPackage.BOX__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Manufacturer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOX_DSE__MANUFACTURER = ch.hilbri.assist.mapping.model.ModelPackage.BOX__MANUFACTURER;
-
-	/**
-	 * The feature id for the '<em><b>Metric Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOX_DSE__METRIC_PARAMETERS = ch.hilbri.assist.mapping.model.ModelPackage.BOX__METRIC_PARAMETERS;
-
-	/**
-	 * The feature id for the '<em><b>Compartment</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOX_DSE__COMPARTMENT = ch.hilbri.assist.mapping.model.ModelPackage.BOX__COMPARTMENT;
-
-	/**
-	 * The feature id for the '<em><b>Boards</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOX_DSE__BOARDS = ch.hilbri.assist.mapping.model.ModelPackage.BOX__BOARDS;
-
-	/**
-	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOX_DSE__FULL_NAME = ch.hilbri.assist.mapping.model.ModelPackage.BOX__FULL_NAME;
-
-	/**
 	 * The feature id for the '<em><b>Board Alternatives</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOX_DSE__BOARD_ALTERNATIVES = ch.hilbri.assist.mapping.model.ModelPackage.BOX_FEATURE_COUNT + 0;
+	int BOX_DSE__BOARD_ALTERNATIVES = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Box DSE</em>' class.
@@ -310,34 +275,142 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOX_DSE_FEATURE_COUNT = ch.hilbri.assist.mapping.model.ModelPackage.BOX_FEATURE_COUNT + 1;
+	int BOX_DSE_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get All Boards</em>' operation.
+	 * The operation id for the '<em>EClass</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOX_DSE___GET_ALL_BOARDS = ch.hilbri.assist.mapping.model.ModelPackage.BOX___GET_ALL_BOARDS;
+	int BOX_DSE___ECLASS = EcorePackage.EOBJECT___ECLASS;
 
 	/**
-	 * The operation id for the '<em>Get All Processors</em>' operation.
+	 * The operation id for the '<em>EIs Proxy</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOX_DSE___GET_ALL_PROCESSORS = ch.hilbri.assist.mapping.model.ModelPackage.BOX___GET_ALL_PROCESSORS;
+	int BOX_DSE___EIS_PROXY = EcorePackage.EOBJECT___EIS_PROXY;
 
 	/**
-	 * The operation id for the '<em>Get All Cores</em>' operation.
+	 * The operation id for the '<em>EResource</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOX_DSE___GET_ALL_CORES = ch.hilbri.assist.mapping.model.ModelPackage.BOX___GET_ALL_CORES;
+	int BOX_DSE___ERESOURCE = EcorePackage.EOBJECT___ERESOURCE;
+
+	/**
+	 * The operation id for the '<em>EContainer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_DSE___ECONTAINER = EcorePackage.EOBJECT___ECONTAINER;
+
+	/**
+	 * The operation id for the '<em>EContaining Feature</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_DSE___ECONTAINING_FEATURE = EcorePackage.EOBJECT___ECONTAINING_FEATURE;
+
+	/**
+	 * The operation id for the '<em>EContainment Feature</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_DSE___ECONTAINMENT_FEATURE = EcorePackage.EOBJECT___ECONTAINMENT_FEATURE;
+
+	/**
+	 * The operation id for the '<em>EContents</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_DSE___ECONTENTS = EcorePackage.EOBJECT___ECONTENTS;
+
+	/**
+	 * The operation id for the '<em>EAll Contents</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_DSE___EALL_CONTENTS = EcorePackage.EOBJECT___EALL_CONTENTS;
+
+	/**
+	 * The operation id for the '<em>ECross References</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_DSE___ECROSS_REFERENCES = EcorePackage.EOBJECT___ECROSS_REFERENCES;
+
+	/**
+	 * The operation id for the '<em>EGet</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_DSE___EGET__ESTRUCTURALFEATURE = EcorePackage.EOBJECT___EGET__ESTRUCTURALFEATURE;
+
+	/**
+	 * The operation id for the '<em>EGet</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_DSE___EGET__ESTRUCTURALFEATURE_BOOLEAN = EcorePackage.EOBJECT___EGET__ESTRUCTURALFEATURE_BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>ESet</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_DSE___ESET__ESTRUCTURALFEATURE_OBJECT = EcorePackage.EOBJECT___ESET__ESTRUCTURALFEATURE_OBJECT;
+
+	/**
+	 * The operation id for the '<em>EIs Set</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_DSE___EIS_SET__ESTRUCTURALFEATURE = EcorePackage.EOBJECT___EIS_SET__ESTRUCTURALFEATURE;
+
+	/**
+	 * The operation id for the '<em>EUnset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_DSE___EUNSET__ESTRUCTURALFEATURE = EcorePackage.EOBJECT___EUNSET__ESTRUCTURALFEATURE;
+
+	/**
+	 * The operation id for the '<em>EInvoke</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_DSE___EINVOKE__EOPERATION_ELIST = EcorePackage.EOBJECT___EINVOKE__EOPERATION_ELIST;
 
 	/**
 	 * The number of operations of the '<em>Box DSE</em>' class.
@@ -346,7 +419,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOX_DSE_OPERATION_COUNT = ch.hilbri.assist.mapping.model.ModelPackage.BOX_OPERATION_COUNT + 0;
+	int BOX_DSE_OPERATION_COUNT = EcorePackage.EOBJECT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ch.hilbri.assist.dse.model.impl.BoardAlternativesImpl <em>Board Alternatives</em>}' class.

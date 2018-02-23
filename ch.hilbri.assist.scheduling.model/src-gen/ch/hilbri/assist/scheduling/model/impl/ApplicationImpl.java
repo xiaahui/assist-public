@@ -2,8 +2,6 @@
  */
 package ch.hilbri.assist.scheduling.model.impl;
 
-import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType;
-
 import ch.hilbri.assist.scheduling.model.Application;
 import ch.hilbri.assist.scheduling.model.HardwareElement;
 import ch.hilbri.assist.scheduling.model.MetricParameter;
@@ -108,7 +106,7 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DesignAssuranceLevelType CRITICALITY_LEVEL_EDEFAULT = DesignAssuranceLevelType.NONE;
+	protected static final Object CRITICALITY_LEVEL_EDEFAULT; // TODO The default value literal "None" is not valid.
 
 	/**
 	 * The cached value of the '{@link #getCriticalityLevel() <em>Criticality Level</em>}' attribute.
@@ -118,7 +116,7 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	 * @generated
 	 * @ordered
 	 */
-	protected DesignAssuranceLevelType criticalityLevel = CRITICALITY_LEVEL_EDEFAULT;
+	protected Object criticalityLevel = CRITICALITY_LEVEL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference list.
@@ -225,7 +223,7 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DesignAssuranceLevelType getCriticalityLevel() {
+	public Object getCriticalityLevel() {
 		return criticalityLevel;
 	}
 
@@ -234,9 +232,9 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCriticalityLevel(DesignAssuranceLevelType newCriticalityLevel) {
-		DesignAssuranceLevelType oldCriticalityLevel = criticalityLevel;
-		criticalityLevel = newCriticalityLevel == null ? CRITICALITY_LEVEL_EDEFAULT : newCriticalityLevel;
+	public void setCriticalityLevel(Object newCriticalityLevel) {
+		Object oldCriticalityLevel = criticalityLevel;
+		criticalityLevel = newCriticalityLevel;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.APPLICATION__CRITICALITY_LEVEL, oldCriticalityLevel, criticalityLevel));
 	}
@@ -359,7 +357,7 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 				setDevelopedBy((String)newValue);
 				return;
 			case ModelPackage.APPLICATION__CRITICALITY_LEVEL:
-				setCriticalityLevel((DesignAssuranceLevelType)newValue);
+				setCriticalityLevel(newValue);
 				return;
 			case ModelPackage.APPLICATION__TASKS:
 				getTasks().clear();
@@ -422,7 +420,7 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
 			case ModelPackage.APPLICATION__DEVELOPED_BY:
 				return DEVELOPED_BY_EDEFAULT == null ? developedBy != null : !DEVELOPED_BY_EDEFAULT.equals(developedBy);
 			case ModelPackage.APPLICATION__CRITICALITY_LEVEL:
-				return criticalityLevel != CRITICALITY_LEVEL_EDEFAULT;
+				return CRITICALITY_LEVEL_EDEFAULT == null ? criticalityLevel != null : !CRITICALITY_LEVEL_EDEFAULT.equals(criticalityLevel);
 			case ModelPackage.APPLICATION__TASKS:
 				return tasks != null && !tasks.isEmpty();
 			case ModelPackage.APPLICATION__METRIC_PARAMETERS:

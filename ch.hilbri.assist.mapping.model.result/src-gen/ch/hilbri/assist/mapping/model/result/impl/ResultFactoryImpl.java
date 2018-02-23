@@ -2,9 +2,6 @@
  */
 package ch.hilbri.assist.mapping.model.result.impl;
 
-import ch.hilbri.assist.mapping.model.Core;
-import ch.hilbri.assist.mapping.model.Task;
-
 import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.model.result.ResultFactory;
@@ -146,8 +143,8 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public HashMap<Task, Core> createTask2CoreMapTypeFromString(EDataType eDataType, String initialValue) {
-		return (HashMap<Task, Core>)super.createFromString(initialValue);
+	public HashMap<Object, Object> createTask2CoreMapTypeFromString(EDataType eDataType, String initialValue) {
+		return (HashMap<Object, Object>)super.createFromString(initialValue);
 	}
 
 	/**

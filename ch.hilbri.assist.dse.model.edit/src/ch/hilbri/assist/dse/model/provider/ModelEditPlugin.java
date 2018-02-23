@@ -38,7 +38,6 @@ public final class ModelEditPlugin extends EMFPlugin {
 	public ModelEditPlugin() {
 		super
 		  (new ResourceLocator [] {
-		     ch.hilbri.assist.mapping.model.provider.ModelEditPlugin.INSTANCE,
 		   });
 	}
 

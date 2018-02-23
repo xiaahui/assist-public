@@ -4,10 +4,6 @@ package ch.hilbri.assist.dse.model.util;
 
 import ch.hilbri.assist.dse.model.*;
 
-import ch.hilbri.assist.mapping.model.AssistModelMapping;
-import ch.hilbri.assist.mapping.model.Box;
-import ch.hilbri.assist.mapping.model.HardwareElement;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -106,18 +102,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseExplorationCandidate(ExplorationCandidate object) {
 				return createExplorationCandidateAdapter();
-			}
-			@Override
-			public Adapter caseAssistModelMapping(AssistModelMapping object) {
-				return createAssistModelMappingAdapter();
-			}
-			@Override
-			public Adapter caseHardwareElement(HardwareElement object) {
-				return createHardwareElementAdapter();
-			}
-			@Override
-			public Adapter caseBox(Box object) {
-				return createBoxAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -262,48 +246,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExplorationCandidateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.AssistModelMapping <em>Assist Model Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.AssistModelMapping
-	 * @generated
-	 */
-	public Adapter createAssistModelMappingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.HardwareElement <em>Hardware Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.HardwareElement
-	 * @generated
-	 */
-	public Adapter createHardwareElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ch.hilbri.assist.mapping.model.Box <em>Box</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ch.hilbri.assist.mapping.model.Box
-	 * @generated
-	 */
-	public Adapter createBoxAdapter() {
 		return null;
 	}
 

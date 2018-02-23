@@ -2,14 +2,6 @@
  */
 package ch.hilbri.assist.mapping.model.result;
 
-import ch.hilbri.assist.mapping.model.Application;
-import ch.hilbri.assist.mapping.model.Board;
-import ch.hilbri.assist.mapping.model.Box;
-import ch.hilbri.assist.mapping.model.Compartment;
-import ch.hilbri.assist.mapping.model.Core;
-import ch.hilbri.assist.mapping.model.Processor;
-import ch.hilbri.assist.mapping.model.Task;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -44,12 +36,12 @@ public interface SingleMappingElement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Application</em>' reference.
-	 * @see #setApplication(Application)
+	 * @see #setApplication(Object)
 	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement_Application()
-	 * @model
+	 * @model type="org.eclipse.emf.ecore.EJavaObject"
 	 * @generated
 	 */
-	Application getApplication();
+	Object getApplication();
 
 	/**
 	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getApplication <em>Application</em>}' reference.
@@ -59,7 +51,7 @@ public interface SingleMappingElement extends EObject {
 	 * @see #getApplication()
 	 * @generated
 	 */
-	void setApplication(Application value);
+	void setApplication(Object value);
 
 	/**
 	 * Returns the value of the '<em><b>Task</b></em>' reference.
@@ -70,12 +62,12 @@ public interface SingleMappingElement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Task</em>' reference.
-	 * @see #setTask(Task)
+	 * @see #setTask(Object)
 	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement_Task()
-	 * @model
+	 * @model type="org.eclipse.emf.ecore.EJavaObject"
 	 * @generated
 	 */
-	Task getTask();
+	Object getTask();
 
 	/**
 	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getTask <em>Task</em>}' reference.
@@ -85,7 +77,7 @@ public interface SingleMappingElement extends EObject {
 	 * @see #getTask()
 	 * @generated
 	 */
-	void setTask(Task value);
+	void setTask(Object value);
 
 	/**
 	 * Returns the value of the '<em><b>Core</b></em>' reference.
@@ -96,12 +88,12 @@ public interface SingleMappingElement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Core</em>' reference.
-	 * @see #setCore(Core)
+	 * @see #setCore(Object)
 	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement_Core()
-	 * @model
+	 * @model type="org.eclipse.emf.ecore.EJavaObject"
 	 * @generated
 	 */
-	Core getCore();
+	Object getCore();
 
 	/**
 	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getCore <em>Core</em>}' reference.
@@ -111,7 +103,7 @@ public interface SingleMappingElement extends EObject {
 	 * @see #getCore()
 	 * @generated
 	 */
-	void setCore(Core value);
+	void setCore(Object value);
 
 	/**
 	 * Returns the value of the '<em><b>Processor</b></em>' reference.
@@ -122,12 +114,12 @@ public interface SingleMappingElement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Processor</em>' reference.
-	 * @see #setProcessor(Processor)
+	 * @see #setProcessor(Object)
 	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement_Processor()
-	 * @model
+	 * @model type="org.eclipse.emf.ecore.EJavaObject"
 	 * @generated
 	 */
-	Processor getProcessor();
+	Object getProcessor();
 
 	/**
 	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getProcessor <em>Processor</em>}' reference.
@@ -137,7 +129,7 @@ public interface SingleMappingElement extends EObject {
 	 * @see #getProcessor()
 	 * @generated
 	 */
-	void setProcessor(Processor value);
+	void setProcessor(Object value);
 
 	/**
 	 * Returns the value of the '<em><b>Board</b></em>' reference.
@@ -148,12 +140,12 @@ public interface SingleMappingElement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Board</em>' reference.
-	 * @see #setBoard(Board)
+	 * @see #setBoard(Object)
 	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement_Board()
-	 * @model
+	 * @model type="org.eclipse.emf.ecore.EJavaObject"
 	 * @generated
 	 */
-	Board getBoard();
+	Object getBoard();
 
 	/**
 	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getBoard <em>Board</em>}' reference.
@@ -163,7 +155,7 @@ public interface SingleMappingElement extends EObject {
 	 * @see #getBoard()
 	 * @generated
 	 */
-	void setBoard(Board value);
+	void setBoard(Object value);
 
 	/**
 	 * Returns the value of the '<em><b>Box</b></em>' reference.
@@ -174,12 +166,12 @@ public interface SingleMappingElement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Box</em>' reference.
-	 * @see #setBox(Box)
+	 * @see #setBox(Object)
 	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement_Box()
-	 * @model
+	 * @model type="org.eclipse.emf.ecore.EJavaObject"
 	 * @generated
 	 */
-	Box getBox();
+	Object getBox();
 
 	/**
 	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getBox <em>Box</em>}' reference.
@@ -189,7 +181,7 @@ public interface SingleMappingElement extends EObject {
 	 * @see #getBox()
 	 * @generated
 	 */
-	void setBox(Box value);
+	void setBox(Object value);
 
 	/**
 	 * Returns the value of the '<em><b>Compartment</b></em>' reference.
@@ -200,12 +192,12 @@ public interface SingleMappingElement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Compartment</em>' reference.
-	 * @see #setCompartment(Compartment)
+	 * @see #setCompartment(Object)
 	 * @see ch.hilbri.assist.mapping.model.result.ResultPackage#getSingleMappingElement_Compartment()
-	 * @model
+	 * @model type="org.eclipse.emf.ecore.EJavaObject"
 	 * @generated
 	 */
-	Compartment getCompartment();
+	Object getCompartment();
 
 	/**
 	 * Sets the value of the '{@link ch.hilbri.assist.mapping.model.result.SingleMappingElement#getCompartment <em>Compartment</em>}' reference.
@@ -215,6 +207,6 @@ public interface SingleMappingElement extends EObject {
 	 * @see #getCompartment()
 	 * @generated
 	 */
-	void setCompartment(Compartment value);
+	void setCompartment(Object value);
 
 } // SingleMappingElement
