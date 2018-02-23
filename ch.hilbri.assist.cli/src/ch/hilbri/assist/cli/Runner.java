@@ -22,19 +22,19 @@ import ch.hilbri.assist.mapping.analysis.metrics.builtin.MaxFreeCapacity;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.RandomScore;
 import ch.hilbri.assist.mapping.analysis.metrics.builtin.UniformCoreLoadDistribution;
 import ch.hilbri.assist.mapping.dsl.tests.MappingDSLInjectorProvider;
-import ch.hilbri.assist.mapping.model.AssistModelMapping;
-import ch.hilbri.assist.mapping.model.ModelPackage;
 import ch.hilbri.assist.mapping.model.result.AbstractMetric;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.solver.AssistMappingSolver;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes;
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes;
+import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.ModelPackage;
 
 public class Runner {
 
 	@Inject
-	protected ParseHelper<AssistModelMapping> parser;
+	protected ParseHelper<AssistModel> parser;
 
 	public static void main(String[] args) throws Exception {
 		final Options options = new Options();
@@ -82,7 +82,7 @@ public class Runner {
 				System.err.println(arg + " has no usable data.");
 				continue;
 			}
-			final AssistModelMapping model = (AssistModelMapping) resource.getContents().get(0);
+			final AssistModel model = (AssistModel) resource.getContents().get(0);
 //			2) Custom validation rule errors // enabling those leads to an invalid jar, for a possible workaround see http://zarnekow.blogspot.de/2010/06/how-to-deploy-xtext-standalone.html?showComment=1279241626077#c7153662425903347274
 //			if (Diagnostician.INSTANCE.validate(model).getSeverity() == Diagnostic.ERROR) { 
 //				System.err.println("Errors on validating " + arg + ".");
