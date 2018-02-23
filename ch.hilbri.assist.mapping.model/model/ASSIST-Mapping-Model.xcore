@@ -46,6 +46,7 @@ class Compartment extends HardwareElement {
 	op Core[] 			getAllCores() 		{ boxes.map[allCores].flatten.toEList		}
 }
 
+
 class Box extends HardwareElement {
 	container Compartment compartment opposite boxes
 	contains Board[0..*] boards opposite box
