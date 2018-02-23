@@ -2,6 +2,9 @@
  */
 package ch.hilbri.assist.dse.model;
 
+import ch.hilbri.assist.model.ColocalityRelation;
+import ch.hilbri.assist.model.DislocalityRelation;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -53,7 +56,7 @@ public interface RestrictionAlternative extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Dislocality Relations</b></em>' containment reference list.
-	 * The list contents are of type {@link java.lang.Object}.
+	 * The list contents are of type {@link ch.hilbri.assist.model.DislocalityRelation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Dislocality Relations</em>' containment reference list isn't clear,
@@ -62,14 +65,14 @@ public interface RestrictionAlternative extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dislocality Relations</em>' containment reference list.
 	 * @see ch.hilbri.assist.dse.model.ModelPackage#getRestrictionAlternative_DislocalityRelations()
-	 * @model type="org.eclipse.emf.ecore.EJavaObject" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Object> getDislocalityRelations();
+	EList<DislocalityRelation> getDislocalityRelations();
 
 	/**
 	 * Returns the value of the '<em><b>Colocality Relations</b></em>' containment reference list.
-	 * The list contents are of type {@link java.lang.Object}.
+	 * The list contents are of type {@link ch.hilbri.assist.model.ColocalityRelation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Colocality Relations</em>' containment reference list isn't clear,
@@ -78,9 +81,9 @@ public interface RestrictionAlternative extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Colocality Relations</em>' containment reference list.
 	 * @see ch.hilbri.assist.dse.model.ModelPackage#getRestrictionAlternative_ColocalityRelations()
-	 * @model type="org.eclipse.emf.ecore.EJavaObject" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Object> getColocalityRelations();
+	EList<ColocalityRelation> getColocalityRelations();
 
 } // RestrictionAlternative

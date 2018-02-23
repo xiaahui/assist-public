@@ -2,9 +2,9 @@
  */
 package ch.hilbri.assist.dse.model;
 
-import org.eclipse.emf.common.util.EList;
+import ch.hilbri.assist.model.AssistModel;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,10 +21,10 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see ch.hilbri.assist.dse.model.ModelPackage#getAssistModelDSE()
- * @model superTypes="org.eclipse.emf.ecore.EJavaObject"
+ * @model
  * @generated
  */
-public interface AssistModelDSE extends EObject {
+public interface AssistModelDSE extends AssistModel {
 	/**
 	 * Returns the value of the '<em><b>Application Alternatives</b></em>' containment reference list.
 	 * The list contents are of type {@link ch.hilbri.assist.dse.model.ApplicationAlternatives}.

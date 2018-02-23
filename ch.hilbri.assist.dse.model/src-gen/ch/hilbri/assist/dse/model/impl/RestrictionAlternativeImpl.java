@@ -5,6 +5,9 @@ package ch.hilbri.assist.dse.model.impl;
 import ch.hilbri.assist.dse.model.ModelPackage;
 import ch.hilbri.assist.dse.model.RestrictionAlternative;
 
+import ch.hilbri.assist.model.ColocalityRelation;
+import ch.hilbri.assist.model.DislocalityRelation;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -65,7 +68,7 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Object> dislocalityRelations;
+	protected EList<DislocalityRelation> dislocalityRelations;
 
 	/**
 	 * The cached value of the '{@link #getColocalityRelations() <em>Colocality Relations</em>}' containment reference list.
@@ -75,7 +78,7 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Object> colocalityRelations;
+	protected EList<ColocalityRelation> colocalityRelations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,9 +125,9 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Object> getDislocalityRelations() {
+	public EList<DislocalityRelation> getDislocalityRelations() {
 		if (dislocalityRelations == null) {
-			dislocalityRelations = new EObjectContainmentEList<Object>(Object.class, this, ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS);
+			dislocalityRelations = new EObjectContainmentEList<DislocalityRelation>(DislocalityRelation.class, this, ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS);
 		}
 		return dislocalityRelations;
 	}
@@ -134,9 +137,9 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Object> getColocalityRelations() {
+	public EList<ColocalityRelation> getColocalityRelations() {
 		if (colocalityRelations == null) {
-			colocalityRelations = new EObjectContainmentEList<Object>(Object.class, this, ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS);
+			colocalityRelations = new EObjectContainmentEList<ColocalityRelation>(ColocalityRelation.class, this, ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS);
 		}
 		return colocalityRelations;
 	}
@@ -189,11 +192,11 @@ public class RestrictionAlternativeImpl extends MinimalEObjectImpl.Container imp
 				return;
 			case ModelPackage.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS:
 				getDislocalityRelations().clear();
-				getDislocalityRelations().addAll((Collection<? extends Object>)newValue);
+				getDislocalityRelations().addAll((Collection<? extends DislocalityRelation>)newValue);
 				return;
 			case ModelPackage.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS:
 				getColocalityRelations().clear();
-				getColocalityRelations().addAll((Collection<? extends Object>)newValue);
+				getColocalityRelations().addAll((Collection<? extends ColocalityRelation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

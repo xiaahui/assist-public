@@ -32,7 +32,7 @@ Workflow {
 			name = "ch.hilbri.assist.dse.dsl.DSEDsl"
 			fileExtensions = "ddsl"
 			referencedResource = "platform:/resource/ch.hilbri.assist.dse.model/model/ASSIST-DSE-Model.xcore"
-			referencedResource = "platform:/resource/ch.hilbri.assist.mapping.model/model/ASSIST-Mapping-Model.xcore"
+			referencedResource = "platform:/resource/ch.hilbri.assist.model/model/ASSIST-Model.xcore"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 

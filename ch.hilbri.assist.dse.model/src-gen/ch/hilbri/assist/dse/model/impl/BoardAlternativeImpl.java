@@ -5,6 +5,8 @@ package ch.hilbri.assist.dse.model.impl;
 import ch.hilbri.assist.dse.model.BoardAlternative;
 import ch.hilbri.assist.dse.model.ModelPackage;
 
+import ch.hilbri.assist.model.Board;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -64,7 +66,7 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Object> boards;
+	protected EList<Board> boards;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,9 +113,9 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Object> getBoards() {
+	public EList<Board> getBoards() {
 		if (boards == null) {
-			boards = new EObjectContainmentEList<Object>(Object.class, this, ModelPackage.BOARD_ALTERNATIVE__BOARDS);
+			boards = new EObjectContainmentEList<Board>(Board.class, this, ModelPackage.BOARD_ALTERNATIVE__BOARDS);
 		}
 		return boards;
 	}
@@ -162,7 +164,7 @@ public class BoardAlternativeImpl extends MinimalEObjectImpl.Container implement
 				return;
 			case ModelPackage.BOARD_ALTERNATIVE__BOARDS:
 				getBoards().clear();
-				getBoards().addAll((Collection<? extends Object>)newValue);
+				getBoards().addAll((Collection<? extends Board>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

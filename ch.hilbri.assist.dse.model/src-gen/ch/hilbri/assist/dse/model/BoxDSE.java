@@ -2,9 +2,9 @@
  */
 package ch.hilbri.assist.dse.model;
 
-import org.eclipse.emf.common.util.EList;
+import ch.hilbri.assist.model.Box;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,10 +19,10 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see ch.hilbri.assist.dse.model.ModelPackage#getBoxDSE()
- * @model superTypes="org.eclipse.emf.ecore.EJavaObject"
+ * @model
  * @generated
  */
-public interface BoxDSE extends EObject {
+public interface BoxDSE extends Box {
 	/**
 	 * Returns the value of the '<em><b>Board Alternatives</b></em>' containment reference list.
 	 * The list contents are of type {@link ch.hilbri.assist.dse.model.BoardAlternatives}.

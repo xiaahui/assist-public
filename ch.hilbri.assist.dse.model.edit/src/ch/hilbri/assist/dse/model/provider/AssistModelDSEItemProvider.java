@@ -7,6 +7,7 @@ import ch.hilbri.assist.dse.model.AssistModelDSE;
 
 import ch.hilbri.assist.dse.model.ModelFactory;
 import ch.hilbri.assist.dse.model.ModelPackage;
+import ch.hilbri.assist.model.provider.AssistModelItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -17,7 +18,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -26,7 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AssistModelDSEItemProvider extends ItemProviderAdapter {
+public class AssistModelDSEItemProvider extends AssistModelItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -103,7 +103,10 @@ public class AssistModelDSEItemProvider extends ItemProviderAdapter {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AssistModelDSE_type");
+		String label = ((AssistModelDSE)object).getSystemName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AssistModelDSE_type") :
+			getString("_UI_AssistModelDSE_type") + " " + label;
 	}
 	
 

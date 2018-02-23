@@ -4,6 +4,10 @@ package ch.hilbri.assist.dse.model.util;
 
 import ch.hilbri.assist.dse.model.*;
 
+import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.Box;
+import ch.hilbri.assist.model.HardwareElement;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -69,12 +73,15 @@ public class ModelSwitch<T> extends Switch<T> {
 			case ModelPackage.ASSIST_MODEL_DSE: {
 				AssistModelDSE assistModelDSE = (AssistModelDSE)theEObject;
 				T result = caseAssistModelDSE(assistModelDSE);
+				if (result == null) result = caseAssistModel(assistModelDSE);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ModelPackage.BOX_DSE: {
 				BoxDSE boxDSE = (BoxDSE)theEObject;
 				T result = caseBoxDSE(boxDSE);
+				if (result == null) result = caseBox(boxDSE);
+				if (result == null) result = caseHardwareElement(boxDSE);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -256,6 +263,51 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseExplorationCandidate(ExplorationCandidate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Assist Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Assist Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAssistModel(AssistModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Hardware Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Hardware Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHardwareElement(HardwareElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Box</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBox(Box object) {
 		return null;
 	}
 

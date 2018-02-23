@@ -2,6 +2,8 @@
  */
 package ch.hilbri.assist.dse.model;
 
+import ch.hilbri.assist.model.Application;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -52,7 +54,7 @@ public interface ApplicationAlternative extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Applications</b></em>' containment reference list.
-	 * The list contents are of type {@link java.lang.Object}.
+	 * The list contents are of type {@link ch.hilbri.assist.model.Application}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Applications</em>' containment reference list isn't clear,
@@ -61,9 +63,9 @@ public interface ApplicationAlternative extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Applications</em>' containment reference list.
 	 * @see ch.hilbri.assist.dse.model.ModelPackage#getApplicationAlternative_Applications()
-	 * @model type="org.eclipse.emf.ecore.EJavaObject" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Object> getApplications();
+	EList<Application> getApplications();
 
 } // ApplicationAlternative

@@ -5,6 +5,7 @@ package ch.hilbri.assist.dse.model.provider;
 
 import ch.hilbri.assist.dse.model.ModelPackage;
 import ch.hilbri.assist.dse.model.RestrictionAlternative;
+import ch.hilbri.assist.model.ModelFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -178,6 +179,16 @@ public class RestrictionAlternativeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.RESTRICTION_ALTERNATIVE__DISLOCALITY_RELATIONS,
+				 ModelFactory.eINSTANCE.createDislocalityRelation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.RESTRICTION_ALTERNATIVE__COLOCALITY_RELATIONS,
+				 ModelFactory.eINSTANCE.createColocalityRelation()));
 	}
 
 	/**

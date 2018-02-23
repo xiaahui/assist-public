@@ -5,6 +5,8 @@ package ch.hilbri.assist.dse.model.impl;
 import ch.hilbri.assist.dse.model.ApplicationAlternative;
 import ch.hilbri.assist.dse.model.ModelPackage;
 
+import ch.hilbri.assist.model.Application;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -64,7 +66,7 @@ public class ApplicationAlternativeImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Object> applications;
+	protected EList<Application> applications;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,9 +113,9 @@ public class ApplicationAlternativeImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Object> getApplications() {
+	public EList<Application> getApplications() {
 		if (applications == null) {
-			applications = new EObjectContainmentEList<Object>(Object.class, this, ModelPackage.APPLICATION_ALTERNATIVE__APPLICATIONS);
+			applications = new EObjectContainmentEList<Application>(Application.class, this, ModelPackage.APPLICATION_ALTERNATIVE__APPLICATIONS);
 		}
 		return applications;
 	}
@@ -162,7 +164,7 @@ public class ApplicationAlternativeImpl extends MinimalEObjectImpl.Container imp
 				return;
 			case ModelPackage.APPLICATION_ALTERNATIVE__APPLICATIONS:
 				getApplications().clear();
-				getApplications().addAll((Collection<? extends Object>)newValue);
+				getApplications().addAll((Collection<? extends Application>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

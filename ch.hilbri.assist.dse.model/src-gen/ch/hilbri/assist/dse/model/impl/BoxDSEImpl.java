@@ -6,6 +6,8 @@ import ch.hilbri.assist.dse.model.BoardAlternatives;
 import ch.hilbri.assist.dse.model.BoxDSE;
 import ch.hilbri.assist.dse.model.ModelPackage;
 
+import ch.hilbri.assist.model.impl.BoxImpl;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -14,8 +16,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class BoxDSEImpl extends EObjectImpl implements BoxDSE {
+public class BoxDSEImpl extends BoxImpl implements BoxDSE {
 	/**
 	 * The cached value of the '{@link #getBoardAlternatives() <em>Board Alternatives</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
