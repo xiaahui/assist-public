@@ -1,10 +1,12 @@
 package ch.hilbri.assist.mapping.tests.benchmarking
 
 import ch.hilbri.assist.mapping.benchmarking.generator.MappingExampleGenerator
-import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.mapping.solver.AssistMappingSolver
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mapping.tests.AbstractMappingTest
+import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.HardwareArchitectureLevelType
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.Paths
@@ -12,8 +14,6 @@ import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.junit.Assert
 import org.junit.Test
-import ch.hilbri.assist.mapping.model.AssistModelMapping
-import ch.hilbri.assist.mapping.solver.AssistMappingSolver
 
 class BenchmarkingEntry {
 	@Accessors String name
@@ -47,7 +47,7 @@ class BenchmarkingTests extends AbstractMappingTest {
 			val r = resourceHelper.resource(input)	
 			Assert.assertEquals("There should be 0 errors in the mdsl file", 0, r.errors.size)
 
-			val assistModel = r.contents.head as AssistModelMapping
+			val assistModel = r.contents.head as AssistModel
 			val assistSolver = new AssistMappingSolver(assistModel)
 			assistSolver.setSolverSearchStrategy(VariableSelectorTypes.DOM_OVER_WDEG, ValueSelectorTypes.MIN_VALUE_FIRST)
 			assistSolver.solverMaxSolutions = 1
@@ -97,7 +97,7 @@ class BenchmarkingTests extends AbstractMappingTest {
 			val dislocAppRange 	= #[4, 6]
 			val dislocLevels 	= #[HardwareArchitectureLevelType.BOARD, HardwareArchitectureLevelType.BOX]
 		
-			val AssistModelMapping assistModel = MappingExampleGenerator.generateSingleRandomized(compRange, boxRange, boardRange, procRange, coreRange, appRange, taskRange, dislocRelRange, dislocAppRange, dislocLevels)
+			val AssistModel assistModel = MappingExampleGenerator.generateSingleRandomized(compRange, boxRange, boardRange, procRange, coreRange, appRange, taskRange, dislocRelRange, dislocAppRange, dislocLevels)
 		
 			Assert.assertNotNull("Model should not be null", assistModel)
 			Assert.assertTrue("Model should not contain errors", assistModel.eResource.errors.isEmpty)

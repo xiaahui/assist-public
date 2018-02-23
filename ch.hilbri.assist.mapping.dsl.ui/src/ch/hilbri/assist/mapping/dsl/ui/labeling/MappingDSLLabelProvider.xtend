@@ -1,16 +1,16 @@
 package ch.hilbri.assist.mapping.dsl.ui.labeling
 
-import ch.hilbri.assist.mapping.model.Application
-import ch.hilbri.assist.mapping.model.AssistModelMapping
-import ch.hilbri.assist.mapping.model.Board
-import ch.hilbri.assist.mapping.model.Box
-import ch.hilbri.assist.mapping.model.ColocalityRelation
-import ch.hilbri.assist.mapping.model.Compartment
-import ch.hilbri.assist.mapping.model.Core
-import ch.hilbri.assist.mapping.model.DislocalityRelation
-import ch.hilbri.assist.mapping.model.DissimilarityRelation
-import ch.hilbri.assist.mapping.model.Processor
-import ch.hilbri.assist.mapping.model.Task
+import ch.hilbri.assist.model.Application
+import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.Board
+import ch.hilbri.assist.model.Box
+import ch.hilbri.assist.model.ColocalityRelation
+import ch.hilbri.assist.model.Compartment
+import ch.hilbri.assist.model.Core
+import ch.hilbri.assist.model.DislocalityRelation
+import ch.hilbri.assist.model.DissimilarityRelation
+import ch.hilbri.assist.model.Processor
+import ch.hilbri.assist.model.Task
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
@@ -27,11 +27,11 @@ class MappingDSLLabelProvider extends DefaultEObjectLabelProvider {
 		super(delegate);
 	}
 	
-	def text(AssistModelMapping model) {
+	def text(AssistModel model) {
 		model.getSystemName 
 	}
 
-	def image(AssistModelMapping model) {
+	def image(AssistModel model) {
 		'outlineview_system.png'
 	}
 

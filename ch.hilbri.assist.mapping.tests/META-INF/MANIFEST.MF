@@ -14,5 +14,6 @@ Require-Bundle:
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtext.testing,
  org.eclipse.xtext.xbase.testing,
- ch.hilbri.assist.mapping.benchmarking
+ ch.hilbri.assist.mapping.benchmarking,
+ ch.hilbri.assist.model
 Fragment-Host: ch.hilbri.assist.mapping

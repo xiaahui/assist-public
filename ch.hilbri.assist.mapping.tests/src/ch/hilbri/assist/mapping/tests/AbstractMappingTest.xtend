@@ -1,7 +1,7 @@
 package ch.hilbri.assist.mapping.tests
 
 import ch.hilbri.assist.mapping.dsl.tests.MappingDSLInjectorProvider
-import ch.hilbri.assist.mapping.model.ModelPackage
+import ch.hilbri.assist.model.ModelPackage
 import com.google.inject.Inject
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
@@ -11,7 +11,7 @@ import org.junit.BeforeClass
 import org.junit.runner.RunWith
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.model.AssistModelMapping
+import ch.hilbri.assist.model.AssistModel
 
 @RunWith(XtextRunner)
 @InjectWith(MappingDSLInjectorProvider)
@@ -25,7 +25,7 @@ class AbstractMappingTest {
 	}
 
 	@Inject
-	protected ParseHelper<AssistModelMapping> parser
+	protected ParseHelper<AssistModel> parser
 
 	@Inject
 	protected ResourceHelper resourceHelper

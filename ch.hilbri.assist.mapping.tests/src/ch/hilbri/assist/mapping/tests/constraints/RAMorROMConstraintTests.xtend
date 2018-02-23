@@ -1,12 +1,12 @@
 package ch.hilbri.assist.mapping.tests.constraints
 
-import ch.hilbri.assist.mapping.model.Task
+import ch.hilbri.assist.mapping.solver.AssistMappingSolver
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mapping.tests.AbstractMappingTest
+import ch.hilbri.assist.model.Task
 import org.junit.Assert
 import org.junit.Test
-import ch.hilbri.assist.mapping.solver.AssistMappingSolver
 
 class RAMorROMConstraintTests extends AbstractMappingTest {
 	

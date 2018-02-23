@@ -8,6 +8,9 @@ import ch.hilbri.assist.mapping.model.result.ResultFactory;
 import ch.hilbri.assist.mapping.model.result.ResultPackage;
 import ch.hilbri.assist.mapping.model.result.SingleMappingElement;
 
+import ch.hilbri.assist.model.Core;
+import ch.hilbri.assist.model.Task;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -143,8 +146,8 @@ public class ResultFactoryImpl extends EFactoryImpl implements ResultFactory {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public HashMap<Object, Object> createTask2CoreMapTypeFromString(EDataType eDataType, String initialValue) {
-		return (HashMap<Object, Object>)super.createFromString(initialValue);
+	public HashMap<Task, Core> createTask2CoreMapTypeFromString(EDataType eDataType, String initialValue) {
+		return (HashMap<Task, Core>)super.createFromString(initialValue);
 	}
 
 	/**

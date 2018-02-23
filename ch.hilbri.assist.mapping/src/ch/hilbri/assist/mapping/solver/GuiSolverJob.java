@@ -16,13 +16,13 @@ import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.hilbri.assist.mapping.model.AssistModelMapping;
-import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType;
 import ch.hilbri.assist.mapping.model.result.Result;
 import ch.hilbri.assist.mapping.solver.exceptions.BasicConstraintsException;
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes;
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes;
 import ch.hilbri.assist.mapping.ui.multipageeditor.MultiPageEditor;
+import ch.hilbri.assist.model.AssistModel;
+import ch.hilbri.assist.model.HardwareArchitectureLevelType;
 
 public class GuiSolverJob extends Job {
 
@@ -39,7 +39,7 @@ public class GuiSolverJob extends Job {
 		/* Load the model from the URI */
 		ResourceSet rs = new ResourceSetImpl();
 		Resource resource = rs.getResource(modelURI, true);
-		AssistModelMapping assistModel = (AssistModelMapping) resource.getContents().get(0);
+		AssistModel assistModel = (AssistModel) resource.getContents().get(0);
 		
 		/* Create the ASSIST Solver */
 		assistSolver = new AssistMappingSolver(assistModel);

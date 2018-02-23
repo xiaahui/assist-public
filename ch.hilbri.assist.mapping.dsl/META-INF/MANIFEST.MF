@@ -5,7 +5,7 @@ Bundle-Vendor: Robert Hilbrich
 Bundle-Version: 2.3.0.qualifier
 Bundle-SymbolicName: ch.hilbri.assist.mapping.dsl; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: ch.hilbri.assist.mapping.model,
+Require-Bundle: ch.hilbri.assist.model,
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",

@@ -7,7 +7,7 @@ Bundle-SymbolicName: ch.hilbri.assist.mapping.dsl.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: ch.hilbri.assist.mapping.dsl,
  ch.hilbri.assist.mapping.dsl.ide,
- ch.hilbri.assist.mapping.model,
+ ch.hilbri.assist.model,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,

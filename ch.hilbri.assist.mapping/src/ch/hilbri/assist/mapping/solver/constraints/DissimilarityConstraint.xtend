@@ -1,20 +1,20 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
-import ch.hilbri.assist.mapping.model.Application
-import ch.hilbri.assist.mapping.model.DissimilarityEntry
 import ch.hilbri.assist.mapping.solver.constraints.choco.ACF
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
+import ch.hilbri.assist.model.Application
+import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.DissimilarityClause
+import ch.hilbri.assist.model.DissimilarityConjunction
+import ch.hilbri.assist.model.DissimilarityDisjunction
+import ch.hilbri.assist.model.DissimilarityEntry
 import java.util.List
 import org.chocosolver.solver.Model
 import org.chocosolver.solver.constraints.Constraint
 import org.chocosolver.solver.constraints.^extension.Tuples
-import ch.hilbri.assist.mapping.model.DissimilarityClause
-import ch.hilbri.assist.mapping.model.DissimilarityConjunction
-import ch.hilbri.assist.mapping.model.DissimilarityDisjunction
-import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 class DissimilarityConstraint extends AbstractMappingConstraint {
-	new(AssistModelMapping model, Model chocoModel, SolverVariablesContainer solverVariables) {
+	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
 		super("dissimilarity", model, chocoModel, solverVariables)
 	}
 

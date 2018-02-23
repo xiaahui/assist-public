@@ -1,11 +1,11 @@
 package ch.hilbri.assist.mapping.solver
 
-import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
 import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.result.ResultFactoryFromSolverSolutions
 import ch.hilbri.assist.mapping.solver.constraints.AbstractMappingConstraint
 import ch.hilbri.assist.mapping.solver.constraints.ColocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.CoreUtilizationConstraint
+import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DislocalityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.DissimilarityConstraint
 import ch.hilbri.assist.mapping.solver.constraints.RAMorROMCapacityConstraint
@@ -18,6 +18,8 @@ import ch.hilbri.assist.mapping.solver.preprocessors.AbstractModelPreprocessor
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
+import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.HardwareArchitectureLevelType
 import java.util.ArrayList
 import java.util.List
 import org.chocosolver.solver.Model
@@ -30,15 +32,13 @@ import org.chocosolver.util.criteria.Criterion
 import org.eclipse.core.runtime.Platform
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.model.AssistModelMapping
-import ch.hilbri.assist.mapping.solver.constraints.DesignAssuranceLevelConstraint
 
 class AssistMappingSolver {
 	
 	private Logger 									logger						= LoggerFactory.getLogger(this.class)
 	private boolean									verboseLogging				= false
 	
-	private AssistModelMapping						assistModel
+	private AssistModel								assistModel
 	
 	private Model									chocoModel
 	private Solver 									chocoSolver
@@ -54,7 +54,7 @@ class AssistMappingSolver {
 	private PartialSolutionSaveMonitor 				monPartialSolutionSave
 	private SolutionFoundMonitor 					monSolutionFound
 	
-	new (AssistModelMapping input) {
+	new (AssistModel input) {
 
 		logger.info('''******************************''')
 		logger.info('''        ASSIST Solver         ''')

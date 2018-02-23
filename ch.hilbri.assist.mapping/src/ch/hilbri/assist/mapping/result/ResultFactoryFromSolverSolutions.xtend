@@ -3,19 +3,19 @@ package ch.hilbri.assist.mapping.result
 import ch.hilbri.assist.mapping.model.result.Result
 import ch.hilbri.assist.mapping.model.result.ResultFactory
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
+import ch.hilbri.assist.model.AssistModel
 import java.util.ArrayList
 import java.util.HashMap
 import java.util.List
 import org.chocosolver.solver.Solution
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 class ResultFactoryFromSolverSolutions {
 	
 	private static Logger logger = LoggerFactory.getLogger(ResultFactoryFromSolverSolutions)
 
-	static def ArrayList<Result> create(AssistModelMapping assistModel, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {
+	static def ArrayList<Result> create(AssistModel assistModel, SolverVariablesContainer solverVariables, List<Solution> solverSolutions) {
 
 		/* The list of results which will be returned for display */
 		val results = newArrayList

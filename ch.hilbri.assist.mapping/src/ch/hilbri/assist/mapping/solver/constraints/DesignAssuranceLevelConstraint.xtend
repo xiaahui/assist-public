@@ -1,14 +1,14 @@
 package ch.hilbri.assist.mapping.solver.constraints
 
-import ch.hilbri.assist.mapping.model.AssistModelMapping
-import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType
 import ch.hilbri.assist.mapping.solver.variables.SolverVariablesContainer
+import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.DesignAssuranceLevelType
+import ch.hilbri.assist.model.HardwareArchitectureLevelType
 import org.chocosolver.solver.Model
-import ch.hilbri.assist.mapping.model.HardwareArchitectureLevelType
 
 class DesignAssuranceLevelConstraint extends AbstractMappingConstraint {
 
-	new(AssistModelMapping model, Model chocoModel, SolverVariablesContainer solverVariables) {
+	new(AssistModel model, Model chocoModel, SolverVariablesContainer solverVariables) {
 		super("design assurance level", model, chocoModel, solverVariables)
 	}
 

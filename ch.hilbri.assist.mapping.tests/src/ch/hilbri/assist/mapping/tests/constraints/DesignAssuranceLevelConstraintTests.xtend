@@ -1,11 +1,11 @@
 package ch.hilbri.assist.mapping.tests.constraints
 
-import ch.hilbri.assist.mapping.model.Board
-import ch.hilbri.assist.mapping.model.DesignAssuranceLevelType
 import ch.hilbri.assist.mapping.solver.AssistMappingSolver
 import ch.hilbri.assist.mapping.solver.strategies.ValueSelectorTypes
 import ch.hilbri.assist.mapping.solver.strategies.VariableSelectorTypes
 import ch.hilbri.assist.mapping.tests.AbstractMappingTest
+import ch.hilbri.assist.model.Board
+import ch.hilbri.assist.model.DesignAssuranceLevelType
 import org.junit.Assert
 import org.junit.Test
 

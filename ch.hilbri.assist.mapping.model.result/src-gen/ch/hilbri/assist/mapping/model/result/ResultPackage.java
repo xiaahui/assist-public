@@ -241,7 +241,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___GET_MAPPED_TASKS_FOR_CORE__OBJECT = COMPARABLE_OPERATION_COUNT + 0;
+	int RESULT___GET_MAPPED_TASKS_FOR_CORE__CORE = COMPARABLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Absolute Core Utilization</em>' operation.
@@ -250,7 +250,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___GET_ABSOLUTE_CORE_UTILIZATION__OBJECT = COMPARABLE_OPERATION_COUNT + 1;
+	int RESULT___GET_ABSOLUTE_CORE_UTILIZATION__CORE = COMPARABLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Relative Core Utilization</em>' operation.
@@ -259,7 +259,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___GET_RELATIVE_CORE_UTILIZATION__OBJECT = COMPARABLE_OPERATION_COUNT + 2;
+	int RESULT___GET_RELATIVE_CORE_UTILIZATION__CORE = COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Hardware Element For Task</em>' operation.
@@ -268,7 +268,7 @@ public interface ResultPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__OBJECT_INT = COMPARABLE_OPERATION_COUNT + 3;
+	int RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__TASK_INT = COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Mapping Elements</em>' operation.
@@ -646,44 +646,44 @@ public interface ResultPackage extends EPackage {
 	EAttribute getResult_ScaledTotalScore();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#getMappedTasksForCore(java.lang.Object) <em>Get Mapped Tasks For Core</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#getMappedTasksForCore(ch.hilbri.assist.model.Core) <em>Get Mapped Tasks For Core</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Mapped Tasks For Core</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.result.Result#getMappedTasksForCore(java.lang.Object)
+	 * @see ch.hilbri.assist.mapping.model.result.Result#getMappedTasksForCore(ch.hilbri.assist.model.Core)
 	 * @generated
 	 */
-	EOperation getResult__GetMappedTasksForCore__Object();
+	EOperation getResult__GetMappedTasksForCore__Core();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#getAbsoluteCoreUtilization(java.lang.Object) <em>Get Absolute Core Utilization</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#getAbsoluteCoreUtilization(ch.hilbri.assist.model.Core) <em>Get Absolute Core Utilization</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Absolute Core Utilization</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.result.Result#getAbsoluteCoreUtilization(java.lang.Object)
+	 * @see ch.hilbri.assist.mapping.model.result.Result#getAbsoluteCoreUtilization(ch.hilbri.assist.model.Core)
 	 * @generated
 	 */
-	EOperation getResult__GetAbsoluteCoreUtilization__Object();
+	EOperation getResult__GetAbsoluteCoreUtilization__Core();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#getRelativeCoreUtilization(java.lang.Object) <em>Get Relative Core Utilization</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#getRelativeCoreUtilization(ch.hilbri.assist.model.Core) <em>Get Relative Core Utilization</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Relative Core Utilization</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.result.Result#getRelativeCoreUtilization(java.lang.Object)
+	 * @see ch.hilbri.assist.mapping.model.result.Result#getRelativeCoreUtilization(ch.hilbri.assist.model.Core)
 	 * @generated
 	 */
-	EOperation getResult__GetRelativeCoreUtilization__Object();
+	EOperation getResult__GetRelativeCoreUtilization__Core();
 
 	/**
-	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#getHardwareElementForTask(java.lang.Object, int) <em>Get Hardware Element For Task</em>}' operation.
+	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#getHardwareElementForTask(ch.hilbri.assist.model.Task, int) <em>Get Hardware Element For Task</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Hardware Element For Task</em>' operation.
-	 * @see ch.hilbri.assist.mapping.model.result.Result#getHardwareElementForTask(java.lang.Object, int)
+	 * @see ch.hilbri.assist.mapping.model.result.Result#getHardwareElementForTask(ch.hilbri.assist.model.Task, int)
 	 * @generated
 	 */
-	EOperation getResult__GetHardwareElementForTask__Object_int();
+	EOperation getResult__GetHardwareElementForTask__Task_int();
 
 	/**
 	 * Returns the meta object for the '{@link ch.hilbri.assist.mapping.model.result.Result#getMappingElements() <em>Get Mapping Elements</em>}' operation.
@@ -872,7 +872,7 @@ public interface ResultPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Task2 Core Map Type</em>'.
 	 * @see java.util.HashMap
-	 * @model instanceClass="java.util.HashMap&lt;java.lang.Object, java.lang.Object&gt;"
+	 * @model instanceClass="java.util.HashMap&lt;ch.hilbri.assist.model.Task, ch.hilbri.assist.model.Core&gt;"
 	 * @generated
 	 */
 	EDataType getTask2CoreMapType();
@@ -1035,7 +1035,7 @@ public interface ResultPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RESULT___GET_MAPPED_TASKS_FOR_CORE__OBJECT = eINSTANCE.getResult__GetMappedTasksForCore__Object();
+		EOperation RESULT___GET_MAPPED_TASKS_FOR_CORE__CORE = eINSTANCE.getResult__GetMappedTasksForCore__Core();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Absolute Core Utilization</b></em>' operation.
@@ -1043,7 +1043,7 @@ public interface ResultPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RESULT___GET_ABSOLUTE_CORE_UTILIZATION__OBJECT = eINSTANCE.getResult__GetAbsoluteCoreUtilization__Object();
+		EOperation RESULT___GET_ABSOLUTE_CORE_UTILIZATION__CORE = eINSTANCE.getResult__GetAbsoluteCoreUtilization__Core();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Relative Core Utilization</b></em>' operation.
@@ -1051,7 +1051,7 @@ public interface ResultPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RESULT___GET_RELATIVE_CORE_UTILIZATION__OBJECT = eINSTANCE.getResult__GetRelativeCoreUtilization__Object();
+		EOperation RESULT___GET_RELATIVE_CORE_UTILIZATION__CORE = eINSTANCE.getResult__GetRelativeCoreUtilization__Core();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Hardware Element For Task</b></em>' operation.
@@ -1059,7 +1059,7 @@ public interface ResultPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__OBJECT_INT = eINSTANCE.getResult__GetHardwareElementForTask__Object_int();
+		EOperation RESULT___GET_HARDWARE_ELEMENT_FOR_TASK__TASK_INT = eINSTANCE.getResult__GetHardwareElementForTask__Task_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Mapping Elements</b></em>' operation.

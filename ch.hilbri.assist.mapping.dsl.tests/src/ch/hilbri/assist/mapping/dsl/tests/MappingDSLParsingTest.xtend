@@ -1,5 +1,6 @@
 package ch.hilbri.assist.mapping.dsl.tests
 
+import ch.hilbri.assist.model.AssistModel
 import com.google.inject.Inject
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
@@ -7,13 +8,12 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import ch.hilbri.assist.mapping.model.AssistModelMapping
 
 @RunWith(XtextRunner)
 @InjectWith(MappingDSLInjectorProvider)
 class MappingDSLParsingTest {
 	@Inject
-	ParseHelper<AssistModelMapping> parseHelper
+	ParseHelper<AssistModel> parseHelper
 	
 	@Test
 	def void loadModel() {

@@ -34,33 +34,33 @@ class ExportToScheduling {
 	
 	@Execute
 	def Object execute(@Active MPart part, IProgressMonitor monitor) {
-		val compEditor = part.object as CompatibilityEditor
-		val multiPageEditor = compEditor.editor as MultiPageEditor
-		val result = multiPageEditor.currentMappingResult
-		
-		val schedulingModel = FactorySchedulingModelFromMappingSolution.createAssistModel(result)
-		val mappingModelURI = EcoreUtil.getURI(result.model)
-		val projectName = mappingModelURI.segment(1)
-		val fileName = mappingModelURI.trimFileExtension.lastSegment 
-		
-		val schedulingModelURI = URI.createPlatformResourceURI("/" + projectName + "/" + "Scheduling" + "/" + fileName + "-Solution.sdsl", true)
-		
-		val injector = (new SchedulingDslStandaloneSetup()).createInjectorAndDoEMFRegistration()
-		val rs = injector.getInstance(ResourceSet)
-		
-		val r = rs.createResource(schedulingModelURI)
-		
-		r.contents.add(schedulingModel)
-		
-		val options = SaveOptions.newBuilder
-		options.format
-	
-		try {
-			r.save(options.options.toOptionsMap())
-		}
-		catch (IOException e) {
-			e.printStackTrace
-		}
+//		val compEditor = part.object as CompatibilityEditor
+//		val multiPageEditor = compEditor.editor as MultiPageEditor
+//		val result = multiPageEditor.currentMappingResult
+//		
+//		val schedulingModel = FactorySchedulingModelFromMappingSolution.createAssistModel(result)
+//		val mappingModelURI = EcoreUtil.getURI(result.model)
+//		val projectName = mappingModelURI.segment(1)
+//		val fileName = mappingModelURI.trimFileExtension.lastSegment 
+//		
+//		val schedulingModelURI = URI.createPlatformResourceURI("/" + projectName + "/" + "Scheduling" + "/" + fileName + "-Solution.sdsl", true)
+//		
+//		val injector = (new SchedulingDslStandaloneSetup()).createInjectorAndDoEMFRegistration()
+//		val rs = injector.getInstance(ResourceSet)
+//		
+//		val r = rs.createResource(schedulingModelURI)
+//		
+//		r.contents.add(schedulingModel)
+//		
+//		val options = SaveOptions.newBuilder
+//		options.format
+//	
+//		try {
+//			r.save(options.options.toOptionsMap())
+//		}
+//		catch (IOException e) {
+//			e.printStackTrace
+//		}
 		
 		null
 	}

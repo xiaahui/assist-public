@@ -1,7 +1,8 @@
 package ch.hilbri.assist.mapping.benchmarking.generator
 
-import ch.hilbri.assist.model.main.AssistModel
-import ch.hilbri.assist.model.main.HardwareArchitectureLevelType
+import ch.hilbri.assist.model.AssistModel
+import ch.hilbri.assist.model.HardwareArchitectureLevelType
+import ch.hilbri.assist.model.ModelFactory
 import java.io.IOException
 import java.util.Collections
 import java.util.List
@@ -99,7 +100,7 @@ class MappingExampleGenerator {
 
 		/* Start cracking ... */
 		val factory = ModelFactory.eINSTANCE
-		val assistModel = factory.createAssistModelMapping()
+		val assistModel = factory.createAssistModel()
 		assistModel.systemName = "Example System"
 
 		/* Creating the hardware tree */
